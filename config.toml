@@ -1,0 +1,50 @@
+baseURL = "https://docs.altinn.studio"
+languageCode = "nb"
+defaultContentLanguage = "nb"
+
+contentDir = "content"
+staticDir = "static"
+publishDir = "public"
+
+title = "Altinn Studio docs"
+theme = "hugo-theme-docdock"
+metadataFormat = "yaml"
+pluralizeListTitles = false
+preservetaxonomynames = true
+enableEmoji = true
+enableGitInfo = false
+disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
+
+[blackfriday]
+fractions = false # disable automatic fraction rendering
+
+[params]
+editURL = "https://github.com/altinn/altinn-studio-docs/master/content/"
+noHomeIcon = true # default is false
+noSearch = false # default is false
+showVisitedLinks = false # default is false
+#themeVariant = "blue" # choose theme variant "green", "gold", "gray", blue" (default)
+
+
+[outputs]
+home = ["HTML", "JSON"] # JSON generates index.json file used by search
+
+
+[[menu.shortcuts]]
+pre = "<h3>Lenker</h3>"
+name = "<i class='fa fa-fw fa-desktop'></i> Altinn Studio"
+identifier = "altinn-studio"
+url = "https://altinn.studio"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-fw fa-bug'></i> Issues"
+identifier = "altinn-studio-issues"
+url = "https://github.com/Altinn/altinn-studio/issues"
+weight = 20
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-fw fa-github'></i> GitHub"
+identifier = "docs-repo"
+url = "https://github.com/altinn/altinn-studio"
+weight = 30
