@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://docs.altinn.studio/guide/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/guide/first-time-setup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/guide/service-creation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/guide/service-testing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/brukerveiledning/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/guide/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
