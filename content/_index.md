@@ -6,6 +6,7 @@ weight: 100
 
 {{<docs-logo>}}
 
-* Dette er levende dokumentasjon for Altinn Studio og oppdateres i parallell med utviklingen.
-* Kom i gang via menyen på venstre side.
-* Kildekoden til Altinn Studio er tilgjengelig på [github.com/altinn/altinn-studio](https://github.com/altinn/altinn-studio).
+* Dette er levende dokumentasjon for [altinn.studio](https://altinn.studio) og oppdateres i parallell med utvikling av løsningen.
+* På [GitHub](https://github.com/altinn/altinn-studio) kan du [opprette issues](https://github.com/Altinn/altinn-studio/issues)
+  hvis du ønsker å melde fra om bugs, ønsket funksjonalitet eller har spørsmål.
+* [Kom i gang](/guide) via menyen til venstre.
