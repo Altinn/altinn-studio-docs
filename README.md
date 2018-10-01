@@ -1,2 +1,3 @@
-# altinn-studio-docs
-Documentation for Altinn Studio
+# Altinn Studio docs
+
+Documentation for Altinn Studio: https://docs.altinn.studio/
