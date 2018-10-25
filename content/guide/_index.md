@@ -6,10 +6,6 @@ weight: 10
 alwaysopen: true
 ---
 
-{{% notice info %}}
-MERK: Denne dokumentasjonen er under arbeid, og vil oppdateres i parallell med utviklingen av Altinn Studio.
-{{% /notice %}}
-
-**MTP** av Altinn Studio er tilgjengelig på <a href="https://altinn.studio/" target="_blank">https://altinn.studio</a>.
+En tidlig testversjon Altinn Studio er tilgjengelig på https://altinn.studio.
 
 {{% children description="true" depth="2" %}}

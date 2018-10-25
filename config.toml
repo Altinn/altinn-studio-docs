@@ -38,13 +38,19 @@ url = "https://altinn.studio"
 weight = 10
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-fw fa-bug'></i> Issues"
+name = "<i class='fa fa-fw fa-bug'></i> Backlog / issues"
 identifier = "altinn-studio-issues"
 url = "https://github.com/Altinn/altinn-studio/issues"
 weight = 20
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-fw fa-github'></i> GitHub"
-identifier = "docs-repo"
-url = "https://github.com/altinn/altinn-studio"
+name = "<i class='fa fa-fw fa-map-signs'></i> Milestones"
+identifier = "altinn-studio-milestones"
+url = "https://github.com/Altinn/altinn-studio/milestones?direction=asc&sort=due_date&state=open"
 weight = 30
+
+[[menu.shortcuts]]
+name = "<i class='fa fa-fw fa-github'></i> GitHub"
+identifier = "altinn-studio-repo"
+url = "https://github.com/altinn/altinn-studio"
+weight = 40
