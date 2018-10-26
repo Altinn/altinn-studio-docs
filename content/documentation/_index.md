@@ -1,6 +1,6 @@
 ---
-title: Dokumentasjon
-description: Dokumentasjon
+title: Løsninger
+description: Løsninger
 tags: ["documentation", "brukerveiledning"]
 weight: 10
 alwaysopen: true

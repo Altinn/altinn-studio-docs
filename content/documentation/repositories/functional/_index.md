@@ -8,7 +8,7 @@ weight: 100
 
 {{<figure src="t3-repositories.png?width=1000" title="Eksempel-repository for tjenesten \"Starte Enkeltpersonforetak\"">}}
 
-"Altinn Repositories" er en frittstående [Git] versjonskontroll og [Application Lifecycle Management]-løsning, som både [Designer](../designer/),
+"Altinn Repositories" er en frittstående [Git] versjonskontroll og [Application Lifecycle Management]-løsning, som både [Designer](../../designer/),
 kodeeditorer og andre eksterne verktøy vil benytte som back-end og felles sted for å **lagre** og versjonere tjenestene som utvikles.
 
 Repositories har et GitHub-lignende brukergrensesnitt og både Git og REST-baserte tekniske grensesnitt.

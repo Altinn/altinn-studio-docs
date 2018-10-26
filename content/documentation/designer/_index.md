@@ -20,7 +20,7 @@ på samme måte som en teknisk utvikler bruker f.eks. Visual Studio Code til det
 {{% panel theme="info" header="Kildekoden for Designer ligger i VSTS" %}}https://altinn.visualstudio.com/tjenester3.0/_git/AltinnCore{{% /panel %}}
 
 {{% notice info %}}
-Bildene som benyttes for Designer er hentet fra en [teknisk proof-of-concept](../../toc-mtp-mvp). Endelig produkt vil nok se litt annerledes ut.
+Bildene som benyttes for Designer er hentet fra en teknisk proof-of-concept. Endelig produkt vil nok se litt annerledes ut.
 {{% /notice %}}
 
 ## Funksjonalitet i "Designer"
@@ -120,7 +120,7 @@ Gjenbrukbare ressurser lages typisk av tekniske utviklere ved bruk av kodeeditor
 #### Web komponent
 
 Når man [bygger brukergrensesnitt](#bygge-brukergrensesnitt), så vil man benytte og konfigurere ferdiglagde webkomponenter.
-Komponentene vil være basert på [React](../../teknologi/react/), og vil variere i størrelse og kompleksitet. Webkomponenter uvikles i kodeeditor.
+Komponentene vil være basert på [React](https://reactjs.org/), og vil variere i størrelse og kompleksitet. Webkomponenter uvikles i kodeeditor.
 
 Noen grunnleggende krav:
 
