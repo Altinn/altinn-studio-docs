@@ -1,108 +1,140 @@
 ---
-title: Tjenester 3.0 - Runtime - Arkitektur
-linktitle: Arkitektur
-description: Beskrivelse av arkitektur for Runtime
+title: Altinn Studio - Runtime - Architecture
+linktitle: Architecture
+description: Description of the application architecture for runtime applicationz
 tags: ["tjenester 3.0"]
 weight: 100
 ---
 {{% notice warning %}}
-MERK: En del av valgene som er gjort på arkitektur for runtime er ikke endelig landet
-og det kan endres.
+NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-## Arkitektur runtime
-Runtime delen av Altinn Tjenester 3.0 kjøres både som del av Altinn Studio, for å teste
-sluttbrukertjenester under utvikling, og den kjøres som del av sluttbrukerløsningen.
+The runtime application is deployed both as part of Altinn Studio solution and part
+of the end user solution. The configuration is different, and differences is described below.
+
+The following diagram shows the application architecture for runtime and its related components in end user solution configuratgion
+
+{{%excerpt%}}
+<object data="/documentation/runtime/architecture/RunTime_Application_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
 
 ### Frontend
-For tjenester med GUI vil frontend være en REACT-App som er utviklet som del av 
-tjenesteutviklingen. For de fleste vil dette være en app som er generert av Altinn 
-Studio uten at man har måtte vært hands on på koden. 
+The runtime application will have two different types of frontend.
+* Frontend developed by the service developer in Altinn Studio designer
+* Frontend that is part of the plattform. 
 
-Denne REACT applikasjonen benytter seg av API fra backend for å hente opp konfigurasjon om
-tjenesten som skjemalayout som forteller hvilke skjemaelementer som skal vises (tekstbokser,
-nedtrekslister osv). I tilegg bruker den API for å hente ut brukerdata og for å lagre/oppdatere brukerdata.
+#### Frontend for Altinn Studio service
+The frontend developed as part of the service development in Altinn Studio is based on REACT.
 
-Se detaljer for [arkitekturen for REACT-App](react-app)
+Altinn Studio Generates a REACT app based on the selected components in the service UI. 
 
-For tjenester med med større 
-behov enn Altinn Studio tilbyr i sin UI designer vil man kunne kode denne for "hånd" og
-i teorien også bruke andre rammverk enn REACT.
+This app uses the backend APIS for creating, updating, deleting data in the service datamodell. 
+
+See details for [REACT App architecture](react-app)
+
+For services with requirements that is not supported with the WYSIWYG REACT editor the service developer 
+could build theire own client based frontend on REACT or other frameworks hosted in runtime. 
+
+It will also be possible to build a GUI hosted elsewhere and just use the service APIs to handle data updates
+
+#### Frontend for platform views
+As part of the platform there is some standard pages presented during the workflow for a service
+that the service developer does not need to create GUI for. 
+* Instansiation
+* Send in
+* Signing
+* Payment
+
+These are all using Razor as frontend framework.
 
 ### Backend
-Backend er basert på ASP.Net Core og er en MVC applikasjon som ved hjelp av 
-definerte Interface kjører selve tjenestelogikken som er utviklet av Altinn Studio.
+Backend is based on ASP.Net Core and is a MVC application that uses defined
+interfaces to run the specific service logic implemented in Altinn Studio.
 
-Sentralt i arkitekturen er at hver enkelt request mot runtime inneholder nok informasjon
-til at plattformen klarer å identifisere hvilken tjeneste som etterspørres og eventuelt 
-hvilken konkret instans av tjenesten man ønsker. 
+#### Altinn Studio Mode
+In Altinn Studio mode the runtime instances will be shared between different end user services.
 
-Basert på dette lastes tjenesteimplementasjonen slik at forretningsregler 
+Based on the logged in service developer and URL parames the correct service implementation will be compiled and loaded in to memory
+for backend. 
 
-All dette styres av en MVC kontroller som tar imot 
+#### End User Mode
+In End User mode there will be built dedicated container images for each service. 
+The Service Implementation will be pre-compilled and stored in the container file structure
+so it can be loaded in to memory. 
 
-#### Tjenesteimplementasjon.
-Tjenesteimplementasjonen er C# kode som er generert/utviklet av tjenesteutviklere.
-Implementasjonen implementerer en Interface som gjør at alle tjenester får samme 
-grensesnitt mot plattformen.
+#### Service Implementation.
+The service implementation is C# code generated/created as part of the service 
+development process in Altinn Studio.
+
+The Service Implementation implement a defined interface that backend uses to be able to interact
+with the service implementation.
+
+The service implementation contains all backend code for logic and rules.  
 
 #### Events
-For å gi tjenesteutvikler en konsistent og klar eventmodell kjører Tjenester 3.0 plattformen
-en rekke events i gitt rekkefølge. 
-Tjenesteimplementasjonen blir trigget for hvert av disse eventene slik at tjenesteutvikler
-kan definere forretningslogikk som skal kjøres.
+The runtime has a defined event model that can be used by the service developer
+to controll when logic in the service implementation will run.
 
-##### Instansiering
-Events tilknyttet instansiering kan inneholde logikk for å forhåndsutfylle data
-i datamodell samt gjøre valideringer på om man har rett til å instansiere 
-tjenesten. Her vil tjenesteier stå langt friere enn dagens Altinn II plattform til
-å kunne definere de instansieringskontrollene man ønsker. I dag er det begrenset til
-at plattformen må ha definert en hook for den aktulle sjekken. Eksempel fra dagens plattform
-er hook for å verifisere at avgiver er over 18 år, og hook for å sjekke at det finnes
-abonnement for tjenesten på avgiver. 
+These events are mapped to functional events triggered by end users or systems.
+
+##### Instansiation
+Instansiation is when the end user or system instansiates a new service instance.
+Events connected to instansiation can contain logic that can prefill the datamodell
+or validate if the user or system is allowed to instansiate that service.
 
 {{%excerpt%}}
-<object data="/products/tjenester/3.0/solutions/runtime/architecture/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/documentation/runtime/architecture/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
-##### Uthenting av skjemadata (GET)
-Uthenting av skjemadata kan gjøres av frontend (REACT) eller av sluttbrukersystem
-som har behov for å hente ut aktuell status på skjemadata. 
+##### Load form data (GET)
+Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
+the latest updated form data. 
+
+The following events will be performed
 
 {{%excerpt%}}
-<object data="/products/tjenester/3.0/solutions/runtime/architecture/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/documentation/runtime/architecture/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
-#### Lagring av skjemadata (POST)
-Lagrige av skjemadata kan skje når Frontend (REACT App) sender data til backend eller 
-et sluttbrukersystem gjør det samme. Når oppdateringen skjer er det definert flere event slik at man
-kan implementere forretningslogikk som kan håndtere valideringer, kalkuleringer, dataoppslag osv.
+#### Storing of form data (POST)
+Update of form data can happen when frontend (REACT app) sends data to backend
+or a end user system does the same. When an update happend there is defined serveral
+events that is performed in a given ordern. The service developer can implement
+logic related to this event that could perform calculation, validation, API calls and much more.
 
-API for oppdateringer av data støtter flere modus
-* Create - Data skal lagres som en ny instanse
-* Complete - Data er komplett og skal sendes videre i arbeidsflyt
-* Calculate - Kalkuleringsregler skal kjøres på data og de oppdaterte data returneres
-* Validate - Kalkuleringer skal kjøres før man valideres data. Eventuelle valideringsfeil returneres.
-* Update - Kalkuering kjøres før data lagres til database.
+The API for updating form data support different modes
 
-Rekkefølgen på Events er.
+* Create - Data should be stored as a new form instance
+* Complete - Data is complete and the service should move ahead in the workflow
+* Calculate - Logic in the calculation event should be performed and the updated form data should be returned
+* Validate - Calculation will be performend and then validation logic is runned and any validation errors is returned.
+* Update - Calculation is runned before data is stored in to the database.
+
+The order of events are
 
 {{%excerpt%}}
-<object data="/products/tjenester/3.0/solutions/runtime/architecture/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/documentation/runtime/architecture/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
-#### Oppdatering av skjemadata (PUT)
-Oppdatering av skjemadata skjer under når frontend eller eksternt sluttbrukersystem ønsker
-å oppdatere data for instans. 
+#### Update form data (PUT)
+Update of form data happens when the frontend or external end user systems/applications 
+want to update a existing form connected to a service instance
 
-Rekkefølgen på events er:
+The following events happens:
 
 {{%excerpt%}}
-<object data="/products/tjenester/3.0/solutions/runtime/architecture/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object>
+<object data="/documentation/runtime/architecture/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object>
 {{% /excerpt%}}
 
-### Datamodell
-Datamodellen i tjenesten er generert fra XSD som er definert av tjenesteeier.
+### Datamodel
+The data model in a service is defined as an XSD. From the XSD it is generated
+a C# representation of that model. 
+
+In runtime all data is deserialized/serialized from/to this model when communication
+with frontend/external systems.
+
+All logic in the serivce 
 
 I runtime er modellen representert som en C# klasse. 
 All data deserialiseres til denne modellen når runtime mottar de fra 
@@ -112,7 +144,4 @@ Alle forretningsregler kan kodes direkte mot denne klassen.
 
 Modellen kompileres runtime og lastes inn ved hjelp av reflection.
 
-{{%excerpt%}}
-<object data="/products/tjenester/3.0/solutions/runtime/architecture/RunTime_Application_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
 
