@@ -1,7 +1,7 @@
 ---
-title: Solutions
-description: The different solutions of the plattform
-tags: ["documentation", "brukerveiledning"]
+title: Solution
+description: Description of the Altinn Studio solution
+tags: ["documentation", "solution", "architecture"]
 weight: 10
 alwaysopen: true
 ---

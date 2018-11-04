@@ -134,14 +134,6 @@ a C# representation of that model.
 In runtime all data is deserialized/serialized from/to this model when communication
 with frontend/external systems.
 
-All logic in the serivce 
-
-I runtime er modellen representert som en C# klasse. 
-All data deserialiseres til denne modellen når runtime mottar de fra 
-frontend eller andre eksterne løsninger som sluttbrukersystem. 
-
-Alle forretningsregler kan kodes direkte mot denne klassen. 
-
-Modellen kompileres runtime og lastes inn ved hjelp av reflection.
+All logic in the service will typical be related to the datamodel.
 
 
