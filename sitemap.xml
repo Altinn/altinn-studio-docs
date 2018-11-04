@@ -7,7 +7,51 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/service-configurations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/rule-handler/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/runtime/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/calculationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/runtime/architecture/deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/form-layout/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/functional/</loc>
   </url>
   
   <url>
@@ -15,11 +59,51 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/instantiationhandler/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/guide/service-creation/</loc>
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/designer/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/runtime/architecture/react-app/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/serviceimplementation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/servicemetadata/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/servicemodel/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/servicemodelxsd/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/guide/service-testing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/validationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/repositories/data/reactapp/</loc>
   </url>
   
   <url>
@@ -32,7 +116,22 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/repositories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/runtime/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/arkitektur/</loc>
     <priority>0</priority>
   </url>
   
@@ -42,7 +141,22 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/dataformat/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/documentation/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/guide/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/tjenester-3.0/</loc>
     <priority>0</priority>
   </url>
   
