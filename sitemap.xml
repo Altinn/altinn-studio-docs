@@ -7,6 +7,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/runtime/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/documentation/</loc>
   </url>
   
@@ -23,11 +27,19 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/runtime/architecture/</loc>
+    <loc>https://docs.altinn.studio/architecture/application/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/documentation/repositories/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/build/</loc>
   </url>
   
   <url>
@@ -39,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/runtime/architecture/deployment/</loc>
+    <loc>https://docs.altinn.studio/architecture/deployment/</loc>
   </url>
   
   <url>
@@ -67,15 +79,23 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/architecture/</loc>
+    <loc>https://docs.altinn.studio/architecture/application/designer/react-app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/runtime/architecture/react-app/</loc>
+    <loc>https://docs.altinn.studio/architecture/application/runtime/react-app/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/documentation/repositories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/application/runtime/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/deployment/runtime/</loc>
   </url>
   
   <url>
@@ -92,6 +112,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/documentation/repositories/data/servicemodelxsd/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/solution/</loc>
   </url>
   
   <url>
@@ -116,12 +140,12 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/repositories/</loc>
+    <loc>https://docs.altinn.studio/architecture/application/designer/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/runtime/</loc>
+    <loc>https://docs.altinn.studio/tags/repositories/</loc>
     <priority>0</priority>
   </url>
   
@@ -146,7 +170,22 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/build/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/ci/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/dataformat/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/devops/</loc>
     <priority>0</priority>
   </url>
   
@@ -157,6 +196,16 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/guide/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/pipeline/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/pipelines/</loc>
     <priority>0</priority>
   </url>
   
