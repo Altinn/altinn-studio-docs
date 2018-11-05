@@ -1,8 +1,8 @@
 ---
-title: Solution
+title: Architecture
 description: Description of the Altinn Studio solution
 tags: ["documentation", "solution", "architecture"]
-weight: 10
+weight: 100
 alwaysopen: true
 ---
 

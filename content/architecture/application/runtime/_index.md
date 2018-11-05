@@ -1,6 +1,6 @@
 ---
-title: Altinn Studio - Runtime - Architecture
-linktitle: Architecture
+title: Application Architecture Runtime
+linktitle: Runtime
 description: Description of the application architecture for runtime applicationz
 tags: ["tjenester 3.0"]
 weight: 100
