@@ -7,6 +7,13 @@
 	"content": "En tidlig testversjon Altinn Studio er tilgjengelig på https://altinn.studio.\n\rFørste gangs oppsett\r\rSett opp bruker i AltinnStudio for første gangs bruk.\n\r\r\rLag en utgave\r\rDokumentasjon av funksjonalitet tilgjengelig for å lage en utgave\n\r\r\rTest utgave\r\rInformasjon om testing av utgave\n\r\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/about/goals/",
+	"title": "Målsettinger",
+	"tags": [],
+	"description": "Overordnede målsettinger for 3.0.",
+	"content": " En oppsummering av de overordnede hovedmålsettingene for tjenester 3.0.\nBrukervennlige og responsive tjenester  Brukergrensesnitt som er brukervennlig, effektive og moderne (f.eks. som vist på altinn-dagen) Støtte for mobil og ulike skjermstørrelser er innebygd, såkalt responsivt design. Dette gjelder også for utviklingsverktøy. Innebygd universell utforming med støtte for WCAG 2 God ytelse og lav responstid  Effektiv og selvbetjent tjenesteutvikling  Man kan enkelt gjøre alt selv (inkl. prodsetting) når man ønsker det, uten behov for bestillinger, kursing, etc. Flaskehalser elimineres. Effektiv og reell testing, der enhetstest oppfører seg likt som testmiljøer og prod (alle miljøer baseres på samme plattform-kode) Støtte for å lage automatisert testing av tjenester Regler og logikk defineres kun en gang for alle kanaler (portal/WS/API), og på en mer robust måte enn i dag Datamodellering innebygd i det samme web-baserte verktøyet (og støtte for import fra SERES, OR, etc. ) Ikke nødvendig med Citrix for tilgang til utviklingsmiljø  Enkelt for fagpersoner, fleksibelt for utviklere  Fagpersoner har tilgang til nødvendig funksjonalitet direkte i nettleser Man gjenbruker gode og ferdig-testede komponenter/widgets Enkelt å gjøre kall mot API\u0026rsquo;er i andre systemer (hente data, kjøre logikk som ligger i egne fagsystemer) Mer tekniske utviklere kan i tillegg tilpasse alle aspekter hvis man har behov for det ved bruk av kode-editor, f.eks. lage gjenbrukbare widgets, stilark, etc. Gjenbruk av tekster og andre ressurser på det nivået som man ønsker (plattform, tjenesteeier, tjeneste), samt vilkårlig språkstøtte Git (versjonskontroll) benyttes for lagring av tjenestene som utvikles, både fra nettleser og kode-editor.  Åpen kildekode, cross-platform  Tjenester 3.0 skal baseres på åpen kildekode Tjenester 3.0 skal også deles som åpen kildekode Dette betyr at alle kan bidra til å forbedre plattformen. Altinn-organisasjonen blir mao. ikke flaskehals for utvikling. Kan kjøres lokalt på egen maskin, på egne servere og på både Windows, macOS eller Linux Alt baseres på åpne web-standarder og vanlig utviklerkompetanse (ingen \u0026ldquo;sære\u0026rdquo; eller proprietære verktøy innføres)  "
+},
+{
 	"uri": "https://docs.altinn.studio/documentation/runtime/",
 	"title": "Runtime",
 	"tags": ["documentation", "solution", "architecture"],
@@ -33,6 +40,13 @@
 	"tags": ["tjenester 3.0", "dataformat"],
 	"description": "Beskrivelse av format for rule handler js filen",
 	"content": " Overordnet Filen RuleHandler.js brukes til å lage metoder som skal benyttes for til kalkuleringer/regler på felter i datamodellen eller for å skape dynamikk i et skjema.\nFormat Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regler i skjema og de 2 andre benyttes til dynamikk i skjema. ruleHandlerObject og conditionalRuleHandlerObject skal benyttes til å definere metoder som kan brukes til kalkuleringer/regler i skjema. Alle metodene har et objekt som input parameter og en output verdi, strukturen på input objektet er beskrevet i ruleHandlerHelper og conditionalRuleHandlerHelper. Filen har følgende struktur:\n var ruleHandlerObject = { ruleFunctionName: (obj) =\u0026gt; { return obj.inputParam1 + \u0026quot; \u0026quot; + obj.inputParam2; }, } var ruleHandlerHelper = { ruleFunctionName: () =\u0026gt; { return { inputParam1: \u0026quot;inputParam1\u0026quot;, inputParam2: \u0026quot;inputParam2\u0026quot; }; }, } var conditionalRuleHandlerObject = { conditionalFunctionName: (obj) =\u0026gt; { return obj.input1 \u0026gt; 10; }, } var conditionalRuleHandlerHelper = { conditionalFunctionName: () =\u0026gt; { return { input1: \u0026quot;input1\u0026quot; }; }, }  Ved innlasting i skjemadesigneren vil filen lastes inn i window elementet og kalles ved hjelp av window.conditionalRuleHandlerObject.conditionalFunctionName. Kalkuleringer/regler kjøres når skjema fylles ut. Så regler kan testes både i desinger, preview og i runtime. Kalkuleringer/regler input objekt sine parameter og output parameteret kobles til felter i datamodellen.\nDynamikk regler manipulerer skjema ved å skjule eller vise felter. Input objektet kobles til datamodelfelter. Deretter må brukeren spesifisere hva som skal skje hvis metoden returnerer true. Per nå er det kun mulig å velge å skjule eller vise felter. Deretter knytter man \u0026lsquo;action\u0026rsquo; til felter som er lagt inn i skjema. Man kan knytte så mange felter man vil til en dynamisk regler.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/about/",
+	"title": "About",
+	"tags": ["documentation", "solution", "architecture"],
+	"description": "Description of the Altinn Studio solution",
+	"content": " What is Altinn Studio? Altinn Studio is the third generation service platform from Altinn. Norways public platform for E-Government.\nWhat "
 },
 {
 	"uri": "https://docs.altinn.studio/",
@@ -194,6 +208,13 @@
 	"tags": ["tjenester 3.0", "dataformat"],
 	"description": "Beskrivelse av ServiceModel.xsd",
 	"content": " Overordnet \u0026lsquo;ServiceModel.xsd\u0026rsquo; er definasjonen på datamodellen på tjenesten. Dette er en XSD som typisk er definert i Seres eller OR i dagens Altinn løsning.\nFor tjenester 3.0 vil jobbes med å kunne definere XSD som en del av løsningen. (f.eks å definere skjema i GUI og få XSD basert på det). Dette vil avklares fremover.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/about/slide/",
+	"title": "Slide NO",
+	"tags": [],
+	"description": "En presentasjon om målsettinger og konsepter for tjenester 3.0",
+	"content": " Tjenester 3.0 Status Se siste status her.\nHva er tjenester 3.0? 4 overordnede målsettinger\u0026hellip;\nModerne tjenester  Brukervennlige og effektive tjenester Responsivt design Universell utforming God ytelse og lav responstid Basert på moderne og åpne web-standarder  Effektiv tjenesteutvikling  100% selvbetjening Effektiv og automatisert testing Parallell utvikling (basert på Git) Enkel datamodellering Åpen plattform med API\u0026rsquo;er  Enkelt for fagperson, fleksibelt for utvikler  Fagpersoner benytter nettleser Utviklere kan også bruke kode-editor Kan utvides av andre systemer  Åpen kildekode, cross-platform  Basert på åpen kildekode Deles som åpen kildekode Alle kan gjenbruke, og bidra til forbedringer Raskere videreutvikling Støtter Windows, macOS og Linux  Konsepter 6 konsepter\u0026hellip;\nGit som back-end  Alt som utvikles får full versjonshistorikk Enkel og rask deploy Ekte distribuert og parallell utvikling Back-end både for nettleser og kode-editor Git støttes av veldig mange verktøy  Nærhet til web-teknologi  Alt er basert på standard web-teknologi Verktøy blir aldri \u0026ldquo;i veien\u0026rdquo; eller utdatert Standard utviklerkompetanse Ingen proprietære verktøy som må læres  Effektiv testing  Støtte for automatisert testing Behøver ikke migrere for å få reell test Gjenbruker gjennomtestede komponenter Endringer i plattform gjøres kun ett sted  Enkelt å tilpasse  Alle deler av løsningen skal kunne \u0026ldquo;byttes ut\u0026rdquo; Kan utvides med egne widgets, maler, stilark, etc. Gjenbruk og overstyrbare defaults på alle nivåer API\u0026rsquo;er og Git som back-end gjør det enkelt å integrere andre systemer  Åpen kildekode  Tjenester 3.0 skal være åpen kildekode Vi skal benytte programvare med fri lisensiering, type MIT, Apache 2 eller BSD Vi skal bidra tilbake til prosjekter som vi benytter Ingen lisensutgifter  Cross-platform  Kan kjøre på både Windows, Linux og macOS Unngår låsing mot en enkelt plattform Kan kjøre lokalt på en laptop Muliggjør distribuert lokal utvikling og testing  Motivasjon Se Archimate arkitekturmodell.\nThe End Tilbake\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/solution/",

@@ -7,6 +7,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/about/goals/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/documentation/runtime/</loc>
   </url>
   
@@ -20,6 +24,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/documentation/repositories/data/rule-handler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/about/</loc>
   </url>
   
   <url>
@@ -112,6 +120,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/documentation/repositories/data/servicemodelxsd/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/about/slide/</loc>
   </url>
   
   <url>
