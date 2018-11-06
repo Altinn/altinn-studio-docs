@@ -8,7 +8,8 @@ alwaysopen: true
 ---
 
 
-The Altinn Studio 
+Functionality in Altinn Studio is distributed between different applications.  The diagram below shows
+where the different functionality 
 
 
 {{%excerpt%}}

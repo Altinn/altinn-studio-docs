@@ -15,7 +15,7 @@ of the end user solution. The configuration is different, and differences is des
 The following diagram shows the application architecture for runtime and its related components in end user solution configuratgion
 
 {{%excerpt%}}
-<object data="/documentation/runtime/architecture/RunTime_Application_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/application/runtime/RunTime_Application_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 
@@ -84,7 +84,7 @@ Events connected to instansiation can contain logic that can prefill the datamod
 or validate if the user or system is allowed to instansiate that service.
 
 {{%excerpt%}}
-<object data="/documentation/runtime/architecture/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/runtime/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 ##### Load form data (GET)
@@ -94,7 +94,7 @@ the latest updated form data.
 The following events will be performed
 
 {{%excerpt%}}
-<object data="/documentation/runtime/architecture/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/runtime/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 #### Storing of form data (POST)
@@ -114,7 +114,7 @@ The API for updating form data support different modes
 The order of events are
 
 {{%excerpt%}}
-<object data="/documentation/runtime/architecture/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/runtime/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 #### Update form data (PUT)
@@ -124,7 +124,7 @@ want to update a existing form connected to a service instance
 The following events happens:
 
 {{%excerpt%}}
-<object data="/documentation/runtime/architecture/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object>
+<object data="/architecture/application/runtime/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object>
 {{% /excerpt%}}
 
 ### Datamodel

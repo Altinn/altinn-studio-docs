@@ -15,7 +15,7 @@ of the end user solution. The deployment architecture is different for these two
 The following diagram shows the deploy architecture for runtime and its related components in end user solution configuratgion
 
 {{%excerpt%}}
-<object data="/documentation/runtime/architecture/deployment/RunTime_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/deployment/runtime/RunTime_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 ### Service Containers
