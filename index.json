@@ -46,7 +46,7 @@
 	"title": "About",
 	"tags": ["documentation", "solution", "architecture"],
 	"description": "Description of the Altinn Studio solution",
-	"content": " What is Altinn Studio? Altinn Studio is the third generation service platform from Altinn. Norways public platform for E-Government.\nWhat "
+	"content": " What is Altinn Studio? Altinn Studio is the third generation service platform from Altinn. Norways public platform for E-Government.\nWhat types of services can be built on this platform? When will it be released What does it cost? "
 },
 {
 	"uri": "https://docs.altinn.studio/",
@@ -67,7 +67,7 @@
 	"title": "Architecture",
 	"tags": ["documentation", "solution", "architecture"],
 	"description": "Description of the Altinn Studio solution",
-	"content": "The Altinn Studio\n"
+	"content": " Architecture Principles and Concerns The following principles and concern are important for the architecture in Altinn Studio\nOpen Source Altinn Studio will be open Source. That require that we use framework and technology that are Open Source\nIsolation between services The goal for Altinn Studio is to be a platform where no service can negativly affect other services. This requires that all services are hosted as isolated applications\nSelf Service "
 },
 {
 	"uri": "https://docs.altinn.studio/documentation/repositories/architecture/",
@@ -221,7 +221,7 @@
 	"title": "Solution Architecture",
 	"tags": ["documentation", "solution", "architecture"],
 	"description": "Description of the Altinn Studio solution",
-	"content": "The Altinn Studio\n\n"
+	"content": "Functionality in Altinn Studio is distributed between different applications. The diagram below shows where the different functionality\n\n"
 },
 {
 	"uri": "https://docs.altinn.studio/guide/service-testing/",
