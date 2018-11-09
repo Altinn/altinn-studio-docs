@@ -798,7 +798,7 @@ if(host != "localhost")
         
         ">
       <a href="/about/goals/">
-        <span>Målsettinger</span>
+        <span>Goals</span>
 
         
         
@@ -1134,6 +1134,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/architecture/deployment/altinn-studio/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/altinn-studio/">
+        <span>Altinn Studio</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/architecture/deployment/runtime/" class="dd-item 
         parent
         active
@@ -1141,6 +1168,33 @@ if(host != "localhost")
         ">
       <a href="/architecture/deployment/runtime/">
         <span>Runtime</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/deployment/service-deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/service-deployment/">
+        <span>Service Deployment</span>
 
         
         
@@ -1341,7 +1395,7 @@ if(host != "localhost")
 <p>The runtime application is deployed both as part of Altinn Studio solution and part
 of the end user solution. The deployment architecture is different for these two scenarios.</p>
 
-<p>The following diagram shows the deploy architecture for runtime and its related components in end user solution configuratgion</p>
+<p>The following diagram shows the deploy architecture for runtime and its related components in end user solution configuration.</p>
 
 
 	<p><object data="/architecture/deployment/runtime/RunTime_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
@@ -1356,7 +1410,7 @@ Each set of service containers will be scaled based on the use of the service.</
 <h3 id="routing">Routing</h3>
 
 <p>To be able to route traffic to the correct container, each container is tagged to a specific end user service.
-The routing mecahnismen routes to the correct container based on the url.</p>
+The routing mecahnism routes to the correct container based on the url containing the service parameter.</p>
 
 <h3 id="data-services">Data services</h3>
 
@@ -1371,7 +1425,7 @@ for Profile, Register, Authorization, Intermediary.</p>
 <h3 id="api-proxy">API Proxy</h3>
 
 <p>API Proxy is needed for controlling credentials and outbound firewall rules from the plattform.
-This might be handled by the API Managment software</p>
+This might be handled by the API Managment software.</p>
 
 <h3 id="api-management">API Management</h3>
 
@@ -1968,6 +2022,8 @@ This might be handled by the API Managment software</p>
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -1979,6 +2035,20 @@ This might be handled by the API Managment software</p>
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -2005,6 +2075,25 @@ This might be handled by the API Managment software</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
         
@@ -2012,10 +2101,10 @@ This might be handled by the API Managment software</p>
 
 
         
-            <a class="nav nav-prev" href="/architecture/deployment/" title="Deployment"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/deployment/altinn-studio/" title="Altinn Studio - Deployment Architecture"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/architecture/solution/" title="Solution Architecture" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/deployment/service-deployment/" title="Altinn Studio - Service Deployment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

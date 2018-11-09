@@ -798,7 +798,7 @@ if(host != "localhost")
         
         ">
       <a href="/about/goals/">
-        <span>Målsettinger</span>
+        <span>Goals</span>
 
         
         
@@ -1134,6 +1134,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/architecture/deployment/altinn-studio/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/altinn-studio/">
+        <span>Altinn Studio</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/architecture/deployment/runtime/" class="dd-item 
         
         
@@ -1141,6 +1168,33 @@ if(host != "localhost")
         ">
       <a href="/architecture/deployment/runtime/">
         <span>Runtime</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/deployment/service-deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/service-deployment/">
+        <span>Service Deployment</span>
 
         
         
@@ -1293,11 +1347,70 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/tjenester-3.0/">&larr; Forrige</a>
 	
-	<span class="page-number">Side 2 av 2</span>
+	<span class="page-number">Side 2 av 3</span>
+	
+	    <a class="older-posts" href="/tags/tjenester-3.0/page/3/">Neste &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post documentation">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/documentation/repositories/data/rule-handler/">RuleHandler.js</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Overordnet Filen RuleHandler.js brukes til å lage metoder som skal benyttes for til kalkuleringer/regler på felter i datamodellen eller for å skape dynamikk i et skjema.
+Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regler i skjema og de 2 andre benyttes til dynamikk i skjema. ruleHandlerObject og conditionalRuleHandlerObject skal benyttes til å definere metoder som kan brukes til kalkuleringer/regler i skjema. Alle metodene har et objekt som input parameter og en output verdi, strukturen på input objektet er beskrevet i ruleHandlerHelper og conditionalRuleHandlerHelper. <a class="read-more" href="/documentation/repositories/data/rule-handler/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post documentation">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/documentation/repositories/data/service-configurations/">ServiceConfigurations.json</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Overordnet ServiceConfiguration.json filen spesifiserer ulike konfigurasjoner lagt til i design prosessen. Nå består den av api koblinger, kalkuleringer og dynamikk regler.
+Format API connections Strukturen under beskriver api koblinger til et skjema. Objektet inneholder koblingene og informajson knyttet til api&rsquo;ene som er i bruk. ClientParams og apiResponseMapping viser mapping til datamodellen. externalApiId viser kobling til api&rsquo;er som kan brukes.
+ &quot;data&quot;: { &quot;externalApi&quot;: { &quot;APIs&quot;: { &quot;connections&quot;: { &quot;c5dadba0-9707-11e8-9c4d-6f48d2b86ea7&quot;: { &quot;externalApiId&quot;: &quot;id1&quot;, &quot;clientParams&quot;: { &quot;pnr&quot;: &quot;skattyterinfor. <a class="read-more" href="/documentation/repositories/data/service-configurations/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post documentation">
@@ -1527,66 +1640,6 @@ En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatis
 
 
 	
-	   <article class="post documentation">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/documentation/repositories/data/validationhandler/">ValidationHandler.cs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.
-Overordnet &lsquo;ValidationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør valideringer
-Format Standard C# kode som kan gjøre bortimot alt.
-Uavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.
-Utvikling Under opprettelse av en tjeneste vil en tom ValidationnHandler opprettes.
-Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/documentation/repositories/data/validationhandler/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post documentation">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/documentation/repositories/data/reactapp/">react-app.js</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Overordnet &lsquo;React-App.js&rsquo; er selve React applikasjonen som blir generert av Altinn Studio som del av tjenestutviklingen. Den inneholder all logikk for å rendre GUI samt å gjøre nødvendige kall mot API i Altinn Tjenester 3.0
-For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir tilpasset de komponentene som er i bruk. Dette slik at javascript koden ikke i inneholder referanser til komponenter ikke brukt i tjenesten. <a class="read-more" href="/documentation/repositories/data/reactapp/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -1594,7 +1647,9 @@ For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir 
 	
 	    <a class="newer-posts" href="/tags/tjenester-3.0/">&larr; Forrige</a>
 	
-	<span class="page-number">Side 2 av 2</span>
+	<span class="page-number">Side 2 av 3</span>
+	
+	    <a class="older-posts" href="/tags/tjenester-3.0/page/3/">Neste &rarr;</a>
 	
 </nav>
 
@@ -2172,6 +2227,38 @@ For øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir 
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

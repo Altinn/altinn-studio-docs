@@ -3,11 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.altinn.studio/guide/</loc>
+    <loc>https://docs.altinn.studio/about/goals/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/about/goals/</loc>
+    <loc>https://docs.altinn.studio/guide/</loc>
   </url>
   
   <url>
@@ -28,6 +28,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/deployment/altinn-studio/</loc>
   </url>
   
   <url>
@@ -104,6 +108,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/deployment/runtime/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/deployment/service-deployment/</loc>
   </url>
   
   <url>
