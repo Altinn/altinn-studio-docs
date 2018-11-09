@@ -1,24 +1,23 @@
 ---
-title: Målsettinger
-description: Overordnede målsettinger for 3.0.
+title: Goals
+description: Goals for the Altinn Studio platform
 aliases:
  - /no/altinncore/goals.html
 weight: 10
 ---
 
+This summarizes the high level goals for Altinn Studio
 
-En oppsummering av de overordnede hovedmålsettingene for tjenester 3.0.
+## Userfriendly and responsive services
 
-## Brukervennlige og responsive tjenester
+- User interface that is userfriendly, effective and modern.
+- Support for Responsive Design both for forms and the development tool.
+- Built in accessability with support for [WCAG 2](https://www.w3.org/Translations/WCAG20-no/)
+- Good performance and low response time
 
-- Brukergrensesnitt som er brukervennlig, effektive og moderne (f.eks. som [vist på altinn-dagen](http://altinn.github.io/DesignSystem/versjon-altinndagen/patterns/04-sider-90-starte-enk-00-starte-enk-0/04-sider-90-starte-enk-00-starte-enk-0.html))
-- Støtte for mobil og ulike skjermstørrelser er innebygd, såkalt [responsivt design](https://no.wikipedia.org/wiki/Responsiv_nettside). Dette gjelder også for utviklingsverktøy.
-- Innebygd [universell utforming](http://wcag.difi.no/) med støtte for [WCAG 2](https://www.w3.org/Translations/WCAG20-no/)
-- God ytelse og lav responstid
+## Effective and self-service service development
 
-## Effektiv og selvbetjent tjenesteutvikling
-
-- Man kan enkelt gjøre alt selv (inkl. prodsetting) når man ønsker det, uten behov for bestillinger, kursing, etc. Flaskehalser elimineres.
+-  Man kan enkelt gjøre alt selv (inkl. prodsetting) når man ønsker det, uten behov for bestillinger, kursing, etc. Flaskehalser elimineres.
 - Effektiv og reell testing, der enhetstest oppfører seg likt som testmiljøer og prod (alle miljøer baseres på samme plattform-kode)
 - Støtte for å lage automatisert testing av tjenester
 - Regler og logikk defineres kun en gang for alle kanaler (portal/WS/API), og på en mer robust måte enn i dag

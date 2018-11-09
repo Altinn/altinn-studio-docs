@@ -12,7 +12,7 @@ NOTE: Work in progress. Stuff will change
 The runtime application is deployed both as part of Altinn Studio solution and part
 of the end user solution. The deployment architecture is different for these two scenarios.
 
-The following diagram shows the deploy architecture for runtime and its related components in end user solution configuratgion
+The following diagram shows the deploy architecture for runtime and its related components in end user solution configuration.
 
 {{%excerpt%}}
 <object data="/architecture/deployment/runtime/RunTime_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
@@ -24,7 +24,7 @@ Each set of service containers will be scaled based on the use of the service.
 
 ### Routing
 To be able to route traffic to the correct container, each container is tagged to a specific end user service.
-The routing mecahnismen routes to the correct container based on the url.
+The routing mecahnism routes to the correct container based on the url containing the service parameter.
 
 ### Data services
 The data services application is the application responsible exposing data related functionality to the service containers.
@@ -36,7 +36,7 @@ for Profile, Register, Authorization, Intermediary.
 
 ### API Proxy
 API Proxy is needed for controlling credentials and outbound firewall rules from the plattform. 
-This might be handled by the API Managment software
+This might be handled by the API Managment software. 
 
 ### API Management
 The plattform requires API managament software to handle SLA ++
