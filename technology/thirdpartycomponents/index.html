@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.49.2" />
+    <meta name="description" content="Tredjeparts komponenter">
+
+
+    
+    <title>Tredjeparts komponenter :: Altinn Studio</title>
+    
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/featherlight.min.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    
+    <link href="/css/theme.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <script src="/js/jquery-2.x.min.js"></script>
+    <style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+
+    
+
+    
+<link href="/css/altinn.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+
+  </head>
+  <body class="" data-url="/technology/thirdpartycomponents/">
+    <nav id="sidebar" class="">
+
+
+
+
+
+<div class="highlightable">
+  <div id="header-wrapper">
+    <div id="header">
+       
+	<div style="text-align: center; margin: 1em 0;">
+<a href="/"><img src="/images/altinn-studio-white.png" style="display:inline;height:1.2em;margin:0;"><span style="color:white font-size: 1.2em;"> docs</span></a>
+</div>
+ 
+
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio";
+</script>
+<script src="/js/search.js"></script>
+
+    
+  </div>
+
+  
+    <ul class="topics">
+        
+        
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/guide/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/guide/">
+        <span>Kom i gang</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/guide/first-time-setup/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/guide/first-time-setup/">
+        <span>Første gangs oppsett</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/guide/service-creation/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/guide/service-creation/">
+        <span>Lag en utgave</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/guide/service-testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/guide/service-testing/">
+        <span>Test utgave</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/documentation/">
+        <span>Solution</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/runtime/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/documentation/runtime/">
+        <span>Runtime</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/designer/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/designer/">
+        <span>Designer</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/">
+        <span>Repositories</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/architecture/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/architecture/">
+        <span>Arkitektur</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/">
+        <span>Data</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/service-configurations/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/service-configurations/">
+        <span>ServiceConfigurations.json</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/rule-handler/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/rule-handler/">
+        <span>RuleHandler.js</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/calculationhandler/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/calculationhandler/">
+        <span>CalculationHandler.cs</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/form-layout/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/form-layout/">
+        <span>FormLayout.json</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/instantiationhandler/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/instantiationhandler/">
+        <span>InstansiationHandler.cs</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/serviceimplementation/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/serviceimplementation/">
+        <span>ServiceImplementation.cs</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/servicemetadata/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/servicemetadata/">
+        <span>ServiceMetadata.json</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/servicemodel/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/servicemodel/">
+        <span>ServiceModel.cs</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/servicemodelxsd/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/servicemodelxsd/">
+        <span>ServiceModel.xsd</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/validationhandler/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/validationhandler/">
+        <span>ValidationHandler.cs</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/data/reactapp/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/data/reactapp/">
+        <span>react-app.js</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/repositories/functional/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/repositories/functional/">
+        <span>Funksjonelt</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/about/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/about/">
+        <span>About</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/about/goals/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/about/goals/">
+        <span>Goals</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/about/slide/" class="dd-item
+     
+      ">
+        <a href="/about/slide/">
+        <span>Slide NO</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/">
+        <span>Architecture</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/">
+        <span>Application</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/runtime/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/runtime/">
+        <span>Runtime</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/runtime/react-app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/runtime/react-app/">
+        <span>React App</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/designer/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/designer/">
+        <span>Designer</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/designer/react-app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/designer/react-app/">
+        <span>React App</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/build/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/build/">
+        <span>Build process</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/">
+        <span>Deployment</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/deployment/altinn-studio/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/altinn-studio/">
+        <span>Altinn Studio</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/deployment/runtime/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/runtime/">
+        <span>Runtime</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/deployment/service-deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/deployment/service-deployment/">
+        <span>Service Deployment</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/solution/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/solution/">
+        <span>Solution</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/" class="dd-item 
+        parent
+        
+        parent
+        ">
+      <a href="/technology/">
+        <span>Technology</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/react/">
+        <span>React</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/react/codearchitecture/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/react/codearchitecture/">
+        <span>Kodearkitektur</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/redux/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/redux/">
+        <span>Redux</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/thirdpartycomponents/" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/technology/thirdpartycomponents/">
+        <span>Tredjeparts komponenter</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/typescript/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/typescript/">
+        <span>TypeScript</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+        
+
+        
+        
+            
+                <li>
+                    <h3>Lenker</h3>
+                    <a href="https://altinn.studio"><i class='fa fa-fw fa-desktop'></i> Altinn Studio</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="https://github.com/Altinn/altinn-studio/issues"><i class='fa fa-fw fa-bug'></i> Backlog / issues</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="https://github.com/Altinn/altinn-studio/milestones?direction=asc&amp;sort=due_date&amp;state=open"><i class='fa fa-fw fa-map-signs'></i> Milestones</a>
+                    
+                </li>
+            
+                <li>
+                    
+                    <a href="https://github.com/altinn/altinn-studio"><i class='fa fa-fw fa-github'></i> GitHub</a>
+                    
+                </li>
+            
+           
+        
+        
+
+        
+    </ul>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+        
+          <div id="top-bar">
+            
+              
+              
+              
+            <div id="top-github-link">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/thirdpartycomponents/_index.md" target="blank">
+                <i class="fa fa-code-fork"></i>
+                Endre
+              </a>
+            </div>
+              
+            
+
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </span>
+                
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
+                <span class="links">
+                  
+                  
+
+
+
+
+
+
+
+ <a href='/'>Altinn Studio docs</a> > <a href='/technology/'>Technology</a> > Tredjeparts komponenter
+
+ 
+
+ 
+
+
+                </span>
+            </div>
+            
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#hvordan-utvikle-3-parts-komponenter">Hvordan utvikle 3. parts komponenter</a></li>
+<li><a href="#hvordan-bruke-3-parts-komponenter">Hvordan bruke 3. parts komponenter</a></li>
+</ul></li>
+<li><a href="#alternative-løsninger">Alternative løsninger</a>
+<ul>
+<li>
+<ul>
+<li><a href="#ressurser">Ressurser</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
+            
+          </div>
+        
+        
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0">tjenester 3.0</a>
+            
+          </div>
+        
+        <div id="body-inner">
+          
+            
+              <h1>Tredjeparts komponenter</h1>
+            
+          
+
+
+
+
+
+
+<p>Det er ønskelig at tredjeparter skal kunne utvikle komponenter som en
+tjenesteeier skal kunne bruke i sine løsninger</p>
+
+<h3 id="hvordan-utvikle-3-parts-komponenter">Hvordan utvikle 3. parts komponenter</h3>
+
+<p>Når du som en bruker ønsker å utvikle tredjeparts-komponenter så er det anbefalt å bruke <a href="https://rollupjs.org">rollup.js</a> som kompilerer til cjs (CommonJS).</p>
+
+<p>Basert på dette <a href="https://altinn.studio/Jesper/ThirdPartyComponents">repoet</a> i altinn.studio</p>
+
+<p>Eksempel på et komponent som i et fiktivt git repo (basert på Gitea Repo) ligger i <code>src/components/BalloonCounter/index.js</code> :</p>
+
+<pre><code class="language-javascript">import React from 'react';
+
+export class BalloonCounter extends React.Component {
+    constructor(_props, _state) {
+        super(_props, _state);
+
+        this.state = {
+            count: 0,
+        }
+    }
+
+    handleIncrement = () =&gt; {
+        let {count} = this.state;
+        count += 1;
+        this.setState({
+            count,
+        }, () =&gt; {
+            this.handleSubmitData();
+        });
+    }
+
+    handleDecrement = () =&gt; {
+        if(this.state.count !== 0) {
+            let {count} = this.state;
+            count -= 1;
+            this.setState({
+                count,
+            }, () =&gt; {
+                this.handleSubmitData();
+            })
+        }
+    }
+
+    handleSubmitData = () =&gt; {
+        this.props.onHandleDataUpdate(this.state.count);
+    }
+    
+
+    render() {
+        return (
+            &lt;div&gt;
+                Number of ballons you want {this.state.count}
+                &lt;button onClick={this.handleIncrement}&gt; + &lt;/button&gt;
+                &lt;button onClick={this.handleDecrement}&gt; - &lt;/button&gt;
+            &lt;/div&gt;
+        );
+    }
+}
+</code></pre>
+
+<p>Viktig: Komponentens <code>this.props.onHandleDataUpdate(...)</code> er en funksjon som returnerer dataene komponenten har til skjema-appen, som håndterer lagring i datamodell.</p>
+
+<p>Husk å  exportere denne classen i <code>src/components/index.js</code> slik:</p>
+
+<pre><code class="language-javascript">export * from './BallonCounter.js';
+</code></pre>
+
+<p>Når <code>npm run build</code> blir kjørt vil dette lage en mappe med navn <code>dist</code>, med en fil som heter <code>index.js</code>. Denne filen må være med i git push for at altinn.studio skal kunne hente komponentene.</p>
+
+<h3 id="hvordan-bruke-3-parts-komponenter">Hvordan bruke 3. parts komponenter</h3>
+
+<p>I tjenester du ønsker å bruke 3. parts komponenter må det ligge en <code>ThirdPartyComponents.json</code>-fil. Plasseringen av denne er viktig, den må ligge under <code>[Tjeneste navn]/editions/[utgave]/Resources</code>.
+Innholdet av denne filen er som følger:</p>
+
+<pre><code class="language-json">{
+  &quot;packages&quot;: [{
+    &quot;packageName&quot;: &quot;[navn på pakken]&quot;,
+    &quot;location&quot;: &quot;[Link til raw format av index.js i git-repoet]&quot;
+  }]
+}
+</code></pre>
+
+<p>Eksempel på en slik json-fil finner du <a href="https://altinn.studio/Jesper/TestRepo/src/branch/master/editions/2018/Resources/ThirdPartyComponents.json">her.</a></p>
+
+<p>Hvis alt ble satt opp riktig, vil pakkene med prefiksen til pakkenavnet komme opp i toolbaren på venstre side av Skjema designeren. F.eks. <code>SuperCoolPackage.SuperCoolComponent</code>.</p>
+
+<h2 id="alternative-løsninger">Alternative løsninger</h2>
+
+<ul>
+<li>Webpack med treeshaking
+
+<ul>
+<li>Positivt:
+
+<ul>
+<li>Webpack er allerede brukt i applikasjonen</li>
+</ul></li>
+<li>Negativt:
+
+<ul>
+<li>Slik webpack er konfigurert idag vil det bli bygget en react-applikasjonsfil med alle komponenter, dette vil kreve en separering av react-skjemadesigner og react-runtime.
+
+<ul>
+<li>Runtime bygget må skje med formLayout, som vi henter i oppstarts-fasen av applikasjonen. Slik at alle kompoenter (brukte og ubrukte komponenter) blir med i bygget.</li>
+</ul></li>
+<li>Bygget må skje fra kommando-linje/scripts som kjører i filstrukturen</li>
+</ul></li>
+</ul></li>
+<li>Next.js SSR (server side rendering)
+
+<ul>
+<li>Positivt:
+
+<ul>
+<li>Gjøre initiell rendering på server, la klienten slippe å hente data som tekstressurser, datamodell, formLayout</li>
+<li>Dynamisk henting av komponenter som ikke er standard i react-applikasjonen</li>
+</ul></li>
+<li>Negativt:
+
+<ul>
+<li>Introdusere flere tjenester og mye endring av allerede eksisterende react-kode</li>
+</ul></li>
+</ul></li>
+<li>HTTP API som starter webpack-build
+
+<ul>
+<li>Ved å ha et api som f.eks. Express.js, som håndterer kompilering av applikasjon (bruker allerede kompilerte filer hvis de finnes) og blir kun brukt til å fetche javascript filen som inneholder react. Eller kun bygge da tjenesteeier klikker på &ldquo;Migrer tjeneste&rdquo;.</li>
+<li>Positivt:
+
+<ul>
+<li>Dynamisk kompilering av kun nødvending react applikasjon og 3. parts komponenter (kan både kompileres da tjenesten migreres, eller hver gang et en bruker starter å fylle ut et skjema (antar at første alternativ er mest gunstig))</li>
+</ul></li>
+<li>Negativt:
+
+<ul>
+<li>Introdusere ny tjeneste (med mindre endringer av eksisterende kode enn &ldquo;Next.js SSR&rdquo;-alternativet)</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h4 id="ressurser">Ressurser</h4>
+
+<ul>
+<li>Webpack tree-shaking
+
+<ul>
+<li><a href="https://webpack.js.org/guides/tree-shaking/">Webpack tree-shaking</a></li>
+<li><a href="https://webpack.js.org/plugins/module-concatenation-plugin/">Webpack module concatenation plugin</a></li>
+</ul></li>
+<li>Next.js
+
+<ul>
+<li><a href="https://nextjs.org/">Offisiell nettside</a></li>
+<li><a href="https://github.com/zeit/next.js">Github Docs</a></li>
+</ul></li>
+<li>Express
+
+<ul>
+<li><a href="https://expressjs.com/">Offisiell nettside</a></li>
+<li><a href="https://github.com/expressjs/express">Github side</a></li>
+</ul></li>
+</ul>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+      </div>
+    </div>
+
+    
+ 
+    
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+        
+            <a class="nav nav-prev" href="/technology/redux/" title="Redux"> <i class="fa fa-chevron-left"></i></a>
+        
+        
+            <a class="nav nav-next" href="/technology/typescript/" title="TypeScript" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+        
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/featherlight.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/learn.js"></script>
+    <script src="/js/hugo-learn.js"></script>
+
+    
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    
+
+    
+
+  </body>
+</html>

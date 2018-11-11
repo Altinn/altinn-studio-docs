@@ -1252,6 +1252,202 @@ if(host != "localhost")
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/technology/">
+        <span>Technology</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/react/">
+        <span>React</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/react/codearchitecture/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/react/codearchitecture/">
+        <span>Kodearkitektur</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/redux/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/redux/">
+        <span>Redux</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/thirdpartycomponents/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/thirdpartycomponents/">
+        <span>Tredjeparts komponenter</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/typescript/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/typescript/">
+        <span>TypeScript</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
         
 
         
@@ -1360,10 +1556,9 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
-The Altinn Studio solution is deployed to a Kubernetes Cluster. The diagram below show the different applications that is part this.
+The Altinn Studio Service Development solution is deployed to a Kubernetes Cluster. The diagram below show the different applications that is part this.
 
-Repository GITEA is used as Repository in Altinn Studio. There is one instance of GITEA running in a docker container in the solution. It uses cloud service database and fileshare for configuration and remote repos
-Designer Designer is the web based editor for anything related to the service development. <a class="read-more" href="/architecture/deployment/altinn-studio/">&raquo;</a></p>
+Repository GITEA is used as Repository in Altinn Studio Service Development solution. There is one instance of GITEA running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/architecture/deployment/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1385,14 +1580,14 @@ Designer Designer is the web based editor for anything related to the service de
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/deployment/runtime/">Altinn Studio - Runtime - Deployment Architecture</a></h2>
+        <h2 class="post-title"><a href="/architecture/deployment/runtime/">Altinn Studio - Runtime solution - Deployment Architecture</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
-The runtime application is deployed both as part of Altinn Studio solution and part of the end user solution. The deployment architecture is different for these two scenarios.
-The following diagram shows the deploy architecture for runtime and its related components in end user solution configuration.
+The runtime application is deployed both as part of Altinn Studio Service Development solution and part of the Altinn Studio Runtime solution. The deployment architecture is different for these two scenarios.
+The following diagram shows the deploy architecture for runtime and its related components in Altinn Studio Runtime solution configuration.
 
-Service Containers In end user solution mode each end user service will have a uniqe docker container managed by Kubernetes. <a class="read-more" href="/architecture/deployment/runtime/">&raquo;</a></p>
+Service Containers In the Runtime solution each end user service will have a uniqe docker container managed by Kubernetes. <a class="read-more" href="/architecture/deployment/runtime/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1418,7 +1613,7 @@ Service Containers In end user solution mode each end user service will have a u
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
-When a service developer need to deploy a service to a test enviroment with Altinn Studio Runtime solution there is created a Docker Image with the configured version of Altinn Studio Runtime and the compilled service code and configuration inside the container.
+When a service developer need to deploy a service to Altinn Studio Runtime solution test/production environement there is created a Docker Image with the configured version of Altinn Studio Runtime and the compiled service code and configuration inside the container.
 This container is added to the Docker Registry.
 From Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users. <a class="read-more" href="/architecture/deployment/service-deployment/">&raquo;</a></p>
     </section>
@@ -1562,13 +1757,14 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
 
 
 	
-	   <article class="post documentation">
+	   <article class="post technology">
     <header class="post-header">
-        <h2 class="post-title"><a href="/documentation/repositories/architecture/">Repositories - Arkitektur</a></h2>
+        <h2 class="post-title"><a href="/technology/react/codearchitecture/">Kodearkitektur</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>TODO
- Gitea Fileshare for Git Docker Database   <a class="read-more" href="/documentation/repositories/architecture/">&raquo;</a></p>
+        <p>Bruk av Redux Store i Containere og Components. Kort oppsummert (TL;DR) Send &ldquo;ID&rdquo; eller andre identifikatorer via Props til komponenten og la komponenten hente data fra Redux Store.
+Utfordring (Why?) Hvis en del av Redux Store sendes som Props så vil komponenten re-rendres ved endringer av denne Prop/Store. Det er ønskelig at komponenter ikke rendrer unødvendig.
+Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props.  Kilder  Redux best practices Common pitfalls  Filtrering av Redux Store i mapStateToProps() ved help av Selector Kort oppsummert (TL;DR) Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor. <a class="read-more" href="/technology/react/codearchitecture/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1579,7 +1775,13 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
             
-                <a class="label label-default" href="https://docs.altinn.studiotags/repositories/">Repositories</a>
+                <a class="label label-default" href="https://docs.altinn.studiotags/react/">React</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/redux/">Redux</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/reselect/">Reselect</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/selector/">Selector</a>
             
         
 
@@ -1590,28 +1792,12 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
 
 
 	
-	   <article class="post documentation">
+	   <article class="post technology">
     <header class="post-header">
-        <h2 class="post-title"><a href="/documentation/repositories/data/">Repositories - Data</a></h2>
+        <h2 class="post-title"><a href="/technology/react/">React</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Under arbeid
-Overordnet struktur Gitea
-├── altinn
-│ ├── common
-│ │ ├── text &hellip;
-│ │ └── widgets &hellip;
-│ │ └── README.md
-│ ├── codelists
-│ │ ├── countries.json
-│ │ └── &hellip;
-│ │ └── README.md
-│ └── &hellip;
-│
-├── org-x
-│ ├── org-x
-│ │ ├── settings.json
-│ │ ├── text &hellip; <a class="read-more" href="/documentation/repositories/data/">&raquo;</a></p>
+        <p>Modulært rammeverk som lager komponenter som kan gjennbrukes flere steder i løsningen. Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas. Vedlikeholdt av Facebook, under MIT lisens.  Slik react blir brukt i Tjeneste 3.0 Uten redux  Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet. Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter. <a class="read-more" href="/technology/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1622,8 +1808,6 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
             
-                <a class="label label-default" href="https://docs.altinn.studiotags/arkitektur/">arkitektur</a>
-            
         
 
     </footer>
@@ -1633,14 +1817,13 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
 
 
 	
-	   <article class="post documentation">
+	   <article class="post technology">
     <header class="post-header">
-        <h2 class="post-title"><a href="/documentation/repositories/functional/">Repositories - Funksjonelt</a></h2>
+        <h2 class="post-title"><a href="/technology/redux/">Redux</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Eksempel-repository for tjenesten &#34;Starte Enkeltpersonforetak&#34;   &ldquo;Altinn Repositories&rdquo; er en frittstående Git versjonskontroll og Application Lifecycle Management-løsning, som både Designer, kodeeditorer og andre eksterne verktøy vil benytte som back-end og felles sted for å lagre og versjonere tjenestene som utvikles.
-Repositories har et GitHub-lignende brukergrensesnitt og både Git og REST-baserte tekniske grensesnitt.
-  Git muliggjør at flere verktøy kan jobbe mot samme tjeneste-repository   Det vil være en omfattende jobb å forsøke å utvikle en Git + ALM løsning på egen hånd, ref. <a class="read-more" href="/documentation/repositories/functional/">&raquo;</a></p>
+        <p>Applikasjonstilstandshåndtering En felles tilstand for hele applikasjonen Tilstanden styres av Actions som håndteres av Reducere som igjen populerer tilstanden.
+ En Action kan f.eks. være &ldquo;FETCH_POSTNUMMER&rdquo; Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer. Når er hentingen er fullført, vil man f.eks. sende en action &ldquo;FETCH_POSTNUMMER_FULFILLED&rdquo; som har postnummer-data med som parameter. <a class="read-more" href="/technology/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -2293,6 +2476,106 @@ Repositories har et GitHub-lignende brukergrensesnitt og både Git og REST-baser
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

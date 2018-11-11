@@ -8,7 +8,7 @@
 
 
     
-    <title>Altinn Studio - Runtime - Deployment Architecture :: Altinn Studio</title>
+    <title>Altinn Studio - Runtime solution - Deployment Architecture :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -1252,6 +1252,202 @@ if(host != "localhost")
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/technology/">
+        <span>Technology</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/react/">
+        <span>React</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/react/codearchitecture/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/react/codearchitecture/">
+        <span>Kodearkitektur</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/redux/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/redux/">
+        <span>Redux</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/thirdpartycomponents/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/thirdpartycomponents/">
+        <span>Tredjeparts komponenter</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/technology/typescript/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/typescript/">
+        <span>TypeScript</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
         
 
         
@@ -1379,7 +1575,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Altinn Studio - Runtime - Deployment Architecture</h1>
+              <h1>Altinn Studio - Runtime solution - Deployment Architecture</h1>
             
           
 
@@ -1392,10 +1588,12 @@ if(host != "localhost")
 </div>
 
 
-<p>The runtime application is deployed both as part of Altinn Studio solution and part
-of the end user solution. The deployment architecture is different for these two scenarios.</p>
+<p>The runtime application is deployed both as part of Altinn Studio Service Development
+solution and part of the Altinn Studio Runtime solution. The deployment architecture
+ is different for these two scenarios.</p>
 
-<p>The following diagram shows the deploy architecture for runtime and its related components in end user solution configuration.</p>
+<p>The following diagram shows the deploy architecture for runtime and its related components
+ in Altinn Studio Runtime solution configuration.</p>
 
 
 	<p><object data="/architecture/deployment/runtime/RunTime_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
@@ -1404,32 +1602,35 @@ of the end user solution. The deployment architecture is different for these two
 
 <h3 id="service-containers">Service Containers</h3>
 
-<p>In end user solution mode each end user service will have a uniqe docker container managed by Kubernetes.
-Each set of service containers will be scaled based on the use of the service.</p>
+<p>In the Runtime solution each end user service will have a uniqe docker container managed
+by Kubernetes. Each set of service containers will be scaled based on the use of the service.</p>
 
 <h3 id="routing">Routing</h3>
 
-<p>To be able to route traffic to the correct container, each container is tagged to a specific end user service.
-The routing mecahnism routes to the correct container based on the url containing the service parameter.</p>
+<p>To be able to route traffic to the correct container, each container is tagged to a specific
+end user service. The routing mecahnism routes to the correct container based on the url
+containing the service parameter.</p>
 
 <h3 id="data-services">Data services</h3>
 
-<p>The data services application is the application responsible exposing data related functionality to the service containers.
-This containers are</p>
+<p>The data services application is the application responsible exposing data related functionality
+to the service containers. This container will be scaled based on need.</p>
 
 <h3 id="platform-integration">Platform integration</h3>
 
-<p>The plattform integration is a new application hosted in the existing infrastructure. It exposes REST-APIs
-for Profile, Register, Authorization, Intermediary.</p>
+<p>The platform integration is a new application hosted in the existing infrastructure.
+It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication.
+These are services not part of the Altinn Studio Platform (yet) and
+everyone planning to run Altinn Studio would need to</p>
 
 <h3 id="api-proxy">API Proxy</h3>
 
-<p>API Proxy is needed for controlling credentials and outbound firewall rules from the plattform.
+<p>API Proxy is needed for controlling credentials and outbound firewall rules from the platform.
 This might be handled by the API Managment software.</p>
 
 <h3 id="api-management">API Management</h3>
 
-<p>The plattform requires API managament software to handle SLA ++</p>
+<p>The platform requires API management software to handle SLA ++</p>
 
 
 <footer class=" footline" >
@@ -2071,6 +2272,106 @@ This might be handled by the API Managment software.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
