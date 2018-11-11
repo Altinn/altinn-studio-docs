@@ -9,12 +9,15 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-When a service developer need to deploy a service to a test enviroment with Altinn Studio Runtime solution there is created
-a Docker Image with the configured version of Altinn Studio Runtime and the compilled service code and configuration inside the container.
+When a service developer need to deploy a service to
+Altinn Studio Runtime solution test/production environement there is created
+a Docker Image with the configured version of Altinn Studio Runtime and the 
+compiled service code and configuration inside the container.
 
 This container is added to the Docker Registry. 
 
-From Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users.
+From Docker Registry Kubernetes will download the container in to the Kubernetes 
+Cluster and make it available for the end users.
 
 Details of build process can be found under build architecture.
 
