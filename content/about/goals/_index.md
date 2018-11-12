@@ -17,19 +17,19 @@ This summarizes the high level goals for Altinn Studio
 
 ## Effective and self-service service development
 
--  Man kan enkelt gjøre alt selv (inkl. prodsetting) når man ønsker det, uten behov for bestillinger, kursing, etc. Flaskehalser elimineres.
-- Effektiv og reell testing, der enhetstest oppfører seg likt som testmiljøer og prod (alle miljøer baseres på samme plattform-kode)
-- Støtte for å lage automatisert testing av tjenester
-- Regler og logikk defineres kun en gang for alle kanaler (portal/WS/API), og på en mer robust måte enn i dag
-- Datamodellering innebygd i det samme web-baserte verktøyet (og støtte for import fra [SERES](https://altinnett.brreg.no/no/SERES/), [OR](https://w2.brreg.no/oppgaveregisteret/spesifikasjon_etatsliste.jsp), etc. )
-- Ikke nødvendig med Citrix for tilgang til utviklingsmiljø
+- As a service developer you can do everthing yourself (including deployment to production) whenever you want, without need for orders, training ++. Bottlenecks is eliminated.
+- Effective and real testing, where unit test works like in a test environment and produiction. 
+- Support for creating automated tests of services
+- Rules and logic is defined once for all channels (portal/web service / rest), and are more robust than current plattform
+- Built inn data modelling in web based tool (and support for XSD import from external tools like [SERES](https://altinnett.brreg.no/no/SERES/), [OR](https://w2.brreg.no/oppgaveregisteret/spesifikasjon_etatsliste.jsp), etc. )
+- Not nescessery with Citrix for access to Altinn Studio Service Development  Ikke nødvendig med Citrix for tilgang til utviklingsmiljø
 
-## Enkelt for fagpersoner, fleksibelt for utviklere
+## Simple for non-technical developers, flexible for technical developers
 
 - Fagpersoner har tilgang til nødvendig funksjonalitet [direkte i nettleser](../dev-in-browser)
-- Man gjenbruker gode og ferdig-testede komponenter/widgets
-- Enkelt å gjøre kall mot API'er i andre systemer (hente data, kjøre logikk som ligger i egne fagsystemer)
-- Mer tekniske utviklere kan i tillegg tilpasse alle aspekter hvis man har behov for det ved bruk av [kode-editor](../dev-in-code), f.eks. lage gjenbrukbare widgets, stilark, etc.
+- You can reuse good and testet components/widgets
+- It is easy to do call against API's in other systems (retrieve data, run external logic)
+- Techincal skilled deveopers can configure all aspect of the service, as an example make a reusable widhets, stylesheets,  f.eks. lage gjenbrukbare widgets, stilark, etc.
 - Gjenbruk av tekster og andre ressurser på det nivået som man ønsker (plattform, tjenesteeier, tjeneste), samt vilkårlig språkstøtte
 - Git (versjonskontroll) benyttes for lagring av tjenestene som utvikles, både fra nettleser og kode-editor.
 

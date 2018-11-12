@@ -6,7 +6,12 @@ weight: 10
 alwaysopen: true
 ---
 
+Altinn Studio is deployed as two different solutions to make a complete platform.
 
-The Altinn Studio 
 
+## Altinn Studio Service Development solution
+This is where the Service Developers create their end user services with GUI, rules and logic, workflow, texts  ++
+
+## Altinn Studio Runtime solution
+This is the solution where the completed end user services is deployed and accessed by end users. 
 
