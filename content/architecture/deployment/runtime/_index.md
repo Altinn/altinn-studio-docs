@@ -37,7 +37,7 @@ to the service containers. This container will be scaled based on need.
 The platform integration is a new application hosted in the existing infrastructure. 
 It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication. 
 These are services not part of the Altinn Studio Platform (yet) and
-everyone planning to run Altinn Studio would need to 
+everyone planning to run the Altinn Studio platform would need to implement their own components that support. 
 
 ### API Proxy
 API Proxy is needed for controlling credentials and outbound firewall rules from the platform. 

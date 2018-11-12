@@ -29,8 +29,8 @@ Designer is the web based editor for anything related to the service development
 It runs in Docker Containers. (Linux) (how many needed will be analyzed at a later stage).
 
 ### Runtime
-Runtime is used for integration testing av services as part of Altinn Studio Service 
-Development solution. The same runtime is shared between
+Runtime is used for integration testing of services as part of Altinn Studio Service 
+Development solution. The same runtime application is shared between
 all service developers. The service code/configuration is copied from local repo of the
 service developers testing the service. 
 
