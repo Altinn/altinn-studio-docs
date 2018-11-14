@@ -1,7 +1,7 @@
 ---
-title: Altinn Studio - Runtime solution - Deployment Architecture
-linktitle: Runtime
-description: Description of the deployment architecture for runtime application
+title: Altinn Studio Apps - Deployment Architecture
+linktitle: Altinn Studio Apps
+description: Description of the deployment architecture for Altinn Studio Apps
 tags: ["tjenester 3.0"]
 weight: 100
 ---
@@ -9,20 +9,17 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-The runtime application is deployed both as part of Altinn Studio Service Development 
-solution and part of the Altinn Studio Runtime solution. The deployment architecture
- is different for these two scenarios.
-
-The following diagram shows the deploy architecture for runtime and its related components
- in Altinn Studio Runtime solution configuration.
+Altinn Studio Apps is the solution where all the services developed in Altinn Studio is deployed.
+The following diagram shows the deploy architecture for Altinn Studio Apps
 
 {{%excerpt%}}
-<object data="/architecture/deployment/runtime/RunTime_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/deployment/altinn-studio-apps/RunTime_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 ### Service Containers
-In the Runtime solution each end user service will have a uniqe docker container managed 
+In the Altinn Studio Apps  solution each end user service will have a uniqe docker container managed 
 by Kubernetes. Each set of service containers will be scaled based on the use of the service.
+The service container will consist of the runtime application and service specific code and configuration.
 
 ### Routing
 To be able to route traffic to the correct container, each container is tagged to a specific 
@@ -41,10 +38,10 @@ everyone planning to run the Altinn Studio platform would need to implement thei
 
 ### API Proxy
 API Proxy is needed for controlling credentials and outbound firewall rules from the platform. 
-This might be handled by the API Managment software. 
+This might be handled by the API Managment software. Needs Analyzis
 
 ### API Management
-The platform requires API management software to handle SLA ++
+The platform requires API management software to handle SLA ++. Needs Analyzis
 
 
 

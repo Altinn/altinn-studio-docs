@@ -26,17 +26,16 @@ This summarizes the high level goals for Altinn Studio
 
 ## Simple for non-technical developers, flexible for technical developers
 
-- Fagpersoner har tilgang til nødvendig funksjonalitet [direkte i nettleser](../dev-in-browser)
+- Non-technical service developers have access to needed functionality [in browser](../dev-in-browser)
 - You can reuse good and testet components/widgets
 - It is easy to do call against API's in other systems (retrieve data, run external logic)
-- Techincal skilled deveopers can configure all aspect of the service, as an example make a reusable widhets, stylesheets,  f.eks. lage gjenbrukbare widgets, stilark, etc.
-- Gjenbruk av tekster og andre ressurser på det nivået som man ønsker (plattform, tjenesteeier, tjeneste), samt vilkårlig språkstøtte
-- Git (versjonskontroll) benyttes for lagring av tjenestene som utvikles, både fra nettleser og kode-editor.
+- Techincal skilled deveopers can configure all aspect of the service, as an example make a reusable widgets, stylesheets ++
+- Reuse of text and other resources on the desired level (platform, service owner, service), all languages supported
+- Git (version control) are used for source control for the service developed, both from browser and code editior. 
 
-## Åpen kildekode, cross-platform
+## Open Source, cross-platform
 
-- Tjenester 3.0 skal baseres på [åpen kildekode](https://en.wikipedia.org/wiki/Free_and_open-source_software)
-- Tjenester 3.0 skal også deles som åpen kildekode
-- Dette betyr at alle kan bidra til å forbedre plattformen. Altinn-organisasjonen blir mao. ikke flaskehals for utvikling.
-- Kan kjøres lokalt på egen maskin, på egne servere og på både Windows, macOS eller Linux
-- Alt baseres på åpne [web-standarder](https://en.wikipedia.org/wiki/Web_standards) og vanlig utviklerkompetanse (ingen "sære" eller proprietære verktøy innføres)
+- Altinn Studio will be based on [open source](https://en.wikipedia.org/wiki/Free_and_open-source_software)
+- Altinn Studio will be open source
+- Altinn Studio can run on your own computer, own serwers on Windows, macOS or Linux
+- Everything is based on open [web-standardes](https://en.wikipedia.org/wiki/Web_standards) and regulaer development knowledge. 

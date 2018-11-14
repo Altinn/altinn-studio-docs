@@ -1,6 +1,6 @@
 ---
 title: Application Architecture Runtime
-linktitle: Runtime
+linktitle: Altinn Studio Apps
 description: Description of the application architecture for runtime applicationz
 tags: ["tjenester 3.0"]
 weight: 100
@@ -9,13 +9,10 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-The runtime application is deployed both as part of Altinn Studio solution and part
-of the end user solution. The configuration is different, and differences is described below.
-
-The following diagram shows the application architecture for runtime and its related components in end user solution configuratgion
+The following diagram shows the application architecture for the Altinn Studio Apps solution.
 
 {{%excerpt%}}
-<object data="/architecture/application/runtime/RunTime_Application_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/application/altinn-studio-apps/RunTime_Application_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 

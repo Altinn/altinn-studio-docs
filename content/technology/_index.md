@@ -6,6 +6,7 @@ weight: 100
 alwaysopen: true
 ---
 
+The following articles describes the technology used in Altinn Studio and Altinn Studio Apps
 
 
 
