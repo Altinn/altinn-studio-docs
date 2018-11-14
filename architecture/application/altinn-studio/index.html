@@ -8,7 +8,7 @@
 
 
     
-    <title>Application Architecture Runtime :: Altinn Studio</title>
+    <title>Application Architecture Altinn Studio :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -1547,9 +1547,15 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#designer">Designer</a>
 <ul>
-<li><a href="#frontend">Frontend</a>
+<li><a href="#frontend-designer">Frontend  designer</a></li>
+<li><a href="#backend-designer">Backend designer</a></li>
+</ul></li>
+<li><a href="#repository">Repository</a></li>
+<li><a href="#runtime">Runtime</a>
+<ul>
+<li><a href="#frontend-runtime">Frontend runtime</a>
 <ul>
 <li><a href="#frontend-for-altinn-studio-service">Frontend for Altinn Studio service</a></li>
 <li><a href="#frontend-for-platform-views">Frontend for platform views</a></li>
@@ -1557,17 +1563,7 @@ if(host != "localhost")
 <li><a href="#backend">Backend</a>
 <ul>
 <li><a href="#altinn-studio-mode">Altinn Studio Mode</a></li>
-<li><a href="#end-user-mode">End User Mode</a></li>
-<li><a href="#service-implementation">Service Implementation.</a></li>
-<li><a href="#events">Events</a>
-<ul>
-<li><a href="#instansiation">Instansiation</a></li>
-<li><a href="#load-form-data-get">Load form data (GET)</a></li>
 </ul></li>
-<li><a href="#storing-of-form-data-post">Storing of form data (POST)</a></li>
-<li><a href="#update-form-data-put">Update form data (PUT)</a></li>
-</ul></li>
-<li><a href="#datamodel">Datamodel</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1588,7 +1584,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Application Architecture Runtime</h1>
+              <h1>Application Architecture Altinn Studio</h1>
             
           
 
@@ -1608,7 +1604,28 @@ if(host != "localhost")
 
 
 
-<h3 id="frontend">Frontend</h3>
+<h2 id="designer">Designer</h2>
+
+<h3 id="frontend-designer">Frontend  designer</h3>
+
+<p>The frontend for the designer application is based on REACT.
+It is splitted in different REACT applications and components for the different functional areas of the designer</p>
+
+<h3 id="backend-designer">Backend designer</h3>
+
+<p>Backend of designer is based on .Net Core and ASP.Net Core. It exposes API to the REACT applications</p>
+
+<h2 id="repository">Repository</h2>
+
+<p>The repository application is based on <a href="https://gitea.io/">GITEA</a>. This is a open source product created in <a href="https://golang.org/">GO</a>.</p>
+
+<h2 id="runtime">Runtime</h2>
+
+<p>Runtime is both part of the Altinn Studio and the Altinn Studio Apps solution.</p>
+
+<p>For Altinn Studio the Runtime is shared between all services and all</p>
+
+<h3 id="frontend-runtime">Frontend runtime</h3>
 
 <p>The runtime application will have two different types of frontend.
 * Frontend developed by the service developer in Altinn Studio designer
@@ -1634,8 +1651,6 @@ could build theire own client based frontend on REACT or other frameworks hosted
 <p>As part of the platform there is some standard pages presented during the workflow for a service
 that the service developer does not need to create GUI for.
 * Instansiation
-* Send in
-* Signing
 * Payment</p>
 
 <p>These are all using Razor as frontend framework.</p>
@@ -1651,98 +1666,6 @@ interfaces to run the specific service logic implemented in Altinn Studio.</p>
 
 <p>Based on the logged in service developer and URL parames the correct service implementation will be compiled and loaded in to memory
 for backend.</p>
-
-<h4 id="end-user-mode">End User Mode</h4>
-
-<p>In End User mode there will be built dedicated container images for each service.
-The Service Implementation will be pre-compilled and stored in the container file structure
-so it can be loaded in to memory.</p>
-
-<h4 id="service-implementation">Service Implementation.</h4>
-
-<p>The service implementation is C# code generated/created as part of the service
-development process in Altinn Studio.</p>
-
-<p>The Service Implementation implement a defined interface that backend uses to be able to interact
-with the service implementation.</p>
-
-<p>The service implementation contains all backend code for logic and rules.</p>
-
-<h4 id="events">Events</h4>
-
-<p>The runtime has a defined event model that can be used by the service developer
-to controll when logic in the service implementation will run.</p>
-
-<p>These events are mapped to functional events triggered by end users or systems.</p>
-
-<h5 id="instansiation">Instansiation</h5>
-
-<p>Instansiation is when the end user or system instansiates a new service instance.
-Events connected to instansiation can contain logic that can prefill the datamodell
-or validate if the user or system is allowed to instansiate that service.</p>
-
-
-	<p><object data="/architecture/application/runtime/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
-
-
-
-<h5 id="load-form-data-get">Load form data (GET)</h5>
-
-<p>Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
-the latest updated form data.</p>
-
-<p>The following events will be performed</p>
-
-
-	<p><object data="/architecture/application/runtime/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
-
-
-
-<h4 id="storing-of-form-data-post">Storing of form data (POST)</h4>
-
-<p>Update of form data can happen when frontend (REACT app) sends data to backend
-or a end user system does the same. When an update happend there is defined serveral
-events that is performed in a given ordern. The service developer can implement
-logic related to this event that could perform calculation, validation, API calls and much more.</p>
-
-<p>The API for updating form data support different modes</p>
-
-<ul>
-<li>Create - Data should be stored as a new form instance</li>
-<li>Complete - Data is complete and the service should move ahead in the workflow</li>
-<li>Calculate - Logic in the calculation event should be performed and the updated form data should be returned</li>
-<li>Validate - Calculation will be performend and then validation logic is runned and any validation errors is returned.</li>
-<li>Update - Calculation is runned before data is stored in to the database.</li>
-</ul>
-
-<p>The order of events are</p>
-
-
-	<p><object data="/architecture/application/runtime/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
-
-
-
-<h4 id="update-form-data-put">Update form data (PUT)</h4>
-
-<p>Update of form data happens when the frontend or external end user systems/applications
-want to update a existing form connected to a service instance</p>
-
-<p>The following events happens:</p>
-
-
-	<p><object data="/architecture/application/runtime/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object></p>
-
-
-
-<h3 id="datamodel">Datamodel</h3>
-
-<p>The data model in a service is defined as an XSD. From the XSD it is generated
-a C# representation of that model.</p>
-
-<p>In runtime all data is deserialized/serialized from/to this model when communication
-with frontend/external systems.</p>
-
-<p>All logic in the service will typical be related to the datamodel.</p>
 
 
 <footer class=" footline" >
