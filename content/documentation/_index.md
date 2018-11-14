@@ -9,9 +9,9 @@ alwaysopen: true
 Altinn Studio is deployed as two different solutions to make a complete platform.
 
 
-## Altinn Studio Service Development solution
+## Altinn Studio
 This is where the Service Developers create their end user services with GUI, rules and logic, workflow, texts  ++
 
-## Altinn Studio Runtime solution
+## Altinn Studio Apps
 This is the solution where the completed end user services is deployed and accessed by end users. 
 
