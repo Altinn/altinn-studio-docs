@@ -15,11 +15,10 @@ The following diagram shows the application architecture for the Altinn Studio A
 <object data="/architecture/application/altinn-studio-apps/RunTime_Application_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
-
 ### Frontend
 The runtime application will have two different types of frontend.
 * Frontend developed by the service developer in Altinn Studio designer
-* Frontend that is part of the plattform. 
+* Frontend that is part of the plattform and cant be changed by the service developer
 
 #### Frontend for Altinn Studio service
 The frontend developed as part of the service development in Altinn Studio is based on REACT.

@@ -24,6 +24,9 @@ This will be a higly scalable plattform with isolated service applications.
 The first version will support services where the usecase is to submit data from the end 
 user or the system to the service owner. 
 
+## Why Altinn studio
+
+
 ## When will it be released
 First version is planned to be launced 2019
 
