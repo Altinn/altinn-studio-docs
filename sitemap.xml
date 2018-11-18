@@ -27,6 +27,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/designer/uidesigner/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/about/</loc>
   </url>
   
@@ -36,6 +40,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/deployment/altinn-studio/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/</loc>
   </url>
   
   <url>
@@ -75,11 +83,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/designer/datamodeling/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/deployment/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/</loc>
+    <loc>https://docs.altinn.studio/technology/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/apiexpose/</loc>
   </url>
   
   <url>
@@ -100,6 +116,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/technology/react/codearchitecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/kubernetes/</loc>
   </url>
   
   <url>
@@ -127,7 +147,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/designer/reusablecomponent/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/deployment/service-deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/test/</loc>
   </url>
   
   <url>
@@ -163,6 +195,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/designer/text/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/traefik/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/technology/thirdpartycomponents/</loc>
   </url>
   
@@ -171,7 +211,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/designer/apiuse/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/documentation/repositories/data/validationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/nginx/</loc>
   </url>
   
   <url>
@@ -179,7 +227,20 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/designer/logic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/workflow/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/api-use/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -214,6 +275,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/test/</loc>
     <priority>0</priority>
   </url>
   
@@ -279,6 +345,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/tjenester-3.0/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/workflow/</loc>
     <priority>0</priority>
   </url>
   
