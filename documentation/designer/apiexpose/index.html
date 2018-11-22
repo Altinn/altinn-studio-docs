@@ -350,7 +350,88 @@ if(host != "localhost")
         
         ">
       <a href="/documentation/designer/datamodeling/">
-        <span>Datamodeling</span>
+        <span>Data modeling</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/designer/workflow/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/designer/workflow/">
+        <span>Workflow</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/designer/logic/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/designer/logic/">
+        <span>Logic &amp; Rules</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/designer/apiuse/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/designer/apiuse/">
+        <span>Using API&#39;s</span>
 
         
         
@@ -377,7 +458,7 @@ if(host != "localhost")
         
         ">
       <a href="/documentation/designer/apiexpose/">
-        <span>Exposing as API</span>
+        <span>Exposing API</span>
 
         
         
@@ -405,6 +486,33 @@ if(host != "localhost")
         ">
       <a href="/documentation/designer/reusablecomponent/">
         <span>Reusable Resources</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/documentation/designer/text/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/documentation/designer/text/">
+        <span>Texts and translations</span>
 
         
         
@@ -459,114 +567,6 @@ if(host != "localhost")
         ">
       <a href="/documentation/designer/test/">
         <span>Service Test</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/documentation/designer/text/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/documentation/designer/text/">
-        <span>Texts and translations</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/documentation/designer/apiuse/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/documentation/designer/apiuse/">
-        <span>Using API&#39;s</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/documentation/designer/logic/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/documentation/designer/logic/">
-        <span>Logic &amp; Rules</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/documentation/designer/workflow/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/documentation/designer/workflow/">
-        <span>Workflow</span>
 
         
         
@@ -1910,8 +1910,6 @@ if(host != "localhost")
                   </a>
                 </span>
                 
-                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
-                
                 <span class="links">
                   
                   
@@ -1925,7 +1923,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio docs</a> > <a href='/documentation/'>Solution</a> > <a href='/documentation/designer/'>Altinn Studio</a> > Exposing as API
+ <a href='/'>Altinn Studio docs</a> > <a href='/documentation/'>Solution</a> > <a href='/documentation/designer/'>Altinn Studio</a> > Exposing API
 
  
 
@@ -1936,23 +1934,6 @@ if(host != "localhost")
 
                 </span>
             </div>
-            
-              <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#build-api">Build API</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-    </div>
-</div>
-    
             
           </div>
         
@@ -1973,22 +1954,12 @@ if(host != "localhost")
 
 
 
+<p>Services created in Altinn Studio can be exposed as API together with GUI, or only as API without any GUI.</p>
 
+<p>Each service will have its unique set of API&rsquo;s. Compared to current API it makes it possible to create API&rsquo;s that
+have documentation that is target for the specific service.</p>
 
-<h3 id="build-api">Build API</h3>
-
-<p>As the</p>
-
-<p>På samme måte som at tjenester kan ha brukergrensesnitt (UX), så skal også en tjeneste kunne ha ett eller flere API, altså tekniske grensesnitt.
-Derfor må det være mulig å bygge og teste API&rsquo;er, og det skal også være mulig å lage tjenester helt uten UX.</p>
-
-<p>En potensiell fordel ved å kunne ha egne API&rsquo;er pr. tjeneste er at dokumentasjon og definisjon av API&rsquo;ene kan spisses og gjøres bedre og enklere
-å ta i bruk. Dette i kontrast til de <a href="https://altinn.github.io/docs/guides/integrasjon/sluttbrukere/api/">generelle API&rsquo;ene</a>,
-der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjeneste som benyttes.</p>
-
-<p>⚠️ Pga. ønske om bakoverkompatibilitet, så er det en ambisjon at dagens generelle API&rsquo;er også skal fungere med 3.0-tjenester.</p>
-
-<p>Her er vi litt i tenkeboksen i forhold til hva som er mulig å få til, og hvordan dette kan fungere.</p>
+<p>What kind of API&rsquo;s a service would expose will be analyzed in the comming periode</p>
 
 
 <footer class=" footline" >
@@ -2186,6 +2157,54 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -2265,54 +2284,6 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2361,22 +2332,6 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -2538,62 +2493,6 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
             
         
                     
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -2623,51 +2522,6 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -2676,56 +2530,6 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -2777,6 +2581,54 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
                         
             
             
@@ -2806,11 +2658,45 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
                     
             
         
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -2872,6 +2758,91 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -2986,7 +2957,7 @@ der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjenes
 
 
         
-            <a class="nav nav-prev" href="/documentation/designer/datamodeling/" title="Datamodeling"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/documentation/designer/apiuse/" title="Using API&#39;s"> <i class="fa fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="/documentation/designer/reusablecomponent/" title="Creating Reusable resources" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>

@@ -46,7 +46,7 @@
 	"title": "UI - designer",
 	"tags": ["tjenester 3.0"],
 	"description": "The UI-designer is the part of Altinn Studio where the service developer can create",
-	"content": "   Definering av layout for tjenesten \u0026#34;Starte Enkeltpersonforetak\u0026#34;   The possibility to effectly build a user friendly user interface for a service is a essential feature for Altinn Studio.\nThis is one of the more complex functionality developed as part of Altinn Studio.\nThe UI-designer is expected to have the following functionality\n Choose or change overall layout / look \u0026amp; feel Defining on or more views for the service  Define navigation between views  Define detailed layout pr. view (responsive design) Add reusable webcomponents to detailed layout  Configuration of the web components  Connection for datamodel og server-side API (The need for rules and validation should be performend also when accessing throug API. Connection for text/translations    Drag\u0026#39;n drop av web komponenter   See all issues related to Altinn Studio and UI-designer on Github\n"
+	"content": "   Definering av layout for tjenesten \u0026#34;Starte Enkeltpersonforetak\u0026#34;   The possibility to effectly build a user friendly user interface for a service is a essential feature for Altinn Studio.\nThis is one of the more complex functionality developed as part of Altinn Studio.\nThe UI-designer is expected to have the following functionality\n Choose or change overall layout / look \u0026amp; feel Defining on or more views for the service  Define navigation between views  Define detailed layout pr. view (responsive design) Add reusable webcomponents to detailed layout  Configuration of the web components  Connection for datamodel og server-side API (The need for rules and validation should be performend also when accessing throug API. Connection for text/translations    Drag\u0026#39;n drop av web komponenter   See all issues related to Altinn Studio and UI-designer on Github\nComponents The following list of components has been defined. (list will be expanded)\nRadio button   Radio Button in designer     Radio Button configuration     Radio Button in runtime   "
 },
 {
 	"uri": "https://docs.altinn.studio/about/",
@@ -74,7 +74,7 @@
 	"title": "Altinn Studio",
 	"tags": ["tjenester 3.0"],
 	"description": "Solution for designing service UI, defining workflow, other settings, deploy ++",
-	"content": " This documentation is work in progress and is beeing translated to english\n\rAltinn Studio will be a user friendly solution where non-technical and technical service developers can create services based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, theme, web-components, texts, API-calls, codelist and workflow steps.\nIn the background Altinn Studio use git against the Repositories to store the files created as part of the service, the same way a technical service developer can use Visual Studio Code or other IDE to do the same.\nFunctionality in Altinn Studio Altinn Studio can been seen as a collection of different editors or application specialized to create and edit different aspects of a Altinn Studio service on a quick and effecit way.\nThe goal is to get a natural and effectiv flow between the different applications. The result from a application in Altinn Studio will be on more many file that will be version controlled in the Repositories.\nFunctional Areas Click on the areas below to read more about the different functional areas.\n\rUI - designer\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rDatamodeling\r\rDefining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.\n\rExposing service as API\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rCreating Reusable resources\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rService Deployment\r\rAltinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps\n\rService Test\r\rIn Altinn Studio there will different ways for service developers to test their services\n\rText and translations\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rUsing API\u0026#39;s\r\rFor many services it is required to call API\u0026#39;s. Altinn Studio will support building API connections with many types of API.\n\rCreating logic\r\rFor many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic\n\rWorkflow\r\rAs part of the service development the developer would define a workflow for the service\n\r"
+	"content": " This documentation is work in progress and is beeing translated to english\n\rAltinn Studio will be a user friendly solution where non-technical and technical service developers can create services based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, theme, web-components, texts, API-calls, codelist and workflow steps.\nIn the background Altinn Studio use git against the Repositories to store the files created as part of the service, the same way a technical service developer can use Visual Studio Code or other IDE to do the same.\nFunctionality in Altinn Studio Altinn Studio can been seen as a collection of different editors or application specialized to create and edit different aspects of a Altinn Studio service on a quick and effecit way.\nThe goal is to get a natural and effectiv flow between the different applications. The result from a application in Altinn Studio will be on more many file that will be version controlled in the Repositories.\nFunctional Areas Click on the areas below to read more about the different functional areas.\n\rUI - designer\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rData modeling\r\rDefining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.\n\rWorkflow\r\rAs part of the service development the developer would define a workflow for the service\n\rCreating logic\r\rFor many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic\n\rUsing API\u0026#39;s\r\rFor many services it is required to call API\u0026#39;s. Altinn Studio will support building API connections with many types of API.\n\rExposing service as API\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rCreating Reusable resources\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rText and translations\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rService Deployment\r\rAltinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps\n\rService Test\r\rIn Altinn Studio there will different ways for service developers to test their services\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-studio-apps/",
@@ -140,13 +140,6 @@
 	"content": " Under arbeid\n\rOverordnet struktur Gitea\n├── \raltinn\n│ ├── \rcommon\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │ └── README.md\n│ ├── \rcodelists\n│ │ ├── \rcountries.json\n│ │ └── \r\u0026hellip;\n│ │ └── README.md\n│ └── \r\u0026hellip;\n│\n├── \rorg-x\n│ ├── \rorg-x\n│ │ ├── \rsettings.json\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │\n│ ├── \rcodelists\n│ │ ├── \rkodeliste1.json\n│ │ └── \r\u0026hellip;\n│ │\n│ ├── \rtjeneste-1\n│ │ ├── \rcommon \u0026hellip;\n│ │ ├── \reditions\n│ │ │ ├── \r2018\n│ │ │ │ ├── \rImplementation\n│ │ │ │ │ ├── \rCalculationHandler.cs\n│ │ │ │ │ ├── \rInstantiationHandler.cs\n│ │ │ │ │ ├── \rServiceImplementation.cs\n│ │ │ │ │ └── \rValidationHandler.cs\n│ │ │ │ ├── \rResources\n│ │ │ │ │ ├── \rStyles.json\n│ │ │ │ │ ├── \rreact-app.css\n│ │ │ │ │ ├── \rreact-app.js │ │ │ │ │ ├── \rRuleHandler.js\n│ │ │ │ │ ├── \rFormLayout.json\n│ │ │ │ │ ├── \rServiceConfigurations.json\n│ │ │ │ │ ├── \rresource.nb-NO.json\n│ │ │ │ │ └── \rresource.nn-NO.json\n│ │ │ │ ├── \rModel\n│ │ │ │ │ ├── \rServiceModel.xsd\n│ │ │ │ │ └── \rServiceModel.cs\n│ │ │ │ ├── \rconfig.json\n│ │ │ │ └── \rMetadata\n│ │ │ │ ├── \rServiceMetadata.json\n│ │ │ │ └── \rworkflow.json │ │ │ │\n│ │ │ └── \r2019 \u0026hellip;\n│ │ ├── .gitignore\n│ │ ├── LICENSE\n│ │ └── README.md\n│ │\n│ └── \rtjeneste-2 \u0026hellip;\n│\n├── \rorg-y\n│ ├── \rorg-y \u0026hellip;\n│ └── \r\u0026hellip;\n│\n├── \rbruker-a\n│ └── \rtjeneste-1 (fork av org-x/tjeneste-1)\n├── \rbruker-b \u0026hellip;\n│\n├── \rAlle organisasjoner\n├── \rAlle repos\n└── \rAlle brukere\n"
 },
 {
-	"uri": "https://docs.altinn.studio/documentation/designer/datamodeling/",
-	"title": "Datamodeling",
-	"tags": ["tjenester 3.0"],
-	"description": "Defining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.",
-	"content": " Modellere data Tanken er at det å ha en modell for tjenestedataene vil gi en del fordeler, som f.eks. enhetlig validering på tvers av kanaler, enklere å automatisere testing, enklere å avdekke feil i regler, formell definisjon av dataformat for eksterne systemer, etc.\n Enkel modellering av data Innebygd erstatning for SERES ifbm. tjenesteutvikling Må støtte flere formater, sannsynligvis et JSON-format som default, og som kan konverteres til XML for de eksterne som foretrekker det For å forenkle konvertering av dagens XSD-baserte InfoPath-skjema, så må konvertering til/fra disse formatene støttes i runtime    Editor for enkel datamodellering   See all issues related to Altinn Studio and data modeling on Github\n"
-},
-{
 	"uri": "https://docs.altinn.studio/architecture/deployment/",
 	"title": "Deployment",
 	"tags": ["documentation", "solution", "architecture"],
@@ -159,13 +152,6 @@
 	"tags": ["tjenester 3.0"],
 	"description": "Docker is the container technology used in Altinn Studio/ Altinn Studio Apps",
 	"content": " Docker is used as the container technology in Altinn Studio to host the different applications in the solution. In the Altinn Studio Apps solution it is used to host the different services created in Altinn Studio.\nLenker  Official webpage\n Github\n  "
-},
-{
-	"uri": "https://docs.altinn.studio/documentation/designer/apiexpose/",
-	"title": "Exposing service as API",
-	"tags": ["tjenester 3.0"],
-	"description": "Solution for designing service UI, defining workflow, other settings, deploy ++",
-	"content": " Build API As the\nPå samme måte som at tjenester kan ha brukergrensesnitt (UX), så skal også en tjeneste kunne ha ett eller flere API, altså tekniske grensesnitt. Derfor må det være mulig å bygge og teste API\u0026rsquo;er, og det skal også være mulig å lage tjenester helt uten UX.\nEn potensiell fordel ved å kunne ha egne API\u0026rsquo;er pr. tjeneste er at dokumentasjon og definisjon av API\u0026rsquo;ene kan spisses og gjøres bedre og enklere å ta i bruk. Dette i kontrast til de generelle API\u0026rsquo;ene, der payload bare er en tekststreng som vil variere basert på hvilken TUL-tjeneste som benyttes.\n⚠️ Pga. ønske om bakoverkompatibilitet, så er det en ambisjon at dagens generelle API\u0026rsquo;er også skal fungere med 3.0-tjenester.\nHer er vi litt i tenkeboksen i forhold til hva som er mulig å få til, og hvordan dette kan fungere.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/documentation/repositories/data/form-layout/",
@@ -252,32 +238,11 @@
 	"content": "Dokumentasjon av \u0026ldquo;Repositories\u0026rdquo;, løsningen for lagring og versjonering av tjenestene som utvikles.\n\rRepositories - Arkitektur\r\rBeskrivelse av arkitektur for Repositories.\n\rRepositories - Data\r\rStruktur for repositories og filer i Gitea\n\rRepositories - Funksjonelt\r\rFunksjonalitet for lagring og versjonering av tjenester i Git-repositories samt funksjonalitet for application lifecycle management.\n\r"
 },
 {
-	"uri": "https://docs.altinn.studio/documentation/designer/reusablecomponent/",
-	"title": "Creating Reusable resources",
-	"tags": ["tjenester 3.0"],
-	"description": "The UI-designer is the part of Altinn Studio where the service developer can create",
-	"content": "   Definering av layout for tjenesten \u0026#34;Starte Enkeltpersonforetak\u0026#34;   Create reusable resources A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other service developers that uses Altinn Studio.\nReusable resource is typical created by technical developers using code editors.\n  Development of new React web component   Web component When building UI, you will use and configure premade web components. The components will be based on React, and vil vary in size and complexity. Web components are developed in code editors.\nSome basic requirements:\n The component should be flexible and configurable The component should be able to be connected to the data model, and use the metadata from the data model. The component should be able to connect to text resources The component should support responsive design and WCAG 2 AA It should be simple for service owners to add more components  Overall layout When building UI it will be possible to select a overall layout (aka \u0026ldquo;look\u0026amp;feel\u0026rdquo;). This could bee neded because of the complexity of the service or a wish for branding of the service.\n Create reuasable artifacts\n Look\u0026amp;feel Texts and translations Code lists Logic (C#? TypeScript? WebAssembly?) Data models (Seres?) API calls  Reuse these artifacts\n  F.eks. det å lage nye web componenter og layouts vil typisk være noe som tekniske utviklere gjør i kode-editorer.\nDet å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.\n"
-},
-{
 	"uri": "https://docs.altinn.studio/architecture/deployment/service-deployment/",
 	"title": "Altinn Studio - Service Deployment",
 	"tags": ["tjenester 3.0"],
 	"description": "Description of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio",
 	"content": "NOTE: Work in progress. Stuff will change\n\rWhen a service developer need to deploy a service to Altinn Studio Runtime solution test/production environement there is created a Docker Image with the configured version of Altinn Studio Runtime and the compiled service code and configuration inside the container.\nThis container is added to the Docker Registry.\nFrom Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users.\nDetails of build process can be found under build architecture.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/documentation/designer/deployment/",
-	"title": "Service Deployment",
-	"tags": ["tjenester 3.0"],
-	"description": "Altinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps",
-	"content": " Deployment 3.0-tjenester skal når som helst kunne deployes til produksjon, uten å måtte involvere Altinn-organisasjonen eller dens leverandører. Designer vil typisk gjøre API-kall mot Repositories for å få tilbake en liste over releaser, og så gjøre et API-kall mot Runtime for å initiere deploy.\n Selvbetjent deploy til testmiljøer og prod  "
-},
-{
-	"uri": "https://docs.altinn.studio/documentation/designer/test/",
-	"title": "Service Test",
-	"tags": ["tjenester 3.0", "Test"],
-	"description": "In Altinn Studio there will different ways for service developers to test their services",
-	"content": " Automatisk testing Automatisert testing av alle 3.0-tjenester som utvikles vil gi en veldig positiv effekt, både på kvalitet og redusert tidsbruk over tid. Det å ha en datamodell gjør at det blir enklere å f.eks. automatisk generere opp initielle tester, og detektere tester som er blitt ugyldige.\n Legge opp til automatisert testing av alle tjenester Selenium / API ?  Dette er et område som ikke ble sett på i PoC.\n  Editor for automatisert testing   Manuell testing Samme Runtime som vil kjøre i altinn.no vil også benyttes for testing av tjenester i Designer. Dette betyr at enhetstesting av UX og API\u0026rsquo;er vil gi stor grad av sikkerhet, siden det er samme runtime-koden som vil kjøre både i prod og under utvikling. En annen positiv effekt er at mer tekniske utviklere faktisk kan gjøre realistisk lokal debugging og stepping i runtime-koden.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/documentation/repositories/data/serviceimplementation/",
@@ -336,13 +301,6 @@
 	"content": " Preview-funksjonalitet I UI-editoren er det bygget inn en Preview-funksjonalitet. Denne tillater tjenesteutvikler å se hvordan skjema vil se ut til slutt.\nPreview er tilgjengelig under UX i toppmenyen, eller via Preview-fanen dersom man allerede er i UI-editoren.\nI tillegg til å se hvordan skjema vil se ut, kan man også teste f.eks. API-kall, kalkuleringer/regler, valideringer og dynamikk og se hvordan disse oppfører seg.\n  Preview   Kjør utgaven i Runtime Utgaven kan testes med en testbruker i Runtime.\n Gå til utgavearbeidsflaten (velg utgaven i toppmenyen eller gå inn til utgaven via forsiden) Under Test, velg \r-ikonet. Velg testbruker fra listen Velg eksisterende instans, eller start ny.  Utgaven kan nå testes, all funksjonalitet som er beskrevet over i Preview er også tilgjengelige for test i Runtime.\n  Test utgave i Runtime   "
 },
 {
-	"uri": "https://docs.altinn.studio/documentation/designer/text/",
-	"title": "Text and translations",
-	"tags": ["tjenester 3.0"],
-	"description": "Solution for designing service UI, defining workflow, other settings, deploy ++",
-	"content": " Tekstredigering og oversettelse Enkel of effektiv behandling av tekster og oversettinger er utrolig viktig i en tjenesteuviklingsløsning, og ikke minst enkel gjenbruk av tekster på tvers av flere tjenester.\nEditoren for tekster skal lagre hvert språk som enkel JSON-fil som effektivt kan jobbes direkte på i kodeeditorer eller konverteres til formater som eksterne oversettelsesverktøy benytter. Dette gjør også at 3.0 kan støtte vilkårlige språk, selv språk som ikke er støtte av Altinn-portalen.\n Definering av tekster med hierarkiske og lesbare nøkler Gjenbruk av tekster, internt på tvers av sider og i valideringer, og fra nivåene over tjenesten Oversetting Kunne legge til vilkårlige språk    Editor for oversetting av tekster   "
-},
-{
 	"uri": "https://docs.altinn.studio/technology/traefik/",
 	"title": "Traefik",
 	"tags": ["tjenester 3.0"],
@@ -362,13 +320,6 @@
 	"tags": ["tjenester 3.0"],
 	"description": "TypeScript",
 	"content": "  Typescript er et supersett av JavaScript der sterke typer er i bruk.\n Med javascript er følgende en lovlig handling:\nvar foo = false; foo = \u0026quot;bar\u0026quot;;  Dette ville gitt en TypeError i TypeScript, og koden ville ikke blitt kompilert til JavaScript.\n Typescript kompileres til JavaScript, så klienten kjører aldri TypeScript koden. Typescript er kun til for at utvikleren ikke skal lage bugs ved å endre typer på variabler.\n Vedlikeholdt av Microsoft, under Apache License 2.0.\n  Lenker  Offisiell nettside Github  "
-},
-{
-	"uri": "https://docs.altinn.studio/documentation/designer/apiuse/",
-	"title": "Using API&#39;s",
-	"tags": ["tjenester 3.0", "API Use"],
-	"description": "For many services it is required to call API&#39;s. Altinn Studio will support building API connections with many types of API.",
-	"content": " Bruke APIer For å kunne understøtte \u0026ldquo;once-only\u0026rdquo;, så er det essensielt at det er enkelt å gjøre kall mot andre systemers API\u0026rsquo;er fra en 3.0-tjeneste. For å forenkle dette kan en mulig løsning være å støtte en type gjenbrukbar asset av type \u0026ldquo;API-plugins\u0026rdquo;, som gjør det enkelt å gjøre kall.\nEn ukjent faktor er den kommende \u0026ldquo;API-katalogen\u0026rdquo;, og hvilke egenskaper den vil tilby.\n Enkel bruk av API\u0026rsquo;er. Se på det som gjøres i NADOBE. Må bort fra dagens mappere  Dette er et område som ikke ble sett på i PoC.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/documentation/repositories/data/validationhandler/",
@@ -392,11 +343,11 @@
 	"content": " Overordnet \u0026lsquo;React-App.js\u0026rsquo; er selve React applikasjonen som blir generert av Altinn Studio som del av tjenestutviklingen. Den inneholder all logikk for å rendre GUI samt å gjøre nødvendige kall mot API i Altinn Tjenester 3.0\nFor øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir tilpasset de komponentene som er i bruk. Dette slik at javascript koden ikke i inneholder referanser til komponenter ikke brukt i tjenesten.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/documentation/designer/logic/",
-	"title": "Creating logic",
+	"uri": "https://docs.altinn.studio/documentation/designer/datamodeling/",
+	"title": "Data modeling",
 	"tags": ["tjenester 3.0"],
-	"description": "For many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic",
-	"content": " Definere logikk Logikk som kjører i tjenesten. Er ekstremt viktig å få dette riktig, brukervennlig og fungerende på tvers av kanaler og på tvers av front-end og back-end.\n"
+	"description": "Defining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.",
+	"content": "The data model for a service typical defines the format of the data either sent to the service owner or presented in the service for the user.\nThe data model is important for a consistent and formal definition of the data. It will be used for validation both from GUI and for external systems.\nAltinn Studio will support both importing existing data model as XSD or creating a datamodell. In MVP only import is in scope.\nSome requirements for Altinn Studio is.\n It should be easy to model data Built in replacment for SERES (Current tool) Need to support more formats.    Editor for enkel datamodellering   See all issues related to Altinn Studio and data modeling on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/documentation/designer/workflow/",
@@ -404,6 +355,55 @@
 	"tags": ["tjenester 3.0", "workflow"],
 	"description": "As part of the service development the developer would define a workflow for the service",
 	"content": " Definere arbeidsflyt Definere arbeidsflyt for en tjeneste. Må være MYE kraftigere og mer fleksibel enn det som finnes i dagens løsning. Målsettingen er å muliggjøre at vi kan fjerne de ulike tjenestetypene i dagens løsning.\nTanken er at hvis man både kan gjøre henting av data (innsyn) og ta i mot meldinger, og gjøre en eller flere arkivering, så faller behovet for tjenestetyper bort. Behovet for samhandlingstjenesten forsvinner også.\nEn annen veldig spennende tanke er at dette også åpner opp for å \u0026ldquo;koble sammen\u0026rdquo; dialogen for brukeren, siden det da per. def ikke er noe å koble sammen. Hele dialogen er bare ulike steg i den samme tjenesten, og siden man også kan legge til API\u0026rsquo;er på en 3.0-tjeneste, så åpner det opp for at tjenesteeier modellerer flyten istedenfor at den må passe inn i et mønster som er bestemt av Altinn.\nStegene i en arbeidsflyt skal også være del av selve tjenesten som deployes, og ikke kjøre i plattformen slik som i dag. Dette åpner opp for stor grad av tilpasninger, gjør at hele flyten kan enhetstestes, og gjør at tjenesten i større grad blir immun mot påvirkning fra endringer i plattformen. En naturlig vei å gå vil være å benytte de samme mekanismene for å kunne gjenbruke og (re)definere arbeidsflyt og GUI per steg, som for GUI for tjenestene. Og da er vi veldig nærme det at arbeidsflyt ikke er noe eget, det er det samme som flyten internt i et skjema.\nEksempler på steg:\n Signering Hente prefill, gjøre oppslag mot eksterne data Gjøre eksterne valideringer via API Motta melding via API Gjøre ekstern signering Egendefinerte steg, med UX    Banalt enkel implementasjon av arbeidsflyt   See all issues related to Altinn Studio and workflow on Github\n"
+},
+{
+	"uri": "https://docs.altinn.studio/documentation/designer/logic/",
+	"title": "Creating logic",
+	"tags": ["tjenester 3.0"],
+	"description": "For many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic",
+	"content": " Definere logikk Logikk som kjører i tjenesten. Er ekstremt viktig å få dette riktig, brukervennlig og fungerende på tvers av kanaler og på tvers av front-end og back-end.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/documentation/designer/apiuse/",
+	"title": "Using API&#39;s",
+	"tags": ["tjenester 3.0", "API Use"],
+	"description": "For many services it is required to call API&#39;s. Altinn Studio will support building API connections with many types of API.",
+	"content": "To be able to support \u0026ldquo;once-only\u0026rdquo; it is essensial that it is easy to do API-call from a service to other systems API\u0026rsquo;s\nFor å kunne understøtte \u0026ldquo;once-only\u0026rdquo;, så er det essensielt at det er enkelt å gjøre kall mot andre systemers API\u0026rsquo;er fra en 3.0-tjeneste. For å forenkle dette kan en mulig løsning være å støtte en type gjenbrukbar asset av type \u0026ldquo;API-plugins\u0026rdquo;, som gjør det enkelt å gjøre kall.\nEn ukjent faktor er den kommende \u0026ldquo;API-katalogen\u0026rdquo;, og hvilke egenskaper den vil tilby.\n Enkel bruk av API\u0026rsquo;er. Se på det som gjøres i NADOBE. Må bort fra dagens mappere  Dette er et område som ikke ble sett på i PoC.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/documentation/designer/apiexpose/",
+	"title": "Exposing service as API",
+	"tags": ["tjenester 3.0"],
+	"description": "Solution for designing service UI, defining workflow, other settings, deploy ++",
+	"content": "Services created in Altinn Studio can be exposed as API together with GUI, or only as API without any GUI.\nEach service will have its unique set of API\u0026rsquo;s. Compared to current API it makes it possible to create API\u0026rsquo;s that have documentation that is target for the specific service.\nWhat kind of API\u0026rsquo;s a service would expose will be analyzed in the comming periode\n"
+},
+{
+	"uri": "https://docs.altinn.studio/documentation/designer/reusablecomponent/",
+	"title": "Creating Reusable resources",
+	"tags": ["tjenester 3.0"],
+	"description": "The UI-designer is the part of Altinn Studio where the service developer can create",
+	"content": "   Definering av layout for tjenesten \u0026#34;Starte Enkeltpersonforetak\u0026#34;   Create reusable resources A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other service developers that uses Altinn Studio.\nReusable resource is typical created by technical developers using code editors.\n  Development of new React web component   Web component When building UI, you will use and configure premade web components. The components will be based on React, and vil vary in size and complexity. Web components are developed in code editors.\nSome basic requirements:\n The component should be flexible and configurable The component should be able to be connected to the data model, and use the metadata from the data model. The component should be able to connect to text resources The component should support responsive design and WCAG 2 AA It should be simple for service owners to add more components  Overall layout When building UI it will be possible to select a overall layout (aka \u0026ldquo;look\u0026amp;feel\u0026rdquo;). This could bee neded because of the complexity of the service or a wish for branding of the service.\n Create reuasable artifacts\n Look\u0026amp;feel Texts and translations Code lists Logic (C#? TypeScript? WebAssembly?) Data models (Seres?) API calls  Reuse these artifacts\n  F.eks. det å lage nye web componenter og layouts vil typisk være noe som tekniske utviklere gjør i kode-editorer.\nDet å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/documentation/designer/text/",
+	"title": "Text and translations",
+	"tags": ["tjenester 3.0"],
+	"description": "Solution for designing service UI, defining workflow, other settings, deploy ++",
+	"content": "Enkel of effektiv behandling av tekster og oversettinger er utrolig viktig i en tjenesteuviklingsløsning, og ikke minst enkel gjenbruk av tekster på tvers av flere tjenester.\nEditoren for tekster skal lagre hvert språk som enkel JSON-fil som effektivt kan jobbes direkte på i kodeeditorer eller konverteres til formater som eksterne oversettelsesverktøy benytter. Dette gjør også at 3.0 kan støtte vilkårlige språk, selv språk som ikke er støtte av Altinn-portalen.\n Definering av tekster med hierarkiske og lesbare nøkler Gjenbruk av tekster, internt på tvers av sider og i valideringer, og fra nivåene over tjenesten Oversetting Kunne legge til vilkårlige språk    Editor for oversetting av tekster   "
+},
+{
+	"uri": "https://docs.altinn.studio/documentation/designer/deployment/",
+	"title": "Service Deployment",
+	"tags": ["tjenester 3.0"],
+	"description": "Altinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps",
+	"content": " Deployment 3.0-tjenester skal når som helst kunne deployes til produksjon, uten å måtte involvere Altinn-organisasjonen eller dens leverandører. Designer vil typisk gjøre API-kall mot Repositories for å få tilbake en liste over releaser, og så gjøre et API-kall mot Runtime for å initiere deploy.\n Selvbetjent deploy til testmiljøer og prod  "
+},
+{
+	"uri": "https://docs.altinn.studio/documentation/designer/test/",
+	"title": "Service Test",
+	"tags": ["tjenester 3.0", "Test"],
+	"description": "In Altinn Studio there will different ways for service developers to test their services",
+	"content": " Automatisk testing Automatisert testing av alle 3.0-tjenester som utvikles vil gi en veldig positiv effekt, både på kvalitet og redusert tidsbruk over tid. Det å ha en datamodell gjør at det blir enklere å f.eks. automatisk generere opp initielle tester, og detektere tester som er blitt ugyldige.\n Legge opp til automatisert testing av alle tjenester Selenium / API ?  Dette er et område som ikke ble sett på i PoC.\n  Editor for automatisert testing   Manuell testing Samme Runtime som vil kjøre i altinn.no vil også benyttes for testing av tjenester i Designer. Dette betyr at enhetstesting av UX og API\u0026rsquo;er vil gi stor grad av sikkerhet, siden det er samme runtime-koden som vil kjøre både i prod og under utvikling. En annen positiv effekt er at mer tekniske utviklere faktisk kan gjøre realistisk lokal debugging og stepping i runtime-koden.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/_header/",

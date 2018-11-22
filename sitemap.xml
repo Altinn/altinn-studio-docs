@@ -83,19 +83,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/datamodeling/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/deployment/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/technology/docker/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/apiexpose/</loc>
   </url>
   
   <url>
@@ -147,19 +139,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/reusablecomponent/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/deployment/service-deployment/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/deployment/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/test/</loc>
   </url>
   
   <url>
@@ -195,10 +175,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/text/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/technology/traefik/</loc>
   </url>
   
@@ -208,10 +184,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/technology/typescript/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/apiuse/</loc>
   </url>
   
   <url>
@@ -227,11 +199,39 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/logic/</loc>
+    <loc>https://docs.altinn.studio/documentation/designer/datamodeling/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/documentation/designer/workflow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/logic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/apiuse/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/apiexpose/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/reusablecomponent/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/text/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/deployment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/documentation/designer/test/</loc>
   </url>
   
   <url>
