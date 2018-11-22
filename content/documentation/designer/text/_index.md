@@ -3,10 +3,8 @@ title: Text and translations
 linktitle: Texts and translations
 description: Solution for designing service UI, defining workflow, other settings, deploy ++
 tags: ["tjenester 3.0"]
-weight: 100
+weight: 107
 ---
-
-### Tekstredigering og oversettelse
 
 Enkel of effektiv behandling av tekster og oversettinger er utrolig viktig i en tjenesteuviklingsløsning, og ikke minst enkel gjenbruk
 av tekster på tvers av flere tjenester.

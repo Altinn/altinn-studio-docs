@@ -3,7 +3,7 @@ title: Service Test
 linktitle: Service Test
 description: In Altinn Studio there will different ways for service developers to test their services
 tags: ["tjenester 3.0", "Test"]
-weight: 100
+weight: 111
 ---
 
 

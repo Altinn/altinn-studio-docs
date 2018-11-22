@@ -3,7 +3,7 @@ title: Creating Reusable resources
 linktitle: Reusable Resources
 description: The UI-designer is the part of Altinn Studio where the service developer can create
 tags: ["tjenester 3.0"]
-weight: 100
+weight: 106
 ---
 
 {{<figure src="formdesigner1.png?width=1000" title="Definering av layout for tjenesten \"Starte Enkeltpersonforetak\"">}}

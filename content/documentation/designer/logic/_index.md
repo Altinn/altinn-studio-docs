@@ -3,7 +3,7 @@ title: Creating logic
 linktitle: Logic & Rules
 description: For many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic 
 tags: ["tjenester 3.0"]
-weight: 101
+weight: 104
 ---
 
 ### Definere logikk
