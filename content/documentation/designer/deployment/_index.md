@@ -3,7 +3,7 @@ title: Service Deployment
 linktitle: Service Deployment
 description: Altinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps
 tags: ["tjenester 3.0"]
-weight: 100
+weight: 110
 ---
 
 

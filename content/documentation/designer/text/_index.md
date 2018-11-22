@@ -3,7 +3,7 @@ title: Text and translations
 linktitle: Texts and translations
 description: Solution for designing service UI, defining workflow, other settings, deploy ++
 tags: ["tjenester 3.0"]
-weight: 100
+weight: 107
 ---
 
 ### Text editing and translations

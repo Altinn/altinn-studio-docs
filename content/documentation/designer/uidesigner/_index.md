@@ -29,3 +29,15 @@ The UI-designer is expected to have the following functionality
 See all issues related to Altinn Studio and UI-designer on [Github](https://github.com/Altinn/altinn-studio/labels/ui-editor)
 
 
+### Components
+The following list of components has been defined. (list will be expanded)
+
+
+### Radio button
+
+{{<figure src="component_radiobutton1.png" title="Radio Button in designer">}}
+
+{{<figure src="component_radiobutton2.png" title="Radio Button configuration">}}
+
+{{<figure src="component_radiobutton3.png" title="Radio Button in runtime">}}
+

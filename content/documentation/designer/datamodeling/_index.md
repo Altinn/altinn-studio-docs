@@ -1,21 +1,26 @@
 ---
-title: Datamodeling
-linktitle: Datamodeling
+title: Data modeling
+linktitle: Data modeling
 description: Defining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.
 tags: ["tjenester 3.0"]
-weight: 100
+weight: 101
 ---
 
-### Modellere data
+The data model for a service typical defines the format of the data either sent to the service owner or presented in the service
+for the user. 
 
-Tanken er at det å ha en modell for tjenestedataene vil gi en del fordeler, som f.eks. enhetlig validering på tvers av kanaler, 
-enklere å automatisere testing, enklere å avdekke feil i regler, formell definisjon av dataformat for eksterne systemer, etc.
+The data model is important for a consistent and formal definition of the data. It will
+be used for validation both from GUI and for external systems. 
 
-- Enkel modellering av data
-- Innebygd erstatning for SERES ifbm. tjenesteutvikling
-- Må støtte flere formater, sannsynligvis et JSON-format som default, og som kan konverteres til XML for de eksterne som foretrekker det
-- For å forenkle konvertering av dagens XSD-baserte InfoPath-skjema, så må konvertering til/fra disse formatene støttes i runtime
+Altinn Studio will support both importing existing data model as XSD or creating
+a datamodell. In MVP only import is in scope. 
 
-{{<figure src="data-modelling.png?width=1000" title="Editor for enkel datamodellering">}}
+Some requirements for Altinn Studio is. 
+
+- It should be easy to model data
+- Built in replacment for SERES (Current tool)
+- Need to support more formats. 
+
+{{<figure src="../data-modelling.png?width=1000" title="Editor for enkel datamodellering">}}
 
 See all issues related to Altinn Studio and data modeling on [Github](https://github.com/Altinn/altinn-studio/labels/data-modeling)
