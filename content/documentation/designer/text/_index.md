@@ -6,31 +6,31 @@ tags: ["tjenester 3.0"]
 weight: 100
 ---
 
-### Tekstredigering og oversettelse
+### Text editing and translations
 
-Enkel of effektiv behandling av tekster og oversettinger er utrolig viktig i en tjenesteuviklingsløsning, og ikke minst enkel gjenbruk
-av tekster på tvers av flere tjenester.
+Easy and efficient text processing and translation are important in a service development solution. The possibility to reuse texts across
+multiple services are especially important.
 
-Editoren for tekster skrives som en ini-fil som deretter konverteres til en enkel JSON-fil. På den måten kan det effektivt jobbes direkte på i kodeeditorer
-eller konverteres til formater som eksterne oversettelsesverktøy benytter. Dette gjør også at 3.0 kan støtte vilkårlige språk,
-selv språk som ikke er støtte av Altinn-portalen.
+Texts in the editor are written in a ini-file that is converted to a simple JSON-file and presented as an API. In that way
+the user could work directly in the code editor or convert the text into other formats supported by external translation tools. 
+Meaning that 3.0 supports any language that is added, not just languages supported by the Altinn portal.
 
-- Definering av tekster med hierarkiske og lesbare nøkler
-- Gjenbruk av tekster, internt på tvers av sider og i valideringer, og fra nivåene over tjenesten
-- Oversetting
-- Kunne legge til vilkårlige språk
+- Definition of texts using hierarchical and readable keys
+- Reusable texts, internal across different pages and on the levels above the solution
+- Possibility to add other languages
 
-**Hvordan legge til nytt språk:**
+**How to add a new language:**
 
-- Lag en ny ini-fil og plasser den i AltinnCore > Common > Languages > ini
-- Endre parametret "languageCode" i API-kall til hva enn du har kalt den nye språkfilen <br/>
-    Eksempel for språkfilen norsk bokmål: <br/>
+- Make a new ini-file and place it in AltinnCore > Common > Languages > ini
+- Change the parameter "languageCode" in the  API call to whatever name your ini file is called. <br/>
+    Example for Norweigan bokmål (nb): <br/>
     http://altinn3.no/designer/y/types/Language/getLanguageAsJSON?languageCode=nb
 
-**Føringer for språkfiler:**
+**Guides for language files:**
 
-- Nøkler sorteres etter hvilken app det tilhører hvor universelle nøkler ([general]) ligger øverst
-- Nøkler sorteres etter alfabetisk rekkefølge
-- Nøkler er skrevet med små bokstaver og understreker (example_key)
+- Keys are sorted by which app they belong to
+- Universal keys ([general]) are placed at the top of the file
+- Keys are sorted alphabetically
+- Keys are written in lowercase with underscores (example_key)
 
 {{<figure src="oversetting.png?width=1000" title="Editor for oversetting av tekster">}}
