@@ -9,7 +9,7 @@ tags: ["ci", "build", "devops", "pipeline", "pipelines"]
 
 ### Quality Build
 
-When creating a Pull Request, or commiting to a branch in Pull Request, a pipeline is building the applications, running tests and style check/linting.
+When creating a Pull Request a pipeline is building the applications, running tests and style check/linting.
 TSLint, SonarCloud (for Typescript) and Stylecop (C#) is used for style check/linting.
 
 Triggered by:
