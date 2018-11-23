@@ -16,7 +16,7 @@ Navigation/administration of the different applications is done from top-level a
 The React front-end for Altinn Studio is split into two top level applications: _dashboard_ and _service-developpent_. In addition to these top level application, each feature/functional area will have its own 
 React application which will be imported to the relevant top level application as a _subapp_ (see https://redux.js.org/recipes/isolatingsubapps ).
 
-> **Remember: New subapps must be configured in the top level application's Dockerfile**.  
+> **Remember: New subapps must be configured in the top level application's Dockerfile and in the Designer's gulpfile**.  
 > This is not necessary for shared components.
 
 In addition to feature applications there is also a component library of shared components, that can be reused by all the applications. An example is navigation components. 
