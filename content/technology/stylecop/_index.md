@@ -20,17 +20,18 @@ Instructions to install the stylecop analyzer in your project can be found [here
 ## Ruleset
 
 A solution wide stylecop ruleset and configuration(stylecop.json) is set for altinn studio application. This can be linked to the projects by linking these files like below in the project
+It is set to only work when building in Debug mode
 
 ```
-  <ItemGroup>
+  <ItemGroup Condition="'$(Configuration)'=='Debug'">
     <PackageReference Include="StyleCop.Analyzers.Unstable" Version="1.1.1.61" />    
-    <AdditionalFiles Include="C:\Repos\altinn-studio\stylecop.json">
+    <AdditionalFiles Include="$(SolutionDir)stylecop.json">
       <Link>stylecop.json</Link>
     </AdditionalFiles>
   </ItemGroup>
-
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>C:\Repos\altinn-studio\Altinn3.ruleset</CodeAnalysisRuleSet>
+  
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <CodeAnalysisRuleSet>$(SolutionDir)Altinn3.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   
 ```
@@ -49,36 +50,4 @@ To turn on/off a rule from the ruleset,
 
 ## Implemented rules in altinn studio
 
-The following rules are implemented in altinn studio
-
-#### Special Rules
-
-SA0001
-
-#### Spacing Rules
-
-SA1000 - SA1027
-
-#### Readability Rules
-
-SA1100, SA1102 - SA 1122, SA1125, SA1127, SA1129 - SA1137
-
-#### Ordering Rules
-
-SA1208 - SA1211, SA1216, SA1217
-
-#### Naming Rules
-
-SA1300, SA1302 - SA1308, SA1311, SA1312, SA1314
-
-#### Maintainability Rules
-
-SA1119, SA1400, SA1401, SA1403, SA1404, SA1407, SA1408, SA1413
-
-#### Layout Rules
-
-SA1500 - SA1520
-
-#### Documentation Rules
-
-SA1600 - SA1622, SA1624 - SA1627, SA1642, SA1643, SA1648, SA1649, SA1651
+The list of rules that are implemented (and not implemented) in altinn studio can be found [here](https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset)
