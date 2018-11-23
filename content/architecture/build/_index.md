@@ -9,15 +9,19 @@ tags: ["ci", "build", "devops", "pipeline", "pipelines"]
 
 ### Quality Build
 
-Building the docker image, running tests and checking code.  
+When creating a Pull Request, or commiting to a branch in Pull Request, a pipeline is building the applications, running tests and style check/linting.
+TSLint, SonarCloud (for Typescript) and Stylecop (C#) is used for style check/linting.
+
 Triggered by:
 
-* Git Push
 * Pull Request
 
 ### Altinn Studio and Runtime Docker Images
-Separate pipelines are made for Altinn Studio and Runtime. 
-The pipeline will build and deploy the Altinn Studio Docker Image and the Runtime Docker Image to Azure Container Registry.
+
+Separate pipelines will build and deploy the Altinn Studio Docker Image and the Runtime Docker Image to Azure Container Registry.
+The different Altinn Studio applications (React Apps) is built in seperate Docker images to utilize Docker's cache technique and minimize unnecessary rebuilding.
+
+*Docker-Compose is used when developing and running Altinn Studio locally, building several Docker images and using the same caching technique used in the Pipeline.*
 
 Triggered by:
 
@@ -25,12 +29,12 @@ Triggered by:
 
 ### Altinn Studio Release Build
 
-When the build for either Altinn Studio or Runtime is successfully ran a release build will start. 
-The release build will update the kubernetes cluster with the images created in the Altinn Studio and the Runtime builds
+When the build for either Altinn Studio or Runtime is successfully ran a release build will start.
+The Release Build will update the Kubernetes cluster with the images created in the Altinn Studio and the Runtime build pipelines.
 
 Triggered by:
 
-* Successfull build of either/both Altinn Studio and Runtime
+* Successfull build of either/both Altinn Studio and Runtime.
 
 ### Altinn Service Deploy
 
