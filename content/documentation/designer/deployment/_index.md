@@ -6,12 +6,7 @@ tags: ["tjenester 3.0"]
 weight: 110
 ---
 
+As a service developer you will be able to deploy the created service to Altinn Studio Apps for testing/production.
 
-### Deployment
-
-3.0-tjenester skal når som helst kunne deployes til produksjon, uten å måtte involvere Altinn-organisasjonen eller dens leverandører.
-Designer vil typisk gjøre API-kall mot Repositories for å få tilbake en liste over [releaser](../repositories/#release-management),
-og så gjøre et API-kall mot [Runtime](../runtime/) for å initiere deploy.
-
-- Selvbetjent deploy til testmiljøer og prod
+The goal is that this functionality is 100% self service without involving other parties. 
 

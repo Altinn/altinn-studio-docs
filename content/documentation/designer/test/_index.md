@@ -6,21 +6,10 @@ tags: ["tjenester 3.0", "Test"]
 weight: 111
 ---
 
+Automatic testing of all Altinn Studio service that is developed will give a positive effect, both on quality and reduced development time
+over time.
 
-
-### Automatisk testing
-
-Automatisert testing av alle 3.0-tjenester som utvikles vil gi en veldig positiv effekt, både på kvalitet og redusert tidsbruk
-over tid. Det å ha en [datamodell](#modellere-data) gjør at det blir enklere å f.eks. automatisk generere opp initielle tester, og
-detektere tester som er blitt ugyldige.
-
-- Legge opp til automatisert testing av alle tjenester
-- Selenium / API ?
-
-Dette er et område som ikke ble sett på i PoC.
-
-{{<figure src="testing.png?width=1000" title="Editor for automatisert testing">}}
-
+Altinn Studio will seek to support automatic tests of services. Currently we are looking at TestCafe as framework.
 
 ### Manuell testing
 

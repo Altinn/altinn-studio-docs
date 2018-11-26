@@ -1,5 +1,5 @@
 ---
-title: Runtime
+title: Altinn Studio Apps
 description: Description of the Altinn Studio solution
 tags: ["documentation", "solution", "architecture"]
 weight: 10
