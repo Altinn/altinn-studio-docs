@@ -221,7 +221,7 @@ if(host != "localhost")
     <li data-nav-id="/documentation/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/documentation/">
         <span>Solution</span>
@@ -230,7 +230,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -260,7 +260,7 @@ if(host != "localhost")
         parent
         ">
       <a href="/documentation/runtime/">
-        <span>Runtime</span>
+        <span>Altinn Studio Apps</span>
 
         
         
@@ -1047,7 +1047,7 @@ if(host != "localhost")
     <li data-nav-id="/about/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/about/">
         <span>About</span>
@@ -1056,7 +1056,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -1137,7 +1137,7 @@ if(host != "localhost")
     <li data-nav-id="/architecture/" class="dd-item 
         parent
         
-        parent
+        
         ">
       <a href="/architecture/">
         <span>Architecture</span>
@@ -1248,7 +1248,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/application/altinn-studio/react-app/">
-        <span>React App</span>
+        <span>Front-end</span>
 
         
         
@@ -1735,6 +1735,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/stylecop/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/stylecop/">
+        <span>Stylecop Analyzer</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/traefik/" class="dd-item 
         
         
@@ -1997,18 +2024,21 @@ if(host != "localhost")
 
 <h3 id="quality-build">Quality Build</h3>
 
-<p>Building the docker image, running tests and checking code.<br />
-Triggered by:</p>
+<p>When creating a Pull Request a pipeline is building the applications, running tests and style check/linting.
+TSLint, SonarCloud (for Typescript) and Stylecop (C#) is used for style check/linting.</p>
+
+<p>Triggered by:</p>
 
 <ul>
-<li>Git Push</li>
 <li>Pull Request</li>
 </ul>
 
 <h3 id="altinn-studio-and-runtime-docker-images">Altinn Studio and Runtime Docker Images</h3>
 
-<p>Separate pipelines are made for Altinn Studio and Runtime.
-The pipeline will build and deploy the Altinn Studio Docker Image and the Runtime Docker Image to Azure Container Registry.</p>
+<p>Separate pipelines will build and deploy the Altinn Studio Docker Image and the Runtime Docker Image to Azure Container Registry.
+The different Altinn Studio applications (React Apps) is built in seperate Docker images to utilize Docker&rsquo;s cache technique and minimize unnecessary rebuilding.</p>
+
+<p><em>Docker-Compose is used when developing and running Altinn Studio locally, building several Docker images and using the same caching technique used in the Pipeline.</em></p>
 
 <p>Triggered by:</p>
 
@@ -2019,12 +2049,12 @@ The pipeline will build and deploy the Altinn Studio Docker Image and the Runtim
 <h3 id="altinn-studio-release-build">Altinn Studio Release Build</h3>
 
 <p>When the build for either Altinn Studio or Runtime is successfully ran a release build will start.
-The release build will update the kubernetes cluster with the images created in the Altinn Studio and the Runtime builds</p>
+The Release Build will update the Kubernetes cluster with the images created in the Altinn Studio and the Runtime build pipelines.</p>
 
 <p>Triggered by:</p>
 
 <ul>
-<li>Successfull build of either/both Altinn Studio and Runtime</li>
+<li>Successfull build of either/both Altinn Studio and Runtime.</li>
 </ul>
 
 <h3 id="altinn-service-deploy">Altinn Service Deploy</h3>
@@ -3014,6 +3044,22 @@ The release build will update the kubernetes cluster with the images created in 
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

@@ -3,15 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://docs.altinn.studio/documentation/runtime/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/about/goals/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/guide/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/runtime/</loc>
   </url>
   
   <url>
@@ -95,6 +95,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-studio/react-app/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/documentation/repositories/functional/</loc>
   </url>
   
@@ -124,10 +128,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-studio-apps/react-app/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-studio/react-app/</loc>
   </url>
   
   <url>
@@ -164,6 +164,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/solution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/stylecop/</loc>
   </url>
   
   <url>
@@ -309,6 +313,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/code-analysis/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/dataformat/</loc>
     <priority>0</priority>
   </url>
@@ -340,6 +349,16 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/solution/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/stylecop/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/stylecop-analyzer/</loc>
     <priority>0</priority>
   </url>
   

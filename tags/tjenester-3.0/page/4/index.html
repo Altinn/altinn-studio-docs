@@ -221,7 +221,7 @@ if(host != "localhost")
     <li data-nav-id="/documentation/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/documentation/">
         <span>Solution</span>
@@ -230,7 +230,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -260,7 +260,7 @@ if(host != "localhost")
         parent
         ">
       <a href="/documentation/runtime/">
-        <span>Runtime</span>
+        <span>Altinn Studio Apps</span>
 
         
         
@@ -1047,7 +1047,7 @@ if(host != "localhost")
     <li data-nav-id="/about/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/about/">
         <span>About</span>
@@ -1056,7 +1056,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -1137,7 +1137,7 @@ if(host != "localhost")
     <li data-nav-id="/architecture/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/architecture/">
         <span>Architecture</span>
@@ -1146,7 +1146,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -1248,7 +1248,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/application/altinn-studio/react-app/">
-        <span>React App</span>
+        <span>Front-end</span>
 
         
         
@@ -1735,6 +1735,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/stylecop/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/stylecop/">
+        <span>Stylecop Analyzer</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/traefik/" class="dd-item 
         
         
@@ -1948,6 +1975,64 @@ if(host != "localhost")
 	</div>
 
 	
+	   <article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/stylecop/">Stylecop Analyzer</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>StyleCop.Analyzers provides warnings that indicate style and consistency rule violations in C# code. The warnings are organized into rule areas such as documentation, layout, naming, ordering, readability, spacing, and so forth. Each warning signifies a violation of a style or consistency rule. In altinn studio application, we have turned set this &ldquo;warning&rdquo; action to &ldquo;Error&rdquo; to enforce the use of rules.
+Lenker  Rule Documentation Configuring Stylecop Analyzer Github  Nuget Package Instructions to install the stylecop analyzer in your project can be found here <a class="read-more" href="/technology/stylecop/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/code-analysis/">code analysis</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/stylecop/">stylecop</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/stylecop-analyzer/">stylecop analyzer</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post documentation">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/documentation/designer/text/">Text and translations</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Text editing and translations Easy and efficient text processing and translation are important in a service development solution. The possibility to reuse texts across multiple services are especially important.
+Texts in the editor are written in a ini-file that is converted to a simple JSON-file and presented as an API. In that way the user could work directly in the code editor or convert the text into other formats supported by external translation tools. <a class="read-more" href="/documentation/designer/text/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
 	   <article class="post documentation">
     <header class="post-header">
         <h2 class="post-title"><a href="/documentation/repositories/">Tjenester 3.0 - Repositories</a></h2>
@@ -1985,33 +2070,6 @@ if(host != "localhost")
         <p>Arkitektur Tjeneste React App React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som ble gjort av tjenesteutvikler.
 Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.
 En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon. <a class="read-more" href="/architecture/application/altinn-studio-apps/react-app/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-studio/react-app/">Tjenester 3.0 - Runtime - Arkitektur</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Arkitektur Tjeneste React App React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som ble gjort av tjenesteutvikler.
-Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.
-En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon. <a class="read-more" href="/architecture/application/altinn-studio/react-app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -2194,34 +2252,6 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
                 <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post documentation">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/documentation/designer/workflow/">Workflow</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Definere arbeidsflyt Definere arbeidsflyt for en tjeneste. Må være MYE kraftigere og mer fleksibel enn det som finnes i dagens løsning. Målsettingen er å muliggjøre at vi kan fjerne de ulike tjenestetypene i dagens løsning.
-Tanken er at hvis man både kan gjøre henting av data (innsyn) og ta i mot meldinger, og gjøre en eller flere arkivering, så faller behovet for tjenestetyper bort. Behovet for samhandlingstjenesten forsvinner også. <a class="read-more" href="/documentation/designer/workflow/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/workflow/">workflow</a>
             
         
 
@@ -3129,6 +3159,22 @@ Tanken er at hvis man både kan gjøre henting av data (innsyn) og ta i mot meld
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

@@ -221,7 +221,7 @@ if(host != "localhost")
     <li data-nav-id="/documentation/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/documentation/">
         <span>Solution</span>
@@ -230,7 +230,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -260,7 +260,7 @@ if(host != "localhost")
         parent
         ">
       <a href="/documentation/runtime/">
-        <span>Runtime</span>
+        <span>Altinn Studio Apps</span>
 
         
         
@@ -1047,7 +1047,7 @@ if(host != "localhost")
     <li data-nav-id="/about/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/about/">
         <span>About</span>
@@ -1056,7 +1056,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -1137,7 +1137,7 @@ if(host != "localhost")
     <li data-nav-id="/architecture/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/architecture/">
         <span>Architecture</span>
@@ -1146,7 +1146,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -1248,7 +1248,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/application/altinn-studio/react-app/">
-        <span>React App</span>
+        <span>Front-end</span>
 
         
         
@@ -1735,6 +1735,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/stylecop/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/stylecop/">
+        <span>Stylecop Analyzer</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/traefik/" class="dd-item 
         
         
@@ -2066,8 +2093,34 @@ Service Containers In the Altinn Studio Apps solution each end user service will
         <p>NOTE: Work in progress. Stuff will change
 The following diagram shows the application architecture for Altinn Studio solution
 
-Designer Frontend designer The frontend for the designer application is based on REACT. It is splitted in different REACT applications and components for the different functional areas of the designer
-Backend designer Backend of designer is based on .Net Core and ASP.Net Core. It exposes API to the REACT applications <a class="read-more" href="/architecture/application/altinn-studio/">&raquo;</a></p>
+Designer Frontend designer The frontend for the designer application is based on REACT. It is split into different REACT applications and components for the different functional areas of the designer. Take a look at the front-end architecture for more details.
+Backend designer Backend of designer is based on .Net Core and ASP. <a class="read-more" href="/architecture/application/altinn-studio/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-studio/react-app/">Application Architecture Altinn Studio - Front-end</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>React architecture NOTE: Parts of the front-end is currently built in .NET Core. This will gradually be ported over to React as we work with the different functional areas.The front-end of Altinn Studio is build using React and Redux. Each functional area has its own React application, complete with Redux store/reducer when needed.
+Navigation/administration of the different applications is done from top-level applications, which import the applications for the different functional areas. <a class="read-more" href="/architecture/application/altinn-studio/react-app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -2181,33 +2234,6 @@ Reusable resource is typical created by technical developers using code editors.
     </header>
     <section class="post-excerpt">
         <p>Definere logikk Logikk som kjører i tjenesten. Er ekstremt viktig å få dette riktig, brukervennlig og fungerende på tvers av kanaler og på tvers av front-end og back-end. <a class="read-more" href="/documentation/designer/logic/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post documentation">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/documentation/designer/datamodeling/">Data modeling</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The data model for a service typical defines the format of the data either sent to the service owner or presented in the service for the user.
-The data model is important for a consistent and formal definition of the data. It will be used for validation both from GUI and for external systems.
-Altinn Studio will support both importing existing data model as XSD or creating a datamodell. In MVP only import is in scope. <a class="read-more" href="/documentation/designer/datamodeling/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3122,6 +3148,22 @@ Altinn Studio will support both importing existing data model as XSD or creating
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

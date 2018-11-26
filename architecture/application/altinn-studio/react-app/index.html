@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Beskrivelse av arkitektur for React App i Runtime">
+    <meta name="description" content="Description of the application architecture for Altinn Studio Front-end">
 
 
     
-    <title>Tjenester 3.0 - Runtime - Arkitektur :: Altinn Studio</title>
+    <title>Application Architecture Altinn Studio - Front-end :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -221,7 +221,7 @@ if(host != "localhost")
     <li data-nav-id="/documentation/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/documentation/">
         <span>Solution</span>
@@ -230,7 +230,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -260,7 +260,7 @@ if(host != "localhost")
         parent
         ">
       <a href="/documentation/runtime/">
-        <span>Runtime</span>
+        <span>Altinn Studio Apps</span>
 
         
         
@@ -1047,7 +1047,7 @@ if(host != "localhost")
     <li data-nav-id="/about/" class="dd-item 
         
         
-        parent
+        
         ">
       <a href="/about/">
         <span>About</span>
@@ -1056,7 +1056,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -1137,7 +1137,7 @@ if(host != "localhost")
     <li data-nav-id="/architecture/" class="dd-item 
         parent
         
-        parent
+        
         ">
       <a href="/architecture/">
         <span>Architecture</span>
@@ -1248,7 +1248,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/application/altinn-studio/react-app/">
-        <span>React App</span>
+        <span>Front-end</span>
 
         
         
@@ -1735,6 +1735,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/stylecop/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/stylecop/">
+        <span>Stylecop Analyzer</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/traefik/" class="dd-item 
         
         
@@ -1928,7 +1955,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio docs</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/application/'>Application</a> > <a href='/architecture/application/altinn-studio/'>Altinn Studio</a> > React App
+ <a href='/'>Altinn Studio docs</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/application/'>Application</a> > <a href='/architecture/application/altinn-studio/'>Altinn Studio</a> > Front-end
 
  
 
@@ -1948,25 +1975,24 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#arkitektur-tjeneste-react-app">Arkitektur Tjeneste React App</a>
+<li><a href="#react-architecture">React architecture</a>
 <ul>
-<li><a href="#overordnet-konsept">Overordnet konsept</a></li>
-<li><a href="#react-komponentene">React komponentene</a></li>
-<li><a href="#containere">Containere</a></li>
-<li><a href="#redux">Redux</a>
+<li><a href="#service-development">service-development</a></li>
+<li><a href="#service-overview">service-overview</a></li>
+<li><a href="#ux-editor">ux-editor</a>
 <ul>
-<li><a href="#appconfigstate">AppConfigState</a></li>
-<li><a href="#datamodelstate">DataModelState</a></li>
-<li><a href="#rulemodelstate">RuleModelState</a></li>
-<li><a href="#textresourcestate">TextResourceState</a></li>
-<li><a href="#formfillerstate">FormFillerState</a></li>
-</ul></li>
+<li><a href="#the-components">The components</a></li>
+<li><a href="#containers">Containers</a></li>
+<li><a href="#redux">Redux</a></li>
 <li><a href="#reducer">Reducer</a></li>
-<li><a href="#action-types">Action Types</a></li>
-<li><a href="#action">Action</a></li>
-<li><a href="#action-creators">Action Creators</a></li>
-<li><a href="#action-dispatcher">Action Dispatcher</a></li>
-<li><a href="#redux-saga">Redux-Saga</a></li>
+<li><a href="#action-types">Action types</a></li>
+<li><a href="#actions">Actions</a></li>
+<li><a href="#redux-saga">Redux saga</a></li>
+</ul></li>
+<li><a href="#datamodel">datamodel</a></li>
+<li><a href="#logic-rules">logic-rules</a></li>
+<li><a href="#workflow">workflow</a></li>
+<li><a href="#translations">translations</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -1987,7 +2013,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Tjenester 3.0 - Runtime - Arkitektur</h1>
+              <h1>Application Architecture Altinn Studio - Front-end</h1>
             
           
 
@@ -1996,48 +2022,52 @@ if(host != "localhost")
 
 
 
-<h2 id="arkitektur-tjeneste-react-app">Arkitektur Tjeneste React App</h2>
+<h2 id="react-architecture">React architecture</h2>
 
-<p>React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som
-ble gjort av tjenesteutvikler.</p>
-
-<p>Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester,
-men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.</p>
-
-<p>En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke
-React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten
-sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon.</p>
-
-<p>TODO:
-Det er foreløpig ikke laget bygg av dette.</p>
-
-<p>Figuren nedenfor viser den overordnede arkitekturen som er valgt for React App.</p>
+<div class="alert alert-info" role="alert">NOTE: Parts of the front-end is currently built in .NET Core. This will gradually be ported over to React as we work with the different functional areas.</div>
 
 
-	<p><object data="/products/tjenester/3.0/solutions/runtime/architecture/react-app/ReactAppArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+<p>The front-end of Altinn Studio is build using React and Redux. Each functional area has its own React application, complete with Redux store/reducer when needed.</p>
+
+<p>Navigation/administration of the different applications is done from top-level applications, which import the applications for the different functional areas.</p>
+
+<p>The React front-end for Altinn Studio is split into two top level applications: <em>dashboard</em> and <em>service-developpent</em>. In addition to these top level application, each feature/functional area will have its own
+React application which will be imported to the relevant top level application as a <em>subapp</em> (see <a href="https://redux.js.org/recipes/isolatingsubapps">https://redux.js.org/recipes/isolatingsubapps</a> ).</p>
+
+<blockquote>
+<p><strong>Remember: New subapps must be configured in the top level application&rsquo;s Dockerfile and in the Designer&rsquo;s gulpfile</strong>.<br />
+This is not necessary for shared components.</p>
+</blockquote>
+
+<p>In addition to feature applications there is also a component library of shared components, that can be reused by all the applications. An example is navigation components.</p>
+
+<p>See below diagram for an overview of the different applications.</p>
+
+<div class="alert alert-info" role="alert">NOTE: Runtime applications are part of Altinn Studio Apps, and will not be described here.</div>
 
 
 
-<h3 id="overordnet-konsept">Overordnet konsept</h3>
+	<p><object data="/architecture/application/altinn-studio/react-app/ReactAppArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
 
-<p>Det overordnede konseptet er at man har en konfigurasjonsfil som definerer hvilke komponenter
-et skjema skal bestå av og rekkefølgen på disse. Denne konfigurasjonsfilen blir generert av UX Designern i Altinn Studio når
-tjenesteutvikleren designer tjenesten og blir en del av ressursfilene som inkluderes i tjenestepakken.</p>
 
-<p>FormLayout.json lastes inn av React Appen sammen med selve dataene og annen
-konfigurasjon til en tjeneste når applikasjonen starter.</p>
 
-<p>Applikasjonen rendrer komponentene som er definert i designer FormLayout..
-Dette skjer ved at Preview komponenten løper gjennom design filen og kaller FormComponent
-for hver enkelt element i listen. FormComponent rendrer deretter komponenter som tekstbokser eller nedtrekkliste
-avhengig av hvilken type komponent.</p>
+<h3 id="service-development">service-development</h3>
 
-<h3 id="react-komponentene">React komponentene</h3>
+<p>This is a top-level application, and will only handle simple operations like navigation to the different subapps. It will not have access to the store of any of the subapps.</p>
 
-<p>React komponentene som kan velges i UX-designer er alle React komponenter som vil
-rendes basert input til FormComponenten.</p>
+<h3 id="service-overview">service-overview</h3>
 
-<p>Disse er for øyeblikket</p>
+<p>Implementation not started. Details will be made available once this application is created.</p>
+
+<h3 id="ux-editor">ux-editor</h3>
+
+<p>The general concept is that there is a JSON file (<em>FormLayout.json</em>) where the components that are to be part of a form are specified. This includes the component types, texts, order, etc. This file is then parsed to display the form.</p>
+
+<p>The <em>ux-editor</em> application is used to create/change this file. The components specified in the file are rendered to visually display the result.</p>
+
+<h4 id="the-components">The components</h4>
+
+<p>All the components that can be added in the ux-editor are React components, and when they are added, the <em>FormLayout</em>-file is updated and the component is rendered. Currently, available components are:</p>
 
 <ul>
 <li>HeaderComponent</li>
@@ -2047,15 +2077,12 @@ rendes basert input til FormComponenten.</p>
 <li>RadioButtonContainerComponent</li>
 <li>DropdownComponent</li>
 <li>FileUploadComponent</li>
+<li>ThirdPartyComponent (imported from outside Altinn Studio)</li>
 </ul>
 
-<p>Hver enkel komponent har definert et sett med input data (props) som den forventer som input. Det er opp til den overliggende komponenten å skaffe tilveie
-disse. Dette kan være verdier fra state eller egne input data.</p>
+<p>Each component has a defined set of props that it expects as input. It&rsquo;s up to the parent component to provide these. In addition, props can be mapped directly from the Redux store.</p>
 
-<p>React legger opp til React komponetene har en metode for å mappe verdier fra state til props for de komponentene som krever.</p>
-
-<p>Når sluttbruker gjør endringer i skjema (f.eks fyller inn noe i en tekstboks) vil den trigge en event som igjen trigger
-Actions som håndteres av forskjellige dispatchers</p>
+<p>When an end user makes changes in a form (for example type something in a text box), an event is triggered which triggers an action, handled by a <em>dispatcher</em>.</p>
 
 <pre><code> /**
    * This is the event handler that triggers the Redux Actions
@@ -2078,32 +2105,29 @@ Actions som håndteres av forskjellige dispatchers</p>
 
 </code></pre>
 
-<h3 id="containere">Containere</h3>
+<h4 id="containers">Containers</h4>
 
-<p>Komponentene rendres inne i containere. Det er en base-container som alltid er til stede, denne rendrer alle komponentene/containerne
-som er definert i FormLayout.json. Denne opprettes automatisk når man legger til første komponent i skjema.</p>
+<p>Components are rendered within containers. There is a base container which is always available, and unless otherwise specified, components are rendered within the base container. Any other containers that are defined in FormLayout.json are also rendered inside the base container.
+When a service developer first creates a form, the base container is automatically generated with the first component added.</p>
 
-<p>Tjenesteutvikler kan i tillegg legge til nye containere for å gruppere sammen felter i skjema. Disse gruppene kan defineres som <em>repeterende</em>,
-da må også repeterende <em>gruppe</em> i datamodellen defineres på containeren.</p>
+<p>A service developer can add new containers to group together fields in a form. These groups may be <em>repeating</em> if the data model allows for this. If a group is defined as repeating, it must be connected to the relevant repeating group in the data model.</p>
 
-<h3 id="redux">Redux</h3>
+<h4 id="redux">Redux</h4>
 
-<p>Redux benyttes for å lagre state i applikasjonen. I tjenester 3.0 finnes det flere data store.</p>
+<p>Redux is used to manage the states of the ux-editor.</p>
 
-<p>For runtime er det følgende Redux store som benyttes</p>
+<p><strong>AppConfigState</strong></p>
 
-<h4 id="appconfigstate">AppConfigState</h4>
-
-<p>Inneholder informasjon om hvilken modus applikasjonen har.</p>
+<p>Which mode is the application in.</p>
 
 <pre><code>export interface IAppConfigState {
   designMode: boolean;
 }
 </code></pre>
 
-<h4 id="datamodelstate">DataModelState</h4>
+<p><strong>DataModelState</strong></p>
 
-<p>Inneholder informasjon om alle elementene i datamodellen. Basert på JSON generert fra XSD</p>
+<p>Information about the data model elements. Based on JSON file generated from XSD data model.</p>
 
 <pre><code>export interface IDataModelState {
   model: IDataModelFieldElement[];
@@ -2113,9 +2137,9 @@ da må også repeterende <em>gruppe</em> i datamodellen defineres på containere
 }
 </code></pre>
 
-<h4 id="rulemodelstate">RuleModelState</h4>
+<p><strong>RuleModelState</strong></p>
 
-<p>Inneholder definerte regler</p>
+<p>Information about the rules defined for the service.</p>
 
 <pre><code>export interface IRuleModelState {
     model: IRuleModelFieldElement[];
@@ -2125,9 +2149,9 @@ da må også repeterende <em>gruppe</em> i datamodellen defineres på containere
   }
 </code></pre>
 
-<h4 id="textresourcestate">TextResourceState</h4>
+<p><strong>TextResourceState</strong></p>
 
-<p>Inneholder alle tekstressurser.</p>
+<p>All text resources for the service.</p>
 
 <pre><code>export interface ITextResourcesState {
   resources: ITextResource[];
@@ -2138,9 +2162,9 @@ da må også repeterende <em>gruppe</em> i datamodellen defineres på containere
 }
 </code></pre>
 
-<h4 id="formfillerstate">FormFillerState</h4>
+<p><strong>FormFillerState</strong></p>
 
-<p>Inneholder all skjemadata og eventuelle valideringsfeil.</p>
+<p>All form data and any validation errors on this form data.</p>
 
 <pre><code>export interface IFormFillerState {
   formData: any;
@@ -2148,19 +2172,17 @@ da må også repeterende <em>gruppe</em> i datamodellen defineres på containere
 }
 </code></pre>
 
-<p><strong>Format på skjemadata</strong></p>
+<p><strong>Form data format</strong></p>
 
-<p>Skjemadata er lagret i state som <em>key-value-pair</em>, med knytning til datamodell som nøkkel. F.eks. et felt som er knyttet til
-et felt <code>melding.adresse.postnummer</code> i datamodellen vil lagres som:</p>
+<p>The form data is stored in the state as <em>key-value pairs</em> with data model element as the key. For example, a field connected to <code>melding.adresse.postnummer</code> in the data model will be stored as:</p>
 
 <pre><code>formData: {
     melding.adresse.postnummer : &quot;1234&quot;
 }
 </code></pre>
 
-<p>Dersom et felt ligger inne i en gruppe som er definert som <em>repeterende</em>, vil det i tillegg legges på en indeks som sier hvilken instans av
-gruppen feltete hører til. F.eks. dersom gruppen <code>melding.adresse</code> er definert som repeterende og sluttbruker har lagt til 3 instanser av gruppen,
-vil man få følgende skjemadata:</p>
+<p>If a field is inside a repeating group, an index will be added in the key to specify which instance of the group the data belongs to. For example, if the group <code>melding.adresse</code> is defined as repeating and the end user has added 3 instances of this group, it would result in the following
+form data being stored.</p>
 
 <pre><code>formData: {
     melding.adresse[0].postnummer : &quot;1234&quot;,
@@ -2169,24 +2191,13 @@ vil man få følgende skjemadata:</p>
 }
 </code></pre>
 
-<h3 id="reducer">Reducer</h3>
+<h4 id="reducer">Reducer</h4>
 
-<p>Redux reducers har til oppgave å oppdatere de forskjellige stores. Det er en reducer for hver enkel store.
-Følgende er definert</p>
+<p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made.</p>
 
-<ul>
-<li>formFillerReducer - Ansvarlig for å oppdatere FormFillerState</li>
-<li>errorReducer - Ansvarlig for å oppdatere
-*</li>
-</ul>
+<h4 id="action-types">Action types</h4>
 
-<p>Reducerne lytter etter Actions som blir dispatchet</p>
-
-<h3 id="action-types">Action Types</h3>
-
-<p>Action Types er type definisjoner på hendelser</p>
-
-<p>Eksempler:</p>
+<p>Action types are type definitions for events that trigger an update of the store. For example:</p>
 
 <pre><code>// All update form data actions
 export const UPDATE_FORM_DATA: string = `${moduleName}.UPDATE_FORM_DATA`;
@@ -2195,12 +2206,9 @@ export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA
 
 </code></pre>
 
-<h3 id="action">Action</h3>
+<h4 id="actions">Actions</h4>
 
-<p>Actions er hendelser som kan bli trigget av de forskjellige komponentene.
-En Action inneholder minimum typen av en Action, men kan også inneholde andre metadata rundt hendelsen.</p>
-
-<p>Eksempel:</p>
+<p>Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:</p>
 
 <pre><code>export interface IUpdateFormDataAction extends Action {
   formData: any;
@@ -2209,11 +2217,7 @@ En Action inneholder minimum typen av en Action, men kan også inneholde andre m
 }
 </code></pre>
 
-<h3 id="action-creators">Action Creators</h3>
-
-<p>Action Creators lager actions</p>
-
-<p>Eksempel:</p>
+<p>Action creators create the actions, based on the interfaces defined for the action. For example:</p>
 
 <pre><code>export function updateFormDataAction(
   componentID: string,
@@ -2230,28 +2234,13 @@ En Action inneholder minimum typen av en Action, men kan også inneholde andre m
 }
 </code></pre>
 
-<h3 id="action-dispatcher">Action Dispatcher</h3>
+<p>The actions are <em>dispatched</em> by an action dispatcher.</p>
 
-<p>Action dispatcher</p>
+<h4 id="redux-saga">Redux saga</h4>
 
-<h3 id="redux-saga">Redux-Saga</h3>
+<p>Redux saga is the middleware used to process information before the store is updated. All logic that is run before updating the store is completed in the saga. An example is asyncronous calls to backend APIs to get data, or submit data.</p>
 
-<p>Redux-Saga er Middleware rammeverk som benyttes for å gjøre asynkrone kall mot API i løsningen.
-Dette er f.eks uthenting av skjemdata og lagring av skjemadata.</p>
-
-<p>Hver enkel Saga som defineres definerer metoder som utfører forskjellige typer oppgaver.
-Dette kan f.eks være lagring av skjemdata eller uthenting av skjemadata.</p>
-
-<p>Det er definert forskjellige Saga for de forskjellige funksjonelle områdene. Sagaene er</p>
-
-<ul>
-<li>appData - Ansvarlig for å hente ut regler, tekstressurser og datamodell</li>
-<li>externalApiSaga - Funksjonalitet rundt externe APi</li>
-<li>formFillerSagas - funksjonalitet knyttet til uthenting og lagring av skjemadata</li>
-</ul>
-
-<p>For hver Saga metode knyttes det lytttere som lytter til Actions. Det er dette som trigger
-at de nødvendige kallene skjer.</p>
+<p>Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.</p>
 
 <pre><code>/**
  * Define a listener for the UPDATE_FORM_DATA event
@@ -2260,6 +2249,22 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
   yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
 }
 </code></pre>
+
+<h3 id="datamodel">datamodel</h3>
+
+<p>Implementation not started. Details will be made available once this application is created.</p>
+
+<h3 id="logic-rules">logic-rules</h3>
+
+<p>Implementation not started. Details will be made available once this application is created.</p>
+
+<h3 id="workflow">workflow</h3>
+
+<p>Implementation not started. Details will be made available once this application is created.</p>
+
+<h3 id="translations">translations</h3>
+
+<p>Implementation not started. Details will be made available once this application is created.</p>
 
 
 <footer class=" footline" >
@@ -3158,6 +3163,22 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
