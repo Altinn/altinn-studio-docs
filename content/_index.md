@@ -1,19 +1,22 @@
 ---
 title: Altinn Studio docs
-description: Dette er levende dokumentasjon for Altinn Studio.  
+description: Documentation for Altinn Studio.  
 weight: 100
 ---
 
 {{<docs-logo>}}
 
-- Dette er levende dokumentasjon for [altinn.studio] som oppdateres i parallell med utviklingen av løsningen.
-- Alle kan følge med på vår [åpne backlog] og se innholdet i [milepælene] som vi jobber mot.
-- Alle kan også [opprette bugs, komme med feedback og stille spørsmål](https://github.com/Altinn/altinn-studio/issues/new/choose).
-  Vi forsøker å svare så fort vi kan.
+[Altinn Studio] is the next generation Altinn services. All you need to test our early preview is your GitHub-user.
 
-[Kom i gang nå](/guide) med å teste løsningen. Alt du behøver for å få tilgang er å logge inn med din github-bruker.
+- This is the documentation for Altinn Studio. 
+- You can also find our [open backlog] and [milestones] on GitHub.
+- Everybody can [create bugs], [request features] or just [give feedback or ask questions].
 
-[altinn.studio]: https://altinn.studio
-[åpne backlog]: https://github.com/altinn/altinn-studio/issues/
-[milepæler]: https://github.com/altinn/altinn-studio/milestones?direction=asc&sort=due_date&state=open
+
+[Altinn Studio]: https://altinn.studio
+[open backlog]: https://github.com/altinn/altinn-studio/issues/
+[milestones]: https://github.com/altinn/altinn-studio/milestones?direction=asc&sort=due_date&state=open
+[create bugs]: https://github.com/Altinn/altinn-studio/issues/new?template=bug_report.md
+[request features]: https://github.com/Altinn/altinn-studio/issues/new?template=feature_request.md
+[give feedback or ask questions]: https://github.com/Altinn/altinn-studio/issues/new
 [GitHub]: https://github.com/altinn/altinn-studio
