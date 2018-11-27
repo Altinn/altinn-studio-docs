@@ -1,6 +1,6 @@
 baseURL = "https://docs.altinn.studio"
-languageCode = "nb"
-defaultContentLanguage = "nb"
+languageCode = "en"
+defaultContentLanguage = "en"
 
 contentDir = "content"
 staticDir = "static"
