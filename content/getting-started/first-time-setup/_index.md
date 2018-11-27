@@ -1,22 +1,31 @@
 ---
-title: Første gangs oppsett
-description: Sett opp bruker i AltinnStudio for første gangs bruk.
+title: First-time setup of Altinn Studio
+linktitle: First-time setup
+description: Setup Sett opp bruker i AltinnStudio for første gangs bruk.
 tags: ["guide"]
 weight: 100
 ---
 
-Sett opp bruker i [altinn.studio](https://altinn.studio) for første gangs bruk.
+## Create a user
 
-## Registrer ny bruker
+Set up your user in [altinn.studio](https://altinn.studio) for the first time.
 
 {{% notice info %}}
-MERK: Kun nødvendig dersom bruker ikke allerede er opprettet.
+ONLY necessary if you have not already created a user.
 {{% /notice %}}
 
-1. Velg __Registrer__ i topp-menyen.
-2. Fyll ut detaljer og registrer bruker.
+1. Choose to log in
+![Login](login.png?width=800)
 
-{{<figure src="register-user.gif?width=1000" title="Registrer ny bruker">}}
+2. Choose "Sign In with {{<icon name="fa-github" size="xx-large">}}"
+![Login with GitHub](login-with-github.png?width=800)
+
+3. Login with your GitHub user. If you don't have a user, click "Create an account".
+![GitHub login](github-login.png?width=400)
+
+4. Register a user in Altinn Studio (the box at the bottom). This user will be linked to your GitHub user.
+![Gitea register](gitea-register.png?width=800)
+
 
 ## Opprett organisasjon
 {{% notice info %}}
