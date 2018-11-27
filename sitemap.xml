@@ -7,11 +7,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/about/goals/</loc>
+    <loc>https://docs.altinn.studio/getting-started/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/guide/</loc>
+    <loc>https://docs.altinn.studio/about/goals/</loc>
   </url>
   
   <url>
@@ -91,6 +91,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/getting-started/first-time-setup/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/documentation/repositories/data/form-layout/</loc>
   </url>
   
@@ -100,10 +104,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/documentation/repositories/functional/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/guide/first-time-setup/</loc>
   </url>
   
   <url>
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/guide/service-creation/</loc>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/</loc>
   </url>
   
   <url>
@@ -175,7 +175,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/guide/service-testing/</loc>
+    <loc>https://docs.altinn.studio/getting-started/service-testing/</loc>
   </url>
   
   <url>
@@ -298,11 +298,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/brukerveiledning/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/tags/build/</loc>
     <priority>0</priority>
   </url>
@@ -334,6 +329,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/guide/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/intro/</loc>
     <priority>0</priority>
   </url>
   
