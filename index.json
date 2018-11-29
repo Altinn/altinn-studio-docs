@@ -37,7 +37,7 @@
 {
 	"uri": "https://docs.altinn.studio/about/",
 	"title": "About",
-	"tags": ["documentation", "solution", "architecture"],
+	"tags": ["about"],
 	"description": "Description of the Altinn Studio and Altinn Studio Apps solution",
 	"content": " What is Altinn Studio? Altinn Studio is the third generation service development solution from Altinn. Norways public platform for E-Government. The current plattform (first version launched 2010) is considered by Gartner as one of the five leading digital government technology plattforms in the world. The current plattform is used by over 90% of the Norwegian population and almost 100% of the businesses. Over 43 agencies hosts services in the Altinn plattform.\n  Gartner   What is Altinn Studio Apps? Altinn Studio Apps is the solution where services developed in Altinn Studio is deployed. This will be a higly scalable plattform with isolated service applications.\nWhat types of services can be built on this platform? The first version will support services where the usecase is to submit data from the end user or the system to the service owner.\nWhy Altinn studio When will it be released First version is planned to be launced 2019\n"
 },
@@ -86,16 +86,16 @@
 {
 	"uri": "https://docs.altinn.studio/architecture/application/",
 	"title": "Application",
-	"tags": ["documentation", "solution", "architecture"],
+	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio application architecture",
-	"content": "The Altinn Studio\n"
+	"content": "Description of the Altinn Studio application architecture.\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/",
 	"title": "Architecture",
-	"tags": ["documentation", "solution", "architecture"],
-	"description": "Description of the Altinn Studio solution",
-	"content": " Architecture Principles and Concerns The following principles and concern are important for the architecture in Altinn Studio\nOpen Source Altinn Studio will be open Source. That require that we use framework and technology that are Open Source\nIsolation between services The goal for Altinn Studio is to be a platform where no service can negativly affect other services. This requires that all services are hosted as isolated applications\nSelf Service "
+	"tags": ["architecture"],
+	"description": "Description of the Altinn Studio architecture.",
+	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Studio Apps\n\rAltinn Studio - Service Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/build/",
@@ -114,7 +114,7 @@
 {
 	"uri": "https://docs.altinn.studio/architecture/deployment/",
 	"title": "Deployment",
-	"tags": ["documentation", "solution", "architecture"],
+	"tags": ["deployment", "architecture"],
 	"description": "Description of the Altinn Studio solution",
 	"content": "The Altinn Studio components are deployed as two different solutions.\n Altinn Studio - The complete Development solution Altinn Studio Apps - Where services are hosted and accessed by end users.  In this section you will find details about the deployment architecture for these solutions.\nIn addition there is a seperate article on how End Users Services developed in Altinn Studio Service Development solution are deployed to the runtime solution\n"
 },
@@ -254,7 +254,7 @@
 {
 	"uri": "https://docs.altinn.studio/architecture/solution/",
 	"title": "Solution Architecture",
-	"tags": ["documentation", "solution", "architecture"],
+	"tags": ["solution", "architecture"],
 	"description": "Description of the Altinn Studio solution",
 	"content": "Functionality in Altinn Studio is distributed between different applications.\nThe diagram below shows where the different functionality i located in the different applications.\n\n"
 },
@@ -275,7 +275,7 @@
 {
 	"uri": "https://docs.altinn.studio/technology/",
 	"title": "Technology",
-	"tags": ["documentation", "solution", "architecture"],
+	"tags": ["tech"],
 	"description": "Description of Technology used in Altinn Studio",
 	"content": "The following articles describes the technology used in Altinn Studio and Altinn Studio Apps\n\rDocker\r\rDocker is the container technology used in Altinn Studio/ Altinn Studio Apps\n\rKubernetes\r\rKubernetes is used to manage the docker containers.\n\rReact\r\rReact\n\rRedux\r\rRedux\n\rStylecop Analyzer\r\rStylecop analyzer is the code analysis tool\n\rTraefik\r\rTraefik load balancer is used in\n\rTredjeparts komponenter\r\rTredjeparts komponenter\n\rTypeScript\r\rTypeScript\n\rnginx\r\rnginx\n\r"
 },
@@ -462,6 +462,13 @@
 	"content": " Definere arbeidsflyt Definere arbeidsflyt for en tjeneste. Må være MYE kraftigere og mer fleksibel enn det som finnes i dagens løsning. Målsettingen er å muliggjøre at vi kan fjerne de ulike tjenestetypene i dagens løsning.\nTanken er at hvis man både kan gjøre henting av data (innsyn) og ta i mot meldinger, og gjøre en eller flere arkivering, så faller behovet for tjenestetyper bort. Behovet for samhandlingstjenesten forsvinner også.\nEn annen veldig spennende tanke er at dette også åpner opp for å \u0026ldquo;koble sammen\u0026rdquo; dialogen for brukeren, siden det da per. def ikke er noe å koble sammen. Hele dialogen er bare ulike steg i den samme tjenesten, og siden man også kan legge til API\u0026rsquo;er på en 3.0-tjeneste, så åpner det opp for at tjenesteeier modellerer flyten istedenfor at den må passe inn i et mønster som er bestemt av Altinn.\nStegene i en arbeidsflyt skal også være del av selve tjenesten som deployes, og ikke kjøre i plattformen slik som i dag. Dette åpner opp for stor grad av tilpasninger, gjør at hele flyten kan enhetstestes, og gjør at tjenesten i større grad blir immun mot påvirkning fra endringer i plattformen. En naturlig vei å gå vil være å benytte de samme mekanismene for å kunne gjenbruke og (re)definere arbeidsflyt og GUI per steg, som for GUI for tjenestene. Og da er vi veldig nærme det at arbeidsflyt ikke er noe eget, det er det samme som flyten internt i et skjema.\nEksempler på steg:\n Signering Hente prefill, gjøre oppslag mot eksterne data Gjøre eksterne valideringer via API Motta melding via API Gjøre ekstern signering Egendefinerte steg, med UX    Banalt enkel implementasjon av arbeidsflyt   See all issues related to Altinn Studio and workflow on Github\n"
 },
 {
+	"uri": "https://docs.altinn.studio/tags/about/",
+	"title": "about",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/api/",
 	"title": "api",
 	"tags": [],
@@ -525,15 +532,15 @@
 	"content": ""
 },
 {
-	"uri": "https://docs.altinn.studio/tags/devops/",
-	"title": "devops",
+	"uri": "https://docs.altinn.studio/tags/deployment/",
+	"title": "deployment",
 	"tags": [],
 	"description": "",
 	"content": ""
 },
 {
-	"uri": "https://docs.altinn.studio/tags/documentation/",
-	"title": "documentation",
+	"uri": "https://docs.altinn.studio/tags/devops/",
+	"title": "devops",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -604,6 +611,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/stylecop-analyzer/",
 	"title": "stylecop analyzer",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/tech/",
+	"title": "tech",
 	"tags": [],
 	"description": "",
 	"content": ""
