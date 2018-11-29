@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/runtime/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/getting-started/</loc>
   </url>
   
@@ -15,23 +11,23 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/</loc>
+    <loc>https://docs.altinn.studio/solutions/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/service-configurations/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/service-configurations/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/rule-handler/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/uidesigner/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/rule-handler/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/</loc>
   </url>
   
   <url>
@@ -43,7 +39,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/</loc>
   </url>
   
   <url>
@@ -55,10 +51,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/application/</loc>
   </url>
   
@@ -67,19 +59,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/architecture/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/build/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/calculationhandler/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/calculationhandler/</loc>
   </url>
   
   <url>
@@ -95,7 +79,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/form-layout/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/form-layout/</loc>
   </url>
   
   <url>
@@ -103,11 +87,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/functional/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/functional/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/instantiationhandler/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/instantiationhandler/</loc>
   </url>
   
   <url>
@@ -135,27 +123,23 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/deployment/service-deployment/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/serviceimplementation/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/serviceimplementation/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/servicemetadata/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/servicemetadata/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/servicemodel/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/servicemodel/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/servicemodelxsd/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/servicemodelxsd/</loc>
   </url>
   
   <url>
@@ -164,6 +148,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/solution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/</loc>
   </url>
   
   <url>
@@ -191,7 +179,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/validationhandler/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/validationhandler/</loc>
   </url>
   
   <url>
@@ -199,43 +187,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/repositories/data/reactapp/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/reactapp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/datamodeling/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/documentation/designer/workflow/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/logic/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/apiuse/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/apiexpose/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/reusablecomponent/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/text/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/deployment/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/documentation/designer/test/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/</loc>
   </url>
   
   <url>
@@ -243,13 +203,20 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/api-use/</loc>
+    <loc>https://docs.altinn.studio/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/categories/</loc>
-    <priority>0</priority>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/data-modeling/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/api-expose/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/logic/</loc>
   </url>
   
   <url>
@@ -263,13 +230,12 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/repositories/</loc>
+    <loc>https://docs.altinn.studio/tags/reselect/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/reselect/</loc>
-    <priority>0</priority>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/reusable-resources/</loc>
   </url>
   
   <url>
@@ -278,12 +244,41 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/test/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/text/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/api-use/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/workflow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/api/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/apps/</loc>
     <priority>0</priority>
   </url>
   
@@ -313,6 +308,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/data-modeling/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/dataformat/</loc>
     <priority>0</priority>
   </url>
@@ -338,6 +338,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/logic/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/pipeline/</loc>
     <priority>0</priority>
   </url>
@@ -348,7 +353,17 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/repos/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/solution/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/studio/</loc>
     <priority>0</priority>
   </url>
   
@@ -363,7 +378,17 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/test/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/tjenester-3.0/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/ui-designer/</loc>
     <priority>0</priority>
   </url>
   
