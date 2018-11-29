@@ -1,5 +1,5 @@
 ---
-title: Altinn Studio docs
+title: Altinn Studio
 description: Documentation for Altinn Studio.  
 weight: 100
 ---
