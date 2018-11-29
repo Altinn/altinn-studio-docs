@@ -1,7 +1,7 @@
 ---
 title: About 
 description: Description of the Altinn Studio and Altinn Studio Apps solution
-tags: ["documentation", "solution", "architecture"]
+tags: ["about"]
 weight: 100
 alwaysopen: false
 ---

@@ -2,7 +2,7 @@
 title: Solution Architecture
 linktitle: Solution
 description: Description of the Altinn Studio solution
-tags: ["documentation", "solution", "architecture"]
+tags: ["solution", "architecture"]
 weight: 100
 alwaysopen: true
 ---
