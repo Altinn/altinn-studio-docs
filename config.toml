@@ -1,12 +1,12 @@
 baseURL = "https://docs.altinn.studio"
-languageCode = "nb"
-defaultContentLanguage = "nb"
+languageCode = "en"
+defaultContentLanguage = "en"
 
 contentDir = "content"
 staticDir = "static"
 publishDir = "public"
 
-title = "Altinn Studio docs"
+title = "Altinn Studio"
 theme = "hugo-theme-docdock"
 metadataFormat = "yaml"
 pluralizeListTitles = false

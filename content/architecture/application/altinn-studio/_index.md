@@ -19,7 +19,7 @@ The following diagram shows the application architecture for Altinn Studio solut
 
 ### Frontend  designer
 The frontend for the designer application is based on REACT. 
-It is splitted in different REACT applications and components for the different functional areas of the designer
+It is split into different REACT applications and components for the different functional areas of the designer. Take a look at the [front-end architecture](react-app) for more details.
 
 ### Backend designer
 Backend of designer is based on .Net Core and ASP.Net Core. It exposes API to the REACT applications
@@ -34,6 +34,7 @@ For Altinn Studio the Runtime is shared between all services and all
 
 ### Frontend runtime
 The runtime application will have two different types of frontend.
+
 * Frontend developed by the service developer in Altinn Studio designer
 * Frontend that is part of the plattform. 
 

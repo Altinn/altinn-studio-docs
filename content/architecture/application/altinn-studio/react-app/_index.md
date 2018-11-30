@@ -1,49 +1,49 @@
 ---
-title: Tjenester 3.0 - Runtime - Arkitektur
-linktitle: React App
-description: Beskrivelse av arkitektur for React App i Runtime
+title: Application Architecture Altinn Studio - Front-end
+linktitle: Front-end
+description: Description of the application architecture for Altinn Studio Front-end
 tags: ["tjenester 3.0"]
 weight: 100
 ---
 
-## Arkitektur Tjeneste React App 
-React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som
-ble gjort av tjenesteutvikler. 
+## React architecture
+{{%info%}}NOTE: Parts of the front-end is currently built in .NET Core. This will gradually be ported over to React as we work with the different functional areas.{{%/info%}}
 
-Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, 
-men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.
+The front-end of Altinn Studio is build using React and Redux. Each functional area has its own React application, complete with Redux store/reducer when needed. 
 
-En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke
-React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten
-sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon.
+Navigation/administration of the different applications is done from top-level applications, which import the applications for the different functional areas. 
 
-TODO: 
-Det er foreløpig ikke laget bygg av dette. 
+The React front-end for Altinn Studio is split into two top level applications: _dashboard_ and _service-developpent_. In addition to these top level application, each feature/functional area will have its own 
+React application which will be imported to the relevant top level application as a _subapp_ (see https://redux.js.org/recipes/isolatingsubapps ).
 
-Figuren nedenfor viser den overordnede arkitekturen som er valgt for React App.
+> **Remember: New subapps must be configured in the top level application's Dockerfile and in the Designer's gulpfile**.  
+> This is not necessary for shared components.
+
+In addition to feature applications there is also a component library of shared components, that can be reused by all the applications. An example is navigation components. 
+
+See below diagram for an overview of the different applications.
+
+{{%info%}}NOTE: Runtime applications are part of Altinn Studio Apps, and will not be described here.{{%/info%}}
+
 
 {{%excerpt%}}
-<object data="/products/tjenester/3.0/solutions/runtime/architecture/react-app/ReactAppArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/application/altinn-studio/react-app/ReactAppArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
-### Overordnet konsept
-Det overordnede konseptet er at man har en konfigurasjonsfil som definerer hvilke komponenter
-et skjema skal bestå av og rekkefølgen på disse. Denne konfigurasjonsfilen blir generert av UX Designern i Altinn Studio når
-tjenesteutvikleren designer tjenesten og blir en del av ressursfilene som inkluderes i tjenestepakken.
+### service-development
+This is a top-level application, and will only handle simple operations like navigation to the different subapps. It will not have access to the store of any of the subapps.
 
-FormLayout.json lastes inn av React Appen sammen med selve dataene og annen
-konfigurasjon til en tjeneste når applikasjonen starter.
+### service-overview
+Implementation not started. Details will be made available once this application is created.
 
-Applikasjonen rendrer komponentene som er definert i designer FormLayout..
-Dette skjer ved at Preview komponenten løper gjennom design filen og kaller FormComponent
-for hver enkelt element i listen. FormComponent rendrer deretter komponenter som tekstbokser eller nedtrekkliste
-avhengig av hvilken type komponent.
+### ux-editor
+The general concept is that there is a JSON file (_FormLayout.json_) where the components that are to be part of a form are specified. This includes the component types, texts, order, etc. This file is then parsed to display the form.
 
-### React komponentene
-React komponentene som kan velges i UX-designer er alle React komponenter som vil
-rendes basert input til FormComponenten. 
+The _ux-editor_ application is used to create/change this file. The components specified in the file are rendered to visually display the result. 
 
-Disse er for øyeblikket 
+#### The components
+
+All the components that can be added in the ux-editor are React components, and when they are added, the _FormLayout_-file is updated and the component is rendered. Currently, available components are:
 
 * HeaderComponent
 * InputComponent
@@ -52,14 +52,11 @@ Disse er for øyeblikket
 * RadioButtonContainerComponent
 * DropdownComponent
 * FileUploadComponent
+* ThirdPartyComponent (imported from outside Altinn Studio)
 
-Hver enkel komponent har definert et sett med input data (props) som den forventer som input. Det er opp til den overliggende komponenten å skaffe tilveie
-disse. Dette kan være verdier fra state eller egne input data.  
+Each component has a defined set of props that it expects as input. It's up to the parent component to provide these. In addition, props can be mapped directly from the Redux store. 
 
-React legger opp til React komponetene har en metode for å mappe verdier fra state til props for de komponentene som krever.
-
-Når sluttbruker gjør endringer i skjema (f.eks fyller inn noe i en tekstboks) vil den trigge en event som igjen trigger 
-Actions som håndteres av forskjellige dispatchers
+When an end user makes changes in a form (for example type something in a text box), an event is triggered which triggers an action, handled by a _dispatcher_. 
 
 ```
  /**
@@ -83,30 +80,29 @@ Actions som håndteres av forskjellige dispatchers
 
 ```
 
-### Containere
-Komponentene rendres inne i containere. Det er en base-container som alltid er til stede, denne rendrer alle komponentene/containerne
-som er definert i FormLayout.json. Denne opprettes automatisk når man legger til første komponent i skjema. 
+#### Containers
 
-Tjenesteutvikler kan i tillegg legge til nye containere for å gruppere sammen felter i skjema. Disse gruppene kan defineres som _repeterende_,
-da må også repeterende _gruppe_ i datamodellen defineres på containeren. 
+Components are rendered within containers. There is a base container which is always available, and unless otherwise specified, components are rendered within the base container. Any other containers that are defined in FormLayout.json are also rendered inside the base container.
+When a service developer first creates a form, the base container is automatically generated with the first component added. 
 
-### Redux 
-Redux benyttes for å lagre state i applikasjonen. I tjenester 3.0 finnes det flere data store.
+A service developer can add new containers to group together fields in a form. These groups may be _repeating_ if the data model allows for this. If a group is defined as repeating, it must be connected to the relevant repeating group in the data model. 
 
-For runtime er det følgende Redux store som benyttes
+#### Redux
 
-#### AppConfigState
-Inneholder informasjon om hvilken modus applikasjonen har.
+Redux is used to manage the states of the ux-editor.
 
+**AppConfigState**
+
+Which mode is the application in.
 ```
 export interface IAppConfigState {
   designMode: boolean;
 }
 ```
 
-#### DataModelState
-Inneholder informasjon om alle elementene i datamodellen. Basert på JSON generert fra XSD
+**DataModelState**
 
+Information about the data model elements. Based on JSON file generated from XSD data model.
 ```
 export interface IDataModelState {
   model: IDataModelFieldElement[];
@@ -116,9 +112,9 @@ export interface IDataModelState {
 }
 ```
 
-#### RuleModelState
-Inneholder definerte regler
+**RuleModelState**
 
+Information about the rules defined for the service.
 ```
 export interface IRuleModelState {
     model: IRuleModelFieldElement[];
@@ -128,9 +124,9 @@ export interface IRuleModelState {
   }
 ```
 
-#### TextResourceState
-Inneholder alle tekstressurser.
+**TextResourceState**
 
+All text resources for the service.
 ```
 export interface ITextResourcesState {
   resources: ITextResource[];
@@ -141,9 +137,9 @@ export interface ITextResourcesState {
 }
 ```
 
-#### FormFillerState
-Inneholder all skjemadata og eventuelle valideringsfeil. 
+**FormFillerState**
 
+All form data and any validation errors on this form data.
 ```
 export interface IFormFillerState {
   formData: any;
@@ -151,10 +147,9 @@ export interface IFormFillerState {
 }
 ```
 
-**Format på skjemadata**
+__Form data format__
 
-Skjemadata er lagret i state som _key-value-pair_, med knytning til datamodell som nøkkel. F.eks. et felt som er knyttet til 
-et felt `melding.adresse.postnummer` i datamodellen vil lagres som:
+The form data is stored in the state as _key-value pairs_ with data model element as the key. For example, a field connected to `melding.adresse.postnummer` in the data model will be stored as:
 
 ```
 formData: {
@@ -162,9 +157,8 @@ formData: {
 }
 ```
 
-Dersom et felt ligger inne i en gruppe som er definert som _repeterende_, vil det i tillegg legges på en indeks som sier hvilken instans av 
-gruppen feltete hører til. F.eks. dersom gruppen `melding.adresse` er definert som repeterende og sluttbruker har lagt til 3 instanser av gruppen, 
-vil man få følgende skjemadata:
+If a field is inside a repeating group, an index will be added in the key to specify which instance of the group the data belongs to. For example, if the group `melding.adresse` is defined as repeating and the end user has added 3 instances of this group, it would result in the following 
+form data being stored.
 
 ```
 formData: {
@@ -174,21 +168,11 @@ formData: {
 }
 ```
 
+#### Reducer
+Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made.
 
-### Reducer
-Redux reducers har til oppgave å oppdatere de forskjellige stores. Det er en reducer for hver enkel store.
-Følgende er definert 
-
-* formFillerReducer - Ansvarlig for å oppdatere FormFillerState
-* errorReducer - Ansvarlig for å oppdatere 
-*
-
-Reducerne lytter etter Actions som blir dispatchet 
-
-### Action Types
-Action Types er type definisjoner på hendelser
-
-Eksempler:
+#### Action types
+Action types are type definitions for events that trigger an update of the store. For example:
 
 ```
 // All update form data actions
@@ -198,11 +182,8 @@ export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA
 
 ```
 
-### Action
-Actions er hendelser som kan bli trigget av de forskjellige komponentene. 
-En Action inneholder minimum typen av en Action, men kan også inneholde andre metadata rundt hendelsen.
-
-Eksempel:
+#### Actions
+Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:
 
 ```
 export interface IUpdateFormDataAction extends Action {
@@ -212,11 +193,7 @@ export interface IUpdateFormDataAction extends Action {
 }
 ```
 
-### Action Creators
-Action Creators lager actions
-
-
-Eksempel:
+Action creators create the actions, based on the interfaces defined for the action. For example:
 
 ```
 export function updateFormDataAction(
@@ -234,28 +211,12 @@ export function updateFormDataAction(
 }
 ```
 
+The actions are _dispatched_ by an action dispatcher.
 
-### Action Dispatcher
-Action dispatcher 
+#### Redux saga
+Redux saga is the middleware used to process information before the store is updated. All logic that is run before updating the store is completed in the saga. An example is asyncronous calls to backend APIs to get data, or submit data.
 
-
-
-
-### Redux-Saga
-Redux-Saga er Middleware rammeverk som benyttes for å gjøre asynkrone kall mot API i løsningen.
-Dette er f.eks uthenting av skjemdata og lagring av skjemadata. 
-
-Hver enkel Saga som defineres definerer metoder som utfører forskjellige typer oppgaver.
-Dette kan f.eks være lagring av skjemdata eller uthenting av skjemadata. 
-
-Det er definert forskjellige Saga for de forskjellige funksjonelle områdene. Sagaene er
-
-* appData - Ansvarlig for å hente ut regler, tekstressurser og datamodell
-* externalApiSaga - Funksjonalitet rundt externe APi
-* formFillerSagas - funksjonalitet knyttet til uthenting og lagring av skjemadata
-
-For hver Saga metode knyttes det lytttere som lytter til Actions. Det er dette som trigger 
-at de nødvendige kallene skjer.
+Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas. 
 
 ```
 /**
@@ -265,3 +226,17 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
   yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
 }
 ```
+
+### datamodel
+Implementation not started. Details will be made available once this application is created.
+
+### logic-rules
+Implementation not started. Details will be made available once this application is created.
+
+### workflow
+Implementation not started. Details will be made available once this application is created.
+
+### translations
+Implementation not started. Details will be made available once this application is created.
+
+
