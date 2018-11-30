@@ -1,12 +1,12 @@
 ---
-title: Themeing and styling
-linktitle: Themeing and styling
-description: Solution for themeing and styling conventions ++
+title: Theming and styling
+linktitle: Theming and styling
+description: Solution for theming and styling conventions ++
 tags: ["tjenester 3.0"]
 weight: 107
 ---
 
-### Themeing and styling 
+### Theming and styling 
 
 Altinn studio is based on [Material-UI](https://material-ui.com/), a UI components library that focus exclusively on the React library.
 At this point the SBL-schemas are based on Bootstrap. This might change in the future in order to support more sophisticated schemas and
