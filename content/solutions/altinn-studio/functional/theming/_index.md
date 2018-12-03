@@ -22,4 +22,4 @@ to the theme.
 
 **How to change theme**
 
-Changing the theme without having to do alot of changes to the code is post-MVP
+Changing the theme without having to do alot of changes to the code is post-MVP.
