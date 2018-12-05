@@ -206,6 +206,8 @@ Det å håndtere organisasjonen skal være helt selvbetjent.
 - Activity log for user
 - Workspace for user (dette er veldig viktig, betyr at tjenesteutviklere kan "leke seg" på sitt eget område)
 
+I første omgang (MVP) vil tjenesteeier (org-admin) legge til alle sine brukere i gruppen "owner" slik at de får tilgang til å opprette repositories (tjenester). Gruppen "owner" gir vide fullmakter på organisasjonsnivå (dvs tjenesteeiernivå), så på sikt vil det implementeres mer granulert tilgangsstyring.  
+
 {{<figure src="collaboration.png?width=800" title="En ny tjenesteutvikler har fått skrivetilgang">}}
 {{<figure src="activity-log.png?width=800" title="Tjenesteutviklere har egen profil og aktivitetslogg">}}
 
