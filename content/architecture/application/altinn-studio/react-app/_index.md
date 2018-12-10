@@ -220,6 +220,22 @@ An example is asyncronous calls to backend APIs to get data, or submit data.
 Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.
 
 ```typescript
+
+/**
+ * Define the saga for the UPDATE_FORM_DATA event
+ */
+function* updateFormDataSaga(action: ActionType) {
+  try {
+    const relevantData = yield selectRelevantStateObjects(...);
+    ...
+    doRelevantLogic(relevantData);
+    ...
+    yield call(updateFormDataSagaFulfilled, ... );
+  } catch (err) {
+    yield call(updateFormDataSagaRejected, err);
+  }
+}
+
 /**
  * Define a listener for the UPDATE_FORM_DATA event
  */
