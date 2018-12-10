@@ -2129,7 +2129,7 @@ This is not necessary for shared components.</p>
 
 <p>When an end user makes changes in a form (for example type something in a text box), an event is triggered which triggers an action, handled by a <em>dispatcher</em>.</p>
 
-<pre><code> /**
+<pre><code class="language-typescript"> /**
    * This is the event handler that triggers the Redux Actions
    * that is sendt to the different Action dispatcher.
    * This event handler is used for all form components rendered from this
@@ -2165,7 +2165,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p>Which mode is the application in.</p>
 
-<pre><code>export interface IAppConfigState {
+<pre><code class="language-typescript">export interface IAppConfigState {
   designMode: boolean;
 }
 </code></pre>
@@ -2174,7 +2174,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p>Information about the data model elements. Based on JSON file generated from XSD data model.</p>
 
-<pre><code>export interface IDataModelState {
+<pre><code class="language-typescript">export interface IDataModelState {
   model: IDataModelFieldElement[];
   fetching: boolean;
   fetched: boolean;
@@ -2186,7 +2186,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p>Information about the rules defined for the service.</p>
 
-<pre><code>export interface IRuleModelState {
+<pre><code class="language-typescript">export interface IRuleModelState {
     model: IRuleModelFieldElement[];
     fetching: boolean;
     fetched: boolean;
@@ -2198,7 +2198,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p>All text resources for the service.</p>
 
-<pre><code>export interface ITextResourcesState {
+<pre><code class="language-typescript">export interface ITextResourcesState {
   resources: ITextResource[];
   language: string;
   fetching: boolean;
@@ -2211,7 +2211,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p>All form data and any validation errors on this form data.</p>
 
-<pre><code>export interface IFormFillerState {
+<pre><code class="language-typescript">export interface IFormFillerState {
   formData: any;
   validationErrors: any;
 }
@@ -2221,7 +2221,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p>The form data is stored in the state as <em>key-value pairs</em> with data model element as the key. For example, a field connected to <code>melding.adresse.postnummer</code> in the data model will be stored as:</p>
 
-<pre><code>formData: {
+<pre><code class="language-typescript">formData: {
     melding.adresse.postnummer : &quot;1234&quot;
 }
 </code></pre>
@@ -2229,7 +2229,7 @@ When a service developer first creates a form, the base container is automatical
 <p>If a field is inside a repeating group, an index will be added in the key to specify which instance of the group the data belongs to. For example, if the group <code>melding.adresse</code> is defined as repeating and the end user has added 3 instances of this group, it would result in the following
 form data being stored.</p>
 
-<pre><code>formData: {
+<pre><code class="language-typescript">formData: {
     melding.adresse[0].postnummer : &quot;1234&quot;,
     melding.adresse[1].postnummer : &quot;2345&quot;,
     melding.adresse[2].postnummer : &quot;4567&quot;
@@ -2244,7 +2244,7 @@ form data being stored.</p>
 
 <p>Action types are type definitions for events that trigger an update of the store. For example:</p>
 
-<pre><code>// All update form data actions
+<pre><code class="language-typescript">// All update form data actions
 export const UPDATE_FORM_DATA: string = `${moduleName}.UPDATE_FORM_DATA`;
 export const UPDATE_FORM_DATA_FULFILLED: string = `${moduleName}.UPDATE_FORM_DATA_FULFILLED`;
 export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA_REJECTED`;
@@ -2255,7 +2255,7 @@ export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA
 
 <p>Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:</p>
 
-<pre><code>export interface IUpdateFormDataAction extends Action {
+<pre><code class="language-typescript">export interface IUpdateFormDataAction extends Action {
   formData: any;
   componentID: string;
   dataModelElement: IDataModelFieldElement;
@@ -2264,7 +2264,7 @@ export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA
 
 <p>Action creators create the actions, based on the interfaces defined for the action. For example:</p>
 
-<pre><code>export function updateFormDataAction(
+<pre><code class="language-typescript">export function updateFormDataAction(
   componentID: string,
   formData: any,
   dataModelElement: IDataModelFieldElement,
@@ -2283,11 +2283,29 @@ export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA
 
 <h4 id="redux-saga">Redux saga</h4>
 
-<p>Redux saga is the middleware used to process information before the store is updated. All logic that is run before updating the store is completed in the saga. An example is asyncronous calls to backend APIs to get data, or submit data.</p>
+<p>Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the <code>utils</code>-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.</p>
+
+<p>An example is asyncronous calls to backend APIs to get data, or submit data.</p>
 
 <p>Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.</p>
 
-<pre><code>/**
+<pre><code class="language-typescript">
+/**
+ * Define the saga for the UPDATE_FORM_DATA event
+ */
+function* updateFormDataSaga(action: ActionType) {
+  try {
+    const relevantData = yield selectRelevantStateObjects(...);
+    ...
+    doRelevantLogic(relevantData);
+    ...
+    yield call(updateFormDataSagaFulfilled, ... );
+  } catch (err) {
+    yield call(updateFormDataSagaRejected, err);
+  }
+}
+
+/**
  * Define a listener for the UPDATE_FORM_DATA event
  */
 export function* watchUpdateFormDataSaga(): SagaIterator {
