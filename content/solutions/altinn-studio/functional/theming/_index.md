@@ -13,6 +13,7 @@ At this point the SBL-schemas are based on Bootstrap. This might change in the f
 the possibilty to write schemas in other languages than React + Bootstrap.</br>
 Both the schemas that are produced and the editor will have the possibilty to change theme.
 By default altinn studio uses the altinn theme. The theme will at this point only change colors and fonts in Altinn studio.
+The colors are base on the [altinn color palette.](https://altinn.github.io/designsystem-styleguide/retningslinjer-altinn/farger.html)
 
 **CSS**
 
