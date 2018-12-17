@@ -17,6 +17,15 @@ Meaning that 3.0 supports any language that is added, not just languages support
 - Reusable texts, internal across different pages and on the levels above the solution
 - Possibility to add other languages
 
+**Using lanuage keys in the solution**
+Lanuage keys are references in the react-code with the help of a the language method getLanguageFromKey found in src/react-apps/applications/shared/src/utils/lanauge.ts. 
+This method is called in the following way: 
+
+```
+getLanguageFromKey('universal_key.lanuage_key', this.props.language)
+```
+Where the first param is the language key and the second is the language element. If you call this.props.language.universal_key.lanuage_key you should get the key value
+
 **How to add a new language:**
 
 - Make a new ini-file and place it in AltinnCore > Common > Languages > ini
