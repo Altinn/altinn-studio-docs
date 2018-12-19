@@ -256,4 +256,9 @@ Implementation not started. Details will be made available once this application
 ### translations
 Implementation not started. Details will be made available once this application is created.
 
-
+### autosave
+If you make changes to the form, the app should auto-save. This is done by triggering a new save-action after the addition, update or delete of:
+- components
+- containers
+- api-connections
+The auto-save also triggers when you update the order of the components inside the form.
