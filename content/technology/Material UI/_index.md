@@ -6,7 +6,7 @@ tags: ["tjenester 3.0", "MAterial UI"]
 ---
 
 #### Material UI 
-MAterial UI is used in Altinn Studio as the React UI framework. MAterial UI was chosen because
+Material UI is used in Altinn Studio as the React UI framework. MAterial UI was chosen because
 - It is based on the Google's material design. 
 - It focuses exclusively on the React library
 - Can use the readily available responsive components

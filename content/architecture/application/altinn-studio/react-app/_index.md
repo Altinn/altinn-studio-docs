@@ -32,6 +32,21 @@ See below diagram for an overview of the different applications.
 ### service-development
 This is a top-level application, and will only handle simple operations like navigation to the different subapps. It will not have access to the store of any of the subapps.
 
+#### Header and Navigation
+Material UI (applicatiopn bar and drawer) components are customized with altinn studio styles for the header and navigation in Altinn Studio. A third party library ["React Routing"] ((https://reacttraining.com/react-router/web/guides/quick-start)) is used together with Material UI to handle navigation. When the user clicks on a header/side navigation link, the route changes and the subapp specific to the route is rendered.
+
+#### Header Menu (Application bar)
+Application bar component is the Altinn Studio's header menu(navigation links at the top). React router library is used to handle those navigations. Header menu has different user interface on desktop and tablet. The display text and the links for navigation are built as object in a configuration file [appbarconfig] (https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/main-header/appBarConfig.tsx).
+The configuration object in the file is iterated and the application bar is rendered. The styles specific to the component are placed inside [the component file] (https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/main-header/appBar.tsx). In addition to the navigation menu, a breadcrumb is also rendered in tablet view.
+
+#### Side Menu (Drawer Menu)
+Drawer menu component is the Altinn Studio's side menu which can be found on the left. It displays a list of Icons by default and on hover expands the menu and lists text by the side of the icon. It will render a list of navigation links based on the selected header menu.
+Side menu has different user interfaces in desktop and tablet. In tablet, only text is displayed and it slides in from left when "Menu" button is clicked. 
+So 2 different components are created to acheive this ([LeftDrawerMenu] (https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/LeftDrawerMenu.tsx), [TabletDrawerMenu] (https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/TabletDrawerMenu.tsx))
+
+The styles specific to the side menu is added in a separate [style file] (https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/leftDrawerMenuStyles.ts).
+Similar to the header menu, the side menu is also rendered by looping over the menu settings object which is available in a separate [configuration file] (https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/drawerMenuSettings.ts)
+
 ### service-overview
 Implementation not started. Details will be made available once this application is created.
 
@@ -255,5 +270,6 @@ Implementation not started. Details will be made available once this application
 
 ### translations
 Implementation not started. Details will be made available once this application is created.
+
 
 
