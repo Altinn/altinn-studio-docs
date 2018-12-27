@@ -1681,6 +1681,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/material-ui/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/material-ui/">
+        <span>Material UI</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/react/" class="dd-item 
         
         
@@ -2022,7 +2049,12 @@ if(host != "localhost")
 <ul>
 <li><a href="#react-architecture">React architecture</a>
 <ul>
-<li><a href="#service-development">service-development</a></li>
+<li><a href="#service-development">service-development</a>
+<ul>
+<li><a href="#header-and-navigation">Header and Navigation</a></li>
+<li><a href="#header-menu-application-bar">Header Menu (Application bar)</a></li>
+<li><a href="#side-menu-drawer-menu">Side Menu (Drawer Menu)</a></li>
+</ul></li>
 <li><a href="#service-overview">service-overview</a></li>
 <li><a href="#ux-editor">ux-editor</a>
 <ul>
@@ -2100,6 +2132,24 @@ This is not necessary for shared components.</p>
 <h3 id="service-development">service-development</h3>
 
 <p>This is a top-level application, and will only handle simple operations like navigation to the different subapps. It will not have access to the store of any of the subapps.</p>
+
+<h4 id="header-and-navigation">Header and Navigation</h4>
+
+<p>Material UI (applicatiopn bar and drawer) components are customized with altinn studio styles for the header and navigation in Altinn Studio. A third party library <a href="(https://reacttraining.com/react-router/web/guides/quick-start)">&ldquo;React Routing&rdquo;</a> is used together with Material UI to handle navigation. When the user clicks on a header/side navigation link, the route changes and the subapp specific to the route is rendered.</p>
+
+<h4 id="header-menu-application-bar">Header Menu (Application bar)</h4>
+
+<p>Application bar component is the Altinn Studio&rsquo;s header menu(navigation links at the top). React router library is used to handle those navigations. Header menu has different user interface on desktop and tablet. The display text and the links for navigation are built as object in a configuration file <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/main-header/appBarConfig.tsx">appbarconfig</a>.
+The configuration object in the file is iterated and the application bar is rendered. The styles specific to the component are placed inside <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/main-header/appBar.tsx">the component file</a>. In addition to the navigation menu, a breadcrumb is also rendered in tablet view.</p>
+
+<h4 id="side-menu-drawer-menu">Side Menu (Drawer Menu)</h4>
+
+<p>Drawer menu component is the Altinn Studio&rsquo;s side menu which can be found on the left. It displays a list of Icons by default and on hover expands the menu and lists text by the side of the icon. It will render a list of navigation links based on the selected header menu.
+Side menu has different user interfaces in desktop and tablet. In tablet, only text is displayed and it slides in from left when &ldquo;Menu&rdquo; button is clicked.
+So 2 different components are created to acheive this (<a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/LeftDrawerMenu.tsx">LeftDrawerMenu</a>, <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/TabletDrawerMenu.tsx">TabletDrawerMenu</a>)</p>
+
+<p>The styles specific to the side menu is added in a separate <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/leftDrawerMenuStyles.ts">style file</a>.
+Similar to the header menu, the side menu is also rendered by looping over the menu settings object which is available in a separate <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/drawerMenuSettings.ts">configuration file</a></p>
 
 <h3 id="service-overview">service-overview</h3>
 
@@ -3192,6 +3242,22 @@ The auto-save also triggers when you update the order of the components inside t
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

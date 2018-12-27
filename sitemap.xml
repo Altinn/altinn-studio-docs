@@ -111,6 +111,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/technology/material-ui/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/technology/react/</loc>
   </url>
   
@@ -221,6 +225,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/logic/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/material-ui/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

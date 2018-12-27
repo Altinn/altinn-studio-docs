@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers">
+    <meta name="description" content="Material UI is one of the popular react UI library used in Altinn Studio/ Altinn Studio Apps">
 
 
     
-    <title>Reusable resources :: Altinn Studio</title>
+    <title>Material UI :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/solutions/altinn-studio/functional/reusable-resources/">
+  <body class="" data-url="/technology/material-ui/">
     <nav id="sidebar" class="">
 
 
@@ -219,7 +219,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -230,7 +230,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -255,7 +255,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -266,7 +266,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -291,7 +291,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/functional/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -302,7 +302,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -435,8 +435,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/functional/reusable-resources/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/solutions/altinn-studio/functional/reusable-resources/">
@@ -1592,7 +1592,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/technology/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1603,7 +1603,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1682,8 +1682,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/technology/material-ui/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/technology/material-ui/">
@@ -1994,7 +1994,7 @@ if(host != "localhost")
               
               
             <div id="top-github-link">
-              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/solutions/altinn-studio/functional/reusable-resources/_index.md" target="blank">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/Material%20UI/_index.md" target="blank">
                 <i class="fa fa-code-fork"></i>
                 Edit page
               </a>
@@ -2021,17 +2021,7 @@ if(host != "localhost")
 
 
 
-
-
-
-
-
-
- <a href='/'>Altinn Studio</a> > <a href='/solutions/'>Solutions</a> > <a href='/solutions/altinn-studio/'>Altinn Studio</a> > <a href='/solutions/altinn-studio/functional/'>Functionality</a> > Reusable resources
-
- 
-
- 
+ <a href='/'>Altinn Studio</a> > <a href='/technology/'>Technology</a> > Material UI
 
  
 
@@ -2049,8 +2039,13 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#web-component">Web component</a></li>
-<li><a href="#overall-layout">Overall layout</a></li>
+<li>
+<ul>
+<li><a href="#material-ui">Material UI</a></li>
+<li><a href="#lenker">Lenker</a></li>
+<li><a href="#react-router">React Router</a></li>
+<li><a href="#lenker-1">Lenker</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2064,14 +2059,16 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studiotags/studio">studio</a>
+              <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0">tjenester 3.0</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studiotags/material-ui">Material UI</a>
             
           </div>
         
         <div id="body-inner">
           
             
-              <h1>Reusable resources</h1>
+              <h1>Material UI</h1>
             
           
 
@@ -2080,67 +2077,33 @@ if(host != "localhost")
 
 
 
-<p>A important feature with Altinn Studio is that it should promote developers to create
-reusable resources that can be reused by other service developers that uses Altinn Studio.</p>
+<h4 id="material-ui">Material UI</h4>
 
-<p>Reusable resource is typical created by technical developers using code editors.</p>
+<p>Material UI is used in Altinn Studio as the React UI library. Material UI was chosen because
+- It is based on the Google&rsquo;s material design.
+- It focuses exclusively on the React components
+- Can use responsive components provided by the library
+- Can override the style to customize the component to match the application requirements
+- Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar)
+- It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism</p>
 
-
-<figure>
-    
-        <img src="react-code-example.png?width=800" />
-    
-    
-    <figcaption>
-        <h4>Development of new React web component</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h3 id="web-component">Web component</h3>
-
-<p>When <a href="#building-ui">building UI</a>, you will use and configure premade web components.
-The components will be based on <a href="https://reactjs.org/">React</a>, and vil vary in size
-and complexity. Web components are developed in code editors.</p>
-
-<p>Some basic requirements:</p>
+<h4 id="lenker">Lenker</h4>
 
 <ul>
-<li>The component should be flexible and configurable</li>
-<li>The component should be able to be connected to the data model, and use the metadata from the data model.</li>
-<li>The component should be able to connect to text resources</li>
-<li>The component should support responsive design and WCAG 2 AA</li>
-<li>It should be simple for service owners to add more components</li>
+<li><a href="https://material-ui.com/">Official webpage</a><br /></li>
+<li><a href="https://github.com/mui-org/material-ui">Github</a></li>
 </ul>
 
-<p><img src="react-icon.svg?width=100" alt="React logo" /></p>
+<h4 id="react-router">React Router</h4>
 
-<h3 id="overall-layout">Overall layout</h3>
+<p>React router is a third party routing library used in Altinn Studio to trigger navigation within the application.</p>
 
-<p>When <a href="#bygge-brukergrensesnitt">building UI</a> it will be possible to select a overall layout
- (aka &ldquo;look&amp;feel&rdquo;).
-This could bee neded because of the complexity of the service or a wish for branding of the service.</p>
+<h4 id="lenker-1">Lenker</h4>
 
 <ul>
-<li><p>Create reuasable artifacts</p>
-
-<ul>
-<li>Look&amp;feel</li>
-<li>Texts and translations</li>
-<li>Code lists</li>
-<li>Logic (C#? TypeScript? WebAssembly?)</li>
-<li>Data models (Seres?)</li>
-<li>API calls</li>
-</ul></li>
-
-<li><p>Reuse these artifacts</p></li>
+<li><a href="https://reacttraining.com/react-router/">Official webpage</a><br /></li>
+<li><a href="https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom">Github</a></li>
 </ul>
-
-<p>F.eks. det å lage nye web componenter og layouts vil typisk være noe som
-tekniske utviklere gjør i kode-editorer.<br />
-Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
 
 
 <footer class=" footline" >
@@ -2252,6 +2215,20 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
                 
                     
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2268,7 +2245,6 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
                 
                     
-                    
                 
                 
 
@@ -2283,25 +2259,6 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -2367,7 +2324,6 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
                 
                     
-                    
                 
                 
 
@@ -2383,9 +2339,6 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -2988,6 +2941,7 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
                 
                     
+                    
                 
                 
 
@@ -3002,6 +2956,9 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -3035,36 +2992,6 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -3077,8 +3004,23 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
         
                     
+                        
             
-        
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
                     
                         
             
@@ -3092,6 +3034,9 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -3176,6 +3121,22 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -3186,10 +3147,10 @@ Det å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.</p>
 
 
         
-            <a class="nav nav-prev" href="/solutions/altinn-studio/functional/logic/" title="Logic &amp; Rules"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/technology/kubernetes/" title="Kubernetes"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/solutions/altinn-studio/functional/deployment/" title="Service Deployment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/technology/react/" title="React" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
