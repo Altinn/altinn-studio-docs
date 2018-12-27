@@ -2038,6 +2038,7 @@ if(host != "localhost")
 <li><a href="#logic-rules">logic-rules</a></li>
 <li><a href="#workflow">workflow</a></li>
 <li><a href="#translations">translations</a></li>
+<li><a href="#autosave">autosave</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2328,6 +2329,16 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
 <h3 id="translations">translations</h3>
 
 <p>Implementation not started. Details will be made available once this application is created.</p>
+
+<h3 id="autosave">autosave</h3>
+
+<p>If you make changes to the form, the app should auto-save. This is done by triggering a new save-action after the addition, update or delete of:
+- components
+- containers
+- api-connections
+- dynamic rules
+- conditonal rendering rules
+The auto-save also triggers when you update the order of the components inside the form.</p>
 
 
 <footer class=" footline" >
