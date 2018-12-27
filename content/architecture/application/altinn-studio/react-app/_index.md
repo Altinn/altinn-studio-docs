@@ -261,4 +261,5 @@ If you make changes to the form, the app should auto-save. This is done by trigg
 - components
 - containers
 - api-connections
+- dynamic rules
 The auto-save also triggers when you update the order of the components inside the form.
