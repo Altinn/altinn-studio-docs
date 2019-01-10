@@ -84,6 +84,13 @@
 	"content": " NOTE: Work in progress. Stuff will change\n\rAltinn Studio Apps is the solution where all the services developed in Altinn Studio is deployed. The following diagram shows the deploy architecture for Altinn Studio Apps\n\nService Containers In the Altinn Studio Apps solution each end user service will have a uniqe docker container managed by Kubernetes. Each set of service containers will be scaled based on the use of the service. The service container will consist of the runtime application and service specific code and configuration.\nRouting To be able to route traffic to the correct container, each container is tagged to a specific end user service. The routing mecahnism routes to the correct container based on the url containing the service parameter.\nData services The data services application is the application responsible exposing data related functionality to the service containers. This container will be scaled based on need.\nPlatform integration The platform integration is a new application hosted in the existing infrastructure. It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication. These are services not part of the Altinn Studio Platform (yet) and everyone planning to run the Altinn Studio platform would need to implement their own components that support.\nAPI Proxy API Proxy is needed for controlling credentials and outbound firewall rules from the platform. This might be handled by the API Managment software. Needs Analyzis\nAPI Management The platform requires API management software to handle SLA ++. Needs Analyzis\n"
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/altinnservice-projectfile/",
+	"title": "AltinnService.csproj",
+	"tags": ["tjenester 3.0", "projectfile", "csproj"],
+	"description": "Description for AltinnService.csproj file",
+	"content": " Summary This is a c# project file that is generated when a new service is created. This project file is placed in the root of the service folder. This project file helps in compiling the service.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/application/",
 	"title": "Application",
 	"tags": ["architecture"],
@@ -270,7 +277,7 @@
 	"title": "Data Structure for Repos",
 	"tags": ["repos", "arkitektur"],
 	"description": "Struktur for repositories og filer i Gitea",
-	"content": " Under arbeid\n\rOverordnet struktur Gitea\n├── \raltinn\n│ ├── \rcommon\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │ └── README.md\n│ ├── \rcodelists\n│ │ ├── \rcountries.json\n│ │ └── \r\u0026hellip;\n│ │ └── README.md\n│ └── \r\u0026hellip;\n│\n├── \rorg-x\n│ ├── \rorg-x\n│ │ ├── \rsettings.json\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │\n│ ├── \rcodelists\n│ │ ├── \rkodeliste1.json\n│ │ └── \r\u0026hellip;\n│ │\n│ ├── \rtjeneste-1\n│ │ ├── \rcommon \u0026hellip;\n│ │ ├── \reditions\n│ │ │ ├── \r2018\n│ │ │ │ ├── \rImplementation\n│ │ │ │ │ ├── \rCalculationHandler.cs\n│ │ │ │ │ ├── \rInstantiationHandler.cs\n│ │ │ │ │ ├── \rServiceImplementation.cs\n│ │ │ │ │ └── \rValidationHandler.cs\n│ │ │ │ ├── \rResources\n│ │ │ │ │ ├── \rStyles.json\n│ │ │ │ │ ├── \rreact-app.css\n│ │ │ │ │ ├── \rreact-app.js │ │ │ │ │ ├── \rRuleHandler.js\n│ │ │ │ │ ├── \rFormLayout.json\n│ │ │ │ │ ├── \rServiceConfigurations.json\n│ │ │ │ │ ├── \rresource.nb-NO.json\n│ │ │ │ │ └── \rresource.nn-NO.json\n│ │ │ │ ├── \rModel\n│ │ │ │ │ ├── \rServiceModel.xsd\n│ │ │ │ │ └── \rServiceModel.cs\n│ │ │ │ ├── \rconfig.json\n│ │ │ │ └── \rMetadata\n│ │ │ │ ├── \rServiceMetadata.json\n│ │ │ │ └── \rworkflow.json │ │ │ │\n│ │ │ └── \r2019 \u0026hellip;\n│ │ ├── .gitignore\n│ │ ├── LICENSE\n│ │ └── README.md\n│ │\n│ └── \rtjeneste-2 \u0026hellip;\n│\n├── \rorg-y\n│ ├── \rorg-y \u0026hellip;\n│ └── \r\u0026hellip;\n│\n├── \rbruker-a\n│ └── \rtjeneste-1 (fork av org-x/tjeneste-1)\n├── \rbruker-b \u0026hellip;\n│\n├── \rAlle organisasjoner\n├── \rAlle repos\n└── \rAlle brukere\n"
+	"content": " Under arbeid\n\rOverordnet struktur Gitea\n├── \raltinn\n│ ├── \rcommon\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │ └── README.md\n│ ├── \rcodelists\n│ │ ├── \rcountries.json\n│ │ └── \r\u0026hellip;\n│ │ └── README.md\n│ └── \r\u0026hellip;\n│\n├── \rorg-x\n│ ├── \rorg-x\n│ │ ├── \rsettings.json\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │\n│ ├── \rcodelists\n│ │ ├── \rkodeliste1.json\n│ │ └── \r\u0026hellip;\n│ │\n│ ├── \rtjeneste-1\n│ │ ├── \rcommon \u0026hellip;\n│ │ ├── \rImplementation\n│ │ │ ├── \rCalculationHandler.cs\n│ │ │ ├── \rInstantiationHandler.cs\n│ │ │ ├── \rServiceImplementation.cs\n│ │ │ └── \rValidationHandler.cs\n│ │ ├── \rResources\n│ │ │ ├── \rStyles.json\n│ │ │ ├── \rreact-app.css\n│ │ │ ├── \rreact-app.js\n│ │ │ ├── \rRuleHandler.js\n│ │ │ ├── \rFormLayout.json\n│ │ │ ├── \rServiceConfigurations.json\n│ │ │ ├── \rresource.nb-NO.json\n│ │ │ └── \rresource.nn-NO.json\n│ │ ├── \rModel\n│ │ │ ├── \rServiceModel.xsd\n│ │ │ └── \rServiceModel.cs\n│ │ ├── \rMetadata\n│ │ │ ├── \rServiceMetadata.json\n│ │ │ └── \rworkflow.json\n│ │ ├── \rAltinnService.csproj\n│ │ ├── \rconfig.json\n│ │ ├── .gitignore\n│ │ ├── LICENSE\n│ │ └── README.md\n│ │\n│ └── \rtjeneste-2 \u0026hellip;\n│\n├── \rorg-y\n│ ├── \rorg-y \u0026hellip;\n│ └── \r\u0026hellip;\n│\n├── \rbruker-a\n│ └── \rtjeneste-1 (fork av org-x/tjeneste-1)\n├── \rbruker-b \u0026hellip;\n│\n├── \rAlle organisasjoner\n├── \rAlle repos\n└── \rAlle brukere\n"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/stylecop/",
@@ -539,6 +546,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/csproj/",
+	"title": "csproj",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/data-modeling/",
 	"title": "data-modeling",
 	"tags": [],
@@ -597,6 +611,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/pipelines/",
 	"title": "pipelines",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/projectfile/",
+	"title": "projectfile",
 	"tags": [],
 	"description": "",
 	"content": ""
