@@ -25,7 +25,7 @@ It is split into different REACT applications and components for the different f
 Backend of designer is based on .Net Core and ASP.Net Core. It exposes API to the REACT applications
 
 ## Repository
-The repository application is based on [GITEA](https://gitea.io/). This is a open source product created in [GO](https://golang.org/).
+The repository application is based on [GITEA](https://gitea.io/). This is a open source product created in [GO](https://golang.org/). Take a look at the [Customize Gitea]() for more details on how to customize gitea.
 
 ## Runtime
 Runtime is both part of the Altinn Studio and the Altinn Studio Apps solution.
