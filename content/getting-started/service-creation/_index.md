@@ -1,109 +1,106 @@
 ---
-title: Lag en utgave
-description: Dokumentasjon av funksjonalitet tilgjengelig for å lage en utgave
+title: Create a service
+description: Information on how to create a service in Altinn Studio
 tags: ["guide"]
 weight: 100
 ---
 
-Oversikt over eksisterende utgaver finner man ved å gå inn på tjenesten, f.eks. fra startsiden. 
+An overview of existing services is available on the dashboard. This is also where new services can be created from. 
 
-Ny utgave lages fra tjenestesiden:
+### Create a new service
 
-{{<figure src="create-edition.gif?width=1000" title="Lage ny utgave">}}
+A new service is created from the dashboard.
 
-### Last opp datamodell
-Datamodellen definerer hva slags data som skal knyttes til tjenesten. Per nå støttes datamodell i form av XSD (Seres eller OR). 
+{{<figure src="dashboard-overview.png?width=1000" title="Dashboard - overview">}}
 
-Datamodellen lastes opp på utgaven. Dersom datamodell ikke er lastet oopp før vil det stå en melding om dette på hovedsiden til utgaven. Datamodell 
-kan også lastes opp/sees fra **Modellering**-siden til utgaven.
+1. Click on the "ny tjeneste" button in the top right corner of the dashboard. 
+2. Select the service owner to create the service for
+3. Enter the display name for the service
+    - This is the name that will be shown to the end user, and can be changed later
+4. The identifier name of the service will automatically be populated based on the display name. _This can not be changed once the service has been created._ This name is only used to identify the service in the solution. The identifier must start with a letter, and can only contain alphanumeric characters or underscore.
+5. Create the service by clicking "Opprett"
+
+{{<figure src="dashboard-new-service.png?width=1000" title="Dashboard - create a new service">}}
+
+Once the service is created you will be redirected to the service. 
+
+### Upload data model
+The data model defines the data that can be submitted in the service. Currently the data model format must be XSD (Seres or OR).
+
+The data model needs to be uploaded for each service. 
+
+1. Open the service from the dashboard
+2. Choose _Modellering -> Datamodell from the top navigation menu
+3. Click on _Velg XSD_ and choose an XSD in the file explorer
+4. Click _Last opp_
+
+The data model XSD is then parsed, and all necessary files are generated. These files can be viewed by selecting the different tabs displayed on the data model page. There is also a visual representation (tree view) of the data model available on this page. 
+
 {{<figure src="add-datamodel.gif?width=1000" title="Legg til datamodell">}}
 
-### Lag skjema med UI editor
+### Create a form using the GUI editor
 
-UI editor ligger under **UX** i toppmenyen for utgaven, under **Designer**
-{{<figure src="go-to-designer.gif?width=1000" title="UI editor">}}
+The GUI editor is available via the "Lage" option in the navigation menu. 
 
-Skjemaelementer legges til ved å velge type element fra oversikten til venstre. Visning av skjema ligger på høyre side.
+{{<figure src="ui-editor-empty.png?width=1000" title="GUI editor">}}
 
-{{<figure src="ui-editor-overview.png?width=1000" title="UI editor - oversikt">}}
+Form components can be dragged into the working surface in the middle from the menu on the left-hand side. The form components can be rearranged by dragging/dropping them on the working surface.
 
-#### Redigere egenskaper til skjemaelement
-Skjemaelementene har forskjellige egenskaper som kan redigeres. For å få opp redigeringsvindu kan man velge eksisterende elementer
-i visningen av skjema på høyre side. Vindu med egenskaper kommer automatisk opp når nytt skjemaelement legges til.
+When hovering over a component, or after selecting a component by clicking on it, two icons are visible - a _trash_-icon for deleting the component and a _pencil_-icon for editing properties on the component. 
 
-##### Visningstekst
-Alle skjemaelementer har en tekst knyttet til seg som beskriver forventet innhold i elementet. Tekst velges fra nedtrekksliste over tilgjengelige 
-tekster, se avsnitt om tekster under.
+{{<figure src="ui-editor-add-components.gif?width=1000" title="GUI editor - add components">}}
 
-{{<figure src="field-props-text.png?width=1000" title="Visningstekst">}}
+#### Editing the properties on a component
+Each component has a set of properties that can be edited, for example texts, connection to data model, etc. In order to edit the properties on a component, hover over or click on the component. A _pencil_-icon will then be visible to the right of the component. Click on this icon to open the properties editor for the component. 
 
-##### Feltegenskaper
-- _Required_: Er det påkrevd med verdi i feltet?
-- _Disabled_: Skal feltet være skrivebeskyttet?
+Save any changes by clicking the _checkmark_-icon to the right of the properties editor. Discard any changes by clicking the _X_-icon to the right of the properties editor.
 
-_OBS! Feltegenskapene over er per nå kun tilgjengelige på Input-elementer._
+{{<figure src="ui-editor-edit-properties.png?width=1000" title="GUI editor - edit properties on a component">}}
 
-{{<figure src="field-props-reqDis.png?width=400" title="Feltegenskaper">}}
+{{%notice info%}}
+NOTE: The form components are currently being developed. As such, not all form components have a complete/updated properties editor.
+{{% /notice%}}
 
-##### Forhåndsdefinerte valg
-For skjemaelementer som har forhåndsdefinerte valg (f.eks. _nedtrekksliste_ og _radioknapper_) kan disse valgene konfigureres. Merk at feltene
-for å konfigurere dette ikke er tilgjengelige for skjemaelementer som ikke har forhåndsdefinerte valg.
+See the documentation on the different components for information on which properties are available to edit.
 
-{{<figure src="field-props-options.png?width=1000" title="Forhåndsdefinerte valg">}}
+### <a name="add-texts"></a> Texts
+Texts are stored in resource files for the service. Texts can come from common libraries, from the data model, and be added manually. These texts are available for example when editing a form components properties, and selected texts will be shown to the end user.
 
-##### Knytning mot datamodell
-Skjemaelementer som skal ta input fra sluttbruker kan knyttes mot felt i datamodell. Det som sluttbruker skriver inn i skjemaelementet vil da
-mappes til det definerte feltet i datamodellen. Knytning mot felt i datamodell gjøres via nedtrekksliste som viser tilgjengelige felt i datamodell.
+#### Add/edit texts for the service
+In the top navigation menu, select _UX_ -> _Tekster_ to go to the text editing page. 
+An overview of the texts that are already available for the service is shown.
 
-{{<figure src="field-props-datamodel.png?width=1000" title="Knytning mot datamodell">}}
+On this page, existing texts can be changed and new texts can be added. Add a new text by clicking _Ny tekst_, and enter the text and a unique identifier for the text. 
 
-{{<figure src="ui-editor-component-properties.png?width=1000" title="UI editor - redigere egenskaper for skjemaelement">}}
-
-### <a name="add-texts"></a> Legg til tekster
-Tekster hentes inn både fra et fellesbibliotek tilgjengelig for alle, og evt. også fra fellesbibliotek for den enkelte tjenesteeier. 
-Det er også mulig å legge inn egne tekster knyttet til en utgave, eller å overstyre tekster fra fellesbibliotek for en utgave.
-
-#### Legge til, redigere eller overstyre tekster for en utgave
-I toppmenyen, under **UX** velges menyvalget **Tekster** for å komme til tekstredigeringsverktøyet. Dette kan også nås ved å velge fanen **Tekster** 
-dersom en allerede er inne i UI editoren. 
-
-Tekster er definert med en nøkkel (unik for hver enkelt tekst) og en visningstekst. Tekster kan legges inn på flere språk.
+Save any changes by clicking _Lagre tekster_.
 
 {{<figure src="ui-editor-texts.png?width=1000" title="UI editor - redigere tekster">}}
 
-### Legg til kodeliste
-En kodeliste er en forhåndsdefinert liste med nøkler (_koder_) og visningstekster. En kode i kodelisten kan knyttes til opp til 3 visningstekster. 
-Når kodeliste knyttes til en skjemakomponent velger man hvilken visningsverdi som skal brukes. Kodelister knyttes typisk mot en nedtrekksliste.
+### Code lists
+A code list is a pre-defined list of _codes_ and display texts that can be connected to a form component. Code lists can come from common libraries, and can be defined for each service.
 
-Kodelister hentes både fra felles bibliotek tilgjengelig for alle, evt. felles kodelister for den enkelte tjenesteeier, og kodelister som 
-er definert på en utgave. 
-
-#### Redigere eller endre kodeliste for en utgave
-I toppmenyen, under **Modellering** velges menyvalget kodelister. 
-
-For å redigere eksisterende kodeliste, velg ønsket kodeliste fra listen.
-
-For å lage ny kodeliste, velg _Lag ny kodeliste_. 
+#### Add/edit code list
+In the top navigation meny, select _Modellering_ -> _Kodelister_. An overview of existing code lists will be shown. To edit an existing code list, select it from the overview. To add a new code list, click _Lag ny kodeliste_. 
 
 {{<figure src="ui-editor-codelist.png?width=1000" title="UI editor - redigere kodelister">}}
 
-#### Knytte en kodeliste mot skjemakomponent
-1. Legg til ønsket skjemakomponent (f.eks. nedtrekksliste) i UI-editor, pass på å knytte denne mot felt i datamodellen.
-2. Velg **Add connection** under Api connections på venstre side
-3. Velg **Code list**
-4. Velg ønsket kodeliste fra listen med tilgjengelige kodelister.
-5. Velg **Add new mapping**
-6. Velg hvilken av de 3 tekstene knyttet til koden (value1/value2/value3) som skal vises
-7. Velg samme felt i datamodellen som skjemaelementet ble knyttet til
-8. Lagre, da lukker vinduet for konfigurering av kodelister seg. 
-9. Lagre skjema
+#### Connect a code list to a form component
+{{%notice info%}}
+NOTE: Currently, the only form components that support code lists are _Radio buttons_ and _Checkboxes_.
+{{% /notice%}}
 
-Når utgaven testes vil de faktiske verdiene fra kodelisten populeres inn i nedtrekkslisten.
+1. Add a form component that supports code lists, and open the properties editor for the component. 
+2. Select _Code list_ as option to add radio buttons.
+3. Select a code list from the available options for the service.
+    - Note that this must be a code list that is either defined for the service, or in a common library that the service has access to.
+4. Save the changes by clicking the _checkmark_ icon to the right of the properties editor. 
 
-{{<figure src="ui-editor-codelist-config.gif?width=1000" title="UI editor - konfigurere knytning til kodeliste">}}
+When testing the service, the actual values from the code list will be loaded into the component. 
+
+{{<figure src="ui-editor-add-codelist.png?width=1000" title="UI editor - add a code list to a form component">}}
 
 {{% notice info %}}
-MERK: Per nå er det ingen språkstøtte for kodelister. Denne dokumentasjonen oppdateres når dette er tilgjengelig.
+NOTE: There is currently no language support for code lists.
 {{% /notice %}}
 
 ### Legg til kall til eksterne API
