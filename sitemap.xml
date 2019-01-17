@@ -99,6 +99,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/technology/gitea/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/instantiationhandler/</loc>
   </url>
   
@@ -228,6 +232,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/gitea/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/logic/</loc>
   </url>
   
@@ -335,6 +344,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/customize/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/data-modeling/</loc>
     <priority>0</priority>
   </url>
@@ -351,6 +365,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/devops/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/gitea/</loc>
     <priority>0</priority>
   </url>
   

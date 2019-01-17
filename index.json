@@ -53,7 +53,7 @@
 	"title": "Application Architecture Altinn Studio",
 	"tags": ["tjenester 3.0"],
 	"description": "Description of the application architecture for runtime applicationz",
-	"content": " NOTE: Work in progress. Stuff will change\n\rThe following diagram shows the application architecture for Altinn Studio solution\n\nDesigner Frontend designer The frontend for the designer application is based on REACT. It is split into different REACT applications and components for the different functional areas of the designer. Take a look at the front-end architecture for more details.\nBackend designer Backend of designer is based on .Net Core and ASP.Net Core. It exposes API to the REACT applications\nRepository The repository application is based on GITEA. This is a open source product created in GO.\nRuntime Runtime is both part of the Altinn Studio and the Altinn Studio Apps solution.\nFor Altinn Studio the Runtime is shared between all services and all\nFrontend runtime The runtime application will have two different types of frontend.\n Frontend developed by the service developer in Altinn Studio designer Frontend that is part of the plattform.  Frontend for Altinn Studio service The frontend developed as part of the service development in Altinn Studio is based on REACT.\nAltinn Studio Generates a REACT app based on the selected components in the service UI.\nThis app uses the backend APIS for creating, updating, deleting data in the service datamodell.\nSee details for REACT App architecture\nFor services with requirements that is not supported with the WYSIWYG REACT editor the service developer could build theire own client based frontend on REACT or other frameworks hosted in runtime.\nIt will also be possible to build a GUI hosted elsewhere and just use the service APIs to handle data updates\nFrontend for platform views As part of the platform there is some standard pages presented during the workflow for a service that the service developer does not need to create GUI for. * Instansiation * Payment\nThese are all using Razor as frontend framework.\nBackend Backend is based on ASP.Net Core and is a MVC application that uses defined interfaces to run the specific service logic implemented in Altinn Studio.\nAltinn Studio Mode In Altinn Studio mode the runtime instances will be shared between different end user services.\nBased on the logged in service developer and URL parames the correct service implementation will be compiled and loaded in to memory for backend.\n"
+	"content": " NOTE: Work in progress. Stuff will change\n\rThe following diagram shows the application architecture for Altinn Studio solution\n\nDesigner Frontend designer The frontend for the designer application is based on REACT. It is split into different REACT applications and components for the different functional areas of the designer. Take a look at the front-end architecture for more details.\nBackend designer Backend of designer is based on .Net Core and ASP.Net Core. It exposes API to the REACT applications\nRepository The repository application is based on GITEA. This is a open source product created in GO. Take a look at the [Customize Gitea]() for more details on how to customize gitea.\nRuntime Runtime is both part of the Altinn Studio and the Altinn Studio Apps solution.\nFor Altinn Studio the Runtime is shared between all services and all\nFrontend runtime The runtime application will have two different types of frontend.\n Frontend developed by the service developer in Altinn Studio designer Frontend that is part of the plattform.  Frontend for Altinn Studio service The frontend developed as part of the service development in Altinn Studio is based on REACT.\nAltinn Studio Generates a REACT app based on the selected components in the service UI.\nThis app uses the backend APIS for creating, updating, deleting data in the service datamodell.\nSee details for REACT App architecture\nFor services with requirements that is not supported with the WYSIWYG REACT editor the service developer could build theire own client based frontend on REACT or other frameworks hosted in runtime.\nIt will also be possible to build a GUI hosted elsewhere and just use the service APIs to handle data updates\nFrontend for platform views As part of the platform there is some standard pages presented during the workflow for a service that the service developer does not need to create GUI for. * Instansiation * Payment\nThese are all using Razor as frontend framework.\nBackend Backend is based on ASP.Net Core and is a MVC application that uses defined interfaces to run the specific service logic implemented in Altinn Studio.\nAltinn Studio Mode In Altinn Studio mode the runtime instances will be shared between different end user services.\nBased on the logged in service developer and URL parames the correct service implementation will be compiled and loaded in to memory for backend.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/deployment/altinn-studio/",
@@ -166,6 +166,13 @@
 	"tags": ["solution", "studio"],
 	"description": "Functional areas in the Altinn Studio design-time solution.",
 	"content": "Altinn Studio can been seen as a collection of different editors or application specialized to create and edit different aspects of a Altinn Studio service on a quick and effecit way.\nThe goal is to get a natural and effectiv flow between the different applications. The result from a application in Altinn Studio will be on more many file that will be version controlled in Repos.\n\rTheming and styling\r\rSolution for theming and styling conventions \u0026#43;\u0026#43;\n\rData modeling\r\rDefining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.\n\rExposing API\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rLogic \u0026amp; Rules\r\rFor many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic\n\rReusable resources\r\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers\n\rService Deployment\r\rAltinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps\n\rTesting\r\rIn Altinn Studio there will different ways for service developers to test their services\n\rText and translations\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rUI Designer\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rUsing API\u0026#39;s\r\rFor many services it is required to call API\u0026#39;s. Altinn Studio will support building API connections with many types of API.\n\rWorkflow\r\rAs part of the service development the developer would define a workflow for the service\n\r"
+},
+{
+	"uri": "https://docs.altinn.studio/technology/gitea/",
+	"title": "Gitea",
+	"tags": ["tjenester 3.0", "Gitea", "customize", "gitea"],
+	"description": "Gitea is a self-hosted Git service. It is simialr to GitHub. It is used as the repository application in Altinn Studio.",
+	"content": " Customize Gitea The documentation on how to customize gitea can be found here.\nCustomize Templates The user interface of gitea can be customized to match your application needs. You can copy the templates from gitea\u0026rsquo;s github.\nFor example the default login page looks like this\n  Gitea default login   It\u0026rsquo;s customized to look like this\n  Customized gitea login for altinn studio   Follow these steps to change any user interface of gitea. Here example is given for login\n Copy the login template from gitea\u0026rsquo;s github Paste it in your application in the same folder structure as gitea. Edit the file. You can change the html tags and introduce new css or add new text or image without affecting the logic. Update the docker image to use these templates.  Now,the new login template will be taken in use.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/instantiationhandler/",
@@ -291,7 +298,7 @@
 	"title": "Technology",
 	"tags": ["tech"],
 	"description": "Description of Technology used in Altinn Studio",
-	"content": "The following articles describes the technology used in Altinn Studio and Altinn Studio Apps\n\rDocker\r\rDocker is the container technology used in Altinn Studio/ Altinn Studio Apps\n\rKubernetes\r\rKubernetes is used to manage the docker containers.\n\rMaterial UI\r\rMaterial UI is one of the popular react UI library used in Altinn Studio/ Altinn Studio Apps\n\rReact\r\rReact\n\rRedux\r\rRedux\n\rStylecop Analyzer\r\rStylecop analyzer is the code analysis tool\n\rTraefik\r\rTraefik load balancer is used in\n\rTredjeparts komponenter\r\rTredjeparts komponenter\n\rTypeScript\r\rTypeScript\n\rnginx\r\rnginx\n\r"
+	"content": "The following articles describes the technology used in Altinn Studio and Altinn Studio Apps\n\rDocker\r\rDocker is the container technology used in Altinn Studio/ Altinn Studio Apps\n\rGitea\r\rGitea is a self-hosted Git service. It is simialr to GitHub. It is used as the repository application in Altinn Studio.\n\rKubernetes\r\rKubernetes is used to manage the docker containers.\n\rMaterial UI\r\rMaterial UI is one of the popular react UI library used in Altinn Studio/ Altinn Studio Apps\n\rReact\r\rReact\n\rRedux\r\rRedux\n\rStylecop Analyzer\r\rStylecop analyzer is the code analysis tool\n\rTraefik\r\rTraefik load balancer is used in\n\rTredjeparts komponenter\r\rTredjeparts komponenter\n\rTypeScript\r\rTypeScript\n\rnginx\r\rnginx\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/getting-started/service-testing/",
@@ -390,6 +397,13 @@
 	"tags": ["studio", "api"],
 	"description": "Solution for designing service UI, defining workflow, other settings, deploy ++",
 	"content": "Services created in Altinn Studio can be exposed as API together with GUI, or only as API without any GUI.\nEach service will have its unique set of API\u0026rsquo;s. Compared to current API it makes it possible to create API\u0026rsquo;s that have documentation that is target for the specific service.\nWhat kind of API\u0026rsquo;s a service would expose will be analyzed in the comming periode\n"
+},
+{
+	"uri": "https://docs.altinn.studio/tags/gitea/",
+	"title": "Gitea",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/logic/",
@@ -553,6 +567,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/customize/",
+	"title": "customize",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/data-modeling/",
 	"title": "data-modeling",
 	"tags": [],
@@ -576,6 +597,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/devops/",
 	"title": "devops",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/gitea/",
+	"title": "gitea",
 	"tags": [],
 	"description": "",
 	"content": ""
