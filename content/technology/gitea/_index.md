@@ -1,6 +1,6 @@
 ---
 title: Gitea
-description: Material UI is one of the popular react UI library used in Altinn Studio/ Altinn Studio Apps
+description: Gitea is a self-hosted Git service. It is simialr to GitHub. It is used as the repository application in Altinn Studio.
 weight: 100
 tags: ["tjenester 3.0", "Gitea", "customize", "gitea"]
 ---
