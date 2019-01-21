@@ -1708,6 +1708,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/jest/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/jest/">
+        <span>Jest</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/kubernetes/" class="dd-item 
         
         
@@ -2170,6 +2197,34 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
 	
 	   <article class="post technology">
     <header class="post-header">
+        <h2 class="post-title"><a href="/technology/jest/">Jest</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Here you can find information related to have jest tests are written for altinn studio code.
+Exporting your component To be able to test methods in your component the best way is to export it in the following way:
+export class CloneServiceComponent extends React.Component&lt;ICloneServiceComponentProps &amp; RouteChildrenProps, ICloneServiceComponentState&gt; {  and reference it in your test the following way:
+import { CloneServiceComponent } from '../../../src/dashboardServices/cloneService/cloneServices'; it('+++ this is the test', () =&gt; { const mountedComponent = mount( &lt;CloneServiceComponent language={mockLanguage} services={mockServices} classes={mockClasses} location={mockLocation} history={mockHistory} match={mockMatch} /&gt;, ); const instance = mountedComponent. <a class="read-more" href="/technology/jest/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post technology">
+    <header class="post-header">
         <h2 class="post-title"><a href="/technology/react/codearchitecture/">Kodearkitektur</a></h2>
     </header>
     <section class="post-excerpt">
@@ -2346,37 +2401,6 @@ Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regle
         <p>Overordnet ServiceConfiguration.json filen spesifiserer ulike konfigurasjoner lagt til i design prosessen. Nå består den av api koblinger, kalkuleringer og dynamikk regler.
 Format API connections Strukturen under beskriver api koblinger til et skjema. Objektet inneholder koblingene og informajson knyttet til api&rsquo;ene som er i bruk. ClientParams og apiResponseMapping viser mapping til datamodellen. externalApiId viser kobling til api&rsquo;er som kan brukes.
  &quot;data&quot;: { &quot;externalApi&quot;: { &quot;APIs&quot;: { &quot;connections&quot;: { &quot;c5dadba0-9707-11e8-9c4d-6f48d2b86ea7&quot;: { &quot;externalApiId&quot;: &quot;id1&quot;, &quot;clientParams&quot;: { &quot;pnr&quot;: &quot;skattyterinfor. <a class="read-more" href="/solutions/altinn-studio-repos/structure/service-configurations/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio-repos/structure/serviceimplementation/">ServiceImplementation.cs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.
-Overordnet &lsquo;ServiceImplementation.cs&rsquo; er hovedgrensesnittet mellom Altinn Core runtime og foretningslogikken i tjenesten som kjører på server.
-Format &lsquo;ServiceImplementation.cs&rsquo; implementerer grensesnittet IServiceImplementation som har følgende metoder definert.
-object CreateNewServiceModel(); Metode som oppretter nytt datamodell objekt basert på den datamodellen som tjenesten definerer
-void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjengeliggjøre en populert datamodell til tjenesteimplementasjonen <a class="read-more" href="/solutions/altinn-studio-repos/structure/serviceimplementation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3266,6 +3290,22 @@ void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjeng
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

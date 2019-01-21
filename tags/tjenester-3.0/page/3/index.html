@@ -1708,6 +1708,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/jest/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/jest/">
+        <span>Jest</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/kubernetes/" class="dd-item 
         
         
@@ -2103,6 +2130,37 @@ if(host != "localhost")
 	
 	   <article class="post solutions">
     <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-studio-repos/structure/serviceimplementation/">ServiceImplementation.cs</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.
+Overordnet &lsquo;ServiceImplementation.cs&rsquo; er hovedgrensesnittet mellom Altinn Core runtime og foretningslogikken i tjenesten som kjører på server.
+Format &lsquo;ServiceImplementation.cs&rsquo; implementerer grensesnittet IServiceImplementation som har følgende metoder definert.
+object CreateNewServiceModel(); Metode som oppretter nytt datamodell objekt basert på den datamodellen som tjenesten definerer
+void SetServiceModel(object model); Metode som gjør at plattformen kan tilgjengeliggjøre en populert datamodell til tjenesteimplementasjonen <a class="read-more" href="/solutions/altinn-studio-repos/structure/serviceimplementation/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
         <h2 class="post-title"><a href="/solutions/altinn-studio-repos/structure/servicemetadata/">ServiceMetadata.json</a></h2>
     </header>
     <section class="post-excerpt">
@@ -2346,38 +2404,6 @@ var foo = false; foo = &quot;bar&quot;;  Dette ville gitt en TypeError i TypeScr
           
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio-repos/structure/validationhandler/">ValidationHandler.cs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.
-Overordnet &lsquo;ValidationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør valideringer
-Format Standard C# kode som kan gjøre bortimot alt.
-Uavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.
-Utvikling Under opprettelse av en tjeneste vil en tom ValidationnHandler opprettes.
-Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/solutions/altinn-studio-repos/structure/validationhandler/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
             
         
 
@@ -3256,6 +3282,22 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
