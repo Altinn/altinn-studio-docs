@@ -44,9 +44,9 @@ Methods can be called directly from your test, so you don't necessarly have to s
  instance.componentDidMount();
 ```
 
-In some cases it might be necessary to run componentDidMount before your acctual test since enzymes mount functions acctually does not do that for you. 
+In some cases it might be necessary to run componentDidMount() after you have mounted your component, before running your tests. Enzymez's mount() does not runcomponentDidMount().
 
-If you have one function that calls an other function, and you want to be sure that both funciton ran at the end of the test, you can use jest's spyOn functionality the following way:
+If you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest's spyOn functionality described here:
 
 ``` javascript
  const spy = jest.spyOn(instance, 'funcitonTwoCalledWithinFunctionOne');
@@ -54,10 +54,10 @@ If you have one function that calls an other function, and you want to be sure t
  expect(spy).toHaveBeenCalled();
 ```
 
-It might also be usefull to take alook at [jest expect](https://jestjs.io/docs/en/expect) for inspiration on other test methods to run expect on
+ou can read more about Jest.expect() here: [Jest.expect()](https://jestjs.io/docs/en/expect)
 
 #### Testing with Material UI
-When using the above way of testing Material ui will be excluded from the component, meaning that opening a Material UI modal with a simulated click does not necessary give you the desired output. 
+In the example above, Material-UI will be excluded from the component. This means that opening a Material UI modal with a simulated click does not necessary give you the desired output.
 Simulating a click on a Material ui button however works (unsure which other compoent this works for and not). If you want to simulate a click on a button this can be done using the buttons id and the simulate method from enzyme
 the following way:
 
@@ -85,7 +85,7 @@ return Promise.resolve().then(() => {
 ```
 
 #### Using Router
-If you are testing a component that uses router in a way you might have to build router props to pass in to the component you are testing, here is an example on how this can be done:
+If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing. Here is an example on how this can be done:
 
 ``` javascript
 mockLocation = {
