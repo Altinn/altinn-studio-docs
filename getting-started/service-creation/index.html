@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Dokumentasjon av funksjonalitet tilgjengelig for å lage en utgave">
+    <meta name="description" content="Information on how to create a service in Altinn Studio">
 
 
     
-    <title>Lag en utgave :: Altinn Studio</title>
+    <title>Create a service :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -130,19 +130,55 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/getting-started/first-time-setup/" class="dd-item 
-        
-        
+    <li data-nav-id="/getting-started/service-creation/" class="dd-item 
+        parent
+        active
         
         ">
-      <a href="/getting-started/first-time-setup/">
-        <span>First-time setup</span>
+      <a href="/getting-started/service-creation/">
+        <span>Create a service</span>
 
         
+        
+
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
         
 
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/getting-started/service-creation/components/" class="dd-item
+     
+      ">
+        <a href="/getting-started/service-creation/components/">
+        <span>Available form components</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -157,13 +193,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/getting-started/service-creation/" class="dd-item 
-        parent
-        active
+    <li data-nav-id="/getting-started/first-time-setup/" class="dd-item 
+        
+        
         
         ">
-      <a href="/getting-started/service-creation/">
-        <span>Lag en utgave</span>
+      <a href="/getting-started/first-time-setup/">
+        <span>First-time setup</span>
 
         
         
@@ -2102,7 +2138,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/getting-started/'>Getting started</a> > Lag en utgave
+ <a href='/'>Altinn Studio</a> > <a href='/getting-started/'>Getting started</a> > Create a service
 
  
 
@@ -2120,25 +2156,21 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#last-opp-datamodell">Last opp datamodell</a></li>
-<li><a href="#lag-skjema-med-ui-editor">Lag skjema med UI editor</a>
+<li><a href="#create-a-new-service">Create a new service</a></li>
+<li><a href="#upload-data-model">Upload data model</a></li>
+<li><a href="#create-a-form-using-the-gui-editor">Create a form using the GUI editor</a>
 <ul>
-<li><a href="#redigere-egenskaper-til-skjemaelement">Redigere egenskaper til skjemaelement</a>
-<ul>
-<li><a href="#visningstekst">Visningstekst</a></li>
-<li><a href="#feltegenskaper">Feltegenskaper</a></li>
-<li><a href="#forhåndsdefinerte-valg">Forhåndsdefinerte valg</a></li>
-<li><a href="#knytning-mot-datamodell">Knytning mot datamodell</a></li>
+<li><a href="#form-components">Form components</a></li>
+<li><a href="#editing-the-properties-on-a-component">Editing the properties on a component</a></li>
 </ul></li>
-</ul></li>
-<li><a href="#a-name-add-texts-a-legg-til-tekster"><a name="add-texts"></a> Legg til tekster</a>
+<li><a href="#a-name-add-texts-a-texts"><a name="add-texts"></a> Texts</a>
 <ul>
-<li><a href="#legge-til-redigere-eller-overstyre-tekster-for-en-utgave">Legge til, redigere eller overstyre tekster for en utgave</a></li>
+<li><a href="#add-edit-texts-for-the-service">Add/edit texts for the service</a></li>
 </ul></li>
-<li><a href="#legg-til-kodeliste">Legg til kodeliste</a>
+<li><a href="#code-lists">Code lists</a>
 <ul>
-<li><a href="#redigere-eller-endre-kodeliste-for-en-utgave">Redigere eller endre kodeliste for en utgave</a></li>
-<li><a href="#knytte-en-kodeliste-mot-skjemakomponent">Knytte en kodeliste mot skjemakomponent</a></li>
+<li><a href="#add-edit-code-list">Add/edit code list</a></li>
+<li><a href="#connect-a-code-list-to-a-form-component">Connect a code list to a form component</a></li>
 </ul></li>
 <li><a href="#legg-til-kall-til-eksterne-api">Legg til kall til eksterne API</a>
 <ul>
@@ -2175,7 +2207,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Lag en utgave</h1>
+              <h1>Create a service</h1>
             
           
 
@@ -2184,30 +2216,69 @@ if(host != "localhost")
 
 
 
-<p>Oversikt over eksisterende utgaver finner man ved å gå inn på tjenesten, f.eks. fra startsiden.</p>
+<p>An overview of existing services is available on the dashboard. This is also where new services can be created from.</p>
 
-<p>Ny utgave lages fra tjenestesiden:</p>
+<h3 id="create-a-new-service">Create a new service</h3>
+
+<p>A new service is created from the dashboard.</p>
 
 
 <figure>
     
-        <img src="create-edition.gif?width=1000" />
+        <img src="dashboard-overview.png?width=1000" />
     
     
     <figcaption>
-        <h4>Lage ny utgave</h4>
+        <h4>Dashboard - overview</h4>
         
     </figcaption>
     
 </figure>
 
 
-<h3 id="last-opp-datamodell">Last opp datamodell</h3>
+<ol>
+<li>Click on the &ldquo;ny tjeneste&rdquo; button in the top right corner of the dashboard.</li>
+<li>Select the service owner to create the service for</li>
+<li>Enter the display name for the service
 
-<p>Datamodellen definerer hva slags data som skal knyttes til tjenesten. Per nå støttes datamodell i form av XSD (Seres eller OR).</p>
+<ul>
+<li>This is the name that will be shown to the end user, and can be changed later</li>
+</ul></li>
+<li>The identifier name of the service will automatically be populated based on the display name. <em>This can not be changed once the service has been created.</em> This name is only used to identify the service in the solution. The identifier must start with a letter, and can only contain alphanumeric characters or underscore.</li>
+<li>Create the service by clicking &ldquo;Opprett&rdquo;</li>
+</ol>
 
-<p>Datamodellen lastes opp på utgaven. Dersom datamodell ikke er lastet oopp før vil det stå en melding om dette på hovedsiden til utgaven. Datamodell
-kan også lastes opp/sees fra <strong>Modellering</strong>-siden til utgaven.
+
+<figure>
+    
+        <img src="dashboard-new-service.png?width=1000" />
+    
+    
+    <figcaption>
+        <h4>Dashboard - create a new service</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<p>Once the service is created you will be redirected to the service.</p>
+
+<h3 id="upload-data-model">Upload data model</h3>
+
+<p>The data model defines the data that can be submitted in the service. Currently the data model format must be XSD (Seres or OR).</p>
+
+<p>The data model needs to be uploaded for each service.</p>
+
+<ol>
+<li>Open the service from the dashboard</li>
+<li>Choose _Modellering -&gt; Datamodell from the top navigation menu</li>
+<li>Click on <em>Velg XSD</em> and choose an XSD in the file explorer</li>
+<li>Click <em>Last opp</em></li>
+</ol>
+
+<p>The data model XSD is then parsed, and all necessary files are generated. These files can be viewed by selecting the different tabs displayed on the data model page. There is also a visual representation (tree view) of the data model available on this page.</p>
+
 
 <figure>
     
@@ -2220,151 +2291,86 @@ kan også lastes opp/sees fra <strong>Modellering</strong>-siden til utgaven.
     </figcaption>
     
 </figure>
-</p>
 
-<h3 id="lag-skjema-med-ui-editor">Lag skjema med UI editor</h3>
 
-<p>UI editor ligger under <strong>UX</strong> i toppmenyen for utgaven, under <strong>Designer</strong>
+<h3 id="create-a-form-using-the-gui-editor">Create a form using the GUI editor</h3>
 
-<figure>
-    
-        <img src="go-to-designer.gif?width=1000" />
-    
-    
-    <figcaption>
-        <h4>UI editor</h4>
-        
-    </figcaption>
-    
-</figure>
-</p>
-
-<p>Skjemaelementer legges til ved å velge type element fra oversikten til venstre. Visning av skjema ligger på høyre side.</p>
+<p>The GUI editor is available via the &ldquo;Lage&rdquo; option in the navigation menu.</p>
 
 
 <figure>
     
-        <img src="ui-editor-overview.png?width=1000" />
+        <img src="ui-editor-empty.png?width=1000" />
     
     
     <figcaption>
-        <h4>UI editor - oversikt</h4>
+        <h4>GUI editor</h4>
         
     </figcaption>
     
 </figure>
 
 
-<h4 id="redigere-egenskaper-til-skjemaelement">Redigere egenskaper til skjemaelement</h4>
+<h4 id="form-components">Form components</h4>
 
-<p>Skjemaelementene har forskjellige egenskaper som kan redigeres. For å få opp redigeringsvindu kan man velge eksisterende elementer
-i visningen av skjema på høyre side. Vindu med egenskaper kommer automatisk opp når nytt skjemaelement legges til.</p>
+<p>Form components can be dragged into the working surface in the middle from the menu on the left-hand side. The form components can be rearranged by dragging/dropping them on the working surface.</p>
 
-<h5 id="visningstekst">Visningstekst</h5>
-
-<p>Alle skjemaelementer har en tekst knyttet til seg som beskriver forventet innhold i elementet. Tekst velges fra nedtrekksliste over tilgjengelige
-tekster, se avsnitt om tekster under.</p>
+<p>When hovering over a component, or after selecting a component by clicking on it, two icons are visible - a <em>trash</em>-icon for deleting the component and a <em>pencil</em>-icon for editing properties on the component.</p>
 
 
 <figure>
     
-        <img src="field-props-text.png?width=1000" />
+        <img src="ui-editor-add-components.gif?width=1000" />
     
     
     <figcaption>
-        <h4>Visningstekst</h4>
+        <h4>GUI editor - add components</h4>
         
     </figcaption>
     
 </figure>
 
 
-<h5 id="feltegenskaper">Feltegenskaper</h5>
+<p>See the <a href="components">overview of form components</a> for more details on the different components that are available.</p>
 
-<ul>
-<li><em>Required</em>: Er det påkrevd med verdi i feltet?</li>
-<li><em>Disabled</em>: Skal feltet være skrivebeskyttet?</li>
-</ul>
+<h4 id="editing-the-properties-on-a-component">Editing the properties on a component</h4>
 
-<p><em>OBS! Feltegenskapene over er per nå kun tilgjengelige på Input-elementer.</em></p>
+<p>Each component has a set of properties that can be edited, for example texts, connection to data model, etc. In order to edit the properties on a component, hover over or click on the component. A <em>pencil</em>-icon will then be visible to the right of the component. Click on this icon to open the properties editor for the component.</p>
+
+<p>Save any changes by clicking the <em>checkmark</em>-icon to the right of the properties editor. Discard any changes by clicking the <em>X</em>-icon to the right of the properties editor.</p>
 
 
 <figure>
     
-        <img src="field-props-reqDis.png?width=400" />
+        <img src="ui-editor-edit-properties.png?width=1000" />
     
     
     <figcaption>
-        <h4>Feltegenskaper</h4>
+        <h4>GUI editor - edit properties on a component</h4>
         
     </figcaption>
     
 </figure>
 
 
-<h5 id="forhåndsdefinerte-valg">Forhåndsdefinerte valg</h5>
-
-<p>For skjemaelementer som har forhåndsdefinerte valg (f.eks. <em>nedtrekksliste</em> og <em>radioknapper</em>) kan disse valgene konfigureres. Merk at feltene
-for å konfigurere dette ikke er tilgjengelige for skjemaelementer som ikke har forhåndsdefinerte valg.</p>
+<div class="notices info" ><p>NOTE: The form components are currently being developed. As such, not all form components have a complete/updated properties editor.</p>
+</div>
 
 
-<figure>
-    
-        <img src="field-props-options.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Forhåndsdefinerte valg</h4>
-        
-    </figcaption>
-    
-</figure>
+<p>See the <a href="components">overview of form components</a> for information on which properties are available to edit.</p>
 
+<h3 id="a-name-add-texts-a-texts"><a name="add-texts"></a> Texts</h3>
 
-<h5 id="knytning-mot-datamodell">Knytning mot datamodell</h5>
+<p>Texts are stored in resource files for the service. Texts can come from common libraries, from the data model, and be added manually. These texts are available for example when editing a form components properties, and selected texts will be shown to the end user.</p>
 
-<p>Skjemaelementer som skal ta input fra sluttbruker kan knyttes mot felt i datamodell. Det som sluttbruker skriver inn i skjemaelementet vil da
-mappes til det definerte feltet i datamodellen. Knytning mot felt i datamodell gjøres via nedtrekksliste som viser tilgjengelige felt i datamodell.</p>
+<h4 id="add-edit-texts-for-the-service">Add/edit texts for the service</h4>
 
+<p>In the top navigation menu, select <em>UX</em> -&gt; <em>Tekster</em> to go to the text editing page.
+An overview of the texts that are already available for the service is shown.</p>
 
-<figure>
-    
-        <img src="field-props-datamodel.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Knytning mot datamodell</h4>
-        
-    </figcaption>
-    
-</figure>
+<p>On this page, existing texts can be changed and new texts can be added. Add a new text by clicking <em>Ny tekst</em>, and enter the text and a unique identifier for the text.</p>
 
-
-
-<figure>
-    
-        <img src="ui-editor-component-properties.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>UI editor - redigere egenskaper for skjemaelement</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h3 id="a-name-add-texts-a-legg-til-tekster"><a name="add-texts"></a> Legg til tekster</h3>
-
-<p>Tekster hentes inn både fra et fellesbibliotek tilgjengelig for alle, og evt. også fra fellesbibliotek for den enkelte tjenesteeier.
-Det er også mulig å legge inn egne tekster knyttet til en utgave, eller å overstyre tekster fra fellesbibliotek for en utgave.</p>
-
-<h4 id="legge-til-redigere-eller-overstyre-tekster-for-en-utgave">Legge til, redigere eller overstyre tekster for en utgave</h4>
-
-<p>I toppmenyen, under <strong>UX</strong> velges menyvalget <strong>Tekster</strong> for å komme til tekstredigeringsverktøyet. Dette kan også nås ved å velge fanen <strong>Tekster</strong>
-dersom en allerede er inne i UI editoren.</p>
-
-<p>Tekster er definert med en nøkkel (unik for hver enkelt tekst) og en visningstekst. Tekster kan legges inn på flere språk.</p>
+<p>Save any changes by clicking <em>Lagre tekster</em>.</p>
 
 
 <figure>
@@ -2380,21 +2386,13 @@ dersom en allerede er inne i UI editoren.</p>
 </figure>
 
 
-<h3 id="legg-til-kodeliste">Legg til kodeliste</h3>
+<h3 id="code-lists">Code lists</h3>
 
-<p>En kodeliste er en forhåndsdefinert liste med nøkler (<em>koder</em>) og visningstekster. En kode i kodelisten kan knyttes til opp til 3 visningstekster.
-Når kodeliste knyttes til en skjemakomponent velger man hvilken visningsverdi som skal brukes. Kodelister knyttes typisk mot en nedtrekksliste.</p>
+<p>A code list is a pre-defined list of <em>codes</em> and display texts that can be connected to a form component. Code lists can come from common libraries, and can be defined for each service.</p>
 
-<p>Kodelister hentes både fra felles bibliotek tilgjengelig for alle, evt. felles kodelister for den enkelte tjenesteeier, og kodelister som
-er definert på en utgave.</p>
+<h4 id="add-edit-code-list">Add/edit code list</h4>
 
-<h4 id="redigere-eller-endre-kodeliste-for-en-utgave">Redigere eller endre kodeliste for en utgave</h4>
-
-<p>I toppmenyen, under <strong>Modellering</strong> velges menyvalget kodelister.</p>
-
-<p>For å redigere eksisterende kodeliste, velg ønsket kodeliste fra listen.</p>
-
-<p>For å lage ny kodeliste, velg <em>Lag ny kodeliste</em>.</p>
+<p>In the top navigation meny, select <em>Modellering</em> -&gt; <em>Kodelister</em>. An overview of existing code lists will be shown. To edit an existing code list, select it from the overview. To add a new code list, click <em>Lag ny kodeliste</em>.</p>
 
 
 <figure>
@@ -2410,37 +2408,40 @@ er definert på en utgave.</p>
 </figure>
 
 
-<h4 id="knytte-en-kodeliste-mot-skjemakomponent">Knytte en kodeliste mot skjemakomponent</h4>
+<h4 id="connect-a-code-list-to-a-form-component">Connect a code list to a form component</h4>
+
+<div class="notices info" ><p>NOTE: Currently, the only form components that support code lists are <em>Radio buttons</em> and <em>Checkboxes</em>.</p>
+</div>
+
 
 <ol>
-<li>Legg til ønsket skjemakomponent (f.eks. nedtrekksliste) i UI-editor, pass på å knytte denne mot felt i datamodellen.</li>
-<li>Velg <strong>Add connection</strong> under Api connections på venstre side</li>
-<li>Velg <strong>Code list</strong></li>
-<li>Velg ønsket kodeliste fra listen med tilgjengelige kodelister.</li>
-<li>Velg <strong>Add new mapping</strong></li>
-<li>Velg hvilken av de 3 tekstene knyttet til koden (value1/value2/value3) som skal vises</li>
-<li>Velg samme felt i datamodellen som skjemaelementet ble knyttet til</li>
-<li>Lagre, da lukker vinduet for konfigurering av kodelister seg.</li>
-<li>Lagre skjema</li>
+<li>Add a form component that supports code lists, and open the properties editor for the component.</li>
+<li>Select <em>Code list</em> as option to add radio buttons.</li>
+<li>Select a code list from the available options for the service.
+
+<ul>
+<li>Note that this must be a code list that is either defined for the service, or in a common library that the service has access to.</li>
+</ul></li>
+<li>Save the changes by clicking the <em>checkmark</em> icon to the right of the properties editor.</li>
 </ol>
 
-<p>Når utgaven testes vil de faktiske verdiene fra kodelisten populeres inn i nedtrekkslisten.</p>
+<p>When testing the service, the actual values from the code list will be loaded into the component.</p>
 
 
 <figure>
     
-        <img src="ui-editor-codelist-config.gif?width=1000" />
+        <img src="ui-editor-add-codelist.png?width=1000" />
     
     
     <figcaption>
-        <h4>UI editor - konfigurere knytning til kodeliste</h4>
+        <h4>UI editor - add a code list to a form component</h4>
         
     </figcaption>
     
 </figure>
 
 
-<div class="notices info" ><p>MERK: Per nå er det ingen språkstøtte for kodelister. Denne dokumentasjonen oppdateres når dette er tilgjengelig.</p>
+<div class="notices info" ><p>NOTE: There is currently no language support for code lists.</p>
 </div>
 
 
@@ -2714,8 +2715,22 @@ var conditionalRuleHandlerHelper = {
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
+                    
                         
+                        
                     
                 
                 
@@ -2724,6 +2739,9 @@ var conditionalRuleHandlerHelper = {
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -2732,7 +2750,6 @@ var conditionalRuleHandlerHelper = {
             
             
                 
-                    
                     
                 
                 
@@ -2750,9 +2767,6 @@ var conditionalRuleHandlerHelper = {
             
                 
                     
-                        
-                        
-                    
                 
                 
 
@@ -2971,7 +2985,20 @@ var conditionalRuleHandlerHelper = {
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
+
+                    
                         
             
             
@@ -2984,6 +3011,9 @@ var conditionalRuleHandlerHelper = {
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -3744,10 +3774,10 @@ var conditionalRuleHandlerHelper = {
 
 
         
-            <a class="nav nav-prev" href="/getting-started/first-time-setup/" title="First-time setup of Altinn Studio"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/getting-started/" title="Getting started"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/getting-started/service-testing/" title="Test utgave" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/getting-started/service-creation/components/" title="Available form components" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

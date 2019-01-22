@@ -63,11 +63,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/components/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/build/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/calculationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/</loc>
   </url>
   
   <url>
@@ -116,10 +124,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/technology/kubernetes/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/</loc>
   </url>
   
   <url>
