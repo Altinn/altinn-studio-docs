@@ -24,7 +24,7 @@ A new service is created from the dashboard.
 
 Once the service is created you will be redirected to the service. 
 
-### Upload data model
+### Upload/view data model
 The data model defines the data that can be submitted in the service. Currently the data model format must be XSD (Seres or OR).
 
 The data model needs to be uploaded for each service. 
@@ -36,7 +36,7 @@ The data model needs to be uploaded for each service.
 
 The data model XSD is then parsed, and all necessary files are generated. These files can be viewed by selecting the different tabs displayed on the data model page. There is also a visual representation (tree view) of the data model available on this page. 
 
-{{<figure src="add-datamodel.gif?width=1000" title="Legg til datamodell">}}
+{{<figure src="add-datamodel.png?width=700" title="Add/view data model">}}
 
 ### Create a form using the GUI editor
 
@@ -106,145 +106,148 @@ When testing the service, the actual values from the code list will be loaded in
 NOTE: There is currently no language support for code lists.
 {{% /notice %}}
 
-### Legg til kall til eksterne API
-Kall til eksterne API kan brukes til å hente inn informasjon fra kilder utenfor "tjenesten". Tilgjengelige API hentes inn fra felles bibliotek.
+### Call external APIs to fetch data
+{{%notice info%}}
+NOTE: Currently, only open APIs (that do not require authentication) are supported for this funcitonality.
+{{% /notice%}}
 
+External APIs can be used to populate data in the form from external sources. There is currently implemented support for two types of values fetched from external APIs: _Single value_ and _List of values_. 
 
-Det er implementert støtte for 2 typer API. Under beskrives hva som må settes opp for de forskjellige typene.
+#### APIs fetching a _single value_
+This type of API potentially takes some input from a field in the form, submits this to the API as a parameter, and returns a single value in response. The connection can be configured to populate a set field in the form with this fetched value. An example of this is the _Bring poststed_ API, which takes a postal code as input and returns the postal area. 
 
-#### API som tar inn input fra skjema, og som returnerer verdi som populeres i felt i skjema.
-1. Legg til ønskede skjemakomponenter (f.eks input), en som input til API og en til å vise resultat, i UI-editor. Pass på å knytte til datamodell.
-2. Velg **Add connection** under API connections på venstre side.
-3. Velg **External API**
-4. Velg ønsket API fra listen.
-5. Legg til klientparametre (_ClientParam_) -  dette er input fra skjema som sendes til API.
-	- Legg til eksempelverdi for å teste API-kallet
-	- Legg til felt i datamodell, dette må være det samme feltet som komponent for input er knyttet mot i skjema.
-6. Legg til ev. tilleggsparametre (_MetaParam_) - dette er input som sendes til API som *ikke* kommer fra skjema.
-7. Test henting av data fra API ved å velge **Fetch from API using parameters**.
-	- Respons vises i tekstfeltet under knappen
-8. Velg **Add new mapping**
-9. Velg hvilket av objektene fra resultatet som skal brukes.
-10. Velg knytning til datamodell, dette må være likt som for den skjemakomponenten som skal vise resultatet.
-11. Lagre
-12. Lagre hele skjema
-12. Test at det fungerer ved å skrive inn gyldig verdi i skjemakomponenten med input til API'et, og se at resultatet vises i riktig skjemakomponent.
+#### APIs fetching a _list of values_
+This type of APIs works in a similar way to code lists. It potentially takes some input from a field in the form, submits this to the API as a parameter, and returns a list of values in response. The connection can be configured to populate the options of a form component that can have multiple values (f.ex. a dropdown list, radio buttons, checkboxes). An example of this is the _SSB kommuneliste_ API, which returns a list of all the municipalities in Norway defined in a configured time interval. 
 
-{{<figure src="ui-editor-api-config.gif?width=1000" title="UI editor - konfigurere knytning til ekstern API">}}
+#### Available APIs:
+| API  | Description | Type |
+| ---- | ----------- | ---- |
+| Bring poststed | Fetches the name of the Norwegian postal area based on input of corresponding postal code | Single value |
+| SSB kommuneliste | Fetches a list of all Norwegian municipalities, as defined in a set time interval | List of values |
 
-#### API som returnerer liste, tilsvarende kodeliste.
-1. Legg til ønskede skjemakomponenter (f.eks input), en som input til API og en til å vise resultat, i UI-editor. Pass på å knytte til datamodell.
-2. Velg **Add connection** under API connections på venstre side.
-3. Velg **External API**
-4. Velg ønsket API fra listen.
-5. Legg til ev. tilleggsparametre (_MetaParam_) - dette er input som sendes til API som *ikke* kommer fra skjema.
-6. Test henting av data fra API ved å velge **Fetch from API using parameters**.
-	- Respons vises i tekstfeltet under knappen
-7. Velg **Add new mapping**
-8. Velg hvilket av objektene fra resultatet som skal brukes.
-9. Velg knytning til datamodell, dette må være likt som for den skjemakomponenten som skal vise resultatet.
-10. Lagre.
-11. Lagre hele skjema.
+#### Configure API connection
+1. Add any form components that might be needed for the input/output values for the selected API. Make sure that the form components are connected to fields in the data model.
+2. Select _Legg til tilkobling_ under _API-tilkoblinger_ from the left-hand menu in the GUI editor.
+3. Select _Eksternt API_.
+4. Select API from the list of available APIs.
+5. Add client parameters,if any (_ClientParam_) -  These are any input parameters that are populated from selected form data.
+	- Add an example value to test the API call
+	- Select data model field that corresponds to the data model field connected to the input field.
+6. Add any additional parameters required by the API (_MetaParam_) - this is input required by the API that does not come from the form data.
+7. Test the API call by clicking _Fetch from API using parameters_.
+	- This will test that the call is working with the selected parameters, using the example value as input.
+  - The response from the test will be shown in the textbox under _API Response_
+8. Select _Add new mapping_ to map the response to a field in the form.
+9. Select which object from the response that should be used to populate the field (the API may return more than one object in response).
+10. Select data model field that corresponds to the data model field connected to the field that will show the output from the API.
+  - Note that this should be a component type that supports lists (ex. dropdown, checkboxes, radiobuttons, etc.) for APIs returning a list of values.
+11. Save the configuration by clicking _Lagre_.
+12. Test that it works by typing in a valid input value in the input field, and see that the output field is populated with the result of the API call.
 
-Verdiene lastes inn når skjemaet testes.
+{{<figure src="ui-editor-api-config.png?width=700" title="GUI editor - Configure API connection">}}
 
-### Regler
+### Logic
+There are three different categories of logic that can be set up for a service:
+- Validations
+- Calculations
+- Dynamics
 
-#### Legge til nye/redigere regler
-Tilgjengelige regler ligger i en javascript-fil og er tilgjengelige via **Modellering** -> **Kode** i toppmenyen. Velg filen `RuleHandler.js`.
-Regler legges under objektet `ruleHandlerObject`. Alle parametere som forventes som input må defineres i objektet `ruleHandlerHelper`. 
+These categories are explained in more detail below.
 
-I eksempelet under er det definert to regler, en som tar inn 3 verdier og returnerer summen av disse (`sum`), og en som tar inn 
-et fornavn og et etternavn og returnerer fullt navn (`fullName`).
+The various files that are used to define logic can be reached by opening the logic menu, accessed from the GUI editor via the _f(x)_-icon on the top right. 
+
+{{<figure src="ui-editor-logic-menu.png?width=300" title="GUI editor - Configure API connection">}}
+
+#### Validations
+Validations make sure that the users input is valid with respect to the data model, as well as any custom rules that are set up for the service. Validations can be run _client-side_ (i.e. in the browser) and _server-side_. 
+
+{{%notice info%}}
+NOTE: Currently, the solution is set up to run basic validations against the data model on the _client-side_. It is also possible to implement validations on the server-side, by writing code. Configuration of client-side validations, as well as displaying any validation results from the server-side is functionality that is currently being developed. The documentation will be updated when new functionality is available.
+{{% /notice%}}
+
+##### Client-side validations
+{{%notice info%}}
+NOTE: Configuration of client-side validations is currently not available. The documentation will be updated when new functionality is available.
+{{% /notice%}}
+
+These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:
+- min value (number)
+- max value (number)
+- min length
+- max length
+- length
+- pattern
+
+In addition, validation on whether the field is required or not is supported, but this is currently not connected to the data model and needs to be set manually for the component via the FormLayout.json file. 
+
+##### Server-side validations
+{{%notice info%}}
+NOTE: Displaying any validation results from the server-side, and configuring when it should be run is functionality that is currently being developed. The documentation will be updated when new functionality is available.
+{{% /notice%}}
+
+Server side validations are set up to run when the user submits data. The submitted data is automatically validated against the data model on the server, and if the data is not valid, an error is returned. In addition, it is possible to configure custom validations for the service. This is done by coding the validations, in the file `ValidationHandler.cs`. 
+
+#### Calculations
+Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in the file `CalculationHandler.cs`. This file can be edited by clicking _Rediger kalkuleringer_ from the logic menu. 
+
+#### Dynamics
+Dynamics are events that happen on the client-side. These can include calculations and rules for conditional rendering (ex. hide/show). The actual conditions/methods that are used need to be coded in javascript, in the file `RuleHandler.js` (see below for more details). This file can be reached through the logic menu, by clicking _Rediger dynamikk_. 
+Once these conditions/methods are coded, they can be configured to be triggered for specific fields in the form.
+
+##### Add/edit methods for dynamics
+The solution currently supports two types of methods:
+- Rules for calculation/populating values in form fields
+- Conditions for rendering (hide/show) of form fields
+
+These are defined in the file `RuleHandler.js` as separate objects, `ruleHandlerObject` and `conditionalRuleHandlerObject`. In addition there are two corresponding _helper_ objects (`ruleHandlerHelper` and `conditionalRuleHandlerHelper`), that define which parameters should be set up when configuring the methods to trigger. In order for a dynamics method to be available, the actual method/action must be defined in the _object_ and the configuration parameters must be defined in the corresponding _helper_. 
+
+The objects and helpers are all generated automatically with some examples when the service is created, and can be added to or edited to create/change methods.
+
+In the example below, the following methods are defined:
+
+| Method name | Description | Parameters | Defined in object/helper |
+| ----------- | ----------- | ---------- | ------------------------ |
+| `sum`       | Returns the sum of the 3 provided values | `value1`, `value2`, `value3` | `ruleHandlerObject`/`ruleHandlerHelper`|
+| `fullName`  | Returns the full name based on the provided first and last names | `firstName`, `lastName` | `ruleHandlerObject`/`ruleHandlerHelper`|
+| `lengthGreaterThan4`| Returns `true` if the provided value's length is greater than 4 | `value` | `conditionalRuleHandlerObject`/`conditionalRuleHandlerHelper`|
+
 ```
 var ruleHandlerObject = {
   sum: (obj) => {
-    obj.a = +obj.a;
-    obj.b = +obj.b;
-    obj.c = +obj.c;
-    return obj.a + obj.b + obj.c;
+    obj.value1 = +obj.value1;
+    obj.value2 = +obj.value2;
+    obj.value3 = +obj.value3;
+    return obj.value1 + obj.value2 + obj.value3;
   },
 
   fullName: (obj) => {
-    return obj.first + ' ' + obj.last;
+    return obj.firstName + ' ' + obj.lastName;
   }
 }
 var ruleHandlerHelper = {
-  fullName: () => {
-    return {
-      first: "first name",
-      last: "last name"
-    };
-  },
-
   sum: () => {
     return {
-      a: "a",
-      b: "b",
-      c: "c"
+      value1: "Value 1",
+      value2: "Value 2",
+      value3: "Value 3"
     }
+  },
+
+  fullName: () => {
+    return {
+      firstName: "First name",
+      lastName: "Last name"
+    };
   }
 }
-```
 
-#### Knytte regler mot felt i skjema
-1. Legg til nødvendige komponenter i skjema. F.eks. for eksempelet `sum` trengs her 3 felter som input, i tillegg til ett felt som viser resultatet.
-2. Velg **Add connection** under _Rule Connections_.
-3. Velg ønsket regel (f.eks. `sum` i eksempelet).
-4. Oppgi knytning til datamodell for alle input-verdiene (disse må da matche med de knytningene som er satt opp på skjemakomponentene).
-5. Oppgi knytning til datamodell for resultatet (må matche med knytning som er satt opp på skjemakomponent).
-6. Lagre.
-7. Test at det fungerer ved å legge inn verdier i alle input-feltene og se at resultatet dukker opp i ønsket felt.
-8. Lagre skjema.
-
-### Dynamikk
-
-Vi definerer dynamikk som hendelser i skjemavisningen basert på brukers input. For eksempel ved at visse felter kun vises dersom
-bruker har oppgitt en gitt verdi et annet sted i skjema. Det er lagt opp til at man kan sette opp betingelser for når/hvordan slike hendelser skal
-skje.
-
-#### Legge til/redigere betingelser for dynamikk
-
-Tilgjengelige betingelser ligger i en javascript-fil og er tilgjengelige via **Modellering** -> **Kode** i toppmenyen. Velg filen `RuleHandler.js`.
-Regler legges under objektet `conditionalRuleHandlerObject`. Alle parametere som forventes som input må defineres i objektet 
-`conditionalRuleHandlerHelper`. 
-
-I eksempelet under er det definert tre betingelser:
-
-- `biggerThan10`: sjekker om oppgitt verdi er større enn 10.
-- `smallerThan10`: sjekker om oppgit verdi er mindre enn 10.
-- `lengthBiggerThan4`: sjekker om lengden til en tekst er lengre enn 4.
-
-```
 var conditionalRuleHandlerObject = {
-  biggerThan10: (obj) => {
-    obj.number = +obj.number;
-    return obj.number > 10;
-  },
-
-  smallerThan10: (obj) => {
-    obj.number = +obj.number;
-    return obj.number > 10;
-  },
-
   lengthBiggerThan4: (obj) => {
     if (obj.value == null) return false;
     return obj.value.length >= 4;
   }
 }
 var conditionalRuleHandlerHelper = {
-  biggerThan10: () => {
-    return {
-      number: "number"
-    };
-  },
-
-  smallerThan10: () => {
-    return {
-      number: "number"
-    }
-  },
-
   lengthBiggerThan4: () => {
     return {
       value: "value"
@@ -253,19 +256,17 @@ var conditionalRuleHandlerHelper = {
 }
 ```
 
-#### Knytte betingelser for dynamikk mot felt i skjema
-1. Legg til ønsket komponent som dynamikk skal knyttes mot.
-2. Velg **Add connection** under **Conditional Rendering connections** i venstre menyen i UI editor.
-3. Velg ønsket betingelse.
-4. Velg felt i datamodell som skal sjekkes.
-5. Velg hva du ønsker at skal skje med elementet dersom valgt metode returnerer `true`. Per nå støttes følgende operasjoner:
-	- Show
-	- Hide
-6. Velg felt i skjema som dynamikken skal knyttes mot.
-7. Lagre.
-8. Lagre skjema.
+##### Configuring dynamics for form components 
+1. Add any form components that are needed. For example, for the method `sum` defined above, 3 input values are required, so 3 form components have to be set up for the input, in addition to 1 field to display the result. 
+2. Open the logic menu and select _Legg til tilkobling_ under _Regler_ (for calculation/population rules) or _Betingede redigeringstilkoblinger_ for conditional rendering.
+3. Select rule from the list of available rules, ex. `sum` from the example above.
+4. Configure the fields that will provide input to the method
+  a. For calculation/population rules, use the same data model field as configured on the form component.
+  b. For conditional rendering, select the component id from the list
+5. Configure the field that will show the output/render conditionally
+  a. For calculation/population rules, select the same data model field as configured on the form component that is to show the result.
+  b. For conditional rendering, first select the action (hide/show) that will trigger if the selected method returns `true`. Then select the component id that will be conditionally rendered.
+6. Save the configuration.
+7. Test that it works by entering values in the defined input fields.
 
-Dynamikken kan testes under testing av skjema, f.eks. gjennom [Preview-funksjonaliteten](../service-testing).
-
-{{<figure src="ui-editor-conditional-rendering.png?width=1000" title="UI editor - konfigurere betingelser for dynamikk">}}
-
+Existing configurations are visible in the logic menu, and can be edited/deleted.
