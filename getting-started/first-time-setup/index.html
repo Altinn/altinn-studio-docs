@@ -2154,7 +2154,8 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#create-a-user">Create a user</a></li>
+<li><a href="#create-a-user-with-a-github-user">Create a user with a Github user</a></li>
+<li><a href="#create-a-user-without-a-github-user">Create a user without a Github user</a></li>
 <li><a href="#opprett-organisasjon">Opprett organisasjon</a></li>
 <li><a href="#opprett-repository-for-tjeneste">Opprett repository for tjeneste</a></li>
 <li><a href="#klone-tjenesten-til-lokal-mappe">Klone tjenesten til lokal mappe</a></li>
@@ -2186,7 +2187,7 @@ if(host != "localhost")
 
 
 
-<h2 id="create-a-user">Create a user</h2>
+<h2 id="create-a-user-with-a-github-user">Create a user with a Github user</h2>
 
 <p>Set up your user in <a href="https://altinn.studio">altinn.studio</a> for the first time.</p>
 
@@ -2198,18 +2199,36 @@ if(host != "localhost")
 <li><p>Choose to log in
 <img src="login.png?width=800" alt="Login" /></p></li>
 
-<li><p>Choose &ldquo;Sign In with 
+<li><p>If you have a Github account, select &ldquo;Har du en github konto? Register deg med den her&rdquo;
+<img src="Login.png?width=800" alt="Login" /></p></li>
 
-<span class="fa fa-github"  style="font-size:xx-large" aria-hidden="true"></span>
+<li><p>If you are not already logged in at Github, login with your Github credentials.
+<img src="GithubLogin.png?width=400" alt="Github Login" /></p></li>
 
-&rdquo;
-<img src="login-with-github.png?width=800" alt="Login with GitHub" /></p></li>
+<li><p>Authorize that Altinn Studio could use your Github account for login and connect the accounts.
+<img src="AuthorizeAltinn.png?width=400" alt="Authorize Github" /></p></li>
 
-<li><p>Login with your GitHub user. If you don&rsquo;t have a user, click &ldquo;Create an account&rdquo;.
-<img src="github-login.png?width=400" alt="GitHub login" /></p></li>
+<li><p>Register your new Altinn Studio account by filling in the registration form.
+<img src="registerGithub.png?width=400" alt="Register Github user" /></p></li>
+</ol>
 
-<li><p>Register a user in Altinn Studio (the box at the bottom). This user will be linked to your GitHub user.
-<img src="gitea-register.png?width=800" alt="Gitea register" /></p></li>
+<h2 id="create-a-user-without-a-github-user">Create a user without a Github user</h2>
+
+<p>Set up your user in <a href="https://altinn.studio">altinn.studio</a> for the first time.</p>
+
+<div class="notices info" ><p>ONLY necessary if you have not already created a user.</p>
+</div>
+
+
+<ol>
+<li><p>Choose to log in
+<img src="login.png?width=800" alt="Login" /></p></li>
+
+<li><p>If you do not have a Github user, select &ldquo;Behov for en konto? Registrer deg nå.&rdquo;
+<img src="Login.png?width=800" alt="Login" /></p></li>
+
+<li><p>Fill in your user information to register your user. When done you are already logged in.
+<img src="registerNewUser.png?width=400" alt="Register new user" /></p></li>
 </ol>
 
 <h2 id="opprett-organisasjon">Opprett organisasjon</h2>
