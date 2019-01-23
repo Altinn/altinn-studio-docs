@@ -73,7 +73,12 @@ weight: 100
             </ul>
           <li>Pre-selected choice
       </td>
-      <td><img alt="Checkboxes component - edit properties" src="props-checkbox.png?width=700" title="Checkboxes component - edit properties"/></td>
+      <td>
+        Manual adding of options <br/>
+        <img alt="Checkboxes component - edit properties" src="props-checkbox.png?width=700" title="Checkboxes component - edit properties"/><br/>
+        Adding options via codelist <br/>
+        <img alt="Checkboxes component - edit properties" src="props-checkbox-codelist.png?width=700" title="Checkboxes component - edit properties"/>
+      </td>
       <td><img alt="Checkboxes component - default look" src="display-checkbox.png?width=700" title="Checkboxes component - default look" /></td>
     </tr>
     <tr>
@@ -92,8 +97,15 @@ weight: 100
             </ul>
           <li>Pre-selected choice
       </td>
-      <td><img alt="Radio buttons component - edit properties" src="props-radio.png?width=700" title="Radio buttons component - edit properties"/></td>
-      <td><img alt="Radio buttons component - default look" src="display-radio.png?width=700" title="Radio buttons component - default look" /></td>
+      <td>
+        Manual adding of options <br/>
+        <img alt="Radio buttons component - edit properties" src="props-radio.png?width=700" title="Radio buttons component - edit properties"/><br/>
+        Adding options via codelist <br/>
+        <img alt="Radio buttons component - edit properties" src="props-radio-codelist.png?width=700" title="Radio buttons component - edit properties"/>
+      </td>
+      <td>
+        <img alt="Radio buttons component - default look" src="display-radio.png?width=700" title="Radio buttons component - default look" />
+      </td>
     </tr>
   </tbody>
 </table>
@@ -121,7 +133,7 @@ NOTE: The address component is a proof of concept. The content/design of this co
       <th>Default look</th>
     </tr>
     <tr>
-      <td>Address component</br> (simple mode)</td>
+      <td>Address component<br/> (simple mode)</td>
       <td>
         <ul>
           <li>Link to data model for field:</li>
@@ -136,7 +148,7 @@ NOTE: The address component is a proof of concept. The content/design of this co
       <td><img alt="Address (simple mode) - default look" src="display-address-simple.png?width=700" title="Address (simple mode) - default look" /></td>
     </tr>
     <tr>
-      <td>Address component</br> (advanced mode)</td>
+      <td>Address component<br/> (advanced mode)</td>
       <td>
         <ul>
           <li>Link to data model for field:</li>
