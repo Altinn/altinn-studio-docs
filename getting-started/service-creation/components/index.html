@@ -2161,45 +2161,9 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#text-components">Text components</a>
-<ul>
-<li><a href="#title">Title</a>
-<ul>
-<li><a href="#default-look">Default look</a></li>
-<li><a href="#edit-properties">Edit properties</a></li>
-</ul></li>
-<li><a href="#paragraph">Paragraph</a>
-<ul>
-<li><a href="#default-look-1">Default look</a></li>
-<li><a href="#edit-properties-1">Edit properties</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#basic-form-components">Basic form components</a>
-<ul>
-<li><a href="#input">Input</a>
-<ul>
-<li><a href="#default-look-2">Default look</a></li>
-<li><a href="#edit-properties-2">Edit properties</a></li>
-</ul></li>
-<li><a href="#checkboxes">Checkboxes</a>
-<ul>
-<li><a href="#default-look-3">Default look</a></li>
-<li><a href="#edit-properties-3">Edit properties</a></li>
-</ul></li>
-<li><a href="#radio-buttons">Radio buttons</a>
-<ul>
-<li><a href="#default-look-4">Default look</a></li>
-<li><a href="#edit-properties-4">Edit properties</a></li>
-</ul></li>
-<li><a href="#dropdown">Dropdown</a></li>
-<li><a href="#text-area">Text area</a></li>
-<li><a href="#file-attachment">File attachment</a></li>
-<li><a href="#container">Container</a></li>
-</ul></li>
-<li><a href="#advanced-form-components">Advanced form components</a>
-<ul>
-<li><a href="#address">Address</a></li>
-</ul></li>
+<li><a href="#text-components">Text components</a></li>
+<li><a href="#basic-form-components">Basic form components</a></li>
+<li><a href="#advanced-form-components">Advanced form components</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2231,199 +2195,169 @@ if(host != "localhost")
 
 <h3 id="text-components">Text components</h3>
 
-<h4 id="title">Title</h4>
-
-<h5 id="default-look">Default look</h5>
-
-
-<figure>
-    
-        <img src="display-title.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Title component - default look</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h5 id="edit-properties">Edit properties</h5>
-
-
-<figure>
-    
-        <img src="props-title.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Title component - edit properties</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h4 id="paragraph">Paragraph</h4>
-
-<h5 id="default-look-1">Default look</h5>
-
-
-<figure>
-    
-        <img src="display-paragraph.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Paragraph component - default look</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h5 id="edit-properties-1">Edit properties</h5>
-
-
-<figure>
-    
-        <img src="props-paragraph.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Paragraph component - edit properties</h4>
-        
-    </figcaption>
-    
-</figure>
-
+<table>
+  <tbody>
+    <tr>
+      <th>Component name</th>
+      <th>Available properties</th>
+      <th>Properties editor</th>
+      <th>Default look</th>
+    </tr>
+    <tr>
+      <td>Title</td>
+      <td>
+        <ul>
+          <li>Title text</li>
+          <li>Title type (H2, H3, H4)</li>
+      </td>
+      <td><img alt="Title component - edit properties" src="props-title.png?width=700" title="Title component - edit properties" /></td>
+      <td><img alt="Title component - default look" src="display-title.png?width=700" title="Title component - default look" /></td>
+    </tr>
+    <tr>
+      <td>Paragraph</td>
+      <td>
+        <ul>
+          <li>Paragraph text</li>
+      </td>
+      <td><img alt="Paragraph component - edit properties" src="props-paragraph.png?width=700" title="Paragraph component - edit properties"/></td>
+      <td><img alt="Paragraph component - default look" src="display-paragraph.png?width=700" title="Paragraph component - default look" /></td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="basic-form-components">Basic form components</h3>
 
-<h4 id="input">Input</h4>
+<table>
+  <tbody>
+    <tr>
+      <th>Component name</th>
+      <th>Available properties</th>
+      <th>Properties editor</th>
+      <th>Default look</th>
+    </tr>
+    <tr>
+      <td>Input</td>
+      <td>
+        <ul>
+          <li>Link to data model</li>
+          <li>Label text</li>
+          <li>Description text</li>
+      </td>
+      <td><img alt="Input component - edit properties" src="props-input.png?width=700" title="Input component - edit properties" /></td>
+      <td><img alt="Input component - default look" src="display-input.png?width=700" title="Input component - default look" /></td>
+    </tr>
+    <tr>
+      <td>Checkboxes</td>
+      <td>
+        <ul>
+          <li>Link to data model</li>
+          <li>Label text</li>
+          <li>Description text</li>
+          <li>Method to add options (codelist/manual)</li>
+          <li>Codelist name
+          <li>Manual option
+            <ul>
+              <li>Label
+              <li>Value
+            </ul>
+          <li>Pre-selected choice
+      </td>
+      <td>
+        Manual adding of options <br/>
+        <img alt="Checkboxes component - edit properties" src="props-checkbox.png?width=700" title="Checkboxes component - edit properties"/><br/>
+        Adding options via codelist <br/>
+        <img alt="Checkboxes component - edit properties" src="props-checkbox-codelist.png?width=700" title="Checkboxes component - edit properties"/>
+      </td>
+      <td><img alt="Checkboxes component - default look" src="display-checkbox.png?width=700" title="Checkboxes component - default look" /></td>
+    </tr>
+    <tr>
+      <td>Radio buttons</td>
+      <td>
+        <ul>
+          <li>Link to data model</li>
+          <li>Label text</li>
+          <li>Description text</li>
+          <li>Method to add options (codelist/manual)</li>
+          <li>Codelist name
+          <li>Manual option
+            <ul>
+              <li>Label
+              <li>Value
+            </ul>
+          <li>Pre-selected choice
+      </td>
+      <td>
+        Manual adding of options <br/>
+        <img alt="Radio buttons component - edit properties" src="props-radio.png?width=700" title="Radio buttons component - edit properties"/><br/>
+        Adding options via codelist <br/>
+        <img alt="Radio buttons component - edit properties" src="props-radio-codelist.png?width=700" title="Radio buttons component - edit properties"/>
+      </td>
+      <td>
+        <img alt="Radio buttons component - default look" src="display-radio.png?width=700" title="Radio buttons component - default look" />
+      </td>
+    </tr>
+  </tbody>
+</table>
 
-<h5 id="default-look-2">Default look</h5>
+<p>In addition to the above components, the following basic form components are under development. These are not ready to be used, they will be added to the overview when they are ready to use:</p>
 
-
-<figure>
-    
-        <img src="display-input.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Input component - default look</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h5 id="edit-properties-2">Edit properties</h5>
-
-
-<figure>
-    
-        <img src="props-input.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Input component - edit properties</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h4 id="checkboxes">Checkboxes</h4>
-
-<h5 id="default-look-3">Default look</h5>
-
-
-<figure>
-    
-        <img src="display-checkbox.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Checkboxes component - default look</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h5 id="edit-properties-3">Edit properties</h5>
-
-
-<figure>
-    
-        <img src="props-checkbox.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Checkboxes component - edit properties</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h4 id="radio-buttons">Radio buttons</h4>
-
-<h5 id="default-look-4">Default look</h5>
-
-
-<figure>
-    
-        <img src="display-radio.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Radio buttons component - default look</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h5 id="edit-properties-4">Edit properties</h5>
-
-
-<figure>
-    
-        <img src="props-radio.png?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Radio buttons component - edit properties</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h4 id="dropdown">Dropdown</h4>
-
-<p>This component is under development. The documentation will be updated with more details as the component is updated.</p>
-
-<h4 id="text-area">Text area</h4>
-
-<p>This component is under development. The documentation will be updated with more details as the component is updated.</p>
-
-<h4 id="file-attachment">File attachment</h4>
-
-<p>This component is under development. The documentation will be updated with more details as the component is updated.</p>
-
-<h4 id="container">Container</h4>
-
-<p>This component is under development. The documentation will be updated with more details as the component is updated.</p>
+<ul>
+<li>Dropdown</li>
+<li>Text area</li>
+<li>File attachment</li>
+<li>Container</li>
+</ul>
 
 <h3 id="advanced-form-components">Advanced form components</h3>
 
-<h4 id="address">Address</h4>
+<p>Advanced form components are components that potentially contain multiple fields that each need to be mapped to a field in the data model. They will typically contain fields that are functionally related, ex. fields related to <em>address</em>, see below.</p>
 
-<p>This component is under development. The documentation will be updated with more details as the component is updated.</p>
+<div class="notices info" ><p>NOTE: The address component is a proof of concept. The content/design of this component and its configuration is under development. The component is available for use, but might undergo major changes in the future.</p>
+</div>
+
+
+<table>
+  <tbody>
+    <tr>
+      <th>Component name</th>
+      <th>Available properties</th>
+      <th>Properties editor</th>
+      <th>Default look</th>
+    </tr>
+    <tr>
+      <td>Address component<br/> (simple mode)</td>
+      <td>
+        <ul>
+          <li>Link to data model for field:</li>
+            <ul>
+              <li>Address
+              <li>Postal code
+              <li>Postal area
+            </ul>
+          <li>Label text for Address field
+      </td>
+      <td><img alt="Address (simple mode) - edit properties" src="props-address-simple.png?width=700" title="Address (simple mode) - edit properties" /></td>
+      <td><img alt="Address (simple mode) - default look" src="display-address-simple.png?width=700" title="Address (simple mode) - default look" /></td>
+    </tr>
+    <tr>
+      <td>Address component<br/> (advanced mode)</td>
+      <td>
+        <ul>
+          <li>Link to data model for field:</li>
+            <ul>
+              <li>Address
+              <li>Postal code
+              <li>Postal area
+              <li>C/O
+              <li>Housing number
+            </ul>
+          <li>Label text for Address field
+      </td>
+      <td><img alt="Address (advanced mode) - edit properties" src="props-address-advanced.png?width=700" title="Address (advanced mode) - edit properties" /></td>
+      <td><img alt="Address (advanced mode) - default look" src="display-address-advanced.png?width=700" title="Address (advanced mode) - default look" /></td>
+    </tr>
+  </tbody>
+</table>
 
 
 <footer class=" footline" >
