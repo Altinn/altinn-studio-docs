@@ -18,7 +18,7 @@ ONLY necessary if you have not already created a user.
 ![Login](login.png?width=800)
 
 2. If you have a Github account, select "Har du en github konto? Register deg med den her"
-![Login](Login.png?width=800)
+![Login](LoginAS.png?width=800)
 
 3. If you are not already logged in at Github, login with your Github credentials.
 ![Github Login](GithubLogin.png?width=400)
@@ -43,7 +43,7 @@ ONLY necessary if you have not already created a user.
 ![Login](login.png?width=800)
 
 2. If you do not have a Github user, select "Behov for en konto? Registrer deg nå." 
-![Login](Login.png?width=800)
+![Login](LoginAS.png?width=800)
 
 3. Fill in your user information to register your user. When done you are already logged in.
 ![Register new user](registerNewUser.png?width=400)
