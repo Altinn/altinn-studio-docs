@@ -258,7 +258,7 @@ Tjenesteutviklere og andre interessenter skal kunne logge inn og få tilgang til
 - 2-factor auth
 - External authentication
 
-{{<figure src="login.png?width=800" title="Login">}}
+{{<figure src="LoginAS.png?width=800" title="Login">}}
 
 ### Sende varslinger
 
