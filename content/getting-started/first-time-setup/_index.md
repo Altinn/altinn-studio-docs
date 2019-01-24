@@ -48,30 +48,6 @@ ONLY necessary if you have not already created a user.
 3. Fill in your user information to register your user. When done you are already logged in.
 ![Register new user](registerNewUser.png?width=400)
 
-
-## Opprett organisasjon
-{{% notice info %}}
-MERK: Kun nødvendig dersom ønsket organisasjon ikke allerede er opprettet.
-{{% /notice %}}
-
-1. Velg **+**-menyvalg i toppmenyen
-2. Velg **New Organization**
-3. Fyll ut navn på organisasjon og opprett.
-
-{{<figure src="create-org.gif?width=1000" title="Lag ny organisasjon">}}
-
-## Opprett repository for tjeneste
-
-1. Velg **+**-menyvalg i toppmenyen
-2. Velg **New Repository**
-3. Velg organisasjon som eier
-4. Fyll ut navn på repository
-5. Opprett tjeneste
-
-Tjenesten er nå synlig på startsiden.
-
-{{<figure src="create-repo.gif?width=1000" title="Lag nytt repository">}}
-
 ## Klone tjenesten til lokal mappe
 
 1. Fra startsiden, gå til repoet
