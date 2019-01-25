@@ -21,6 +21,13 @@ In addition we should have a generic "something went wrong" error boundary for t
 
 Within the sub-applications, it may be beneficial to implement error boundaries around key components. This will typically be relevant for components that act as _containers_ for other components. An example could be the preview-component in the UI-editor, which shows the working surface of the forms designer.
 
+#### Event handlers
+Error boundaries do not catch errors that occur within event handlers, as mentioned in the official React documentation. Thus, any direct API calls from within an event handler in a React component should be wrapped in a `try/catch` block.
+
+#### Optional props
+Any use of props that have been defined as optional should be done together with a `null/undefined-check`, to make sure that the prop is actually available.
+
+
 ### Redux
 
 #### Actions
