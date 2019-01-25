@@ -140,13 +140,6 @@
 	"content": "The Altinn Studio components are deployed as two different solutions.\n Altinn Studio - The complete Development solution Altinn Studio Apps - Where services are hosted and accessed by end users.  In this section you will find details about the deployment architecture for these solutions.\nIn addition there is a seperate article on how End Users Services developed in Altinn Studio Service Development solution are deployed to the runtime solution\n"
 },
 {
-	"uri": "https://docs.altinn.studio/technology/docker/",
-	"title": "Docker",
-	"tags": ["tjenester 3.0"],
-	"description": "Docker is the container technology used in Altinn Studio/ Altinn Studio Apps",
-	"content": " Docker is used as the container technology in Altinn Studio to host the different applications in the solution. In the Altinn Studio Apps solution it is used to host the different services created in Altinn Studio.\nLenker  Official webpage\n Github\n  "
-},
-{
 	"uri": "https://docs.altinn.studio/getting-started/first-time-setup/",
 	"title": "First-time setup of Altinn Studio",
 	"tags": ["guide"],
@@ -182,13 +175,6 @@
 	"content": "Altinn Studio can been seen as a collection of different editors or application specialized to create and edit different aspects of a Altinn Studio service on a quick and effecit way.\nThe goal is to get a natural and effectiv flow between the different applications. The result from a application in Altinn Studio will be on more many file that will be version controlled in Repos.\n\rTheming and styling\r\rSolution for theming and styling conventions \u0026#43;\u0026#43;\n\rData modeling\r\rDefining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.\n\rExposing API\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rLogic \u0026amp; Rules\r\rFor many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic\n\rReusable resources\r\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers\n\rService Deployment\r\rAltinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps\n\rTesting\r\rIn Altinn Studio there will different ways for service developers to test their services\n\rText and translations\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rUI Designer\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rUsing API\u0026#39;s\r\rFor many services it is required to call API\u0026#39;s. Altinn Studio will support building API connections with many types of API.\n\rWorkflow\r\rAs part of the service development the developer would define a workflow for the service\n\r"
 },
 {
-	"uri": "https://docs.altinn.studio/technology/gitea/",
-	"title": "Gitea",
-	"tags": ["tjenester 3.0", "Gitea", "customize", "gitea"],
-	"description": "Gitea is a self-hosted Git service. It is simialr to GitHub. It is used as the repository application in Altinn Studio.",
-	"content": " Customize Gitea The documentation on how to customize gitea can be found here.\nCustomize Templates The user interface of gitea can be customized to match your application needs. You can copy the templates from gitea\u0026rsquo;s github.\nFor example the default login page looks like this\n  Gitea default login   It\u0026rsquo;s customized to look like this\n  Customized gitea login for altinn studio   Follow these steps to change any user interface of gitea. Here example is given for login\n Copy the login template from gitea\u0026rsquo;s github Paste it in your application in the same folder structure as gitea. Edit the file. You can change the html tags and introduce new css or add new text or image without affecting the logic. Update the docker image to use these templates.  Now,the new login template will be taken in use.\n"
-},
-{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/instantiationhandler/",
 	"title": "InstansiationHandler.cs",
 	"tags": ["tjenester 3.0", "dataformat"],
@@ -196,53 +182,11 @@
 	"content": " Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.\n\rOverordnet \u0026lsquo;InstansiationHandler.cs\u0026rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som hånderer instansiering av en tjeneste.\nFormat Standard C# kode som kan gjøre bortimot alt.\nUavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.\nUtvikling Under opprettelse av en tjeneste vil en tom InstansiationHandler opprettes.\nHypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code\n"
 },
 {
-	"uri": "https://docs.altinn.studio/technology/jest/",
-	"title": "Jest",
-	"tags": ["tjenester 3.0"],
-	"description": "How to write jest test in altinn studio, what we know so far",
-	"content": " Here you can find information related to have jest tests are written for altinn studio code.\nExporting your component To be able to test methods in your component the best way is to export it in the following way:\nexport class CloneServiceComponent extends React.Component\u0026lt;ICloneServiceComponentProps \u0026amp; RouteChildrenProps, ICloneServiceComponentState\u0026gt; {  and reference it in your test the following way:\nimport { CloneServiceComponent } from '../../../src/dashboardServices/cloneService/cloneServices'; it('+++ this is the test', () =\u0026gt; { const mountedComponent = mount( \u0026lt;CloneServiceComponent language={mockLanguage} services={mockServices} classes={mockClasses} location={mockLocation} history={mockHistory} match={mockMatch} /\u0026gt;, ); const instance = mountedComponent.instance() as CloneServiceComponent; }  This will test the component without state, router or styles (read Material UI), so values usually passed in by redux store, by means of routing or styles/Material UI needs to be reference as if they are props passed into the component (match={mockMatch}).\nTesting your component Methods can be called directly from your test, so you don\u0026rsquo;t necessarly have to simulate an event to test your code. This is done the following way:\ninstance.getCurrentRepositoryInfo(); instance.componentDidMount();  In some cases it might be necessary to run componentDidMount() after you have mounted your component, before running your tests. Enzymez\u0026rsquo;s mount() does not runcomponentDidMount().\nIf you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest\u0026rsquo;s spyOn functionality described here:\nconst spy = jest.spyOn(instance, 'funcitonTwoCalledWithinFunctionOne'); instance.funcitonOne(); expect(spy).toHaveBeenCalled();  ou can read more about Jest.expect() here: Jest.expect()\nTesting with Material UI In the example above, Material-UI will be excluded from the component. This means that opening a Material UI modal with a simulated click does not necessary give you the desired output. Simulating a click on a Material ui button however works (unsure which other compoent this works for and not). If you want to simulate a click on a button this can be done using the buttons id and the simulate method from enzyme the following way:\nmountedComponent.find('button#editService').simulate('click');  get, post, put using networking in your test If you are using get, post or put from the shared networking.ts component you need to mock the acctual call to be able to test functions that calls either get, post or put. This can be done in the following way:\n// Add this to the import statements in you test file: import * as networking from '../../../../shared/src/utils/networking'; // Then in you code you add this, before calling the funciton that contains the call form the networking component: const mockResult = {}; //insert what the post method should return const postSpy = jest.spyOn(networking, 'post').mockImplementation(() =\u0026gt; Promise.resolve(mockResult)); instance.methodThatCallsPost(); // To resolve the promise and get post method to acctualy return something, you write the following: return Promise.resolve().then(() =\u0026gt; { // all tests that is about what happens after post returns should be written in here expect(postSpy).toHaveBeenCalled(); });  Using Router If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing. Here is an example on how this can be done:\nmockLocation = { pathname: 'pathname', search: 'search', state: {}, hash: 'hash', }; mockHistory = { length: 1, action: 'PUSH' as Action, location, push: () =\u0026gt; false, replace: () =\u0026gt; false, go: () =\u0026gt; false, goBack: () =\u0026gt; false, goForward: () =\u0026gt; false, block: () =\u0026gt; (null) as any, listen: () =\u0026gt; (null) as any, createHref: () =\u0026gt; '', }; mockMatch = { params: {}, isExact: false, path: '', url: '', };  "
-},
-{
-	"uri": "https://docs.altinn.studio/technology/react/codearchitecture/",
-	"title": "Kodearkitektur",
-	"tags": ["tjenester 3.0", "React", "Redux", "Reselect", "Selector"],
-	"description": "Kodearkitektur for React og tilhørende teknologi",
-	"content": " Bruk av Redux Store i Containere og Components. Kort oppsummert (TL;DR) Send \u0026ldquo;ID\u0026rdquo; eller andre identifikatorer via Props til komponenten og la komponenten hente data fra Redux Store.\nUtfordring (Why?) Hvis en del av Redux Store sendes som Props så vil komponenten re-rendres ved endringer av denne Prop/Store. Det er ønskelig at komponenter ikke rendrer unødvendig.\nRe-rendring trigges av…  Endring av Props. Endring av State som endrer Props.  Kilder  Redux best practices Common pitfalls  Filtrering av Redux Store i mapStateToProps() ved help av Selector Kort oppsummert (TL;DR) Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor.\nUtfordring (Why?) Hver gang (en del av) Redux Store endrer seg vil funksjoner som filtrerer ut deler av Redux Store kjøres. Hvis Redux Store (state tree) er stor (mange endringer) eller funksjonen er krevende kan det føre til ytelsesproblemer.\nLøsningen En Selector funksjon, med bruk av \u0026ldquo;reduxjs/reselect\u0026rdquo; vil kun kjøres når en definert del av Redux Store endres (eks \u0026ldquo;state.del.underdel\u0026rdquo;).\nKilder  Reselect Comparing shouldComponentUpdate() and Reselect  Eksempel Selector Dette er en enkel Selector uten mye logikk og filtrering. Jo større logikk i \u0026ldquo;filtreringen\u0026rdquo; jo mer \u0026ldquo;sparer\u0026rdquo; man i ytelse.\nimport { createSelector } from 'reselect'; /** * Reselect version */ const formDataSelector = (state: any, providedProps: any) =\u0026gt; { console.log('formdata selector', providedProps.id); return state.formFiller.formData; }; const dataModelBindingSelector = (state: any, providedProps: any) =\u0026gt; { console.log('datamodelBindingSelector'); return state.formDesigner.layout.components[providedProps.id].dataModelBinding; }; const getFormData = () =\u0026gt; { console.log('getFormData() is trigggered, selector is created'); return createSelector( [formDataSelector, dataModelBindingSelector], (formData: any, dataModelBinding: any) =\u0026gt; { console.log('ouput selector running', formData); if (!formData) return ''; if (!formData[dataModelBinding]) return ''; return formData[dataModelBinding]; }, ); }; export const makeGetFormDataSelector = getFormData; // Alternativt en enda enklere variant, som er implementert p.t. import { createSelector } from 'reselect'; const formDataSelector = (state: any, providedProps: any) =\u0026gt; { return state.formFiller.formData[state.formDesigner.layout.components[providedProps.id].dataModelBinding]; }; const getFormData = () =\u0026gt; { return createSelector( [formDataSelector], (formData: any) =\u0026gt; { if (!formData) return ''; return formData; }, ); }; export const makeGetFormDataSelector = getFormData;  Implementasjon i mapStateToProps const makeMapStateToProps = () =\u0026gt; { const GetFormDataSelector = makeGetFormDataSelector(); const mapStateToProps = (state: IAppState, props: IProvidedProps): IFormElementProps =\u0026gt; ({ id: props.id, formData: GetFormDataSelector(state, props), }); return mapStateToProps; }; export const FormComponentWrapper = connect(makeMapStateToProps)(FormComponent);  makeMapStateToProps implementeres slik at Selectoren kan gjenbrukes på tvers av flere komponenter.\nHigher-Order Components Higher-Order component er en funksjon som tar imot en component og returnerer et nytt komponent med ekstra funksjoner, eller ekstra data. Et eksempel på dette er connect-funksjonen fra \u0026ldquo;redux\u0026rdquo;, som tar imot en funksjon som velger redux-state data, og en komponent som disse dataene skal sendes til.\nHvorfor? Ved å wrappe induviduelle komponenter i en higher-order component, vil vi få enklere kode mtp. at en funksjon håndterer endringer i skjemaet på kun en komponent, i motsetning til å ha en funksjon som håndterer alle endringer i skjemaet. Dette vil også gi tredjeparts-utviklere en enklere måte å skrive egne funksjoner for håndtering av endringer i deres komponenter.\nEksempel på bruk i Altinn Studio Når bruker lager en tjeneste med 3. parts komponenter vil vi wrappe disse komponentene i en Higher Order Component som gir den en callback funksjon som tar imot data som komponenten har, og kjøre en redux-action som oppdaterer data i redux-state. Uten at utvikleren av 3. parts komponenten må sette seg inn i hvilke actions som skal kjøres. Dette gir også bedre mulighet for å gjennbruke 3. parts komponenter.\nEksempel på Higher Order Component const FormComponentWrapper = (WrappedComponent, ...) =\u0026gt; { // Feel free to do anything that will enhance the components properties // Return a react component return class extends React.Component { // Add functions for handling changing of data handleDataChange = (dataModelBinding, data) =\u0026gt; { // fire off an action for adding the changed data to redux state } render() { return( \u0026lt;WrappedComponent onFormDataChange={this.handleDataChange} {...props}/\u0026gt; ); } } }  Kilder  Higher-Order component  Normalized Redux Store Kort oppsummert (TL;DR)  Hver datatype får sin egen \u0026ldquo;tabell\u0026rdquo; i State. Hver \u0026ldquo;tabell\u0026rdquo; skal lagre individuelle \u0026ldquo;data\u0026rdquo; som objekter, med IDer som nøkler og \u0026ldquo;dataen\u0026rdquo; som verdi. Referansene til de individuelle \u0026ldquo;dataene\u0026rdquo; lagres ved å lagre IDene. Array med IDene brukes for å indikere sortering.  Utfordring (Why?)  Kompliserte reducers for å oppdatere nøstet state struktur. Unødvendig re-rendering grunnet oppdatering av nøstede objekter.  Eksempel { posts : { byId : { \u0026quot;post1\u0026quot; : { id : \u0026quot;post1\u0026quot;, author : \u0026quot;user1\u0026quot;, body : \u0026quot;......\u0026quot;, comments : [\u0026quot;comment1\u0026quot;, \u0026quot;comment2\u0026quot;] }, \u0026quot;post2\u0026quot; : { id : \u0026quot;post2\u0026quot;, author : \u0026quot;user2\u0026quot;, body : \u0026quot;......\u0026quot;, comments : [\u0026quot;comment3\u0026quot;, \u0026quot;comment4\u0026quot;, \u0026quot;comment5\u0026quot;] } }, allIds : [\u0026quot;post1\u0026quot;, \u0026quot;post2\u0026quot;] }, comments : { byId : { \u0026quot;comment1\u0026quot; : { id : \u0026quot;comment1\u0026quot;, author : \u0026quot;user2\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment2\u0026quot; : { id : \u0026quot;comment2\u0026quot;, author : \u0026quot;user3\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment3\u0026quot; : { id : \u0026quot;comment3\u0026quot;, author : \u0026quot;user3\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment4\u0026quot; : { id : \u0026quot;comment4\u0026quot;, author : \u0026quot;user1\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment5\u0026quot; : { id : \u0026quot;comment5\u0026quot;, author : \u0026quot;user3\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, }, allIds : [\u0026quot;comment1\u0026quot;, \u0026quot;comment2\u0026quot;, \u0026quot;comment3\u0026quot;, \u0026quot;commment4\u0026quot;, \u0026quot;comment5\u0026quot;] }, users : { byId : { \u0026quot;user1\u0026quot; : { username : \u0026quot;user1\u0026quot;, name : \u0026quot;User 1\u0026quot;, }, \u0026quot;user2\u0026quot; : { username : \u0026quot;user2\u0026quot;, name : \u0026quot;User 2\u0026quot;, }, \u0026quot;user3\u0026quot; : { username : \u0026quot;user3\u0026quot;, name : \u0026quot;User 3\u0026quot;, } }, allIds : [\u0026quot;user1\u0026quot;, \u0026quot;user2\u0026quot;, \u0026quot;user3\u0026quot;] } }  Kilder  Normalizing State Shape  "
-},
-{
-	"uri": "https://docs.altinn.studio/technology/kubernetes/",
-	"title": "Kubernetes",
-	"tags": ["tjenester 3.0"],
-	"description": "Kubernetes is used to manage the docker containers.",
-	"content": " Both the Altinn Studio and the Altinn Studio Apps solution consists of many different applications running in docker containers. For the Altinn Studio Apps solution this could possible over time be many thousands containers running different end user services.\nKubernetes will be used to manage all this containers.\nLenker  Official webpage\n Github\n  "
-},
-{
-	"uri": "https://docs.altinn.studio/technology/material-ui/",
-	"title": "Material UI",
-	"tags": ["tjenester 3.0", "Material UI"],
-	"description": "Material UI is one of the popular react UI library used in Altinn Studio/ Altinn Studio Apps",
-	"content": " Material UI Material UI is used in Altinn Studio as the React UI library. Material UI was chosen because - It is based on the Google\u0026rsquo;s material design. - It focuses exclusively on the React components - Can use responsive components provided by the library - Can override the style to customize the component to match the application requirements - Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar) - It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism\nLenker  Official webpage\n Github  React Router React router is a third party routing library used in Altinn Studio to trigger navigation within the application.\nLenker  Official webpage\n Github  "
-},
-{
-	"uri": "https://docs.altinn.studio/technology/react/",
-	"title": "React",
-	"tags": ["tjenester 3.0"],
-	"description": "React",
-	"content": "  Modulært rammeverk som lager komponenter som kan gjennbrukes flere steder i løsningen. Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas. Vedlikeholdt av Facebook, under MIT lisens.  Slik react blir brukt i Tjeneste 3.0 Uten redux  Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet. Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter.   Med redux  Ved bruk av redux vil vi ikke være like avhengig av higher order components, da alle komponenenter kan kobles til redux-state av appen, og kunne håndtere det å legge til, fjerne eller endre komponenter selv. Håndtering av state skjer igjennom Actions og Reducers, som Redux arkitektur anbefaler.   Lenker  Offisiell nettside\n Github\n  "
-},
-{
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-studio-apps/react-app/",
 	"title": "Tjenester 3.0 - Runtime - Arkitektur",
 	"tags": ["tjenester 3.0"],
 	"description": "Beskrivelse av arkitektur for React App i Runtime",
 	"content": " Arkitektur Tjeneste React App React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som ble gjort av tjenesteutvikler.\nArkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.\nEn viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon.\nTODO: Det er foreløpig ikke laget bygg av dette.\nFiguren nedenfor viser den overordnede arkitekturen som er valgt for React App.\n\nOverordnet konsept Det overordnede konseptet er at man har en konfigurasjonsfil som definerer hvilke komponenter et skjema skal bestå av og rekkefølgen på disse. Denne konfigurasjonsfilen blir generert av UX Designern i Altinn Studio når tjenesteutvikleren designer tjenesten og blir en del av ressursfilene som inkluderes i tjenestepakken.\nFormLayout.json lastes inn av React Appen sammen med selve dataene og annen konfigurasjon til en tjeneste når applikasjonen starter.\nApplikasjonen rendrer komponentene som er definert i designer FormLayout.. Dette skjer ved at Preview komponenten løper gjennom design filen og kaller FormComponent for hver enkelt element i listen. FormComponent rendrer deretter komponenter som tekstbokser eller nedtrekkliste avhengig av hvilken type komponent.\nReact komponentene React komponentene som kan velges i UX-designer er alle React komponenter som vil rendes basert input til FormComponenten.\nDisse er for øyeblikket\n HeaderComponent InputComponent CheckboxContainerComponent TextAreaComponent RadioButtonContainerComponent DropdownComponent FileUploadComponent  Disse er alle basert på Reactstrap rammeverket. TODO: Her skal vi skrive ut Reactstrap\nHver enkel komponent har definert et sett med input data (props) som den forventer som input. Det er opp til den overliggende komponenten å skaffe tilveie disse. Dette kan være verdier fra state eller egne input data.\nReact legger opp til React komponetene har en metode for å mappe verdier fra state til props for de komponentene som krever.\nNår sluttbruker gjør endringer i skjema (f.eks fyller inn noe i en tekstboks) vil den trigge en event som igjen trigger Actions som håndteres av forskjellige dispatchers\n /** * This is the event handler that triggers the Redux Actions * that is sendt to the different Action dispatcher. * This event handler is used for all form components rendered from this */ public handleComponentDataUpdate = (callbackValue: any): void =\u0026gt; { if (!this.props.component.dataModelBinding) { return; } FormFillerActionDispatchers.updateFormData( this.props.id, callbackValue, this.props.dataModelElement, ); ExternalApiActionDispatchers.checkIfApiShouldFetch(this.props.id, this.props.dataModelElement, callbackValue); RuleConnectionActionDispatchers.checkIfRuleShouldRun(this.props.id, this.props.dataModelElement, callbackValue); }  Redux Redux benyttes for å lagre state i applikasjonen. I tjenester 3.0 finnes det flere data store.\nFor runtime er det følgende Redux store som benyttes\nAppConfigState Inneholder informasjon om hvilken modus applikasjonen har.\nexport interface IAppConfigState { designMode: boolean; }  DataModelState Inneholder informasjon om alle elementene i datamodellen. Basert på JSON generert fra XSD\nexport interface IDataModelState { model: IDataModelFieldElement[]; fetching: boolean; fetched: boolean; error: Error; }  RuleModelState Inneholder definerte regler\nexport interface IRuleModelState { model: IRuleModelFieldElement[]; fetching: boolean; fetched: boolean; error: Error; }  TextResourceState Inneholder alle tekstressurser.\nexport interface ITextResourcesState { resources: ITextResource[]; language: string; fetching: boolean; fetched: boolean; error: Error; }  FormFillerState Inneholder all skjemadata og eventuelle valideringsfeil.\nexport interface IFormFillerState { formData: any; validationErrors: any; }  Reducer Redux reducers har til oppgave å oppdatere de forskjellige stores. Det er en reducer for hver enkel store. Følgende er definert\n formFillerReducer - Ansvarlig for å oppdatere FormFillerState errorReducer - Ansvarlig for å oppdatere *  Reducerne lytter etter Actions som blir dispatchet\nAction Types Action Types er type definisjoner på hendelser\nEksempler:\n// All update form data actions export const UPDATE_FORM_DATA: string = `${moduleName}.UPDATE_FORM_DATA`; export const UPDATE_FORM_DATA_FULFILLED: string = `${moduleName}.UPDATE_FORM_DATA_FULFILLED`; export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA_REJECTED`;  Action Actions er hendelser som kan bli trigget av de forskjellige komponentene. En Action inneholder minimum typen av en Action, men kan også inneholde andre metadata rundt hendelsen.\nEksempel:\nexport interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Action Creators Action Creators lager actions\nEksempel:\nexport function updateFormDataAction( componentID: string, formData: any, dataModelElement: IDataModelFieldElement, ): IUpdateFormDataAction { return { type: ActionTypes.UPDATE_FORM_DATA, formData, componentID, dataModelElement }; }  Action Dispatcher Action dispatcher\nRedux-Saga Redux-Saga er Middleware rammeverk som benyttes for å gjøre asynkrone kall mot API i løsningen. Dette er f.eks uthenting av skjemdata og lagring av skjemadata.\nHver enkel Saga som defineres definerer metoder som utfører forskjellige typer oppgaver. Dette kan f.eks være lagring av skjemdata eller uthenting av skjemadata.\nDet er definert forskjellige Saga for de forskjellige funksjonelle områdene. Sagaene er\n appData - Ansvarlig for å hente ut regler, tekstressurser og datamodell externalApiSaga - Funksjonalitet rundt externe APi formFillerSagas - funksjonalitet knyttet til uthenting og lagring av skjemadata  For hver Saga metode knyttes det lytttere som lytter til Actions. Det er dette som trigger at de nødvendige kallene skjer.\n/** * Define a listener for the UPDATE_FORM_DATA event */ export function* watchUpdateFormDataSaga(): SagaIterator { yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga); }  "
-},
-{
-	"uri": "https://docs.altinn.studio/technology/redux/",
-	"title": "Redux",
-	"tags": ["tjenester 3.0"],
-	"description": "Redux",
-	"content": "  Applikasjonstilstandshåndtering En felles tilstand for hele applikasjonen Tilstanden styres av Actions som håndteres av Reducere som igjen populerer tilstanden.\n En Action kan f.eks. være \u0026ldquo;FETCH_POSTNUMMER\u0026rdquo; Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer. Når er hentingen er fullført, vil man f.eks. sende en action \u0026ldquo;FETCH_POSTNUMMER_FULFILLED\u0026rdquo; som har postnummer-data med som parameter. Reducer håndterer denne handlingen og setter postnummer-data i applikasjonens tilstand.   Vedlikeholdt av Facebook, under MIT lisens.\n  Fordeler ved å bruke redux  En felles state for alle komponenter Komponenter kan kobles direkte mot state og kan oppdatere denne uavhengig av andre komponenter Gir en stor frihet til valg av struktur på state. Enkelt å eksportere til json og importere fra json (hvis strukturen er lik)  Lenker  Offisiell nettside Github  "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/deployment/service-deployment/",
@@ -301,20 +245,6 @@
 	"content": " Under arbeid\n\rOverordnet struktur Gitea\n├── \raltinn\n│ ├── \rcommon\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │ └── README.md\n│ ├── \rcodelists\n│ │ ├── \rcountries.json\n│ │ └── \r\u0026hellip;\n│ │ └── README.md\n│ └── \r\u0026hellip;\n│\n├── \rorg-x\n│ ├── \rorg-x\n│ │ ├── \rsettings.json\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │\n│ ├── \rcodelists\n│ │ ├── \rkodeliste1.json\n│ │ └── \r\u0026hellip;\n│ │\n│ ├── \rtjeneste-1\n│ │ ├── \rcommon \u0026hellip;\n│ │ ├── \rImplementation\n│ │ │ ├── \rCalculationHandler.cs\n│ │ │ ├── \rInstantiationHandler.cs\n│ │ │ ├── \rServiceImplementation.cs\n│ │ │ └── \rValidationHandler.cs\n│ │ ├── \rResources\n│ │ │ ├── \rStyles.json\n│ │ │ ├── \rreact-app.css\n│ │ │ ├── \rreact-app.js\n│ │ │ ├── \rRuleHandler.js\n│ │ │ ├── \rFormLayout.json\n│ │ │ ├── \rServiceConfigurations.json\n│ │ │ ├── \rresource.nb-NO.json\n│ │ │ └── \rresource.nn-NO.json\n│ │ ├── \rModel\n│ │ │ ├── \rServiceModel.xsd\n│ │ │ └── \rServiceModel.cs\n│ │ ├── \rMetadata\n│ │ │ ├── \rServiceMetadata.json\n│ │ │ └── \rworkflow.json\n│ │ ├── \rAltinnService.csproj\n│ │ ├── \rconfig.json\n│ │ ├── .gitignore\n│ │ ├── LICENSE\n│ │ └── README.md\n│ │\n│ └── \rtjeneste-2 \u0026hellip;\n│\n├── \rorg-y\n│ ├── \rorg-y \u0026hellip;\n│ └── \r\u0026hellip;\n│\n├── \rbruker-a\n│ └── \rtjeneste-1 (fork av org-x/tjeneste-1)\n├── \rbruker-b \u0026hellip;\n│\n├── \rAlle organisasjoner\n├── \rAlle repos\n└── \rAlle brukere\n"
 },
 {
-	"uri": "https://docs.altinn.studio/technology/stylecop/",
-	"title": "Stylecop Analyzer",
-	"tags": ["tjenester 3.0", "code analysis", "stylecop", "stylecop analyzer"],
-	"description": "Stylecop analyzer is the code analysis tool",
-	"content": " StyleCop.Analyzers provides warnings that indicate style and consistency rule violations in C# code. The warnings are organized into rule areas such as documentation, layout, naming, ordering, readability, spacing, and so forth. Each warning signifies a violation of a style or consistency rule. In altinn studio application, we have turned set this \u0026ldquo;warning\u0026rdquo; action to \u0026ldquo;Error\u0026rdquo; to enforce the use of rules.\nLenker  Rule Documentation Configuring Stylecop Analyzer Github  Nuget Package Instructions to install the stylecop analyzer in your project can be found here\nRuleset A solution wide stylecop ruleset and configuration(stylecop.json) is set for altinn studio application. This can be linked to the projects by linking these files like below in the project It is set to only work when building in Debug mode\n \u0026lt;ItemGroup Condition=\u0026quot;'$(Configuration)'=='Debug'\u0026quot;\u0026gt; \u0026lt;PackageReference Include=\u0026quot;StyleCop.Analyzers.Unstable\u0026quot; Version=\u0026quot;1.1.1.61\u0026quot; /\u0026gt; \u0026lt;AdditionalFiles Include=\u0026quot;$(SolutionDir)stylecop.json\u0026quot;\u0026gt; \u0026lt;Link\u0026gt;stylecop.json\u0026lt;/Link\u0026gt; \u0026lt;/AdditionalFiles\u0026gt; \u0026lt;/ItemGroup\u0026gt; \u0026lt;PropertyGroup Condition=\u0026quot;'$(Configuration)'=='Debug'\u0026quot;\u0026gt; \u0026lt;CodeAnalysisRuleSet\u0026gt;$(SolutionDir)Altinn3.ruleset\u0026lt;/CodeAnalysisRuleSet\u0026gt; \u0026lt;/PropertyGroup\u0026gt;  We have turn on the rules that will improve the code quality and maintainability.\nTurn off/Turn on a rule To turn on/off a rule from the ruleset,\n Click on Altinn3.ruleset file in the solution explorer Expand the Stylecop.Analyzers Check/uncheck the rule you want to turn on/off If you are turning on a rule, select the action to be \u0026ldquo;Error\u0026rdquo;    Turn on/off a rule from ruleset   Implemented rules in altinn studio The list of rules that are implemented (and not implemented) in altinn studio can be found here\n"
-},
-{
-	"uri": "https://docs.altinn.studio/technology/",
-	"title": "Technology",
-	"tags": ["tech"],
-	"description": "Description of Technology used in Altinn Studio",
-	"content": "The following articles describes the technology used in Altinn Studio and Altinn Studio Apps\n\rDocker\r\rDocker is the container technology used in Altinn Studio/ Altinn Studio Apps\n\rGitea\r\rGitea is a self-hosted Git service. It is simialr to GitHub. It is used as the repository application in Altinn Studio.\n\rJest\r\rHow to write jest test in altinn studio, what we know so far\n\rKubernetes\r\rKubernetes is used to manage the docker containers.\n\rMaterial UI\r\rMaterial UI is one of the popular react UI library used in Altinn Studio/ Altinn Studio Apps\n\rReact\r\rReact\n\rRedux\r\rRedux\n\rStylecop Analyzer\r\rStylecop analyzer is the code analysis tool\n\rTraefik\r\rTraefik load balancer is used in\n\rTredjeparts komponenter\r\rTredjeparts komponenter\n\rTypeScript\r\rTypeScript\n\rnginx\r\rnginx\n\r"
-},
-{
 	"uri": "https://docs.altinn.studio/getting-started/service-testing/",
 	"title": "Test utgave",
 	"tags": ["guide"],
@@ -322,39 +252,11 @@
 	"content": " Preview-funksjonalitet I UI-editoren er det bygget inn en Preview-funksjonalitet. Denne tillater tjenesteutvikler å se hvordan skjema vil se ut til slutt.\nPreview er tilgjengelig under UX i toppmenyen, eller via Preview-fanen dersom man allerede er i UI-editoren.\nI tillegg til å se hvordan skjema vil se ut, kan man også teste f.eks. API-kall, kalkuleringer/regler, valideringer og dynamikk og se hvordan disse oppfører seg.\n  Preview   Kjør utgaven i Runtime Utgaven kan testes med en testbruker i Runtime.\n Gå til utgavearbeidsflaten (velg utgaven i toppmenyen eller gå inn til utgaven via forsiden) Under Test, velg \r-ikonet. Velg testbruker fra listen Velg eksisterende instans, eller start ny.  Utgaven kan nå testes, all funksjonalitet som er beskrevet over i Preview er også tilgjengelige for test i Runtime.\n  Test utgave i Runtime   "
 },
 {
-	"uri": "https://docs.altinn.studio/technology/traefik/",
-	"title": "Traefik",
-	"tags": ["tjenester 3.0"],
-	"description": "Traefik load balancer is used in",
-	"content": " Traefik is used for load balancing in Altinn Studio Apps. It routes traffic based on tags on the service containers. Details on config can be found on github\nLenker  Official webpage\n Github\n  "
-},
-{
-	"uri": "https://docs.altinn.studio/technology/thirdpartycomponents/",
-	"title": "Tredjeparts komponenter",
-	"tags": ["tjenester 3.0"],
-	"description": "Tredjeparts komponenter",
-	"content": " Det er ønskelig at tredjeparter skal kunne utvikle komponenter som en tjenesteeier skal kunne bruke i sine løsninger\nHvordan utvikle 3. parts komponenter Når du som en bruker ønsker å utvikle tredjeparts-komponenter så er det anbefalt å bruke rollup.js som kompilerer til cjs (CommonJS).\nBasert på dette repoet i altinn.studio\nEksempel på et komponent som i et fiktivt git repo (basert på Gitea Repo) ligger i src/components/BalloonCounter/index.js :\nimport React from 'react'; export class BalloonCounter extends React.Component { constructor(_props, _state) { super(_props, _state); this.state = { count: 0, } } handleIncrement = () =\u0026gt; { let {count} = this.state; count += 1; this.setState({ count, }, () =\u0026gt; { this.handleSubmitData(); }); } handleDecrement = () =\u0026gt; { if(this.state.count !== 0) { let {count} = this.state; count -= 1; this.setState({ count, }, () =\u0026gt; { this.handleSubmitData(); }) } } handleSubmitData = () =\u0026gt; { this.props.onHandleDataUpdate(this.state.count); } render() { return ( \u0026lt;div\u0026gt; Number of ballons you want {this.state.count} \u0026lt;button onClick={this.handleIncrement}\u0026gt; + \u0026lt;/button\u0026gt; \u0026lt;button onClick={this.handleDecrement}\u0026gt; - \u0026lt;/button\u0026gt; \u0026lt;/div\u0026gt; ); } }  Viktig: Komponentens this.props.onHandleDataUpdate(...) er en funksjon som returnerer dataene komponenten har til skjema-appen, som håndterer lagring i datamodell.\nHusk å exportere denne classen i src/components/index.js slik:\nexport * from './BallonCounter.js';  Når npm run build blir kjørt vil dette lage en mappe med navn dist, med en fil som heter index.js. Denne filen må være med i git push for at altinn.studio skal kunne hente komponentene.\nHvordan bruke 3. parts komponenter I tjenester du ønsker å bruke 3. parts komponenter må det ligge en ThirdPartyComponents.json-fil. Plasseringen av denne er viktig, den må ligge under [Tjeneste navn]/editions/[utgave]/Resources. Innholdet av denne filen er som følger:\n{ \u0026quot;packages\u0026quot;: [{ \u0026quot;packageName\u0026quot;: \u0026quot;[navn på pakken]\u0026quot;, \u0026quot;location\u0026quot;: \u0026quot;[Link til raw format av index.js i git-repoet]\u0026quot; }] }  Eksempel på en slik json-fil finner du her.\nHvis alt ble satt opp riktig, vil pakkene med prefiksen til pakkenavnet komme opp i toolbaren på venstre side av Skjema designeren. F.eks. SuperCoolPackage.SuperCoolComponent.\nAlternative løsninger  Webpack med treeshaking  Positivt:  Webpack er allerede brukt i applikasjonen  Negativt:  Slik webpack er konfigurert idag vil det bli bygget en react-applikasjonsfil med alle komponenter, dette vil kreve en separering av react-skjemadesigner og react-runtime.  Runtime bygget må skje med formLayout, som vi henter i oppstarts-fasen av applikasjonen. Slik at alle kompoenter (brukte og ubrukte komponenter) blir med i bygget.  Bygget må skje fra kommando-linje/scripts som kjører i filstrukturen   Next.js SSR (server side rendering)  Positivt:  Gjøre initiell rendering på server, la klienten slippe å hente data som tekstressurser, datamodell, formLayout Dynamisk henting av komponenter som ikke er standard i react-applikasjonen  Negativt:  Introdusere flere tjenester og mye endring av allerede eksisterende react-kode   HTTP API som starter webpack-build  Ved å ha et api som f.eks. Express.js, som håndterer kompilering av applikasjon (bruker allerede kompilerte filer hvis de finnes) og blir kun brukt til å fetche javascript filen som inneholder react. Eller kun bygge da tjenesteeier klikker på \u0026ldquo;Migrer tjeneste\u0026rdquo;. Positivt:  Dynamisk kompilering av kun nødvending react applikasjon og 3. parts komponenter (kan både kompileres da tjenesten migreres, eller hver gang et en bruker starter å fylle ut et skjema (antar at første alternativ er mest gunstig))  Negativt:  Introdusere ny tjeneste (med mindre endringer av eksisterende kode enn \u0026ldquo;Next.js SSR\u0026rdquo;-alternativet)    Ressurser  Webpack tree-shaking  Webpack tree-shaking Webpack module concatenation plugin  Next.js  Offisiell nettside Github Docs  Express  Offisiell nettside Github side   "
-},
-{
-	"uri": "https://docs.altinn.studio/technology/typescript/",
-	"title": "TypeScript",
-	"tags": ["tjenester 3.0"],
-	"description": "TypeScript",
-	"content": "  Typescript er et supersett av JavaScript der sterke typer er i bruk.\n Med javascript er følgende en lovlig handling:\nvar foo = false; foo = \u0026quot;bar\u0026quot;;  Dette ville gitt en TypeError i TypeScript, og koden ville ikke blitt kompilert til JavaScript.\n Typescript kompileres til JavaScript, så klienten kjører aldri TypeScript koden. Typescript er kun til for at utvikleren ikke skal lage bugs ved å endre typer på variabler.\n Vedlikeholdt av Microsoft, under Apache License 2.0.\n  Lenker  Offisiell nettside Github  "
-},
-{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/validationhandler/",
 	"title": "ValidationHandler.cs",
 	"tags": ["tjenester 3.0", "dataformat"],
 	"description": "Beskrivelse av format for ValidationHandler",
 	"content": " Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.\n\rOverordnet \u0026lsquo;ValidationHandler.cs\u0026rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør valideringer\nFormat Standard C# kode som kan gjøre bortimot alt.\nUavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.\nUtvikling Under opprettelse av en tjeneste vil en tom ValidationnHandler opprettes.\nHypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code\n"
-},
-{
-	"uri": "https://docs.altinn.studio/technology/nginx/",
-	"title": "nginx",
-	"tags": ["tjenester 3.0"],
-	"description": "nginx",
-	"content": " Nginx is used as the load balancer in the Altinn Studio solution. It routes traffic between repository, designer and runtime. Running in a docker container. You find details on routing on Gitub\nLenker  Official webpage\n Github\n  "
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/reactapp/",
@@ -392,6 +294,20 @@
 	"content": "docs  "
 },
 {
+	"uri": "https://docs.altinn.studio/technology/dotnet-core/",
+	"title": ".NET Core",
+	"tags": ["tech", "programming"],
+	"description": "Server side development framework.",
+	"content": " .NET Core is the server side development framework used in Altinn Studio.\nLinks  https://dot.net https://dotnetfoundation.org https://github.com/dotnet https://github.com/aspnet  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/c-sharp/",
+	"title": "C#",
+	"tags": ["tech", "programming"],
+	"description": "Server side programming language.",
+	"content": " C# is the server-side development language used in Altinn Studio.\nLinks  https://docs.microsoft.com/en-us/dotnet/csharp/ https://github.com/dotnet/csharplang  "
+},
+{
 	"uri": "https://docs.altinn.studio/categories/",
 	"title": "Categories",
 	"tags": [],
@@ -406,6 +322,13 @@
 	"content": "The data model for a service typical defines the format of the data either sent to the service owner or presented in the service for the user. The data model is important for a consistent and formal definition of the data. It will be used for validation both from GUI and for external systems.\nAltinn Studio will support both importing existing data model as XSD or creating a datamodell. In MVP only import is in scope.\nSome requirements for Altinn Studio is:\n It should be easy to model data Built in replacment for SERES (Current tool) Need to support more formats.  See all issues related to Altinn Studio and data modeling on Github.\n  Editor for enkel datamodellering   "
 },
 {
+	"uri": "https://docs.altinn.studio/technology/docker/",
+	"title": "Docker",
+	"tags": ["tech", "containers"],
+	"description": "Docker is the container technology used in Altinn Studio and for Altinn Studio Apps",
+	"content": " Docker is used as the container technology for hosting Altinn Studio and Altinn Studio Repos.\nIn Altinn Studio Apps it is used to host the different apps (\u0026ldquo;services\u0026rdquo;) created in Altinn Studio as seperate containers.\nLinks  https://www.docker.com https://hub.docker.com https://github.com/docker/docker-ce  "
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/api-expose/",
 	"title": "Exposing API",
 	"tags": ["studio", "api"],
@@ -413,11 +336,60 @@
 	"content": "Services created in Altinn Studio can be exposed as API together with GUI, or only as API without any GUI.\nEach service will have its unique set of API\u0026rsquo;s. Compared to current API it makes it possible to create API\u0026rsquo;s that have documentation that is target for the specific service.\nWhat kind of API\u0026rsquo;s a service would expose will be analyzed in the comming periode\n"
 },
 {
-	"uri": "https://docs.altinn.studio/tags/gitea/",
+	"uri": "https://docs.altinn.studio/technology/gitea/",
 	"title": "Gitea",
-	"tags": [],
-	"description": "",
-	"content": ""
+	"tags": ["tech", "gitea", "git", "repos"],
+	"description": "Gitea is a self-hosted Git service similar to GitHub. It is used as the repository solution in Altinn Studio Repos.",
+	"content": " Gitea is the product that is powering Altinn Studio Repos.\nCustomize The documentation on how to customize gitea can be found here.\nTemplates The user interface of gitea can be customized to match your application needs. You can copy the templates from gitea\u0026rsquo;s github.\nFor example the default login page looks like this\nIt\u0026rsquo;s customized to look like this\nFollow these steps to change any user interface of gitea. Here example is given for login\n Copy the login template from gitea\u0026rsquo;s github Paste it in your application in the same folder structure as gitea. Edit the file. You can change the html tags and introduce new css or add new text or image without affecting the logic. Update the docker image to use these templates.  Now, the new login template will be taken in use.\nLinks  https://gitea.io https://github.com/go-gitea/gitea  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/go/",
+	"title": "Go",
+	"tags": ["tech", "programming"],
+	"description": "Server side programming language.",
+	"content": " Go is the programming language that has been used for developing many of the products we use in Altinn Studio, such as Gitea, Kubernetes, Docker, Traefik, Helm, Grafana, Prometheus and Hugo.\nLinks  https://golang.org https://github.com/golang/go  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/grafana/",
+	"title": "Grafana",
+	"tags": ["tech", "monitoring"],
+	"description": "Grafana is an open platform for analytics and monitoring.",
+	"content": " Grafana is an open platform for analytics and monitoring that we use when monitoring Altinn Studio.\nLinks  https://grafana.com https://github.com/grafana/grafana  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/helm/",
+	"title": "Helm",
+	"tags": ["tech", "containers"],
+	"description": "The Kubernetes Package Manager.",
+	"content": " The Kubernetes Package Manager.\nLinks  https://helm.sh https://github.com/helm/helm  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/hugo/",
+	"title": "Hugo",
+	"tags": ["tech", "docs", "markdown"],
+	"description": "Static site generator used for the documentation.",
+	"content": " Hugo is a static site generator that we use for generating https://docs.altinn.studio.\nLinks  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/altinn/altinn-studio-docs  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/jest/",
+	"title": "Jest",
+	"tags": ["tech", "frontend", "test"],
+	"description": "How to write jest test in altinn studio, what we know so far",
+	"content": " Here you can find information related to have jest tests are written for altinn studio code.\nExporting your component To be able to test methods in your component the best way is to export it in the following way:\nexport class CloneServiceComponent extends React.Component\u0026lt;ICloneServiceComponentProps \u0026amp; RouteChildrenProps, ICloneServiceComponentState\u0026gt; {  and reference it in your test the following way:\nimport { CloneServiceComponent } from '../../../src/dashboardServices/cloneService/cloneServices'; it('+++ this is the test', () =\u0026gt; { const mountedComponent = mount( \u0026lt;CloneServiceComponent language={mockLanguage} services={mockServices} classes={mockClasses} location={mockLocation} history={mockHistory} match={mockMatch} /\u0026gt;, ); const instance = mountedComponent.instance() as CloneServiceComponent; }  This will test the component without state, router or styles (read Material UI), so values usually passed in by redux store, by means of routing or styles/Material UI needs to be reference as if they are props passed into the component (match={mockMatch}).\nTesting your component Methods can be called directly from your test, so you don\u0026rsquo;t necessarly have to simulate an event to test your code. This is done the following way:\ninstance.getCurrentRepositoryInfo(); instance.componentDidMount();  In some cases it might be necessary to run componentDidMount() after you have mounted your component, before running your tests. Enzymez\u0026rsquo;s mount() does not runcomponentDidMount().\nIf you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest\u0026rsquo;s spyOn functionality described here:\nconst spy = jest.spyOn(instance, 'funcitonTwoCalledWithinFunctionOne'); instance.funcitonOne(); expect(spy).toHaveBeenCalled();  You can read more about Jest.expect() here: Jest.expect()\nTesting with Material UI In the example above, Material-UI will be excluded from the component. This means that opening a Material UI modal with a simulated click does not necessary give you the desired output. Simulating a click on a Material ui button however works (unsure which other compoent this works for and not). If you want to simulate a click on a button this can be done using the buttons id and the simulate method from enzyme the following way:\nmountedComponent.find('button#editService').simulate('click');  get, post, put using networking in your test If you are using get, post or put from the shared networking.ts component you need to mock the acctual call to be able to test functions that calls either get, post or put. This can be done in the following way:\n// Add this to the import statements in you test file: import * as networking from '../../../../shared/src/utils/networking'; // Then in you code you add this, before calling the funciton that contains the call form the networking component: const mockResult = {}; //insert what the post method should return const postSpy = jest.spyOn(networking, 'post').mockImplementation(() =\u0026gt; Promise.resolve(mockResult)); instance.methodThatCallsPost(); // To resolve the promise and get post method to acctualy return something, you write the following: return Promise.resolve().then(() =\u0026gt; { // all tests that is about what happens after post returns should be written in here expect(postSpy).toHaveBeenCalled(); });  Using Router If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing. Here is an example on how this can be done:\nmockLocation = { pathname: 'pathname', search: 'search', state: {}, hash: 'hash', }; mockHistory = { length: 1, action: 'PUSH' as Action, location, push: () =\u0026gt; false, replace: () =\u0026gt; false, go: () =\u0026gt; false, goBack: () =\u0026gt; false, goForward: () =\u0026gt; false, block: () =\u0026gt; (null) as any, listen: () =\u0026gt; (null) as any, createHref: () =\u0026gt; '', }; mockMatch = { params: {}, isExact: false, path: '', url: '', };  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/react/architecture/",
+	"title": "Kodearkitektur",
+	"tags": ["tech", "frontend", "react"],
+	"description": "Kodearkitektur for React og tilhørende teknologi",
+	"content": " Bruk av Redux Store i Containere og Components. Kort oppsummert (TL;DR) Send \u0026ldquo;ID\u0026rdquo; eller andre identifikatorer via Props til komponenten og la komponenten hente data fra Redux Store.\nUtfordring (Why?) Hvis en del av Redux Store sendes som Props så vil komponenten re-rendres ved endringer av denne Prop/Store. Det er ønskelig at komponenter ikke rendrer unødvendig.\nRe-rendring trigges av…  Endring av Props. Endring av State som endrer Props.  Kilder  Redux best practices Common pitfalls  Filtrering av Redux Store i mapStateToProps() ved help av Selector Kort oppsummert (TL;DR) Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor.\nUtfordring (Why?) Hver gang (en del av) Redux Store endrer seg vil funksjoner som filtrerer ut deler av Redux Store kjøres. Hvis Redux Store (state tree) er stor (mange endringer) eller funksjonen er krevende kan det føre til ytelsesproblemer.\nLøsningen En Selector funksjon, med bruk av \u0026ldquo;reduxjs/reselect\u0026rdquo; vil kun kjøres når en definert del av Redux Store endres (eks \u0026ldquo;state.del.underdel\u0026rdquo;).\nKilder  Reselect Comparing shouldComponentUpdate() and Reselect  Eksempel Selector Dette er en enkel Selector uten mye logikk og filtrering. Jo større logikk i \u0026ldquo;filtreringen\u0026rdquo; jo mer \u0026ldquo;sparer\u0026rdquo; man i ytelse.\nimport { createSelector } from 'reselect'; /** * Reselect version */ const formDataSelector = (state: any, providedProps: any) =\u0026gt; { console.log('formdata selector', providedProps.id); return state.formFiller.formData; }; const dataModelBindingSelector = (state: any, providedProps: any) =\u0026gt; { console.log('datamodelBindingSelector'); return state.formDesigner.layout.components[providedProps.id].dataModelBinding; }; const getFormData = () =\u0026gt; { console.log('getFormData() is trigggered, selector is created'); return createSelector( [formDataSelector, dataModelBindingSelector], (formData: any, dataModelBinding: any) =\u0026gt; { console.log('ouput selector running', formData); if (!formData) return ''; if (!formData[dataModelBinding]) return ''; return formData[dataModelBinding]; }, ); }; export const makeGetFormDataSelector = getFormData; // Alternativt en enda enklere variant, som er implementert p.t. import { createSelector } from 'reselect'; const formDataSelector = (state: any, providedProps: any) =\u0026gt; { return state.formFiller.formData[state.formDesigner.layout.components[providedProps.id].dataModelBinding]; }; const getFormData = () =\u0026gt; { return createSelector( [formDataSelector], (formData: any) =\u0026gt; { if (!formData) return ''; return formData; }, ); }; export const makeGetFormDataSelector = getFormData;  Implementasjon i mapStateToProps const makeMapStateToProps = () =\u0026gt; { const GetFormDataSelector = makeGetFormDataSelector(); const mapStateToProps = (state: IAppState, props: IProvidedProps): IFormElementProps =\u0026gt; ({ id: props.id, formData: GetFormDataSelector(state, props), }); return mapStateToProps; }; export const FormComponentWrapper = connect(makeMapStateToProps)(FormComponent);  makeMapStateToProps implementeres slik at Selectoren kan gjenbrukes på tvers av flere komponenter.\nHigher-Order Components Higher-Order component er en funksjon som tar imot en component og returnerer et nytt komponent med ekstra funksjoner, eller ekstra data. Et eksempel på dette er connect-funksjonen fra \u0026ldquo;redux\u0026rdquo;, som tar imot en funksjon som velger redux-state data, og en komponent som disse dataene skal sendes til.\nHvorfor? Ved å wrappe induviduelle komponenter i en higher-order component, vil vi få enklere kode mtp. at en funksjon håndterer endringer i skjemaet på kun en komponent, i motsetning til å ha en funksjon som håndterer alle endringer i skjemaet. Dette vil også gi tredjeparts-utviklere en enklere måte å skrive egne funksjoner for håndtering av endringer i deres komponenter.\nEksempel på bruk i Altinn Studio Når bruker lager en tjeneste med 3. parts komponenter vil vi wrappe disse komponentene i en Higher Order Component som gir den en callback funksjon som tar imot data som komponenten har, og kjøre en redux-action som oppdaterer data i redux-state. Uten at utvikleren av 3. parts komponenten må sette seg inn i hvilke actions som skal kjøres. Dette gir også bedre mulighet for å gjennbruke 3. parts komponenter.\nEksempel på Higher Order Component const FormComponentWrapper = (WrappedComponent, ...) =\u0026gt; { // Feel free to do anything that will enhance the components properties // Return a react component return class extends React.Component { // Add functions for handling changing of data handleDataChange = (dataModelBinding, data) =\u0026gt; { // fire off an action for adding the changed data to redux state } render() { return( \u0026lt;WrappedComponent onFormDataChange={this.handleDataChange} {...props}/\u0026gt; ); } } }  Kilder  Higher-Order component  Normalized Redux Store Kort oppsummert (TL;DR)  Hver datatype får sin egen \u0026ldquo;tabell\u0026rdquo; i State. Hver \u0026ldquo;tabell\u0026rdquo; skal lagre individuelle \u0026ldquo;data\u0026rdquo; som objekter, med IDer som nøkler og \u0026ldquo;dataen\u0026rdquo; som verdi. Referansene til de individuelle \u0026ldquo;dataene\u0026rdquo; lagres ved å lagre IDene. Array med IDene brukes for å indikere sortering.  Utfordring (Why?)  Kompliserte reducers for å oppdatere nøstet state struktur. Unødvendig re-rendering grunnet oppdatering av nøstede objekter.  Eksempel { posts : { byId : { \u0026quot;post1\u0026quot; : { id : \u0026quot;post1\u0026quot;, author : \u0026quot;user1\u0026quot;, body : \u0026quot;......\u0026quot;, comments : [\u0026quot;comment1\u0026quot;, \u0026quot;comment2\u0026quot;] }, \u0026quot;post2\u0026quot; : { id : \u0026quot;post2\u0026quot;, author : \u0026quot;user2\u0026quot;, body : \u0026quot;......\u0026quot;, comments : [\u0026quot;comment3\u0026quot;, \u0026quot;comment4\u0026quot;, \u0026quot;comment5\u0026quot;] } }, allIds : [\u0026quot;post1\u0026quot;, \u0026quot;post2\u0026quot;] }, comments : { byId : { \u0026quot;comment1\u0026quot; : { id : \u0026quot;comment1\u0026quot;, author : \u0026quot;user2\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment2\u0026quot; : { id : \u0026quot;comment2\u0026quot;, author : \u0026quot;user3\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment3\u0026quot; : { id : \u0026quot;comment3\u0026quot;, author : \u0026quot;user3\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment4\u0026quot; : { id : \u0026quot;comment4\u0026quot;, author : \u0026quot;user1\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, \u0026quot;comment5\u0026quot; : { id : \u0026quot;comment5\u0026quot;, author : \u0026quot;user3\u0026quot;, comment : \u0026quot;.....\u0026quot;, }, }, allIds : [\u0026quot;comment1\u0026quot;, \u0026quot;comment2\u0026quot;, \u0026quot;comment3\u0026quot;, \u0026quot;commment4\u0026quot;, \u0026quot;comment5\u0026quot;] }, users : { byId : { \u0026quot;user1\u0026quot; : { username : \u0026quot;user1\u0026quot;, name : \u0026quot;User 1\u0026quot;, }, \u0026quot;user2\u0026quot; : { username : \u0026quot;user2\u0026quot;, name : \u0026quot;User 2\u0026quot;, }, \u0026quot;user3\u0026quot; : { username : \u0026quot;user3\u0026quot;, name : \u0026quot;User 3\u0026quot;, } }, allIds : [\u0026quot;user1\u0026quot;, \u0026quot;user2\u0026quot;, \u0026quot;user3\u0026quot;] } }  Kilder  Normalizing State Shape  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/kubernetes/",
+	"title": "Kubernetes",
+	"tags": ["tech", "containers"],
+	"description": "Kubernetes is used to manage the docker containers.",
+	"content": " Both Altinn Studio and Altinn Studio Apps consists of many different applications running in docker containers. For the Altinn Studio Apps solution this could possible over time be many thousands containers running different end user services.\nKubernetes is used to manage the containers.\nLinks  https://kubernetes.io https://github.com/kubernetes/kubernetes  "
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/logic/",
@@ -427,32 +399,39 @@
 	"content": " Definere logikk Logikk som kjører i tjenesten. Er ekstremt viktig å få dette riktig, brukervennlig og fungerende på tvers av kanaler og på tvers av front-end og back-end.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/tags/material-ui/",
+	"uri": "https://docs.altinn.studio/technology/material-ui/",
 	"title": "Material UI",
-	"tags": [],
-	"description": "",
-	"content": ""
+	"tags": ["tech", "ui", "react"],
+	"description": "A popular React UI library used in Altinn Studio",
+	"content": " Material UI is used in Altinn Studio as the React UI library. Material UI was chosen because\n It is based on the Google\u0026rsquo;s material design. It focuses exclusively on the React components Can use responsive components provided by the library Can override the style to customize the component to match the application requirements Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar) It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism  Material UI links  https://material-ui.com https://github.com/mui-org/material-ui  React Router React router is a third party routing library used in Altinn Studio to trigger navigation within the application.\nReact router links  https://reacttraining.com/react-router https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom  "
 },
 {
-	"uri": "https://docs.altinn.studio/tags/react/",
+	"uri": "https://docs.altinn.studio/technology/nginx/",
+	"title": "Nginx",
+	"tags": ["tech", "load-balancer"],
+	"description": "Load balancer currently used for routing traffic between Repos and Designer.",
+	"content": " Nginx is used as the load balancer in the Altinn Studio solution. It routes traffic between Repos and Designer. Running in a docker container. You find details on routing on Gitub\nLinks  https://www.nginx.org https://github.com/nginx/nginx  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/prometheus/",
+	"title": "Prometheus",
+	"tags": ["tech", "monitoring"],
+	"description": "Prometheus is an open-source systems monitoring and alerting toolkit.",
+	"content": " Prometheus is an open-source systems monitoring and alerting toolkit that we use for monitoring.\nLinks  https://prometheus.io https://github.com/prometheus  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/react/",
 	"title": "React",
-	"tags": [],
-	"description": "",
-	"content": ""
+	"tags": ["tech", "frontend", "react"],
+	"description": "Modulært rammeverk for å utvikle UI komponenter",
+	"content": "  Modulært rammeverk for å utvikle UI komponenter som kan gjenbrukes flere steder i løsningen. Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas. Vedlikeholdt av Facebook, under MIT lisens.  Slik React blir brukt Uten redux  Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet. Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter.  Med redux  Ved bruk av redux vil vi ikke være like avhengig av higher order components, da alle komponenenter kan kobles til redux-state av appen, og kunne håndtere det å legge til, fjerne eller endre komponenter selv. Håndtering av state skjer igjennom Actions og Reducers, som Redux arkitektur anbefaler.  Links  https://reactjs.org https://github.com/facebook/react  "
 },
 {
-	"uri": "https://docs.altinn.studio/tags/redux/",
+	"uri": "https://docs.altinn.studio/technology/react/redux/",
 	"title": "Redux",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://docs.altinn.studio/tags/reselect/",
-	"title": "Reselect",
-	"tags": [],
-	"description": "",
-	"content": ""
+	"tags": ["tech", "frontend", "react"],
+	"description": "Redux is used for handling state in React applications",
+	"content": "  Applikasjonstilstandshåndtering En felles tilstand for hele applikasjonen Tilstanden styres av Actions som håndteres av Reducere som igjen populerer tilstanden.\n En Action kan f.eks. være \u0026ldquo;FETCH_POSTNUMMER\u0026rdquo; Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer. Når er hentingen er fullført, vil man f.eks. sende en action \u0026ldquo;FETCH_POSTNUMMER_FULFILLED\u0026rdquo; som har postnummer-data med som parameter. Reducer håndterer denne handlingen og setter postnummer-data i applikasjonens tilstand.   Vedlikeholdt av Facebook, under MIT lisens.\n  Fordeler ved å bruke redux  En felles state for alle komponenter Komponenter kan kobles direkte mot state og kan oppdatere denne uavhengig av andre komponenter Gir en stor frihet til valg av struktur på state. Enkelt å eksportere til json og importere fra json (hvis strukturen er lik)  Links  https://redux.js.org https://github.com/reactjs/redux  "
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/reusable-resources/",
@@ -462,13 +441,6 @@
 	"content": " A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other service developers that uses Altinn Studio.\nReusable resource is typical created by technical developers using code editors.\n  Development of new React web component   Web component When building UI, you will use and configure premade web components. The components will be based on React, and vil vary in size and complexity. Web components are developed in code editors.\nSome basic requirements:\n The component should be flexible and configurable The component should be able to be connected to the data model, and use the metadata from the data model. The component should be able to connect to text resources The component should support responsive design and WCAG 2 AA It should be simple for service owners to add more components  Overall layout When building UI it will be possible to select a overall layout (aka \u0026ldquo;look\u0026amp;feel\u0026rdquo;). This could bee neded because of the complexity of the service or a wish for branding of the service.\n Create reuasable artifacts\n Look\u0026amp;feel Texts and translations Code lists Logic (C#? TypeScript? WebAssembly?) Data models (Seres?) API calls  Reuse these artifacts\n  F.eks. det å lage nye web componenter og layouts vil typisk være noe som tekniske utviklere gjør i kode-editorer.\nDet å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/tags/selector/",
-	"title": "Selector",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/",
 	"title": "Service Deployment",
 	"tags": ["studio"],
@@ -476,11 +448,25 @@
 	"content": "As a service developer you will be able to deploy the created service to Altinn Studio Apps for testing/production.\nThe goal is that this functionality is 100% self service without involving other parties.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/technology/stylecop/",
+	"title": "StyleCop",
+	"tags": ["tech", "code-quality"],
+	"description": "Stylecop analyzer is a code analysis tool for C#",
+	"content": " StyleCop.Analyzers provides warnings that indicate style and consistency rule violations in C# code. The warnings are organized into rule areas such as documentation, layout, naming, ordering, readability, spacing, and so forth. Each warning signifies a violation of a style or consistency rule. In altinn studio application, we have turned set this \u0026ldquo;warning\u0026rdquo; action to \u0026ldquo;Error\u0026rdquo; to enforce the use of rules.\nLinks  Rule Documentation Configuring Stylecop Analyzer Github  Nuget Package Instructions to install the stylecop analyzer in your project can be found here.\nRuleset A solution wide stylecop ruleset and configuration(stylecop.json) is set for altinn studio application. This can be linked to the projects by linking these files like below in the project. It is set to only work when building in Debug mode\n\u0026lt;ItemGroup Condition=\u0026quot;'$(Configuration)'=='Debug'\u0026quot;\u0026gt; \u0026lt;PackageReference Include=\u0026quot;StyleCop.Analyzers.Unstable\u0026quot; Version=\u0026quot;1.1.1.61\u0026quot; /\u0026gt; \u0026lt;AdditionalFiles Include=\u0026quot;$(SolutionDir)stylecop.json\u0026quot;\u0026gt; \u0026lt;Link\u0026gt;stylecop.json\u0026lt;/Link\u0026gt; \u0026lt;/AdditionalFiles\u0026gt; \u0026lt;/ItemGroup\u0026gt; \u0026lt;PropertyGroup Condition=\u0026quot;'$(Configuration)'=='Debug'\u0026quot;\u0026gt; \u0026lt;CodeAnalysisRuleSet\u0026gt;$(SolutionDir)Altinn3.ruleset\u0026lt;/CodeAnalysisRuleSet\u0026gt; \u0026lt;/PropertyGroup\u0026gt;  We have turn on the rules that will improve the code quality and maintainability.\nTurn off/Turn on a rule To turn on/off a rule from the ruleset,\n Click on Altinn3.ruleset file in the solution explorer Expand the Stylecop.Analyzers Check/uncheck the rule you want to turn on/off If you are turning on a rule, select the action to be \u0026ldquo;Error\u0026rdquo;    Turn on/off a rule from ruleset   Implemented rules in Altinn Studio The list of rules that are implemented (and not implemented) in altinn studio can be found here.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/technology/",
+	"title": "Technology",
+	"tags": ["tech"],
+	"description": "The technology used in Altinn Studio and Altinn Studio Apps.",
+	"content": "The technology used in Altinn Studio and Altinn Studio Apps.\n\r.NET Core\r\rServer side development framework.\n\rC#\r\rServer side programming language.\n\rDocker\r\rDocker is the container technology used in Altinn Studio and for Altinn Studio Apps\n\rGitea\r\rGitea is a self-hosted Git service similar to GitHub. It is used as the repository solution in Altinn Studio Repos.\n\rGo\r\rServer side programming language.\n\rGrafana\r\rGrafana is an open platform for analytics and monitoring.\n\rHelm\r\rThe Kubernetes Package Manager.\n\rHugo\r\rStatic site generator used for the documentation.\n\rJest\r\rHow to write jest test in altinn studio, what we know so far\n\rKubernetes\r\rKubernetes is used to manage the docker containers.\n\rMaterial UI\r\rA popular React UI library used in Altinn Studio\n\rNginx\r\rLoad balancer currently used for routing traffic between Repos and Designer.\n\rPrometheus\r\rPrometheus is an open-source systems monitoring and alerting toolkit.\n\rReact\r\rModulært rammeverk for å utvikle UI komponenter\n\rStyleCop\r\rStylecop analyzer is a code analysis tool for C#\n\rTraefik\r\rContainer load balancer\n\rTypeScript\r\rTypeScript is a superset of JavaScript that compiles to clean JavaScript output\n\rVisual Studio Code\r\rVisual Studio Code is a lightweight source code editor which runs on your desktop.\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/test/",
@@ -497,6 +483,27 @@
 	"content": " Text editing and translations Easy and efficient text processing and translation are important in a service development solution. The possibility to reuse texts across multiple services are especially important.\nTexts in the editor are written in a ini-file that is converted to a simple JSON-file and presented as an API. In that way the user could work directly in the code editor or convert the text into other formats supported by external translation tools. Meaning that 3.0 supports any language that is added, not just languages supported by the Altinn portal.\n Definition of texts using hierarchical and readable keys Reusable texts, internal across different pages and on the levels above the solution Possibility to add other languages  Using lanuage keys in the solution Lanuage keys are references in the react-code with the help of a the language method getLanguageFromKey found in src/react-apps/applications/shared/src/utils/lanauge.ts. This method is called in the following way:\ngetLanguageFromKey('universal_key.lanuage_key', this.props.language)  Where the first param is the language key and the second is the language element. If you call this.props.language.universal_key.lanuage_key you should get the key value\nHow to add a new language:\n Make a new ini-file and place it in AltinnCore \u0026gt; Common \u0026gt; Languages \u0026gt; ini Change the parameter \u0026ldquo;languageCode\u0026rdquo; in the API call to whatever name your ini file is called.  Example for Norweigan bokmål (nb):  http://altinn3.no/designer/y/types/Language/getLanguageAsJSON?languageCode=nb  Guides for language files:\n Keys are sorted by which app they belong to Universal keys ([general]) are placed at the top of the file Keys are sorted alphabetically Keys are written in lowercase with underscores (example_key)    Editor for oversetting av tekster   "
 },
 {
+	"uri": "https://docs.altinn.studio/technology/traefik/",
+	"title": "Traefik",
+	"tags": ["tech", "containers", "load-balancer"],
+	"description": "Container load balancer",
+	"content": " Traefik is used for load balancing in Altinn Studio Apps. It routes traffic based on tags on the service containers. Details on config can be found on github.\nLinks  https://traefik.io https://github.com/containous/traefik  "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/react/third-party-components/",
+	"title": "Tredjeparts komponenter",
+	"tags": ["tech", "react"],
+	"description": "Tredjeparts komponenter",
+	"content": " Det er ønskelig at tredjeparter skal kunne utvikle komponenter som en tjenesteeier skal kunne bruke i sine løsninger\nHvordan utvikle 3. parts komponenter Når du som en bruker ønsker å utvikle tredjeparts-komponenter så er det anbefalt å bruke rollup.js som kompilerer til cjs (CommonJS).\nBasert på dette repoet i altinn.studio\nEksempel på et komponent som i et fiktivt git repo (basert på Gitea Repo) ligger i src/components/BalloonCounter/index.js :\nimport React from 'react'; export class BalloonCounter extends React.Component { constructor(_props, _state) { super(_props, _state); this.state = { count: 0, } } handleIncrement = () =\u0026gt; { let {count} = this.state; count += 1; this.setState({ count, }, () =\u0026gt; { this.handleSubmitData(); }); } handleDecrement = () =\u0026gt; { if(this.state.count !== 0) { let {count} = this.state; count -= 1; this.setState({ count, }, () =\u0026gt; { this.handleSubmitData(); }) } } handleSubmitData = () =\u0026gt; { this.props.onHandleDataUpdate(this.state.count); } render() { return ( \u0026lt;div\u0026gt; Number of ballons you want {this.state.count} \u0026lt;button onClick={this.handleIncrement}\u0026gt; + \u0026lt;/button\u0026gt; \u0026lt;button onClick={this.handleDecrement}\u0026gt; - \u0026lt;/button\u0026gt; \u0026lt;/div\u0026gt; ); } }  Viktig: Komponentens this.props.onHandleDataUpdate(...) er en funksjon som returnerer dataene komponenten har til skjema-appen, som håndterer lagring i datamodell.\nHusk å exportere denne classen i src/components/index.js slik:\nexport * from './BallonCounter.js';  Når npm run build blir kjørt vil dette lage en mappe med navn dist, med en fil som heter index.js. Denne filen må være med i git push for at altinn.studio skal kunne hente komponentene.\nHvordan bruke 3. parts komponenter I tjenester du ønsker å bruke 3. parts komponenter må det ligge en ThirdPartyComponents.json-fil. Plasseringen av denne er viktig, den må ligge under [Tjeneste navn]/editions/[utgave]/Resources. Innholdet av denne filen er som følger:\n{ \u0026quot;packages\u0026quot;: [{ \u0026quot;packageName\u0026quot;: \u0026quot;[navn på pakken]\u0026quot;, \u0026quot;location\u0026quot;: \u0026quot;[Link til raw format av index.js i git-repoet]\u0026quot; }] }  Eksempel på en slik json-fil finner du her.\nHvis alt ble satt opp riktig, vil pakkene med prefiksen til pakkenavnet komme opp i toolbaren på venstre side av Skjema designeren. F.eks. SuperCoolPackage.SuperCoolComponent.\nAlternative løsninger  Webpack med treeshaking  Positivt:  Webpack er allerede brukt i applikasjonen  Negativt:  Slik webpack er konfigurert idag vil det bli bygget en react-applikasjonsfil med alle komponenter, dette vil kreve en separering av react-skjemadesigner og react-runtime.  Runtime bygget må skje med formLayout, som vi henter i oppstarts-fasen av applikasjonen. Slik at alle kompoenter (brukte og ubrukte komponenter) blir med i bygget.  Bygget må skje fra kommando-linje/scripts som kjører i filstrukturen   Next.js SSR (server side rendering)  Positivt:  Gjøre initiell rendering på server, la klienten slippe å hente data som tekstressurser, datamodell, formLayout Dynamisk henting av komponenter som ikke er standard i react-applikasjonen  Negativt:  Introdusere flere tjenester og mye endring av allerede eksisterende react-kode   HTTP API som starter webpack-build  Ved å ha et api som f.eks. Express.js, som håndterer kompilering av applikasjon (bruker allerede kompilerte filer hvis de finnes) og blir kun brukt til å fetche javascript filen som inneholder react. Eller kun bygge da tjenesteeier klikker på \u0026ldquo;Migrer tjeneste\u0026rdquo;. Positivt:  Dynamisk kompilering av kun nødvending react applikasjon og 3. parts komponenter (kan både kompileres da tjenesten migreres, eller hver gang et en bruker starter å fylle ut et skjema (antar at første alternativ er mest gunstig))  Negativt:  Introdusere ny tjeneste (med mindre endringer av eksisterende kode enn \u0026ldquo;Next.js SSR\u0026rdquo;-alternativet)    Ressurser  Webpack tree-shaking  Webpack tree-shaking Webpack module concatenation plugin  Next.js  Offisiell nettside Github Docs  Express  Offisiell nettside Github side   "
+},
+{
+	"uri": "https://docs.altinn.studio/technology/typescript/",
+	"title": "TypeScript",
+	"tags": ["tech", "programming"],
+	"description": "TypeScript is a superset of JavaScript that compiles to clean JavaScript output",
+	"content": " TypeScript is a superset of JavaScript that compiles to clean JavaScript output.\n Med javascript er følgende en lovlig handling:\nvar foo = false; foo = \u0026quot;bar\u0026quot;;  Dette ville gitt en TypeError i TypeScript, og koden ville ikke blitt kompilert til JavaScript.\n Typescript kompileres til JavaScript, så klienten kjører aldri TypeScript koden. Typescript er kun til for at utvikleren ikke skal lage bugs ved å endre typer på variabler.\n  Links  http://www.typescriptlang.org https://github.com/Microsoft/TypeScript  "
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/",
 	"title": "UI Designer",
 	"tags": ["studio", "ui-designer"],
@@ -509,6 +516,13 @@
 	"tags": ["studio", "api"],
 	"description": "For many services it is required to call API&#39;s. Altinn Studio will support building API connections with many types of API.",
 	"content": "To be able to support \u0026ldquo;once-only\u0026rdquo; it is essensial that it is easy to do API-call from a service to other systems API\u0026rsquo;s\nFor å kunne understøtte \u0026ldquo;once-only\u0026rdquo;, så er det essensielt at det er enkelt å gjøre kall mot andre systemers API\u0026rsquo;er fra en 3.0-tjeneste. For å forenkle dette kan en mulig løsning være å støtte en type gjenbrukbar asset av type \u0026ldquo;API-plugins\u0026rdquo;, som gjør det enkelt å gjøre kall.\nEn ukjent faktor er den kommende \u0026ldquo;API-katalogen\u0026rdquo;, og hvilke egenskaper den vil tilby.\n Enkel bruk av API\u0026rsquo;er. Se på det som gjøres i NADOBE. Må bort fra dagens mappere  Dette er et område som ikke ble sett på i PoC.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/technology/vs-code/",
+	"title": "Visual Studio Code",
+	"tags": ["tech", "git", "programming"],
+	"description": "Visual Studio Code is a lightweight source code editor which runs on your desktop.",
+	"content": " Visual Studio Code is a lightweight and extendable code editor which runs on your desktop and is available for Windows, macOS and Linux.\nWe use it when developing altinn-studio, and it can be used for editing files from Altinn Studio Repos locally using the built-in git support.\nVS Code comes with support for hundreds of languages and technologies, including all the ones that are relevant in Altinn Studio:\n C# CSS Docker Go HTML JavaScript JSON Kubernetes Markdown .NET Core Node.js React and JSX TypeScript  Links  https://code.visualstudio.com/docs https://github.com/Microsoft/vscode  "
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/workflow/",
@@ -567,8 +581,15 @@
 	"content": ""
 },
 {
-	"uri": "https://docs.altinn.studio/tags/code-analysis/",
-	"title": "code analysis",
+	"uri": "https://docs.altinn.studio/tags/code-quality/",
+	"title": "code-quality",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/containers/",
+	"title": "containers",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -576,13 +597,6 @@
 {
 	"uri": "https://docs.altinn.studio/tags/csproj/",
 	"title": "csproj",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://docs.altinn.studio/tags/customize/",
-	"title": "customize",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -616,6 +630,27 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/docs/",
+	"title": "docs",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/frontend/",
+	"title": "frontend",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/git/",
+	"title": "git",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/gitea/",
 	"title": "gitea",
 	"tags": [],
@@ -637,8 +672,29 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/load-balancer/",
+	"title": "load-balancer",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/logic/",
 	"title": "logic",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/markdown/",
+	"title": "markdown",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/monitoring/",
+	"title": "monitoring",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -658,8 +714,22 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/programming/",
+	"title": "programming",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/projectfile/",
 	"title": "projectfile",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/react/",
+	"title": "react",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -686,20 +756,6 @@
 	"content": ""
 },
 {
-	"uri": "https://docs.altinn.studio/tags/stylecop/",
-	"title": "stylecop",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://docs.altinn.studio/tags/stylecop-analyzer/",
-	"title": "stylecop analyzer",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
 	"uri": "https://docs.altinn.studio/tags/tech/",
 	"title": "tech",
 	"tags": [],
@@ -716,6 +772,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/tjenester-3.0/",
 	"title": "tjenester 3.0",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/ui/",
+	"title": "ui",
 	"tags": [],
 	"description": "",
 	"content": ""
