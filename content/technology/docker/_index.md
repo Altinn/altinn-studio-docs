@@ -1,14 +1,17 @@
 ---
 title: Docker
-description: Docker is the container technology used in Altinn Studio/ Altinn Studio Apps
-weight: 100
-tags: ["tjenester 3.0"]
+description: Docker is the container technology used in Altinn Studio and for Altinn Studio Apps
+tags: [tech, containers]
 ---
 
-Docker is used as the container technology in Altinn Studio to host the different applications in the solution.
-In the Altinn Studio Apps solution it is used to host the different services created in Altinn Studio.
+![Docker logo](docker.png?width=200)
+
+Docker is used as the container technology for hosting [Altinn Studio](/altinn-studio) and [Altinn Studio Repos](/altinn-studio-repos).  
+In [Altinn Studio Apps](/altinn-studio-apps) it is used to host the different apps ("services") created in Altinn Studio as seperate containers.
 
 
-#### Lenker
-- [Official webpage](https://www.docker.com/)  
-- [Github](https://github.com/docker)  
+## Links
+
+- https://www.docker.com
+- https://hub.docker.com
+- https://github.com/docker/docker-ce

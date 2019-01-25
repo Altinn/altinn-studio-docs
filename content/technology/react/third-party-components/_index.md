@@ -1,8 +1,7 @@
 ---
 title: Tredjeparts komponenter
 description: Tredjeparts komponenter
-weight: 100
-tags: ["tjenester 3.0"]
+tags: [tech, react]
 ---
 
 Det er ønskelig at tredjeparter skal kunne utvikle komponenter som en
