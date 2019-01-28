@@ -156,7 +156,14 @@ These categories are explained in more detail below.
 
 The various files that are used to define logic can be reached by opening the logic menu, accessed from the GUI editor via the _f(x)_-icon on the top right. 
 
-{{<figure src="ui-editor-logic-menu.png?width=300" title="GUI editor - Configure API connection">}}
+{{<figure src="ui-editor-logic-menu.png?width=300" title="Logic menu">}}
+
+##### Auto-complete/intellisense
+C#-files (which are used in calculations and server-side validations) are set up with support for auto-complete for the data model. This means that suggestions for possible fields in the data model are displayed as you type. 
+
+For javascript-files, a full language intellisense is available, which suggests possibilities defined by the javascript language, and shows any syntax errors with a red underline. Intellisense/autocomplete is automatically shown as you type, and can also be reached by the key combination `CTRL + SPACE`.
+
+{{<figure src="datamodel-intellisense.gif?width=700" title="Logic menu - auto-complete/intellisense">}}
 
 #### Validations
 Validations make sure that the users input is valid with respect to the data model, as well as any custom rules that are set up for the service. Validations can be run _client-side_ (i.e. in the browser) and _server-side_. 
@@ -185,10 +192,10 @@ In addition, validation on whether the field is required or not is supported, bu
 NOTE: Displaying any validation results from the server-side, and configuring when it should be run is functionality that is currently being developed. The documentation will be updated when new functionality is available.
 {{% /notice%}}
 
-Server side validations are set up to run when the user submits data. The submitted data is automatically validated against the data model on the server, and if the data is not valid, an error is returned. In addition, it is possible to configure custom validations for the service. This is done by coding the validations, in the file `ValidationHandler.cs`. 
+Server side validations are set up to run when the user submits data. The submitted data is automatically validated against the data model on the server, and if the data is not valid, an error is returned. In addition, it is possible to configure custom validations for the service. This is done by coding the validations in C#, in the file `ValidationHandler.cs`. 
 
 #### Calculations
-Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in the file `CalculationHandler.cs`. This file can be edited by clicking _Rediger kalkuleringer_ from the logic menu. 
+Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in C# in the file `CalculationHandler.cs`. This file can be edited by clicking _Rediger kalkuleringer_ from the logic menu. 
 
 #### Dynamics
 Dynamics are events that happen on the client-side. These can include calculations and rules for conditional rendering (ex. hide/show). The actual conditions/methods that are used need to be coded in javascript, in the file `RuleHandler.js` (see below for more details). This file can be reached through the logic menu, by clicking _Rediger dynamikk_. 
