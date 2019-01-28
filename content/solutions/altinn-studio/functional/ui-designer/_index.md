@@ -28,14 +28,4 @@ See all issues related to Altinn Studio and UI-designer on [Github](https://gith
 
 
 ### Components
-The following list of components has been defined. (list will be expanded)
-
-
-### Radio button
-
-{{<figure src="component_radiobutton1.png" title="Radio Button in designer">}}
-
-{{<figure src="component_radiobutton2.png" title="Radio Button configuration">}}
-
-{{<figure src="component_radiobutton3.png" title="Radio Button in runtime">}}
-
+See a list of all available form components [here](components)

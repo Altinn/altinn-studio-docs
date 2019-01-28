@@ -1,7 +1,7 @@
 ---
 title: Available form components
 description: Overview of the form components that are available for use
-tags: ["guide"]
+tags: ["ui-designer", "form-components"]
 weight: 100
 ---
 
