@@ -2746,6 +2746,10 @@ if(host != "localhost")
 </ul></li>
 <li><a href="#logic">Logic</a>
 <ul>
+<li>
+<ul>
+<li><a href="#auto-complete-intellisense">Auto-complete/intellisense</a></li>
+</ul></li>
 <li><a href="#validations">Validations</a>
 <ul>
 <li><a href="#client-side-validations">Client-side validations</a></li>
@@ -3121,7 +3125,27 @@ An overview of the texts that are already available for the service is shown.</p
     
     
     <figcaption>
-        <h4>GUI editor - Configure API connection</h4>
+        <h4>Logic menu</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<h5 id="auto-complete-intellisense">Auto-complete/intellisense</h5>
+
+<p>C#-files (which are used in calculations and server-side validations) are set up with support for auto-complete for the data model. This means that suggestions for possible fields in the data model are displayed as you type.</p>
+
+<p>For javascript-files, a full language intellisense is available, which suggests possibilities defined by the javascript language, and shows any syntax errors with a red underline. Intellisense/autocomplete is automatically shown as you type, and can also be reached by the key combination <code>CTRL + SPACE</code>.</p>
+
+
+<figure>
+    
+        <img src="datamodel-intellisense.gif?width=700" />
+    
+    
+    <figcaption>
+        <h4>Logic menu - auto-complete/intellisense</h4>
         
     </figcaption>
     
@@ -3158,11 +3182,11 @@ An overview of the texts that are already available for the service is shown.</p
 </div>
 
 
-<p>Server side validations are set up to run when the user submits data. The submitted data is automatically validated against the data model on the server, and if the data is not valid, an error is returned. In addition, it is possible to configure custom validations for the service. This is done by coding the validations, in the file <code>ValidationHandler.cs</code>.</p>
+<p>Server side validations are set up to run when the user submits data. The submitted data is automatically validated against the data model on the server, and if the data is not valid, an error is returned. In addition, it is possible to configure custom validations for the service. This is done by coding the validations in C#, in the file <code>ValidationHandler.cs</code>.</p>
 
 <h4 id="calculations">Calculations</h4>
 
-<p>Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in the file <code>CalculationHandler.cs</code>. This file can be edited by clicking <em>Rediger kalkuleringer</em> from the logic menu.</p>
+<p>Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in C# in the file <code>CalculationHandler.cs</code>. This file can be edited by clicking <em>Rediger kalkuleringer</em> from the logic menu.</p>
 
 <h4 id="dynamics">Dynamics</h4>
 
