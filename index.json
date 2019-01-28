@@ -4,7 +4,7 @@
 	"title": "Getting started",
 	"tags": ["guide", "intro"],
 	"description": "Getting stared with Altinn Studio",
-	"content": "A very early preview of Altinn Studio is available for testing here: https://altinn.studio\n\rCreate a service\r\rInformation on how to create a service in Altinn Studio\n\r\rAvailable form components\r\rOverview of the form components that are available for use\n\r\rFirst-time setup of Altinn Studio\r\rSetup Sett opp bruker i AltinnStudio for første gangs bruk.\n\r\r\rTest utgave\r\rInformasjon om testing av utgave\n\r\r\r"
+	"content": "A very early preview of Altinn Studio is available for testing here: https://altinn.studio\n\rCreate a service\r\rInformation on how to create a service in Altinn Studio\n\r\rAvailable form components\r\rOverview of the form components that are available for use\n\r\rFirst-time setup of Altinn Studio\r\rSet up your user in altinn.studio for the first time.\n\r\r\rTest utgave\r\rInformasjon om testing av utgave\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/about/goals/",
@@ -164,7 +164,7 @@
 	"uri": "https://docs.altinn.studio/getting-started/first-time-setup/",
 	"title": "First-time setup of Altinn Studio",
 	"tags": ["guide"],
-	"description": "Setup Sett opp bruker i AltinnStudio for første gangs bruk.",
+	"description": "Set up your user in altinn.studio for the first time.",
 	"content": " Create a user with a Github user Set up your user in altinn.studio for the first time.\nONLY necessary if you have not already created a user.\n\r Choose to log in  If you have a Github account, select \u0026ldquo;Har du en github konto? Register deg med den her\u0026rdquo;  If you are not already logged in at Github, login with your Github credentials.  Authorize that Altinn Studio could use your Github account for login and connect the accounts.  Register your new Altinn Studio account by filling in the registration form.   Create a user without a Github user Set up your user in altinn.studio for the first time.\nONLY necessary if you have not already created a user.\n\r Choose to log in  If you do not have a Github user, select \u0026ldquo;Behov for en konto? Registrer deg nå.\u0026rdquo;  Fill in your user information to register your user. When done you are already logged in.   Klone tjenesten til lokal mappe  Fra startsiden, gå til repoet Velg clone service  Dersom Applikasjonsnøkkel ikke er lagt inn vil du bli bedt om å legge inn dette, se her. Når dette er fullfør, start fra punkt 1.  Tjenesten er nå klar til bruk.  "
 },
 {
