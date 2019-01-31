@@ -200,7 +200,7 @@
 	"title": "Functionality in Altinn Studio",
 	"tags": ["solution", "studio"],
 	"description": "Functional areas in the Altinn Studio design-time solution.",
-	"content": "Altinn Studio can been seen as a collection of different editors or application specialized to create and edit different aspects of a Altinn Studio service on a quick and effecit way.\nThe goal is to get a natural and effectiv flow between the different applications. The result from a application in Altinn Studio will be on more many file that will be version controlled in Repos.\n\rTheming and styling\r\rSolution for theming and styling conventions \u0026#43;\u0026#43;\n\rData modeling\r\rDefining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.\n\rExposing API\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rLogic \u0026amp; Rules\r\rFor many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic\n\rReusable resources\r\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers\n\rService Deployment\r\rAltinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps\n\rTesting\r\rIn Altinn Studio there will different ways for service developers to test their services\n\rText and translations\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rUI Designer\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rUsing API\u0026#39;s\r\rFor many services it is required to call API\u0026#39;s. Altinn Studio will support building API connections with many types of API.\n\rWorkflow\r\rAs part of the service development the developer would define a workflow for the service\n\r"
+	"content": "Altinn Studio can been seen as a collection of different editors or application specialized to create and edit different aspects of a Altinn Studio service on a quick and effecit way.\nThe goal is to get a natural and effectiv flow between the different applications. The result from a application in Altinn Studio will be on more many file that will be version controlled in Repos.\n\rTheming and styling\r\rSolution for theming and styling conventions \u0026#43;\u0026#43;\n\rData modeling\r\rDefining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.\n\rExposing API\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rLogic \u0026amp; Rules\r\rFor many services it is a need for logic and rules. Altinn Studio will have a flexible way to build logic\n\rReusable resources\r\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers\n\rService Deployment\r\rAltinn Studio will let the developer deploy the service to test enviroments and production without any manuel steps\n\rTesting\r\rIn Altinn Studio there will different ways for service developers to test their services\n\rText and translations\r\rSolution for designing service UI, defining workflow, other settings, deploy \u0026#43;\u0026#43;\n\rUI Designer\r\rThe UI-designer is the part of Altinn Studio where the service developer can create\n\rUsing API\u0026#39;s\r\rFor many services it is required to call API\u0026#39;s. Altinn Studio will support building API connections with many types of API.\n\rWork in progress\r\rA work in progress information is displayed to users of altinn studio\n\rWorkflow\r\rAs part of the service development the developer would define a workflow for the service\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/general/",
@@ -602,6 +602,13 @@
 	"content": " Visual Studio Code is a lightweight and extendable code editor which runs on your desktop and is available for Windows, macOS and Linux.\nWe use it when developing altinn-studio, and it can be used for editing files from Altinn Studio Repos locally using the built-in git support.\nVS Code comes with support for hundreds of languages and technologies, including all the ones that are relevant in Altinn Studio:\n C# CSS Docker Go HTML JavaScript JSON Kubernetes Markdown .NET Core Node.js React and JSX TypeScript  Links  https://code.visualstudio.com/docs https://github.com/Microsoft/vscode  "
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/work-in-progress/",
+	"title": "Work in progress",
+	"tags": ["studio", "work in progress"],
+	"description": "A work in progress information is displayed to users of altinn studio",
+	"content": " Work in progress page There are many areas in altinn.studio where the functionality is not implemented yet (but will be available in the upcoming releases). There is a need to inform the user about this and provide a good user experience. So a work in progress page is displayed on all areas where the implementation has either not started or in progress.\n  Work in progress page   "
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/workflow/",
 	"title": "Workflow",
 	"tags": ["studio", "workflow"],
@@ -926,6 +933,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/unit-testing/",
 	"title": "unit-testing",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/work-in-progress/",
+	"title": "work in progress",
 	"tags": [],
 	"description": "",
 	"content": ""
