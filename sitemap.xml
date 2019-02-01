@@ -63,7 +63,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/components/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/</loc>
   </url>
   
   <url>
@@ -76,6 +76,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/calculationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/create-service/</loc>
   </url>
   
   <url>
@@ -196,6 +200,34 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/reactapp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/navigate-to-service/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/data-model/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/texts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/gui-editor/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/codelist/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/getting-started/service-creation/logic/</loc>
   </url>
   
   <url>
@@ -325,6 +357,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/technology/custom-components/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/technology/traefik/</loc>
   </url>
   
@@ -402,12 +438,22 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/codelist/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/containers/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/tags/csproj/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/data-model/</loc>
     <priority>0</priority>
   </url>
   
@@ -443,6 +489,16 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/error-handling/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/external-api/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/form-components/</loc>
     <priority>0</priority>
   </url>
   
@@ -512,6 +568,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/navigation/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/pipeline/</loc>
     <priority>0</priority>
   </url>
@@ -567,6 +628,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/texts/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/tjenester-3.0/</loc>
     <priority>0</priority>
   </url>
@@ -578,6 +644,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/ui-designer/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/ui-editor/</loc>
     <priority>0</priority>
   </url>
   

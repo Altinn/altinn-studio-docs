@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="The UI-designer is the part of Altinn Studio where the service developer can create">
+    <meta name="description" content="The UI-designer is the part of Altinn Studio where the service developer can create a form">
 
 
     
@@ -136,7 +136,7 @@ if(host != "localhost")
         
         ">
       <a href="/getting-started/service-creation/">
-        <span>Create a service</span>
+        <span>Create or edit a service</span>
 
         
         
@@ -155,6 +155,8 @@ if(host != "localhost")
           
           
           
+          
+          
         
           
             
@@ -164,14 +166,210 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/getting-started/service-creation/components/" class="dd-item
-     
-      ">
-        <a href="/getting-started/service-creation/components/">
-        <span>Available form components</span> 
+    <li data-nav-id="/getting-started/service-creation/create-service/" class="dd-item 
         
-        </a></li>
-     
+        
+        
+        ">
+      <a href="/getting-started/service-creation/create-service/">
+        <span>Create new service</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/service-creation/navigate-to-service/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/service-creation/navigate-to-service/">
+        <span>Navigation</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/service-creation/data-model/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/service-creation/data-model/">
+        <span>Data model</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/service-creation/texts/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/service-creation/texts/">
+        <span>Text resources</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/service-creation/gui-editor/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/service-creation/gui-editor/">
+        <span>GUI editor</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/service-creation/codelist/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/service-creation/codelist/">
+        <span>Code lists</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/service-creation/api/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/service-creation/api/">
+        <span>External APIs</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/service-creation/logic/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/service-creation/logic/">
+        <span>Service logic</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -589,8 +787,44 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/solutions/altinn-studio/functional/ui-designer/components/" class="dd-item
+     
+      ">
+        <a href="/solutions/altinn-studio/functional/ui-designer/components/">
+        <span>Available form components</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -2570,6 +2804,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/custom-components/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/custom-components/">
+        <span>Third party components</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/traefik/" class="dd-item 
         
         
@@ -2758,8 +3019,7 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#components">Components</a></li>
-<li><a href="#radio-button">Radio button</a></li>
+<li><a href="#form-components">Form components</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -2791,48 +3051,32 @@ if(host != "localhost")
 
 
 
+<p>The possibility to effectly build a user friendly user interface for a service is an essential feature for Altinn Studio. this is one of the more complex functionalities developed as part of Altinn Studio.</p>
 
-<figure>
-    
-        <img src="formdesigner1.png?width=800" />
-    
-    
-    <figcaption>
-        <h4>Definering av layout for tjenesten &#34;Starte Enkeltpersonforetak&#34;</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<p>The possibility to effectly build a user friendly user interface for a service is a
-essential feature for Altinn Studio.</p>
-
-<p>This is one of the more complex functionality developed as part of Altinn Studio.</p>
-
-<p>The UI-designer is expected to have the following functionality</p>
+<p>The UI-designer has the following functionality:</p>
 
 <ul>
-<li>Choose or change <a href="#overall-layout">overall layout</a> / look &amp; feel</li>
-<li>Defining on or more <strong>views</strong> for the service
+<li>Define a <strong>detailed layout</strong> (responsive design)
 
 <ul>
-<li>Define <strong>navigation</strong> between views</li>
+<li>Add reusable <a href="#components">form components</a></li>
+<li>Configure form components
+
+<ul>
+<li>Connection to <strong>data model</strong></li>
+<li>Connection to <strong>texts/translations</strong></li>
 </ul></li>
-<li>Define <strong>detailed layout</strong> pr. view (responsive design)</li>
-<li>Add reusable <a href="#web-component">webcomponents</a> to detailed layout
-
-<ul>
-<li>Configuration of the web components</li>
 </ul></li>
-<li>Connection for <strong>datamodel</strong> og <strong>server-side API</strong> (The need for rules and validation should be performend also when accessing throug API.</li>
-<li>Connection for <strong>text/translations</strong></li>
+<li>Define/configure connections to <strong>external API</strong></li>
+<li>Define/configure rules for <a href="#validation">validation</a>, <a href="#calculation">calculation</a> and <a href="#dynamics">dynamics</a></li>
 </ul>
 
+<p>See all issues related to Altinn Studio and UI-designer on <a href="https://github.com/Altinn/altinn-studio/labels/ui-editor">Github</a></p>
+
 
 <figure>
     
-        <img src="ux-editor.gif?width=800" />
+        <img src="ux-editor-dnd.gif?width=800" />
     
     
     <figcaption>
@@ -2843,55 +3087,11 @@ essential feature for Altinn Studio.</p>
 </figure>
 
 
-<p>See all issues related to Altinn Studio and UI-designer on <a href="https://github.com/Altinn/altinn-studio/labels/ui-editor">Github</a></p>
+<h3 id="form-components">Form components</h3>
 
-<h3 id="components">Components</h3>
+<p>The form components are reusable components that are used to build the user interface of the service. Examples include input fields and title components. See a list of all available form components <a href="components">here</a>.</p>
 
-<p>The following list of components has been defined. (list will be expanded)</p>
-
-<h3 id="radio-button">Radio button</h3>
-
-
-<figure>
-    
-        <img src="component_radiobutton1.png" />
-    
-    
-    <figcaption>
-        <h4>Radio Button in designer</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-
-<figure>
-    
-        <img src="component_radiobutton2.png" />
-    
-    
-    <figcaption>
-        <h4>Radio Button configuration</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-
-<figure>
-    
-        <img src="component_radiobutton3.png" />
-    
-    
-    <figcaption>
-        <h4>Radio Button in runtime</h4>
-        
-    </figcaption>
-    
-</figure>
-
+<p>It is also possible to define custom components and use this in the service.</p>
 
 
 <footer class=" footline" >
@@ -2957,8 +3157,122 @@ essential feature for Altinn Studio.</p>
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -3207,16 +3521,32 @@ essential feature for Altinn Studio.</p>
                     
 
                     
-            
-        
-                    
                         
             
             
                 
                     
+                        
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
                     
                 
                 
@@ -4246,9 +4576,25 @@ essential feature for Altinn Studio.</p>
                     
                     
 
+                    
+            
+        
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -4330,7 +4676,7 @@ essential feature for Altinn Studio.</p>
             <a class="nav nav-prev" href="/solutions/altinn-studio/functional/text/" title="Text and translations"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/solutions/altinn-studio/functional/api-use/" title="Using API&#39;s" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/solutions/altinn-studio/functional/ui-designer/components/" title="Available form components" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
