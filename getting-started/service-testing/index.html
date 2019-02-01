@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Informasjon om testing av utgave">
+    <meta name="description" content="Information about testing a service">
 
 
     
-    <title>Test utgave :: Altinn Studio</title>
+    <title>Test service :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -424,7 +424,7 @@ if(host != "localhost")
         
         ">
       <a href="/getting-started/service-testing/">
-        <span>Test utgave</span>
+        <span>Test service</span>
 
         
         
@@ -2991,7 +2991,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/getting-started/'>Getting started</a> > Test utgave
+ <a href='/'>Altinn Studio</a> > <a href='/getting-started/'>Getting started</a> > Test service
 
  
 
@@ -3007,8 +3007,7 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#preview-funksjonalitet">Preview-funksjonalitet</a></li>
-<li><a href="#kjør-utgaven-i-runtime">Kjør utgaven i Runtime</a></li>
+<li><a href="#testing-a-service-in-altinn-studio">Testing a service in Altinn Studio</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -3028,7 +3027,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Test utgave</h1>
+              <h1>Test service</h1>
             
           
 
@@ -3037,45 +3036,21 @@ if(host != "localhost")
 
 
 
-<h2 id="preview-funksjonalitet">Preview-funksjonalitet</h2>
+<p>A service can be tested in Altinn Studio without migrating to a test environment. This is a way to check that the service looks and behaves as expected.</p>
 
-<p>I UI-editoren er det bygget inn en Preview-funksjonalitet. Denne tillater tjenesteutvikler å se hvordan skjema vil se ut til slutt.</p>
+<h2 id="testing-a-service-in-altinn-studio">Testing a service in Altinn Studio</h2>
 
-<p><strong>Preview</strong> er tilgjengelig under <strong>UX</strong> i toppmenyen, eller via <strong>Preview</strong>-fanen dersom man allerede er i UI-editoren.</p>
-
-<p>I tillegg til å se hvordan skjema vil <em>se ut</em>, kan man også teste f.eks. API-kall, kalkuleringer/regler, valideringer og dynamikk
-og se hvordan disse oppfører seg.</p>
-
-
-<figure>
-    
-        <img src="ui-editor-preview.gif?width=1000" />
-    
-    
-    <figcaption>
-        <h4>Preview</h4>
-        
-    </figcaption>
-    
-</figure>
-
-
-<h2 id="kjør-utgaven-i-runtime">Kjør utgaven i Runtime</h2>
-
-<p>Utgaven kan testes med en testbruker i Runtime.</p>
+<p>Testing is available once a data model has been uploaded to the service.</p>
 
 <ol>
-<li>Gå til utgavearbeidsflaten (velg utgaven i toppmenyen eller gå inn til utgaven via forsiden)</li>
-<li>Under <strong>Test</strong>, velg 
+<li>Select <em>Test -&gt; Manuell</em> in the top navigation menu.</li>
+<li>Select a test user from the list of available users.</li>
+<li>Choose to start a new instance, or to reuse an existing instance (if any are available)
 
-<span class="fa fa-play"   aria-hidden="true"></span>
-
--ikonet.</li>
-<li>Velg testbruker fra listen</li>
-<li>Velg eksisterende instans, eller start ny.</li>
+<ul>
+<li>By using an existing instance, data used in a previous instance can be re-used.</li>
+</ul></li>
 </ol>
-
-<p>Utgaven kan nå testes, all funksjonalitet som er beskrevet over i <em>Preview</em> er også tilgjengelige for test i Runtime.</p>
 
 
 <figure>
@@ -3089,6 +3064,27 @@ og se hvordan disse oppfører seg.</p>
     </figcaption>
     
 </figure>
+
+
+<p>The following can be tested in Altinn Studio:</p>
+
+<ul>
+<li>Layout/look of service</li>
+<li>Client-side validations on data model</li>
+<li>Dynamics (f.ex. hide/show)</li>
+<li>Client-side API calls</li>
+<li>Loading of code lists</li>
+</ul>
+
+<p>The following needs to be tested in a complete test environment:</p>
+
+<ul>
+<li>Server-side logic (validation/calculation)</li>
+<li>Server-side API calls</li>
+</ul>
+
+<div class="notices info" ><p>Complete test environments are currently not available. The documentation will be updated when it is possible to test a service in a test environment.</p>
+</div>
 
 
 

@@ -4,7 +4,7 @@
 	"title": "Getting started",
 	"tags": ["guide", "intro"],
 	"description": "Getting stared with Altinn Studio",
-	"content": "A very early preview of Altinn Studio is available for testing here: https://altinn.studio\n\rCreate or edit a service\r\rInformation on how to create or edit a service in Altinn Studio\n\r\rCreate new service\r\rInformation on how to create a new service\n\rNavigation\r\rInformation on how to navigate to and within a service\n\rData model\r\rInformation on how to import/view data model\n\rText resources\r\rInformation on how to add or edit text resources for a service in Altinn Studio\n\rGUI editor\r\rInformation on how to create a form using the GUI editor\n\rCode lists\r\rInformation on how to add/edit and configure code lists\n\rExternal APIs\r\rInformation on how to configure calls to external APIs to fetch data\n\rService logic\r\rInformation on how to add/edit and configure service logic\n\r\rFirst-time setup of Altinn Studio\r\rSet up your user in altinn.studio for the first time.\n\r\r\rTest utgave\r\rInformasjon om testing av utgave\n\r\r\r"
+	"content": "A very early preview of Altinn Studio is available for testing here: https://altinn.studio\n\rCreate or edit a service\r\rInformation on how to create or edit a service in Altinn Studio\n\r\rCreate new service\r\rInformation on how to create a new service\n\rNavigation\r\rInformation on how to navigate to and within a service\n\rData model\r\rInformation on how to import/view data model\n\rText resources\r\rInformation on how to add or edit text resources for a service in Altinn Studio\n\rGUI editor\r\rInformation on how to create a form using the GUI editor\n\rCode lists\r\rInformation on how to add/edit and configure code lists\n\rExternal APIs\r\rInformation on how to configure calls to external APIs to fetch data\n\rService logic\r\rInformation on how to add/edit and configure service logic\n\r\rFirst-time setup of Altinn Studio\r\rSet up your user in altinn.studio for the first time.\n\r\r\rTest service\r\rInformation about testing a service\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/about/goals/",
@@ -323,10 +323,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/getting-started/service-testing/",
-	"title": "Test utgave",
+	"title": "Test service",
 	"tags": ["guide"],
-	"description": "Informasjon om testing av utgave",
-	"content": " Preview-funksjonalitet I UI-editoren er det bygget inn en Preview-funksjonalitet. Denne tillater tjenesteutvikler å se hvordan skjema vil se ut til slutt.\nPreview er tilgjengelig under UX i toppmenyen, eller via Preview-fanen dersom man allerede er i UI-editoren.\nI tillegg til å se hvordan skjema vil se ut, kan man også teste f.eks. API-kall, kalkuleringer/regler, valideringer og dynamikk og se hvordan disse oppfører seg.\n  Preview   Kjør utgaven i Runtime Utgaven kan testes med en testbruker i Runtime.\n Gå til utgavearbeidsflaten (velg utgaven i toppmenyen eller gå inn til utgaven via forsiden) Under Test, velg \r-ikonet. Velg testbruker fra listen Velg eksisterende instans, eller start ny.  Utgaven kan nå testes, all funksjonalitet som er beskrevet over i Preview er også tilgjengelige for test i Runtime.\n  Test utgave i Runtime   "
+	"description": "Information about testing a service",
+	"content": " A service can be tested in Altinn Studio without migrating to a test environment. This is a way to check that the service looks and behaves as expected.\nTesting a service in Altinn Studio Testing is available once a data model has been uploaded to the service.\n Select Test -\u0026gt; Manuell in the top navigation menu. Select a test user from the list of available users. Choose to start a new instance, or to reuse an existing instance (if any are available)  By using an existing instance, data used in a previous instance can be re-used.     Test utgave i Runtime   The following can be tested in Altinn Studio:\n Layout/look of service Client-side validations on data model Dynamics (f.ex. hide/show) Client-side API calls Loading of code lists  The following needs to be tested in a complete test environment:\n Server-side logic (validation/calculation) Server-side API calls  Complete test environments are currently not available. The documentation will be updated when it is possible to test a service in a test environment.\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/front-end/unit-testing/",
@@ -354,7 +354,7 @@
 	"title": "Navigation",
 	"tags": ["guide", "navigation"],
 	"description": "Information on how to navigate to and within a service",
-	"content": " Navigate to existing service All services are displayed on the service dashboard.\n"
+	"content": " Navigate to existing service All services are displayed on the service dashboard. Navigate to a specific service by selecting the service from the dashboard.\nNavigating within a service There are two navigation menus for a service, a top menu and a side menu (left side). The top menu allows navigation between functional areas of a service. The left menu is used for navigation within each functional area:\n About the service (Om)  About the service Roles and rights Production information Version history About the end user Altinn.no  Making the service (Lage)  Data model GUI API  Languages for the service (Språk)  Texts More languages  Testing the service (Teste)  Test  Deploying the service (Publisere)  Deploy to production Status     Navigation menus in a service   In addition to the two menus, there is also a blue top navigation menu. This menu is being phased out as new functionality is added. Use this menu when the guide specifies it.\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/getting-started/service-creation/data-model/",
