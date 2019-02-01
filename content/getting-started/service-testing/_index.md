@@ -1,29 +1,37 @@
 ---
-title: Test utgave
-description: Informasjon om testing av utgave
+title: Test service
+description: Information about testing a service
 tags: ["guide"]
 weight: 100
 ---
 
-## Preview-funksjonalitet
-I UI-editoren er det bygget inn en Preview-funksjonalitet. Denne tillater tjenesteutvikler å se hvordan skjema vil se ut til slutt. 
+A service can be tested in Altinn Studio without migrating to a test environment. This is a way to check that the service looks and behaves as expected. 
 
-**Preview** er tilgjengelig under **UX** i toppmenyen, eller via **Preview**-fanen dersom man allerede er i UI-editoren. 
+## Testing a service in Altinn Studio
+Testing is available once a data model has been uploaded to the service. 
 
-I tillegg til å se hvordan skjema vil _se ut_, kan man også teste f.eks. API-kall, kalkuleringer/regler, valideringer og dynamikk
-og se hvordan disse oppfører seg.
-
-{{<figure src="ui-editor-preview.gif?width=1000" title="Preview">}}
-
-## Kjør utgaven i Runtime
-
-Utgaven kan testes med en testbruker i Runtime.
-
-1. Gå til utgavearbeidsflaten (velg utgaven i toppmenyen eller gå inn til utgaven via forsiden)
-2. Under **Test**, velg {{<icon name="fa-play">}}-ikonet.
-3. Velg testbruker fra listen
-4. Velg eksisterende instans, eller start ny.
-
-Utgaven kan nå testes, all funksjonalitet som er beskrevet over i _Preview_ er også tilgjengelige for test i Runtime.
+1. Select _Test -> Manuell_ in the top navigation menu. 
+2. Select a test user from the list of available users.
+3. Choose to start a new instance, or to reuse an existing instance (if any are available)
+  * By using an existing instance, data used in a previous instance can be re-used.
 
 {{<figure src="runtime-test.gif?width=1000" title="Test utgave i Runtime">}}
+
+The following can be tested in Altinn Studio:
+
+- Layout/look of service
+- Client-side validations on data model
+- Dynamics (f.ex. hide/show)
+- Client-side API calls
+- Loading of code lists
+
+The following needs to be tested in a complete test environment:
+
+- Server-side logic (validation/calculation)
+- Server-side API calls
+
+{{%notice info%}}
+Complete test environments are currently not available. The documentation will be updated when it is possible to test a service in a test environment.
+{{% /notice%}}
+
+
