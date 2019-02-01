@@ -1,31 +1,26 @@
 ---
 title: UI Designer
-description: The UI-designer is the part of Altinn Studio where the service developer can create
+description: The UI-designer is the part of Altinn Studio where the service developer can create a form
 tags: ["studio", "ui-designer"]
 ---
 
-{{<figure src="formdesigner1.png?width=800" title="Definering av layout for tjenesten \"Starte Enkeltpersonforetak\"">}}
+The possibility to effectly build a user friendly user interface for a service is an essential feature for Altinn Studio. this is one of the more complex functionalities developed as part of Altinn Studio. 
 
-The possibility to effectly build a user friendly user interface for a service is a
-essential feature for Altinn Studio. 
+The UI-designer has the following functionality:
 
-This is one of the more complex functionality developed as part of Altinn Studio.
-
-The UI-designer is expected to have the following functionality
-
-- Choose or change [overall layout](#overall-layout) / look & feel
-- Defining on or more **views** for the service
-  - Define **navigation** between views
-- Define **detailed layout** pr. view (responsive design)
-- Add reusable [webcomponents](#web-component) to detailed layout
-  - Configuration of the web components
-- Connection for **datamodel** og **server-side API** (The need for rules and validation should be performend also when accessing throug API.
-- Connection for **text/translations**
-
-{{<figure src="ux-editor.gif?width=800" title="Drag'n drop av web komponenter">}}
+- Define a **detailed layout** (responsive design)
+  - Add reusable [form components](#components)
+    - Configure form components
+      - Connection to **data model**
+      - Connection to **texts/translations**
+- Define/configure connections to **external API**
+- Define/configure rules for [validation](#validation), [calculation](#calculation) and [dynamics](#dynamics)
 
 See all issues related to Altinn Studio and UI-designer on [Github](https://github.com/Altinn/altinn-studio/labels/ui-editor)
 
+{{<figure src="ux-editor-dnd.gif?width=800" title="Drag'n drop av web komponenter">}}
 
-### Components
-See a list of all available form components [here](components)
+### Form components
+The form components are reusable components that are used to build the user interface of the service. Examples include input fields and title components. See a list of all available form components [here](components).
+
+It is also possible to define custom components and use this in the service. 
