@@ -1,7 +1,7 @@
 ---
 title: First-time setup of Altinn Studio
 linktitle: First-time setup
-description: Setup Sett opp bruker i AltinnStudio for første gangs bruk.
+description: Setting up a user in Altinn Studio for the first time
 tags: ["guide"]
 weight: 100
 ---
