@@ -49,7 +49,7 @@ instance.getCurrentRepositoryInfo();
 instance.componentDidMount();
 ```
 
-In some cases it might be necessary to run componentDidMount() after you have mounted your component, before running your tests. Enzymez's mount() does not run componentDidMount(). _Needs verification_
+If you call networked functions componentDidMount() you need to mock the networked functions before mounting.
 
 If you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest's spyOn functionality described here:
 
