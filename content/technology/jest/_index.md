@@ -6,21 +6,21 @@ tags: [tech, frontend, test]
 
 ![Jest logo](jest-logo.png)
 
-Here you can find information related to have jest tests are written for altinn studio code.
+This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.
 
-## Exporting your component
-To be able to test methods in your component the best way is to export it in the following way:
+## Exporting and importing your component
+A quick way to get started testing your component is first to export the React Component:
 
 ```javascript
 export class CloneServiceComponent extends React.Component<ICloneServiceComponentProps & RouteChildrenProps, ICloneServiceComponentState> {
 ```
 
-and reference it in your test the following way:
+and then reference it in your test the following way:
 
 ```javascript
 import { CloneServiceComponent } from '../../../src/dashboardServices/cloneService/cloneServices';
 
-it('+++ this is the test', () => {
+it('+++ this is the test', async () => {
 
   const mountedComponent = mount(
     <CloneServiceComponent
@@ -38,58 +38,121 @@ it('+++ this is the test', () => {
 ```
 
 This will test the component without state, router or styles (read Material UI),
-so values usually passed in by redux store, by means of routing or styles/Material UI needs to be reference as if they
+so values usually passed in by Redux store, by means of routing or styles/Material UI needs to be reference as if they
 are props passed into the component (match={mockMatch}).
 
-## Testing your component
-Methods can be called directly from your test, so you don't necessarly have to simulate an event to test your code.
-This is done the following way:
+## Testing methods in your component
+Methods can be called directly from your test, or executed when clicked on UI elements (See own section).
+Calling methods is done like this:
 
 ```javascript
 instance.getCurrentRepositoryInfo();
 instance.componentDidMount();
 ```
 
-In some cases it might be necessary to run componentDidMount() after you have mounted your component, before running your tests. Enzymez's mount() does not runcomponentDidMount().
+In some cases it might be necessary to run componentDidMount() after you have mounted your component, before running your tests. Enzymez's mount() does not run componentDidMount(). _Needs verification_
 
 If you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest's spyOn functionality described here:
 
 ```javascript
  const spy = jest.spyOn(instance, 'funcitonTwoCalledWithinFunctionOne');
- instance.funcitonOne();
+ instance.functionOne();
  expect(spy).toHaveBeenCalled();
 ```
 
 You can read more about Jest.expect() here: [Jest.expect()](https://jestjs.io/docs/en/expect)
 
-## Testing with Material UI
-In the example above, Material-UI will be excluded from the component. This means that opening a Material UI modal with a simulated click does not necessary give you the desired output.
-Simulating a click on a Material ui button however works (unsure which other compoent this works for and not). If you want to simulate a click on a button this can be done using the buttons id and the simulate method from enzyme
-the following way:
+## Testing User Interface and Methods
+In the example above, testing the actual interface is excluded.
+Simulating a click on an element might need to be performed twice in some cases. Simulating a click can be done using the elements ID and the simulate method from Enzyme:
 
 ```javascript
 mountedComponent.find('button#editService').simulate('click');
 ```
 
 ## get, post, put using networking in your test
-If you are using get, post or put from the shared networking.ts component you need to mock the acctual call to be able to test functions that calls either get, post or put.
+If you are using get, post or put from the shared networking.ts component you need to mock the actual call to be able to test functions that calls either get, post or put.
 This can be done in the following way:
 
 ```javascript
 // Add this to the import statements in you test file:
 import * as networking from '../../../../shared/src/utils/networking';
 
-// Then in you code you add this, before calling the funciton that contains the call form the networking component:
-const mockResult = {}; //insert what the post method should return
-const postSpy = jest.spyOn(networking, 'post').mockImplementation(() => Promise.resolve(mockResult));
-instance.methodThatCallsPost();
+// To resolve the promise and and to return the value, first make sure your test is async:
+it('should handle successfully returned data from API', async () => {
 
-// To resolve the promise and get post method to acctualy return something, you write the following:
-return Promise.resolve().then(() => {
-    // all tests that is about what happens after post returns should be written in here
-    expect(postSpy).toHaveBeenCalled();
+  /* Mounting goes here, commented to get markdown colors correctly
+    const mountedComponent = mount(
+      <HandleMergeConflictAbort
+        language={mockLanguage}
+      />,
+    );
+  */
+
+  // Creating the instance so you can spy or call methods directly
+  const instance = mountedComponent.instance() as HandleMergeConflictAbort;
+
+  // Spies for regular methods
+  const spyOnClickFunctionHandler = jest.spyOn(instance, 'clickFunctionHandler');
+
+  // Before you call the methods which use netowrking, you must create the spy and mock:
+  const mockData = {
+    isSuccessStatusCode: true,
+  };
+  const getStub = jest.fn();
+  const mockGet = jest.spyOn(networking, 'get').mockImplementation(getStub);
+  getStub.mockReturnValue(Promise.resolve(mockData));
+
+  // Simulate clicks
+  mountedComponent.find('button#editService').simulate('click');
+  // OR call methods
+  instance.clickFunctionHandler();
+
+  // Expect functions to be called, both handler and networking
+  expect(spyOnClickFunctionHandler).toHaveBeenCalled();
+  expect(mockGet).toHaveBeenCalled();
+
+  // Resolve mocked networking
+  await Promise.resolve();
+
+  // Expect something to happen
+  expect(instance.state.networkingRes.isSuccessStatusCode).toEqual(true);
+
 });
+
 ```
+
+## Rejecting Promises / Errors
+
+If you want to test how your component handles rejected Promises / errors, for example in your Try/Catch you can use the following modification:
+
+```javascript
+// This is the rejected version of the mock gode
+const mockError = Error('mocked error');
+const getStub = jest.fn();
+const mockGet = jest.spyOn(networking, 'get').mockImplementation(getStub);
+getStub.mockReturnValue(Promise.reject(mockError));
+
+// You "execute" the network function the same way as a resolved promise
+await Promise.resolve();
+```
+
+You can spy on the console.error with the following code:
+
+```javascript
+let consoleError: any;
+
+beforeAll(() => {
+  consoleError = jest.spyOn(console, 'error').mockImplementation(() => {
+    return {};
+  });
+});
+
+// And the following inside your test:
+expect(consoleError).toHaveBeenCalled();
+```
+
+_See full example #2, for more details_
 
 ## Using Router
 If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing.
@@ -123,4 +186,160 @@ mockMatch = {
   path: '',
   url: '',
 };
+```
+
+## Full example #1
+
+```javascript
+import { mount } from 'enzyme';
+import 'jest';
+import * as React from 'react';
+import * as networking from '../../shared/src/utils/networking';
+
+import { HandleMergeConflictAbort } from '../src/features/handleMergeConflict/components/HandleMergeConflictAbort';
+
+describe('HandleMergeConflictAbort', () => {
+  let mockLanguage: any;
+
+  beforeEach(() => {
+    mockLanguage = {};
+  });
+
+  it('should handle successfully returned data from API', async () => {
+    const wrapper = mount(
+      <HandleMergeConflictAbort
+        language={mockLanguage}
+      />,
+    );
+
+    const instance = wrapper.instance() as HandleMergeConflictAbort;
+
+    // Spies
+    const spyOnAbortPopover = jest.spyOn(instance, 'AbortPopover');
+    const spyOnAbortConfirmed = jest.spyOn(instance, 'AbortConfirmed');
+
+    // Mocks
+    const mockData = {
+      isSuccessStatusCode: true,
+    };
+    const getStub = jest.fn();
+    const mockGet = jest.spyOn(networking, 'get').mockImplementation(getStub);
+    getStub.mockReturnValue(Promise.resolve(mockData));
+
+    // Expected no result from networking yet
+    expect(instance.state.networkingRes).toEqual(null);
+
+    // Expect discard button to exist
+    expect(wrapper.exists('#abortMergeBtn')).toEqual(true);
+
+    // workaround, have to click twice the first time
+    wrapper.find('button#abortMergeBtn').simulate('click');
+    // Click the discard button
+    wrapper.find('button#abortMergeBtn').simulate('click');
+    expect(spyOnAbortPopover).toHaveBeenCalled();
+
+    // Expect the button inside the popover to exist
+    expect(wrapper.exists('#abortMergeConfirmBtn')).toEqual(true);
+
+    // Click the confirm button
+    wrapper.find('button#abortMergeConfirmBtn').simulate('click');
+
+    // Expect functions to be called
+    expect(spyOnAbortConfirmed).toHaveBeenCalled();
+    expect(mockGet).toHaveBeenCalled();
+
+    // Expect state to change
+    expect(instance.state.popoverState.isLoading).toEqual(true);
+    expect(instance.state.popoverState.shouldShowDoneIcon).toEqual(false);
+
+    // Resolve mocked networking
+    await Promise.resolve();
+
+    // Expect state to change
+    expect(instance.state.popoverState.isLoading).toEqual(false);
+    expect(instance.state.popoverState.shouldShowDoneIcon).toEqual(true);
+    expect(instance.state.networkingRes.isSuccessStatusCode).toEqual(true);
+
+  });
+});
+```
+
+## Full example #2, with error
+```javascript
+import { mount } from 'enzyme';
+import 'jest';
+import * as React from 'react';
+import * as networking from '../../shared/src/utils/networking';
+
+import { HandleMergeConflictAbort } from '../src/features/handleMergeConflict/components/HandleMergeConflictAbort';
+
+describe('HandleMergeConflictAbort', () => {
+  let mockLanguage: any;
+  let consoleError: any;
+
+  beforeAll(() => {
+    consoleError = jest.spyOn(console, 'error').mockImplementation(() => {
+      return {};
+    });
+  });
+
+  beforeEach(() => {
+    mockLanguage = {};
+  });
+
+ it('should catch error from networked function', async () => {
+    const wrapper = mount(
+      <HandleMergeConflictAbort
+        language={mockLanguage}
+      />,
+    );
+
+    const instance = wrapper.instance() as HandleMergeConflictAbort;
+
+    // Spies
+    const spyOnAbortPopover = jest.spyOn(instance, 'AbortPopover');
+    const spyOnAbortConfirmed = jest.spyOn(instance, 'AbortConfirmed');
+
+    // Mocks
+    const mockError = Error('mocked error');
+    const getStub = jest.fn();
+    const mockGet = jest.spyOn(networking, 'get').mockImplementation(getStub);
+    getStub.mockReturnValue(Promise.reject(mockError));
+
+    // Expected no result from networking yet
+    expect(instance.state.networkingRes).toEqual(null);
+
+    // Expect discard button to exist
+    expect(wrapper.exists('#abortMergeBtn')).toEqual(true);
+
+    // workaround, have to click twice the first time
+    wrapper.find('button#abortMergeBtn').simulate('click');
+    // Click the discard button
+    wrapper.find('button#abortMergeBtn').simulate('click');
+    expect(spyOnAbortPopover).toHaveBeenCalled();
+
+    // Expect the button inside the popover to exist
+    expect(wrapper.exists('#abortMergeConfirmBtn')).toEqual(true);
+
+    // Click the confirm button
+    wrapper.find('button#abortMergeConfirmBtn').simulate('click');
+
+    // Expect functions to be called
+    expect(spyOnAbortConfirmed).toHaveBeenCalled();
+    expect(mockGet).toHaveBeenCalled();
+
+    // Error is thrown
+    await Promise.resolve();
+
+    // Expect state to change, and error to be saved to state
+    expect(instance.state.popoverState.isLoading).toEqual(false);
+    expect(instance.state.popoverState.shouldShowDoneIcon).toEqual(false);
+    expect(instance.state.errorObj).toMatchObject(Error('mocked error'));
+    expect(instance.state.networkingRes).toEqual('error');
+
+    // Expect console.error to be called.
+    expect(consoleError).toHaveBeenCalled();
+
+  });
+});
 ```
