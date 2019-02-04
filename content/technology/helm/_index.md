@@ -28,10 +28,10 @@ A helm-package, or a helm-chart is a folder with a set file-structure.
 |   +-- Chart.yaml
 |   +-- values.yaml
 
-The `Chart.yaml`-file contains information about the chart, like the name, version and maintainers. `values.yaml`-file contains different values.
-The values that is defined in values are accessable in the templates. So different environment variables can be defined the values. Values can also be overwritten when running a upgrade or install of the chart.
+The `Chart.yaml`-file contains information about the chart, like the name, version and maintainers. 
+The `values.yaml`-file contains different values. These values are accessable in the templates. So different environment variables can be defined in the values. Values can also be overwritten when running a upgrade or install of the chart.
 
-The files in the `templates`-folder becomes populated with the values, and sent til the kubernetes clusters as the name of the files. So `deployment.yaml` should create a deployment in kubernets. The same fore `service.yaml` and `ingress.yaml`.
+The files in the `templates`-folder becomes populated with the values, and sent to the kubernetes clusters as the name of the files. So `deployment.yaml` should create a deployment in kubernetes. The same fore `service.yaml` and `ingress.yaml`.
 
 `_helpers.tpl` can be used to define functions to get release names, concatinated with other info.
 `NOTES.txt` is the info printed in the cli after an install or upgrade of an release, usually used to give usefull commands the user can run to access the pods.
