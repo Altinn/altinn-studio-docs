@@ -170,7 +170,7 @@ tjenesteutviklerne vil jobbe mot. Dette er en sentral del av [Application Lifecy
 
 ### Org management
 
-Organisasjoner er typisk tjenesteeiere, men i 3.0 er det ikke noe i veien for at konsulenthus som bedriver tjenesteutvikling også kan ha sine egne organisasjoner.
+Organisasjoner er tjenesteeiere, men i 3.0 er det ikke noe i veien for at brukere også kan utvikle tjenester. 
 I en organisasjon så kan man gi tilganger til brukere, og man kan opprette teams med tilgang til en eller flere 3.0-tjenester.  
 Det å håndtere organisasjonen, som alt annet, skal være 100% selvbetjent.
 
