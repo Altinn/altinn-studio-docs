@@ -46,7 +46,7 @@
 	"title": "Altinn Studio",
 	"tags": [],
 	"description": "Documentation for Altinn Studio.",
-	"content": "docs\r Altinn Studio is the next generation Altinn services. All you need to test our early preview is your GitHub-user.\n This is the documentation for Altinn Studio. You can also find our open backlog and milestones on GitHub. Everybody can create bugs, request features or just give feedback or ask questions.  "
+	"content": "docs\r Altinn Studio is the next generation Altinn services. All you need to test our early preview is to register an account.\n This is the documentation for Altinn Studio. You can also find our open backlog and milestones on GitHub. Everybody can create bugs, request features or just give feedback or ask questions.  "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-studio/",
