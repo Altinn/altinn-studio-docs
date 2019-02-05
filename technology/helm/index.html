@@ -3007,6 +3007,8 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
+<li><a href="#what-is-helm">What is helm?</a></li>
+<li><a href="#helm-usage-in-altinn-studio">Helm usage in altinn studio</a></li>
 <li><a href="#links">Links</a></li>
 </ul></li>
 </ul>
@@ -3041,6 +3043,38 @@ if(host != "localhost")
 <p><img src="helm.png?width=200" alt="Helm logo" /></p>
 
 <p>The Kubernetes Package Manager.</p>
+
+<h2 id="what-is-helm">What is helm?</h2>
+
+<p>Helm is a kubernetes resource templating tool. Where all the defined kubernetes resources are deployed with combinations of templates and values. Therefore it is called the kubernetes package manager.</p>
+
+<p>A helm-package, or a helm-chart is a folder with a set file-structure.</p>
+
+<p>.
++&ndash; altinn-designer
+|   +&ndash; templates
+|   |   +&ndash; tests
+|   |   |   +&ndash; test-connection.yaml
+|   |   +&ndash; NOTES.txt
+|   |   +&ndash; _helpers.tpl
+|   |   +&ndash; deployment.yaml
+|   |   +&ndash; service.yaml
+|   |   +&ndash; ingress.yaml (deleted in altinn studio, since we don&rsquo;t use ingress. But an ingress template is included in a default helm-chart)
+|   +&ndash; .helmignore
+|   +&ndash; Chart.yaml
+|   +&ndash; values.yaml</p>
+
+<p>The <code>Chart.yaml</code>-file contains information about the chart, like the name, version and maintainers.
+The <code>values.yaml</code>-file contains different values. These values are accessable in the templates. So different environment variables can be defined in the values. Values can also be overwritten when running a upgrade or install of the chart.</p>
+
+<p>The files in the <code>templates</code>-folder becomes populated with the values, and sent to the kubernetes clusters as the name of the files. So <code>deployment.yaml</code> should create a deployment in kubernetes. The same fore <code>service.yaml</code> and <code>ingress.yaml</code>.</p>
+
+<p><code>_helpers.tpl</code> can be used to define functions to get release names, concatinated with other info.
+<code>NOTES.txt</code> is the info printed in the cli after an install or upgrade of an release, usually used to give usefull commands the user can run to access the pods.</p>
+
+<h2 id="helm-usage-in-altinn-studio">Helm usage in altinn studio</h2>
+
+<p>We use helm to deploy our builds to the kubernetes cluster, both in development-, production- and SBL-cluster. Azure Dev Ops pipelines have support for helm, so this makes deploying to development trigger everytime we merge some code into master.</p>
 
 <h2 id="links">Links</h2>
 
