@@ -4,8 +4,11 @@ description: How to write jest test in altinn studio, what we know so far
 tags: ["development", "handbook", "front-end", "frontend", "unit-testing", "jest", "enzyme", "mock", "stub"]
 weight: 100
 ---
+# Introduction to unit testing with Jest
 
 This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.
+
+{{% table-of-contents %}}
 
 ## Exporting and importing your component
 A quick way to get started testing your component is first to export the React Component:
@@ -40,7 +43,7 @@ This will test the component without state, router or styles (read Material UI),
 so values usually passed in by Redux store, by means of routing or styles/Material UI needs to be reference as if they
 are props passed into the component (match={mockMatch}).
 
-## Testing methods in your component
+## Methods in your component
 Methods can be called directly from your test, or executed when clicked on UI elements (See own section).
 Calling methods is done like this:
 
@@ -49,7 +52,7 @@ instance.getCurrentRepositoryInfo();
 instance.componentDidMount();
 ```
 
-If you call networked functions componentDidMount() you need to mock the networked functions before mounting.
+> If you call networked functions in componentDidMount() you need to mock the networked functions before mounting.
 
 If you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest's spyOn functionality described here:
 
@@ -59,9 +62,9 @@ If you have one function that calls another function, and you want to be sure th
  expect(spy).toHaveBeenCalled();
 ```
 
-You can read more about Jest.expect() here: [Jest.expect()](https://jestjs.io/docs/en/expect)
+> You can read more about Jest.expect() here: [Jest.expect()](https://jestjs.io/docs/en/expect)
 
-## Testing User Interface and Methods
+## User Interface and Methods
 In the example above, testing the actual interface is excluded.
 Simulating a click on an element might need to be performed twice in some cases. Simulating a click can be done using the elements ID and the simulate method from Enzyme:
 
@@ -69,7 +72,12 @@ Simulating a click on an element might need to be performed twice in some cases.
 mountedComponent.find('button#editService').simulate('click');
 ```
 
-## get, post, put using networking in your test
+> ReactWrapper will pass a SyntheticEvent object to the event handler in your code.
+If the code you are testing uses properties that are not included in the SyntheticEvent,
+for instance event.target.value, you will need to provide a mock event for it to work.
+[Read more at Enzyme's Simulate documentation here](https://airbnb.io/enzyme/docs/api/ReactWrapper/simulate.html).
+
+## Networked functions (get, post, put)
 If you are using get, post or put from the shared networking.ts component you need to mock the actual call to be able to test functions that calls either get, post or put.
 This can be done in the following way:
 
@@ -121,7 +129,7 @@ it('should handle successfully returned data from API', async () => {
 
 ```
 
-## Rejecting Promises / Errors
+## Rejecting Promises / Error testing / Negative tests
 
 If you want to test how your component handles rejected Promises / errors, for example in your Try/Catch you can use the following modification:
 
@@ -151,7 +159,7 @@ beforeAll(() => {
 expect(consoleError).toHaveBeenCalled();
 ```
 
-_See full example #2, for more details_
+> [See example #2, for more detailed test](#example-2-negative-test-error-handling)
 
 ## Using Router
 If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing.
@@ -187,7 +195,7 @@ mockMatch = {
 };
 ```
 
-## Full example #1
+## Example #1, positive test
 
 ```javascript
 import { mount } from 'enzyme';
@@ -263,7 +271,7 @@ describe('HandleMergeConflictAbort', () => {
 });
 ```
 
-## Full example #2, with error
+## Example #2, negative test (Error handling)
 ```javascript
 import { mount } from 'enzyme';
 import 'jest';
