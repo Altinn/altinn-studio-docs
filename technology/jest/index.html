@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="How to write jest test in altinn studio, what we know so far">
+    <meta name="description" content="">
 
 
     
@@ -2979,8 +2979,6 @@ if(host != "localhost")
                   </a>
                 </span>
                 
-                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
-                
                 <span class="links">
                   
                   
@@ -3000,24 +2998,6 @@ if(host != "localhost")
 
                 </span>
             </div>
-            
-              <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#exporting-your-component">Exporting your component</a></li>
-<li><a href="#testing-your-component">Testing your component</a></li>
-<li><a href="#testing-with-material-ui">Testing with Material UI</a></li>
-<li><a href="#get-post-put-using-networking-in-your-test">get, post, put using networking in your test</a></li>
-<li><a href="#using-router">Using Router</a></li>
-</ul></li>
-</ul>
-</nav>
-    </div>
-</div>
-    
             
           </div>
         
@@ -3042,126 +3022,14 @@ if(host != "localhost")
 
 
 
-
-
 <p><img src="jest-logo.png" alt="Jest logo" /></p>
 
-<p>Here you can find information related to have jest tests are written for altinn studio code.</p>
+<p>&ldquo;Jest is a delightful JavaScript Testing Framework with a focus on simplicity.&rdquo;
+- <a href="https://jestjs.io/">https://jestjs.io/</a></p>
 
-<h2 id="exporting-your-component">Exporting your component</h2>
+<p>Jest testing framework is used for front-end testing in Altinn Studio.</p>
 
-<p>To be able to test methods in your component the best way is to export it in the following way:</p>
-
-<pre><code class="language-javascript">export class CloneServiceComponent extends React.Component&lt;ICloneServiceComponentProps &amp; RouteChildrenProps, ICloneServiceComponentState&gt; {
-</code></pre>
-
-<p>and reference it in your test the following way:</p>
-
-<pre><code class="language-javascript">import { CloneServiceComponent } from '../../../src/dashboardServices/cloneService/cloneServices';
-
-it('+++ this is the test', () =&gt; {
-
-  const mountedComponent = mount(
-    &lt;CloneServiceComponent
-      language={mockLanguage}
-      services={mockServices}
-      classes={mockClasses}
-      location={mockLocation}
-      history={mockHistory}
-      match={mockMatch}
-    /&gt;,
-  );
-
-  const instance = mountedComponent.instance() as CloneServiceComponent;
-}
-</code></pre>
-
-<p>This will test the component without state, router or styles (read Material UI),
-so values usually passed in by redux store, by means of routing or styles/Material UI needs to be reference as if they
-are props passed into the component (match={mockMatch}).</p>
-
-<h2 id="testing-your-component">Testing your component</h2>
-
-<p>Methods can be called directly from your test, so you don&rsquo;t necessarly have to simulate an event to test your code.
-This is done the following way:</p>
-
-<pre><code class="language-javascript">instance.getCurrentRepositoryInfo();
-instance.componentDidMount();
-</code></pre>
-
-<p>In some cases it might be necessary to run componentDidMount() after you have mounted your component, before running your tests. Enzymez&rsquo;s mount() does not runcomponentDidMount().</p>
-
-<p>If you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest&rsquo;s spyOn functionality described here:</p>
-
-<pre><code class="language-javascript"> const spy = jest.spyOn(instance, 'funcitonTwoCalledWithinFunctionOne');
- instance.funcitonOne();
- expect(spy).toHaveBeenCalled();
-</code></pre>
-
-<p>You can read more about Jest.expect() here: <a href="https://jestjs.io/docs/en/expect">Jest.expect()</a></p>
-
-<h2 id="testing-with-material-ui">Testing with Material UI</h2>
-
-<p>In the example above, Material-UI will be excluded from the component. This means that opening a Material UI modal with a simulated click does not necessary give you the desired output.
-Simulating a click on a Material ui button however works (unsure which other compoent this works for and not). If you want to simulate a click on a button this can be done using the buttons id and the simulate method from enzyme
-the following way:</p>
-
-<pre><code class="language-javascript">mountedComponent.find('button#editService').simulate('click');
-</code></pre>
-
-<h2 id="get-post-put-using-networking-in-your-test">get, post, put using networking in your test</h2>
-
-<p>If you are using get, post or put from the shared networking.ts component you need to mock the acctual call to be able to test functions that calls either get, post or put.
-This can be done in the following way:</p>
-
-<pre><code class="language-javascript">// Add this to the import statements in you test file:
-import * as networking from '../../../../shared/src/utils/networking';
-
-// Then in you code you add this, before calling the funciton that contains the call form the networking component:
-const mockResult = {}; //insert what the post method should return
-const postSpy = jest.spyOn(networking, 'post').mockImplementation(() =&gt; Promise.resolve(mockResult));
-instance.methodThatCallsPost();
-
-// To resolve the promise and get post method to acctualy return something, you write the following:
-return Promise.resolve().then(() =&gt; {
-    // all tests that is about what happens after post returns should be written in here
-    expect(postSpy).toHaveBeenCalled();
-});
-</code></pre>
-
-<h2 id="using-router">Using Router</h2>
-
-<p>If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing.
-Here is an example on how this can be done:</p>
-
-<pre><code class="language-javascript">mockLocation = {
-  pathname: 'pathname',
-  search: 'search',
-  state: {},
-  hash: 'hash',
-};
-
-mockHistory = {
-  length: 1,
-  action: 'PUSH' as Action,
-  location,
-  push: () =&gt; false,
-  replace: () =&gt; false,
-  go: () =&gt; false,
-  goBack: () =&gt; false,
-  goForward: () =&gt; false,
-  block: () =&gt; (null) as any,
-  listen: () =&gt; (null) as any,
-  createHref: () =&gt; '',
-};
-
-mockMatch = {
-  params: {},
-  isExact: false,
-  path: '',
-  url: '',
-};
-</code></pre>
+<p><a href="https://docs.altinn.studio/development/handbook/front-end/unit-testing/">You can read more about how to test with Jest here</a></p>
 
 
 <footer class=" footline" >
