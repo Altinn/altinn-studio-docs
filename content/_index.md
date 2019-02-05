@@ -6,7 +6,7 @@ weight: 100
 
 {{<docs-logo>}}
 
-[Altinn Studio] is the next generation Altinn services. All you need to test our early preview is your GitHub-user.
+[Altinn Studio] is the next generation Altinn services. All you need to test our early preview is to register an account.
 
 - This is the documentation for Altinn Studio. 
 - You can also find our [open backlog] and [milestones] on GitHub.
