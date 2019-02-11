@@ -2014,6 +2014,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/handbook/deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/deployment/">
+        <span>Deployment</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/front-end/" class="dd-item 
         parent
         
@@ -2124,33 +2151,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/development/handbook/front-end/unit-testing/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/development/handbook/front-end/unit-testing/">
-        <span>Unit testing</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -2174,6 +2174,33 @@ if(host != "localhost")
         ">
       <a href="/development/handbook/general/">
         <span>General</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/getting-started/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/getting-started/">
+        <span>Getting started</span>
 
         
         
@@ -2227,13 +2254,166 @@ if(host != "localhost")
         
         ">
       <a href="/development/handbook/naming/">
-        <span>Naming</span>
+        <span>Naming Conventions</span>
 
         
         
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/">
+        <span>Test</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/test-strategy/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/test-strategy/">
+        <span>Test Strategy</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/testcafe/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/testcafe/">
+        <span>Testcafe</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/unit-testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/unit-testing/">
+        <span>Unit testing</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/xunit-testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/xunit-testing/">
+        <span>Xunit Testing</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -3082,17 +3262,54 @@ if(host != "localhost")
 
 
 
+<p>Redux is used to manage the states of the ux-editor.</p>
+
 <h3 id="actions">Actions</h3>
 
-<p>TODO</p>
+<p>Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:</p>
+
+<pre><code class="language-typescript">export interface IUpdateFormDataAction extends Action {
+  formData: any;
+  componentID: string;
+  dataModelElement: IDataModelFieldElement;
+}
+</code></pre>
 
 <h3 id="sagas">Sagas</h3>
 
-<p>TODO</p>
+<p>Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the <code>utils</code>-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.</p>
+
+<p>An example is asyncronous calls to backend APIs to get data, or submit data.</p>
+
+<p>Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.</p>
+
+<pre><code class="language-typescript">
+/**
+ * Define the saga for the UPDATE_FORM_DATA event
+ */
+function* updateFormDataSaga(action: ActionType) {
+  try {
+    const relevantData = yield selectRelevantStateObjects(...);
+    ...
+    doRelevantLogic(relevantData);
+    ...
+    yield call(updateFormDataSagaFulfilled, ... );
+  } catch (err) {
+    yield call(updateFormDataSagaRejected, err);
+  }
+}
+
+/**
+ * Define a listener for the UPDATE_FORM_DATA event
+ */
+export function* watchUpdateFormDataSaga(): SagaIterator {
+  yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
+}
+</code></pre>
 
 <h3 id="reducers">Reducers</h3>
 
-<p>TODO</p>
+<p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made</p>
 
 
 <footer class=" footline" >
@@ -4159,6 +4376,22 @@ if(host != "localhost")
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -4222,25 +4455,6 @@ if(host != "localhost")
             
         
                     
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -4248,6 +4462,9 @@ if(host != "localhost")
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -4288,6 +4505,104 @@ if(host != "localhost")
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -4696,7 +5011,7 @@ if(host != "localhost")
             <a class="nav nav-prev" href="/development/handbook/front-end/react/" title="React"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/development/handbook/front-end/unit-testing/" title="Unit testing" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/development/handbook/general/" title="General" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

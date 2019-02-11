@@ -2014,6 +2014,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/handbook/deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/deployment/">
+        <span>Deployment</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/front-end/" class="dd-item 
         
         
@@ -2124,33 +2151,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/development/handbook/front-end/unit-testing/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/development/handbook/front-end/unit-testing/">
-        <span>Unit testing</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -2174,6 +2174,33 @@ if(host != "localhost")
         ">
       <a href="/development/handbook/general/">
         <span>General</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/getting-started/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/getting-started/">
+        <span>Getting started</span>
 
         
         
@@ -2227,13 +2254,166 @@ if(host != "localhost")
         
         ">
       <a href="/development/handbook/naming/">
-        <span>Naming</span>
+        <span>Naming Conventions</span>
 
         
         
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/">
+        <span>Test</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/test-strategy/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/test-strategy/">
+        <span>Test Strategy</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/testcafe/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/testcafe/">
+        <span>Testcafe</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/unit-testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/unit-testing/">
+        <span>Unit testing</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/xunit-testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/xunit-testing/">
+        <span>Xunit Testing</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -3071,6 +3251,38 @@ if(host != "localhost")
 	
 	   <article class="post development">
     <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/deployment/">Deployment</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>ci build devops pipeline pipelines Build process Build Pipelines Quality Build Building the docker image, running tests and checking code. Triggered by:
+Git Push Pull Request Altinn Studio and Runtime Docker Images Separate pipelines are made for Altinn Studio and Runtime. The pipeline will build and deploy the Altinn Studio Docker Image and the Runtime Docker Image to Azure Container Registry.
+Triggered by:
+Git Merge to Master Altinn Studio Release Build When the build for either Altinn Studio or Runtime is successfully ran a release build will start. <a class="read-more" href="/development/handbook/deployment/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/deploy/">deploy</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
         <h2 class="post-title"><a href="/development/">Development</a></h2>
     </header>
     <section class="post-excerpt">
@@ -3137,7 +3349,6 @@ See the projects Github page. <a class="read-more" href="/development/">&raquo;<
         <p> Coding guidelines for front-end Error handlingGuidelines for error handling front-end
 ReactGuidelines for using React in Altinn Studio
 ReduxGuidelines for using Redux in Altinn Studio
-Unit testingHow to write jest test in altinn studio, what we know so far
  <a class="read-more" href="/development/handbook/front-end/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -3193,10 +3404,40 @@ See the projects Github page. <a class="read-more" href="/development/">&raquo;<
 	
 	   <article class="post development">
     <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/getting-started/">Getting started</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> .highlight-source-batchfile { color: #fff !important; }  
+  let content = document.getElementById('readmeContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/README.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, "text/html"); content.innerHTML = doc.getElementById('readme').innerHTML; });   <a class="read-more" href="/development/handbook/getting-started/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/git/">git</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
         <h2 class="post-title"><a href="/development/handbook/git/">Git</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>TODO <a class="read-more" href="/development/handbook/git/">&raquo;</a></p>
+        <p>   let content = document.getElementById('contributionContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, "text/html"); content.innerHTML = doc.getElementById('readme').innerHTML; });   <a class="read-more" href="/development/handbook/git/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3250,13 +3491,12 @@ See the projects Github page. <a class="read-more" href="/development/">&raquo;<
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/naming/">Naming</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/naming/">Naming Conventions</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>React TODO
-Redux Actions TODO
-Sagas TODO
-Reducers TODO <a class="read-more" href="/development/handbook/naming/">&raquo;</a></p>
+        <p>C# The Altinn project will use Microsoft’s coding conventions as a general guideline when no other guidelines are given.
+Exceptions/additions to the general guideline:
+Implicit typing (var) should only be used when a variable is initialized with an anonymous type, which is a common scenario in LINQ query expressions. In general implicit typing makes the code more difficult to read and understand,and should be avoided. Altinn specific coding guidelines: <a class="read-more" href="/development/handbook/naming/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3270,70 +3510,6 @@ Reducers TODO <a class="read-more" href="/development/handbook/naming/">&raquo;<
                 <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/naming/">naming</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/front-end/react/">React</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>TODO <a class="read-more" href="/development/handbook/front-end/react/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/front-end/redux/">Redux</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Actions TODO
-Sagas TODO
-Reducers TODO <a class="read-more" href="/development/handbook/front-end/redux/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/redux/">redux</a>
             
         
 
@@ -4414,6 +4590,152 @@ Reducers TODO <a class="read-more" href="/development/handbook/front-end/redux/"
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -4482,54 +4804,6 @@ Reducers TODO <a class="read-more" href="/development/handbook/front-end/redux/"
                     
             
         
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         

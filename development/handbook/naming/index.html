@@ -8,7 +8,7 @@
 
 
     
-    <title>Naming :: Altinn Studio</title>
+    <title>Naming Conventions :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -2014,6 +2014,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/handbook/deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/deployment/">
+        <span>Deployment</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/front-end/" class="dd-item 
         
         
@@ -2124,33 +2151,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/development/handbook/front-end/unit-testing/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/development/handbook/front-end/unit-testing/">
-        <span>Unit testing</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -2174,6 +2174,33 @@ if(host != "localhost")
         ">
       <a href="/development/handbook/general/">
         <span>General</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/getting-started/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/getting-started/">
+        <span>Getting started</span>
 
         
         
@@ -2227,13 +2254,166 @@ if(host != "localhost")
         
         ">
       <a href="/development/handbook/naming/">
-        <span>Naming</span>
+        <span>Naming Conventions</span>
 
         
         
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/">
+        <span>Test</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/test-strategy/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/test-strategy/">
+        <span>Test Strategy</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/testcafe/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/testcafe/">
+        <span>Testcafe</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/unit-testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/unit-testing/">
+        <span>Unit testing</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/xunit-testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/xunit-testing/">
+        <span>Xunit Testing</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -3019,7 +3199,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/development/'>Development</a> > <a href='/development/handbook/'>Handbook</a> > Naming
+ <a href='/'>Altinn Studio</a> > <a href='/development/'>Development</a> > <a href='/development/handbook/'>Handbook</a> > Naming Conventions
 
  
 
@@ -3039,6 +3219,7 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
+<li><a href="#c">C#</a></li>
 <li><a href="#react">React</a></li>
 <li><a href="#redux">Redux</a>
 <ul>
@@ -3070,7 +3251,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Naming</h1>
+              <h1>Naming Conventions</h1>
             
           
 
@@ -3078,6 +3259,26 @@ if(host != "localhost")
 
 
 
+
+<h3 id="c">C#</h3>
+
+<p>The Altinn project will use Microsoft’s coding conventions as a general guideline when no other guidelines are given.</p>
+
+<p>Exceptions/additions to the general guideline:</p>
+
+<p>Implicit typing (var) should only be used when a variable is initialized with an anonymous type, which is a common scenario in LINQ query expressions. In general implicit typing makes the code more difficult to read and understand,and should be avoided.
+Altinn specific coding guidelines:</p>
+
+<p>Methods should not be more than 50 lines long
+When dealing with XML you should prefer XDocument to XmlDocument (especially in new methods)
+If/for/while/using and other structures should normally not be more than 2-3 levels deep
+All disposeable objects (proxies, DbCommand and so on) should be disposed by using a using block.
+Altinn specific naming guidelines:</p>
+
+<p>Names for classes, methods and variables should be describing, but not too long
+WCF-Artifact Naming
+TUL Naming Standard
+Namespace &amp; Solution Structure</p>
 
 <h3 id="react">React</h3>
 
@@ -4167,6 +4368,156 @@ if(host != "localhost")
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -4239,55 +4590,6 @@ if(host != "localhost")
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -4298,9 +4600,6 @@ if(host != "localhost")
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -4695,7 +4994,7 @@ if(host != "localhost")
             <a class="nav nav-prev" href="/development/handbook/git/" title="Git"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/known-issues/" title="Known issues" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/development/handbook/test/" title="Test" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

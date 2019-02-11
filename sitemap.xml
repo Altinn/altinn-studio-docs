@@ -91,6 +91,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/deployment/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/</loc>
   </url>
   
@@ -124,6 +128,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/general/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/getting-started/</loc>
   </url>
   
   <url>
@@ -187,15 +195,31 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/test/test-strategy/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/getting-started/service-testing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/development/handbook/front-end/unit-testing/</loc>
+    <loc>https://docs.altinn.studio/development/handbook/test/testcafe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/test/unit-testing/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/validationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/test/xunit-testing/</loc>
   </url>
   
   <url>
@@ -472,6 +496,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/deploy/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/deployment/</loc>
     <priority>0</priority>
   </url>
@@ -653,6 +682,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/test/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/testcafe/</loc>
     <priority>0</priority>
   </url>
   
