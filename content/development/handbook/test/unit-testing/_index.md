@@ -10,6 +10,15 @@ This page summarizes how UI testing is performed with Jest and related libraries
 
 {{% table-of-contents %}}
 
+## When should you write tests?
+Unit testing includes testing of javascript functions and react/UI components.
+Listing of the highest priority of unit-testing:
+
+* API calls with the correct formatted parameters
+* Rendering of isolated components.
+* Functions in general.  
+
+
 ## Exporting and importing your component
 A quick way to get started testing your component is first to export the React Component:
 

@@ -1,18 +1,23 @@
 ---
-title: Git
-description: Information about version control with Git
+title: Getting started
+description: Information about how to get started
 tags: ["development", "handbook", "git"]
 weight: 100
 ---
-<div id="contributionContent"></div>
+<style>
+.highlight-source-batchfile {
+  color: #fff !important;
+}
+</style>
+<div id="readmeContent"></div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
-  let content = document.getElementById('contributionContent');
+  let content = document.getElementById('readmeContent');
   if (content.innerHTML === '') {
     content.innerHTML = 'Loading from github...';
-  }
-   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`)
+  }  
+   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/README.md`)
     .then((res) => {
       const doc = new DOMParser().parseFromString(res.data, "text/html");
 
