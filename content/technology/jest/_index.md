@@ -1,6 +1,6 @@
 ---
 title: Jest
-description: 
+description:
 tags: [tech, frontend, test]
 ---
 
@@ -11,4 +11,4 @@ tags: [tech, frontend, test]
 
 Jest testing framework is used for front-end testing in Altinn Studio.
 
-[You can read more about how to test with Jest here]({{< ref "/development/handbook/front-end/unit-testing" >}})
+[You can read more about how to test with Jest here]({{< ref "/development/handbook/test/unit-testing" >}})
