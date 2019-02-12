@@ -103,9 +103,7 @@ ___
 Bruke API-oppslag i tjenesten (forutsetter Ajax kall kodet i GUI)
 ___
 Endre på standardfil for arbeidsflyt
-Forutsetter at du behersker BPMN/XML som måte å utrykke
-arbeidsflyt. Merk: MVP-01 støtter kun stegene utfylling og innsending,
-så verdien av å endre på filen er minimal. 
+![](/about/feature_workfloweditor.png)
 ___
 Endre på filer med versjonskontroll 
 ![](/about/feature_externaleditor.png)
@@ -168,6 +166,8 @@ ___
 - Skyløsninger
 - Sikkerhet
 - Deploy av tjenester
+- Integrasjon med tjenesteeier
+- Understøtte piloter
 
 ---
 ## Status
