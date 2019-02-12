@@ -3308,10 +3308,7 @@ ha kunnskap om det underliggende AltinnCore systemet.</p>
 
 <h3 id="test-i-andre-mvp-leveranse">Test i andre MVP leveranse</h3>
 
-<p>I andre MVP leveranse har deploy av tjenester i altinn studio SBL blitt definert som en &ldquo;Hill&rdquo; eller en hovedleveranse. I denne sammenheng kommer regressjons tester skrevet i testcafe til å fokusere på arbeidsflyten utvikleren &ldquo;Christian&rdquo; kommer til å bruke for å kunne få ett deploy av tjenesten sin til ett testmiljø.</p>
-
-<p><strong>Navngivningskonvensjon for element id&rsquo;er</strong>
-Testcafe sitt test api har forskjellige måter å instansiere Selector objekter som kan brukes i test. Den desiderte letteste og mest robuste måten å definere en Selector i testcafe er med en css id selector. Tanken bak å bruke css id&rsquo;er istedenfor relativ lokasjon av elementet i DOM eller inner text er å lage mer robuste tester, som ikke knekker straks det kommer endringer i design. Id&rsquo;er må være unike; for å påse at en selector er unik er følgende konvensjon foreslått for å oprette id på ett element: Id&rsquo;en er tekstbasert og skrevet i camelCase, id&rsquo;en følger logisk plassering i Altinn Studio, f.eks: &ldquo;pagelocation Submenu Elementtype Descriptiveword&rdquo;. Tekstboks elementet under GUI &ldquo;Lage&rdquo; kan for eksempel få følgende id: &ldquo;designerSkjemakomponenterKnappTekstområde&rdquo;.</p>
+<p>I andre MVP leveranse har deploy av tjenester i altinn studio SBL blitt definert som en &ldquo;Hill&rdquo; eller en hovedleveranse. I denne sammenheng kommer regressjons tester skrevet i testcafe til å fokusere på arbeidsflyten utvikleren &ldquo;Christian&rdquo; kommer til å bruke for å kunne få ett deploy av tjenesten sin til ett testmiljø. Målet med testautomatisering, er å redusere tiden det tar å kjøre Altinn Studio sine regresjonstest suite nøyaktig og effektivt, både automatiske og manuelle regresjonstester skal kjøres mot dev.altinn.studio for å kunne kvalitetssikre løfting av koden til produksjon. Enhetstesting og system testing i andre MVP leveranse skal fungere på samme måte som i MVP01; utviklere skriver enhets og integrasjonstester i sine test rammeverk (hovedsakelig jest og xunit), for å teste nytviklet logikk. Snapshot testing, som ble påbegynt i MVP01, utgår i MVP02, da &ldquo;look and feel&rdquo;, og funksjonell testing blir prioritert av manuelle regresjonstester og testcafe regresjons suiten.</p>
 
 <h2 id="test-nivåer">Test nivåer</h2>
 
@@ -3335,17 +3332,14 @@ for test på hvert testnivå.</p>
 <h2 id="testdata">Testdata</h2>
 
 <p>For å kunne enkelt og effektivt teste på alle nivåer, kan det være bruk for ett verktøy for å lett
-kunne hente eller lage testdata. Tjenester 3.0 teamet må bestemme seg for om vi skal lage f.eks en testdata
-klasse som gir bruker muligheten til å lage brukere/elementer spesifikt til testen de skal kjøre.
-En annen mulighet er å støtte muligheten for å hente spesifikk ferdigstilt testdata (f.eks testdata sett 164/5)
-fra en json fil eller lignende.</p>
+kunne hente eller lage testdata. Tjenester 3.0 teamet må bestemme seg for om vi skal lage f.eks en testdata klasse som gir bruker muligheten til å lage brukere/elementer spesifikt til testen de skal kjøre. En annen mulighet er å støtte muligheten for å hente spesifikk ferdigstilt testdata (f.eks testdata sett 164/5) fra en json fil eller lignende. I MVP02 er arbeid påbegynt på en testdata klasse som integreres inn i testcafe sin testkode.</p>
 
 <h2 id="arbeidsmetodikk">Arbeidsmetodikk</h2>
 
-<p>Under sprint plannlegging blir produkteier, utviklere, og testutvikler enig om hvilket nivå det er behov å teste
-de enkelte User Stories. Man lager så en plan for hvordan den ansvarlige rollen skal teste den tenkte funksjonaliteten
-og sub-tasks på de enkelte User stories kan da lages. Etter en ferdigstilt test er laget, gjennomføres det en kvalitetsikkring
-med ett annet medlem av tjenester 3.0 teamet før testen kan inkluderes i ett bygg-løp.</p>
+<p>Under sprint plannlegging blir produkteier, utviklere, og testutvikler enig om hvilket nivå det er behov å teste de enkelte User Stories. Man lager så en plan for hvordan den ansvarlige rollen skal teste den tenkte funksjonaliteten og sub-tasks på de enkelte User stories kan da lages. Etter en ferdigstilt test er laget, gjennomføres det en kvalitetsikkring med ett annet medlem av tjenester 3.0 teamet før testen kan inkluderes i ett bygg-løp.</p>
+
+<p><strong>Navngivningskonvensjon for element id&rsquo;er</strong><br />
+Testcafe sitt test api har forskjellige måter å instansiere Selector objekter som kan brukes i test. Den desiderte letteste og mest robuste måten å definere en Selector i testcafe er med en css id selector. Tanken bak å bruke css id&rsquo;er istedenfor relativ lokasjon av elementet i DOM eller inner text er å lage mer robuste tester, som ikke knekker straks det kommer endringer i design. Id&rsquo;er må være unike; for å påse at en selector er unik er følgende konvensjon foreslått for å oprette id på ett element: Id&rsquo;en er tekstbasert og skrevet i camelCase, id&rsquo;en følger logisk plassering i Altinn Studio, f.eks: &ldquo;pagelocation Submenu Elementtype Descriptiveword&rdquo;. Tekstboks elementet under GUI &ldquo;Lage&rdquo; kan for eksempel få følgende id: &ldquo;designerSkjemakomponenterKnappTekstområde&rdquo;.</p>
 
 <h2 id="bygg-og-deploy-av-testkode">Bygg og deploy av testkode</h2>
 
