@@ -160,6 +160,10 @@ ___
 ___
 ## Kontroll på logikk
 - Full kontroll på når ting skjer i plattformen i motsetning til Infopath 
+___
+## Shipment
+- Mest sannsynligvis færre muligheter i platform. (flatfil?, sftp?)
+
 ---
 ## Videre arbeid i MVP
 - Fokus på infrastruktur
@@ -168,17 +172,12 @@ ___
 - Deploy av tjenester
 - Integrasjon med tjenesteeier
 - Understøtte piloter
-
 ---
 ## Status
 Du kan følge utviklingen på [Github](https://github.com/Altinn/altinn-studio).
-
-
 ---
 ## Motivasjon
-
 Se [Archimate arkitekturmodell](https://altinn.github.io/ark-2020/706502fc-f537-48f3-90d5-6f7943ff08e0/views/4ec9466c-f59c-4a3c-985d-bd9b826a8faf.html).
-
 ---
 
 ## The End
