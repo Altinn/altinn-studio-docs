@@ -182,6 +182,13 @@
 	"content": " Create a user with a Github user Set up your user in altinn.studio for the first time.\nONLY necessary if you have not already created a user.\n\r Choose to log in  If you have a Github account, select \u0026ldquo;Har du en github konto? Register deg med den her\u0026rdquo;  If you are not already logged in at Github, login with your Github credentials.  Authorize that Altinn Studio could use your Github account for login and connect the accounts.  Register your new Altinn Studio account by filling in the registration form.   Create a user without a Github user Set up your user in altinn.studio for the first time.\nONLY necessary if you have not already created a user.\n\r Choose to log in  If you do not have a Github user, select \u0026ldquo;Behov for en konto? Registrer deg nå.\u0026rdquo;  Fill in your user information to register your user. When done you are already logged in.   Klone tjenesten til lokal mappe  Fra startsiden, gå til repoet Velg clone service  Dersom Applikasjonsnøkkel ikke er lagt inn vil du bli bedt om å legge inn dette, se her. Når dette er fullfør, start fra punkt 1.  Tjenesten er nå klar til bruk.  "
 },
 {
+	"uri": "https://docs.altinn.studio/development/flightrules/",
+	"title": "Flight Rules",
+	"tags": ["flight", "rules", "altinn", "studio"],
+	"description": "Flight rules for Altinn Studio",
+	"content": " What are flight rules?\nFlight rules is originally a compendium of step-by-step manuals, what to do when X occurs and why.\nEssentially, they are extremely detailed, scenario-specific standard operating procedures\n\rLoadbalancer is responding with HTTP Error 502 - bad gateway This occurs when the loadbalancer could not find any of the services in it\u0026rsquo;s configuration.\nCan be triggerd by these issues:\n Some of the kubernetes services are not existing Some of the kubernetes pods are not existing Kubernetes mapping between deployments and services are incorrect.  Loadbalancer is responding with HTTP Error 504 - timeout This occurs when the loadbalancer is not getting a response from the other services running in kubernetes. Because the loadbalancer is not updated when the deployment of new versions or altinn-designer, altinn-runtime or altinn-repositories. To delete a pod, first find the name of the running pod:\nkubectl get pods  Then use the whole name, and run the following command:\nkubectl delete pod [POD_NAME]  "
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/form-layout/",
 	"title": "FormLayout.json",
 	"tags": ["tjenester 3.0", "dataformat"],
@@ -735,6 +742,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/altinn/",
+	"title": "altinn",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/api/",
 	"title": "api",
 	"tags": [],
@@ -884,6 +898,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/external-api/",
 	"title": "external-api",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/flight/",
+	"title": "flight",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1059,6 +1080,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/repos/",
 	"title": "repos",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/rules/",
+	"title": "rules",
 	"tags": [],
 	"description": "",
 	"content": ""
