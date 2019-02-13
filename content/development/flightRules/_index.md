@@ -18,6 +18,8 @@ Essentially, they are extremely detailed, scenario-specific standard operating p
 This occurs when the loadbalancer could not find any of the services in it's configuration.  
 Can be a source of these issues:
 
+* Some of the kubernetes services are not existing
+* Some of the kubernetes pods are not existing
 * Kubernetes mapping between deployments and services are incorrect.
 
 ### Loadbalancer is responding with HTTP Error 504 - timeout
