@@ -16,7 +16,7 @@ Essentially, they are extremely detailed, scenario-specific standard operating p
 ### Loadbalancer is responding with HTTP Error 502 - bad gateway
 
 This occurs when the loadbalancer could not find any of the services in it's configuration.  
-Can be a source of these issues:
+Can triggerd by these issues:
 
 * Some of the kubernetes services are not existing
 * Some of the kubernetes pods are not existing
