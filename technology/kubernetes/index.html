@@ -3284,6 +3284,20 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
+<li>
+<ul>
+<li><a href="#kubernetes-definitions">Kubernetes definitions</a>
+<ul>
+<li><a href="#pods-https-kubernetes-io-docs-concepts-workloads-pods-pod-overview"><a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/">Pods</a></a></li>
+<li><a href="#deployments-https-kubernetes-io-docs-concepts-workloads-controllers-deployment"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a></a></li>
+<li><a href="#secrets-https-kubernetes-io-docs-concepts-configuration-secret"><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></a></li>
+<li><a href="#services-https-kubernetes-io-docs-concepts-services-networking-service"><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a></a></li>
+<li><a href="#persistent-volumes-https-kubernetes-io-docs-concepts-storage-persistent-volumes"><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volumes</a></a></li>
+<li><a href="#namespaces-https-kubernetes-io-docs-concepts-overview-working-with-objects-namespaces"><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespaces</a></a></li>
+<li><a href="#node-https-kubernetes-io-docs-concepts-architecture-nodes"><a href="https://kubernetes.io/docs/concepts/architecture/nodes/">Node</a></a></li>
+<li><a href="#cluster">Cluster</a></li>
+</ul></li>
+</ul></li>
 <li><a href="#links">Links</a></li>
 </ul></li>
 </ul>
@@ -3322,6 +3336,59 @@ running in docker containers. For the Altinn Studio Apps solution this could pos
 over time be many thousands containers running different end user services.</p>
 
 <p>Kubernetes is used to manage the containers.</p>
+
+<h3 id="kubernetes-definitions">Kubernetes definitions</h3>
+
+<h4 id="pods-https-kubernetes-io-docs-concepts-workloads-pods-pod-overview"><a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/">Pods</a></h4>
+
+<p>Pods are the building blocks of kubernetes. They will crash, be deleted and started up again.
+But they will never be restored. After they either crash or get deleted, they will ble replaced with a new pod, with it&rsquo;s own configuration of IP adresses.</p>
+
+<h4 id="deployments-https-kubernetes-io-docs-concepts-workloads-controllers-deployment"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a></h4>
+
+<p>Deployments are controllers for pods, they declare different properties a pod should have, and how many replicas of the pod should be running.<br />
+Properties a pod can have is:</p>
+
+<ul>
+<li>Environment variables and values</li>
+<li>Image and image-tag</li>
+<li>What names the pods should have (they will inherrit the name from the deployment and then a ID that makes the unique)</li>
+<li>Volume mounts, if they are from secrets or persistent volume claims</li>
+</ul>
+
+<h4 id="secrets-https-kubernetes-io-docs-concepts-configuration-secret"><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></h4>
+
+<p>A secret is one or more key-value pairs that is stored on in the cluster and can be access from within the cluster.<br />
+Secrets are base64 encrypted so it is possible to store binary files as secrets aswell.</p>
+
+<h4 id="services-https-kubernetes-io-docs-concepts-services-networking-service"><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a></h4>
+
+<p>Services are an abstraction of a set of pods and how to access them. There are various methods of exposing a pod, here are the different types of services:</p>
+
+<ul>
+<li>ClusterIP (Internal) - Default service definition</li>
+<li>NodePort (External) - Exposes the nodes static ip</li>
+<li>LoadBalancer (External) - Exposes the service through a cloud-providers loadbalancer ip</li>
+<li>ExternalName (External) - Exposes the service through a cloud-providers loadbalancer ip with a CNAME entry</li>
+</ul>
+
+<h4 id="persistent-volumes-https-kubernetes-io-docs-concepts-storage-persistent-volumes"><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volumes</a></h4>
+
+<p>Persistent volumes, as the name suggests it is used to manage persistant storage volumes. In altinn.studio we use persistant volume claims,<br />
+and since we&rsquo;re using a Azure managaged kubernetes cluster, azure sets up virtual disks in the kubernetes cluster resource group.</p>
+
+<h4 id="namespaces-https-kubernetes-io-docs-concepts-overview-working-with-objects-namespaces"><a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/">Namespaces</a></h4>
+
+<p>Namespaces are intended for use in environments with multiple users spread across multiple teams or project.<br />
+Namespaces provide a scope for names.</p>
+
+<h4 id="node-https-kubernetes-io-docs-concepts-architecture-nodes"><a href="https://kubernetes.io/docs/concepts/architecture/nodes/">Node</a></h4>
+
+<p>A node is either a physical machine or a virtual one. They are used as workers for hosting different kubernetes resources.</p>
+
+<h4 id="cluster">Cluster</h4>
+
+<p>A cluster is a set of virtual machines with various hardware setup.</p>
 
 <h2 id="links">Links</h2>
 
