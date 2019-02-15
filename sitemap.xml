@@ -103,6 +103,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/back-end/error-handling/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/getting-started/first-time-setup/</loc>
   </url>
   
@@ -536,6 +540,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/error-handling/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/error-logging/</loc>
     <priority>0</priority>
   </url>
   
