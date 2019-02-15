@@ -43,7 +43,7 @@ Services are an abstraction of a set of pods and how to access them. There are v
 * LoadBalancer (External) - Exposes the service through a cloud-providers loadbalancer ip
 * ExternalName (External) - Exposes the service through a cloud-providers loadbalancer ip with a CNAME entry
 
-#### [Presistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+#### [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
 Persistent volumes, as the name suggests it is used to manage persistant storage volumes. In altinn.studio we use persistant volume claims,  
 and since we're using a Azure managaged kubernetes cluster, azure sets up virtual disks in the kubernetes cluster resource group.
