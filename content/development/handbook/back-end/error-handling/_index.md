@@ -10,7 +10,7 @@ This page is a work-in-progress. Because we do not have details on how potential
 
 #### Exception Handling
 .Net core provides a default middleware "UseExceptionHandler" that will catch exceptions and log them. You can read more about it [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2).
-In addition to the default exception middleware, a custom exception middleware can be added to customize the error handling to suit application needs. Customm exception middleware will be implemented once we have a functional understanding of how users should experience errors.
+In addition to the default exception middleware, a custom exception middleware can be added to customize the error handling to suit application needs. Custom exception middleware will be implemented once we have a functional understanding of how users should experience errors.
 
 ### API
 Exception in API is handled by sending response message to users. The response messages are sent based on 
@@ -24,8 +24,8 @@ The repsonse messages usually are returned with a status code. It is recommended
 - 200 - Ok (Success)
 - 400 - Bad request (input validation, request validation (basically problems at client side))
 - 401 - Unauthorized
-- 404 - Not found
 - 403 - Forbidden
+- 404 - Not found
 - 500 - Internal server error (other type of server errors)
 By limiting the usage of status codes, we could also ease the handling of different status codes at client side.
 
