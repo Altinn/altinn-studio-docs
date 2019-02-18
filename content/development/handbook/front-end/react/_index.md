@@ -54,6 +54,12 @@ There are sequences that are called when mounting, updated, unmounted and error-
 1. `props`
 2. `state`
 
+
+### Adding a new react-app to altinn.studio
+
+When adding a new react-app, use the template folder that is in the github repo. Create a new folder in the `src/react-apps/applications`-folder and copy the contents from the `src/react-apps/templates/template-app`-folder of that newly created folder.  
+Then change the names in the `package.json`-file and start developing the new application.
+
 ### Links
 
 - [Documentation for react components](https://reactjs.org/docs/react-component.html)
