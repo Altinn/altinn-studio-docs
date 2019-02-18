@@ -3416,6 +3416,7 @@ if(host != "localhost")
 <ul>
 <li><a href="#loadbalancer-is-responding-with-http-error-502-bad-gateway">Loadbalancer is responding with HTTP Error 502 - bad gateway</a></li>
 <li><a href="#loadbalancer-is-responding-with-http-error-504-timeout">Loadbalancer is responding with HTTP Error 504 - timeout</a></li>
+<li><a href="#sonarqube-code-analysis-pipeline-fails-on-pull-request">sonarqube-code-analysis pipeline fails on pull request</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3475,6 +3476,19 @@ To delete a pod, first find the name of the running pod:</p>
 
 <pre><code class="language-bash">kubectl delete pod [POD_NAME]
 </code></pre>
+
+<h3 id="sonarqube-code-analysis-pipeline-fails-on-pull-request">sonarqube-code-analysis pipeline fails on pull request</h3>
+
+<p>This occurs when there exists double line shifts in the code that is being analyzed. This somehow crashes the sonarqube code analysis tool.
+To solve this issue you need to identify and remove the double line shift is in the code:</p>
+
+<ul>
+<li>Navigate to the pipeline logs, open &lsquo;Run Code Analysis&rsquo;</li>
+<li>Scroll to the bottom</li>
+<li>Look for error message looking like &lsquo;ERROR: 1 is not a valid line offset for pointer&rsquo;</li>
+<li>The error should contain info at where the double line shift is</li>
+<li>Remove the double line shift and update PR</li>
+</ul>
 
 
 <footer class=" footline" >
