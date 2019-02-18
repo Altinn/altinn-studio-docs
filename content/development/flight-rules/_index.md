@@ -1,8 +1,7 @@
 ---
 title: Flight Rules
 description: Flight rules for Altinn Studio
-tags: ["flight","rules",  "altinn", "studio"]
-weight: 100
+tags: [development]
 ---
 
 {{% notice info %}}
