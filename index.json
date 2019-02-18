@@ -165,7 +165,7 @@
 	"title": "Development",
 	"tags": ["development", "architecture"],
 	"description": "Information about developing the Altinn Studio solution",
-	"content": "Altinn Studio is an open source project.\nSee the projects Github page.\n"
+	"content": "Altinn Studio is an open source project.\nSee the projects Github page.\n\rAnalysis\r\rAnalysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.\n\rFlight Rules\r\rFlight rules for Altinn Studio\n\rHandbook\r\rDevelopment handbook for Altinn Studio\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/front-end/error-handling/",
@@ -187,13 +187,6 @@
 	"tags": ["guide"],
 	"description": "Set up your user in altinn.studio for the first time.",
 	"content": " Create a user with a Github user Set up your user in altinn.studio for the first time.\nONLY necessary if you have not already created a user.\n\r Choose to log in  If you have a Github account, select \u0026ldquo;Har du en github konto? Register deg med den her\u0026rdquo;  If you are not already logged in at Github, login with your Github credentials.  Authorize that Altinn Studio could use your Github account for login and connect the accounts.  Register your new Altinn Studio account by filling in the registration form.   Create a user without a Github user Set up your user in altinn.studio for the first time.\nONLY necessary if you have not already created a user.\n\r Choose to log in  If you do not have a Github user, select \u0026ldquo;Behov for en konto? Registrer deg nå.\u0026rdquo;  Fill in your user information to register your user. When done you are already logged in.   Klone tjenesten til lokal mappe  Fra startsiden, gå til repoet Velg clone service  Dersom Applikasjonsnøkkel ikke er lagt inn vil du bli bedt om å legge inn dette, se her. Når dette er fullfør, start fra punkt 1.  Tjenesten er nå klar til bruk.  "
-},
-{
-	"uri": "https://docs.altinn.studio/development/flightrules/",
-	"title": "Flight Rules",
-	"tags": ["flight", "rules", "altinn", "studio"],
-	"description": "Flight rules for Altinn Studio",
-	"content": " What are flight rules?\nFlight rules is originally a compendium of step-by-step manuals, what to do when X occurs and why.\nEssentially, they are extremely detailed, scenario-specific standard operating procedures\n\rLoadbalancer is responding with HTTP Error 502 - bad gateway This occurs when the loadbalancer could not find any of the services in it\u0026rsquo;s configuration.\nCan be triggerd by these issues:\n Some of the kubernetes services are not existing Some of the kubernetes pods are not existing Kubernetes mapping between deployments and services are incorrect.  Loadbalancer is responding with HTTP Error 504 - timeout This occurs when the loadbalancer is not getting a response from the other services running in kubernetes. Because the loadbalancer is not updated when the deployment of new versions or altinn-designer, altinn-runtime or altinn-repositories. To delete a pod, first find the name of the running pod:\nkubectl get pods  Then use the whole name, and run the following command:\nkubectl delete pod [POD_NAME]  "
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/form-layout/",
@@ -250,13 +243,6 @@
 	"tags": ["development", "handbook", "git"],
 	"description": "Information about version control with Git",
 	"content": "   let content = document.getElementById('contributionContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, \"text/html\"); content.innerHTML = doc.getElementById('readme').innerHTML; });  "
-},
-{
-	"uri": "https://docs.altinn.studio/development/handbook/",
-	"title": "Handbook",
-	"tags": ["development", "handbook"],
-	"description": "Development handbook for Altinn Studio",
-	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rError handling\r\rGuidelines for error handling front-end\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/instantiationhandler/",
@@ -497,6 +483,27 @@
 	"content": " .NET Core is the server side development framework used in Altinn Studio.\nLinks  https://dot.net https://dotnetfoundation.org https://github.com/dotnet https://github.com/aspnet  "
 },
 {
+	"uri": "https://docs.altinn.studio/development/analysis/api/",
+	"title": "API",
+	"tags": ["analysis"],
+	"description": "Analysis of API the area in Altinn Studio.",
+	"content": "Analysis of API the area in Altinn Studio.\n\rAgency APIs - analysis\r\rAn analysis of the agency API compatibility with Altinn Studio Apps.\n\r\r\rExternal APIs - analysis\r\rAn analysis of the SBL external API forward compatibility with Altinn Studio Apps.\n\r\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/development/analysis/api/agency/",
+	"title": "Agency APIs - analysis",
+	"tags": ["development", "analysis", "api"],
+	"description": "An analysis of the agency API compatibility with Altinn Studio Apps.",
+	"content": "#957\nAn analysis of the agency API compatibility with Altinn Studio Apps.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/analysis/",
+	"title": "Analysis",
+	"tags": ["analysis"],
+	"description": "Analysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.",
+	"content": "Analysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.\n\rAPI\r\rAnalysis of API the area in Altinn Studio.\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/technology/c-sharp/",
 	"title": "C#",
 	"tags": ["tech", "programming"],
@@ -532,6 +539,20 @@
 	"content": "Services created in Altinn Studio can be exposed as API together with GUI, or only as API without any GUI.\nEach service will have its unique set of API\u0026rsquo;s. Compared to current API it makes it possible to create API\u0026rsquo;s that have documentation that is target for the specific service.\nWhat kind of API\u0026rsquo;s a service would expose will be analyzed in the comming periode\n"
 },
 {
+	"uri": "https://docs.altinn.studio/development/analysis/api/external/",
+	"title": "External APIs - analysis",
+	"tags": ["development", "analysis", "api"],
+	"description": "An analysis of the SBL external API forward compatibility with Altinn Studio Apps.",
+	"content": " #956\nAn analysis of the SBL external API forward compatibility with Altinn Studio Apps.\nLegend    Icon Status     ✅ No changes needed, will work as before.   🔢 Needs to handle ServiceCode / ServiceEditionCode.   🆔 Identifiers will change.   👽 Not part of the Altinn Studio concept, so this API can\u0026rsquo;t be used.   ⛔️ Not relevant or will be replaced by something better.    REST Token ✅ POST authorization/token/{authCode}/loguse 🛈\n✅ GET authorization/token/{authCode} 🛈\n✅ DELETE authorization/token/{authCode} 🛈\nRoleDefinitions 🔢 GET {who}/authorization/RoleDefinitions/{roleTypeID}?language={language} 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n✅ DELETE {who}/authorization/RoleDefinitions/{roleTypeID} 🛈\n🔢 PUT {who}/authorization/RoleDefinitions/{roleTypeID}?language={language} 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n🔢 GET {who}/authorization/RoleDefinitions?language={language} 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n🔢 POST {who}/authorization/RoleDefinitions?language={language} 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\nRights 🔢 GET {who}/authorization/rights 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n✅ DELETE {who}/authorization/rights/{rightID} 🛈\n✅ DELETE {who}/authorization/Rights/{receiverId}/rights/{authzRuleID}?rightID={rightID} 🛈\nRoles ✅ GET {who}/authorization/roles?language={language} 🛈\n✅ DELETE {who}/authorization/roles/{roleID} 🛈\nReportee ✅ GET reportees?showConsentReportees={showConsentReportees}\u0026amp;includeInactiveReportees={includeInactiveReportees} 🛈\n✅ GET reportees/{reporteeId} 🛈\n🔢 GET reportees?serviceCode={serviceCode}\u0026amp;serviceEdition={serviceEdition}\u0026amp;showConsentReportees={showConsentReportees} 🛈 ServiceCode/ServiceEditionCode is part of the input parameters.\n✅ GET {who}/authorization/Reportee/{receiverId}?reporteeId={reporteeId} 🛈\nAuthentication ✅ POST authentication/authenticatewithpassword 🛈\nProfile ✅ GET my/profile 🛈\n✅ GET {orgno}/profile 🛈\n✅ GET {orgno}/profile/contactinformation 🛈\n✅ POST {orgno}/profile/contactinformation 🛈\n✅ GET {orgno}/profile/contactinformation/{id} 🛈\n✅ DELETE {orgno}/profile/contactinformation/{id} 🛈\nLookUp 🔢 👽 GET {who}/lookup/{serviceCode}/{serviceEdition}?authorizationCode={authorizationCode} 🛈 \u0026ldquo;LookUp\u0026rdquo; is not a concept in Altinn Studio, since all apps can provide APIs directly themselves. This API can\u0026rsquo;t be used. Also, ServiceCode/ServiceEditionCode is part of the input parameters.\nMetadata 🔢 GET metadata?language={language} 🛈 ServiceCode/ServiceEditionCode is part of metadata-list.\n✅ GET metadata/correspondence/{serviceCode}/{serviceEditionCode}?language={language} 🛈 \u0026ldquo;Correspondence\u0026rdquo; will live on, so this API is not relevant for Altinn Studio.\n🔢 👽 GET metadata/formtask/{serviceCode}/{serviceEditionCode}?language={language} 🛈 \u0026ldquo;FormTask\u0026rdquo; is not a concept in Altinn Studio, since all apps can provide forms. This API can\u0026rsquo;t be used. Also, ServiceCode/ServiceEditionCode is part of input parameters and the returned metadata-list.\n🔢 👽 GET metadata/lookup/{serviceCode}/{serviceEditionCode}?language={language} 🛈 \u0026ldquo;LookUp\u0026rdquo; is not a concept in Altinn Studio, since all apps can provide APIs directly themselves. This API can\u0026rsquo;t be used. Also, ServiceCode/ServiceEditionCode is part of input parameters and the returned metadata-list.\n🔢 👽 GET metadata/formtask/{serviceCode}/{serviceEditionCode}/forms/{dataFormatId}/{dataFormatVersion}/xsd 🛈 \u0026ldquo;FormTask\u0026rdquo; is not a concept in Altinn Studio, since all apps can provide forms and data models. This API can\u0026rsquo;t be used. Also, ServiceCode/ServiceEditionCode is part of input parameters.\n🔢 👽 GET metadata/lookup/{serviceCode}/{serviceEditionCode}/schemas/{schema} 🛈 \u0026ldquo;LookUp\u0026rdquo; is not a concept in Altinn Studio, since all apps can provide APIs directly themselves. This API can\u0026rsquo;t be used. Also, ServiceCode/ServiceEditionCode is part of input parameters.\n🔢 👽 GET metadata/formtask/{serviceCode}/{serviceEditionCode}/attachmentrules/{ruleId}/xsd 🛈 \u0026ldquo;FormTask\u0026rdquo; is not a concept in Altinn Studio, since all apps can provide metadata and data models (XSDs). This API can\u0026rsquo;t be used. Also, ServiceCode/ServiceEditionCode is part of input parameters.\n⛔️ GET metadata/codelists?language={language} 🛈 Altinn Studio will provide a better solution (and APIs) for code lists.\n⛔️ GET metadata/codelists/{name}/{version}?language={language} 🛈 Altinn Studio will provide a better solution (and APIs) for code lists.\nOrganizations ✅ GET organizations?showConsentReportees={showConsentReportees}\u0026amp;includeInactiveReportees={includeInactiveReportees} 🛈\n✅ GET organizations/{organizationId} 🛈\nAttachments 🆔 POST {who}/messages/{messageId}/attachments/streamedattachment?fileName={fileName}\u0026amp;attachmentType={attachmentType}\u0026amp;language={language} 🛈 MessageId will probably change to GUID.\n🆔 DELETE {who}/messages/{messageId}/attachments/{attachmentId} 🛈 MessageId and attachmentId will probably change to GUID.\n🆔 POST {who}/messages/{messageId}/attachments/{attachmentId}?language={language} 🛈 MessageId and attachmentId will probably change to GUID.\n🆔 POST {who}/messages/{messageId}/attachments/{attachmentId}?fileName={fileName}\u0026amp;attachmentType={attachmentType}\u0026amp;language={language} 🛈 MessageId and attachmentId will probably change to GUID.\n🆔 GET {who}/messages/{messageId}/attachments 🛈 MessageId will probably change to GUID.\n🆔 POST {who}/messages/{messageId}/attachments?language={language} 🛈 MessageId will probably change to GUID.\n🆔 GET {who}/authorization/Attachments/{receiverId}?messageId={messageId}\u0026amp;attachmentId={attachmentId} 🛈 MessageId and attachmentId will probably change to GUID.\nMessages 🆔 🔢 GET {who}/Messages/{messageId}?language={language} 🛈 MessageId will probably change to GUID. Message contains ServiceCode/ServiceEditionCode.\n🆔 🔢 👽 PUT {who}/Messages/{messageId}?language={language}\u0026amp;complete={complete}\u0026amp;sign={sign} 🛈 MessageId will probably change to GUID. Message contains ServiceCode/ServiceEditionCode.\nMainForm/SubForm is not part of Altinn Studio concept. Same with DataFormatId/DataFormatVersion.\n🆔 DELETE {who}/Messages/{messageId} 🛈 MessageId will probably change to GUID.\n🆔 🔢 GET {who}/Messages?language={language} 🛈 MessageId will probably change to GUID. Message contains ServiceCode/ServiceEditionCode.\n🔢 👽 POST {who}/Messages?language={language}\u0026amp;complete={complete}\u0026amp;sign={sign} 🛈 Message contains ServiceCode/ServiceEditionCode.\nMainForm/SubForm is not part of Altinn Studio concept. Same with DataFormatId/DataFormatVersion.\n🆔 👽 GET {who}/Messages/{messageId}/Print?language={language}\u0026amp;dataFormatId={dataFormatId}\u0026amp;dataFormatVersion={dataFormatVersion} 🛈 MessageId will probably change to GUID.\nDataFormatId/DataFormatVersion is not part of Altinn Studio concept.\n✅ PUT {who}/Messages/{messageId}/Archive?language={language} 🛈\n✅ PUT {who}/Messages/{messageId}/Confirm?language={language} 🛈\n🆔 GET {who}/Messages/{messageId}/Validate?language={language} 🛈 MessageId will probably change to GUID.\n🆔 👽 GET {who}/Messages/{messageId}/signingtext?language={language} 🛈 MessageId will probably change to GUID.\nWorkflow metadata must be much more powerful and less hardcoded for Altinn Studio.\n🆔 👽 GET {who}/messages/{messageId}/custommessagedata 🛈 MessageId will probably change to GUID.\nWorkflow metadata must be much more powerful and less hardcoded for Altinn Studio.\n🔢 GET {who}/Messages/trashbin?language={language} 🛈 Message contains ServiceCode/ServiceEditionCode.\nForms 🆔 👽 GET {who}/messages/{messageId}/forms?language={language} 🛈 MessageId will probably change to GUID.\nDataFormatId/DataFormatVersion and MainForm/SubForm is not part of Altinn Studio concept.\n🆔 👽 POST {who}/messages/{messageId}/forms 🛈 MessageId will probably change to GUID.\nDataFormatId/DataFormatVersion and MainForm/SubForm is not part of Altinn Studio concept.\n🆔 👽 GET {who}/messages/{messageId}/forms/{formId}?language={language} 🛈 MessageId and formId will probably change to GUID.\nDataFormatId/DataFormatVersion and MainForm/SubForm is not part of Altinn Studio concept.\n🆔 👽 PUT {who}/messages/{messageId}/forms/{formId} 🛈 MessageId and formId will probably change to GUID.\nDataFormatId/DataFormatVersion and MainForm/SubForm is not part of Altinn Studio concept.\n🆔 DELETE {who}/messages/{messageId}/forms/{formId} 🛈 MessageId and formId will probably change to GUID.\n🆔 GET {who}/messages/{messageId}/forms/{formId}/formdata?language={language} 🛈 MessageId and formId will probably change to GUID.\nDelegations 🔢 GET {who}/authorization/Delegations/{receiverId}/rights 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n✅ GET {who}/authorization/Delegations/{receiverId}/roles?language={language} 🛈\n🔢 GET {who}/authorization/Delegations/{receiverId}?language={language} 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n🔢 GET {who}/authorization/Delegations?serviceCode={serviceCode}\u0026amp;serviceEdition={serviceEdition} 🛈 ServiceCode/ServiceEditionCode is part of input parameters and the returned rights-list.\n🔢 POST {who}/authorization/Delegations 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n🔢 GET {who}/authorization/Delegations?receiverId={receiverId} 🛈 ServiceCode/ServiceEditionCode is part of Rights-list.\n✅ DELETE {who}/authorization/Delegations?receiverId={receiverId}\u0026amp;roleId={roleId} 🛈\n✅ DELETE {who}/authorization/Delegations?receiverId={receiverId}\u0026amp;authzRuleId={authzRuleId} 🛈\n✅ DELETE {who}/authorization/Delegations/{receiverId}/roles/{roleId} 🛈\n✅ DELETE {who}/authorization/Delegations/{receiverId}/rights/{authzRuleId} 🛈\nBrokerService ✅ GET {reportee}/BrokerService/files/{fileReference} 🛈\nWeb Services TODO\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/flight-rules/",
+	"title": "Flight Rules",
+	"tags": ["development"],
+	"description": "Flight rules for Altinn Studio",
+	"content": " What are flight rules?\nFlight rules is originally a compendium of step-by-step manuals, what to do when X occurs and why.\nEssentially, they are extremely detailed, scenario-specific standard operating procedures\n\rLoadbalancer is responding with HTTP Error 502 - bad gateway This occurs when the loadbalancer could not find any of the services in it\u0026rsquo;s configuration.\nCan be triggerd by these issues:\n Some of the kubernetes services are not existing Some of the kubernetes pods are not existing Kubernetes mapping between deployments and services are incorrect.  Loadbalancer is responding with HTTP Error 504 - timeout This occurs when the loadbalancer is not getting a response from the other services running in kubernetes. Because the loadbalancer is not updated when the deployment of new versions or altinn-designer, altinn-runtime or altinn-repositories. To delete a pod, first find the name of the running pod:\nkubectl get pods  Then use the whole name, and run the following command:\nkubectl delete pod [POD_NAME]  "
+},
+{
 	"uri": "https://docs.altinn.studio/technology/gitea/",
 	"title": "Gitea",
 	"tags": ["tech", "gitea", "git", "repos"],
@@ -551,6 +572,13 @@
 	"tags": ["tech", "monitoring"],
 	"description": "Grafana is an open platform for analytics and monitoring.",
 	"content": " Grafana is an open platform for analytics and monitoring that we use when monitoring Altinn Studio.\nLinks  https://grafana.com https://github.com/grafana/grafana  "
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/",
+	"title": "Handbook",
+	"tags": ["development", "handbook"],
+	"description": "Development handbook for Altinn Studio",
+	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rError handling\r\rGuidelines for error handling front-end\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/helm/",
@@ -749,8 +777,8 @@
 	"content": ""
 },
 {
-	"uri": "https://docs.altinn.studio/tags/altinn/",
-	"title": "altinn",
+	"uri": "https://docs.altinn.studio/tags/analysis/",
+	"title": "analysis",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -912,13 +940,6 @@
 {
 	"uri": "https://docs.altinn.studio/tags/external-api/",
 	"title": "external-api",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://docs.altinn.studio/tags/flight/",
-	"title": "flight",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1094,13 +1115,6 @@
 {
 	"uri": "https://docs.altinn.studio/tags/repos/",
 	"title": "repos",
-	"tags": [],
-	"description": "",
-	"content": ""
-},
-{
-	"uri": "https://docs.altinn.studio/tags/rules/",
-	"title": "rules",
 	"tags": [],
 	"description": "",
 	"content": ""

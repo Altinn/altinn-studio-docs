@@ -1951,12 +1951,140 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/flightrules/" class="dd-item 
+    <li data-nav-id="/development/analysis/" class="dd-item 
         
         
         
         ">
-      <a href="/development/flightrules/">
+      <a href="/development/analysis/">
+        <span>Analysis</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/analysis/api/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/analysis/api/">
+        <span>API</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/development/analysis/api/agency/" class="dd-item
+     
+      ">
+        <a href="/development/analysis/api/agency/">
+        <span>Agency API</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/development/analysis/api/external/" class="dd-item
+     
+      ">
+        <a href="/development/analysis/api/external/">
+        <span>External APIs</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/flight-rules/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/flight-rules/">
         <span>Flight Rules</span>
 
         
@@ -3283,13 +3411,43 @@ if(host != "localhost")
 	<div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 2</span>
+	<span class="page-number">Page 1 on 3</span>
 	
 	    <a class="older-posts" href="/tags/development/page/2/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/analysis/api/agency/">Agency APIs - analysis</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>#957
+An analysis of the agency API compatibility with Altinn Studio Apps. <a class="read-more" href="/development/analysis/api/agency/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/analysis/">analysis</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/api/">api</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post development">
@@ -3359,7 +3517,11 @@ Git Merge to Master Altinn Studio Release Build When the build for either Altinn
     </header>
     <section class="post-excerpt">
         <p>Altinn Studio is an open source project.
-See the projects Github page. <a class="read-more" href="/development/">&raquo;</a></p>
+See the projects Github page.
+AnalysisAnalysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.
+Flight RulesFlight rules for Altinn Studio
+HandbookDevelopment handbook for Altinn Studio
+ <a class="read-more" href="/development/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3449,6 +3611,67 @@ See the projects Github page. <a class="read-more" href="/development/">&raquo;<
 	
 	   <article class="post development">
     <header class="post-header">
+        <h2 class="post-title"><a href="/development/analysis/api/external/">External APIs - analysis</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>#956
+An analysis of the SBL external API forward compatibility with Altinn Studio Apps.
+Legend    Icon Status     ✅ No changes needed, will work as before.   🔢 Needs to handle ServiceCode / ServiceEditionCode.   🆔 Identifiers will change.   👽 Not part of the Altinn Studio concept, so this API can&rsquo;t be used.   ⛔️ Not relevant or will be replaced by something better. <a class="read-more" href="/development/analysis/api/external/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/analysis/">analysis</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/api/">api</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/flight-rules/">Flight Rules</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>What are flight rules?
+Flight rules is originally a compendium of step-by-step manuals, what to do when X occurs and why.
+Essentially, they are extremely detailed, scenario-specific standard operating procedures
+Loadbalancer is responding with HTTP Error 502 - bad gateway This occurs when the loadbalancer could not find any of the services in it&rsquo;s configuration.
+Can be triggerd by these issues:
+ Some of the kubernetes services are not existing Some of the kubernetes pods are not existing Kubernetes mapping between deployments and services are incorrect. <a class="read-more" href="/development/flight-rules/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
         <h2 class="post-title"><a href="/development/handbook/front-end/">Front-end</a></h2>
     </header>
     <section class="post-excerpt">
@@ -3508,99 +3731,12 @@ See the projects Github page. <a class="read-more" href="/development/">&raquo;<
 
 
 	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/getting-started/">Getting started</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> .highlight-source-batchfile { color: #fff !important; }  
-  let content = document.getElementById('readmeContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/README.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, "text/html"); content.innerHTML = doc.getElementById('readme').innerHTML; });   <a class="read-more" href="/development/handbook/getting-started/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/git/">git</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/git/">Git</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>   let content = document.getElementById('contributionContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, "text/html"); content.innerHTML = doc.getElementById('readme').innerHTML; });   <a class="read-more" href="/development/handbook/git/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/git/">git</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/">Handbook</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>WARNING: The development handbook is currently being written, and is as such not complete or final.
-The development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running. <a class="read-more" href="/development/handbook/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 2</span>
+	<span class="page-number">Page 1 on 3</span>
 	
 	    <a class="older-posts" href="/tags/development/page/2/">Next Pages &rarr;</a>
 	
@@ -4623,6 +4759,72 @@ See the projects Github page. <a class="read-more" href="/development/">&raquo;<
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
                     
                         
             

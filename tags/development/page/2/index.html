@@ -1951,12 +1951,140 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/flightrules/" class="dd-item 
+    <li data-nav-id="/development/analysis/" class="dd-item 
         
         
         
         ">
-      <a href="/development/flightrules/">
+      <a href="/development/analysis/">
+        <span>Analysis</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/analysis/api/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/analysis/api/">
+        <span>API</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/development/analysis/api/agency/" class="dd-item
+     
+      ">
+        <a href="/development/analysis/api/agency/">
+        <span>Agency API</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/development/analysis/api/external/" class="dd-item
+     
+      ">
+        <a href="/development/analysis/api/external/">
+        <span>External APIs</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/flight-rules/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/flight-rules/">
         <span>Flight Rules</span>
 
         
@@ -3285,11 +3413,100 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/development/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 2 on 2</span>
+	<span class="page-number">Page 2 on 3</span>
+	
+	    <a class="older-posts" href="/tags/development/page/3/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/getting-started/">Getting started</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> .highlight-source-batchfile { color: #fff !important; }  
+  let content = document.getElementById('readmeContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/README.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, "text/html"); content.innerHTML = doc.getElementById('readme').innerHTML; });   <a class="read-more" href="/development/handbook/getting-started/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/git/">git</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/git/">Git</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>   let content = document.getElementById('contributionContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, "text/html"); content.innerHTML = doc.getElementById('readme').innerHTML; });   <a class="read-more" href="/development/handbook/git/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/git/">git</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/">Handbook</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>WARNING: The development handbook is currently being written, and is as such not complete or final.
+The development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running. <a class="read-more" href="/development/handbook/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post development">
@@ -3523,35 +3740,6 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 
 
 	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/test/xunit-testing/">Xunit Testing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Find code on xunit tests here <a class="read-more" href="/development/handbook/test/xunit-testing/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/test/">test</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -3559,7 +3747,9 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 	
 	    <a class="newer-posts" href="/tags/development/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 2 on 2</span>
+	<span class="page-number">Page 2 on 3</span>
+	
+	    <a class="older-posts" href="/tags/development/page/3/">Next Pages &rarr;</a>
 	
 </nav>
 
@@ -4580,6 +4770,72 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
                     
                         
             
