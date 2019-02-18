@@ -5,36 +5,25 @@ tags: ["development", "handbook", "test"]
 weight: 100
 ---
 
-## Hva skal testes?
-I tjenester 3.0 er det behov for både testing av Altinn studio, altså tjeneste designeren, samt tjenester
-utviklet av en tjenesteutvikler i Altinn studio. Disse to områdene av tjenester 3.0 krever forskjellige,
-tilnærminger.
+## What should be tested?
+In tjenester 3.0, there is a need for both testing Altinn Studio, the service designer, as well as testing services that are developed by a service developer in Altinn Studio Runtime. Testing these two areas of Altinn Studio requires different approaches. 
 
-Testing av Altinn studio er hovedsakelig tenkt å testes på enhets, og integrasjons nivå. Enhets nivået
-av testing innebærer testing av javascript funksjoner, samt av react/UI komponenter. På integrasjons nivå
-testes typisk API'er og mindre services: Effektiv enhets testing og integrasjons testing krever ett godt test rammeverk
-som tjenester 3.0 utviklere lett kan ta i bruk, og som kan lett integreres med den nåværende kodebase og nåværende 
-bygg verktøy. 
+Testing of Altinn Studio is to be tested automatically at the unit and integration levels of testing. Unit testing of the system involves, for example, the testing of individual javascript functions, and individual pieces of logic relating to react/UI components. At the integrasion level of test, API's and smaller modules are typically tested: Effective unit and integration testing demands good testing frameworks that tjenester 3.0 developrs can easily pick up and use, and that can be easily integrated in the current codebase and the current build toolchain.
 
-Testing av arbeidsflyter i Altinn Studio samt test av tjenester utviklet ved bruk av Altinn studio er ansvaret til
-test utvikler, samt tjeneste utviklere. På regresjon, eller ende-til-ende, nivå er tester man at hele arbeidsflyten i altinn studio, 
-eller den ferdig utviklede tjenesten, fungerer slikt som tenkt.  
+Testing of workflows, and the usage of ALtinn Studio, as well as testing of services developed in Altinn Studio, is the primary responsibility of the test developer in the team. On a regression, or end-to-end, level of test, one tests that the users whole journey through the altinn studio system, or the developed service, works as expected in relation to stated acceptance criteria.
 
-Ett godt ende-til-ende test verktøy, har samme krav som verktøy og rammeverk som skal taes i bruk til enhet og integrasjons test,
-men må også gi muligheten for mindre teknisk instilte tjeneste utviklere å raskt lage UI tester for tjeneste de ferdigstiller uten å
-ha kunnskap om det underliggende AltinnCore systemet. 
+A good end-to-end test tool has the same requirements as tooling and frameworks that is to be put to use for unit and integration testing. Additionally, the tool needs to be give the opportunity for less technically minded service developers to quickly develop UI tests for services they develop and deploy to Altinn Studio. The end-to-end tool should also allow the test developer to easily run a full regression test suite, as well as reduce the amount of time to run such a set of regression tests accurately. 
 
-## Verktøy
-Etter diskusjon i tjenester 3.0 teamet, har disse test verktøy/rammeverk blitt bestemt å taes i bruk:  
- - Enhetstesting: Jest / Enzyme / xUnit 
- - Integrasjonstesting: Jest / Sinon  
- - Regresjonstesting: Testcafe  
 
- De utvalgte verktøyene er valgt da de raskt kan integreres inn i eksisterende kodebase, samt er open source verktøy. Testcafe
- gir også muligheten til å "ta opp" tester (så kalt test recording) hvis man betaler for ett lisens, testcafe rammeverket og UI
- test prosjektet blir ansvaret til testutvikler i teamet. Utviklere skriver test ved bruk av Jest og xUnit (jest for javascript, xUnit for C#)
+## Tooling
+After a discussion internally in the tjenester 3.0 team, these tools and frameworks have been decided to be put to use for testing
+ - Unit testing: Jest / Enzyme / xUnit
+ - Integration testing: Jest / Sinon
+ - Regression testing: Testcafe 
 
-dokumentasjon til de nevnte verktøyene kan finnes i lenkene under:  
+The chosen tool set has been chosen for their ease of integration into the exisiting codebase, and also because they are all open source tools. Testcafe also gives the possibility of recording tests, with a paid license, the testcafe framework and UI test project will be the responsibility of the test developer in the team. Developers write unit and integration tests by using Jest and xUnit. See the other pages under test in this handbook for more information on how to effectively write unit tests or regression tests.
+
+Documentation for the mentioned tools can be found below:  
  - [xUnit](https://xunit.github.io/)
  - [Jest](https://jestjs.io/)  
  - [Enzyme](http://airbnb.io/enzyme/)  
@@ -42,28 +31,30 @@ dokumentasjon til de nevnte verktøyene kan finnes i lenkene under:
  - [Testcafe](https://testcafe.devexpress.com/)  
 
 
-### Test i første MVP leveranse
-Testing i første MVP leveranse bestod hovedsakelig av enhetstester skrevet i xunit, og Jest, samt manuell funksjonell testing av brukerhistorier under utvikling. Enhetstest rammeverkene xunit og jest er integrert i dagens løsning via kontinuerlig integrasjons bygg i azure devops; testbyggene trigges både av pull requests og merging av kode inn i master. Pipelines for enhetstest finnes [her](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=22) for xunit pipelinen, og [her](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=26) for jest pipelinen. Ved slutten av MVP 1 ble også testcafe regressions tester en del av nattlige bygg; Pipelinen for testcafe kan finnes [her](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=25).
+### Test in the first MVP delivery
+Testing in the first MVP delivery was primarily done thru unit testing with test written in xunit, and jest, as well as thru manual functional tests of user stories under development. The unit testing frameworks xunit and jest were integrated in the MVP01 delivery, and the tests are executed using pipeline definitions in azure devops. The unit test pipelines are automatically triggered both by pull requests to the altinn github repo, as well as when code is merged into master. The pipelines for unit tests can be found [here](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=22) for the xunit pipeline, and [here](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=26) for the jest test pipeline. At the end of MVP01, testcafe tests also began running in their own pipeline. The regression tests in the testcafe pipeline are run as a nightly build, and does not deploy on pull requests, to avoid slowing down and hindering the work of developers. The pipeline for testcafe can be found [here](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=25)
 
 
-### Test i andre MVP leveranse
-I andre MVP leveranse har deploy av tjenester i altinn studio SBL blitt definert som en "Hill" eller en hovedleveranse. I denne sammenheng kommer regressjons tester skrevet i testcafe til å fokusere på arbeidsflyten utvikleren "Christian" kommer til å bruke for å kunne få ett deploy av tjenesten sin til ett testmiljø. Målet med testautomatisering, er å redusere tiden det tar å kjøre Altinn Studio sine regresjonstest suite nøyaktig og effektivt, både automatiske og manuelle regresjonstester skal kjøres mot dev.altinn.studio for å kunne kvalitetssikre løfting av koden til produksjon. Enhetstesting og system testing i andre MVP leveranse skal fungere på samme måte som i MVP01; utviklere skriver enhets og integrasjonstester i sine test rammeverk (hovedsakelig jest og xunit), for å teste nytviklet logikk. Snapshot testing, som ble påbegynt i MVP01, utgår i MVP02, da "look and feel", og funksjonell testing blir prioritert av manuelle regresjonstester og testcafe regresjons suiten. 
+### Test in the second MVP delivery
+In the second MVP delivery, deploying services created in the Altinn Studio designer to Altinn Studio runtime has been prioritized as a "hill", or main deliverable. In this context, regression tests written with testcafe wil focus on the workflow the developer "Christian" will be using to be able to deploy on of his services to a test environment. The goal of test automation is to reduce the time taken to run all test in the Altinn Studio regression test suite, to run these tests accurately, and free up the time of the test developer to write better test cases. Both automatic and manual regression tests are run against dev.altinn.studio to assure the quality of developed code that is to be deployed to production. Unit and system testing in MVP02 will work in much the same way as in the MVP01 delivery: Developers write unit and integration tests in their respective frameworks, and focus on testing business logic they have developed. Snapshot testing, which was begun in MVP01, is deprioritized in MVP02 as they were found to be brittle and not contributing to the overall quality of the code. "Look and feel" testing will be the responsibility of functional designers, and the test developer in the team.
 
-## Test nivåer
-Pyramide figuren under viser en overordnet struktur av de ulike test nivåene, samt de mulige verktøyene og rollen som har ansvaret
-for test på hvert testnivå.
+
+## Test levels
+The pyramid figure below shows an overview of the different levels of test, the possible tools associated with the testing level, as well as which rle has the responsibilty for writing tests at that level.
 
 {{<figure src="testing_pyramid.jpeg?width=400" title="Testpyramiden" >}}
 
+
 ## Testdata
-For å kunne enkelt og effektivt teste på alle nivåer, kan det være bruk for ett verktøy for å lett
-kunne hente eller lage testdata. Tjenester 3.0 teamet må bestemme seg for om vi skal lage f.eks en testdata klasse som gir bruker muligheten til å lage brukere/elementer spesifikt til testen de skal kjøre. En annen mulighet er å støtte muligheten for å hente spesifikk ferdigstilt testdata (f.eks testdata sett 164/5) fra en json fil eller lignende. I MVP02 er arbeid påbegynt på en testdata klasse som integreres inn i testcafe sin testkode. 
+To be be able to easily and effectively test on all levels, it can be necessary to put a tool in place to easily retrieve or store different test data. The Tjenester 3.0 team must decide on whether to creat testdata classes that can be imported in the different test projects. Another possibility is to fetch spesific pre-made dataset (for example testdata set 164/5) from a json file or similar. In MVP02 the testcafe project uses a naive testdata class, that will be expanded as the new for more complex testdata grows: TestData.js contains a class for creating users in Altinn Studio at the moment. Refer to the Jest section under test for an overview on using data in unit tests.
 
-## Arbeidsmetodikk
-Under sprint plannlegging blir produkteier, utviklere, og testutvikler enig om hvilket nivå det er behov å teste de enkelte User Stories. Man lager så en plan for hvordan den ansvarlige rollen skal teste den tenkte funksjonaliteten og sub-tasks på de enkelte User stories kan da lages. Etter en ferdigstilt test er laget, gjennomføres det en kvalitetsikkring med ett annet medlem av tjenester 3.0 teamet før testen kan inkluderes i ett bygg-løp.
 
-**Navngivningskonvensjon for element id'er**  
-Testcafe sitt test api har forskjellige måter å instansiere Selector objekter som kan brukes i test. Den desiderte letteste og mest robuste måten å definere en Selector i testcafe er med en css id selector. Tanken bak å bruke css id'er istedenfor relativ lokasjon av elementet i DOM eller inner text er å lage mer robuste tester, som ikke knekker straks det kommer endringer i design. Id'er må være unike; for å påse at en selector er unik er følgende konvensjon foreslått for å oprette id på ett element: Id'en er tekstbasert og skrevet i camelCase, id'en følger logisk plassering i Altinn Studio, f.eks: "pagelocation Submenu Elementtype Descriptiveword". Tekstboks elementet under GUI "Lage" kan for eksempel få følgende id: "designerSkjemakomponenterKnappTekstområde".
+#Methodology
+During sprint planning, the product owner, the developers, and the test developer agree on an approach for teting on individual user stories that are pulled into the sprint. A plan is then created for how the responsible role will test the required functionality, and sub tasks are created on the different user stories. It is possible, and likely, that a user story will contain tasks to develop tests on all the testing levels specified above. When a test is written and completed, it can be integrated into a testing build. 
 
-## Bygg og deploy av testkode 
-Se pipelines lenkene tidligere i dette dokumentet.
+**Naming convention for element ids'**
+Testcafe's test api has different methods of instantiating Selector objects that can be then used in tests. The easiest and most robust method of defining a selector in testcafe is with a css id selector. The idea behind using css id's is to avoid finding elements by their relative location in the DOM, or by the element's inner texts, as tests become brittle with these selectors due to design changs. The id's must be unique, to ensure the uniqueness of a Selector, the following naming convention for element id's is proposed: Id's must be tekstbased and written in camelCase, id's follow a logical location the Altinn Studio system, such as; "Pagelocation Submenu Elementtype Descriptiveword". The text box element id under the GUI creator could then be assigned the following id: "designerSkjemakomponenterKnappTekstområde".
+
+
+## Building and deploying testcode
+See the pipeline hyperlinks above in this document.
