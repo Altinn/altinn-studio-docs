@@ -2705,6 +2705,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/technology/bpmn/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/technology/bpmn/">
+        <span>BPMN 2.0</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/technology/dotnet-core/" class="dd-item 
         
         
@@ -3545,11 +3572,56 @@ if(host != "localhost")
 <span class="fa fa-git-square"   aria-hidden="true"></span>
 
  tjeneste-1<br />
-│  │  ├── 
+│  │  ├──  
 
-<span class="fa fa-folder"   aria-hidden="true"></span>
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
 
- common &hellip;<br />
+ Deployment (<a href="https://docs.altinn.studio/technology/helm/">helm</a>)<br />
+│  │  │      ├── 
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+ templates<br />
+│  │  │      │     ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ _helpers.tpl<br />
+│  │  │      │     ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ deployment.yaml<br />
+│  │  │      │     ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ ingress.yaml<br />
+│  │  │      │     ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ NOTES<br />
+│  │  │      │     └── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ service.yaml<br />
+│  │  │      ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ .helmignore<br />
+│  │  │      ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ Chart.yaml<br />
+│  │  │      └── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ values.yaml<br />
 │  │  ├──  
 
 <span class="fa fa-folder-open"   aria-hidden="true"></span>
@@ -3560,7 +3632,7 @@ if(host != "localhost")
 <span class="fa fa-folder-open"   aria-hidden="true"></span>
 
  Calculation<br />
-│  │  │   │   ├── 
+│  │  │   │   └── 
 
 <span class="fa fa-code"   aria-hidden="true"></span>
 
@@ -3584,13 +3656,43 @@ if(host != "localhost")
 
 <span class="fa fa-folder-open"   aria-hidden="true"></span>
 
+ Metadata<br />
+│  │  │       ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ <a href="servicemetadata">ServiceMetadata.json</a><br />
+│  │  │       └── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ workflow.json<br />
+│  │  ├──  
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+ Model<br />
+│  │  │      ├── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ <a href="servicemodelxsd">ServiceModel.xsd</a><br />
+│  │  │      └── 
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ <a href="servicemodel">ServiceModel.cs</a><br />
+│  │  ├──  
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
  Resources<br />
 │  │  │      ├──  
 
 <span class="fa fa-folder-open"   aria-hidden="true"></span>
 
  Dynamics<br />
-│  │  │      │   ├── 
+│  │  │      │   └── 
 
 <span class="fa fa-code"   aria-hidden="true"></span>
 
@@ -3632,34 +3734,24 @@ if(host != "localhost")
  resource.nn-NO.json<br />
 │  │  ├──  
 
-<span class="fa fa-folder-open"   aria-hidden="true"></span>
+<span class="fa fa-folder"   aria-hidden="true"></span>
 
- Model<br />
-│  │  │      ├── 
+ Test (used for runtime)<br />
+│  │  ├──  
 
-<span class="fa fa-code"   aria-hidden="true"></span>
+<span class="fa fa-folder"   aria-hidden="true"></span>
 
- <a href="servicemodelxsd">ServiceModel.xsd</a><br />
-│  │  │      └── 
-
-<span class="fa fa-code"   aria-hidden="true"></span>
-
- <a href="servicemodel">ServiceModel.cs</a><br />
+ Testdataforparty (used for runtime)<br />
 │  │  ├──  
 
 <span class="fa fa-folder-open"   aria-hidden="true"></span>
 
- Metadata<br />
-│  │  │       ├── 
+ Workflow<br />
+│  │  │      └── 
 
 <span class="fa fa-code"   aria-hidden="true"></span>
 
- <a href="servicemetadata">ServiceMetadata.json</a><br />
-│  │  │       └── 
-
-<span class="fa fa-code"   aria-hidden="true"></span>
-
- workflow.json<br />
+ workflow.bpmn (<a href="https://docs.altinn.studio/technology/bpmn/">BPMN</a>)<br />
 │  │  ├──  
 
 <span class="fa fa-code"   aria-hidden="true"></span>
@@ -4639,15 +4731,6 @@ tjeneste-2 &hellip;<br />
                     
 
                     
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
                         
             
             
@@ -4674,10 +4757,11 @@ tjeneste-2 &hellip;<br />
 
                     
                     
-                        
-                    
                     
 
+                    
+            
+        
                     
                         
             
@@ -4727,9 +4811,6 @@ tjeneste-2 &hellip;<br />
             
         
                     
-            
-        
-                    
                         
             
             
@@ -4746,51 +4827,21 @@ tjeneste-2 &hellip;<br />
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
                         
             
@@ -4824,12 +4875,6 @@ tjeneste-2 &hellip;<br />
             
         
                     
-            
-        
-                    
-            
-        
-                    
                         
             
             
@@ -4856,25 +4901,11 @@ tjeneste-2 &hellip;<br />
 
                     
                     
-                        
-                    
                     
 
                     
-                        
             
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
+        
                     
                         
             
@@ -4888,6 +4919,12 @@ tjeneste-2 &hellip;<br />
                     
                     
 
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -4993,6 +5030,316 @@ tjeneste-2 &hellip;<br />
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
                         
             
             
@@ -5051,69 +5398,6 @@ tjeneste-2 &hellip;<br />
 
                     
                     
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
 
                     
@@ -5159,6 +5443,22 @@ tjeneste-2 &hellip;<br />
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

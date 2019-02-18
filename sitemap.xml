@@ -67,6 +67,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/technology/bpmn/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/handbook/back-end/</loc>
   </url>
   
@@ -465,6 +469,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/arbeidsflyt/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/architecture/</loc>
     <priority>0</priority>
   </url>
@@ -476,6 +485,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/back-end/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/bpmn/</loc>
     <priority>0</priority>
   </url>
   
