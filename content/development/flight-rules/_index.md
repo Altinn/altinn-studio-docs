@@ -36,3 +36,14 @@ Then use the whole name, and run the following command:
 ```bash
 kubectl delete pod [POD_NAME]
 ```
+
+### sonarqube-code-analysis pipeline fails on pull request
+
+This occurs when there exists double line shifts in the code that is being analyzed. This somehow crashes the sonarqube code analysis tool.
+To solve this issue you need to identify and remove the double line shift is in the code:
+
+* Navigate to the pipeline logs, open 'Run Code Analysis'
+* Scroll to the bottom
+* Look for error message looking like 'ERROR: 1 is not a valid line offset for pointer'
+* The error should contain info at where the double line shift is
+* Remove the double line shift and update PR
