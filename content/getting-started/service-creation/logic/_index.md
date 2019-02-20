@@ -26,15 +26,20 @@ For javascript-files, a full language intellisense is available, which suggests 
 ### Validations
 Validations make sure that the users input is valid with respect to the data model, as well as any custom rules that are set up for the service. Validations can be run _client-side_ (i.e. in the browser) and _server-side_. 
 
-#### Client-side validation
-These validations run automatically when a user leaves/changes an input field. They are run agains restrictions set in the data model, and can not be configured. Currently, the following restrictions are supported:
+#### Client-side validations
+{{%notice info%}}
+NOTE: Configuration of client-side validations is currently not available. The documentation will be updated when new functionality is available.
+{{% /notice%}}
 
-* min
-* max
-* minLength
-* maxLength
-* length
-* pattern
+These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:
+- min value (number)
+- max value (number)
+- min length
+- max length
+- length
+- pattern
+
+In addition, validation on whether the field is required or not is supported, but this is currently not connected to the data model and needs to be set manually for the component via the FormLayout.json file. 
 
 #### Server-side validation
 The validations that are run on the server can be split into two categories:
@@ -74,14 +79,18 @@ See the comments in the code above for details on what the different parts of th
 
 ##### Single field validations
 
-If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation
+If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property `TriggerValidation` to `true` in the component definition in FormLayout.json.
+
+It is then up to the service developer to write the code for validations in such a way that only the relevant errors are returned when a trigger field is specified, while all validations are run f.ex. when the user is ready to submit service. An example of such code is shown below.
 
 ```csharp
 public void Validate(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
 {
-    // If a trigger field is specified, run validations inside if-block and then stop
+    // Check if a trigger field is specified on the request context.
+    // If a trigger field is specified, run validations inside if-block and then stop so that only relevant errors are returned.
     if (requestContext.ValidationTriggerField != null)
     {
+        // Check which field triggered validation, and run any relevant validations
         if (triggerField == "Person.FirstName")
         {
             ValidateFirstName(TestModel, modelState);
@@ -103,39 +112,19 @@ private void RunAllValidations(TestModel TestModel, RequestContext requestContex
 
 private void ValidateFirstName(TestModel TestModel, ModelState modelState)
 {
+    // Check if field FirstName exists and has value
     string firstName = TestModel?.Person?.FirstName;
+
+    // Check if the field contains "1337"
     if (firstName != null && firstName.Contains("1337")) 
     {
-        modelState.AddModelError("Person.FirstName", "firstName.leet");
+        // If the field value contains "1337", add an error message using AddModelError-method.
+        // The first argument is the error message key, which should be the data model path (without root node), if possible.
+        // The second argument is the error message, which can be either a text, or a text key.
+        modelState.AddModelError("Person.FirstName", "First name cannot contain 1337.");
     }
 }
 ```
-
-{{%notice info%}}
-NOTE: Currently, the solution is set up to run basic validations against the data model on the _client-side_. It is also possible to implement validations on the server-side, by writing code. Configuration of client-side validations, as well as displaying any validation results from the server-side is functionality that is currently being developed. The documentation will be updated when new functionality is available.
-{{% /notice%}}
-
-#### Client-side validations
-{{%notice info%}}
-NOTE: Configuration of client-side validations is currently not available. The documentation will be updated when new functionality is available.
-{{% /notice%}}
-
-These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:
-- min value (number)
-- max value (number)
-- min length
-- max length
-- length
-- pattern
-
-In addition, validation on whether the field is required or not is supported, but this is currently not connected to the data model and needs to be set manually for the component via the FormLayout.json file. 
-
-#### Server-side validations
-{{%notice info%}}
-NOTE: Displaying any validation results from the server-side, and configuring when it should be run is functionality that is currently being developed. The documentation will be updated when new functionality is available.
-{{% /notice%}}
-
-Server side validations are set up to run when the user submits data. The submitted data is automatically validated against the data model on the server, and if the data is not valid, an error is returned. In addition, it is possible to configure custom validations for the service. This is done by coding the validations in C#, in the file `ValidationHandler.cs`. 
 
 ### Calculations
 Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in C# in the file `CalculationHandler.cs`. This file can be edited by clicking _Rediger kalkuleringer_ from the logic menu. 
