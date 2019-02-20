@@ -176,6 +176,8 @@ Here, two functions are created to check if the a given value is either "Ja" or 
 
 After adding this code, the configuration for using the functions is added. Starting with `sjekkVirksomhetIDrift`:
 
+{{<figure src="dynamics-example-config.png?width=700" title="Test of dynamics example">}}
+
 * First, we add the field that will provide the input.
   - This is the data model field that is also mapped to the radio button group we want to trigger the dynamics.
 * Then we select the action (show/hide) we want to trigger, and which components we want to be affected
@@ -186,4 +188,4 @@ Then we do the same for `sjekkVirksomhetIkkeIDrift`.
 
 Finally, we run a manual test in Altinn Studio to check that everything works as expected. The results are shown in the GIF below. 
 
-{{<figure src="dynamics-example.gif?width=700" title="Test of dynamics example">}}
+{{<figure src="dynamics-test.gif?width=700" title="Test of dynamics example">}}
