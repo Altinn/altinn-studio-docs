@@ -136,3 +136,56 @@ var conditionalRuleHandlerHelper = {
 7. Test that it works by entering values in the defined input fields.
 
 Existing configurations are visible in the logic menu, and can be edited/deleted.
+
+##### Example of using dynamics in a form
+The scenario:
+
+A service uses a form which has multiple input fields. One of these is a radio button group, with Yes/No options. Depending on the end users response (Yes or No), different content should be shown:
+
+- Yes: A new input field should be shown, together with information on what to fill out in the field.
+- No: An information text should be showm.
+
+After creating the form in the GUI editor, the following code is added from the logic menu, under "Rediger dynamikk":
+
+```javascript
+var conditionalRuleHandlerObject = {
+  sjekkVirksomhetIDrift: (obj) => {
+    return (obj.value && obj.value === "Ja");
+  },
+
+  sjekkVirksomhetIkkeIDrift: (obj) => {
+    return (obj.value && obj.value === "Nei");
+  }
+}
+
+var conditionalRuleHandlerHelper = {
+  sjekkVirksomhetIDrift: () => {
+    return {
+      value: "Verdi"
+    }
+  },
+  sjekkVirksomhetIkkeIDrift: () => {
+    return {
+      value: "Verdi"
+    }
+  }
+}
+```
+
+Here, two functions are created to check if the a given value is either "Ja" or "Nei". 
+
+After adding this code, the configuration for using the functions is added. Starting with `sjekkVirksomhetIDrift`:
+
+{{<figure src="dynamics-example-config.png?width=700" title="Test of dynamics example">}}
+
+* First, we add the field that will provide the input.
+  - This is the data model field that is also mapped to the radio button group we want to trigger the dynamics.
+* Then we select the action (show/hide) we want to trigger, and which components we want to be affected
+  - Here, we select *show*. This will hide the components until they are triggered to show.
+  - We add the text components (header and paragraph for information text) and input component that should be _shown_ when the dynamic is triggered.
+
+Then we do the same for `sjekkVirksomhetIkkeIDrift`. 
+
+Finally, we run a manual test in Altinn Studio to check that everything works as expected. The results are shown in the GIF below. 
+
+{{<figure src="dynamics-test.gif?width=700" title="Test of dynamics example">}}
