@@ -64,6 +64,7 @@ When making changes to the react application that affects Runtime, the bundle `r
   ```
 
   This will build the application in dev-mode, enabling redux dev tools.
+  
 * Copy `react-app.js` from the ux-editor `dist` folder into the service repo, replacing the old file
   - The old file is located in the `Resources` folder in the service repo. 
 * Reload the manual testing page and start new/run existing instance from there
