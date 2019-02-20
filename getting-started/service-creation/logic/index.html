@@ -3482,6 +3482,7 @@ if(host != "localhost")
 <ul>
 <li><a href="#add-edit-methods-for-dynamics">Add/edit methods for dynamics</a></li>
 <li><a href="#configuring-dynamics-for-form-components">Configuring dynamics for form components</a></li>
+<li><a href="#example-of-using-dynamics-in-a-form">Example of using dynamics in a form</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -3708,6 +3709,93 @@ b. For conditional rendering, first select the action (hide/show) that will trig
 </ol>
 
 <p>Existing configurations are visible in the logic menu, and can be edited/deleted.</p>
+
+<h5 id="example-of-using-dynamics-in-a-form">Example of using dynamics in a form</h5>
+
+<p>The scenario:</p>
+
+<p>A service uses a form which has multiple input fields. One of these is a radio button group, with Yes/No options. Depending on the end users response (Yes or No), different content should be shown:</p>
+
+<ul>
+<li>Yes: A new input field should be shown, together with information on what to fill out in the field.</li>
+<li>No: An information text should be showm.</li>
+</ul>
+
+<p>After creating the form in the GUI editor, the following code is added from the logic menu, under &ldquo;Rediger dynamikk&rdquo;:</p>
+
+<pre><code class="language-javascript">var conditionalRuleHandlerObject = {
+  sjekkVirksomhetIDrift: (obj) =&gt; {
+    return (obj.value &amp;&amp; obj.value === &quot;Ja&quot;);
+  },
+
+  sjekkVirksomhetIkkeIDrift: (obj) =&gt; {
+    return (obj.value &amp;&amp; obj.value === &quot;Nei&quot;);
+  }
+}
+
+var conditionalRuleHandlerHelper = {
+  sjekkVirksomhetIDrift: () =&gt; {
+    return {
+      value: &quot;Verdi&quot;
+    }
+  },
+  sjekkVirksomhetIkkeIDrift: () =&gt; {
+    return {
+      value: &quot;Verdi&quot;
+    }
+  }
+}
+</code></pre>
+
+<p>Here, two functions are created to check if the a given value is either &ldquo;Ja&rdquo; or &ldquo;Nei&rdquo;.</p>
+
+<p>After adding this code, the configuration for using the functions is added. Starting with <code>sjekkVirksomhetIDrift</code>:</p>
+
+
+<figure>
+    
+        <img src="dynamics-example-config.png?width=700" />
+    
+    
+    <figcaption>
+        <h4>Test of dynamics example</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<ul>
+<li>First, we add the field that will provide the input.
+
+<ul>
+<li>This is the data model field that is also mapped to the radio button group we want to trigger the dynamics.</li>
+</ul></li>
+<li>Then we select the action (show/hide) we want to trigger, and which components we want to be affected
+
+<ul>
+<li>Here, we select <em>show</em>. This will hide the components until they are triggered to show.</li>
+<li>We add the text components (header and paragraph for information text) and input component that should be <em>shown</em> when the dynamic is triggered.</li>
+</ul></li>
+</ul>
+
+<p>Then we do the same for <code>sjekkVirksomhetIkkeIDrift</code>.</p>
+
+<p>Finally, we run a manual test in Altinn Studio to check that everything works as expected. The results are shown in the GIF below.</p>
+
+
+<figure>
+    
+        <img src="dynamics-test.gif?width=700" />
+    
+    
+    <figcaption>
+        <h4>Test of dynamics example</h4>
+        
+    </figcaption>
+    
+</figure>
+
 
 
 <footer class=" footline" >
