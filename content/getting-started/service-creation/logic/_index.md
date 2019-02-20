@@ -5,7 +5,6 @@ tags: ["guide", "logic"]
 weight: 107
 ---
 
-### Logic
 There are three different categories of logic that can be set up for a service:
 - Validations
 - Calculations
@@ -17,21 +16,17 @@ The various files that are used to define logic can be reached by opening the lo
 
 {{<figure src="ui-editor-logic-menu.png?width=300" title="Logic menu">}}
 
-##### Auto-complete/intellisense
+#### Auto-complete/intellisense
 C#-files (which are used in calculations and server-side validations) are set up with support for auto-complete for the data model. This means that suggestions for possible fields in the data model are displayed as you type. 
 
 For javascript-files, a full language intellisense is available, which suggests possibilities defined by the javascript language, and shows any syntax errors with a red underline. Intellisense/autocomplete is automatically shown as you type, and can also be reached by the key combination `CTRL + SPACE`.
 
 {{<figure src="datamodel-intellisense.gif?width=700" title="Logic menu - auto-complete/intellisense">}}
 
-#### Validations
+### Validations
 Validations make sure that the users input is valid with respect to the data model, as well as any custom rules that are set up for the service. Validations can be run _client-side_ (i.e. in the browser) and _server-side_. 
 
-{{%notice info%}}
-NOTE: Currently, the solution is set up to run basic validations against the data model on the _client-side_. It is also possible to implement validations on the server-side, by writing code. Configuration of client-side validations, as well as displaying any validation results from the server-side is functionality that is currently being developed. The documentation will be updated when new functionality is available.
-{{% /notice%}}
-
-##### Client-side validations
+#### Client-side validations
 {{%notice info%}}
 NOTE: Configuration of client-side validations is currently not available. The documentation will be updated when new functionality is available.
 {{% /notice%}}
@@ -46,21 +41,99 @@ These validations are run automatically, and validates the users input against r
 
 In addition, validation on whether the field is required or not is supported, but this is currently not connected to the data model and needs to be set manually for the component via the FormLayout.json file. 
 
-##### Server-side validations
-{{%notice info%}}
-NOTE: Displaying any validation results from the server-side, and configuring when it should be run is functionality that is currently being developed. The documentation will be updated when new functionality is available.
-{{% /notice%}}
+#### Server-side validation
+The validations that are run on the server can be split into two categories:
 
-Server side validations are set up to run when the user submits data. The submitted data is automatically validated against the data model on the server, and if the data is not valid, an error is returned. In addition, it is possible to configure custom validations for the service. This is done by coding the validations in C#, in the file `ValidationHandler.cs`. 
+* Validations against the data model: These are run each time the user saves data. If the data does not validate against the data model, it is not saved. 
+* Custom validations for the service: These are written by the service developer, and are run when the user prepares to submit the service (or continue to the next step of the service). They can also be configured to be triggered when a user leaves a specified field in the form. 
 
-#### Calculations
+##### Adding custom validations 
+Validations are written in C# code, in the file `ValidationHandler.cs`. This file can be accessed and edited via the logic menu, by selecting _Rediger valideringer_. Changes are then made in the `Validate`-method (empty method that is created when the service is created).
+
+Form data can be accessed through the data model. An example of a simple validation that checks that a field _FirstName_ does not contain the vaule _1337_ is shown below:
+
+```csharp
+public void Validate(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
+{   
+    // Validate first name
+    ValidateFirstName(TestModel, modelState);
+}
+
+private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+{
+    // First, make sure that the field exists
+    string firstName = TestModel?.Person?.FirstName;
+
+    // Check if field contains "1337"
+    if (firstName != null && firstName.Contains("1337")) 
+    {
+        // If the field value contains "1337", add an error message using AddModelError-method.
+        // The first argument is the error message key, which should be the data model path (without root node), if possible.
+        // The second argument is the error message, which can be either a text, or a text key.
+        modelState.AddModelError("Person.FirstName", "First name cannot contain 1337.");
+    }
+}
+```
+
+See the comments in the code above for details on what the different parts of the code do. 
+
+##### Single field validations
+
+If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property `TriggerValidation` to `true` in the component definition in FormLayout.json.
+
+It is then up to the service developer to write the code for validations in such a way that only the relevant errors are returned when a trigger field is specified, while all validations are run f.ex. when the user is ready to submit service. An example of such code is shown below.
+
+```csharp
+public void Validate(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
+{
+    // Check if a trigger field is specified on the request context.
+    // If a trigger field is specified, run validations inside if-block and then stop so that only relevant errors are returned.
+    if (requestContext.ValidationTriggerField != null)
+    {
+        // Check which field triggered validation, and run any relevant validations
+        if (triggerField == "Person.FirstName")
+        {
+            ValidateFirstName(TestModel, modelState);
+        }
+
+        // Finish here, do not run any further validations
+        return;
+    }
+    
+    // If no trigger field is specified, run validations for all fields
+    RunAllValidations(TestModel, requestContext, modelState);
+}
+
+private void RunAllValidations(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
+{
+    // All validations for the form
+    ValidateFirstName(TestModel, modelState);
+}
+
+private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+{
+    // Check if field FirstName exists and has value
+    string firstName = TestModel?.Person?.FirstName;
+
+    // Check if the field contains "1337"
+    if (firstName != null && firstName.Contains("1337")) 
+    {
+        // If the field value contains "1337", add an error message using AddModelError-method.
+        // The first argument is the error message key, which should be the data model path (without root node), if possible.
+        // The second argument is the error message, which can be either a text, or a text key.
+        modelState.AddModelError("Person.FirstName", "First name cannot contain 1337.");
+    }
+}
+```
+
+### Calculations
 Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in C# in the file `CalculationHandler.cs`. This file can be edited by clicking _Rediger kalkuleringer_ from the logic menu. 
 
-#### Dynamics
+### Dynamics
 Dynamics are events that happen on the client-side. These can include calculations and rules for conditional rendering (ex. hide/show). The actual conditions/methods that are used need to be coded in javascript, in the file `RuleHandler.js` (see below for more details). This file can be reached through the logic menu, by clicking _Rediger dynamikk_. 
 Once these conditions/methods are coded, they can be configured to be triggered for specific fields in the form.
 
-##### Add/edit methods for dynamics
+#### Add/edit methods for dynamics
 The solution currently supports two types of methods:
 - Rules for calculation/populating values in form fields
 - Conditions for rendering (hide/show) of form fields
@@ -122,7 +195,7 @@ var conditionalRuleHandlerHelper = {
 }
 ```
 
-##### Configuring dynamics for form components 
+#### Configuring dynamics for form components 
 1. Add any form components that are needed. For example, for the method `sum` defined above, 3 input values are required, so 3 form components have to be set up for the input, in addition to 1 field to display the result. 
 2. Open the logic menu and select _Legg til tilkobling_ under _Regler_ (for calculation/population rules) or _Betingede redigeringstilkoblinger_ for conditional rendering.
 3. Select rule from the list of available rules, ex. `sum` from the example above.
@@ -137,7 +210,7 @@ var conditionalRuleHandlerHelper = {
 
 Existing configurations are visible in the logic menu, and can be edited/deleted.
 
-##### Example of using dynamics in a form
+#### Example of using dynamics in a form
 The scenario:
 
 A service uses a form which has multiple input fields. One of these is a radio button group, with Yes/No options. Depending on the end users response (Yes or No), different content should be shown:
