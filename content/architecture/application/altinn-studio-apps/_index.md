@@ -15,6 +15,8 @@ The following diagram shows the application architecture for the Altinn Studio A
 <object data="/architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
+[See fullscreen] or [download as visio]
+
 ### Frontend
 The runtime application will have two different types of frontend.
 * Frontend developed by the service developer in Altinn Studio designer
@@ -133,3 +135,5 @@ with frontend/external systems.
 All logic in the service will typical be related to the datamodel.
 
 
+[download as visio]: /architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.vsdx
+[See fullscreen]: /architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.svg

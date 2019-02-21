@@ -15,6 +15,11 @@ The following diagram shows the application architecture for Altinn Studio solut
 <object data="/architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
+
+[See fullscreen] or [download as visio]
+
+
+
 ## Designer
 
 ### Frontend  designer
@@ -70,6 +75,7 @@ In Altinn Studio mode the runtime instances will be shared between different end
 Based on the logged in service developer and URL parames the correct service implementation will be compiled and loaded in to memory
 for backend. 
 
-
+[download as visio]: /architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.vsdx
+[See fullscreen]: /architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.svg
 
 
