@@ -90,6 +90,7 @@ public void Validate(TestModel TestModel, RequestContext requestContext, ModelSt
     // If a trigger field is specified, run validations inside if-block and then stop so that only relevant errors are returned.
     if (requestContext.ValidationTriggerField != null)
     {
+        string triggerField = requestContext.ValidationTriggerField;
         // Check which field triggered validation, and run any relevant validations
         if (triggerField == "Person.FirstName")
         {
