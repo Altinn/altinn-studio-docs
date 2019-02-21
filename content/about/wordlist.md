@@ -7,11 +7,14 @@ alwaysopen: false
 ---
 
 ### Altinn
-
+Norways E-Governement plattform. Launched december 4. 2003.
 
 ### Altinn Studio
+The web based development tool for end user services. 
+Lets the service developer create Service Apps. 
 
 ### Altinn Studio App
+
 
 ### Api
 
