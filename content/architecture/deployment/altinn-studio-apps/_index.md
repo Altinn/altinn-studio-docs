@@ -16,7 +16,7 @@ The following diagram shows the deployment architecture for Altinn Studio togeth
 <object data="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
-[See fullscreen] or [Download as visio]
+[See fullscreen] or [download as visio]
 
 ### Service Owner Clusters
 In Altinn Studio Apps every service owner will have their seperate Kubernetes Cluster. 
@@ -25,10 +25,11 @@ This is to ensure seperation of services.
 ### Platform Cluster
 The platform cluster in Altinn Studio Apps will host common application like DataServices. 
 
-### Service Deployment
-In Altinn Studio apps the Service Apps are deployed as sets of Docker Containers in Kubernetes Deployment. 
+### Kubernetes Deployment
+In Altinn Studio apps the Service Apps are deployed as sets of Docker Containers defined as Kubernetes Deployment
+in the Kubernetes Cluster for the service owner. 
 Each set of service containers will be scaled based on the usage of the service. This will be configured
-with help of the Kubernetes ScaleSet. It is currently not decided if and how autoscaling will be used.
+with help of the Kubernetes ReplicaSet. It is currently not decided if and how autoscaling will be used.
 
 The service container will consist of the runtime application and service specific code and configuration.
 
@@ -56,5 +57,8 @@ The platform requires API management software to handle SLA ++. Needs Analyzis
 
 
 
-[Download as visio]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.vsdx
+[download as visio]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.vsdx
 [See fullscreen]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg
+[Kubernetes Cluster]: https://kubernetes.io/docs/concepts/
+[Kubernetes Pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
+[Kubernetes ReplicaSet]: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
