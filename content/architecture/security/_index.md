@@ -1,5 +1,5 @@
 ---
-title: Security Architecture
+title: Security
 description: Description of the Altinn Studio security architecture.
 tags: ["architecture", "security"]
 weight: 100
