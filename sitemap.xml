@@ -51,6 +51,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-studio-apps/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/altinnservice-projectfile/</loc>
   </url>
   
@@ -64,10 +68,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/security/authentication/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-studio-apps/</loc>
   </url>
   
   <url>
