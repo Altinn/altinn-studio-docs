@@ -1588,150 +1588,6 @@ if(host != "localhost")
           
         
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/application/altinn-studio/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/application/altinn-studio/">
-        <span>Altinn Studio</span>
-
-        
-        
-
-          
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/application/altinn-studio/react-app/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/application/altinn-studio/react-app/">
-        <span>Front-end</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/application/altinn-studio-apps/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/application/altinn-studio-apps/">
-        <span>Altinn Studio Apps</span>
-
-        
-        
-
-          
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/application/altinn-studio-apps/react-app/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/application/altinn-studio-apps/react-app/">
-        <span>React App</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -3506,7 +3362,7 @@ if(host != "localhost")
 
 
 <p>Altinn Studio Apps is the solution where all the services developed in Altinn Studio is deployed.
-The following diagram shows the deploy architecture for Altinn Studio Apps</p>
+The following diagram shows the deployment architecture for Altinn Studio &amp; Altinn Studio Apps</p>
 
 
 	<p><object data="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
@@ -3515,9 +3371,11 @@ The following diagram shows the deploy architecture for Altinn Studio Apps</p>
 
 <h3 id="service-containers">Service Containers</h3>
 
-<p>In the Altinn Studio Apps  solution each end user service will have a uniqe docker container managed
-by Kubernetes. Each set of service containers will be scaled based on the use of the service.
-The service container will consist of the runtime application and service specific code and configuration.</p>
+<p>In the Altinn Studio Apps solution each service app will have a set of uniqe docker container managed
+by Kubernetes. Each set of service containers will be scaled based on the usage of the service. This will be configured
+with help of the Kubernetes ScaleSet. It is currently not decided if and how autoscaling will be used.</p>
+
+<p>The service container will consist of the runtime application and service specific code and configuration.</p>
 
 <h3 id="routing">Routing</h3>
 
