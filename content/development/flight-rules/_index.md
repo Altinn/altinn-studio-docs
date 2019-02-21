@@ -47,3 +47,25 @@ To solve this issue you need to identify and remove the double line shift is in 
 * Look for error message looking like 'ERROR: 1 is not a valid line offset for pointer'
 * The error should contain info at where the double line shift is
 * Remove the double line shift and update PR
+
+
+### react-app not updating in Runtime when testing locally
+
+When making changes to the react application for Runtime, these changes are not available when testing in Runtime even though the application has been built. 
+This is because Runtime fetches the react-app directly from the service files. The react-app is copied over to the service repo when the service is created, but not after.
+When making changes to the react application that affects Runtime, the bundle `react-app.js` must be manually copied over to the service folder each time it is built, in order to test changes in Runtime. To do this:
+
+* Make any required changes in the ux-edior application
+* Build the ux-editor application
+  - Note that this is not done explicitly when running `gulp-develop` locally. To do this explicitly, navigate to the ux-editor folder and run
+  
+  ```bash
+  npm run build-develop
+  ```
+
+  This will build the application in dev-mode, enabling redux dev tools.
+  
+* Copy `react-app.js` from the ux-editor `dist` folder into the service repo, replacing the old file
+  - The old file is located in the `Resources` folder in the service repo. 
+* Reload the manual testing page and start new/run existing instance from there
+  - You can also copy the file directly into the Runtime copy of the service repo, located at `C:\AltinnRuntime`. This is useful if you already have a runtime instance up and running, then you can just refresh the page. NOTE that if you reload the ManualTesting page after this, all the files in the Runtime copy of the service repo will be overwritten with what's in the local service repo.

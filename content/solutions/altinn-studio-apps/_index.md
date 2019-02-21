@@ -8,6 +8,6 @@ weight: 200
 ---
 
 
-Apps is the runtime solution that is responsible for hosting and running the apps created in Altinn Studio.
+Apps is the runtime and infrastructure solution that is responsible for hosting and running the apps created in Altinn Studio as containers.
 
-It has all required functionality to render GUI, host and call APIs, handle workflow, logic and everthing else related to an app. 
+It has all required functionality to render GUI, host and call APIs, handle workflow, logic, scaling and everthing else related to an app. 
