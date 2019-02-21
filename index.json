@@ -473,7 +473,7 @@
 	"title": "Altinn Studio Apps",
 	"tags": ["solution", "apps"],
 	"description": "The runtime and infrastructure solution for applications developed with Altinn Studio.",
-	"content": "Apps is the runtime solution that is responsible for hosting and running the apps created in Altinn Studio.\nIt has all required functionality to render GUI, host and call APIs, handle workflow, logic and everthing else related to an app.\n"
+	"content": "Apps is the runtime and infrastructure solution that is responsible for hosting and running the apps created in Altinn Studio as containers.\nIt has all required functionality to render GUI, host and call APIs, handle workflow, logic, scaling and everthing else related to an app.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/",
