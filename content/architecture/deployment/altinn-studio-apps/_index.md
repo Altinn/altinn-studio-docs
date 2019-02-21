@@ -16,7 +16,7 @@ The following diagram shows the deployment architecture for Altinn Studio togeth
 <object data="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
-[Download as Visio]("/architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.vsdx")
+[See fullscreen] or [Download as visio]
 
 ### Service Owner Clusters
 In Altinn Studio Apps every service owner will have their seperate Kubernetes Cluster. 
@@ -56,3 +56,5 @@ The platform requires API management software to handle SLA ++. Needs Analyzis
 
 
 
+[Download as visio]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.vsdx
+[See fullscreen]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg
