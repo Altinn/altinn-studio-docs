@@ -10,15 +10,17 @@ NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
 Altinn Studio Apps is the solution where all the services developed in Altinn Studio is deployed.
-The following diagram shows the deploy architecture for Altinn Studio Apps
+The following diagram shows the deployment architecture for Altinn Studio & Altinn Studio Apps
 
 {{%excerpt%}}
 <object data="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 ### Service Containers
-In the Altinn Studio Apps  solution each end user service will have a uniqe docker container managed 
-by Kubernetes. Each set of service containers will be scaled based on the use of the service.
+In the Altinn Studio Apps solution each service app will have a set of uniqe docker container managed 
+by Kubernetes. Each set of service containers will be scaled based on the usage of the service. This will be configured
+with help of the Kubernetes ScaleSet. It is currently not decided if and how autoscaling will be used.
+
 The service container will consist of the runtime application and service specific code and configuration.
 
 ### Routing
