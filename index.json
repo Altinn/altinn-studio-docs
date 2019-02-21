@@ -102,7 +102,21 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Studio Apps\n\rAltinn Studio - Service Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\r\r"
+	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Studio Apps\n\rAltinn Studio - Service Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/authentication/",
+	"title": "Authentication",
+	"tags": ["architecture", "security"],
+	"description": "Description of the Authentication architecture for Altinn Studio and Altinn Studio Apps",
+	"content": "Description of the Altinn Studio Security architecture.\n\rAuthentication - Altinn Studio Apps\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/authentication/altinn-studio-apps/",
+	"title": "Authentication - Altinn Studio Apps",
+	"tags": ["architecture", "security"],
+	"description": "Description of the Authentication architecture for Altinn Studio and Altinn Studio Apps",
+	"content": "Description of the Altinn Studio Security architecture.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/",
@@ -285,6 +299,13 @@
 	"tags": ["development", "handbook", "front-end", "redux"],
 	"description": "Guidelines for using Redux in Altinn Studio",
 	"content": " Redux is used to manage the states of the ux-editor.\nActions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:\nexport interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.\nAn example is asyncronous calls to backend APIs to get data, or submit data.\nEach saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.\n/** * Define the saga for the UPDATE_FORM_DATA event */ function* updateFormDataSaga(action: ActionType) { try { const relevantData = yield selectRelevantStateObjects(...); ... doRelevantLogic(relevantData); ... yield call(updateFormDataSagaFulfilled, ... ); } catch (err) { yield call(updateFormDataSagaRejected, err); } } /** * Define a listener for the UPDATE_FORM_DATA event */ export function* watchUpdateFormDataSaga(): SagaIterator { yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga); }  Reducers Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/",
+	"title": "Security",
+	"tags": ["architecture", "security"],
+	"description": "Description of the Altinn Studio security architecture.",
+	"content": "Description of the Altinn Studio Security architecture.\n\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rAuthentication - Altinn Studio Apps\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/deployment/service-deployment/",
@@ -1143,6 +1164,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/repos/",
 	"title": "repos",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/security/",
+	"title": "security",
 	"tags": [],
 	"description": "",
 	"content": ""
