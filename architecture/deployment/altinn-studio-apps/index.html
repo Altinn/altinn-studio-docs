@@ -3583,14 +3583,30 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#service-owner-clusters">Service Owner Clusters</a></li>
-<li><a href="#platform-cluster">Platform Cluster</a></li>
-<li><a href="#kubernetes-deployment">Kubernetes Deployment</a></li>
+<li><a href="#kubernetes">Kubernetes</a>
+<ul>
+<li><a href="#deployment">Deployment</a></li>
+</ul></li>
+<li><a href="#service-owner-clusters">Service Owner Clusters</a>
+<ul>
+<li><a href="#secrets">Secrets</a></li>
+<li><a href="#kubernetes-namespace">Kubernetes Namespace</a></li>
 <li><a href="#routing">Routing</a></li>
+</ul></li>
 <li><a href="#data-services">Data services</a></li>
+<li><a href="#platform-cluster">Platform Cluster</a>
+<ul>
 <li><a href="#platform-integration">Platform integration</a></li>
+</ul></li>
+<li><a href="#networking">Networking</a>
+<ul>
+<li><a href="#sub-domains">Sub domains</a></li>
+<li><a href="#path-for-the-service">Path for the service</a></li>
+<li><a href="#encrypted-traffic-and-network-policy">Encrypted traffic and network policy</a></li>
+<li><a href="#ingress-load-balancer">Ingress / Load balancer</a></li>
 <li><a href="#api-proxy">API Proxy</a></li>
 <li><a href="#api-management">API Management</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3634,25 +3650,47 @@ The following diagram shows the deployment architecture for Altinn Studio togeth
 
 <p><a href="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg">See fullscreen</a> or <a href="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.vsdx">download as visio</a></p>
 
-<h3 id="service-owner-clusters">Service Owner Clusters</h3>
+<h3 id="kubernetes">Kubernetes</h3>
 
-<p>In Altinn Studio Apps every service owner will have their seperate Kubernetes Cluster.
-This is to ensure seperation of services.</p>
+<p>Each <a href="https://docs.altinn.studio/about/wordlist/">&ldquo;ServiceApp&rdquo;</a> created in Altinn Studio is deployed
+to Altinn Studio Apps as separate applications running in Docker Containers.
+The containers will be orchestrated by Kubernetes.</p>
 
-<h3 id="platform-cluster">Platform Cluster</h3>
+<h4 id="deployment">Deployment</h4>
 
-<p>The platform cluster in Altinn Studio Apps will host common application like DataServices.</p>
+<p>The Altinn Studio Service Apps are deployed as sets of Docker Containers defined as Kubernetes Deployment.
+The deployment will be in the service owners own Kubernetes Cluster.</p>
 
-<h3 id="kubernetes-deployment">Kubernetes Deployment</h3>
+<blockquote>
+<p>All service owners will have their own Kubernetes Cluster.</p>
+</blockquote>
 
-<p>In Altinn Studio apps the Service Apps are deployed as sets of Docker Containers defined as Kubernetes Deployment
-in the Kubernetes Cluster for the service owner.
-Each set of service containers will be scaled based on the usage of the service. This will be configured
-with help of the Kubernetes ReplicaSet. It is currently not decided if and how autoscaling will be used.</p>
+<p>Each set of Kubernetes Deployment will be scaled based on the usage of the service.
+Scaling of the Deployment will be configurable in the Kubernetes Deployment and automatically scaled using
+<a href="https://kubernetes.io/docs/reference/glossary/?all=true#term-replica-set">Kubernetes Replicaset</a>.</p>
+
+<blockquote>
+<p>Kubernetes Clusters and Serviceapps can do horizontal autoscaling.
+It is currently not decided if and how autoscaling will be used.</p>
+</blockquote>
 
 <p>The service container will consist of the runtime application and service specific code and configuration.</p>
 
-<h3 id="routing">Routing</h3>
+<h3 id="service-owner-clusters">Service Owner Clusters</h3>
+
+<p>In Altinn Studio Apps, every service owner will have their separate Kubernetes Cluster in each environment.
+The Kubernetes Cluster architecture will be the same in test and production environment
+This will support scaling tailored each service owners needs and separation of services.</p>
+
+<h4 id="secrets">Secrets</h4>
+
+<p>Pods, where Service Apps are delpoyed, gets access to secrets during deployment via HELM charts.</p>
+
+<h4 id="kubernetes-namespace">Kubernetes Namespace</h4>
+
+<p>It&rsquo;s not planned to use namespaces.</p>
+
+<h4 id="routing">Routing</h4>
 
 <p>To be able to route traffic to the correct container, each container is tagged to a specific
 end user service. The routing mecahnism routes to the correct container based on the url
@@ -3663,19 +3701,47 @@ containing the service parameter.</p>
 <p>The data services application is the application responsible exposing data related functionality
 to the service containers. This container will be scaled based on need.</p>
 
-<h3 id="platform-integration">Platform integration</h3>
+<h3 id="platform-cluster">Platform Cluster</h3>
+
+<p>The platform cluster in Altinn Studio Apps will host common application like DataServices.</p>
+
+<h4 id="platform-integration">Platform integration</h4>
 
 <p>The platform integration is a new application hosted in the existing infrastructure.
 It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication.
 These are services not part of the Altinn Studio Platform (yet) and
 everyone planning to run the Altinn Studio platform would need to implement their own components that support.</p>
 
-<h3 id="api-proxy">API Proxy</h3>
+<h3 id="networking">Networking</h3>
+
+<h4 id="sub-domains">Sub domains</h4>
+
+<p>Each service owner will have their own sub domain.</p>
+
+<blockquote>
+<p>org.apps.altinn.no</p>
+</blockquote>
+
+<h4 id="path-for-the-service">Path for the service</h4>
+
+<blockquote>
+<p>org.apps.altinn.no/servicename</p>
+</blockquote>
+
+<h4 id="encrypted-traffic-and-network-policy">Encrypted traffic and network policy</h4>
+
+<p>There is ongoing analysis related to this topic. <a href="https://github.com/Altinn/altinn-studio/issues/1000">Click here to find more information on Github</a>.</p>
+
+<h4 id="ingress-load-balancer">Ingress / Load balancer</h4>
+
+<p>Traefik will be used as an Ingree / Load balancer.</p>
+
+<h4 id="api-proxy">API Proxy</h4>
 
 <p>API Proxy is needed for controlling credentials and outbound firewall rules from the platform.
 This might be handled by the API Managment software. Needs Analyzis</p>
 
-<h3 id="api-management">API Management</h3>
+<h4 id="api-management">API Management</h4>
 
 <p>The platform requires API management software to handle SLA ++. Needs Analyzis</p>
 
