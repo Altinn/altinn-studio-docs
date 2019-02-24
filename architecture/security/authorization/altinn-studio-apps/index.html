@@ -2083,7 +2083,7 @@ if(host != "localhost")
      
       ">
         <a href="/architecture/security/authorization/altinn-studio-apps/model/">
-        <span>PAP</span> 
+        <span>Authorization model</span> 
         
         </a></li>
      
@@ -3774,13 +3774,15 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#authorization-components">Authorization Components</a>
 <ul>
 <li><a href="#policy-decision-point-pdp">Policy Decision Point (PDP)</a></li>
 <li><a href="#policy-information-point">Policy Information Point</a></li>
 <li><a href="#policy-administration-point">Policy Administration Point</a></li>
 <li><a href="#policy-enforcment-point">Policy Enforcment Point</a></li>
+<li><a href="#context-handler">Context handler</a></li>
 </ul></li>
+<li><a href="#the-authorization-model">The Authorization Model</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -3811,28 +3813,51 @@ if(host != "localhost")
 
 
 
+<p>Altinn Studio Apps authorization arhicecture is based
+on <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a> principles.</p>
+
+<h2 id="authorization-components">Authorization Components</h2>
+
 <p>The authorization architecture for Altinn Studio Apps are based on the
-<a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.
-This architecture defines the following two components.</p>
+<a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
+
+<p>This architecture defines the following components.</p>
 
 <h3 id="policy-decision-point-pdp">Policy Decision Point (PDP)</h3>
 
 <p>The Policy Decision Point is responsible for deciding if the requested operation is allowed.
 PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request</p>
+user or system is allowed to perform the request
+<a href="pdp">Learn about Policy Decision Point in Altinn Studio Apps</a></p>
 
 <h3 id="policy-information-point">Policy Information Point</h3>
 
 <p>The Policy Information Point is used by PDP to gather information needed to perform the decision.</p>
 
+<p><a href="pip">Learn about Policy Information Point in Altinn Studio Apps</a></p>
+
 <h3 id="policy-administration-point">Policy Administration Point</h3>
 
 <p>The policy administration point is where the rules are defined</p>
+
+<p><a href="pap">Learn about Policy Administration Point in Altinn Studio Apps</a></p>
 
 <h3 id="policy-enforcment-point">Policy Enforcment Point</h3>
 
 <p>The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation
 on a resource.</p>
+
+<p><a href="pdp">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
+
+<h3 id="context-handler">Context handler</h3>
+
+<p>The context handler is responsible for converting the resource ID to somthing that</p>
+
+<h2 id="the-authorization-model">The Authorization Model</h2>
+
+<p>The authorization model is flexible.</p>
+
+<p><a href="model">Learn about authorization model in Altinn Studio Apps</a></p>
 
 
 <footer class=" footline" >
