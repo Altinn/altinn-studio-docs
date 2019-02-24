@@ -171,11 +171,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pdp/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pip/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/model/</loc>
   </url>
   
   <url>
@@ -183,7 +179,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pdp/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pep/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pip/</loc>
   </url>
   
   <url>

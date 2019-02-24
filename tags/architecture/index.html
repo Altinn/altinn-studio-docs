@@ -2079,6 +2079,46 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/model/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/model/">
+        <span>PAP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pap/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/pap/">
+        <span>PAP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pdp/" class="dd-item
      
       ">
@@ -2099,51 +2139,31 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pip/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-studio-apps/pip/">
-        <span>PDP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pap/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-studio-apps/pap/">
-        <span>PEP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pep/" class="dd-item
      
       ">
         <a href="/architecture/security/authorization/altinn-studio-apps/pep/">
         <span>PEP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pip/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/pip/">
+        <span>PIP</span> 
         
         </a></li>
      
@@ -3874,11 +3894,11 @@ if(host != "localhost")
     <section class="post-excerpt">
         <p>Description of the Altinn Studio Security architecture.
 Authorization - Altinn Studio AppsDescription of the Authoirzation architecture
-Policy Decision PointDescription of the Authoirzation architecture
-Policy Information PointDescription of Policy Information Point for
+Authorization modelThe authorization model
 Policy Administration PointDescription of Policy Enforcment Point for Altinn Studio Apps
+Policy Decision PointDescription of the Authoirzation architecture
 Policy Enforcment PointDescription of Policy Enforcment Point for Altinn Studio Apps
- <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
+Policy Information PointDescription of Policy Information Point for <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3908,6 +3928,34 @@ if(host != "localhost")
         <p>The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture. This architecture defines the following two components.
 Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if user or system is allowed to perform the request
 Policy Information Point The Policy Information Point is used by PDP to gather information needed to perform the decision. <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio-apps/model/">Authorization model</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
+Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/model/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3997,34 +4045,6 @@ See the projects Github page.
     <section class="post-excerpt">
         <p>The rules for services is defined in Altinn Studio when the service developer is creating the service.
 Delegation of rights is performed in Altinn II platform. <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/pap/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio-apps/pdp/">Policy Decision Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>In Altinn Studio Apps the Policy Decision Point is implemented as a service in the dataservice application
-The rules is defined as XACML files <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/pdp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5133,6 +5153,22 @@ The rules is defined as XACML files <a class="read-more" href="/architecture/sec
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
