@@ -6,7 +6,6 @@ weight: 100
 linktitle: Authorization model
 alwaysopen: false
 ---
-
 The authorization model in Altinn Studio Apps is flexible and supports different needs. 
 
 ## Rights
@@ -26,7 +25,7 @@ This desribe which resource the rule applies for. Altinn Studio Apps currently s
 - Reportee
 - InstanceId
 
-Some of the resourcetypes is meant to be used in combination. As a exemple you can have been given the right for a service for a given reportee
+Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for a service for a given reportee
 
 ### Subject
 The subject in a authorization rule identifies who the rules applies for. In Altinn Studio the resource can be the following.
