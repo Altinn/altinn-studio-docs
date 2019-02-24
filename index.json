@@ -91,6 +91,13 @@
 	"content": "Description of the Altinn Studio Security architecture.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/",
+	"title": "Authorization - Altinn Studio Apps",
+	"tags": ["architecture", "security"],
+	"description": "Description of the Authoirzation architecture",
+	"content": " The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture. This architecture defines the following two components.\nPolicy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if user or system is allowed to perform the request\nPolicy Information Point The Policy Information Point is used by PDP to gather information needed to perform the decision.\nPolicy Administration Point The policy administration point is where the rules are defined\nPolicy Enforcment Point The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation on a resource.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio-repos/structure/altinnservice-projectfile/",
 	"title": "AltinnService.csproj",
 	"tags": ["tjenester 3.0", "projectfile", "csproj"],
@@ -109,7 +116,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Studio Apps\n\rAltinn Studio - Service Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\r\r"
+	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Studio Apps\n\rAltinn Studio - Service Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authoirzation architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authentication/",
@@ -117,6 +124,13 @@
 	"tags": ["architecture", "security"],
 	"description": "Description of the Authentication architecture for Altinn Studio and Altinn Studio Apps",
 	"content": "Description of the Altinn Studio Security architecture.\n\rAuthentication - Altinn Studio Apps\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/authorization/",
+	"title": "Authorization",
+	"tags": ["architecture", "security"],
+	"description": "Description of the Authoirzation architecture",
+	"content": "Description of the Altinn Studio Security architecture.\n\rAuthorization - Altinn Studio Apps\r\rDescription of the Authoirzation architecture\n\r\rPolicy Decision Point\r\rDescription of the Authoirzation architecture\n\rPolicy Information Point\r\rDescription of Policy Information Point for\n\rPolicy Administration Point\r\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\rPolicy Enforcment Point\r\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/",
@@ -280,6 +294,34 @@
 	"content": " C# The Altinn project will use Microsoft’s coding conventions as a general guideline when no other guidelines are given.\nExceptions/additions to the general guideline:\nImplicit typing (var) should only be used when a variable is initialized with an anonymous type, which is a common scenario in LINQ query expressions. In general implicit typing makes the code more difficult to read and understand,and should be avoided. Altinn specific coding guidelines:\nMethods should not be more than 50 lines long When dealing with XML you should prefer XDocument to XmlDocument (especially in new methods) If/for/while/using and other structures should normally not be more than 2-3 levels deep All disposeable objects (proxies, DbCommand and so on) should be disposed by using a using block. Altinn specific naming guidelines:\nNames for classes, methods and variables should be describing, but not too long WCF-Artifact Naming TUL Naming Standard Namespace \u0026amp; Solution Structure\nReact TODO\nRedux Actions TODO\nSagas TODO\nReducers TODO\n"
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pdp/",
+	"title": "Policy Decision Point",
+	"tags": ["architecture", "security"],
+	"description": "Description of the Authoirzation architecture",
+	"content": "In Altinn Studio Apps the Policy Decision Point is implemented as a service in the dataservice application\nThe rules is defined as XACML files\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pip/",
+	"title": "Policy Information Point",
+	"tags": ["architecture", "security"],
+	"description": "Description of Policy Information Point for",
+	"content": "For Altinn Studio Apps there is different type of policy information needed\n The rules defined by a service developer for a resoruce The rules defined by end user for a resource The roles a user have for a given resource owner. (reportee)  When a service app is deployed to a Altinn Studio Apps environment, the rules defined for that service is put in to the database together with other metadata for the service.\nThe rules for the latest deployed service to a environment is the ones that decides the rules for all instances. For Altinn Studio Apps the Rules information is retreieved from PIP in DataService Application.\nThe roles a user or system has for a reportee is retrieved directly from Authorization component in Altinn II\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pap/",
+	"title": "Policy Administration Point",
+	"tags": ["architecture", "security"],
+	"description": "Description of Policy Enforcment Point for Altinn Studio Apps",
+	"content": "The rules for services is defined in Altinn Studio when the service developer is creating the service.\nDelegation of rights is performed in Altinn II platform.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pep/",
+	"title": "Policy Enforcment Point",
+	"tags": ["architecture", "security"],
+	"description": "Description of Policy Enforcment Point for Altinn Studio Apps",
+	"content": " There will be some different Policy Enforcment Points in Altinn Studio Apps\nPEP in Service App PEP in DataServices "
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/front-end/react/",
 	"title": "React",
 	"tags": ["development", "handbook", "front-end", "react"],
@@ -305,7 +347,7 @@
 	"title": "Security",
 	"tags": ["architecture", "security"],
 	"description": "Description of the Altinn Studio security architecture.",
-	"content": "Description of the Altinn Studio Security architecture.\n\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rAuthentication - Altinn Studio Apps\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\r"
+	"content": "Description of the Altinn Studio Security architecture.\n\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rAuthentication - Altinn Studio Apps\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rAuthorization\r\rDescription of the Authoirzation architecture\n\r\rAuthorization - Altinn Studio Apps\r\rDescription of the Authoirzation architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/deployment/service-deployment/",
