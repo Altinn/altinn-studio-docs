@@ -3,7 +3,7 @@ title: Authorization model
 description: The authorization model 
 tags: ["architecture", "security"]
 weight: 100
-linktitle: PAP
+linktitle: Authorization model
 alwaysopen: false
 ---
 
