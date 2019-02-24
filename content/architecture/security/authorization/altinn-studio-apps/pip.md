@@ -3,7 +3,7 @@ title: Policy Information Point
 description: Description of Policy Information Point for 
 tags: ["architecture", "security"]
 weight: 100
-linktitle: PDP
+linktitle: PIP
 alwaysopen: false
 ---
 

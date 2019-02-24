@@ -3,7 +3,7 @@ title: Policy Administration Point
 description: Description of Policy Enforcment Point for Altinn Studio Apps
 tags: ["architecture", "security"]
 weight: 100
-linktitle: PEP
+linktitle: PAP
 alwaysopen: false
 ---
 
