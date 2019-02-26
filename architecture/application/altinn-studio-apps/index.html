@@ -1723,6 +1723,26 @@ if(host != "localhost")
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/application/altinn-studio-apps/serviceevents/" class="dd-item
+     
+      ">
+        <a href="/architecture/application/altinn-studio-apps/serviceevents/">
+        <span>Service Events</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -3769,7 +3789,7 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#service-app">Service App</a>
 <ul>
 <li><a href="#frontend">Frontend</a>
 <ul>
@@ -3781,14 +3801,11 @@ if(host != "localhost")
 <li><a href="#altinn-studio-mode">Altinn Studio Mode</a></li>
 <li><a href="#end-user-mode">End User Mode</a></li>
 <li><a href="#service-implementation">Service Implementation.</a></li>
-<li><a href="#events">Events</a>
+</ul></li>
+</ul></li>
+<li><a href="#dataservices">DataServices</a></li>
+<li><a href="#authorization">Authorization</a>
 <ul>
-<li><a href="#instansiation">Instansiation</a></li>
-<li><a href="#load-form-data-get">Load form data (GET)</a></li>
-</ul></li>
-<li><a href="#storing-of-form-data-post">Storing of form data (POST)</a></li>
-<li><a href="#update-form-data-put">Update form data (PUT)</a></li>
-</ul></li>
 <li><a href="#datamodel">Datamodel</a></li>
 </ul></li>
 </ul></li>
@@ -3831,6 +3848,12 @@ if(host != "localhost")
 
 
 <p><a href="/architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.svg">See fullscreen</a> or <a href="/architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.vsdx">download as visio</a></p>
+
+<h2 id="service-app">Service App</h2>
+
+<p>The Service App consist of plattform code (AltinnCore.Runtime) and Service Code and logic.</p>
+
+<p>AltinnCore.Runtime is a .Net Core MVC application</p>
 
 <h3 id="frontend">Frontend</h3>
 
@@ -3892,71 +3915,19 @@ with the service implementation.</p>
 
 <p>The service implementation contains all backend code for logic and rules.</p>
 
-<h4 id="events">Events</h4>
+<h2 id="dataservices">DataServices</h2>
 
-<p>The runtime has a defined event model that can be used by the service developer
-to controll when logic in the service implementation will run.</p>
+<p>The data service application exposes API to the Service Apps for data related functionality like
+save, update and get instance data.</p>
 
-<p>These events are mapped to functional events triggered by end users or systems.</p>
+<h2 id="authorization">Authorization</h2>
 
-<h5 id="instansiation">Instansiation</h5>
+<p>The authorization application contains functionality for Policy Information Point and Policy
+Decission Point. This is used from service apps and other platform services like dataservices that need
+to authorize access.</p>
 
-<p>Instansiation is when the end user or system instansiates a new service instance.
-Events connected to instansiation can contain logic that can prefill the datamodell
-or validate if the user or system is allowed to instansiate that service.</p>
-
-
-	<p><object data="/architecture/application/runtime/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
-
-
-
-<h5 id="load-form-data-get">Load form data (GET)</h5>
-
-<p>Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
-the latest updated form data.</p>
-
-<p>The following events will be performed</p>
-
-
-	<p><object data="/architecture/application/runtime/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
-
-
-
-<h4 id="storing-of-form-data-post">Storing of form data (POST)</h4>
-
-<p>Update of form data can happen when frontend (REACT app) sends data to backend
-or a end user system does the same. When an update happend there is defined serveral
-events that is performed in a given ordern. The service developer can implement
-logic related to this event that could perform calculation, validation, API calls and much more.</p>
-
-<p>The API for updating form data support different modes</p>
-
-<ul>
-<li>Create - Data should be stored as a new form instance</li>
-<li>Complete - Data is complete and the service should move ahead in the workflow</li>
-<li>Calculate - Logic in the calculation event should be performed and the updated form data should be returned</li>
-<li>Validate - Calculation will be performend and then validation logic is runned and any validation errors is returned.</li>
-<li>Update - Calculation is runned before data is stored in to the database.</li>
-</ul>
-
-<p>The order of events are</p>
-
-
-	<p><object data="/architecture/application/runtime/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
-
-
-
-<h4 id="update-form-data-put">Update form data (PUT)</h4>
-
-<p>Update of form data happens when the frontend or external end user systems/applications
-want to update a existing form connected to a service instance</p>
-
-<p>The following events happens:</p>
-
-
-	<p><object data="/architecture/application/runtime/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object></p>
-
-
+<p>The authorization application will be a .Net Core ASP.NET MVC application that
+exposes functionality through REST-API</p>
 
 <h3 id="datamodel">Datamodel</h3>
 
@@ -4883,6 +4854,22 @@ with frontend/external systems.</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 

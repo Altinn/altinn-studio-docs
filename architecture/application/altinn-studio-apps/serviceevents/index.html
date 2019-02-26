@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Development handbook for Altinn Studio">
+    <meta name="description" content="Description of service events">
 
 
     
-    <title>Handbook :: Altinn Studio</title>
+    <title>Service events :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/development/handbook/">
+  <body class="" data-url="/architecture/application/altinn-studio-apps/serviceevents/">
     <nav id="sidebar" class="">
 
 
@@ -1524,7 +1524,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1535,7 +1535,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1560,7 +1560,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1571,7 +1571,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1668,7 +1668,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/altinn-studio-apps/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1679,7 +1679,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1731,7 +1731,7 @@ if(host != "localhost")
   
     
       <li data-nav-id="/architecture/application/altinn-studio-apps/serviceevents/" class="dd-item
-     
+     active
       ">
         <a href="/architecture/application/altinn-studio-apps/serviceevents/">
         <span>Service Events</span> 
@@ -2261,7 +2261,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -2272,7 +2272,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -2452,8 +2452,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/development/handbook/">
@@ -2463,7 +2463,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -3741,7 +3741,7 @@ if(host != "localhost")
               
               
             <div id="top-github-link">
-              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/development/handbook/_index.md" target="blank">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/application/altinn-studio-apps/serviceEvents.md" target="blank">
                 <i class="fa fa-code-fork"></i>
                 Edit page
               </a>
@@ -3756,6 +3756,8 @@ if(host != "localhost")
                   </a>
                 </span>
                 
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
                 <span class="links">
                   
                   
@@ -3766,7 +3768,17 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/development/'>Development</a> > Handbook
+
+
+
+
+
+
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/application/'>Application</a> > <a href='/architecture/application/altinn-studio-apps/'>Altinn Studio Apps</a> > Service Events
+
+ 
+
+ 
 
  
 
@@ -3776,596 +3788,120 @@ if(host != "localhost")
                 </span>
             </div>
             
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#service-events">Service Events</a>
+<ul>
+<li><a href="#instansiation">Instansiation</a></li>
+<li><a href="#load-form-data-get">Load form data (GET)</a></li>
+</ul></li>
+<li><a href="#storing-of-form-data-post">Storing of form data (POST)</a></li>
+<li><a href="#update-form-data-put">Update form data (PUT)</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
+            
           </div>
         
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/handbook">handbook</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/tjenester-3.0">tjenester 3.0</a>
             
           </div>
         
         <div id="body-inner">
           
             
-              <h1>Handbook</h1>
+              <h1>Service events</h1>
             
           
 
 
 
 
-<div class="notices warning" ><p>WARNING: The development handbook is currently being written, and is as such not complete or final.</p>
+
+
+<div class="notices warning" ><p>NOTE: Work in progress. Stuff will change</p>
 </div>
 
 
-<p>The development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.</p>
+<h4 id="service-events">Service Events</h4>
 
-<p>The development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.</p>
+<p>The runtime has a defined event model that can be used by the service developer
+to controll when logic in the service implementation will run.</p>
 
+<p>These events are mapped to functional events triggered by end users or systems.</p>
 
+<h5 id="instansiation">Instansiation</h5>
 
-
-
-
-
-
-
-
-
+<p>Instansiation is when the end user or system instansiates a new service instance.
+Events connected to instansiation can contain logic that can prefill the datamodell
+or validate if the user or system is allowed to instansiate that service.</p>
 
 
-<ul class="children children-li">
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/back-end/" >Back-end</a>
-</li>
+	<p><object data="/architecture/application/altinn-studio-apps/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
 
 
 
+<h5 id="load-form-data-get">Load form data (GET)</h5>
+
+<p>Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
+the latest updated form data.</p>
+
+<p>The following events will be performed</p>
+
+
+	<p><object data="/architecture/application/altinn-studio-apps/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
 
 
 
-			
-				
-<p>Coding guidelines for back-end</p>
-				
-			
-		
+<h4 id="storing-of-form-data-post">Storing of form data (POST)</h4>
 
-		
-			
+<p>Update of form data can happen when frontend (REACT app) sends data to backend
+or a end user system does the same. When an update happend there is defined serveral
+events that is performed in a given ordern. The service developer can implement
+logic related to this event that could perform calculation, validation, API calls and much more.</p>
+
+<p>The API for updating form data support different modes</p>
 
 <ul>
-
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/back-end/error-handling/" >Error handling and Error logging</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Guidelines for error handling and error logging in backend</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
-
+<li>Create - Data should be stored as a new form instance</li>
+<li>Complete - Data is complete and the service should move ahead in the workflow</li>
+<li>Calculate - Logic in the calculation event should be performed and the updated form data should be returned</li>
+<li>Validate - Calculation will be performend and then validation logic is runned and any validation errors is returned.</li>
+<li>Update - Calculation is runned before data is stored in to the database.</li>
 </ul>
 
-			
+<p>The order of events are</p>
 
-		
-	
-		
-  
 
+	<p><object data="/architecture/application/altinn-studio-apps/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
 
-<li>
-<a href="/development/handbook/deployment/" >Deployment</a>
-</li>
 
 
+<h4 id="update-form-data-put">Update form data (PUT)</h4>
 
+<p>Update of form data happens when the frontend or external end user systems/applications
+want to update a existing form connected to a service instance</p>
 
+<p>The following events happens:</p>
 
 
-			
-				
-<p>Guidelines for deploying</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-    
-
-	
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/front-end/" >Front-end</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Coding guidelines for front-end</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/front-end/error-handling/" >Error handling</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Guidelines for error handling front-end</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/front-end/react/" >React</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Guidelines for using React in Altinn Studio</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/front-end/redux/" >Redux</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Guidelines for using Redux in Altinn Studio</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/general/" >General</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>General coding guidelines</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-    
-
-	
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/getting-started/" >Getting started</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Information about how to get started</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-    
-
-	
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/git/" >Git</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Information about version control with Git</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-    
-
-	
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/naming/" >Naming Conventions</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Naming guidelines for Altinn Studio development</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-    
-
-	
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/test/" >Test</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Coding guidelines for tests</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/test/test-strategy/" >Test Strategy</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Test Strategy</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/test/testcafe/" >Testcafe</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Testcafe</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/test/unit-testing/" >Unit testing</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>How to write jest test in altinn studio, what we know so far</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/development/handbook/test/xunit-testing/" >Xunit Testing</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Xunit Testing</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-
-	
-</ul>
-
-
+	<p><object data="/architecture/application/altinn-studio-apps/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object></p>
 
 
 
@@ -4373,8 +3909,6 @@ if(host != "localhost")
 <footer class=" footline" >
 	
 </footer>
-
-
 
 
 
@@ -5197,6 +4731,7 @@ if(host != "localhost")
             
                 
                     
+                    
                 
                 
 
@@ -5211,6 +4746,7 @@ if(host != "localhost")
             
             
                 
+                    
                     
                 
                 
@@ -5226,6 +4762,9 @@ if(host != "localhost")
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5261,6 +4800,7 @@ if(host != "localhost")
             
                 
                     
+                    
                 
                 
 
@@ -5275,6 +4815,9 @@ if(host != "localhost")
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5291,6 +4834,7 @@ if(host != "localhost")
             
             
                 
+                    
                     
                 
                 
@@ -5314,6 +4858,9 @@ if(host != "localhost")
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -5581,7 +5128,6 @@ if(host != "localhost")
             
                 
                     
-                    
                 
                 
 
@@ -5596,9 +5142,6 @@ if(host != "localhost")
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5681,7 +5224,6 @@ if(host != "localhost")
             
             
                 
-                    
                     
                 
                 
@@ -5697,9 +5239,6 @@ if(host != "localhost")
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -6375,10 +5914,10 @@ if(host != "localhost")
 
 
         
-            <a class="nav nav-prev" href="/development/flight-rules/" title="Flight Rules"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/application/altinn-studio-apps/react-app/" title="Tjenester 3.0 - Runtime - Arkitektur"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/development/handbook/back-end/" title="Back-end" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/build/" title="Build process" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -6405,3 +5944,4 @@ if(host != "localhost")
 
   </body>
 </html>
+
