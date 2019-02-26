@@ -3971,9 +3971,9 @@ Navigation/administration of the different applications is done from top-level a
 The following diagram shows the application architecture for the Altinn Studio Apps solution.
 
 See fullscreen or download as visio
-Service App The Service App consist of plattform code (AltinnCore.Runtime) and Service Code and logic.
-AltinnCore.Runtime is a .Net Core MVC application
-Frontend The runtime application will have two different types of frontend. * Frontend developed by the service developer in Altinn Studio designer * Frontend that is part of the plattform and cant be changed by the service developer <a class="read-more" href="/architecture/application/altinn-studio-apps/">&raquo;</a></p>
+Service App The Service App consist of plattform code (AltinnCore.Runtime) and
+This is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
+Front-end Service App The Service App have two different types of front.end. * Front-end configured by the service developer in Altinn Studio ui-designer * Front-end that is part of the plattform and can&rsquo;t be changed by the service developer <a class="read-more" href="/architecture/application/altinn-studio-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
