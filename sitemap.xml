@@ -27,10 +27,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-studio/</loc>
   </url>
   
@@ -336,6 +332,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/analysis/api/agency/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/</loc>
   </url>
   
   <url>
