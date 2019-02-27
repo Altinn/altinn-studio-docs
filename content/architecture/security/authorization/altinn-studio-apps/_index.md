@@ -46,4 +46,13 @@ The authorization model is flexible.
 
 [Learn about authorization model in Altinn Studio Apps](model)
 
+## The Overall Authorization flow
+The sequence diagram below show how request are authorized
 
+{{%excerpt%}}
+<object data="/architecture/security/authorization/altinn-studio-apps/AuthorizationFlow.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
+
+1. A system or user request a action to a resource
+2. The configured Policy Enforcment Point for the API/View triggers to evaulaute 
