@@ -7,10 +7,15 @@ linktitle: PDP
 alwaysopen: false
 ---
 
-
-
 The Policy Decision Point is implemented in the authorization application that is deployed in the 
 Platform Cluster in Altinn Studio Apps. 
+
+
+Policy Decision Point exposes a method that autorize works as follwing
+
+Input will be instanceId or dataId 
+
+
 
 
 

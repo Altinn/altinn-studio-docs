@@ -55,4 +55,4 @@ The sequence diagram below show how request are authorized
 
 
 1. A system or user request a action to a resource
-2. The configured Policy Enforcment Point for the API/View triggers to evaulaute 
+2. The configured Policy Enforcment Point for the API/View triggers to verify if the access 
