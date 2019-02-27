@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="">
+    <meta name="description" content="Description of the API in Altinn Studio">
 
 
     
-    <title>data-modeling :: Altinn Studio</title>
+    <title>API Catalogue :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/tags/data-modeling/">
+  <body class="" data-url="/architecture/application/altinn-studio/api/">
     <nav id="sidebar" class="">
 
 
@@ -1524,7 +1524,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1535,7 +1535,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1560,7 +1560,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1571,7 +1571,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1596,7 +1596,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/altinn-studio/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1607,7 +1607,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1632,7 +1632,7 @@ if(host != "localhost")
   
     
       <li data-nav-id="/architecture/application/altinn-studio/api/" class="dd-item
-     
+     active
       ">
         <a href="/architecture/application/altinn-studio/api/">
         <span>API Catalogue</span> 
@@ -3757,6 +3757,17 @@ if(host != "localhost")
         
           <div id="top-bar">
             
+              
+              
+              
+            <div id="top-github-link">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/application/altinn-studio/api.md" target="blank">
+                <i class="fa fa-code-fork"></i>
+                Edit page
+              </a>
+            </div>
+              
+            
 
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span">
@@ -3765,88 +3776,167 @@ if(host != "localhost")
                   </a>
                 </span>
                 
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
                 <span class="links">
-                  
-                    <a href="/tags/">Tags</a> >
                   
                   
 
- data-modeling
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/application/'>Application</a> > <a href='/architecture/application/altinn-studio/'>Altinn Studio</a> > API Catalogue
+
+ 
+
+ 
+
+ 
+
+ 
 
 
                 </span>
             </div>
             
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#designer-api">Designer API</a>
+<ul>
+<li><a href="#codelist">CodeList</a>
+<ul>
+<li><a href="#codelists">CodeLists</a></li>
+<li><a href="#delete">Delete</a></li>
+<li><a href="#edit">Edit</a></li>
+</ul></li>
+<li><a href="#config">Config</a>
+<ul>
+<li><a href="#saveconfig">SaveConfig</a></li>
+<li><a href="#getconfig">GetConfig</a></li>
+<li><a href="#getserviceconfig">GetServiceConfig</a></li>
+<li><a href="#setserviceconfig">SetServiceConfig</a></li>
+</ul></li>
+<li><a href="#datasource">DataSource</a></li>
+<li><a href="#deploy">Deploy</a>
+<ul>
+<li><a href="#start-deployment">Start deployment</a></li>
+<li><a href="#fetchdeploymentstatus">FetchDeploymentStatus</a></li>
+</ul></li>
+<li><a href="#model">Model</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
+            
           </div>
         
+        
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/tjenester-3.0">tjenester 3.0</a>
+            
+          </div>
         
         <div id="body-inner">
           
             
-              <h1>Tag: data-modeling</h1>
+              <h1>API Catalogue</h1>
             
           
 
 
 
 
+
+
+<div class="notices warning" ><p>NOTE: Work in progress. Stuff will change</p>
+</div>
+
+
+<p>The Altinn Studio Designer and Altinn Studio Repository exposes API.</p>
+
+<h2 id="designer-api">Designer API</h2>
+
+<p>The designer API is implemented as Controllers in the MVC</p>
+
+<h3 id="codelist">CodeList</h3>
+
+<p>This exposes functionality related to code lists</p>
+
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Controllers/CodelistController.cs">code</a></p>
+
+<p>Methods:</p>
+
+<h4 id="codelists">CodeLists</h4>
+
+<p>Returns a list over codelist in a service</p>
+
+<h4 id="delete">Delete</h4>
+
+<p>Deletes a given codelist</p>
+
+<h4 id="edit">Edit</h4>
+
+<p>Saves the codelist</p>
+
+<h3 id="config">Config</h3>
+
+<p>This exposes functionality related to config</p>
+
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Controllers/ConfigController.cs">code</a></p>
+
+<h4 id="saveconfig">SaveConfig</h4>
+
+<p>Saves configuration
+TODO: Need to verify use and c</p>
+
+<h4 id="getconfig">GetConfig</h4>
+
+<h4 id="getserviceconfig">GetServiceConfig</h4>
+
+<h4 id="setserviceconfig">SetServiceConfig</h4>
+
+<h3 id="datasource">DataSource</h3>
+
+<p>TODO: Should be deleted</p>
+
+<h3 id="deploy">Deploy</h3>
+
+<p>Api responsible for deployment functionality
+See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Controllers/DeployController.cs">code</a></p>
+
+<h4 id="start-deployment">Start deployment</h4>
+
+<p>Starts a new deployment</p>
+
+<h4 id="fetchdeploymentstatus">FetchDeploymentStatus</h4>
+
+<p>Returns deployment status</p>
+
+<h3 id="model">Model</h3>
+
+<p>API responsible for data model</p>
 
 
 <footer class=" footline" >
 	
 </footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio/functional/data-modeling/">Data modeling</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The data model for a service typical defines the format of the data either sent to the service owner or presented in the service for the user. The data model is important for a consistent and formal definition of the data. It will be used for validation both from GUI and for external systems.
-Altinn Studio will support both importing existing data model as XSD or creating a datamodell. In MVP only import is in scope. <a class="read-more" href="/solutions/altinn-studio/functional/data-modeling/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/studio/">studio</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/data-modeling/">data-modeling</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
 
 
 
@@ -4669,6 +4759,7 @@ Altinn Studio will support both importing existing data model as XSD or creating
             
                 
                     
+                    
                 
                 
 
@@ -4683,6 +4774,7 @@ Altinn Studio will support both importing existing data model as XSD or creating
             
             
                 
+                    
                     
                 
                 
@@ -4699,6 +4791,7 @@ Altinn Studio will support both importing existing data model as XSD or creating
             
                 
                     
+                    
                 
                 
 
@@ -4713,6 +4806,7 @@ Altinn Studio will support both importing existing data model as XSD or creating
             
             
                 
+                    
                     
                 
                 
@@ -4730,6 +4824,9 @@ Altinn Studio will support both importing existing data model as XSD or creating
             
                 
                     
+                        
+                        
+                    
                 
                 
 
@@ -5854,9 +5951,11 @@ Altinn Studio will support both importing existing data model as XSD or creating
         
 
 
+        
+            <a class="nav nav-prev" href="/architecture/application/altinn-studio/" title="Application Architecture Altinn Studio"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/getting-started/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/application/altinn-studio/react-app/" title="Application Architecture Altinn Studio - Front-end" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -5883,3 +5982,4 @@ Altinn Studio will support both importing existing data model as XSD or creating
 
   </body>
 </html>
+
