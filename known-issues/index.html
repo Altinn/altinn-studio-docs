@@ -3776,8 +3776,6 @@ if(host != "localhost")
                   </a>
                 </span>
                 
-                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
-                
                 <span class="links">
                   
                   
@@ -3792,22 +3790,6 @@ if(host != "localhost")
 
                 </span>
             </div>
-            
-              <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#major-issues">Major issues</a></li>
-<li><a href="#minor-issues-worth-mentioning">Minor issues worth mentioning</a></li>
-<li><a href="#full-list-of-known-bugs">Full list of known bugs</a></li>
-</ul></li>
-</ul>
-</nav>
-    </div>
-</div>
-    
             
           </div>
         
@@ -3828,33 +3810,21 @@ if(host != "localhost")
 
 
 
+<div id="knownIssuesContent"></div>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  let content = document.getElementById('knownIssuesContent');
+  if (content.innerHTML === '') {
+    content.innerHTML = 'Loading from github...';
+  }  
+   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/KNOWNISSUES.md`)
+    .then((res) => {
+      const doc = new DOMParser().parseFromString(res.data, "text/html");
 
-<p>Altinn.studio has now reached the first MVP milestone, and service developers (especially for pilot projects) are welcome to start using the solution to create services that should be released.</p>
-
-<p>There are some known errors and weaknesses in the solution.</p>
-
-<h2 id="major-issues">Major issues</h2>
-
-<ul>
-<li>The solution is not yet optimized for users using keyboard navigation and/or are visually impared</li>
-<li>The container functionality in the UI editor should be considered experimental. It can be used, but will be percieved as buggy</li>
-<li>Drag-and-drop functionality in the UI editor is sometimes unpredictable, especially in cases where the container functionality is used</li>
-<li>There are currently two menues for navigating the solution, and the functionality you need are spread between them</li>
-<li>All services (repositories) from the MTP period (before January 21 2019) have been deleted, as there were breaking changes to service functionality</li>
-</ul>
-
-<h2 id="minor-issues-worth-mentioning">Minor issues worth mentioning</h2>
-
-<ul>
-<li>The visual difference between the different components in the UI-editor is smaller than ideal</li>
-<li>You are able to edit (a local copy of) a service you don&rsquo;t have writing privileges to. You are, however, not able to publish those changes</li>
-<li>Some parts of the Altinn Studio UI will reload while navigating, which may cause blinking and/or text string IDs being shown temporarily</li>
-</ul>
-
-<h2 id="full-list-of-known-bugs">Full list of known bugs</h2>
-
-<p>All bugs are registered in <a href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Abug">the Altinn studio Github issues list</a>. From this page you can also add new bugs to the issue list if you find any.</p>
+      content.innerHTML = doc.getElementById('readme').innerHTML;
+      });
+</script>
 
 
 <footer class=" footline" >
