@@ -10,7 +10,7 @@ weight: 100
 
 ## Summary
 
-Styling in React is done per component using a combination of Material-UI compatible JSS.
+Styling in React is done per component using a combination of Material-UI and compatible JSS.
 
 > Components shall not be styled with CSS classes in .CSS files.
 
@@ -80,7 +80,7 @@ export default AltinnPopper;
 
 #### Exception
 
-There will be examples where "Styled Components" is hard to configure using some of Material-UI's components where "Props" with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.
+There will be examples where "Styled Components" are hard to configure using some of Material-UI's components where "Props" with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.
 
 *Styled object example*
 
@@ -136,4 +136,4 @@ export default withStyles(styles)(AltinnSearchInput);
 
 ### Contained Components
 
-Contained components is React components which is not shared in other parts of the React application. It's encouraged to consider the styling order above.
+Contained components are React components which are not shared in other parts of the React application. It's encouraged to consider the styling order above.
