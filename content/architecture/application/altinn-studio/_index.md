@@ -18,8 +18,6 @@ The following diagram shows the application architecture for Altinn Studio solut
 
 [See fullscreen] or [download as visio]
 
-
-
 ## Designer
 
 ### Frontend  designer
