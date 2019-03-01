@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Guidelines for error handling and error logging in backend">
+    <meta name="description" content="">
 
 
     
-    <title>Error handling and Error logging :: Altinn Studio</title>
+    <title> :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/development/handbook/back-end/error-handling/">
+  <body class="" data-url="/development/handbook/front-end/styling/">
     <nav id="sidebar" class="">
 
 
@@ -2508,7 +2508,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/back-end/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -2519,7 +2519,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -2544,8 +2544,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/back-end/error-handling/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/development/handbook/back-end/error-handling/">
@@ -2607,7 +2607,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/front-end/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2618,7 +2618,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -2724,8 +2724,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/front-end/styling/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/development/handbook/front-end/styling/">
@@ -3788,7 +3788,7 @@ if(host != "localhost")
               
               
             <div id="top-github-link">
-              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/development/handbook/back-end/error-handling/_index.md" target="blank">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/development/handbook/front-end/styling/_index.md" target="blank">
                 <i class="fa fa-code-fork"></i>
                 Edit page
               </a>
@@ -3821,7 +3821,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/development/'>Development</a> > <a href='/development/handbook/'>Handbook</a> > <a href='/development/handbook/back-end/'>Back-end</a> > Error handling and Error logging
+ <a href='/'>Altinn Studio</a> > <a href='/development/'>Development</a> > <a href='/development/handbook/'>Handbook</a> > <a href='/development/handbook/front-end/'>Front-end</a> > 
 
  
 
@@ -3841,20 +3841,22 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#summary">Summary</a>
+<ul>
+<li><a href="#proposed-order-of-styling-methods">Proposed order of styling methods</a></li>
+<li><a href="#shared-components">Shared Components</a>
 <ul>
 <li>
 <ul>
-<li><a href="#exception-handling">Exception Handling</a></li>
-</ul></li>
-<li><a href="#api">API</a></li>
-<li><a href="#web-services">Web Services</a>
+<li>
 <ul>
-<li><a href="#logging">Logging</a></li>
+<li><a href="#shared-components-should-utilize-styled-components-https-material-ui-com-guides-interoperability-styled-components-which-can-write-props-directly-in-the-css-styling">Shared components should utilize &ldquo;<a href="https://material-ui.com/guides/interoperability/#styled-components">Styled Components</a>&rdquo; which can write Props directly in the CSS styling.</a></li>
+<li><a href="#the-alternative-way-is-handling-styling-via-props-is-leveraging-inline-styling-combined-with-material-ui-s-jss-when-using-inline-styling-the-component-s-styling-will-be-configured-in-two-different-places">The alternative way is handling styling via props is leveraging &ldquo;inline styling&rdquo; combined with Material-UI&rsquo;s JSS. When using inline styling, the component&rsquo;s styling will be configured in two different places.</a></li>
 </ul></li>
-<li><a href="#what-to-log">What to log?</a></li>
-<li><a href="#where-do-we-log">Where do we log?</a></li>
-<li><a href="#third-party-logging-frameworks">Third Party Logging Frameworks</a></li>
+</ul></li>
+<li><a href="#exception">Exception</a></li>
+</ul></li>
+<li><a href="#contained-components">Contained Components</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3866,24 +3868,10 @@ if(host != "localhost")
           </div>
         
         
-          <div id="tags">
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/handbook">handbook</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/back-end">back-end</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/error-handling">error-handling</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/error-logging">error-logging</a>
-            
-          </div>
-        
         <div id="body-inner">
           
             
-              <h1>Error handling and Error logging</h1>
+              <h1></h1>
             
           
 
@@ -3892,75 +3880,145 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" ><p>This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors.</p>
-</div>
+<p>title: Styling (css)</p>
 
+<p>description: Guidelines for styling components in Altinn Studio</p>
 
-<h4 id="exception-handling">Exception Handling</h4>
+<p>tags: [&ldquo;development&rdquo;, &ldquo;handbook&rdquo;, &ldquo;front-end&rdquo;, &ldquo;css&rdquo;, &ldquo;material-ui&rdquo;, &ldquo;styled components&rdquo;, &ldquo;jss&rdquo;, &ldquo;css-in-js&rdquo;]</p>
 
-<p>.Net core provides a default middleware &ldquo;UseExceptionHandler&rdquo; that will catch exceptions and log them. You can read more about it <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2">here</a>.
-In addition to the default exception middleware, a custom exception middleware can be added to customize the error handling to suit application needs. Custom exception middleware will be implemented once we have a functional understanding of how users should experience errors.</p>
+<p>weight: 100</p>
 
-<h3 id="api">API</h3>
+<hr />
 
-<p>Exception in API is handled by sending response message to users. The response messages are sent based on</p>
+<h2 id="summary">Summary</h2>
 
-<ul>
-<li>Request validation</li>
-<li>Input validation</li>
-<li>Exceptions that is thrown due to bug in code</li>
-</ul>
+<p>Styling in React is done per component using a combination of Material-UI and compatible JSS.</p>
 
-<p>The repsonse messages usually are returned with a status code. It is recommended to start with the basic status codes below</p>
+<blockquote>
+<p>Components shall not be styled with CSS classes in .CSS files.</p>
+</blockquote>
 
-<ul>
-<li>200 - Ok (Success)</li>
-<li>400 - Bad request (input validation, request validation (basically problems at client side))</li>
-<li>401 - Unauthorized</li>
-<li>403 - Forbidden</li>
-<li>404 - Not found</li>
-<li>500 - Internal server error (other type of server errors)
-By limiting the usage of status codes, we could also ease the handling of different status codes at client side.</li>
-</ul>
+<p>Different component types should use different styling methods, or a combination.</p>
 
-<h3 id="web-services">Web Services</h3>
+<h3 id="proposed-order-of-styling-methods">Proposed order of styling methods</h3>
 
-<p>The exceptions rising from internal web services will bubble up and will be handled in API that requested the service.</p>
-
-<h4 id="logging">Logging</h4>
-
-<p>.Net core provides a standard logging framework that can be used to log exceptions or events to a desired logging provider (console, eventlog, azure app service, application insights). You can read more about logging in asp.net core from <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2">here</a>.</p>
-
-<h3 id="what-to-log">What to log?</h3>
-
-<p>Context is very important to any warning message or error that is logged. Without context, it can be difficult to relate applicaiton failures to logs. So it is important to include the following details in the log</p>
+<p>The following order is proposed when considering styling methods:</p>
 
 <ul>
-<li>Where in the code did the application fail?</li>
-<li>Who was using the system when it failed?</li>
-<li>What was the system doing when it failed?</li>
-<li>Specify a log level that can be used to filter logs when needed</li>
+<li><a href="https://material-ui.com/guides/interoperability/#styled-components">Styled Components</a> (Accepts props, logic, theming)</li>
+<li><a href="https://material-ui.com/customization/css-in-js/">Material-UI&rsquo;s JSS</a> (Accepts theming)</li>
+<li><a href="https://reactjs.org/docs/dom-elements.html#style">Inline Styling, the React way</a> (Accepts props, logic, theming. Not directly compatible with Material-UI)</li>
 </ul>
 
-<h3 id="where-do-we-log">Where do we log?</h3>
+<h3 id="shared-components">Shared Components</h3>
 
-<p>The idea is to send the logs to the console and collect them using Application Insights (Note: Application Insights involves data limitation and costs vary based on needs).
-It is also possible to log to different log providers by configuring it in the config file. F.ex It is possible log only error and warning message to appinsights and information logs to console.</p>
+<h6 id="shared-components-should-utilize-styled-components-https-material-ui-com-guides-interoperability-styled-components-which-can-write-props-directly-in-the-css-styling">Shared components should utilize &ldquo;<a href="https://material-ui.com/guides/interoperability/#styled-components">Styled Components</a>&rdquo; which can write Props directly in the CSS styling.</h6>
 
-<h3 id="third-party-logging-frameworks">Third Party Logging Frameworks</h3>
+<h6 id="the-alternative-way-is-handling-styling-via-props-is-leveraging-inline-styling-combined-with-material-ui-s-jss-when-using-inline-styling-the-component-s-styling-will-be-configured-in-two-different-places">The alternative way is handling styling via props is leveraging &ldquo;inline styling&rdquo; combined with Material-UI&rsquo;s JSS. When using inline styling, the component&rsquo;s styling will be configured in two different places.</h6>
 
-<p>There are a bunch of third party logging frameworks available for .net core. Serilog is one of them and Altinn studio will use it to log.
-There are many advantages of using serilog</p>
+<p><em>Inline style example</em></p>
 
-<ul>
-<li>It&rsquo;s open source</li>
-<li>Allows logging to many sinks like slack, azure, etc.</li>
-<li>It has support for logging to files (Microsfot basic logging doesn&rsquo;t have support for logging in file at this point)</li>
-<li>It allows to define a custom message template for logging.</li>
-<li>Provides prebuilt enrichers through nuget. These add more value and information to the log events. This can be used to filter events in Application Insights.</li>
-</ul>
+<pre><code class="language-tsx">&lt;FormControl
+  fullWidth={true}
+  style={{
+    width: this.props.width ? this.props.width : null,
+  }}
+&gt;
+</code></pre>
 
-<p>Read more on <a href="https://github.com/serilog/serilog">serilog</a></p>
+<p><em>Styled Components example</em></p>
+
+<pre><code class="language-tsx">const theme = createMuiTheme(altinnTheme);
+
+const StyledPopper = styled(({ ...otherProps }) =&gt; (
+  &lt;Popper {...otherProps} /&gt;
+))`
+    color: ${theme.altinnPalette.primary.black};
+    background: ${theme.altinnPalette.primary.redLight};
+    border-radius: 0;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+    font-size: 16px;
+    padding: 24px;
+    max-width: 550px;
+    margin-top: 10px;
+    z-index: ${(props) =&gt; props.zIndex || 1}
+`;
+
+class AltinnPopper extends React.Component&lt;IAltinnPopperComponentProvidedProps, IAltinnPopperComponentState&gt; {
+  public render() {
+    const open = Boolean(this.props.anchorEl);
+    return (
+      &lt;StyledPopper
+        open={open}
+        anchorEl={this.props.anchorEl}
+        placement={'bottom-start'}
+      &gt;
+        {this.props.message}
+      &lt;/StyledPopper&gt;
+    );
+  }
+}
+
+export default AltinnPopper;
+</code></pre>
+
+<h4 id="exception">Exception</h4>
+
+<p>There will be examples where &ldquo;Styled Components&rdquo; are hard to configure using some of Material-UI&rsquo;s components where &ldquo;Props&rdquo; with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.</p>
+
+<p><em>Styled object example</em></p>
+
+<pre><code class="language-tsx">const styles = {
+  searchBoxInput: {
+    fontSize: '16px',
+    color: '#000000',
+    padding: '6px',
+  },
+  searchBoxIcon: {
+    color: '#000000',
+    fontSize: '30px',
+    marginRight: '10px',
+  },
+};
+</code></pre>
+
+<p><em>React component, with Styled Component AND &lsquo;classes.searchBoxInput&rsquo; from Styled Object example above.</em></p>
+
+<pre><code class="language-tsx">class AltinnSearchInput extends React.Component&lt;IAltinnSearchInputComponentProvidedProps, IAltinnSearchInputComponentState&gt; {
+  public render() {
+    const { classes } = this.props;
+    return (
+      &lt;StyledFormControl
+        id='StyledForm'
+        fullWidth={true}
+      &gt;
+        &lt;TextField
+          id={this.props.id}
+          placeholder={this.props.placeholder}
+          onChange={this.props.onChangeFunction}
+          InputProps={{
+            disableUnderline: true,
+            startAdornment:
+              &lt;InputAdornment
+                position={'end'}
+                classes={{ root: classNames(classes.searchBoxIcon) }}
+              &gt;
+                &lt;i className={'ai ai-search'} /&gt;
+              &lt;/InputAdornment&gt;,
+              classes: { root: classNames(classes.searchBoxInput) },
+          }}
+        /&gt;
+      &lt;/StyledFormControl&gt;
+    );
+  }
+}
+
+export default withStyles(styles)(AltinnSearchInput);
+</code></pre>
+
+<h3 id="contained-components">Contained Components</h3>
+
+<p>Contained components are React components which are not shared in other parts of the React application. It&rsquo;s encouraged to consider the styling order above.</p>
 
 
 <footer class=" footline" >
@@ -5307,60 +5365,8 @@ There are many advantages of using serilog</p>
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 
@@ -5388,19 +5394,6 @@ There are many advantages of using serilog</p>
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -5425,24 +5418,24 @@ There are many advantages of using serilog</p>
             
                 
                     
+                    
                 
                 
 
                     
                     
+                        
+                    
                     
 
-                    
-            
-        
-                    
-            
-        
                     
                         
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5492,6 +5485,7 @@ There are many advantages of using serilog</p>
             
                 
                     
+                    
                 
                 
 
@@ -5503,25 +5497,16 @@ There are many advantages of using serilog</p>
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
-                
-                
-
-                    
-                    
                         
-                    
-                    
-
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -5582,6 +5567,85 @@ There are many advantages of using serilog</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -5621,22 +5685,6 @@ There are many advantages of using serilog</p>
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -5856,6 +5904,22 @@ There are many advantages of using serilog</p>
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -6002,10 +6066,10 @@ There are many advantages of using serilog</p>
 
 
         
-            <a class="nav nav-prev" href="/development/handbook/back-end/" title="Back-end"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/development/handbook/front-end/redux/" title="Redux"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/development/handbook/deployment/" title="Deployment" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/development/handbook/general/" title="General" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
