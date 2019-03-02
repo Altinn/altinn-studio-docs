@@ -2212,6 +2212,26 @@ if(host != "localhost")
 
             
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/prp/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/prp/">
+        <span>PRP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -3929,7 +3949,38 @@ PEP in Service App PEP in DataServices The Policy Enforcment Point in DataServic
     </header>
     <section class="post-excerpt">
         <p>For Altinn Studio Apps there is different type of policy information needed
- The rules defined by a service developer for a resoruce The rules defined by end user for a resource The roles a user have for a given resource owner. (reportee)  When a service app is deployed to a Altinn Studio Apps environment, the rules defined for that service is put in to the database together with other metadata for the service. <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/pip/">&raquo;</a></p>
+ The rules defined by end user for a resource The roles a user have for a given resource owner. (reportee)  The roles a user or system has for a reportee is retrieved directly from Authorization component in Altinn II <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/pip/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio-apps/prp/">Policy Retrieval Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.
+During deployment of a app the rules for the app is added to the Altinn Studio Apps database.
+The rules are defined as XACML 3.0 Policy document.
+The Policy Document consist of one or many rules. Each rule has the following part
+Resource The resource section defines the app resource the rule - org - The owner of the app - app - The app id - task - The task identifer for the <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/prp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5130,6 +5181,22 @@ The diagram below shows where the different functionality i located in the diffe
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

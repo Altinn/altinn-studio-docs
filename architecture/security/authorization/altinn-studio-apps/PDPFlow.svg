@@ -22,9 +22,9 @@
 		.st8 {font-size:1em}
 		.st9 {fill:#fee599;stroke:#c8c8c8;stroke-width:0.25}
 		.st10 {fill:#ff0000;stroke:#c8c8c8;stroke-width:0.25}
-		.st11 {fill:#ffffff;stroke:none;stroke-linecap:butt}
-		.st12 {fill:#00b050;stroke:#c8c8c8;stroke-width:0.25}
-		.st13 {fill:#ffd965;stroke:#c8c8c8;stroke-width:0.25}
+		.st11 {fill:#00b050;stroke:#c8c8c8;stroke-width:0.25}
+		.st12 {fill:#ffd965;stroke:#c8c8c8;stroke-width:0.25}
+		.st13 {fill:#ffffff;stroke:none;stroke-linecap:butt}
 		.st14 {fill:#fec000;stroke:#c8c8c8;stroke-width:0.25}
 		.st15 {fill:#c55a11;stroke:#c8c8c8;stroke-width:0.25}
 		.st16 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
@@ -333,7 +333,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="7.08661" cy="788.386" width="40" height="17.6036"/>
 			<path d="M7.09 749.41 L7.09 820.32" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="1.7215" y="783.586" width="10.7303" height="9.59985" class="st11"/>
+			<rect v:rectContext="textBkgnd" x="1.7215" y="783.586" width="10.7303" height="9.59985" class="st7"/>
 			<text x="1.72" y="790.79" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>yes</text>		</g>
 		<g id="shape47-133" v:mID="47" v:groupContext="shape" v:layerMember="0" transform="translate(583.882,-90.1372)">
 			<title>Terminator.47</title>
@@ -405,7 +405,7 @@
 							 0 14.17 749.41 Z" class="st2"/>
 			</g>
 			<path d="M14.17 749.41 L56.69 749.41 A14.1732 14.1732 -180 0 0 56.69 721.06 L14.17 721.06 A14.1732 14.1732 -180 1 0 14.17
-						 749.41 Z" class="st12"/>
+						 749.41 Z" class="st11"/>
 			<text x="6.86" y="728.04" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Authorized = true<v:lf/><tspan
 						x="2.32" dy="1.2em" class="st8">RequiredAuthnLevel</tspan><tspan x="30.68" dy="1.2em" class="st8">= ?</tspan></text>		</g>
 		<g id="shape51-160" v:mID="51" v:groupContext="shape" v:layerMember="0" transform="translate(817.74,-203.523)">
@@ -427,7 +427,7 @@
 							 0 14.17 749.41 Z" class="st2"/>
 			</g>
 			<path d="M14.17 749.41 L56.69 749.41 A14.1732 14.1732 -180 0 0 56.69 721.06 L14.17 721.06 A14.1732 14.1732 -180 1 0 14.17
-						 749.41 Z" class="st12"/>
+						 749.41 Z" class="st11"/>
 			<text x="6.86" y="728.04" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Authorized = true<v:lf/><tspan
 						x="2.32" dy="1.2em" class="st8">RequiredAuthnLevel</tspan><tspan x="30.68" dy="1.2em" class="st8">= ?</tspan></text>		</g>
 		<g id="shape52-168" v:mID="52" v:groupContext="shape" v:layerMember="1" transform="translate(443.53,-522.421)">
@@ -576,7 +576,7 @@
 					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
 				<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st2"/>
 			</g>
-			<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st13"/>
+			<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st12"/>
 			<text x="7.62" y="725.75" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>18. Get Reportee <tspan
 						x="16.36" dy="1.2em" class="st8">Adress type</tspan></text>		</g>
 		<g id="shape62-227" v:mID="62" v:groupContext="shape" v:layerMember="1" transform="translate(272.071,-437.381)">
@@ -698,7 +698,7 @@
 							 0 14.17 749.41 Z" class="st2"/>
 			</g>
 			<path d="M14.17 749.41 L56.69 749.41 A14.1732 14.1732 -180 0 0 56.69 721.06 L14.17 721.06 A14.1732 14.1732 -180 1 0 14.17
-						 749.41 Z" class="st12"/>
+						 749.41 Z" class="st11"/>
 			<text x="6.86" y="728.04" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Authorized = true<v:lf/><tspan
 						x="2.32" dy="1.2em" class="st8">RequiredAuthnLevel </tspan><tspan x="30.68" dy="1.2em" class="st8">= ?</tspan></text>		</g>
 		<g id="shape72-287" v:mID="72" v:groupContext="shape" v:layerMember="1" transform="translate(243.724,-111.397)">
@@ -762,7 +762,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="28.3465" cy="756.496" width="40" height="17.6036"/>
 			<path d="M0 749.41 L28.35 749.41 L28.35 784.89" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="22.9813" y="751.697" width="10.7303" height="9.59985" class="st7"/>
+			<rect v:rectContext="textBkgnd" x="22.9813" y="751.697" width="10.7303" height="9.59985" class="st13"/>
 			<text x="22.98" y="758.9" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>yes</text>		</g>
 		<g id="shape76-315" v:mID="76" v:groupContext="shape" v:layerMember="0" transform="translate(683.094,-203.523)">
 			<title>Terminator.78</title>
@@ -805,7 +805,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-7.08661" cy="788.386" width="40" height="17.6036"/>
 			<path d="M-7.09 749.41 L-7.09 820.32" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="-11.778" y="783.586" width="9.38287" height="9.59985" class="st7"/>
+			<rect v:rectContext="textBkgnd" x="-11.778" y="783.586" width="9.38287" height="9.59985" class="st13"/>
 			<text x="-11.78" y="790.79" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>No</text>		</g>
 		<g id="shape79-335" v:mID="79" v:groupContext="shape" v:layerMember="1" transform="translate(583.882,-182.263)">
 			<title>Dynamic connector.79</title>
@@ -816,7 +816,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-63.7795" cy="742.323" width="40" height="17.6036"/>
 			<path d="M0 742.32 L-120.52 742.32" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="-69.2833" y="737.523" width="11.0078" height="9.59985" class="st7"/>
+			<rect v:rectContext="textBkgnd" x="-69.2833" y="737.523" width="11.0078" height="9.59985" class="st13"/>
 			<text x="-69.28" y="744.72" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape83-342" v:mID="83" v:groupContext="shape" v:layerMember="1" transform="translate(973.646,-260.216)">
 			<title>Dynamic connector.83</title>
@@ -985,7 +985,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-148.819" cy="749.41" width="40" height="17.6036"/>
 			<path d="M0 749.41 L-162.99 749.41 L-162.99 877.02" class="st5"/>
-			<rect v:rectContext="textBkgnd" x="-154.323" y="744.61" width="11.0078" height="9.59985" class="st11"/>
+			<rect v:rectContext="textBkgnd" x="-154.323" y="744.61" width="11.0078" height="9.59985" class="st7"/>
 			<text x="-154.32" y="751.81" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Yes</text>		</g>
 		<g id="shape109-422" v:mID="109" v:groupContext="shape" v:layerMember="1" transform="translate(471.876,-741.539)">
 			<title>Dynamic connector.109</title>
@@ -1060,7 +1060,7 @@
 						x="7.72" dy="1.2em" class="st8">Altinn II platform</tspan></text>		</g>
 		<g id="shape113-451" v:mID="113" v:groupContext="shape" v:layerMember="0" transform="translate(2.7794,-596.83)">
 			<title>Process.113</title>
-			<desc>Involves PIP in Altinn Studio Apps</desc>
+			<desc>Involves PRP in Altinn Studio Apps</desc>
 			<v:custProps>
 				<v:cp v:nameU="Cost" v:lbl="Cost" v:type="7" v:format="@" v:langID="1033"/>
 				<v:cp v:nameU="Duration" v:lbl="Duration" v:type="2" v:langID="1033"/>
@@ -1076,7 +1076,7 @@
 				<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st2"/>
 			</g>
 			<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st15"/>
-			<text x="12.16" y="725.75" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Involves PIP in <tspan
+			<text x="11" y="725.75" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Involves PRP in <tspan
 						x="5.44" dy="1.2em" class="st8">Altinn Studio Apps</tspan></text>		</g>
 		<g id="shape115-458" v:mID="115" v:groupContext="shape" v:layerMember="0" transform="translate(2.7794,-494.074)">
 			<title>Process.115</title>
@@ -1095,7 +1095,7 @@
 					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
 				<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st2"/>
 			</g>
-			<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st13"/>
+			<rect x="0" y="706.89" width="70.8661" height="42.5197" class="st12"/>
 			<text x="4.05" y="725.75" class="st4" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Involves Register in <tspan
 						x="7.72" dy="1.2em" class="st8">Altinn II platform</tspan></text>		</g>
 	</g>
