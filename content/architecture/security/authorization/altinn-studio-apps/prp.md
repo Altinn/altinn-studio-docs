@@ -7,22 +7,32 @@ linktitle: PRP
 alwaysopen: false
 ---
 
-For Altinn Studio Apps there is different type of policy information needed
+The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve 
+the rules defined for a app resource.
 
-- The rules defined by a service developer for a resoruce
-- The rules defined by end user for a resource
-- The roles a user have for a given resource owner. (reportee)
+During deployment of a app the rules for the app is added to the Altinn Studio Apps 
+database.
 
-When a service app is deployed to a Altinn Studio Apps environment, the rules defined for that service
-is put in to the database together with other metadata for the service.
+The rules are defined as XACML 3.0 Policy document. 
 
-The rules for the latest deployed service to a environment is the ones that decides the 
-rules for all instances. For Altinn Studio Apps the Rules information is retreieved from 
-PIP in DataService Application.
+The Policy Document consist of one or many rules. 
+Each rule has the following part
 
-The roles a user or system has for a reportee is retrieved directly from Authorization component
-in Altinn II 
+## Resource
+The resource section defines the app resource the rule
+ - org - The owner of the app
+ - app - The app id
+ - task - The task identifer for the
 
+## Subject
+This identifies who the rules applies for. For rules defined in Altinn Studio
+this is persons with a given role in Altinn. Later this can be expanded. 
+
+## Action
+The action defines the action that the rules allow for.
+This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE 
+
+[See example policy file](AuthoirzationRulesSample.xml)
 
 
 

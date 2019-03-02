@@ -38,6 +38,9 @@ on a resource.
 
 [Learn about Policy Enforcment Point in Altinn Studio Apps](pdp)
 
+### Policy Retrival Point
+The policy retrieval point is where 
+
 ### Context handler
 The context handler is responsible for converting the resource ID to somthing that 
 
