@@ -44,6 +44,14 @@ The policy retrieval point is where
 ### Context handler
 The context handler is responsible for converting the resource ID to somthing that 
 
+
+The diagram below show the solution architecture where the different authorization functionality is located.
+
+{{%excerpt%}}
+<object data="/architecture/solution/altinn-studio-apps/AltinnStudioApps_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
+
 ## The Authorization Model
 The authorization model is flexible.
 

@@ -36,7 +36,7 @@ this is persons with a given role in Altinn. Later this can be expanded.
 The action defines the action that the rules allow for.
 This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE 
 
-[See example policy file](AuthoirzationRulesSample.xml)
+[See example policy file](/architecture/security/authorization/altinn-studio-apps/AuthoirzationRulesSample.xml)
 
 
 ## XACML Request
