@@ -11,12 +11,22 @@ Norways E-Governement plattform. Launched december 4. 2003.
 
 ### Altinn Studio
 The web based development tool for end user services. 
-Lets the service developer create Service Apps. 
+Lets the service developer create services that are deployed like a seperate application (app). 
 
-### Altinn Studio App
+### Altinn Studio Apps
+Altinn Studio Apps is the solution where the developed apps is deployed.
+It consist of organization clusters and platform cluster with platform functionality like 
+dataservice, authorization ++. See Altinn Studio Apps [application architecture](/architecture/application/altinn-studio-apps/) or [deployment architecture]().
 
+### Altinn Studio Apps environment
+A Altinn Studio Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created
+in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment
 
 ### Api
+
+### App
+A end user service created in Altinn Studio is a seperate application (app). 
+The app is deployed to a Altinn Studio Apps environment.
 
 ### dot.net 
 
@@ -33,6 +43,21 @@ Lets the service developer create Service Apps.
 
 ### Kubernetes ReplicaSet
 
+### PAP
+Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+
+### PDP 
+Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+
+### PEP
+Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+
+### PIP
+Policy Information Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+
+### PRP
+Policy Retrieval Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+
 ### Service App
 The Service App is the application created in Altinn Studio by the service
 developer. It consist of platform code (AltinnCore Runtime) and code and 
@@ -43,3 +68,12 @@ See Application architecture for details.
 
 
 ### Workflow
+
+
+### XACML
+XACML stands for "eXtensible Access Control Markup Language". The standard defines a 
+declarative fine-grained, attribute-based access control policy language,[2] an architecture, 
+and a processing model describing how to evaluate access requests according to the rules defined in policies.
+
+Altinn Studio Apps uses the XACML standard for defining Policies for apps, the authorization architecture, 
+and the request and response between PEP and PDP.
