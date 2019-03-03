@@ -1911,7 +1911,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/deployment/service-deployment/">
-        <span>Service Deployment</span>
+        <span>App Deployment</span>
 
         
         
@@ -2224,6 +2224,26 @@ if(host != "localhost")
       ">
         <a href="/architecture/security/authorization/altinn-studio-apps/prp/">
         <span>PRP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/xacml/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/xacml/">
+        <span>XACML</span> 
         
         </a></li>
      
@@ -3924,13 +3944,13 @@ SaveConfig Saves configuration TODO: Need to verify use and c <a class="read-mor
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/deployment/altinn-studio/">Altinn Studio - Deployment Architecture</a></h2>
+        <h2 class="post-title"><a href="/architecture/deployment/service-deployment/">Altinn Studio - App Deployment</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
-The Altinn Studio Service Development solution is deployed to a Kubernetes Cluster. The diagram below show the different applications that is part this.
-
-Repository GITEA is used as Repository in Altinn Studio Service Development solution. There is one instance of GITEA running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/architecture/deployment/altinn-studio/">&raquo;</a></p>
+When a service developer need to deploy a app (service) to Altinn Studio Apps solution test/production environement there is created a Docker Image with the configured version of AltinnCore.Runtime and the compiled service code and configuration inside the container.
+This container is added to the Docker Registry.
+From Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users. <a class="read-more" href="/architecture/deployment/service-deployment/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -3952,13 +3972,13 @@ Repository GITEA is used as Repository in Altinn Studio Service Development solu
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/deployment/service-deployment/">Altinn Studio - Service Deployment</a></h2>
+        <h2 class="post-title"><a href="/architecture/deployment/altinn-studio/">Altinn Studio - Deployment Architecture</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
-When a service developer need to deploy a service to Altinn Studio Runtime solution test/production environement there is created a Docker Image with the configured version of Altinn Studio Runtime and the compiled service code and configuration inside the container.
-This container is added to the Docker Registry.
-From Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users. <a class="read-more" href="/architecture/deployment/service-deployment/">&raquo;</a></p>
+The Altinn Studio Service Development solution is deployed to a Kubernetes Cluster. The diagram below show the different applications that is part this.
+
+Repository GITEA is used as Repository in Altinn Studio Service Development solution. There is one instance of GITEA running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/architecture/deployment/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5303,6 +5323,22 @@ Format &lsquo;FormLayout.json&rsquo; er oppdelt i tre objekter:
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

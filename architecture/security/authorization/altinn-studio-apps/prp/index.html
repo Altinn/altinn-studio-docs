@@ -1911,7 +1911,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/deployment/service-deployment/">
-        <span>Service Deployment</span>
+        <span>App Deployment</span>
 
         
         
@@ -2224,6 +2224,26 @@ if(host != "localhost")
       ">
         <a href="/architecture/security/authorization/altinn-studio-apps/prp/">
         <span>PRP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/xacml/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/xacml/">
+        <span>XACML</span> 
         
         </a></li>
      
@@ -3850,8 +3870,6 @@ if(host != "localhost")
                   </a>
                 </span>
                 
-                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
-                
                 <span class="links">
                   
                   
@@ -3887,22 +3905,6 @@ if(host != "localhost")
                 </span>
             </div>
             
-              <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#resource">Resource</a></li>
-<li><a href="#subject">Subject</a></li>
-<li><a href="#action">Action</a></li>
-</ul></li>
-</ul>
-</nav>
-    </div>
-</div>
-    
-            
           </div>
         
         
@@ -3924,8 +3926,6 @@ if(host != "localhost")
 
 
 
-
-
 <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve
 the rules defined for a app resource.</p>
 
@@ -3934,27 +3934,7 @@ database.</p>
 
 <p>The rules are defined as XACML 3.0 Policy document.</p>
 
-<p>The Policy Document consist of one or many rules.
-Each rule has the following part</p>
-
-<h2 id="resource">Resource</h2>
-
-<p>The resource section defines the app resource the rule
- - org - The owner of the app
- - app - The app id
- - task - The task identifer for the</p>
-
-<h2 id="subject">Subject</h2>
-
-<p>This identifies who the rules applies for. For rules defined in Altinn Studio
-this is persons with a given role in Altinn. Later this can be expanded.</p>
-
-<h2 id="action">Action</h2>
-
-<p>The action defines the action that the rules allow for.
-This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE</p>
-
-<p><a href="AuthoirzationRulesSample.xml">See example policy file</a></p>
+<p>See <a href="xacml">XACML</a> for detailed description of Policy format</p>
 
 
 <footer class=" footline" >
@@ -5179,6 +5159,25 @@ This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE</p>
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -5192,9 +5191,6 @@ This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -6036,7 +6032,7 @@ This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE</p>
             <a class="nav nav-prev" href="/architecture/security/authorization/altinn-studio-apps/pip/" title="Policy Information Point"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/architecture/solution/" title="Solution Architecture" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/security/authorization/altinn-studio-apps/xacml/" title="XACML - Altinn Studio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

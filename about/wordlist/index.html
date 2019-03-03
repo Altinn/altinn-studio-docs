@@ -1911,7 +1911,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/deployment/service-deployment/">
-        <span>Service Deployment</span>
+        <span>App Deployment</span>
 
         
         
@@ -2224,6 +2224,26 @@ if(host != "localhost")
       ">
         <a href="/architecture/security/authorization/altinn-studio-apps/prp/">
         <span>PRP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/xacml/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/xacml/">
+        <span>XACML</span> 
         
         </a></li>
      
@@ -3882,8 +3902,10 @@ if(host != "localhost")
 <ul>
 <li><a href="#altinn">Altinn</a></li>
 <li><a href="#altinn-studio">Altinn Studio</a></li>
-<li><a href="#altinn-studio-app">Altinn Studio App</a></li>
+<li><a href="#altinn-studio-apps">Altinn Studio Apps</a></li>
+<li><a href="#altinn-studio-apps-environment">Altinn Studio Apps environment</a></li>
 <li><a href="#api">Api</a></li>
+<li><a href="#app">App</a></li>
 <li><a href="#dot-net">dot.net</a></li>
 <li><a href="#kubernetes">Kubernetes</a></li>
 <li><a href="#react">React</a></li>
@@ -3891,9 +3913,15 @@ if(host != "localhost")
 <li><a href="#kubernetes-pod">Kubernetes POD</a></li>
 <li><a href="#kubernetes-deployment">Kubernetes Deployment</a></li>
 <li><a href="#kubernetes-replicaset">Kubernetes ReplicaSet</a></li>
+<li><a href="#pap">PAP</a></li>
+<li><a href="#pdp">PDP</a></li>
+<li><a href="#pep">PEP</a></li>
+<li><a href="#pip">PIP</a></li>
+<li><a href="#prp">PRP</a></li>
 <li><a href="#service-app">Service App</a></li>
 <li><a href="#service-developer">Service Developer</a></li>
 <li><a href="#workflow">Workflow</a></li>
+<li><a href="#xacml">XACML</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -3930,11 +3958,25 @@ if(host != "localhost")
 <h3 id="altinn-studio">Altinn Studio</h3>
 
 <p>The web based development tool for end user services.
-Lets the service developer create Service Apps.</p>
+Lets the service developer create services that are deployed like a seperate application (app).</p>
 
-<h3 id="altinn-studio-app">Altinn Studio App</h3>
+<h3 id="altinn-studio-apps">Altinn Studio Apps</h3>
+
+<p>Altinn Studio Apps is the solution where the developed apps is deployed.
+It consist of organization clusters and platform cluster with platform functionality like
+dataservice, authorization ++. See Altinn Studio Apps <a href="/architecture/application/altinn-studio-apps/">application architecture</a> or [deployment architecture]().</p>
+
+<h3 id="altinn-studio-apps-environment">Altinn Studio Apps environment</h3>
+
+<p>A Altinn Studio Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created
+in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment</p>
 
 <h3 id="api">Api</h3>
+
+<h3 id="app">App</h3>
+
+<p>A end user service created in Altinn Studio is a seperate application (app).
+The app is deployed to a Altinn Studio Apps environment.</p>
 
 <h3 id="dot-net">dot.net</h3>
 
@@ -3950,6 +3992,26 @@ Lets the service developer create Service Apps.</p>
 
 <h3 id="kubernetes-replicaset">Kubernetes ReplicaSet</h3>
 
+<h3 id="pap">PAP</h3>
+
+<p>Policy Administration Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="pdp">PDP</h3>
+
+<p>Policy Administration Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="pep">PEP</h3>
+
+<p>Policy Administration Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="pip">PIP</h3>
+
+<p>Policy Information Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="prp">PRP</h3>
+
+<p>Policy Retrieval Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
 <h3 id="service-app">Service App</h3>
 
 <p>The Service App is the application created in Altinn Studio by the service
@@ -3960,6 +4022,15 @@ See Application architecture for details.</p>
 <h3 id="service-developer">Service Developer</h3>
 
 <h3 id="workflow">Workflow</h3>
+
+<h3 id="xacml">XACML</h3>
+
+<p>XACML stands for &ldquo;eXtensible Access Control Markup Language&rdquo;. The standard defines a
+declarative fine-grained, attribute-based access control policy language,[2] an architecture,
+and a processing model describing how to evaluate access requests according to the rules defined in policies.</p>
+
+<p>Altinn Studio Apps uses the XACML standard for defining Policies for apps, the authorization architecture,
+and the request and response between PEP and PDP.</p>
 
 
 <footer class=" footline" >
@@ -5081,6 +5152,22 @@ See Application architecture for details.</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

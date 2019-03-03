@@ -63,6 +63,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/deployment/service-deployment/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/application/</loc>
   </url>
   
@@ -215,10 +219,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/deployment/service-deployment/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-studio-apps/serviceevents/</loc>
   </url>
   
@@ -276,6 +276,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/about/wordlist/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/xacml/</loc>
   </url>
   
   <url>
@@ -510,6 +514,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/workflow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/xacml/</loc>
+    <priority>0</priority>
   </url>
   
   <url>

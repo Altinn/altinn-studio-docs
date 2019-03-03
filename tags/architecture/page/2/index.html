@@ -1911,7 +1911,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/deployment/service-deployment/">
-        <span>Service Deployment</span>
+        <span>App Deployment</span>
 
         
         
@@ -2224,6 +2224,26 @@ if(host != "localhost")
       ">
         <a href="/architecture/security/authorization/altinn-studio-apps/prp/">
         <span>PRP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/xacml/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/xacml/">
+        <span>XACML</span> 
         
         </a></li>
      
@@ -3979,8 +3999,7 @@ PEP in Service App PEP in DataServices The Policy Enforcment Point in DataServic
         <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.
 During deployment of a app the rules for the app is added to the Altinn Studio Apps database.
 The rules are defined as XACML 3.0 Policy document.
-The Policy Document consist of one or many rules. Each rule has the following part
-Resource The resource section defines the app resource the rule - org - The owner of the app - app - The app id - task - The task identifer for the <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/prp/">&raquo;</a></p>
+See XACML for detailed description of Policy format <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/prp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4052,6 +4071,37 @@ The diagram below shows where the different functionality i located in the diffe
                 <a class="label label-default" href="https://docs.altinn.studiotags/solution/">solution</a>
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio-apps/xacml/">XACML - Altinn Studio</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>XACML stands for &ldquo;eXtensible Access Control Markup Language&rdquo;. The standard defines a declarative fine-grained, attribute-based access control policy language,[2] an architecture, and a processing model describing how to evaluate access requests according to the rules defined in policies.
+The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for the following
+ XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture XACML Policy: Used to define the authorization rules for apps XACML Request: Format used for PEP to call PDP XACML Response: Format used for response from PDP to PEP. <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/xacml/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/xacml/">XACML</a>
             
         
 
@@ -5181,6 +5231,22 @@ The diagram below shows where the different functionality i located in the diffe
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

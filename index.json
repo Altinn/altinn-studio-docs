@@ -105,6 +105,13 @@
 	"content": " Summary This is a c# project file that is generated when a new service is created. This project file is placed in the root of the service folder. This project file helps in compiling the service.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/deployment/service-deployment/",
+	"title": "Altinn Studio - App Deployment",
+	"tags": ["tjenester 3.0"],
+	"description": "Description of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio",
+	"content": "NOTE: Work in progress. Stuff will change\n\rWhen a service developer need to deploy a app (service) to Altinn Studio Apps solution test/production environement there is created a Docker Image with the configured version of AltinnCore.Runtime and the compiled service code and configuration inside the container.\nThis container is added to the Docker Registry.\nFrom Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users.\nDetails of build process can be found under build architecture.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/application/",
 	"title": "Application",
 	"tags": ["architecture"],
@@ -116,7 +123,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Studio Apps\n\rAltinn Studio - Service Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authoirzation architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\r\r"
+	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\rApplication Architecture Runtime\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Studio Apps\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authoirzation architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authentication/",
@@ -130,7 +137,7 @@
 	"title": "Authorization",
 	"tags": ["architecture", "security"],
 	"description": "Description of the Authoirzation architecture",
-	"content": "Description of the Altinn Studio Security architecture.\n\rAuthorization - Altinn Studio Apps\r\rDescription of the Authoirzation architecture\n\r\rAuthorization model\r\rThe authorization model\n\rPolicy Administration Point\r\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\rPolicy Decision Point\r\rDescription of the Authoirzation architecture\n\rPolicy Enforcment Point\r\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\rPolicy Information Point\r\rDescription of Policy Information Point for\n\rPolicy Retrieval Point\r\rDescription of Policy Information Point for\n\r\r"
+	"content": "Description of the Altinn Studio Security architecture.\n\rAuthorization - Altinn Studio Apps\r\rDescription of the Authoirzation architecture\n\r\rAuthorization model\r\rThe authorization model\n\rPolicy Administration Point\r\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\rPolicy Decision Point\r\rDescription of the Authoirzation architecture\n\rPolicy Enforcment Point\r\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\rPolicy Information Point\r\rDescription of Policy Information Point for\n\rPolicy Retrieval Point\r\rDescription of Policy Information Point for\n\rXACML - Altinn Studio\r\rDescription of XACML use in Altinn Studio\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/model/",
@@ -333,7 +340,7 @@
 	"title": "Policy Retrieval Point",
 	"tags": ["architecture", "security"],
 	"description": "Description of Policy Information Point for",
-	"content": " The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.\nDuring deployment of a app the rules for the app is added to the Altinn Studio Apps database.\nThe rules are defined as XACML 3.0 Policy document.\nThe Policy Document consist of one or many rules. Each rule has the following part\nResource The resource section defines the app resource the rule - org - The owner of the app - app - The app id - task - The task identifer for the\nSubject This identifies who the rules applies for. For rules defined in Altinn Studio this is persons with a given role in Altinn. Later this can be expanded.\nAction The action defines the action that the rules allow for. This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE\nSee example policy file\n"
+	"content": "The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.\nDuring deployment of a app the rules for the app is added to the Altinn Studio Apps database.\nThe rules are defined as XACML 3.0 Policy document.\nSee XACML for detailed description of Policy format\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/rest/",
@@ -369,13 +376,6 @@
 	"tags": ["architecture", "security"],
 	"description": "Description of the Altinn Studio security architecture.",
 	"content": "Description of the Altinn Studio Security architecture.\n\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rAuthentication - Altinn Studio Apps\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\rAuthorization\r\rDescription of the Authoirzation architecture\n\r\rAuthorization - Altinn Studio Apps\r\rDescription of the Authoirzation architecture\n\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/architecture/deployment/service-deployment/",
-	"title": "Altinn Studio - Service Deployment",
-	"tags": ["tjenester 3.0"],
-	"description": "Description of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio",
-	"content": "NOTE: Work in progress. Stuff will change\n\rWhen a service developer need to deploy a service to Altinn Studio Runtime solution test/production environement there is created a Docker Image with the configured version of Altinn Studio Runtime and the compiled service code and configuration inside the container.\nThis container is added to the Docker Registry.\nFrom Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users.\nDetails of build process can be found under build architecture.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-studio-apps/serviceevents/",
@@ -480,7 +480,14 @@
 	"title": "Wordlist",
 	"tags": ["wordlist"],
 	"description": "A wordlist for Altinn Studio",
-	"content": " Altinn Norways E-Governement plattform. Launched december 4. 2003.\nAltinn Studio The web based development tool for end user services. Lets the service developer create Service Apps.\nAltinn Studio App Api dot.net Kubernetes React Kubernetes Service Kubernetes POD Kubernetes Deployment Kubernetes ReplicaSet Service App The Service App is the application created in Altinn Studio by the service developer. It consist of platform code (AltinnCore Runtime) and code and configuration created in Altinn Studio. See Application architecture for details.\nService Developer Workflow "
+	"content": " Altinn Norways E-Governement plattform. Launched december 4. 2003.\nAltinn Studio The web based development tool for end user services. Lets the service developer create services that are deployed like a seperate application (app).\nAltinn Studio Apps Altinn Studio Apps is the solution where the developed apps is deployed. It consist of organization clusters and platform cluster with platform functionality like dataservice, authorization ++. See Altinn Studio Apps application architecture or [deployment architecture]().\nAltinn Studio Apps environment A Altinn Studio Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created in 2019 for Tjenester 3.0 project. AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment\nApi App A end user service created in Altinn Studio is a seperate application (app). The app is deployed to a Altinn Studio Apps environment.\ndot.net Kubernetes React Kubernetes Service Kubernetes POD Kubernetes Deployment Kubernetes ReplicaSet PAP Policy Administration Point. See Authorization Architecture\nPDP Policy Administration Point. See Authorization Architecture\nPEP Policy Administration Point. See Authorization Architecture\nPIP Policy Information Point. See Authorization Architecture\nPRP Policy Retrieval Point. See Authorization Architecture\nService App The Service App is the application created in Altinn Studio by the service developer. It consist of platform code (AltinnCore Runtime) and code and configuration created in Altinn Studio. See Application architecture for details.\nService Developer Workflow XACML XACML stands for \u0026ldquo;eXtensible Access Control Markup Language\u0026rdquo;. The standard defines a declarative fine-grained, attribute-based access control policy language,[2] an architecture, and a processing model describing how to evaluate access requests according to the rules defined in policies.\nAltinn Studio Apps uses the XACML standard for defining Policies for apps, the authorization architecture, and the request and response between PEP and PDP.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/xacml/",
+	"title": "XACML - Altinn Studio",
+	"tags": ["architecture", "security", "XACML"],
+	"description": "Description of XACML use in Altinn Studio",
+	"content": " XACML stands for \u0026ldquo;eXtensible Access Control Markup Language\u0026rdquo;. The standard defines a declarative fine-grained, attribute-based access control policy language,[2] an architecture, and a processing model describing how to evaluate access requests according to the rules defined in policies.\nThe Altinn Studio and Altinn Studio Apps solution uses the XACML standard for the following\n XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture XACML Policy: Used to define the authorization rules for apps XACML Request: Format used for PEP to call PDP XACML Response: Format used for response from PDP to PEP.  XACML Policy The Policy Document consist of one or many rules. Each rule has the following part\nResource The resource section defines the app resource the rule - org - The owner of the app - app - The app id - task - The task identifer for the\nSubject This identifies who the rules applies for. For rules defined in Altinn Studio this is persons with a given role in Altinn. Later this can be expanded.\nAction The action defines the action that the rules allow for. This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE\nSee example policy file\nXACML Request XACML Response "
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/test/xunit-testing/",
@@ -887,6 +894,13 @@
 	"tags": ["studio", "workflow"],
 	"description": "As part of the service development the developer would define a workflow for the service",
 	"content": " Definere arbeidsflyt Definere arbeidsflyt for en tjeneste. Må være MYE kraftigere og mer fleksibel enn det som finnes i dagens løsning. Målsettingen er å muliggjøre at vi kan fjerne de ulike tjenestetypene i dagens løsning.\nTanken er at hvis man både kan gjøre henting av data (innsyn) og ta i mot meldinger, og gjøre en eller flere arkivering, så faller behovet for tjenestetyper bort. Behovet for samhandlingstjenesten forsvinner også.\nEn annen veldig spennende tanke er at dette også åpner opp for å \u0026ldquo;koble sammen\u0026rdquo; dialogen for brukeren, siden det da per. def ikke er noe å koble sammen. Hele dialogen er bare ulike steg i den samme tjenesten, og siden man også kan legge til API\u0026rsquo;er på en 3.0-tjeneste, så åpner det opp for at tjenesteeier modellerer flyten istedenfor at den må passe inn i et mønster som er bestemt av Altinn.\nStegene i en arbeidsflyt skal også være del av selve tjenesten som deployes, og ikke kjøre i plattformen slik som i dag. Dette åpner opp for stor grad av tilpasninger, gjør at hele flyten kan enhetstestes, og gjør at tjenesten i større grad blir immun mot påvirkning fra endringer i plattformen. En naturlig vei å gå vil være å benytte de samme mekanismene for å kunne gjenbruke og (re)definere arbeidsflyt og GUI per steg, som for GUI for tjenestene. Og da er vi veldig nærme det at arbeidsflyt ikke er noe eget, det er det samme som flyten internt i et skjema.\nEksempler på steg:\n Signering Hente prefill, gjøre oppslag mot eksterne data Gjøre eksterne valideringer via API Motta melding via API Gjøre ekstern signering Egendefinerte steg, med UX    Banalt enkel implementasjon av arbeidsflyt   See all issues related to Altinn Studio and workflow on Github\n"
+},
+{
+	"uri": "https://docs.altinn.studio/tags/xacml/",
+	"title": "XACML",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/tags/about/",
