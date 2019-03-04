@@ -2484,6 +2484,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/branching/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/branching/">
+        <span>Branching</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/flight-rules/" class="dd-item 
         parent
         active
@@ -3984,27 +4011,31 @@ This is because Runtime fetches the react-app directly from the service files. T
 When making changes to the react application that affects Runtime, the bundle <code>react-app.js</code> must be manually copied over to the service folder each time it is built, in order to test changes in Runtime. To do this:</p>
 
 <ul>
-<li>Make any required changes in the ux-edior application</li>
-<li>Build the ux-editor application
+<li>Make any required changes in the runtime application</li>
+
+<li><p>Build the runtime application. This can be done either by running</p>
 
 <ul>
-<li>Note that this is not done explicitly when running <code>gulp-develop</code> locally. To do this explicitly, navigate to the ux-editor folder and run
-<br /></li>
-</ul></li>
-</ul>
-
-<pre><code class="language-bash">  npm run gulp-develop
+<li><pre><code class="language-bash">npm run gulp-develop
 </code></pre>
 
-<p>This will build the application in dev-mode, enabling redux dev tools.</p>
+<p>from <code>./src/AltinnCore/Runtime</code> folder, which will build and run the Runtime back end and build the runtime  <code>react-app.js</code> when it detects that changes have been made.</p></li>
 
-<ul>
-<li>Copy <code>react-app.js</code> from the ux-editor <code>dist</code> folder into the service repo, replacing the old file
+<li><p>or, you could trigger a build of the runtime react app manually by running</p>
+
+<pre><code class="language-bash">npm run build-develop
+</code></pre>
+
+<p>from <code>.src/react-apps/applications/runtime</code> folder. This will build the runtime <code>react-app.js</code>.</p></li>
+</ul></li>
+
+<li><p>Copy <code>react-app.js</code> (and <code>react-app.css</code> if you have made changes to css styling) from the runtime dist folder (<code>./src/react-apps/applications/runtime/dist)</code> into the service repo, replacing the old file</p>
 
 <ul>
 <li>The old file is located in the <code>Resources</code> folder in the service repo.</li>
 </ul></li>
-<li>Reload the manual testing page and start new/run existing instance from there
+
+<li><p>Reload the manual testing page and start new/run existing instance from there</p>
 
 <ul>
 <li>You can also copy the file directly into the Runtime copy of the service repo, located at <code>C:\AltinnRuntime</code>. This is useful if you already have a runtime instance up and running, then you can just refresh the page. NOTE that if you reload the ManualTesting page after this, all the files in the Runtime copy of the service repo will be overwritten with what&rsquo;s in the local service repo.</li>
@@ -5356,6 +5387,22 @@ When making changes to the react application that affects Runtime, the bundle <c
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -6097,7 +6144,7 @@ When making changes to the react application that affects Runtime, the bundle <c
 
 
         
-            <a class="nav nav-prev" href="/development/analysis/api/external/" title="External APIs - analysis"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/development/branching/" title="Branching"> <i class="fa fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="/development/handbook/" title="Handbook" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
