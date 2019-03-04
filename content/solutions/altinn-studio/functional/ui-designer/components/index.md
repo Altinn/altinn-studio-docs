@@ -107,13 +107,24 @@ weight: 100
         <img alt="Radio buttons component - default look" src="display-radio.png?width=700" title="Radio buttons component - default look" />
       </td>
     </tr>
+    <tr>
+      <td>Text Area</td>
+      <td>
+        <ul>
+          <li>Link to data model</li>
+          <li>Label text</li>
+          <li>Description text</li>
+          <li>Read only</li>
+      </td>
+      <td><img alt="Text area component - edit properties" src="props-text-area.PNG?width=700" title="Text area component - edit properties" /></td>
+      <td><img alt="Text area component - default look" src="display-text-area.PNG?width=700" title="Text area component - default look" /></td>
+    </tr>
   </tbody>
 </table>
 
 In addition to the above components, the following basic form components are under development. These are not ready to be used, they will be added to the overview when they are ready to use:
 
 * Dropdown
-* Text area
 * File attachment
 * Container
 
