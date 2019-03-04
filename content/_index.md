@@ -1,7 +1,6 @@
 ---
 title: Altinn Studio
-description: Documentation for Altinn Studio.  
-weight: 100
+description: Documentation for Altinn Studio.
 ---
 
 {{<docs-logo>}}

@@ -60,7 +60,7 @@ When making changes to the react application that affects Runtime, the bundle `r
   - Note that this is not done explicitly when running `gulp-develop` locally. To do this explicitly, navigate to the ux-editor folder and run
   
   ```bash
-  npm run build-develop
+  npm run gulp-develop
   ```
 
   This will build the application in dev-mode, enabling redux dev tools.

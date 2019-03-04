@@ -38,12 +38,32 @@ on a resource.
 
 [Learn about Policy Enforcment Point in Altinn Studio Apps](pdp)
 
+### Policy Retrival Point
+The policy retrieval point is where 
+
 ### Context handler
 The context handler is responsible for converting the resource ID to somthing that 
+
+
+The diagram below show the solution architecture where the different authorization functionality is located.
+
+{{%excerpt%}}
+<object data="/architecture/solution/altinn-studio-apps/AltinnStudioApps_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
 
 ## The Authorization Model
 The authorization model is flexible.
 
 [Learn about authorization model in Altinn Studio Apps](model)
 
+## The Overall Authorization flow
+The sequence diagram below show how request are authorized
 
+{{%excerpt%}}
+<object data="/architecture/security/authorization/altinn-studio-apps/AuthorizationFlow.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
+
+1. A system or user request a action to a resource
+2. The configured Policy Enforcment Point for the API/View triggers to verify if the access 
