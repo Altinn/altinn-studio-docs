@@ -2139,6 +2139,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/contexthandler/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/contexthandler/">
+        <span>Context Handler</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pap/" class="dd-item
      
       ">
@@ -4003,7 +4023,7 @@ Each rule has the following part</p>
 <p>The resource section defines the app resource the rule
  - org - The owner of the app
  - app - The app id
- - task - The task identifer for the</p>
+ - task/event - The task or identifier of the bpmn process. <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Templates/workflow.bpmn">See example process</a>.</p>
 
 <h3 id="subject">Subject</h3>
 
@@ -4015,11 +4035,15 @@ this is persons with a given role in Altinn. Later this can be expanded.</p>
 <p>The action defines the action that the rules allow for.
 This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE</p>
 
-<p><a href="/architecture/security/authorization/altinn-studio-apps/AuthoirzationRulesSample.xml">See example policy file</a></p>
+<p><a href="/architecture/security/authorization/altinn-studio-apps/AuthorizationRulesSample.xml">See example policy file</a></p>
 
 <h2 id="xacml-request">XACML Request</h2>
 
+<p>The XACML Request will follow XACML 3.0 JSON profile. <a href="http://docs.oasis-open.org/xacml/xacml-json-http/v1.0/xacml-json-http-v1.0.html">See documentation</a></p>
+
 <h2 id="xacml-response">XACML Response</h2>
+
+<p>The XACML Response will follow XACML 3.0 JSON profile. <a href="http://docs.oasis-open.org/xacml/xacml-json-http/v1.0/xacml-json-http-v1.0.html">See documentation</a></p>
 
 
 <footer class=" footline" >
@@ -5151,6 +5175,22 @@ This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 

@@ -2139,6 +2139,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/contexthandler/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/contexthandler/">
+        <span>Context Handler</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pap/" class="dd-item
      
       ">
@@ -4056,10 +4076,10 @@ if(host != "localhost")
         <p>Description of the Altinn Studio Security architecture.
 Authorization - Altinn Studio AppsDescription of the Authoirzation architecture
 Authorization modelThe authorization model
+Context HandlerDescription of Context Handler in Altinn Studio Apps
 Policy Administration PointDescription of Policy Enforcment Point for Altinn Studio Apps
 Policy Decision PointDescription of the Authoirzation architecture
-Policy Enforcment PointDescription of Policy Enforcment Point for Altinn Studio Apps
-Policy Information PointDescription of Policy Information Point for <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
+Policy Enforcment PointDescription of Policy Enforcment Point for Altinn Studio Apps <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4086,7 +4106,8 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio-apps/">Authorization - Altinn Studio Apps</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Altinn Studio Apps authorization arhicecture is based on attribute based access control (ABAC) principles.
+        <p>NOTE: Work in progress. See Github Issue
+Altinn Studio Apps authorization arhicecture is based on attribute based access control (ABAC) principles.
 Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
 This architecture defines the following components.
 Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if user or system is allowed to perform the request Learn about Policy Decision Point in Altinn Studio Apps <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/">&raquo;</a></p>
@@ -4118,6 +4139,35 @@ Policy Decision Point (PDP) The Policy Decision Point is responsible for decidin
     <section class="post-excerpt">
         <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
 Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/model/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio-apps/contexthandler/">Context Handler</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The responsibility for the Context Handler is to convert the resource ID to something that PDP can use to base a authorization decision for a authorization request.
+Input to Context Handler will be AppID, InstanceId or DataId
+Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/contexthandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4191,34 +4241,6 @@ See the projects Github page.
                 <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio-apps/pap/">Policy Administration Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The rules for services is defined in Altinn Studio when the service developer is creating the service.
-Delegation of rights is performed in Altinn II platform. <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/pap/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
             
         
 
@@ -5348,6 +5370,22 @@ Delegation of rights is performed in Altinn II platform. <a class="read-more" hr
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

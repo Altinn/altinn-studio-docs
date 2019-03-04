@@ -2139,6 +2139,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/contexthandler/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-studio-apps/contexthandler/">
+        <span>Context Handler</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/pap/" class="dd-item
      
       ">
@@ -3988,19 +4008,22 @@ if(host != "localhost")
 The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead.
 The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization).</p>
 
+<p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
+
 <h2 id="rules">Rules</h2>
 
 <p>A authorization rule in Altinn Studio defines who has been given the right to perform actions on a given resource.
-A right in Altinn Studio consist of 4 elements</p>
+A rule in Altinn Studio consist of 4 elements</p>
 
 <h3 id="resource">Resource</h3>
 
 <p>This desribe which resource the rule applies for. Altinn Studio Apps currently support the following resource types in rules.</p>
 
 <ul>
-<li>Service</li>
-<li>ProcessStep</li>
-<li>Reportee</li>
+<li>Org - The service owner of the app</li>
+<li>App - The app id</li>
+<li>Task - A specific task in the process defined for a app</li>
+<li>Reportee - A owner of</li>
 <li>InstanceId</li>
 </ul>
 
@@ -5298,6 +5321,22 @@ The rules are deployed together with the Service App to a given Altinn Studio Ap
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -6168,7 +6207,7 @@ The rules are deployed together with the Service App to a given Altinn Studio Ap
             <a class="nav nav-prev" href="/architecture/security/authorization/altinn-studio-apps/" title="Authorization - Altinn Studio Apps"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/architecture/security/authorization/altinn-studio-apps/pap/" title="Policy Administration Point" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/security/authorization/altinn-studio-apps/contexthandler/" title="Context Handler" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

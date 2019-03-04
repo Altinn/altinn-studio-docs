@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="">
+    <meta name="description" content="Description of Context Handler in Altinn Studio Apps">
 
 
     
-    <title>wordlist :: Altinn Studio</title>
+    <title>Context Handler :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/tags/wordlist/">
+  <body class="" data-url="/architecture/security/authorization/altinn-studio-apps/contexthandler/">
     <nav id="sidebar" class="">
 
 
@@ -1524,7 +1524,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1535,7 +1535,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1942,7 +1942,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/security/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1953,7 +1953,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -2050,7 +2050,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/security/authorization/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2061,7 +2061,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -2086,7 +2086,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2097,7 +2097,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -2140,7 +2140,7 @@ if(host != "localhost")
   
     
       <li data-nav-id="/architecture/security/authorization/altinn-studio-apps/contexthandler/" class="dd-item
-     
+     active
       ">
         <a href="/architecture/security/authorization/altinn-studio-apps/contexthandler/">
         <span>Context Handler</span> 
@@ -3898,6 +3898,17 @@ if(host != "localhost")
         
           <div id="top-bar">
             
+              
+              
+              
+            <div id="top-github-link">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/security/authorization/altinn-studio-apps/contexthandler.md" target="blank">
+                <i class="fa fa-code-fork"></i>
+                Edit page
+              </a>
+            </div>
+              
+            
 
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span">
@@ -3908,11 +3919,34 @@ if(host != "localhost")
                 
                 <span class="links">
                   
-                    <a href="/tags/">Tags</a> >
-                  
                   
 
- wordlist
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/security/'>Security</a> > <a href='/architecture/security/authorization/'>Authorization</a> > <a href='/architecture/security/authorization/altinn-studio-apps/'>Altinn Studio Apps</a> > Context Handler
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
 
                 </span>
@@ -3921,72 +3955,39 @@ if(host != "localhost")
           </div>
         
         
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a>
+            
+          </div>
+        
         <div id="body-inner">
           
             
-              <h1>Tag: wordlist</h1>
+              <h1>Context Handler</h1>
             
           
 
 
 
 
+<p>The responsibility for the Context Handler is to convert the resource ID
+to something that PDP can use to base a authorization decision for a authorization request.</p>
+
+<p>Input to Context Handler will be AppID, InstanceId or DataId</p>
+
+<p>Output will be
+- AppId
+- ReporteeId
+- TaskId
+- InstanceId</p>
 
 
 <footer class=" footline" >
 	
 </footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post about">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/about/wordlist/">Wordlist</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Altinn Norways E-Governement plattform. Launched december 4. 2003.
-Altinn Studio The web based development tool for end user services. Lets the service developer create services that are deployed like a seperate application (app).
-Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps is deployed. It consist of organization clusters and platform cluster with platform functionality like dataservice, authorization ++. See Altinn Studio Apps application architecture or [deployment architecture](). <a class="read-more" href="/about/wordlist/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/wordlist/">wordlist</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
 
 
 
@@ -4809,6 +4810,7 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
                 
                     
+                    
                 
                 
 
@@ -4823,6 +4825,9 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5024,6 +5029,7 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
                 
                     
+                    
                 
                 
 
@@ -5038,6 +5044,9 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5072,6 +5081,7 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
             
                 
+                    
                     
                 
                 
@@ -5088,6 +5098,7 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
                 
                     
+                    
                 
                 
 
@@ -5100,6 +5111,9 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -5117,6 +5131,7 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
                 
                     
+                    
                 
                 
 
@@ -5132,6 +5147,9 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -6090,9 +6108,11 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
         
 
 
+        
+            <a class="nav nav-prev" href="/architecture/security/authorization/altinn-studio-apps/model/" title="Authorization model"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/getting-started/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/security/authorization/altinn-studio-apps/pap/" title="Policy Administration Point" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -6119,3 +6139,4 @@ Altinn Studio Apps Altinn Studio Apps is the solution where the developed apps i
 
   </body>
 </html>
+
