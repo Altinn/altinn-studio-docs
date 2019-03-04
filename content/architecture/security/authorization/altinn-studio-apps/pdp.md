@@ -6,17 +6,17 @@ weight: 100
 linktitle: PDP
 alwaysopen: false
 ---
-The Policy Decision Point is implemented in the authorization application that is deployed in the 
-Platform Cluster in Altinn Studio Apps. 
+The Policy Decision Point is implemented in the [authorization application](https://github.com/Altinn/altinn-studio/issues/1166) 
+that is deployed in the Platform Cluster in Altinn Studio Apps. 
 
-Policy Decision Point exposes a method that authorize based on the following
+Policy Decision Point exposes a method that authorize request based on the following
 
 - ResourceId (instanceId, dataId or appId)
 - SubjectId (systemId, userId)
 - ReporteeId (in case of appId)
 - Action
 
-If instanceID or dataID is used as Resource ID the context handler functionality identifies the correct appId, 
+If instanceID or dataID is used as Resource ID PDP will use [Context Handler](ContextHandler) to identifiy the correct appId, 
 the instance workflow state and the reporteId for the existing resource.
 
 For request for non existing instances the appId will be used and the reportee is a required input
@@ -50,8 +50,24 @@ credentials.
 17. Verify if user is accessing service owner archive is accessing from
 a allowed IP range
 18. Get the reportee adress type
-19. Verify if the reportee has secrett adress
+19. Verify if the reportee has secret adress
 20. Get the org roles (user have for org that owns the org)(serice owner roles)
 21. Verify if user has needed service owner roles
+
+## Technical Considerations
+
+### Caching
+The number of calls to external component should be kept at a minimum. 
+
+We need to implement caching of
+- Roles user/system has for a reportee
+- Policy for a app
+
+
+### Logging
+
+
+
+
 
 

@@ -32,7 +32,6 @@ The app is deployed to a Altinn Studio Apps environment.
 
 ### Kubernetes
 
-
 ### React
 
 ### Kubernetes Service

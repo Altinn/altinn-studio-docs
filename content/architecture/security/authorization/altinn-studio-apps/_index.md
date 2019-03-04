@@ -7,6 +7,10 @@ linktitle: Altinn Studio Apps
 alwaysopen: false
 ---
 
+{{% notice warning %}}
+NOTE: Work in progress. [See Github Issue](https://github.com/Altinn/altinn-studio/issues/963)
+{{% /notice %}}
+
 Altinn Studio Apps authorization arhicecture is based 
 on [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control) principles.
 
@@ -39,10 +43,17 @@ on a resource.
 [Learn about Policy Enforcment Point in Altinn Studio Apps](pdp)
 
 ### Policy Retrival Point
-The policy retrieval point is where 
+The policy retrieval point is where PDP can request the policies for a given
+resource. 
+[Learn about Policy Enforcment Point in Altinn Studio Apps](pdp)
+
 
 ### Context handler
-The context handler is responsible for converting the resource ID to somthing that 
+The context handler is responsible for converting the resource ID to 
+something that PDP can understand. 
+
+[Learn about Policy Enforcment Point in Altinn Studio Apps](contexthandler)
+
 
 
 The diagram below show the solution architecture where the different authorization functionality is located.

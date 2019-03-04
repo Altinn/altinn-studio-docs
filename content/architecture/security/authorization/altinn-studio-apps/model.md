@@ -13,16 +13,19 @@ In Altinn Studio Apps a right is a permission to perform a action on a given res
 The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead.
 The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization).
 
+A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.
+
 ## Rules
 A authorization rule in Altinn Studio defines who has been given the right to perform actions on a given resource.
-A right in Altinn Studio consist of 4 elements
+A rule in Altinn Studio consist of 4 elements
 
 ### Resource
 This desribe which resource the rule applies for. Altinn Studio Apps currently support the following resource types in rules.
 
-- Service
-- ProcessStep
-- Reportee
+- Org - The service owner of the app
+- App - The app id
+- Task - A specific task in the process defined for a app
+- Reportee - A owner of 
 - InstanceId
 
 Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for a service for a given reportee
@@ -64,7 +67,6 @@ The rules are deployed together with the Service App to a given Altinn Studio Ap
 In Altinn II end user can also create rules. This happens when:
 - When user creates a local role that contains rights that user have through other roles
 - When delegating single rights to a user or organization.
-
 
 ## Roles
 Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles. 
