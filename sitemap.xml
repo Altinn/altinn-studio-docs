@@ -251,6 +251,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/solution/altinn-studio-apps/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/solution/altinn-studio/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/</loc>
   </url>
   
@@ -328,6 +336,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/known-issues/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-platform/</loc>
   </url>
   
   <url>
