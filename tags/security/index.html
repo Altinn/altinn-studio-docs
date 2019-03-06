@@ -3080,6 +3080,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/development/handbook/securecoding/checklist/" class="dd-item
+     
+      ">
+        <a href="/development/handbook/securecoding/checklist/">
+        <span>Security Checklist</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/test/" class="dd-item 
         
         
@@ -4147,10 +4167,8 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. See Github Issue
-Altinn Studio Apps authorization arhicecture is based on attribute based access control (ABAC) principles.
-Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
-This architecture defines the following components.
-Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if user or system is allowed to perform the request Learn about Policy Decision Point in Altinn Studio Apps <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/">&raquo;</a></p>
+Altinn Studio Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-studio-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5925,6 +5943,22 @@ PEP in Service App PEP in DataServices The Policy Enforcment Point in DataServic
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

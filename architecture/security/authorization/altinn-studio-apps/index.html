@@ -1743,6 +1743,53 @@ if(host != "localhost")
           
         
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-studio-apps/react-app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-studio-apps/react-app/">
+        <span>React App</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/application/altinn-studio-apps/serviceevents/" class="dd-item
+     
+      ">
+        <a href="/architecture/application/altinn-studio-apps/serviceevents/">
+        <span>Service Events</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -3033,6 +3080,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/development/handbook/securecoding/checklist/" class="dd-item
+     
+      ">
+        <a href="/development/handbook/securecoding/checklist/">
+        <span>Security Checklist</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/test/" class="dd-item 
         
         
@@ -4017,7 +4084,10 @@ if(host != "localhost")
 <li><a href="#context-handler">Context handler</a></li>
 </ul></li>
 <li><a href="#the-authorization-model">The Authorization Model</a></li>
-<li><a href="#the-overall-authorization-flow">The Overall Authorization flow</a></li>
+<li><a href="#the-overall-authorization-flow">The Overall Authorization flow</a>
+<ul>
+<li><a href="#example-process">Example process</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -4052,8 +4122,12 @@ if(host != "localhost")
 </div>
 
 
-<p>Altinn Studio Apps authorization arhicecture is based
-on <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a> principles.</p>
+<p>Altinn Studio Apps has <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
+In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
+what type of data element and so on.</p>
+
+<p>The opposite is <a href="https://en.wikipedia.org/wiki/Role-based_access_control">Role Based access control</a> where all user in a given role
+is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.</p>
 
 <h2 id="authorization-components">Authorization Components</h2>
 
@@ -4123,9 +4197,17 @@ something that PDP can understand.</p>
 
 
 
+<h3 id="example-process">Example process</h3>
+
+<p>The following flow describes in detail the authorization processs when the REACT frontend calls a API to store form data</p>
+
 <ol>
-<li>A system or user request a action to a resource</li>
-<li>The configured Policy Enforcment Point for the API/View triggers to verify if the access</li>
+<li>User press save in the REACT application. REACT application makes a http post request against the
+<a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css">ServiceAPIController</a> in</li>
+<li>The configured Policy Enforcment Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,  triggers to verify that user is authorized</li>
+<li>The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request</li>
+<li>The PEP calls the PDP functionality in AltinnCore.Authorization application</li>
+<li></li>
 </ol>
 
 
@@ -5718,6 +5800,22 @@ something that PDP can understand.</p>
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
