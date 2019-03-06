@@ -11,8 +11,12 @@ alwaysopen: false
 NOTE: Work in progress. [See Github Issue](https://github.com/Altinn/altinn-studio/issues/963)
 {{% /notice %}}
 
-Altinn Studio Apps authorization arhicecture is based 
-on [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control) principles.
+Altinn Studio Apps has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
+In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
+what type of data element and so on.
+
+The opposite is [Role Based access control](https://en.wikipedia.org/wiki/Role-based_access_control) where all user in a given role
+is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.
 
 ## Authorization Components
 The authorization architecture for Altinn Studio Apps are based on the 
@@ -54,14 +58,11 @@ something that PDP can understand.
 
 [Learn about Policy Enforcment Point in Altinn Studio Apps](contexthandler)
 
-
-
 The diagram below show the solution architecture where the different authorization functionality is located.
 
 {{%excerpt%}}
 <object data="/architecture/solution/altinn-studio-apps/AltinnStudioApps_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
-
 
 ## The Authorization Model
 The authorization model is flexible.
@@ -75,6 +76,13 @@ The sequence diagram below show how request are authorized
 <object data="/architecture/security/authorization/altinn-studio-apps/AuthorizationFlow.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
+### Example process
 
-1. A system or user request a action to a resource
-2. The configured Policy Enforcment Point for the API/View triggers to verify if the access 
+The following flow describes in detail the authorization processs when the REACT frontend calls a API to store form data
+
+1. User press save in the REACT application. REACT application makes a http post request against the 
+[ServiceAPIController](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css) in 
+2. The configured Policy Enforcment Point for the API, the [Service Access Handler](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs),  triggers to verify that user is authorized
+3. The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request
+4. The PEP calls the PDP functionality in AltinnCore.Authorization application 
+5. 

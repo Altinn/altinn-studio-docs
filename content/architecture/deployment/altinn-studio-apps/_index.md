@@ -13,7 +13,7 @@ Altinn Studio Apps is the solution where all the service apps developed in Altin
 The following diagram shows the deployment architecture for Altinn Studio together & Altinn Studio Apps
 
 {{%excerpt%}}
-<object data="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 [See fullscreen] or [download as visio]

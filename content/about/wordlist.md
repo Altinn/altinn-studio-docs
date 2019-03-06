@@ -9,18 +9,27 @@ alwaysopen: false
 ### Altinn
 Norways E-Governement plattform. Launched december 4. 2003.
 
+### Altinn Platform
+Altinn Platform consist of supporting services to Altinn Studio Apps.
+Example services are Authorization, Authentication, Profile, Register, Intermediary
+The platform is based on microservices architecture and is highly scalable. 
+
 ### Altinn Studio
 The web based development tool for end user services. 
 Lets the service developer create services that are deployed like a seperate application (app). 
 
 ### Altinn Studio Apps
 Altinn Studio Apps is the solution where the developed apps is deployed.
-It consist of organization clusters and platform cluster with platform functionality like 
-dataservice, authorization ++. See Altinn Studio Apps [application architecture](/architecture/application/altinn-studio-apps/) or [deployment architecture]().
+It consist of organization clusters and supporting functionality and infrastructure.
+ See Altinn Studio Apps [application architecture](/architecture/application/altinn-studio-apps/) or [deployment architecture](/architecture/deployment/altinn-studio-apps/).
 
 ### Altinn Studio Apps environment
 A Altinn Studio Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created
 in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment
+
+### Altinn Studio Repos
+Altinn Studio Repos is the source control solution for Altinn Studio. All apps developed in Altinn Studio can 
+
 
 ### Api
 
