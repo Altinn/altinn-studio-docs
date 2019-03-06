@@ -3959,7 +3959,7 @@ if(host != "localhost")
 <li><a href="#app-services-runtime">App services (runtime)</a></li>
 <li><a href="#platform-service">Platform service</a>
 <ul>
-<li><a href="#reportee">Reportee</a></li>
+<li><a href="#instance">Instance</a></li>
 <li><a href="#serviceowner">ServiceOwner</a></li>
 <li><a href="#service">Service</a></li>
 </ul></li>
@@ -4011,6 +4011,11 @@ if(host != "localhost")
 <p>REST is an architectural style for designing loosely coupled applications over HTTP which was coined by <a href="https://en.wikipedia.org/wiki/Roy_Fielding">Rob Fielding</a> in 2000.
 We will define services according to <a href="https://restfulapi.net/rest-architectural-constraints/">REST</a>.</p>
 
+<p>All REST APIs should be versioned.</p>
+
+<pre><code class="language-http">/api/v1/services
+</code></pre>
+
 <h4 id="resources">Resources</h4>
 
 <p>A resources is a thing that the service knows about. A resource in a system should have only one logical URI and that should provide a way to fetch
@@ -4018,9 +4023,10 @@ related or additional data.</p>
 
 <h4 id="app-services-runtime">App services (runtime)</h4>
 
-<p>One app per service owner. A service owner can have many services.</p>
+<p>One cluster per service owner. A service owner can have many apps.</p>
 
-<p>https://{serviceownerNick}.apps.altinn.no/</p>
+<pre><code class="language-http">https://{serviceownerNick}.apps.altinn.no
+</code></pre>
 
 <p>Resources: App, Service, Instance</p>
 
@@ -4049,7 +4055,22 @@ related or additional data.</p>
 <pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/forms/{formId}
 </code></pre>
 
-<p>Get list of all services for the app</p>
+<p>Put/post to change workflow step</p>
+
+<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/workflow/{stepId}
+</code></pre>
+
+<p>Get receipt</p>
+
+<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/receipt
+</code></pre>
+
+<p>Get validate model</p>
+
+<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/forms/{formId}/validate
+</code></pre>
+
+<p>Get list of all services for the service owner</p>
 
 <pre><code class="language-http">/services
 </code></pre>
@@ -4064,17 +4085,55 @@ related or additional data.</p>
 <pre><code class="language-http">/services/{serviceId}/schemas/{formId}
 </code></pre>
 
+<p>Get texts for a specific form in the service</p>
+
+<pre><code class="language-http">/services/{serviceId}/texts
+</code></pre>
+
 <h4 id="platform-service">Platform service</h4>
 
 <p>Data service to store data for apps.</p>
 
-<p>Resources: Reportee, Instance, Service, Form, ServiceOwner, Model</p>
+<p>Resources: Reportee, Instance, Service, Form, ServiceOwner, Schema, Model</p>
 
-<h5 id="reportee">Reportee</h5>
+<h5 id="instance">Instance</h5>
 
-<p>A reportee is a person/company that reports information via Altinn.</p>
+<p>An instance is created when a reportee starts a workflow in an app. A reportee is a person/company that reports information via Altinn.</p>
 
-<p>Get information about a specific reportee</p>
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;reporteeId&quot;: &quot;666&quot;,
+    &quot;serviceId&quot;: &quot;sailor&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;XXX&quot;,
+    &quot;title&quot;: &quot;Færder påmelding&quot;,
+    &quot;serviceOwner&quot;: &quot;KNS&quot;,
+    &quot;workflowId&quot;: &quot;standard&quot;,
+    &quot;currentWorkflowStep&quot;: &quot;started&quot;,
+    &quot;isDeleted&quot;: false,
+    &quot;isArchived&quot;: false,
+    &quot;forms&quot;: [{
+        &quot;formId&quot;: &quot;boatdata&quot;,
+        &quot;contentType&quot;: &quot;application/json&quot;,
+        &quot;storageUrl&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/data&quot;,
+        &quot;attachments&quot;: [ {
+                &quot;attachmentId&quot;: &quot;atach23894&quot;,
+                &quot;contentType&quot;: &quot;application/pdf&quot;,
+                &quot;name&quot;: &quot;målebrev&quot;,
+                &quot;storageUrl&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/attachements/målebrev&quot;
+            }]
+        }, {
+        &quot;formId&quot;: &quot;crewlist&quot;,
+        &quot;contentType&quot;: &quot;text/xml&quot;,
+        &quot;storageUrl&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30/crewlist/data&quot;,
+        &quot;attachments&quot;: []
+        }
+    ],
+    &quot;attachments&quot;: [],
+}
+</code></pre>
+
+<p>Get information about a reportee.</p>
 
 <pre><code class="language-http">/reportees/{reporteeId}
 </code></pre>
@@ -4082,6 +4141,11 @@ related or additional data.</p>
 <p>Get all instances that a reportee has submittet or are working on</p>
 
 <pre><code class="language-http">/reportees/{reporteeId}/instances[?services={serviceId}][&amp;submitted=true][&amp;since=2017-01-01]
+</code></pre>
+
+<p>Post a new instance</p>
+
+<pre><code class="language-http">/reportees/{reporteeId}/instances
 </code></pre>
 
 <p>Get a specific instance</p>
@@ -4097,6 +4161,16 @@ related or additional data.</p>
 <p>Get a specific form</p>
 
 <pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}/forms/{formId}
+</code></pre>
+
+<p>Get a the attachements of an instance</p>
+
+<pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}/attachements
+</code></pre>
+
+<p>Get a list attachements of a form</p>
+
+<pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}/forms/{formId}/attachements
 </code></pre>
 
 <h5 id="serviceowner">ServiceOwner</h5>
