@@ -12,6 +12,12 @@ This page is work-in-progress. This is a proposed api which most likely is going
 REST is an architectural style for designing loosely coupled applications over HTTP which was coined by [Rob Fielding](https://en.wikipedia.org/wiki/Roy_Fielding) in 2000.
 We will define services according to [REST](https://restfulapi.net/rest-architectural-constraints/). 
 
+All REST APIs should be versioned.
+
+```http
+/api/v1/services
+```
+
 #### Resources
 
 A resources is a thing that the service knows about. A resource in a system should have only one logical URI and that should provide a way to fetch 
@@ -19,9 +25,11 @@ related or additional data.
 
 #### App services (runtime)
 
-One app per service owner. A service owner can have many services.
+One cluster per service owner. A service owner can have many apps.
 
-https://{serviceownerNick}.apps.altinn.no/
+```http
+https://{serviceownerNick}.apps.altinn.no
+```
 
 Resources: App, Service, Instance
 
@@ -55,7 +63,25 @@ Post/put to upload/update form data
 /services/{serviceId}/instances/{instanceId}/forms/{formId}
 ```
 
-Get list of all services for the app
+Put/post to change workflow step
+
+```http
+/services/{serviceId}/instances/{instanceId}/workflow/{stepId}
+```
+
+Get receipt
+
+```http
+/services/{serviceId}/instances/{instanceId}/receipt
+```
+
+Get validate model
+
+```http
+/services/{serviceId}/instances/{instanceId}/forms/{formId}/validate
+```
+
+Get list of all services for the service owner
 
 ```http
 /services
@@ -73,17 +99,57 @@ Get schema for a specific form in the service
 /services/{serviceId}/schemas/{formId}
 ```
 
+Get texts for a specific form in the service 
+
+```http
+/services/{serviceId}/texts
+```
+
 #### Platform service
 
 Data service to store data for apps.
 
-Resources: Reportee, Instance, Service, Form, ServiceOwner, Model
+Resources: Reportee, Instance, Service, Form, ServiceOwner, Schema, Model
 
-##### Reportee
+##### Instance
 
-A reportee is a person/company that reports information via Altinn.
+An instance is created when a reportee starts a workflow in an app. A reportee is a person/company that reports information via Altinn.
 
-Get information about a specific reportee
+```json
+{
+    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
+    "reporteeId": "666",
+    "serviceId": "sailor",
+    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdBy": "XXX",
+    "title": "Færder påmelding",
+    "serviceOwner": "KNS",
+    "workflowId": "standard",
+    "currentWorkflowStep": "started",
+    "isDeleted": false,
+    "isArchived": false,
+    "forms": [{
+        "formId": "boatdata",
+        "contentType": "application/json",
+        "storageUrl": "762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/data",
+        "attachments": [ {
+                "attachmentId": "atach23894",
+                "contentType": "application/pdf",
+                "name": "målebrev",
+                "storageUrl": "762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/attachements/målebrev"
+            }]
+        }, {
+        "formId": "crewlist",
+        "contentType": "text/xml",
+        "storageUrl": "762011d1-d341-4c0a-8641-d8a104e83d30/crewlist/data",
+        "attachments": []
+        }
+    ],
+    "attachments": [],
+}
+```
+
+Get information about a reportee.
 
 ```http
 /reportees/{reporteeId}
@@ -93,6 +159,12 @@ Get all instances that a reportee has submittet or are working on
 
 ```http
 /reportees/{reporteeId}/instances[?services={serviceId}][&submitted=true][&since=2017-01-01]
+```
+
+Post a new instance
+
+```http
+/reportees/{reporteeId}/instances
 ```
 
 Get a specific instance
@@ -111,6 +183,18 @@ Get a specific form
 
 ```http
 /reportees/{reporteeId}/instances/{instanceId}/forms/{formId}
+```
+
+Get a the attachements of an instance
+
+```http
+/reportees/{reporteeId}/instances/{instanceId}/attachements
+```
+
+Get a list attachements of a form
+
+```http
+/reportees/{reporteeId}/instances/{instanceId}/forms/{formId}/attachements
 ```
 
 ##### ServiceOwner
