@@ -36,27 +36,38 @@ Triggered by:
 
 * Successfull build of either/both Altinn Studio and Runtime.
 
-### Altinn Service Deploy
+### Altinn App Deploy
 
 {{<figure src="ServiceRuntime.svg?width=1000" title="Service Runtime docker image bundling process.">}}
 
-Building the Altinn Service with "service specific" files from Gitea, creating a "Service Image", deploying to Azure Container Registry and telling Kubernetes to deploy service.
+Building the Altinn App with "app specific" files from Gitea, creating a "App Image", deploying to Azure Container Registry and telling Kubernetes to deploy app.
 
 Build process (Pipeline):
 
 _This process har more details in the Dockerfile. This is a summary._
 
-* Downloading files from service repo in Gitea
+* Downloading files from app repository in Gitea
 * Building Docker base image with Dockerfile. This includes "Dotnet build" for C# files from Gitea. "Dotnet build" is executed on the Runtime Base Image reusing previous.
-  * Docker Pull: Altinn/Runtime Base Image with SDK from ACR. This makes the AltinnService build faster.
+  * Docker Pull: Altinn/Runtime Base Image with SDK from ACR. This makes the AltinnApp build faster.
   * Clone and build code from Gitea inside Altinn-Runtime Base Image.
   * Docker Pull: Microsoft/DotNet AspNetCore.
-  * Copy Altinn Runtime, AltinnService Build files and Service Metadata/Resources from Gitea.
+  * Copy Altinn Runtime, AltinnApp Build files and App Metadata/Resources from Gitea.
 * Publish to ACR.
+
+The build and deploy app pipeline is controlled by different flags :
+
+* APP_COMMIT_ID - used as id for the app image and should be used to reference the repository at that commit state
+* APP_DEPLOY_TOKEN - used to identify user when cloning repository (is only really necessary for private repositorys but is mandetory)
+* APP_ENVIRONMENT - represent which environment to deploy to (not yet used)
+* APP_OWNER - the owner of the repository
+* APP_REPO - the name of the repository to clone and use to create the app
+* GITEA_ENVIRONMENT - the gitea environment to clone the repository from
+* should_build - flag that can be used if one only wishes to deploy a app and not build it (default set to true)
+* should_deploy - flag that can be used if one wishes to deploy an app (default set to false)
 
 Triggered by:
 
-* "Publish Service"-button in Altinn Studio.
+* "Deploy"-button in Altinn Studio.
 
 ## Generating Altinn Pipelines Images
 
