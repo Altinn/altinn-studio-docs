@@ -4075,14 +4075,14 @@ if(host != "localhost")
 <ul>
 <li><a href="#rest">REST</a></li>
 <li><a href="#resources">Resources</a></li>
-<li><a href="#app-services-runtime">App services (runtime)</a></li>
 <li><a href="#platform-service">Platform service</a>
 <ul>
-<li><a href="#instance">Instance</a></li>
+<li><a href="#instance-service-instance">Instance (Service instance)</a></li>
 <li><a href="#serviceowner">ServiceOwner</a></li>
-<li><a href="#service">Service</a></li>
+<li><a href="#service-metadata">Service (metadata)</a></li>
 </ul></li>
 <li><a href="#altinn-studio">Altinn-studio</a></li>
+<li><a href="#app-services-runtime">App services (runtime)</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -4132,13 +4132,140 @@ We will define services according to <a href="https://restfulapi.net/rest-archit
 
 <p>All REST APIs should be versioned.</p>
 
-<pre><code class="language-http">/api/v1/services
+<pre><code class="language-http">/api/v1/resource
 </code></pre>
 
 <h4 id="resources">Resources</h4>
 
 <p>A resources is a thing that the service knows about. A resource in a system should have only one logical URI and that should provide a way to fetch
 related or additional data.</p>
+
+<h4 id="platform-service">Platform service</h4>
+
+<p>Data service to store data for apps, metadata for production services</p>
+
+<p>Resources: Instance, Service,  ServiceOwner, Schema, Model</p>
+
+<h5 id="instance-service-instance">Instance (Service instance)</h5>
+
+<p>An service instance is created when a reportee starts a workflow in an app.
+A reportee is a person/company that reports information via Altinn.</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;reporteeId&quot;: &quot;666&quot;,
+    &quot;serviceId&quot;: &quot;sailor&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;XXX&quot;,
+    &quot;title&quot;: &quot;Færder påmelding&quot;,
+    &quot;serviceOwner&quot;: &quot;KNS&quot;,
+    &quot;workflowId&quot;: &quot;standard&quot;,
+    &quot;currentWorkflowStep&quot;: &quot;started&quot;,
+    &quot;isDeleted&quot;: false,
+    &quot;isArchived&quot;: false,
+    &quot;data&quot;: [{
+        &quot;id&quot;: &quot;boatdata&quot;,
+        &quot;contentType&quot;: &quot;application/json&quot;,
+        &quot;storageUrl&quot;: &quot;sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata&quot;,
+        &quot;uploaded&quot;: &quot;2019-03-06T15:00:23+01:00&quot;
+        }, {
+        &quot;id&quot;: &quot;crewlist&quot;,
+        &quot;contentType&quot;: &quot;text/xml&quot;,
+        &quot;storageUrl&quot;: &quot;sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist&quot;,
+        &quot;uploaded&quot;: &quot;2019-03-07T23:59:49+01:00&quot;
+        }
+    ]
+}
+</code></pre>
+
+<p>Create a new instance. Post with params.</p>
+
+<pre><code class="language-http">/instances?serviceId=sailor&amp;reporteeId=666
+</code></pre>
+
+<p>Get information about an instance.</p>
+
+<pre><code class="language-http">/instances/{instanceId}
+</code></pre>
+
+<p>Get all instances that a reportee has submittet or are working on</p>
+
+<pre><code class="language-http">/instances[?services={serviceId}][&amp;reporter={reporteeId}][&amp;submitted=true][&amp;since=2017-01-01]
+</code></pre>
+
+<p>Get a specific data element</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
+</code></pre>
+
+<p>Post/put/delete a specific data element</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
+</code></pre>
+
+<p>Delete a specific instance (also deletes its data).</p>
+
+<pre><code class="language-http">/instances/{instanceId}
+</code></pre>
+
+<h5 id="serviceowner">ServiceOwner</h5>
+
+<p>Get metadata about a service owner</p>
+
+<pre><code class="language-http">/serviceowners/{serviceOwnerId}
+</code></pre>
+
+<p>Get all services of a spesific service owner</p>
+
+<pre><code class="language-http">/serviceowners/{serviceOwnerId}/services
+</code></pre>
+
+<h5 id="service-metadata">Service (metadata)</h5>
+
+<p>Resource: <a href="http://platform.altinn.no/service/sailor">http://platform.altinn.no/service/sailor</a></p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;sailor&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;XXX&quot;,
+    &quot;title&quot;: &quot;Færder påmelding&quot;,
+    &quot;serviceOwner&quot;: &quot;KNS&quot;,
+    &quot;workflowId&quot;: &quot;standard&quot;,
+    &quot;isDeleted&quot;: false,
+    &quot;isArchived&quot;: false,
+    &quot;schema&quot;: [{
+        &quot;id&quot;: &quot;boatdata&quot;,
+        &quot;contentType&quot;: &quot;application/schema+json&quot;,
+        &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;
+        }, {
+        &quot;id&quot;: &quot;crewlist&quot;,
+        &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
+        &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;
+        }
+    ]
+}
+</code></pre>
+
+<p>Get a list of all services</p>
+
+<pre><code class="language-http">/services
+</code></pre>
+
+<p>Get metadata about a specific service</p>
+
+<pre><code class="language-http">/services/{serviceId}
+</code></pre>
+
+<p>Get the schema of a specific data element in a service</p>
+
+<pre><code class="language-http">/services/{serviceId}/schemas/{dataId}?format=jsonSchema
+</code></pre>
+
+<h4 id="altinn-studio">Altinn-studio</h4>
+
+<p>&hellip;</p>
+
+<p>tbd</p>
 
 <h4 id="app-services-runtime">App services (runtime)</h4>
 
@@ -4161,7 +4288,7 @@ related or additional data.</p>
 
 <p>Filter instances for an reportee</p>
 
-<pre><code class="language-http">/services/{serviceId}/instances?for={reporteeId}&amp;[since=&quot;2018-07-01&quot;]
+<pre><code class="language-http">/services/{serviceId}/instances?reportee={reporteeId}&amp;[since=&quot;2018-07-01&quot;]
 </code></pre>
 
 <p>Put to update a specific instance. Get to get instance metadata</p>
@@ -4189,11 +4316,6 @@ related or additional data.</p>
 <pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/forms/{formId}/validate
 </code></pre>
 
-<p>Get list of all services for the service owner</p>
-
-<pre><code class="language-http">/services
-</code></pre>
-
 <p>Get metadata about a specific service</p>
 
 <pre><code class="language-http">/services/{serviceId}
@@ -4201,141 +4323,13 @@ related or additional data.</p>
 
 <p>Get schema for a specific form in the service</p>
 
-<pre><code class="language-http">/services/{serviceId}/schemas/{formId}
+<pre><code class="language-http">/services/{serviceId}/schemas/{schemaId}
 </code></pre>
 
 <p>Get texts for a specific form in the service</p>
 
 <pre><code class="language-http">/services/{serviceId}/texts
 </code></pre>
-
-<h4 id="platform-service">Platform service</h4>
-
-<p>Data service to store data for apps.</p>
-
-<p>Resources: Reportee, Instance, Service, Form, ServiceOwner, Schema, Model</p>
-
-<h5 id="instance">Instance</h5>
-
-<p>An instance is created when a reportee starts a workflow in an app. A reportee is a person/company that reports information via Altinn.</p>
-
-<pre><code class="language-json">{
-    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    &quot;reporteeId&quot;: &quot;666&quot;,
-    &quot;serviceId&quot;: &quot;sailor&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
-    &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;title&quot;: &quot;Færder påmelding&quot;,
-    &quot;serviceOwner&quot;: &quot;KNS&quot;,
-    &quot;workflowId&quot;: &quot;standard&quot;,
-    &quot;currentWorkflowStep&quot;: &quot;started&quot;,
-    &quot;isDeleted&quot;: false,
-    &quot;isArchived&quot;: false,
-    &quot;forms&quot;: [{
-        &quot;formId&quot;: &quot;boatdata&quot;,
-        &quot;contentType&quot;: &quot;application/json&quot;,
-        &quot;storageUrl&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/data&quot;,
-        &quot;attachments&quot;: [ {
-                &quot;attachmentId&quot;: &quot;atach23894&quot;,
-                &quot;contentType&quot;: &quot;application/pdf&quot;,
-                &quot;name&quot;: &quot;målebrev&quot;,
-                &quot;storageUrl&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/attachements/målebrev&quot;
-            }]
-        }, {
-        &quot;formId&quot;: &quot;crewlist&quot;,
-        &quot;contentType&quot;: &quot;text/xml&quot;,
-        &quot;storageUrl&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30/crewlist/data&quot;,
-        &quot;attachments&quot;: []
-        }
-    ],
-    &quot;attachments&quot;: [],
-}
-</code></pre>
-
-<p>Get information about a reportee.</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}
-</code></pre>
-
-<p>Get all instances that a reportee has submittet or are working on</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}/instances[?services={serviceId}][&amp;submitted=true][&amp;since=2017-01-01]
-</code></pre>
-
-<p>Post a new instance</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}/instances
-</code></pre>
-
-<p>Get a specific instance</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}
-</code></pre>
-
-<p>Get all forms (data) of an instance</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}/forms
-</code></pre>
-
-<p>Get a specific form</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}/forms/{formId}
-</code></pre>
-
-<p>Get a the attachements of an instance</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}/attachements
-</code></pre>
-
-<p>Get a list attachements of a form</p>
-
-<pre><code class="language-http">/reportees/{reporteeId}/instances/{instanceId}/forms/{formId}/attachements
-</code></pre>
-
-<h5 id="serviceowner">ServiceOwner</h5>
-
-<p>Get metadata about a service owner</p>
-
-<pre><code class="language-http">/serviceowners/{serviceOwnerId}
-</code></pre>
-
-<p>Get all services of a spesific service owner</p>
-
-<pre><code class="language-http">/serviceowners/{serviceOwnerId}/services
-</code></pre>
-
-<p>Get information about a specific service</p>
-
-<pre><code class="language-http">/serviceowners/{serviceOwnerId}/services/{serviceId}
-</code></pre>
-
-<p>Get information about the instances of a specific service</p>
-
-<pre><code class="language-http">/serviceowners/{serviceOwnerId}/services/{serviceId}/instances
-</code></pre>
-
-<h5 id="service">Service</h5>
-
-<p>Get a list of all services</p>
-
-<pre><code class="language-http">/services
-</code></pre>
-
-<p>Get metadata about a specific service</p>
-
-<pre><code class="language-http">/services/{serviceId}
-</code></pre>
-
-<p>Get schema of a specific form in a service</p>
-
-<pre><code class="language-http">/services/{serviceId}/schemas/{formId}?format=jsonSchema
-</code></pre>
-
-<h4 id="altinn-studio">Altinn-studio</h4>
-
-<p>&hellip;</p>
-
-<p>tbd</p>
 
 
 <footer class=" footline" >
