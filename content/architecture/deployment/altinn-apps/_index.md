@@ -1,7 +1,7 @@
 ---
-title: Altinn Studio Apps - Deployment Architecture
-linktitle: Altinn Studio Apps
-description: Description of the deployment architecture for Altinn Studio Apps
+title: Altinn Apps - Deployment Architecture
+linktitle: Altinn Apps
+description: Description of the deployment architecture for Altinn Apps
 tags: ["tjenester 3.0"]
 weight: 100
 ---
@@ -10,10 +10,10 @@ NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
 Altinn Studio Apps is the solution where all the service apps developed in Altinn Studio is deployed.
-The following diagram shows the deployment architecture for Altinn Studio together & Altinn Studio Apps
+The following diagram shows the deployment architecture for Altinn Studio together & Altinn Apps
 
 {{%excerpt%}}
-<object data="/architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/deployment/altinn-apps/AltinnApps_DeploymentArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 [See fullscreen] or [download as visio]
