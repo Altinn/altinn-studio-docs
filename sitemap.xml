@@ -15,11 +15,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/service-configurations/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/rule-handler/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/</loc>
   </url>
   
   <url>
@@ -55,11 +55,19 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/altinnservice-projectfile/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/</loc>
   </url>
   
   <url>
@@ -83,7 +91,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/model/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/model/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/model/</loc>
   </url>
   
   <url>
@@ -103,11 +115,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/calculationhandler/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/contexthandler/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/contexthandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/contexthandler/</loc>
   </url>
   
   <url>
@@ -143,7 +159,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/form-layout/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/</loc>
   </url>
   
   <url>
@@ -155,7 +171,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/functional/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/functional/</loc>
   </url>
   
   <url>
@@ -175,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/instantiationhandler/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/</loc>
   </url>
   
   <url>
@@ -183,23 +199,43 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pap/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/pap/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pdp/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pap/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pep/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/pdp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/pip/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pdp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/prp/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/pep/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pep/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/pip/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pip/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/prp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/prp/</loc>
   </url>
   
   <url>
@@ -231,19 +267,19 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/serviceimplementation/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/serviceimplementation/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/servicemetadata/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/servicemetadata/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/servicemodel/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/servicemodel/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/servicemodelxsd/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/servicemodelxsd/</loc>
   </url>
   
   <url>
@@ -263,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/</loc>
   </url>
   
   <url>
@@ -287,7 +323,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/validationhandler/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/validationhandler/</loc>
   </url>
   
   <url>
@@ -295,7 +331,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-studio-apps/xacml/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/xacml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/xacml/</loc>
   </url>
   
   <url>
@@ -303,7 +343,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/structure/reactapp/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/</loc>
   </url>
   
   <url>
@@ -343,15 +383,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-apps/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-apps/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio-repos/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/</loc>
   </url>
   
   <url>
