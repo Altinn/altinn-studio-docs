@@ -1622,6 +1622,98 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/architecture/application/altinn-apps/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/">
+        <span>Altinn Apps</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-apps/react-app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/react-app/">
+        <span>React App</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/application/altinn-apps/serviceevents/" class="dd-item
+     
+      ">
+        <a href="/architecture/application/altinn-apps/serviceevents/">
+        <span>Service Events</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/architecture/application/altinn-studio/" class="dd-item 
         
         
@@ -1693,98 +1785,6 @@ if(host != "localhost")
       </a>
               
     </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/application/altinn-studio-apps/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/application/altinn-studio-apps/">
-        <span>Altinn Studio Apps</span>
-
-        
-        
-
-          
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/application/altinn-studio-apps/react-app/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/application/altinn-studio-apps/react-app/">
-        <span>React App</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/application/altinn-studio-apps/serviceevents/" class="dd-item
-     
-      ">
-        <a href="/architecture/application/altinn-studio-apps/serviceevents/">
-        <span>Service Events</span> 
-        
-        </a></li>
-     
   
  
 
@@ -1878,13 +1878,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/deployment/altinn-studio/" class="dd-item 
+    <li data-nav-id="/architecture/deployment/altinn-apps/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/deployment/altinn-studio/">
-        <span>Altinn Studio</span>
+      <a href="/architecture/deployment/altinn-apps/">
+        <span>Altinn Apps</span>
 
         
         
@@ -1905,13 +1905,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/deployment/altinn-studio-apps/" class="dd-item 
+    <li data-nav-id="/architecture/deployment/altinn-studio/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/deployment/altinn-studio-apps/">
-        <span>Altinn Studio Apps</span>
+      <a href="/architecture/deployment/altinn-studio/">
+        <span>Altinn Studio</span>
 
         
         
@@ -4340,6 +4340,35 @@ SaveConfig Saves configuration TODO: Need to verify use and c <a class="read-mor
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/deployment/altinn-apps/">Altinn Apps - Deployment Architecture</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. Stuff will change
+Altinn Studio Apps is the solution where all the service apps developed in Altinn Studio is deployed. The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Apps
+
+See fullscreen or download as visio
+Kubernetes Each &ldquo;ServiceApp&rdquo; created in Altinn Studio is deployed to Altinn Studio Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes. <a class="read-more" href="/architecture/deployment/altinn-apps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/deployment/service-deployment/">Altinn Studio - App Deployment</a></h2>
     </header>
     <section class="post-excerpt">
@@ -4375,35 +4404,6 @@ From Docker Registry Kubernetes will download the container in to the Kubernetes
 The Altinn Studio Service Development solution is deployed to a Kubernetes Cluster. The diagram below show the different applications that is part this.
 
 Repository GITEA is used as Repository in Altinn Studio Service Development solution. There is one instance of GITEA running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/architecture/deployment/altinn-studio/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/deployment/altinn-studio-apps/">Altinn Studio Apps - Deployment Architecture</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>NOTE: Work in progress. Stuff will change
-Altinn Studio Apps is the solution where all the service apps developed in Altinn Studio is deployed. The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Studio Apps
-
-See fullscreen or download as visio
-Kubernetes Each &ldquo;ServiceApp&rdquo; created in Altinn Studio is deployed to Altinn Studio Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes. <a class="read-more" href="/architecture/deployment/altinn-studio-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4510,7 +4510,7 @@ Navigation/administration of the different applications is done from top-level a
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-studio-apps/">Application Architecture Runtime</a></h2>
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/">Application Architecture Runtime</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
@@ -4519,7 +4519,7 @@ Navigation/administration of the different applications is done from top-level a
 See fullscreen or download as visio
 Service App The Service App consist of plattform code (AltinnCore.Runtime) and
 This is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
-Front-end Service App The Service App have two different types of front.end. * Front-end configured by the service developer in Altinn Studio ui-designer * Front-end that is part of the plattform and can&rsquo;t be changed by the service developer <a class="read-more" href="/architecture/application/altinn-studio-apps/">&raquo;</a></p>
+Front-end Service App The Service App have two different types of front.end. * Front-end configured by the service developer in Altinn Studio ui-designer * Front-end that is part of the plattform and can&rsquo;t be changed by the service developer <a class="read-more" href="/architecture/application/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
