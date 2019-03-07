@@ -4069,7 +4069,7 @@ if(host != "localhost")
 <li><a href="#quality-build">Quality Build</a></li>
 <li><a href="#altinn-studio-and-runtime-docker-images">Altinn Studio and Runtime Docker Images</a></li>
 <li><a href="#altinn-studio-release-build">Altinn Studio Release Build</a></li>
-<li><a href="#altinn-service-deploy">Altinn Service Deploy</a></li>
+<li><a href="#altinn-app-deploy">Altinn App Deploy</a></li>
 </ul></li>
 <li><a href="#generating-altinn-pipelines-images">Generating Altinn Pipelines Images</a>
 <ul>
@@ -4156,7 +4156,7 @@ The Release Build will update the Kubernetes cluster with the images created in 
 <li>Successfull build of either/both Altinn Studio and Runtime.</li>
 </ul>
 
-<h3 id="altinn-service-deploy">Altinn Service Deploy</h3>
+<h3 id="altinn-app-deploy">Altinn App Deploy</h3>
 
 
 <figure>
@@ -4172,29 +4172,42 @@ The Release Build will update the Kubernetes cluster with the images created in 
 </figure>
 
 
-<p>Building the Altinn Service with &ldquo;service specific&rdquo; files from Gitea, creating a &ldquo;Service Image&rdquo;, deploying to Azure Container Registry and telling Kubernetes to deploy service.</p>
+<p>Building the Altinn App with &ldquo;app specific&rdquo; files from Gitea, creating a &ldquo;App Image&rdquo;, deploying to Azure Container Registry and telling Kubernetes to deploy app.</p>
 
 <p>Build process (Pipeline):</p>
 
 <p><em>This process har more details in the Dockerfile. This is a summary.</em></p>
 
 <ul>
-<li>Downloading files from service repo in Gitea</li>
+<li>Downloading files from app repository in Gitea</li>
 <li>Building Docker base image with Dockerfile. This includes &ldquo;Dotnet build&rdquo; for C# files from Gitea. &ldquo;Dotnet build&rdquo; is executed on the Runtime Base Image reusing previous.
 
 <ul>
-<li>Docker Pull: Altinn/Runtime Base Image with SDK from ACR. This makes the AltinnService build faster.</li>
+<li>Docker Pull: Altinn/Runtime Base Image with SDK from ACR. This makes the AltinnApp build faster.</li>
 <li>Clone and build code from Gitea inside Altinn-Runtime Base Image.</li>
 <li>Docker Pull: Microsoft/DotNet AspNetCore.</li>
-<li>Copy Altinn Runtime, AltinnService Build files and Service Metadata/Resources from Gitea.</li>
+<li>Copy Altinn Runtime, AltinnApp Build files and App Metadata/Resources from Gitea.</li>
 </ul></li>
 <li>Publish to ACR.</li>
+</ul>
+
+<p>The build and deploy app pipeline is controlled by different flags :</p>
+
+<ul>
+<li>APP_COMMIT_ID - used as id for the app image and should be used to reference the repository at that commit state</li>
+<li>APP_DEPLOY_TOKEN - used to identify user when cloning repository (is only really necessary for private repositorys but is mandetory)</li>
+<li>APP_ENVIRONMENT - represent which environment to deploy to (not yet used)</li>
+<li>APP_OWNER - the owner of the repository</li>
+<li>APP_REPO - the name of the repository to clone and use to create the app</li>
+<li>GITEA_ENVIRONMENT - the gitea environment to clone the repository from</li>
+<li>should_build - flag that can be used if one only wishes to deploy a app and not build it (default set to true)</li>
+<li>should_deploy - flag that can be used if one wishes to deploy an app (default set to false)</li>
 </ul>
 
 <p>Triggered by:</p>
 
 <ul>
-<li>&ldquo;Publish Service&rdquo;-button in Altinn Studio.</li>
+<li>&ldquo;Deploy&rdquo;-button in Altinn Studio.</li>
 </ul>
 
 <h2 id="generating-altinn-pipelines-images">Generating Altinn Pipelines Images</h2>
