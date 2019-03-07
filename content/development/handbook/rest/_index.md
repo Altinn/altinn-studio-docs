@@ -15,13 +15,151 @@ We will define services according to [REST](https://restfulapi.net/rest-architec
 All REST APIs should be versioned.
 
 ```http
-/api/v1/services
+/api/v1/resource
 ```
 
 #### Resources
 
 A resources is a thing that the service knows about. A resource in a system should have only one logical URI and that should provide a way to fetch 
 related or additional data.
+
+#### Platform service
+
+Data service to store data for apps, metadata for production services
+
+Resources: Instance, Service,  ServiceOwner, Schema, Model
+
+##### Instance (Service instance)
+
+An service instance is created when a reportee starts a workflow in an app. 
+A reportee is a person/company that reports information via Altinn.
+
+```json
+{
+    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
+    "reporteeId": "666",
+    "serviceId": "sailor",
+    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdBy": "XXX",
+    "title": "Færder påmelding",
+    "serviceOwner": "KNS",
+    "workflowId": "standard",
+    "currentWorkflowStep": "started",
+    "isDeleted": false,
+    "isArchived": false,
+    "data": [{
+        "id": "boatdata",
+        "contentType": "application/json",
+        "storageUrl": "sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata",
+        "uploaded": "2019-03-06T15:00:23+01:00"
+        }, {
+        "id": "crewlist",
+        "contentType": "text/xml",
+        "storageUrl": "sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist",
+        "uploaded": "2019-03-07T23:59:49+01:00"
+        }
+    ]
+}
+```
+
+Create a new instance. Post with params.
+
+```http
+/instances?serviceId=sailor&reporteeId=666
+```
+
+Get information about an instance.
+
+```http
+/instances/{instanceId}
+```
+
+Get all instances that a reportee has submittet or are working on
+
+```http
+/instances[?services={serviceId}][&reporter={reporteeId}][&submitted=true][&since=2017-01-01]
+```
+
+Get a specific data element
+
+```http
+/instances/{instanceId}/data/{dataId}
+```
+
+Post/put/delete a specific data element
+
+```http
+/instances/{instanceId}/data/{dataId}
+```
+
+Delete a specific instance (also deletes its data).
+
+```http
+/instances/{instanceId}
+```
+
+##### ServiceOwner
+
+Get metadata about a service owner
+
+```http
+/serviceowners/{serviceOwnerId}
+```
+
+Get all services of a spesific service owner
+
+```http
+/serviceowners/{serviceOwnerId}/services
+```
+
+##### Service (metadata)
+
+Resource: http://platform.altinn.no/service/sailor
+```json
+{
+    "id": "sailor",
+    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdBy": "XXX",
+    "title": "Færder påmelding",
+    "serviceOwner": "KNS",
+    "workflowId": "standard",
+    "isDeleted": false,
+    "isArchived": false,
+    "schema": [{
+        "id": "boatdata",
+        "contentType": "application/schema+json",
+        "storageUrl": "sailor/schema/boatdata"
+        }, {
+        "id": "crewlist",
+        "contentType": "application/xsd+xml",
+        "storageUrl": "sailor/schema/crewlist"
+        }
+    ]
+}
+```
+
+Get a list of all services
+
+```http
+/services
+```
+
+Get metadata about a specific service
+
+```http
+/services/{serviceId}
+```
+
+Get the schema of a specific data element in a service
+
+```http
+/services/{serviceId}/schemas/{dataId}?format=jsonSchema
+```
+
+#### Altinn-studio 
+...
+
+tbd
 
 #### App services (runtime)
 
@@ -48,7 +186,7 @@ Post to create an instance for a specific reportee. Returns a new instanceId.
 Filter instances for an reportee
 
 ``` http
-/services/{serviceId}/instances?for={reporteeId}&[since="2018-07-01"]
+/services/{serviceId}/instances?reportee={reporteeId}&[since="2018-07-01"]
 ```
 
 Put to update a specific instance. Get to get instance metadata
@@ -81,11 +219,6 @@ Get validate model
 /services/{serviceId}/instances/{instanceId}/forms/{formId}/validate
 ```
 
-Get list of all services for the service owner
-
-```http
-/services
-```
 
 Get metadata about a specific service
 
@@ -96,7 +229,7 @@ Get metadata about a specific service
 Get schema for a specific form in the service 
 
 ```http
-/services/{serviceId}/schemas/{formId}
+/services/{serviceId}/schemas/{schemaId}
 ```
 
 Get texts for a specific form in the service 
@@ -104,146 +237,3 @@ Get texts for a specific form in the service
 ```http
 /services/{serviceId}/texts
 ```
-
-#### Platform service
-
-Data service to store data for apps.
-
-Resources: Reportee, Instance, Service, Form, ServiceOwner, Schema, Model
-
-##### Instance
-
-An instance is created when a reportee starts a workflow in an app. A reportee is a person/company that reports information via Altinn.
-
-```json
-{
-    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-    "reporteeId": "666",
-    "serviceId": "sailor",
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
-    "createdBy": "XXX",
-    "title": "Færder påmelding",
-    "serviceOwner": "KNS",
-    "workflowId": "standard",
-    "currentWorkflowStep": "started",
-    "isDeleted": false,
-    "isArchived": false,
-    "forms": [{
-        "formId": "boatdata",
-        "contentType": "application/json",
-        "storageUrl": "762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/data",
-        "attachments": [ {
-                "attachmentId": "atach23894",
-                "contentType": "application/pdf",
-                "name": "målebrev",
-                "storageUrl": "762011d1-d341-4c0a-8641-d8a104e83d30/boatdata/attachements/målebrev"
-            }]
-        }, {
-        "formId": "crewlist",
-        "contentType": "text/xml",
-        "storageUrl": "762011d1-d341-4c0a-8641-d8a104e83d30/crewlist/data",
-        "attachments": []
-        }
-    ],
-    "attachments": [],
-}
-```
-
-Get information about a reportee.
-
-```http
-/reportees/{reporteeId}
-```
-
-Get all instances that a reportee has submittet or are working on
-
-```http
-/reportees/{reporteeId}/instances[?services={serviceId}][&submitted=true][&since=2017-01-01]
-```
-
-Post a new instance
-
-```http
-/reportees/{reporteeId}/instances
-```
-
-Get a specific instance
-
-```http
-/reportees/{reporteeId}/instances/{instanceId}
-```
-
-Get all forms (data) of an instance
-
-```http
-/reportees/{reporteeId}/instances/{instanceId}/forms
-```
-
-Get a specific form
-
-```http
-/reportees/{reporteeId}/instances/{instanceId}/forms/{formId}
-```
-
-Get a the attachements of an instance
-
-```http
-/reportees/{reporteeId}/instances/{instanceId}/attachements
-```
-
-Get a list attachements of a form
-
-```http
-/reportees/{reporteeId}/instances/{instanceId}/forms/{formId}/attachements
-```
-
-##### ServiceOwner
-
-Get metadata about a service owner
-
-```http
-/serviceowners/{serviceOwnerId}
-```
-
-Get all services of a spesific service owner
-
-```http
-/serviceowners/{serviceOwnerId}/services
-```
-
-Get information about a specific service
-
-```http
-/serviceowners/{serviceOwnerId}/services/{serviceId}
-```
-
-Get information about the instances of a specific service
-
-```http
-/serviceowners/{serviceOwnerId}/services/{serviceId}/instances
-```
-
-##### Service
-
-Get a list of all services
-
-```http
-/services
-```
-
-Get metadata about a specific service
-
-```http
-/services/{serviceId}
-```
-
-Get schema of a specific form in a service
-
-```http
-/services/{serviceId}/schemas/{formId}?format=jsonSchema
-```
-
-#### Altinn-studio 
-...
-
-tbd
