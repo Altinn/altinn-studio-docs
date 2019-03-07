@@ -2599,13 +2599,40 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/solution/altinn-studio-apps/" class="dd-item 
+    <li data-nav-id="/architecture/solution/altinn-apps/" class="dd-item 
         
         
         parent
         ">
-      <a href="/architecture/solution/altinn-studio-apps/">
-        <span>Solution</span>
+      <a href="/architecture/solution/altinn-apps/">
+        <span>Altinn Apps</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/solution/altinn-platform/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/solution/altinn-platform/">
+        <span>Altinn Apps</span>
 
         
         
@@ -2632,7 +2659,7 @@ if(host != "localhost")
         parent
         ">
       <a href="/architecture/solution/altinn-studio/">
-        <span>Solution</span>
+        <span>Altinn Studio</span>
 
         
         
@@ -4297,9 +4324,9 @@ if(host != "localhost")
 <li>
 <ul>
 <li><a href="#altinn">Altinn</a></li>
+<li><a href="#altinn-apps">Altinn Apps</a></li>
 <li><a href="#altinn-platform">Altinn Platform</a></li>
 <li><a href="#altinn-studio">Altinn Studio</a></li>
-<li><a href="#altinn-studio-apps">Altinn Studio Apps</a></li>
 <li><a href="#altinn-studio-apps-environment">Altinn Studio Apps environment</a></li>
 <li><a href="#altinn-studio-repos">Altinn Studio Repos</a></li>
 <li><a href="#api">Api</a></li>
@@ -4353,9 +4380,15 @@ if(host != "localhost")
 
 <p>Norways E-Governement plattform. Launched december 4. 2003.</p>
 
+<h3 id="altinn-apps">Altinn Apps</h3>
+
+<p>Altinn Apps is the solution where the developed apps is deployed.
+It consist of isolated organization Kubernetes clusters and supporting functionality and infrastructure.
+See Altinn Apps <a href="/architecture/application/altinn-apps/">application architecture</a> or <a href="/architecture/deployment/altinn-apps/">deployment architecture</a>.</p>
+
 <h3 id="altinn-platform">Altinn Platform</h3>
 
-<p>Altinn Platform consist of supporting services to Altinn Studio Apps.
+<p>Altinn Platform consist of supporting services to Altinn Apps.
 Example services are Authorization, Authentication, Profile, Register, Intermediary
 The platform is based on microservices architecture and is highly scalable.</p>
 
@@ -4363,12 +4396,6 @@ The platform is based on microservices architecture and is highly scalable.</p>
 
 <p>The web based development tool for end user services.
 Lets the service developer create services that are deployed like a seperate application (app).</p>
-
-<h3 id="altinn-studio-apps">Altinn Studio Apps</h3>
-
-<p>Altinn Studio Apps is the solution where the developed apps is deployed.
-It consist of organization clusters and supporting functionality and infrastructure.
- See Altinn Studio Apps <a href="/architecture/application/altinn-studio-apps/">application architecture</a> or <a href="/architecture/deployment/altinn-studio-apps/">deployment architecture</a>.</p>
 
 <h3 id="altinn-studio-apps-environment">Altinn Studio Apps environment</h3>
 
@@ -5888,6 +5915,22 @@ and the request and response between PEP and PDP.</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

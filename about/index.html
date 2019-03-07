@@ -2599,13 +2599,40 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/solution/altinn-studio-apps/" class="dd-item 
+    <li data-nav-id="/architecture/solution/altinn-apps/" class="dd-item 
         
         
         parent
         ">
-      <a href="/architecture/solution/altinn-studio-apps/">
-        <span>Solution</span>
+      <a href="/architecture/solution/altinn-apps/">
+        <span>Altinn Apps</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/solution/altinn-platform/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/solution/altinn-platform/">
+        <span>Altinn Apps</span>
 
         
         
@@ -2632,7 +2659,7 @@ if(host != "localhost")
         parent
         ">
       <a href="/architecture/solution/altinn-studio/">
-        <span>Solution</span>
+        <span>Altinn Studio</span>
 
         
         
@@ -4290,8 +4317,9 @@ if(host != "localhost")
 <li>
 <ul>
 <li><a href="#what-is-altinn-studio">What is Altinn Studio?</a></li>
-<li><a href="#what-is-altinn-studio-apps">What is Altinn Studio Apps?</a></li>
-<li><a href="#what-types-of-services-can-be-built-on-this-platform">What types of services can be built on this platform?</a></li>
+<li><a href="#what-is-altinn-apps">What is Altinn Apps?</a></li>
+<li><a href="#what-is-altinn-platform">What is Altinn Platform?</a></li>
+<li><a href="#what-types-of-services-can-be-built-with-altinn-studio-and-hosted-in-altinn-apps">What types of services can be built with Altinn Studio and hosted in Altinn Apps?</a></li>
 <li><a href="#why-altinn-studio">Why Altinn studio?</a></li>
 <li><a href="#when-will-it-be-released">When will it be released</a></li>
 </ul></li>
@@ -4326,7 +4354,7 @@ if(host != "localhost")
 
 <p>Altinn Studio is the third-generation service development solution from Altinn.
 Norway&rsquo;s public platform for E-Government.
-The current platform (launched 2010) is considered by Gartner
+The current service development solution and hosting platform (launched 2010) is considered by Gartner
 as one of the five leading digital government technology platforms in the world.
 The current platform is used by over 90% of the Norwegian population and almost 100%
 of the businesses. Over 43 agencies host services in the Altinn platform.</p>
@@ -4352,12 +4380,17 @@ is: Tax reporting, aircraft incident reporting, correspondence services from hea
 service in to the business register and many many more. Current platform has between
 500 and 1000 active services that support different user scenarios.</p>
 
-<h2 id="what-is-altinn-studio-apps">What is Altinn Studio Apps?</h2>
+<h2 id="what-is-altinn-apps">What is Altinn Apps?</h2>
 
-<p>Altinn Studio Apps is the solution where services (app) developed in Altinn Studio is deployed.
-This will be a highly scalable platform with isolated service applications.</p>
+<p>Altinn Apps is the solution where services (apps) developed in Altinn Studio is deployed.
+This will be a highly scalable platform with isolated service applications and seperate Kubernetes Clusters for each org owning apps.</p>
 
-<h2 id="what-types-of-services-can-be-built-on-this-platform">What types of services can be built on this platform?</h2>
+<h2 id="what-is-altinn-platform">What is Altinn Platform?</h2>
+
+<p>The Altinn platform is a platform with supporting services that support the Apps created in Altinn Studio and hosted in Altinn Apps.
+Altinn Platform have services for storage of data, authorization, authentication, userprofile+++. This platform is highly scalable</p>
+
+<h2 id="what-types-of-services-can-be-built-with-altinn-studio-and-hosted-in-altinn-apps">What types of services can be built with Altinn Studio and hosted in Altinn Apps?</h2>
 
 <p>The first version will support services where the use case is to submit data from the end
 user or the system to the service owner.</p>
@@ -4366,7 +4399,8 @@ user or the system to the service owner.</p>
 
 <p>There are many reasons to use Altinn Studio instead of building everything from scratch.
 - Easy to develop services
-- A known platform for end users
+- A known platform for end users`
+- Highly scalable infrastructure.
 ++++</p>
 
 <h2 id="when-will-it-be-released">When will it be released</h2>
@@ -5819,6 +5853,22 @@ user or the system to the service owner.</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
