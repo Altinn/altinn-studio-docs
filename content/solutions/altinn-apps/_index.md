@@ -1,5 +1,5 @@
 ---
-title: Altinn Studio Apps
+title: Altinn Apps
 description: The runtime and infrastructure solution for applications developed with Altinn Studio.
 tags: ["solution", "apps"]
 aliases:

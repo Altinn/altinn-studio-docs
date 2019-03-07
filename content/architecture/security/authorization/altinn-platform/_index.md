@@ -1,6 +1,6 @@
 ---
-title: Authorization - Altinn Studio Apps
-description: Description of the Authoirzation architecture
+title: Authorization - Altinn Platform
+description: Description of the Authorization Architecture for Altinn Platform
 tags: ["architecture", "security"]
 weight: 100
 linktitle: Altinn Studio Apps
