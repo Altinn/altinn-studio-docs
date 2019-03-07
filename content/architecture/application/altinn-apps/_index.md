@@ -12,7 +12,7 @@ NOTE: Work in progress. Stuff will change
 The following diagram shows the application architecture for the Altinn Studio Apps solution.
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/application/altinn-studio-apps/AltinnApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 [See fullscreen] or [download as visio]
