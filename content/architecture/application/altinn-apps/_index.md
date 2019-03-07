@@ -9,7 +9,7 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-The following diagram shows the application architecture for the Altinn Studio Apps solution.
+The following diagram shows the application architecture for the Altinn Apps solution.
 
 {{%excerpt%}}
 <object data="/architecture/application/altinn-studio-apps/AltinnApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>

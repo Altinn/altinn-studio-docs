@@ -5,9 +5,9 @@ description: Documentation for Altinn Studio.
 
 {{<docs-logo>}}
 
-[Altinn Studio] is the next generation Altinn services. All you need to test our early preview is to register an account.
+[Altinn Studio] is the next generation Altinn service development solution. All you need to test our early preview is to register an account.
 
-- This is the documentation for Altinn Studio. 
+- This is the documentation for Altinn Studio, Altinn Apps and Altinn Platform. 
 - You can also find our [open backlog] and [milestones] on GitHub.
 - Everybody can [create bugs], [request features] or just [give feedback or ask questions].
 
