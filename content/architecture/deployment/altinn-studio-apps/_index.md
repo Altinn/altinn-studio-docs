@@ -103,7 +103,7 @@ This might be handled by the API Managment software. Needs Analyzis
 The platform requires API management software to handle SLA ++. Needs Analyzis
 
 [download as visio]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.vsdx
-[See fullscreen]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_deployment_Architecture.svg
+[See fullscreen]: /architecture/deployment/altinn-studio-apps/AltinnStudioApps_DeploymentArchitecture.svg
 [Kubernetes Cluster]: https://kubernetes.io/docs/concepts/
 [Kubernetes Pod]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [Kubernetes ReplicaSet]: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
