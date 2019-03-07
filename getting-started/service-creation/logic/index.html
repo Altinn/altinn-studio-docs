@@ -4083,6 +4083,7 @@ if(host != "localhost")
 <li><a href="#adding-custom-validations">Adding custom validations</a></li>
 <li><a href="#single-field-validations">Single field validations</a></li>
 </ul></li>
+<li><a href="#soft-validations">Soft validations</a></li>
 </ul></li>
 <li><a href="#calculations">Calculations</a></li>
 <li><a href="#dynamics">Dynamics</a>
@@ -4269,6 +4270,33 @@ private void ValidateFirstName(TestModel TestModel, ModelState modelState)
         // The first argument is the error message key, which should be the data model path (without root node), if possible.
         // The second argument is the error message, which can be either a text, or a text key.
         modelState.AddModelError(&quot;Person.FirstName&quot;, &quot;First name cannot contain 1337.&quot;);
+    }
+}
+</code></pre>
+
+<h4 id="soft-validations">Soft validations</h4>
+
+<p>Soft validations (or warnings) are validation messages that do not stop the user from proceeding to the next step. This validation type can be used for example to ask the user to verify input that might seem strange, but is not technically invalid. Soft validations are set up in the same way as other validations - the only difference is that the validation message must be prefixed by <code>*WARNING*</code>. An example is shown below:</p>
+
+<pre><code class="language-csharp">public void Validate(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
+{   
+    // Validate first name
+    ValidateFirstName(TestModel, modelState);
+}
+
+private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+{
+    // First, make sure that the field exists
+    string firstName = TestModel?.Person?.FirstName;
+
+    // Check if field contains &quot;1337&quot;
+    if (firstName != null &amp;&amp; firstName.Contains(&quot;1337&quot;)) 
+    {
+        // If the field value contains &quot;1337&quot;, add an error message using AddModelError-method.
+        // The first argument is the error message key, which should be the data model path (without root node), if possible.
+        // The second argument is the error message, which can be either a text, or a text key.
+        // When adding a soft validation, prefix the error message with *WARNING*
+        modelState.AddModelError(&quot;Person.FirstName&quot;, &quot;*WARNING*Are you sure your first name contains 1337?&quot;);
     }
 }
 </code></pre>
