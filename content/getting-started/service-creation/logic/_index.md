@@ -127,6 +127,33 @@ private void ValidateFirstName(TestModel TestModel, ModelState modelState)
 }
 ```
 
+#### Soft validations
+Soft validations (or warnings) are validation messages that do not stop the user from proceeding to the next step. This validation type can be used for example to ask the user to verify input that might seem strange, but is not technically invalid. Soft validations are set up in the same way as other validations - the only difference is that the validation message must be prefixed by `*WARNING*`. An example is shown below:
+
+```csharp
+public void Validate(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
+{   
+    // Validate first name
+    ValidateFirstName(TestModel, modelState);
+}
+
+private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+{
+    // First, make sure that the field exists
+    string firstName = TestModel?.Person?.FirstName;
+
+    // Check if field contains "1337"
+    if (firstName != null && firstName.Contains("1337")) 
+    {
+        // If the field value contains "1337", add an error message using AddModelError-method.
+        // The first argument is the error message key, which should be the data model path (without root node), if possible.
+        // The second argument is the error message, which can be either a text, or a text key.
+        // When adding a soft validation, prefix the error message with *WARNING*
+        modelState.AddModelError("Person.FirstName", "*WARNING*Are you sure your first name contains 1337?");
+    }
+}
+```
+
 ### Calculations
 Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in C# in the file `CalculationHandler.cs`. This file can be edited by clicking _Rediger kalkuleringer_ from the logic menu. 
 
