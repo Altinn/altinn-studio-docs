@@ -2292,131 +2292,11 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/contexthandler/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/contexthandler/">
-        <span>Context Handler</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pap/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/pap/">
-        <span>PAP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pdp/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/pdp/">
-        <span>PDP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/architecture/security/authorization/altinn-apps/pep/" class="dd-item
      
       ">
         <a href="/architecture/security/authorization/altinn-apps/pep/">
         <span>PEP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pip/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/pip/">
-        <span>PIP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/prp/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/prp/">
-        <span>PRP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/xacml/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/xacml/">
-        <span>XACML</span> 
         
         </a></li>
      
@@ -4523,40 +4403,42 @@ is allowed to access a operation and access all data. This would not work in the
 
 <p>The Policy Decision Point is responsible for deciding if the requested operation is allowed.
 PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request
-<a href="pdp">Learn about Policy Decision Point in Altinn Studio Apps</a></p>
+user or system is allowed to perform the request. Altinn Apps used Policy Decision Point in Altinn Platform</p>
+
+<p><a href="/../altinn-platform/pdp">Learn about Policy Decision Point in Altinn Platform</a></p>
 
 <h3 id="policy-information-point">Policy Information Point</h3>
 
-<p>The Policy Information Point is used by PDP to gather information needed to perform the decision.</p>
+<p>The Policy Information Point is used by PDP to gather information needed to perform the decision.
+Altinn Apps uses Policy Information Point in Altinn Platform</p>
 
-<p><a href="pip">Learn about Policy Information Point in Altinn Studio Apps</a></p>
+<p><a href="../altinn-platform/pip">Learn about Policy Information Point in Altinn Studio Apps</a></p>
 
 <h3 id="policy-administration-point">Policy Administration Point</h3>
 
-<p>The policy administration point is where the rules are defined</p>
+<p>The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform</p>
 
-<p><a href="pap">Learn about Policy Administration Point in Altinn Studio Apps</a></p>
+<p><a href="../altinn-platform/pap">Learn about Policy Administration Point in Altinn Platform</a></p>
 
 <h3 id="policy-enforcment-point">Policy Enforcment Point</h3>
 
 <p>The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation
 on a resource.</p>
 
-<p><a href="pdp">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
+<p><a href="pep">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
 
 <h3 id="policy-retrival-point">Policy Retrival Point</h3>
 
 <p>The policy retrieval point is where PDP can request the policies for a given
-resource.
-<a href="pdp">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
+resource. Altinn Apps uses PRP in Altinn Platform
+<a href="../altinn-platform/pdp">Learn about Policy Enforcment Point in Altinn Platform</a></p>
 
 <h3 id="context-handler">Context handler</h3>
 
 <p>The context handler is responsible for converting the resource ID to
-something that PDP can understand.</p>
+something that PDP can understand. Altinn Apps uses Context Handler in Altinn Platform</p>
 
-<p><a href="contexthandler">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
+<p><a href="../altinn-platform/contexthandler">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
 
 <p>The diagram below show the solution architecture where the different authorization functionality is located.</p>
 
@@ -5807,102 +5689,6 @@ something that PDP can understand.</p>
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 

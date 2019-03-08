@@ -2292,131 +2292,11 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/contexthandler/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/contexthandler/">
-        <span>Context Handler</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pap/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/pap/">
-        <span>PAP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pdp/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/pdp/">
-        <span>PDP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/architecture/security/authorization/altinn-apps/pep/" class="dd-item
      
       ">
         <a href="/architecture/security/authorization/altinn-apps/pep/">
         <span>PEP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pip/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/pip/">
-        <span>PIP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/prp/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/prp/">
-        <span>PRP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/xacml/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authorization/altinn-apps/xacml/">
-        <span>XACML</span> 
         
         </a></li>
      
@@ -4446,7 +4326,7 @@ if(host != "localhost")
 	<div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 3</span>
+	<span class="page-number">Page 1 on 2</span>
 	
 	    <a class="older-posts" href="/tags/security/page/2/">Next Pages &rarr;</a>
 	
@@ -4519,10 +4399,10 @@ if(host != "localhost")
         <p>Description of the Altinn Studio Authorization architecture.
 Authorization - Altinn AppsDescription of the Authorization Architecture for Altinn Studio Apps
 Authorization modelThe authorization model
-Context HandlerDescription of Context Handler in Altinn Studio Apps
-Policy Administration PointDescription of Policy Enforcment Point for Altinn Studio Apps
-Policy Decision PointDescription of the Authoirzation architecture
-Policy Enforcment PointDescription of Policy Enforcment Point for Altinn Studio Apps <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
+Policy Enforcment PointDescription of Policy Enforcment Point for Altinn Studio Apps
+Authorization - Altinn PlatformDescription of the Authorization Architecture for Altinn Platform
+Authorization modelThe authorization model
+Context HandlerDescription of Context Handler in Altinn Studio Apps <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4580,9 +4460,8 @@ The opposite is Role Based access control where all user in a given role is allo
     <section class="post-excerpt">
         <p>NOTE: Work in progress. See Github Issue
 Altinn Platform has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
-Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
-This architecture defines the following components.
-Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-platform/">&raquo;</a></p>
+The Authorization architecture in Altinn Platform are used as important components in authorization Architecture form Altinn Apps
+Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture. <a class="read-more" href="/architecture/security/authorization/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4693,35 +4572,6 @@ Rights In Altinn Studio Apps a right is a permission to perform a action on a gi
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/contexthandler/">Context Handler</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The responsibility for the Context Handler is to convert the resource ID to something that PDP can use to base a authorization decision for a authorization request.
-Input to Context Handler will be AppID, InstanceId or DataId
-Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" href="/architecture/security/authorization/altinn-apps/contexthandler/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/contexthandler/">Context Handler</a></h2>
     </header>
     <section class="post-excerpt">
@@ -4749,12 +4599,41 @@ Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" h
 
 
 	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pap/">Policy Administration Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
+Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organization new rights.
+Altinn Studio Apps will not have any administration of authorization rules. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pap/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
 
 	<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 3</span>
+	<span class="page-number">Page 1 on 2</span>
 	
 	    <a class="older-posts" href="/tags/security/page/2/">Next Pages &rarr;</a>
 	
@@ -5950,102 +5829,6 @@ Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" h
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
