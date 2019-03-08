@@ -27,7 +27,7 @@ This architecture defines the following components.
 ### Policy Decision Point (PDP)
 The Policy Decision Point is responsible for deciding if the requested operation is allowed.
 PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request. Altinn Apps used Policy Decision Point in Altinn Platform
+user or system is allowed to perform the request. Altinn Apps used Policy Decision Point in Altinn Platform solution
 
 [Learn about Policy Decision Point in Altinn Platform](/../altinn-platform/pdp)
 

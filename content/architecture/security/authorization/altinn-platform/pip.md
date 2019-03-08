@@ -7,7 +7,7 @@ linktitle: PIP
 alwaysopen: false
 ---
 
-For Altinn Studio Apps there is different type of policy information needed
+For Altinn Platform there is different type of policy information needed
 
 - The rules defined by end user for a resource
 - The roles a user have for a given resource owner. (reportee)

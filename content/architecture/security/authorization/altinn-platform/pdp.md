@@ -6,8 +6,9 @@ weight: 100
 linktitle: PDP
 alwaysopen: false
 ---
-The Policy Decision Point is implemented in the [authorization application](https://github.com/Altinn/altinn-studio/issues/1166) 
-that is deployed in the Platform Cluster in Altinn Studio Apps. 
+The Policy Decision Point is implemented in the 
+[authorization application](https://github.com/Altinn/altinn-studio/issues/1166) 
+that is deployed Altinn Platform. 
 
 Policy Decision Point exposes a method that authorize request based on the following
 

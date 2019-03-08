@@ -2,8 +2,6 @@
 title: Storage
 description: Storage gives storage capabilities to the platform
 tags: ["solution", "apps"]
-aliases:
-    - "/altinn-studio-apps"
 weight: 200
 ---
 
