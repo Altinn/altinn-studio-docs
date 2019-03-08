@@ -1523,6 +1523,60 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/solutions/altinn-platform/profile/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/profile/">
+        <span>Profile</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/solutions/altinn-platform/register/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/register/">
+        <span>Register</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/solutions/altinn-platform/storage/" class="dd-item 
         
         
@@ -2327,7 +2381,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authorization/altinn-platform/">
-        <span>Altinn Studio Apps</span>
+        <span>Altinn Platform</span>
 
         
         
@@ -4462,7 +4516,7 @@ Altinn Studio Apps will not have any administration of authorization rules. <a c
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pdp/">Policy Decision Point</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The Policy Decision Point is implemented in the authorization application that is deployed in the Platform Cluster in Altinn Studio Apps.
+        <p>The Policy Decision Point is implemented in the authorization application that is deployed Altinn Platform.
 Policy Decision Point exposes a method that authorize request based on the following
  ResourceId (instanceId, dataId or appId) SubjectId (systemId, userId) ReporteeId (in case of appId) Action  If instanceID or dataID is used as Resource ID PDP will use Context Handler to identifiy the correct appId, the instance workflow state and the reporteId for the existing resource. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pdp/">&raquo;</a></p>
     </section>
@@ -4519,8 +4573,9 @@ PEP in Service App PEP in DataServices The Policy Enforcment Point in DataServic
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pep/">Policy Enforcment Point</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>There will be some different Policy Enforcment Points in Altinn Studio Apps
-PEP in Service App PEP in DataServices The Policy Enforcment Point in DataServices application is responsible for checking all requests to dataservices <a class="read-more" href="/architecture/security/authorization/altinn-platform/pep/">&raquo;</a></p>
+        <p>There will be some different Policy Enforcement Points in Altinn Platform depending on the service in platform.
+PEP in Storage All data in storage will be related to instance data created for a specific App (service)
+Policy Enforcment Point in Storage will identify the instanceId/dataid/appid that data and call PDP to authorize Access. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4547,7 +4602,7 @@ PEP in Service App PEP in DataServices The Policy Enforcment Point in DataServic
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pip/">Policy Information Point</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>For Altinn Studio Apps there is different type of policy information needed
+        <p>For Altinn Platform there is different type of policy information needed
  The rules defined by end user for a resource The roles a user have for a given resource owner. (reportee)  The roles a user or system has for a reportee is retrieved directly from Authorization component in Altinn II <a class="read-more" href="/architecture/security/authorization/altinn-platform/pip/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -5407,6 +5462,38 @@ See XACML for detailed description of Policy format <a class="read-more" href="/
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
