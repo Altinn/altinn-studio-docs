@@ -1,9 +1,9 @@
 ---
-title: Authorization - Altinn Studio Apps
+title: Authorization - Altinn Apps
 description: Description of the Authorization Architecture for Altinn Studio Apps
 tags: ["architecture", "security"]
 weight: 100
-linktitle: Altinn Studio Apps
+linktitle: Altinn Apps
 alwaysopen: false
 ---
 
@@ -11,7 +11,7 @@ alwaysopen: false
 NOTE: Work in progress. [See Github Issue](https://github.com/Altinn/altinn-studio/issues/963)
 {{% /notice %}}
 
-Altinn Studio Apps has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
+Altinn Apps has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
 what type of data element and so on.
 

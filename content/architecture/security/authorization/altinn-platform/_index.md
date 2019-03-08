@@ -11,12 +11,9 @@ alwaysopen: false
 NOTE: Work in progress. [See Github Issue](https://github.com/Altinn/altinn-studio/issues/963)
 {{% /notice %}}
 
-Altinn Studio Apps has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
+Altinn Platform has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
 what type of data element and so on.
-
-The opposite is [Role Based access control](https://en.wikipedia.org/wiki/Role-based_access_control) where all user in a given role
-is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.
 
 ## Authorization Components
 The authorization architecture for Altinn Studio Apps are based on the 
