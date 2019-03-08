@@ -24,7 +24,7 @@ For request for non existing instances the appId will be used and the reportee i
 The diagram below show the detailed flow.
 
 {{%excerpt%}}
-<object data="/architecture/security/authorization/altinn-studio-apps/PDPFlow.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/security/authorization/altinn-platform/PDPFlow.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 Flow explained

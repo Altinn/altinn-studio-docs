@@ -15,6 +15,8 @@ Altinn Platform has [attribute based access control (ABAC)](https://en.wikipedia
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
 what type of data element and so on.
 
+The Authorization architecture in Altinn Platform are used as important components in authorization Architecture form Altinn Apps 
+
 ## Authorization Components
 The authorization architecture for Altinn Studio Apps are based on the 
 [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).

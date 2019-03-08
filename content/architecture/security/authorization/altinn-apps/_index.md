@@ -27,36 +27,39 @@ This architecture defines the following components.
 ### Policy Decision Point (PDP)
 The Policy Decision Point is responsible for deciding if the requested operation is allowed.
 PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request
-[Learn about Policy Decision Point in Altinn Studio Apps](pdp)
+user or system is allowed to perform the request. Altinn Apps used Policy Decision Point in Altinn Platform
+
+[Learn about Policy Decision Point in Altinn Platform](/../altinn-platform/pdp)
 
 ### Policy Information Point
 The Policy Information Point is used by PDP to gather information needed to perform the decision.
+Altinn Apps uses Policy Information Point in Altinn Platform
 
-[Learn about Policy Information Point in Altinn Studio Apps](pip)
+[Learn about Policy Information Point in Altinn Studio Apps](../altinn-platform/pip)
 
 ### Policy Administration Point
-The policy administration point is where the rules are defined
+The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform
 
-[Learn about Policy Administration Point in Altinn Studio Apps](pap)
+[Learn about Policy Administration Point in Altinn Platform](../altinn-platform/pap)
 
 ### Policy Enforcment Point
 The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation
 on a resource. 
 
-[Learn about Policy Enforcment Point in Altinn Studio Apps](pdp)
+[Learn about Policy Enforcment Point in Altinn Studio Apps](pep)
+
 
 ### Policy Retrival Point
 The policy retrieval point is where PDP can request the policies for a given
-resource. 
-[Learn about Policy Enforcment Point in Altinn Studio Apps](pdp)
+resource. Altinn Apps uses PRP in Altinn Platform
+[Learn about Policy Enforcment Point in Altinn Platform](../altinn-platform/pdp)
 
 
 ### Context handler
 The context handler is responsible for converting the resource ID to 
-something that PDP can understand. 
+something that PDP can understand. Altinn Apps uses Context Handler in Altinn Platform
 
-[Learn about Policy Enforcment Point in Altinn Studio Apps](contexthandler)
+[Learn about Policy Enforcment Point in Altinn Studio Apps](../altinn-platform/contexthandler)
 
 The diagram below show the solution architecture where the different authorization functionality is located.
 
