@@ -1,5 +1,5 @@
 ---
-title: Solution Architecture
+title: Solution Architecture Altinn Apps
 linktitle: Altinn Apps
 description: Description of the Altinn Studio solution
 tags: ["solution", "architecture"]
