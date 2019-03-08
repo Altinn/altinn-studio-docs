@@ -1417,8 +1417,134 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/solutions/altinn-platform/authentication/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/authentication/">
+        <span>Authentication</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/solutions/altinn-platform/authorization/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/authorization/">
+        <span>Authorization</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/solutions/altinn-platform/intermediary/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/intermediary/">
+        <span>Intermediary</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/solutions/altinn-platform/storage/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/storage/">
+        <span>Storage</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -2118,7 +2244,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authorization/altinn-apps/">
-        <span>Altinn Studio Apps</span>
+        <span>Altinn Apps</span>
 
         
         
@@ -4450,7 +4576,7 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>Description of the Altinn Studio Authorization architecture.
-Authorization - Altinn Studio AppsDescription of the Authorization Architecture for Altinn Studio Apps
+Authorization - Altinn AppsDescription of the Authorization Architecture for Altinn Studio Apps
 Authorization modelThe authorization model
 Context HandlerDescription of Context Handler in Altinn Studio Apps
 Policy Administration PointDescription of Policy Enforcment Point for Altinn Studio Apps
@@ -4479,12 +4605,43 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/">Authorization - Altinn Apps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. See Github Issue
+Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/">Authorization - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. See Github Issue
-Altinn Studio Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
-The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-platform/">&raquo;</a></p>
+Altinn Platform has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
+This architecture defines the following components.
+Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4516,35 +4673,6 @@ The opposite is Role Based access control where all user in a given role is allo
 Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
 This architecture defines the following components.
 Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-studio/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/">Authorization - Altinn Studio Apps</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>NOTE: Work in progress. See Github Issue
-Altinn Studio Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
-The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5391,8 +5519,74 @@ Rights In Altinn Studio Apps a right is a permission to perform a action on a gi
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
