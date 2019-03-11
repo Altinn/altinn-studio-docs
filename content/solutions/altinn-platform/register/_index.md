@@ -1,9 +1,9 @@
 ---
 title: Register
-description: The Register application gives register information to Apps
+description: The Register componnt gives register information to Apps
 tags: ["solution", "apps"]
 weight: 200
 ---
 
-The Register application gives register information to Apps
+The Register component gives register information to Apps
 

@@ -1,6 +1,6 @@
 ---
 title: Intermediary
-description: The Intermediary service provides shipment and other integration functionality to Altinn Apps
+description: The Intermediary component provides shipment and other integration functionality to Altinn Apps
 tags: ["solution", "apps"]
 weight: 200
 ---

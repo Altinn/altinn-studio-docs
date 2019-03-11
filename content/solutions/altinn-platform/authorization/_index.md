@@ -6,4 +6,5 @@ weight: 200
 ---
 
 
-The authorization component consist of a Policy Decision Point (PDP), Policy Retriaval Point (PRP) and is integrated with other external Policy Information Points. 
+The authorization component consist of a Policy Decision Point (PDP), Policy Retriaval Point (PRP) and is 
+integrated with other external Policy Information Points. 

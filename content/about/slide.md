@@ -1,6 +1,6 @@
 ---
 title: Slide NO
-description: En presentasjon om målsettinger og konsepter for Altinn studio (tjenester 3.0)
+description: En presentasjon om målsettinger og konsepter for Tjenester 3.0
 type: slide
 theme: beige # black, white, league, beige, sky, night, serif, simple, solarized
 revealOptions:
@@ -28,7 +28,7 @@ Aka Tjenester 3.0
 ___
 ![](/about/goals.png)
 ---
-## Hva skal Altinn Studio være?
+## Hva er målet med prosjektet?
 - En modern utviklingsplattform
 - Et effektivt utviklingsverktøy
 - En moderne infrastruktur
@@ -172,6 +172,21 @@ ___
 - Deploy av tjenester
 - Integrasjon med tjenesteeier
 - Understøtte piloter
+---
+## Detaljer løsning
+ Tre nye løsninger
+ - Altinn Studio
+ - Altinn Apps
+ - Altinn Platform
+ ___
+ ## Altinn Studio
+
+___
+## Altinn Apps
+
+___
+## Altinn Platform
+
 ---
 ## Status
 Du kan følge utviklingen på [Github](https://github.com/Altinn/altinn-studio).

@@ -1,6 +1,6 @@
 ---
 title: Storage
-description: Storage gives storage capabilities to the platform
+description: The Storage component gives storage capabilities to the platform
 tags: ["solution", "apps"]
 weight: 200
 ---
