@@ -8,7 +8,7 @@ weight: 200
 ---
 
 
-The Altinn Platform consist of serveral applications that support Apps deployed in Altinn Studio Apps.
-The applications are deployed as microservices.
+The Altinn Platform consist of serveral reusable components that support Apps deployed in Altinn Apps.
+The components are deployed as microservices.
 
 {{% children description="true" depth="1" %}}
