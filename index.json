@@ -641,7 +641,7 @@
 	"title": "Altinn Platform",
 	"tags": ["solution", "apps"],
 	"description": "Altinn Platform is the solution where the supporting platform functionality resides",
-	"content": "The Altinn Platform consist of serveral reusable components that support Apps deployed in Altinn Apps. The components are deployed as microservices.\n\rAuthentication\r\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and system\n\rAuthorization\r\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system\n\rIntermediary\r\rThe Intermediary component provides shipment and other integration functionality to Altinn Apps\n\rProfile\r\rThe Profile component gives profile information for users in Altinn\n\rRegister\r\rThe Register componnt gives register information to Apps\n\rStorage\r\rThe Storage component gives storage capabilities to the platform\n\r"
+	"content": "The Altinn Platform consist of serveral reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\n\rAuthentication\r\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and system\n\rAuthorization\r\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system\n\rIntermediary\r\rThe Intermediary component provides shipment and other integration functionality to Altinn Apps\n\rProfile\r\rThe Profile component gives profile information for users in Altinn\n\rRegister\r\rThe Register componnt gives register information to Apps\n\rStorage\r\rThe Storage component gives storage capabilities to the platform\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/authentication/",
