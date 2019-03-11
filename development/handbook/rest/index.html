@@ -4465,44 +4465,61 @@ related or additional data.</p>
 
 <h5 id="instance-service-instance">Instance (Service instance)</h5>
 
-<p>An service instance is created when a reportee starts a workflow in an app.
-A reportee is a person/company that reports information via Altinn.</p>
+<p>An service instance is created when a instance onwer starts a workflow in an Altinn application.
+An instance replaces Altinn2 Message.
+An instanceOwner is a person/company that reports information via Altinn.
+An applicationId refers to the application information which defines the metadata about the service.</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    &quot;reporteeId&quot;: &quot;666&quot;,
-    &quot;serviceId&quot;: &quot;sailor&quot;,
+    &quot;applicationId&quot;: &quot;KNS/sailor&quot;,
+    &quot;applicationOwnerId&quot;: &quot;KNS&quot;,
+    &quot;instanceOwnerId&quot;: &quot;666&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;lastChangedDateTime&quot;: null,
-    &quot;lastChangedBy&quot;: &quot;xyz&quot;,
+    &quot;lastChangedDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+    &quot;lastChangedBy&quot;: &quot;XXX&quot;,
     &quot;dueDateTime&quot;: null,
     &quot;visibleDateTime&quot;: null,
-    &quot;title&quot;: &quot;Færder påmelding&quot;,
-    &quot;serviceOwner&quot;: &quot;KNS&quot;,
+    &quot;presentationField&quot;: &quot;Færder påmelding&quot;,
     &quot;externalSystemReference&quot;: null,
-    &quot;workflowId&quot;: &quot;standard&quot;,
     &quot;currentWorkflowStep&quot;: &quot;started&quot;,
-    &quot;isDeleted&quot;: false,
-    &quot;isArchived&quot;: false,
+    &quot;isCompleted&quot;: true,
+    &quot;isDeleted&quot;: [{
+        &quot;deletionDateTime&quot;: &quot;2017-12-22&quot;,
+        &quot;deletedBy&quot;: &quot;KNS&quot;
+    }],
+    &quot;applicationOwnerFeedback&quot;: {
+        &quot;receivedDate&quot;: &quot;2019-05-11T03:00:23+01:00&quot;,
+        &quot;status&quot;: &quot;OK&quot;
+    },
     &quot;data&quot;: [{
         &quot;id&quot;: &quot;boatdata&quot;,
         &quot;contentType&quot;: &quot;application/json&quot;,
-        &quot;storageUrl&quot;: &quot;sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata&quot;,
-        &quot;uploaded&quot;: &quot;2019-03-06T15:00:23+01:00&quot;
+        &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata&quot;,
+        &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
+        &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
+        &quot;createdBy&quot;: &quot;XXX&quot;,
+        &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
+        &quot;fileSize&quot;: 2003,
+        &quot;isLocked&quot;: true,
         }, {
         &quot;id&quot;: &quot;crewlist&quot;,
         &quot;contentType&quot;: &quot;text/xml&quot;,
-        &quot;storageUrl&quot;: &quot;sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist&quot;,
-        &quot;uploaded&quot;: &quot;2019-03-07T23:59:49+01:00&quot;
+        &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist&quot;,
+        &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
+        &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+        &quot;createdBy&quot;: &quot;XXX&quot;,
+        &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+        &quot;lastChangedBy&quot;: &quot;XXX&quot;
         }
     ]
 }
 </code></pre>
 
-<p>Create a new instance. Post with params.</p>
+<p>Create a new instance. Post with params that identifies the service. ServiceOwnerId is transmitted as a part of the token.</p>
 
-<pre><code class="language-http">/instances?serviceId=sailor&amp;reporteeId=666
+<pre><code class="language-http">/instances?serviceId=KNS/sailor
 </code></pre>
 
 <p>Get information about an instance.</p>
@@ -4510,9 +4527,9 @@ A reportee is a person/company that reports information via Altinn.</p>
 <pre><code class="language-http">/instances/{instanceId}
 </code></pre>
 
-<p>Get all instances that a reportee has submittet or are working on</p>
+<p>Get all instances that a instance owner has completed</p>
 
-<pre><code class="language-http">/instances[?services={serviceId}][&amp;reporter={reporteeId}][&amp;submitted=true][&amp;since=2017-01-01]
+<pre><code class="language-http">/instances[?services={serviceId}][&amp;reporter={instanceOwnerId}][&amp;completed=true][&amp;since=2017-01-01]
 </code></pre>
 
 <p>Get a specific data element</p>
@@ -4547,22 +4564,33 @@ A reportee is a person/company that reports information via Altinn.</p>
 <p>Resource: <a href="http://platform.altinn.no/service/sailor">http://platform.altinn.no/service/sailor</a></p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;sailor&quot;,
+    &quot;id&quot;: &quot;KNS/sailor&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
     &quot;title&quot;: &quot;Færder påmelding&quot;,
-    &quot;serviceOwner&quot;: &quot;KNS&quot;,
+    &quot;type&quot;: &quot;innsending&quot;,
+    &quot;serviceOwnerId&quot;: &quot;KNS&quot;,
     &quot;workflowId&quot;: &quot;standard&quot;,
     &quot;isDeleted&quot;: false,
     &quot;isArchived&quot;: false,
-    &quot;schema&quot;: [{
+    &quot;validFrom&quot;: null,
+    &quot;validTo&quot;: null,
+    &quot;forms&quot;: [{
         &quot;id&quot;: &quot;boatdata&quot;,
         &quot;contentType&quot;: &quot;application/schema+json&quot;,
-        &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;
+        &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;,
+         &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
+        &quot;createdBy&quot;: &quot;M2&quot;,
+        &quot;signatureRequired&quot;: true,
+        &quot;shouldEncryptData&quot;: true
         }, {
         &quot;id&quot;: &quot;crewlist&quot;,
         &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
-        &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;
+        &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;,
+        &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
+        &quot;createdBy&quot;: &quot;M2&quot;,
+        &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+        &quot;lastChangedBy&quot;: &quot;M42&quot;
         }
     ]
 }
@@ -4578,9 +4606,9 @@ A reportee is a person/company that reports information via Altinn.</p>
 <pre><code class="language-http">/services/{serviceId}
 </code></pre>
 
-<p>Get the schema of a specific data element in a service</p>
+<p>Get the schema of a specific form element in a service</p>
 
-<pre><code class="language-http">/services/{serviceId}/schemas/{dataId}?format=jsonSchema
+<pre><code class="language-http">/services/{serviceId}/forms/{dataId}?format=jsonSchema
 </code></pre>
 
 <h4 id="altinn-studio">Altinn-studio</h4>
@@ -4590,6 +4618,8 @@ A reportee is a person/company that reports information via Altinn.</p>
 <p>tbd</p>
 
 <h4 id="app-services-runtime">App services (runtime)</h4>
+
+<p>tb changed</p>
 
 <p>One cluster per service owner. A service owner can have many apps.</p>
 
@@ -4603,14 +4633,14 @@ A reportee is a person/company that reports information via Altinn.</p>
 <pre><code class="language-http">/services
 </code></pre>
 
-<p>Post to create an instance for a specific reportee. Returns a new instanceId.</p>
+<p>Post to create an instance for a specific instanceOwner. Returns a new instanceId.</p>
 
 <pre><code class="language-http">/services/{serviceId}/instances
 </code></pre>
 
-<p>Filter instances for an reportee</p>
+<p>Filter instances for an instance owner</p>
 
-<pre><code class="language-http">/services/{serviceId}/instances?reportee={reporteeId}&amp;[since=&quot;2018-07-01&quot;]
+<pre><code class="language-http">/services/{serviceId}/instances?instanceOwner={instanceOwnerId}&amp;[since=&quot;2018-07-01&quot;]
 </code></pre>
 
 <p>Put to update a specific instance. Get to get instance metadata</p>
