@@ -479,8 +479,8 @@
 	"uri": "https://docs.altinn.studio/about/slide/",
 	"title": "Slide NO",
 	"tags": [],
-	"description": "En presentasjon om målsettinger og konsepter for Altinn studio (tjenester 3.0)",
-	"content": " Altinn Studio Aka Tjenester 3.0 Dagens løsning  Produksjonsatt sommeren 2010 Basert på InfoPath og SharePoint 115.000.000 skjema fylt ut 404 aktive innsendingstjenester i 2018 Bakgrunn og mål Behov har vært kjent lenge\n POC utviklet i 2015 (men lagt på is grunnet manglende finansiering)\n Finansiering på Statsbudsjettet 2018\n Startet opp igjen våren 2018\n Hva skal Altinn Studio være? En modern utviklingsplattform\n Et effektivt utviklingsverktøy\n En moderne infrastruktur\n En plattform for gjenbruk\n En platform for deling av data og erfaringer En moderne utviklingsplattform Altinn Studio er en åpen og modern utviklingsplattform\n Versjonering og samarbeid via Git\n Støtte for distribuert utvikling\n All programvare som benyttes er åpen kildekode. Også selve 3.0-plattformen.\n Funksjonalitet i Altinn tilgjengelig via API’er\n Moderne og populær teknologi, f.eks. React og Visual Studio Code\n Full selvbetjening Tekniske utviklere kan benytte best-of-breed utvikler-verktøy og teknologi, slik de er vant til.\n Et effektivt utviklingsverktøy Altinn Studio tilbyr enkel, effektiv og 100% selvbetjent utvikling og forvaltning av tjenester, også for ikke-teknologer.\n Brukergrensesnitt (GUI)\n API’er\n Arbeidsflyt\n Logikk og dynamikk\n Datamodellering\n Konfigurasjon og tilgangsstyring\n Automatisert testing\n… En moderne infrastruktur Altinn Studio (og tjenester som lages der) vil kjøre på en moderne infrastruktur.\n Docker containers for applikasjoner\n Kubernetes for orkestrering av containers\n  Dette gir isolering mellom applikasjoner (microservices), enklere skalering og understøtter “DevOps”.\n Hva kan jeg gjøre med MVP-01? Opprette bruker og logge inn i Altinn Studio Lage (og finne igjen) en tjeneste Finne tjenester fra andre organisasjoner Laste opp en datamodell som fungerer i tjenesten (Seres eller OR) Lage et skjemadesign med drag and drop av elementer (begrenset utvalg av komponenter) Legge inn tekster/tekstnøkler for tjeneste Gjøre manuell test av tjenesten i Altinn Studio for å teste design og forretningslogikk Legge inn regler for skjemalogikk (validering, kalkulering, dynamikk) Bruke API-oppslag i tjenesten (forutsetter Ajax kall kodet i GUI)\nEndre på standardfil for arbeidsflyt Endre på filer med versjonskontroll\n Hva kan man forvente av MVP på ulike tidspunkt? MVP-02: Runtime i test – April/Mai  Grunnleggende samhandling med SBL Autentisering Integrasjon med Profil Lagring og uthenting av tjenestedata Integrasjon med Register i SBL Integrasjon med Intermediary i SBL Integrasjon med innboks i SBL Deployment av tjeneste til Runtime-testmiljø Ikke sikret miljø, kun egnet for konstruerte testdata ___ Utvidet funksjonalitet i Designer og Runtime Utvidet støtte for tjenestedata Grunnleggende integrasjon med Autorisasjonsløsninger Utvidet støtte til API Sikkerhet mellom containere Shipment av brukerdata MVP-03: Klar for tjenesteproduksjon – Juni/Sept Fullverdig runtime med godkjent sikkerhet i sky\n Fullverdig vedleggshåndtering\n Fullverdig integrasjon med SBL\n Utvidet Designer GUI, Dashboard\n Utskriftsfunksjonalitet\n Analyseverktøy for brukeropptreden i Tjenester(?)\nMERK! Det er fortsatt en MVP – dvs. klare begrensninger på hva slags tjenester som kan realiseres Tjenster 3.0 vs Tjenester 2.0 Skjemaverktøy Egenutviklet vs InfoPath\n React vs SharPoint formserver\n Responsivt vs ikke responsivt\nArbeidsflyt BPMN vs Custom\nTjenester som API REST vs SOAP\n Individuell API vs Generelle\nRessurser Isolerte vs delte\n Raskt skalerbar vs lang leveringstid\nDataformat JSON/XML vs XML\nKontroll på logikk Full kontroll på når ting skjer i plattformen i motsetning til Infopath\nShipment Mest sannsynligvis færre muligheter i platform. (flatfil?, sftp?)\n  Videre arbeid i MVP  Fokus på infrastruktur Skyløsninger Sikkerhet Deploy av tjenester Integrasjon med tjenesteeier Understøtte piloter Status Du kan følge utviklingen på Github. Motivasjon Se Archimate arkitekturmodell.  The End Tilbake\n"
+	"description": "En presentasjon om målsettinger og konsepter for Tjenester 3.0",
+	"content": " Altinn Studio Aka Tjenester 3.0 Dagens løsning  Produksjonsatt sommeren 2010 Basert på InfoPath og SharePoint 115.000.000 skjema fylt ut 404 aktive innsendingstjenester i 2018 Bakgrunn og mål Behov har vært kjent lenge\n POC utviklet i 2015 (men lagt på is grunnet manglende finansiering)\n Finansiering på Statsbudsjettet 2018\n Startet opp igjen våren 2018\n Hva er målet med prosjektet? En modern utviklingsplattform\n Et effektivt utviklingsverktøy\n En moderne infrastruktur\n En plattform for gjenbruk\n En platform for deling av data og erfaringer En moderne utviklingsplattform Altinn Studio er en åpen og modern utviklingsplattform\n Versjonering og samarbeid via Git\n Støtte for distribuert utvikling\n All programvare som benyttes er åpen kildekode. Også selve 3.0-plattformen.\n Funksjonalitet i Altinn tilgjengelig via API’er\n Moderne og populær teknologi, f.eks. React og Visual Studio Code\n Full selvbetjening Tekniske utviklere kan benytte best-of-breed utvikler-verktøy og teknologi, slik de er vant til.\n Et effektivt utviklingsverktøy Altinn Studio tilbyr enkel, effektiv og 100% selvbetjent utvikling og forvaltning av tjenester, også for ikke-teknologer.\n Brukergrensesnitt (GUI)\n API’er\n Arbeidsflyt\n Logikk og dynamikk\n Datamodellering\n Konfigurasjon og tilgangsstyring\n Automatisert testing\n… En moderne infrastruktur Altinn Studio (og tjenester som lages der) vil kjøre på en moderne infrastruktur.\n Docker containers for applikasjoner\n Kubernetes for orkestrering av containers\n  Dette gir isolering mellom applikasjoner (microservices), enklere skalering og understøtter “DevOps”.\n Hva kan jeg gjøre med MVP-01? Opprette bruker og logge inn i Altinn Studio Lage (og finne igjen) en tjeneste Finne tjenester fra andre organisasjoner Laste opp en datamodell som fungerer i tjenesten (Seres eller OR) Lage et skjemadesign med drag and drop av elementer (begrenset utvalg av komponenter) Legge inn tekster/tekstnøkler for tjeneste Gjøre manuell test av tjenesten i Altinn Studio for å teste design og forretningslogikk Legge inn regler for skjemalogikk (validering, kalkulering, dynamikk) Bruke API-oppslag i tjenesten (forutsetter Ajax kall kodet i GUI)\nEndre på standardfil for arbeidsflyt Endre på filer med versjonskontroll\n Hva kan man forvente av MVP på ulike tidspunkt? MVP-02: Runtime i test – April/Mai  Grunnleggende samhandling med SBL Autentisering Integrasjon med Profil Lagring og uthenting av tjenestedata Integrasjon med Register i SBL Integrasjon med Intermediary i SBL Integrasjon med innboks i SBL Deployment av tjeneste til Runtime-testmiljø Ikke sikret miljø, kun egnet for konstruerte testdata ___ Utvidet funksjonalitet i Designer og Runtime Utvidet støtte for tjenestedata Grunnleggende integrasjon med Autorisasjonsløsninger Utvidet støtte til API Sikkerhet mellom containere Shipment av brukerdata MVP-03: Klar for tjenesteproduksjon – Juni/Sept Fullverdig runtime med godkjent sikkerhet i sky\n Fullverdig vedleggshåndtering\n Fullverdig integrasjon med SBL\n Utvidet Designer GUI, Dashboard\n Utskriftsfunksjonalitet\n Analyseverktøy for brukeropptreden i Tjenester(?)\nMERK! Det er fortsatt en MVP – dvs. klare begrensninger på hva slags tjenester som kan realiseres Tjenster 3.0 vs Tjenester 2.0 Skjemaverktøy Egenutviklet vs InfoPath\n React vs SharPoint formserver\n Responsivt vs ikke responsivt\nArbeidsflyt BPMN vs Custom\nTjenester som API REST vs SOAP\n Individuell API vs Generelle\nRessurser Isolerte vs delte\n Raskt skalerbar vs lang leveringstid\nDataformat JSON/XML vs XML\nKontroll på logikk Full kontroll på når ting skjer i plattformen i motsetning til Infopath\nShipment Mest sannsynligvis færre muligheter i platform. (flatfil?, sftp?)\n  Videre arbeid i MVP  Fokus på infrastruktur Skyløsninger Sikkerhet Deploy av tjenester Integrasjon med tjenesteeier Understøtte piloter Detaljer løsning Tre nye løsninger\n Altinn Studio Altinn Apps Altinn Platform\nAltinn Studio   Altinn Apps Altinn Platform Status Du kan følge utviklingen på Github. Motivasjon Se Archimate arkitekturmodell. The End Tilbake\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/solution/",
@@ -641,14 +641,14 @@
 	"title": "Altinn Platform",
 	"tags": ["solution", "apps"],
 	"description": "Altinn Platform is the solution where the supporting platform functionality resides",
-	"content": "The Altinn Platform consist of serveral applications that support Apps deployed in Altinn Studio Apps. The applications are deployed as microservices.\n\rAuthentication\r\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system\n\rAuthorization\r\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system\n\rIntermediary\r\rThe Intermediary service provides shipment and other integration functionality to Altinn Apps\n\rProfile\r\rThe Profile application gives profile information for users in Altinn\n\rRegister\r\rThe Register application gives register information to Apps\n\rStorage\r\rStorage gives storage capabilities to the platform\n\r"
+	"content": "The Altinn Platform consist of serveral reusable components that support Apps deployed in Altinn Apps. The components are deployed as microservices.\n\rAuthentication\r\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and system\n\rAuthorization\r\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system\n\rIntermediary\r\rThe Intermediary component provides shipment and other integration functionality to Altinn Apps\n\rProfile\r\rThe Profile component gives profile information for users in Altinn\n\rRegister\r\rThe Register componnt gives register information to Apps\n\rStorage\r\rThe Storage component gives storage capabilities to the platform\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/authentication/",
 	"title": "Authentication",
-	"tags": ["solution", "apps"],
-	"description": "The authorization component is used by Altinn Apps and Altinn Platform to authorize users and system",
-	"content": "The Authentication service gives authentication functionality needed for user and systems\n"
+	"tags": ["solution", "apps", "authentication"],
+	"description": "The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and system",
+	"content": "The Authentication component gives authentication functionality needed for user and systems\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/authorization/",
@@ -661,28 +661,28 @@
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/intermediary/",
 	"title": "Intermediary",
 	"tags": ["solution", "apps"],
-	"description": "The Intermediary service provides shipment and other integration functionality to Altinn Apps",
+	"description": "The Intermediary component provides shipment and other integration functionality to Altinn Apps",
 	"content": " The Intermediary service provides shipment and other integration functionality to Altinn Apps\nShipment "
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/profile/",
 	"title": "Profile",
 	"tags": ["solution", "apps"],
-	"description": "The Profile application gives profile information for users in Altinn",
-	"content": "The Profile application gives profile information for users in Altinn\n"
+	"description": "The Profile component gives profile information for users in Altinn",
+	"content": "The Profile component gives profile information for users in Altinn\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/register/",
 	"title": "Register",
 	"tags": ["solution", "apps"],
-	"description": "The Register application gives register information to Apps",
-	"content": "The Register application gives register information to Apps\n"
+	"description": "The Register componnt gives register information to Apps",
+	"content": "The Register component gives register information to Apps\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/storage/",
 	"title": "Storage",
 	"tags": ["solution", "apps"],
-	"description": "Storage gives storage capabilities to the platform",
+	"description": "The Storage component gives storage capabilities to the platform",
 	"content": "Storage support storage of structured and unstructured data for apps. Apps that need the cabability to store data uses the storage service in Altinn platform to stor structured data\n"
 },
 {
@@ -1073,6 +1073,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/arkitektur/",
 	"title": "arkitektur",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/authentication/",
+	"title": "authentication",
 	"tags": [],
 	"description": "",
 	"content": ""

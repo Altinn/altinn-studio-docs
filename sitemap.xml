@@ -630,6 +630,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/authentication/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/back-end/</loc>
     <priority>0</priority>
   </url>
