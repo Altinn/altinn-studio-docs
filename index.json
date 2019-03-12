@@ -78,10 +78,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/",
-	"title": "Solution Architecture Altinn Platform",
+	"title": "Application architecture Altinn Platform",
 	"tags": ["solution", "architecture"],
-	"description": "Description of the Altinn Platform solution",
-	"content": "Functionality in Altinn Studio is distributed between different applications.\nThe diagram below shows where the different functionality i located in the different applications.\n\n"
+	"description": "Description of the Altinn Platform application architecture",
+	"content": "Altinn Platform consist of serveral reusable and isolated components.\nThe application architecture for each component is described below.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-platform/",
@@ -158,14 +158,56 @@
 	"title": "Application",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio application architecture",
-	"content": "Description of the Altinn Studio application architecture.\n\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r"
+	"content": "Description of the Altinn Studio application architecture.\n\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/",
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authentication/",
+	"title": "Application arhicture authentication component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of authentication component",
+	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authorization/",
+	"title": "Application arhicture authorization component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of authentication component",
+	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/intermediary/",
+	"title": "Application arhicture intermediary component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of intermediary component",
+	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/profile/",
+	"title": "Application arhicture profile component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of profile component",
+	"content": "The profile component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/register/",
+	"title": "Application arhicture register component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of register component",
+	"content": "The register component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/storage/",
+	"title": "Application arhicture authentication component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of authentication component",
+	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authentication/",

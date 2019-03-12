@@ -1905,8 +1905,188 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/authentication/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/application/altinn-platform/authentication/">
+        <span>Authentication</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/authorization/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/application/altinn-platform/authorization/">
+        <span>Authentication</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/intermediary/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/application/altinn-platform/intermediary/">
+        <span>Authentication</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/profile/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/application/altinn-platform/profile/">
+        <span>Authentication</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/register/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/application/altinn-platform/register/">
+        <span>Authentication</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/storage/" class="dd-item 
+        
+        
+        parent
+        ">
+      <a href="/architecture/application/altinn-platform/storage/">
+        <span>Authentication</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -4409,11 +4589,218 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/architecture/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 3</span>
+	<span class="page-number">Page 3 on 4</span>
+	
+	    <a class="older-posts" href="/tags/architecture/page/4/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pap/">Policy Administration Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
+Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organization new rights.
+Altinn Studio Apps will not have any administration of authorization rules. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pap/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pdp/">Policy Decision Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Policy Decision Point is implemented in the authorization application that is deployed Altinn Platform.
+Policy Decision Point exposes a method that authorize request based on the following
+ ResourceId (instanceId, dataId or appId) SubjectId (systemId, userId) ReporteeId (in case of appId) Action  If instanceID or dataID is used as Resource ID PDP will use Context Handler to identifiy the correct appId, the instance workflow state and the reporteId for the existing resource. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pdp/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/pep/">Policy Enforcment Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>There will be some different Policy Enforcment Points in Altinn Studio Apps
+PEP in Service App PEP in DataServices The Policy Enforcment Point in DataServices application is responsible for checking all requests to dataservices <a class="read-more" href="/architecture/security/authorization/altinn-apps/pep/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pep/">Policy Enforcment Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>There will be some different Policy Enforcement Points in Altinn Platform depending on the service in platform.
+PEP in Storage All data in storage will be related to instance data created for a specific App (service)
+Policy Enforcment Point in Storage will identify the instanceId/dataid/appid that data and call PDP to authorize Access. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pep/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pip/">Policy Information Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>For Altinn Platform there is different type of policy information needed
+ The rules defined by end user for a resource The roles a user have for a given resource owner. (reportee)  The roles a user or system has for a reportee is retrieved directly from Authorization component in Altinn II <a class="read-more" href="/architecture/security/authorization/altinn-platform/pip/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/prp/">Policy Retrieval Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.
+During deployment of a app the rules for the app is added to the Altinn Studio Apps database.
+The rules are defined as XACML 3.0 Policy document.
+See XACML for detailed description of Policy format <a class="read-more" href="/architecture/security/authorization/altinn-platform/prp/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/">Security</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Description of the Altinn Studio Security architecture.
+AuthenticationDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps
+Authentication - Altinn Studio AppsDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps
+AuthorizationDescription of the Authorization architecture
+Authorization - Altinn AppsDescription of the Authorization Architecture for Altinn Studio Apps
+Authorization - Altinn PlatformDescription of the Authorization Architecture for Altinn Platform <a class="read-more" href="/architecture/security/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post architecture">
@@ -4474,34 +4861,6 @@ The diagram below shows where the different functionality i located in the diffe
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-platform/">Solution Architecture Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Functionality in Altinn Studio is distributed between different applications.
-The diagram below shows where the different functionality i located in the different applications. <a class="read-more" href="/architecture/application/altinn-platform/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/solution/altinn-platform/">Solution Architecture Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
@@ -4528,65 +4887,6 @@ The diagram below shows where the different functionality i located in the compo
 
 
 	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/solution/altinn-studio/">Solution Architecture Altinn Studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Functionality in Altinn Studio is distributed between different applications.
-The diagram below shows where the different functionality i located in the different applications. <a class="read-more" href="/architecture/solution/altinn-studio/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/xacml/">XACML - Altinn Studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>XACML stands for &ldquo;eXtensible Access Control Markup Language&rdquo;. The standard defines a declarative fine-grained, attribute-based access control policy language,[2] an architecture, and a processing model describing how to evaluate access requests according to the rules defined in policies.
-The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for the following
- XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture XACML Policy: Used to define the authorization rules for apps XACML Request: Format used for PEP to call PDP XACML Response: Format used for response from PDP to PEP. <a class="read-more" href="/architecture/security/authorization/altinn-platform/xacml/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/xacml/">XACML</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -4594,7 +4894,9 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
 	
 	    <a class="newer-posts" href="/tags/architecture/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 3</span>
+	<span class="page-number">Page 3 on 4</span>
+	
+	    <a class="older-posts" href="/tags/architecture/page/4/">Next Pages &rarr;</a>
 	
 </nav>
 
@@ -5619,8 +5921,106 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         

@@ -2158,7 +2158,7 @@
 			<v:textRect cx="96.6614" cy="1256.28" width="193.33" height="42.5197"/>
 			<rect x="0" y="1235.02" width="193.323" height="42.5197" class="st19"/>
 			<text x="4" y="1263.48" class="st42" v:langID="1044"><v:paragraph/><v:tabList/>Altinn Platform</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/storage">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/storage">
 			<g id="group224-738" transform="translate(1051.6,-186.89)" v:mID="224" v:groupContext="group">
 				<title>Sheet.224</title>
 				<g id="shape5-739" v:mID="5" v:groupContext="shape">
@@ -2233,7 +2233,7 @@
 					<text x="40.48" y="1268.38" class="st12" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>PEP</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/authentication">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/authentication">
 			<g id="group249-776" transform="translate(371.283,-186.89)" v:mID="249" v:groupContext="group">
 				<title>Sheet.249</title>
 				<g id="shape250-777" v:mID="250" v:groupContext="shape">
@@ -2297,7 +2297,7 @@
 					<text x="24.99" y="1268.38" class="st12" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Controller</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/authorization">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/authorization">
 			<g id="group257-808" transform="translate(507.346,-186.89)" v:mID="257" v:groupContext="group">
 				<title>Sheet.257</title>
 				<g id="shape258-809" v:mID="258" v:groupContext="shape">
@@ -2361,7 +2361,7 @@
 					<text x="24.99" y="1268.38" class="st12" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Controller</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/intermediary">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/intermediary">
 			<g id="group264-840" transform="translate(643.409,-186.89)" v:mID="264" v:groupContext="group">
 				<title>Sheet.264</title>
 				<g id="shape265-841" v:mID="265" v:groupContext="shape">
@@ -2425,7 +2425,7 @@
 					<text x="24.99" y="1268.38" class="st12" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Controller</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/profile">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/profile">
 			<g id="group271-872" transform="translate(779.472,-186.89)" v:mID="271" v:groupContext="group">
 				<title>Sheet.271</title>
 				<g id="shape272-873" v:mID="272" v:groupContext="shape">
@@ -2489,7 +2489,7 @@
 					<text x="24.99" y="1268.38" class="st12" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Controller</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/register">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/application/altinn-platform/register">
 			<g id="group278-904" transform="translate(915.535,-186.89)" v:mID="278" v:groupContext="group">
 				<title>Sheet.278</title>
 				<g id="shape279-905" v:mID="279" v:groupContext="shape">
