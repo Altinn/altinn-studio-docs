@@ -88,7 +88,7 @@
 			</g>
 			<rect x="0" y="886.972" width="317.48" height="146.268" class="st3"/>
 		</g>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
 			<g id="shape437-6" v:mID="437" v:groupContext="shape" transform="translate(477.021,-223.116)">
 				<title>Rectangle.437</title>
 				<v:userDefs>
@@ -145,7 +145,7 @@
 			</g>
 			<rect x="0" y="863.161" width="500.315" height="170.079" class="st8"/>
 		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
 			<g id="shape366-31" v:mID="366" v:groupContext="shape" transform="translate(2453.9,-231.62)">
 				<title>Sheet.366</title>
 				<g id="shadow366-32" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -223,7 +223,7 @@
 			</g>
 			<rect x="0" y="792.295" width="1496.69" height="240.945" class="st7"/>
 		</g>
-		<a xlink:href="/Resource/View/6">
+		<a target="_parent" xlink:href="/Resource/View/6">
 			<g id="shape16-62" v:mID="16" v:groupContext="shape" transform="translate(2653.39,-231.62)">
 				<title>Sheet.16</title>
 				<g id="shadow16-63" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -233,7 +233,7 @@
 				<rect x="0" y="863.161" width="235.276" height="170.079" class="st9"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/18">
+		<a target="_parent" xlink:href="/Resource/View/18">
 			<g id="shape13-67" v:mID="13" v:groupContext="shape" transform="translate(1736.37,795.951) rotate(-90)">
 				<title>Rectangle</title>
 				<desc>KeyManagement</desc>
@@ -249,7 +249,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="36.05" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>KeyManagement</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/16">
+		<a target="_parent" xlink:href="/Resource/View/16">
 			<g id="shape20-73" v:mID="20" v:groupContext="shape" transform="translate(1679.68,795.951) rotate(-90)">
 				<title>Rectangle.20</title>
 				<desc>ArchiveCommon (T2.0)</desc>
@@ -265,7 +265,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="26.38" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ArchiveCommon (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/17">
+		<a target="_parent" xlink:href="/Resource/View/17">
 			<g id="shape21-79" v:mID="21" v:groupContext="shape" transform="translate(1708.02,795.951) rotate(-90)">
 				<title>Rectangle.21</title>
 				<desc>ContextHandler (T2.0)</desc>
@@ -281,7 +281,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="27.78" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ContextHandler (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/15">
+		<a target="_parent" xlink:href="/Resource/View/15">
 			<g id="shape22-85" v:mID="22" v:groupContext="shape" transform="translate(1651.33,795.951) rotate(-90)">
 				<title>Rectangle.22</title>
 				<desc>Altinn1Archive (T1.0)</desc>
@@ -304,7 +304,7 @@
 			<v:textRect cx="43.937" cy="1026.15" width="87.88" height="14.1732"/>
 			<rect x="0" y="1019.07" width="87.874" height="14.1732" class="st16"/>
 			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Archive</text>		</g>
-		<a xlink:href="/Resource/View/3">
+		<a target="_parent" xlink:href="/Resource/View/3">
 			<g id="shape24-94" v:mID="24" v:groupContext="shape" transform="translate(2894.34,-231.62)">
 				<title>Sheet.24</title>
 				<g id="shadow24-95" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -321,7 +321,7 @@
 			<v:textRect cx="43.937" cy="1026.15" width="87.88" height="14.1732"/>
 			<rect x="0" y="1019.07" width="87.874" height="14.1732" class="st16"/>
 			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Authentication</text>		</g>
-		<a xlink:href="/Resource/View/4">
+		<a target="_parent" xlink:href="/Resource/View/4">
 			<g id="shape29-102" v:mID="29" v:groupContext="shape" transform="translate(2993.55,-231.62)">
 				<title>Sheet.29</title>
 				<g id="shadow29-103" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -331,7 +331,7 @@
 				<rect x="0" y="863.161" width="65.1969" height="170.079" class="st9"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1030">
+		<a target="_parent" xlink:href="/Resource/View/1030">
 			<g id="shape26-107" v:mID="26" v:groupContext="shape" transform="translate(1920.62,795.951) rotate(-90)">
 				<title>Rectangle.26</title>
 				<desc>UserAuthentication</desc>
@@ -347,7 +347,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="31.98" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>UserAuthentication</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1029">
+		<a target="_parent" xlink:href="/Resource/View/1029">
 			<g id="shape27-113" v:mID="27" v:groupContext="shape" transform="translate(1892.28,795.951) rotate(-90)">
 				<title>Rectangle.27</title>
 				<desc>SystemAutentication</desc>
@@ -363,7 +363,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="29.86" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>SystemAutentication</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1031">
+		<a target="_parent" xlink:href="/Resource/View/1031">
 			<g id="shape28-119" v:mID="28" v:groupContext="shape" transform="translate(1948.97,795.951) rotate(-90)">
 				<title>Rectangle.28</title>
 				<desc>UserProfile</desc>
@@ -379,7 +379,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="45.65" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>UserProfile</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/11">
+		<a target="_parent" xlink:href="/Resource/View/11">
 			<g id="shape30-125" v:mID="30" v:groupContext="shape" transform="translate(1991.49,795.951) rotate(-90)">
 				<title>Rectangle.30</title>
 				<desc>Administration</desc>
@@ -395,7 +395,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="39.55" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Administration</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/19">
+		<a target="_parent" xlink:href="/Resource/View/19">
 			<g id="shape31-131" v:mID="31" v:groupContext="shape" transform="translate(1764.72,795.951) rotate(-90)">
 				<title>Rectangle.31</title>
 				<desc>ReporteeArchive (T2.0)</desc>
@@ -411,7 +411,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="26.13" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ReporteeArchive (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/21">
+		<a target="_parent" xlink:href="/Resource/View/21">
 			<g id="shape32-137" v:mID="32" v:groupContext="shape" transform="translate(1821.41,795.951) rotate(-90)">
 				<title>Rectangle.32</title>
 				<desc>TTPArchive</desc>
@@ -427,7 +427,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="45.6" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>TTPArchive</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/20">
+		<a target="_parent" xlink:href="/Resource/View/20">
 			<g id="shape33-143" v:mID="33" v:groupContext="shape" transform="translate(1793.06,795.951) rotate(-90)">
 				<title>Rectangle.33</title>
 				<desc>ServiceOwnerArchive (T2.0)</desc>
@@ -443,7 +443,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="18.6" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ServiceOwnerArchive (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1028">
+		<a target="_parent" xlink:href="/Resource/View/1028">
 			<g id="shape34-149" v:mID="34" v:groupContext="shape" transform="translate(1849.76,795.951) rotate(-90)">
 				<title>Rectangle.34</title>
 				<desc>WebsaArchive</desc>
@@ -466,7 +466,7 @@
 			<v:textRect cx="70.8661" cy="1026.15" width="141.74" height="14.1732"/>
 			<rect x="0" y="1019.07" width="141.732" height="14.1732" class="st16"/>
 			<text x="4" y="1029.75" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>Altinn SBL Core 2.0</text>		</g>
-		<a xlink:href="/Resource/View/10">
+		<a target="_parent" xlink:href="/Resource/View/10">
 			<g id="shape36-158" v:mID="36" v:groupContext="shape" transform="translate(2019.84,795.951) rotate(-90)">
 				<title>Rectangle.36</title>
 				<desc>DecisionPoint</desc>
@@ -489,7 +489,7 @@
 			<v:textRect cx="43.937" cy="1026.15" width="87.88" height="14.1732"/>
 			<rect x="0" y="1019.07" width="87.874" height="14.1732" class="st16"/>
 			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Authorization</text>		</g>
-		<a xlink:href="/Resource/View/12">
+		<a target="_parent" xlink:href="/Resource/View/12">
 			<g id="shape38-167" v:mID="38" v:groupContext="shape" transform="translate(3064.41,-231.62)">
 				<title>Sheet.38</title>
 				<g id="shadow38-168" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -506,7 +506,7 @@
 			<v:textRect cx="43.937" cy="1026.15" width="87.88" height="14.1732"/>
 			<rect x="0" y="1019.07" width="87.874" height="14.1732" class="st16"/>
 			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Intermediary</text>		</g>
-		<a xlink:href="/Resource/View/1032">
+		<a target="_parent" xlink:href="/Resource/View/1032">
 			<g id="shape40-175" v:mID="40" v:groupContext="shape" transform="translate(2062.36,795.951) rotate(-90)">
 				<title>Rectangle.40</title>
 				<desc>BatchLogging</desc>
@@ -522,7 +522,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="42.1" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>BatchLogging</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1034">
+		<a target="_parent" xlink:href="/Resource/View/1034">
 			<g id="shape41-181" v:mID="41" v:groupContext="shape" transform="translate(2119.05,795.951) rotate(-90)">
 				<title>Rectangle.41</title>
 				<desc>Notify</desc>
@@ -538,7 +538,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="53.8" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Notify</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1035">
+		<a target="_parent" xlink:href="/Resource/View/1035">
 			<g id="shape42-187" v:mID="42" v:groupContext="shape" transform="translate(2147.39,795.951) rotate(-90)">
 				<title>Rectangle.42</title>
 				<desc>Receipt (T2.0)</desc>
@@ -554,7 +554,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="41.23" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Receipt (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1036">
+		<a target="_parent" xlink:href="/Resource/View/1036">
 			<g id="shape43-193" v:mID="43" v:groupContext="shape" transform="translate(2175.74,795.951) rotate(-90)">
 				<title>Rectangle.43</title>
 				<desc>ServiceMetaData</desc>
@@ -570,7 +570,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="35.85" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ServiceMetaData</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1037">
+		<a target="_parent" xlink:href="/Resource/View/1037">
 			<g id="shape44-199" v:mID="44" v:groupContext="shape" transform="translate(2204.09,795.951) rotate(-90)">
 				<title>Rectangle.44</title>
 				<desc>Shipment</desc>
@@ -586,7 +586,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="48.19" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Shipment</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1033">
+		<a target="_parent" xlink:href="/Resource/View/1033">
 			<g id="shape45-205" v:mID="45" v:groupContext="shape" transform="translate(2090.7,795.951) rotate(-90)">
 				<title>Rectangle.45</title>
 				<desc>Inbound (T2.0)</desc>
@@ -602,7 +602,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="39.81" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Inbound (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/13">
+		<a target="_parent" xlink:href="/Resource/View/13">
 			<g id="shape46-211" v:mID="46" v:groupContext="shape" transform="translate(3248.67,-231.62)">
 				<title>Sheet.46</title>
 				<g id="shadow46-212" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -620,7 +620,7 @@
 			<rect x="0" y="1019.07" width="87.874" height="14.1732" class="st16"/>
 			<text x="4" y="1023.45" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Process-<v:lf/><tspan x="4" dy="1.2em"
 						class="st19">Manager</tspan></text>		</g>
-		<a xlink:href="/Resource/View/1038">
+		<a target="_parent" xlink:href="/Resource/View/1038">
 			<g id="shape48-220" v:mID="48" v:groupContext="shape" transform="translate(2246.61,795.951) rotate(-90)">
 				<title>Rectangle.48</title>
 				<desc>StateMachine</desc>
@@ -636,7 +636,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="41.22" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>StateMachine</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/7">
+		<a target="_parent" xlink:href="/Resource/View/7">
 			<g id="shape49-226" v:mID="49" v:groupContext="shape" transform="translate(3291.19,-231.62)">
 				<title>Sheet.49</title>
 				<g id="shadow49-227" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -653,7 +653,7 @@
 			<v:textRect cx="43.937" cy="1026.15" width="87.88" height="14.1732"/>
 			<rect x="0" y="1019.07" width="87.874" height="14.1732" class="st16"/>
 			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Profile</text>		</g>
-		<a xlink:href="/Resource/View/1039">
+		<a target="_parent" xlink:href="/Resource/View/1039">
 			<g id="shape51-234" v:mID="51" v:groupContext="shape" transform="translate(2289.13,795.951) rotate(-90)">
 				<title>Rectangle.51</title>
 				<desc>UnitProfile</desc>
@@ -669,7 +669,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="46.24" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>UnitProfile</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1077">
+		<a target="_parent" xlink:href="/Resource/View/1077">
 			<g id="shape52-240" v:mID="52" v:groupContext="shape" transform="translate(2317.47,795.951) rotate(-90)">
 				<title>Rectangle.52</title>
 				<desc>UserProfile</desc>
@@ -685,7 +685,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="45.65" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>UserProfile</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/8">
+		<a target="_parent" xlink:href="/Resource/View/8">
 			<g id="shape53-246" v:mID="53" v:groupContext="shape" transform="translate(3362.05,-231.62)">
 				<title>Sheet.53</title>
 				<g id="shadow53-247" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -702,7 +702,7 @@
 			<v:textRect cx="43.937" cy="1026.15" width="87.88" height="14.1732"/>
 			<rect x="0" y="1019.07" width="87.874" height="14.1732" class="st16"/>
 			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Register</text>		</g>
-		<a xlink:href="/Resource/View/1041">
+		<a target="_parent" xlink:href="/Resource/View/1041">
 			<g id="shape55-254" v:mID="55" v:groupContext="shape" transform="translate(2359.99,795.951) rotate(-90)">
 				<title>Rectangle.55</title>
 				<desc>Common</desc>
@@ -718,7 +718,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="48.94" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Common</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1042">
+		<a target="_parent" xlink:href="/Resource/View/1042">
 			<g id="shape56-260" v:mID="56" v:groupContext="shape" transform="translate(2388.34,795.951) rotate(-90)">
 				<title>Rectangle.56</title>
 				<desc>CRR</desc>
@@ -734,7 +734,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="57.3" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>CRR</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1043">
+		<a target="_parent" xlink:href="/Resource/View/1043">
 			<g id="shape57-266" v:mID="57" v:groupContext="shape" transform="translate(2416.69,795.951) rotate(-90)">
 				<title>Rectangle.57</title>
 				<desc>DSF</desc>
@@ -750,7 +750,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="57.64" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>DSF</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1044">
+		<a target="_parent" xlink:href="/Resource/View/1044">
 			<g id="shape58-272" v:mID="58" v:groupContext="shape" transform="translate(2445.03,795.951) rotate(-90)">
 				<title>Rectangle.58</title>
 				<desc>ER</desc>
@@ -766,7 +766,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="59.65" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ER</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1045">
+		<a target="_parent" xlink:href="/Resource/View/1045">
 			<g id="shape59-278" v:mID="59" v:groupContext="shape" transform="translate(2473.38,795.951) rotate(-90)">
 				<title>Rectangle.59</title>
 				<desc>SRR</desc>
@@ -782,7 +782,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="57.6" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>SRR</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/5">
+		<a target="_parent" xlink:href="/Resource/View/5">
 			<g id="shape60-284" v:mID="60" v:groupContext="shape" transform="translate(3517.96,-231.62)">
 				<title>Sheet.60</title>
 				<g id="shadow60-285" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
@@ -792,7 +792,7 @@
 				<rect x="0" y="863.161" width="547.087" height="170.079" class="st9"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1040">
+		<a target="_parent" xlink:href="/Resource/View/1040">
 			<g id="shape61-289" v:mID="61" v:groupContext="shape" transform="translate(2515.9,795.951) rotate(-90)">
 				<title>Rectangle.61</title>
 				<desc>Broker</desc>
@@ -808,7 +808,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="52.9" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Broker</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1046">
+		<a target="_parent" xlink:href="/Resource/View/1046">
 			<g id="shape62-295" v:mID="62" v:groupContext="shape" transform="translate(2544.24,795.951) rotate(-90)">
 				<title>Rectangle.62</title>
 				<desc>Case (T2.0)</desc>
@@ -824,7 +824,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="45.83" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Case (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1047">
+		<a target="_parent" xlink:href="/Resource/View/1047">
 			<g id="shape63-301" v:mID="63" v:groupContext="shape" transform="translate(2572.59,795.951) rotate(-90)">
 				<title>Rectangle.63</title>
 				<desc>Configuration</desc>
@@ -840,7 +840,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="41.53" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Configuration</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1048">
+		<a target="_parent" xlink:href="/Resource/View/1048">
 			<g id="shape65-307" v:mID="65" v:groupContext="shape" transform="translate(2600.94,795.951) rotate(-90)">
 				<title>Rectangle.65</title>
 				<desc>ContextHandler (T2.0)</desc>
@@ -856,7 +856,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="27.78" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ContextHandler (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1049">
+		<a target="_parent" xlink:href="/Resource/View/1049">
 			<g id="shape66-313" v:mID="66" v:groupContext="shape" transform="translate(2629.28,795.951) rotate(-90)">
 				<title>Rectangle.66</title>
 				<desc>Correspondence</desc>
@@ -872,7 +872,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="37.01" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Correspondence</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1050">
+		<a target="_parent" xlink:href="/Resource/View/1050">
 			<g id="shape68-319" v:mID="68" v:groupContext="shape" transform="translate(2657.63,795.951) rotate(-90)">
 				<title>Rectangle.68</title>
 				<desc>FormsEngine (T2.0)</desc>
@@ -888,7 +888,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="32.39" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>FormsEngine (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1051">
+		<a target="_parent" xlink:href="/Resource/View/1051">
 			<g id="shape69-325" v:mID="69" v:groupContext="shape" transform="translate(2685.98,795.951) rotate(-90)">
 				<title>Rectangle.69</title>
 				<desc>FormTask (T2.0)</desc>
@@ -904,7 +904,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="37.65" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>FormTask (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1052">
+		<a target="_parent" xlink:href="/Resource/View/1052">
 			<g id="shape70-331" v:mID="70" v:groupContext="shape" transform="translate(2714.32,795.951) rotate(-90)">
 				<title>Rectangle.70</title>
 				<desc>Logging</desc>
@@ -920,7 +920,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="51.32" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Logging</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1053">
+		<a target="_parent" xlink:href="/Resource/View/1053">
 			<g id="shape71-337" v:mID="71" v:groupContext="shape" transform="translate(2742.67,795.951) rotate(-90)">
 				<title>Rectangle.71</title>
 				<desc>LookUp (T2.0)</desc>
@@ -936,7 +936,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="41.05" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>LookUp (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1054">
+		<a target="_parent" xlink:href="/Resource/View/1054">
 			<g id="shape72-343" v:mID="72" v:groupContext="shape" transform="translate(2771.02,795.951) rotate(-90)">
 				<title>Rectangle.72</title>
 				<desc>Notifcation</desc>
@@ -952,7 +952,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="45.53" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Notifcation</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1055">
+		<a target="_parent" xlink:href="/Resource/View/1055">
 			<g id="shape74-349" v:mID="74" v:groupContext="shape" transform="translate(2799.36,795.951) rotate(-90)">
 				<title>Rectangle.74</title>
 				<desc>Payment</desc>
@@ -968,7 +968,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="49.36" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Payment</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1056">
+		<a target="_parent" xlink:href="/Resource/View/1056">
 			<g id="shape75-355" v:mID="75" v:groupContext="shape" transform="translate(2827.71,795.951) rotate(-90)">
 				<title>Rectangle.75</title>
 				<desc>PdfEngine (T2.0)</desc>
@@ -984,7 +984,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="37.1" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>PdfEngine (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1057">
+		<a target="_parent" xlink:href="/Resource/View/1057">
 			<g id="shape76-361" v:mID="76" v:groupContext="shape" transform="translate(2856.06,795.951) rotate(-90)">
 				<title>Rectangle.76</title>
 				<desc>Prefill (T2.0?)</desc>
@@ -1000,7 +1000,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="42.16" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Prefill (T2.0?)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1058">
+		<a target="_parent" xlink:href="/Resource/View/1058">
 			<g id="shape77-367" v:mID="77" v:groupContext="shape" transform="translate(2884.4,795.951) rotate(-90)">
 				<title>Rectangle.77</title>
 				<desc>ReporteeElementList</desc>
@@ -1016,7 +1016,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="29.7" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ReporteeElementList</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1059">
+		<a target="_parent" xlink:href="/Resource/View/1059">
 			<g id="shape78-373" v:mID="78" v:groupContext="shape" transform="translate(2912.75,795.951) rotate(-90)">
 				<title>Rectangle.78</title>
 				<desc>ServiceMetaData (T2.0)</desc>
@@ -1032,7 +1032,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="25.51" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ServiceMetaData (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1060">
+		<a target="_parent" xlink:href="/Resource/View/1060">
 			<g id="shape79-379" v:mID="79" v:groupContext="shape" transform="translate(2941.1,795.951) rotate(-90)">
 				<title>Rectangle.79</title>
 				<desc>ServiceMetaDataImport (T2.0)</desc>
@@ -1048,7 +1048,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="14.36" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ServiceMetaDataImport (T2.0)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1061">
+		<a target="_parent" xlink:href="/Resource/View/1061">
 			<g id="shape80-385" v:mID="80" v:groupContext="shape" transform="translate(2969.44,795.951) rotate(-90)">
 				<title>Rectangle.80</title>
 				<desc>Subscription (T2.0?)</desc>
@@ -1064,7 +1064,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="31.4" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Subscription (T2.0?)</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1062">
+		<a target="_parent" xlink:href="/Resource/View/1062">
 			<g id="shape81-391" v:mID="81" v:groupContext="shape" transform="translate(2997.79,795.951) rotate(-90)">
 				<title>Rectangle.81</title>
 				<desc>WebSA</desc>
@@ -1080,7 +1080,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="51.98" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>WebSA</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1063">
+		<a target="_parent" xlink:href="/Resource/View/1063">
 			<g id="shape82-397" v:mID="82" v:groupContext="shape" transform="translate(3026.13,795.951) rotate(-90)">
 				<title>Rectangle.82</title>
 				<desc>Workflow (T2.0)</desc>
@@ -1104,7 +1104,7 @@
 			</g>
 			<rect x="0" y="863.161" width="65.1969" height="170.079" class="st9"/>
 		</g>
-		<a xlink:href="/Resource/View/1064">
+		<a target="_parent" xlink:href="/Resource/View/1064">
 			<g id="shape84-408" v:mID="84" v:groupContext="shape" transform="translate(3068.65,795.951) rotate(-90)">
 				<title>Rectangle.84</title>
 				<desc>Paradata</desc>
@@ -1120,7 +1120,7 @@
 				<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 				<text x="49.21" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Paradata</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1296">
+		<a target="_parent" xlink:href="/Resource/View/1296">
 			<g id="shape85-414" v:mID="85" v:groupContext="shape" transform="translate(3097,795.951) rotate(-90)">
 				<title>Rectangle.85</title>
 				<desc>Statistics</desc>
@@ -1678,7 +1678,7 @@
 			</g>
 			<rect x="0" y="1019.07" width="130.394" height="14.1732" class="st36"/>
 			<text x="34.18" y="1029.15" class="st21" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>SAML Interface</text>		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=EventStatisticsBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=EventStatisticsBatch">
 			<g id="shape201-627" v:mID="201" v:groupContext="shape" transform="translate(3970.08,-510.833)">
 				<title>Rectangle.201</title>
 				<desc>EventStatistics</desc>
@@ -1694,7 +1694,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="17.72" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>EventStatistics</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=DsfStreetBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=DsfStreetBatch">
 			<g id="shape203-633" v:mID="203" v:groupContext="shape" transform="translate(3970.08,-533.51)">
 				<title>Rectangle.203</title>
 				<desc>DsfStreet</desc>
@@ -1710,7 +1710,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="24.08" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>DsfStreet</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=NotificationBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=NotificationBatch">
 			<g id="shape204-639" v:mID="204" v:groupContext="shape" transform="translate(3970.08,-488.156)">
 				<title>Rectangle.204</title>
 				<desc>Notification</desc>
@@ -1726,7 +1726,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="21.06" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Notification</text>			</g>
 		</a>
-		<a xlink:href="/Resource/View/1308">
+		<a target="_parent" xlink:href="/Resource/View/1308">
 			<g id="shape206-645" v:mID="206" v:groupContext="shape" v:layerMember="0" transform="translate(3771.66,-159.337)">
 				<title>Database</title>
 				<v:custProps>
@@ -1756,7 +1756,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1310">
+		<a target="_parent" xlink:href="/Resource/View/1310">
 			<g id="shape207-659" v:mID="207" v:groupContext="shape" v:layerMember="0" transform="translate(4083.47,-159.337)">
 				<title>Database.207</title>
 				<v:custProps>
@@ -1786,7 +1786,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1307">
+		<a target="_parent" xlink:href="/Resource/View/1307">
 			<g id="shape208-673" v:mID="208" v:groupContext="shape" v:layerMember="0" transform="translate(3417.33,-159.337)">
 				<title>Database.208</title>
 				<v:custProps>
@@ -1816,7 +1816,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1311">
+		<a target="_parent" xlink:href="/Resource/View/1311">
 			<g id="shape209-687" v:mID="209" v:groupContext="shape" v:layerMember="0" transform="translate(3303.94,-159.337)">
 				<title>Database.209</title>
 				<v:custProps>
@@ -1846,7 +1846,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1303">
+		<a target="_parent" xlink:href="/Resource/View/1303">
 			<g id="shape211-701" v:mID="211" v:groupContext="shape" v:layerMember="0" transform="translate(3119.69,-159.337)">
 				<title>Database.211</title>
 				<v:custProps>
@@ -1876,7 +1876,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1301">
+		<a target="_parent" xlink:href="/Resource/View/1301">
 			<g id="shape212-715" v:mID="212" v:groupContext="shape" v:layerMember="0" transform="translate(2751.19,-159.337)">
 				<title>Database.212</title>
 				<v:custProps>
@@ -1906,7 +1906,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1300">
+		<a target="_parent" xlink:href="/Resource/View/1300">
 			<g id="shape213-729" v:mID="213" v:groupContext="shape" v:layerMember="0" transform="translate(2921.26,-159.337)">
 				<title>Database.213</title>
 				<v:custProps>
@@ -1936,7 +1936,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/22">
+		<a target="_parent" xlink:href="/Resource/View/22">
 			<g id="shape214-743" v:mID="214" v:groupContext="shape" v:layerMember="0" transform="translate(3006.3,-159.337)">
 				<title>Database.214</title>
 				<v:custProps>
@@ -1966,7 +1966,7 @@
 				<path d="M0 999.22 A21.2598 4.25197 -180 0 0 42.52 999.22" class="st38"/>
 			</g>
 		</a>
-		<a xlink:href="/Resource/View/1306">
+		<a target="_parent" xlink:href="/Resource/View/1306">
 			<g id="shape215-757" v:mID="215" v:groupContext="shape" v:layerMember="0" transform="translate(2807.88,-159.337)">
 				<title>Database.215</title>
 				<v:custProps>
@@ -2862,7 +2862,7 @@
 			<v:textRect cx="76" cy="1023.24" width="152" height="20"/>
 			<rect x="0" y="1013.24" width="152" height="20" class="st16"/>
 			<text x="47.1" y="1026.84" class="st18" v:langID="1044"><v:paragraph v:horizAlign="2"/><v:tabList/>ServiceDevelopment</text>		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ActivateSubscriptionBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ActivateSubscriptionBatch">
 			<g id="shape322-1148" v:mID="322" v:groupContext="shape" transform="translate(3970.08,-646.896)">
 				<title>Rectangle.322</title>
 				<desc>Activatesubscription</desc>
@@ -2878,7 +2878,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="10.52" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Activatesubscription</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=DsfPropertyBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=DsfPropertyBatch">
 			<g id="shape323-1154" v:mID="323" v:groupContext="shape" transform="translate(3970.08,-556.187)">
 				<title>Rectangle.323</title>
 				<desc>DsfProperty</desc>
@@ -2894,7 +2894,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="20.84" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>DsfProperty</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=CorrespondenceBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=CorrespondenceBatch">
 			<g id="shape324-1160" v:mID="324" v:groupContext="shape" transform="translate(3970.08,-578.864)">
 				<title>Rectangle.324</title>
 				<desc>Correspondence</desc>
@@ -2910,7 +2910,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="15.35" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Correspondence</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ContactRegisterImportBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ContactRegisterImportBatch">
 			<g id="shape326-1166" v:mID="326" v:groupContext="shape" transform="translate(3970.08,-601.541)">
 				<title>Rectangle.326</title>
 				<desc>ContactRegisterImport</desc>
@@ -2926,7 +2926,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="7.66" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ContactRegisterImport</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=BrokerServiceBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=BrokerServiceBatch">
 			<g id="shape327-1172" v:mID="327" v:groupContext="shape" transform="translate(3970.08,-624.219)">
 				<title>Rectangle.327</title>
 				<desc>BrokerService</desc>
@@ -2942,7 +2942,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="18.55" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>BrokerService</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ShipmentBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ShipmentBatch">
 			<g id="shape344-1178" v:mID="344" v:groupContext="shape" transform="translate(4057.96,-510.833)">
 				<title>Rectangle.344</title>
 				<desc>Shipment</desc>
@@ -2958,7 +2958,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="23.74" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Shipment</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ServiceStatisticsGenerationBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ServiceStatisticsGenerationBatch">
 			<g id="shape345-1184" v:mID="345" v:groupContext="shape" transform="translate(4057.96,-533.51)">
 				<title>Rectangle.345</title>
 				<desc>ServiceStatisticsGeneration</desc>
@@ -2975,7 +2975,7 @@
 				<text x="5.26" y="1021.52" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ServiceStatisticsGenerati<tspan
 							x="32.28" dy="1.2em" class="st19">on</tspan></text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=SubscriptionBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=SubscriptionBatch">
 			<g id="shape346-1191" v:mID="346" v:groupContext="shape" transform="translate(4057.96,-488.156)">
 				<title>Rectangle.346</title>
 				<desc>Subscription</desc>
@@ -2991,7 +2991,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="20.3" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Subscription</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=PrefillBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=PrefillBatch">
 			<g id="shape347-1197" v:mID="347" v:groupContext="shape" transform="translate(4057.96,-646.896)">
 				<title>Rectangle.347</title>
 				<desc>Prefill</desc>
@@ -3007,7 +3007,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="28.36" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Prefill</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ServiceStatisticsFileGenerationBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ServiceStatisticsFileGenerationBatch">
 			<g id="shape348-1203" v:mID="348" v:groupContext="shape" transform="translate(4057.96,-556.187)">
 				<title>Rectangle.348</title>
 				<desc>ServiceStatisticsFileGeneration</desc>
@@ -3024,7 +3024,7 @@
 				<text x="4.14" y="1021.52" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ServiceStatisticsFileGener<tspan
 							x="29.14" dy="1.2em" class="st19">ation</tspan></text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=SendCorrespondenceUsageDataBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=SendCorrespondenceUsageDataBatch">
 			<g id="shape349-1210" v:mID="349" v:groupContext="shape" transform="translate(4057.96,-578.864)">
 				<title>Rectangle.349</title>
 				<desc>SendCorrespondenceUsageData</desc>
@@ -3041,7 +3041,7 @@
 				<text x="4.79" y="1021.52" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>SendCorrespondenceUsa<tspan
 							x="26.8" dy="1.2em" class="st19">geData</tspan></text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=SdpReceiptUpdateBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=SdpReceiptUpdateBatch">
 			<g id="shape350-1217" v:mID="350" v:groupContext="shape" transform="translate(4057.96,-601.541)">
 				<title>Rectangle.350</title>
 				<desc>SdpReceiptUpdate</desc>
@@ -3057,7 +3057,7 @@
 				<rect x="0" y="1013.4" width="70.8661" height="19.8425" class="st7"/>
 				<text x="12.74" y="1025.12" class="st37" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>SdpReceiptUpdate</text>			</g>
 		</a>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ReceiveRegisterDSFBatch">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=ReceiveRegisterDSFBatch">
 			<g id="shape351-1223" v:mID="351" v:groupContext="shape" transform="translate(4057.96,-624.219)">
 				<title>Rectangle.351</title>
 				<desc>ReceiveRegisterDSF</desc>
@@ -3347,7 +3347,7 @@
 						kLeQCjPQAAAAAElFTkSuQmCC"/>
 			<rect v:rectContext="foreign" x="0" y="1000.24" width="79.2004" height="33.0002" class="st16"/>
 		</g>
-		<a xlink:href="/Resource/View/1299">
+		<a target="_parent" xlink:href="/Resource/View/1299">
 			<g id="shape421-1310" v:mID="421" v:groupContext="shape" transform="translate(4058.25,-669.573)">
 				<title>Rectangle.421</title>
 				<desc>ERImport</desc>
@@ -3391,7 +3391,7 @@
 			</g>
 			<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st40"/>
 			<text x="28.51" y="1023.48" class="st21" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Receipt (T2.0)</text>		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
 			<g id="shape426-1328" v:mID="426" v:groupContext="shape" transform="translate(495.162,-237.289)">
 				<title>Sheet.426</title>
 				<g id="shadow426-1329" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
@@ -3527,7 +3527,7 @@
 			</g>
 			<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 			<text x="55.24" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Form</text>		</g>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/data-modeling">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/data-modeling">
 			<g id="shape439-1387" v:mID="439" v:groupContext="shape" transform="translate(838.154,-591.62)">
 				<title>Sheet.439</title>
 				<desc>Datamodelling</desc>
@@ -3540,7 +3540,7 @@
 				<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 				<text x="21.04" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Datamodelling</text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/ui-editor">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/ui-editor">
 			<g id="shape440-1393" v:mID="440" v:groupContext="shape" transform="translate(481.556,-563.274)">
 				<title>Sheet.440</title>
 				<desc>Form/UI Editor</desc>
@@ -3553,7 +3553,7 @@
 				<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 				<text x="20.13" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Form/UI Editor</text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/codelist">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/codelist">
 			<g id="shape441-1399" v:mID="441" v:groupContext="shape" transform="translate(719.099,-563.274)">
 				<title>Sheet.441</title>
 				<desc>CodeLists</desc>
@@ -3627,7 +3627,7 @@
 			</g>
 			<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 			<text x="49.62" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Platform</text>		</g>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/workflow">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/workflow">
 			<g id="shape464-1435" v:mID="464" v:groupContext="shape" transform="translate(600.328,-563.274)">
 				<title>Sheet.464</title>
 				<desc>WorkFlow</desc>
@@ -3640,7 +3640,7 @@
 				<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 				<text x="31.78" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>WorkFlow</text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
 			<g id="shape465-1441" v:mID="465" v:groupContext="shape" transform="translate(600.044,-591.62)">
 				<title>Sheet.465</title>
 				<desc>ServiceOwner</desc>
@@ -3653,7 +3653,7 @@
 				<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 				<text x="22.76" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>ServiceOwner</text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
 			<g id="shape466-1447" v:mID="466" v:groupContext="shape" transform="translate(719.099,-591.62)">
 				<title>Sheet.466</title>
 				<desc>Service</desc>
@@ -3780,27 +3780,27 @@
 			</g>
 			<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 			<text x="33.99" y="1023.48" class="st21" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Print (T3.0)</text>		</g>
-		<g id="shape480-1507" v:mID="480" v:groupContext="shape" transform="translate(1629.73,-223.116)">
-			<title>Rectangle.480</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<g id="shadow480-1508" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
-					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-				<rect x="0" y="792.295" width="113.386" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="792.295" width="113.386" height="240.945" class="st7"/>
-		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
-			<g id="shape481-1512" v:mID="481" v:groupContext="shape" transform="translate(1635.4,-231.62)">
-				<title>Sheet.481</title>
-				<g id="shadow481-1513" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+			<g id="shape480-1507" v:mID="480" v:groupContext="shape" transform="translate(1629.73,-223.116)">
+				<title>Rectangle.480</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<g id="shadow480-1508" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
 						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-					<rect x="0" y="863.161" width="99.2126" height="170.079" class="st2"/>
+					<rect x="0" y="792.295" width="113.386" height="240.945" class="st2"/>
 				</g>
-				<rect x="0" y="863.161" width="99.2126" height="170.079" class="st9"/>
+				<rect x="0" y="792.295" width="113.386" height="240.945" class="st7"/>
 			</g>
 		</a>
+		<g id="shape481-1512" v:mID="481" v:groupContext="shape" transform="translate(1635.4,-231.62)">
+			<title>Sheet.481</title>
+			<g id="shadow481-1513" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<rect x="0" y="863.161" width="99.2126" height="170.079" class="st2"/>
+			</g>
+			<rect x="0" y="863.161" width="99.2126" height="170.079" class="st9"/>
+		</g>
 		<g id="shape482-1517" v:mID="482" v:groupContext="shape" transform="translate(1629.73,-445.636)">
 			<title>Sheet.482</title>
 			<desc>Storage</desc>
@@ -3908,7 +3908,7 @@
 			</g>
 			<rect x="0" y="863.161" width="500.315" height="170.079" class="st8"/>
 		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
 			<g id="shape503-1566" v:mID="503" v:groupContext="shape" transform="translate(1283.19,-236.648)">
 				<title>Sheet.503</title>
 				<g id="shadow503-1567" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
@@ -4158,7 +4158,7 @@
 			</g>
 			<rect x="0" y="792.295" width="113.386" height="240.945" class="st7"/>
 		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
+		<a target="_parent" xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
 			<g id="shape530-1680" v:mID="530" v:groupContext="shape" transform="translate(1166.97,-236.648)">
 				<title>Sheet.530</title>
 				<g id="shadow530-1681" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
@@ -4578,7 +4578,7 @@
 			</g>
 			<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 			<text x="18.3" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Texts/Language</text>		</g>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
 			<g id="shape575-1867" v:mID="575" v:groupContext="shape" transform="translate(488.076,-790.045)">
 				<title>Sheet.575</title>
 				<desc>Dashboard</desc>
@@ -4591,7 +4591,7 @@
 				<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 				<text x="30.19" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Dashboard</text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/api-expose">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/api-expose">
 			<g id="shape576-1873" v:mID="576" v:groupContext="shape" transform="translate(600.044,-506.581)">
 				<title>Sheet.576</title>
 				<desc>API Configuration</desc>
@@ -4640,7 +4640,7 @@
 			</g>
 			<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 			<text x="22.15" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Print Designer</text>		</g>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/service-deployment">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/service-deployment">
 			<g id="shape580-1897" v:mID="580" v:groupContext="shape" transform="translate(599.582,-534.927)">
 				<title>Sheet.580</title>
 				<desc>Deployment of Service</desc>
@@ -4654,7 +4654,7 @@
 				<text x="20.31" y="1016.88" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Deployment of <tspan
 							x="39.25" dy="1.2em" class="st19">Service</tspan></text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/intermediary">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/intermediary">
 			<g id="shape581-1904" v:mID="581" v:groupContext="shape" transform="translate(480.989,-506.581)">
 				<title>Sheet.581</title>
 				<desc>Shipment</desc>
@@ -4749,7 +4749,7 @@
 			</g>
 			<rect x="0" y="1004.89" width="113.386" height="28.3465" class="st51"/>
 			<text x="21.35" y="1022.07" class="st21" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Workflow Editors</text>		</g>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/dashboard">
 			<g id="shape589-1948" v:mID="589" v:groupContext="shape" transform="translate(332.17,-506.581)">
 				<title>Sheet.589</title>
 				<desc>Login</desc>
@@ -4762,7 +4762,7 @@
 				<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 				<text x="43.65" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Login</text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/access-management">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/access-management">
 			<g id="shape590-1954" v:mID="590" v:groupContext="shape" transform="translate(601.461,-478.234)">
 				<title>Sheet.590</title>
 				<desc>Access Management</desc>
@@ -4775,7 +4775,7 @@
 				<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 				<text x="6.33" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Access Management</text>			</g>
 		</a>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/api-use">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/api-use">
 			<g id="shape591-1960" v:mID="591" v:groupContext="shape" transform="translate(719.099,-478.234)">
 				<title>Sheet.591</title>
 				<desc>API Use</desc>
@@ -4799,7 +4799,7 @@
 			</g>
 			<rect x="0" y="1007.73" width="113.386" height="25.5118" class="st7"/>
 			<text x="8.52" y="1024.08" class="st44" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Binary Attachments</text>		</g>
-		<a xlink:href="https://github.com/Altinn/altinn-studio/labels/access-management">
+		<a target="_parent" xlink:href="https://github.com/Altinn/altinn-studio/labels/access-management">
 			<g id="shape593-1972" v:mID="593" v:groupContext="shape" transform="translate(480.989,-478.234)">
 				<title>Sheet.593</title>
 				<desc>Version Control</desc>
@@ -4844,27 +4844,27 @@
 			</g>
 			<rect x="0" y="1019.07" width="240.945" height="14.1732" class="st22"/>
 			<text x="93.49" y="1029.15" class="st21" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>REST Internal</text>		</g>
-		<g id="shape597-1992" v:mID="597" v:groupContext="shape" transform="translate(1748.08,-223.116)">
-			<title>Rectangle.597</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<g id="shadow597-1993" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
-					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-				<rect x="0" y="792.295" width="131.811" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="792.295" width="131.811" height="240.945" class="st7"/>
-		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
-			<g id="shape598-1997" v:mID="598" v:groupContext="shape" transform="translate(1753.74,-231.62)">
-				<title>Sheet.598</title>
-				<g id="shadow598-1998" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
+			<g id="shape597-1992" v:mID="597" v:groupContext="shape" transform="translate(1748.08,-223.116)">
+				<title>Rectangle.597</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<g id="shadow597-1993" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
 						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-					<rect x="0" y="863.161" width="119.764" height="170.079" class="st2"/>
+					<rect x="0" y="792.295" width="131.811" height="240.945" class="st2"/>
 				</g>
-				<rect x="0" y="863.161" width="119.764" height="170.079" class="st9"/>
+				<rect x="0" y="792.295" width="131.811" height="240.945" class="st7"/>
 			</g>
 		</a>
+		<g id="shape598-1997" v:mID="598" v:groupContext="shape" transform="translate(1753.74,-231.62)">
+			<title>Sheet.598</title>
+			<g id="shadow598-1998" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<rect x="0" y="863.161" width="119.764" height="170.079" class="st2"/>
+			</g>
+			<rect x="0" y="863.161" width="119.764" height="170.079" class="st9"/>
+		</g>
 		<g id="shape599-2002" v:mID="599" v:groupContext="shape" transform="translate(1748.08,-445.636)">
 			<title>Sheet.599</title>
 			<desc>Authorization</desc>
@@ -4900,27 +4900,27 @@
 			</g>
 			<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 			<text x="47.79" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Workflow</text>		</g>
-		<g id="shape607-2017" v:mID="607" v:groupContext="shape" transform="translate(1882.72,-223.116)">
-			<title>Rectangle.607</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<g id="shadow607-2018" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
-					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-				<rect x="0" y="792.295" width="75.1181" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="792.295" width="75.1181" height="240.945" class="st7"/>
-		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
-			<g id="shape608-2022" v:mID="608" v:groupContext="shape" transform="translate(1885.56,-231.62)">
-				<title>Sheet.608</title>
-				<g id="shadow608-2023" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
+			<g id="shape607-2017" v:mID="607" v:groupContext="shape" transform="translate(1882.72,-223.116)">
+				<title>Rectangle.607</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<g id="shadow607-2018" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
 						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-					<rect x="0" y="863.161" width="65.1969" height="170.079" class="st2"/>
+					<rect x="0" y="792.295" width="75.1181" height="240.945" class="st2"/>
 				</g>
-				<rect x="0" y="863.161" width="65.1969" height="170.079" class="st9"/>
+				<rect x="0" y="792.295" width="75.1181" height="240.945" class="st7"/>
 			</g>
 		</a>
+		<g id="shape608-2022" v:mID="608" v:groupContext="shape" transform="translate(1885.56,-231.62)">
+			<title>Sheet.608</title>
+			<g id="shadow608-2023" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<rect x="0" y="863.161" width="65.1969" height="170.079" class="st2"/>
+			</g>
+			<rect x="0" y="863.161" width="65.1969" height="170.079" class="st9"/>
+		</g>
 		<g id="shape612-2027" v:mID="612" v:groupContext="shape" transform="translate(1884.85,-447.053)">
 			<title>Sheet.612</title>
 			<desc>Authentication</desc>
@@ -5002,27 +5002,27 @@
 			<v:textRect cx="148.819" cy="1019.07" width="297.64" height="28.3465"/>
 			<rect x="0" y="1004.89" width="297.638" height="28.3465" class="st16"/>
 			<text x="4" y="1029.87" class="st48" v:langID="1044"><v:paragraph/><v:tabList/>Altinn Platform</text>		</g>
-		<g id="shape621-2062" v:mID="621" v:groupContext="shape" transform="translate(1960.67,-223.116)">
-			<title>Rectangle.621</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<g id="shadow621-2063" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
-					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-				<rect x="0" y="792.295" width="42.5197" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="792.295" width="42.5197" height="240.945" class="st7"/>
-		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
-			<g id="shape622-2067" v:mID="622" v:groupContext="shape" transform="translate(1963.51,-231.62)">
-				<title>Sheet.622</title>
-				<g id="shadow622-2068" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
+			<g id="shape621-2062" v:mID="621" v:groupContext="shape" transform="translate(1960.67,-223.116)">
+				<title>Rectangle.621</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<g id="shadow621-2063" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
 						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-					<rect x="0" y="863.161" width="36.8504" height="170.079" class="st2"/>
+					<rect x="0" y="792.295" width="42.5197" height="240.945" class="st2"/>
 				</g>
-				<rect x="0" y="863.161" width="36.8504" height="170.079" class="st9"/>
+				<rect x="0" y="792.295" width="42.5197" height="240.945" class="st7"/>
 			</g>
 		</a>
+		<g id="shape622-2067" v:mID="622" v:groupContext="shape" transform="translate(1963.51,-231.62)">
+			<title>Sheet.622</title>
+			<g id="shadow622-2068" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<rect x="0" y="863.161" width="36.8504" height="170.079" class="st2"/>
+			</g>
+			<rect x="0" y="863.161" width="36.8504" height="170.079" class="st9"/>
+		</g>
 		<g id="shape625-2072" v:mID="625" v:groupContext="shape" transform="translate(1962.8,-447.053)">
 			<title>Sheet.625</title>
 			<desc>Profile</desc>
@@ -5044,27 +5044,27 @@
 			</g>
 			<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 			<text x="53.16" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Profile</text>		</g>
-		<g id="shape628-2081" v:mID="628" v:groupContext="shape" transform="translate(2008.86,-223.116)">
-			<title>Rectangle.628</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<g id="shadow628-2082" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
-					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-				<rect x="0" y="792.295" width="75.1181" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="792.295" width="75.1181" height="240.945" class="st7"/>
-		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
-			<g id="shape629-2086" v:mID="629" v:groupContext="shape" transform="translate(2011.7,-231.62)">
-				<title>Sheet.629</title>
-				<g id="shadow629-2087" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/register/">
+			<g id="shape628-2081" v:mID="628" v:groupContext="shape" transform="translate(2008.86,-223.116)">
+				<title>Rectangle.628</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<g id="shadow628-2082" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
 						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-					<rect x="0" y="863.161" width="65.1969" height="170.079" class="st2"/>
+					<rect x="0" y="792.295" width="75.1181" height="240.945" class="st2"/>
 				</g>
-				<rect x="0" y="863.161" width="65.1969" height="170.079" class="st9"/>
+				<rect x="0" y="792.295" width="75.1181" height="240.945" class="st7"/>
 			</g>
 		</a>
+		<g id="shape629-2086" v:mID="629" v:groupContext="shape" transform="translate(2011.7,-231.62)">
+			<title>Sheet.629</title>
+			<g id="shadow629-2087" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<rect x="0" y="863.161" width="65.1969" height="170.079" class="st2"/>
+			</g>
+			<rect x="0" y="863.161" width="65.1969" height="170.079" class="st9"/>
+		</g>
 		<g id="shape632-2091" v:mID="632" v:groupContext="shape" transform="translate(2010.99,-447.053)">
 			<title>Sheet.632</title>
 			<desc>Register</desc>
@@ -5100,27 +5100,27 @@
 			</g>
 			<rect x="0" y="1007.73" width="127.559" height="25.5118" class="st14"/>
 			<text x="57.64" y="1022.88" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>DSF</text>		</g>
-		<g id="shape635-2106" v:mID="635" v:groupContext="shape" transform="translate(2088.94,-223.116)">
-			<title>Rectangle.635</title>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<g id="shadow635-2107" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
-					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-				<rect x="0" y="792.295" width="65.1969" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="792.295" width="65.1969" height="240.945" class="st7"/>
-		</g>
-		<a xlink:href="/Content/RedirectToContent/?ContentType=Resource&#38;Title=Archive">
-			<g id="shape636-2111" v:mID="636" v:groupContext="shape" transform="translate(2091.78,-231.62)">
-				<title>Sheet.636</title>
-				<g id="shadow636-2112" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/intermediary">
+			<g id="shape635-2106" v:mID="635" v:groupContext="shape" transform="translate(2088.94,-223.116)">
+				<title>Rectangle.635</title>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<g id="shadow635-2107" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
 						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
-					<rect x="0" y="863.161" width="36.8504" height="170.079" class="st2"/>
+					<rect x="0" y="792.295" width="65.1969" height="240.945" class="st2"/>
 				</g>
-				<rect x="0" y="863.161" width="36.8504" height="170.079" class="st9"/>
+				<rect x="0" y="792.295" width="65.1969" height="240.945" class="st7"/>
 			</g>
 		</a>
+		<g id="shape636-2111" v:mID="636" v:groupContext="shape" transform="translate(2091.78,-231.62)">
+			<title>Sheet.636</title>
+			<g id="shadow636-2112" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279" v:shadowType="1"
+					transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+				<rect x="0" y="863.161" width="36.8504" height="170.079" class="st2"/>
+			</g>
+			<rect x="0" y="863.161" width="36.8504" height="170.079" class="st9"/>
+		</g>
 		<g id="shape639-2116" v:mID="639" v:groupContext="shape" transform="translate(2091.07,-447.053)">
 			<title>Sheet.639</title>
 			<desc>Intermediary</desc>
