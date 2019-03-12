@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Description of the application architecture for runtime applicationz">
+    <meta name="description" content="Description of the application architecture for Altinn Apps">
 
 
     
-    <title>Application Architecture Runtime :: Altinn Studio</title>
+    <title>Application Architecture Altinn Apps :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -4399,8 +4399,6 @@ if(host != "localhost")
 <li><a href="#datamodel">Datamodel</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#dataservices">DataServices</a></li>
-<li><a href="#authorization">Authorization</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -4420,7 +4418,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Application Architecture Runtime</h1>
+              <h1>Application Architecture Altinn Apps</h1>
             
           
 
@@ -4433,21 +4431,21 @@ if(host != "localhost")
 </div>
 
 
-<p>The following diagram shows the application architecture for the Altinn Apps solution.</p>
+<p>The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn Studio and deployed in Altinn Apps.</p>
 
 
-	<p><object data="/architecture/application/altinn-studio-apps/AltinnApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+	<p><object data="/architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
 
 
 
-<p><a href="/architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.svg">See fullscreen</a> or <a href="/architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.vsdx">download as visio</a></p>
+<p><a href="/architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.svg">See fullscreen</a> or <a href="/architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.vsdx">download as visio</a></p>
 
 <h2 id="service-app">Service App</h2>
 
 <p>The Service App consist of plattform code (AltinnCore.Runtime) and</p>
 
 <p>This is deployed as a Docker container in a Kubernetes Pod.
-See <a href="/architecture/deployement/altinn-studio-apps">deployment architecture</a> for deployment details.</p>
+See <a href="/architecture/deployement/altinn-apps">deployment architecture</a> for deployment details.</p>
 
 <h3 id="front-end-service-app">Front-end Service App</h3>
 
@@ -4509,20 +4507,6 @@ a C# representation of that model.</p>
 with frontend/external systems.</p>
 
 <p>All logic in the service will typical be related to the datamodel.</p>
-
-<h2 id="dataservices">DataServices</h2>
-
-<p>The data service application exposes API to the Service Apps for data related functionality like
-save, update and get instance data.</p>
-
-<h2 id="authorization">Authorization</h2>
-
-<p>The authorization application contains functionality for Policy Information Point and Policy
-Decission Point. This is used from service apps and other platform services like dataservices that need
-to authorize access.</p>
-
-<p>The authorization application will be a .Net Core ASP.NET MVC application that
-exposes functionality through REST-API</p>
 
 
 <footer class=" footline" >

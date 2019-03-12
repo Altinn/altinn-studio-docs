@@ -4541,6 +4541,37 @@ Repository GITEA is used as Repository in Altinn Studio Service Development solu
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/">Application Architecture Altinn Apps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. Stuff will change
+The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn Studio and deployed in Altinn Apps.
+
+See fullscreen or download as visio
+Service App The Service App consist of plattform code (AltinnCore.Runtime) and
+This is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
+Front-end Service App The Service App have two different types of front. <a class="read-more" href="/architecture/application/altinn-apps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/application/altinn-studio/">Application Architecture Altinn Studio</a></h2>
     </header>
     <section class="post-excerpt">
@@ -4576,37 +4607,6 @@ Backend designer Backend of designer is based on . <a class="read-more" href="/a
     <section class="post-excerpt">
         <p>React architecture NOTE: Parts of the front-end is currently built in .NET Core. This will gradually be ported over to React as we work with the different functional areas.The front-end of Altinn Studio is build using React and Redux. Each functional area has its own React application, complete with Redux store/reducer when needed.
 Navigation/administration of the different applications is done from top-level applications, which import the applications for the different functional areas. <a class="read-more" href="/architecture/application/altinn-studio/react-app/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-apps/">Application Architecture Runtime</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>NOTE: Work in progress. Stuff will change
-The following diagram shows the application architecture for the Altinn Apps solution.
-
-See fullscreen or download as visio
-Service App The Service App consist of plattform code (AltinnCore.Runtime) and
-This is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
-Front-end Service App The Service App have two different types of front.end. * Front-end configured by the service developer in Altinn Studio ui-designer * Front-end that is part of the plattform and can&rsquo;t be changed by the service developer <a class="read-more" href="/architecture/application/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
