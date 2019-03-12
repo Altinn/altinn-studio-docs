@@ -103,27 +103,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/authorization/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/intermediary/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/profile/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/register/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-platform/storage/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/architecture/security/authentication/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/authorization/</loc>
   </url>
   
   <url>
@@ -231,6 +219,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/intermediary/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/handbook/naming/</loc>
   </url>
   
@@ -259,6 +251,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/profile/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/handbook/rest/</loc>
   </url>
   
@@ -272,6 +268,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/front-end/redux/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/register/</loc>
   </url>
   
   <url>

@@ -175,34 +175,6 @@
 	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authorization/",
-	"title": "Application arhicture authorization component - Altinn Platform",
-	"tags": ["solution", "architecture"],
-	"description": "Description of authentication component",
-	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/intermediary/",
-	"title": "Application arhicture intermediary component - Altinn Platform",
-	"tags": ["solution", "architecture"],
-	"description": "Description of intermediary component",
-	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/profile/",
-	"title": "Application arhicture profile component - Altinn Platform",
-	"tags": ["solution", "architecture"],
-	"description": "Description of profile component",
-	"content": "The profile component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/register/",
-	"title": "Application arhicture register component - Altinn Platform",
-	"tags": ["solution", "architecture"],
-	"description": "Description of register component",
-	"content": "The register component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
-},
-{
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/storage/",
 	"title": "Application arhicture authentication component - Altinn Platform",
 	"tags": ["solution", "architecture"],
@@ -215,6 +187,13 @@
 	"tags": ["architecture", "security"],
 	"description": "Description of the Authentication architecture for Altinn Studio and Altinn Studio Apps",
 	"content": "Description of the Altinn Studio Security architecture.\n\rAuthentication - Altinn Studio Apps\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\r\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authorization/",
+	"title": "Application arhicture authorization component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of authentication component",
+	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/",
@@ -399,6 +378,13 @@
 	"content": " Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.\n\rOverordnet \u0026lsquo;InstansiationHandler.cs\u0026rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som hånderer instansiering av en tjeneste.\nFormat Standard C# kode som kan gjøre bortimot alt.\nUavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.\nUtvikling Under opprettelse av en tjeneste vil en tom InstansiationHandler opprettes.\nHypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code\n"
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/intermediary/",
+	"title": "Application arhicture intermediary component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of intermediary component",
+	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/naming/",
 	"title": "Naming Conventions",
 	"tags": ["development", "handbook", "naming"],
@@ -448,6 +434,13 @@
 	"content": "The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.\nDuring deployment of a app the rules for the app is added to the Altinn Studio Apps database.\nThe rules are defined as XACML 3.0 Policy document.\nSee XACML for detailed description of Policy format\n"
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/profile/",
+	"title": "Application arhicture profile component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of profile component",
+	"content": "The profile component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/rest/",
 	"title": "RESTful APIs (Representation State Transfer)",
 	"tags": ["development", "handbook", "back-end", "rest", "api"],
@@ -474,6 +467,13 @@
 	"tags": ["development", "handbook", "front-end", "redux"],
 	"description": "Guidelines for using Redux in Altinn Studio",
 	"content": " Redux is used to manage the states of the ux-editor.\nActions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:\nexport interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.\nAn example is asyncronous calls to backend APIs to get data, or submit data.\nEach saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.\n/** * Define the saga for the UPDATE_FORM_DATA event */ function* updateFormDataSaga(action: ActionType) { try { const relevantData = yield selectRelevantStateObjects(...); ... doRelevantLogic(relevantData); ... yield call(updateFormDataSagaFulfilled, ... ); } catch (err) { yield call(updateFormDataSagaRejected, err); } } /** * Define a listener for the UPDATE_FORM_DATA event */ export function* watchUpdateFormDataSaga(): SagaIterator { yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga); }  Reducers Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/register/",
+	"title": "Application arhicture register component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of register component",
+	"content": "The register component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/",
