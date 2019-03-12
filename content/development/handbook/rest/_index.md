@@ -31,46 +31,63 @@ Resources: Instance, Service,  ServiceOwner, Schema, Model
 
 ##### Instance (Service instance)
 
-An service instance is created when a reportee starts a workflow in an app. 
-A reportee is a person/company that reports information via Altinn.
+An service instance is created when a instance onwer starts a workflow in an Altinn application. 
+An instance replaces Altinn2 Message.
+An instanceOwner is a person/company that reports information via Altinn.
+An applicationId refers to the application information which defines the metadata about the service.
 
 ```json
 {
     "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-    "reporteeId": "666",
-    "serviceId": "sailor",
+    "applicationId": "KNS/sailor",
+    "applicationOwnerId": "KNS",
+    "instanceOwnerId": "666",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
-    "lastChangedDateTime": null,
-    "lastChangedBy": "xyz",
+    "lastChangedDateTime": "2019-03-07T23:59:49+01:00",
+    "lastChangedBy": "XXX",
     "dueDateTime": null,
     "visibleDateTime": null,
-    "title": "Færder påmelding",
-    "serviceOwner": "KNS",
+    "presentationField": "Færder påmelding",
     "externalSystemReference": null,
-    "workflowId": "standard",
     "currentWorkflowStep": "started",
-    "isDeleted": false,
-    "isArchived": false,
+    "isCompleted": true,
+    "isDeleted": [{
+        "deletionDateTime": "2017-12-22",
+        "deletedBy": "KNS"
+    }],
+    "applicationOwnerFeedback": {
+        "receivedDate": "2019-05-11T03:00:23+01:00",
+        "status": "OK"
+    },
     "data": [{
         "id": "boatdata",
         "contentType": "application/json",
-        "storageUrl": "sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata",
-        "uploaded": "2019-03-06T15:00:23+01:00"
+        "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata",
+        "fileName": "davidsyacht.json",
+        "createdDateTime": "2019-03-06T15:00:23+01:00",
+        "createdBy": "XXX",
+        "signature": "oajviojoi2j3l23889yv8js909u293840zz092u3",
+        "fileSize": 2003,
+        "isLocked": true,
         }, {
         "id": "crewlist",
         "contentType": "text/xml",
-        "storageUrl": "sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist",
-        "uploaded": "2019-03-07T23:59:49+01:00"
+        "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist",
+        "fileName": "crewLIst.xml",
+        "createdDateTime": "2019-03-07T23:59:49+01:00",
+        "createdBy": "XXX",
+        "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
+        "lastChangedBy": "XXX"
         }
     ]
 }
 ```
 
-Create a new instance. Post with params.
+Create a new instance. Post with params that identifies the service. ServiceOwnerId is transmitted as a part of the token. 
 
 ```http
-/instances?serviceId=sailor&reporteeId=666
+/instances?serviceId=KNS/sailor
 ```
 
 Get information about an instance.
@@ -79,10 +96,10 @@ Get information about an instance.
 /instances/{instanceId}
 ```
 
-Get all instances that a reportee has submittet or are working on
+Get all instances that a instance owner has completed
 
 ```http
-/instances[?services={serviceId}][&reporter={reporteeId}][&submitted=true][&since=2017-01-01]
+/instances[?services={serviceId}][&reporter={instanceOwnerId}][&completed=true][&since=2017-01-01]
 ```
 
 Get a specific data element
@@ -122,22 +139,33 @@ Get all services of a spesific service owner
 Resource: http://platform.altinn.no/service/sailor
 ```json
 {
-    "id": "sailor",
+    "id": "KNS/sailor",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
     "title": "Færder påmelding",
-    "serviceOwner": "KNS",
+    "type": "innsending",
+    "serviceOwnerId": "KNS",
     "workflowId": "standard",
     "isDeleted": false,
     "isArchived": false,
-    "schema": [{
+    "validFrom": null,
+    "validTo": null,
+    "forms": [{
         "id": "boatdata",
         "contentType": "application/schema+json",
-        "storageUrl": "sailor/schema/boatdata"
+        "storageUrl": "sailor/schema/boatdata",
+         "createdDateTime": "2019-03-04T12:01:00+01:00",
+        "createdBy": "M2",
+        "signatureRequired": true,
+        "shouldEncryptData": true
         }, {
         "id": "crewlist",
         "contentType": "application/xsd+xml",
-        "storageUrl": "sailor/schema/crewlist"
+        "storageUrl": "sailor/schema/crewlist",
+        "createdDateTime": "2019-03-04T12:01:00+01:00",
+        "createdBy": "M2",
+        "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
+        "lastChangedBy": "M42"
         }
     ]
 }
@@ -155,10 +183,10 @@ Get metadata about a specific service
 /services/{serviceId}
 ```
 
-Get the schema of a specific data element in a service
+Get the schema of a specific form element in a service
 
 ```http
-/services/{serviceId}/schemas/{dataId}?format=jsonSchema
+/services/{serviceId}/forms/{dataId}?format=jsonSchema
 ```
 
 #### Altinn-studio 
@@ -167,6 +195,8 @@ Get the schema of a specific data element in a service
 tbd
 
 #### App services (runtime)
+
+tb changed
 
 One cluster per service owner. A service owner can have many apps.
 
@@ -182,16 +212,16 @@ Get list of available services.
 /services
 ```
 
-Post to create an instance for a specific reportee. Returns a new instanceId.
+Post to create an instance for a specific instanceOwner. Returns a new instanceId.
 
 ```http
 /services/{serviceId}/instances
 ```
 
-Filter instances for an reportee
+Filter instances for an instance owner
 
 ``` http
-/services/{serviceId}/instances?reportee={reporteeId}&[since="2018-07-01"]
+/services/{serviceId}/instances?instanceOwner={instanceOwnerId}&[since="2018-07-01"]
 ```
 
 Put to update a specific instance. Get to get instance metadata
@@ -223,7 +253,6 @@ Get validate model
 ```http
 /services/{serviceId}/instances/{instanceId}/forms/{formId}/validate
 ```
-
 
 Get metadata about a specific service
 
