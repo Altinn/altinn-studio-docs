@@ -165,7 +165,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rInfrastructure\r\rDescription of Infrastructure\n\r\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authentication/",
@@ -364,6 +364,13 @@
 	"content": "   let content = document.getElementById('contributionContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, \"text/html\"); content.innerHTML = doc.getElementById('readme').innerHTML; });  "
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/infrastructure/",
+	"title": "Infrastructure",
+	"tags": ["architecture"],
+	"description": "Description of Infrastructure",
+	"content": "Description of the Altinn Studio application architecture.\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/",
 	"title": "InstansiationHandler.cs",
 	"tags": ["tjenester 3.0", "dataformat"],
@@ -529,14 +536,14 @@
 	"title": "Solution Architecture",
 	"tags": ["solution", "architecture"],
 	"description": "Description of the Altinn Studio solution",
-	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new service development solution Altinn Apps - The new service hosting solution Altinn Platform - The new supporting platform solution SBL - The old service hosting solution TUL - The old service development solution  The diagram below shows where the different functionality i located in the five different solutions\n\n"
+	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new service development solution Altinn Apps - The new service hosting solution Altinn Platform - The new supporting platform solution SBL - The old service hosting solution TUL - The old service development solution  The diagram below shows where the different functionality i located in the five different solutions\n\nFull screen | Visio\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/storage/",
 	"title": "Application arhicture Storage component - Altinn Platform",
 	"tags": ["solution", "architecture"],
 	"description": "Description of the application architecture for Storage component",
-	"content": "The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+	"content": "The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nSee Github for implementation details\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/",
@@ -725,7 +732,7 @@
 	"title": "Register",
 	"tags": ["solution", "apps"],
 	"description": "The Register componnt gives register information to Apps",
-	"content": "The Register component gives register information to Apps\n"
+	"content": " The Register component gives register information to Apps\n ER - Enhetsregisteret - Information about organizations in Norway DSF - Det Sentrale Folkeregisteret - Information about citizens in Norway.  ER - Enhetsregisteret ER registeret can be used to prefill information, retrieve information based on user input or for validation of input of users.\nAltinn Platform does not have a own copy of ER. It currently uses Altinn II plaform as source for register.\nSee Application architecture for details.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/storage/",
