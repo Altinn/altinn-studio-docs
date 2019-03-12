@@ -7,9 +7,7 @@ weight: 100
 alwaysopen: true
 ---
 
-Functionality in Altinn Studio is distributed between different applications.  
-The diagram below shows where the different functionality i located in the different applications.
+Altinn Platform consist of serveral reusable and isolated components. 
 
-{{%excerpt%}}
-<object data="/architecture/solution/altinn-platform/AltinnPlatform_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
+The application architecture for each component is described below.
+

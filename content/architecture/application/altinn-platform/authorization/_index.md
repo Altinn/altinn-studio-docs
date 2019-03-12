@@ -1,5 +1,5 @@
 ---
-title: Application arhicture authentication component - Altinn Platform
+title: Application arhicture authorization component - Altinn Platform
 linktitle: Authentication
 description: Description of authentication component
 tags: ["solution", "architecture"]
