@@ -1,6 +1,6 @@
 ---
 title: Application arhicture authorization component - Altinn Platform
-linktitle: Authentication
+linktitle: Authorization
 description: Description of authentication component
 tags: ["solution", "architecture"]
 weight: 100

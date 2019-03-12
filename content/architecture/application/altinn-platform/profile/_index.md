@@ -1,6 +1,6 @@
 ---
 title: Application arhicture profile component - Altinn Platform
-linktitle: Authentication
+linktitle: Profile
 description: Description of profile component
 tags: ["solution", "architecture"]
 weight: 100

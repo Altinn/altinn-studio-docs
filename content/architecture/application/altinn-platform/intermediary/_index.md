@@ -1,6 +1,6 @@
 ---
 title: Application arhicture intermediary component - Altinn Platform
-linktitle: Authentication
+linktitle: Intermediary
 description: Description of intermediary component
 tags: ["solution", "architecture"]
 weight: 100
