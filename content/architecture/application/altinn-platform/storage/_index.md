@@ -8,3 +8,6 @@ alwaysopen: true
 ---
 
 The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+
+
+[See Github for implementation details](https://github.com/Altinn/altinn-studio/issues/311)
