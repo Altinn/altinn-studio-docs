@@ -1,10 +1,10 @@
 ---
-title: Application arhicture authentication component - Altinn Platform
-linktitle: Authentication
-description: Description of authentication component
+title: Application arhicture Storage component - Altinn Platform
+linktitle: Storage
+description: Description of the application architecture for Storage component
 tags: ["solution", "architecture"]
 weight: 100
 alwaysopen: true
 ---
 
-The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
