@@ -175,13 +175,6 @@
 	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/storage/",
-	"title": "Application arhicture authentication component - Altinn Platform",
-	"tags": ["solution", "architecture"],
-	"description": "Description of authentication component",
-	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
-},
-{
 	"uri": "https://docs.altinn.studio/architecture/security/authentication/",
 	"title": "Authentication",
 	"tags": ["architecture", "security"],
@@ -537,6 +530,13 @@
 	"tags": ["solution", "architecture"],
 	"description": "Description of the Altinn Studio solution",
 	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new service development solution Altinn Apps - The new service hosting solution Altinn Platform - The new supporting platform solution SBL - The old service hosting solution TUL - The old service development solution  The diagram below shows where the different functionality i located in the five different solutions\n\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/storage/",
+	"title": "Application arhicture Storage component - Altinn Platform",
+	"tags": ["solution", "architecture"],
+	"description": "Description of the application architecture for Storage component",
+	"content": "The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/",

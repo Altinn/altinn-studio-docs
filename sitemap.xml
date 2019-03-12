@@ -103,10 +103,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/storage/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/security/authentication/</loc>
   </url>
   
@@ -308,6 +304,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/solution/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/storage/</loc>
   </url>
   
   <url>
