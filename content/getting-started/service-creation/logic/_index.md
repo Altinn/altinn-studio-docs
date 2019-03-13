@@ -39,7 +39,7 @@ These validations are run automatically, and validates the users input against r
 - length
 - pattern
 
-In addition, validation on whether the field is required or not is supported, but this is currently not connected to the data model and needs to be set manually for the component via the FormLayout.json file. 
+In addition, validation on whether the field is required or not is supported. This is automatically connected to the data model, and no configuration is required.
 
 #### Server-side validation
 The validations that are run on the server can be split into two categories:
