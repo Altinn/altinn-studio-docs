@@ -32,6 +32,7 @@ NOTE: Configuration of client-side validations is currently not available. The d
 {{% /notice%}}
 
 These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:
+
 - min value (number)
 - max value (number)
 - min length
@@ -39,7 +40,7 @@ These validations are run automatically, and validates the users input against r
 - length
 - pattern
 
-In addition, validation on whether the field is required or not is supported, but this is currently not connected to the data model and needs to be set manually for the component via the FormLayout.json file. 
+In addition, validation on whether the field is required or not is supported. This is automatically connected to the data model, and no configuration is required.
 
 #### Server-side validation
 The validations that are run on the server can be split into two categories:
@@ -163,6 +164,7 @@ Once these conditions/methods are coded, they can be configured to be triggered 
 
 #### Add/edit methods for dynamics
 The solution currently supports two types of methods:
+
 - Rules for calculation/populating values in form fields
 - Conditions for rendering (hide/show) of form fields
 

@@ -48,7 +48,7 @@ An applicationId refers to the application information which defines the metadat
     "lastChangedBy": "XXX",
     "dueDateTime": null,
     "visibleDateTime": null,
-    "presentationField": "Færder påmelding",
+    "presentationField": "Færder påmelding 2019",
     "externalSystemReference": null,
     "currentWorkflowStep": "started",
     "isCompleted": true,
@@ -60,27 +60,28 @@ An applicationId refers to the application information which defines the metadat
         "receivedDate": "2019-05-11T03:00:23+01:00",
         "status": "OK"
     },
-    "data": [{
-        "id": "boatdata",
-        "contentType": "application/json",
-        "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata",
-        "fileName": "davidsyacht.json",
-        "createdDateTime": "2019-03-06T15:00:23+01:00",
-        "createdBy": "XXX",
-        "signature": "oajviojoi2j3l23889yv8js909u293840zz092u3",
-        "fileSize": 2003,
-        "isLocked": true,
-        }, {
-        "id": "crewlist",
-        "contentType": "text/xml",
-        "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist",
-        "fileName": "crewLIst.xml",
-        "createdDateTime": "2019-03-07T23:59:49+01:00",
-        "createdBy": "XXX",
-        "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
-        "lastChangedBy": "XXX"
+    "data": {
+        "boatdata": {
+            "762011d1-d341-4c0a-8641-d8a104e83d30": {
+                "contentType": "application/json",
+                "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/boatdata/762011d1-d341-4c0a-8641-d8a104e83d30",
+                "fileName": "davidsyacht.json",
+                "createdDateTime": "2019-03-06T15:00:23+01:00",
+                "createdBy": "XXX",
+                "signature": "oajviojoi2j3l23889yv8js909u293840zz092u3",
+                "fileSize": 2003,
+                "isLocked": true
+        },
+        "crewlist": {
+            "contentType": "text/xml",
+            "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist",
+            "fileName": "crewLIst.xml",
+            "createdDateTime": "2019-03-07T23:59:49+01:00",
+            "createdBy": "XXX",
+            "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
+            "lastChangedBy": "XXX"
         }
-    ]
+    }
 }
 ```
 
@@ -150,24 +151,24 @@ Resource: http://platform.altinn.no/service/sailor
     "isArchived": false,
     "validFrom": null,
     "validTo": null,
-    "forms": [{
-        "id": "boatdata",
-        "contentType": "application/schema+json",
-        "storageUrl": "sailor/schema/boatdata",
-         "createdDateTime": "2019-03-04T12:01:00+01:00",
-        "createdBy": "M2",
-        "signatureRequired": true,
-        "shouldEncryptData": true
-        }, {
-        "id": "crewlist",
-        "contentType": "application/xsd+xml",
-        "storageUrl": "sailor/schema/crewlist",
-        "createdDateTime": "2019-03-04T12:01:00+01:00",
-        "createdBy": "M2",
-        "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
-        "lastChangedBy": "M42"
+    "forms": {
+        "boatdata": {
+            "contentType": "application/schema+json",
+            "storageUrl": "sailor/schema/boatdata",
+            "createdDateTime": "2019-03-04T12:01:00+01:00",
+            "createdBy": "M2",
+            "signatureRequired": true,
+            "shouldEncryptData": true
+        }, 
+        "crewlist": {
+            "contentType": "application/xsd+xml",
+            "storageUrl": "sailor/schema/crewlist",
+            "createdDateTime": "2019-03-04T12:01:00+01:00",
+            "createdBy": "M2",
+            "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
+            "lastChangedBy": "M42"
         }
-    ]
+    }
 }
 ```
 
