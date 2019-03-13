@@ -4715,7 +4715,7 @@ An applicationId refers to the application information which defines the metadat
     &quot;lastChangedBy&quot;: &quot;XXX&quot;,
     &quot;dueDateTime&quot;: null,
     &quot;visibleDateTime&quot;: null,
-    &quot;presentationField&quot;: &quot;Færder påmelding&quot;,
+    &quot;presentationField&quot;: &quot;Færder påmelding 2019&quot;,
     &quot;externalSystemReference&quot;: null,
     &quot;currentWorkflowStep&quot;: &quot;started&quot;,
     &quot;isCompleted&quot;: true,
@@ -4727,27 +4727,28 @@ An applicationId refers to the application information which defines the metadat
         &quot;receivedDate&quot;: &quot;2019-05-11T03:00:23+01:00&quot;,
         &quot;status&quot;: &quot;OK&quot;
     },
-    &quot;data&quot;: [{
-        &quot;id&quot;: &quot;boatdata&quot;,
-        &quot;contentType&quot;: &quot;application/json&quot;,
-        &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/boatdata&quot;,
-        &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
-        &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
-        &quot;createdBy&quot;: &quot;XXX&quot;,
-        &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
-        &quot;fileSize&quot;: 2003,
-        &quot;isLocked&quot;: true,
-        }, {
-        &quot;id&quot;: &quot;crewlist&quot;,
-        &quot;contentType&quot;: &quot;text/xml&quot;,
-        &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist&quot;,
-        &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
-        &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
-        &quot;createdBy&quot;: &quot;XXX&quot;,
-        &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
-        &quot;lastChangedBy&quot;: &quot;XXX&quot;
+    &quot;data&quot;: {
+        &quot;boatdata&quot;: {
+            &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;: {
+                &quot;contentType&quot;: &quot;application/json&quot;,
+                &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/boatdata/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+                &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
+                &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
+                &quot;createdBy&quot;: &quot;XXX&quot;,
+                &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
+                &quot;fileSize&quot;: 2003,
+                &quot;isLocked&quot;: true
+        },
+        &quot;crewlist&quot;: {
+            &quot;contentType&quot;: &quot;text/xml&quot;,
+            &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist&quot;,
+            &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+            &quot;createdBy&quot;: &quot;XXX&quot;,
+            &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+            &quot;lastChangedBy&quot;: &quot;XXX&quot;
         }
-    ]
+    }
 }
 </code></pre>
 
@@ -4809,24 +4810,24 @@ An applicationId refers to the application information which defines the metadat
     &quot;isArchived&quot;: false,
     &quot;validFrom&quot;: null,
     &quot;validTo&quot;: null,
-    &quot;forms&quot;: [{
-        &quot;id&quot;: &quot;boatdata&quot;,
-        &quot;contentType&quot;: &quot;application/schema+json&quot;,
-        &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;,
-         &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
-        &quot;createdBy&quot;: &quot;M2&quot;,
-        &quot;signatureRequired&quot;: true,
-        &quot;shouldEncryptData&quot;: true
-        }, {
-        &quot;id&quot;: &quot;crewlist&quot;,
-        &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
-        &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;,
-        &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
-        &quot;createdBy&quot;: &quot;M2&quot;,
-        &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
-        &quot;lastChangedBy&quot;: &quot;M42&quot;
+    &quot;forms&quot;: {
+        &quot;boatdata&quot;: {
+            &quot;contentType&quot;: &quot;application/schema+json&quot;,
+            &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
+            &quot;createdBy&quot;: &quot;M2&quot;,
+            &quot;signatureRequired&quot;: true,
+            &quot;shouldEncryptData&quot;: true
+        }, 
+        &quot;crewlist&quot;: {
+            &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
+            &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
+            &quot;createdBy&quot;: &quot;M2&quot;,
+            &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+            &quot;lastChangedBy&quot;: &quot;M42&quot;
         }
-    ]
+    }
 }
 </code></pre>
 
