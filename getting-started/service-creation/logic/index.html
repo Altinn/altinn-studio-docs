@@ -4727,13 +4727,16 @@ if(host != "localhost")
 </div>
 
 
-<p>These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:
-- min value (number)
-- max value (number)
-- min length
-- max length
-- length
-- pattern</p>
+<p>These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:</p>
+
+<ul>
+<li>min value (number)</li>
+<li>max value (number)</li>
+<li>min length</li>
+<li>max length</li>
+<li>length</li>
+<li>pattern</li>
+</ul>
 
 <p>In addition, validation on whether the field is required or not is supported. This is automatically connected to the data model, and no configuration is required.</p>
 
@@ -4863,9 +4866,12 @@ Once these conditions/methods are coded, they can be configured to be triggered 
 
 <h4 id="add-edit-methods-for-dynamics">Add/edit methods for dynamics</h4>
 
-<p>The solution currently supports two types of methods:
-- Rules for calculation/populating values in form fields
-- Conditions for rendering (hide/show) of form fields</p>
+<p>The solution currently supports two types of methods:</p>
+
+<ul>
+<li>Rules for calculation/populating values in form fields</li>
+<li>Conditions for rendering (hide/show) of form fields</li>
+</ul>
 
 <p>These are defined in the file <code>RuleHandler.js</code> as separate objects, <code>ruleHandlerObject</code> and <code>conditionalRuleHandlerObject</code>. In addition there are two corresponding <em>helper</em> objects (<code>ruleHandlerHelper</code> and <code>conditionalRuleHandlerHelper</code>), that define which parameters should be set up when configuring the methods to trigger. In order for a dynamics method to be available, the actual method/action must be defined in the <em>object</em> and the configuration parameters must be defined in the corresponding <em>helper</em>.</p>
 
