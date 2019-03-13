@@ -1,7 +1,7 @@
 ---
-title: Application Architecture Runtime
+title: Application Architecture Altinn Apps
 linktitle: Altinn Apps
-description: Description of the application architecture for runtime applicationz
+description: Description of the application architecture for Altinn Apps 
 tags: ["tjenester 3.0"]
 weight: 100
 ---
@@ -9,10 +9,10 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-The following diagram shows the application architecture for the Altinn Apps solution.
+The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn Studio and deployed in Altinn Apps.
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-studio-apps/AltinnApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 [See fullscreen] or [download as visio]
@@ -21,7 +21,7 @@ The following diagram shows the application architecture for the Altinn Apps sol
 The Service App consist of plattform code (AltinnCore.Runtime) and  
 
 This is deployed as a Docker container in a Kubernetes Pod. 
-See [deployment architecture](/architecture/deployement/altinn-studio-apps) for deployment details. 
+See [deployment architecture](/architecture/deployement/altinn-apps) for deployment details. 
 
 ### Front-end Service App
 The Service App have two different types of front.end.
@@ -78,19 +78,7 @@ with frontend/external systems.
 
 All logic in the service will typical be related to the datamodel.
 
-[download as visio]: /architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.vsdx
-[See fullscreen]: /architecture/application/altinn-studio-apps/AltinnStudioApps_ApplicationArchitecture.svg
+[download as visio]: /architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.vsdx
+[See fullscreen]: /architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.svg
 
-
-## DataServices
-The data service application exposes API to the Service Apps for data related functionality like
-save, update and get instance data. 
-
-## Authorization
-The authorization application contains functionality for Policy Information Point and Policy
-Decission Point. This is used from service apps and other platform services like dataservices that need
-to authorize access.
-
-The authorization application will be a .Net Core ASP.NET MVC application that 
-exposes functionality through REST-API
 

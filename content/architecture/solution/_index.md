@@ -20,3 +20,5 @@ The diagram below shows where the different functionality i located in the five 
 {{%excerpt%}}
 <object data="/architecture/solution/Altinn_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
+
+[Full screen](/architecture/solution/Altinn_SolutionArchitecture.svg) | [Visio](/architecture/solution/Altinn_SolutionArchitecture.vsdx)
