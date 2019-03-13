@@ -8,6 +8,9 @@ alwaysopen: false
 
 Description of the Altinn Studio architecture.
 
+
+
+
 {{% children description="true" depth="2" %}}
 
 
