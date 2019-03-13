@@ -32,6 +32,7 @@ NOTE: Configuration of client-side validations is currently not available. The d
 {{% /notice%}}
 
 These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:
+
 - min value (number)
 - max value (number)
 - min length
@@ -163,6 +164,7 @@ Once these conditions/methods are coded, they can be configured to be triggered 
 
 #### Add/edit methods for dynamics
 The solution currently supports two types of methods:
+
 - Rules for calculation/populating values in form fields
 - Conditions for rendering (hide/show) of form fields
 
