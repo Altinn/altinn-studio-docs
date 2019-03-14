@@ -64,7 +64,7 @@ An applicationId refers to the application information which defines the metadat
         "boatdata": {
             "762011d1-d341-4c0a-8641-d8a104e83d30": {
                 "contentType": "application/json",
-                "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/boatdata/762011d1-d341-4c0a-8641-d8a104e83d30",
+                "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/boatdata/992011d1-d341-4c0a-8641-d8a104e83d30",
                 "fileName": "davidsyacht.json",
                 "createdDateTime": "2019-03-06T15:00:23+01:00",
                 "createdBy": "XXX",
@@ -73,13 +73,15 @@ An applicationId refers to the application information which defines the metadat
                 "isLocked": true
         },
         "crewlist": {
-            "contentType": "text/xml",
-            "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/crewlist",
-            "fileName": "crewLIst.xml",
-            "createdDateTime": "2019-03-07T23:59:49+01:00",
-            "createdBy": "XXX",
-            "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
-            "lastChangedBy": "XXX"
+            "999911d1-d341-4c0a-8641-d8a104e83d30": {
+                "contentType": "text/xml",
+                "storageUrl": "KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/crewlist/999911d1-d341-4c0a-8641-d8a104e83d30",
+                "fileName": "crewLIst.xml",
+                "createdDateTime": "2019-03-07T23:59:49+01:00",
+                "createdBy": "XXX",
+                "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
+                "lastChangedBy": "XXX"
+            }
         }
     }
 }
