@@ -792,10 +792,10 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="448.574" width="49.6535" height="33.1594" class="st7"/>
 		</g>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
 			<g id="group672-31" transform="translate(166.771,-218.696)" v:mID="672" v:groupContext="group">
 				<title>Sheet.672</title>
-				<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
+				<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
 					<g id="shape597-32" v:mID="597" v:groupContext="shape">
 						<title>Rectangle.597</title>
 						<v:userDefs>
@@ -881,10 +881,10 @@
 					<text x="37.22" y="471.38" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Context Handler</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
 			<g id="group673-69" transform="translate(88.8187,-218.696)" v:mID="673" v:groupContext="group">
 				<title>Sheet.673</title>
-				<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
+				<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
 					<g id="shape607-70" v:mID="607" v:groupContext="shape">
 						<title>Rectangle.607</title>
 						<v:userDefs>
@@ -928,10 +928,10 @@
 					<text x="41.19" y="471.38" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Authentiation</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
 			<g id="group674-89" transform="translate(375.118,-218.696)" v:mID="674" v:groupContext="group">
 				<title>Sheet.674</title>
-				<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
+				<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
 					<g id="shape621-90" v:mID="621" v:groupContext="shape">
 						<title>Rectangle.621</title>
 						<v:userDefs>
@@ -975,10 +975,10 @@
 					<text x="53.16" y="471.38" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Profile</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/register/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/register/">
 			<g id="group675-109" transform="translate(423.307,-218.696)" v:mID="675" v:groupContext="group">
 				<title>Sheet.675</title>
-				<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/register/">
+				<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/register/">
 					<g id="shape628-110" v:mID="628" v:groupContext="shape">
 						<title>Rectangle.628</title>
 						<v:userDefs>
@@ -1036,10 +1036,10 @@
 					<text x="57.64" y="471.38" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>DSF</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/intermediary/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/intermediary/">
 			<g id="group676-135" transform="translate(304.252,-218.696)" v:mID="676" v:groupContext="group">
 				<title>Sheet.676</title>
-				<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/intermediary">
+				<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/intermediary">
 					<g id="shape635-136" v:mID="635" v:groupContext="shape">
 						<title>Rectangle.635</title>
 						<v:userDefs>
@@ -1083,10 +1083,10 @@
 					<text x="48.19" y="471.38" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Shipment</text>				</g>
 			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
 			<g id="group677-155" transform="translate(503.74,-218.696)" v:mID="677" v:groupContext="group">
 				<title>Sheet.677</title>
-				<a xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+				<a target="_parent" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
 					<g id="shape480-156" v:mID="480" v:groupContext="shape">
 						<title>Rectangle.480</title>
 						<v:userDefs>
