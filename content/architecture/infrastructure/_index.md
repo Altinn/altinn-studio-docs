@@ -10,7 +10,7 @@ Altinn Studio consists of three different technical solutions to make a complete
 
 
 {{%excerpt%}}
-<object data="/architecture/infrastructure/Infrastructure.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/infrastructure/infrastructure.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 
