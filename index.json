@@ -14,6 +14,13 @@
 	"content": " This summarizes the high level goals for Altinn Studio\nUserfriendly and responsive services  User interface that is userfriendly, effective and modern. Support for Responsive Design both for forms and the development tool. Built in accessability with support for WCAG 2 Good performance and low response time  Effective and self-service service development  As a service developer you can do everthing yourself (including deployment to production) whenever you want, without need for orders, training ++. Bottlenecks is eliminated. Effective and real testing, where unit test works like in a test environment and produiction. Support for creating automated tests of services Rules and logic is defined once for all channels (portal/web service / rest), and are more robust than current plattform Built inn data modelling in web based tool (and support for XSD import from external tools like SERES, OR, etc. ) Not nescessery with Citrix for access to Altinn Studio Service Development Ikke nødvendig med Citrix for tilgang til utviklingsmiljø  Simple for non-technical developers, flexible for technical developers  Non-technical service developers have access to needed functionality in browser You can reuse good and testet components/widgets It is easy to do call against API\u0026rsquo;s in other systems (retrieve data, run external logic) Techincal skilled deveopers can configure all aspect of the service, as an example make a reusable widgets, stylesheets ++ Reuse of text and other resources on the desired level (platform, service owner, service), all languages supported Git (version control) are used for source control for the service developed, both from browser and code editior.  Open Source, cross-platform  Altinn Studio will be based on open source Altinn Studio will be open source Altinn Studio can run on your own computer, own serwers on Windows, macOS or Linux Everything is based on open web-standardes and regulaer development knowledge.  "
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/infrastructure/",
+	"title": "Infrastructure",
+	"tags": ["solution", "studio", "apps", "repos"],
+	"description": "Description of the Infrastructure",
+	"content": "Altinn Studio consists of three different technical solutions to make a complete application development platform.\n\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/",
 	"title": "Solutions",
 	"tags": ["solution", "studio", "apps", "repos"],
@@ -165,7 +172,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rInfrastructure\r\rDescription of Infrastructure\n\r\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": "Description of the Altinn Studio architecture.\n\rInfrastructure\r\rDescription of the Infrastructure\n\r\r\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authentication/",
@@ -362,13 +369,6 @@
 	"tags": ["development", "handbook", "git"],
 	"description": "Information about version control with Git",
 	"content": "   let content = document.getElementById('contributionContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, \"text/html\"); content.innerHTML = doc.getElementById('readme').innerHTML; });  "
-},
-{
-	"uri": "https://docs.altinn.studio/architecture/infrastructure/",
-	"title": "Infrastructure",
-	"tags": ["architecture"],
-	"description": "Description of Infrastructure",
-	"content": "Description of the Altinn Studio application architecture.\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/",

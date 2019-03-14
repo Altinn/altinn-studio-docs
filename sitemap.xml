@@ -11,6 +11,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/infrastructure/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/</loc>
   </url>
   
@@ -208,10 +212,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/git/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/infrastructure/</loc>
   </url>
   
   <url>
