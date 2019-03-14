@@ -10,11 +10,11 @@ Altinn Studio consists of three different technical solutions to make a complete
 
 
 {{%excerpt%}}
-<object data="/architecture/infrastructure/infrastructure.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/infrastructure/altinn_infrastructure.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 
-[Full screen](/architecture/infrastructure/Infrastructure.svg") | [Visio](/architecture/infrastructure/Infrastructure.vsdx)
+[Full screen](/architecture/infrastructure/altinn_infrastructure.svg") | [Visio](/architecture/infrastructure/altinn_infrastructure.vsdx)
 
 
 {{% children description="true" depth="1" %}}
