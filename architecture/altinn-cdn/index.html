@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="The design-time solution for developing, testing and maintaining Altinn Studio applications.">
+    <meta name="description" content="Description of Altinn Content Delivery Network">
 
 
     
-    <title>Altinn Studio :: Altinn Studio</title>
+    <title>Altinn CDN :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/solutions/altinn-studio/">
+  <body class="" data-url="/architecture/altinn-cdn/">
     <nav id="sidebar" class="">
 
 
@@ -453,7 +453,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -464,7 +464,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -489,8 +489,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/solutions/altinn-studio/">
@@ -500,7 +500,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-down fa-lg category-icon"></i>
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
           
 
         
@@ -1731,7 +1731,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1742,7 +1742,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -2984,8 +2984,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/altinn-cdn/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/architecture/altinn-cdn/">
@@ -4599,7 +4599,7 @@ if(host != "localhost")
               
               
             <div id="top-github-link">
-              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/solutions/altinn-studio/_index.md" target="blank">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/altinn-cdn/_index.md" target="blank">
                 <i class="fa fa-code-fork"></i>
                 Edit page
               </a>
@@ -4624,7 +4624,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/solutions/'>Solutions</a> > Altinn Studio
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > Altinn CDN
 
  
 
@@ -4637,114 +4637,30 @@ if(host != "localhost")
           </div>
         
         
-          <div id="tags">
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/studio">studio</a>
-            
-          </div>
-        
         <div id="body-inner">
           
             
-              <h1>Altinn Studio</h1>
+              <h1>Altinn CDN</h1>
             
           
 
 
 
 
-<p><strong>Altinn Studio</strong> is a user friendly solution where non-technical and technical
-service developers can create services based on reuse and configuration of existing
-building blocks.</p>
+<p>Altinn CDN is a safe place for hosting static resources that can be reused and cached client side.</p>
 
-<p>Examples on building blocks can be layouts, theme, web-components, texts, API-calls, codelist
-and workflow steps.</p>
-
-<p>In the background Altinn Studio use git against <a href="/altinn-studio-repos">Repos</a> to store
-the files created as part of the service, the same way a technical service developer
-can use Visual Studio Code or other IDE to do the same.</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="children children-li">
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/solutions/altinn-studio/functional/" >Functionality in Altinn Studio</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Functional areas in the Altinn Studio design-time solution.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/solutions/altinn-studio/altinn-studio-repos/" >Altinn Studio Repos</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>The Git repository solution for storing and versioning apps developed with Altinn Studio.</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
+<ul>
+<li>across Altinn solutions</li>
+<li>across all apps created in Altinn Studio</li>
+<li>across apps belonging to one organization</li>
 </ul>
 
+<p>These resources are defined in a repo on GitHub: <a href="https://github.com/Altinn/altinn-cdn">https://github.com/Altinn/altinn-cdn</a></p>
 
+<p>The files and folder structure in this repo is mirrored to <a href="https://altinncdn.no">https://altinncdn.no</a>, and can be use by different solutions and apps.</p>
 
-
+<p>Each organization (service owner) in Altinn has their own area for resources that they reuse across their apps. For example logo files.
+This means that service owners can, if they want to, easily change logo for all apps at once without deploying updates to each app.</p>
 
 
 <footer class=" footline" >
@@ -4986,7 +4902,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
             
                 
                     
-                    
                 
                 
 
@@ -5002,7 +4917,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
             
                 
                     
-                    
                 
                 
 
@@ -5017,9 +4931,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -5687,134 +5598,41 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
                     
-                    
-                        
-                    
-                    
-
-                    
                         
             
             
-                
-                    
-                
                 
-
-                    
-                    
-                        
-                    
-                    
-
                     
-                        
-            
-            
-                
                     
                 
                 
-
-                    
-                    
-                    
 
                     
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
                     
                     
-                    
 
-                    
-            
-        
                     
-            
-        
-                    
                         
             
             
                 
-                    
-                
-                
-
                     
-                    
                         
-                    
-                    
-
-                    
                         
-            
-            
-                
                     
                 
                 
-
-                    
-                    
-                    
 
                     
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                     
 
                     
-            
-        
-                    
                         
             
             
@@ -5822,30 +5640,13 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                 
                 
-
-                    
-                    
-                    
 
                     
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -5925,16 +5726,10 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                     
 
-                    
-            
-        
                     
             
         
                     
-            
-        
-                    
                         
             
             
@@ -5950,21 +5745,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
                     
                         
             
@@ -6010,45 +5790,14 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                     
 
-                    
-            
-        
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
-
-                    
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                         
-                    
-                    
-
-                    
-                        
             
             
                 
@@ -6075,70 +5824,11 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                     
 
-                    
-            
-        
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
                         
-                    
-                    
-
-                    
-                        
             
             
                 
@@ -6153,36 +5843,10 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
-                    
-
-                    
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
-
-                    
             
         
                     
@@ -6209,30 +5873,13 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                 
                 
-
-                    
-                    
-                    
 
                     
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
                     
                     
-                    
 
-                    
-            
-        
                     
                         
             
@@ -6265,20 +5912,7 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
-
-                    
                         
             
             
@@ -6321,33 +5955,13 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                 
                 
-
-                    
-                    
-                    
 
                     
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
                     
                     
-                    
 
-                    
-            
-        
-                    
-            
-        
                     
                         
             
@@ -6380,6 +5994,9 @@ can use Visual Studio Code or other IDE to do the same.</p>
             
         
                     
+            
+        
+                    
                         
             
             
@@ -6408,9 +6025,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
 
                     
-            
-        
-                    
                         
             
             
@@ -6442,19 +6056,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
@@ -6471,9 +6072,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -6587,15 +6185,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
             
         
                     
-            
-        
-                    
-            
-        
-                    
-            
-        
-                    
                         
             
             
@@ -6608,39 +6197,10 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                     
 
-                    
-            
-        
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -6659,36 +6219,10 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                     
-
-                    
             
         
                     
@@ -6699,30 +6233,13 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                 
                 
-
-                    
-                    
-                    
 
                     
-            
-        
                     
                         
-            
-            
-                
-                    
-                
-                
-
                     
                     
-                    
 
-                    
-            
-        
                     
                         
             
@@ -6756,9 +6273,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
             
         
                     
-            
-        
-                    
                         
             
             
@@ -6771,9 +6285,6 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -6784,22 +6295,8 @@ can use Visual Studio Code or other IDE to do the same.</p>
                         
             
             
-                
-                    
                 
-                
-
-                    
-                    
-                        
-                    
-                    
-
                     
-                        
-            
-            
-                
                     
                 
                 
@@ -6811,65 +6308,17 @@ can use Visual Studio Code or other IDE to do the same.</p>
                     
             
         
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
                     
-                    
-
-                    
             
         
                     
                         
             
             
-                
-                    
-                
                 
-
-                    
                     
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
                         
-            
-            
-                
                     
                 
                 
@@ -7721,10 +7170,10 @@ can use Visual Studio Code or other IDE to do the same.</p>
 
 
         
-            <a class="nav nav-prev" href="/solutions/" title="Solutions"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/solution/altinn-studio/" title="Solution Architecture Altinn Studio"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/solutions/altinn-studio/functional/" title="Functionality in Altinn Studio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/development/" title="Development" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
