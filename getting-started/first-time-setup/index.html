@@ -97,7 +97,7 @@ if(host != "localhost")
     <li data-nav-id="/getting-started/" class="dd-item 
         parent
         
-        parent
+        
         ">
       <a href="/getting-started/">
         <span>Getting started</span>
@@ -130,13 +130,40 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/getting-started/first-time-setup/" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/getting-started/first-time-setup/">
+        <span>First-time setup</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/getting-started/service-creation/" class="dd-item 
         
         
         
         ">
       <a href="/getting-started/service-creation/">
-        <span>Create or edit a service</span>
+        <span>Create or edit apps</span>
 
         
         
@@ -166,13 +193,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/getting-started/service-creation/create-service/" class="dd-item 
+    <li data-nav-id="/getting-started/service-creation/create-app/" class="dd-item 
         
         
         
         ">
-      <a href="/getting-started/service-creation/create-service/">
-        <span>Create new service</span>
+      <a href="/getting-started/service-creation/create-app/">
+        <span>Create new app</span>
 
         
         
@@ -391,40 +418,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/getting-started/first-time-setup/" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/getting-started/first-time-setup/">
-        <span>First-time setup</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/getting-started/service-testing/" class="dd-item 
         
         
         
         ">
       <a href="/getting-started/service-testing/">
-        <span>Test service</span>
+        <span>Test</span>
 
         
         
@@ -4615,9 +4615,8 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#create-a-user-with-a-github-user">Create a user with a Github user</a></li>
-<li><a href="#create-a-user-without-a-github-user">Create a user without a Github user</a></li>
-<li><a href="#klone-tjenesten-til-lokal-mappe">Klone tjenesten til lokal mappe</a></li>
+<li><a href="#create-a-user-linked-to-github">Create a user linked to GitHub</a></li>
+<li><a href="#create-a-user-without-github">Create a user without GitHub</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -4646,60 +4645,38 @@ if(host != "localhost")
 
 
 
-<h2 id="create-a-user-with-a-github-user">Create a user with a Github user</h2>
-
-<p>Set up your user in <a href="https://altinn.studio">altinn.studio</a> for the first time.</p>
-
-<div class="notices info" ><p>ONLY necessary if you have not already created a user.</p>
+<div class="notices info" ><p>ONLY necessary if you have not already created a user in Altinn Studio.</p>
 </div>
 
 
-<ol>
-<li><p>Choose to log in
-<img src="login.png?width=800" alt="Login" /></p></li>
+<p>How to up your user in <a href="https://altinn.studio">altinn.studio</a> for the first time.</p>
 
-<li><p>If you have a Github account, select &ldquo;Har du en github konto? Register deg med den her&rdquo;
-<img src="LoginAS.png?width=800" alt="Login" /></p></li>
+<h2 id="create-a-user-linked-to-github">Create a user linked to GitHub</h2>
+
+<ol>
+<li><p>Choose to <a href="https://altinn.studio/user/login">log in</a>.
+If you have a Github account, select &ldquo;<a href="https://altinn.studio/user/oauth2/github">Har du en github konto? Register deg med den her</a>&rdquo;.
+<img src="login-as.png?width=400" alt="Login" /></p></li>
 
 <li><p>If you are not already logged in at Github, login with your Github credentials.
-<img src="GithubLogin.png?width=400" alt="Github Login" /></p></li>
+<img src="github-login.png?width=400" alt="Github Login" /></p></li>
 
-<li><p>Authorize that Altinn Studio could use your Github account for login and connect the accounts.
-<img src="AuthorizeAltinn.png?width=400" alt="Authorize Github" /></p></li>
+<li><p>Authorize that Altinn Studio can use your Github account for login.
+<img src="authorize-altinn.png?width=600" alt="Authorize Github" /></p></li>
 
-<li><p>Register your new Altinn Studio account by filling in the registration form.
-<img src="registerGithub.png?width=400" alt="Register Github user" /></p></li>
+<li><p>Register your new local Altinn Studio user by filling in the registration form. When done you are already logged in.
+<img src="register-gitea.png?width=600" alt="Register Github user" /></p></li>
 </ol>
 
-<h2 id="create-a-user-without-a-github-user">Create a user without a Github user</h2>
-
-<p>Set up your user in <a href="https://altinn.studio">altinn.studio</a> for the first time.</p>
-
-<div class="notices info" ><p>ONLY necessary if you have not already created a user.</p>
-</div>
-
+<h2 id="create-a-user-without-github">Create a user without GitHub</h2>
 
 <ol>
-<li><p>Choose to log in
-<img src="login.png?width=800" alt="Login" /></p></li>
-
-<li><p>If you do not have a Github user, select &ldquo;Behov for en konto? Registrer deg nå.&rdquo;
-<img src="LoginAS.png?width=800" alt="Login" /></p></li>
+<li><p>Choose to <a href="https://altinn.studio/user/login">log in</a>.
+If you do not want to use your Github user, select &ldquo;<a href="https://altinn.studio/user/sign_up">Behov for en konto? Registrer deg nå.</a>&rdquo;
+<img src="login-as.png?width=400" alt="Login" /></p></li>
 
 <li><p>Fill in your user information to register your user. When done you are already logged in.
-<img src="registerNewUser.png?width=400" alt="Register new user" /></p></li>
-</ol>
-
-<h2 id="klone-tjenesten-til-lokal-mappe">Klone tjenesten til lokal mappe</h2>
-
-<ol>
-<li>Fra startsiden, gå til repoet</li>
-<li>Velg <strong>clone service</strong>
-
-<ul>
-<li>Dersom <strong>Applikasjonsnøkkel</strong> ikke er lagt inn vil du bli bedt om å legge inn dette, se <a href="#add-app-token">her</a>. Når dette er fullfør, start fra punkt 1.</li>
-</ul></li>
-<li>Tjenesten er nå klar til bruk.</li>
+<img src="register-gitea.png?width=600" alt="Register new user" /></p></li>
 </ol>
 
 
@@ -4759,34 +4736,35 @@ if(host != "localhost")
             
                 
                     
-                        
-                        
                     
                 
                 
 
-                    
                     
-                        
                     
                     
 
+                    
+            
+        
                     
                         
             
             
                 
+                    
+                        
+                        
                     
                 
                 
 
                     
                     
+                        
                     
-
                     
-            
-        
+
                     
                         
             
@@ -4896,9 +4874,6 @@ if(host != "localhost")
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -4908,7 +4883,6 @@ if(host != "localhost")
             
                 
                     
-                    
                 
                 
 
@@ -4916,6 +4890,9 @@ if(host != "localhost")
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -4924,9 +4901,6 @@ if(host != "localhost")
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -7191,10 +7165,10 @@ if(host != "localhost")
 
 
         
-            <a class="nav nav-prev" href="/getting-started/service-creation/logic/" title="Service logic"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/getting-started/" title="Getting started"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/getting-started/service-testing/" title="Test service" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/getting-started/service-creation/" title="Create or edit applications" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
