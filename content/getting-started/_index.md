@@ -1,11 +1,11 @@
 ---
 title: Getting started
-description: Getting stared with Altinn Studio
+description: Getting started with Altinn Studio
 tags: ["guide", "intro"]
 weight: 10
-alwaysopen: true
+alwaysopen: false
 ---
 
-A very early preview of Altinn Studio is available for testing here: https://altinn.studio
+An early preview of Altinn Studio is available for testing here: https://altinn.studio
 
 {{% children description="true" depth="2" %}}
