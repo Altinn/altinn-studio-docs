@@ -247,6 +247,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/front-end/postmessage/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-platform/profile/</loc>
   </url>
   
@@ -312,6 +316,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/front-end/styling/</loc>
   </url>
   
   <url>
@@ -432,10 +440,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/_header/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/development/handbook/front-end/styling/</loc>
   </url>
   
   <url>
@@ -721,6 +725,16 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/css/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/css-in-js/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/data-model/</loc>
     <priority>0</priority>
   </url>
@@ -836,6 +850,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/jss/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/load-balancer/</loc>
     <priority>0</priority>
   </url>
@@ -847,6 +866,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/markdown/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/material-ui/</loc>
     <priority>0</priority>
   </url>
   
@@ -877,6 +901,16 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/pipelines/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/post/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/post-message/</loc>
     <priority>0</priority>
   </url>
   
@@ -927,6 +961,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/studio/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/styled-components/</loc>
     <priority>0</priority>
   </url>
   

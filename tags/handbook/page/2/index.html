@@ -3433,6 +3433,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/handbook/front-end/postmessage/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/postmessage/">
+        <span>Post Message</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/front-end/react/" class="dd-item 
         
         
@@ -3493,7 +3520,7 @@ if(host != "localhost")
         
         ">
       <a href="/development/handbook/front-end/styling/">
-        <span></span>
+        <span>Styling (css)</span>
 
         
         
@@ -4652,6 +4679,41 @@ if(host != "localhost")
 	
 	   <article class="post development">
     <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/postmessage/">Post Message</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Window.postMessage() is introduced to handle communication between components that has no connection other then the need to communicate/trigger events. Eg. its used to communicate with the syncBar to get it to perform a new status check. To read more see: Window.postMessage
+Usage Dispatching a message event is done the following way:
+// variables should be used for messages var SAVED_EVENT = 'SAVED' window.postMessage(SAVED_EVENT, window.location.href);  Catching the event is done by adding an event listener to the component one needs to communicate with: <a class="read-more" href="/development/handbook/front-end/postmessage/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/post/">post</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/post-message/">post message</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
         <h2 class="post-title"><a href="/development/handbook/rest/">RESTful APIs (Representation State Transfer)</a></h2>
     </header>
     <section class="post-excerpt">
@@ -4740,6 +4802,49 @@ export interface IUpdateFormDataAction extends Action { formData: any; component
                 <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/redux/">redux</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/styling/">Styling (css)</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Summary Styling in React is done per component using a combination of Material-UI and compatible JSS.
+ Components shall not be styled with CSS classes in .CSS files.
+ Different component types should use different styling methods, or a combination.
+Proposed order of styling methods The following order is proposed when considering styling methods:
+ Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/development/handbook/front-end/styling/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/css/">css</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/material-ui/">material-ui</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/styled-components/">styled components</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/jss/">jss</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/css-in-js/">css-in-js</a>
             
         
 
@@ -6757,6 +6862,22 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

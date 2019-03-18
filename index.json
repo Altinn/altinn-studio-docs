@@ -319,7 +319,7 @@
 	"title": "Front-end",
 	"tags": ["development", "handbook", "front-end"],
 	"description": "Coding guidelines for front-end",
-	"content": " Coding guidelines for front-end \rError handling\r\rGuidelines for error handling front-end\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\r\r\rtitle: Styling (css) description: Guidelines for styling components in Altinn Studio tags: [\u0026ldquo;development\u0026rdquo;, \u0026ldquo;handbook\u0026rdquo;, \u0026ldquo;front-end\u0026rdquo;, \u0026ldquo;css\u0026rdquo;, \u0026ldquo;material-ui\u0026rdquo;, \u0026ldquo;styled components\u0026rdquo;, \u0026ldquo;jss\u0026rdquo;, \u0026ldquo;css-in-js\u0026rdquo;] weight: 100 Summary Styling in React is done per component using a combination of Material-UI and compatible JSS. Components shall not be styled with CSS classes in .CSS files. Different component types should use different styling methods, or a combination. Proposed order of styling methods The following order is proposed when considering styling methods:\n\r"
+	"content": " Coding guidelines for front-end \rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/functional/",
@@ -425,6 +425,13 @@
 	"tags": ["architecture", "security"],
 	"description": "Description of Policy Information Point for Altinn Platform",
 	"content": "The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.\nDuring deployment of a app the rules for the app is added to the Altinn Studio Apps database.\nThe rules are defined as XACML 3.0 Policy document.\nSee XACML for detailed description of Policy format\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/front-end/postmessage/",
+	"title": "Post Message",
+	"tags": ["development", "handbook", "front-end", "post", "post message"],
+	"description": "Guidelines for using post message functionality in Altinn Studio",
+	"content": " Window.postMessage() is introduced to handle communication between components that has no connection other then the need to communicate/trigger events. Eg. its used to communicate with the syncBar to get it to perform a new status check. To read more see: Window.postMessage\nUsage Dispatching a message event is done the following way:\n// variables should be used for messages var SAVED_EVENT = 'SAVED' window.postMessage(SAVED_EVENT, window.location.href);  Catching the event is done by adding an event listener to the component one needs to communicate with:\npublic componentDidMount() { window.addEventListener('message', this.eventThatShouldHappend); } public eventThatShouldHappend(){ if (event.data === SAVED_EVENT){ //Do necessary handling of correct message } }  When the commponent is unmounting the event listener should be removed:\npublic componentWillUnmount() { window.removeEventListener('message', this.eventThatShouldHappend); }   Remember to create \u0026ldquo;message variables\u0026rdquo; that make sense when comparing different messages. Example: \u0026ldquo;SAVED_IN_UI_EDITOR\u0026rdquo;, \u0026ldquo;SAVED_IN_OTHER_PLACE\u0026rdquo; or \u0026ldquo;FETCH_REPO_STATUS\u0026rdquo;.\n "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/profile/",
@@ -544,6 +551,13 @@
 	"tags": ["repos", "arkitektur"],
 	"description": "Struktur for repositories og filer i Gitea",
 	"content": " Under arbeid\n\rOverordnet struktur Gitea\n├── \raltinn\n│ ├── \rcommon\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │ └── README.md\n│ ├── \rcodelists\n│ │ ├── \rcountries.json\n│ │ └── \r\u0026hellip;\n│ │ └── README.md\n│ └── \r\u0026hellip;\n│\n├── \rorg-x\n│ ├── \rorg-x\n│ │ ├── \rsettings.json\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │\n│ ├── \rcodelists\n│ │ ├── \rkodeliste1.json\n│ │ └── \r\u0026hellip;\n│ │\n│ ├── \rtjeneste-1\n│ │ ├── \rDeployment (helm)\n│ │ │ ├── \rtemplates\n│ │ │ │ ├── \r_helpers.tpl\n│ │ │ │ ├── \rdeployment.yaml\n│ │ │ │ ├── \ringress.yaml\n│ │ │ │ ├── \rNOTES\n│ │ │ │ └── \rservice.yaml\n│ │ │ ├── \r.helmignore\n│ │ │ ├── \rChart.yaml\n│ │ │ └── \rvalues.yaml\n│ │ ├── \rImplementation\n│ │ │ ├── \rCalculation\n│ │ │ │ └── \rCalculationHandler.cs\n│ │ │ ├── \rInstantiationHandler.cs\n│ │ │ ├── \rServiceImplementation.cs\n│ │ │ └── \rValidationHandler.cs\n│ │ ├── \rMetadata\n│ │ │ ├── \rServiceMetadata.json\n│ │ │ └── \rworkflow.json\n│ │ ├── \rModel\n│ │ │ ├── \rServiceModel.xsd\n│ │ │ └── \rServiceModel.cs\n│ │ ├── \rResources\n│ │ │ ├── \rDynamics\n│ │ │ │ └── \rRuleHandler.js\n│ │ │ ├── \rStyles.json\n│ │ │ ├── \rreact-app.css\n│ │ │ ├── \rreact-app.js\n│ │ │ ├── \rFormLayout.json\n│ │ │ ├── \rServiceConfigurations.json\n│ │ │ ├── \rresource.nb-NO.json\n│ │ │ └── \rresource.nn-NO.json\n│ │ ├── \rTest (used for runtime)\n│ │ ├── \rTestdataforparty (used for runtime)\n│ │ ├── \rWorkflow\n│ │ │ └── \rworkflow.bpmn (BPMN)\n│ │ ├── \rAltinnService.csproj\n│ │ ├── \rconfig.json\n│ │ ├── .gitignore\n│ │ ├── LICENSE\n│ │ └── README.md\n│ │\n│ └── \rtjeneste-2 \u0026hellip;\n│\n├── \rorg-y\n│ ├── \rorg-y \u0026hellip;\n│ └── \r\u0026hellip;\n│\n├── \rbruker-a\n│ └── \rtjeneste-1 (fork av org-x/tjeneste-1)\n├── \rbruker-b \u0026hellip;\n│\n├── \rAlle organisasjoner\n├── \rAlle repos\n└── \rAlle brukere\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/front-end/styling/",
+	"title": "Styling (css)",
+	"tags": ["development", "handbook", "front-end", "css", "material-ui", "styled components", "jss", "css-in-js"],
+	"description": "Guidelines for styling components in Altinn Studio",
+	"content": " Summary Styling in React is done per component using a combination of Material-UI and compatible JSS.\n Components shall not be styled with CSS classes in .CSS files.\n Different component types should use different styling methods, or a combination.\nProposed order of styling methods The following order is proposed when considering styling methods:\n Styled Components (Accepts props, logic, theming) Material-UI\u0026rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. Not directly compatible with Material-UI)  Shared Components Shared components should utilize \u0026ldquo;Styled Components\u0026rdquo; which can write Props directly in the CSS styling. The alternative way is handling styling via props is leveraging \u0026ldquo;inline styling\u0026rdquo; combined with Material-UI\u0026rsquo;s JSS. When using inline styling, the component\u0026rsquo;s styling will be configured in two different places. Inline style example\n\u0026lt;FormControl fullWidth={true} style={{ width: this.props.width ? this.props.width : null, }} \u0026gt;  Styled Components example\nconst theme = createMuiTheme(altinnTheme); const StyledPopper = styled(({ ...otherProps }) =\u0026gt; ( \u0026lt;Popper {...otherProps} /\u0026gt; ))` color: ${theme.altinnPalette.primary.black}; background: ${theme.altinnPalette.primary.redLight}; border-radius: 0; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25); font-size: 16px; padding: 24px; max-width: 550px; margin-top: 10px; z-index: ${(props) =\u0026gt; props.zIndex || 1} `; class AltinnPopper extends React.Component\u0026lt;IAltinnPopperComponentProvidedProps, IAltinnPopperComponentState\u0026gt; { public render() { const open = Boolean(this.props.anchorEl); return ( \u0026lt;StyledPopper open={open} anchorEl={this.props.anchorEl} placement={'bottom-start'} \u0026gt; {this.props.message} \u0026lt;/StyledPopper\u0026gt; ); } } export default AltinnPopper;  Exception There will be examples where \u0026ldquo;Styled Components\u0026rdquo; are hard to configure using some of Material-UI\u0026rsquo;s components where \u0026ldquo;Props\u0026rdquo; with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.\nStyled object example\nconst styles = { searchBoxInput: { fontSize: '16px', color: '#000000', padding: '6px', }, searchBoxIcon: { color: '#000000', fontSize: '30px', marginRight: '10px', }, };  React component, with Styled Component AND \u0026lsquo;classes.searchBoxInput\u0026rsquo; from Styled Object example above.\nclass AltinnSearchInput extends React.Component\u0026lt;IAltinnSearchInputComponentProvidedProps, IAltinnSearchInputComponentState\u0026gt; { public render() { const { classes } = this.props; return ( \u0026lt;StyledFormControl id='StyledForm' fullWidth={true} \u0026gt; \u0026lt;TextField id={this.props.id} placeholder={this.props.placeholder} onChange={this.props.onChangeFunction} InputProps={{ disableUnderline: true, startAdornment: \u0026lt;InputAdornment position={'end'} classes={{ root: classNames(classes.searchBoxIcon) }} \u0026gt; \u0026lt;i className={'ai ai-search'} /\u0026gt; \u0026lt;/InputAdornment\u0026gt;, classes: { root: classNames(classes.searchBoxInput) }, }} /\u0026gt; \u0026lt;/StyledFormControl\u0026gt; ); } } export default withStyles(styles)(AltinnSearchInput);  Contained Components Contained components are React components which are not shared in other parts of the React application. It\u0026rsquo;s encouraged to consider the styling order above.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/test/",
@@ -756,13 +770,6 @@
 	"content": "docs  "
 },
 {
-	"uri": "https://docs.altinn.studio/development/handbook/front-end/styling/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": " title: Styling (css)\ndescription: Guidelines for styling components in Altinn Studio\ntags: [\u0026ldquo;development\u0026rdquo;, \u0026ldquo;handbook\u0026rdquo;, \u0026ldquo;front-end\u0026rdquo;, \u0026ldquo;css\u0026rdquo;, \u0026ldquo;material-ui\u0026rdquo;, \u0026ldquo;styled components\u0026rdquo;, \u0026ldquo;jss\u0026rdquo;, \u0026ldquo;css-in-js\u0026rdquo;]\nweight: 100\nSummary Styling in React is done per component using a combination of Material-UI and compatible JSS.\n Components shall not be styled with CSS classes in .CSS files.\n Different component types should use different styling methods, or a combination.\nProposed order of styling methods The following order is proposed when considering styling methods:\n Styled Components (Accepts props, logic, theming) Material-UI\u0026rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. Not directly compatible with Material-UI)  Shared Components Shared components should utilize \u0026ldquo;Styled Components\u0026rdquo; which can write Props directly in the CSS styling. The alternative way is handling styling via props is leveraging \u0026ldquo;inline styling\u0026rdquo; combined with Material-UI\u0026rsquo;s JSS. When using inline styling, the component\u0026rsquo;s styling will be configured in two different places. Inline style example\n\u0026lt;FormControl fullWidth={true} style={{ width: this.props.width ? this.props.width : null, }} \u0026gt;  Styled Components example\nconst theme = createMuiTheme(altinnTheme); const StyledPopper = styled(({ ...otherProps }) =\u0026gt; ( \u0026lt;Popper {...otherProps} /\u0026gt; ))` color: ${theme.altinnPalette.primary.black}; background: ${theme.altinnPalette.primary.redLight}; border-radius: 0; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25); font-size: 16px; padding: 24px; max-width: 550px; margin-top: 10px; z-index: ${(props) =\u0026gt; props.zIndex || 1} `; class AltinnPopper extends React.Component\u0026lt;IAltinnPopperComponentProvidedProps, IAltinnPopperComponentState\u0026gt; { public render() { const open = Boolean(this.props.anchorEl); return ( \u0026lt;StyledPopper open={open} anchorEl={this.props.anchorEl} placement={'bottom-start'} \u0026gt; {this.props.message} \u0026lt;/StyledPopper\u0026gt; ); } } export default AltinnPopper;  Exception There will be examples where \u0026ldquo;Styled Components\u0026rdquo; are hard to configure using some of Material-UI\u0026rsquo;s components where \u0026ldquo;Props\u0026rdquo; with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.\nStyled object example\nconst styles = { searchBoxInput: { fontSize: '16px', color: '#000000', padding: '6px', }, searchBoxIcon: { color: '#000000', fontSize: '30px', marginRight: '10px', }, };  React component, with Styled Component AND \u0026lsquo;classes.searchBoxInput\u0026rsquo; from Styled Object example above.\nclass AltinnSearchInput extends React.Component\u0026lt;IAltinnSearchInputComponentProvidedProps, IAltinnSearchInputComponentState\u0026gt; { public render() { const { classes } = this.props; return ( \u0026lt;StyledFormControl id='StyledForm' fullWidth={true} \u0026gt; \u0026lt;TextField id={this.props.id} placeholder={this.props.placeholder} onChange={this.props.onChangeFunction} InputProps={{ disableUnderline: true, startAdornment: \u0026lt;InputAdornment position={'end'} classes={{ root: classNames(classes.searchBoxIcon) }} \u0026gt; \u0026lt;i className={'ai ai-search'} /\u0026gt; \u0026lt;/InputAdornment\u0026gt;, classes: { root: classNames(classes.searchBoxInput) }, }} /\u0026gt; \u0026lt;/StyledFormControl\u0026gt; ); } } export default withStyles(styles)(AltinnSearchInput);  Contained Components Contained components are React components which are not shared in other parts of the React application. It\u0026rsquo;s encouraged to consider the styling order above.\n"
-},
-{
 	"uri": "https://docs.altinn.studio/technology/dotnet-core/",
 	"title": ".NET Core",
 	"tags": ["tech", "programming"],
@@ -886,7 +893,7 @@
 	"title": "Handbook",
 	"tags": ["development", "handbook"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rError handling\r\rGuidelines for error handling front-end\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\r\r\rtitle: Styling (css) description: Guidelines for styling components in Altinn Studio tags: [\u0026ldquo;development\u0026rdquo;, \u0026ldquo;handbook\u0026rdquo;, \u0026ldquo;front-end\u0026rdquo;, \u0026ldquo;css\u0026rdquo;, \u0026ldquo;material-ui\u0026rdquo;, \u0026ldquo;styled components\u0026rdquo;, \u0026ldquo;jss\u0026rdquo;, \u0026ldquo;css-in-js\u0026rdquo;] weight: 100 Summary Styling in React is done per component using a combination of Material-UI and compatible JSS. Components shall not be styled with CSS classes in .CSS files. Different component types should use different styling methods, or a combination. Proposed order of styling methods The following order is proposed when considering styling methods:\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\r"
+	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/helm/",
@@ -1218,6 +1225,20 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/css/",
+	"title": "css",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/css-in-js/",
+	"title": "css-in-js",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/data-model/",
 	"title": "data-model",
 	"tags": [],
@@ -1379,6 +1400,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/jss/",
+	"title": "jss",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/load-balancer/",
 	"title": "load-balancer",
 	"tags": [],
@@ -1395,6 +1423,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/markdown/",
 	"title": "markdown",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/material-ui/",
+	"title": "material-ui",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1437,6 +1472,20 @@
 {
 	"uri": "https://docs.altinn.studio/tags/pipelines/",
 	"title": "pipelines",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/post/",
+	"title": "post",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/post-message/",
+	"title": "post message",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1507,6 +1556,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/studio/",
 	"title": "studio",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/styled-components/",
+	"title": "styled components",
 	"tags": [],
 	"description": "",
 	"content": ""
