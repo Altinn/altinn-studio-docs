@@ -1,12 +1,9 @@
+---
 title: Styling (css)
-
 description: Guidelines for styling components in Altinn Studio
-
 tags: ["development", "handbook", "front-end", "css", "material-ui", "styled components", "jss", "css-in-js"]
-
 weight: 100
-
-------
+---
 
 ## Summary
 
@@ -26,9 +23,9 @@ The following order is proposed when considering styling methods:
 
 ### Shared Components
 
-###### Shared components should utilize "[Styled Components](https://material-ui.com/guides/interoperability/#styled-components)" which can write Props directly in the CSS styling.
+##### Shared components should utilize "[Styled Components](https://material-ui.com/guides/interoperability/#styled-components)" which can write Props directly in the CSS styling.
 
-###### The alternative way is handling styling via props is leveraging "inline styling" combined with Material-UI's JSS. When using inline styling, the component's styling will be configured in two different places.
+##### The alternative way is handling styling via props is leveraging "inline styling" combined with Material-UI's JSS. When using inline styling, the component's styling will be configured in two different places.
 
 *Inline style example*
 
