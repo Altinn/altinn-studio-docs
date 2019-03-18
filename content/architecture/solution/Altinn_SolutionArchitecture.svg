@@ -3157,11 +3157,11 @@
 			<text x="4" y="1029.75" class="st18" v:langID="1044"><v:paragraph/><v:tabList/>AltinnCore.Runtime</text>		</g>
 		<g id="shape395-1277" v:mID="395" v:groupContext="shape" transform="translate(2453.19,-447.053)">
 			<title>Sheet.395</title>
-			<desc>Platform Integration Altinn II</desc>
+			<desc>SBL Bridge</desc>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="59.8819" cy="1026.15" width="119.77" height="14.1732"/>
 			<rect x="0" y="1019.07" width="119.764" height="14.1732" class="st16"/>
-			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Platform Integration Altinn II</text>		</g>
+			<text x="4" y="1028.85" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>SBL Bridge</text>		</g>
 		<g id="shape414-1280" v:mID="414" v:groupContext="shape" transform="translate(353.43,-348.348)">
 			<title>Sheet.414</title>
 			<rect v:rectContext="foreign" x="0" y="1000.24" width="79.2004" height="33.0002" class="st16"/>
