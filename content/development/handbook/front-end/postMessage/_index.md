@@ -39,3 +39,6 @@ When the commponent is unmounting the event listener should be removed:
     window.removeEventListener('message', this.eventThatShouldHappend);
   }
 ```
+
+> Remember to create "message variables" that make sense when comparing different messages.
+> Example: "SAVED_IN_UI_EDITOR", "SAVED_IN_OTHER_PLACE" or "FETCH_REPO_STATUS".
