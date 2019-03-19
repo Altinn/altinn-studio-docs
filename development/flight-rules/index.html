@@ -4675,6 +4675,8 @@ if(host != "localhost")
 <li><a href="#loadbalancer-is-responding-with-http-error-504-timeout">Loadbalancer is responding with HTTP Error 504 - timeout</a></li>
 <li><a href="#sonarqube-code-analysis-pipeline-fails-on-pull-request">sonarqube-code-analysis pipeline fails on pull request</a></li>
 <li><a href="#react-app-not-updating-in-runtime-when-testing-locally">react-app not updating in Runtime when testing locally</a></li>
+<li><a href="#pod-is-stuck-in-status-containercreating-and-has-warning-unable-to-mount-volumes-for-pod-xxx-timeout-expired-waiting-for-volumes-to-attach-or-mount-for-pod-xxx">Pod is stuck in status ContainerCreating and has warning &ldquo;Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX&rdquo;</a></li>
+<li><a href="#i-got-assigned-to-update-altinn-studio-with-new-kode">I got assigned to update altinn.studio with new kode</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4750,41 +4752,87 @@ To solve this issue you need to identify and remove the double line shift is in 
 
 <h3 id="react-app-not-updating-in-runtime-when-testing-locally">react-app not updating in Runtime when testing locally</h3>
 
-<p>When making changes to the react application for Runtime, these changes are not available when testing in Runtime even though the application has been built.
-This is because Runtime fetches the react-app directly from the service files. The react-app is copied over to the service repo when the service is created, but not after.
-When making changes to the react application that affects Runtime, the bundle <code>react-app.js</code> must be manually copied over to the service folder each time it is built, in order to test changes in Runtime. To do this:</p>
+<p>The react application for Runtime is fetched from Runtime/wwwroot/runtime/js/react. To see these changes locally one has to:</p>
 
 <ul>
-<li>Make any required changes in the runtime application</li>
+<li><p>Make any required changes in the runtime application</p></li>
 
-<li><p>Build the runtime application. This can be done either by running</p>
+<li><p>Build the runtime application. This can be done either of the following ways:</p>
 
 <ul>
-<li><pre><code class="language-bash">npm run gulp-develop
+<li><p>By running</p>
+
+<pre><code class="language-bash">npm run gulp-develop
+npm run gulp copy-files
 </code></pre>
 
-<p>from <code>./src/AltinnCore/Runtime</code> folder, which will build and run the Runtime back end and build the runtime  <code>react-app.js</code> when it detects that changes have been made.</p></li>
+<p>from <code>./src/AltinnCore/Runtime</code> folder, which will build and run the Runtime back end and build the runtime  <code>runtime.js</code> when it detects that changes have been made. The copy is necessary to copy the files to the wwwroot folder so changes can be visible in runtime</p></li>
+
+<li><p>or, by running</p>
+
+<pre><code class="language-bash">npm run gulp
+</code></pre>
+
+<p>from <code>./src/AltinnCore/Runtime</code> folder, which will build the Runtime back end and build the runtime  <code>runtime.js</code> and copy the files to the wwwroot folder so changes can be visible in runtime</p></li>
 
 <li><p>or, you could trigger a build of the runtime react app manually by running</p>
 
 <pre><code class="language-bash">npm run build-develop
 </code></pre>
 
-<p>from <code>.src/react-apps/applications/runtime</code> folder. This will build the runtime <code>react-app.js</code>.</p></li>
-</ul></li>
+<p>from <code>.src/react-apps/applications/runtime</code> folder. This will build the runtime <code>runtime.js</code> but you will still need to copy the files to the wwwroot folder in runtime, for this you can do:</p>
 
-<li><p>Copy <code>react-app.js</code> (and <code>react-app.css</code> if you have made changes to css styling) from the runtime dist folder (<code>./src/react-apps/applications/runtime/dist)</code> into the service repo, replacing the old file</p>
+<pre><code class="language-bash">npm run gulp copy-files
+</code></pre>
 
-<ul>
-<li>The old file is located in the <code>Resources</code> folder in the service repo.</li>
-</ul></li>
-
-<li><p>Reload the manual testing page and start new/run existing instance from there</p>
-
-<ul>
-<li>You can also copy the file directly into the Runtime copy of the service repo, located at <code>C:\AltinnRuntime</code>. This is useful if you already have a runtime instance up and running, then you can just refresh the page. NOTE that if you reload the ManualTesting page after this, all the files in the Runtime copy of the service repo will be overwritten with what&rsquo;s in the local service repo.</li>
+<p>from <code>./src/AltinnCore/Runtime</code> folder,</p></li>
 </ul></li>
 </ul>
+
+<p>Manual Copy is done the following way:</p>
+
+<ul>
+<li>Copy <code>runtime.js</code> (and <code>runtime.css</code> if you have made changes to css styling) from the runtime dist folder (<code>./src/react-apps/applications/runtime/dist</code>) into the the wwwroot folder of runtime (<code>./src/AltinCore/Runtime/wwwroot/runtime</code>).
+The <code>runtime.js</code> file should be placed under <code>/js/runtime.js</code> and the <code>runtime.css</code> is placed under <code>/css/runtime.css</code></li>
+</ul>
+
+<p>&ndash;&gt; Reload the manual testing page and start new/run existing instance from there</p>
+
+<h3 id="pod-is-stuck-in-status-containercreating-and-has-warning-unable-to-mount-volumes-for-pod-xxx-timeout-expired-waiting-for-volumes-to-attach-or-mount-for-pod-xxx">Pod is stuck in status ContainerCreating and has warning &ldquo;Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX&rdquo;</h3>
+
+<p>The storage we use today don&rsquo;t support two pods accessing it at the same time,
+so on deploy if the first pod don&rsquo;t release the storage before the other one tries to connect to it the second pod will get stuck in ContainerCreating status.
+If you then run kubectl get pods and get the name of the pod you can then run</p>
+
+<pre><code class="language-bash">kubectl describe [POD_NAME]
+</code></pre>
+
+<p>then you see the message &ldquo;Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX&rdquo;</p>
+
+<p>To fix this you need to delete the deployment to that pod and start a new release:</p>
+
+<pre><code class="language-bash">kubectl delete deployment [DEPLOYMENT_NAME]
+</code></pre>
+
+<p>To start a new release go to <a href="https://dev.azure.com/brreg/altinn-studio/_release">release pipeline</a></p>
+
+<h3 id="i-got-assigned-to-update-altinn-studio-with-new-kode">I got assigned to update altinn.studio with new kode</h3>
+
+<p>Prerequirements: you need build rights to our <a href="https://dev.azure.com/brreg/altinn-studio/_release">release pipeline</a>
+To deploy latest code to altinn.studio do the following:</p>
+
+<ul>
+<li>To start a new release go to <a href="https://dev.azure.com/brreg/altinn-studio/_release">release pipeline</a></li>
+<li>Locate and click on <code>Deploy to production</code></li>
+<li>Click <code>Create a new release</code></li>
+<li>Select versions of the different solutions to deploy (latest is preselected)</li>
+<li>Click on <code>Create</code></li>
+<li>A green info message will appear with the link to the release just create, click on the link</li>
+<li>Click Deploy and select deploy multiple</li>
+<li>Select which of the pods to deploy and click <code>Deploy</code></li>
+</ul>
+
+<p>&ndash;&gt; A deploy to production has been started use kubectl get pods -w on the altinn.studio cluster to see if pods are updated correctly</p>
 
 
 <footer class=" footline" >
