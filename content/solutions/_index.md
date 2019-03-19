@@ -9,7 +9,7 @@ alwaysopen: false
 Altinn Studio consists of three different technical solutions to make a complete application development platform.
 
 {{%excerpt%}}
-<object data="/solutions/solutions.svg" type="image/svg+xml" style="width: 50%; "></object>
+<object data="/solutions/solutions.svg" type="image/svg+xml" style="width: 100% max-width: 800px;"></object>
 {{% /excerpt%}}
 
 
