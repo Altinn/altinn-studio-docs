@@ -165,7 +165,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rInfrastructure\r\rDescription of the Infrastructure\n\r\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rAltinn CDN\r\rDescription of Altinn Content Delivery Network\n\r\r\rSolution Architecture\r\rDescription of the Altinn Studio solution architecture\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": "Description of the Altinn Studio architecture.\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rDeployment\r\rDescription of the Altinn Studio solution\n\r\rAltinn Apps - Deployment Architecture\r\rDescription of the deployment architecture for Altinn Apps\n\rAltinn Studio - Deployment Architecture\r\rDescription of the deployment architecture for runtime application\n\rAltinn Studio - App Deployment\r\rDescription of how services are deployet from the Altinn Studio Service Development solution to Altinn Studio\n\r\rInfrastructure\r\rDescription of the Altinn Studio infrastructure\n\r\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rAltinn CDN\r\rDescription of Altinn Content Delivery Network\n\r\r\rSolution Architecture\r\rDescription of the Altinn Studio solution architecture\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authentication/",
@@ -359,9 +359,9 @@
 {
 	"uri": "https://docs.altinn.studio/architecture/infrastructure/",
 	"title": "Infrastructure",
-	"tags": ["solution", "studio", "apps", "repos"],
-	"description": "Description of the Infrastructure",
-	"content": "Altinn Studio consists of three different technical solutions to make a complete application development platform.\n\nFull screen | Visio\n\r"
+	"tags": ["infrastructure", "architecture", "studio", "apps", "platform"],
+	"description": "Description of the Altinn Studio infrastructure",
+	"content": "Altinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/",
@@ -1379,6 +1379,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/infrastructure/",
+	"title": "infrastructure",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/intro/",
 	"title": "intro",
 	"tags": [],
@@ -1472,6 +1479,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/pipelines/",
 	"title": "pipelines",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/platform/",
+	"title": "platform",
 	"tags": [],
 	"description": "",
 	"content": ""
