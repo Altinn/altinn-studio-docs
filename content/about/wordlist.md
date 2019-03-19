@@ -83,7 +83,8 @@ developer. It consist of platform code (AltinnCore Runtime) and code and
 configuration created in Altinn Studio. 
 See Application architecture for details. 
 
-### Service Developer
+### App Developer
+A user developing apps in Altinn Studio. 
 
 
 ### Workflow
