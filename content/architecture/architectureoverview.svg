@@ -43,7 +43,7 @@
 			</v:userDefs>
 			<rect x="0" y="383.177" width="236.469" height="382.677" class="st1"/>
 		</g>
-		<a xlink:href="https://docs.altinn.studio/architecture/infrastructure/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/infrastructure/">
 			<g id="shape1-3" v:mID="1" v:groupContext="shape" transform="translate(193.453,-0.25)">
 				<title>Rectangle</title>
 				<desc>Technical Infrastructur</desc>
@@ -55,7 +55,7 @@
 				<rect x="0" y="680.815" width="113.386" height="85.0394" class="st2"/>
 				<text x="10.76" y="726.33" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Technical Infrastructur</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/architecture/security/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/security/">
 			<g id="shape2-6" v:mID="2" v:groupContext="shape" transform="translate(80.0677,-127.809)">
 				<title>Rectangle.2</title>
 				<desc>Security Architecture</desc>
@@ -77,7 +77,7 @@
 			<v:textRect cx="56.6929" cy="723.335" width="113.39" height="85.0394"/>
 			<rect x="0" y="680.815" width="113.386" height="85.0394" class="st2"/>
 			<text x="7.6" y="726.33" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Integration Architecture</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/architecture/application/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/application/">
 			<g id="shape5-12" v:mID="5" v:groupContext="shape" transform="translate(193.453,-255.368)">
 				<title>Rectangle.5</title>
 				<desc>Application Architecture</desc>
@@ -99,7 +99,7 @@
 			<v:textRect cx="56.6929" cy="723.335" width="113.39" height="85.0394"/>
 			<rect x="0" y="680.815" width="113.386" height="85.0394" class="st2"/>
 			<text x="8.57" y="726.33" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Information architeture</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/architecture/solution/">
+		<a target="_parent" xlink:href="https://docs.altinn.studio/architecture/solution/">
 			<g id="shape7-18" v:mID="7" v:groupContext="shape" transform="translate(193.453,-397.1)">
 				<title>Rectangle.7</title>
 				<desc>Solution architecture</desc>
