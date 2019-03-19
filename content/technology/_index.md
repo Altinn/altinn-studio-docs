@@ -1,9 +1,9 @@
 ---
 title: Technology
-description: The technology used in Altinn Studio and Altinn Studio Apps.
+description: The technology used in Altinn Studio, Altinn Apps and Altinn Platform.
 tags: [tech]
 ---
 
-The technology used in Altinn Studio and Altinn Studio Apps.
+The technology used in Altinn Studio, Altinn Apps and Altinn Platform.
 
 {{% children description="true" depth="1" %}}
