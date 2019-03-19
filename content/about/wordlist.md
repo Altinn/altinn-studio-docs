@@ -69,6 +69,14 @@ Policy Information Point. See [Authorization Architecture](/architecture/securit
 ### PRP
 Policy Retrieval Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
 
+
+### SBL
+The current Altinn end user solution (SluttBrukerLøsning). See [Solution Architecture](https://docs.altinn.studio/architecture/solution/) 
+
+### SBL Bridge
+Applicaton that exposes SBL components as REST interface to Altinn Platform components. 
+[See Git Issues](https://github.com/Altinn/altinn-studio/labels/sbl-bridge)
+
 ### Service App
 The Service App is the application created in Altinn Studio by the service
 developer. It consist of platform code (AltinnCore Runtime) and code and 
