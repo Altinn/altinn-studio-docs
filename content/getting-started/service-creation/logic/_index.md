@@ -257,7 +257,7 @@ var conditionalRuleHandlerObject = {
   },
 
   sjekkVirksomhetIkkeIDrift: (obj) => {
-    return (obj.value && obj.value === "Nei");
+    return (!obj.value || obj.value != "Ja");
   }
 }
 
