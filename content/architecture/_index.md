@@ -20,16 +20,13 @@ Guideline: Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) and 
 
 Result: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.
 
-### Isolated
-Guideline: Apps should be isolated from eachother
-
-Result: Apps will not affect other apps
-
 ### Cloud Native
 Guideline: The architecture should follow cloud native principles
 
-Result: 
+Result 
+
 * Containers
+* Isolations
 * Microservices
 * APIs
 * Independent of operating system
