@@ -2229,12 +2229,48 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/deployment/" class="dd-item 
+    <li data-nav-id="/architecture/infrastructure/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/deployment/">
+      <a href="/architecture/infrastructure/">
+        <span>Infrastructure</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/infrastructure/deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/infrastructure/deployment/">
         <span>Deployment</span>
 
         
@@ -2265,12 +2301,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/deployment/altinn-apps/" class="dd-item 
+    <li data-nav-id="/architecture/infrastructure/deployment/altinn-apps/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/deployment/altinn-apps/">
+      <a href="/architecture/infrastructure/deployment/altinn-apps/">
         <span>Altinn Apps</span>
 
         
@@ -2292,12 +2328,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/deployment/altinn-studio/" class="dd-item 
+    <li data-nav-id="/architecture/infrastructure/deployment/altinn-studio/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/deployment/altinn-studio/">
+      <a href="/architecture/infrastructure/deployment/altinn-studio/">
         <span>Altinn Studio</span>
 
         
@@ -2319,12 +2355,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/deployment/service-deployment/" class="dd-item 
+    <li data-nav-id="/architecture/infrastructure/deployment/service-deployment/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/deployment/service-deployment/">
+      <a href="/architecture/infrastructure/deployment/service-deployment/">
         <span>App Deployment</span>
 
         
@@ -2355,19 +2391,28 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/infrastructure/" class="dd-item 
+    <li data-nav-id="/architecture/infrastructure/altinn-cdn/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/infrastructure/">
-        <span>Infrastructure</span>
+      <a href="/architecture/infrastructure/altinn-cdn/">
+        <span>Altinn CDN</span>
 
         
         
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -2843,33 +2888,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/altinn-cdn/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/altinn-cdn/">
-        <span>Altinn CDN</span>
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -4715,14 +4733,14 @@ SaveConfig Saves configuration TODO: Need to verify use and c <a class="read-mor
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/deployment/altinn-apps/">Altinn Apps - Deployment Architecture</a></h2>
+        <h2 class="post-title"><a href="/architecture/infrastructure/deployment/altinn-apps/">Altinn Apps - Deployment Architecture</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
 Altinn Studio Apps is the solution where all the service apps developed in Altinn Studio is deployed. The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Apps
 
 See fullscreen or download as visio
-Kubernetes Each &ldquo;ServiceApp&rdquo; created in Altinn Studio is deployed to Altinn Studio Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes. <a class="read-more" href="/architecture/deployment/altinn-apps/">&raquo;</a></p>
+Kubernetes Each &ldquo;ServiceApp&rdquo; created in Altinn Studio is deployed to Altinn Studio Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes. <a class="read-more" href="/architecture/infrastructure/deployment/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4744,13 +4762,13 @@ Kubernetes Each &ldquo;ServiceApp&rdquo; created in Altinn Studio is deployed to
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/deployment/service-deployment/">Altinn Studio - App Deployment</a></h2>
+        <h2 class="post-title"><a href="/architecture/infrastructure/deployment/service-deployment/">Altinn Studio - App Deployment</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
 When a service developer need to deploy a app (service) to Altinn Studio Apps solution test/production environement there is created a Docker Image with the configured version of AltinnCore.Runtime and the compiled service code and configuration inside the container.
 This container is added to the Docker Registry.
-From Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users. <a class="read-more" href="/architecture/deployment/service-deployment/">&raquo;</a></p>
+From Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users. <a class="read-more" href="/architecture/infrastructure/deployment/service-deployment/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -4772,13 +4790,13 @@ From Docker Registry Kubernetes will download the container in to the Kubernetes
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/deployment/altinn-studio/">Altinn Studio - Deployment Architecture</a></h2>
+        <h2 class="post-title"><a href="/architecture/infrastructure/deployment/altinn-studio/">Altinn Studio - Deployment Architecture</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
 The Altinn Studio Service Development solution is deployed to a Kubernetes Cluster. The diagram below show the different applications that is part this.
 
-Repository GITEA is used as Repository in Altinn Studio Service Development solution. There is one instance of GITEA running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/architecture/deployment/altinn-studio/">&raquo;</a></p>
+Repository GITEA is used as Repository in Altinn Studio Service Development solution. There is one instance of GITEA running in a docker container in the solution. It uses cloud service database and cloud file share for configuration and remote repos. <a class="read-more" href="/architecture/infrastructure/deployment/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6205,267 +6223,10 @@ Format &lsquo;FormLayout.json&rsquo; er oppdelt i tre objekter:
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -6537,6 +6298,96 @@ Format &lsquo;FormLayout.json&rsquo; er oppdelt i tre objekter:
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -6552,6 +6403,175 @@ Format &lsquo;FormLayout.json&rsquo; er oppdelt i tre objekter:
                     
                     
 
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
             
         
