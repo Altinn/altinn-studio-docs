@@ -1,6 +1,6 @@
 ---
 title: RESTful APIs (Representation State Transfer)
-description: Guidelines for designing REST apis for microservices in altinn
+description: Guidelines for designing REST apis for microservices in Altinn
 tags: ["development", "handbook", "back-end", "rest", "api"]
 weight: 100
 ---
@@ -20,21 +20,22 @@ All REST APIs should be versioned.
 
 #### Resources
 
-A resources is a thing that the service knows about. A resource in a system should have only one logical URI and that should provide a way to fetch 
-related or additional data.
+A resources is a thing that the client and server knows about.
+The API provides methods to ifind, create, update or delete a resource object.
+A resource in a system should have only one logical URI, which should provide a way to fetch related or additional data about the resource.
 
-#### Platform service
+#### Platform Storage
 
-Data service to store data for apps, metadata for production services
+Data service to store instance data for applications, and metadata about applications
 
-Resources: Instance, Service,  ServiceOwner, Schema, Model
+Resources: Instance, Application,  ApplicationOwner, InstanceOwner, Schema
 
-##### Instance (Service instance)
+##### Instance (Application instance)
 
-An service instance is created when a instance onwer starts a workflow in an Altinn application. 
+An application instance is created when a instance onwer starts a workflow in an Altinn application. 
 An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
-An applicationId refers to the application information which defines the metadata about the service.
+An applicationId refers to the application information element which defines the metadata about the application.
 
 ```json
 {
@@ -87,34 +88,28 @@ An applicationId refers to the application information which defines the metadat
 }
 ```
 
-Create a new instance. Post with params that identifies the service. ServiceOwnerId is transmitted as a part of the token. 
+Create a new instance. Post with params that identifies the application and the instance owner.
 
 ```http
-/instances?serviceId=KNS/sailor
+/instances?applicationId=KNS/sailor&instanceOwnerId=1024
 ```
 
-Get information about an instance.
+Get information about one instance.
 
 ```http
 /instances/{instanceId}
 ```
 
-Get all instances that a instance owner has completed
+Get (query) all instances that is instance owner has
 
 ```http
-/instances[?services={serviceId}][&reporter={instanceOwnerId}][&completed=true][&since=2017-01-01]
+/instances&instanceOwnerId={instanceOwnerId}[&since=2017-01-01]
 ```
 
-Get a specific data element
+Get (query) all instances of a particular application that is completed
 
 ```http
-/instances/{instanceId}/data/{dataId}
-```
-
-Post/put/delete a specific data element
-
-```http
-/instances/{instanceId}/data/{dataId}
+/instances?applicationId={applicationId}&completed=true
 ```
 
 Delete a specific instance (also deletes its data).
@@ -123,23 +118,43 @@ Delete a specific instance (also deletes its data).
 /instances/{instanceId}
 ```
 
-##### ServiceOwner
+##### Data service
 
-Get metadata about a service owner
+A data element is a file that contains a specific form element of an instance.
+It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
+The application metadata restricts the types of form elements that are allowed {formId}.
 
-```http
-/serviceowners/{serviceOwnerId}
-```
-
-Get all services of a spesific service owner
+Get a specific data element
 
 ```http
-/serviceowners/{serviceOwnerId}/services
+/instances/{instanceId}/data/{formId}/{dataId}
 ```
 
-##### Service (metadata)
+Post to create a specific data element. Content a file (as MultipartContent).
+After success the instance's data section is updated, with the appropriate dataId guid
+that is used to identify the specific data element
 
-Resource: http://platform.altinn.no/service/sailor
+```http
+/instances/{instanceId}/data/{formId}
+```
+
+Put to replace a specific data element. Delete to remove data element.
+
+```http
+/instances/{instanceId}/data/{formId}/{dataId}
+```
+
+##### ApplicationOwner
+
+Get metadata about an application owner
+
+```http
+/owners/{applicationOwnerId}
+```
+
+##### Application (metadata)
+
+Resource: http://platform.altinn.no/applications/KNS/sailor
 ```json
 {
     "id": "KNS/sailor",
@@ -147,7 +162,7 @@ Resource: http://platform.altinn.no/service/sailor
     "createdBy": "XXX",
     "title": "Færder påmelding",
     "type": "innsending",
-    "serviceOwnerId": "KNS",
+    "applicationOwnerId": "KNS",
     "workflowId": "standard",
     "isDeleted": false,
     "isArchived": false,
@@ -161,7 +176,7 @@ Resource: http://platform.altinn.no/service/sailor
             "createdBy": "M2",
             "signatureRequired": true,
             "shouldEncryptData": true
-        }, 
+        },
         "crewlist": {
             "contentType": "application/xsd+xml",
             "storageUrl": "sailor/schema/crewlist",
@@ -174,22 +189,22 @@ Resource: http://platform.altinn.no/service/sailor
 }
 ```
 
-Get a list of all services
+Get a list of all Applications
 
 ```http
-/services
+/applications
 ```
 
-Get metadata about a specific service
+Get metadata about a specific application
 
 ```http
-/services/{serviceId}
+/applications/{applicationId}
 ```
 
-Get the schema of a specific form element in a service
+Get the schema of a specific form element in an application
 
 ```http
-/services/{serviceId}/forms/{dataId}?format=jsonSchema
+/applications/{applicationId}/forms/{dataId}?format=jsonSchema
 ```
 
 #### Altinn-studio 
@@ -199,78 +214,48 @@ tbd
 
 #### App services (runtime)
 
-tb changed
+TBD...
 
-One cluster per service owner. A service owner can have many apps.
-
-```http
-https://{serviceownerNick}.apps.altinn.no
-```
-
-Resources: App, Service, Instance
-
-Get list of available services.
+One cluster per application owner. An application owner can have many apps.
 
 ```http
-/services
+https://{applicationOwnerNick}.apps.altinn.no
 ```
 
-Post to create an instance for a specific instanceOwner. Returns a new instanceId.
-
-```http
-/services/{serviceId}/instances
-```
-
-Filter instances for an instance owner
-
-``` http
-/services/{serviceId}/instances?instanceOwner={instanceOwnerId}&[since="2018-07-01"]
-```
-
-Put to update a specific instance. Get to get instance metadata
-
-```http
-/services/{serviceId}/instances/{instanceId}
-```
-
-Post/put to upload/update form data
-
-```http
-/services/{serviceId}/instances/{instanceId}/forms/{formId}
-```
+Resources: App, Application, Instance
 
 Put/post to change workflow step
 
 ```http
-/services/{serviceId}/instances/{instanceId}/workflow/{stepId}
+/instances/{instanceId}/workflow/{stepId}
 ```
 
 Get receipt
 
 ```http
-/services/{serviceId}/instances/{instanceId}/receipt
+/instances/{instanceId}/receipt
 ```
 
 Get validate model
 
 ```http
-/services/{serviceId}/instances/{instanceId}/forms/{formId}/validate
+/instances/{instanceId}/forms/{formId}/validate
 ```
 
-Get metadata about a specific service
+Get metadata about a specific application
 
 ```http
-/services/{serviceId}
+/applications/{applicationId}
 ```
 
-Get schema for a specific form in the service 
+Get schema for a specific form in the application 
 
 ```http
-/services/{serviceId}/schemas/{schemaId}
+/applications/{applicationId}/forms/{formId}
 ```
 
-Get texts for a specific form in the service 
+Get texts for a specific form in the application 
 
 ```http
-/services/{serviceId}/texts
+/texts
 ```
