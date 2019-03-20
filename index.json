@@ -795,7 +795,7 @@
 	"title": "Altinn Studio",
 	"tags": [],
 	"description": "Documentation for Altinn Studio.",
-	"content": "docs\r Altinn Studio is the next generation Altinn service development solution. All you need to test our early preview is to register an account.\n This is the documentation for Altinn Studio, Altinn Apps and Altinn Platform. You can also find our open backlog and milestones on GitHub. Everybody can create bugs, request features or just give feedback or ask questions.  "
+	"content": "docs\r Altinn Studio is the next generation Altinn application development solution. All you need for testing the preview is to register an account.\n This is the documentation for Altinn Studio, Altinn Apps and Altinn Platform. Altinn Studio have an open backlog on GitHub and the code is open source. Everybody can create bugs, request features or ask questions.  "
 },
 {
 	"uri": "https://docs.altinn.studio/development/analysis/",
