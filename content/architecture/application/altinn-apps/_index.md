@@ -12,7 +12,7 @@ NOTE: Work in progress. Stuff will change
 The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn Studio and deployed in Altinn Apps.
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/altinnapps_applicationarchitecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;";></object>
+<object data="/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 [See fullscreen] or [download as visio]
@@ -78,7 +78,7 @@ with frontend/external systems.
 
 All logic in the service will typical be related to the datamodel.
 
-[download as visio]: /architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.vsdx
-[See fullscreen]: /architecture/application/altinn-apps/AltinnApps_ApplicationArchitecture.svg
+[download as visio]: /architecture/application/altinn-apps/altinnapps_application_architecture.vsdx
+[See fullscreen]: /architecture/application/altinn-apps/altinnapps_application_architecture.svg
 
 
