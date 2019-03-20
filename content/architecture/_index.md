@@ -25,11 +25,10 @@ Guideline: The architecture should follow cloud native principles
 
 Result 
 
-* Containers
-* Isolations
-* Microservices
-* APIs
-* Independent of operating system
+* Containers - Isolation (resources, framework)
+* Microservice architecture - Upgrade components seperate. 
+* APIs - Reuse
+* Independent of operating system - 
 
 ## Architectural overview
 The figure below shows the relation between the different types of architecture defined.
