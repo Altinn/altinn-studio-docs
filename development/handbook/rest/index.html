@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Guidelines for designing REST apis for microservices in altinn">
+    <meta name="description" content="Guidelines for designing REST apis for microservices in Altinn">
 
 
     
@@ -4743,11 +4743,12 @@ if(host != "localhost")
 <ul>
 <li><a href="#rest">REST</a></li>
 <li><a href="#resources">Resources</a></li>
-<li><a href="#platform-service">Platform service</a>
+<li><a href="#platform-storage">Platform Storage</a>
 <ul>
-<li><a href="#instance-service-instance">Instance (Service instance)</a></li>
-<li><a href="#serviceowner">ServiceOwner</a></li>
-<li><a href="#service-metadata">Service (metadata)</a></li>
+<li><a href="#instance-application-instance">Instance (Application instance)</a></li>
+<li><a href="#data-service">Data service</a></li>
+<li><a href="#applicationowner">ApplicationOwner</a></li>
+<li><a href="#application-metadata">Application (metadata)</a></li>
 </ul></li>
 <li><a href="#altinn-studio">Altinn-studio</a></li>
 <li><a href="#app-services-runtime">App services (runtime)</a></li>
@@ -4805,21 +4806,22 @@ We will define services according to <a href="https://restfulapi.net/rest-archit
 
 <h4 id="resources">Resources</h4>
 
-<p>A resources is a thing that the service knows about. A resource in a system should have only one logical URI and that should provide a way to fetch
-related or additional data.</p>
+<p>A resources is a thing that the client and server knows about.
+The API provides methods to ifind, create, update or delete a resource object.
+A resource in a system should have only one logical URI, which should provide a way to fetch related or additional data about the resource.</p>
 
-<h4 id="platform-service">Platform service</h4>
+<h4 id="platform-storage">Platform Storage</h4>
 
-<p>Data service to store data for apps, metadata for production services</p>
+<p>Data service to store instance data for applications, and metadata about applications</p>
 
-<p>Resources: Instance, Service,  ServiceOwner, Schema, Model</p>
+<p>Resources: Instance, Application,  ApplicationOwner, InstanceOwner, Schema</p>
 
-<h5 id="instance-service-instance">Instance (Service instance)</h5>
+<h5 id="instance-application-instance">Instance (Application instance)</h5>
 
-<p>An service instance is created when a instance onwer starts a workflow in an Altinn application.
+<p>An application instance is created when a instance onwer starts a workflow in an Altinn application.
 An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
-An applicationId refers to the application information which defines the metadata about the service.</p>
+An applicationId refers to the application information element which defines the metadata about the application.</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
@@ -4871,29 +4873,24 @@ An applicationId refers to the application information which defines the metadat
 }
 </code></pre>
 
-<p>Create a new instance. Post with params that identifies the service. ServiceOwnerId is transmitted as a part of the token.</p>
+<p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
 
-<pre><code class="language-http">/instances?serviceId=KNS/sailor
+<pre><code class="language-http">/instances?applicationId=KNS/sailor&amp;instanceOwnerId=1024
 </code></pre>
 
-<p>Get information about an instance.</p>
+<p>Get information about one instance.</p>
 
 <pre><code class="language-http">/instances/{instanceId}
 </code></pre>
 
-<p>Get all instances that a instance owner has completed</p>
+<p>Get (query) all instances that is instance owner has</p>
 
-<pre><code class="language-http">/instances[?services={serviceId}][&amp;reporter={instanceOwnerId}][&amp;completed=true][&amp;since=2017-01-01]
+<pre><code class="language-http">/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
 </code></pre>
 
-<p>Get a specific data element</p>
+<p>Get (query) all instances of a particular application that is completed</p>
 
-<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
-</code></pre>
-
-<p>Post/put/delete a specific data element</p>
-
-<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
+<pre><code class="language-http">/instances?applicationId={applicationId}&amp;completed=true
 </code></pre>
 
 <p>Delete a specific instance (also deletes its data).</p>
@@ -4901,21 +4898,39 @@ An applicationId refers to the application information which defines the metadat
 <pre><code class="language-http">/instances/{instanceId}
 </code></pre>
 
-<h5 id="serviceowner">ServiceOwner</h5>
+<h5 id="data-service">Data service</h5>
 
-<p>Get metadata about a service owner</p>
+<p>A data element is a file that contains a specific form element of an instance.
+It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
+The application metadata restricts the types of form elements that are allowed {formId}.</p>
 
-<pre><code class="language-http">/serviceowners/{serviceOwnerId}
+<p>Get a specific data element</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data/{formId}/{dataId}
 </code></pre>
 
-<p>Get all services of a spesific service owner</p>
+<p>Post to create a specific data element. Content a file (as MultipartContent).
+After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
+that is used to identify the specific data element</p>
 
-<pre><code class="language-http">/serviceowners/{serviceOwnerId}/services
+<pre><code class="language-http">/instances/{instanceId}/data/{formId}
 </code></pre>
 
-<h5 id="service-metadata">Service (metadata)</h5>
+<p>Put to replace a specific data element. Delete to remove data element.</p>
 
-<p>Resource: <a href="http://platform.altinn.no/service/sailor">http://platform.altinn.no/service/sailor</a></p>
+<pre><code class="language-http">/instances/{instanceId}/data/{formId}/{dataId}
+</code></pre>
+
+<h5 id="applicationowner">ApplicationOwner</h5>
+
+<p>Get metadata about an application owner</p>
+
+<pre><code class="language-http">/owners/{applicationOwnerId}
+</code></pre>
+
+<h5 id="application-metadata">Application (metadata)</h5>
+
+<p>Resource: <a href="http://platform.altinn.no/applications/KNS/sailor">http://platform.altinn.no/applications/KNS/sailor</a></p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;KNS/sailor&quot;,
@@ -4923,7 +4938,7 @@ An applicationId refers to the application information which defines the metadat
     &quot;createdBy&quot;: &quot;XXX&quot;,
     &quot;title&quot;: &quot;Færder påmelding&quot;,
     &quot;type&quot;: &quot;innsending&quot;,
-    &quot;serviceOwnerId&quot;: &quot;KNS&quot;,
+    &quot;applicationOwnerId&quot;: &quot;KNS&quot;,
     &quot;workflowId&quot;: &quot;standard&quot;,
     &quot;isDeleted&quot;: false,
     &quot;isArchived&quot;: false,
@@ -4937,7 +4952,7 @@ An applicationId refers to the application information which defines the metadat
             &quot;createdBy&quot;: &quot;M2&quot;,
             &quot;signatureRequired&quot;: true,
             &quot;shouldEncryptData&quot;: true
-        }, 
+        },
         &quot;crewlist&quot;: {
             &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
             &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;,
@@ -4950,19 +4965,19 @@ An applicationId refers to the application information which defines the metadat
 }
 </code></pre>
 
-<p>Get a list of all services</p>
+<p>Get a list of all Applications</p>
 
-<pre><code class="language-http">/services
+<pre><code class="language-http">/applications
 </code></pre>
 
-<p>Get metadata about a specific service</p>
+<p>Get metadata about a specific application</p>
 
-<pre><code class="language-http">/services/{serviceId}
+<pre><code class="language-http">/applications/{applicationId}
 </code></pre>
 
-<p>Get the schema of a specific form element in a service</p>
+<p>Get the schema of a specific form element in an application</p>
 
-<pre><code class="language-http">/services/{serviceId}/forms/{dataId}?format=jsonSchema
+<pre><code class="language-http">/applications/{applicationId}/forms/{dataId}?format=jsonSchema
 </code></pre>
 
 <h4 id="altinn-studio">Altinn-studio</h4>
@@ -4973,68 +4988,43 @@ An applicationId refers to the application information which defines the metadat
 
 <h4 id="app-services-runtime">App services (runtime)</h4>
 
-<p>tb changed</p>
+<p>TBD&hellip;</p>
 
-<p>One cluster per service owner. A service owner can have many apps.</p>
+<p>One cluster per application owner. An application owner can have many apps.</p>
 
-<pre><code class="language-http">https://{serviceownerNick}.apps.altinn.no
+<pre><code class="language-http">https://{applicationOwnerNick}.apps.altinn.no
 </code></pre>
 
-<p>Resources: App, Service, Instance</p>
-
-<p>Get list of available services.</p>
-
-<pre><code class="language-http">/services
-</code></pre>
-
-<p>Post to create an instance for a specific instanceOwner. Returns a new instanceId.</p>
-
-<pre><code class="language-http">/services/{serviceId}/instances
-</code></pre>
-
-<p>Filter instances for an instance owner</p>
-
-<pre><code class="language-http">/services/{serviceId}/instances?instanceOwner={instanceOwnerId}&amp;[since=&quot;2018-07-01&quot;]
-</code></pre>
-
-<p>Put to update a specific instance. Get to get instance metadata</p>
-
-<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}
-</code></pre>
-
-<p>Post/put to upload/update form data</p>
-
-<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/forms/{formId}
-</code></pre>
+<p>Resources: App, Application, Instance</p>
 
 <p>Put/post to change workflow step</p>
 
-<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/workflow/{stepId}
+<pre><code class="language-http">/instances/{instanceId}/workflow/{stepId}
 </code></pre>
 
 <p>Get receipt</p>
 
-<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/receipt
+<pre><code class="language-http">/instances/{instanceId}/receipt
 </code></pre>
 
 <p>Get validate model</p>
 
-<pre><code class="language-http">/services/{serviceId}/instances/{instanceId}/forms/{formId}/validate
+<pre><code class="language-http">/instances/{instanceId}/forms/{formId}/validate
 </code></pre>
 
-<p>Get metadata about a specific service</p>
+<p>Get metadata about a specific application</p>
 
-<pre><code class="language-http">/services/{serviceId}
+<pre><code class="language-http">/applications/{applicationId}
 </code></pre>
 
-<p>Get schema for a specific form in the service</p>
+<p>Get schema for a specific form in the application</p>
 
-<pre><code class="language-http">/services/{serviceId}/schemas/{schemaId}
+<pre><code class="language-http">/applications/{applicationId}/forms/{formId}
 </code></pre>
 
-<p>Get texts for a specific form in the service</p>
+<p>Get texts for a specific form in the application</p>
 
-<pre><code class="language-http">/services/{serviceId}/texts
+<pre><code class="language-http">/texts
 </code></pre>
 
 
