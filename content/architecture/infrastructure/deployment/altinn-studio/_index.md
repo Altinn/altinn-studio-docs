@@ -13,7 +13,7 @@ The Altinn Studio Service Development solution is deployed to a Kubernetes Clust
 diagram below show the different applications that is part this.
 
 {{%excerpt%}}
-<object data="/architecture/deployment/altinn-studio/altinnstudio_deployment_architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/infrastructure/deployment/altinn-studio/altinnstudio_deployment_architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 ### Repository
