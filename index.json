@@ -165,7 +165,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nArchitecture Goals \u0026amp; Guidelines The following guidlines and goals have been important to define the architecture.\nFree and open-source software Guideline: Frameworks and applications used in Altinn Studio will need to be Open Source.\nResult: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.\nWeb Standards \u0026amp; Modern frameworks Guideline: Use Web Standards and modern frameworks\nResult: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.\nIsolated Guideline: Apps should be isolated from eachother\nResult: Apps will not affect other apps\nCloud Native Guideline: The architecture should follow cloud native principles\nResult: - Containers - Microservices - APIs - Independent of operating system\nArchitectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\r\rBuild process\r\rAltinn Studio Build Processes\n\r\r\rInfrastructure\r\rDescription of the Altinn Studio infrastructure\n\r\rDeployment\r\rDescription of the Altinn Studio solution\n\rAltinn CDN\r\rDescription of Altinn Content Delivery Network\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution architecture\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nArchitecture Goals \u0026amp; Guidelines The following guidlines and goals have been important to define the architecture.\nFree and open-source software Guideline: Frameworks and applications used in Altinn Studio will need to be Open Source.\nResult: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.\nWeb Standards \u0026amp; Modern frameworks Guideline: Use Web Standards and modern frameworks\nResult: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.\nIsolated Guideline: Apps should be isolated from eachother\nResult: Apps will not affect other apps\nCloud Native Guideline: The architecture should follow cloud native principles\nResult: - Containers - Microservices - APIs - Independent of operating system\nArchitectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rInfrastructure\r\rDescription of the Altinn Studio infrastructure\n\r\rDeployment\r\rDescription of the Altinn Studio solution\n\rAltinn CDN\r\rDescription of Altinn Content Delivery Network\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rDevelopment\r\r\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution architecture\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authentication/",
@@ -231,7 +231,7 @@
 	"content": "TODO\n"
 },
 {
-	"uri": "https://docs.altinn.studio/architecture/build/",
+	"uri": "https://docs.altinn.studio/architecture/development/build/",
 	"title": "Build process",
 	"tags": ["ci", "build", "devops", "pipeline", "pipelines"],
 	"description": "Altinn Studio Build Processes",
@@ -831,6 +831,13 @@
 	"tags": ["studio", "data-modeling"],
 	"description": "Defining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.",
 	"content": "The data model for a service typical defines the format of the data either sent to the service owner or presented in the service for the user. The data model is important for a consistent and formal definition of the data. It will be used for validation both from GUI and for external systems.\nAltinn Studio will support both importing existing data model as XSD or creating a datamodell. In MVP only import is in scope.\nSome requirements for Altinn Studio is:\n It should be easy to model data Built in replacment for SERES (Current tool) Need to support more formats.  See all issues related to Altinn Studio and data modeling on Github.\n  Editor for enkel datamodellering   "
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/development/",
+	"title": "Development",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/technology/docker/",
