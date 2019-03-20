@@ -5111,7 +5111,7 @@ b. For conditional rendering, first select the action (hide/show) that will trig
   },
 
   sjekkVirksomhetIkkeIDrift: (obj) =&gt; {
-    return (obj.value &amp;&amp; obj.value === &quot;Nei&quot;);
+    return (!obj.value || obj.value != &quot;Ja&quot;);
   }
 }
 
