@@ -28,7 +28,7 @@ Result
 * Containers - Isolation (resources, framework)
 * Microservice architecture - Upgrade components seperate. 
 * APIs - Reuse
-* Independent of operating system - 
+* Independent of operating system - Can develop and run on any platform
 
 ## Architectural overview
 The figure below shows the relation between the different types of architecture defined.
