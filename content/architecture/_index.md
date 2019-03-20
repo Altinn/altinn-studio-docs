@@ -29,10 +29,10 @@ Result: Apps will not affect other apps
 Guideline: The architecture should follow cloud native principles
 
 Result: 
-- Containers
-- Microservices
-- APIs
-- Independent of operating system
+* Containers
+* Microservices
+* APIs
+* Independent of operating system
 
 ## Architectural overview
 The figure below shows the relation between the different types of architecture defined.
