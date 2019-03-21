@@ -57,7 +57,6 @@ It's not planned to use namespaces.
 
 Each Altinn App will be a Kubernetes Service.
 
-
 ### Networking
 
 #### Sub domains
@@ -129,8 +128,6 @@ Triggered by:
 A manual deployment of the Altinn App requires access to you Kubernetes Cluster and knowledge about Helm.
 
 If you want to configure the Helm chart and do a manual deployment you can find the Helm chart in your repo in the "deployment" folder.
-
-
 
 ## Platform Cluster
 
