@@ -18,12 +18,12 @@ The following diagram shows the deployment architecture for Altinn Studio togeth
 
 [See fullscreen] or [download as visio]
 
-## Kubernetes
+## Container Orchestration by Kubernetes
+
 Each ["App"]({{< ref "/about/wordlist" >}}) created in Altinn Studio is deployed
 to Altinn Apps as separate applications running in Docker Containers.
 The containers will be orchestrated by Kubernetes.
 
-### Deployment
 The Altinn App is deployed as sets of Docker Containers defined as Kubernetes Deployment.
 The deployment will be in the organisation's own Kubernetes Cluster.
 
@@ -36,10 +36,10 @@ Scaling of the Deployment will be configurable in the Kubernetes Deployment and 
 > Kubernetes Clusters and Altinn Apps can do horizontal autoscaling.
 > It is currently not decided if and how autoscaling will be used.
 
-The Altinn App in Kubernetes will be configured as a Kubernetes Service which consist of the runtime application
-and the Altinn App with related code and configuration.
+The Altinn App in Kubernetes will be configured as a Kubernetes Service which consist of the latest runtime application
+available when building the Altinn App and the Altinn App with related code and configuration.
 
-## Organisation Clusters for Altinn Apps
+## Kubernetes Clusters per Organisation
 
 In Altinn Apps, every organisation will have their separate Kubernetes Cluster in each environment.
 The Kubernetes Cluster architecture will be the same in test and production environment
@@ -57,66 +57,47 @@ It's not planned to use namespaces.
 
 Each Altinn App will be a Kubernetes Service.
 
-### Routing
 
-Routing in Kubernetes is handled by an Ingress-Controller.
+### Networking
 
-To be able to route traffic to the correct Kubernetes Service (Altinn App), each container is tagged to a specific
-Altinn App. The routing mecahnism routes to the correct Kubernetes Service based on the url
-containing the Altinn App parameter.
-
-## Data services
-
-The data services application is the application responsible exposing data related functionality
-to the Altinn App. This container will be scaled based on need.
-
-## Platform Cluster
-
-The platform cluster in Altinn Studio Apps will host common application like DataServices.
-
-### Platform integration
-
-The platform integration is a new application hosted in the existing infrastructure.
-It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication.
-These are services not part of the Altinn Platform (yet) and
-everyone planning to run the Altinn Platform would need to implement their own components that support. (?)
-
-## Networking
-
-### Sub domains
+#### Sub domains
 
 Each organisation will have their own sub domain.
 
 > org.apps.altinn.no
 
-### Path for the Altinn App
+#### Path for the Altinn App
 
 > org.apps.altinn.no/appname
 
-### Encrypted traffic and network policy
+#### Encrypted traffic and network policy
 
 There is ongoing analysis related to this topic. [Click here to find more information on Github](https://github.com/Altinn/altinn-studio/issues/1000).
 
-### Ingress-Controller
+#### Routing / Ingress-Controller
 
-Traefik will be used as an Ingress-Controller.
+Routing in Kubernetes is handled by an Ingress-Controller called Traefik.
 
-### API Proxy
+To be able to route traffic to the correct Kubernetes Service (Altinn App), each container is tagged to a specific
+Altinn App. The routing mecahnism routes to the correct Kubernetes Service based on the url
+containing the Altinn App parameter.
+
+#### API Proxy
 
 API Proxy is needed for controlling credentials and outbound firewall rules from the platform. 
 This might be handled by the API Managment software. Needs Analyzis
 
-### API Management
+#### API Management
 
 The platform requires API management software to handle SLA ++. Needs Analyzis
 
-## Altinn App build and deploy process
+### Altinn App build and deploy process
 
 {{<figure src="ServiceRuntime.svg?width=1000" title="Service Runtime docker image bundling process.">}}
 
 Building the Altinn App with "app specific" files from Gitea, creating a "App Image", deploying to Azure Container Registry and telling Kubernetes to deploy app.
 
-### Build process (Pipeline)
+#### Build process (Pipeline)
 
 > This process har more details in the Dockerfile. This is a summary.
 
@@ -148,6 +129,24 @@ Triggered by:
 A manual deployment of the Altinn App requires access to you Kubernetes Cluster and knowledge about Helm.
 
 If you want to configure the Helm chart and do a manual deployment you can find the Helm chart in your repo in the "deployment" folder.
+
+
+
+## Platform Cluster
+
+The platform cluster in Altinn Studio Apps will host common application like DataServices.
+
+### Platform integration
+
+The platform integration is a new application hosted in the existing infrastructure.
+It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication.
+These are services not part of the Altinn Platform (yet) and
+everyone planning to run the Altinn Platform would need to implement their own components that support. (?)
+
+### Data services
+
+The data services application is the application responsible exposing data related functionality
+to the Altinn App. This container will be scaled based on need.
 
 [download as visio]: /architecture/infrastructure/deployment/altinn-apps/altinnapps_deploymentarchitecture.vsdx
 [See fullscreen]: /architecture/infrastructure/deployment/altinn-apps/altinnapps_deploymentarchitecture.svg
