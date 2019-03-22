@@ -3469,6 +3469,114 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/handbook/front-end/best-practices/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/best-practices/">
+        <span>Best practices</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/build/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/build/">
+        <span>Build</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/component-library/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/component-library/">
+        <span>Component Library</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/debug/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/debug/">
+        <span>Debug</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/front-end/error-handling/" class="dd-item 
         
         
@@ -3674,6 +3782,33 @@ if(host != "localhost")
         ">
       <a href="/development/handbook/git/">
         <span>Git</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/gitea/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/gitea/">
+        <span>Gitea</span>
 
         
         
@@ -3907,6 +4042,33 @@ if(host != "localhost")
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/troubleshooting/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/troubleshooting/">
+        <span>Troubleshooting</span>
+
+        
+        
+
+        
+      </a>
               
     </li>
   
@@ -4733,11 +4895,193 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/development/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 3</span>
+	<span class="page-number">Page 3 on 4</span>
+	
+	    <a class="older-posts" href="/tags/development/page/4/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/postmessage/">Post Message</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Window.postMessage() is introduced to handle communication between components that has no connection other then the need to communicate/trigger events. Eg. its used to communicate with the syncBar to get it to perform a new status check. To read more see: Window.postMessage
+Usage Dispatching a message event is done the following way:
+// variables should be used for messages var SAVED_EVENT = 'SAVED' window.postMessage(SAVED_EVENT, window.location.href);  Catching the event is done by adding an event listener to the component one needs to communicate with: <a class="read-more" href="/development/handbook/front-end/postmessage/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/post/">post</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/post-message/">post message</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/rest/">RESTful APIs (Representation State Transfer)</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>This page is work-in-progress. This is a proposed api which most likely is going to change.
+REST REST is an architectural style for designing loosely coupled applications over HTTP which was coined by Rob Fielding in 2000. We will define services according to REST.
+All REST APIs should be versioned.
+/api/v1/resource  Resources A resources is a thing that the client and server knows about. The API provides methods to ifind, create, update or delete a resource object. <a class="read-more" href="/development/handbook/rest/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/back-end/">back-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/rest/">rest</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/api/">api</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/react/">React</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>React React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.
+React Components lifecycle There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:
+Mounting  constructor() static getDerivedStateFromProps() render() componentDidMount()  Updating  static getDerivedStateFromProps() shouldComponentUpdate() render() getSnapshotBeforeUpdate() componentDidUpdate()  Unmounting  componentWillUnmount()  Error handling  static getDerivedStateFromError() componentDidCatch()  Other React component APIs and properties APIs  setState() forceUpdate()  Class Properties  defaultProps displayName  Instance Properties  props state  Adding a new react-app to altinn. <a class="read-more" href="/development/handbook/front-end/react/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/react/">react</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/redux/">Redux</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Redux is used to manage the states of the ux-editor.
+Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:
+export interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/development/handbook/front-end/redux/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/redux/">redux</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/styling/">Styling (css)</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Summary Styling in React is done per component using a combination of Material-UI and compatible JSS.
+ Components shall not be styled with CSS classes in .CSS files.
+ Different component types should use different styling methods, or a combination.
+Proposed order of styling methods The following order is proposed when considering styling methods:
+ Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/development/handbook/front-end/styling/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/css/">css</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/material-ui/">material-ui</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/styled-components/">styled components</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/jss/">jss</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/css-in-js/">css-in-js</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post development">
@@ -4836,6 +5180,36 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 	
 	   <article class="post development">
     <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/troubleshooting/">Troubleshooting</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> Troubleshooting Altinn.studio is under heavy development and errors are most likely to come with it.
+If the error is not covered here, please submit a bug
+ Check out Flight Rules for Altinn.studio
+ Check out Known Issues   <a class="read-more" href="/development/handbook/troubleshooting/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/troubleshooting/">troubleshooting</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
         <h2 class="post-title"><a href="/development/handbook/test/unit-testing/">Unit testing</a></h2>
     </header>
     <section class="post-excerpt">
@@ -4876,35 +5250,6 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 
 
 	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/test/xunit-testing/">Xunit Testing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Find code on xunit tests here <a class="read-more" href="/development/handbook/test/xunit-testing/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/test/">test</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -4912,7 +5257,9 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 	
 	    <a class="newer-posts" href="/tags/development/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 3</span>
+	<span class="page-number">Page 3 on 4</span>
+	
+	    <a class="older-posts" href="/tags/development/page/4/">Next Pages &rarr;</a>
 	
 </nav>
 
@@ -6848,6 +7195,70 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -6957,6 +7368,22 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 
                     
                     
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                         
                     
                     
@@ -7025,6 +7452,22 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         

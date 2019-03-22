@@ -231,6 +231,20 @@
 	"content": "TODO\n"
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/front-end/best-practices/",
+	"title": "Best practices",
+	"tags": ["development", "frontend", "best practices"],
+	"description": "Best practices for altinn.studio frontend",
+	"content": " Altinn.studio best practices will be updated with more and better practices ;)\n\rBest practices  Simple lists should be sorted alphabetically  "
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/front-end/build/",
+	"title": "Build",
+	"tags": ["development", "frontend", "build"],
+	"description": "Build documentation for altinn.studio frontend",
+	"content": " Building of react apps in altinn.studio The building of react apps are done in dockerfiles which then again are used in the build of altinn-core docker-image.\nApps are compiled and copied.\nAdding new packages to react-applications Adding of a new package in an app is done with lerna in the lerna-folder (/src/react-apps/). Command syntax for this will be:\nlerna add [package-name] --scope=[app-name] --exact\nIf you are going to add react to a new app called Foo:\nlerna add react --scope=Foo --exact\n"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/development/build/",
 	"title": "Build process",
 	"tags": ["ci", "build", "devops", "pipeline", "pipelines"],
@@ -245,6 +259,13 @@
 	"content": " Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.\n\rOverordnet \u0026lsquo;CalculationHandler.cs\u0026rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør kalkuleringer.\nFormat Standard C# kode som kan gjøre bortimot alt.\nUavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.\nUtvikling Under opprettelse av en tjeneste vil en tom CalculationHandler opprettes.\nHypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code\n"
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/front-end/component-library/",
+	"title": "Component Library",
+	"tags": ["development", "component library"],
+	"description": "Component documentation for altinn.studio",
+	"content": " WARNING: Component library will be documented when the task is done.\n\rComponent library To be continued\u0026hellip;\n"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-platform/contexthandler/",
 	"title": "Context Handler",
 	"tags": ["architecture", "security"],
@@ -257,6 +278,13 @@
 	"tags": ["guide", "external-api"],
 	"description": "Information on how to create a new apps",
 	"content": " Create a new app Altinn Studio is used to create applications (apps). An app can be everything from simple forms to full-blown applications with both APIs and UX, and everything in between.\nA new app is created from the dashboard.\n  Dashboard - overview    Click on the \u0026ldquo;ny tjeneste\u0026rdquo; button in the top right corner of the dashboard. Select the organization to create the app for Enter the display name for the app  This is the name that will be shown to the end user, and can be changed later  The identifier name of the app will automatically be populated based on the display name. This can not be changed once the service has been created. This name is only used to identify the service in the solution. The identifier must start with a letter, and can only contain alphanumeric characters or underscore. Create the app by clicking \u0026ldquo;Opprett\u0026rdquo;    Dashboard - create a new service   Once the app is created you will be redirected to the newly created app.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/front-end/debug/",
+	"title": "Debug",
+	"tags": ["development", "frontend", "debug"],
+	"description": "Debug documentation for altinn.studio frontend",
+	"content": " Debugging Google Chrome has many debugging tools, but most used in altinn.studio is breakpoints in the react-code.\nThis allows for code to run, and pause at the desired codeline, so the developer can then inspect different values that is present when the desired code is ran.\nDebugging tools  Google Chrome React Devtools Google Chrome Redux Devtools  "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/infrastructure/deployment/",
@@ -319,7 +347,7 @@
 	"title": "Front-end",
 	"tags": ["development", "handbook", "front-end"],
 	"description": "Coding guidelines for front-end",
-	"content": " Coding guidelines for front-end \rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r"
+	"content": " Coding guidelines for front-end \rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/functional/",
@@ -357,6 +385,13 @@
 	"content": "   let content = document.getElementById('contributionContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/CONTRIBUTING.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, \"text/html\"); content.innerHTML = doc.getElementById('readme').innerHTML; });  "
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/gitea/",
+	"title": "Gitea",
+	"tags": ["development", "gitea"],
+	"description": "Gitea documentation for altinn.studio",
+	"content": " Gitea Gitea is used in altinn.studio as version control of the services developed in altinn.studio.\nLinks  Gitea docs  "
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/infrastructure/",
 	"title": "Infrastructure",
 	"tags": ["infrastructure", "architecture", "studio", "apps", "platform"],
@@ -382,7 +417,7 @@
 	"title": "Naming Conventions",
 	"tags": ["development", "handbook", "naming"],
 	"description": "Naming guidelines for Altinn Studio development",
-	"content": " C# The Altinn project will use Microsoft’s coding conventions as a general guideline when no other guidelines are given.\nExceptions/additions to the general guideline:\nImplicit typing (var) should only be used when a variable is initialized with an anonymous type, which is a common scenario in LINQ query expressions. In general implicit typing makes the code more difficult to read and understand,and should be avoided. Altinn specific coding guidelines:\nMethods should not be more than 50 lines long When dealing with XML you should prefer XDocument to XmlDocument (especially in new methods) If/for/while/using and other structures should normally not be more than 2-3 levels deep All disposeable objects (proxies, DbCommand and so on) should be disposed by using a using block. Altinn specific naming guidelines:\nNames for classes, methods and variables should be describing, but not too long WCF-Artifact Naming TUL Naming Standard Namespace \u0026amp; Solution Structure\nReact TODO\nRedux Actions TODO\nSagas TODO\nReducers TODO\n"
+	"content": " C# The Altinn project will use Microsoft’s coding conventions as a general guideline when no other guidelines are given.\nExceptions/additions to the general guideline:\nImplicit typing (var) should only be used when a variable is initialized with an anonymous type, which is a common scenario in LINQ query expressions. In general implicit typing makes the code more difficult to read and understand,and should be avoided. Altinn specific coding guidelines:\nMethods should not be more than 50 lines long When dealing with XML you should prefer XDocument to XmlDocument (especially in new methods) If/for/while/using and other structures should normally not be more than 2-3 levels deep All disposeable objects (proxies, DbCommand and so on) should be disposed by using a using block. Altinn specific naming guidelines:\nNames for classes, methods and variables should be describing, but not too long WCF-Artifact Naming TUL Naming Standard Namespace \u0026amp; Solution Structure\nReact Names of react-components should be descriptive and in pascal case\nActions Names of actions should be descriptive and in camel case.\nAn action should have the initial action, for instance fetchFormLayout, and an action if it succeeds and if it fails. For instance fetchFormLayoutFulfilled(succeed) and fetchFormLayoutRejected(failed).\nSagas Names of sagas should have the name of the action it listens to, and the word Saga appended to the end. For instance fetchFormLayoutSaga.\nAnd for saga-watchers, should have the watch-word appended to the start, and the saga name it watches. For instance watchFetchFormLayoutSaga.\nReducers Names of reducers should have a descriptive name of that it is responsible for updating in the redux-store, and the word Reducer appended to the end. For instace formLayoutReducer.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pap/",
@@ -572,6 +607,13 @@
 	"tags": ["development", "handbook", "test", "testcafe"],
 	"description": "Testcafe",
 	"content": "Code for Testcafe tests in altinn.studio\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/troubleshooting/",
+	"title": "Troubleshooting",
+	"tags": ["development", "troubleshooting"],
+	"description": "Troubleshooting for altinn.studio",
+	"content": " Troubleshooting Altinn.studio is under heavy development and errors are most likely to come with it.\nIf the error is not covered here, please submit a bug\n\r Check out Flight Rules for Altinn.studio\n Check out Known Issues  "
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/test/unit-testing/",
@@ -893,7 +935,7 @@
 	"title": "Handbook",
 	"tags": ["development", "handbook"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\r"
+	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rGitea\r\rGitea documentation for altinn.studio\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\rTroubleshooting\r\rTroubleshooting for altinn.studio\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/helm/",
@@ -928,7 +970,7 @@
 	"title": "Kubernetes",
 	"tags": ["tech", "containers"],
 	"description": "Kubernetes is used to manage the docker containers.",
-	"content": " Both Altinn Studio and Altinn Studio Apps consists of many different applications running in docker containers. For the Altinn Studio Apps solution this could possible over time be many thousands containers running different end user services.\nKubernetes is used to manage the containers.\nKubernetes definitions Pods Pods are the building blocks of kubernetes. They will crash, be deleted and started up again. But they will never be restored. After they either crash or get deleted, they will ble replaced with a new pod, with it\u0026rsquo;s own configuration of IP adresses.\nDeployments Deployments are controllers for pods, they declare different properties a pod should have, and how many replicas of the pod should be running.\nProperties a pod can have is:\n Environment variables and values Image and image-tag What names the pods should have (they will inherrit the name from the deployment and then a ID that makes the unique) Volume mounts, if they are from secrets or persistent volume claims  Secrets A secret is one or more key-value pairs that is stored on in the cluster and can be access from within the cluster.\nSecrets are base64 encrypted so it is possible to store binary files as secrets aswell.\nServices Services are an abstraction of a set of pods and how to access them. There are various methods of exposing a pod, here are the different types of services:\n ClusterIP (Internal) - Default service definition NodePort (External) - Exposes the nodes static ip LoadBalancer (External) - Exposes the service through a cloud-providers loadbalancer ip ExternalName (External) - Exposes the service through a cloud-providers loadbalancer ip with a CNAME entry  Persistent Volumes Persistent volumes, as the name suggests it is used to manage persistant storage volumes. In altinn.studio we use persistant volume claims,\nand since we\u0026rsquo;re using a Azure managaged kubernetes cluster, azure sets up virtual disks in the kubernetes cluster resource group.\nNamespaces Namespaces are intended for use in environments with multiple users spread across multiple teams or project.\nNamespaces provide a scope for names.\nNode A node is either a physical machine or a virtual one. They are used as workers for hosting different kubernetes resources.\nCluster A cluster is a set of virtual machines with various hardware setup.\nLinks  https://kubernetes.io https://github.com/kubernetes/kubernetes  "
+	"content": " Both Altinn Studio and Altinn Studio Apps consists of many different applications running in docker containers. For the Altinn Studio Apps solution this could possible over time be many thousands containers running different end user services.\nKubernetes is used to manage the containers.\nKubernetes definitions Pods Pods are the building blocks of kubernetes. They will crash, be deleted and started up again. But they will never be restored. After they either crash or get deleted, they will ble replaced with a new pod, with it\u0026rsquo;s own configuration of IP adresses.\nDeployments Deployments are controllers for pods, they declare different properties a pod should have, and how many replicas of the pod should be running.\nProperties a pod can have is:\n Environment variables and values Image and image-tag What names the pods should have (they will inherrit the name from the deployment and then a ID that makes the unique) Volume mounts, if they are from secrets or persistent volume claims  Secrets A secret is one or more key-value pairs that is stored on in the cluster and can be access from within the cluster.\nSecrets are base64 encrypted so it is possible to store binary files as secrets aswell.\nServices Services are an abstraction of a set of pods and how to access them. There are various methods of exposing a pod, here are the different types of services:\n ClusterIP (Internal) - Default service definition NodePort (External) - Exposes the nodes static ip LoadBalancer (External) - Exposes the service through a cloud-providers loadbalancer ip ExternalName (External) - Exposes the service through a cloud-providers loadbalancer ip with a CNAME entry  Persistent Volumes Persistent volumes, as the name suggests it is used to manage persistent storage volumes. In altinn.studio we use persistent volume claims,\nand since we\u0026rsquo;re using a Azure managaged kubernetes cluster, azure sets up virtual disks in the kubernetes cluster resource group.\nNamespaces Namespaces are intended for use in environments with multiple users spread across multiple teams or project.\nNamespaces provide a scope for names.\nNode A node is either a physical machine or a virtual one. They are used as workers for hosting different kubernetes resources.\nCluster A cluster is a set of virtual machines with various hardware setup.\nLinks  https://kubernetes.io https://github.com/kubernetes/kubernetes  "
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/logic/",
@@ -1169,6 +1211,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/best-practices/",
+	"title": "best practices",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/bpmn/",
 	"title": "bpmn",
 	"tags": [],
@@ -1218,6 +1267,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/component-library/",
+	"title": "component library",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/containers/",
 	"title": "containers",
 	"tags": [],
@@ -1262,6 +1318,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/dataformat/",
 	"title": "dataformat",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/debug/",
+	"title": "debug",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1619,6 +1682,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/tjenester-3.0/",
 	"title": "tjenester 3.0",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/troubleshooting/",
+	"title": "troubleshooting",
 	"tags": [],
 	"description": "",
 	"content": ""

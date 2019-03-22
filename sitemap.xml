@@ -135,6 +135,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/front-end/best-practices/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/front-end/build/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/development/build/</loc>
   </url>
   
@@ -143,11 +151,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/front-end/component-library/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/contexthandler/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/getting-started/service-creation/create-app/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/front-end/debug/</loc>
   </url>
   
   <url>
@@ -204,6 +220,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/git/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/gitea/</loc>
   </url>
   
   <url>
@@ -328,6 +348,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/test/testcafe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/troubleshooting/</loc>
   </url>
   
   <url>
@@ -685,6 +709,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/best-practices/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/bpmn/</loc>
     <priority>0</priority>
   </url>
@@ -720,6 +749,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/component-library/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/containers/</loc>
     <priority>0</priority>
   </url>
@@ -751,6 +785,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/dataformat/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/debug/</loc>
     <priority>0</priority>
   </url>
   
@@ -1006,6 +1045,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/tjenester-3.0/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/troubleshooting/</loc>
     <priority>0</priority>
   </url>
   
