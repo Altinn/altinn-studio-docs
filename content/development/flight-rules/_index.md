@@ -119,3 +119,16 @@ To deploy latest code to altinn.studio do the following:
 * Select which of the pods to deploy and click `Deploy`
 
 --> A deploy to production has been started use kubectl get pods -w on the altinn.studio cluster to see if pods are updated correctly
+
+### multiple compilation errors for a newly generated app without form components
+A plausible reason for the .NET code not compiling is that the incorrect version of the SDK is being used. Either the wrong version is installed, or the project is referencing the SDK in your user directory rather than the one installed in program files.
+
+There are two steps to solving this issue
+
+1. Make sure you have the following versions of the .NET SDK and Runtime installed:
+    - Runtime 2.1.0
+    - SDK 2.1.300
+2. Ensure that the path of all .NET Core references in the Visual Studio solution are in the `C:\Program Files\dotnet` directory. 
+This can be checked by going to Dependencies -> NuGet / SDK for each project in the AltinnCore solution. If this is not the case, remove the reference and re-install it using NuGet package manager or a tool of your own choosing. 
+
+![Runtime-Compilation-Error ](runtime-compilation-error.png?width=150)
