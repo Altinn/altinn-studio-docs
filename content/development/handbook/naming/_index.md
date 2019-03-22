@@ -22,16 +22,17 @@ Names for classes, methods and variables should be describing, but not too long
 WCF-Artifact Naming
 TUL Naming Standard
 Namespace & Solution Structure
-### React
-TODO
 
-### Redux
+### React
+Names of react-components should be descriptive and in [pascal case](http://wiki.c2.com/?PascalCase)
 
 #### Actions
-TODO
+Names of actions should be descriptive and in [camel case](https://en.wikipedia.org/wiki/Camel_case).  
+An action should have the initial action, for instance `fetchFormLayout`, and an action if it succeeds and if it fails. For instance `fetchFormLayoutFulfilled`(succeed) and `fetchFormLayoutRejected`(failed).
 
 #### Sagas
-TODO
+Names of sagas should have the name of the action it listens to, and the word `Saga` appended to the end. For instance fetchFormLayoutSaga.  
+And for saga-watchers, should have the `watch`-word appended to the start, and the saga name it watches. For instance `watchFetchFormLayoutSaga`.
 
 #### Reducers
-TODO
+Names of reducers should have a descriptive name of that it is responsible for updating in the redux-store, and the word `Reducer` appended to the end. For instace `formLayoutReducer`.
