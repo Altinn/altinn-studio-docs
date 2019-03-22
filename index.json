@@ -452,7 +452,7 @@
 	"title": "React",
 	"tags": ["development", "handbook", "front-end", "react"],
 	"description": "Guidelines for using React in Altinn Studio",
-	"content": "TODO\n"
+	"content": " React React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.\nReact Components lifecycle There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:\nMounting  constructor() static getDerivedStateFromProps() render() componentDidMount()  Updating  static getDerivedStateFromProps() shouldComponentUpdate() render() getSnapshotBeforeUpdate() componentDidUpdate()  Unmounting  componentWillUnmount()  Error handling  static getDerivedStateFromError() componentDidCatch()  Other React component APIs and properties APIs  setState() forceUpdate()  Class Properties  defaultProps displayName  Instance Properties  props state  Adding a new react-app to altinn.studio When adding a new react-app, use the template folder that is in the github repo. Create a new folder in the src/react-apps/applications-folder and copy the contents from the src/react-apps/templates/template-app-folder of that newly created folder.\nThen change the names in the package.json-file and start developing the new application.\nIn the templates folder, in the src/index.tsx-file, a function called run is commented out, if your application needs to have sagas, uncomment the run-function which should initialize the sagas.\nLinks  Documentation for react components  "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/react-app/",
