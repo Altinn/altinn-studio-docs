@@ -12,4 +12,8 @@ Apps are compiled and copied.
 
 ### Adding new packages to react-applications
 
-Adding of a new package in an app is done with `npm` in the app where it's needed. If multiple apps have the same package as a dependency, lerna will hoist the package, so it will only be installed once, and used by the depending apps.
+Adding of a new package in an app is done with `lerna` in the lerna-folder (`/src/react-apps/`). 
+Command syntax for this will be:  
+`lerna add [package-name] --scope=[app-name] --exact`  
+If you are going to add `react` to a new app called Foo:  
+`lerna add react --scope=Foo --exact`
