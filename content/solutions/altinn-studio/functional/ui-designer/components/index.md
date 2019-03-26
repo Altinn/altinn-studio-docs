@@ -1,7 +1,9 @@
 ---
 title: Available form components
 description: Overview of the form components that are available for use
-tags: ["ui-designer", "form-components"]
+tags: [ui-designer, ui-components]
+aliases:
+    - "/ui-components"
 weight: 100
 ---
 
