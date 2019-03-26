@@ -158,7 +158,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nArchitecture Goals \u0026amp; Guidelines The following guidlines and goals have been important to define the architecture.\nFree and open-source software Guideline: Frameworks and applications used in Altinn Studio will need to be Open Source.\nResult: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.\nWeb Standards \u0026amp; Modern frameworks Guideline: Use Web Standards and modern frameworks\nResult: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.\nCloud Native Guideline: The architecture should follow cloud native principles\nResult\n Containers - Isolation (resources, framework) Microservice architecture - Upgrade components seperate. APIs - Reuse Independent of operating system - Can develop and run on any platform  Architectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rInfrastructure\r\rDescription of the Altinn Studio infrastructure\n\r\rDeployment\r\rDescription of the Altinn Studio solution\n\rAltinn CDN\r\rDescription of Altinn Content Delivery Network\n\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rDevelopment\r\r\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution architecture\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nArchitecture Goals \u0026amp; Guidelines The following guidlines and goals have been important to define the architecture.\nFree and open-source software Guideline: Frameworks and applications used in Altinn Studio will need to be Open Source.\nResult: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.\nWeb Standards \u0026amp; Modern frameworks Guideline: Use Web Standards and modern frameworks\nResult: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.\nCloud Native Guideline: The architecture should follow cloud native principles\nResult\n Containers - Isolation (resources, framework) Microservice architecture - Upgrade components seperate. APIs - Reuse Independent of operating system - Can develop and run on any platform  Architectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rApplication\r\rDescription of the Altinn Studio application architecture\n\r\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r\rInformation\r\rDescription of the Information Architecture\n\r\r\rInfrastructure\r\rDescription of the Altinn Studio infrastructure\n\r\rDeployment\r\rDescription of the Altinn Studio solution\n\rAltinn CDN\r\rDescription of Altinn Content Delivery Network\n\r\rIntegration\r\rDescription of the Integration Architecture\n\r\r\rSecurity\r\rDescription of the Altinn Studio security architecture.\n\r\rAuthentication\r\rDescription of the Authentication architecture for Altinn Apps\n\rAuthorization\r\rDescription of the Authorization architecture\n\r\rDevelopment\r\r\n\r\rBuild process\r\rAltinn Studio Build Processes\n\r\rSolution Architecture\r\rDescription of the Altinn Studio solution architecture\n\r\rSolution Architecture Altinn Apps\r\rDescription of the Altinn Studio solution\n\rSolution Architecture Altinn Platform\r\rDescription of the Altinn Platform solution\n\rSolution Architecture Altinn Studio\r\rDescription of the Altinn Studio solution architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authentication/",
@@ -385,6 +385,13 @@
 	"content": " Gitea Gitea is used in altinn.studio as version control of the services developed in altinn.studio.\nLinks  Gitea docs  "
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/information/",
+	"title": "Information",
+	"tags": ["architecture", "information"],
+	"description": "Description of the Information Architecture",
+	"content": " Conceptual information model The following guidlines and goals have been important to define the architecture.\n\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/infrastructure/",
 	"title": "Infrastructure",
 	"tags": ["infrastructure", "architecture", "studio", "apps", "platform"],
@@ -397,6 +404,13 @@
 	"tags": ["tjenester 3.0", "dataformat"],
 	"description": "Beskrivelse av format for InstansiationHandler",
 	"content": " Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.\n\rOverordnet \u0026lsquo;InstansiationHandler.cs\u0026rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som hånderer instansiering av en tjeneste.\nFormat Standard C# kode som kan gjøre bortimot alt.\nUavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.\nUtvikling Under opprettelse av en tjeneste vil en tom InstansiationHandler opprettes.\nHypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/integration/",
+	"title": "Integration",
+	"tags": ["architecture", "information"],
+	"description": "Description of the Integration Architecture",
+	"content": " The integration architecture describes mechanismen and components that enables integration between components in Altinn Studio, Altinn Apps and Altinn Platform and integration against external solutions.\nThe architecture should give guidelines and constraints for how different types of integration should be implemented.\nIntegration types REST integration Altinn Apps - Altinn Platform Rest Integration End User Systems - Altinn Apps In this scenario a end user system call one of the defined standard REST API defines as part of AltinnCore.Runtime\nRest Integration End User System - Altinn Platform Rest Integration Agency System - Altinn Apps Rest Integration Agency System - Altinn Platform REST Integration Altinn Apps - External Rest Integration "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/intermediary/",
@@ -886,7 +900,7 @@
 	"title": "Exposing API",
 	"tags": ["studio", "api"],
 	"description": "Solution for designing service UI, defining workflow, other settings, deploy ++",
-	"content": "Services created in Altinn Studio can be exposed as API together with GUI, or only as API without any GUI.\nEach service will have its unique set of API\u0026rsquo;s. Compared to current API it makes it possible to create API\u0026rsquo;s that have documentation that is target for the specific service.\nWhat kind of API\u0026rsquo;s a service would expose will be analyzed in the comming periode\n"
+	"content": " Services created in Altinn Studio can be exposed as API together with GUI, or only as API without any GUI.\nEach service will have its unique set of API\u0026rsquo;s. Compared to current API it makes it possible to create API\u0026rsquo;s that have documentation that is target for the specific service.\nWhat kind of API\u0026rsquo;s a service would expose will be analyzed in the comming periode\nAPI for End User Systems Possible scenarios\n Instansiate new instance for an App Instansiate and complete a new instance for an App Validate data for an App Get prefilled data for an App Calculate data for an app  API for Agency Systems    API for external GUI  Instansiate new instance for an app Instansiate and complete a new instance for an app  ## API for external app\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/analysis/api/external/",
@@ -1430,6 +1444,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/handbook/",
 	"title": "handbook",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/information/",
+	"title": "information",
 	"tags": [],
 	"description": "",
 	"content": ""

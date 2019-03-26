@@ -223,11 +223,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/information/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/infrastructure/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/integration/</loc>
   </url>
   
   <url>
@@ -866,6 +874,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/handbook/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/information/</loc>
     <priority>0</priority>
   </url>
   
