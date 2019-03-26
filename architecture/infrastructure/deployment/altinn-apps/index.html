@@ -2321,33 +2321,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/infrastructure/deployment/service-deployment/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/infrastructure/deployment/service-deployment/">
-        <span>App Deployment</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -4904,32 +4877,31 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li><a href="#kubernetes">Kubernetes</a>
-<ul>
-<li><a href="#deployment">Deployment</a></li>
-</ul></li>
-<li><a href="#service-owner-clusters">Service Owner Clusters</a>
+<li><a href="#container-orchestration-by-kubernetes">Container Orchestration by Kubernetes</a></li>
+<li><a href="#kubernetes-clusters-per-organisation">Kubernetes Clusters per Organisation</a>
 <ul>
 <li><a href="#secrets">Secrets</a></li>
 <li><a href="#kubernetes-namespace">Kubernetes Namespace</a></li>
-<li><a href="#routing">Routing</a></li>
-</ul></li>
-<li><a href="#data-services">Data services</a></li>
-<li><a href="#platform-cluster">Platform Cluster</a>
-<ul>
-<li><a href="#platform-integration">Platform integration</a></li>
-</ul></li>
+<li><a href="#kubernetes-service">Kubernetes Service</a></li>
 <li><a href="#networking">Networking</a>
 <ul>
 <li><a href="#sub-domains">Sub domains</a></li>
-<li><a href="#path-for-the-service">Path for the service</a></li>
+<li><a href="#path-for-the-altinn-app">Path for the Altinn App</a></li>
 <li><a href="#encrypted-traffic-and-network-policy">Encrypted traffic and network policy</a></li>
-<li><a href="#ingress-load-balancer">Ingress / Load balancer</a></li>
+<li><a href="#routing-ingress-controller">Routing / Ingress-Controller</a></li>
 <li><a href="#api-proxy">API Proxy</a></li>
 <li><a href="#api-management">API Management</a></li>
 </ul></li>
+<li><a href="#altinn-app-build-and-deploy-process">Altinn App build and deploy process</a>
+<ul>
+<li><a href="#build-process-pipeline">Build process (Pipeline)</a></li>
+<li><a href="#manual-deployment-of-altinn-app">Manual deployment of Altinn App</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#platform-cluster">Platform Cluster</a>
+<ul>
+<li><a href="#platform-integration">Platform integration</a></li>
+<li><a href="#data-services">Data services</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -4963,7 +4935,7 @@ if(host != "localhost")
 </div>
 
 
-<p>Altinn Studio Apps is the solution where all the service apps developed in Altinn Studio is deployed.
+<p>Altinn Apps is the solution where all the apps developed in Altinn Studio is deployed.
 The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Apps</p>
 
 
@@ -4971,93 +4943,78 @@ The following diagram shows the deployment architecture for Altinn Studio togeth
 
 
 
-<p><a href="/architecture/infrastructure/deployment/altinn-apps/altinnApps_deploymentarchitecture.svg">See fullscreen</a> or <a href="/architecture/infrastructure/deployment/altinn-apps/altinnapps_deploymentarchitecture.vsdx">download as visio</a></p>
+<p><a href="/architecture/infrastructure/deployment/altinn-apps/altinnapps_deploymentarchitecture.svg">See fullscreen</a> or <a href="/architecture/infrastructure/deployment/altinn-apps/altinnapps_deploymentarchitecture.vsdx">download as visio</a></p>
 
-<h3 id="kubernetes">Kubernetes</h3>
+<h2 id="container-orchestration-by-kubernetes">Container Orchestration by Kubernetes</h2>
 
-<p>Each <a href="https://docs.altinn.studio/about/wordlist/">&ldquo;ServiceApp&rdquo;</a> created in Altinn Studio is deployed
-to Altinn Studio Apps as separate applications running in Docker Containers.
+<p>Each <a href="https://docs.altinn.studio/about/wordlist/">&ldquo;App&rdquo;</a> created in Altinn Studio is deployed
+to Altinn Apps as separate applications running in Docker Containers.
 The containers will be orchestrated by Kubernetes.</p>
 
-<h4 id="deployment">Deployment</h4>
-
-<p>The Altinn Studio Service Apps are deployed as sets of Docker Containers defined as Kubernetes Deployment.
-The deployment will be in the service owners own Kubernetes Cluster.</p>
+<p>The Altinn App is deployed as sets of Docker Containers defined as Kubernetes Deployment.
+The deployment will be in the organisation&rsquo;s own Kubernetes Cluster.</p>
 
 <blockquote>
-<p>All service owners will have their own Kubernetes Cluster.</p>
+<p>All organisations will have their own Kubernetes Cluster.</p>
 </blockquote>
 
-<p>Each set of Kubernetes Deployment will be scaled based on the usage of the service.
+<p>Each set of Kubernetes Deployment will be scaled based on the usage of the app.
 Scaling of the Deployment will be configurable in the Kubernetes Deployment and automatically scaled using
 <a href="https://kubernetes.io/docs/reference/glossary/?all=true#term-replica-set">Kubernetes Replicaset</a>.</p>
 
 <blockquote>
-<p>Kubernetes Clusters and Serviceapps can do horizontal autoscaling.
+<p>Kubernetes Clusters and Altinn Apps can do horizontal autoscaling.
 It is currently not decided if and how autoscaling will be used.</p>
 </blockquote>
 
-<p>The service container will consist of the runtime application and service specific code and configuration.</p>
+<p>The Altinn App in Kubernetes will be configured as a Kubernetes Service which consist of the latest runtime application
+available when building the Altinn App and the Altinn App with related code and configuration.</p>
 
-<h3 id="service-owner-clusters">Service Owner Clusters</h3>
+<h2 id="kubernetes-clusters-per-organisation">Kubernetes Clusters per Organisation</h2>
 
-<p>In Altinn Studio Apps, every service owner will have their separate Kubernetes Cluster in each environment.
+<p>In Altinn Apps, every organisation will have their separate Kubernetes Cluster in each environment.
 The Kubernetes Cluster architecture will be the same in test and production environment
-This will support scaling tailored each service owners needs and separation of services.</p>
+This will support scaling tailored each organisations needs and separation of each organisation&rsquo;s app.</p>
 
-<h4 id="secrets">Secrets</h4>
+<h3 id="secrets">Secrets</h3>
 
-<p>Pods, where Service Apps are delpoyed, gets access to secrets during deployment via HELM charts.</p>
+<p>Pods, where the Altinn App are delpoyed, gets access to secrets during deployment via HELM charts.</p>
 
-<h4 id="kubernetes-namespace">Kubernetes Namespace</h4>
+<h3 id="kubernetes-namespace">Kubernetes Namespace</h3>
 
 <p>It&rsquo;s not planned to use namespaces.</p>
 
-<h4 id="routing">Routing</h4>
+<h3 id="kubernetes-service">Kubernetes Service</h3>
 
-<p>To be able to route traffic to the correct container, each container is tagged to a specific
-end user service. The routing mecahnism routes to the correct container based on the url
-containing the service parameter.</p>
-
-<h3 id="data-services">Data services</h3>
-
-<p>The data services application is the application responsible exposing data related functionality
-to the service containers. This container will be scaled based on need.</p>
-
-<h3 id="platform-cluster">Platform Cluster</h3>
-
-<p>The platform cluster in Altinn Studio Apps will host common application like DataServices.</p>
-
-<h4 id="platform-integration">Platform integration</h4>
-
-<p>The platform integration is a new application hosted in the existing infrastructure.
-It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication.
-These are services not part of the Altinn Studio Platform (yet) and
-everyone planning to run the Altinn Studio platform would need to implement their own components that support.</p>
+<p>Each Altinn App will be a Kubernetes Service.</p>
 
 <h3 id="networking">Networking</h3>
 
 <h4 id="sub-domains">Sub domains</h4>
 
-<p>Each service owner will have their own sub domain.</p>
+<p>Each organisation will have their own sub domain.</p>
 
 <blockquote>
 <p>org.apps.altinn.no</p>
 </blockquote>
 
-<h4 id="path-for-the-service">Path for the service</h4>
+<h4 id="path-for-the-altinn-app">Path for the Altinn App</h4>
 
 <blockquote>
-<p>org.apps.altinn.no/servicename</p>
+<p>org.apps.altinn.no/appname</p>
 </blockquote>
 
 <h4 id="encrypted-traffic-and-network-policy">Encrypted traffic and network policy</h4>
 
 <p>There is ongoing analysis related to this topic. <a href="https://github.com/Altinn/altinn-studio/issues/1000">Click here to find more information on Github</a>.</p>
 
-<h4 id="ingress-load-balancer">Ingress / Load balancer</h4>
+<h4 id="routing-ingress-controller">Routing / Ingress-Controller</h4>
 
-<p>Traefik will be used as an Ingree / Load balancer.</p>
+<p>Routing in Kubernetes is handled by an Ingress-Controller called Traefik.</p>
+
+<p>To be able to route traffic to the correct Kubernetes Service (Altinn App), each container is tagged to a specific
+Altinn App. The routing mecahnism routes to the correct Kubernetes Service based on the url
+containing the Altinn App parameter.</p>
 
 <h4 id="api-proxy">API Proxy</h4>
 
@@ -5067,6 +5024,84 @@ This might be handled by the API Managment software. Needs Analyzis</p>
 <h4 id="api-management">API Management</h4>
 
 <p>The platform requires API management software to handle SLA ++. Needs Analyzis</p>
+
+<h3 id="altinn-app-build-and-deploy-process">Altinn App build and deploy process</h3>
+
+
+<figure>
+    
+        <img src="ServiceRuntime.svg?width=1000" />
+    
+    
+    <figcaption>
+        <h4>Service Runtime docker image bundling process.</h4>
+        
+    </figcaption>
+    
+</figure>
+
+
+<p>Building the Altinn App with &ldquo;app specific&rdquo; files from Gitea, creating a &ldquo;App Image&rdquo;, deploying to Azure Container Registry and telling Kubernetes to deploy app.</p>
+
+<h4 id="build-process-pipeline">Build process (Pipeline)</h4>
+
+<blockquote>
+<p>This process har more details in the Dockerfile. This is a summary.</p>
+</blockquote>
+
+<ul>
+<li>Downloading files from app repository in Gitea</li>
+<li>Building Docker base image with Dockerfile. This includes &ldquo;Dotnet build&rdquo; for C# files from Gitea. &ldquo;Dotnet build&rdquo; is executed on the Runtime Base Image reusing previous.
+
+<ul>
+<li>Docker Pull: Altinn/Runtime Base Image with SDK from ACR. This makes the AltinnApp build faster.</li>
+<li>Clone and build code from Gitea inside Altinn-Runtime Base Image.</li>
+<li>Docker Pull: Microsoft/DotNet AspNetCore.</li>
+<li>Copy Altinn Runtime, AltinnApp Build files and App Metadata/Resources from Gitea.</li>
+</ul></li>
+<li>Publish to ACR.</li>
+</ul>
+
+<p>The build and deploy app pipeline is controlled by different flags :</p>
+
+<ul>
+<li>APP_COMMIT_ID - used as id for the app image and should be used to reference the repository at that commit state</li>
+<li>APP_DEPLOY_TOKEN - used to identify user when cloning repository (is only really necessary for private repositorys but is mandetory)</li>
+<li>APP_ENVIRONMENT - represent which environment to deploy to (not yet used)</li>
+<li>APP_OWNER - the owner of the repository</li>
+<li>APP_REPO - the name of the repository to clone and use to create the app</li>
+<li>GITEA_ENVIRONMENT - the gitea environment to clone the repository from</li>
+<li>should_build - flag that can be used if one only wishes to deploy a app and not build it (default set to true)</li>
+<li>should_deploy - flag that can be used if one wishes to deploy an app (default set to false)</li>
+</ul>
+
+<p>Triggered by:</p>
+
+<ul>
+<li>&ldquo;Deploy&rdquo;-button in Altinn Studio.</li>
+</ul>
+
+<h4 id="manual-deployment-of-altinn-app">Manual deployment of Altinn App</h4>
+
+<p>A manual deployment of the Altinn App requires access to you Kubernetes Cluster and knowledge about Helm.</p>
+
+<p>If you want to configure the Helm chart and do a manual deployment you can find the Helm chart in your repo in the &ldquo;deployment&rdquo; folder.</p>
+
+<h2 id="platform-cluster">Platform Cluster</h2>
+
+<p>The platform cluster in Altinn Studio Apps will host common application like DataServices.</p>
+
+<h3 id="platform-integration">Platform integration</h3>
+
+<p>The platform integration is a new application hosted in the existing infrastructure.
+It exposes REST-APIs for Profile, Register, Authorization, Intermediary and Authentication.
+These are services not part of the Altinn Platform (yet) and
+everyone planning to run the Altinn Platform would need to implement their own components that support. (?)</p>
+
+<h3 id="data-services">Data services</h3>
+
+<p>The data services application is the application responsible exposing data related functionality
+to the Altinn App. This container will be scaled based on need.</p>
 
 
 <footer class=" footline" >
@@ -6312,22 +6347,6 @@ This might be handled by the API Managment software. Needs Analyzis</p>
                     
                         
                         
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
                     
                 
                 

@@ -2321,33 +2321,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/infrastructure/deployment/service-deployment/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/infrastructure/deployment/service-deployment/">
-        <span>App Deployment</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -4944,38 +4917,10 @@ SaveConfig Saves configuration TODO: Need to verify use and c <a class="read-mor
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
-Altinn Studio Apps is the solution where all the service apps developed in Altinn Studio is deployed. The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Apps
+Altinn Apps is the solution where all the apps developed in Altinn Studio is deployed. The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Apps
 
 See fullscreen or download as visio
-Kubernetes Each &ldquo;ServiceApp&rdquo; created in Altinn Studio is deployed to Altinn Studio Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes. <a class="read-more" href="/architecture/infrastructure/deployment/altinn-apps/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/infrastructure/deployment/service-deployment/">Altinn Studio - App Deployment</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>NOTE: Work in progress. Stuff will change
-When a service developer need to deploy a app (service) to Altinn Studio Apps solution test/production environement there is created a Docker Image with the configured version of AltinnCore.Runtime and the compiled service code and configuration inside the container.
-This container is added to the Docker Registry.
-From Docker Registry Kubernetes will download the container in to the Kubernetes Cluster and make it available for the end users. <a class="read-more" href="/architecture/infrastructure/deployment/service-deployment/">&raquo;</a></p>
+Container Orchestration by Kubernetes Each &ldquo;App&rdquo; created in Altinn Studio is deployed to Altinn Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes. <a class="read-more" href="/architecture/infrastructure/deployment/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5179,6 +5124,38 @@ Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visu
         <p>Overordnet &lsquo;FormLayout.json&rsquo; beskriver strukturen til et skjema.
 Format &lsquo;FormLayout.json&rsquo; er oppdelt i tre objekter:
  Components: beskriver komponentene skjema består av og konfigurasjoner tilknyttet den komponenten som feks binding til datamodel. Containers: beskriver layout-containere som brukes i skjema, og konfigurasjoner tilknyttet disse som f.eks. om den representerer en repeterende gruppe Order: spesifiserer rekkefølgen containere og komponentenene inne i containerne skal ligge i.  Eksempel Under er et eksempel på hvordan layout filen kan se ut: <a class="read-more" href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/">InstansiationHandler.cs</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.
+Overordnet &lsquo;InstansiationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som hånderer instansiering av en tjeneste.
+Format Standard C# kode som kan gjøre bortimot alt.
+Uavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.
+Utvikling Under opprettelse av en tjeneste vil en tom InstansiationHandler opprettes.
+Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6418,22 +6395,6 @@ Format &lsquo;FormLayout.json&rsquo; er oppdelt i tre objekter:
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
