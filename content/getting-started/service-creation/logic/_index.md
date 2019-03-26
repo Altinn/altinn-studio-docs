@@ -60,7 +60,7 @@ public void Validate(TestModel TestModel, RequestContext requestContext, ModelSt
     ValidateFirstName(TestModel, modelState);
 }
 
-private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+private void ValidateFirstName(TestModel TestModel, ModelStateDictionary modelState)
 {
     // First, make sure that the field exists
     string firstName = TestModel?.Person?.FirstName;
@@ -80,7 +80,7 @@ See the comments in the code above for details on what the different parts of th
 
 ##### Single field validations
 
-If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property `TriggerValidation` to `true` in the component definition in FormLayout.json.
+If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property `triggerValidation` to `true` in the component definition in FormLayout.json.
 
 It is then up to the service developer to write the code for validations in such a way that only the relevant errors are returned when a trigger field is specified, while all validations are run f.ex. when the user is ready to submit service. An example of such code is shown below.
 
@@ -112,7 +112,7 @@ private void RunAllValidations(TestModel TestModel, RequestContext requestContex
     ValidateFirstName(TestModel, modelState);
 }
 
-private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+private void ValidateFirstName(TestModel TestModel, ModelStateDictionary modelState)
 {
     // Check if field FirstName exists and has value
     string firstName = TestModel?.Person?.FirstName;
@@ -138,7 +138,7 @@ public void Validate(TestModel TestModel, RequestContext requestContext, ModelSt
     ValidateFirstName(TestModel, modelState);
 }
 
-private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+private void ValidateFirstName(TestModel TestModel, ModelStateDictionary modelState)
 {
     // First, make sure that the field exists
     string firstName = TestModel?.Person?.FirstName;
