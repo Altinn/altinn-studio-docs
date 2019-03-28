@@ -4929,6 +4929,7 @@ if(host != "localhost")
 <li><a href="#react-app-not-updating-in-runtime-when-testing-locally">react-app not updating in Runtime when testing locally</a></li>
 <li><a href="#pod-is-stuck-in-status-containercreating-and-has-warning-unable-to-mount-volumes-for-pod-xxx-timeout-expired-waiting-for-volumes-to-attach-or-mount-for-pod-xxx">Pod is stuck in status ContainerCreating and has warning &ldquo;Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX&rdquo;</a></li>
 <li><a href="#i-got-assigned-to-update-altinn-studio-with-new-kode">I got assigned to update altinn.studio with new kode</a></li>
+<li><a href="#i-try-to-pull-master-from-github-and-get-error-cannot-lock-ref">I try to pull master from github and get error &ldquo;Cannot lock ref&rdquo;</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5085,6 +5086,12 @@ To deploy latest code to altinn.studio do the following:</p>
 </ul>
 
 <p>&ndash;&gt; A deploy to production has been started use kubectl get pods -w on the altinn.studio cluster to see if pods are updated correctly</p>
+
+<h3 id="i-try-to-pull-master-from-github-and-get-error-cannot-lock-ref">I try to pull master from github and get error &ldquo;Cannot lock ref&rdquo;</h3>
+
+<p>This happens from time to time, still unsure why. To fix it run the command:</p>
+
+<p><code>git gc --prune=now</code></p>
 
 
 <footer class=" footline" >
