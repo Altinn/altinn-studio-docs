@@ -122,6 +122,6 @@ To deploy latest code to altinn.studio do the following:
 
 ### I try to pull master from github and get error "Cannot lock ref"
 
-This happens some time, still unsure how though. To fix it run the command:
+This happens from time to time, still unsure why. To fix it run the command:
 
 `git gc --prune=now`
