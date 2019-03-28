@@ -119,3 +119,9 @@ To deploy latest code to altinn.studio do the following:
 * Select which of the pods to deploy and click `Deploy`
 
 --> A deploy to production has been started use kubectl get pods -w on the altinn.studio cluster to see if pods are updated correctly
+
+### I try to pull master from github and get error "Cannot lock ref"
+
+This happens some time, still unsure how though. To fix it run the command:
+
+`git gc --prune=now`
