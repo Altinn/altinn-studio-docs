@@ -68,7 +68,15 @@ Under arbeid
 │  │  │      ├── {{<icon name="fa-code">}} resource.nb-NO.json  
 │  │  │      └── {{<icon name="fa-code">}} resource.nn-NO.json  
 │  │  ├──  {{<icon name="fa-folder">}} Test (used for runtime)  
-│  │  ├──  {{<icon name="fa-folder">}} Testdataforparty (used for runtime)  
+│  │  ├──  {{<icon name="fa-folder-open">}} Testdataforparty (used for runtime)         
+│  │  │        ├──{{<icon name="fa-folder-open">}}  user1                        
+│  │  │        │     ├──{{<icon name="fa-folder-open">}}  instance1     
+│  │  │        │     │     ├──{{<icon name="fa-code">}}  instance1.json          
+│  │  │        │     │     ├──{{<icon name="fa-code">}}  instance1.state.json                  
+│  │  │        │     │     ├──{{<icon name="fa-folder-open">}} data   
+│  │  │        │     │     │    ├──{{<icon name="fa-folder-open">}} data-id1      
+│  │  │        │     │     │    │      ├──{{<icon name="fa-code">}} data-id1.xml  
+│  │  │        │     │     │    ├──{{<icon name="fa-folder-open">}} data-id...   
 │  │  ├──  {{<icon name="fa-folder-open">}} Workflow  
 │  │  │      └── {{<icon name="fa-code">}} workflow.bpmn ([BPMN]({{< ref "/technology/bpmn">}}))  
 │  │  ├──  {{<icon name="fa-code">}} [AltinnService.csproj](altinnservice-projectfile)    
