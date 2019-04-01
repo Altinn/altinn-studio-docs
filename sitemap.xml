@@ -243,6 +243,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/loadbalancer/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/handbook/naming/</loc>
   </url>
   
@@ -909,6 +913,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/load-balancer/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/loadbalancer/</loc>
     <priority>0</priority>
   </url>
   

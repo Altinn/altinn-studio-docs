@@ -420,6 +420,13 @@
 	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/loadbalancer/",
+	"title": "Loadbalancer",
+	"tags": ["development", "handbook", "loadbalancer"],
+	"description": "Information about loadbalancer",
+	"content": " Loadbalancer The loadbalancer config is stored as a configmap in our kubernetes cluster. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).\nApply the changes, and restart the pod:\nOption 1: kill the pod and let the deployment spinn up a new pod.\nOption 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload\n"
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/naming/",
 	"title": "Naming Conventions",
 	"tags": ["development", "handbook", "naming"],
@@ -942,7 +949,7 @@
 	"title": "Handbook",
 	"tags": ["development", "handbook"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rGitea\r\rGitea documentation for altinn.studio\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\rTroubleshooting\r\rTroubleshooting for altinn.studio\n\r\r\r"
+	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rGitea\r\rGitea documentation for altinn.studio\n\r\r\rLoadbalancer\r\rInformation about loadbalancer\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\rTroubleshooting\r\rTroubleshooting for altinn.studio\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/helm/",
@@ -1493,6 +1500,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/load-balancer/",
 	"title": "load-balancer",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/loadbalancer/",
+	"title": "loadbalancer",
 	"tags": [],
 	"description": "",
 	"content": ""

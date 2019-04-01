@@ -3856,6 +3856,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/handbook/loadbalancer/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/loadbalancer/">
+        <span>Loadbalancer</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/naming/" class="dd-item 
         
         
@@ -5207,12 +5234,13 @@ Links  Gitea docs   <a class="read-more" href="/development/handbook/gitea/">&ra
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/naming/">Naming Conventions</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/loadbalancer/">Loadbalancer</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>C# The Altinn project will use Microsoft’s coding conventions as a general guideline when no other guidelines are given.
-Exceptions/additions to the general guideline:
-Implicit typing (var) should only be used when a variable is initialized with an anonymous type, which is a common scenario in LINQ query expressions. In general implicit typing makes the code more difficult to read and understand,and should be avoided. Altinn specific coding guidelines: <a class="read-more" href="/development/handbook/naming/">&raquo;</a></p>
+        <p>Loadbalancer The loadbalancer config is stored as a configmap in our kubernetes cluster. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
+Apply the changes, and restart the pod:
+Option 1: kill the pod and let the deployment spinn up a new pod.
+Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/development/handbook/loadbalancer/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5225,7 +5253,7 @@ Implicit typing (var) should only be used when a variable is initialized with an
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
             
-                <a class="label label-default" href="https://docs.altinn.studiotags/naming/">naming</a>
+                <a class="label label-default" href="https://docs.altinn.studiotags/loadbalancer/">loadbalancer</a>
             
         
 
@@ -7260,6 +7288,22 @@ Implicit typing (var) should only be used when a variable is initialized with an
                     
             
         
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
