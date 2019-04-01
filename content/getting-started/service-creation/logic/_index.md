@@ -32,6 +32,7 @@ NOTE: Configuration of client-side validations is currently not available. The d
 {{% /notice%}}
 
 These validations are run automatically, and validates the users input against restrictions from the data model. The following restrictions are currently supported:
+
 - min value (number)
 - max value (number)
 - min length
@@ -39,7 +40,7 @@ These validations are run automatically, and validates the users input against r
 - length
 - pattern
 
-In addition, validation on whether the field is required or not is supported, but this is currently not connected to the data model and needs to be set manually for the component via the FormLayout.json file. 
+In addition, validation on whether the field is required or not is supported. This is automatically connected to the data model, and no configuration is required.
 
 #### Server-side validation
 The validations that are run on the server can be split into two categories:
@@ -59,7 +60,7 @@ public void Validate(TestModel TestModel, RequestContext requestContext, ModelSt
     ValidateFirstName(TestModel, modelState);
 }
 
-private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+private void ValidateFirstName(TestModel TestModel, ModelStateDictionary modelState)
 {
     // First, make sure that the field exists
     string firstName = TestModel?.Person?.FirstName;
@@ -79,7 +80,7 @@ See the comments in the code above for details on what the different parts of th
 
 ##### Single field validations
 
-If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property `TriggerValidation` to `true` in the component definition in FormLayout.json.
+If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property `triggerValidation` to `true` in the component definition in FormLayout.json.
 
 It is then up to the service developer to write the code for validations in such a way that only the relevant errors are returned when a trigger field is specified, while all validations are run f.ex. when the user is ready to submit service. An example of such code is shown below.
 
@@ -111,7 +112,7 @@ private void RunAllValidations(TestModel TestModel, RequestContext requestContex
     ValidateFirstName(TestModel, modelState);
 }
 
-private void ValidateFirstName(TestModel TestModel, ModelState modelState)
+private void ValidateFirstName(TestModel TestModel, ModelStateDictionary modelState)
 {
     // Check if field FirstName exists and has value
     string firstName = TestModel?.Person?.FirstName;
@@ -127,6 +128,33 @@ private void ValidateFirstName(TestModel TestModel, ModelState modelState)
 }
 ```
 
+#### Soft validations
+Soft validations (or warnings) are validation messages that do not stop the user from proceeding to the next step. This validation type can be used for example to ask the user to verify input that might seem strange, but is not technically invalid. Soft validations are set up in the same way as other validations - the only difference is that the validation message must be prefixed by `*WARNING*`. An example is shown below:
+
+```csharp
+public void Validate(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
+{   
+    // Validate first name
+    ValidateFirstName(TestModel, modelState);
+}
+
+private void ValidateFirstName(TestModel TestModel, ModelStateDictionary modelState)
+{
+    // First, make sure that the field exists
+    string firstName = TestModel?.Person?.FirstName;
+
+    // Check if field contains "1337"
+    if (firstName != null && firstName.Contains("1337")) 
+    {
+        // If the field value contains "1337", add an error message using AddModelError-method.
+        // The first argument is the error message key, which should be the data model path (without root node), if possible.
+        // The second argument is the error message, which can be either a text, or a text key.
+        // When adding a soft validation, prefix the error message with *WARNING*
+        modelState.AddModelError("Person.FirstName", "*WARNING*Are you sure your first name contains 1337?");
+    }
+}
+```
+
 ### Calculations
 Calculations are done server-side, and are based on input from the end user. Calculations need to be coded in C# in the file `CalculationHandler.cs`. This file can be edited by clicking _Rediger kalkuleringer_ from the logic menu. 
 
@@ -136,6 +164,7 @@ Once these conditions/methods are coded, they can be configured to be triggered 
 
 #### Add/edit methods for dynamics
 The solution currently supports two types of methods:
+
 - Rules for calculation/populating values in form fields
 - Conditions for rendering (hide/show) of form fields
 
@@ -228,7 +257,7 @@ var conditionalRuleHandlerObject = {
   },
 
   sjekkVirksomhetIkkeIDrift: (obj) => {
-    return (obj.value && obj.value === "Nei");
+    return (!obj.value || obj.value != "Ja");
   }
 }
 

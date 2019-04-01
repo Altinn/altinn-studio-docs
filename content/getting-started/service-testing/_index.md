@@ -1,13 +1,14 @@
 ---
-title: Test service
-description: Information about testing a service
+title: Test
+description: Information about testing an app
 tags: ["guide"]
-weight: 100
+weight: 500
 ---
 
-A service can be tested in Altinn Studio without migrating to a test environment. This is a way to check that the service looks and behaves as expected. 
+An app can be tested in Altinn Studio without migrating to a test environment.
+This is a way to check that the app looks and behaves as expected. 
 
-## Testing a service in Altinn Studio
+## Testing in Altinn Studio
 Testing is available once a data model has been uploaded to the service. 
 
 1. Select _Test -> Manuell_ in the top navigation menu. 

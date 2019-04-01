@@ -9,7 +9,6 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-
 The Altinn Studio Designer and Altinn Studio Repository exposes API.
 
 ## Designer API

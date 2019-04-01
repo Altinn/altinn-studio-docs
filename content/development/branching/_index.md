@@ -20,13 +20,11 @@ Read more about trunk based development [here.](https://trunkbaseddevelopment.co
 > They therefore avoid merge hell, do not break the build, and live happily ever after.
 
 ![Trunk-Based-Development](trunk-based.png?width=800)
-
 ## Feature Branches ##
 
 Development is done on [feature branches with short lifespans](https://trunkbaseddevelopment.com/short-lived-feature-branches/) before PR is requested against the master branch.
 
 The figure below illustrates
-
 - A feature branch with three commits
 - Pull request is create with QA and merge back to master
 - A new commit (forth green circle) based on feedback from QA
@@ -37,7 +35,6 @@ The figure below illustrates
 ## Pull Requests ##
 
 A pull request (PR) is created to perform quality assurance (QA) and to merge a feature branch into master. You create a pull request after you have pushed your branch to our github repo.
-
 - Include a reference to the issue that triggered the pull request (#issuenumber)
 
 ![Create-Pull-Request](create-pull-request.PNG?width=800)

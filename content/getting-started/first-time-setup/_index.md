@@ -6,53 +6,33 @@ tags: ["guide"]
 weight: 100
 ---
 
-## Create a user with a Github user
-
-Set up your user in [altinn.studio](https://altinn.studio) for the first time.
-
 {{% notice info %}}
-ONLY necessary if you have not already created a user.
+ONLY necessary if you have not already created a user in Altinn Studio.
 {{% /notice %}}
 
-1. Choose to log in
-![Login](login.png?width=800)
+How to up your user in [altinn.studio](https://altinn.studio) for the first time.
 
-2. If you have a Github account, select "Har du en github konto? Register deg med den her"
-![Login](LoginAS.png?width=800)
+## Create a user linked to GitHub
 
-3. If you are not already logged in at Github, login with your Github credentials.
-![Github Login](GithubLogin.png?width=400)
+1. Choose to [log in](https://altinn.studio/user/login).
+If you have a Github account, select "[Har du en github konto? Register deg med den her](https://altinn.studio/user/oauth2/github)".
+![Login](login-as.png?width=400)
 
-4. Authorize that Altinn Studio could use your Github account for login and connect the accounts.
-![Authorize Github](AuthorizeAltinn.png?width=400)
+2. If you are not already logged in at Github, login with your Github credentials.
+![Github Login](github-login.png?width=400)
 
-5. Register your new Altinn Studio account by filling in the registration form.
-![Register Github user](registerGithub.png?width=400)
+3. Authorize that Altinn Studio can use your Github account for login.
+![Authorize Github](authorize-altinn.png?width=600)
 
-
-
-## Create a user without a Github user
-
-Set up your user in [altinn.studio](https://altinn.studio) for the first time.
-
-{{% notice info %}}
-ONLY necessary if you have not already created a user.
-{{% /notice %}}
-
-1. Choose to log in
-![Login](login.png?width=800)
-
-2. If you do not have a Github user, select "Behov for en konto? Registrer deg nå." 
-![Login](LoginAS.png?width=800)
-
-3. Fill in your user information to register your user. When done you are already logged in.
-![Register new user](registerNewUser.png?width=400)
-
-## Klone tjenesten til lokal mappe
-
-1. Fra startsiden, gå til repoet
-2. Velg **clone service**
-    - Dersom **Applikasjonsnøkkel** ikke er lagt inn vil du bli bedt om å legge inn dette, se [her](#add-app-token). Når dette er fullfør, start fra punkt 1.
-3. Tjenesten er nå klar til bruk.
+4. Register your new local Altinn Studio user by filling in the registration form. When done you are already logged in.
+![Register Github user](register-gitea.png?width=600)
 
 
+## Create a user without GitHub
+
+1. Choose to [log in](https://altinn.studio/user/login).
+If you do not want to use your Github user, select "[Behov for en konto? Registrer deg nå.](https://altinn.studio/user/sign_up)" 
+![Login](login-as.png?width=400)
+
+2. Fill in your user information to register your user. When done you are already logged in.
+![Register new user](register-gitea.png?width=600)

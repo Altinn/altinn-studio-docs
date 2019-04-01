@@ -18,7 +18,7 @@ When hovering over a component, or after selecting a component by clicking on it
 
 {{<figure src="ui-editor-add-components.gif?width=1000" title="GUI editor - add components">}}
 
-See the [overview of form components](../../solutions/altinn-studio/functional/ui-designer/components/) for more details on the different components that are available.
+See the [overview of form components](/ui-components) for more details on the different components that are available.
 
 #### Editing the properties on a component
 Each component has a set of properties that can be edited, for example texts, connection to data model, etc. In order to edit the properties on a component, hover over or click on the component. A _pencil_-icon will then be visible to the right of the component. Click on this icon to open the properties editor for the component. 
