@@ -749,6 +749,13 @@
 	"content": "The Altinn Platform consist of serveral reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\n\rAuthentication\r\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and system\n\rAuthorization\r\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system\n\rIntermediary\r\rThe Intermediary component provides shipment and other integration functionality to Altinn Apps\n\rProfile\r\rThe Profile component gives profile information for users in Altinn\n\rRegister\r\rThe Register componnt gives register information to Apps\n\rStorage\r\rThe Storage component gives storage capabilities to the platform\n\r"
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app-api/",
+	"title": "App API",
+	"tags": ["solution", "apps"],
+	"description": "Description of the API&#39;s available in a App created in Altinn Studio",
+	"content": " As part of the application framwork added to a app when creating it in Altinn Studio there will be some API\u0026rsquo;S available to consume from End User Systems, External Portals, Mobile apps and App owner systems (typical agencies hosting apps in the platform)\nAPI\u0026rsquo;s for End User systems The new API\u0026rsquo;s to be used for a specific app will be exposed as REST-API. Each APP will have unique urls to the API\u0026rsquo;s\nAPI to create new instance From end user systems it will be possible to create a instance of a App from a end user system. This is a URL directly to the app and unique\nURL https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/\nAPI to update form instance https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update\nAPI to Retrieve instance "
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/authentication/",
 	"title": "Authentication",
 	"tags": ["solution", "apps", "authentication"],
