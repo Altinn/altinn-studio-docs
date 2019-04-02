@@ -4998,10 +4998,10 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#api-s-for-end-user-systems">API&rsquo;s for End User systems</a>
+<li><a href="#rest-api-s-for-end-user-systems">REST API&rsquo;s for End User systems</a>
 <ul>
 <li><a href="#api-to-create-new-instance">API to create new instance</a></li>
-<li><a href="#api-to-update-form-instance">API to update form instance</a></li>
+<li><a href="#api-to-update-form-data">API to update form data</a></li>
 <li><a href="#api-to-retrieve-instance">API to Retrieve instance</a></li>
 </ul></li>
 </ul></li>
@@ -5037,9 +5037,16 @@ if(host != "localhost")
 <p>As part of the application framwork added to a app when creating it in Altinn Studio there will be some API&rsquo;S available to consume from End User Systems,
 External Portals, Mobile apps and App owner systems (typical agencies hosting apps in the platform)</p>
 
-<h2 id="api-s-for-end-user-systems">API&rsquo;s for End User systems</h2>
+<h2 id="rest-api-s-for-end-user-systems">REST API&rsquo;s for End User systems</h2>
 
-<p>The new API&rsquo;s to be used for a specific app will be exposed as REST-API. Each APP will have unique urls to the API&rsquo;s</p>
+<p>The main API&rsquo;channel for data in the platform is REST for services created in Altinn Studio.</p>
+
+<p>The end user system needs to call different APIS based on the need.  The below figure show the different components relevant for an End User System calling Altinn through REST.</p>
+
+
+	<p><object data="/solutions/altinn-apps/app-api/eus-rest.svg" type="image/svg+xml" style="width: 100% max-width: 1200px;"></object></p>
+
+
 
 <h3 id="api-to-create-new-instance">API to create new instance</h3>
 
@@ -5049,7 +5056,9 @@ This is a URL directly to the app and unique</p>
 <p><strong>URL</strong>
 <a href="https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/">https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/</a></p>
 
-<h3 id="api-to-update-form-instance">API to update form instance</h3>
+<h3 id="api-to-update-form-data">API to update form data</h3>
+
+<p>Data that is form data for a given app needs to be updated through the APP APis to ensure handling of business rules</p>
 
 <p><a href="https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update">https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update</a></p>
 
