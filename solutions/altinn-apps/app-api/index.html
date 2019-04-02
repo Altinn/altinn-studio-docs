@@ -4998,11 +4998,14 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#rest-api-s-for-end-user-systems">REST API&rsquo;s for End User systems</a>
+<li><a href="#rest-api-s-for-end-user-systems">REST API&rsquo;s for end user systems</a>
 <ul>
-<li><a href="#api-to-create-new-instance">API to create new instance</a></li>
+<li><a href="#api-to-authenticate-end-user-systems">API to authenticate end user systems</a></li>
+<li><a href="#api-to-create-new-data-instance-for-a-app">API to create new data instance for a app</a></li>
 <li><a href="#api-to-update-form-data">API to update form data</a></li>
-<li><a href="#api-to-retrieve-instance">API to Retrieve instance</a></li>
+<li><a href="#api-to-get-instance-data-with-business-rules">API to get instance data with business rules</a></li>
+<li><a href="#api-to-validate-data">API to validate data</a></li>
+<li><a href="#api-to-calculate-perform-business-rules">API to calculate / perform business rules</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5034,35 +5037,62 @@ if(host != "localhost")
 
 
 
-<p>As part of the application framwork added to a app when creating it in Altinn Studio there will be some API&rsquo;S available to consume from End User Systems,
+<div class="notices warning" ><p>NOTE: Work in progress. Stuff will change</p>
+</div>
+
+
+<p>As part of the application framwork added to a app when creating it in Altinn Studio there will be some API&rsquo;S available to consume from end user Systems,
 External Portals, Mobile apps and App owner systems (typical agencies hosting apps in the platform)</p>
 
-<h2 id="rest-api-s-for-end-user-systems">REST API&rsquo;s for End User systems</h2>
+<h2 id="rest-api-s-for-end-user-systems">REST API&rsquo;s for end user systems</h2>
 
 <p>The main API&rsquo;channel for data in the platform is REST for services created in Altinn Studio.</p>
 
-<p>The end user system needs to call different APIS based on the need.  The below figure show the different components relevant for an End User System calling Altinn through REST.</p>
+<p>The end user system needs to call different APIS based on the need.  The below figure show the different components relevant for an
+end user System calling Altinn through REST.</p>
 
 
 	<p><object data="/solutions/altinn-apps/app-api/eus-rest.svg" type="image/svg+xml" style="width: 100% max-width: 1200px;"></object></p>
 
 
 
-<h3 id="api-to-create-new-instance">API to create new instance</h3>
+<h3 id="api-to-authenticate-end-user-systems">API to authenticate end user systems</h3>
+
+<p>For new API&rsquo;s the goal is to use JWT Tokens to authenticate against the API.</p>
+
+<p>Altinn Apps will expose apis to authenticate end user systems and user of end user systems and return JWT Tokens that can be used against the other API&rsquo;s.</p>
+
+<h3 id="api-to-create-new-data-instance-for-a-app">API to create new data instance for a app</h3>
 
 <p>From end user systems it will be possible to create a instance of a App from a end user system.
 This is a URL directly to the app and unique</p>
 
 <p><strong>URL</strong>
-<a href="https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/">https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/</a></p>
+<a href="https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/">https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/</a></p>
 
 <h3 id="api-to-update-form-data">API to update form data</h3>
 
 <p>Data that is form data for a given app needs to be updated through the APP APis to ensure handling of business rules</p>
 
-<p><a href="https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update">https://skd.apps.altinn.no/runtime/api/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update</a></p>
+<p><a href="https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update">https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update</a></p>
 
-<h3 id="api-to-retrieve-instance">API to Retrieve instance</h3>
+<h3 id="api-to-get-instance-data-with-business-rules">API to get instance data with business rules</h3>
+
+<p>Data that is form data related to the apps data modell will need to be retrieved through the APP api.
+This is because the app possible can add additional data.</p>
+
+<p><strong>URL</strong>
+<a href="https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update">https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update</a></p>
+
+<h3 id="api-to-validate-data">API to validate data</h3>
+
+<p>The apps will support the possibility to validate the datamodel for the app without creating a instance of the data</p>
+
+<p><a href="https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update">https://skd.apps.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Update</a></p>
+
+<h3 id="api-to-calculate-perform-business-rules">API to calculate / perform business rules</h3>
+
+<p>The app will support the possibility to</p>
 
 
 <footer class=" footline" >
