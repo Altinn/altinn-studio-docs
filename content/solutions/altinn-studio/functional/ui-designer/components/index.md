@@ -1,7 +1,9 @@
 ---
 title: Available form components
 description: Overview of the form components that are available for use
-tags: ["ui-designer", "form-components"]
+tags: [ui-designer, ui-components]
+aliases:
+    - "/ui-components"
 weight: 100
 ---
 
@@ -108,6 +110,21 @@ weight: 100
       </td>
     </tr>
     <tr>
+      <td>File Upload</td>
+      <td>
+        <ul>
+          <li>Component mode</li>
+          <li>Label text</li>
+          <li>Description text</li>
+          <li>Accepted attachment types, <a href="https://www.w3schools.com/tags/att_input_accept.asp">see html input accept parameter</a></li>
+          <li>Max number of attachments</li>
+          <li>Max file size in mb</li>
+        <ul>
+      </td>
+      <td><img alt="File upload component - edit properties" src="props-file-upload.png?width=700" title="File upload component - edit properties" /></td>
+      <td><img alt="File upload component - default look" src="display-file-upload.png?width=700" title="File upload component - default look" /></td>
+    </tr>
+    <tr>
       <td>Text Area</td>
       <td>
         <ul>
@@ -125,7 +142,6 @@ weight: 100
 In addition to the above components, the following basic form components are under development. These are not ready to be used, they will be added to the overview when they are ready to use:
 
 * Dropdown
-* File attachment
 * Container
 
 ### Advanced form components

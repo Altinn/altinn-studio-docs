@@ -45,7 +45,7 @@ Services are an abstraction of a set of pods and how to access them. There are v
 
 #### [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
-Persistent volumes, as the name suggests it is used to manage persistant storage volumes. In altinn.studio we use persistant volume claims,  
+Persistent volumes, as the name suggests it is used to manage persistent storage volumes. In altinn.studio we use persistent volume claims,  
 and since we're using a Azure managaged kubernetes cluster, azure sets up virtual disks in the kubernetes cluster resource group.
 
 #### [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)

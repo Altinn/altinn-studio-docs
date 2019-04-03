@@ -132,3 +132,9 @@ There are two steps to solving this issue
 This can be checked by going to Dependencies -> NuGet / SDK for each project in the AltinnCore solution. If this is not the case, remove the reference and re-install it using NuGet package manager or a tool of your own choice.
 
 ![Runtime-Compilation-Error ](runtime-compilation-error.png?width=150)
+
+### I try to pull master from github and get error "Cannot lock ref"
+
+This happens from time to time, still unsure why. To fix it run the command:
+
+`git gc --prune=now`
