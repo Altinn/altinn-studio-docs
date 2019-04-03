@@ -5109,7 +5109,10 @@ The application architecture for each component is described below. <a class="re
     </header>
     <section class="post-excerpt">
         <p>The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-See Github for implementation details <a class="read-more" href="/architecture/application/altinn-platform/storage/">&raquo;</a></p>
+See Github for implementation details
+Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about instances and their data elements. It provides a registry of all applications and their metadata.
+Resources: Instance, Application, ApplicationOwner, InstanceOwner, Schema
+/instances An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application. <a class="read-more" href="/architecture/application/altinn-platform/storage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

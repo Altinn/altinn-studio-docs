@@ -5010,6 +5010,8 @@ if(host != "localhost")
                   </a>
                 </span>
                 
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
                 <span class="links">
                   
                   
@@ -5040,6 +5042,21 @@ if(host != "localhost")
                 </span>
             </div>
             
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#instances">/instances</a>
+<ul>
+<li><a href="#data-service">Data service</a></li>
+</ul></li>
+<li><a href="#applications">/applications</a></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
+            
           </div>
         
         
@@ -5061,9 +5078,174 @@ if(host != "localhost")
 
 
 
+
+
 <p>The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.</p>
 
 <p><a href="https://github.com/Altinn/altinn-studio/issues/311">See Github for implementation details</a></p>
+
+<p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about <em>instances</em> and their <em>data</em> elements.
+It provides a registry of all <em>applications</em> and their metadata.</p>
+
+<p>Resources: Instance, Application, ApplicationOwner, InstanceOwner, Schema</p>
+
+<h1 id="instances">/instances</h1>
+
+<p>An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
+An instance replaces Altinn2 Message.
+An instanceOwner is a person/company that reports information via Altinn.
+An applicationId refers to the application information element which defines the metadata about the application.</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;applicationId&quot;: &quot;TEST/sailor&quot;,
+    &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
+    &quot;instanceOwnerId&quot;: &quot;666&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;user32&quot;,
+    &quot;lastChangedDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+    &quot;lastChangedBy&quot;: &quot;user34&quot;,
+    &quot;dueDateTime&quot;: null,
+    &quot;visibleDateTime&quot;: null,
+    &quot;presentationField&quot;: &quot;Færder påmelding 2019&quot;,
+    &quot;externalSystemReference&quot;: null,
+    &quot;currentWorkflowStep&quot;: &quot;started&quot;,
+    &quot;isCompleted&quot;: true,
+    &quot;isDeleted&quot;: [{
+        &quot;deletionDateTime&quot;: &quot;2017-12-22&quot;,
+        &quot;deletedBy&quot;: &quot;user34&quot;
+    }],
+    &quot;applicationOwnerFeedback&quot;: {
+        &quot;receivedDate&quot;: &quot;2019-05-11T03:00:23+01:00&quot;,
+        &quot;status&quot;: &quot;OK&quot;
+    },
+    &quot;data&quot;: {
+        &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;: {
+            &quot;formId&quot;: &quot;boatdata&quot;,
+            &quot;contentType&quot;: &quot;application/json&quot;,
+            &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/boatdata/992011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
+            &quot;createdBy&quot;: &quot;XXX&quot;,
+            &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
+            &quot;fileSize&quot;: 2003,
+            &quot;isLocked&quot;: true
+        },
+         &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;: {
+            &quot;formId&quot;: &quot;crewlist&quot;,
+            &quot;contentType&quot;: &quot;text/xml&quot;,
+            &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/crewlist/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+            &quot;createdBy&quot;: &quot;XXX&quot;,
+            &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+            &quot;lastChangedBy&quot;: &quot;XXX&quot;
+        }
+    }
+}
+</code></pre>
+
+<p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
+
+<pre><code class="language-http">/instances?applicationId=TEST/sailor&amp;instanceOwnerId=1024
+</code></pre>
+
+<p>Get information about one instance.</p>
+
+<pre><code class="language-http">/instances/{instanceId}
+</code></pre>
+
+<p>Get (query) all instances that is instance owner has</p>
+
+<pre><code class="language-http">/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
+</code></pre>
+
+<p>Get (query) all instances of a particular application that is completed</p>
+
+<pre><code class="language-http">/instances?applicationId={applicationId}&amp;completed=true
+</code></pre>
+
+<p>Delete a specific instance (also deletes its data).</p>
+
+<pre><code class="language-http">/instances/{instanceId}
+</code></pre>
+
+<h2 id="data-service">Data service</h2>
+
+<p>A data element is a file that contains a specific form element of an instance.
+It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
+The application metadata restricts the types of form elements that are allowed {formId}.</p>
+
+<p>Get a specific data element</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
+</code></pre>
+
+<p>Post to create a specific data element. Content a file (as MultipartContent).
+After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
+that is used to identify the specific data element</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data?formId={formId}
+</code></pre>
+
+<p>Put to replace a specific data element. Delete to remove data element.</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
+</code></pre>
+
+<h1 id="applications">/applications</h1>
+
+<p>Application metadata used to validate data elements in instances</p>
+
+<p>Resource: <a href="http://platform.altinn.no/applications/TEST/sailor">http://platform.altinn.no/applications/TEST/sailor</a></p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;TEST/sailor&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;XXX&quot;,
+    &quot;title&quot;: &quot;Færder påmelding&quot;,
+    &quot;type&quot;: &quot;innsending&quot;,
+    &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
+    &quot;workflowId&quot;: &quot;standard&quot;,
+    &quot;isDeleted&quot;: false,
+    &quot;isArchived&quot;: false,
+    &quot;validFrom&quot;: null,
+    &quot;validTo&quot;: null,
+    &quot;forms&quot;: {
+        &quot;boatdata&quot;: {
+            &quot;contentType&quot;: &quot;application/schema+json&quot;,
+            &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
+            &quot;createdBy&quot;: &quot;M2&quot;,
+            &quot;signatureRequired&quot;: true,
+            &quot;shouldEncryptData&quot;: true
+        },
+        &quot;crewlist&quot;: {
+            &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
+            &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
+            &quot;createdBy&quot;: &quot;M2&quot;,
+            &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+            &quot;lastChangedBy&quot;: &quot;M42&quot;
+        }
+    }
+}
+</code></pre>
+
+<p>Get a list of all Applications</p>
+
+<pre><code class="language-http">/applications
+</code></pre>
+
+<p>Get metadata about a specific application</p>
+
+<pre><code class="language-http">/applications/{applicationId}
+</code></pre>
+
+<p>Get the schema of a specific form element in an application</p>
+
+<pre><code class="language-http">/applications/{applicationId}/forms/{dataId}?format=jsonSchema
+</code></pre>
 
 
 <footer class=" footline" >
