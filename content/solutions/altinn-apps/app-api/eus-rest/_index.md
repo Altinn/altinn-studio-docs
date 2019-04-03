@@ -55,21 +55,21 @@ https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Update
 The apps will support the possibility to validate the datamodel for the app without creating a instance of the data
 
 ```http
-https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Calculate
+https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Validate
 ```
 
 ### API to calculate / perform business rules
 The app will support the possibility to perform calculation / perform business rules for a datamodell to an app  
 
 ```http
-https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Validate
+https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Calculate
 ```
 
 ### API to add binary attachments
 The platform api will support adding binary data to a instance.
 
 ```http
-https://storage.platform.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Calculate
+https://storage.platform.altinn.no/api/v1/{org}/{appid}/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Calculate
 ```
 
 
@@ -101,12 +101,12 @@ https://storage.platform.altinn.no/api/v1/instances/{instanceId}
 
 A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {formId}.
+The application metadata restricts the types of form elements that are allowed {dataTypeId}.
 
 Get a specific data element
 
 ```http
-https://storage.platform.altinn.no/api/v1/instances/{instanceId}/data/{formId}/{dataId}
+https://storage.platform.altinn.no/api/v1/instances/{instanceId}/data//{dataId}
 ```
 
 Post to create a specific data element. Content a file (as MultipartContent).
@@ -114,13 +114,13 @@ After success the instance's data section is updated, with the appropriate dataI
 that is used to identify the specific data element
 
 ```http
-/instances/{instanceId}/data/{formId}
+/instances/{instanceId}/data/?dataTypeId={dataType}
 ```
 
 Put to replace a specific data element. Delete to remove data element.
 
 ```http
-/instances/{instanceId}/data/{formId}/{dataId}
+/instances/{instanceId}/data/{dataId}
 ```
 
 
