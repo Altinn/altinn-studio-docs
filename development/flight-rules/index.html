@@ -5046,6 +5046,7 @@ if(host != "localhost")
 <li><a href="#react-app-not-updating-in-runtime-when-testing-locally">react-app not updating in Runtime when testing locally</a></li>
 <li><a href="#pod-is-stuck-in-status-containercreating-and-has-warning-unable-to-mount-volumes-for-pod-xxx-timeout-expired-waiting-for-volumes-to-attach-or-mount-for-pod-xxx">Pod is stuck in status ContainerCreating and has warning &ldquo;Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX&rdquo;</a></li>
 <li><a href="#i-got-assigned-to-update-altinn-studio-with-new-kode">I got assigned to update altinn.studio with new kode</a></li>
+<li><a href="#multiple-compilation-errors-for-a-newly-generated-app-without-form-components">multiple compilation errors for a newly generated app without form components</a></li>
 <li><a href="#i-try-to-pull-master-from-github-and-get-error-cannot-lock-ref">I try to pull master from github and get error &ldquo;Cannot lock ref&rdquo;</a></li>
 </ul></li>
 </ul></li>
@@ -5203,6 +5204,25 @@ To deploy latest code to altinn.studio do the following:</p>
 </ul>
 
 <p>&ndash;&gt; A deploy to production has been started use kubectl get pods -w on the altinn.studio cluster to see if pods are updated correctly</p>
+
+<h3 id="multiple-compilation-errors-for-a-newly-generated-app-without-form-components">multiple compilation errors for a newly generated app without form components</h3>
+
+<p>A plausible reason for the .NET code not compiling is that the incorrect version of the SDK is being used. Either the wrong version is installed, or the project is referencing the SDK in your user directory rather than the one installed in program files.</p>
+
+<p>There are two steps to solving this issue</p>
+
+<ol>
+<li>Make sure you have the following versions of the .NET SDK and Runtime installed:
+
+<ul>
+<li>Runtime 2.1.0</li>
+<li>SDK 2.1.300</li>
+</ul></li>
+<li>Ensure that the path of all .NET Core references in the Visual Studio solution are in the <code>C:\Program Files\dotnet</code> directory.
+This can be checked by going to Dependencies -&gt; NuGet / SDK for each project in the AltinnCore solution. If this is not the case, remove the reference and re-install it using NuGet package manager or a tool of your own choice.</li>
+</ol>
+
+<p><img src="runtime-compilation-error.png?width=150" alt="Runtime-Compilation-Error " /></p>
 
 <h3 id="i-try-to-pull-master-from-github-and-get-error-cannot-lock-ref">I try to pull master from github and get error &ldquo;Cannot lock ref&rdquo;</h3>
 
