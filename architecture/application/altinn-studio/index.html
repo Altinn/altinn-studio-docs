@@ -5060,6 +5060,7 @@ if(host != "localhost")
 <ul>
 <li><a href="#altinn-studio-mode">Altinn Studio Mode</a></li>
 </ul></li>
+<li><a href="#testing-in-altinn-studio">Testing in Altinn Studio</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5167,6 +5168,65 @@ interfaces to run the specific service logic implemented in Altinn Studio.</p>
 
 <p>Based on the logged in service developer and URL parames the correct service implementation will be compiled and loaded in to memory
 for backend.</p>
+
+<h3 id="testing-in-altinn-studio">Testing in Altinn Studio</h3>
+
+<p>An application that is developed in altinn studio can be tested in studio evnvironment. It is a simulation of how the application will work when it is deployed in different environments. It will store data in disk instead of database.
+To test the application inside altinn studio</p>
+
+<ul>
+<li>Click on &ldquo;Test&rdquo; menu</li>
+<li>Choose an user (user list is preloaded for testing)</li>
+<li>You will see an interface with a list of existing instance elements and an option to instantiate new instance</li>
+</ul>
+
+<p>When a new instance of the application is instantiated, it creates the following files and folder structure under &ldquo;Testdataforparty&rdquo; folder</p>
+
+<p>│  │  ├──  
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+ Testdataforparty (used for runtime)<br />
+│  │  │        ├──
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+  user1<br />
+│  │  │        │     ├──
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+  instance1<br />
+│  │  │        │     │     ├──
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+  instance1.json<br />
+│  │  │        │     │    ├──
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+  instance1.state.json<br />
+│  │  │        │     │     ├──
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+ data<br />
+│  │  │        │     │     │    ├──
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+ data-id1<br />
+│  │  │        │     │     │    │     ├──
+
+<span class="fa fa-code"   aria-hidden="true"></span>
+
+ data-id1.xml<br />
+│  │  │        │     │     │    ├──
+
+<span class="fa fa-folder-open"   aria-hidden="true"></span>
+
+ data-id&hellip;</p>
 
 
 <footer class=" footline" >
@@ -5620,6 +5680,38 @@ for backend.</p>
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
