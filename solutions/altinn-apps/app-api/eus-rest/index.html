@@ -5056,7 +5056,13 @@ if(host != "localhost")
 <li><a href="#api-to-get-instance-data-with-business-rules">API to get instance data with business rules</a></li>
 <li><a href="#api-to-validate-data">API to validate data</a></li>
 <li><a href="#api-to-calculate-perform-business-rules">API to calculate / perform business rules</a></li>
-<li><a href="#api-to-add-binary-attachments">API to add binary attachments</a></li>
+<li><a href="#api-to-add-binary-attachments">API to add binary attachments</a>
+<ul>
+<li>
+<ul>
+<li><a href="#data-service">Data service</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5113,40 +5119,91 @@ end user System calling Altinn through REST.</p>
 <p>From end user systems it will be possible to create a instance of a App from a end user system.
 This is a URL directly to the app and unique</p>
 
-<p><strong>URL</strong>
-https://{org}.apps.altinn.no/api/v1/{org}/{appid}/</p>
+<p><strong>URL</strong></p>
+
+<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/
+</code></pre>
 
 <h3 id="api-to-update-form-data">API to update form data</h3>
 
 <p>Data that is form data for a given app needs to be updated through the APP APis to ensure handling of business rules</p>
 
-<p><strong>Method:</strong> PUT
-<strong>URL:</strong> https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Update</p>
+<p><strong>Method:</strong> PUT</p>
+
+<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Update
+</code></pre>
 
 <h3 id="api-to-get-instance-data-with-business-rules">API to get instance data with business rules</h3>
 
 <p>Data that is form data related to the apps data modell will need to be retrieved through the APP api.
 This is because the app possible can add additional data.</p>
 
-<p><strong>URL:</strong> https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Update</p>
+<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Update
+</code></pre>
 
 <h3 id="api-to-validate-data">API to validate data</h3>
 
 <p>The apps will support the possibility to validate the datamodel for the app without creating a instance of the data</p>
 
-<p><strong>URL:</strong> https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Calculate</p>
+<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Calculate
+</code></pre>
 
 <h3 id="api-to-calculate-perform-business-rules">API to calculate / perform business rules</h3>
 
 <p>The app will support the possibility to perform calculation / perform business rules for a datamodell to an app</p>
 
-<p><strong>URL:</strong> https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Validate</p>
+<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Validate
+</code></pre>
 
 <h3 id="api-to-add-binary-attachments">API to add binary attachments</h3>
 
 <p>The platform api will support adding binary data to a instance.</p>
 
-<p><a href="https://storage.platform.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Calculate">https://storage.platform.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Calculate</a></p>
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Calculate
+</code></pre>
+
+<p>Get information about one instance.</p>
+
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances/{instanceId}
+</code></pre>
+
+<p>Get (query) all instances that is instance owner has</p>
+
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
+</code></pre>
+
+<p>Get (query) all instances of a particular application that is completed</p>
+
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances?applicationId={applicationId}&amp;completed=true
+</code></pre>
+
+<p>Delete a specific instance (also deletes its data).</p>
+
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances/{instanceId}
+</code></pre>
+
+<h5 id="data-service">Data service</h5>
+
+<p>A data element is a file that contains a specific form element of an instance.
+It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
+The application metadata restricts the types of form elements that are allowed {formId}.</p>
+
+<p>Get a specific data element</p>
+
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances/{instanceId}/data/{formId}/{dataId}
+</code></pre>
+
+<p>Post to create a specific data element. Content a file (as MultipartContent).
+After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
+that is used to identify the specific data element</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data/{formId}
+</code></pre>
+
+<p>Put to replace a specific data element. Delete to remove data element.</p>
+
+<pre><code class="language-http">/instances/{instanceId}/data/{formId}/{dataId}
+</code></pre>
 
 
 <footer class=" footline" >
