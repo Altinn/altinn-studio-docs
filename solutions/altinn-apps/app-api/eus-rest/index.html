@@ -5145,21 +5145,21 @@ This is because the app possible can add additional data.</p>
 
 <p>The apps will support the possibility to validate the datamodel for the app without creating a instance of the data</p>
 
-<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Calculate
+<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Validate
 </code></pre>
 
 <h3 id="api-to-calculate-perform-business-rules">API to calculate / perform business rules</h3>
 
 <p>The app will support the possibility to perform calculation / perform business rules for a datamodell to an app</p>
 
-<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Validate
+<pre><code class="language-http">https://{org}.apps.altinn.no/api/v1/{org}/{appid}/{instanceid}/Calculate
 </code></pre>
 
 <h3 id="api-to-add-binary-attachments">API to add binary attachments</h3>
 
 <p>The platform api will support adding binary data to a instance.</p>
 
-<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/3/AltinnTest/ApiDemo/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Calculate
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/{org}/{appid}/7ae65582-f9bc-46b8-b094-84e9530e4ed6/Calculate
 </code></pre>
 
 <p>Get information about one instance.</p>
@@ -5186,23 +5186,23 @@ This is because the app possible can add additional data.</p>
 
 <p>A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {formId}.</p>
+The application metadata restricts the types of form elements that are allowed {dataTypeId}.</p>
 
 <p>Get a specific data element</p>
 
-<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances/{instanceId}/data/{formId}/{dataId}
+<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances/{instanceId}/data//{dataId}
 </code></pre>
 
 <p>Post to create a specific data element. Content a file (as MultipartContent).
 After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
 that is used to identify the specific data element</p>
 
-<pre><code class="language-http">/instances/{instanceId}/data/{formId}
+<pre><code class="language-http">/instances/{instanceId}/data/?dataTypeId={dataType}
 </code></pre>
 
 <p>Put to replace a specific data element. Delete to remove data element.</p>
 
-<pre><code class="language-http">/instances/{instanceId}/data/{formId}/{dataId}
+<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
 </code></pre>
 
 
