@@ -129,6 +129,6 @@ There are two steps to solving this issue
     - Runtime 2.1.0
     - SDK 2.1.300
 2. Ensure that the path of all .NET Core references in the Visual Studio solution are in the `C:\Program Files\dotnet` directory. 
-This can be checked by going to Dependencies -> NuGet / SDK for each project in the AltinnCore solution. If this is not the case, remove the reference and re-install it using NuGet package manager or a tool of your own choosing. 
+This can be checked by going to Dependencies -> NuGet / SDK for each project in the AltinnCore solution. If this is not the case, remove the reference and re-install it using NuGet package manager or a tool of your own choice.
 
 ![Runtime-Compilation-Error ](runtime-compilation-error.png?width=150)
