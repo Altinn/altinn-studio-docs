@@ -1786,26 +1786,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/about/wordlist/" class="dd-item
-     
-      ">
-        <a href="/about/wordlist/">
-        <span>Wordlist</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -5056,15 +5036,45 @@ if(host != "localhost")
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li>
+<li><a href="#terms">Terms</a>
 <ul>
-<li><a href="#application">Application</a></li>
-<li><a href="#instance">Instance</a></li>
-<li><a href="#event">Event</a></li>
-<li><a href="#data">Data</a></li>
-<li><a href="#instance-owner">Instance Owner</a></li>
+<li><a href="#altinn">Altinn</a>
+<ul>
+<li><a href="#altinn-apps">Altinn Apps</a></li>
+<li><a href="#altinn-platform">Altinn Platform</a></li>
+<li><a href="#altinn-studio">Altinn Studio</a></li>
+<li><a href="#altinn-apps-environment">Altinn Apps environment</a></li>
+<li><a href="#altinn-studio-repositories">Altinn Studio Repositories</a></li>
+</ul></li>
+<li><a href="#api">Api</a></li>
+<li><a href="#app-application">App | Application</a>
+<ul>
+<li><a href="#application-developer">Application Developer</a></li>
 <li><a href="#application-owner">Application Owner</a></li>
-<li><a href="#user">User</a></li>
+</ul></li>
+<li><a href="#data">Data</a></li>
+<li><a href="#event">Event</a></li>
+<li><a href="#instance">Instance</a></li>
+<li><a href="#instance-owner">Instance Owner</a></li>
+<li><a href="#user">User</a>
+<ul>
+<li><a href="#dot-net">dot.net</a></li>
+<li><a href="#kubernetes">Kubernetes</a></li>
+<li><a href="#react">React</a></li>
+<li><a href="#kubernetes-service">Kubernetes Service</a></li>
+<li><a href="#kubernetes-pod">Kubernetes POD</a></li>
+<li><a href="#kubernetes-deployment">Kubernetes Deployment</a></li>
+<li><a href="#kubernetes-replicaset">Kubernetes ReplicaSet</a></li>
+<li><a href="#pap">PAP</a></li>
+<li><a href="#pdp">PDP</a></li>
+<li><a href="#pep">PEP</a></li>
+<li><a href="#pip">PIP</a></li>
+<li><a href="#prp">PRP</a></li>
+<li><a href="#sbl">SBL</a></li>
+<li><a href="#sbl-bridge">SBL Bridge</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#xacml">XACML</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -5077,7 +5087,9 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/concept">concept</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/wordlist">wordlist</a>
             
               <a class="label label-default" href="https://docs.altinn.studio/tags/term">term</a>
             
@@ -5095,9 +5107,51 @@ if(host != "localhost")
 
 
 
-<h2 id="application">Application</h2>
+<h1 id="terms">Terms</h1>
 
-<p>An application is developed in Altinn studio and is deployed to a kubernetes cluster. The application provides two tings:</p>
+<h2 id="altinn">Altinn</h2>
+
+<p>Norways E-Governement plattform. Launched december 4. 2003.
+<a href="https://www.altinn.no/en/about-altinn/what-is-altinn/">Read more on Altinn.no</a></p>
+
+<h3 id="altinn-apps">Altinn Apps</h3>
+
+<p>Altinn Apps is the solution where the developed apps is deployed.
+It consist of isolated organization Kubernetes clusters and supporting functionality and infrastructure.
+See Altinn Apps <a href="/architecture/application/altinn-apps/">application architecture</a> or <a href="/architecture/deployment/altinn-apps/">deployment architecture</a>.</p>
+
+<h3 id="altinn-platform">Altinn Platform</h3>
+
+<p>Altinn Platform consist of supporting components to Altinn Apps.
+Example services are Authorization, Authentication, Profile, Register, Storage, Intermediary.
+The platform is based on microservices architecture and is highly scalable.</p>
+
+<p>See Altinn Platform <a href="https://docs.altinn.studio/architecture/solution/altinn-platform/">solution architecture</a>, <a href="https://docs.altinn.studio/architecture/application/altinn-platform/">application architecture</a>
+and [deployment architecture]</p>
+
+<h3 id="altinn-studio">Altinn Studio</h3>
+
+<p>The web based development tool for creating end user service: Application.
+Lets the service developer create services that are deployed like a seperate application (app).</p>
+
+<h3 id="altinn-apps-environment">Altinn Apps environment</h3>
+
+<p>A Altinn Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created
+in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment</p>
+
+<h3 id="altinn-studio-repositories">Altinn Studio Repositories</h3>
+
+<p>Altinn Studio Repos is the source control solution for Altinn Studio. All apps developed in Altinn Studio can</p>
+
+<h2 id="api">Api</h2>
+
+<p>Application Programmers Interface.</p>
+
+<h2 id="app-application">App | Application</h2>
+
+<p>An end user service created in Altinn Studio is called an application (app).
+The app is deployed to a Altinn Studio Apps environment.
+The application provides two tings:</p>
 
 <ul>
 <li>an interactive user interface for users wishing to submitt data to an application owner, e.g. to fill out a form manually, to read information or to sign an agrement;</li>
@@ -5108,6 +5162,26 @@ if(host != "localhost")
 
 <p>deprecated term: <del>Service</del></p>
 
+<h3 id="application-developer">Application Developer</h3>
+
+<p>A user developing application in Altinn Studio.</p>
+
+<h3 id="application-owner">Application Owner</h3>
+
+<p>The owner of the application. Typical identified by a unique acronoym, e.g. SKD, NAV, OSLK.</p>
+
+<p>deprecated term: <del>Service Owner</del></p>
+
+<h2 id="data">Data</h2>
+
+<p>A representation of a data element which is stored in the Altinn Platform.</p>
+
+<p>deprecated term: <del>FormElement?</del></p>
+
+<h2 id="event">Event</h2>
+
+<p>A record of activites on a specific instance.</p>
+
 <h2 id="instance">Instance</h2>
 
 <p>An instance of an application for a specific instance owner is represented as an object. Is created by application owner or instance owner.
@@ -5115,31 +5189,69 @@ It contains information of the formdata and attachements stored associated with 
 
 <p>deprecated term: <del>ReporteeElement</del></p>
 
-<h2 id="event">Event</h2>
-
-<p>Data elements that contain information about activites on a specific instance.</p>
-
-<h2 id="data">Data</h2>
-
-<p>A representation of a data element which is stored.</p>
-
-<p>deprecated term: <del>FormElement?</del></p>
-
 <h2 id="instance-owner">Instance Owner</h2>
 
 <p>The person or entity that is responsible for submitting an instance of an application to an application owner.</p>
 
 <p>deprecated term: <del>Reportee</del></p>
 
-<h2 id="application-owner">Application Owner</h2>
-
-<p>The owner of the application.</p>
-
-<p>deprecated term: <del>Service Owner</del></p>
-
 <h2 id="user">User</h2>
 
-<p>The user which is logged in and performs actions for a instance owner.</p>
+<p>The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user can and an instance owner can be the same entity.</p>
+
+<h3 id="dot-net">dot.net</h3>
+
+<h3 id="kubernetes">Kubernetes</h3>
+
+<h3 id="react">React</h3>
+
+<h3 id="kubernetes-service">Kubernetes Service</h3>
+
+<h3 id="kubernetes-pod">Kubernetes POD</h3>
+
+<h3 id="kubernetes-deployment">Kubernetes Deployment</h3>
+
+<h3 id="kubernetes-replicaset">Kubernetes ReplicaSet</h3>
+
+<h3 id="pap">PAP</h3>
+
+<p>Policy Administration Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="pdp">PDP</h3>
+
+<p>Policy Administration Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="pep">PEP</h3>
+
+<p>Policy Administration Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="pip">PIP</h3>
+
+<p>Policy Information Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="prp">PRP</h3>
+
+<p>Policy Retrieval Point. See <a href="/architecture/security/authorization/altinn-studio-apps/">Authorization Architecture</a></p>
+
+<h3 id="sbl">SBL</h3>
+
+<p>The current Altinn end user solution (SluttBrukerLøsning). See <a href="https://docs.altinn.studio/architecture/solution/">Solution Architecture</a></p>
+
+<h3 id="sbl-bridge">SBL Bridge</h3>
+
+<p>Applicaton that exposes SBL components as REST interface to Altinn Platform components.
+<a href="https://github.com/Altinn/altinn-studio/labels/sbl-bridge">See Git Issues</a></p>
+
+<h3 id="workflow">Workflow</h3>
+
+<h3 id="xacml">XACML</h3>
+
+<p>XACML stands for &ldquo;eXtensible Access Control Markup Language&rdquo;. The standard defines a
+declarative fine-grained, attribute-based access control policy language,[2] an architecture,
+and a processing model describing how to evaluate access requests according to the rules defined in policies.</p>
+
+<p>Altinn Studio Apps uses the XACML standard for defining Policies for apps, the authorization architecture,
+and the request and response between PEP and PDP.</p>
 
 
 
@@ -6090,22 +6202,6 @@ It contains information of the formdata and attachements stored associated with 
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             

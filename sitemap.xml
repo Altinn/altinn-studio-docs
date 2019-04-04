@@ -375,10 +375,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/about/wordlist/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/xacml/</loc>
   </url>
   
@@ -770,6 +766,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/component-library/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/concept/</loc>
     <priority>0</priority>
   </url>
   
