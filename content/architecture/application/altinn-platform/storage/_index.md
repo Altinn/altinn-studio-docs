@@ -19,7 +19,7 @@ Resources: Instance, Application, ApplicationOwner, InstanceOwner, Schema
 # /instances
 
 An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
-An instance replaces Altinn2 Message.
+An instance replaces Altinn2 Message. 
 An instanceOwner is a person/company that reports information via Altinn.
 An applicationId refers to the application information element which defines the metadata about the application.
 
