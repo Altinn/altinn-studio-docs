@@ -25,8 +25,6 @@ Heldigvis finnes det flere open source "GitHub-kloner" som vi kan benytte, og bl
 [Gitea](https://github.com/go-gitea/gitea) å være mest lovende (uttales som /ɡɪ’ti:/ - "gitty").
 Bilder fra Gitea benyttes som eksempler videre i denne dokumentasjonen.
 
-{{% panel theme="info" header="Kildekoden for Repositories ligger i VSTS" %}}https://altinn.visualstudio.com/tjenester3.0/_git/AltinnCore{{% /panel %}}
-
 !["Gitea logo"](gitea.png?width=100)
 
 ## Funksjonalitet i "Repositories"
