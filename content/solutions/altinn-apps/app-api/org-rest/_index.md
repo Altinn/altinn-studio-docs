@@ -15,9 +15,8 @@ NOTE: Work in progress. Stuff will change
 For Apps created in Altinn Studio and hosted in Altinn apps, REST-API are the main channel to interact with the App / Altinn Platform.
 
 ### API to authenticate end agency systems
-In the current Altinn Platform SOAP is used for most of the agencies API's.
-
-
+In the current Altinn Platform SOAP is used for most of the agencies API's. Altinn support both username/password for agencies
+and 
 
 ### API to instansiate a new instance of a service with prefill
 A agency system would be able to instansiate a new instance of a app. 
@@ -28,7 +27,6 @@ A agency system would be able to instansiate a new instance of a app.
 ```http
 https://{org}.apps.altinn.no/api/v1/{org}/{appid}/
 ```
-
 
 Get information about one instance.
 
