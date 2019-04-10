@@ -15,7 +15,7 @@ SBL Bridge is a ASP.NET MVC 5 application that runs on .NET Framework 4.5.
 SBL Bridge exsposes data from SBL by converting REST API requests from Altinn Platform to requests that are passed on to the internal WCF services.  
 
 ### Consuming data from ALtinn II SBL components
-TODO
+Where it is possible, the WCF proxies defined in each component's PnC class library is to be used when consuming data from Altinn II. 
 
 ### Exposing data from Altin II SBL components
 All data exposure in SBL Bridge should be done through RESTful APIs. As are no guidelines for development of REST APIs in Altinn II is defined, best practice for ASP.NET and the [guidelines for Altinn Studio] (https://docs.altinn.studio/development/handbook/rest/) (as far as possible) should be followed.
