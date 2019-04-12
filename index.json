@@ -483,6 +483,13 @@
 	"content": " Window.postMessage() is introduced to handle communication between components that has no connection other then the need to communicate/trigger events. Eg. its used to communicate with the syncBar to get it to perform a new status check. To read more see: Window.postMessage\nUsage Dispatching a message event is done the following way:\n// variables should be used for messages var SAVED_EVENT = 'SAVED' window.postMessage(SAVED_EVENT, window.location.href);  Catching the event is done by adding an event listener to the component one needs to communicate with:\npublic componentDidMount() { window.addEventListener('message', this.eventThatShouldHappend); } public eventThatShouldHappend(){ if (event.data === SAVED_EVENT){ //Do necessary handling of correct message } }  When the commponent is unmounting the event listener should be removed:\npublic componentWillUnmount() { window.removeEventListener('message', this.eventThatShouldHappend); }   Remember to create \u0026ldquo;message variables\u0026rdquo; that make sense when comparing different messages. Example: \u0026ldquo;SAVED_IN_UI_EDITOR\u0026rdquo;, \u0026ldquo;SAVED_IN_OTHER_PLACE\u0026rdquo; or \u0026ldquo;FETCH_REPO_STATUS\u0026rdquo;.\n "
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/test/postman/",
+	"title": "Postman",
+	"tags": ["development", "handbook", "test", "postman", "api"],
+	"description": "API Testing with postman",
+	"content": " Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.\nAuthentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way: - In your browser login to dev.altinn.studio/altin.studio/altinn3.no depending on what environment you are targeting - Notice that the cookies AltinnStudioDesigner, AltinnStudioRuntime and i_like_gitea (among others) has been saved for the domain name you have logged in to. - For Chrome cookies can be found under settings -\u0026gt; advanced -\u0026gt; cookies -\u0026gt; see all.\nThe two cookies AltinnStudioDesigner and AltinnStudioRuntime works as auth against the Designer and Runtime API, so if you are targeting a Designer API you should include the AltinnStudioDesigner cookie, along with the i_like_gitea cookie, and if you are targeting a runtime API the AltinnStudioRuntime cookie should be included. Cookies are easily added to the postman requests under the slightly hidden cookies setting, see:\n"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/profile/",
 	"title": "Application arhicture profile component - Altinn Platform",
 	"tags": ["solution", "architecture"],
@@ -613,7 +620,7 @@
 	"title": "Test",
 	"tags": ["development", "handbook", "test"],
 	"description": "Coding guidelines for tests",
-	"content": " Coding guidelines for tests \rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r"
+	"content": " Coding guidelines for tests \rPostman\r\rAPI Testing with postman\n\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/test/test-strategy/",
@@ -970,7 +977,7 @@
 	"title": "Handbook",
 	"tags": ["development", "handbook"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rGitea\r\rGitea documentation for altinn.studio\n\r\r\rLoadbalancer\r\rInformation about loadbalancer\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\rTroubleshooting\r\rTroubleshooting for altinn.studio\n\r\r\r"
+	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rGitea\r\rGitea documentation for altinn.studio\n\r\r\rLoadbalancer\r\rInformation about loadbalancer\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rPostman\r\rAPI Testing with postman\n\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\rTroubleshooting\r\rTroubleshooting for altinn.studio\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/helm/",
@@ -1619,6 +1626,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/post-message/",
 	"title": "post message",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/postman/",
+	"title": "postman",
 	"tags": [],
 	"description": "",
 	"content": ""
