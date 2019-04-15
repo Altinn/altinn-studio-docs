@@ -5102,23 +5102,7 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
 <li><a href="#rest">REST</a></li>
-<li><a href="#resources">Resources</a></li>
-<li><a href="#platform-storage">Platform Storage</a>
-<ul>
-<li><a href="#instance-application-instance">Instance (Application instance)</a></li>
-<li><a href="#data-service">Data service</a></li>
-<li><a href="#applicationowner">ApplicationOwner</a></li>
-<li><a href="#application-metadata">Application (metadata)</a></li>
-</ul></li>
-<li><a href="#altinn-studio">Altinn-studio</a></li>
-<li><a href="#app-services-runtime">App services (runtime)</a></li>
-</ul></li>
-</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -5159,237 +5143,46 @@ if(host != "localhost")
 </div>
 
 
-<h4 id="rest">REST</h4>
+<h2 id="rest">REST</h2>
 
 <p>REST is an architectural style for designing loosely coupled applications over HTTP which was coined by <a href="https://en.wikipedia.org/wiki/Roy_Fielding">Rob Fielding</a> in 2000.
 We will define services according to <a href="https://restfulapi.net/rest-architectural-constraints/">REST</a>.</p>
 
-<p>All REST APIs should be versioned.</p>
+<ul>
+<li><p>REST APIs should start with <code>/api</code> so that we with ease can differentiate between an rest api call and a ux-application call.</p></li>
 
-<pre><code class="language-http">/api/v1/resource
+<li><p>REST APIs should start with a short word to indicate the logical domain or group of apis.</p></li>
+
+<li><p>REST APIs should be versioned, with semantic versioning: v1 major (incompatible API changes), v1.1  minor (add backwards-compatible functionality), and v1.1.1 patch (bugfix). We should strive to make REST APIs backwards compatible, hence clients should not break if we add a new parameter.</p></li>
+
+<li><p>REST APIs paths should be in lower case letters. Query parameter names should be lowerCamelCase.</p></li>
+
+<li><p>REST APIs should be resource oriented. A resources is a thing that the client and server knows about.
+The API provides methods to find, create, update, delete or manipulate a resource object.
+A resource in a system should have only one logical URI, which should provide a way to fetch related or additional data about the resource.</p></li>
+
+<li><p>REST APIs specifications should be public awailable as OpenApi 3.0 (swagger).</p></li>
+</ul>
+
+<pre><code class="language-http">/api/{domain}/{version}/{resource}
 </code></pre>
 
-<h4 id="resources">Resources</h4>
+<p>Example:</p>
 
-<p>A resources is a thing that the client and server knows about.
-The API provides methods to ifind, create, update or delete a resource object.
-A resource in a system should have only one logical URI, which should provide a way to fetch related or additional data about the resource.</p>
+<p>Create a new instance resource. Post to <em>instances</em> with query params that identifies the application and the instance owner.
+This call should return identifier of the new instance resource or the json of the instance resource itself.</p>
 
-<h4 id="platform-storage">Platform Storage</h4>
-
-<p>Data service to store instance data for applications, and metadata about applications</p>
-
-<p>Resources: Instance, Application,  ApplicationOwner, InstanceOwner, Schema</p>
-
-<h5 id="instance-application-instance">Instance (Application instance)</h5>
-
-<p>An application instance is created when a instance onwer starts a workflow in an Altinn application.
-An instance replaces Altinn2 Message.
-An instanceOwner is a person/company that reports information via Altinn.
-An applicationId refers to the application information element which defines the metadata about the application.</p>
-
-<pre><code class="language-json">{
-    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    &quot;applicationId&quot;: &quot;KNS/sailor&quot;,
-    &quot;applicationOwnerId&quot;: &quot;KNS&quot;,
-    &quot;instanceOwnerId&quot;: &quot;666&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
-    &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;lastChangedDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
-    &quot;lastChangedBy&quot;: &quot;XXX&quot;,
-    &quot;dueDateTime&quot;: null,
-    &quot;visibleDateTime&quot;: null,
-    &quot;presentationField&quot;: &quot;Færder påmelding 2019&quot;,
-    &quot;externalSystemReference&quot;: null,
-    &quot;currentWorkflowStep&quot;: &quot;started&quot;,
-    &quot;isCompleted&quot;: true,
-    &quot;isDeleted&quot;: [{
-        &quot;deletionDateTime&quot;: &quot;2017-12-22&quot;,
-        &quot;deletedBy&quot;: &quot;KNS&quot;
-    }],
-    &quot;applicationOwnerFeedback&quot;: {
-        &quot;receivedDate&quot;: &quot;2019-05-11T03:00:23+01:00&quot;,
-        &quot;status&quot;: &quot;OK&quot;
-    },
-    &quot;data&quot;: {
-        &quot;boatdata&quot;: {
-            &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;: {
-                &quot;contentType&quot;: &quot;application/json&quot;,
-                &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/boatdata/992011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-                &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
-                &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
-                &quot;createdBy&quot;: &quot;XXX&quot;,
-                &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
-                &quot;fileSize&quot;: 2003,
-                &quot;isLocked&quot;: true
-        },
-        &quot;crewlist&quot;: {
-            &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;: {
-                &quot;contentType&quot;: &quot;text/xml&quot;,
-                &quot;storageUrl&quot;: &quot;KNS/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/crewlist/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
-                &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
-                &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
-                &quot;createdBy&quot;: &quot;XXX&quot;,
-                &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
-                &quot;lastChangedBy&quot;: &quot;XXX&quot;
-            }
-        }
-    }
-}
+<pre><code class="language-http">/api/storage/v1/instances?applicationId=KNS/sailor&amp;instanceOwnerId=1024
 </code></pre>
 
-<p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
+<p>GET one instance or PUT to to this url to update the instance.</p>
 
-<pre><code class="language-http">/instances?applicationId=KNS/sailor&amp;instanceOwnerId=1024
-</code></pre>
-
-<p>Get information about one instance.</p>
-
-<pre><code class="language-http">/instances/{instanceId}
+<pre><code class="language-http">/api/storage/v1/instances/23f1faab-bdb3-4cba-aed2-d515e1be6db8
 </code></pre>
 
 <p>Get (query) all instances that is instance owner has</p>
 
-<pre><code class="language-http">/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
-</code></pre>
-
-<p>Get (query) all instances of a particular application that is completed</p>
-
-<pre><code class="language-http">/instances?applicationId={applicationId}&amp;completed=true
-</code></pre>
-
-<p>Delete a specific instance (also deletes its data).</p>
-
-<pre><code class="language-http">/instances/{instanceId}
-</code></pre>
-
-<h5 id="data-service">Data service</h5>
-
-<p>A data element is a file that contains a specific form element of an instance.
-It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {formId}.</p>
-
-<p>Get a specific data element</p>
-
-<pre><code class="language-http">/instances/{instanceId}/data/{formId}/{dataId}
-</code></pre>
-
-<p>Post to create a specific data element. Content a file (as MultipartContent).
-After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
-that is used to identify the specific data element</p>
-
-<pre><code class="language-http">/instances/{instanceId}/data/{formId}
-</code></pre>
-
-<p>Put to replace a specific data element. Delete to remove data element.</p>
-
-<pre><code class="language-http">/instances/{instanceId}/data/{formId}/{dataId}
-</code></pre>
-
-<h5 id="applicationowner">ApplicationOwner</h5>
-
-<p>Get metadata about an application owner</p>
-
-<pre><code class="language-http">/owners/{applicationOwnerId}
-</code></pre>
-
-<h5 id="application-metadata">Application (metadata)</h5>
-
-<p>Resource: <a href="http://platform.altinn.no/applications/KNS/sailor">http://platform.altinn.no/applications/KNS/sailor</a></p>
-
-<pre><code class="language-json">{
-    &quot;id&quot;: &quot;KNS/sailor&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
-    &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;title&quot;: &quot;Færder påmelding&quot;,
-    &quot;type&quot;: &quot;innsending&quot;,
-    &quot;applicationOwnerId&quot;: &quot;KNS&quot;,
-    &quot;workflowId&quot;: &quot;standard&quot;,
-    &quot;isDeleted&quot;: false,
-    &quot;isArchived&quot;: false,
-    &quot;validFrom&quot;: null,
-    &quot;validTo&quot;: null,
-    &quot;forms&quot;: {
-        &quot;boatdata&quot;: {
-            &quot;contentType&quot;: &quot;application/schema+json&quot;,
-            &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;,
-            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
-            &quot;createdBy&quot;: &quot;M2&quot;,
-            &quot;signatureRequired&quot;: true,
-            &quot;shouldEncryptData&quot;: true
-        },
-        &quot;crewlist&quot;: {
-            &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
-            &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;,
-            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
-            &quot;createdBy&quot;: &quot;M2&quot;,
-            &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
-            &quot;lastChangedBy&quot;: &quot;M42&quot;
-        }
-    }
-}
-</code></pre>
-
-<p>Get a list of all Applications</p>
-
-<pre><code class="language-http">/applications
-</code></pre>
-
-<p>Get metadata about a specific application</p>
-
-<pre><code class="language-http">/applications/{applicationId}
-</code></pre>
-
-<p>Get the schema of a specific form element in an application</p>
-
-<pre><code class="language-http">/applications/{applicationId}/forms/{dataId}?format=jsonSchema
-</code></pre>
-
-<h4 id="altinn-studio">Altinn-studio</h4>
-
-<p>&hellip;</p>
-
-<p>tbd</p>
-
-<h4 id="app-services-runtime">App services (runtime)</h4>
-
-<p>TBD&hellip;</p>
-
-<p>One cluster per application owner. An application owner can have many apps.</p>
-
-<pre><code class="language-http">https://{applicationOwnerNick}.apps.altinn.no
-</code></pre>
-
-<p>Resources: App, Application, Instance</p>
-
-<p>Put/post to change workflow step</p>
-
-<pre><code class="language-http">/instances/{instanceId}/workflow/{stepId}
-</code></pre>
-
-<p>Get receipt</p>
-
-<pre><code class="language-http">/instances/{instanceId}/receipt
-</code></pre>
-
-<p>Get validate model</p>
-
-<pre><code class="language-http">/instances/{instanceId}/forms/{formId}/validate
-</code></pre>
-
-<p>Get metadata about a specific application</p>
-
-<pre><code class="language-http">/applications/{applicationId}
-</code></pre>
-
-<p>Get schema for a specific form in the application</p>
-
-<pre><code class="language-http">/applications/{applicationId}/forms/{formId}
-</code></pre>
-
-<p>Get texts for a specific form in the application</p>
-
-<pre><code class="language-http">/texts
+<pre><code class="language-http">/api/storage/v1/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
 </code></pre>
 
 
