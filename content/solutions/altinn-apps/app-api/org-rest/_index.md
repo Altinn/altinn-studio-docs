@@ -21,11 +21,8 @@ and
 ### API to instansiate a new instance of a service with prefill
 A agency system would be able to instansiate a new instance of a app. 
 
-
-**URL**
-
 ```http
-https://{org}.apps.altinn.no/api/v1/{org}/{appid}/
+https://{org}.apps.altinn.no/{appid}/api/v1/create
 ```
 
 Get information about one instance.
