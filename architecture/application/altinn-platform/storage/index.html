@@ -5179,8 +5179,8 @@ An applicationId refers to the application information element which defines the
         &quot;receivedDate&quot;: &quot;2019-05-11T03:00:23+01:00&quot;,
         &quot;status&quot;: &quot;OK&quot;
     },
-    &quot;data&quot;: {
-        &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;: {
+    &quot;data&quot;: [
+        {
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;formId&quot;: &quot;boatdata&quot;,
             &quot;contentType&quot;: &quot;application/json&quot;,
@@ -5193,7 +5193,7 @@ An applicationId refers to the application information element which defines the
             &quot;fileSize&quot;: 2003,
             &quot;isLocked&quot;: true
         },
-         &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;: {
+        {
             &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;formId&quot;: &quot;crewlist&quot;,
             &quot;contentType&quot;: &quot;text/xml&quot;,
@@ -5205,7 +5205,7 @@ An applicationId refers to the application information element which defines the
             &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
             &quot;lastChangedBy&quot;: &quot;XXX&quot;
         }
-    }
+    ]
 }
 </code></pre>
 
@@ -5267,34 +5267,31 @@ that is used to identify the specific data element</p>
     &quot;id&quot;: &quot;TEST/sailor&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;title&quot;: &quot;Færder påmelding&quot;,
-    &quot;type&quot;: &quot;innsending&quot;,
+    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; },
     &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
     &quot;workflowId&quot;: &quot;standard&quot;,
-    &quot;isDeleted&quot;: false,
-    &quot;isArchived&quot;: false,
-    &quot;validFrom&quot;: null,
+    &quot;validFrom&quot;: &quot;2019-04-01T12:14:22+01:00&quot;,
     &quot;validTo&quot;: null,
-    &quot;forms&quot;: {
-        &quot;boatdata&quot;: {
+    &quot;maxSize&quot;: -1,
+    &quot;forms&quot;: [
+        {
             &quot;id&quot;: &quot;boatdata&quot;,
-            &quot;contentType&quot;: &quot;application/schema+json&quot;,
-            &quot;storageUrl&quot;: &quot;sailor/schema/boatdata&quot;,
-            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
-            &quot;createdBy&quot;: &quot;M2&quot;,
-            &quot;signatureRequired&quot;: true,
-            &quot;shouldEncryptData&quot;: true
+            &quot;description&quot;: {&quot;nb&quot;: &quot;Båtdata&quot;, &quot;en&quot;: &quot;Boat data&quot;},
+            &quot;allowedContentType&quot;: [&quot;application/json&quot;, &quot;application/xml&quot;],
+            &quot;maxSize&quot;: 200000,
+            &quot;maxCount&quot;: 1,
+            &quot;shouldSign&quot;: true,
+            &quot;shouldEncrypt&quot;: true
         },
-        &quot;crewlist&quot;: {
+        {
             &quot;id&quot;: &quot;crewlist&quot;,
-            &quot;contentType&quot;: &quot;application/xsd+xml&quot;,
-            &quot;storageUrl&quot;: &quot;sailor/schema/crewlist&quot;,
-            &quot;createdDateTime&quot;: &quot;2019-03-04T12:01:00+01:00&quot;,
-            &quot;createdBy&quot;: &quot;M2&quot;,
-            &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
-            &quot;lastChangedBy&quot;: &quot;M42&quot;
+            &quot;allowedContentType&quot;: [&quot;application/xml&quot;],
+            &quot;maxSize&quot;: -1,
+            &quot;maxCount&quot;: 3,
+            &quot;shouldSign&quot;: false,
+            &quot;shouldEncrypt&quot;: false
         }
-    }
+    ]
 }
 </code></pre>
 
@@ -5306,11 +5303,6 @@ that is used to identify the specific data element</p>
 <p>Get metadata about a specific application</p>
 
 <pre><code class="language-http">/applications/{applicationId}
-</code></pre>
-
-<p>Get the schema of a specific form element in an application</p>
-
-<pre><code class="language-http">/applications/{applicationId}/forms/{dataId}?format=jsonSchema
 </code></pre>
 
 <h1 id="events">/events</h1>
