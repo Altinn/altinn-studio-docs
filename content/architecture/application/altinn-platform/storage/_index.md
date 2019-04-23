@@ -47,8 +47,8 @@ An applicationId refers to the application information element which defines the
         "receivedDate": "2019-05-11T03:00:23+01:00",
         "status": "OK"
     },
-    "data": {
-        "692ee7df-82a9-4bba-b2f2-c8c4dac69aff": {
+    "data": [
+        {
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "formId": "boatdata",
             "contentType": "application/json",
@@ -61,7 +61,7 @@ An applicationId refers to the application information element which defines the
             "fileSize": 2003,
             "isLocked": true
         },
-         "999911d1-d341-4c0a-8641-d8a104e83d30": {
+        {
             "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
             "formId": "crewlist",
             "contentType": "text/xml",
@@ -73,7 +73,7 @@ An applicationId refers to the application information element which defines the
             "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
             "lastChangedBy": "XXX"
         }
-    }
+    ]
 }
 ```
 
@@ -143,34 +143,31 @@ Resource: http://platform.altinn.no/applications/TEST/sailor
     "id": "TEST/sailor",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
-    "title": "Færder påmelding",
-    "type": "innsending",
+    "title": { "nb": "Testapplikasjon", "en": "Test Application" },
     "applicationOwnerId": "TEST",
     "workflowId": "standard",
-    "isDeleted": false,
-    "isArchived": false,
-    "validFrom": null,
+    "validFrom": "2019-04-01T12:14:22+01:00",
     "validTo": null,
-    "forms": {
-        "boatdata": {
+    "maxSize": -1,
+    "forms": [
+        {
             "id": "boatdata",
-            "contentType": "application/schema+json",
-            "storageUrl": "sailor/schema/boatdata",
-            "createdDateTime": "2019-03-04T12:01:00+01:00",
-            "createdBy": "M2",
-            "signatureRequired": true,
-            "shouldEncryptData": true
+            "description": {"nb": "Båtdata", "en": "Boat data"},
+            "allowedContentType": ["application/json", "application/xml"],
+            "maxSize": 200000,
+            "maxCount": 1,
+            "shouldSign": true,
+            "shouldEncrypt": true
         },
-        "crewlist": {
+        {
             "id": "crewlist",
-            "contentType": "application/xsd+xml",
-            "storageUrl": "sailor/schema/crewlist",
-            "createdDateTime": "2019-03-04T12:01:00+01:00",
-            "createdBy": "M2",
-            "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
-            "lastChangedBy": "M42"
+            "allowedContentType": ["application/xml"],
+            "maxSize": -1,
+            "maxCount": 3,
+            "shouldSign": false,
+            "shouldEncrypt": false
         }
-    }
+    ]
 }
 ```
 
@@ -184,12 +181,6 @@ Get metadata about a specific application
 
 ```http
 /applications/{applicationId}
-```
-
-Get the schema of a specific form element in an application
-
-```http
-/applications/{applicationId}/forms/{dataId}?format=jsonSchema
 ```
 
 # /events
