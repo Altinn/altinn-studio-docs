@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="">
+    <meta name="description" content="Description of the application owner interface for Storage component">
 
 
     
-    <title>Tags :: Altinn Studio</title>
+    <title>Application Owners&#39; Interface - Altinn Platform :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/architecture/integration/application-owners-interface/">
     <nav id="sidebar" class="">
 
 
@@ -1828,7 +1828,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1839,7 +1839,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -2498,7 +2498,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/integration/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2509,7 +2509,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -2534,8 +2534,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/integration/application-owners-interface/" class="dd-item 
-        
-        
+        parent
+        active
         parent
         ">
       <a href="/architecture/integration/application-owners-interface/">
@@ -3046,7 +3046,7 @@ if(host != "localhost")
     
     <li data-nav-id="/architecture/development/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/architecture/development/">
@@ -5095,6 +5095,17 @@ if(host != "localhost")
         
           <div id="top-bar">
             
+              
+              
+              
+            <div id="top-github-link">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/integration/application-owners-interface/_index.md" target="blank">
+                <i class="fa fa-code-fork"></i>
+                Edit page
+              </a>
+            </div>
+              
+            
 
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span">
@@ -5103,275 +5114,185 @@ if(host != "localhost")
                   </a>
                 </span>
                 
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
                 <span class="links">
                   
                   
 
- Tags
+
+
+
+
+
+
+
+
+
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/integration/'>Integration</a> > Storage
+
+ 
+
+ 
+
+ 
 
 
                 </span>
             </div>
             
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#application-owner-can-query-instances-for-a-given-application-1">Application owner can query instances for a given application (1)</a>
+<ul>
+<li><a href="#step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded:</a></li>
+<li><a href="#step-2-download-form-data">Step 2: Download form data</a></li>
+<li><a href="#step-3-confirm-download-success">Step 3: Confirm download success</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
+            
           </div>
         
+        
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
+            
+          </div>
         
         <div id="body-inner">
           
             
-              <h1>Tags</h1>
+              <h1>Application Owners&#39; Interface - Altinn Platform</h1>
             
           
 
 
 
 
+
+
+<p>Application owners must have access to metadata about all instances of a particular application and have the possiblity to download the form data of the instance when necessary.</p>
+
+<p>An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
+An instance replaces Altinn2 Message.
+An instanceOwner is a person/company that reports information via Altinn.
+An applicationId refers to the application information element which defines the metadata about the application.
+The Platform Storage module provides persistent storage service for applications in Altinn.
+It is used by the applications to store information about <em>instances</em> and their <em>data</em> elements.</p>
+
+<p>An application owner will typically fall into one or more of the following scenarios:</p>
+
+<ol>
+<li>find all instances that have a particular workflow state and download one or more data elements for multiple instance owners.</li>
+<li>be notified that an instance has reached a given workflow state, so that data elements can be downloaded (not MVP)</li>
+<li>get all data elements that has reached a workflow state for a given time period (not MVP)</li>
+</ol>
+
+<h2 id="application-owner-can-query-instances-for-a-given-application-1">Application owner can query instances for a given application (1)</h2>
+
+<p>Query parameters:</p>
+
+<ul>
+<li><code>applicationId=TEST/sailor</code> Finds all instances of an identified application.</li>
+<li><code>workflowStep=submitted</code> Finds all instances that have a given workflow state.</li>
+<li><code>since=2020-01-04</code> Finds all instances that were updated after the given date.</li>
+<li><code>downloadedByOwner=false</code> Finds all instances that is not downloaded by the application owner before.</li>
+<li><code>formId=main</code> Finds all instances that has a form data element with a specified formId.</li>
+<li><code>size=100&amp;page=2</code> Returns page two out with 100 instances, e.g. instances numbered 100-199 in the result query. Size of 100 is default.</li>
+</ul>
+
+<h3 id="step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded:</h3>
+
+<pre><code class="language-html">/instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist
+</code></pre>
+
+<p>The result of such a query can be multiple instances that are paged.</p>
+
+<pre><code class="language-json">{
+    &quot;total&quot;: 29349,
+    &quot;links&quot;: {
+        &quot;self&quot;: { 
+            &quot;href&quot;: &quot;/instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=3&quot;
+        },
+        &quot;last&quot;: {
+            &quot;href&quot;: &quot;/instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=294&quot;
+        }
+    },
+    &quot;content&quot;: [
+        {
+            &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;applicationId&quot;: &quot;TEST/sailor&quot;,
+            &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
+            &quot;instanceOwnerId&quot;: &quot;5024&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+            &quot;createdBy&quot;: &quot;user32&quot;,
+            &quot;lastChangedDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+            &quot;lastChangedBy&quot;: &quot;user34&quot;,
+            &quot;dueDateTime&quot;: null,
+            &quot;visibleDateTime&quot;: null,
+            &quot;presentationField&quot;: &quot;Færder påmelding 2019&quot;,
+            &quot;currentWorkflowStep&quot;: &quot;submitted&quot;,
+            &quot;isCompleted&quot;: true,
+            &quot;data&quot;: [
+                {
+                    &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+                    &quot;formId&quot;: &quot;boatdata&quot;,
+                    &quot;contentType&quot;: &quot;application/json&quot;,
+                    &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+                    &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+                    &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
+                    &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
+                    &quot;createdBy&quot;: &quot;XXX&quot;,
+                    &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
+                    &quot;fileSize&quot;: 2003,
+                    &quot;downloadedByApplicationOwner&quot;: &quot;2019-03-03T14:35:20+01:00&quot;
+                },
+                {
+                    &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+                    &quot;formId&quot;: &quot;crewlist&quot;,
+                    &quot;contentType&quot;: &quot;text/xml&quot;,
+                    &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+                    &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+                    &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
+                    &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+                    &quot;createdBy&quot;: &quot;XXX&quot;,
+                    &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+                    &quot;lastChangedBy&quot;: &quot;XXX&quot;
+                }
+            ]
+        },
+    ...
+    ]
+}
+</code></pre>
+
+<h3 id="step-2-download-form-data">Step 2: Download form data</h3>
+
+<pre><code class="language-http">GET /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30
+</code></pre>
+
+<h3 id="step-3-confirm-download-success">Step 3: Confirm download success</h3>
+
+<pre><code class="language-http">POST /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30/downloadComplete
+</code></pre>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	    <a class="newer-posts" href="/tags/page/8/">&larr; Previous Pages</a>
-	
-	<span class="page-number">Page 9 on 10</span>
-	
-	    <a class="older-posts" href="/tags/page/10/">Next Pages &rarr;</a>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/testcafe/">testcafe</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/testcafe/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/texts/">texts</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/texts/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/tjenester-3.0/">tjenester 3.0</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/tjenester-3.0/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/troubleshooting/">troubleshooting</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/troubleshooting/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/ui/">ui</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/ui/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/ui-components/">ui-components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/ui-components/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/ui-designer/">ui-designer</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/ui-designer/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/ui-editor/">ui-editor</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/ui-editor/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/unit-testing/">unit-testing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/unit-testing/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/wordlist/">wordlist</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/wordlist/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	    <a class="newer-posts" href="/tags/page/8/">&larr; Previous Pages</a>
-	
-	<span class="page-number">Page 9 on 10</span>
-	
-	    <a class="older-posts" href="/tags/page/10/">Next Pages &rarr;</a>
-	
-</nav>
 
 
 
@@ -6345,6 +6266,7 @@ if(host != "localhost")
             
                 
                     
+                    
                 
                 
 
@@ -6359,6 +6281,9 @@ if(host != "localhost")
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -6692,6 +6617,7 @@ if(host != "localhost")
             
                 
                     
+                    
                 
                 
 
@@ -6706,6 +6632,7 @@ if(host != "localhost")
             
             
                 
+                    
                     
                 
                 
@@ -6725,6 +6652,9 @@ if(host != "localhost")
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -8117,10 +8047,10 @@ if(host != "localhost")
 
 
         
-            <a class="nav nav-prev" href="/technology/vs-code/" title="Visual Studio Code"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/integration/" title="Integration"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/getting-started/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/security/" title="Security" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
