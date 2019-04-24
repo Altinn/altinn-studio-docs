@@ -275,6 +275,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/integration/application-owners-interface/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/handbook/front-end/postmessage/</loc>
   </url>
   
@@ -340,10 +344,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-platform/storage/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/integration/application-owners-interface/</loc>
   </url>
   
   <url>

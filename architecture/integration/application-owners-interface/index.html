@@ -2539,7 +2539,7 @@ if(host != "localhost")
         parent
         ">
       <a href="/architecture/integration/application-owners-interface/">
-        <span>Storage</span>
+        <span>Platform Api for Application Owners</span>
 
         
         
@@ -5129,7 +5129,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/integration/'>Integration</a> > Storage
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/integration/'>Integration</a> > Platform Api for Application Owners
 
  
 
@@ -5147,9 +5147,9 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#application-owner-can-query-instances-for-a-given-application-1">Application owner can query instances for a given application (1)</a>
+<li><a href="#task-1-application-owner-can-query-instances-for-a-given-application-1">Task 1: Application owner can query instances for a given application (1)</a>
 <ul>
-<li><a href="#step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded:</a></li>
+<li><a href="#step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded</a></li>
 <li><a href="#step-2-download-form-data">Step 2: Download form data</a></li>
 <li><a href="#step-3-confirm-download-success">Step 3: Confirm download success</a></li>
 </ul></li>
@@ -5186,39 +5186,41 @@ if(host != "localhost")
 <p>Application owners must have access to metadata about all instances of a particular application and have the possiblity to download the form data of the instance when necessary.</p>
 
 <p>An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
-An instance replaces Altinn2 Message.
+An instance replaces Altinn2 message.
 An instanceOwner is a person/company that reports information via Altinn.
 An applicationId refers to the application information element which defines the metadata about the application.
-The Platform Storage module provides persistent storage service for applications in Altinn.
-It is used by the applications to store information about <em>instances</em> and their <em>data</em> elements.</p>
+The Platform Storage module provides persistent storage service for all applications in Altinn.
+It is used by applications to store information about <em>instances</em> and their <em>data</em> elements.</p>
 
-<p>An application owner will typically fall into one or more of the following scenarios:</p>
+<p>An application owner will typically want to do one or more of the following tasks:</p>
 
 <ol>
 <li>find all instances that have a particular workflow state and download one or more data elements for multiple instance owners.</li>
 <li>be notified that an instance has reached a given workflow state, so that data elements can be downloaded (not MVP)</li>
-<li>get all data elements that has reached a workflow state for a given time period (not MVP)</li>
+<li>get all data elements that has reached a workflow state since a given time period (not MVP)</li>
 </ol>
 
-<h2 id="application-owner-can-query-instances-for-a-given-application-1">Application owner can query instances for a given application (1)</h2>
+<h2 id="task-1-application-owner-can-query-instances-for-a-given-application-1">Task 1: Application owner can query instances for a given application (1)</h2>
+
+<h3 id="step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded</h3>
 
 <p>Query parameters:</p>
 
 <ul>
 <li><code>applicationId=TEST/sailor</code> Finds all instances of an identified application.</li>
 <li><code>workflowStep=submitted</code> Finds all instances that have a given workflow state.</li>
-<li><code>since=2020-01-04</code> Finds all instances that were updated after the given date.</li>
-<li><code>downloadedByOwner=false</code> Finds all instances that is not downloaded by the application owner before.</li>
+<li><code>updatedAfter=2020-01-04</code> Finds all instances that were updated after the given date.</li>
+<li><code>downloadedByOwner=false</code> Finds all instances that are not downloaded by the application owner previously.</li>
 <li><code>formId=main</code> Finds all instances that has a form data element with a specified formId.</li>
-<li><code>size=100&amp;page=2</code> Returns page two out with 100 instances, e.g. instances numbered 100-199 in the result query. Size of 100 is default.</li>
+<li><code>size=50&amp;page=2</code> Returns page two of the matching instances where each page has 50 items, e.g. instances numbered 50-99 in the result query. Size of 100 is default.</li>
 </ul>
 
-<h3 id="step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded:</h3>
+<p>Query example</p>
 
-<pre><code class="language-html">/instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist
+<pre><code class="language-html">GET /instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist
 </code></pre>
 
-<p>The result of such a query can be multiple instances that are paged.</p>
+<p>The result of such a query is a document that lists (by default) the 100 first instances and indicates the total number of instances that match the query.</p>
 
 <pre><code class="language-json">{
     &quot;total&quot;: 29349,
@@ -5257,7 +5259,11 @@ It is used by the applications to store information about <em>instances</em> and
                     &quot;createdBy&quot;: &quot;XXX&quot;,
                     &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
                     &quot;fileSize&quot;: 2003,
-                    &quot;downloadedByApplicationOwner&quot;: &quot;2019-03-03T14:35:20+01:00&quot;
+                    &quot;downloadsByApplicationOwner&quot;:
+                        {
+                            &quot;downloaded&quot;: [&quot;2019-03-03T14:35:20+01:00&quot;, &quot;2019-03-04T09:35:16+01:00&quot;],
+                            &quot;confirmed&quot;: [&quot;2019-03-05T14:00:01+01:00&quot;]
+                        }
                 },
                 {
                     &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
@@ -5280,12 +5286,16 @@ It is used by the applications to store information about <em>instances</em> and
 
 <h3 id="step-2-download-form-data">Step 2: Download form data</h3>
 
+<p>For all instances select data element to dowload, use download link to asynchronosly download the data content.</p>
+
 <pre><code class="language-http">GET /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30
 </code></pre>
 
 <h3 id="step-3-confirm-download-success">Step 3: Confirm download success</h3>
 
-<pre><code class="language-http">POST /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30/downloadComplete
+<p>After a successfull download the Application Owner should confirm that it succeded.</p>
+
+<pre><code class="language-http">POST /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30/downloadConfirmed
 </code></pre>
 
 
