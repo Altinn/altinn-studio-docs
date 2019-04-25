@@ -179,7 +179,7 @@
 	"title": "Application arhicture authorization component - Altinn Platform",
 	"tags": ["solution", "architecture"],
 	"description": "Description of authentication component",
-	"content": "The Authentication component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is currently available locally and remotely at http://localhost:5050/api/v1 and http://platform.altinn.cloud/api/authorization/v1, respectively.\nAn endpoint for testing purposes is available:\n/debug/{echo}  Works with any string as echo, and will simply return the inputted string.\n"
+	"content": "The Authentication component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is currently available at http://platform.altinn.cloud/api/authorization/v1.\nAn endpoint for testing purposes is available:\n/debug/{echo}  Works with any string as echo, and will simply return the inputted string.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/",
@@ -501,7 +501,7 @@
 	"title": "Application arhicture profile component - Altinn Platform",
 	"tags": ["solution", "architecture"],
 	"description": "Description of profile component",
-	"content": " The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe profile solution is now available locally at http://localhost:5030/api/v1 and http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.\nResources: users\n/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.\nGet information about a user:\n/users/{userId}  (Available testdata. UserId: 1083,2772, 2882 and 1536.)\n"
+	"content": " The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe profile solution is now available locally at http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.\nResources: users\n/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.\nGet information about a user:\n/users/{userId}  (Available testdata. UserId: 1083,2772, 2882 and 1536.)\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/rest/",
@@ -536,7 +536,7 @@
 	"title": "Application arhicture register component - Altinn Platform",
 	"tags": ["solution", "architecture"],
 	"description": "Description of register component",
-	"content": " The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is now available locally and remotely at http://localhost:5020/api/v1 and http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.\nResource: Organizations, Parties, Persons\n## /organizations\nGet information about an organization:\n/organizations/{orgNr}  (Available testdata. OrgNrs: 10008387, 10008433, 810418192 and 810419962)\n/parties Get information about a party:\n/parties/{partyId}  (Available testdata. PartyIds: 50004216, 50004217, 50004219, 50004232, 50002182, 50003590, 50003681 and 50002550)\n/persons Get information about a person:\n/persons/{ssn}  (Available testdata. SSNs: 01124621077, 22104511094, 24054670016 and 07069400021)\n"
+	"content": " The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is now available at http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.\nResource: Organizations, Parties, Persons\n## /organizations\nGet information about an organization:\n/organizations/{orgNr}  (Available testdata. OrgNrs: 10008387, 10008433, 810418192 and 810419962)\n/parties Get information about a party:\n/parties/{partyId}  (Available testdata. PartyIds: 50004216, 50004217, 50004219, 50004232, 50002182, 50003590, 50003681 and 50002550)\n/persons Get information about a person:\n/persons/{ssn}  (Available testdata. SSNs: 01124621077, 22104511094, 24054670016 and 07069400021)\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/",
