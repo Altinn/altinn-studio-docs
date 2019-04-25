@@ -7,4 +7,14 @@ weight: 100
 alwaysopen: true
 ---
 
-The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The Authentication component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+
+The solution is currently available locally and remotely at  http://localhost:5050/api/v1  and http://platform.altinn.cloud/api/authorization/v1, respectively.
+
+An endpoint for testing purposes is available:
+
+```http
+/debug/{echo}
+```
+
+Works with any string as echo, and will simply return the inputted string.

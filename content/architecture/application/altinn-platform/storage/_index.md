@@ -11,7 +11,7 @@ The Storage component will be a ASP.Net Core MVC Application exposing REST-API t
 
 [See Github for implementation details](https://github.com/Altinn/altinn-studio/issues/311)
 
-Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about *instances* and their *data* elements. 
+Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about *instances* and their *data* elements.
 It provides a registry of all *applications* and their metadata. 
 
 Resources: Instance, Application, Event
