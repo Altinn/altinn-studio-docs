@@ -3,14 +3,16 @@
 Documentation for Altinn Studio: https://docs.altinn.studio/
 
 ### Running Altinn Studio docs locally 
-Compiling and running Altinn studio docs can be done through the command line. 
-Navigate to _C:\Repos\altinn-studio-docs>_ and run
+
+#### Command line
+Navigate to C:\Repos\altinn-studio-docs and run
 
 ```cmd
 hugo.exe server
 ```
 
-Which will result in output similar to
+Which will result in output similar to:
+
 ```cmd
 Building sites …
                    | EN
@@ -34,4 +36,4 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
-The solution is now available locally at http://localhost:1313
+The solution is now available at http://localhost:1313
