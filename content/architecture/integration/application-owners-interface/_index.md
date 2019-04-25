@@ -28,7 +28,7 @@ An application owner will typically want to do one or more of the following task
 
 Query parameters:
 
-* ```applicationId=TEST/sailor``` Finds all instances of an identified application.
+* ```applicationId=TEST-sailor``` Finds all instances of an identified application.
 * ```workflowStep=submitted``` Finds all instances that have a given workflow state.
 * ```updatedAfter=2020-01-04``` Finds all instances that were updated after the given date.
 * ```downloadedByOwner=false``` Finds all instances that are not downloaded by the application owner previously.
@@ -38,7 +38,7 @@ Query parameters:
 Query example
 
 ```html
-GET /instances?applicationId=TEST/sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist
+GET /instances?applicationId=TEST-sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist
 ```
 
 The result of such a query is a document that lists (by default) the 100 first instances and indicates the total number of instances that match the query.
@@ -48,16 +48,16 @@ The result of such a query is a document that lists (by default) the 100 first i
     "total": 29349,
     "links": {
         "self": { 
-            "href": "/instances?applicationId=TEST/sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist?page=3"
+            "href": "/instances?applicationId=TEST-sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist?page=3"
         },
         "last": {
-            "href": "/instances?applicationId=TEST/sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist?page=294"
+            "href": "/instances?applicationId=TEST-sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist?page=294"
         }
     },
     "content": [
         {
             "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-            "applicationId": "TEST/sailor",
+            "applicationId": "TEST-sailor",
             "applicationOwnerId": "TEST",
             "instanceOwnerId": "5024",
             "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
@@ -74,7 +74,7 @@ The result of such a query is a document that lists (by default) the 100 first i
                     "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
                     "formId": "boatdata",
                     "contentType": "application/json",
-                    "storageUrl": "TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+                    "storageUrl": "TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
                     "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
                     "fileName": "davidsyacht.json",
                     "createdDateTime": "2019-03-06T15:00:23+01:00",
@@ -91,7 +91,7 @@ The result of such a query is a document that lists (by default) the 100 first i
                     "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
                     "formId": "crewlist",
                     "contentType": "text/xml",
-                    "storageUrl": "TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
+                    "storageUrl": "TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
                     "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
                     "fileName": "crewLIst.xml",
                     "createdDateTime": "2019-03-07T23:59:49+01:00",

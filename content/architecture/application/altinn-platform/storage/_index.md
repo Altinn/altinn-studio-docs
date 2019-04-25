@@ -26,7 +26,7 @@ An applicationId refers to the application information element which defines the
 ```json
 {
     "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-    "applicationId": "TEST/sailor",
+    "applicationId": "TEST-sailor",
     "applicationOwnerId": "TEST",
     "instanceOwnerId": "666",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
@@ -52,7 +52,7 @@ An applicationId refers to the application information element which defines the
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "formId": "boatdata",
             "contentType": "application/json",
-            "storageUrl": "TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "storageUrl": "TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "fileName": "davidsyacht.json",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
@@ -65,7 +65,7 @@ An applicationId refers to the application information element which defines the
             "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
             "formId": "crewlist",
             "contentType": "text/xml",
-            "storageUrl": "TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
+            "storageUrl": "TEST/Test-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
             "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
             "fileName": "crewLIst.xml",
             "createdDateTime": "2019-03-07T23:59:49+01:00",
@@ -80,7 +80,7 @@ An applicationId refers to the application information element which defines the
 Create a new instance. Post with params that identifies the application and the instance owner.
 
 ```http
-/instances?applicationId=TEST/sailor&instanceOwnerId=1024
+/instances?applicationId=TEST-sailor&instanceOwnerId=1024
 ```
 
 Get information about one instance.
@@ -137,10 +137,10 @@ Put to replace a specific data element. Delete to remove data element.
 
 Application metadata used to validate data elements in instances
 
-Resource: http://platform.altinn.no/applications/TEST/sailor
+Resource: http://platform.altinn.no/applications/TEST-sailor
 ```json
 {
-    "id": "TEST/sailor",
+    "id": "TEST-sailor",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" },

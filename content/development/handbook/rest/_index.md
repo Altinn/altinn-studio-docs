@@ -36,7 +36,7 @@ Create a new instance resource. Post to *instances* with query params that ident
 This call should return identifier of the new instance resource or the json of the instance resource itself.
 
 ```http
-/api/storage/v1/instances?applicationId=KNS/sailor&instanceOwnerId=1024
+/api/storage/v1/instances?applicationId=KNS-sailor&instanceOwnerId=1024
 ```
 
 GET one instance or PUT to to this url to update the instance. 
