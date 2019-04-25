@@ -5207,7 +5207,7 @@ It is used by applications to store information about <em>instances</em> and the
 <p>Query parameters:</p>
 
 <ul>
-<li><code>applicationId=TEST/sailor</code> Finds all instances of an identified application.</li>
+<li><code>applicationId=TEST-sailor</code> Finds all instances of an identified application.</li>
 <li><code>workflowStep=submitted</code> Finds all instances that have a given workflow state.</li>
 <li><code>updatedAfter=2020-01-04</code> Finds all instances that were updated after the given date.</li>
 <li><code>downloadedByOwner=false</code> Finds all instances that are not downloaded by the application owner previously.</li>
@@ -5217,7 +5217,7 @@ It is used by applications to store information about <em>instances</em> and the
 
 <p>Query example</p>
 
-<pre><code class="language-html">GET /instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist
+<pre><code class="language-html">GET /instances?applicationId=TEST-sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist
 </code></pre>
 
 <p>The result of such a query is a document that lists (by default) the 100 first instances and indicates the total number of instances that match the query.</p>
@@ -5226,16 +5226,16 @@ It is used by applications to store information about <em>instances</em> and the
     &quot;total&quot;: 29349,
     &quot;links&quot;: {
         &quot;self&quot;: { 
-            &quot;href&quot;: &quot;/instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=3&quot;
+            &quot;href&quot;: &quot;/instances?applicationId=TEST-sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=3&quot;
         },
         &quot;last&quot;: {
-            &quot;href&quot;: &quot;/instances?applicationId=TEST/sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=294&quot;
+            &quot;href&quot;: &quot;/instances?applicationId=TEST-sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=294&quot;
         }
     },
     &quot;content&quot;: [
         {
             &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-            &quot;applicationId&quot;: &quot;TEST/sailor&quot;,
+            &quot;applicationId&quot;: &quot;TEST-sailor&quot;,
             &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
             &quot;instanceOwnerId&quot;: &quot;5024&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
@@ -5252,7 +5252,7 @@ It is used by applications to store information about <em>instances</em> and the
                     &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
                     &quot;formId&quot;: &quot;boatdata&quot;,
                     &quot;contentType&quot;: &quot;application/json&quot;,
-                    &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+                    &quot;storageUrl&quot;: &quot;TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
                     &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
                     &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
                     &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
@@ -5269,7 +5269,7 @@ It is used by applications to store information about <em>instances</em> and the
                     &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
                     &quot;formId&quot;: &quot;crewlist&quot;,
                     &quot;contentType&quot;: &quot;text/xml&quot;,
-                    &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+                    &quot;storageUrl&quot;: &quot;TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
                     &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
                     &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
                     &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,

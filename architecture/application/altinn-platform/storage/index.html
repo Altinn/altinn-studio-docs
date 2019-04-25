@@ -5203,7 +5203,7 @@ An applicationId refers to the application information element which defines the
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    &quot;applicationId&quot;: &quot;TEST/sailor&quot;,
+    &quot;applicationId&quot;: &quot;TEST-sailor&quot;,
     &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
     &quot;instanceOwnerId&quot;: &quot;666&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
@@ -5229,7 +5229,7 @@ An applicationId refers to the application information element which defines the
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;formId&quot;: &quot;boatdata&quot;,
             &quot;contentType&quot;: &quot;application/json&quot;,
-            &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;storageUrl&quot;: &quot;TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
@@ -5242,7 +5242,7 @@ An applicationId refers to the application information element which defines the
             &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;formId&quot;: &quot;crewlist&quot;,
             &quot;contentType&quot;: &quot;text/xml&quot;,
-            &quot;storageUrl&quot;: &quot;TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;storageUrl&quot;: &quot;TEST/Test-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
@@ -5256,7 +5256,7 @@ An applicationId refers to the application information element which defines the
 
 <p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
 
-<pre><code class="language-http">/instances?applicationId=TEST/sailor&amp;instanceOwnerId=1024
+<pre><code class="language-http">/instances?applicationId=TEST-sailor&amp;instanceOwnerId=1024
 </code></pre>
 
 <p>Get information about one instance.</p>
@@ -5306,10 +5306,10 @@ that is used to identify the specific data element</p>
 
 <p>Application metadata used to validate data elements in instances</p>
 
-<p>Resource: <a href="http://platform.altinn.no/applications/TEST/sailor">http://platform.altinn.no/applications/TEST/sailor</a></p>
+<p>Resource: <a href="http://platform.altinn.no/applications/TEST-sailor">http://platform.altinn.no/applications/TEST-sailor</a></p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;TEST/sailor&quot;,
+    &quot;id&quot;: &quot;TEST-sailor&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
     &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; },
