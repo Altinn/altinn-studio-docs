@@ -9,14 +9,11 @@ alwaysopen: true
 
 The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
 
-The solution is now available locally and remotely at http://localhost:5020/api/v1 and http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.
+The solution is now available at http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.
 
 Resource: Organizations, Parties, Persons
 
-
-
   ## /organizations 
-
 
 Get information about an organization:
 
@@ -25,8 +22,7 @@ Get information about an organization:
 ```
 (Available testdata. OrgNrs: 10008387, 10008433, 810418192 and 810419962)
 
-
-## /parties 
+## /parties
 
 Get information about a party:
 
@@ -34,7 +30,6 @@ Get information about a party:
 /parties/{partyId}
 ```
 (Available testdata. PartyIds: 50004216, 50004217, 50004219, 50004232, 50002182, 50003590, 50003681 and 50002550)
-
 
 ## /persons
 
