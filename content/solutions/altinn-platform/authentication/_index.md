@@ -6,4 +6,5 @@ weight: 200
 ---
 
 
-The Authentication component gives authentication functionality needed for user and systems
+The Authentication component gives authentication functionality needed for user and systems. 
+
