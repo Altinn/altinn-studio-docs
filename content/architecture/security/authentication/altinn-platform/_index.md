@@ -1,9 +1,9 @@
 ---
-title: Authentication Architecture Altinn Apps 
+title: Authentication Architecture Altinn Platform
 description: Description of the Authentication architecture Altinn Platform
 tags: ["architecture", "security"]
 weight: 100
-linktitle: Altinn Apps
+linktitle: Altinn Platform
 alwaysopen: false
 ---
 
@@ -17,6 +17,9 @@ authentication mechanismens is supported by different types of platforms.
 as the bearer of information about users and systems.
 
 ## End users accessing APIs in Altinn Platform
+
+In some scenarious the end user would need to access API's in Platform directly. In those cases a cookiw with JWT token is used for
+authentication of the end user.
 
 ## End user systems accessing Altinn Platform api's
 
