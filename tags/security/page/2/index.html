@@ -2647,7 +2647,97 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authentication/altinn-apps/">
-        <span>Altinn Studio Apps</span>
+        <span>Altinn Apps</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/security/authentication/altinn-platform/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/security/authentication/altinn-platform/">
+        <span>Altinn Apps</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/security/authentication/altinn-studio/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/security/authentication/altinn-studio/">
+        <span>Altinn Studio</span>
 
         
         
@@ -5143,11 +5233,99 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/security/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 2 on 2</span>
+	<span class="page-number">Page 2 on 3</span>
+	
+	    <a class="older-posts" href="/tags/security/page/3/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/contexthandler/">Context Handler</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The responsibility for the Context Handler is to convert the resource ID to something that PDP can use to base a authorization decision for a authorization request.
+Input to Context Handler will be AppID, InstanceId or DataId
+Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" href="/architecture/security/authorization/altinn-platform/contexthandler/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authentication/altinn-platform/jwt-format/">JWT Format</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JSON Web Token are an open, industry standard RFC 7519 method for representing claims securely between two parties and are choosen as the bearer of information about users and systems.
+The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/architecture/security/authentication/altinn-platform/jwt-format/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pap/">Policy Administration Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
+Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organization new rights.
+Altinn Studio Apps will not have any administration of authorization rules. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pap/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post architecture">
@@ -5300,11 +5478,11 @@ See XACML for detailed description of Policy format <a class="read-more" href="/
     </header>
     <section class="post-excerpt">
         <p>Description of the Altinn Studio Security architecture.
-AuthenticationDescription of the Authentication architecture for Altinn Apps
-Authentication - Altinn AppsDescription of the Authentication architecture for Altinn Studio and Altinn Studio Apps
-AuthorizationDescription of the Authorization architecture
-Authorization - Altinn AppsDescription of the Authorization Architecture for Altinn Studio Apps
-Authorization - Altinn PlatformDescription of the Authorization Architecture for Altinn Platform <a class="read-more" href="/architecture/security/">&raquo;</a></p>
+AuthenticationDescription of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform
+Authentication Architecture Altinn AppsDescription of the Authentication architecture apps hosted in Altinn Apps
+Authentication Architecture Altinn AppsDescription of the Authentication architecture Altinn Platform
+Authentication Architecture Altinn StudioDescription of the Authentication architecture Altinn Studio
+AuthorizationDescription of the Authorization architecture <a class="read-more" href="/architecture/security/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5355,37 +5533,6 @@ See XACML for detailed description of Policy format <a class="read-more" href="/
 
 
 	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/xacml/">XACML - Altinn Studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>XACML stands for &ldquo;eXtensible Access Control Markup Language&rdquo;. The standard defines a declarative fine-grained, attribute-based access control policy language,[2] an architecture, and a processing model describing how to evaluate access requests according to the rules defined in policies.
-The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for the following
- XACML Reference Architecture: Used as input for defining the Altinn Studio Apps authorization architecture XACML Policy: Used to define the authorization rules for apps XACML Request: Format used for PEP to call PDP XACML Response: Format used for response from PDP to PEP. <a class="read-more" href="/architecture/security/authorization/altinn-platform/xacml/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/xacml/">XACML</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -5393,7 +5540,9 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
 	
 	    <a class="newer-posts" href="/tags/security/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 2 on 2</span>
+	<span class="page-number">Page 2 on 3</span>
+	
+	    <a class="older-posts" href="/tags/security/page/3/">Next Pages &rarr;</a>
 	
 </nav>
 
@@ -6774,6 +6923,54 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
                         
             

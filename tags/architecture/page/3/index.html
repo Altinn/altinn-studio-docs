@@ -2647,7 +2647,97 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authentication/altinn-apps/">
-        <span>Altinn Studio Apps</span>
+        <span>Altinn Apps</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/security/authentication/altinn-platform/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/security/authentication/altinn-platform/">
+        <span>Altinn Apps</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/security/authentication/altinn-studio/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/security/authentication/altinn-studio/">
+        <span>Altinn Studio</span>
 
         
         
@@ -5152,6 +5242,64 @@ if(host != "localhost")
 	</div>
 
 	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/contexthandler/">Context Handler</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The responsibility for the Context Handler is to convert the resource ID to something that PDP can use to base a authorization decision for a authorization request.
+Input to Context Handler will be AppID, InstanceId or DataId
+Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" href="/architecture/security/authorization/altinn-platform/contexthandler/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/infrastructure/deployment/">Deployment</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Altinn Studio components are deployed as two different solutions.
+ Altinn Studio - The complete Development solution Altinn Studio Apps - Where services are hosted and accessed by end users.  In this section you will find details about the deployment architecture for these solutions.
+In addition there is a seperate article on how End Users Services developed in Altinn Studio Service Development solution are deployed to the runtime solution <a class="read-more" href="/architecture/infrastructure/deployment/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/deployment/">deployment</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
 	   <article class="post development">
     <header class="post-header">
         <h2 class="post-title"><a href="/development/">Development</a></h2>
@@ -5288,6 +5436,34 @@ Altinn Apps REST APIs An Altinn App provides application specific APIS to the fo
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authentication/altinn-platform/jwt-format/">JWT Format</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JSON Web Token are an open, industry standard RFC 7519 method for representing claims securely between two parties and are choosen as the bearer of information about users and systems.
+The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/architecture/security/authentication/altinn-platform/jwt-format/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pap/">Policy Administration Point</a></h2>
     </header>
     <section class="post-excerpt">
@@ -5351,93 +5527,6 @@ Policy Decision Point exposes a method that authorize request based on the follo
     <section class="post-excerpt">
         <p>There will be some different Policy Enforcment Points in Altinn Apps. This will be in Runtime Application.
 PEP for Runtime Application See Github <a class="read-more" href="/architecture/security/authorization/altinn-apps/pep/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pep/">Policy Enforcment Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>There will be some different Policy Enforcement Points in Altinn Platform depending on the service in platform.
-PEP in Storage All data in storage will be related to instance data created for a specific App (service)
-Policy Enforcment Point in Storage will identify the instanceId/dataid/appid that data and call PDP to authorize Access. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pep/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pip/">Policy Information Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>For Altinn Platform there is different type of policy information needed
- The rules defined by end user for a resource The roles a user have for a given resource owner. (reportee)  The roles a user or system has for a reportee is retrieved directly from Authorization component in Altinn II <a class="read-more" href="/architecture/security/authorization/altinn-platform/pip/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/prp/">Policy Retrieval Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.
-During deployment of a app the rules for the app is added to the Altinn Studio Apps database.
-The rules are defined as XACML 3.0 Policy document.
-See XACML for detailed description of Policy format <a class="read-more" href="/architecture/security/authorization/altinn-platform/prp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6849,6 +6938,54 @@ See XACML for detailed description of Policy format <a class="read-more" href="/
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
                     
                         
             
