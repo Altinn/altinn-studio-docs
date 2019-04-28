@@ -43,10 +43,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/</loc>
   </url>
   
@@ -56,6 +52,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-platform/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/</loc>
   </url>
   
   <url>
