@@ -8,7 +8,7 @@
 
 
     
-    <title>Authentication - Altinn Studio Apps :: Altinn Studio</title>
+    <title>Authentication - Altinn Apps :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -5114,6 +5114,8 @@ if(host != "localhost")
                   </a>
                 </span>
                 
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
                 <span class="links">
                   
                   
@@ -5144,6 +5146,23 @@ if(host != "localhost")
                 </span>
             </div>
             
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li><a href="#authentication-architecture-altinn-apps">Authentication Architecture Altinn Apps</a>
+<ul>
+<li><a href="#end-user-using-web-frontend">End user using web frontend</a></li>
+<li><a href="#end-user-systems-accessing-app-api-s">End user systems accessing app api&rsquo;s</a></li>
+<li><a href="#enterprise-users">Enterprise users</a></li>
+<li><a href="#app-owner-systems-accessing-app-api-s">app owner systems accessing app api&rsquo;s</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
+            
           </div>
         
         
@@ -5158,14 +5177,55 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Authentication - Altinn Studio Apps</h1>
+              <h1>Authentication - Altinn Apps</h1>
             
           
 
 
 
 
-<p>Description of the Altinn Studio Security architecture.</p>
+
+
+<h1 id="authentication-architecture-altinn-apps">Authentication Architecture Altinn Apps</h1>
+
+<p>Every app that is hosted in Altinn Apps needs to be able to authenticate users and systems. This is needed when resources requiring authentication and authorization is requested.
+This will typical be API&rsquo;s that expose or updates data own by a end user/party.</p>
+
+<p>Since Altinn Apps will in the future support that different types of application created by different frameworks (Java/.Net/Node ++++) it is important that the
+authentication mechanismens is supported by different types of platforms.</p>
+
+<p><a href="https://jwt.io/">JSON Web Token</a> are an open, industry standard <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> method for representing claims securely between two parties and are choosen
+as the bearer of information about users and systems.</p>
+
+<h2 id="end-user-using-web-frontend">End user using web frontend</h2>
+
+<p>For end user accessing the app through a web frontend, the authentication mechanismen is based on using a secure cookie containg a JWT Token.</p>
+
+<p>The reason for putting the JWT token in the cookie for this scenarious is to protect against <a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">XSS attacks</a>.
+If the REACT application stored the JWT token as part of browser memory (REDUX), XSS attacks could potenial expose those tokens. When storing the tokens in secure cookies
+those tokens is not available to any Javascript code running in the browser.</p>
+
+<p>The cookie with the JWT token is created by Authentication component in the Altinn Platform solution.</p>
+
+<p>The React application would need to refresh the token at given intervall or the token will expire. To refresh a cookie token, the token API in Platform needs to be called</p>
+
+<h2 id="end-user-systems-accessing-app-api-s">End user systems accessing app api&rsquo;s</h2>
+
+<p>End user systems is identfied with a end user system ID and a password. A end user system can be authenticated by themself or together with a end user and pin code.</p>
+
+<p>In both cases the end user system calls a API on the Platform to generate a JWT token containing information about the system and possible user and pin.</p>
+
+<p>The API generates a JWT token containing claims for the system and user</p>
+
+<h2 id="enterprise-users">Enterprise users</h2>
+
+<p>Enterprise users is users that is authenticated with use of a enterprise certificate together with a password and username. The authentication component in Altinn Platform will have a API
+that generates a JWT token based on the certificate and the username password</p>
+
+<h2 id="app-owner-systems-accessing-app-api-s">app owner systems accessing app api&rsquo;s</h2>
+
+<p>App owners (service owners) will have seperate API&rsquo;s in a App to perform operations on. They are authenticated with help of agency system id + password. A API in the authentication component
+in Altinn creates a JWT token that can be used to authenticate the agency system when calling api&rsquo;s on apps running in Altinn Apps.</p>
 
 
 <footer class=" footline" >
