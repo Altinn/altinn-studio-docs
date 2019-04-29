@@ -5,7 +5,6 @@ tags: ["concept", "wordlist", "term"]
 weight: 100
 alwaysopen: false
 ---
-# Terms
 
 ## Altinn
 
