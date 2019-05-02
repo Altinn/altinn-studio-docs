@@ -21,7 +21,7 @@ This document describes how one can start working on a test cafe project from in
 
 Code for [Testcafe tests](https://github.com/Altinn/altinn-studio/tree/master/src/test/Testcafe) in altinn.studio
 
-### Install Plugins
+### Install Tools
     1.	Open PowerShell -> Verify Node and Npm version
             npm -v (6.9.0)
             node -v (9.5.0)
@@ -29,9 +29,11 @@ Code for [Testcafe tests](https://github.com/Altinn/altinn-studio/tree/master/sr
             a. npm install -g npm
     3.	Install npm in the Altinn Studio project
             a.	Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe
-            b.	Use command – npm install
+            b.	Run command – npm install
     4.	Ensure that the environment variables has the path of npm
             a.	C:\Users\UserName\AppData\Roaming\npm
+    5.  Navigate to the folder of the testcafe tests in command line (altinn-studio\src\test\Testcafe)
+            a. Run command - npm install testcafe
 
 ### Automation
     1.	config.json has the URLs
