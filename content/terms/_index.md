@@ -1,44 +1,98 @@
 ---
-title: Wordlist
-description: A wordlist for Altinn Studio
-tags: ["wordlist"]
+title: Terms
+description: Description of the most common terms used in the documentation
+tags: ["concept", "wordlist", "term"]
 weight: 100
 alwaysopen: false
 ---
 
-### Altinn
+## Altinn
+
 Norways E-Governement plattform. Launched december 4. 2003. 
 [Read more on Altinn.no](https://www.altinn.no/en/about-altinn/what-is-altinn/)
 
 ### Altinn Apps
+
 Altinn Apps is the solution where the developed apps is deployed.
 It consist of isolated organization Kubernetes clusters and supporting functionality and infrastructure.
 See Altinn Apps [application architecture](/architecture/application/altinn-apps/) or [deployment architecture](/architecture/deployment/altinn-apps/).
 
 ### Altinn Platform
+
 Altinn Platform consist of supporting components to Altinn Apps.
-Example services are Authorization, Authentication, Profile, Register, Intermediary
+Example services are Authorization, Authentication, Profile, Register, Storage, Intermediary.
 The platform is based on microservices architecture and is highly scalable. 
 
 See Altinn Platform [solution architecture](https://docs.altinn.studio/architecture/solution/altinn-platform/), [application architecture](https://docs.altinn.studio/architecture/application/altinn-platform/)
 and [deployment architecture]
 
 ### Altinn Studio
-The web based development tool for end user services. 
+
+The web based development tool for creating end user service: Application.
 Lets the service developer create services that are deployed like a seperate application (app). 
 
 ### Altinn Apps environment
+
 A Altinn Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created
 in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment
 
-### Altinn Studio Repos
-Altinn Studio Repos is the source control solution for Altinn Studio. All apps developed in Altinn Studio can 
+### Altinn Studio Repositories
 
-### Api
+Altinn Studio Repos is the source control solution for Altinn Studio. All apps developed in Altinn Studio can
 
-### App
-A end user service created in Altinn Studio is a seperate application (app). 
+## Api
+
+Application Programmers Interface.
+
+## App | Application
+
+An end user service created in Altinn Studio is called an application (app). 
 The app is deployed to a Altinn Studio Apps environment.
+The application provides two tings: 
+
+- an interactive user interface for users wishing to submitt data to an application owner, e.g. to fill out a form manually, to read information or to sign an agrement;
+- an api that client applications can use to fill out a form automatically.
+
+The application also has a metadata representation in the application repository (platform storage).
+
+deprecated term: ~~Service~~
+
+### Application Developer
+
+A user developing application in Altinn Studio. 
+
+### Application Owner
+
+The owner of the application. Typical identified by a unique acronoym, e.g. SKD, NAV, OSLK.
+
+deprecated term: ~~Service Owner~~
+
+## Data
+
+A representation of a data element which is stored in the Altinn Platform.
+
+deprecated term: ~~FormElement?~~
+
+## Event
+
+A record of activites on a specific instance.
+
+## Instance
+
+An instance of an application for a specific instance owner is represented as an object. Is created by application owner or instance owner. 
+It contains information of the formdata and attachements stored associated with the instance.
+
+deprecated term: ~~ReporteeElement~~
+
+## Instance Owner
+
+The person or entity that is responsible for submitting an instance of an application to an application owner. 
+
+deprecated term: ~~Reportee~~
+
+## User
+
+The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user can and an instance owner can be the same entity.
 
 ### dot.net 
 
@@ -55,45 +109,44 @@ The app is deployed to a Altinn Studio Apps environment.
 ### Kubernetes ReplicaSet
 
 ### PAP
+
 Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
 
 ### PDP 
+
 Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
 
 ### PEP
+
 Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
 
 ### PIP
+
 Policy Information Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
 
 ### PRP
+
 Policy Retrieval Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
 
 
 ### SBL
+
 The current Altinn end user solution (SluttBrukerLøsning). See [Solution Architecture](https://docs.altinn.studio/architecture/solution/) 
 
 ### SBL Bridge
+
 Applicaton that exposes SBL components as REST interface to Altinn Platform components. 
 [See Git Issues](https://github.com/Altinn/altinn-studio/labels/sbl-bridge)
 
-### Service App
-The Service App is the application created in Altinn Studio by the service
-developer. It consist of platform code (AltinnCore Runtime) and code and 
-configuration created in Altinn Studio. 
-See Application architecture for details. 
-
-### App Developer
-A user developing apps in Altinn Studio. 
-
-
 ### Workflow
 
-
 ### XACML
+
 XACML stands for "eXtensible Access Control Markup Language". The standard defines a 
 declarative fine-grained, attribute-based access control policy language,[2] an architecture, 
 and a processing model describing how to evaluate access requests according to the rules defined in policies.
 
 Altinn Studio Apps uses the XACML standard for defining Policies for apps, the authorization architecture, 
 and the request and response between PEP and PDP.
+
+{{% children description="true" depth="2" %}}

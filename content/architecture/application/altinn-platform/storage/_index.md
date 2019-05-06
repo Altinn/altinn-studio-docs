@@ -11,22 +11,22 @@ The Storage component will be a ASP.Net Core MVC Application exposing REST-API t
 
 [See Github for implementation details](https://github.com/Altinn/altinn-studio/issues/311)
 
-Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about *instances* and their *data* elements. 
+Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about *instances* and their *data* elements.
 It provides a registry of all *applications* and their metadata. 
 
-Resources: Instance, Application, ApplicationOwner, InstanceOwner, Schema
+Resources: Instance, Application, Event
 
 # /instances
 
 An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
-An instance replaces Altinn2 Message.
+An instance replaces Altinn2 Message. 
 An instanceOwner is a person/company that reports information via Altinn.
 An applicationId refers to the application information element which defines the metadata about the application.
 
 ```json
 {
     "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-    "applicationId": "TEST/sailor",
+    "applicationId": "TEST-sailor",
     "applicationOwnerId": "TEST",
     "instanceOwnerId": "666",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
@@ -47,11 +47,13 @@ An applicationId refers to the application information element which defines the
         "receivedDate": "2019-05-11T03:00:23+01:00",
         "status": "OK"
     },
-    "data": {
-        "762011d1-d341-4c0a-8641-d8a104e83d30": {
+    "data": [
+        {
+            "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "formId": "boatdata",
             "contentType": "application/json",
-            "storageUrl": "TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/boatdata/992011d1-d341-4c0a-8641-d8a104e83d30",
+            "storageUrl": "TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "fileName": "davidsyacht.json",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
             "createdBy": "XXX",
@@ -59,24 +61,26 @@ An applicationId refers to the application information element which defines the
             "fileSize": 2003,
             "isLocked": true
         },
-         "999911d1-d341-4c0a-8641-d8a104e83d30": {
+        {
+            "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
             "formId": "crewlist",
             "contentType": "text/xml",
-            "storageUrl": "TEST/sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/crewlist/999911d1-d341-4c0a-8641-d8a104e83d30",
+            "storageUrl": "TEST/Test-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
+            "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
             "fileName": "crewLIst.xml",
             "createdDateTime": "2019-03-07T23:59:49+01:00",
             "createdBy": "XXX",
             "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
             "lastChangedBy": "XXX"
         }
-    }
+    ]
 }
 ```
 
 Create a new instance. Post with params that identifies the application and the instance owner.
 
 ```http
-/instances?applicationId=TEST/sailor&instanceOwnerId=1024
+/instances?applicationId=TEST-sailor&instanceOwnerId=1024
 ```
 
 Get information about one instance.
@@ -133,38 +137,37 @@ Put to replace a specific data element. Delete to remove data element.
 
 Application metadata used to validate data elements in instances
 
-Resource: http://platform.altinn.no/applications/TEST/sailor
+Resource: http://platform.altinn.no/applications/TEST-sailor
 ```json
 {
-    "id": "TEST/sailor",
+    "id": "TEST-sailor",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
-    "title": "Færder påmelding",
-    "type": "innsending",
+    "title": { "nb": "Testapplikasjon", "en": "Test Application" },
     "applicationOwnerId": "TEST",
     "workflowId": "standard",
-    "isDeleted": false,
-    "isArchived": false,
-    "validFrom": null,
+    "validFrom": "2019-04-01T12:14:22+01:00",
     "validTo": null,
-    "forms": {
-        "boatdata": {
-            "contentType": "application/schema+json",
-            "storageUrl": "sailor/schema/boatdata",
-            "createdDateTime": "2019-03-04T12:01:00+01:00",
-            "createdBy": "M2",
-            "signatureRequired": true,
-            "shouldEncryptData": true
+    "maxSize": -1,
+    "forms": [
+        {
+            "id": "boatdata",
+            "description": {"nb": "Båtdata", "en": "Boat data"},
+            "allowedContentType": ["application/json", "application/xml"],
+            "maxSize": 200000,
+            "maxCount": 1,
+            "shouldSign": true,
+            "shouldEncrypt": true
         },
-        "crewlist": {
-            "contentType": "application/xsd+xml",
-            "storageUrl": "sailor/schema/crewlist",
-            "createdDateTime": "2019-03-04T12:01:00+01:00",
-            "createdBy": "M2",
-            "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
-            "lastChangedBy": "M42"
+        {
+            "id": "crewlist",
+            "allowedContentType": ["application/xml"],
+            "maxSize": -1,
+            "maxCount": 3,
+            "shouldSign": false,
+            "shouldEncrypt": false
         }
-    }
+    ]
 }
 ```
 
@@ -180,8 +183,38 @@ Get metadata about a specific application
 /applications/{applicationId}
 ```
 
-Get the schema of a specific form element in an application
+# /events
+
+User events. Events are associated with an instance, a user and an instance owner. 
+Events are generated by the application and posted to storage.
+
+```json
+{
+    "id": "3ab2cd53-3e26-486d-b6d9-1574fe5a173c",
+    "instanceId": "762011d1-d341-4c0a-8641-d8a104e83d30",
+    "timestamp" : "2019-05-02T12:24:55+01:00",
+    "instanceOwnerId": "12344",
+    "userId": "XYZ",
+    "eventType": "Submitted",
+    "description": "Tax declaration submitted"
+}
+```
+
+Create an event. POST with body. 
 
 ```http
-/applications/{applicationId}/forms/{dataId}?format=jsonSchema
+/events
 ```
+
+Get all events for a specific instance.
+
+```http
+/events?instanceId=762011d1-d341-4c0a-8641-d8a104e83d30
+```
+
+Get all events for a spesific user.
+
+```http
+/events?userId=XYZ
+```
+

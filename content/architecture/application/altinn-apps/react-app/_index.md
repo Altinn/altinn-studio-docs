@@ -237,3 +237,56 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
   yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
 }
 ```
+
+### Formlayout file
+
+Layouten på skjemaet er definiert i en json-fil som ligger i Gitea repoet.  
+Denne filen har vært veldig uoversiktlig med tanke på manuell endring, siden det er normalisert for frontend utvikling.
+Nå som denne har blitt endret, vil UI-edtioren ha samme interne layout, men når det lagres vil det skje en konvertering til et format som er enklere å lese og endre manuelt.  
+
+Dette nye formatet vil se slik ut (med forbehold at ikke alle attributtene i dette eksempelet er skrevet helt riktig)
+```json
+{
+  layout: [
+    {
+        "id": "85h69c64-2a54-493c-a2a2-213034ed9207",
+        "type": "Input",
+        "title": "25795.OppgavegiverNavnPreutfylt.Label",
+        "dataBinding": "skattyterinfor.info.oppgavegiverNavnPreutfylt.value"
+      },
+      {
+        "id": "74b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
+        "type": "Input",
+        "title": "25796.OppgavegiverAdressePreutfylt.Label",
+        "dataBinding": "skattyterinfor.info.oppgavegiverAdressePreutfylt.value"
+      },
+      {
+        "id": "12b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
+        "type": "Input",
+        "title": "2.KontaktpersonNavn.Label",
+        "dataBinding": "skattyterinfor.kontakt.kontaktpersonNavn.value"
+      },
+      {
+        "id": "94b7ff77-a80b-45d4-8f4a-81d7a52e6966",
+        "type": "Group",
+        "repeatable": false,
+        "groupies": [
+          {
+            "id": "84b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
+            "type": "Input",
+            "title": "25796.OppgavegiverAdressePreutfylt.Label",
+            "dataBinding": "skattyterinfor.info.oppgavegiverAdressePreutfylt.value"
+          },
+          {
+            "id": "i8b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
+            "type": "Input",
+            "title": "25796.OppgavegiverAdressePreutfylt.Label",
+            "dataBinding": "skattyterinfor.info.oppgavegiverAdressePreutfylt.value"
+          }
+        ]
+      }
+  ]
+}
+```
+
+Arrayen i dette eksempelet representerer også rekefølgen komponentene vil bli vist i SBL.
