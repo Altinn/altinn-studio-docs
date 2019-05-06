@@ -121,7 +121,11 @@ To deploy latest code to altinn.studio do the following:
 --> A deploy to production has been started use kubectl get pods -w on the altinn.studio cluster to see if pods are updated correctly
 
 ### multiple compilation errors for a newly generated app without form components
-A plausible reason for the .NET code not compiling is that the incorrect version of the SDK is being used. Either the wrong version is installed, or the project is referencing the SDK in your user directory rather than the one installed in program files.
+![Runtime-Compilation-Error ](runtime-compilation-error.png?width=150)
+
+Two different causes have resulted in this error. 
+
+The first cause and resolution of the .NET code not compiling is that the incorrect version of the SDK is being used. Either the wrong version is installed, or the project is referencing the SDK in your user directory rather than the one installed in program files.
 
 There are two steps to solving this issue
 
@@ -131,7 +135,7 @@ There are two steps to solving this issue
 2. Ensure that the path of all .NET Core references in the Visual Studio solution are in the `C:\Program Files\dotnet` directory. 
 This can be checked by going to Dependencies -> NuGet / SDK for each project in the AltinnCore solution. If this is not the case, remove the reference and re-install it using NuGet package manager or a tool of your own choice.
 
-![Runtime-Compilation-Error ](runtime-compilation-error.png?width=150)
+The second cause and resolution of the .NET code not compiling is that the application user in Altinn Studio has a hyphen in it's username. The username is included as a part of the namespace for all code files related to the project, and .NET does not accept hyphens in namespace declarations. The solution is to create an organization under the application user and creating the application with the organization as the app owner. 
 
 ### I try to pull master from github and get error "Cannot lock ref"
 
