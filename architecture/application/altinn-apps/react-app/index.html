@@ -5305,6 +5305,7 @@ if(host != "localhost")
 <li><a href="#action-creators">Action Creators</a></li>
 <li><a href="#action-dispatcher">Action Dispatcher</a></li>
 <li><a href="#redux-saga">Redux-Saga</a></li>
+<li><a href="#formlayout-file">Formlayout file</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5572,6 +5573,59 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
   yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
 }
 </code></pre>
+
+<h3 id="formlayout-file">Formlayout file</h3>
+
+<p>Layouten på skjemaet er definiert i en json-fil som ligger i Gitea repoet.<br />
+Denne filen har vært veldig uoversiktlig med tanke på manuell endring, siden det er normalisert for frontend utvikling.
+Nå som denne har blitt endret, vil UI-edtioren ha samme interne layout, men når det lagres vil det skje en konvertering til et format som er enklere å lese og endre manuelt.</p>
+
+<p>Dette nye formatet vil se slik ut (med forbehold at ikke alle attributtene i dette eksempelet er skrevet helt riktig)</p>
+
+<pre><code class="language-json">{
+  layout: [
+    {
+        &quot;id&quot;: &quot;85h69c64-2a54-493c-a2a2-213034ed9207&quot;,
+        &quot;type&quot;: &quot;Input&quot;,
+        &quot;title&quot;: &quot;25795.OppgavegiverNavnPreutfylt.Label&quot;,
+        &quot;dataBinding&quot;: &quot;skattyterinfor.info.oppgavegiverNavnPreutfylt.value&quot;
+      },
+      {
+        &quot;id&quot;: &quot;74b7ff77-a80b-45d4-8f4a-81d7a52e69c6&quot;,
+        &quot;type&quot;: &quot;Input&quot;,
+        &quot;title&quot;: &quot;25796.OppgavegiverAdressePreutfylt.Label&quot;,
+        &quot;dataBinding&quot;: &quot;skattyterinfor.info.oppgavegiverAdressePreutfylt.value&quot;
+      },
+      {
+        &quot;id&quot;: &quot;12b7ff77-a80b-45d4-8f4a-81d7a52e69c6&quot;,
+        &quot;type&quot;: &quot;Input&quot;,
+        &quot;title&quot;: &quot;2.KontaktpersonNavn.Label&quot;,
+        &quot;dataBinding&quot;: &quot;skattyterinfor.kontakt.kontaktpersonNavn.value&quot;
+      },
+      {
+        &quot;id&quot;: &quot;94b7ff77-a80b-45d4-8f4a-81d7a52e6966&quot;,
+        &quot;type&quot;: &quot;Group&quot;,
+        &quot;repeatable&quot;: false,
+        &quot;groupies&quot;: [
+          {
+            &quot;id&quot;: &quot;84b7ff77-a80b-45d4-8f4a-81d7a52e69c6&quot;,
+            &quot;type&quot;: &quot;Input&quot;,
+            &quot;title&quot;: &quot;25796.OppgavegiverAdressePreutfylt.Label&quot;,
+            &quot;dataBinding&quot;: &quot;skattyterinfor.info.oppgavegiverAdressePreutfylt.value&quot;
+          },
+          {
+            &quot;id&quot;: &quot;i8b7ff77-a80b-45d4-8f4a-81d7a52e69c6&quot;,
+            &quot;type&quot;: &quot;Input&quot;,
+            &quot;title&quot;: &quot;25796.OppgavegiverAdressePreutfylt.Label&quot;,
+            &quot;dataBinding&quot;: &quot;skattyterinfor.info.oppgavegiverAdressePreutfylt.value&quot;
+          }
+        ]
+      }
+  ]
+}
+</code></pre>
+
+<p>Arrayen i dette eksempelet representerer også rekefølgen komponentene vil bli vist i SBL.</p>
 
 
 <footer class=" footline" >
