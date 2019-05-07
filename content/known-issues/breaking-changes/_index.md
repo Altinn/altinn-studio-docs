@@ -55,3 +55,12 @@ Make the following updates to the application repo (https://altinn.studio/{organ
 ![update-altinn-service-proj-file](update-altinn-service-proj-file.png)
 - Implementation/ServiceImplementation.cs:
 ![remove-viewbag-from-service-implementation](remove-viewbag-from-service-implementation.png)
+
+## Breaking change: Change storage format of formlayout
+
+After we have rewritten the runtime react application, we will also introduce a new format the layout is saved as.
+
+### How to fix
+
+If you don't want to end up with a empty layout un the UI-editor, send a <a href="mailto:extjmf@brreg.no">mail</a> with the name of the organization and the repo-name.
+And an admin will convert your formLayout.json to the new format.
