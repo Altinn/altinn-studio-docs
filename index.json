@@ -49,6 +49,13 @@
 	"content": " What is Altinn Studio? Altinn Studio is the third-generation service development solution from Altinn. Norway\u0026rsquo;s public platform for E-Government. The current service development solution and hosting platform (launched 2010) is considered by Gartner as one of the five leading digital government technology platforms in the world. The current platform is used by over 90% of the Norwegian population and almost 100% of the businesses. Over 43 agencies host services in the Altinn platform.\n  Gartner   Altinn Studio gives the service owner a way to build services as applications. This application can have GUI for web access for end users and/or API for api usage of the service. A service can almost be any type of functionality targeted for user and systems. Examples on services in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more. Current platform has between 500 and 1000 active services that support different user scenarios.\nWhat is Altinn Apps? Altinn Apps is the solution where services (apps) developed in Altinn Studio is deployed. This will be a highly scalable platform with isolated service applications and seperate Kubernetes Clusters for each org owning apps.\nWhat is Altinn Platform? The Altinn platform is a platform with supporting services that support the Apps created in Altinn Studio and hosted in Altinn Apps. Altinn Platform have services for storage of data, authorization, authentication, userprofile+++. This platform is highly scalable\nWhat types of services can be built with Altinn Studio and hosted in Altinn Apps? The first version will support services where the use case is to submit data from the end user or the system to the service owner.\nWhy Altinn studio? There are many reasons to use Altinn Studio instead of building everything from scratch. - Easy to develop services - A known platform for end users` - Highly scalable infrastructure. ++++\nWhen will it be released First version is planned to be launched 2019\nPresentations Below a list over presentations\nPresentation Mars 2019 Norwegian\n"
 },
 {
+	"uri": "https://docs.altinn.studio/altinn-api/",
+	"title": "Altinn API",
+	"tags": ["external", "api", "rest"],
+	"description": "Description of the Altinn API for end users and application owners.",
+	"content": " This page is work-in-progress. This is a proposed api which most likely is going to change.\n\rTwo APIs will be available End User System System that interact with Altinn Apps on the API level. Typical an end user system will interact with an Altinn application. Typical scenarios\n create an application instance submitt form data download form data change workflow state view status of an instance  Application Owner  query instances for a given application according to status create an application instance submitt form data download form data confirm successful download change workflow state?  API Application endpoint https://nav.apps.altinn.no/app2018  Identifies the organization cluster and the application.\nQuery instances GET /instances?isCompleted=true\u0026amp;workflowStateId=submitted  Returns a paginated set of instances (JSON)\nCreate an application instance for an Instance Owner POST /instances?instanceOwnerId=12345  Returns the guid of the created instance.\nSubmitt form data (first time) With form data attached as e.g. XML document\nPOST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default?instanceOwnerId=12345  Returns instance metadata updated and with guid to data element\nDownload form data GET /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d?instanceOwnerId=12345  Confirm successful download POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d/downloaded?instanceOwnerId=12345  \r"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/",
 	"title": "Application Architecture Altinn Apps",
 	"tags": ["tjenester 3.0"],
@@ -1465,6 +1472,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/error-logging/",
 	"title": "error-logging",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/external/",
+	"title": "external",
 	"tags": [],
 	"description": "",
 	"content": ""
