@@ -1,12 +1,11 @@
 ---
-title: Breaking changes fix for applicatin owners in Altinn Studio
+title: Breaking changes errors and how to fix them
 linktitle: Breaking changes
 description: Overview of breaking changes introduced into altinn studio and how and what to update on an existing application for applicatin owners
 tags: ["guide"]
 weight: 100
 ---
 
-# Breaking changes errors and how to fix them
 - [Error The type or namespace name *](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
 - [ 'ServiceImplementation' does not implement interface member* ](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
 
