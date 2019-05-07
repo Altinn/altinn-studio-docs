@@ -57,4 +57,39 @@ There are many advantages of using serilog
 - It allows to define a custom message template for logging. 
 - Provides prebuilt enrichers through nuget. These add more value and information to the log events. This can be used to filter events in Application Insights. 
 
+#### Step one - Init logger in Program.cs
+
+```c#
+ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    WebHost.CreateDefaultBuilder(args)
+    .ConfigureLogging((hostingContext, logging) =>
+    {
+        logging.ClearProviders();
+        Serilog.ILogger logger = new LoggerConfiguration()
+                        .WriteTo.Console()
+                        .CreateLogger();
+
+        logging.AddProvider(new SerilogLoggerProvider(logger));
+    })
+```
+
+#### Step two - inject logger where it is needed
+
+```c#
+    private ILogger logger;
+
+    public ApplicationsController(IApplicationRepository repository, ILogger logger)
+    {
+        this.logger = logger;
+        this.repository = repository;
+    }
+```
+
+#### Step three - log error
+
+```c#
+    logger.Error($"Unable to store application data in database. {exception}");;
+
+```
+
 Read more on [serilog](https://github.com/serilog/serilog)
