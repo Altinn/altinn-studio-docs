@@ -58,9 +58,9 @@ Make the following updates to the application repo (https://altinn.studio/{organ
 
 ## Breaking change: Change storage format of formlayout
 
-After we have rewritten the runtime react application, we will also introduce a new format the layout is saved as.
+After we have rewritten the runtime react application, we will also introduce a new format the layout is saved as. This change will be pushed in the transition between May and June 2019.
 
 ### How to fix
 
-If you don't want to end up with a empty layout un the UI-editor, send a <a href="mailto:extjmf@brreg.no">mail</a> with the name of the organization and the repo-name.
+If you don't want to end up with a empty layout un the UI-editor, send a <a href="mailto:extmgm@brreg.no">mail</a> with the name of the organization and the repo-name.
 And an admin will convert your formLayout.json to the new format.
