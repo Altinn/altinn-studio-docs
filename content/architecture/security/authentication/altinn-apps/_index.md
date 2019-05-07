@@ -45,3 +45,8 @@ that generates a JWT token based on the certificate and the username password
 
 App owners (service owners) will have seperate API's in a App to perform operations on. They are authenticated with help of agency system id + password. A API in the authentication component
 in Altinn creates a JWT token that can be used to authenticate the agency system when calling api's on apps running in Altinn Apps.
+
+
+## Arcitecthure
+
+

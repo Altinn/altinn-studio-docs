@@ -18,15 +18,21 @@ and everyone can validate the token with the public key.
 
 
 ### UserId
-
+The internal Altinn userId for the authenticated user
 
 ### ssn
-
+The social security number
 
 ### PartyId
 
+### AuthenticationLevel
+The authentication level used when user logged in
+
+### AuthenticationMethod
+The authentication method used when user logged in
 
 ### end user system Id
+
 
 ### SystemOwnerPartyId
 
