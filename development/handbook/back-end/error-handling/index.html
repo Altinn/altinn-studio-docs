@@ -5325,7 +5325,12 @@ if(host != "localhost")
 </ul></li>
 <li><a href="#what-to-log">What to log?</a></li>
 <li><a href="#where-do-we-log">Where do we log?</a></li>
-<li><a href="#third-party-logging-frameworks">Third Party Logging Frameworks</a></li>
+<li><a href="#third-party-logging-frameworks">Third Party Logging Frameworks</a>
+<ul>
+<li><a href="#step-one-init-logger-in-program-cs">Step one - Init logger in Program.cs</a></li>
+<li><a href="#step-two-inject-logger-where-it-is-needed">Step two - inject logger where it is needed</a></li>
+<li><a href="#step-three-log-error">Step three - log error</a></li>
+</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5430,6 +5435,38 @@ There are many advantages of using serilog</p>
 <li>It allows to define a custom message template for logging.</li>
 <li>Provides prebuilt enrichers through nuget. These add more value and information to the log events. This can be used to filter events in Application Insights.</li>
 </ul>
+
+<h4 id="step-one-init-logger-in-program-cs">Step one - Init logger in Program.cs</h4>
+
+<pre><code class="language-c#"> public static IWebHostBuilder CreateWebHostBuilder(string[] args) =&gt;
+    WebHost.CreateDefaultBuilder(args)
+    .ConfigureLogging((hostingContext, logging) =&gt;
+    {
+        logging.ClearProviders();
+        Serilog.ILogger logger = new LoggerConfiguration()
+                        .WriteTo.Console()
+                        .CreateLogger();
+
+        logging.AddProvider(new SerilogLoggerProvider(logger));
+    })
+</code></pre>
+
+<h4 id="step-two-inject-logger-where-it-is-needed">Step two - inject logger where it is needed</h4>
+
+<pre><code class="language-c#">    private ILogger logger;
+
+    public ApplicationsController(IApplicationRepository repository, ILogger logger)
+    {
+        this.logger = logger;
+        this.repository = repository;
+    }
+</code></pre>
+
+<h4 id="step-three-log-error">Step three - log error</h4>
+
+<pre><code class="language-c#">    logger.Error($&quot;Unable to store application data in database. {exception}&quot;);;
+
+</code></pre>
 
 <p>Read more on <a href="https://github.com/serilog/serilog">serilog</a></p>
 
