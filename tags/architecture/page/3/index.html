@@ -2727,10 +2727,50 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
      
       ">
         <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
         <span>JWT Format</span> 
         
         </a></li>
@@ -5303,13 +5343,41 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/architecture/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 4</span>
+	<span class="page-number">Page 3 on 5</span>
 	
 	    <a class="older-posts" href="/tags/architecture/page/4/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/model/">Authorization model</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
+Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-platform/model/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post architecture">
@@ -5534,69 +5602,41 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">JWTCookieAuthentication</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens.
+This is created as a seperate C# Project and published as a Nuget Package here (todo add link when published)
+Features  Support Generation of JWT Tokens as bearer tokens Support Generation of JWT Tokens inside Cookies Configureble name of cookie used Configurable Signing Ceritcate Configurale Verification certificate Automatic detection if request contains Uses standard JWT Library for verification and generation. <a class="read-more" href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pap/">Policy Administration Point</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
 Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organization new rights.
 Altinn Studio Apps will not have any administration of authorization rules. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pap/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/pdp/">Policy Decision Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Policy Decision Point is implemented in the authorization application that is deployed Altinn Platform.
-Policy Decision Point exposes a method that authorize request based on the following
- ResourceId (instanceId, dataId or appId) SubjectId (systemId, userId) ReporteeId (in case of appId) Action  If instanceID or dataID is used as Resource ID PDP will use Context Handler to identifiy the correct appId, the instance workflow state and the reporteId for the existing resource. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pdp/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/pep/">Policy Enforcment Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>There will be some different Policy Enforcment Points in Altinn Apps. This will be in Runtime Application.
-PEP for Runtime Application See Github <a class="read-more" href="/architecture/security/authorization/altinn-apps/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5625,7 +5665,7 @@ PEP for Runtime Application See Github <a class="read-more" href="/architecture/
 	
 	    <a class="newer-posts" href="/tags/architecture/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 4</span>
+	<span class="page-number">Page 3 on 5</span>
 	
 	    <a class="older-posts" href="/tags/architecture/page/4/">Next Pages &rarr;</a>
 	
@@ -7053,6 +7093,38 @@ PEP for Runtime Application See Github <a class="read-more" href="/architecture/
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

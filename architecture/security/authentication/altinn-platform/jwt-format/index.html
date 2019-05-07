@@ -2727,10 +2727,50 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
      active
       ">
         <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
         <span>JWT Format</span> 
         
         </a></li>
@@ -5322,6 +5362,8 @@ if(host != "localhost")
 <li><a href="#userid">UserId</a></li>
 <li><a href="#ssn">ssn</a></li>
 <li><a href="#partyid">PartyId</a></li>
+<li><a href="#authenticationlevel">AuthenticationLevel</a></li>
+<li><a href="#authenticationmethod">AuthenticationMethod</a></li>
 <li><a href="#end-user-system-id">end user system Id</a></li>
 <li><a href="#systemownerpartyid">SystemOwnerPartyId</a></li>
 </ul></li>
@@ -5365,9 +5407,21 @@ and everyone can validate the token with the public key.</p>
 
 <h3 id="userid">UserId</h3>
 
+<p>The internal Altinn userId for the authenticated user</p>
+
 <h3 id="ssn">ssn</h3>
 
+<p>The social security number</p>
+
 <h3 id="partyid">PartyId</h3>
+
+<h3 id="authenticationlevel">AuthenticationLevel</h3>
+
+<p>The authentication level used when user logged in</p>
+
+<h3 id="authenticationmethod">AuthenticationMethod</h3>
+
+<p>The authentication method used when user logged in</p>
 
 <h3 id="end-user-system-id">end user system Id</h3>
 
@@ -6815,6 +6869,8 @@ and everyone can validate the token with the public key.</p>
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -6826,7 +6882,21 @@ and everyone can validate the token with the public key.</p>
                     
             
         
+                    
+                        
+            
+            
+                
+                    
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -6835,8 +6905,27 @@ and everyone can validate the token with the public key.</p>
             
                 
                     
+                        
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
+            
+            
+                
                     
                 
                 
@@ -8217,10 +8306,10 @@ and everyone can validate the token with the public key.</p>
 
 
         
-            <a class="nav nav-prev" href="/architecture/security/authentication/altinn-platform/" title="Authentication Architecture Altinn Platform"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/security/authentication/altinn-platform/authentication-api/" title="Authentication API"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/architecture/security/authentication/altinn-studio/" title="Authentication Architecture Altinn Studio" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" title="JWTCookieAuthentication" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

@@ -2727,10 +2727,50 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
      
       ">
         <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
         <span>JWT Format</span> 
         
         </a></li>
@@ -5316,10 +5356,38 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>A important feature is to be able to authenticate the users and systems accessing the different solutions.
-Description of the Altinn Studio Security architecture.
+In Altinn Studio developers is authenticated for building and testing apps.
+In Altinn Apps and Altinn Platform end users and system needs to be authenticated for accessing apps in Altinn Apps and components in Altinn Platform.
 Authentication Architecture Altinn AppsDescription of the Authentication architecture apps hosted in Altinn Apps
-Authentication Architecture Altinn PlatformDescription of the Authentication architecture Altinn Platform
-JWT FormatDescription of the JWT Format used in Altinn Studio, Altinn Platform and Altinn Apps <a class="read-more" href="/architecture/security/authentication/">&raquo;</a></p>
+Authentication Architecture Altinn PlatformDescription of the Authentication architecture Altinn Platform <a class="read-more" href="/architecture/security/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authentication/altinn-platform/authentication-api/">Authentication API</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JSON Web Token are an open, industry standard RFC 7519 method for representing claims securely between two parties and are choosen as the bearer of information about users and systems.
+The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/architecture/security/authentication/altinn-platform/authentication-api/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5402,8 +5470,10 @@ Since Altinn Platform will in the future support that different types of applica
         <h2 class="post-title"><a href="/architecture/security/authentication/altinn-studio/">Authentication Architecture Altinn Studio</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> Users of Altinn Studio needs to be authenticated
-Developer authentication GIT Repo authentication Authentication of test user in Altinn Studio  <a class="read-more" href="/architecture/security/authentication/altinn-studio/">&raquo;</a></p>
+        <p>Users of Altinn Studio needs to be authenticated.
+Developer authentication The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea.
+The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea.
+GIT Repo authentication When users tries to update the Git repo where source files for the app is stored it needs to authenticate agains the GIT repo. <a class="read-more" href="/architecture/security/authentication/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5555,34 +5625,6 @@ Policy Decision Point (PDP) The Policy Decision Point is responsible for decidin
     <section class="post-excerpt">
         <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
 Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-apps/model/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/model/">Authorization model</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
-Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-platform/model/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -7037,6 +7079,38 @@ Rights In Altinn Studio Apps a right is a permission to perform a action on a gi
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

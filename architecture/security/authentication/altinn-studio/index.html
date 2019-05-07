@@ -2727,10 +2727,50 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
      
       ">
         <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
         <span>JWT Format</span> 
         
         </a></li>
@@ -5345,13 +5385,26 @@ if(host != "localhost")
 
 
 
-<p>Users of Altinn Studio needs to be authenticated</p>
+<p>Users of Altinn Studio needs to be authenticated.</p>
 
 <h2 id="developer-authentication">Developer authentication</h2>
 
+<p>The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea.</p>
+
+<p>The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea.</p>
+
 <h2 id="git-repo-authentication">GIT Repo authentication</h2>
 
+<p>When users tries to update the Git repo where source files for the app is stored it needs to authenticate agains the GIT repo.</p>
+
+<p>This can be done through using a App Key generated in Gitea or using the username/password for the  Gitea account.</p>
+
 <h2 id="authentication-of-test-user-in-altinn-studio">Authentication of test user in Altinn Studio</h2>
+
+<p>When testing apps in Altinn Studio, the designer part of Altinn Studio will behave as the <a href="https://en.wikipedia.org/wiki/Identity_provider">identity provider</a> for the runtime part
+of Altinn Studio.</p>
+
+<p>Altinn Studio have functionality where app developer can select a given test user and then navigate to runtime to test the app with the selected user/instance owner.</p>
 
 
 <footer class=" footline" >
@@ -6807,6 +6860,38 @@ if(host != "localhost")
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -8198,7 +8283,7 @@ if(host != "localhost")
 
 
         
-            <a class="nav nav-prev" href="/architecture/security/authentication/altinn-platform/jwt-format/" title="JWT Format"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" title="JWTCookieAuthentication"> <i class="fa fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="/architecture/security/authorization/" title="Authorization" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>

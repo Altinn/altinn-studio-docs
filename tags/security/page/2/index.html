@@ -2727,10 +2727,50 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
      
       ">
         <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <span>JWT Format</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
         <span>JWT Format</span> 
         
         </a></li>
@@ -5314,6 +5354,34 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/model/">Authorization model</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
+Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-platform/model/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/contexthandler/">Context Handler</a></h2>
     </header>
     <section class="post-excerpt">
@@ -5348,6 +5416,35 @@ Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" h
     <section class="post-excerpt">
         <p>JSON Web Token are an open, industry standard RFC 7519 method for representing claims securely between two parties and are choosen as the bearer of information about users and systems.
 The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/architecture/security/authentication/altinn-platform/jwt-format/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">JWTCookieAuthentication</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens.
+This is created as a seperate C# Project and published as a Nuget Package here (todo add link when published)
+Features  Support Generation of JWT Tokens as bearer tokens Support Generation of JWT Tokens inside Cookies Configureble name of cookie used Configurable Signing Ceritcate Configurale Verification certificate Automatic detection if request contains Uses standard JWT Library for verification and generation. <a class="read-more" href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5530,67 +5627,6 @@ See XACML for detailed description of Policy format <a class="read-more" href="/
           
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/">Security</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Description of the Altinn Studio Security architecture.
-AuthenticationDescription of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform
-Authentication Architecture Altinn AppsDescription of the Authentication architecture apps hosted in Altinn Apps
-Authentication Architecture Altinn PlatformDescription of the Authentication architecture Altinn Platform
-Authentication Architecture Altinn StudioDescription of the Authentication architecture Altinn Studio
-AuthorizationDescription of the Authorization architecture <a class="read-more" href="/architecture/security/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/securecoding/checklist/">Security Checklist</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Design General    # Title Description     1 Do the design use the security architecture correct? Are the mechanismen like authentication and authorization used correctly?.   2 Sikrer designet    3 Vil designet gi økt fare for DOS angrep? Eksponerer funksjonalitet tunge operasjoner som kan gjentas mange ganger   4 Is it performed a treath assessment for the change? Hvilke nye risikoer introdusereres ved hjelp av endringen Muligheter for tilgang til data? <a class="read-more" href="/development/handbook/securecoding/checklist/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/checklist/">checklist</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/owasp/">OWASP</a>
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/security/">security</a>
             
@@ -7038,6 +7074,38 @@ See XACML for detailed description of Policy format <a class="read-more" href="/
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

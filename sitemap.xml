@@ -259,7 +259,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/authentication-api/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/jwt-format/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/jwtcookieauthentication/</loc>
   </url>
   
   <url>
