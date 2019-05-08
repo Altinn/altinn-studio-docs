@@ -12,6 +12,7 @@ All you need for testing the preview is to [register an account](/getting-starte
 - Altinn Studio have an [open backlog] on GitHub and [the code] is open source.
 - Everybody can [create bugs], [request features] or [ask questions].
 
+!["Building the new Altinn"](altinn-lego.jpg "Building the new Altinn")
 
 [Altinn Studio]: https://altinn.studio
 [open backlog]: https://github.com/altinn/altinn-studio/issues/
