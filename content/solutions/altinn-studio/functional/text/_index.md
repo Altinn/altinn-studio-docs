@@ -41,3 +41,117 @@ Where the first param is the language key and the second is the language element
 - Keys are written in lowercase with underscores (example_key)
 
 {{<figure src="oversetting.png?width=1000" title="Editor for oversetting av tekster">}}
+
+# Language best practice
+
+## Summary
+
+- Name should describe the content of the value.
+- Section should describe the context (might be page, container or component).
+- If your name also describes the page, container or component, you *might* want to create a new section.
+
+## Keys (properties)
+
+Every *key*, or *property*, has a *name* and a *value*.
+
+- Names should be **short** and **not context based** (context should be in section)
+- Names should not describe presentational functionality like modal or popover.
+
+Example:
+
+```ini
+[good_example_1]
+ready_to_deploy_title_false = Text...
+[bad_example_1]
+service_is_ready_to_deploy_title_false = Text...
+
+[good_example_2]
+repo_changes_is_invisible = Text...
+[bad_example_2]
+changes_made_by_others_in_your_organisation_is_not_visible_in_altinn_studio = Text...
+```
+
+### Text parts
+
+If your text has several parts, suffix with "part1", "part2", "partN".
+
+> It is currently not possible to use variables or HTML code in text.
+
+Example:
+
+```ini
+[deploy_to_test]
+error_there_is_something_wrong_with_your_environment_part1 = Det er noe galt med ditt
+error_there_is_something_wrong_with_your_environment_part2 = -miljø. Vennligst kontakt support.
+```
+
+### Titles, subtitles and bodies
+
+If your title has associated text you should use suffixes like: "heading/title", "subheading/subtitle", and "body".
+
+Example:
+
+```ini
+[great_component]
+welcome_body = Welcome to this great component
+welcome_heading = Hello world
+welcome_subheading = Small text below the title
+```
+
+### Sorting
+
+Naming should be used so that related keys/properties are grouped when sorted alphabetically.
+
+### True / false
+
+If your text has positive or negative text related to logic, suffix with true/false. This will group keys when sorting.
+
+Example:
+
+```ini
+[grouping]
+category_service_read_true = Andre tjenester
+category_service_read_false = Du har ikke rettigheter til...
+ready_to_deploy_title_false = Tjenesten er IKKE klar til å legges ut i testmiljø
+ready_to_deploy_title_true = Tjenesten er klar til å legges ut i testmiljø
+
+[no_grouping]
+category_service_read = Andre tjenester
+category_service_write = Du har rettigheter til å endre disse tjenestene
+main_header = Tjenesteoversikt
+no_category_service_read = Du har ikke rettigheter til...
+no_category_service_write = Du har ikke skriverettigheter til...
+```
+
+### Errors
+
+If there is an error, you should prefix or suffix the key with "error". If grouping when alphabetizing is important, use suffix.
+
+Example:
+
+```ini
+[no_grouping]
+error_a_problem_has_occured = Det har oppstått et problem
+
+[grouping]
+file_uploader_validation_error_delete = Noe gikk galt under slettingen av filen, prøv igjen senere.
+file_uploader_validation_error_file_ending = er ikke blant de tillatte filtypene.
+file_uploader_validation_error_file_size = overskrider tillatt filstørrelse.
+```
+
+## Sections [sections]
+
+Sections are used to categorize keys (properties) that belong together. It may be a page, container or component.
+
+### Examples
+
+``[general] [dashboard] [sync_header]``
+
+```ini
+[general]
+[dashboard]
+[sync_header]
+```
+
+> Try to not use application wide sections that might need container or component reference in the key name.
+
