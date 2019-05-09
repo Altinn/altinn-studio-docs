@@ -5403,6 +5403,15 @@ as the bearer of information about users and systems.</p>
 <p>The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate,
 and everyone can validate the token with the public key.</p>
 
+<p>Altinn Platform and Altinn Apps support JWT tokens as bearer tokens in Authorization header and as JWT Tokens inside cookie.</p>
+
+<p>The cookie will be  used when users access application with a frontend in Altinn Apps. (typical REACT application).
+The bearer token will be used when the user access throug mobile apps or external systems.</p>
+
+<p>The below screenshot shows how a JWT Token can be verified at jwt.io</p>
+
+<p><img src="jwtio.png" alt="&quot;JWT IO&quot;" title="JWT IO" /></p>
+
 <h2 id="claims-in-token">Claims in token</h2>
 
 <h3 id="userid">UserId</h3>
