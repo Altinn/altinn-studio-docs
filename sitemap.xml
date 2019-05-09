@@ -115,6 +115,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/authentication-api/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-platform/authorization/</loc>
   </url>
   
@@ -256,10 +260,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-platform/intermediary/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/authentication-api/</loc>
   </url>
   
   <url>

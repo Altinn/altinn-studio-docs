@@ -2731,7 +2731,7 @@ if(host != "localhost")
      active
       ">
         <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
-        <span>JWT Format</span> 
+        <span>Authentication API</span> 
         
         </a></li>
      
@@ -2771,7 +2771,7 @@ if(host != "localhost")
      
       ">
         <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
-        <span>JWT Format</span> 
+        <span>JWTCookieAuthentication</span> 
         
         </a></li>
      
@@ -5335,7 +5335,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/security/'>Security</a> > <a href='/architecture/security/authentication/'>Authentication</a> > <a href='/architecture/security/authentication/altinn-platform/'>Altinn Platform</a> > JWT Format
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/security/'>Security</a> > <a href='/architecture/security/authentication/'>Authentication</a> > <a href='/architecture/security/authentication/altinn-platform/'>Altinn Platform</a> > Authentication API
 
  
 
@@ -5361,6 +5361,7 @@ if(host != "localhost")
 <li><a href="#api-for-end-user-system">API for End User System</a>
 <ul>
 <li><a href="#reserve-pin-for-end-user">Reserve Pin for End User</a></li>
+<li><a href="#validate-system-and-or-end-user">Validate system and/or end user</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5392,23 +5393,28 @@ if(host != "localhost")
 
 
 
-<p><a href="https://jwt.io/">JSON Web Token</a> are an open, industry standard <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> method for representing claims securely between two parties and are choosen
-as the bearer of information about users and systems.</p>
-
-<p>The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate,
-and everyone can validate the token with the public key.</p>
-
 <h2 id="api-for-sbl-authentication-cookie">API for SBL Authentication cookie</h2>
 
 <p>This API creates a JWT Cookie (A cookie with a JWT Token) based on the SBL Cookie created during login in the Legacy SBL solution. This API uses API in the SBL Bridge to verify the cookie
 and get information about the logged in user. Based on this information this API creates a JWT token with claims about the user (userid, authentication level ++) and sign the JWT token with
 the Private Key of Altinn Platform.</p>
 
+<p>The login process for a user that wants to access a app in Altinn Apps is described below.</p>
+
+
+	<p><object data="/architecture/security/authentcation/altinn-platform/loginprocesss.svg" type="image/svg+xml" style="width: 100%;";></object></p>
+
+
+
 <h2 id="api-for-end-user-system">API for End User System</h2>
 
 <h3 id="reserve-pin-for-end-user">Reserve Pin for End User</h3>
 
 <p>This API lets the user request a Altinn PIN or SMS Pin for a end user</p>
+
+<h3 id="validate-system-and-or-end-user">Validate system and/or end user</h3>
+
+<p>This API validates the end user systm id together with the password for the system</p>
 
 
 <footer class=" footline" >
