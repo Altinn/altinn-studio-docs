@@ -18,7 +18,7 @@ the Private Key of Altinn Platform.
 The login process for a user that wants to access a app in Altinn Apps is described below.
 
 {{%excerpt%}}
-<object data="/architecture/security/authentcation/altinn-platform/loginprocesss.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/architecture/security/authentcation/altinn-platform/loginprocess.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 
