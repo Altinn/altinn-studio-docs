@@ -5352,6 +5352,11 @@ if(host != "localhost")
 <li><a href="#errors-1">Errors</a></li>
 <li><a href="#how-to-fix-1">How to fix</a></li>
 </ul></li>
+<li><a href="#cannot-deserialize-the-current-json-object-e-g-name-value-into-type-system-collections-generic-list-1-altinncore-common-models-data-because-the-type-requires-a-json-array-e-g-1-2-3-to-deserialize-correctly">Cannot deserialize the current JSON object (e.g. {&ldquo;name&rdquo;:&ldquo;value&rdquo;}) into type &lsquo;System.Collections.Generic.List&rsquo;1[AltinnCore.Common.Models.Data]&rsquo; because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly&hellip;.</a>
+<ul>
+<li><a href="#errors-2">Errors</a></li>
+<li><a href="#how-to-fix-2">How to fix</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -5383,6 +5388,7 @@ if(host != "localhost")
 <ul>
 <li><a href="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill">Error The type or namespace name *</a></li>
 <li><a href="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill"> &lsquo;ServiceImplementation&rsquo; does not implement interface member* </a></li>
+<li><a href="#cannot-deserialize-the-current-json-object">Cannot deserialize the current JSON object (e.g. {&ldquo;name&rdquo;:&ldquo;value&rdquo;}) into type &lsquo;System.Collections.Generic.List&rsquo;1[AltinnCore.Common.Models.Data]&rsquo; because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly&hellip;.</a></li>
 </ul>
 
 <p><a name="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill"></a></p>
@@ -5441,6 +5447,31 @@ if(host != "localhost")
 <img src="update-altinn-service-proj-file.png" alt="update-altinn-service-proj-file" /></li>
 <li>Implementation/ServiceImplementation.cs:
 <img src="remove-viewbag-from-service-implementation.png" alt="remove-viewbag-from-service-implementation" /></li>
+</ul>
+
+<p><a name="#cannot-deserialize-the-current-json-object"></a></p>
+
+<h2 id="cannot-deserialize-the-current-json-object-e-g-name-value-into-type-system-collections-generic-list-1-altinncore-common-models-data-because-the-type-requires-a-json-array-e-g-1-2-3-to-deserialize-correctly">Cannot deserialize the current JSON object (e.g. {&ldquo;name&rdquo;:&ldquo;value&rdquo;}) into type &lsquo;System.Collections.Generic.List&rsquo;1[AltinnCore.Common.Models.Data]&rsquo; because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly&hellip;.</h2>
+
+<p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/142">#991</a></p>
+
+<h3 id="errors-2">Errors</h3>
+
+<p>Error when trying to test service:
+<img src="unable-to-deserialize-current.png" alt="unable-to-deserialize-current" />
+- ServiceImplementation.cs - Error - &lsquo;ServiceImplementation&rsquo; does not implement interface member &lsquo;IServiceImplementation.SetContext(RequestContext, ServiceContext, StartServiceModel, ModelStateDictionary)&rsquo;
+- ServiceImplementation.cs - Error - &lsquo;ServiceImplementation&rsquo; does not implement interface member &lsquo;IServiceImplementation.SetContext(RequestContext)&rsquo;</p>
+
+<h3 id="how-to-fix-2">How to fix</h3>
+
+<p>Make the following updates to the application repo (<a href="https://altinn.studio/{organizationShortName}/{appName}):">https://altinn.studio/{organizationShortName}/{appName}):</a></p>
+
+<ul>
+<li>Delete all files under the &lsquo;Testdataforparty&rsquo;, this has to be done by deleting one by one file:
+<img src="delete-file.png" alt="delete-file.png" /></li>
+<li>or you can clone your service by using git clone, then remove the files from the clone folder, git add to specify which files to check in, git commit -m to commit and git push to push changes to master (git clone urlToService):
+<img src="clone-service.png" alt="clone-service.png" /></li>
+<li>if help is needed send a <a href="mailto:extsbu@brreg.no">mail</a> with the name of the organization and the repo-name.</li>
 </ul>
 
 
