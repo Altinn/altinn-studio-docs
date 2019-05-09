@@ -32,8 +32,9 @@ The authentication level used when user logged in
 The authentication method used when user logged in
 
 ### end user system Id
-
+The internal ID for end user system
 
 ### SystemOwnerPartyId
+The internal PartyID for system owner
 
 

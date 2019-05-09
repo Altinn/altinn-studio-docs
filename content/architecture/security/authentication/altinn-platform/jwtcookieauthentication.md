@@ -3,7 +3,7 @@ title: JWTCookieAuthentication
 description: Description of the JWTCookieAuthentication created for Altinn
 tags: ["architecture", "security"]
 weight: 100
-linktitle: JWT Format
+linktitle: JWTCookieAuthentication
 alwaysopen: false
 ---
 
@@ -21,6 +21,14 @@ This is created as a seperate C# Project and published as a Nuget Package here (
 - Configurale Verification certificate
 - Automatic detection if request contains 
 - Uses standard JWT Library for verification and generation. 
+
+
+## How To Configure JWTCookieAuthentication
+
+
+## Known Issues
+
+
 
 
 
