@@ -20,7 +20,7 @@ The bearer token will be used when the user access throug mobile apps or externa
 
 The below screenshot shows how a JWT Token can be verified at jwt.io
 
-!["JWT IO"](jwtio.png "JWT IO")
+!["JWT IO"](../jwtio.png "JWT IO")
 
 
 ## Claims in token
