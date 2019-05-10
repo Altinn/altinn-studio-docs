@@ -5352,10 +5352,14 @@ if(host != "localhost")
 <li><a href="#errors-1">Errors</a></li>
 <li><a href="#how-to-fix-1">How to fix</a></li>
 </ul></li>
+<li><a href="#breaking-change-change-storage-format-of-formlayout">Breaking change: Change storage format of formlayout</a>
+<ul>
+<li><a href="#how-to-fix-2">How to fix</a></li>
+</ul></li>
 <li><a href="#cannot-deserialize-the-current-json-object-e-g-name-value-into-type-system-collections-generic-list-1-altinncore-common-models-data-because-the-type-requires-a-json-array-e-g-1-2-3-to-deserialize-correctly">Cannot deserialize the current JSON object (e.g. {&ldquo;name&rdquo;:&ldquo;value&rdquo;}) into type &lsquo;System.Collections.Generic.List&rsquo;1[AltinnCore.Common.Models.Data]&rsquo; because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly&hellip;.</a>
 <ul>
 <li><a href="#errors-2">Errors</a></li>
-<li><a href="#how-to-fix-2">How to fix</a></li>
+<li><a href="#how-to-fix-3">How to fix</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5388,6 +5392,7 @@ if(host != "localhost")
 <ul>
 <li><a href="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill">Error The type or namespace name *</a></li>
 <li><a href="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill"> &lsquo;ServiceImplementation&rsquo; does not implement interface member* </a></li>
+<li><a href="#breakingchange-form-layout">Breaking change: Change storage format of formlayout</a></li>
 <li><a href="#cannot-deserialize-the-current-json-object">Cannot deserialize the current JSON object (e.g. {&ldquo;name&rdquo;:&ldquo;value&rdquo;}) into type &lsquo;System.Collections.Generic.List&rsquo;1[AltinnCore.Common.Models.Data]&rsquo; because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly&hellip;.</a></li>
 </ul>
 
@@ -5449,6 +5454,17 @@ if(host != "localhost")
 <img src="remove-viewbag-from-service-implementation.png" alt="remove-viewbag-from-service-implementation" /></li>
 </ul>
 
+<p><a name="#breakingchange-form-layout"></a></p>
+
+<h2 id="breaking-change-change-storage-format-of-formlayout">Breaking change: Change storage format of formlayout</h2>
+
+<p>After we have rewritten the runtime react application, we will also introduce a new format the layout is saved as. This change will be pushed in the transition between May and June 2019.</p>
+
+<h3 id="how-to-fix-2">How to fix</h3>
+
+<p>If you don&rsquo;t want to end up with a empty layout un the UI-editor, send a <a href="mailto:extmgm@brreg.no">mail</a> with the name of the organization and the repo-name.
+And an admin will convert your formLayout.json to the new format.</p>
+
 <p><a name="#cannot-deserialize-the-current-json-object"></a></p>
 
 <h2 id="cannot-deserialize-the-current-json-object-e-g-name-value-into-type-system-collections-generic-list-1-altinncore-common-models-data-because-the-type-requires-a-json-array-e-g-1-2-3-to-deserialize-correctly">Cannot deserialize the current JSON object (e.g. {&ldquo;name&rdquo;:&ldquo;value&rdquo;}) into type &lsquo;System.Collections.Generic.List&rsquo;1[AltinnCore.Common.Models.Data]&rsquo; because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly&hellip;.</h2>
@@ -5462,7 +5478,7 @@ if(host != "localhost")
 - ServiceImplementation.cs - Error - &lsquo;ServiceImplementation&rsquo; does not implement interface member &lsquo;IServiceImplementation.SetContext(RequestContext, ServiceContext, StartServiceModel, ModelStateDictionary)&rsquo;
 - ServiceImplementation.cs - Error - &lsquo;ServiceImplementation&rsquo; does not implement interface member &lsquo;IServiceImplementation.SetContext(RequestContext)&rsquo;</p>
 
-<h3 id="how-to-fix-2">How to fix</h3>
+<h3 id="how-to-fix-3">How to fix</h3>
 
 <p>Make the following updates to the application repo (<a href="https://altinn.studio/{organizationShortName}/{appName}):">https://altinn.studio/{organizationShortName}/{appName}):</a></p>
 
