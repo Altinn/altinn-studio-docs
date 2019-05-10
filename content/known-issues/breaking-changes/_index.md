@@ -8,6 +8,7 @@ weight: 100
 
 - [Error The type or namespace name *](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
 - [ 'ServiceImplementation' does not implement interface member* ](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
+- [Breaking change: Change storage format of formlayout](#breakingchange-form-layout)
 
 
 <a name="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill"></a>
@@ -56,6 +57,7 @@ Make the following updates to the application repo (https://altinn.studio/{organ
 - Implementation/ServiceImplementation.cs:
 ![remove-viewbag-from-service-implementation](remove-viewbag-from-service-implementation.png)
 
+<a name="#breakingchange-form-layout"></a>
 ## Breaking change: Change storage format of formlayout
 
 After we have rewritten the runtime react application, we will also introduce a new format the layout is saved as. This change will be pushed in the transition between May and June 2019.
