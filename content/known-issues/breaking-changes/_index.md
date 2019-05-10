@@ -9,7 +9,7 @@ weight: 100
 - [Error The type or namespace name *](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
 - [ 'ServiceImplementation' does not implement interface member* ](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
 - [Breaking change: Change storage format of formlayout](#breakingchange-form-layout)
-
+- [Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.List'1[AltinnCore.Common.Models.Data]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly....](#cannot-deserialize-the-current-json-object)
 
 <a name="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill"></a>
 ## Error -The type or namespace name *
@@ -66,3 +66,24 @@ After we have rewritten the runtime react application, we will also introduce a 
 
 If you don't want to end up with a empty layout un the UI-editor, send a <a href="mailto:extmgm@brreg.no">mail</a> with the name of the organization and the repo-name.
 And an admin will convert your formLayout.json to the new format.
+
+<a name="#cannot-deserialize-the-current-json-object"></a>
+## Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.List'1[AltinnCore.Common.Models.Data]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly....
+Introduced with issue: [#991](https://github.com/Altinn/altinn-studio/issues/142) 
+
+### Errors
+
+Error when trying to test service:
+![unable-to-deserialize-current](unable-to-deserialize-current.png)
+- ServiceImplementation.cs - Error - 'ServiceImplementation' does not implement interface member 'IServiceImplementation.SetContext(RequestContext, ServiceContext, StartServiceModel, ModelStateDictionary)'
+- ServiceImplementation.cs - Error - 'ServiceImplementation' does not implement interface member 'IServiceImplementation.SetContext(RequestContext)'
+
+### How to fix
+
+Make the following updates to the application repo (https://altinn.studio/{organizationShortName}/{appName}):
+
+- Delete all files under the 'Testdataforparty', this has to be done by deleting one by one file:
+![delete-file.png](delete-file.png)
+- or you can clone your service by using git clone, then remove the files from the clone folder, git add to specify which files to check in, git commit -m to commit and git push to push changes to master (git clone urlToService):
+![clone-service.png](clone-service.png)
+- if help is needed send a <a href="mailto:extsbu@brreg.no">mail</a> with the name of the organization and the repo-name.
