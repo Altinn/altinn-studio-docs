@@ -7,12 +7,15 @@ linktitle: Altinn Platform
 alwaysopen: false
 ---
 
-Altinn Platform contains components that need to be able to authenticate users and systems. This is needed when resources requiring authentication and authorization is requested.
+Altinn Platform and Altinn Apps contains apps and components that need to be able to authenticate users and systems. 
+
+This is needed when resources requiring authentication and authorization is requested.
+
 This will typical be API's that expose or updates data own by a end user/party.
 
 ## Overall Authentication architecture
-There was serveral requirement to a authentication architecture for Altinn Apps / Altinn Platform. 
-The most important was
+There is serveral requirement to a authentication architecture for Altinn Apps / Altinn Platform. 
+The most important is
 
 - Needs to be supported by different types of application framworks
 - Needs to support end users accessing Altinn Apps / Altinn Platform through a web browser running the REACT application
@@ -20,7 +23,7 @@ The most important was
 - Needs to support scenarious where users are accessing through external systems or mobile apps
 - Needs to support systems from app owner.
 
-Since Altinn Platform will in the future support that different types of application created by different frameworks (Java/.Net/Node ++++) it is important that the
+Since Altinn Platform will in the future support that different types of apps created by different frameworks (Java/.Net/Node ++++) it is important that the
 authentication mechanismens is supported by different types of platforms.
 
 [JSON Web Token](https://jwt.io/) are an open, industry standard [RFC 7519](https://tools.ietf.org/html/rfc7519) method for representing claims securely between two parties and are choosen
@@ -44,9 +47,6 @@ The cookie with the JWT token is created by Authentication component in the Alti
 
 The React application would need to refresh the token at given intervall or the token will expire. To refresh a cookie token, the token API in Platform needs to be called
 
-
-
-
 ### End user systems accessing app api's
 
 End user systems is identfied with a end user system ID and a password. A end user system can be authenticated by themself or together with a end user and pin code. 
@@ -66,36 +66,3 @@ App owners (service owners) will have seperate API's in a App to perform operati
 in Altinn creates a JWT token that can be used to authenticate the agency system when calling api's on apps running in Altinn Apps.
 
 
-## Arcitecthure
-
-
-
-
-
-### End users accessing APIs in Altinn Platform
-
-In some scenarious the end user would need to access API's in Platform directly. In those cases a cookiw with JWT token is used for
-authentication of the end user.
-
-
-
-
-
-
-## End user systems accessing Altinn Platform api's
-
-End user systems is identfied with a end user system ID and a password. A end user system can be authenticated by themself or together with a end user and pin code. 
-
-In both cases the end user system calls a API on the Platform to generate a JWT token containing information about the system and possible user and pin.
-
-The API generates a JWT token containing claims for the system and user
-
-## Enterprise users accessing API's in Altinn Platform
-
-Enterprise users is users that is authenticated with use of a enterprise certificate together with a password and username. The authentication component in Altinn Platform will have a API
-that generates a JWT token based on the certificate and the username password
-
-## app owner systems accessing app api's
-
-App owners (service owners) will have seperate API's in a App to perform operations on. They are authenticated with help of agency system id + password. A API in the authentication component
-in Altinn creates a JWT token that can be used to authenticate the agency system when calling api's on apps running in Altinn Apps.
