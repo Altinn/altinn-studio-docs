@@ -8,6 +8,7 @@ weight: 100
 
 - [Error The type or namespace name *](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
 - [ 'ServiceImplementation' does not implement interface member* ](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
+- [Breaking change: Change storage format of formlayout](#breakingchange-form-layout)
 - [Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.List'1[AltinnCore.Common.Models.Data]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly....](#cannot-deserialize-the-current-json-object)
 
 <a name="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill"></a>
@@ -55,6 +56,16 @@ Make the following updates to the application repo (https://altinn.studio/{organ
 ![update-altinn-service-proj-file](update-altinn-service-proj-file.png)
 - Implementation/ServiceImplementation.cs:
 ![remove-viewbag-from-service-implementation](remove-viewbag-from-service-implementation.png)
+
+<a name="#breakingchange-form-layout"></a>
+## Breaking change: Change storage format of formlayout
+
+After we have rewritten the runtime react application, we will also introduce a new format the layout is saved as. This change will be pushed in the transition between May and June 2019.
+
+### How to fix
+
+If you don't want to end up with a empty layout un the UI-editor, send a <a href="mailto:extmgm@brreg.no">mail</a> with the name of the organization and the repo-name.
+And an admin will convert your formLayout.json to the new format.
 
 <a name="#cannot-deserialize-the-current-json-object"></a>
 ## Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.List'1[AltinnCore.Common.Models.Data]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly....
