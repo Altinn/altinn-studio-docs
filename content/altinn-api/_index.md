@@ -11,9 +11,14 @@ This page is work-in-progress. This is a proposed api which most likely is going
 {{% /notice%}}
 
 # Two API consumers
-There are primarily two types of consumers of the Altinn APIs. The first group is applications and systems used by the owners of the applications hosted on the Altinn platform. The other group is the organizations and people using the applications. The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform. Traditionally the two groups have had access to completely separated API endpoints in Altinn. The new API will be available to both parties, but with some functions that will normally be used only by one of the groups. 
+There are primarily two types of consumers of the Altinn APIs. 
+The first group is applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called *Application Owners*.
+The second group is organizations and people using the applications through a client system, the group is called *Application Users*. 
+The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform. 
+Traditionally the two groups have had access to completely separated API endpoints in Altinn. 
+The new API will be available to both parties, but with some functions that will normally be used only by one of the groups. 
 
-## Application owner
+## Application Owner
 A list of common tasks for an application owner.
 
 - Query instances for a given application according to status
@@ -23,7 +28,7 @@ A list of common tasks for an application owner.
 - Confirm successful download 
 - Change workflow state?
 
-## End user system
+## Application Users
 A list of common tasks for an end user. 
 
 - Create an application instance
@@ -40,12 +45,29 @@ The new solution will have multiple APIs. There will be one API for each applica
 ### Application endpoint
 
 ```http
-https://nav.apps.altinn.no/app2018
+https://nav.apps.altinn.no/nav-app2018
 ```
 
 Identifies the organization cluster and the application.
 
 ### Create an application instance for an Instance Owner
+
+Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwnerId*. 
+If you do not know this system, you should provide the official identity number as the payload to the creation request.
+
+```json
+{
+    "endUser": { "ssn": "12247918309", "organizationNumber": "123456789" },
+    "applicationOwner": {
+        "labels" : [ "gr", "x2" ]
+    },
+    "dueDateTime": "2019-06-01T12:00:00Z",
+    "visibleDateTime": "2019-05-20T00:00:00Z",
+    "presentationField": "Arbeidsmelding"
+}
+```
+
+Then you can do a post to create a new instance of the application for the specific user.
 
 ```http
 POST /instances
@@ -53,15 +75,69 @@ POST /instances
 
 Returns all metadata about the instance that was created. This includes the guid for the instance and a direct resource URI.
 
+```json
+{
+    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
+    "link": "/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829",
+    "applicationId": "nav-app2018",
+    "applicationOwnerId": "nav",
+    "instanceOwnerId": "347829",
+    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdBy": "Nav23",
+    "dueDateTime": "2019-06-01T12:00:00Z",
+    "visibleDateTime": "2019-05-20T00:00:00Z",
+    "presentationField": "Arbeidsmelding",
+    "currentWorkflowStep": "started",
+    "applicationOwner": {
+        "labels": [ "gr", "x2" ]
+    }
+}
+```
+
 ### Submitt form data (first time)
 
 With form data attached as e.g. XML document
 
 ```http
-POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default?instanceOwnerId=12345
+POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default?instanceOwnerId=347829
 ```
 
 Returns instance metadata updated and with guid to data element
+
+```json
+{
+    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
+    "link": "/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829",
+    "applicationId": "nav-app2018",
+    "applicationOwnerId": "nav",
+    "instanceOwnerId": "347829",
+    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdBy": "Nav23",
+    "lastUpdatedDateTime": "2019-04-29T12:24:40Z",
+    "lastUpdatedBy": "Nav23",
+    "dueDateTime": "2019-06-01T12:00:00Z",
+    "visibleDateTime": "2019-05-20T00:00:00Z",
+    "presentationField": "Arbeidsmelding",
+    "currentWorkflowStep": "started",
+    "applicationOwner": {
+        "labels": [ "gr", "x2" ]
+    },
+    "data": [
+        {
+            "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "formId": "default",
+            "contentType": "application/xml",
+            "storageUrl": "nav/nav-app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "fileName": "default.xml",
+            "createdDateTime": "2019-03-06T15:00:23+01:00",
+            "createdBy": "Nav23",
+            "fileSize": 20000,
+            "isLocked": false
+        },
+    ]
+}
+```
 
 ### Confirm successful download
 
