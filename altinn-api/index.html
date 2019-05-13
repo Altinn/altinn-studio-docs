@@ -5337,8 +5337,8 @@ if(host != "localhost")
 <ul>
 <li><a href="#two-api-consumers">Two API consumers</a>
 <ul>
-<li><a href="#application-owner">Application owner</a></li>
-<li><a href="#end-user-system">End user system</a></li>
+<li><a href="#application-owner">Application Owner</a></li>
+<li><a href="#application-users">Application Users</a></li>
 </ul></li>
 <li><a href="#multiple-api">Multiple API</a>
 <ul>
@@ -5348,12 +5348,7 @@ if(host != "localhost")
 <li><a href="#create-an-application-instance-for-an-instance-owner">Create an application instance for an Instance Owner</a></li>
 <li><a href="#submitt-form-data-first-time">Submitt form data (first time)</a></li>
 <li><a href="#confirm-successful-download">Confirm successful download</a></li>
-</ul></li>
-<li><a href="#platform-api">Platform API</a>
-<ul>
-<li><a href="#storage-endpoint">Storage endpoint</a></li>
 <li><a href="#query-instances">Query instances</a></li>
-<li><a href="#download-form-data">Download form data</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5393,9 +5388,14 @@ if(host != "localhost")
 
 <h1 id="two-api-consumers">Two API consumers</h1>
 
-<p>There are primarily two types of consumers of the Altinn APIs. The first group is applications and systems used by the owners of the applications hosted on the Altinn platform. The other group is the organizations and people using the applications. The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform. Traditionally the two groups have had access to completely separated API endpoints in Altinn. The new API will be available to both parties, but with some functions that will normally be used only by one of the groups.</p>
+<p>There are primarily two types of consumers of the Altinn APIs.
+The first group is applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called <em>Application Owners</em>.
+The second group is organizations and people using the applications through a client system, the group is called <em>Application Users</em>.
+The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform.
+Traditionally the two groups have had access to completely separated API endpoints in Altinn.
+The new API will be available to both parties, but with some functions that will normally be used only by one of the groups.</p>
 
-<h2 id="application-owner">Application owner</h2>
+<h2 id="application-owner">Application Owner</h2>
 
 <p>A list of common tasks for an application owner.</p>
 
@@ -5408,7 +5408,7 @@ if(host != "localhost")
 <li>Change workflow state?</li>
 </ul>
 
-<h2 id="end-user-system">End user system</h2>
+<h2 id="application-users">Application Users</h2>
 
 <p>A list of common tasks for an end user.</p>
 
@@ -5428,51 +5428,139 @@ if(host != "localhost")
 
 <h3 id="application-endpoint">Application endpoint</h3>
 
-<pre><code class="language-http">https://nav.apps.altinn.no/app2018
+<pre><code class="language-http">https://nav.apps.altinn.no/nav-app2018
 </code></pre>
 
 <p>Identifies the organization cluster and the application.</p>
 
 <h3 id="create-an-application-instance-for-an-instance-owner">Create an application instance for an Instance Owner</h3>
 
+<p>Altinn assigns an unique identifier to all users that wishes to report data. We call this id <em>instanceOwnerId</em>.
+If you do not know this system, you should provide the official identity number as the payload to the creation request.</p>
+
+<pre><code class="language-json">{
+    &quot;reportee&quot;: { &quot;ssn&quot;: &quot;12247918309&quot;, &quot;organizationNumber&quot;: &quot;123456789&quot;, &quot;userName&quot;: &quot;xyz&quot; },
+    &quot;applicationOwner&quot;: {
+        &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ]
+    },
+    &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
+    &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
+    &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;
+}
+</code></pre>
+
+<p>Then you can do a post to create a new instance of the application for the specific user.</p>
+
 <pre><code class="language-http">POST /instances
 </code></pre>
 
 <p>Returns all metadata about the instance that was created. This includes the guid for the instance and a direct resource URI.</p>
 
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;link&quot;: &quot;/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829&quot;,
+    &quot;applicationId&quot;: &quot;nav-app2018&quot;,
+    &quot;applicationOwnerId&quot;: &quot;nav&quot;,
+    &quot;instanceOwnerId&quot;: &quot;347829&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;Nav23&quot;,
+    &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
+    &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
+    &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
+    &quot;currentWorkflowStep&quot;: &quot;FormFilling&quot;,
+    &quot;applicationOwner&quot;: {
+        &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ]
+    }
+}
+</code></pre>
+
 <h3 id="submitt-form-data-first-time">Submitt form data (first time)</h3>
 
 <p>With form data attached as e.g. XML document</p>
 
-<pre><code class="language-http">POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default?instanceOwnerId=12345
+<pre><code class="language-http">POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default?instanceOwnerId=347829
 </code></pre>
 
 <p>Returns instance metadata updated and with guid to data element</p>
 
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;selfLink&quot;: &quot;/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829&quot;,
+    &quot;applicationId&quot;: &quot;nav-app2018&quot;,
+    &quot;applicationOwnerId&quot;: &quot;nav&quot;,
+    &quot;instanceOwnerId&quot;: &quot;347829&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;Nav23&quot;,
+    &quot;lastChangedDateTime&quot;: &quot;2019-04-29T12:24:40Z&quot;,
+    &quot;lastChangedBy&quot;: &quot;Nav23&quot;,
+    &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
+    &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
+    &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
+    &quot;workflow&quot;: {
+        &quot;currentStep&quot;: &quot;FormFilling&quot;,
+        &quot;isCompleted&quot;: false
+    },
+    &quot;applicationOwner&quot;: {
+        &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ]
+    },
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;formId&quot;: &quot;default&quot;,
+            &quot;contentType&quot;: &quot;application/xml&quot;,
+            &quot;storageUrl&quot;: &quot;nav/nav-app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;dataLink&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;fileName&quot;: &quot;default.xml&quot;,
+            &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
+            &quot;createdBy&quot;: &quot;Nav23&quot;,
+            &quot;fileSize&quot;: 20001,
+            &quot;isLocked&quot;: false,
+            &quot;applicationOwner&quot;: {
+                &quot;downloads&quot;: [&quot;2019-05-20T00:00:00Z&quot;, &quot;2019-05-22T00:00:00Z&quot;],
+                &quot;downloadsConfirmed&quot;: [&quot;2019-05-22T00:00:01Z&quot;]
+            },
+        },
+    ]
+}
+</code></pre>
+
 <h3 id="confirm-successful-download">Confirm successful download</h3>
 
-<pre><code class="language-http">POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d/downloaded?instanceOwnerId=12345
+<pre><code class="language-http">POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d/confirmDownload?instanceOwnerId=12345
 </code></pre>
-
-<h2 id="platform-api">Platform API</h2>
-
-<h3 id="storage-endpoint">Storage endpoint</h3>
-
-<pre><code class="language-http">https://storage.altinn.no/nav/app2018
-</code></pre>
-
-<p>Identifies the organization and application.</p>
 
 <h3 id="query-instances">Query instances</h3>
 
-<pre><code class="language-http">GET /instances?isCompleted=true&amp;workflowStateId=submitted
+<pre><code class="language-http">GET /instances?workflow.currentStep=Submitted&amp;filter=&quot;lastChanged ge 2019-05-01T00:00:00+01:00&quot;&amp;label=gr
 </code></pre>
 
 <p>Returns a paginated set of instances (JSON)</p>
 
-<h3 id="download-form-data">Download form data</h3>
+<pre><code class="language-json">{
+    &quot;_links&quot;: {
+        &quot;self&quot;: {
+            &quot;href&quot;: &quot;unstances?page=0&amp;size=100&quot;
+        },
+        &quot;next&quot;: {
+            &quot;href&quot;: &quot;instances?page=1&amp;size=100&quot;
+        },
+        &quot;last&quot;: {
+            &quot;href&quot;: &quot;instances?page=123&amp;size=100&quot;
+        }
+    },
+    &quot;_embedded&quot;: {
+        &quot;instances&quot;: [
+            {},
+            {}
+      ]
+    }
+}
 
-<pre><code class="language-http">GET /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d?instanceOwnerId=12345
+
+### Download form data
+
+```http
+GET /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d?instanceOwnerId=12345
 </code></pre>
 
 
