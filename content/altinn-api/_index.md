@@ -57,7 +57,7 @@ If you do not know this system, you should provide the official identity number 
 
 ```json
 {
-    "endUser": { "ssn": "12247918309", "organizationNumber": "123456789" },
+    "reportee": { "ssn": "12247918309", "organizationNumber": "123456789", "userName": "xyz" },
     "applicationOwner": {
         "labels" : [ "gr", "x2" ]
     },
@@ -87,7 +87,7 @@ Returns all metadata about the instance that was created. This includes the guid
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
-    "currentWorkflowStep": "started",
+    "currentWorkflowStep": "FormFilling",
     "applicationOwner": {
         "labels": [ "gr", "x2" ]
     }
@@ -107,18 +107,21 @@ Returns instance metadata updated and with guid to data element
 ```json
 {
     "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-    "link": "/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829",
+    "selfLink": "/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829",
     "applicationId": "nav-app2018",
     "applicationOwnerId": "nav",
     "instanceOwnerId": "347829",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "Nav23",
-    "lastUpdatedDateTime": "2019-04-29T12:24:40Z",
-    "lastUpdatedBy": "Nav23",
+    "lastChangedDateTime": "2019-04-29T12:24:40Z",
+    "lastChangedBy": "Nav23",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
-    "currentWorkflowStep": "started",
+    "workflow": {
+        "currentStep": "FormFilling",
+        "isCompleted": false
+    },
     "applicationOwner": {
         "labels": [ "gr", "x2" ]
     },
@@ -128,12 +131,16 @@ Returns instance metadata updated and with guid to data element
             "formId": "default",
             "contentType": "application/xml",
             "storageUrl": "nav/nav-app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "dataLink": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "fileName": "default.xml",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
             "createdBy": "Nav23",
-            "fileSize": 20000,
-            "isLocked": false
+            "fileSize": 20001,
+            "isLocked": false,
+            "applicationOwner": {
+                "downloads": ["2019-05-20T00:00:00Z", "2019-05-22T00:00:00Z"],
+                "downloadsConfirmed": ["2019-05-22T00:00:01Z"]
+            },
         },
     ]
 }
@@ -142,28 +149,39 @@ Returns instance metadata updated and with guid to data element
 ### Confirm successful download
 
 ```http
-POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d/downloaded?instanceOwnerId=12345
+POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d/confirmDownload?instanceOwnerId=12345
 ```
-
-## Platform API
-
-### Storage endpoint
-
-```http
-https://storage.altinn.no/nav/app2018
-```
-
-Identifies the organization and application.
 
 ### Query instances
 
 ```http
-GET /instances?isCompleted=true&workflowStateId=submitted
+GET /instances?workflow.currentStep=Submitted&filter="lastChanged ge 2019-05-01T00:00:00+01:00"&label=gr
 ```
-
 Returns a paginated set of instances (JSON)
 
-### Download form data 
+```json
+{
+    "_links": {
+        "self": {
+            "href": "unstances?page=0&size=100"
+        },
+        "next": {
+            "href": "instances?page=1&size=100"
+        },
+        "last": {
+            "href": "instances?page=123&size=100"
+        }
+    },
+    "_embedded": {
+        "instances": [
+            {},
+            {}
+      ]
+    }
+}
+
+
+### Download form data
 
 ```http
 GET /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d?instanceOwnerId=12345
