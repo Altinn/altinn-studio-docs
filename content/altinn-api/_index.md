@@ -12,8 +12,8 @@ This page is work-in-progress. This is a proposed api which most likely is going
 
 # Two API consumers
 There are primarily two types of consumers of the Altinn APIs. 
-The first group is applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called *Application Owners*.
-The second group is organizations and people using the applications through a client system, the group is called *Application Users*. 
+The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called *Application Owners*.
+The second group consists of organizations and people using the applications through a client system, the group is called *Application Users*. 
 The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform. 
 Traditionally the two groups have had access to completely separated API endpoints in Altinn. 
 The new API will be available to both parties, but with some functions that will normally be used only by one of the groups. 
@@ -111,6 +111,16 @@ Returns instance metadata updated and with guid to data element
     "applicationId": "nav-app2018",
     "applicationOwnerId": "nav",
     "instanceOwnerId": "347829",
+    "changes": [
+        "created": {
+            "by": "Nav23",
+            "at": "2019-03-06T13:46:48.6882148+01:00"
+        },
+        "lastChanged": {
+            "by": "Nav23",
+            "at": "2019-04-29T12:24:40Z"
+        },
+    ],
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "Nav23",
     "lastChangedDateTime": "2019-04-29T12:24:40Z",
@@ -155,15 +165,16 @@ POST /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-876
 ### Query instances
 
 ```http
-GET /instances?workflow.currentStep=Submitted&filter="lastChanged ge 2019-05-01T00:00:00+01:00"&label=gr
+GET /instances?workflow.currentStep=Submitted&changes.lastChanged.at.After=2019-05-01&label=gr
 ```
+
 Returns a paginated set of instances (JSON)
 
 ```json
 {
     "_links": {
         "self": {
-            "href": "unstances?page=0&size=100"
+            "href": "instances?page=0&size=100"
         },
         "next": {
             "href": "instances?page=1&size=100"
@@ -179,7 +190,32 @@ Returns a paginated set of instances (JSON)
       ]
     }
 }
+```
 
+### Application events
+
+Events can be queried. May be piped.
+
+```http
+GET /applicationEvents?after=2019-03-30&workflowStep=Submitted
+```
+
+Query result:
+
+```json
+[
+    {
+        "id": "112453234523423344",
+        "at": "2019-06-01T12:12:22+01:00",
+        "applicationId": "nav-app2018",
+        "instanceOwnerId": "347829",
+        "instanceRef": "/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829",
+        "eventType": "WorkflowStateChange",
+        "workflowStep": "Submitted",
+        "userId": "userX"
+    }
+]
+```
 
 ### Download form data
 
