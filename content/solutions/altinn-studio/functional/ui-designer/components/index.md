@@ -132,9 +132,22 @@ weight: 100
           <li>Label text</li>
           <li>Description text</li>
           <li>Read only</li>
+        </ul>
       </td>
       <td><img alt="Text area component - edit properties" src="props-text-area.PNG?width=700" title="Text area component - edit properties" /></td>
       <td><img alt="Text area component - default look" src="display-text-area.PNG?width=700" title="Text area component - default look" /></td>
+    </tr>
+    <tr>
+      <td>Datepicker</td>
+      <td>
+        <ul>
+          <li>Link to data model</li>
+          <li>Label text</li>
+          <li>Description text</li>
+        </ul>      
+      </td>
+      <td><img alt="Text area component - edit properties" src="props-datepicker.png?width=700" title="Datepicker component - edit properties" /></td>
+      <td><img alt="Text area component - default look" src="display-datepicker.png?width=700" title="Datepicker component - default look" /></td>
     </tr>
   </tbody>
 </table>
