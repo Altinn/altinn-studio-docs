@@ -5349,6 +5349,8 @@ if(host != "localhost")
 <li><a href="#submitt-form-data-first-time">Submitt form data (first time)</a></li>
 <li><a href="#confirm-successful-download">Confirm successful download</a></li>
 <li><a href="#query-instances">Query instances</a></li>
+<li><a href="#application-events">Application events</a></li>
+<li><a href="#download-form-data">Download form data</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5389,8 +5391,8 @@ if(host != "localhost")
 <h1 id="two-api-consumers">Two API consumers</h1>
 
 <p>There are primarily two types of consumers of the Altinn APIs.
-The first group is applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called <em>Application Owners</em>.
-The second group is organizations and people using the applications through a client system, the group is called <em>Application Users</em>.
+The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called <em>Application Owners</em>.
+The second group consists of organizations and people using the applications through a client system, the group is called <em>Application Users</em>.
 The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform.
 Traditionally the two groups have had access to completely separated API endpoints in Altinn.
 The new API will be available to both parties, but with some functions that will normally be used only by one of the groups.</p>
@@ -5489,6 +5491,16 @@ If you do not know this system, you should provide the official identity number 
     &quot;applicationId&quot;: &quot;nav-app2018&quot;,
     &quot;applicationOwnerId&quot;: &quot;nav&quot;,
     &quot;instanceOwnerId&quot;: &quot;347829&quot;,
+    &quot;changes&quot;: [
+        &quot;created&quot;: {
+            &quot;by&quot;: &quot;Nav23&quot;,
+            &quot;at&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;
+        },
+        &quot;lastChanged&quot;: {
+            &quot;by&quot;: &quot;Nav23&quot;,
+            &quot;at&quot;: &quot;2019-04-29T12:24:40Z&quot;
+        },
+    ],
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;Nav23&quot;,
     &quot;lastChangedDateTime&quot;: &quot;2019-04-29T12:24:40Z&quot;,
@@ -5531,7 +5543,7 @@ If you do not know this system, you should provide the official identity number 
 
 <h3 id="query-instances">Query instances</h3>
 
-<pre><code class="language-http">GET /instances?workflow.currentStep=Submitted&amp;filter=&quot;lastChanged ge 2019-05-01T00:00:00+01:00&quot;&amp;label=gr
+<pre><code class="language-http">GET /instances?workflow.currentStep=Submitted&amp;changes.lastChanged.at.After=2019-05-01&amp;label=gr
 </code></pre>
 
 <p>Returns a paginated set of instances (JSON)</p>
@@ -5539,7 +5551,7 @@ If you do not know this system, you should provide the official identity number 
 <pre><code class="language-json">{
     &quot;_links&quot;: {
         &quot;self&quot;: {
-            &quot;href&quot;: &quot;unstances?page=0&amp;size=100&quot;
+            &quot;href&quot;: &quot;instances?page=0&amp;size=100&quot;
         },
         &quot;next&quot;: {
             &quot;href&quot;: &quot;instances?page=1&amp;size=100&quot;
@@ -5555,12 +5567,34 @@ If you do not know this system, you should provide the official identity number 
       ]
     }
 }
+</code></pre>
 
+<h3 id="application-events">Application events</h3>
 
-### Download form data
+<p>Events can be queried. May be piped.</p>
 
-```http
-GET /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d?instanceOwnerId=12345
+<pre><code class="language-http">GET /applicationEvents?after=2019-03-30&amp;workflowStep=Submitted
+</code></pre>
+
+<p>Query result:</p>
+
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: &quot;112453234523423344&quot;,
+        &quot;at&quot;: &quot;2019-06-01T12:12:22+01:00&quot;,
+        &quot;applicationId&quot;: &quot;nav-app2018&quot;,
+        &quot;instanceOwnerId&quot;: &quot;347829&quot;,
+        &quot;instanceRef&quot;: &quot;/instances/41e57962-dfb7-4502-a4dd-8da28b0885fc?instanceOwnerId=347829&quot;,
+        &quot;eventType&quot;: &quot;WorkflowStateChange&quot;,
+        &quot;workflowStep&quot;: &quot;Submitted&quot;,
+        &quot;userId&quot;: &quot;userX&quot;
+    }
+]
+</code></pre>
+
+<h3 id="download-form-data">Download form data</h3>
+
+<pre><code class="language-http">GET /instances/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/fc1c2a1b-d115-4dd2-8769-07e64de9588d?instanceOwnerId=12345
 </code></pre>
 
 
