@@ -146,8 +146,8 @@ weight: 100
           <li>Description text</li>
         </ul>      
       </td>
-      <td><img alt="Text area component - edit properties" src="props-datepicker.PNG?width=700" title="Datepicker component - edit properties" /></td>
-      <td><img alt="Text area component - default look" src="display-datepicker.PNG?width=700" title="Datepicker component - default look" /></td>
+      <td><img alt="Text area component - edit properties" src="props-datepicker.png?width=700" title="Datepicker component - edit properties" /></td>
+      <td><img alt="Text area component - default look" src="display-datepicker.png?width=700" title="Datepicker component - default look" /></td>
     </tr>
   </tbody>
 </table>
