@@ -22,28 +22,6 @@ The login process for a user that wants to access a app in Altinn Apps is descri
 {{% /excerpt%}}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## API for End User System
 
 
@@ -54,4 +32,21 @@ This API lets the user request a Altinn PIN or SMS Pin for a end user
 ### Validate system and/or end user
 This API validates the end user systm id together with the password for the system 
 
+{{%excerpt%}}
+<object data="/architecture/security/authentication/altinn-platform/loginprocess_eus.svg" type="image/svg+xml" style="width: 100%;";></object>
+{{% /excerpt%}}
 
+
+
+## API for enterprise users
+
+{{%excerpt%}}
+<object data="/architecture/security/authentication/altinn-platform/loginprocess_ec.svg" type="image/svg+xml" style="width: 100%;";></object>
+{{% /excerpt%}}
+
+
+## API for Org systems
+
+{{%excerpt%}}
+<object data="/architecture/security/authentication/altinn-platform/loginprocess_org.svg" type="image/svg+xml" style="width: 100%;";></object>
+{{% /excerpt%}}
