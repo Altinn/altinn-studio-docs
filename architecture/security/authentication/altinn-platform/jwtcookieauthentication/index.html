@@ -5472,7 +5472,16 @@ if(host != "localhost")
 
 <h3 id="configuration-for-the-identity-provider">Configuration for the identity provider</h3>
 
-<p>,</p>
+<p>The below configuration is relevant for the Identity Provider application.</p>
+
+<pre><code class="language-c#">            // Use [Authorize] to require login on MVC Controller Actions
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddJwtCookie(JwtCookieDefaults.AuthenticationScheme, options =&gt;
+                {
+                    options.ExpireTimeSpan = new TimeSpan(0, 30, 0);
+                    options.Cookie.Name = Common.Constants.General.RuntimeCookieName;
+                })
+</code></pre>
 
 <h2 id="known-issues">Known Issues</h2>
 
