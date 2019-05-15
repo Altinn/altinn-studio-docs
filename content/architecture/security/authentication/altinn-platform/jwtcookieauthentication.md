@@ -30,6 +30,42 @@ This is created as a seperate C# Project and published as a Nuget Package [here]
 ## How To Configure JWTCookieAuthentication
 
 
+### Configuration for consumers
+
+```C#
+
+            // Configure Authentication
+            // Use [Authorize] to require login on MVC Controller Actions
+            X509Certificate2 cert = new X509Certificate2("JWTValidationCert.cer");
+            SecurityKey key = new X509SecurityKey(cert);
+
+            services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
+                .AddJwtCookie(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = key,
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        RequireExpirationTime = true,
+                        ValidateLifetime = true
+                    };
+                    options.ExpireTimeSpan = new TimeSpan(0, 30, 0);
+                    options.Cookie.Name = Common.Constants.General.RuntimeCookieName;
+                });
+
+
+```
+
+
+
+
+### Configuration for the identity provider
+
+,
+
+
 ## Known Issues
 
 
