@@ -19,4 +19,4 @@ In the current Altinn Platform SOAP is used for most of the agencies API's. Alti
 
 ### API to instansiate a new instance of a service with prefill
 
-See [Application Users API](/content/altinn-api/_index.md)
+See [Application Users API](/altinn-api)

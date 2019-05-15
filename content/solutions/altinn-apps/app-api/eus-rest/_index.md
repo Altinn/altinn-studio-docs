@@ -29,4 +29,4 @@ Altinn Apps will expose apis to authenticate end user systems and user of end us
 From end user systems it will be possible to create a instance of a App from a end user system. 
 This is a URL directly to the app and unique
 
-See [Application Users API](/content/altinn-api/_index.md)
+See [Application Users API](/altinn-api)
