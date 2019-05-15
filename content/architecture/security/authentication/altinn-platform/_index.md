@@ -22,6 +22,7 @@ The most important is
 - Needs to support scenarios where users are accessing through external systems or mobile apps
 - Needs to support systems from app owner.
 - Apps should not have access to secret so they can create their own token. 
+- Needs to support passing the identity to api's that are consumed by Altinn Apps. 
 
 Since Altinn Platform will in the future support that different types of apps created by different frameworks (Java/.Net/Node ++++) it is important that the
 authentication mechanisms are supported by different types of platforms.
@@ -67,8 +68,8 @@ Enterprise users is users that is authenticated with use of a enterprise certifi
 The authentication component in Altinn Platform will have a API
 that generates a JWT token based on the certificate and the username password
 
-### app owner systems accessing app api's
-App owners (service owners) will have seperate API's in a App to perform operations on. They are authenticated with 
+### org systems accessing app api's
+org (the entity owning the application) will have seperate API's in a spp to perform operations on. They are authenticated with 
 help of agency system id + password. A API in the authentication component
 in Altinn creates a JWT token that can be used to authenticate the agency system when 
 calling api's on apps running in Altinn Apps.
