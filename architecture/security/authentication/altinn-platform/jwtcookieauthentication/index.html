@@ -5385,7 +5385,11 @@ if(host != "localhost")
 <li>
 <ul>
 <li><a href="#features">Features</a></li>
-<li><a href="#how-to-configure-jwtcookieauthentication">How To Configure JWTCookieAuthentication</a></li>
+<li><a href="#how-to-configure-jwtcookieauthentication">How To Configure JWTCookieAuthentication</a>
+<ul>
+<li><a href="#configuration-for-consumers">Configuration for consumers</a></li>
+<li><a href="#configuration-for-the-identity-provider">Configuration for the identity provider</a></li>
+</ul></li>
 <li><a href="#known-issues">Known Issues</a></li>
 </ul></li>
 </ul>
@@ -5438,6 +5442,37 @@ if(host != "localhost")
 </ul>
 
 <h2 id="how-to-configure-jwtcookieauthentication">How To Configure JWTCookieAuthentication</h2>
+
+<h3 id="configuration-for-consumers">Configuration for consumers</h3>
+
+<pre><code class="language-C#">
+            // Configure Authentication
+            // Use [Authorize] to require login on MVC Controller Actions
+            X509Certificate2 cert = new X509Certificate2(&quot;JWTValidationCert.cer&quot;);
+            SecurityKey key = new X509SecurityKey(cert);
+
+            services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
+                .AddJwtCookie(options =&gt;
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = key,
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        RequireExpirationTime = true,
+                        ValidateLifetime = true
+                    };
+                    options.ExpireTimeSpan = new TimeSpan(0, 30, 0);
+                    options.Cookie.Name = Common.Constants.General.RuntimeCookieName;
+                });
+
+
+</code></pre>
+
+<h3 id="configuration-for-the-identity-provider">Configuration for the identity provider</h3>
+
+<p>,</p>
 
 <h2 id="known-issues">Known Issues</h2>
 

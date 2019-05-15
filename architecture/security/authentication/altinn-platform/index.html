@@ -5416,7 +5416,7 @@ if(host != "localhost")
 
 
 
-<p>Altinn Platform and Altinn Apps contains apps and components that need to be able to authenticate users and systems.</p>
+<p>In Altinn Platform and Altinn Apps there is deployed applications and components that need to be able to authenticate users and systems accessing them.</p>
 
 <p>This is needed when resources requiring authentication and authorization is requested.</p>
 
@@ -5432,12 +5432,12 @@ The most important is</p>
 <li>Needs to support end users accessing Altinn Apps / Altinn Platform through a web browser running the REACT application</li>
 <li>Needs to be safe against XSS attacks.</li>
 <li>Needs to support scenarios where users are accessing through external systems or mobile apps</li>
-<li>Needs to support systems from app owner.</li>
+<li>Needs to support systems from org(s) that is authorized to perform application operations.</li>
 <li>Apps should not have access to secret so they can create their own token.</li>
 <li>Needs to support passing the identity to api&rsquo;s that are consumed by Altinn Apps.</li>
 </ul>
 
-<p>Since Altinn Platform will in the future support that different types of apps created by different frameworks (Java/.Net/Node ++++) it is important that the
+<p>Since Altinn Platform will in the future support that different types of applications created by different frameworks (Java/.Net/Node ++++) it is important that the
 authentication mechanisms are supported by different types of platforms.</p>
 
 <p><a href="https://jwt.io/">JSON Web Token</a> are an open, industry standard <a href="https://tools.ietf.org/html/rfc7519">RFC 7519</a> method for representing claims securely between two parties and are chosen
@@ -5454,7 +5454,7 @@ to verify it will use the public key. See <a href="jwt-format">JWT Format</a> fo
 <h3 id="end-user-using-web-frontend">End user using web frontend</h3>
 
 <p>For end user accessing the app through a web frontend, the authentication mechanism is based on using a
-secure cookie containing a JWT Token.</p>
+protected cookie containing a JWT Token. ( <a href="https://www.owasp.org/index.php/HttpOnly">HttpOnly</a> and Secure)</p>
 
 <p>The reason for putting the JWT token in the cookie for this scenarious is to protect
 against <a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">XSS attacks</a>.
@@ -5475,7 +5475,9 @@ An end user system can be authenticated by them self or together with a end user
 <p>In both cases the end user system calls a API on the Platform to generate a JWT token containing
 information about the system and possible user and pin.</p>
 
-<p>The API generates a JWT token containing claims for the system and user</p>
+<p>The API generates a JWT token containing claims for the system and user.</p>
+
+<p>See <a href="authentication-api">Authentication API</a> for details.</p>
 
 <h3 id="enterprise-users">Enterprise users</h3>
 
@@ -5483,12 +5485,16 @@ information about the system and possible user and pin.</p>
 The authentication component in Altinn Platform will have a API
 that generates a JWT token based on the certificate and the username password</p>
 
+<p>See <a href="authentication-api">Authentication API</a> for details.</p>
+
 <h3 id="org-systems-accessing-app-api-s">org systems accessing app api&rsquo;s</h3>
 
 <p>org (the entity owning the application) will have seperate API&rsquo;s in a spp to perform operations on. They are authenticated with
 help of agency system id + password. A API in the authentication component
 in Altinn creates a JWT token that can be used to authenticate the agency system when
 calling api&rsquo;s on apps running in Altinn Apps.</p>
+
+<p>See <a href="authentication-api">Authentication API</a> for details.</p>
 
 
 <footer class=" footline" >
