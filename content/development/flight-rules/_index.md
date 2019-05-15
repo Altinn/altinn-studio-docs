@@ -142,3 +142,12 @@ The second cause and resolution of the .NET code not compiling is that the appli
 This happens from time to time, still unsure why. To fix it run the command:
 
 `git gc --prune=now`
+
+### Nuget package update for stylecop analyzer doesn't update the analyzer reference
+
+On updating the style cop nuget package version, the project failed to reference to the ruleset and the analyzers pointed to old version path.
+
+For example, the screenshot below shows that the project points to the stylecop version 1.1.118. 
+{{<figure src="stylecop-update-error.png?width=1000" title="Stylecop analyzer pointing to 1.1.118">}}
+
+Suppose, a new package 1.1.119 is available and you update it. But the analyzers will still points to the 118 version in visual studio. So building the project will throw stylecop errors. To fix this, close and reopen the visual studio to get the reference to the updated nuget version.
