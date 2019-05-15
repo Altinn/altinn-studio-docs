@@ -5384,7 +5384,7 @@ if(host != "localhost")
 <li><a href="#end-user-using-web-frontend">End user using web frontend</a></li>
 <li><a href="#end-user-systems-accessing-app-api-s">End user systems accessing app api&rsquo;s</a></li>
 <li><a href="#enterprise-users">Enterprise users</a></li>
-<li><a href="#app-owner-systems-accessing-app-api-s">app owner systems accessing app api&rsquo;s</a></li>
+<li><a href="#org-systems-accessing-app-api-s">org systems accessing app api&rsquo;s</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5434,6 +5434,7 @@ The most important is</p>
 <li>Needs to support scenarios where users are accessing through external systems or mobile apps</li>
 <li>Needs to support systems from app owner.</li>
 <li>Apps should not have access to secret so they can create their own token.</li>
+<li>Needs to support passing the identity to api&rsquo;s that are consumed by Altinn Apps.</li>
 </ul>
 
 <p>Since Altinn Platform will in the future support that different types of apps created by different frameworks (Java/.Net/Node ++++) it is important that the
@@ -5482,9 +5483,9 @@ information about the system and possible user and pin.</p>
 The authentication component in Altinn Platform will have a API
 that generates a JWT token based on the certificate and the username password</p>
 
-<h3 id="app-owner-systems-accessing-app-api-s">app owner systems accessing app api&rsquo;s</h3>
+<h3 id="org-systems-accessing-app-api-s">org systems accessing app api&rsquo;s</h3>
 
-<p>App owners (service owners) will have seperate API&rsquo;s in a App to perform operations on. They are authenticated with
+<p>org (the entity owning the application) will have seperate API&rsquo;s in a spp to perform operations on. They are authenticated with
 help of agency system id + password. A API in the authentication component
 in Altinn creates a JWT token that can be used to authenticate the agency system when
 calling api&rsquo;s on apps running in Altinn Apps.</p>
@@ -8385,7 +8386,7 @@ calling api&rsquo;s on apps running in Altinn Apps.</p>
             <a class="nav nav-prev" href="/architecture/security/authentication/altinn-apps/" title="Authentication Architecture Altinn Apps"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/architecture/security/authentication/altinn-platform/authentication-api/" title="Authentication API" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/security/authentication/altinn-platform/authentication-api/" title="Authentication APIs" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
