@@ -3714,6 +3714,33 @@ if(host != "localhost")
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/back-end/nuget-package/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/back-end/nuget-package/">
+        <span>Nuget Package</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -5352,6 +5379,7 @@ if(host != "localhost")
 <li><a href="#i-got-assigned-to-update-altinn-studio-with-new-kode">I got assigned to update altinn.studio with new kode</a></li>
 <li><a href="#multiple-compilation-errors-for-a-newly-generated-app-without-form-components">multiple compilation errors for a newly generated app without form components</a></li>
 <li><a href="#i-try-to-pull-master-from-github-and-get-error-cannot-lock-ref">I try to pull master from github and get error &ldquo;Cannot lock ref&rdquo;</a></li>
+<li><a href="#nuget-package-update-for-stylecop-analyzer-doesn-t-update-the-analyzer-reference">Nuget package update for stylecop analyzer doesn&rsquo;t update the analyzer reference</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5537,6 +5565,27 @@ This can be checked by going to Dependencies -&gt; NuGet / SDK for each project 
 <p>This happens from time to time, still unsure why. To fix it run the command:</p>
 
 <p><code>git gc --prune=now</code></p>
+
+<h3 id="nuget-package-update-for-stylecop-analyzer-doesn-t-update-the-analyzer-reference">Nuget package update for stylecop analyzer doesn&rsquo;t update the analyzer reference</h3>
+
+<p>On updating the style cop nuget package version, the project failed to reference to the ruleset and the analyzers pointed to old version path.</p>
+
+<p>For example, the screenshot below shows that the project points to the stylecop version 1.1.118.
+
+<figure>
+    
+        <img src="stylecop-update-error.png?width=1000" />
+    
+    
+    <figcaption>
+        <h4>Stylecop analyzer pointing to 1.1.118</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>Suppose, a new package 1.1.119 is available and you update it. But the analyzers will still points to the 118 version in visual studio. So building the project will throw stylecop errors. To fix this, close and reopen the visual studio to get the reference to the updated nuget version.</p>
 
 
 <footer class=" footline" >
@@ -7519,6 +7568,22 @@ This can be checked by going to Dependencies -&gt; NuGet / SDK for each project 
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
