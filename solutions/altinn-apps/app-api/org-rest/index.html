@@ -5382,13 +5382,7 @@ if(host != "localhost")
 <li>
 <ul>
 <li><a href="#api-to-authenticate-end-agency-systems">API to authenticate end agency systems</a></li>
-<li><a href="#api-to-instansiate-a-new-instance-of-a-service-with-prefill">API to instansiate a new instance of a service with prefill</a>
-<ul>
-<li>
-<ul>
-<li><a href="#data-service">Data service</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#api-to-instansiate-a-new-instance-of-a-service-with-prefill">API to instansiate a new instance of a service with prefill</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5428,41 +5422,11 @@ if(host != "localhost")
 
 <h3 id="api-to-authenticate-end-agency-systems">API to authenticate end agency systems</h3>
 
-<p>In the current Altinn Platform SOAP is used for most of the agencies API&rsquo;s. Altinn support both username/password for agencies
-and</p>
+<p>In the current Altinn Platform SOAP is used for most of the agencies API&rsquo;s. Altinn support both username/password for agencies.</p>
 
 <h3 id="api-to-instansiate-a-new-instance-of-a-service-with-prefill">API to instansiate a new instance of a service with prefill</h3>
 
-<p>A agency system would be able to instansiate a new instance of a app.</p>
-
-<pre><code class="language-http">https://{org}.apps.altinn.no/{appid}/api/v1/create
-</code></pre>
-
-<p>Get information about one instance.</p>
-
-<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances/{instanceId}
-</code></pre>
-
-<p>Get (query) all instances that is instance owner has</p>
-
-<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
-</code></pre>
-
-<p>Get (query) all instances of a particular application that is completed</p>
-
-<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances?applicationId={applicationId}&amp;completed=true
-</code></pre>
-
-<h5 id="data-service">Data service</h5>
-
-<p>A data element is a file that contains a specific form element of an instance.
-It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {dataTypeId}.</p>
-
-<p>Get a specific data element</p>
-
-<pre><code class="language-http">https://storage.platform.altinn.no/api/v1/instances/{instanceId}/data//{dataId}
-</code></pre>
+<p>See <a href="/content/altinn-api/_index.md">Application Users API</a></p>
 
 
 <footer class=" footline" >
