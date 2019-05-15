@@ -62,9 +62,20 @@ This is created as a seperate C# Project and published as a Nuget Package [here]
 
 
 ### Configuration for the identity provider
+The below configuration is relevant for the Identity Provider application.
 
-,
 
+
+
+```c#
+            // Use [Authorize] to require login on MVC Controller Actions
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddJwtCookie(JwtCookieDefaults.AuthenticationScheme, options =>
+                {
+                    options.ExpireTimeSpan = new TimeSpan(0, 30, 0);
+                    options.Cookie.Name = Common.Constants.General.RuntimeCookieName;
+                })
+```
 
 ## Known Issues
 
