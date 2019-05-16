@@ -6,7 +6,7 @@ weight: 100
 linktitle: Altinn Platform
 alwaysopen: false
 ---
-Altinn Platform and Altinn Apps contains apps and components that need to be able to authenticate users and systems. 
+In Altinn Platform and Altinn Apps there is deployed applications and components that need to be able to authenticate users and systems accessing them.
 
 This is needed when resources requiring authentication and authorization is requested.
 
@@ -20,11 +20,11 @@ The most important is
 - Needs to support end users accessing Altinn Apps / Altinn Platform through a web browser running the REACT application
 - Needs to be safe against XSS attacks. 
 - Needs to support scenarios where users are accessing through external systems or mobile apps
-- Needs to support systems from app owner.
+- Needs to support systems from org(s) that is authorized to perform application operations.
 - Apps should not have access to secret so they can create their own token. 
 - Needs to support passing the identity to api's that are consumed by Altinn Apps. 
 
-Since Altinn Platform will in the future support that different types of apps created by different frameworks (Java/.Net/Node ++++) it is important that the
+Since Altinn Platform will in the future support that different types of applications created by different frameworks (Java/.Net/Node ++++) it is important that the
 authentication mechanisms are supported by different types of platforms.
 
 [JSON Web Token](https://jwt.io/) are an open, industry standard [RFC 7519](https://tools.ietf.org/html/rfc7519) method for representing claims securely between two parties and are chosen
@@ -38,9 +38,8 @@ to verify it will use the public key. See [JWT Format](jwt-format) for details o
 {{% /excerpt%}}
 
 ### End user using web frontend
-
 For end user accessing the app through a web frontend, the authentication mechanism is based on using a 
-secure cookie containing a JWT Token.
+protected cookie containing a JWT Token. ( [HttpOnly](https://www.owasp.org/index.php/HttpOnly) and Secure)
 
 The reason for putting the JWT token in the cookie for this scenarious is to protect 
 against [XSS attacks](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)). 
@@ -54,19 +53,22 @@ The React application would need to refresh the token at given interval or the t
 To refresh a cookie token, the token API in Platform needs to be called
 
 ### End user systems accessing app api's
-
 End user systems is identified with an end user system ID and a password. 
 An end user system can be authenticated by them self or together with a end user and pin code. 
 
 In both cases the end user system calls a API on the Platform to generate a JWT token containing 
 information about the system and possible user and pin.
 
-The API generates a JWT token containing claims for the system and user
+The API generates a JWT token containing claims for the system and user.
+
+See [Authentication API](authentication-api) for details.
 
 ### Enterprise users
 Enterprise users is users that is authenticated with use of a enterprise certificate together with a password and username. 
 The authentication component in Altinn Platform will have a API
 that generates a JWT token based on the certificate and the username password
+
+See [Authentication API](authentication-api) for details.
 
 ### org systems accessing app api's
 org (the entity owning the application) will have seperate API's in a spp to perform operations on. They are authenticated with 
@@ -74,4 +76,4 @@ help of agency system id + password. A API in the authentication component
 in Altinn creates a JWT token that can be used to authenticate the agency system when 
 calling api's on apps running in Altinn Apps.
 
-
+See [Authentication API](authentication-api) for details.
