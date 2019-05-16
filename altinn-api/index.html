@@ -5378,6 +5378,7 @@ if(host != "localhost")
 <li><a href="#update-a-data-element">Update a data element</a></li>
 <li><a href="#download-a-data-element-as-application-owner">Download a data element (as application owner)</a></li>
 <li><a href="#confirm-successful-download">Confirm successful download</a></li>
+<li><a href="#change-workflow-state">Change workflow state</a></li>
 <li><a href="#query-instances">Query instances</a></li>
 <li><a href="#application-events">Application events</a></li>
 </ul></li>
@@ -5463,7 +5464,7 @@ The new API will be available to both parties, but with some functions that will
 <p>The new solution will have multiple APIs. There are two APIs available for Application Owners and Users.
 There will be one API for each application cluster, called the <em>Application API</em>, and one for the Platform Storage cluster, called <em>Platform Storage API</em>.
 Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change workflow state of the application instance.
-The Platform Storage API will provide access to information stored by the application.</p>
+The Platform Storage API will provide access to information stored by the application. <a href="/architecture/application/altinn-platform">More information on the Platform apis can be found here</a></p>
 
 <h3 id="application-api">Application API</h3>
 
@@ -5497,7 +5498,7 @@ If you do not know this, you should provide the official identity number, e.g so
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
     &quot;data&quot; : [
-        { &quot;formId&quot;: &quot;default&quot;, &quot;contentType&quot;: &quot;application/xml&quot;, &quot;content&quot;: &quot;base64xckljsiojfiewljf&quot;}
+        { &quot;elementType&quot;: &quot;default&quot;, &quot;contentType&quot;: &quot;application/xml&quot;, &quot;content&quot;: &quot;base64xckljsiojfiewljf&quot;}
     ]
 }
 </code></pre>
@@ -5508,7 +5509,7 @@ If you do not know this, you should provide the official identity number, e.g so
 <p>This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.</p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;id&quot;: &quot;347829/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
     &quot;selfLinks&quot;: {
         &quot;apps&quot;: &quot;https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
@@ -5533,7 +5534,7 @@ If you do not know this, you should provide the official identity number, e.g so
     &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;formId&quot;: &quot;default&quot;,
+        &quot;elementType&quot;: &quot;default&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
         &quot;storageUrl&quot;: &quot;org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;dataLink&quot;: {
@@ -5552,20 +5553,20 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <h3 id="create-a-data-element-optional">Create a data element (optional)</h3>
 
-<p>Post data file (xml-document) as body of request. Must specify formId as definied in the application metadata.</p>
+<p>Post data file (xml-document) as body of request. Must specify elementType as definied in the application metadata.</p>
 
-<pre><code class="language-http">POST https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default
+<pre><code class="language-http">POST https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=default
 </code></pre>
 
 <p>This call updates and returns instance metadata where each data element are given a guid.</p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;id&quot;: &quot;347829/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
     ...
     &quot;data&quot;: [
         {
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;formId&quot;: &quot;default&quot;,
+            &quot;elementType&quot;: &quot;default&quot;,
             &quot;contentType&quot;: &quot;application/xml&quot;,
             &quot;storageUrl&quot;: &quot;org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;dataLinks&quot;: {
@@ -5637,9 +5638,19 @@ If you do not know this, you should provide the official identity number, e.g so
 }
 </code></pre>
 
+<h3 id="change-workflow-state">Change workflow state</h3>
+
+
+	<p><object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 100%;";></object></p>
+
+
+
+<pre><code class="language-http">POST https://org.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?moveTo=Submit
+</code></pre>
+
 <h3 id="query-instances">Query instances</h3>
 
-<pre><code class="language-http">GET https://platform.altinn.no/storage/instances?workflow.currentStep=Submit&amp;lastChangedDateTime=after(2019-05-01)&amp;label=gr
+<pre><code class="language-http">GET https://platform.altinn.no/storage/instances?appId=org/app2018&amp;workflow.currentStep=Submit&amp;lastChangedDateTime=after(2019-05-01)&amp;label=gr
 </code></pre>
 
 <p>Returns a paginated set of instances (JSON)</p>
@@ -5670,7 +5681,7 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET https://platform.altinn.no/storage/applications/org/app2018/events?after=2019-03-30&amp;workflow.currentStep=Submit
+<pre><code class="language-http">GET https://platform.altinn.no/storage/applications/org/app2018/events?after=2019-03-30&amp;workflow.currentStep=Submit&amp;workflow.isComplete=true
 </code></pre>
 
 <p>Query result:</p>
@@ -5684,15 +5695,15 @@ If you do not know this, you should provide the official identity number, e.g so
         &quot;instanceLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;dataLinks&quot;: [
             {
-                &quot;formId&quot;: &quot;default&quot;,
+                &quot;elementType&quot;: &quot;default&quot;,
                 &quot;dataLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
             },
             {
-                &quot;formId&quot;: &quot;attachement&quot;,
+                &quot;elementType&quot;: &quot;attachement&quot;,
                 &quot;dataLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf&quot;
             },
             {
-                &quot;formId&quot;: &quot;prefill&quot;,
+                &quot;elementType&quot;: &quot;prefill&quot;,
                 &quot;dataLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj&quot;
             }
         ],

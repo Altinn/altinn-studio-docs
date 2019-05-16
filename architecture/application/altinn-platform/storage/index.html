@@ -8,7 +8,7 @@
 
 
     
-    <title>Application arhicture Storage component - Altinn Platform :: Altinn Studio</title>
+    <title>Altinn Platform - Storage :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -5403,7 +5403,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Application arhicture Storage component - Altinn Platform</h1>
+              <h1>Altinn Platform - Storage</h1>
             
           
 
@@ -5412,12 +5412,9 @@ if(host != "localhost")
 
 
 
-<p>The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.</p>
+<p>The Storage component exposes a REST-API to Altinn Apps.</p>
 
-<p><a href="https://github.com/Altinn/altinn-studio/issues/311">See Github for implementation details</a></p>
-
-<p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about <em>instances</em> and their <em>data</em> elements.
-It provides a registry of all <em>applications</em> and their metadata.</p>
+<p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, element types and events.</p>
 
 <p>Resources: Instance, Application, Event</p>
 
@@ -5426,13 +5423,14 @@ It provides a registry of all <em>applications</em> and their metadata.</p>
 <p>An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
 An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
-An applicationId refers to the application information element which defines the metadata about the application.</p>
+An appId refers to the application information element which defines the metadata about the application.</p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    &quot;applicationId&quot;: &quot;TEST-sailor&quot;,
-    &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
-    &quot;instanceOwnerId&quot;: &quot;666&quot;,
+    &quot;id&quot;: &quot;60238/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+    &quot;appId&quot;: &quot;TEST/sailor&quot;,
+    &quot;org&quot;: &quot;TEST&quot;,
+    &quot;instanceOwnerId&quot;: &quot;60238&quot;,
+    &quot;labels&quot;: [&quot;xyz&quot;, &quot;importantUser&quot;],
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;user32&quot;,
     &quot;lastChangedDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
@@ -5440,37 +5438,40 @@ An applicationId refers to the application information element which defines the
     &quot;dueDateTime&quot;: null,
     &quot;visibleDateTime&quot;: null,
     &quot;presentationField&quot;: &quot;Færder påmelding 2019&quot;,
-    &quot;externalSystemReference&quot;: null,
-    &quot;currentWorkflowStep&quot;: &quot;started&quot;,
-    &quot;isCompleted&quot;: true,
-    &quot;isDeleted&quot;: [{
-        &quot;deletionDateTime&quot;: &quot;2017-12-22&quot;,
-        &quot;deletedBy&quot;: &quot;user34&quot;
-    }],
-    &quot;applicationOwnerFeedback&quot;: {
-        &quot;receivedDate&quot;: &quot;2019-05-11T03:00:23+01:00&quot;,
-        &quot;status&quot;: &quot;OK&quot;
+    &quot;workflow&quot;: {
+        &quot;currentStep&quot;: &quot;FormFilling&quot;,
+        &quot;isComplete&quot;: false
+    },
+    &quot;status&quot;: {
+        &quot;isSoftDeleted&quot;: false,
+        &quot;isArchived&quot;: false,
+        &quot;isMarkedForHardDelete&quot;: false
+    },
+    &quot;applicationOwnerStatus&quot;: {
+        &quot;message&quot;: { &quot;nb&quot;: &quot;field 32 is incorrect&quot;, &quot;at&quot;: &quot;2018-12-22&quot;}
     },
     &quot;data&quot;: [
         {
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;formId&quot;: &quot;boatdata&quot;,
+            &quot;elementType&quot;: &quot;boatdata&quot;,
             &quot;contentType&quot;: &quot;application/json&quot;,
-            &quot;storageUrl&quot;: &quot;TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/data&quot;,
             &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
             &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
             &quot;fileSize&quot;: 2003,
-            &quot;isLocked&quot;: true
+            &quot;isLocked&quot;: true,
+            &quot;pdf&quot;: {
+                &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/pdf&quot;,
+                &quot;generated&quot;: &quot;2019-05-30T14:38:22+01:00&quot;
+            }
         },
         {
             &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
-            &quot;formId&quot;: &quot;crewlist&quot;,
+            &quot;elementType&quot;: &quot;crewlist&quot;,
             &quot;contentType&quot;: &quot;text/xml&quot;,
-            &quot;storageUrl&quot;: &quot;TEST/Test-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
-            &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
@@ -5483,7 +5484,7 @@ An applicationId refers to the application information element which defines the
 
 <p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
 
-<pre><code class="language-http">/instances?applicationId=TEST-sailor&amp;instanceOwnerId=1024
+<pre><code class="language-http">/instances?appId=TEST/sailor&amp;instanceOwnerId=60238
 </code></pre>
 
 <p>Get information about one instance.</p>
@@ -5493,12 +5494,12 @@ An applicationId refers to the application information element which defines the
 
 <p>Get (query) all instances that is instance owner has</p>
 
-<pre><code class="language-http">/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
+<pre><code class="language-http">/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;label=xyz]
 </code></pre>
 
 <p>Get (query) all instances of a particular application that is completed</p>
 
-<pre><code class="language-http">/instances?applicationId={applicationId}&amp;completed=true
+<pre><code class="language-http">/instances?appId={appId}&amp;workflow.isCompleted=true
 </code></pre>
 
 <p>Delete a specific instance (also deletes its data).</p>
@@ -5510,7 +5511,7 @@ An applicationId refers to the application information element which defines the
 
 <p>A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {formId}.</p>
+The application metadata restricts the types of form elements that are allowed {elementType}.</p>
 
 <p>Get a specific data element</p>
 
@@ -5521,7 +5522,7 @@ The application metadata restricts the types of form elements that are allowed {
 After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
 that is used to identify the specific data element</p>
 
-<pre><code class="language-http">/instances/{instanceId}/data?formId={formId}
+<pre><code class="language-http">/instances/{instanceId}/data?elementType={elementType}
 </code></pre>
 
 <p>Put to replace a specific data element. Delete to remove data element.</p>
@@ -5533,23 +5534,29 @@ that is used to identify the specific data element</p>
 
 <p>Application metadata used to validate data elements in instances</p>
 
-<p>Resource: <a href="http://platform.altinn.no/applications/TEST-sailor">http://platform.altinn.no/applications/TEST-sailor</a></p>
+<p>Resource: <a href="http://platform.altinn.no/applications/test/sailor">http://platform.altinn.no/applications/test/sailor</a></p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;TEST-sailor&quot;,
+    &quot;id&quot;: &quot;TEST/sailor&quot;,
+    &quot;versionId&quot;: &quot;v32.23-xyp&quot;,
+    &quot;org&quot;: &quot;TEST&quot;,
+    &quot;app&quot;: &quot;sailor&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; },
-    &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
+    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; }, 
     &quot;workflowId&quot;: &quot;standard&quot;,
     &quot;validFrom&quot;: &quot;2019-04-01T12:14:22+01:00&quot;,
     &quot;validTo&quot;: null,
     &quot;maxSize&quot;: -1,
-    &quot;forms&quot;: [
+    &quot;elementTypes&quot;: [
         {
             &quot;id&quot;: &quot;boatdata&quot;,
             &quot;description&quot;: {&quot;nb&quot;: &quot;Båtdata&quot;, &quot;en&quot;: &quot;Boat data&quot;},
-            &quot;allowedContentType&quot;: [&quot;application/json&quot;, &quot;application/xml&quot;],
+            &quot;allowedContentType&quot;: [&quot;application/json&quot;],
+            &quot;schema&quot;: {
+                &quot;fileName&quot;: &quot;boat.json-schema&quot;,
+                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
+            },
             &quot;maxSize&quot;: 200000,
             &quot;maxCount&quot;: 1,
             &quot;shouldSign&quot;: true,
@@ -5558,8 +5565,20 @@ that is used to identify the specific data element</p>
         {
             &quot;id&quot;: &quot;crewlist&quot;,
             &quot;allowedContentType&quot;: [&quot;application/xml&quot;],
+            &quot;schema&quot;: {
+                &quot;fileName&quot;: &quot;crew.xsd&quot;,
+                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
+            }
             &quot;maxSize&quot;: -1,
             &quot;maxCount&quot;: 3,
+            &quot;shouldSign&quot;: false,
+            &quot;shouldEncrypt&quot;: false
+        },
+        {
+            &quot;id&quot;: &quot;certificate&quot;,
+            &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
+            &quot;maxSize&quot;: -1,
+            &quot;maxCount&quot;: 1,
             &quot;shouldSign&quot;: false,
             &quot;shouldEncrypt&quot;: false
         }
@@ -5574,7 +5593,7 @@ that is used to identify the specific data element</p>
 
 <p>Get metadata about a specific application</p>
 
-<pre><code class="language-http">/applications/{applicationId}
+<pre><code class="language-http">/applications/{appId}
 </code></pre>
 
 <h1 id="instances-instanceid-events">/instances/{instanceId}/events</h1>
@@ -5598,7 +5617,7 @@ that is used to identify the specific data element</p>
 }
 </code></pre>
 
-<p>Create an event. POST with body. <br/>
+<p>Create an event. POST with body.
 <strong>Note</strong> id and createDateTime is set by the system and should not be included in the json object.</p>
 
 <pre><code class="language-http">/instances/{instanceId}/events
