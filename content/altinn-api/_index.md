@@ -26,17 +26,17 @@ A list of common tasks for an application owner.
 
 - Query instances for a given application according to status
 - Create an application instance
-- Submitt form data 
+- Upload form data
 - Download form data
-- Confirm successful download 
+- Confirm successful download
 - Change workflow state?
 
 ### Application Users
 
-A list of common tasks for an end user. 
+A list of common tasks for an end user.
 
 - Create an application instance
-- Submitt form data
+- Upload form data
 - Download form data
 - Change workflow state
 - View status of an instance
@@ -50,24 +50,31 @@ The Platform Storage API will provide access to information stored by the applic
 
 ### Application API
 
+An api that provides access to all instances of a specific app.
+
 ```http
-https://nav.apps.altinn.no/nav/app2018
+https://org.apps.altinn.no/org/app2018
 ```
 
 Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change workflow and to save/update data elements.
 
 ### Platform Storage API
 
+An api that provides access to all instances of all apps, it should be used to access metadata about instances and to download data elements.
+
 ```http
 https://platform.altinn.no/storage
 ```
 
-A "read only" interface that should be used to access metadata about instances and to download dataelements. Should be used by application owners to download data elements. Downloads will be logged. 
+Should be used by application owners to download data elements. Downloads will be logged. 
 
-### Create an application instance for an Instance Owner
+### Create an application instance
 
 Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwnerId*. 
-If you do not know this system, you should provide the official identity number as the payload to the creation request.
+If you do not know this, you should provide the official identity number, e.g social security or organization number, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.
+
+
+Data elements can be provided as part of the creation request, but can also be uploaded at a later time
 
 ```json
 {
@@ -82,31 +89,30 @@ If you do not know this system, you should provide the official identity number 
 }
 ```
 
-Then you can do a post to create a new instance of the application for the specific user.
-
 ```http
-POST https://nav.apps.altinn.no/nav/app2018/instances
+POST https://org.apps.altinn.no/org/app2018/instances
 ```
 
-Returns metadata about the instance that was created. This includes the guid for the instance and a direct resource URI.
+This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.
 
 ```json
 {
     "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
     "selfLinks": {
-        "apps": "https://nav.apps.altinn.no/nav/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+        "apps": "https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "platform": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
     },
-    "appId": "nav/app2018",
+    "appId": "org/app2018",
     "labels": [ "gr", "x2" ],
     "instanceOwnerId": "347829",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
-    "createdBy": "Nav23",
+    "createdBy": "org23",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "workflow": {
         "currentStep": "FormFilling",
+        "isComplete": false
     },
     "status": {
         "isArchived": false,
@@ -118,14 +124,14 @@ Returns metadata about the instance that was created. This includes the guid for
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "formId": "default",
         "contentType": "application/xml",
-        "storageUrl": "nav/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        "storageUrl": "org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "dataLink": {
-            "apps":   "https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "apps":   "https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "platform": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
         },
         "fileName": "prefill.xml",
         "createdDateTime": "2019-03-06T15:00:23+01:00",
-        "createdBy": "Nav23",
+        "createdBy": "org23",
         "fileSize": 20001,
         "isLocked": false,
     },
@@ -133,52 +139,35 @@ Returns metadata about the instance that was created. This includes the guid for
 }
 ```
 
-### Create a  data element (optional)
+### Create a data element (optional)
 
-With form data attached as e.g. XML document
+Post data file (xml-document) as body of request. Must specify formId as definied in the application metadata.
 
 ```http
-POST https://nav.apps.altinn.no/nav/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default
+POST https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default
 ```
 
-Returns instance metadata updated and with guid to data element
+This call updates and returns instance metadata where each data element are given a guid.
 
 ```json
 {
     "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-    "selfLinks": {
-        "apps": "https://nav.apps.altinn.no/nav/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fcø",
-        "platform": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
-    },
-    "appId": "nav/app2018",
-    "instanceOwnerId": "347829",
-    "labels": [ "gr", "x2" ],
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
-    "createdBy": "Nav23",
-    "lastChangedDateTime": "2019-04-29T12:24:40Z",
-    "lastChangedBy": "Nav23",
-    "dueDateTime": "2019-06-01T12:00:00Z",
-    "visibleDateTime": "2019-05-20T00:00:00Z",
-    "presentationField": "Arbeidsmelding",
-    "workflow": {
-        "currentStep": "FormFilling",
-        "isCompleted": false
-    },
+    ...
     "data": [
         {
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "formId": "default",
             "contentType": "application/xml",
-            "storageUrl": "nav/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "storageUrl": "org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "dataLinks": {
-                "apps":   "https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+                "apps":   "https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
                 "platform": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
             },
             "fileName": "default.xml",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
-            "createdBy": "Nav23",
+            "createdBy": "org23",
             "lastChangedDateTime": "2019-03-07T15:00:23+01:00",
-            "lastChangedBy": "Nav23",
+            "lastChangedBy": "org23",
             "fileSize": 20001,
             "isLocked": false
         }
@@ -191,7 +180,7 @@ Returns instance metadata updated and with guid to data element
 Update (replace) a data element with a new one (payload)
 
 ```http
-PUT https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+PUT https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
 ### Download a data element (as application owner)
@@ -208,17 +197,11 @@ Will update metadata for on data element.
 "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "formId": "default",
-        "contentType": "application/xml",
-        "storageUrl": "nav/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "dataLinks": {
-            "apps":   "https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "platform": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
-        },
+        ...
         "fileName": "default.xml",
-        "createdDateTime": "2019-03-06T15:00:23+01:00",
-        "createdBy": "Nav23",
-        "fileSize": 20001,
+        "lastChangedDateTime": "2019-03-06T15:00:23+01:00",
+        "lastChangedBy": "org24",
+        "fileSize": 34059,
         "isLocked": false,
         "applicationOwner": {
             "downloaded": ["2019-05-15T08:23:01+01:00"]
@@ -227,7 +210,6 @@ Will update metadata for on data element.
 ]
 }
 ```
-
 
 
 ### Confirm successful download
@@ -239,6 +221,10 @@ POST https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641
 ```json
 {
 ...
+"data": [
+    {
+        "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        ...
         "applicationOwner": {
             "downloaded": ["2019-05-15T08:23:01+01:00"],
             "downloadConfirmed": ["2019-05-16T10:23:00+01:00"]
@@ -260,19 +246,20 @@ Returns a paginated set of instances (JSON)
 {
     "_links": {
         "self": {
-            "href": "instances?page=0&size=100"
+            "href": "https://platform.altinn.no/storage/instances?page=0&size=100"
         },
         "next": {
-            "href": "instances?page=1&size=100"
+            "href": "https://platform.altinn.no/storage/instances?page=1&size=100"
         },
         "last": {
-            "href": "instances?page=123&size=100"
+            "href": "https://platform.altinn.no/storage/instances?page=123&size=100"
         }
     },
     "_embedded": {
         "instances": [
-            {},
-            {}
+            {...},
+            {...},
+            ...
       ]
     }
 }
@@ -283,7 +270,7 @@ Returns a paginated set of instances (JSON)
 Events can be queried. May be piped.
 
 ```http
-GET https://platform.altinn.no/storage/applications/nav/app2018/events?after=2019-03-30&workflow.currentStep=Submit
+GET https://platform.altinn.no/storage/applications/org/app2018/events?after=2019-03-30&workflow.currentStep=Submit
 ```
 
 Query result:
@@ -293,7 +280,7 @@ Query result:
     {
         "id": "112453234523423344",
         "at": "2019-06-01T12:12:22+01:00",
-        "appId": "nav/app2018",
+        "appId": "org/app2018",
         "instanceOwnerId": "347829",
         "instanceLink": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "dataLinks": [
@@ -316,5 +303,50 @@ Query result:
     }
 ]
 ```
+
+## Application Users
+
+### API to validate data
+
+The apps will support the possibility to validate the datamodel for the app without creating a instance of the data
+
+```http
+POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
+```
+
+### API to calculate / perform business rules
+
+The app will support the possibility to perform calculation / perform business rules for a datamodell to an app  
+
+```http
+POST POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 {{% children description="true" depth="2" %}}
