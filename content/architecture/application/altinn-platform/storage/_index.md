@@ -1,5 +1,5 @@
 ---
-title: Application arhicture Storage component - Altinn Platform
+title: Altinn Platform - Storage
 linktitle: Storage
 description: Description of the application architecture for Storage component
 tags: ["solution", "architecture"]
@@ -7,12 +7,9 @@ weight: 100
 alwaysopen: true
 ---
 
-The Storage component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The Storage component exposes a REST-API to Altinn Apps.
 
-[See Github for implementation details](https://github.com/Altinn/altinn-studio/issues/311)
-
-Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about *instances* and their *data* elements.
-It provides a registry of all *applications* and their metadata. 
+Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, element types and events. 
 
 Resources: Instance, Application, Event
 
@@ -21,14 +18,15 @@ Resources: Instance, Application, Event
 An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
 An instance replaces Altinn2 Message. 
 An instanceOwner is a person/company that reports information via Altinn.
-An applicationId refers to the application information element which defines the metadata about the application.
+An appId refers to the application information element which defines the metadata about the application.
 
 ```json
 {
-    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-    "applicationId": "TEST-sailor",
-    "applicationOwnerId": "TEST",
-    "instanceOwnerId": "666",
+    "id": "60238/762011d1-d341-4c0a-8641-d8a104e83d30",
+    "appId": "TEST/sailor",
+    "org": "TEST",
+    "instanceOwnerId": "60238",
+    "labels": ["xyz", "importantUser"],
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "user32",
     "lastChangedDateTime": "2019-03-07T23:59:49+01:00",
@@ -36,37 +34,40 @@ An applicationId refers to the application information element which defines the
     "dueDateTime": null,
     "visibleDateTime": null,
     "presentationField": "Færder påmelding 2019",
-    "externalSystemReference": null,
-    "currentWorkflowStep": "started",
-    "isCompleted": true,
-    "isDeleted": [{
-        "deletionDateTime": "2017-12-22",
-        "deletedBy": "user34"
-    }],
-    "applicationOwnerFeedback": {
-        "receivedDate": "2019-05-11T03:00:23+01:00",
-        "status": "OK"
+    "workflow": {
+        "currentStep": "FormFilling",
+        "isComplete": false
+    },
+    "status": {
+        "isSoftDeleted": false,
+        "isArchived": false,
+        "isMarkedForHardDelete": false
+    },
+    "applicationOwnerStatus": {
+        "message": { "nb": "field 32 is incorrect", "at": "2018-12-22"}
     },
     "data": [
         {
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "formId": "boatdata",
+            "elementType": "boatdata",
             "contentType": "application/json",
-            "storageUrl": "TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/data",
             "fileName": "davidsyacht.json",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
             "createdBy": "XXX",
             "signature": "oajviojoi2j3l23889yv8js909u293840zz092u3",
             "fileSize": 2003,
-            "isLocked": true
+            "isLocked": true,
+            "pdf": {
+                "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/pdf",
+                "generated": "2019-05-30T14:38:22+01:00"
+            }
         },
         {
             "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
-            "formId": "crewlist",
+            "elementType": "crewlist",
             "contentType": "text/xml",
-            "storageUrl": "TEST/Test-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
-            "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
+            "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
             "fileName": "crewLIst.xml",
             "createdDateTime": "2019-03-07T23:59:49+01:00",
             "createdBy": "XXX",
@@ -80,7 +81,7 @@ An applicationId refers to the application information element which defines the
 Create a new instance. Post with params that identifies the application and the instance owner.
 
 ```http
-/instances?applicationId=TEST-sailor&instanceOwnerId=1024
+/instances?appId=TEST/sailor&instanceOwnerId=60238
 ```
 
 Get information about one instance.
@@ -92,13 +93,13 @@ Get information about one instance.
 Get (query) all instances that is instance owner has
 
 ```http
-/instances&instanceOwnerId={instanceOwnerId}[&since=2017-01-01]
+/instances&instanceOwnerId={instanceOwnerId}[&label=xyz]
 ```
 
 Get (query) all instances of a particular application that is completed
 
 ```http
-/instances?applicationId={applicationId}&completed=true
+/instances?appId={appId}&workflow.isCompleted=true
 ```
 
 Delete a specific instance (also deletes its data).
@@ -111,7 +112,7 @@ Delete a specific instance (also deletes its data).
 
 A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {formId}.
+The application metadata restricts the types of form elements that are allowed {elementType}.
 
 Get a specific data element
 
@@ -124,7 +125,7 @@ After success the instance's data section is updated, with the appropriate dataI
 that is used to identify the specific data element
 
 ```http
-/instances/{instanceId}/data?formId={formId}
+/instances/{instanceId}/data?elementType={elementType}
 ```
 
 Put to replace a specific data element. Delete to remove data element.
@@ -137,23 +138,29 @@ Put to replace a specific data element. Delete to remove data element.
 
 Application metadata used to validate data elements in instances
 
-Resource: http://platform.altinn.no/applications/TEST-sailor
+Resource: http://platform.altinn.no/applications/test/sailor
 ```json
 {
-    "id": "TEST-sailor",
+    "id": "TEST/sailor",
+    "versionId": "v32.23-xyp",
+    "org": "TEST",
+    "app": "sailor",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
-    "title": { "nb": "Testapplikasjon", "en": "Test Application" },
-    "applicationOwnerId": "TEST",
+    "title": { "nb": "Testapplikasjon", "en": "Test Application" }, 
     "workflowId": "standard",
     "validFrom": "2019-04-01T12:14:22+01:00",
     "validTo": null,
     "maxSize": -1,
-    "forms": [
+    "elementTypes": [
         {
             "id": "boatdata",
             "description": {"nb": "Båtdata", "en": "Boat data"},
-            "allowedContentType": ["application/json", "application/xml"],
+            "allowedContentType": ["application/json"],
+            "schema": {
+                "fileName": "boat.json-schema",
+                "schemaUrl": "/applications/test/sailor/schemas/boatdata"
+            },
             "maxSize": 200000,
             "maxCount": 1,
             "shouldSign": true,
@@ -162,8 +169,20 @@ Resource: http://platform.altinn.no/applications/TEST-sailor
         {
             "id": "crewlist",
             "allowedContentType": ["application/xml"],
+            "schema": {
+                "fileName": "crew.xsd",
+                "schemaUrl": "/applications/test/sailor/schemas/crewlist",
+            }
             "maxSize": -1,
             "maxCount": 3,
+            "shouldSign": false,
+            "shouldEncrypt": false
+        },
+        {
+            "id": "certificate",
+            "allowedContentType": ["application/pdf"],
+            "maxSize": -1,
+            "maxCount": 1,
             "shouldSign": false,
             "shouldEncrypt": false
         }
@@ -180,7 +199,7 @@ Get a list of all Applications
 Get metadata about a specific application
 
 ```http
-/applications/{applicationId}
+/applications/{appId}
 ```
 
 # /instances/{instanceId}/events
@@ -205,7 +224,7 @@ Format of the JSON object stored in the database
 }
 ```
 
-Create an event. POST with body. <br/>
+Create an event. POST with body. 
 **Note** id and createDateTime is set by the system and should not be included in the json object.
 
 ```http

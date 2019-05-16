@@ -46,7 +46,7 @@ A list of common tasks for an end user.
 The new solution will have multiple APIs. There are two APIs available for Application Owners and Users.
 There will be one API for each application cluster, called the *Application API*, and one for the Platform Storage cluster, called *Platform Storage API*. 
 Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change workflow state of the application instance. 
-The Platform Storage API will provide access to information stored by the application.
+The Platform Storage API will provide access to information stored by the application. [More information on the Platform apis can be found here](/architecture/application/altinn-platform)
 
 ### Application API
 
@@ -84,7 +84,7 @@ Data elements can be provided as part of the creation request, but can also be u
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "data" : [
-        { "formId": "default", "contentType": "application/xml", "content": "base64xckljsiojfiewljf"}
+        { "elementType": "default", "contentType": "application/xml", "content": "base64xckljsiojfiewljf"}
     ]
 }
 ```
@@ -97,7 +97,7 @@ This call will return the instance metadata record which was created. A unique i
 
 ```json
 {
-    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
+    "id": "347829/762011d1-d341-4c0a-8641-d8a104e83d30",
     "selfLinks": {
         "apps": "https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "platform": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
@@ -122,7 +122,7 @@ This call will return the instance metadata record which was created. A unique i
     "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "formId": "default",
+        "elementType": "default",
         "contentType": "application/xml",
         "storageUrl": "org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "dataLink": {
@@ -141,22 +141,22 @@ This call will return the instance metadata record which was created. A unique i
 
 ### Create a data element (optional)
 
-Post data file (xml-document) as body of request. Must specify formId as definied in the application metadata.
+Post data file (xml-document) as body of request. Must specify elementType as definied in the application metadata.
 
 ```http
-POST https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default
+POST https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=default
 ```
 
 This call updates and returns instance metadata where each data element are given a guid.
 
 ```json
 {
-    "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
+    "id": "347829/762011d1-d341-4c0a-8641-d8a104e83d30",
     ...
     "data": [
         {
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "formId": "default",
+            "elementType": "default",
             "contentType": "application/xml",
             "storageUrl": "org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "dataLinks": {
@@ -211,7 +211,6 @@ Will update metadata for on data element.
 }
 ```
 
-
 ### Confirm successful download
 
 ```http
@@ -234,10 +233,20 @@ POST https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641
 }
 ```
 
+### Change workflow state
+
+{{%excerpt%}}
+<object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 100%;";></object>
+{{% /excerpt%}}
+
+```http
+POST https://org.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?moveTo=Submit
+```
+
 ### Query instances
 
 ```http
-GET https://platform.altinn.no/storage/instances?workflow.currentStep=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
+GET https://platform.altinn.no/storage/instances?appId=org/app2018&workflow.currentStep=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
 ```
 
 Returns a paginated set of instances (JSON)
@@ -270,7 +279,7 @@ Returns a paginated set of instances (JSON)
 Events can be queried. May be piped.
 
 ```http
-GET https://platform.altinn.no/storage/applications/org/app2018/events?after=2019-03-30&workflow.currentStep=Submit
+GET https://platform.altinn.no/storage/applications/org/app2018/events?after=2019-03-30&workflow.currentStep=Submit&workflow.isComplete=true
 ```
 
 Query result:
@@ -285,15 +294,15 @@ Query result:
         "instanceLink": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "dataLinks": [
             {
-                "formId": "default",
+                "elementType": "default",
                 "dataLink": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
             },
             {
-                "formId": "attachement",
+                "elementType": "attachement",
                 "dataLink": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf"
             },
             {
-                "formId": "prefill",
+                "elementType": "prefill",
                 "dataLink": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj"
             }
         ],
