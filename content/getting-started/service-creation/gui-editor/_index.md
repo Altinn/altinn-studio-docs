@@ -31,4 +31,4 @@ Save any changes by clicking the _checkmark_-icon to the right of the properties
 NOTE: The form components are currently being developed. As such, not all form components have a complete/updated properties editor.
 {{% /notice%}}
 
-See the [overview of form components](components) for information on which properties are available to edit.
+See the [overview of form components](/ui-components) for information on which properties are available to edit.
