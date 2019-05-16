@@ -5373,13 +5373,18 @@ if(host != "localhost")
 <ul>
 <li><a href="#application-api">Application API</a></li>
 <li><a href="#platform-storage-api">Platform Storage API</a></li>
-<li><a href="#create-an-application-instance-for-an-instance-owner">Create an application instance for an Instance Owner</a></li>
-<li><a href="#create-a-data-element-optional">Create a  data element (optional)</a></li>
+<li><a href="#create-an-application-instance">Create an application instance</a></li>
+<li><a href="#create-a-data-element-optional">Create a data element (optional)</a></li>
 <li><a href="#update-a-data-element">Update a data element</a></li>
 <li><a href="#download-a-data-element-as-application-owner">Download a data element (as application owner)</a></li>
 <li><a href="#confirm-successful-download">Confirm successful download</a></li>
 <li><a href="#query-instances">Query instances</a></li>
 <li><a href="#application-events">Application events</a></li>
+</ul></li>
+<li><a href="#application-users-1">Application Users</a>
+<ul>
+<li><a href="#api-to-validate-data">API to validate data</a></li>
+<li><a href="#api-to-calculate-perform-business-rules">API to calculate / perform business rules</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5435,7 +5440,7 @@ The new API will be available to both parties, but with some functions that will
 <ul>
 <li>Query instances for a given application according to status</li>
 <li>Create an application instance</li>
-<li>Submitt form data</li>
+<li>Upload form data</li>
 <li>Download form data</li>
 <li>Confirm successful download</li>
 <li>Change workflow state?</li>
@@ -5447,7 +5452,7 @@ The new API will be available to both parties, but with some functions that will
 
 <ul>
 <li>Create an application instance</li>
-<li>Submitt form data</li>
+<li>Upload form data</li>
 <li>Download form data</li>
 <li>Change workflow state</li>
 <li>View status of an instance</li>
@@ -5462,22 +5467,28 @@ The Platform Storage API will provide access to information stored by the applic
 
 <h3 id="application-api">Application API</h3>
 
-<pre><code class="language-http">https://nav.apps.altinn.no/nav/app2018
+<p>An api that provides access to all instances of a specific app.</p>
+
+<pre><code class="language-http">https://org.apps.altinn.no/org/app2018
 </code></pre>
 
 <p>Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change workflow and to save/update data elements.</p>
 
 <h3 id="platform-storage-api">Platform Storage API</h3>
 
+<p>An api that provides access to all instances of all apps, it should be used to access metadata about instances and to download data elements.</p>
+
 <pre><code class="language-http">https://platform.altinn.no/storage
 </code></pre>
 
-<p>A &ldquo;read only&rdquo; interface that should be used to access metadata about instances and to download dataelements. Should be used by application owners to download data elements. Downloads will be logged.</p>
+<p>Should be used by application owners to download data elements. Downloads will be logged.</p>
 
-<h3 id="create-an-application-instance-for-an-instance-owner">Create an application instance for an Instance Owner</h3>
+<h3 id="create-an-application-instance">Create an application instance</h3>
 
 <p>Altinn assigns an unique identifier to all users that wishes to report data. We call this id <em>instanceOwnerId</em>.
-If you do not know this system, you should provide the official identity number as the payload to the creation request.</p>
+If you do not know this, you should provide the official identity number, e.g social security or organization number, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.</p>
+
+<p>Data elements can be provided as part of the creation request, but can also be uploaded at a later time</p>
 
 <pre><code class="language-json">{
     &quot;reportee&quot;: { &quot;ssn&quot;: &quot;12247918309&quot; | &quot;organizationNumber&quot;: &quot;123456789&quot; | &quot;userName&quot;: &quot;xyz&quot; },
@@ -5491,29 +5502,28 @@ If you do not know this system, you should provide the official identity number 
 }
 </code></pre>
 
-<p>Then you can do a post to create a new instance of the application for the specific user.</p>
-
-<pre><code class="language-http">POST https://nav.apps.altinn.no/nav/app2018/instances
+<pre><code class="language-http">POST https://org.apps.altinn.no/org/app2018/instances
 </code></pre>
 
-<p>Returns metadata about the instance that was created. This includes the guid for the instance and a direct resource URI.</p>
+<p>This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
     &quot;selfLinks&quot;: {
-        &quot;apps&quot;: &quot;https://nav.apps.altinn.no/nav/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
+        &quot;apps&quot;: &quot;https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
     },
-    &quot;appId&quot;: &quot;nav/app2018&quot;,
+    &quot;appId&quot;: &quot;org/app2018&quot;,
     &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
     &quot;instanceOwnerId&quot;: &quot;347829&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
-    &quot;createdBy&quot;: &quot;Nav23&quot;,
+    &quot;createdBy&quot;: &quot;org23&quot;,
     &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
     &quot;workflow&quot;: {
         &quot;currentStep&quot;: &quot;FormFilling&quot;,
+        &quot;isComplete&quot;: false
     },
     &quot;status&quot;: {
         &quot;isArchived&quot;: false,
@@ -5525,14 +5535,14 @@ If you do not know this system, you should provide the official identity number 
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;formId&quot;: &quot;default&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
-        &quot;storageUrl&quot;: &quot;nav/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+        &quot;storageUrl&quot;: &quot;org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;dataLink&quot;: {
-            &quot;apps&quot;:   &quot;https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;apps&quot;:   &quot;https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
         },
         &quot;fileName&quot;: &quot;prefill.xml&quot;,
         &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
-        &quot;createdBy&quot;: &quot;Nav23&quot;,
+        &quot;createdBy&quot;: &quot;org23&quot;,
         &quot;fileSize&quot;: 20001,
         &quot;isLocked&quot;: false,
     },
@@ -5540,50 +5550,33 @@ If you do not know this system, you should provide the official identity number 
 }
 </code></pre>
 
-<h3 id="create-a-data-element-optional">Create a  data element (optional)</h3>
+<h3 id="create-a-data-element-optional">Create a data element (optional)</h3>
 
-<p>With form data attached as e.g. XML document</p>
+<p>Post data file (xml-document) as body of request. Must specify formId as definied in the application metadata.</p>
 
-<pre><code class="language-http">POST https://nav.apps.altinn.no/nav/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default
+<pre><code class="language-http">POST https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?formId=default
 </code></pre>
 
-<p>Returns instance metadata updated and with guid to data element</p>
+<p>This call updates and returns instance metadata where each data element are given a guid.</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    &quot;selfLinks&quot;: {
-        &quot;apps&quot;: &quot;https://nav.apps.altinn.no/nav/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fcø&quot;,
-        &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
-    },
-    &quot;appId&quot;: &quot;nav/app2018&quot;,
-    &quot;instanceOwnerId&quot;: &quot;347829&quot;,
-    &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
-    &quot;createdBy&quot;: &quot;Nav23&quot;,
-    &quot;lastChangedDateTime&quot;: &quot;2019-04-29T12:24:40Z&quot;,
-    &quot;lastChangedBy&quot;: &quot;Nav23&quot;,
-    &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
-    &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
-    &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
-    &quot;workflow&quot;: {
-        &quot;currentStep&quot;: &quot;FormFilling&quot;,
-        &quot;isCompleted&quot;: false
-    },
+    ...
     &quot;data&quot;: [
         {
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;formId&quot;: &quot;default&quot;,
             &quot;contentType&quot;: &quot;application/xml&quot;,
-            &quot;storageUrl&quot;: &quot;nav/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;storageUrl&quot;: &quot;org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;dataLinks&quot;: {
-                &quot;apps&quot;:   &quot;https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+                &quot;apps&quot;:   &quot;https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
                 &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
             },
             &quot;fileName&quot;: &quot;default.xml&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
-            &quot;createdBy&quot;: &quot;Nav23&quot;,
+            &quot;createdBy&quot;: &quot;org23&quot;,
             &quot;lastChangedDateTime&quot;: &quot;2019-03-07T15:00:23+01:00&quot;,
-            &quot;lastChangedBy&quot;: &quot;Nav23&quot;,
+            &quot;lastChangedBy&quot;: &quot;org23&quot;,
             &quot;fileSize&quot;: 20001,
             &quot;isLocked&quot;: false
         }
@@ -5595,7 +5588,7 @@ If you do not know this system, you should provide the official identity number 
 
 <p>Update (replace) a data element with a new one (payload)</p>
 
-<pre><code class="language-http">PUT https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+<pre><code class="language-http">PUT https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
 <h3 id="download-a-data-element-as-application-owner">Download a data element (as application owner)</h3>
@@ -5610,17 +5603,11 @@ If you do not know this system, you should provide the official identity number 
 &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;formId&quot;: &quot;default&quot;,
-        &quot;contentType&quot;: &quot;application/xml&quot;,
-        &quot;storageUrl&quot;: &quot;nav/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;dataLinks&quot;: {
-            &quot;apps&quot;:   &quot;https://nav.apps.altinn.no/nav/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
-        },
+        ...
         &quot;fileName&quot;: &quot;default.xml&quot;,
-        &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
-        &quot;createdBy&quot;: &quot;Nav23&quot;,
-        &quot;fileSize&quot;: 20001,
+        &quot;lastChangedDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
+        &quot;lastChangedBy&quot;: &quot;org24&quot;,
+        &quot;fileSize&quot;: 34059,
         &quot;isLocked&quot;: false,
         &quot;applicationOwner&quot;: {
             &quot;downloaded&quot;: [&quot;2019-05-15T08:23:01+01:00&quot;]
@@ -5637,6 +5624,10 @@ If you do not know this system, you should provide the official identity number 
 
 <pre><code class="language-json">{
 ...
+&quot;data&quot;: [
+    {
+        &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+        ...
         &quot;applicationOwner&quot;: {
             &quot;downloaded&quot;: [&quot;2019-05-15T08:23:01+01:00&quot;],
             &quot;downloadConfirmed&quot;: [&quot;2019-05-16T10:23:00+01:00&quot;]
@@ -5656,19 +5647,20 @@ If you do not know this system, you should provide the official identity number 
 <pre><code class="language-json">{
     &quot;_links&quot;: {
         &quot;self&quot;: {
-            &quot;href&quot;: &quot;instances?page=0&amp;size=100&quot;
+            &quot;href&quot;: &quot;https://platform.altinn.no/storage/instances?page=0&amp;size=100&quot;
         },
         &quot;next&quot;: {
-            &quot;href&quot;: &quot;instances?page=1&amp;size=100&quot;
+            &quot;href&quot;: &quot;https://platform.altinn.no/storage/instances?page=1&amp;size=100&quot;
         },
         &quot;last&quot;: {
-            &quot;href&quot;: &quot;instances?page=123&amp;size=100&quot;
+            &quot;href&quot;: &quot;https://platform.altinn.no/storage/instances?page=123&amp;size=100&quot;
         }
     },
     &quot;_embedded&quot;: {
         &quot;instances&quot;: [
-            {},
-            {}
+            {...},
+            {...},
+            ...
       ]
     }
 }
@@ -5678,7 +5670,7 @@ If you do not know this system, you should provide the official identity number 
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET https://platform.altinn.no/storage/applications/nav/app2018/events?after=2019-03-30&amp;workflow.currentStep=Submit
+<pre><code class="language-http">GET https://platform.altinn.no/storage/applications/org/app2018/events?after=2019-03-30&amp;workflow.currentStep=Submit
 </code></pre>
 
 <p>Query result:</p>
@@ -5687,7 +5679,7 @@ If you do not know this system, you should provide the official identity number 
     {
         &quot;id&quot;: &quot;112453234523423344&quot;,
         &quot;at&quot;: &quot;2019-06-01T12:12:22+01:00&quot;,
-        &quot;appId&quot;: &quot;nav/app2018&quot;,
+        &quot;appId&quot;: &quot;org/app2018&quot;,
         &quot;instanceOwnerId&quot;: &quot;347829&quot;,
         &quot;instanceLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;dataLinks&quot;: [
@@ -5709,6 +5701,22 @@ If you do not know this system, you should provide the official identity number 
         &quot;userId&quot;: &quot;userX&quot;
     }
 ]
+</code></pre>
+
+<h2 id="application-users-1">Application Users</h2>
+
+<h3 id="api-to-validate-data">API to validate data</h3>
+
+<p>The apps will support the possibility to validate the datamodel for the app without creating a instance of the data</p>
+
+<pre><code class="language-http">POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
+</code></pre>
+
+<h3 id="api-to-calculate-perform-business-rules">API to calculate / perform business rules</h3>
+
+<p>The app will support the possibility to perform calculation / perform business rules for a datamodell to an app</p>
+
+<pre><code class="language-http">POST POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
 </code></pre>
 
 
