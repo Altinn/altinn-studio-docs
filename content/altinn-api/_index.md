@@ -236,7 +236,7 @@ POST https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641
 ### Change workflow state
 
 {{%excerpt%}}
-<object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 100%;";></object>
+<object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 25%;";></object>
 {{% /excerpt%}}
 
 ```http
