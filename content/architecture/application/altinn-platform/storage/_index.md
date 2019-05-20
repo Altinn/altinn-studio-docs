@@ -1,4 +1,4 @@
----
+----
 title: Altinn Platform - Storage
 linktitle: Storage
 description: Description of the application architecture for Storage component
@@ -14,7 +14,7 @@ Storage provides persistent storage service for applications in Altinn. It is mo
 Resources: Instance, Application, InstanceEvent, ApplicationEvent
 
 {{%excerpt%}}
-<object data="/architecture/altinn-platform/storage/datamodel.png" type="image/png" style="width: 50%;";></object>
+<object data="/architecture/application/altinn-platform/storage/datamodel.png" type="image/png" style="width: 50%;";></object>
 {{% /excerpt%}}
 
 ## Instance
