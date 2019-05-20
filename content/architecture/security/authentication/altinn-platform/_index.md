@@ -77,3 +77,11 @@ in Altinn creates a JWT token that can be used to authenticate the agency system
 calling api's on apps running in Altinn Apps.
 
 See [Authentication API](authentication-api) for details.
+
+### Authentication of Altinn Apps against Altinn Platform
+Applications hosted in a Altinn Apps solution would in many cases need to authenticate the end user against the different Altinn Platform components.
+
+The solution for this is that the Apps would forward the JWT Token from the bearer token or JWT Cookie to the component that is called. This would
+be forwarded as a bearer token in the Authorization header in the request against the component.
+
+This makes it possible to configure JWTCookie authentication mechanismen to authenticate the end user also in the components.
