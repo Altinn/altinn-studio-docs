@@ -2978,6 +2978,166 @@ if(host != "localhost")
           
         
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/model/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/model/">
+        <span>Authorization model</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/contexthandler/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/contexthandler/">
+        <span>Context Handler</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/pap/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/pap/">
+        <span>PAP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/pdp/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/pdp/">
+        <span>PDP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/pep/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/pep/">
+        <span>PEP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/pip/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/pip/">
+        <span>PIP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/prp/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/prp/">
+        <span>PRP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-platform/xacml/" class="dd-item
+     
+      ">
+        <a href="/architecture/security/authorization/altinn-platform/xacml/">
+        <span>XACML</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -5225,6 +5385,7 @@ if(host != "localhost")
 <li><a href="#end-user-systems-accessing-app-api-s">End user systems accessing app api&rsquo;s</a></li>
 <li><a href="#enterprise-users">Enterprise users</a></li>
 <li><a href="#org-systems-accessing-app-api-s">org systems accessing app api&rsquo;s</a></li>
+<li><a href="#authentication-of-altinn-apps-against-altinn-platform">Authentication of Altinn Apps against Altinn Platform</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5335,6 +5496,15 @@ in Altinn creates a JWT token that can be used to authenticate the agency system
 calling api&rsquo;s on apps running in Altinn Apps.</p>
 
 <p>See <a href="authentication-api">Authentication API</a> for details.</p>
+
+<h3 id="authentication-of-altinn-apps-against-altinn-platform">Authentication of Altinn Apps against Altinn Platform</h3>
+
+<p>Applications hosted in a Altinn Apps solution would in many cases need to authenticate the end user against the different Altinn Platform components.</p>
+
+<p>The solution for this is that the Apps would forward the JWT Token from the bearer token or JWT Cookie to the component that is called. This would
+be forwarded as a bearer token in the Authorization header in the request against the component.</p>
+
+<p>This makes it possible to configure JWTCookie authentication mechanismen to authenticate the end user also in the components.</p>
 
 
 <footer class=" footline" >
