@@ -5377,12 +5377,23 @@ if(host != "localhost")
     <div class="wrapper">
 <nav id="TableOfContents">
 <ul>
-<li><a href="#instances">/instances</a>
+<li>
 <ul>
+<li><a href="#instance">Instance</a>
+<ul>
+<li><a href="#instances">/instances</a></li>
+<li><a href="#instance-type">Instance type</a></li>
+<li><a href="#operations">Operations</a></li>
 <li><a href="#data-service">Data service</a></li>
 </ul></li>
+<li><a href="#application">Application</a>
+<ul>
 <li><a href="#applications">/applications</a></li>
-<li><a href="#instances-instanceid-events">/instances/{instanceId}/events</a></li>
+<li><a href="#application-type">Application type</a></li>
+<li><a href="#operations-1">Operations</a></li>
+</ul></li>
+<li><a href="#instanceevent">InstanceEvent</a></li>
+</ul></li>
 </ul>
 </nav>
     </div>
@@ -5416,9 +5427,16 @@ if(host != "localhost")
 
 <p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, element types and events.</p>
 
-<p>Resources: Instance, Application, Event</p>
+<p>Resources: Instance, Application, InstanceEvent, ApplicationEvent</p>
 
-<h1 id="instances">/instances</h1>
+
+	<p><object data="/architecture/altinn-platform/storage/datamodel.png" type="image/png" style="width: 50%;";></object></p>
+
+
+
+<h2 id="instance">Instance</h2>
+
+<h3 id="instances">/instances</h3>
 
 <p>An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
 An instance replaces Altinn2 Message.
@@ -5447,7 +5465,7 @@ An appId refers to the application information element which defines the metadat
         &quot;isArchived&quot;: false,
         &quot;isMarkedForHardDelete&quot;: false
     },
-    &quot;applicationOwnerStatus&quot;: {
+    &quot;appOwnerStatus&quot;: {
         &quot;message&quot;: { &quot;nb&quot;: &quot;field 32 is incorrect&quot;, &quot;at&quot;: &quot;2018-12-22&quot;}
     },
     &quot;data&quot;: [
@@ -5482,6 +5500,176 @@ An appId refers to the application information element which defines the metadat
 }
 </code></pre>
 
+<h3 id="instance-type">Instance type</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+<th>User</th>
+<th>Owner</th>
+<th>App</th>
+<th>Storage</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>unique id</td>
+<td></td>
+<td></td>
+<td></td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>appId</td>
+<td>string</td>
+<td>application id</td>
+<td></td>
+<td></td>
+<td></td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>instanceOwnerId</td>
+<td>integer</td>
+<td>id of instance owner</td>
+<td>C</td>
+<td>C</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>labels</td>
+<td>string[]</td>
+<td>array of string labels</td>
+<td></td>
+<td>C</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>createDateTime</td>
+<td>dateTime</td>
+<td>creation time</td>
+<td></td>
+<td></td>
+<td></td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>createdBy</td>
+<td>string</td>
+<td>user id</td>
+<td></td>
+<td></td>
+<td></td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>lastChangedDateTime</td>
+<td>dateTime?</td>
+<td>last changed time</td>
+<td></td>
+<td></td>
+<td></td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>lastChangedBy</td>
+<td>string</td>
+<td>user id</td>
+<td></td>
+<td></td>
+<td></td>
+<td>C</td>
+</tr>
+
+<tr>
+<td>dueDateTime</td>
+<td>dateTime?</td>
+<td>deadline for submit</td>
+<td></td>
+<td>CU</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>visibleDateTime</td>
+<td>dateTime?</td>
+<td>when visible for user</td>
+<td></td>
+<td>CU</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>presentationField</td>
+<td>string</td>
+<td>text shown in inbox</td>
+<td></td>
+<td>CU</td>
+<td>U</td>
+<td></td>
+</tr>
+
+<tr>
+<td>workflow</td>
+<td>WorkflowState</td>
+<td>workflow state info</td>
+<td></td>
+<td></td>
+<td>U</td>
+<td>(U)</td>
+</tr>
+
+<tr>
+<td>status</td>
+<td>InboxStatus</td>
+<td>set by user</td>
+<td>U</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>appOwnerStatus</td>
+<td>AppOwnerStatus</td>
+<td>status from app owner</td>
+<td></td>
+<td>CU</td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>data</td>
+<td>DataElement[]</td>
+<td>data elements</td>
+<td></td>
+<td></td>
+<td>CU</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="operations">Operations</h3>
+
 <p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
 
 <pre><code class="language-http">/instances?appId=TEST/sailor&amp;instanceOwnerId=60238
@@ -5507,7 +5695,7 @@ An appId refers to the application information element which defines the metadat
 <pre><code class="language-http">/instances/{instanceId}
 </code></pre>
 
-<h2 id="data-service">Data service</h2>
+<h3 id="data-service">Data service</h3>
 
 <p>A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
@@ -5515,22 +5703,24 @@ The application metadata restricts the types of form elements that are allowed {
 
 <p>Get a specific data element</p>
 
-<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
+<pre><code class="language-http">GET /instances/{instanceId}/data/{dataId}
 </code></pre>
 
 <p>Post to create a specific data element. Content a file (as MultipartContent).
 After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
 that is used to identify the specific data element</p>
 
-<pre><code class="language-http">/instances/{instanceId}/data?elementType={elementType}
+<pre><code class="language-http">POST /instances/{instanceId}/data?elementType={elementType}
 </code></pre>
 
 <p>Put to replace a specific data element. Delete to remove data element.</p>
 
-<pre><code class="language-http">/instances/{instanceId}/data/{dataId}
+<pre><code class="language-http">PUT /instances/{instanceId}/data/{dataId}
 </code></pre>
 
-<h1 id="applications">/applications</h1>
+<h2 id="application">Application</h2>
+
+<h3 id="applications">/applications</h3>
 
 <p>Application metadata used to validate data elements in instances</p>
 
@@ -5586,6 +5776,21 @@ that is used to identify the specific data element</p>
 }
 </code></pre>
 
+<h3 id="application-type">Application type</h3>
+
+<p>| Attribute | Type | Description |
+| &mdash; | &mdash; |&mdash;| &mdash;| &mdash;|&mdash;| &mdash; |
+id | string | application id
+versionId | string | release or commit id
+workflowId | string | application workflow id
+title | LanguageString[] | application title in different languages
+validFrom | dateTime | when the application is valid from
+validTo | dateTime? | when the application is valid to
+elementTypes | ElementType[] | the elements that are part of an applciation instance
+maxSize | integer | the maximum number of bytes that the data elements can have</p>
+
+<h3 id="operations-1">Operations</h3>
+
 <p>Get a list of all Applications</p>
 
 <pre><code class="language-http">/applications
@@ -5596,7 +5801,10 @@ that is used to identify the specific data element</p>
 <pre><code class="language-http">/applications/{appId}
 </code></pre>
 
-<h1 id="instances-instanceid-events">/instances/{instanceId}/events</h1>
+<h2 id="instanceevent">InstanceEvent</h2>
+
+<pre><code class="language-http">/instances/{instanceId}/events
+</code></pre>
 
 <p>User actions on an instance trigger instance events such as <em>created</em>, <em>saved</em>, _submitted, <em>deleted</em>. The events are associated with an instance, a user and an instance owner. The events are generated by the application and posted to storage.</p>
 
@@ -5606,7 +5814,7 @@ that is used to identify the specific data element</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;:&quot;6dff32bc-0928-4ae8-937c-b362d6941c89&quot;,
-    &quot;instanceId&quot;: &quot;5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&quot;,
+    &quot;instanceId&quot;: &quot;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&quot;,
     &quot;eventType&quot;: &quot;deleted&quot;,
     &quot;createdDateTime&quot;: &quot;2019-05-02T13:08:21.981476Z&quot;,
     &quot;instanceOwnerId&quot;: &quot;123456&quot;,
