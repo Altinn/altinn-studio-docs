@@ -5373,7 +5373,7 @@ if(host != "localhost")
 <li><a href="#altinn-studio-repositories">Altinn Studio Repositories</a></li>
 </ul></li>
 <li><a href="#api">Api</a></li>
-<li><a href="#app-application">App | Application</a>
+<li><a href="#app">App</a>
 <ul>
 <li><a href="#application-developer">Application Developer</a></li>
 <li><a href="#application-owner">Application Owner</a></li>
@@ -5455,8 +5455,8 @@ and [deployment architecture]</p>
 
 <h3 id="altinn-studio">Altinn Studio</h3>
 
-<p>The web based development tool for creating end user service: Application.
-Lets the service developer create services that are deployed like a seperate application (app).</p>
+<p>The web based development tool for creating end user application.
+Lets the application developer create apps that are deployed like a seperate application environment called Altinn Apps.</p>
 
 <h3 id="altinn-apps-environment">Altinn Apps environment</h3>
 
@@ -5471,18 +5471,18 @@ in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of 
 
 <p>Application Programmers Interface.</p>
 
-<h2 id="app-application">App | Application</h2>
+<h2 id="app">App</h2>
 
-<p>An end user service created in Altinn Studio is called an application (app).
+<p>An end user service created in Altinn Studio is called an app, short for application.
 The app is deployed to a Altinn Studio Apps environment.
-The application provides two tings:</p>
+The app provides two things:</p>
 
 <ul>
 <li>an interactive user interface for users wishing to submitt data to an application owner, e.g. to fill out a form manually, to read information or to sign an agrement;</li>
-<li>an api that client applications can use to fill out a form automatically.</li>
+<li>an api that client applications can interact with.</li>
 </ul>
 
-<p>The application also has a metadata representation in the application repository (platform storage).</p>
+<p>The application also has a metadata representation in the application repository (platform storage), which defines the various element types that an instance of an application can have.</p>
 
 <p>deprecated term: <del>Service</del></p>
 
@@ -5492,7 +5492,7 @@ The application provides two tings:</p>
 
 <h3 id="application-owner">Application Owner</h3>
 
-<p>The owner of the application. Typical identified by a unique acronoym, e.g. SKD, NAV, OSLK.</p>
+<p>The owner of the application. Typical identified by a unique acronoym representing the organization that owns the app, e.g. SKD, NAV, OSLK.</p>
 
 <p>deprecated term: <del>Service Owner</del></p>
 
@@ -5521,7 +5521,7 @@ It contains information of the formdata and attachements stored associated with 
 
 <h2 id="user">User</h2>
 
-<p>The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user can and an instance owner can be the same entity.</p>
+<p>The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user and an instance owner can be the same entity.</p>
 
 <h3 id="dot-net">dot.net</h3>
 

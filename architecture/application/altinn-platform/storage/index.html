@@ -5381,14 +5381,12 @@ if(host != "localhost")
 <ul>
 <li><a href="#instance">Instance</a>
 <ul>
-<li><a href="#instances">/instances</a></li>
 <li><a href="#instance-type">Instance type</a></li>
 <li><a href="#operations">Operations</a></li>
 <li><a href="#data-service">Data service</a></li>
 </ul></li>
 <li><a href="#application">Application</a>
 <ul>
-<li><a href="#applications">/applications</a></li>
 <li><a href="#application-type">Application type</a></li>
 <li><a href="#operations-1">Operations</a></li>
 </ul></li>
@@ -5436,9 +5434,7 @@ if(host != "localhost")
 
 <h2 id="instance">Instance</h2>
 
-<h3 id="instances">/instances</h3>
-
-<p>An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
+<p>An application instance is created when a instance owner (reportee) starts a workflow in an Altinn application.
 An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
 An appId refers to the application information element which defines the metadata about the application.</p>
@@ -5460,7 +5456,7 @@ An appId refers to the application information element which defines the metadat
         &quot;currentStep&quot;: &quot;FormFilling&quot;,
         &quot;isComplete&quot;: false
     },
-    &quot;status&quot;: {
+    &quot;userStatus&quot;: {
         &quot;isSoftDeleted&quot;: false,
         &quot;isArchived&quot;: false,
         &quot;isMarkedForHardDelete&quot;: false
@@ -5473,7 +5469,7 @@ An appId refers to the application information element which defines the metadat
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;elementType&quot;: &quot;boatdata&quot;,
             &quot;contentType&quot;: &quot;application/json&quot;,
-            &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/data&quot;,
+            &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&quot;,
             &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
@@ -5481,7 +5477,7 @@ An appId refers to the application information element which defines the metadat
             &quot;fileSize&quot;: 2003,
             &quot;isLocked&quot;: true,
             &quot;pdf&quot;: {
-                &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/pdf&quot;,
+                &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf&quot;,
                 &quot;generated&quot;: &quot;2019-05-30T14:38:22+01:00&quot;
             }
         },
@@ -5637,9 +5633,9 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>status</td>
+<td>userStatus</td>
 <td>InboxStatus</td>
-<td>set by user</td>
+<td>statuses that the user can change</td>
 <td>U</td>
 <td></td>
 <td></td>
@@ -5672,27 +5668,28 @@ An appId refers to the application information element which defines the metadat
 
 <p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
 
-<pre><code class="language-http">/instances?appId=TEST/sailor&amp;instanceOwnerId=60238
+<pre><code class="language-http">POST /instances?appId=TEST/sailor&amp;instanceOwnerId=60238
 </code></pre>
 
 <p>Get information about one instance.</p>
 
-<pre><code class="language-http">/instances/{instanceId}
+<pre><code class="language-http">GET /instances/{instanceId}
 </code></pre>
 
 <p>Get (query) all instances that is instance owner has</p>
 
-<pre><code class="language-http">/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;label=xyz]
+<pre><code class="language-http">GET /instances&amp;instanceOwnerId={instanceOwnerId}[&amp;label=xyz]
+GET /instances/{instanceOwnerId}?labels=x,y,z
 </code></pre>
 
 <p>Get (query) all instances of a particular application that is completed</p>
 
-<pre><code class="language-http">/instances?appId={appId}&amp;workflow.isCompleted=true
+<pre><code class="language-http">GET /instances?appId={appId}&amp;workflow.isCompleted=true
 </code></pre>
 
 <p>Delete a specific instance (also deletes its data).</p>
 
-<pre><code class="language-http">/instances/{instanceId}
+<pre><code class="language-http">DELETE /instances/{instanceId}
 </code></pre>
 
 <h3 id="data-service">Data service</h3>
@@ -5718,16 +5715,24 @@ that is used to identify the specific data element</p>
 <pre><code class="language-http">PUT /instances/{instanceId}/data/{dataId}
 </code></pre>
 
+<p>Get a predefined PDF of a data element, if it exists.</p>
+
+<pre><code class="language-http">GET /instances/{instanceId}/data/{dataId}/pdf
+</code></pre>
+
+<p>Update a predefined PDF for a given data element</p>
+
+<pre><code class="language-http">PUT /instances/{instanceId}/data/{dataId}/pdf
+</code></pre>
+
 <h2 id="application">Application</h2>
 
-<h3 id="applications">/applications</h3>
-
-<p>Application metadata used to validate data elements in instances</p>
+<p>Application metadata used to validate data element types in instances. And to provide application events.</p>
 
 <p>Resource: <a href="http://platform.altinn.no/applications/test/sailor">http://platform.altinn.no/applications/test/sailor</a></p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;TEST/sailor&quot;,
+    &quot;id&quot;: &quot;test/sailor&quot;,
     &quot;versionId&quot;: &quot;v32.23-xyp&quot;,
     &quot;org&quot;: &quot;TEST&quot;,
     &quot;app&quot;: &quot;sailor&quot;,
@@ -5747,6 +5752,7 @@ that is used to identify the specific data element</p>
                 &quot;fileName&quot;: &quot;boat.json-schema&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
             },
+            &quot;canRegisterPdf&quot;: true,
             &quot;maxSize&quot;: 200000,
             &quot;maxCount&quot;: 1,
             &quot;shouldSign&quot;: true,
@@ -5758,7 +5764,8 @@ that is used to identify the specific data element</p>
             &quot;schema&quot;: {
                 &quot;fileName&quot;: &quot;crew.xsd&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
-            }
+            },
+            &quot;canRegisterPdf&quot;: true,
             &quot;maxSize&quot;: -1,
             &quot;maxCount&quot;: 3,
             &quot;shouldSign&quot;: false,
@@ -5793,24 +5800,31 @@ maxSize | integer | the maximum number of bytes that the data elements can have<
 
 <p>Get a list of all Applications</p>
 
-<pre><code class="language-http">/applications
+<pre><code class="language-http">GET /applications
 </code></pre>
 
 <p>Get metadata about a specific application</p>
 
-<pre><code class="language-http">/applications/{appId}
+<pre><code class="language-http">GET /applications/{appId}
+</code></pre>
+
+<p>Get application events.</p>
+
+<pre><code class="language-http">GET /applications/{appId}/events
 </code></pre>
 
 <h2 id="instanceevent">InstanceEvent</h2>
 
-<pre><code class="language-http">/instances/{instanceId}/events
+<pre><code class="language-http">GET /instances/{instanceId}/events
 </code></pre>
 
 <p>User actions on an instance trigger instance events such as <em>created</em>, <em>saved</em>, _submitted, <em>deleted</em>. The events are associated with an instance, a user and an instance owner. The events are generated by the application and posted to storage.</p>
 
 <p>Endpoint prefix: storage/api/v1</p>
 
-<p>Format of the JSON object stored in the database</p>
+<p>Format of the JSON object stored in the database.</p>
+
+<p><em>TODO</em>: add data element reference to instance event.</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;:&quot;6dff32bc-0928-4ae8-937c-b362d6941c89&quot;,
@@ -5828,33 +5842,33 @@ maxSize | integer | the maximum number of bytes that the data elements can have<
 <p>Create an event. POST with body.
 <strong>Note</strong> id and createDateTime is set by the system and should not be included in the json object.</p>
 
-<pre><code class="language-http">/instances/{instanceId}/events
+<pre><code class="language-http">POST /instances/{instanceId}/events
 </code></pre>
 
 <p>Get all instance events for a specific instance.</p>
 
-<pre><code class="language-http">/instances/{instanceId}/events
+<pre><code class="language-http">GET /instances/{instanceId}/events
 </code></pre>
 
 <p>Get all instance events for a specific instance filtered by event types</p>
 
-<pre><code class="language-http">/instances/{instanceId}/events?eventTypes={eventTypeA}&amp;eventTypes={eventTypeB}
+<pre><code class="language-http">GET /instances/{instanceId}/events?eventTypes={eventTypeA},{eventTypeB}
 </code></pre>
 
 <p>Get all instance events for a specific instance within a time frame
 The times are strings defined in UTC-format. E.g. &ldquo;2019-05-03T12:55:23&rdquo;</p>
 
-<pre><code class="language-http">/instances/{instanceId}/events?from={fromtime}&amp;to={totime}
+<pre><code class="language-http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}
 </code></pre>
 
 <p>Get all instance events for a specific instance within a time frame filtered by event types</p>
 
-<pre><code class="language-http">/instances/{instanceId}/events?from={fromtime}&amp;to={totime}&amp;eventTypes={eventTypeA}&amp;eventTypes={eventTypeB}
+<pre><code class="language-http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}&amp;eventTypes={eventTypeA},{eventTypeB}
 </code></pre>
 
 <p>Delete all instance events for a specific instance. DELETE request.</p>
 
-<pre><code class="language-http">/instances/{instanceId}/events
+<pre><code class="language-http">DELETE /instances/{instanceId}/events
 </code></pre>
 
 
