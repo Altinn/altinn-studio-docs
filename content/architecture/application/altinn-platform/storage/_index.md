@@ -19,9 +19,7 @@ Resources: Instance, Application, InstanceEvent, ApplicationEvent
 
 ## Instance
 
-### /instances
-
-An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
+An application instance is created when a instance owner (reportee) starts a workflow in an Altinn application.
 An instance replaces Altinn2 Message. 
 An instanceOwner is a person/company that reports information via Altinn.
 An appId refers to the application information element which defines the metadata about the application.
@@ -44,7 +42,7 @@ An appId refers to the application information element which defines the metadat
         "currentStep": "FormFilling",
         "isComplete": false
     },
-    "status": {
+    "userStatus": {
         "isSoftDeleted": false,
         "isArchived": false,
         "isMarkedForHardDelete": false
@@ -57,7 +55,7 @@ An appId refers to the application information element which defines the metadat
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "elementType": "boatdata",
             "contentType": "application/json",
-            "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/data",
+            "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json",
             "fileName": "davidsyacht.json",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
             "createdBy": "XXX",
@@ -65,7 +63,7 @@ An appId refers to the application information element which defines the metadat
             "fileSize": 2003,
             "isLocked": true,
             "pdf": {
-                "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/pdf",
+                "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf",
                 "generated": "2019-05-30T14:38:22+01:00"
             }
         },
@@ -100,7 +98,7 @@ dueDateTime | dateTime? | deadline for submit| | CU
 visibleDateTime | dateTime? | when visible for user | | CU |
 presentationField | string | text shown in inbox | | CU | U
 workflow  | WorkflowState | workflow state info | | | U | (U)
-status | InboxStatus | set by user | U
+userStatus | InboxStatus | statuses that the user can change  | U
 appOwnerStatus | AppOwnerStatus | status from app owner | | CU | |
 data | DataElement[] | data elements | | | CU
 
@@ -109,31 +107,32 @@ data | DataElement[] | data elements | | | CU
 Create a new instance. Post with params that identifies the application and the instance owner.
 
 ```http
-/instances?appId=TEST/sailor&instanceOwnerId=60238
+POST /instances?appId=TEST/sailor&instanceOwnerId=60238
 ```
 
 Get information about one instance.
 
 ```http
-/instances/{instanceId}
+GET /instances/{instanceId}
 ```
 
 Get (query) all instances that is instance owner has
 
 ```http
-/instances&instanceOwnerId={instanceOwnerId}[&label=xyz]
+GET /instances&instanceOwnerId={instanceOwnerId}[&label=xyz]
+GET /instances/{instanceOwnerId}?labels=x,y,z
 ```
 
 Get (query) all instances of a particular application that is completed
 
 ```http
-/instances?appId={appId}&workflow.isCompleted=true
+GET /instances?appId={appId}&workflow.isCompleted=true
 ```
 
 Delete a specific instance (also deletes its data).
 
 ```http
-/instances/{instanceId}
+DELETE /instances/{instanceId}
 ```
 
 ### Data service
@@ -162,17 +161,27 @@ Put to replace a specific data element. Delete to remove data element.
 PUT /instances/{instanceId}/data/{dataId}
 ```
 
+Get a predefined PDF of a data element, if it exists.
+
+```http
+GET /instances/{instanceId}/data/{dataId}/pdf
+```
+
+Update a predefined PDF for a given data element
+
+```http
+PUT /instances/{instanceId}/data/{dataId}/pdf
+```
+
 ## Application
 
-### /applications
-
-Application metadata used to validate data elements in instances
+Application metadata used to validate data element types in instances. And to provide application events.
 
 Resource: http://platform.altinn.no/applications/test/sailor
 
 ```json
 {
-    "id": "TEST/sailor",
+    "id": "test/sailor",
     "versionId": "v32.23-xyp",
     "org": "TEST",
     "app": "sailor",
@@ -192,6 +201,7 @@ Resource: http://platform.altinn.no/applications/test/sailor
                 "fileName": "boat.json-schema",
                 "schemaUrl": "/applications/test/sailor/schemas/boatdata"
             },
+            "canRegisterPdf": true,
             "maxSize": 200000,
             "maxCount": 1,
             "shouldSign": true,
@@ -203,7 +213,8 @@ Resource: http://platform.altinn.no/applications/test/sailor
             "schema": {
                 "fileName": "crew.xsd",
                 "schemaUrl": "/applications/test/sailor/schemas/crewlist",
-            }
+            },
+            "canRegisterPdf": true,
             "maxSize": -1,
             "maxCount": 3,
             "shouldSign": false,
@@ -239,26 +250,34 @@ maxSize | integer | the maximum number of bytes that the data elements can have
 Get a list of all Applications
 
 ```http
-/applications
+GET /applications
 ```
 
 Get metadata about a specific application
 
 ```http
-/applications/{appId}
+GET /applications/{appId}
+```
+
+Get application events.
+
+```http
+GET /applications/{appId}/events
 ```
 
 ## InstanceEvent
 
 ```http
-/instances/{instanceId}/events
+GET /instances/{instanceId}/events
 ```
 
 User actions on an instance trigger instance events such as _created_, _saved_, _submitted, _deleted_. The events are associated with an instance, a user and an instance owner. The events are generated by the application and posted to storage.
 
 Endpoint prefix: storage/api/v1
 
-Format of the JSON object stored in the database
+Format of the JSON object stored in the database. 
+
+*TODO*: add data element reference to instance event.
 
 ```json
 {
@@ -278,35 +297,36 @@ Create an event. POST with body.
 **Note** id and createDateTime is set by the system and should not be included in the json object.
 
 ```http
-/instances/{instanceId}/events
+POST /instances/{instanceId}/events
 ```
 
 Get all instance events for a specific instance.
 
 ```http
-/instances/{instanceId}/events
+GET /instances/{instanceId}/events
 ```
 
 Get all instance events for a specific instance filtered by event types
 
 ```http
-/instances/{instanceId}/events?eventTypes={eventTypeA}&eventTypes={eventTypeB}
+GET /instances/{instanceId}/events?eventTypes={eventTypeA},{eventTypeB}
 ```
 
 Get all instance events for a specific instance within a time frame
 The times are strings defined in UTC-format. E.g. "2019-05-03T12:55:23"
+
 ```http
-/instances/{instanceId}/events?from={fromtime}&to={totime}
+GET /instances/{instanceId}/events?from={fromtime}&to={totime}
 ```
 
 Get all instance events for a specific instance within a time frame filtered by event types
 
 ```http
-/instances/{instanceId}/events?from={fromtime}&to={totime}&eventTypes={eventTypeA}&eventTypes={eventTypeB}
+GET /instances/{instanceId}/events?from={fromtime}&to={totime}&eventTypes={eventTypeA},{eventTypeB}
 ```
 
 Delete all instance events for a specific instance. DELETE request.
 
 ```http
-/instances/{instanceId}/events
+DELETE /instances/{instanceId}/events
 ```
