@@ -44,12 +44,23 @@ The below diagram shows how
 {{% /excerpt%}}
 
 ## API for Org systems
-This API is used to authenticate the org systems.
+This API is used to authenticate the org systems. 
 
 To authenticate a system like this Altinn Platform requires that the system is registred as a client in Maskinporten for a given org.
+The org need also to be given scopes that matches the scopes for the API requested in Maskinporten. 
 
-The org system would need to request a access token from Maskinporten. This token will be used in the org API in Authentication component in the Altinn Platform
-to create a JWT token that can be used for all org apis in Apps and platform. 
+This will be given by Altinn. 
+
+The org system should be given the scope needed by the administrator of org. (done through Maskinporten API described under 4 [here](https://difi.github.io/idporten-oidc-dokumentasjon/oidc_guide_maskinporten.html#4-konfigurere-oauth2-klient))
+
+The org system would need to request a access token from Maskinporten with the correct scope. 
+This token will be used in the org API in Authentication component in the Altinn Platform
+to create a new JWT token that can be used for all org apis in Apps and platform. 
+
+During the verification process of the Maskinporten JWT token the scope and org is verified. 
+
+The below sequence diagram show how this will happen. 
+
 
 {{%excerpt%}}
 <object data="/architecture/security/authentication/altinn-platform/loginprocess_org.svg" type="image/svg+xml" style="width: 100%;";></object>
