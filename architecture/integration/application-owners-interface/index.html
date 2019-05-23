@@ -5374,7 +5374,7 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#task-1-application-owner-can-query-instances-for-a-given-application-1">Task 1: Application owner can query instances for a given application (1)</a>
+<li><a href="#application-owner-can-query-instances-for-a-given-application-1">Application owner can query instances for a given application (1)</a>
 <ul>
 <li><a href="#step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded</a></li>
 <li><a href="#step-2-download-form-data">Step 2: Download form data</a></li>
@@ -5412,10 +5412,16 @@ if(host != "localhost")
 
 <p>Application owners must have access to metadata about all instances of a particular application and have the possiblity to download the form data of the instance when necessary.</p>
 
-<p>An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
-An instance replaces Altinn2 message.
+<p>An application instance is created when:</p>
+
+<ul>
+<li>a instance owner (reportee) creates an instance from Altinn by starting an application</li>
+<li>the application owner creates an instance for a specific reportee</li>
+</ul>
+
+<p>An instance replaces Altinn2 message.
 An instanceOwner is a person/company that reports information via Altinn.
-An applicationId refers to the application information element which defines the metadata about the application.
+An appId refers to the application information element which defines the metadata about the application.
 The Platform Storage module provides persistent storage service for all applications in Altinn.
 It is used by applications to store information about <em>instances</em> and their <em>data</em> elements.</p>
 
@@ -5427,24 +5433,22 @@ It is used by applications to store information about <em>instances</em> and the
 <li>get all data elements that has reached a workflow state since a given time period (not MVP)</li>
 </ol>
 
-<h2 id="task-1-application-owner-can-query-instances-for-a-given-application-1">Task 1: Application owner can query instances for a given application (1)</h2>
+<h2 id="application-owner-can-query-instances-for-a-given-application-1">Application owner can query instances for a given application (1)</h2>
 
 <h3 id="step-one-find-instances-that-should-be-downloaded">Step one: Find instances that should be downloaded</h3>
 
 <p>Query parameters:</p>
 
 <ul>
-<li><code>applicationId=TEST-sailor</code> Finds all instances of an identified application.</li>
-<li><code>workflowStep=submitted</code> Finds all instances that have a given workflow state.</li>
-<li><code>updatedAfter=2020-01-04</code> Finds all instances that were updated after the given date.</li>
-<li><code>downloadedByOwner=false</code> Finds all instances that are not downloaded by the application owner previously.</li>
-<li><code>formId=main</code> Finds all instances that has a form data element with a specified formId.</li>
+<li><code>appId=TEST-sailor</code> Finds all instances of an identified application.</li>
+<li><code>workflow.currentStep=Submit</code> Finds all instances that have a given workflow state.</li>
+<li><code>elementType=main</code> Finds all instances that has a form data element with a specified element type.</li>
 <li><code>size=50&amp;page=2</code> Returns page two of the matching instances where each page has 50 items, e.g. instances numbered 50-99 in the result query. Size of 100 is default.</li>
 </ul>
 
 <p>Query example</p>
 
-<pre><code class="language-html">GET /instances?applicationId=TEST-sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist
+<pre><code class="language-html">GET /instances?appId=test/sailor&amp;workflow.currentStep=Submit&amp;elementType=crewlist
 </code></pre>
 
 <p>The result of such a query is a document that lists (by default) the 100 first instances and indicates the total number of instances that match the query.</p>
@@ -5453,17 +5457,17 @@ It is used by applications to store information about <em>instances</em> and the
     &quot;total&quot;: 29349,
     &quot;links&quot;: {
         &quot;self&quot;: { 
-            &quot;href&quot;: &quot;/instances?applicationId=TEST-sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=3&quot;
+            &quot;href&quot;: &quot;/instances?appId=test/sailor&amp;workflow.currentStep=submitted&amp;elementType=crewlist?page=3&quot;
         },
         &quot;last&quot;: {
-            &quot;href&quot;: &quot;/instances?applicationId=TEST-sailor&amp;workflowStep=submitted&amp;downloadedByOwner=false&amp;formId=crewlist?page=294&quot;
+            &quot;href&quot;: &quot;/instances?applId=test/sailor&amp;workflow.currentStep=Submit&amp;elementType=crewlist?page=294&quot;
         }
     },
     &quot;content&quot;: [
         {
-            &quot;id&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-            &quot;applicationId&quot;: &quot;TEST-sailor&quot;,
-            &quot;applicationOwnerId&quot;: &quot;TEST&quot;,
+            &quot;id&quot;: &quot;5024/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;appId&quot;: &quot;test/sailor&quot;,
+            &quot;org&quot;: &quot;test&quot;,
             &quot;instanceOwnerId&quot;: &quot;5024&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
             &quot;createdBy&quot;: &quot;user32&quot;,
@@ -5471,13 +5475,15 @@ It is used by applications to store information about <em>instances</em> and the
             &quot;lastChangedBy&quot;: &quot;user34&quot;,
             &quot;dueDateTime&quot;: null,
             &quot;visibleDateTime&quot;: null,
-            &quot;presentationField&quot;: &quot;Færder påmelding 2019&quot;,
-            &quot;currentWorkflowStep&quot;: &quot;submitted&quot;,
-            &quot;isCompleted&quot;: true,
+            &quot;presentationField&quot;: { &quot;nb&quot;: &quot;Færder påmelding 2019&quot;},
+            &quot;workflow&quot; : {
+                &quot;currentStep&quot;: &quot;Submit&quot;,
+                &quot;isCompleted&quot;: true
+            },
             &quot;data&quot;: [
                 {
                     &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-                    &quot;formId&quot;: &quot;boatdata&quot;,
+                    &quot;elementType&quot;: &quot;boatdata&quot;,
                     &quot;contentType&quot;: &quot;application/json&quot;,
                     &quot;storageUrl&quot;: &quot;TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
                     &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
@@ -5486,7 +5492,8 @@ It is used by applications to store information about <em>instances</em> and the
                     &quot;createdBy&quot;: &quot;XXX&quot;,
                     &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
                     &quot;fileSize&quot;: 2003,
-                    &quot;downloadsByApplicationOwner&quot;:
+                    &quot;isLocked&quot;: true,
+                    &quot;appOwner&quot;:
                         {
                             &quot;downloaded&quot;: [&quot;2019-03-03T14:35:20+01:00&quot;, &quot;2019-03-04T09:35:16+01:00&quot;],
                             &quot;confirmed&quot;: [&quot;2019-03-05T14:00:01+01:00&quot;]
@@ -5494,7 +5501,7 @@ It is used by applications to store information about <em>instances</em> and the
                 },
                 {
                     &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
-                    &quot;formId&quot;: &quot;crewlist&quot;,
+                    &quot;elementType&quot;: &quot;crewlist&quot;,
                     &quot;contentType&quot;: &quot;text/xml&quot;,
                     &quot;storageUrl&quot;: &quot;TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
                     &quot;link&quot;: &quot;/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
@@ -5522,7 +5529,7 @@ It is used by applications to store information about <em>instances</em> and the
 
 <p>After a successfull download the Application Owner should confirm that it succeded.</p>
 
-<pre><code class="language-http">POST /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30/downloadConfirmed
+<pre><code class="language-http">POST /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30/confirmDownload
 </code></pre>
 
 
