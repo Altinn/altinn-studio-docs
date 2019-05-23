@@ -43,8 +43,13 @@ The below diagram shows how
 <object data="/architecture/security/authentication/altinn-platform/loginprocess_ec.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
-
 ## API for Org systems
+This API is used to authenticate the org systems.
+
+To authenticate a system like this Altinn Platform requires that the system is registred as a client in Maskinporten for a given org.
+
+The org system would need to request a access token from Maskinporten. This token will be used in the org API in Authentication component in the Altinn Platform
+to create a JWT token that can be used for all org apis in Apps and platform. 
 
 {{%excerpt%}}
 <object data="/architecture/security/authentication/altinn-platform/loginprocess_org.svg" type="image/svg+xml" style="width: 100%;";></object>
