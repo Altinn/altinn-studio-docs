@@ -114,7 +114,7 @@ This call will return the instance metadata record which was created. A unique i
         "currentStep": "FormFilling",
         "isComplete": false
     },
-    "userStatus": {
+    "instanceOwnerStatus": {
         "isArchived": false,
         "isSoftDeleted": false,
         "isMarkedForHardDelete": false
