@@ -351,7 +351,7 @@
 			<path d="M7.09 465.03 L25.09 465.03 L25.09 499.05 L15.57 499.05" class="st4"/>
 			<rect v:rectContext="textBkgnd" x="-58.5924" y="467.639" width="131.358" height="28.7996" class="st6"/>
 			<text x="-58.59" y="474.84" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Generate Jwt Bearer authorization grant <v:newlineChar/><tspan
-						x="-52.9" dy="1.2em" class="st9">signed with symmetric or private key<v:lf/></tspan><tspan x="-40.55"
-						dy="1.2em" class="st9">requested with Altinn.api.org</tspan></text>		</g>
+						x="-52.9" dy="1.2em" class="st9">signed with symmetric or private key<v:lf/></tspan><tspan x="-50.91"
+						dy="1.2em" class="st9">requested with Altinn.api.org scope</tspan></text>		</g>
 	</g>
 </svg>
