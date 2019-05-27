@@ -29,7 +29,7 @@ The below sequence diagram shows how the app events are combined with other logi
 
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
 
