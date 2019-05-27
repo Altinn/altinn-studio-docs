@@ -9,6 +9,71 @@ weight: 100
 WARNING: Component library will be documented when the [task](https://github.com/Altinn/altinn-studio/issues/168) is done.
 {{% /notice %}}
 
-### Component library
+## Summary
 
-To be continued...
+All shared components are to be documented in Markdown with inline JSX.
+
+* All shared components shall have a corresponding component.md file in the same directory.
+* The shared component must hava a default export function AND also exporting the rendered function.
+* [React Styleguidist](https://react-styleguidist.js.org) is used to build the documentation site.
+* The Component Library is currently a local dev server
+
+### Running dev server
+
+> "npm run styleguide" from src\react-apps\applications\shared
+
+### Example markdown
+
+~~~markdown
+### Default button
+
+```jsx
+<AltinnButton
+  btnText='Altinn button with some text'
+/>
+```
+
+### Disabled button
+
+```jsx
+<AltinnButton
+  btnText='Disabled button'
+  disabled={true}
+/>
+```
+
+### Secondary button
+
+```jsx
+<AltinnButton
+  btnText='Secondary button'
+  secondaryButton={true}
+/>
+```
+
+### Click function
+
+Altinn button supports onClickFunction via the onClickFunction prop.
+
+```jsx
+const myFunc = () => {
+  console.log('My Function');
+}
+<AltinnButton
+  btnText='Button with onClickFunction'
+  onClickFunction={myFunc}
+/>
+```
+
+### Styling
+
+Altinn button also supports Material-UI class objects (classes.someObject) passed via the optional className prop.
+
+```jsx static
+<AltinnButton
+  btnText='Secondary button'
+  className={classes.someClassObject}
+/>
+```
+
+~~~
