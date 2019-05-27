@@ -5382,6 +5382,7 @@ if(host != "localhost")
 <li><a href="#summary">Summary</a>
 <ul>
 <li><a href="#running-dev-server">Running dev server</a></li>
+<li><a href="#inline-comments-on-props">Inline comments on props</a></li>
 <li><a href="#example-markdown">Example markdown</a></li>
 </ul></li>
 </ul></li>
@@ -5434,6 +5435,30 @@ if(host != "localhost")
 <blockquote>
 <p>&ldquo;npm run styleguide&rdquo; from src\react-apps\applications\shared</p>
 </blockquote>
+
+<h3 id="inline-comments-on-props">Inline comments on props</h3>
+
+<ul>
+<li>Reacy Styleguidist supports inline comments. Props <em>should</em> have inline comments.</li>
+</ul>
+
+<pre><code class="language-javascript">export interface IAltinnButtonComponentProvidedProps extends WithStyles&lt;typeof styles&gt; {
+  /** Button ID */
+  id?: any;
+  /** @ignore */
+  classes: any;
+  /** Text shown on button */
+  btnText: string;
+  /** onClick function */
+  onClickFunction?: any;
+  /** Class objects created with Material-Ui's createStyle */
+  className?: any;
+  /** Secondary styling */
+  secondaryButton?: boolean;
+  /** Disabled styling */
+  disabled?: boolean;
+}
+</code></pre>
 
 <h3 id="example-markdown">Example markdown</h3>
 
