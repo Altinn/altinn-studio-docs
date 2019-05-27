@@ -8,5 +8,5 @@ alwaysopen: false
 ---
 
 
-Since the Authentication architecture for Altinn Apps and Altinn Platform is a combined solution this is described together under [Altinn Platform](../altinnn-platform)
+Since the Authentication architecture for Altinn Apps and Altinn Platform is a combined solution this is described together under [Altinn Platform](../altinn-platform)
 
