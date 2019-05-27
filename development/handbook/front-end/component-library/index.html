@@ -5379,9 +5379,10 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#summary">Summary</a>
 <ul>
-<li><a href="#component-library">Component library</a></li>
+<li><a href="#running-dev-server">Running dev server</a></li>
+<li><a href="#example-markdown">Example markdown</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5417,9 +5418,77 @@ if(host != "localhost")
 </div>
 
 
-<h3 id="component-library">Component library</h3>
+<h2 id="summary">Summary</h2>
 
-<p>To be continued&hellip;</p>
+<p>All shared components are to be documented in Markdown with inline JSX.</p>
+
+<ul>
+<li>All shared components shall have a corresponding component.md file in the same directory.</li>
+<li>The shared component must hava a default export function AND also exporting the rendered function.</li>
+<li><a href="https://react-styleguidist.js.org">React Styleguidist</a> is used to build the documentation site.</li>
+<li>The Component Library is currently a local dev server</li>
+</ul>
+
+<h3 id="running-dev-server">Running dev server</h3>
+
+<blockquote>
+<p>&ldquo;npm run styleguide&rdquo; from src\react-apps\applications\shared</p>
+</blockquote>
+
+<h3 id="example-markdown">Example markdown</h3>
+
+<pre><code class="language-markdown">### Default button
+
+```jsx
+&lt;AltinnButton
+  btnText='Altinn button with some text'
+/&gt;
+```
+
+### Disabled button
+
+```jsx
+&lt;AltinnButton
+  btnText='Disabled button'
+  disabled={true}
+/&gt;
+```
+
+### Secondary button
+
+```jsx
+&lt;AltinnButton
+  btnText='Secondary button'
+  secondaryButton={true}
+/&gt;
+```
+
+### Click function
+
+Altinn button supports onClickFunction via the onClickFunction prop.
+
+```jsx
+const myFunc = () =&gt; {
+  console.log('My Function');
+}
+&lt;AltinnButton
+  btnText='Button with onClickFunction'
+  onClickFunction={myFunc}
+/&gt;
+```
+
+### Styling
+
+Altinn button also supports Material-UI class objects (classes.someObject) passed via the optional className prop.
+
+```jsx static
+&lt;AltinnButton
+  btnText='Secondary button'
+  className={classes.someClassObject}
+/&gt;
+```
+
+</code></pre>
 
 
 <footer class=" footline" >
