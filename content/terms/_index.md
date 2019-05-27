@@ -28,8 +28,8 @@ and [deployment architecture]
 
 ### Altinn Studio
 
-The web based development tool for creating end user service: Application.
-Lets the service developer create services that are deployed like a seperate application (app). 
+The web based development tool for creating end user application.
+Lets the application developer create apps that are deployed like a seperate application environment called Altinn Apps. 
 
 ### Altinn Apps environment
 
@@ -44,16 +44,16 @@ Altinn Studio Repos is the source control solution for Altinn Studio. All apps d
 
 Application Programmers Interface.
 
-## App | Application
+## App
 
-An end user service created in Altinn Studio is called an application (app). 
+An end user service created in Altinn Studio is called an app, short for application. 
 The app is deployed to a Altinn Studio Apps environment.
-The application provides two tings: 
+The app provides two things: 
 
 - an interactive user interface for users wishing to submitt data to an application owner, e.g. to fill out a form manually, to read information or to sign an agrement;
-- an api that client applications can use to fill out a form automatically.
+- an api that client applications can interact with.
 
-The application also has a metadata representation in the application repository (platform storage).
+The application also has a metadata representation in the application repository (platform storage), which defines the various element types that an instance of an application can have.
 
 deprecated term: ~~Service~~
 
@@ -63,7 +63,7 @@ A user developing application in Altinn Studio.
 
 ### Application Owner
 
-The owner of the application. Typical identified by a unique acronoym, e.g. SKD, NAV, OSLK.
+The owner of the application. Typical identified by a unique acronoym representing the organization that owns the app, e.g. SKD, NAV, OSLK.
 
 deprecated term: ~~Service Owner~~
 
@@ -92,7 +92,7 @@ deprecated term: ~~Reportee~~
 
 ## User
 
-The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user can and an instance owner can be the same entity.
+The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user and an instance owner can be the same entity.
 
 ### dot.net 
 

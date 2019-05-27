@@ -9,10 +9,14 @@ alwaysopen: true
 
 Application owners must have access to metadata about all instances of a particular application and have the possiblity to download the form data of the instance when necessary.
 
-An application instance is created when a instance onwer (reportee) starts a workflow in an Altinn application.
+An application instance is created when:
+
+* a instance owner (reportee) creates an instance from Altinn by starting an application
+* the application owner creates an instance for a specific reportee
+
 An instance replaces Altinn2 message. 
 An instanceOwner is a person/company that reports information via Altinn.
-An applicationId refers to the application information element which defines the metadata about the application.
+An appId refers to the application information element which defines the metadata about the application.
 The Platform Storage module provides persistent storage service for all applications in Altinn. 
 It is used by applications to store information about *instances* and their *data* elements. 
 
@@ -22,23 +26,21 @@ An application owner will typically want to do one or more of the following task
 2. be notified that an instance has reached a given workflow state, so that data elements can be downloaded (not MVP)
 3. get all data elements that has reached a workflow state since a given time period (not MVP)
 
-## Task 1: Application owner can query instances for a given application (1)
+## Application owner can query instances for a given application (1)
 
 ### Step one: Find instances that should be downloaded
 
 Query parameters:
 
-* ```applicationId=TEST-sailor``` Finds all instances of an identified application.
-* ```workflowStep=submitted``` Finds all instances that have a given workflow state.
-* ```updatedAfter=2020-01-04``` Finds all instances that were updated after the given date.
-* ```downloadedByOwner=false``` Finds all instances that are not downloaded by the application owner previously.
-* ```formId=main``` Finds all instances that has a form data element with a specified formId.
+* ```appId=TEST-sailor``` Finds all instances of an identified application.
+* ```workflow.currentStep=Submit``` Finds all instances that have a given workflow state.
+* ```elementType=main``` Finds all instances that has a form data element with a specified element type.
 * ```size=50&page=2``` Returns page two of the matching instances where each page has 50 items, e.g. instances numbered 50-99 in the result query. Size of 100 is default.
 
 Query example
 
 ```html
-GET /instances?applicationId=TEST-sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist
+GET /instances?appId=test/sailor&workflow.currentStep=Submit&elementType=crewlist
 ```
 
 The result of such a query is a document that lists (by default) the 100 first instances and indicates the total number of instances that match the query.
@@ -48,17 +50,17 @@ The result of such a query is a document that lists (by default) the 100 first i
     "total": 29349,
     "links": {
         "self": { 
-            "href": "/instances?applicationId=TEST-sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist?page=3"
+            "href": "/instances?appId=test/sailor&workflow.currentStep=submitted&elementType=crewlist?page=3"
         },
         "last": {
-            "href": "/instances?applicationId=TEST-sailor&workflowStep=submitted&downloadedByOwner=false&formId=crewlist?page=294"
+            "href": "/instances?applId=test/sailor&workflow.currentStep=Submit&elementType=crewlist?page=294"
         }
     },
     "content": [
         {
-            "id": "762011d1-d341-4c0a-8641-d8a104e83d30",
-            "applicationId": "TEST-sailor",
-            "applicationOwnerId": "TEST",
+            "id": "5024/762011d1-d341-4c0a-8641-d8a104e83d30",
+            "appId": "test/sailor",
+            "org": "test",
             "instanceOwnerId": "5024",
             "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
             "createdBy": "user32",
@@ -66,13 +68,15 @@ The result of such a query is a document that lists (by default) the 100 first i
             "lastChangedBy": "user34",
             "dueDateTime": null,
             "visibleDateTime": null,
-            "presentationField": "Færder påmelding 2019",
-            "currentWorkflowStep": "submitted",
-            "isCompleted": true,
+            "presentationField": { "nb": "Færder påmelding 2019"},
+            "workflow" : {
+                "currentStep": "Submit",
+                "isCompleted": true
+            },
             "data": [
                 {
                     "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-                    "formId": "boatdata",
+                    "elementType": "boatdata",
                     "contentType": "application/json",
                     "storageUrl": "TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
                     "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
@@ -81,7 +85,8 @@ The result of such a query is a document that lists (by default) the 100 first i
                     "createdBy": "XXX",
                     "signature": "oajviojoi2j3l23889yv8js909u293840zz092u3",
                     "fileSize": 2003,
-                    "downloadsByApplicationOwner":
+                    "isLocked": true,
+                    "appOwner":
                         {
                             "downloaded": ["2019-03-03T14:35:20+01:00", "2019-03-04T09:35:16+01:00"],
                             "confirmed": ["2019-03-05T14:00:01+01:00"]
@@ -89,7 +94,7 @@ The result of such a query is a document that lists (by default) the 100 first i
                 },
                 {
                     "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
-                    "formId": "crewlist",
+                    "elementType": "crewlist",
                     "contentType": "text/xml",
                     "storageUrl": "TEST/TEST-sailor/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
                     "link": "/instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
@@ -119,6 +124,6 @@ GET /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641
 After a successfull download the Application Owner should confirm that it succeded.
 
 ```http
-POST /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30/downloadConfirmed
+POST /instances/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30/confirmDownload
 ```
 
