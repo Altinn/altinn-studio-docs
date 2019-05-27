@@ -43,18 +43,18 @@ Here is an example on how the form layout file could look like:
 	"dataModelBindings": {
 		"simpleBinding": "skattyterinfor.info.oppgavegiverAdressePreutfylt.value",
 	},
-	"hidden": false
+	"hidden": false,
   },
   "95ddc03a-282a-4ed3-b854-18a3921eec0f": {
 	"type": "Input",
 	"itemType": "COMPONENT",
 	"textResourceBindings": {
-		"title": "title": "2.KontaktpersonNavn.Label",
+		"title": "2.KontaktpersonNavn.Label",
 	},
 	"dataModelBindings": {
 		"simpleBinding": "skattyterinfor.kontakt.kontaktpersonNavn.value",
 	},
-  }
+  },
 },
 "containers": {
   "6eb99041-1ecc-4e83-9312-596a0802e728": {
