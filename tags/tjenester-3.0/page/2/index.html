@@ -1960,6 +1960,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/architecture/application/altinn-apps/serviceevents/" class="dd-item
+     
+      ">
+        <a href="/architecture/application/altinn-apps/serviceevents/">
+        <span>Application Events</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/architecture/application/altinn-apps/react-app/" class="dd-item 
         
         
@@ -1975,26 +1995,6 @@ if(host != "localhost")
       </a>
               
     </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/architecture/application/altinn-apps/serviceevents/" class="dd-item
-     
-      ">
-        <a href="/architecture/application/altinn-apps/serviceevents/">
-        <span>Service Events</span> 
-        
-        </a></li>
-     
   
  
 
@@ -5381,11 +5381,15 @@ if(host != "localhost")
 	
 	   <article class="post solutions">
     <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">RuleHandler.js</a></h2>
+        <h2 class="post-title"><a href="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/">InstansiationHandler.cs</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Overordnet Filen RuleHandler.js brukes til å lage metoder som skal benyttes for til kalkuleringer/regler på felter i datamodellen eller for å skape dynamikk i et skjema.
-Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regler i skjema og de 2 andre benyttes til dynamikk i skjema. ruleHandlerObject og conditionalRuleHandlerObject skal benyttes til å definere metoder som kan brukes til kalkuleringer/regler i skjema. Alle metodene har et objekt som input parameter og en output verdi, strukturen på input objektet er beskrevet i ruleHandlerHelper og conditionalRuleHandlerHelper. <a class="read-more" href="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">&raquo;</a></p>
+        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.
+Overordnet &lsquo;InstansiationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som hånderer instansiering av en tjeneste.
+Format Standard C# kode som kan gjøre bortimot alt.
+Uavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.
+Utvikling Under opprettelse av en tjeneste vil en tom InstansiationHandler opprettes.
+Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5407,15 +5411,13 @@ Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regle
 
 
 	
-	   <article class="post architecture">
+	   <article class="post solutions">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-apps/serviceevents/">Service events</a></h2>
+        <h2 class="post-title"><a href="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">RuleHandler.js</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>NOTE: Work in progress. Stuff will change
-Service Events The runtime has a defined event model that can be used by the service developer to controll when logic in the service implementation will run.
-These events are mapped to functional events triggered by end users or systems.
-Instansiation Instansiation is when the end user or system instansiates a new service instance. Events connected to instansiation can contain logic that can prefill the datamodell or validate if the user or system is allowed to instansiate that service. <a class="read-more" href="/architecture/application/altinn-apps/serviceevents/">&raquo;</a></p>
+        <p>Overordnet Filen RuleHandler.js brukes til å lage metoder som skal benyttes for til kalkuleringer/regler på felter i datamodellen eller for å skape dynamikk i et skjema.
+Format Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regler i skjema og de 2 andre benyttes til dynamikk i skjema. ruleHandlerObject og conditionalRuleHandlerObject skal benyttes til å definere metoder som kan brukes til kalkuleringer/regler i skjema. Alle metodene har et objekt som input parameter og en output verdi, strukturen på input objektet er beskrevet i ruleHandlerHelper og conditionalRuleHandlerHelper. <a class="read-more" href="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5425,6 +5427,8 @@ Instansiation Instansiation is when the end user or system instansiates a new se
           
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
             
         
 
