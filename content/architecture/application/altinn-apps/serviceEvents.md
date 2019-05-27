@@ -1,7 +1,7 @@
 ---
-title: Service events
-linktitle: Service Events
-description: Description of service events
+title: Application events
+linktitle: Application Events
+description: Description of application events
 tags: ["tjenester 3.0"]
 weight: 100
 ---
@@ -9,7 +9,7 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-#### Service Events
+#### Application Events
 The runtime has a defined event model that can be used by the service developer
 to controll when logic in the service implementation will run.
 
@@ -23,6 +23,16 @@ or validate if the user or system is allowed to instansiate that service.
 {{%excerpt%}}
 <object data="/architecture/application/altinn-studio-apps/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
+
+
+The below sequence diagram shows how the app events are combined with other logic
+
+
+{{%excerpt%}}
+<object data="/architecture/application/altinn-studio-apps/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+{{% /excerpt%}}
+
+
 
 ##### Load form data (GET)
 Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
