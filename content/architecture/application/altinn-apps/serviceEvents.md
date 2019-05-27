@@ -21,7 +21,7 @@ Events connected to instansiation can contain logic that can prefill the datamod
 or validate if the user or system is allowed to instansiate that service.
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-studio-apps/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 
@@ -29,7 +29,7 @@ The below sequence diagram shows how the app events are combined with other logi
 
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-studio-apps/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 
@@ -41,7 +41,7 @@ the latest updated form data.
 The following events will be performed
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-studio-apps/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 #### Storing of form data (POST)
@@ -61,7 +61,7 @@ The API for updating form data support different modes
 The order of events are
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-studio-apps/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 #### Update form data (PUT)
@@ -71,6 +71,6 @@ want to update a existing form connected to a service instance
 The following events happens:
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-studio-apps/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object>
 {{% /excerpt%}}
 
