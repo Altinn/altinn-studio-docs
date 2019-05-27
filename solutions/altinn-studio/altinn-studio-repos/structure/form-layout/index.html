@@ -5419,43 +5419,54 @@ if(host != "localhost")
 
 <h2 id="overordnet">Overordnet</h2>
 
-<p>&lsquo;FormLayout.json&rsquo; beskriver strukturen til et skjema.</p>
+<p>&lsquo;FormLayout.json&rsquo; describes the structure of a schema.</p>
 
 <h2 id="format">Format</h2>
 
-<p>&lsquo;FormLayout.json&rsquo; er oppdelt i tre objekter:</p>
+<p>&lsquo;FormLayout.json&rsquo; is divided into three objects:</p>
 
 <ul>
-<li><em>Components</em>: beskriver komponentene skjema består av og konfigurasjoner tilknyttet den komponenten som feks binding til datamodel.</li>
-<li><em>Containers</em>: beskriver layout-containere som brukes i skjema, og konfigurasjoner tilknyttet disse som f.eks. om den representerer en
-repeterende gruppe</li>
-<li><em>Order</em>: spesifiserer rekkefølgen containere og komponentenene inne i containerne skal ligge i.</li>
+<li><em>Components</em>: describes the components in the schema and configurations connected to the specific component. E.g the binding to a data model.</li>
+<li><em>Containers</em>: describes the layout containers used in the schema and the configurations connected to them. E.g if the container is a repeating group</li>
+<li><em>Order</em>: this object specify the order of the containers and components in the schema.</li>
 </ul>
 
 <h2 id="eksempel">Eksempel</h2>
 
-<p>Under er et eksempel på hvordan layout filen kan se ut:</p>
+<p>Here is an example on how the form layout file could look like:</p>
 
 <pre><code>
 &quot;components&quot;: {
   &quot;a3569c64-2a54-493c-a2a2-213034ed9207&quot;: {
-    &quot;component&quot;: &quot;Input&quot;,
+    &quot;type&quot;: &quot;Input&quot;,
     &quot;itemType&quot;: &quot;COMPONENT&quot;,
-    &quot;title&quot;: &quot;25795.OppgavegiverNavnPreutfylt.Label&quot;,
-    &quot;dataModelBinding&quot;: &quot;skattyterinfor.info.oppgavegiverNavnPreutfylt.value&quot;
+    &quot;textResourceBindings&quot;: {
+        &quot;title&quot;: &quot;25795.OppgavegiverNavnPreutfylt.Label&quot;,
+    },
+    &quot;dataModelBindings&quot;: {
+        &quot;simpleBinding&quot;: &quot;skattyterinfor.info.oppgavegiverNavnPreutfylt.value&quot;,
+    },
   },
   &quot;74b7ff77-a80b-45d4-8f4a-81d7a52e69c6&quot;: {
-    &quot;component&quot;: &quot;Input&quot;,
+    &quot;type&quot;: &quot;Input&quot;,
     &quot;itemType&quot;: &quot;COMPONENT&quot;,
-    &quot;title&quot;: &quot;25796.OppgavegiverAdressePreutfylt.Label&quot;,
-    &quot;dataModelBinding&quot;: &quot;skattyterinfor.info.oppgavegiverAdressePreutfylt.value&quot;,
+    &quot;textResourceBindings&quot;: {
+        &quot;title&quot;: &quot;25796.OppgavegiverAdressePreutfylt.Label&quot;,
+    },
+    &quot;dataModelBindings&quot;: {
+        &quot;simpleBinding&quot;: &quot;skattyterinfor.info.oppgavegiverAdressePreutfylt.value&quot;,
+    },
     &quot;hidden&quot;: false
   },
   &quot;95ddc03a-282a-4ed3-b854-18a3921eec0f&quot;: {
-    &quot;component&quot;: &quot;Input&quot;,
+    &quot;type&quot;: &quot;Input&quot;,
     &quot;itemType&quot;: &quot;COMPONENT&quot;,
-    &quot;title&quot;: &quot;2.KontaktpersonNavn.Label&quot;,
-    &quot;dataModelBinding&quot;: &quot;skattyterinfor.kontakt.kontaktpersonNavn.value&quot;
+    &quot;textResourceBindings&quot;: {
+        &quot;title&quot;: &quot;title&quot;: &quot;2.KontaktpersonNavn.Label&quot;,
+    },
+    &quot;dataModelBindings&quot;: {
+        &quot;simpleBinding&quot;: &quot;skattyterinfor.kontakt.kontaktpersonNavn.value&quot;,
+    },
   }
 },
 &quot;containers&quot;: {
