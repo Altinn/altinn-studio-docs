@@ -7,11 +7,11 @@ weight: 100
 
 ## Overview
 
-'applicationmetadata.json' describes meta information of an application. This is automatically generated on creating a new application. This is located at <application developer>\<organisation name>\<applicationname>\Metadata\applciationmetadata.json
+'applicationmetadata.json' describes meta information of an application. This is automatically generated on creation of a new application. This is located at <application developer>\<organisation name>\<applicationname>\Metadata\applciationmetadata.json
 
 ## Format
 
-'applicationmetadata.json' has the application information such as  application id, version information, organisation that owns the application, workflow information, form and attachment information.
+'applicationmetadata.json' has the application information such as application id, version information, organisation that owns the application, workflow information, form and attachment information.
 
 ## Application Metadata Format
 
