@@ -1325,6 +1325,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/">
+        <span>applicationmetadata.json</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/" class="dd-item 
         
         
@@ -3658,6 +3685,33 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/development/handbook/azure-dev-spaces/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/azure-dev-spaces/">
+        <span>Azure Dev Spaces</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/development/handbook/back-end/" class="dd-item 
         
         
@@ -5381,6 +5435,38 @@ if(host != "localhost")
 	
 	   <article class="post development">
     <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/loadbalancer/">Loadbalancer</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Loadbalancer The loadbalancer config is stored as a configmap in our kubernetes cluster. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
+Apply the changes, and restart the pod:
+Option 1: kill the pod and let the deployment spinn up a new pod.
+Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/development/handbook/loadbalancer/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/loadbalancer/">loadbalancer</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
         <h2 class="post-title"><a href="/development/handbook/naming/">Naming Conventions</a></h2>
     </header>
     <section class="post-excerpt">
@@ -5678,38 +5764,6 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
                 <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/test/">test</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/test/testcafe/">Testcafe</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to writing automation code with java script and debug of the tests.
-Clone project in Visual Studio Code 1. Create account in github.com 2. Get write access to AltinnStudio - https://github.com/Altinn/altinn-studio 3. Use windows 10 image with docker 4. Create a folder - C:\Altinn Studio 5. Open Visual Studio Code 6. <a class="read-more" href="/development/handbook/test/testcafe/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/test/">test</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/testcafe/">testcafe</a>
             
         
 
@@ -6456,6 +6510,22 @@ Clone project in Visual Studio Code 1. Create account in github.com 2. Get write
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -7685,6 +7755,22 @@ Clone project in Visual Studio Code 1. Create account in github.com 2. Get write
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

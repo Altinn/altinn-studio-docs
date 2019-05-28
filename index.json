@@ -245,6 +245,13 @@
 	"content": " Text components    Component name Available properties Properties editor Default look   Title   Title text Title type (H2, H3, H4)      Paragraph   Paragraph text       Basic form components    Component name Available properties Properties editor Default look   Input   Link to data model Label text Description text      Checkboxes   Link to data model Label text Description text Method to add options (codelist/manual) Codelist name Manual option  Label Value  Pre-selected choice   Manual adding of options   Adding options via codelist      Radio buttons   Link to data model Label text Description text Method to add options (codelist/manual) Codelist name Manual option  Label Value  Pre-selected choice   Manual adding of options   Adding options via codelist       File Upload   Component mode Label text Description text Accepted attachment types, see html input accept parameter Max number of attachments Max file size in mb       Text Area   Link to data model Label text Description text Read only       Datepicker   Link to data model Label text Description text        In addition to the above components, the following basic form components are under development. These are not ready to be used, they will be added to the overview when they are ready to use:\n Dropdown Container  Advanced form components Advanced form components are components that potentially contain multiple fields that each need to be mapped to a field in the data model. They will typically contain fields that are functionally related, ex. fields related to address, see below.\nNOTE: The address component is a proof of concept. The content/design of this component and its configuration is under development. The component is available for use, but might undergo major changes in the future.\n\r   Component name Available properties Properties editor Default look   Address component (simple mode)   Link to data model for field:  Address Postal code Postal area  Label text for Address field      Address component (advanced mode)   Link to data model for field:  Address Postal code Postal area C/O Housing number  Label text for Address field       Custom / third party components If there is a need for specialized/custom components, it is possible to use components that are not part of the Altinn Studio component library. These components need to be written in React, and imported to the service. See [here]() for instructions on how to create a custom component using React.\nAdding a custom component to a service The custom component needs to be defined in a index.js-file. This file can then be included in the service repository. To make the component available to the service, create a file called ThirdPartyComponents.json in the service repository, under the Resources folder.\nNOTE: It is important that the name and location of the file ThirdPartyComponents.json is correct, otherwise the component will not be available for the service.\n\rThe content of this file should be as follows:\n{ \u0026quot;packages\u0026quot;: [{ \u0026quot;packageName\u0026quot;: \u0026quot;[name of the component]\u0026quot;, \u0026quot;location\u0026quot;: \u0026quot;[Link to raw format of index.js in service repository]\u0026quot; }] }   [name of the component] should be replaced with the name that will be shown in the Altinn Studio UI editor. [Link to raw format of index.js in service repository] should be replaced with the full url to the file in the git repo (can be found by navigating to the file in the [Repositories] solution and copying the url).  Once this is done, the UI editor in Altinn Studio should be re-loaded, and the custom component will appear in the component menu on the left.\nNOTE: Editing properties for custom components in the UI editor is currently not supported. As such, and properties for the component should be set directly in the code for the component. The documentation will be updated once this functionality is made available through the UI editor.\n\r"
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/azure-dev-spaces/",
+	"title": "Azure Dev Spaces",
+	"tags": ["development", "handbook", "azure dev spaces", "dev spaces"],
+	"description": "Guidelines for deploying storage",
+	"content": " This page is a work-in-progress. Currently we don\u0026rsquo;t have azure dev spaces set up for tjeneste 3.0\n\rAzure Dev Spaces Azure dev spaces is an offering from Azure for a rapid, iterative Kubernetes development experience for teams. AZDS gives the opportunity to iteratively run and debug containers directly in Azure Kubernetes Service (AKS) with minimal dev machine setup. You can read more about AZDS, setup and configuration for visualstudio or Visualstudiocode here.\nEnable Azure Dev Spaces in Storage Once you install the visual studio or visual studio code extensions for azure dev spaces, you should see the option for azure dev spaces in debug tool.\n  Azure dev spaces option in Visualstudio debugger   On selecting the azure dev spaces option for a selected project, azure dev spaces configuration modal popsup where you must select the subscription, cluster name and space.\n  Azure dev spaces configuration in visual studio   Azure dev spaces tools for Visual studio automatically generates the required helm charts and dockerfile for the first time.\nThe application is then deployed to the selected dev space and ready for debugging.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/technology/bpmn/",
 	"title": "BPMN 2.0",
 	"tags": ["bpmn", "workflow", "arbeidsflyt"],
@@ -493,8 +500,8 @@
 	"uri": "https://docs.altinn.studio/development/handbook/back-end/nuget-package/",
 	"title": "Nuget Package",
 	"tags": ["nuget package", "create nuget", "back-end", "pre-release nuget"],
-	"description": "Guidelines for error handling and error logging in backend",
-	"content": " This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors.\n\rNuget Package Altinn Studio publishes nuget package to share common libraries between different solutions. You can read more about nuget here.\nFollowing nuget packages are published and are available for download here\n Altinn.Platform.Storage.Interface AltinnCore.ServiceLibrary JWTCookieAuthentication  Create Nuget Package Detailed documentation on how to create a nuget package, guidelines etc can be found here.\nAn example of nuget package creation in altinn studio Example : Create Altinn.Platform.Storage.Interface nuget package\nSet Project Properties  Open Altinn.Platform.Storage solution Right click on Storage.Interface project and select properties. You will see the screen below   Project Properties    Choose Package, add the package details such as id, version, description, author, company and tags.\n Save the changes\n Choose release mode\n Right click on Storage.Interface and select \u0026ldquo;Pack\u0026rdquo;\n The package will now be created in \u0026ldquo;C:\\Repos\\altinn-studio\\src\\Altinn.Platform\\Altinn.Platform.Storage\\Storage.Interface\\bin\\Release\u0026rdquo;\n Go to commandline, navigate to the release path\n run \u0026ldquo;dotnet nuget push Altinn.Platform.Storage.Interface.1.0.1-alpha.nupkg -k [nuget api key] -s https://api.nuget.org/v3/index.json\u0026quot;\n Your package will now be published to nuget.org\n  "
+	"description": "Overview of nuget package usage in altinn studio",
+	"content": " This page is constantly updated on the use of nuget package in altinn studio.\n\rNuget Package Altinn Studio publishes nuget package to share common libraries between different solutions. You can read more about nuget here.\nFollowing nuget packages are published and are available for download here\n Altinn.Platform.Storage.Interface AltinnCore.ServiceLibrary JWTCookieAuthentication  Create Nuget Package Detailed documentation on how to create a nuget package, guidelines etc can be found here.\nAn example of nuget package creation in altinn studio Example : Create Altinn.Platform.Storage.Interface nuget package\nSet Project Properties  Open Altinn.Platform.Storage solution Right click on Storage.Interface project and select properties. You will see the screen below   Project Properties    Choose Package, add the package details such as id, version, description, author, company and tags.\n Save the changes\n Choose release mode\n Right click on Storage.Interface and select \u0026ldquo;Pack\u0026rdquo;\n The package will now be created in \u0026ldquo;C:\\Repos\\altinn-studio\\src\\Altinn.Platform\\Altinn.Platform.Storage\\Storage.Interface\\bin\\Release\u0026rdquo;\n Go to commandline, navigate to the release path\n run \u0026ldquo;dotnet nuget push Altinn.Platform.Storage.Interface.1.0.1-alpha.nupkg -k [nuget api key] -s https://api.nuget.org/v3/index.json\u0026quot;\n Your package will now be published to nuget.org\n  "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pap/",
@@ -662,7 +669,7 @@
 	"title": "Data Structure for Repos",
 	"tags": ["repos", "arkitektur"],
 	"description": "Struktur for repositories og filer i Gitea",
-	"content": " Under arbeid\n\rOverordnet struktur Gitea\n├── \raltinn\n│ ├── \rcommon\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │ └── README.md\n│ ├── \rcodelists\n│ │ ├── \rcountries.json\n│ │ └── \r\u0026hellip;\n│ │ └── README.md\n│ └── \r\u0026hellip;\n│\n├── \rorg-x\n│ ├── \rorg-x\n│ │ ├── \rsettings.json\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │\n│ ├── \rcodelists\n│ │ ├── \rkodeliste1.json\n│ │ └── \r\u0026hellip;\n│ │\n│ ├── \rtjeneste-1\n│ │ ├── \rDeployment (helm)\n│ │ │ ├── \rtemplates\n│ │ │ │ ├── \r_helpers.tpl\n│ │ │ │ ├── \rdeployment.yaml\n│ │ │ │ ├── \ringress.yaml\n│ │ │ │ ├── \rNOTES\n│ │ │ │ └── \rservice.yaml\n│ │ │ ├── \r.helmignore\n│ │ │ ├── \rChart.yaml\n│ │ │ └── \rvalues.yaml\n│ │ ├── \rImplementation\n│ │ │ ├── \rCalculation\n│ │ │ │ └── \rCalculationHandler.cs\n│ │ │ ├── \rInstantiationHandler.cs\n│ │ │ ├── \rServiceImplementation.cs\n│ │ │ └── \rValidationHandler.cs\n│ │ ├── \rMetadata\n│ │ │ ├── \rServiceMetadata.json\n│ │ │ └── \rworkflow.json\n│ │ ├── \rModel\n│ │ │ ├── \rServiceModel.xsd\n│ │ │ └── \rServiceModel.cs\n│ │ ├── \rResources\n│ │ │ ├── \rDynamics\n│ │ │ │ └── \rRuleHandler.js\n│ │ │ ├── \rStyles.json\n│ │ │ ├── \rreact-app.css\n│ │ │ ├── \rreact-app.js\n│ │ │ ├── \rFormLayout.json\n│ │ │ ├── \rServiceConfigurations.json\n│ │ │ ├── \rresource.nb-NO.json\n│ │ │ └── \rresource.nn-NO.json\n│ │ ├── \rTest (used for runtime)\n│ │ ├── \rTestdataforparty (used for runtime)\n│ │ │ ├──\r\ruser1\n│ │ │ │ ├──\r\rinstance1\n│ │ │ │ │ ├──\r\rinstance1.json\n│ │ │ │ │ ├──\r\rinstance1.state.json\n│ │ │ │ │ ├──\r\rdata\n│ │ │ │ │ │ ├──\r\rdata-id1\n│ │ │ │ │ │ │ ├──\r\rdata-id1.xml\n│ │ │ │ │ │ ├──\r\rdata-id\u0026hellip;\n│ │ ├── \rWorkflow\n│ │ │ └── \rworkflow.bpmn (BPMN)\n│ │ ├── \rAltinnService.csproj\n│ │ ├── \rconfig.json\n│ │ ├── .gitignore\n│ │ ├── LICENSE\n│ │ └── README.md\n│ │\n│ └── \rtjeneste-2 \u0026hellip;\n│\n├── \rorg-y\n│ ├── \rorg-y \u0026hellip;\n│ └── \r\u0026hellip;\n│\n├── \rbruker-a\n│ └── \rtjeneste-1 (fork av org-x/tjeneste-1)\n├── \rbruker-b \u0026hellip;\n│\n├── \rAlle organisasjoner\n├── \rAlle repos\n└── \rAlle brukere\n"
+	"content": " Under arbeid\n\rOverordnet struktur Gitea\n├── \raltinn\n│ ├── \rcommon\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │ └── README.md\n│ ├── \rcodelists\n│ │ ├── \rcountries.json\n│ │ └── \r\u0026hellip;\n│ │ └── README.md\n│ └── \r\u0026hellip;\n│\n├── \rorg-x\n│ ├── \rorg-x\n│ │ ├── \rsettings.json\n│ │ ├── \rtext \u0026hellip;\n│ │ └── \rwidgets \u0026hellip;\n│ │\n│ ├── \rcodelists\n│ │ ├── \rkodeliste1.json\n│ │ └── \r\u0026hellip;\n│ │\n│ ├── \rtjeneste-1\n│ │ ├── \rDeployment (helm)\n│ │ │ ├── \rtemplates\n│ │ │ │ ├── \r_helpers.tpl\n│ │ │ │ ├── \rdeployment.yaml\n│ │ │ │ ├── \ringress.yaml\n│ │ │ │ ├── \rNOTES\n│ │ │ │ └── \rservice.yaml\n│ │ │ ├── \r.helmignore\n│ │ │ ├── \rChart.yaml\n│ │ │ └── \rvalues.yaml\n│ │ ├── \rImplementation\n│ │ │ ├── \rCalculation\n│ │ │ │ └── \rCalculationHandler.cs\n│ │ │ ├── \rInstantiationHandler.cs\n│ │ │ ├── \rServiceImplementation.cs\n│ │ │ └── \rValidationHandler.cs\n│ │ ├── \rMetadata\n│ │ │ ├── \rapplicationmetadata.json\n│ │ │ ├── \rServiceMetadata.json\n│ │ │ └── \rworkflow.json\n│ │ ├── \rModel\n│ │ │ ├── \rServiceModel.xsd\n│ │ │ └── \rServiceModel.cs\n│ │ ├── \rResources\n│ │ │ ├── \rDynamics\n│ │ │ │ └── \rRuleHandler.js\n│ │ │ ├── \rStyles.json\n│ │ │ ├── \rreact-app.css\n│ │ │ ├── \rreact-app.js\n│ │ │ ├── \rFormLayout.json\n│ │ │ ├── \rServiceConfigurations.json\n│ │ │ ├── \rresource.nb-NO.json\n│ │ │ └── \rresource.nn-NO.json\n│ │ ├── \rTest (used for runtime)\n│ │ ├── \rTestdataforparty (used for runtime)\n│ │ │ ├──\r\ruser1\n│ │ │ │ ├──\r\rinstance1\n│ │ │ │ │ ├──\r\rinstance1.json\n│ │ │ │ │ ├──\r\rinstance1.state.json\n│ │ │ │ │ ├──\r\rdata\n│ │ │ │ │ │ ├──\r\rdata-id1\n│ │ │ │ │ │ │ ├──\r\rdata-id1.xml\n│ │ │ │ │ │ ├──\r\rdata-id\u0026hellip;\n│ │ ├── \rWorkflow\n│ │ │ └── \rworkflow.bpmn (BPMN)\n│ │ ├── \rAltinnService.csproj\n│ │ ├── \rconfig.json\n│ │ ├── .gitignore\n│ │ ├── LICENSE\n│ │ └── README.md\n│ │\n│ └── \rtjeneste-2 \u0026hellip;\n│\n├── \rorg-y\n│ ├── \rorg-y \u0026hellip;\n│ └── \r\u0026hellip;\n│\n├── \rbruker-a\n│ └── \rtjeneste-1 (fork av org-x/tjeneste-1)\n├── \rbruker-b \u0026hellip;\n│\n├── \rAlle organisasjoner\n├── \rAlle repos\n└── \rAlle brukere\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/front-end/styling/",
@@ -733,6 +740,13 @@
 	"tags": ["development", "handbook", "test"],
 	"description": "Xunit Testing",
 	"content": "Find code on xunit tests here\n"
+},
+{
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/",
+	"title": "applicationmetadata.json",
+	"tags": ["tjenester 3.0", "application metadata", "metadata", "meta data"],
+	"description": "Description of format for application metadata",
+	"content": " Overview \u0026lsquo;applicationmetadata.json\u0026rsquo; describes meta information of an application. This is automatically generated on creation of a new application. This is located at \u0026lt;organisation name\u0026gt;\u0026lt;applicationname\u0026gt;\\Metadata\\applciationmetadata.json\nFormat \u0026lsquo;applicationmetadata.json\u0026rsquo; has the application information such as application id, version information, organisation that owns the application, workflow information, form and attachment information.\nApplication Metadata Format Below is an example of application metadata json format\n{ \u0026quot;id\u0026quot;: \u0026quot;Brreg-testappmetaattachment\u0026quot;, \u0026quot;versionId\u0026quot;: \u0026quot;1.0\u0026quot;, \u0026quot;applicationOwnerId\u0026quot;: \u0026quot;Brreg\u0026quot;, \u0026quot;createdDateTime\u0026quot;: \u0026quot;2019-05-23T20:26:29.2001617Z\u0026quot;, \u0026quot;createdBy\u0026quot;: \u0026quot;user\u0026quot;, \u0026quot;lastChangedDateTime\u0026quot;: \u0026quot;2019-05-23T20:26:29.2002739Z\u0026quot;, \u0026quot;lastChangedBy\u0026quot;: \u0026quot;user\u0026quot;, \u0026quot;title\u0026quot;: { \u0026quot;nb-no\u0026quot;: \u0026quot;RF-1134 Test form title\u0026quot; }, \u0026quot;validFrom\u0026quot;: \u0026quot;2019-05-23T20:26:29.2001617Z\u0026quot;, \u0026quot;validTo\u0026quot;: \u0026quot;2020-05-23T20:26:29.2001617Z\u0026quot;, \u0026quot;WorkflowId\u0026quot;: null, \u0026quot;maxSize\u0026quot;: 0, \u0026quot;forms\u0026quot;: [ { \u0026quot;id\u0026quot;: \u0026quot;default\u0026quot;, \u0026quot;description\u0026quot;: null, \u0026quot;allowedContentType\u0026quot;: [ \u0026quot;application/xml\u0026quot; ], \u0026quot;maxSize\u0026quot;: 0, \u0026quot;maxCount\u0026quot;: 0, \u0026quot;shouldSign\u0026quot;: false, \u0026quot;shouldEncrypt\u0026quot;: true }, { \u0026quot;id\u0026quot;: \u0026quot;74696338-540e-47e3-8f04-0996cc2bb239\u0026quot;, \u0026quot;description\u0026quot;: null, \u0026quot;allowedContentType\u0026quot;: [ \u0026quot;application/octet-stream\u0026quot; ], \u0026quot;maxSize\u0026quot;: 3, \u0026quot;maxCount\u0026quot;: 3, \u0026quot;shouldSign\u0026quot;: false, \u0026quot;shouldEncrypt\u0026quot;: false }, { \u0026quot;id\u0026quot;: \u0026quot;0cc6ee16-7fbf-45b3-9e00-2fda8668ab31\u0026quot;, \u0026quot;description\u0026quot;: null, \u0026quot;allowedContentType\u0026quot;: [ \u0026quot;application/pdf\u0026quot;, \u0026quot;text/plain\u0026quot;, \u0026quot;text/css\u0026quot; ], \u0026quot;maxSize\u0026quot;: 5, \u0026quot;maxCount\u0026quot;: 2, \u0026quot;shouldSign\u0026quot;: false, \u0026quot;shouldEncrypt\u0026quot;: false } ] }  The meta data for attachment is updated in the application metadata when a fileupload component is dragged in the ui editor. When an application is deployed to a selected environment, the application metadata is read from the applicationmetadata.json and populated in the cosmos database.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/",
@@ -1040,7 +1054,7 @@
 	"title": "Handbook",
 	"tags": ["development", "handbook"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\rNuget Package\r\rGuidelines for error handling and error logging in backend\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rGitea\r\rGitea documentation for altinn.studio\n\r\r\rLoadbalancer\r\rInformation about loadbalancer\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rPostman\r\rAPI Testing with postman\n\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\rTroubleshooting\r\rTroubleshooting for altinn.studio\n\r\r\r"
+	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rAzure Dev Spaces\r\rGuidelines for deploying storage\n\r\r\rBack-end\r\rCoding guidelines for back-end\n\r\rError handling and Error logging\r\rGuidelines for error handling and error logging in backend\n\rNuget Package\r\rOverview of nuget package usage in altinn studio\n\r\rDeployment\r\rGuidelines for deploying\n\r\r\rFront-end\r\rCoding guidelines for front-end\n\r\rBest practices\r\rBest practices for altinn.studio frontend\n\rBuild\r\rBuild documentation for altinn.studio frontend\n\rComponent Library\r\rComponent documentation for altinn.studio\n\rDebug\r\rDebug documentation for altinn.studio frontend\n\rError handling\r\rGuidelines for error handling front-end\n\rPost Message\r\rGuidelines for using post message functionality in Altinn Studio\n\rReact\r\rGuidelines for using React in Altinn Studio\n\rRedux\r\rGuidelines for using Redux in Altinn Studio\n\rStyling (css)\r\rGuidelines for styling components in Altinn Studio\n\r\rGeneral\r\rGeneral coding guidelines\n\r\r\rGetting started\r\rInformation about how to get started\n\r\r\rGit\r\rInformation about version control with Git\n\r\r\rGitea\r\rGitea documentation for altinn.studio\n\r\r\rLoadbalancer\r\rInformation about loadbalancer\n\r\r\rNaming Conventions\r\rNaming guidelines for Altinn Studio development\n\r\r\rRESTful APIs (Representation State Transfer)\r\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\rSecurity Checklist\r\rChecklist for security OWASP.\n\r\r\rTest\r\rCoding guidelines for tests\n\r\rPostman\r\rAPI Testing with postman\n\rTest Strategy\r\rTest Strategy\n\rTestcafe\r\rTestcafe\n\rUnit testing\r\rHow to write jest test in altinn studio, what we know so far\n\rXunit Testing\r\rXunit Testing\n\r\rTroubleshooting\r\rTroubleshooting for altinn.studio\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/helm/",
@@ -1274,6 +1288,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/application-metadata/",
+	"title": "application metadata",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/apps/",
 	"title": "apps",
 	"tags": [],
@@ -1304,6 +1325,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/authentication/",
 	"title": "authentication",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/azure-dev-spaces/",
+	"title": "azure dev spaces",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1458,6 +1486,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/deployment/",
 	"title": "deployment",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/dev-spaces/",
+	"title": "dev spaces",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1640,6 +1675,20 @@
 {
 	"uri": "https://docs.altinn.studio/tags/material-ui/",
 	"title": "material-ui",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/meta-data/",
+	"title": "meta data",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/metadata/",
+	"title": "metadata",
 	"tags": [],
 	"description": "",
 	"content": ""
