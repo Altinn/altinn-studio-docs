@@ -51,7 +51,8 @@ Under arbeid
 │  │  │   ├── {{<icon name="fa-code">}} [InstantiationHandler.cs](instantiationhandler)  
 │  │  │   ├── {{<icon name="fa-code">}} [ServiceImplementation.cs](serviceimplementation)  
 │  │  │   └── {{<icon name="fa-code">}} [ValidationHandler.cs](validationhandler)  
-│  │  ├──  {{<icon name="fa-folder-open">}} Metadata  
+│  │  ├──  {{<icon name="fa-folder-open">}} Metadata          
+│  │  │       ├── {{<icon name="fa-code">}} [applicationmetadata.json](application-metadata)  
 │  │  │       ├── {{<icon name="fa-code">}} [ServiceMetadata.json](servicemetadata)  
 │  │  │       └── {{<icon name="fa-code">}} workflow.json  
 │  │  ├──  {{<icon name="fa-folder-open">}} Model  
