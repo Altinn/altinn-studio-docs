@@ -77,6 +77,32 @@ The below configuration is relevant for the Identity Provider application.
                 })
 ```
 
+## How to get access to user information
+When a application is configured with JWTCookie authentication the information is available in httpContext about the user
+
+
+```c#
+ public static int GetUserId(HttpContext context)
+        {
+            int userId = 0;
+
+            if (context.User != null)
+            {
+                foreach (Claim claim in context.User.Claims)
+                {
+                    if (claim.Type.Equals(AltinnCoreClaimTypes.UserId))
+                    {
+                        userId = Convert.ToInt32(claim.Value);
+                    }
+                }
+            }
+
+            return userId;
+        }
+```
+
+
+
 ## Known Issues
 
 
