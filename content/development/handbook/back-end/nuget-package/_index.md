@@ -1,11 +1,11 @@
 ---
 title: Nuget Package
-description: Guidelines for error handling and error logging in backend
+description: Overview of nuget package usage in altinn studio
 tags: ["nuget package", "create nuget", "back-end", "pre-release nuget"]
 weight: 100
 ---
 {{%notice warning%}}
-This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors. 
+This page is constantly updated on the use of nuget package in altinn studio. 
 {{% /notice%}}
 
 ### Nuget Package
