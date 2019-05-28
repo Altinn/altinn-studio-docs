@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="">
+    <meta name="description" content="Description of application events">
 
 
     
-    <title>Tags :: Altinn Studio</title>
+    <title>Application events :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -48,7 +48,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/architecture/application/altinn-apps/applicationevents/">
     <nav id="sidebar" class="">
 
 
@@ -1880,7 +1880,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1891,7 +1891,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1916,7 +1916,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1927,7 +1927,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1952,7 +1952,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/altinn-apps/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1963,7 +1963,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-angle-right fa-lg category-icon"></i>
+            <i class="fa fa-angle-down fa-lg category-icon"></i>
           
 
         
@@ -1988,7 +1988,7 @@ if(host != "localhost")
   
     
       <li data-nav-id="/architecture/application/altinn-apps/applicationevents/" class="dd-item
-     
+     active
       ">
         <a href="/architecture/application/altinn-apps/applicationevents/">
         <span>Application Events</span> 
@@ -3248,7 +3248,7 @@ if(host != "localhost")
     
     <li data-nav-id="/architecture/development/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/architecture/development/">
@@ -5396,6 +5396,17 @@ if(host != "localhost")
         
           <div id="top-bar">
             
+              
+              
+              
+            <div id="top-github-link">
+              <a class="github-link" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/application/altinn-apps/applicationevents.md" target="blank">
+                <i class="fa fa-code-fork"></i>
+                Edit page
+              </a>
+            </div>
+              
+            
 
             <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                 <span id="sidebar-toggle-span">
@@ -5404,27 +5415,159 @@ if(host != "localhost")
                   </a>
                 </span>
                 
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
                 <span class="links">
                   
                   
 
- Tags
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='/'>Altinn Studio</a> > <a href='/architecture/'>Architecture</a> > <a href='/architecture/application/'>Application</a> > <a href='/architecture/application/altinn-apps/'>Altinn Apps</a> > Application Events
+
+ 
+
+ 
+
+ 
+
+ 
 
 
                 </span>
             </div>
             
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#application-events">Application Events</a>
+<ul>
+<li><a href="#instansiation">Instansiation</a></li>
+<li><a href="#load-form-data-get">Load form data (GET)</a></li>
+</ul></li>
+<li><a href="#storing-of-form-data-post">Storing of form data (POST)</a></li>
+<li><a href="#update-form-data-put">Update form data (PUT)</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
+            
           </div>
         
+        
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/tjenester-3.0">tjenester 3.0</a>
+            
+          </div>
         
         <div id="body-inner">
           
             
-              <h1>Tags</h1>
+              <h1>Application events</h1>
             
           
 
 
+
+
+
+
+<div class="notices warning" ><p>NOTE: Work in progress. Stuff will change</p>
+</div>
+
+
+<h4 id="application-events">Application Events</h4>
+
+<p>The runtime has a defined event model that can be used by the service developer
+to controll when logic in the service implementation will run.</p>
+
+<p>These events are mapped to functional events triggered by end users or systems.</p>
+
+<h5 id="instansiation">Instansiation</h5>
+
+<p>Instansiation is when the end user or system instansiates a new service instance.
+Events connected to instansiation can contain logic that can prefill the datamodell
+or validate if the user or system is allowed to instansiate that service.</p>
+
+
+	<p><object data="/architecture/application/altinn-apps/Events_Instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
+
+
+
+<p>The below sequence diagram shows how the app events are combined with other logic</p>
+
+
+	<p><object data="/architecture/application/altinn-apps/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
+
+
+
+<h5 id="load-form-data-get">Load form data (GET)</h5>
+
+<p>Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
+the latest updated form data.</p>
+
+<p>The following events will be performed</p>
+
+
+	<p><object data="/architecture/application/altinn-apps/Events_Get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
+
+
+
+<h4 id="storing-of-form-data-post">Storing of form data (POST)</h4>
+
+<p>Update of form data can happen when frontend (REACT app) sends data to backend
+or a end user system does the same. When an update happend there is defined serveral
+events that is performed in a given ordern. The service developer can implement
+logic related to this event that could perform calculation, validation, API calls and much more.</p>
+
+<p>The API for updating form data support different modes</p>
+
+<ul>
+<li>Create - Data should be stored as a new form instance</li>
+<li>Complete - Data is complete and the service should move ahead in the workflow</li>
+<li>Calculate - Logic in the calculation event should be performed and the updated form data should be returned</li>
+<li>Validate - Calculation will be performend and then validation logic is runned and any validation errors is returned.</li>
+<li>Update - Calculation is runned before data is stored in to the database.</li>
+</ul>
+
+<p>The order of events are</p>
+
+
+	<p><object data="/architecture/application/altinn-apps/Events_Post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
+
+
+
+<h4 id="update-form-data-put">Update form data (PUT)</h4>
+
+<p>Update of form data happens when the frontend or external end user systems/applications
+want to update a existing form connected to a service instance</p>
+
+<p>The following events happens:</p>
+
+
+	<p><object data="/architecture/application/altinn-apps/Event_PUT.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object></p>
 
 
 
@@ -5432,248 +5575,6 @@ if(host != "localhost")
 <footer class=" footline" >
 	
 </footer>
-
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	    <a class="newer-posts" href="/tags/page/8/">&larr; Previous Pages</a>
-	
-	<span class="page-number">Page 9 on 11</span>
-	
-	    <a class="older-posts" href="/tags/page/10/">Next Pages &rarr;</a>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/rest/">rest</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/rest/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/security/">security</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/security/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/solution/">solution</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/solution/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/stub/">stub</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/stub/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/studio/">studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/studio/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/styled-components/">styled components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/styled-components/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/tech/">tech</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/tech/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/term/">term</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/term/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/test/">test</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/test/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post tags">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/tags/testcafe/">testcafe</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> <a class="read-more" href="/tags/testcafe/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	    <a class="newer-posts" href="/tags/page/8/">&larr; Previous Pages</a>
-	
-	<span class="page-number">Page 9 on 11</span>
-	
-	    <a class="older-posts" href="/tags/page/10/">Next Pages &rarr;</a>
-	
-</nav>
-
 
 
 
@@ -6678,6 +6579,7 @@ if(host != "localhost")
             
                 
                     
+                    
                 
                 
 
@@ -6693,6 +6595,7 @@ if(host != "localhost")
             
                 
                     
+                    
                 
                 
 
@@ -6707,6 +6610,7 @@ if(host != "localhost")
             
             
                 
+                    
                     
                 
                 
@@ -6723,6 +6627,7 @@ if(host != "localhost")
             
                 
                     
+                    
                 
                 
 
@@ -6738,6 +6643,9 @@ if(host != "localhost")
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -8596,10 +8504,10 @@ if(host != "localhost")
 
 
         
-            <a class="nav nav-prev" href="/technology/vs-code/" title="Visual Studio Code"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/application/altinn-apps/" title="Application Architecture Altinn Apps"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/getting-started/" title="Getting started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/application/altinn-apps/serviceevents/" title="Application events" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -8626,3 +8534,4 @@ if(host != "localhost")
 
   </body>
 </html>
+
