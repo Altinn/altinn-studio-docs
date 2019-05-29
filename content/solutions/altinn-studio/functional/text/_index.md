@@ -1,13 +1,13 @@
 ---
 title: Text and translations
-description: Solution for designing service UI, defining workflow, other settings, deploy ++
+description: Solution for designing UI, defining workflow, other settings, deploy ++
 tags: ["studio"]
 ---
 
 ### Text editing and translations
 
-Easy and efficient text processing and translation are important in a service development solution. The possibility to reuse texts across
-multiple services are especially important.
+Easy and efficient text processing and translation are important in an app development solution. The possibility to reuse texts across
+multiple apps are especially important.
 
 Texts in the editor are written in a ini-file that is converted to a simple JSON-file and presented as an API. In that way
 the user could work directly in the code editor or convert the text into other formats supported by external translation tools. 
@@ -42,15 +42,15 @@ Where the first param is the language key and the second is the language element
 
 {{<figure src="oversetting.png?width=1000" title="Editor for oversetting av tekster">}}
 
-# Language best practice
+## Language best practice
 
-## Summary
+### Summary
 
 - Name should describe the content of the value.
 - Section should describe the context (might be page, container or component).
 - If your name also describes the page, container or component, you *might* want to create a new section.
 
-## Keys (properties)
+### Keys (properties)
 
 Every *key*, or *property*, has a *name* and a *value*.
 
@@ -63,7 +63,7 @@ Example:
 [good_example_1]
 ready_to_deploy_title_false = Text...
 [bad_example_1]
-service_is_ready_to_deploy_title_false = Text...
+app_is_ready_to_deploy_title_false = Text...
 
 [good_example_2]
 repo_changes_is_invisible = Text...
@@ -71,7 +71,7 @@ repo_changes_is_invisible = Text...
 changes_made_by_others_in_your_organisation_is_not_visible_in_altinn_studio = Text...
 ```
 
-### Text parts
+#### Text parts
 
 If your text has several parts, suffix with "part1", "part2", "partN".
 
@@ -81,11 +81,11 @@ Example:
 
 ```ini
 [deploy_to_test]
-error_there_is_something_wrong_with_your_environment_part1 = Det er noe galt med ditt
-error_there_is_something_wrong_with_your_environment_part2 = -miljø. Vennligst kontakt support.
+error_environment_failure_part1 = Det er noe galt med ditt
+error_environment_failture_part2 = -miljø. Vennligst kontakt support.
 ```
 
-### Titles, subtitles and bodies
+#### Titles, subtitles and bodies
 
 If your title has associated text you should use suffixes like: "heading/title", "subheading/subtitle", and "body".
 
@@ -98,32 +98,32 @@ welcome_heading = Hello world
 welcome_subheading = Small text below the title
 ```
 
-### Sorting
+#### Sorting
 
 Naming should be used so that related keys/properties are grouped when sorted alphabetically.
 
-### True / false
+#### True / false
 
 If your text has positive or negative text related to logic, suffix with true/false. This will group keys when sorting.
 
 Example:
 
 ```ini
-[grouping]
-category_service_read_true = Andre tjenester
-category_service_read_false = Du har ikke rettigheter til...
+[section] ;Grouping
+category_repo_read_true = Andre tjenester
+category_repo_read_false = Du har ikke rettigheter til...
 ready_to_deploy_title_false = Tjenesten er IKKE klar til å legges ut i testmiljø
 ready_to_deploy_title_true = Tjenesten er klar til å legges ut i testmiljø
 
-[no_grouping]
-category_service_read = Andre tjenester
-category_service_write = Du har rettigheter til å endre disse tjenestene
+[section] ;No grouping
+category_repo_read = Andre apps
+category_repo_write = Du har rettigheter til å endre disse appene
 main_header = Tjenesteoversikt
-no_category_service_read = Du har ikke rettigheter til...
-no_category_service_write = Du har ikke skriverettigheter til...
+no_category_repo_read = Du har ikke rettigheter til...
+no_category_repo_write = Du har ikke skriverettigheter til...
 ```
 
-### Errors
+#### Errors
 
 If there is an error, you should prefix or suffix the key with "error". If grouping when alphabetizing is important, use suffix.
 
@@ -139,11 +139,11 @@ file_uploader_validation_error_file_ending = er ikke blant de tillatte filtypene
 file_uploader_validation_error_file_size = overskrider tillatt filstørrelse.
 ```
 
-## Sections [sections]
+### Sections [sections]
 
 Sections are used to categorize keys (properties) that belong together. It may be a page, container or component.
 
-### Examples
+#### Examples
 
 ``[general] [dashboard] [sync_header]``
 
@@ -154,4 +154,3 @@ Sections are used to categorize keys (properties) that belong together. It may b
 ```
 
 > Try to not use application wide sections that might need container or component reference in the key name.
-
