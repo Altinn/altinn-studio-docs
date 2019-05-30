@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Solution for designing service UI, defining workflow, other settings, deploy &#43;&#43;">
+    <meta name="description" content="Solution for designing UI, defining workflow, other settings, deploy &#43;&#43;">
 
 
     
@@ -5457,6 +5457,22 @@ if(host != "localhost")
 <ul>
 <li><a href="#text-editing-and-translations">Text editing and translations</a></li>
 </ul></li>
+<li><a href="#language-best-practice">Language best practice</a>
+<ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#keys-properties">Keys (properties)</a>
+<ul>
+<li><a href="#text-parts">Text parts</a></li>
+<li><a href="#titles-subtitles-and-bodies">Titles, subtitles and bodies</a></li>
+<li><a href="#sorting">Sorting</a></li>
+<li><a href="#true-false">True / false</a></li>
+<li><a href="#errors">Errors</a></li>
+</ul></li>
+<li><a href="#sections-sections">Sections [sections]</a>
+<ul>
+<li><a href="#examples">Examples</a></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -5487,8 +5503,8 @@ if(host != "localhost")
 
 <h3 id="text-editing-and-translations">Text editing and translations</h3>
 
-<p>Easy and efficient text processing and translation are important in a service development solution. The possibility to reuse texts across
-multiple services are especially important.</p>
+<p>Easy and efficient text processing and translation are important in an app development solution. The possibility to reuse texts across
+multiple apps are especially important.</p>
 
 <p>Texts in the editor are written in a ini-file that is converted to a simple JSON-file and presented as an API. In that way
 the user could work directly in the code editor or convert the text into other formats supported by external translation tools.
@@ -5540,6 +5556,121 @@ Example for Norweigan bokmål (nb): <br/>
     
 </figure>
 
+
+<h2 id="language-best-practice">Language best practice</h2>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+<li>Name should describe the content of the value.</li>
+<li>Section should describe the context (might be page, container or component).</li>
+<li>If your name also describes the page, container or component, you <em>might</em> want to create a new section.</li>
+</ul>
+
+<h3 id="keys-properties">Keys (properties)</h3>
+
+<p>Every <em>key</em>, or <em>property</em>, has a <em>name</em> and a <em>value</em>.</p>
+
+<ul>
+<li>Names should be <strong>short</strong> and <strong>not context based</strong> (context should be in section)</li>
+<li>Names should not describe presentational functionality like modal or popover.</li>
+</ul>
+
+<p>Example:</p>
+
+<pre><code class="language-ini">[good_example_1]
+ready_to_deploy_title_false = Text...
+[bad_example_1]
+app_is_ready_to_deploy_title_false = Text...
+
+[good_example_2]
+repo_changes_is_invisible = Text...
+[bad_example_2]
+changes_made_by_others_in_your_organisation_is_not_visible_in_altinn_studio = Text...
+</code></pre>
+
+<h4 id="text-parts">Text parts</h4>
+
+<p>If your text has several parts, suffix with &ldquo;part1&rdquo;, &ldquo;part2&rdquo;, &ldquo;partN&rdquo;.</p>
+
+<blockquote>
+<p>It is currently not possible to use variables or HTML code in text.</p>
+</blockquote>
+
+<p>Example:</p>
+
+<pre><code class="language-ini">[deploy_to_test]
+error_environment_failure_part1 = Det er noe galt med ditt
+error_environment_failture_part2 = -miljø. Vennligst kontakt support.
+</code></pre>
+
+<h4 id="titles-subtitles-and-bodies">Titles, subtitles and bodies</h4>
+
+<p>If your title has associated text you should use suffixes like: &ldquo;heading/title&rdquo;, &ldquo;subheading/subtitle&rdquo;, and &ldquo;body&rdquo;.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-ini">[great_component]
+welcome_body = Welcome to this great component
+welcome_heading = Hello world
+welcome_subheading = Small text below the title
+</code></pre>
+
+<h4 id="sorting">Sorting</h4>
+
+<p>Naming should be used so that related keys/properties are grouped when sorted alphabetically.</p>
+
+<h4 id="true-false">True / false</h4>
+
+<p>If your text has positive or negative text related to logic, suffix with true/false. This will group keys when sorting.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-ini">[section] ;Grouping
+category_repo_read_true = Andre tjenester
+category_repo_read_false = Du har ikke rettigheter til...
+ready_to_deploy_title_false = Tjenesten er IKKE klar til å legges ut i testmiljø
+ready_to_deploy_title_true = Tjenesten er klar til å legges ut i testmiljø
+
+[section] ;No grouping
+category_repo_read = Andre apps
+category_repo_write = Du har rettigheter til å endre disse appene
+main_header = Tjenesteoversikt
+no_category_repo_read = Du har ikke rettigheter til...
+no_category_repo_write = Du har ikke skriverettigheter til...
+</code></pre>
+
+<h4 id="errors">Errors</h4>
+
+<p>If there is an error, you should prefix or suffix the key with &ldquo;error&rdquo;. If grouping when alphabetizing is important, use suffix.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-ini">[no_grouping]
+error_a_problem_has_occured = Det har oppstått et problem
+
+[grouping]
+file_uploader_validation_error_delete = Noe gikk galt under slettingen av filen, prøv igjen senere.
+file_uploader_validation_error_file_ending = er ikke blant de tillatte filtypene.
+file_uploader_validation_error_file_size = overskrider tillatt filstørrelse.
+</code></pre>
+
+<h3 id="sections-sections">Sections [sections]</h3>
+
+<p>Sections are used to categorize keys (properties) that belong together. It may be a page, container or component.</p>
+
+<h4 id="examples">Examples</h4>
+
+<p><code>[general] [dashboard] [sync_header]</code></p>
+
+<pre><code class="language-ini">[general]
+[dashboard]
+[sync_header]
+</code></pre>
+
+<blockquote>
+<p>Try to not use application wide sections that might need container or component reference in the key name.</p>
+</blockquote>
 
 
 <footer class=" footline" >
