@@ -46,6 +46,10 @@ Application Programmers Interface.
 
 ## App
 
+Short for Application. See Application
+
+## Application
+
 An end user service created in Altinn Studio is called an app, short for application. 
 The app is deployed to a Altinn Studio Apps environment.
 The app provides two things: 
@@ -56,6 +60,11 @@ The app provides two things:
 The application also has a metadata representation in the application repository (platform storage), which defines the various element types that an instance of an application can have.
 
 deprecated term: ~~Service~~
+
+
+## Apps
+
+Short for Altinn Apps. See Altinn Apps
 
 ### Application Developer
 
