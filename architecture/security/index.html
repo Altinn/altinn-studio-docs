@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Description of the Altinn Studio security architecture.">
+    <meta name="description" content="Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.">
 
 
     
@@ -5415,6 +5415,8 @@ if(host != "localhost")
                   </a>
                 </span>
                 
+                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                
                 <span class="links">
                   
                   
@@ -5434,6 +5436,44 @@ if(host != "localhost")
 
                 </span>
             </div>
+            
+              <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#identity-access-managment">Identity &amp; Access managment</a>
+<ul>
+<li><a href="#authentication">Authentication</a></li>
+<li><a href="#authorization">Authorization</a></li>
+<li><a href="#identity-management">Identity management</a></li>
+</ul></li>
+<li><a href="#confidentiality-and-integrity">Confidentiality and Integrity</a>
+<ul>
+<li><a href="#encryption">Encryption</a></li>
+<li><a href="#digital-signatures">Digital Signatures</a></li>
+</ul></li>
+<li><a href="#logging-tracking-and-log-management">Logging, tracking and log management</a>
+<ul>
+<li><a href="#event-logging">Event logging</a></li>
+</ul></li>
+<li><a href="#security-infrastructure">Security infrastructure</a>
+<ul>
+<li><a href="#firewalls">Firewalls</a></li>
+<li><a href="#key-vaults">Key vaults</a></li>
+</ul></li>
+<li><a href="#availability">Availability</a>
+<ul>
+<li><a href="#scalability-and-robustness">Scalability and robustness</a></li>
+<li><a href="#disaster-recovery">Disaster recovery</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+    
             
           </div>
         
@@ -5456,273 +5496,66 @@ if(host != "localhost")
 
 
 
-<p>Description of the Altinn Studio Security architecture.</p>
 
 
+<p>For a solution like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.</p>
 
+<p>The security architecture is based on the following reference model</p>
 
 
+	<p><object data="/architecture/security/securityarchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
 
 
 
+<h2 id="identity-access-managment">Identity &amp; Access managment</h2>
 
+<p>This area covers the following sub areas</p>
 
+<h3 id="authentication">Authentication</h3>
 
+<p>How users and systems are authenticated for access to Apps and API&rsquo;s</p>
 
+<p><a href="authentication">See authentication architecture</a></p>
 
-<ul class="children children-li">
-	
-    
-	    
-    
-    
+<h3 id="authorization">Authorization</h3>
 
-	
-		
-	
-		
-  
+<p>How authenticated user and systems are authorized to perform requested actions in</p>
 
+<p><a href="authorization">See authentication architecture</a></p>
 
-<li>
-<a href="/architecture/security/authentication/" >Authentication</a>
-</li>
+<h3 id="identity-management">Identity management</h3>
 
+<p>How the different identies are managed</p>
 
+<h2 id="confidentiality-and-integrity">Confidentiality and Integrity</h2>
 
+<p>This area covers the following sub areas</p>
 
+<h3 id="encryption">Encryption</h3>
 
+<p>The ability to encrypt data</p>
 
-			
-				
-<p>Description of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform</p>
-				
-			
-		
+<h3 id="digital-signatures">Digital Signatures</h3>
 
-		
-			
+<p>The ability to sign data to make sure it has not been modified</p>
 
-<ul>
+<h2 id="logging-tracking-and-log-management">Logging, tracking and log management</h2>
 
-	
-    
-	    
-    
-    
+<p>This area covers the following sub areas</p>
 
-	
-		
-	
-		
-  
+<h3 id="event-logging">Event logging</h3>
 
+<h2 id="security-infrastructure">Security infrastructure</h2>
 
-<li>
-<a href="/architecture/security/authentication/altinn-apps/" >Authentication Architecture Altinn Apps</a>
-</li>
+<h3 id="firewalls">Firewalls</h3>
 
+<h3 id="key-vaults">Key vaults</h3>
 
+<h2 id="availability">Availability</h2>
 
+<h3 id="scalability-and-robustness">Scalability and robustness</h3>
 
-
-
-			
-				
-<p>Description of the Authentication architecture apps hosted in Altinn Apps</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/architecture/security/authentication/altinn-platform/" >Authentication Architecture Altinn Platform</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Description of the Authentication architecture Altinn Platform</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/architecture/security/authentication/altinn-studio/" >Authentication Architecture Altinn Studio</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Description of the Authentication architecture Altinn Studio</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/architecture/security/authorization/" >Authorization</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Description of the Authorization architecture</p>
-				
-			
-		
-
-		
-			
-
-<ul>
-
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/architecture/security/authorization/altinn-apps/" >Authorization - Altinn Apps</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Description of the Authorization Architecture for Altinn Studio Apps</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/architecture/security/authorization/altinn-platform/" >Authorization - Altinn Platform</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Description of the Authorization Architecture for Altinn Platform</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/architecture/security/authorization/altinn-studio/" >Authorization - Altinn Studio</a>
-</li>
-
-
-
-
-
-
-			
-				
-<p>Description of the Authorization Architecture for Altinn Studio</p>
-				
-			
-		
-
-		
-			
-
-		
-	
-
-	
-
-</ul>
-
-			
-
-		
-	
-
-	
-</ul>
-
-
-
-
+<h3 id="disaster-recovery">Disaster recovery</h3>
 
 
 <footer class=" footline" >
@@ -7415,346 +7248,6 @@ if(host != "localhost")
                     
                     
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
                     
             
         
