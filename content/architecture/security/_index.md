@@ -27,7 +27,7 @@ How users and systems are authenticated for access to Apps and platforms API's
 ### Authorization
 How authenticated user and systems are authorized to perform requested actions in 
 
-[See authentication architecture](authorization)
+[See authorization architecture](authorization)
 
 ### Identity management
 How the different identies are managed 
