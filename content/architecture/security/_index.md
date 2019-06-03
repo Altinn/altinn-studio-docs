@@ -1,5 +1,5 @@
 ---
-title: Security
+title: Security Architecture
 description: Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.
 tags: ["architecture", "security"]
 weight: 100
@@ -7,12 +7,12 @@ alwaysopen: false
 ---
 
 
-For a solution like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.
+For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.
 
 The security architecture is based on the following reference model
 
 {{%excerpt%}}
-<object data="/architecture/security/securityarchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/security/securityarchitecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
 
@@ -20,7 +20,7 @@ The security architecture is based on the following reference model
 This area covers the following sub areas
 
 ### Authentication
-How users and systems are authenticated for access to Apps and API's 
+How users and systems are authenticated for access to Apps and platforms API's 
 
 [See authentication architecture](authentication)
 
@@ -45,19 +45,25 @@ The ability to sign data to make sure it has not been modified
 This area covers the following sub areas
 
 ### Event logging
+How the platform logs events performed by the user or systems 
 
 ## Security infrastructure
+This area covers the following sub areas
 
 ### Firewalls
+The firewall products and architure
 
 ### Key vaults
+How the different keys in the system are handled
 
 ## Availability
+This area covers the following sub areas
 
 ### Scalability and robustness
+How the architecture ensure a scalable and robust solutions
 
 ### Disaster recovery
-
+How the architecture supports disaster recovery
 
 
 
