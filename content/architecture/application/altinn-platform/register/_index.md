@@ -34,9 +34,9 @@ Get information about a party:
 ## /persons
 
 Get information about a person:
-
+Send a POST-request with the persons SSN contained in the request body to
 ```http
-/persons/{ssn}
+/persons
 ```
 (Available testdata. SSNs: 01124621077, 22104511094, 24054670016 and 07069400021)
 
