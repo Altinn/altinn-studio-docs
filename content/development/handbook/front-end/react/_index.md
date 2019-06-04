@@ -87,7 +87,7 @@ This is the best practice for folder structure in applications.
           - featureSpecificDataReducers.ts
           - featureSpecificDataSagas.ts
       - selectors /
-        - getSomeResouceSelector.ts
+        - getSomeResourceSelector.ts
       - reducers /
         - featureNameReducer.ts
       - utils / # Feature specific utils
