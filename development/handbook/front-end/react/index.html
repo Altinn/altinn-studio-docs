@@ -5433,8 +5433,6 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
-<ul>
 <li><a href="#react">React</a>
 <ul>
 <li><a href="#react-components-lifecycle">React Components lifecycle</a>
@@ -5451,9 +5449,11 @@ if(host != "localhost")
 <li><a href="#instance-properties">Instance Properties</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#adding-a-new-react-app-to-altinn-studio">Adding a new react-app to altinn.studio</a></li>
-<li><a href="#links">Links</a></li>
+<li><a href="#adding-a-new-react-app-to-altinn-studio">Adding a new react-app to altinn.studio</a>
+<ul>
+<li><a href="#react-folder-structure">React Folder Structure</a></li>
 </ul></li>
+<li><a href="#links">Links</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -5488,15 +5488,15 @@ if(host != "localhost")
 
 
 
-<h3 id="react">React</h3>
+<h2 id="react">React</h2>
 
 <p>React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.</p>
 
-<h4 id="react-components-lifecycle">React Components lifecycle</h4>
+<h3 id="react-components-lifecycle">React Components lifecycle</h3>
 
 <p>There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:</p>
 
-<h5 id="mounting">Mounting</h5>
+<h4 id="mounting">Mounting</h4>
 
 <ol>
 <li><code>constructor()</code></li>
@@ -5505,7 +5505,7 @@ if(host != "localhost")
 <li><code>componentDidMount()</code></li>
 </ol>
 
-<h5 id="updating">Updating</h5>
+<h4 id="updating">Updating</h4>
 
 <ol>
 <li><code>static getDerivedStateFromProps()</code></li>
@@ -5515,49 +5515,147 @@ if(host != "localhost")
 <li><code>componentDidUpdate()</code></li>
 </ol>
 
-<h5 id="unmounting">Unmounting</h5>
+<h4 id="unmounting">Unmounting</h4>
 
 <ol>
 <li><code>componentWillUnmount()</code></li>
 </ol>
 
-<h5 id="error-handling">Error handling</h5>
+<h4 id="error-handling">Error handling</h4>
 
 <ol>
 <li><code>static getDerivedStateFromError()</code></li>
 <li><code>componentDidCatch()</code></li>
 </ol>
 
-<h4 id="other-react-component-apis-and-properties">Other React component APIs and properties</h4>
+<h3 id="other-react-component-apis-and-properties">Other React component APIs and properties</h3>
 
-<h5 id="apis">APIs</h5>
+<h4 id="apis">APIs</h4>
 
 <ol>
 <li><code>setState()</code></li>
 <li><code>forceUpdate()</code></li>
 </ol>
 
-<h5 id="class-properties">Class Properties</h5>
+<h4 id="class-properties">Class Properties</h4>
 
 <ol>
 <li><code>defaultProps</code></li>
 <li><code>displayName</code></li>
 </ol>
 
-<h5 id="instance-properties">Instance Properties</h5>
+<h4 id="instance-properties">Instance Properties</h4>
 
 <ol>
 <li><code>props</code></li>
 <li><code>state</code></li>
 </ol>
 
-<h3 id="adding-a-new-react-app-to-altinn-studio">Adding a new react-app to altinn.studio</h3>
+<h2 id="adding-a-new-react-app-to-altinn-studio">Adding a new react-app to altinn.studio</h2>
 
 <p>When adding a new react-app, use the template folder that is in the github repo. Create a new folder in the <code>src/react-apps/applications</code>-folder and copy the contents from the <code>src/react-apps/templates/template-app</code>-folder of that newly created folder.<br />
 Then change the names in the <code>package.json</code>-file and start developing the new application.<br />
 In the templates folder, in the <code>src/index.tsx</code>-file, a function called <code>run</code> is commented out, if your application needs to have sagas, uncomment the <code>run</code>-function which should initialize the sagas.</p>
 
-<h3 id="links">Links</h3>
+<h3 id="react-folder-structure">React Folder Structure</h3>
+
+<p>This is the best practice for folder structure in applications.</p>
+
+<pre><code>- src /
+  - config /
+    - config.json
+    - exportedConfig.ts
+  - features / # routes,pages,features
+    - [featureName] /
+      - components /
+      - containers /
+      - resources /
+        - featureSpecificData /
+          - delete /
+            - deleteFeatureSpecificDataActions.ts
+            - deleteFeatureSpecificDataSagas.ts
+          - fetch /
+            - ...
+          - upload /
+            - ...
+          - featureSpecificDataActions.ts
+          - featureSpecificDataActionTypes.ts
+          - featureSpecificDataReducers.ts
+          - featureSpecificDataSagas.ts
+      - selectors /
+        - getSomeResourceSelector.ts
+      - reducers /
+        - featureNameReducer.ts
+      - utils / # Feature specific utils
+    - formFiller / # Example feature
+      - components /
+      - containers /
+      - resources
+        - attachments / # FileUpload example
+          - delete /
+            - deleteAttachmentsActions.ts
+            - deleteAttachmentsSagas.ts
+          - fetch /
+            - fetchAttachmentsActions.ts
+            - ...
+          - upload /
+            - ...
+          - attachmentsActions.ts
+          - attachmentsActionTypes.ts
+          - attachmentsReducers.ts
+          - attachmentsSagas.ts
+        - validations /
+          - componentValidation
+            - componentValidationActions.ts
+            - ...
+          - singleFieldValidation /
+            - singleFieldValidationActions.ts
+            - ...
+          - validationsActions.ts
+          - validationsActionTypes.ts
+          - validationsReducers.ts
+          - validationsSagas.ts
+      - selectors / 
+        - getSomeResouceSelector.ts
+      - reducers /
+        - formfillerReducer.ts
+      - utils /
+    - instantiate /
+      - components /
+      - containers /
+      - resources /
+      - selectors /
+      - reducers / 
+  - reducers /
+    - index.ts
+  - sharedResources / # Shared resources 
+    - language /
+      - fetch /
+        - fetchLanguageActions.ts
+        - fetchLanguageSagas.ts
+      - someAction /
+        - someActionOnLanguageActions.ts
+        - someActionOnLanguageSagas.ts
+      - languageActions.ts
+      - languageActionTypes.ts
+      - languageReducer.ts
+      - languageSagas.ts
+    - repoStatus /
+      - fetch /
+        - fetchRepoStatusActions.ts
+        - fetchRepoStatusSagas.ts
+      - repoStatusActions.ts
+      - repoStatusActionTypes.ts
+      - repoStatusReducer.ts
+      - repoStatusSagas.ts
+  - types /
+  - utils /
+- store
+- types
+- utils
+</code></pre>
+
+<h2 id="links">Links</h2>
 
 <ul>
 <li><a href="https://reactjs.org/docs/react-component.html">Documentation for react components</a></li>
