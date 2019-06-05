@@ -244,48 +244,59 @@ Layouten på skjemaet er definiert i en json-fil som ligger i Gitea repoet.
 Denne filen har vært veldig uoversiktlig med tanke på manuell endring, siden det er normalisert for frontend utvikling.
 Nå som denne har blitt endret, vil UI-edtioren ha samme interne layout, men når det lagres vil det skje en konvertering til et format som er enklere å lese og endre manuelt.  
 
-Dette nye formatet vil se slik ut (med forbehold at ikke alle attributtene i dette eksempelet er skrevet helt riktig)
+Dette nye formatet vil se slik ut:
+
 ```json
 {
-  layout: [
-    {
-        "id": "85h69c64-2a54-493c-a2a2-213034ed9207",
-        "type": "Input",
-        "title": "25795.OppgavegiverNavnPreutfylt.Label",
-        "dataBinding": "skattyterinfor.info.oppgavegiverNavnPreutfylt.value"
-      },
+  "data": {
+    "layout": [
       {
-        "id": "74b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
-        "type": "Input",
-        "title": "25796.OppgavegiverAdressePreutfylt.Label",
-        "dataBinding": "skattyterinfor.info.oppgavegiverAdressePreutfylt.value"
-      },
-      {
-        "id": "12b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
-        "type": "Input",
-        "title": "2.KontaktpersonNavn.Label",
-        "dataBinding": "skattyterinfor.kontakt.kontaktpersonNavn.value"
-      },
-      {
-        "id": "94b7ff77-a80b-45d4-8f4a-81d7a52e6966",
-        "type": "Group",
-        "repeatable": false,
-        "groupies": [
+        "id": "7693ca6a-a4d5-4b78-a7b9-1a499419e256",
+        "type": "Checkboxes",
+        "textResourceBindings": {
+          "title": "25795.OppgavegiverNavnPreutfyltdatadef25795.Label",
+          "description": "25796.OppgavegiverAdressePreutfyltdatadef25796.Label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "skattyterinforgrp5801.infogrp5802.oppgavegiverNavnPreutfyltdatadef25795.value"
+        },
+        "options": [
           {
-            "id": "84b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
-            "type": "Input",
-            "title": "25796.OppgavegiverAdressePreutfylt.Label",
-            "dataBinding": "skattyterinfor.info.oppgavegiverAdressePreutfylt.value"
-          },
-          {
-            "id": "i8b7ff77-a80b-45d4-8f4a-81d7a52e69c6",
-            "type": "Input",
-            "title": "25796.OppgavegiverAdressePreutfylt.Label",
-            "dataBinding": "skattyterinfor.info.oppgavegiverAdressePreutfylt.value"
+            "label": "Navn1",
+            "value": "Verdi1"
           }
-        ]
+        ],
+        "required": true,
+        "readOnly": false
+      },
+      {
+        "id": "dbe9155a-9dce-425e-a9f3-1d51c05f42c3",
+        "type": "Datepicker",
+        "textResourceBindings": {
+          "title": "25795.OppgavegiverNavnPreutfyltdatadef25795.Label",
+          "description": "25796.OppgavegiverAdressePreutfyltdatadef25796.Label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "skattyterinforgrp5801.infogrp5802.oppgavegiverPostnummerPreutfyltdatadef25797.value"
+        },
+        "readOnly": false,
+        "required": true
+      },
+      {
+        "id": "cba318a0-4158-488e-8a47-29a72fb526e0",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "25796.OppgavegiverAdressePreutfyltdatadef25796.Label",
+          "description": "25797.OppgavegiverPostnummerPreutfyltdatadef25797.Label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "skattyterinforgrp5801.klagefristgrp5804.klagemeldingSendtInnenKlagefristdatadef25454.value"
+        },
+        "required": true,
+        "readOnly": false
       }
-  ]
+    ]
+  }
 }
 ```
 
