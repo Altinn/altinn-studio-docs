@@ -5591,6 +5591,35 @@ private void ValidateFirstName(TestModel TestModel, ModelStateDictionary modelSt
 
 <p>If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property <code>triggerValidation</code> to <code>true</code> in the component definition in FormLayout.json.</p>
 
+<pre><code class="language-JSON">{
+  &quot;data&quot;: {
+    &quot;layout&quot;: [
+      {
+        &quot;id&quot;: &quot;3611fb2a-c06b-4fa7-a400-3f6c1ece64e1&quot;,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;25795.OppgavegiverNavnPreutfyltdatadef25795.Label&quot;
+        },
+        &quot;dataModelBindings&quot;: {
+          &quot;simpleBinding&quot;: &quot;etatid&quot;
+        },
+        &quot;type&quot;: &quot;Input&quot;,
+        &quot;triggerValidation&quot;: true, // &lt;--- Add this field
+      },
+      {
+        &quot;id&quot;: &quot;9ec368da-d6a9-4fbd-94d0-b4dfa8891981&quot;,
+        &quot;type&quot;: &quot;Button&quot;,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;Button&quot;
+        },
+        &quot;dataModelBindings&quot;: {},
+        &quot;textResourceId&quot;: &quot;Standard.Button.Button&quot;,
+        &quot;customType&quot;: &quot;Standard&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+
 <p>It is then up to the service developer to write the code for validations in such a way that only the relevant errors are returned when a trigger field is specified, while all validations are run f.ex. when the user is ready to submit service. An example of such code is shown below.</p>
 
 <pre><code class="language-csharp">public void Validate(TestModel TestModel, RequestContext requestContext, ModelStateDictionary modelState)
