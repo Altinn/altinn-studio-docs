@@ -82,6 +82,36 @@ See the comments in the code above for details on what the different parts of th
 
 If there is a need for immediate validation of a field (that is not covered by client-side validation against data model), it is possible to set up a field to trigger server-side validation. This is done by setting the property `triggerValidation` to `true` in the component definition in FormLayout.json.
 
+```JSON
+{
+  "data": {
+    "layout": [
+      {
+        "id": "3611fb2a-c06b-4fa7-a400-3f6c1ece64e1",
+        "textResourceBindings": {
+          "title": "25795.OppgavegiverNavnPreutfyltdatadef25795.Label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "etatid"
+        },
+        "type": "Input",
+        "triggerValidation": true, // <--- Add this field
+      },
+      {
+        "id": "9ec368da-d6a9-4fbd-94d0-b4dfa8891981",
+        "type": "Button",
+        "textResourceBindings": {
+          "title": "Button"
+        },
+        "dataModelBindings": {},
+        "textResourceId": "Standard.Button.Button",
+        "customType": "Standard"
+      }
+    ]
+  }
+}
+```
+
 It is then up to the service developer to write the code for validations in such a way that only the relevant errors are returned when a trigger field is specified, while all validations are run f.ex. when the user is ready to submit service. An example of such code is shown below.
 
 ```csharp
