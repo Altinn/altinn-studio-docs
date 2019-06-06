@@ -10,15 +10,23 @@ alwaysopen: false
 A actor is organization or person that a user/system is acting on behalf of. 
 As an example User A can fill out a form on behalf of Organization B. 
 
+deprecated term: ~~Reportee~~
+
 ## Actor List
 The Actor list is a list over person and organization that a user can act on behalf of. 
 This right is given through roles or rights delegations. 
 
+deprecated term: ~~ReporteeList~~
+
 ## Actor Type
 The type a Actor can be. Typical a person or organization but also sub types of organizations
 
+deprecated term: ~~Reportee Type~~
+
 ## Actor Type Requirement
 The requirent a app has for the Actor. Typical checked when a app is instansiated
+
+deprecated term: ~~Reportee Type Requirement~~
 
 ## Altinn
 
