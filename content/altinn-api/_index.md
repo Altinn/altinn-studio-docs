@@ -73,12 +73,11 @@ Should be used by application owners to download data elements. Downloads will b
 Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwnerId*. 
 If you do not know this, you should provide the official identity number, e.g social security or organization number, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.
 
-
 Data elements can be provided as part of the creation request, but can also be uploaded at a later time
 
 ```json
 {
-    "reportee": { "ssn": "12247918309" | "organizationNumber": "123456789" | "userName": "xyz" },
+    "instanceOwnerLookup": { "personNumber": "12247918309" | "organizationNumber": "123456789" | "userName": "xyz" },
     "labels" : [ "gr", "x2" ],
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",

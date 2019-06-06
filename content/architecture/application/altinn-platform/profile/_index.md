@@ -9,7 +9,7 @@ alwaysopen: true
 
 The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
 
-The profile solution is now available locally at http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.
+The profile solution is now available locally at http://platform.altinn.cloud/profile/api/v1 and all resources are avaiable through endpoints defined below.
 
 Resources: users
 
