@@ -6,6 +6,14 @@ weight: 100
 alwaysopen: false
 ---
 
+## Actor 
+A actor is organization or person that a user/system is acting on behalf of. 
+As an example User A can fill out a form on behalf of Organization B. 
+
+## Actor List
+The Actor list is a list over person and organization that a user can act on behalf of. 
+This right is given through roles or rights delegations. 
+
 ## Altinn
 
 Norways E-Governement plattform. Launched december 4. 2003. 
@@ -47,6 +55,13 @@ Application Programmers Interface.
 ## App
 
 Short for Application. See Application
+
+## AppId
+A AppId identifies a given application. It is has the following pattern [org]/[appName]
+
+## Appname
+Appname is the name that is given for a app. It is used as repository name and as part of AppId and in different metadata.
+Inside a org the Appname needs to be unique
 
 ## Application
 
