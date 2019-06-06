@@ -14,6 +14,12 @@ As an example User A can fill out a form on behalf of Organization B.
 The Actor list is a list over person and organization that a user can act on behalf of. 
 This right is given through roles or rights delegations. 
 
+## Actor Type
+The type a Actor can be. Typical a person or organization but also sub types of organizations
+
+## Actor Type Requirement
+The requirent a app has for the Actor. Typical checked when a app is instansiated
+
 ## Altinn
 
 Norways E-Governement plattform. Launched december 4. 2003. 

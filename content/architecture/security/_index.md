@@ -15,7 +15,6 @@ The security architecture is based on the following reference model
 <object data="/architecture/security/securityarchitecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
-
 ## Identity & Access managment
 This area covers the following sub areas
 
