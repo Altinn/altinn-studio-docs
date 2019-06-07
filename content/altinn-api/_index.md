@@ -353,6 +353,15 @@ Get FormData
 Save FormData
 
 
+Update formdata
+http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update
+
+//Complete
+http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete
+
+// CompleteAndSendIn
+http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
+
 TextResources
 
 ServiceMetadata
@@ -362,13 +371,42 @@ ServiceMetadata
 
 
 
+## Get Language as JSON
+
+## Is this needed
+http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb
 
 
+http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData
+
+## Get the form layout
+
+http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json
 
 
+## Gets the rules for a service
+http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js
 
 
+## Get Current workflow state
+Is it in signing? Is it form filling +++ Used by react to decide what to show.
 
+http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
+
+
+## Service configuration
+
+Not sure
+
+http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json
+
+## Get Text resources
+
+
+http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing
+
+
+http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments
 
 
 
