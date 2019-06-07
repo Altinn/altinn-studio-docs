@@ -13,7 +13,7 @@ The solution is now available at http://platform.altinn.cloud/api/v1 and all res
 
 Resource: Organizations, Parties, Persons
 
-  ## /organizations 
+## /organizations
 
 Get information about an organization:
 
@@ -39,4 +39,3 @@ Send a POST-request with the persons SSN contained in the request body to
 /persons
 ```
 (Available testdata. SSNs: 01124621077, 22104511094, 24054670016 and 07069400021)
-
