@@ -235,7 +235,7 @@ Resource: http://platform.altinn.no/applications/test/sailor
 ### Application type
 
 | Attribute | Type | Description |
-| --- | --- |---| ---| ---|---| --- |
+| --------- | ---- | ----------- |
 id | string | application id 
 versionId | string | release or commit id 
 workflowId | string | application workflow id
