@@ -344,6 +344,21 @@ POST POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-450
 
 
 
+## Current Runtime APIS
+
+
+
+Get FormData
+
+Save FormData
+
+
+TextResources
+
+ServiceMetadata
+
+
+
 
 
 
