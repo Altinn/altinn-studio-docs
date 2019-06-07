@@ -20,7 +20,7 @@ Get information about an organization:
 ```http
 /organizations/{orgNr}
 ```
-(Available testdata. OrgNrs: 10008387, 10008433, 810418192 and 810419962)
+
 
 ## /parties
 
@@ -29,7 +29,6 @@ Get information about a party:
 ```http
 /parties/{partyId}
 ```
-(Available testdata. PartyIds: 50004216, 50004217, 50004219, 50004232, 50002182, 50003590, 50003681 and 50002550)
 
 ## /persons
 
@@ -38,4 +37,3 @@ Send a POST-request with the persons SSN contained in the request body to
 ```http
 /persons
 ```
-(Available testdata. SSNs: 01124621077, 22104511094, 24054670016 and 07069400021)
