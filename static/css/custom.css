@@ -1,0 +1,90 @@
+
+
+/* External links */
+
+a[href^=http]:not([href*='altinn.no']):not([href*='basefarm.net']):not([href*='local.altinn'])::after {
+    display: inline-block;
+    width: 0;
+    margin-left: 0;
+    content: '';
+}
+
+a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([href*='https://github.com/Altinn/altinn-studio/'])::after {
+    display: inline-block;
+    width: 1.3em;
+    background-image: url("https://altinn.no/images/arrowrightup.svg");
+    background-repeat: no-repeat;
+    background-size: 119% auto;
+    vertical-align: middle;
+    margin-top: -4px;
+    margin-left: -3px;
+    content: '(external link)';
+    white-space: nowrap;
+    overflow: hidden;
+    text-indent: 1.3em;
+}
+
+.a-footer a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([href*='/docs/'])::after  {
+    display: none;
+}
+
+/* Header */
+
+.a-globalNav .a-globalNav-logo {
+    margin-left: 3px;
+}
+
+@media (min-width: 576px) {
+    .a-globalNav .a-globalNav-logo {
+        margin-left: 12px;
+    }
+}
+
+@media (min-width: 992px) {
+    .a-header  {
+        padding-top: 33px;
+    }
+    .a-header .a-logo {
+        max-width: 210px;
+    }
+    .a-globalNav .a-globalNav-logo {
+        margin-left: 0;
+    }
+}
+
+/* Jumbotron */
+
+.a-jumbotron-header {
+    background-size: 100%;
+}
+
+/* Scrollable tables */
+#body-inner table {
+    display: block;
+    width: 98%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border: 0;
+    margin-bottom: 2em;
+}
+#body-inner table th {
+    border: 1px solid #eaeaea;
+}
+
+/* Avoid large margin for images in tables */
+#body td a > img {
+    margin: 0 auto !important;
+}
+
+blockquote {
+    border-left: 5px solid #1eaef7;
+}
+blockquote p {
+    font-size: 1.1rem;
+    color: #222;
+}
+li > label {
+    font-weight: normal;
+}
+
+

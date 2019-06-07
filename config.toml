@@ -1,4 +1,4 @@
-baseURL = "https://docs.altinn.studio"
+baseURL = "https://docs.altinn.studio/"
 languageCode = "en"
 defaultContentLanguage = "en"
 
@@ -7,7 +7,7 @@ staticDir = "static"
 publishDir = "public"
 
 title = "Altinn Studio"
-theme = "hugo-theme-docdock"
+theme = "hugo-theme-altinn"
 metadataFormat = "yaml"
 pluralizeListTitles = false
 preservetaxonomynames = true
@@ -23,7 +23,7 @@ editURL = "https://github.com/altinn/altinn-studio-docs/blob/master/content/"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
-#themeVariant = "blue" # choose theme variant "green", "gold", "gray", blue" (default)
+themeVariant = "gray" 
 
 
 [outputs]
