@@ -5441,6 +5441,14 @@ if(host != "localhost")
 <li><a href="#api-to-validate-data">API to validate data</a></li>
 <li><a href="#api-to-calculate-perform-business-rules">API to calculate / perform business rules</a></li>
 </ul></li>
+<li><a href="#current-runtime-apis">Current Runtime APIS</a></li>
+<li><a href="#get-language-as-json">Get Language as JSON</a></li>
+<li><a href="#is-this-needed">Is this needed</a></li>
+<li><a href="#get-the-form-layout">Get the form layout</a></li>
+<li><a href="#gets-the-rules-for-a-service">Gets the rules for a service</a></li>
+<li><a href="#get-current-workflow-state">Get Current workflow state</a></li>
+<li><a href="#service-configuration">Service configuration</a></li>
+<li><a href="#get-text-resources">Get Text resources</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -5786,6 +5794,59 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <pre><code class="language-http">POST POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
 </code></pre>
+
+<h2 id="current-runtime-apis">Current Runtime APIS</h2>
+
+<p>Get FormData</p>
+
+<p>Save FormData</p>
+
+<p>Update formdata
+<a href="http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update">http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update</a></p>
+
+<p>//Complete
+<a href="http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete">http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete</a></p>
+
+<p>// CompleteAndSendIn
+<a href="http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn">http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn</a></p>
+
+<p>TextResources</p>
+
+<p>ServiceMetadata</p>
+
+<h2 id="get-language-as-json">Get Language as JSON</h2>
+
+<h2 id="is-this-needed">Is this needed</h2>
+
+<p><a href="http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb">http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb</a></p>
+
+<p><a href="http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData">http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData</a></p>
+
+<h2 id="get-the-form-layout">Get the form layout</h2>
+
+<p><a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json</a></p>
+
+<h2 id="gets-the-rules-for-a-service">Gets the rules for a service</h2>
+
+<p><a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js</a></p>
+
+<h2 id="get-current-workflow-state">Get Current workflow state</h2>
+
+<p>Is it in signing? Is it form filling +++ Used by react to decide what to show.</p>
+
+<p><a href="http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5">http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5</a></p>
+
+<h2 id="service-configuration">Service configuration</h2>
+
+<p>Not sure</p>
+
+<p><a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json</a></p>
+
+<h2 id="get-text-resources">Get Text resources</h2>
+
+<p><a href="http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing">http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing</a></p>
+
+<p><a href="http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments">http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments</a></p>
 
 
 
