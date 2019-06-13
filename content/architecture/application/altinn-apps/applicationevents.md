@@ -25,7 +25,7 @@ or validate if the user or system is allowed to instansiate that service.
 {{% /excerpt%}}
 
 
-The below sequence diagram shows how the app events are combined with other logic
+The below sequence diagram shows how the app events are combined with other logic for a requesting to start a service in the service catalogue
 
 
 {{%excerpt%}}
