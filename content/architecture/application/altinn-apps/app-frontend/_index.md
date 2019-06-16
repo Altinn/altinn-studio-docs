@@ -1,6 +1,6 @@
 ---
 title: Tjenester 3.0 - Runtime - Arkitektur
-linktitle: React App
+linktitle: App Frontend
 description: Beskrivelse av arkitektur for React App i Runtime
 tags: ["tjenester 3.0"]
 weight: 100
