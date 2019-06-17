@@ -79,6 +79,7 @@ Data elements can be provided as part of the creation request, but can also be u
 {
     "instanceOwnerLookup": { "personNumber": "12247918309" | "organizationNumber": "123456789" | "userName": "xyz" },
     "labels" : [ "gr", "x2" ],
+    "appId" : "org/appName",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
@@ -101,7 +102,7 @@ This call will return the instance metadata record which was created. A unique i
         "apps": "https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "platform": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
     },
-    "appId": "org/app2018",
+    "appId": "org/appName",
     "labels": [ "gr", "x2" ],
     "instanceOwnerId": "347829",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
@@ -242,7 +243,7 @@ POST https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641
 {{% /excerpt%}}
 
 ```http
-POST https://org.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?moveTo=Submit
+POST https://org.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?goTo=Submit
 ```
 
 ### Query instances
@@ -322,7 +323,7 @@ Query result:
 The apps will support the possibility to validate the datamodel for the app without creating a instance of the data
 
 ```http
-POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
+PUT https://org.apps.altinn.no/api/v1/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
 ```
 
 ### API to calculate / perform business rules
@@ -330,28 +331,79 @@ POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4d
 The app will support the possibility to perform calculation / perform business rules for a datamodell to an app  
 
 ```http
-POST POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
+```
+
+## Apps API
+
+Get metadata about the instance.
+
+```http
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc
+```
+
+Create form data (first time).
+
+```http
+POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=model2
 ```
 
 
+GET or PUT default form data (save data). Update form data.
 
+```http
+{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+```
 
+Lock a data element:
 
+```http
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/lock
+```
 
+Get application metadata:
 
+```http
+GET {appPath}
+```
 
+### Workflow methods
 
+{{%excerpt%}}
+<object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object>
+{{% /excerpt%}}
 
+Get workflow state.
 
+```http
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow
+```
+
+Complete a workflow step. Instance must select next step. Error if multiple steps and user must chose which step. 
+
+```http
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeStep
+```
+
+Complete workflow. Error if no end transition is allowed.
+
+```http
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
+```
+
+Get next steps according to flow. Returns an array of steps that can be selected.
+
+```http
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?steps=next
+```
+
+Set a workflow step. Closes current step and move workflow state to new step, if allowed by flow. Error otherwise.
+
+```http
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
+```
 
 ## Current Runtime APIS
-
-
-
-Get FormData
-
-Save FormData
-
 
 Update formdata
 http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update
@@ -365,11 +417,6 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
 TextResources
 
 ServiceMetadata
-
-
-
-
-
 
 ## Get Language as JSON
 
