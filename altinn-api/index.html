@@ -5468,6 +5468,10 @@ if(host != "localhost")
 <li><a href="#api-to-validate-data">API to validate data</a></li>
 <li><a href="#api-to-calculate-perform-business-rules">API to calculate / perform business rules</a></li>
 </ul></li>
+<li><a href="#apps-api">Apps API</a>
+<ul>
+<li><a href="#workflow-methods">Workflow methods</a></li>
+</ul></li>
 <li><a href="#current-runtime-apis">Current Runtime APIS</a></li>
 <li><a href="#get-language-as-json">Get Language as JSON</a></li>
 <li><a href="#is-this-needed">Is this needed</a></li>
@@ -5583,6 +5587,7 @@ If you do not know this, you should provide the official identity number, e.g so
 <pre><code class="language-json">{
     &quot;instanceOwnerLookup&quot;: { &quot;personNumber&quot;: &quot;12247918309&quot; | &quot;organizationNumber&quot;: &quot;123456789&quot; | &quot;userName&quot;: &quot;xyz&quot; },
     &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ],
+    &quot;appId&quot; : &quot;org/appName&quot;,
     &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
@@ -5603,7 +5608,7 @@ If you do not know this, you should provide the official identity number, e.g so
         &quot;apps&quot;: &quot;https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
     },
-    &quot;appId&quot;: &quot;org/app2018&quot;,
+    &quot;appId&quot;: &quot;org/appName&quot;,
     &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
     &quot;instanceOwnerId&quot;: &quot;347829&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
@@ -5737,7 +5742,7 @@ If you do not know this, you should provide the official identity number, e.g so
 
 
 
-<pre><code class="language-http">POST https://org.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?moveTo=Submit
+<pre><code class="language-http">POST https://org.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?goTo=Submit
 </code></pre>
 
 <h3 id="query-instances">Query instances</h3>
@@ -5812,21 +5817,76 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <p>The apps will support the possibility to validate the datamodel for the app without creating a instance of the data</p>
 
-<pre><code class="language-http">POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
+<pre><code class="language-http">PUT https://org.apps.altinn.no/api/v1/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
 </code></pre>
 
 <h3 id="api-to-calculate-perform-business-rules">API to calculate / perform business rules</h3>
 
 <p>The app will support the possibility to perform calculation / perform business rules for a datamodell to an app</p>
 
-<pre><code class="language-http">POST POST https://org.apps.altinn.no/api/v1/org/app2018/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
+</code></pre>
+
+<h2 id="apps-api">Apps API</h2>
+
+<p>Get metadata about the instance.</p>
+
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc
+</code></pre>
+
+<p>Create form data (first time).</p>
+
+<pre><code class="language-http">POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=model2
+</code></pre>
+
+<p>GET or PUT default form data (save data). Update form data.</p>
+
+<pre><code class="language-http">{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+</code></pre>
+
+<p>Lock a data element:</p>
+
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/lock
+</code></pre>
+
+<p>Get application metadata:</p>
+
+<pre><code class="language-http">GET {appPath}
+</code></pre>
+
+<h3 id="workflow-methods">Workflow methods</h3>
+
+
+	<p><object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object></p>
+
+
+
+<p>Get workflow state.</p>
+
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow
+</code></pre>
+
+<p>Complete a workflow step. Instance must select next step. Error if multiple steps and user must chose which step.</p>
+
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeStep
+</code></pre>
+
+<p>Complete workflow. Error if no end transition is allowed.</p>
+
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
+</code></pre>
+
+<p>Get next steps according to flow. Returns an array of steps that can be selected.</p>
+
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?steps=next
+</code></pre>
+
+<p>Set a workflow step. Closes current step and move workflow state to new step, if allowed by flow. Error otherwise.</p>
+
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
 </code></pre>
 
 <h2 id="current-runtime-apis">Current Runtime APIS</h2>
-
-<p>Get FormData</p>
-
-<p>Save FormData</p>
 
 <p>Update formdata
 <a href="http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update">http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update</a></p>
