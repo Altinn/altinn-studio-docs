@@ -9,7 +9,11 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn Studio and deployed in Altinn Apps.
+Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. a
+Currently these applications together with applications for routing are the only components 
+
+The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn 
+Studio and deployed in Altinn Apps.
 
 {{%excerpt%}}
 <object data="/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
