@@ -1987,14 +1987,21 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/application/altinn-apps/applicationevents/" class="dd-item
-     
-      ">
-        <a href="/architecture/application/altinn-apps/applicationevents/">
-        <span>Application Events</span> 
+    <li data-nav-id="/architecture/application/altinn-apps/app-backend/" class="dd-item 
         
-        </a></li>
-     
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/app-backend/">
+        <span>App Backend</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -2007,13 +2014,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/react-app/" class="dd-item 
+    <li data-nav-id="/architecture/application/altinn-apps/app-frontend/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/react-app/">
-        <span>React App</span>
+      <a href="/architecture/application/altinn-apps/app-frontend/">
+        <span>App Frontend</span>
 
         
         
@@ -2022,6 +2029,26 @@ if(host != "localhost")
       </a>
               
     </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/application/altinn-apps/applicationevents/" class="dd-item
+     
+      ">
+        <a href="/architecture/application/altinn-apps/applicationevents/">
+        <span>Application Events</span> 
+        
+        </a></li>
+     
   
  
 
@@ -5555,16 +5582,73 @@ Repository GITEA is used as Repository in Altinn Studio Service Development solu
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-frontend/">App Frontend Application Architecture</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Arkitektur Tjeneste React App React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som ble gjort av tjenesteutvikler.
+Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.
+En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon. <a class="read-more" href="/architecture/application/altinn-apps/app-frontend/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/altinn-apps/">Altinn Apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/">Application Architecture Altinn Apps</a></h2>
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. Stuff will change
-The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn Studio and deployed in Altinn Apps.
+Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. a Currently these applications together with applications for routing are the only components
+The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn Studio and deployed in Altinn Apps.
 
 See fullscreen or download as visio
-Service App The Service App consist of plattform code (AltinnCore.Runtime) and
-This is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
-Front-end Service App The Service App have two different types of front. <a class="read-more" href="/architecture/application/altinn-apps/">&raquo;</a></p>
+Service App The Service App consist of plattform code (AltinnCore. <a class="read-more" href="/architecture/application/altinn-apps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-backend/">Application Architecture Altinn Apps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. Stuff will change
+Backend is based on ASP.Net Core and is a MVC application that uses defined interfaces to run the specific service logic implemented in Altinn Studio.
+This backend exposes API to front-end react applications and external systems.
+The MVC backend application loads service specific code from container disk.
+Service Implementation. The service implementation is C# code generated/created as part of the service development process in Altinn Studio. <a class="read-more" href="/architecture/application/altinn-apps/app-backend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5658,67 +5742,6 @@ Instansiation Instansiation is when the end user or system instansiates a new se
           
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/">CalculationHandler.cs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Arbeidet med POC har føreløpig ikke konkludert angående bruk av denne filen. Vil jobbes videre med i MVP.
-Overordnet &lsquo;CalculationHandler.cs&rsquo; er en C# klasse hvor tjenesteutvikler kan plassere forretningslogikk som gjør kalkuleringer.
-Format Standard C# kode som kan gjøre bortimot alt.
-Uavklart: Hvordan Tjenester 3.0 skal validere/verifisere denne logikken.
-Utvikling Under opprettelse av en tjeneste vil en tom CalculationHandler opprettes.
-Hypotese: Tjenesteutvikler editerer på denne filen via Altinn Studio eller Visual Studio Code <a class="read-more" href="/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">FormLayout.json</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Overordnet &lsquo;FormLayout.json&rsquo; describes the structure of a schema.
-Format &lsquo;FormLayout.json&rsquo; is divided into three objects:
- Components: describes the components in the schema and configurations connected to the specific component. E.g the binding to a data model. Containers: describes the layout containers used in the schema and the configurations connected to them. E.g if the container is a repeating group Order: this object specify the order of the containers and components in the schema. <a class="read-more" href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/dataformat/">dataformat</a>
             
         
 
@@ -6783,6 +6806,22 @@ Format &lsquo;FormLayout.json&rsquo; is divided into three objects:
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

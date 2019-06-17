@@ -99,6 +99,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app-backend/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app-frontend/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/application/</loc>
   </url>
   
@@ -339,10 +347,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/react-app/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/development/handbook/front-end/redux/</loc>
   </url>
   
@@ -540,6 +544,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/analysis/api/agency/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/altinn-apps/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
