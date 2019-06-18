@@ -5,10 +5,6 @@ description: Description of the application architecture for Altinn Apps
 tags: ["tjenester 3.0"]
 weight: 100
 ---
-{{% notice warning %}}
-NOTE: Work in progress. Stuff will change
-{{% /notice %}}
-
 Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. 
 
 Currently these applications together with applications for routing are the only components that is part of Altinn Apps. 
