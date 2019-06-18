@@ -2,12 +2,9 @@
 title: Application Architecture Altinn Apps
 linktitle: App Backend
 description: Description of the application architecture for App Backend 
-tags: ["tjenester 3.0"]
+tags: ["tjenester 3.0", "app-backend", "application architecture"]
 weight: 100
 ---
-{{% notice warning %}}
-NOTE: Work in progress. Stuff will change
-{{% /notice %}}
 
 Backend is based on [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) and is 
 a [MVC application](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview) that uses defined
