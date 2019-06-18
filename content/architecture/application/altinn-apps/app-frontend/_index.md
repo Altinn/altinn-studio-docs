@@ -6,7 +6,10 @@ tags: ["tjenester 3.0", "Altinn Apps"]
 weight: 100
 ---
 
-## Arkitektur Tjeneste React App 
+App Frontend is the javascript application 
+
+
+
 React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som
 ble gjort av tjenesteutvikler. 
 
