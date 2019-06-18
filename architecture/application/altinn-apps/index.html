@@ -5458,16 +5458,8 @@ if(host != "localhost")
 <li><a href="#app-routing">App routing</a></li>
 <li><a href="#application-app">Application (App)</a>
 <ul>
-<li><a href="#front-end-service-app">Front-end Service App</a>
-<ul>
-<li><a href="#front-end-configured-by-the-service-developer">Front-end configured by the service developer</a></li>
-<li><a href="#front-end-for-platform">Front-end for platform</a></li>
-</ul></li>
-<li><a href="#backend">Backend</a>
-<ul>
-<li><a href="#service-implementation">Service Implementation.</a></li>
-<li><a href="#datamodel">Datamodel</a></li>
-</ul></li>
+<li><a href="#app-frontend">App Frontend</a></li>
+<li><a href="#app-backend">App Backend</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5501,8 +5493,9 @@ if(host != "localhost")
 </div>
 
 
-<p>Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.
-Currently these applications together with applications for routing are the only components that is part of Altinn Apps.</p>
+<p>Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.</p>
+
+<p>Currently these applications together with applications for routing are the only components that is part of Altinn Apps.</p>
 
 <p>The diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different
 components/parts of Altinn Apps.</p>
@@ -5512,7 +5505,7 @@ components/parts of Altinn Apps.</p>
 
 
 
-<p><a href="/architecture/application/altinn-apps/altinnapps_application_architecture.svg">See fullscreen</a> or <a href="/architecture/application/altinn-apps/altinnapps_application_architecture.vsdx">download as visio</a></p>
+<p>[See fullscreen] or [download as visio]</p>
 
 <h2 id="app-routing">App routing</h2>
 
@@ -5520,71 +5513,23 @@ components/parts of Altinn Apps.</p>
 
 <h2 id="application-app">Application (App)</h2>
 
-<p>The App consist of backend and frontend</p>
+<p>The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod.
+See <a href="/architecture/infrastructure/deployement/altinn-apps">deployment architecture</a> for deployment details.</p>
 
-<p>This is deployed as a Docker container in a Kubernetes Pod.
-See <a href="/architecture/deployement/altinn-apps">deployment architecture</a> for deployment details.</p>
+<p>The App itself consist of two applications with different Application Architecture</p>
 
-<h3 id="front-end-service-app">Front-end Service App</h3>
+<h3 id="app-frontend">App Frontend</h3>
 
-<p>The Service App have two different types of front.end.
-* Front-end configured by the service developer in Altinn Studio ui-designer
-* Front-end that is part of the plattform and can&rsquo;t be changed by the service developer</p>
+<p>Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a
+App Frontend.</p>
 
-<h4 id="front-end-configured-by-the-service-developer">Front-end configured by the service developer</h4>
+<p><a href="app-frontend">Read more about the application architecture for App Frontend</a></p>
 
-<p>The front-end developed as part of the service development in Altinn Studio is based on REACT.</p>
+<h3 id="app-backend">App Backend</h3>
 
-<p>Altinn Studio Generates a REACT app based on the selected components in the service UI.</p>
+<p>App-Backend exposes api to frontend and contains all needed functionality to handle</p>
 
-<p>This app uses the backend APIS for creating, updating, deleting data in the service datamodell.</p>
-
-<p>See details for <a href="react-app">REACT App architecture</a></p>
-
-<p>For services with requirements that is not supported with the WYSIWYG REACT editor the service developer
-could build theire own client based frontend on REACT or other frameworks hosted in runtime.</p>
-
-<p>It will also be possible to build a GUI hosted elsewhere and just use the service APIs to handle data updates</p>
-
-<h4 id="front-end-for-platform">Front-end for platform</h4>
-
-<p>As part of the platform there is some standard pages presented during the workflow for a service
-that the service developer does not need to create GUI for.
-* Instansiation
-* Send in
-* Signing
-* Payment</p>
-
-<p>The assumption is that these will be React apps. They are currently Razor.</p>
-
-<h3 id="backend">Backend</h3>
-
-<p>Backend is based on ASP.Net Core and is a MVC application that uses defined
-interfaces to run the specific service logic implemented in Altinn Studio.</p>
-
-<p>This backend exposes API to front-end react applications and external systems.</p>
-
-<p>The MVC backend application loads service specific code from container disk.</p>
-
-<h4 id="service-implementation">Service Implementation.</h4>
-
-<p>The service implementation is C# code generated/created as part of the service
-development process in Altinn Studio.</p>
-
-<p>The Service Implementation implement a defined interface that backend uses to be able to interact
-with the service implementation.</p>
-
-<p>The service implementation contains all backend code for logic and rules.</p>
-
-<h4 id="datamodel">Datamodel</h4>
-
-<p>The data model in a service is defined as an XSD. From the XSD it is generated
-a C# representation of that model.</p>
-
-<p>In runtime all data is deserialized/serialized from/to this model when communication
-with frontend/external systems.</p>
-
-<p>All logic in the service will typical be related to the datamodel.</p>
+<p><a href="app-backend">Read more about the application architecture for App Frontend</a></p>
 
 
 <footer class=" footline" >
@@ -8520,7 +8465,7 @@ with frontend/external systems.</p>
 
 
         
-            <a class="nav nav-prev" href="/architecture/application/" title="Application"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="/architecture/application/" title="Application Architecture"> <i class="fa fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="/architecture/application/altinn-apps/app-backend/" title="Application Architecture Altinn Apps" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
