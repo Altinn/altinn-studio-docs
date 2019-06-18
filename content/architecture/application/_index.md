@@ -1,5 +1,5 @@
 ---
-title: Application
+title: Application Architecture
 linktitle: Application
 description: Description of the Altinn Studio application architecture
 tags: ["architecture"]
