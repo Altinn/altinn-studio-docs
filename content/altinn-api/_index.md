@@ -53,7 +53,7 @@ The Platform Storage API will provide access to information stored by the applic
 An api that provides access to all instances of a specific app.
 
 ```http
-https://org.apps.altinn.no/org/app2018
+apiPath = https://org.apps.altinn.no/org/appName
 ```
 
 Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change workflow and to save/update data elements.
@@ -63,7 +63,7 @@ Identifies the organization cluster and the application. Should be used to insta
 An api that provides access to all instances of all apps, it should be used to access metadata about instances and to download data elements.
 
 ```http
-https://platform.altinn.no/storage
+storagePath = https://platform.altinn.no/storage
 ```
 
 Should be used by application owners to download data elements. Downloads will be logged. 
@@ -90,7 +90,7 @@ Data elements can be provided as part of the creation request, but can also be u
 ```
 
 ```http
-POST https://org.apps.altinn.no/org/app2018/instances
+POST {appPath}/instances
 ```
 
 This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.
@@ -99,7 +99,7 @@ This call will return the instance metadata record which was created. A unique i
 {
     "id": "347829/762011d1-d341-4c0a-8641-d8a104e83d30",
     "selfLinks": {
-        "apps": "https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+        "apps": "https://org.apps.altinn.no/org/appName/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "platform": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
     },
     "appId": "org/appName",
@@ -127,9 +127,9 @@ This call will return the instance metadata record which was created. A unique i
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "elementType": "default",
         "contentType": "application/xml",
-        "storageUrl": "org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        "storageUrl": "org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "dataLink": {
-            "apps":   "https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "apps":   "https://org.apps.altinn.no/org/appName/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "platform": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
         },
         "fileName": "prefill.xml",
@@ -144,10 +144,10 @@ This call will return the instance metadata record which was created. A unique i
 
 ### Create a data element (optional)
 
-Post data file (xml-document) as body of request. Must specify elementType as definied in the application metadata.
+Post data file (xml-document) as body of request. Must specify elementType as defined in the application metadata.
 
 ```http
-POST https://org.apps.altinn.no/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=default
+POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=default
 ```
 
 This call updates and returns instance metadata where each data element are given a guid.
@@ -161,9 +161,9 @@ This call updates and returns instance metadata where each data element are give
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "elementType": "default",
             "contentType": "application/xml",
-            "storageUrl": "org/app2018/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "storageUrl": "org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "dataLinks": {
-                "apps":   "https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+                "apps":   "https://org.apps.altinn.no/org/appName/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
                 "platform": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
             },
             "fileName": "default.xml",
@@ -183,13 +183,13 @@ This call updates and returns instance metadata where each data element are give
 Update (replace) a data element with a new one (payload)
 
 ```http
-PUT https://org.apps.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
 ### Download a data element (as application owner)
 
 ```http
-GET https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
 Will update metadata for on data element.
@@ -217,7 +217,7 @@ Will update metadata for on data element.
 ### Confirm successful download
 
 ```http
-POST https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
+POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
 ```
 
 ```json
@@ -243,13 +243,13 @@ POST https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641
 {{% /excerpt%}}
 
 ```http
-POST https://org.altinn.no/org/app2018/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?goTo=Submit
+POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?goTo=Submit
 ```
 
 ### Query instances
 
 ```http
-GET https://platform.altinn.no/storage/instances?appId=org/app2018&workflow.currentStep=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
+GET {storagePath}/instances?appId=org/appName&workflow.currentStep=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
 ```
 
 Returns a paginated set of instances (JSON)
@@ -258,13 +258,13 @@ Returns a paginated set of instances (JSON)
 {
     "_links": {
         "self": {
-            "href": "https://platform.altinn.no/storage/instances?page=0&size=100"
+            "href": "{storagePath}/instances?page=0&size=100"
         },
         "next": {
-            "href": "https://platform.altinn.no/storage/instances?page=1&size=100"
+            "href": "{storagePath}/instances?page=1&size=100"
         },
         "last": {
-            "href": "https://platform.altinn.no/storage/instances?page=123&size=100"
+            "href": "{storagePath}/instances?page=123&size=100"
         }
     },
     "_embedded": {
@@ -282,7 +282,7 @@ Returns a paginated set of instances (JSON)
 Events can be queried. May be piped.
 
 ```http
-GET https://platform.altinn.no/storage/applications/org/app2018/events?after=2019-03-30&workflow.currentStep=Submit&workflow.isComplete=true
+GET {storagePath}/applications/org/appName/events?after=2019-03-30&workflow.currentStep=Submit&workflow.isComplete=true
 ```
 
 Query result:
@@ -292,7 +292,7 @@ Query result:
     {
         "id": "112453234523423344",
         "at": "2019-06-01T12:12:22+01:00",
-        "appId": "org/app2018",
+        "appId": "org/appName",
         "instanceOwnerId": "347829",
         "instanceLink": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "dataLinks": [
@@ -323,7 +323,7 @@ Query result:
 The apps will support the possibility to validate the datamodel for the app without creating a instance of the data
 
 ```http
-PUT https://org.apps.altinn.no/api/v1/org/app2018/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
 ```
 
 ### API to calculate / perform business rules
@@ -355,17 +355,28 @@ GET or PUT default form data (save data). Update form data.
 {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
+OLD Update formdata
+http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update
+
+
 Lock a data element:
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/lock
 ```
 
-Get application metadata:
+Get application metadata :
 
 ```http
 GET {appPath}
 ```
+
+Get the application's workflow:
+
+```http
+GET {appPath}/workflow
+```
+
 
 ### Workflow methods
 
@@ -373,23 +384,39 @@ GET {appPath}
 <object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object>
 {{% /excerpt%}}
 
-Get workflow state.
+#### Get workflow state.
 
 ```http
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow
 ```
+OLD Get Current workflow state
+Is it in signing? Is it form filling +++ Used by react to decide what to show.
+http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
 
-Complete a workflow step. Instance must select next step. Error if multiple steps and user must chose which step. 
+
+#### Complete a workflow step. 
+
+Application must select next step. Error if multiple steps and user must chose which step. 
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeStep
 ```
+OLD  //Complete
+http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete
 
-Complete workflow. Error if no end transition is allowed.
+```http
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/nextStep
+```
+
+#### Complete workflow. 
+
+Error if no end transition is allowed.
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
 ```
+OLD // CompleteAndSendIn
+http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
 
 Get next steps according to flow. Returns an array of steps that can be selected.
 
@@ -397,66 +424,66 @@ Get next steps according to flow. Returns an array of steps that can be selected
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?steps=next
 ```
 
-Set a workflow step. Closes current step and move workflow state to new step, if allowed by flow. Error otherwise.
+#### Start a workflow step. 
+
+Closes current step and move workflow state to new step, if allowed by flow. Error otherwise.
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
 ```
 
-## Current Runtime APIS
-
-Update formdata
-http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update
-
-//Complete
-http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete
-
-// CompleteAndSendIn
-http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
-
-TextResources
-
-ServiceMetadata
-
-## Get Language as JSON
-
-## Is this needed
-http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb
+### TextResources
 
 
-http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData
+#### Get text resources for the application for a specific language
 
-## Get the form layout
-
-http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json
-
-
-## Gets the rules for a service
-http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js
+```http
+GET {appPath}/resources/texts?lang=nb
+```
+OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb
 
 
-## Get Current workflow state
-Is it in signing? Is it form filling +++ Used by react to decide what to show.
+#### Get text resources for a given element type
 
-http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
+```http
+GET {appPath}/types/{typeName}/resources/texts?lang=nb
+```
+OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing
+
+### Metadata
+
+#### Get the metadata for a given element type
+
+```http
+GET {appPath}/types/{typeName}/metadata
+```
+OLD http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData
+
+#### Get the layout for a given element type
+
+```http
+GET {appPath}/types/{typeName}/layouts
+```
+OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json
+
+#### Gets the rules for a given element type
+
+```http
+GET {appPath}/types/{typeName}/rules
+```
+OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js
 
 
-## Service configuration
+##### External API use
 
-Not sure
+```http
+GET {appPath}/types/{typeName}/externalApis
+```
+OLD (Service configuration) http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json
 
-http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json
+### Other
 
-## Get Text resources
-
-
-http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing
-
-
-http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments
-
-
-
+OLD http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments
 
 
 
