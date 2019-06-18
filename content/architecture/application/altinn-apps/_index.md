@@ -9,11 +9,11 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. a
-Currently these applications together with applications for routing are the only components 
+Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. 
+Currently these applications together with applications for routing are the only components that is part of Altinn Apps. 
 
-The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn 
-Studio and deployed in Altinn Apps.
+The diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different
+components/parts of Altinn Apps.
 
 {{%excerpt%}}
 <object data="/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
@@ -21,8 +21,12 @@ Studio and deployed in Altinn Apps.
 
 [See fullscreen] or [download as visio]
 
-## Service App
-The Service App consist of plattform code (AltinnCore.Runtime) and  
+
+## App routing
+In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod
+
+## Application (App)
+The App consist of backend and frontend   
 
 This is deployed as a Docker container in a Kubernetes Pod. 
 See [deployment architecture](/architecture/deployement/altinn-apps) for deployment details. 

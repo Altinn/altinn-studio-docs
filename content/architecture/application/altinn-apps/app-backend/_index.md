@@ -9,11 +9,11 @@ weight: 100
 NOTE: Work in progress. Stuff will change
 {{% /notice %}}
 
-
-Backend is based on ASP.Net Core and is a MVC application that uses defined
+Backend is based on [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) and is 
+a [MVC application](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview) that uses defined
 interfaces to run the specific service logic implemented in Altinn Studio.
 
-This backend exposes API to front-end react applications and external systems. 
+This backend exposes REST-Api's consumed by the App Frontend and/or external systems / mobile apps.
 
 The MVC backend application loads service specific code from container disk.
 
