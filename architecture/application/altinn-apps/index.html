@@ -5455,7 +5455,8 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#service-app">Service App</a>
+<li><a href="#app-routing">App routing</a></li>
+<li><a href="#application-app">Application (App)</a>
 <ul>
 <li><a href="#front-end-service-app">Front-end Service App</a>
 <ul>
@@ -5500,11 +5501,11 @@ if(host != "localhost")
 </div>
 
 
-<p>Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. a
-Currently these applications together with applications for routing are the only components</p>
+<p>Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.
+Currently these applications together with applications for routing are the only components that is part of Altinn Apps.</p>
 
-<p>The Altinn Apps application architecture is the same as the Application Architecture for the apps developed in Altinn
-Studio and deployed in Altinn Apps.</p>
+<p>The diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different
+components/parts of Altinn Apps.</p>
 
 
 	<p><object data="/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object></p>
@@ -5513,9 +5514,13 @@ Studio and deployed in Altinn Apps.</p>
 
 <p><a href="/architecture/application/altinn-apps/altinnapps_application_architecture.svg">See fullscreen</a> or <a href="/architecture/application/altinn-apps/altinnapps_application_architecture.vsdx">download as visio</a></p>
 
-<h2 id="service-app">Service App</h2>
+<h2 id="app-routing">App routing</h2>
 
-<p>The Service App consist of plattform code (AltinnCore.Runtime) and</p>
+<p>In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod</p>
+
+<h2 id="application-app">Application (App)</h2>
+
+<p>The App consist of backend and frontend</p>
 
 <p>This is deployed as a Docker container in a Kubernetes Pod.
 See <a href="/architecture/deployement/altinn-apps">deployment architecture</a> for deployment details.</p>
