@@ -775,7 +775,7 @@
 			<path d="M0 990.55 A21.2598 4.25197 -180 1 0 42.52 990.55" class="st29"/>
 			<path d="M0 992.67 A21.2598 4.25197 -180 0 0 42.52 992.67" class="st29"/>
 			<text x="11.51" y="1014.2" class="st13" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>GITEA</text>		</g>
-		<g id="shape571-267" v:mID="571" v:groupContext="shape" v:layerMember="0" transform="translate(574.532,-939.397)">
+		<g id="shape571-267" v:mID="571" v:groupContext="shape" v:layerMember="0" transform="translate(669.67,-939.397)">
 			<title>Person.571</title>
 			<desc>Service Developer - Developing</desc>
 			<v:userDefs>
@@ -1596,5 +1596,71 @@
 			</g>
 			<rect x="0" y="1001.17" width="113.386" height="25.5118" class="st41"/>
 			<text x="36.06" y="1016.93" class="st11" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Validation</text>		</g>
+		<g id="group826-648" transform="translate(651.245,-845.854)" v:mID="826" v:groupContext="group" v:layerMember="0">
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
+				<v:ud v:nameU="ConnGap" v:prompt="" v:val="VT0(0.00012908222537757):24"/>
+			</v:userDefs>
+			<title>Web Page.826</title>
+			<desc>Web Browser</desc>
+			<g id="shape827-649" v:mID="827" v:groupContext="shape" v:layerMember="0" transform="translate(0,-16.0605)">
+				<title>Sheet.827</title>
+				<g id="shadow827-650" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+					<rect x="0" y="978.103" width="61.7769" height="48.5839" class="st2"/>
+				</g>
+				<rect x="0" y="978.103" width="61.7769" height="48.5839" class="st14"/>
+			</g>
+			<g id="shape828-654" v:mID="828" v:groupContext="shape" v:layerMember="0" transform="translate(9.66943,-37.9899)">
+				<title>Sheet.828</title>
+				<v:userDefs>
+					<v:ud v:nameU="SurroundingRegionColor" v:prompt="" v:val="VT0(1):26"/>
+					<v:ud v:nameU="SurroundingRegionColor" v:prompt="" v:val="VT5(#5b9bd5)"/>
+				</v:userDefs>
+				<path d="M0 1015.86 L2.95 1015.86 L2.95 1013.92 L0 1013.92 L0 1015.86 ZM6.71 1015.86 L23.64 1015.86 L23.64 1013.92
+							 L6.71 1013.92 L6.71 1015.86 ZM6.71 1021.27 L23.64 1021.27 L23.64 1019.33 L6.71 1019.33 L6.71 1021.27
+							 ZM0 1021.27 L2.95 1021.27 L2.95 1019.33 L0 1019.33 L0 1021.27 ZM0 1026.69 L2.95 1026.69 L2.95 1024.74
+							 L0 1024.74 L0 1026.69 ZM6.71 1026.69 L23.64 1026.69 L23.64 1024.74 L6.71 1024.74 L6.71 1026.69 Z"
+						class="st39"/>
+			</g>
+			<g id="shape829-657" v:mID="829" v:groupContext="shape" v:layerMember="0" transform="translate(1.34298,-0.552467)">
+				<title>Sheet.829</title>
+				<g id="shadow829-658" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+					<path d="M0 971.61 L59.09 971.61 L59.09 963.84 L0 963.84 L0 971.61 ZM69.52 1007.85 A18.2215 18.8339 -180 1 0
+								 33.08 1007.85 A18.2215 18.8339 -180 1 0 69.52 1007.85 Z" class="st2"/>
+				</g>
+				<path d="M0 971.61 L59.09 971.61 L59.09 963.84 L0 963.84 L0 971.61 ZM69.52 1007.85 A18.2215 18.8339 -180 1 0 33.08
+							 1007.85 A18.2215 18.8339 -180 1 0 69.52 1007.85 Z" class="st14"/>
+			</g>
+			<g id="shape830-662" v:mID="830" v:groupContext="shape" v:layerMember="0" transform="translate(34.4232,-0.552469)">
+				<title>Sheet.830</title>
+				<v:userDefs>
+					<v:ud v:nameU="GrpLineWeight" v:prompt="" v:val="VT0(0.010416666666667):3"/>
+					<v:ud v:nameU="GrpLineWeight" v:prompt="" v:val="VT0(0.0034722222222222):29"/>
+				</v:userDefs>
+				<g id="shadow830-663" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1">
+					<path d="M1.91 1016.24 L34.53 1016.24" class="st27"/>
+					<path d="M-0 1007.85 L36.44 1007.85" class="st27"/>
+					<path d="M1.91 999.46 L34.53 999.46" class="st27"/>
+					<path d="M28.54 1007.85 A10.3141 18.8339 -180 1 0 7.91 1007.85 A10.3141 18.8339 -180 1 0 28.54 1007.85"
+							class="st27"/>
+					<path d="M18.22 1026.69 L18.22 989.02" class="st27"/>
+				</g>
+				<path d="M1.91 1016.24 L34.53 1016.24" class="st30"/>
+				<path d="M-0 1007.85 L36.44 1007.85" class="st30"/>
+				<path d="M1.91 999.46 L34.53 999.46" class="st30"/>
+				<path d="M28.54 1007.85 A10.3141 18.8339 -180 1 0 7.91 1007.85 A10.3141 18.8339 -180 1 0 28.54 1007.85"
+						class="st30"/>
+				<path d="M18.22 1026.69 L18.22 989.02" class="st30"/>
+			</g>
+			<g id="shape826-678" v:mID="826" v:groupContext="groupContent" v:layerMember="0">
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="35.4331" cy="1036.69" width="65.38" height="20.0036"/>
+				<g id="shadow826-679" v:groupContext="shadow" v:shadowOffsetX="0.345598" v:shadowOffsetY="-1.97279"
+						v:shadowType="1" transform="matrix(1,0,0,1,0.345598,1.97279)" class="st1"/>
+				<text x="7.88" y="1039.69" class="st31" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Web Browser</text>			</g>
+		</g>
 	</g>
 </svg>
