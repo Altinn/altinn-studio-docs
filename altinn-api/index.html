@@ -5484,15 +5484,24 @@ if(host != "localhost")
 <li><a href="#api-to-validate-data">API to validate data</a></li>
 <li><a href="#api-to-calculate-perform-business-rules">API to calculate / perform business rules</a></li>
 </ul></li>
-<li><a href="#apps-api">Apps API</a>
+<li><a href="#apps-api">Apps API</a></li>
+<li><a href="#sequence-diagrams">Sequence diagrams</a>
 <ul>
-<li><a href="#workflow-methods">Workflow methods</a>
+<li><a href="#instantiate-an-app">Instantiate an app</a></li>
+<li><a href="#instantiate-an-app-and-complete-workflow">Instantiate an app and complete workflow</a></li>
+<li><a href="#update-data">Update Data</a></li>
+<li><a href="#workflow-methods">Workflow methods</a></li>
+<li><a href="#validate-and-calculate">Validate and calculate</a>
 <ul>
-<li><a href="#get-workflow-state">Get workflow state.</a></li>
+<li><a href="#get-workflow-state-of-a-specific-instance">Get workflow state of a specific instance</a></li>
 <li><a href="#complete-a-workflow-step">Complete a workflow step.</a></li>
 <li><a href="#complete-workflow">Complete workflow.</a></li>
+<li><a href="#get-steps-in-a-flow">Get steps in a flow ?</a></li>
 <li><a href="#start-a-workflow-step">Start a workflow step.</a></li>
 </ul></li>
+</ul></li>
+<li><a href="#i">I</a>
+<ul>
 <li><a href="#textresources">TextResources</a>
 <ul>
 <li><a href="#get-text-resources-for-the-application-for-a-specific-language">Get text resources for the application for a specific language</a></li>
@@ -5844,16 +5853,16 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <h3 id="api-to-validate-data">API to validate data</h3>
 
-<p>The apps will support the possibility to validate the datamodel for the app without creating a instance of the data</p>
+<p>The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata.</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
+<pre><code class="language-http">PUT {appPath}/validate?elementType=modelA
 </code></pre>
 
 <h3 id="api-to-calculate-perform-business-rules">API to calculate / perform business rules</h3>
 
-<p>The app will support the possibility to perform calculation / perform business rules for a datamodell to an app</p>
+<p>The app will provide a method to perform calculation / perform business rules for a datamodell to an app</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
+<pre><code class="language-http">PUT {appPath}/calculate?elementType=modelB
 </code></pre>
 
 <h2 id="apps-api">Apps API</h2>
@@ -5876,12 +5885,7 @@ If you do not know this, you should provide the official identity number, e.g so
 <p>OLD Update formdata
 <a href="http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update">http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update</a></p>
 
-<p>Lock a data element:</p>
-
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/lock
-</code></pre>
-
-<p>Get application metadata :</p>
+<p>Get application&rsquo;s metadata :</p>
 
 <pre><code class="language-http">GET {appPath}
 </code></pre>
@@ -5891,6 +5895,35 @@ If you do not know this, you should provide the official identity number, e.g so
 <pre><code class="language-http">GET {appPath}/workflow
 </code></pre>
 
+<h2 id="sequence-diagrams">Sequence diagrams</h2>
+
+<h3 id="instantiate-an-app">Instantiate an app</h3>
+
+<p>Client instantiates a app. The app create a data file by using it&rsquo;s prefill rules. Instance metadata is returned which allow Client to download the data.
+Workflow is set to first step. This means that data can be updated later on.</p>
+
+
+	<p><object data="/altinn-api/Instantiate.png" type="image/png" style="width: 50%;";></object></p>
+
+
+
+<h3 id="instantiate-an-app-and-complete-workflow">Instantiate an app and complete workflow</h3>
+
+<p>Instantiate an app with data as multipart content (stream). Instance and default data element is created.
+The app attempts to complete the workflow.</p>
+
+
+	<p><object data="/altinn-api/Instantiate and complete workflow.png" type="image/png" style="width: 50%;";></object></p>
+
+
+
+<h3 id="update-data">Update Data</h3>
+
+
+	<p><object data="/altinn-api/Save data.png" type="image/png" style="width: 50%;";></object></p>
+
+
+
 <h3 id="workflow-methods">Workflow methods</h3>
 
 
@@ -5898,7 +5931,14 @@ If you do not know this, you should provide the official identity number, e.g so
 
 
 
-<h4 id="get-workflow-state">Get workflow state.</h4>
+<h3 id="validate-and-calculate">Validate and calculate</h3>
+
+
+	<p><object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 50%;";></object></p>
+
+
+
+<h4 id="get-workflow-state-of-a-specific-instance">Get workflow state of a specific instance</h4>
 
 <pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow
 </code></pre>
@@ -5922,7 +5962,8 @@ Is it in signing? Is it form filling +++ Used by react to decide what to show.
 
 <h4 id="complete-workflow">Complete workflow.</h4>
 
-<p>Error if no end transition is allowed.</p>
+<p>The complete workflow method will attempt to complete the workflow. Hence, the app will move the workflow to next step until it reaches an valid endstate.
+If a step condition is not met the workflow will be stopped in the last valid state.</p>
 
 <pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
 </code></pre>
@@ -5930,7 +5971,9 @@ Is it in signing? Is it form filling +++ Used by react to decide what to show.
 <p>OLD // CompleteAndSendIn
 <a href="http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn">http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn</a></p>
 
-<p>Get next steps according to flow. Returns an array of steps that can be selected.</p>
+<h4 id="get-steps-in-a-flow">Get steps in a flow ?</h4>
+
+<p>Returns an array of steps that can be selected.</p>
 
 <pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?steps=next
 </code></pre>
@@ -5941,6 +5984,8 @@ Is it in signing? Is it form filling +++ Used by react to decide what to show.
 
 <pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
 </code></pre>
+
+<h2 id="i">I</h2>
 
 <h3 id="textresources">TextResources</h3>
 
