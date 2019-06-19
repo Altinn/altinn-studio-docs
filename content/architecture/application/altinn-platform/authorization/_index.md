@@ -17,21 +17,25 @@ Authorization is used by the applications to authorize an action requested by th
 
 Resources: Actor, Roles
 
-Actor
-An actor (party) is a person who can represent you and perform a request on your behalf. A logged in user can retrieve a list of actors that he/she can represent.
+Parties
+A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.
 
 Operations
 
-Get the list of actors for the user
+Get a list of parties that the user (identified by JWT) can represent
 
 ```http
 GET /authorization/api/v1/actors
 ```
 
+{{%notice warning%}}
+There can be terminology change shortly. So the url might change
+{{% /notice%}}
+
 Roles
 A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone. 
 
-Get the list of roles for the logged in user and the selected actor
+Get a list of roles that the user can perform for the selected party
 
 ```http
 GET /authorization/api/v1/roles
