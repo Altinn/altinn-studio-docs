@@ -225,10 +225,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authorization/",
-	"title": "Application arhicture authorization component - Altinn Platform",
+	"title": "Altinn Platform - Authorization",
 	"tags": ["solution", "architecture"],
-	"description": "Description of authentication component",
-	"content": "The Authentication component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is currently available at http://platform.altinn.cloud/api/authorization/v1.\nAn endpoint for testing purposes is available:\n/debug/{echo}  Works with any string as echo, and will simply return the inputted string.\n"
+	"description": "Description of authorization component",
+	"content": "This page is a work-in-progress. Currently we haven\u0026rsquo;t defined all the resources and operations for the authorization component.\n\rThe Authorization component exposes a REST-API to Altinn Apps.\nAuthorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.\nResources: Actor, Roles\nParties A party is a person whom you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.\nOperations\nGet a list of parties that the user (identified by JWT) can represent\nGET /authorization/api/v1/actors  There can be terminology change shortly. So the url might change\n\rRoles A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.\nGet a list of roles that the user can perform for the selected party\nGET /authorization/api/v1/roles  "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/",

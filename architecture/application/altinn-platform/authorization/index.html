@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.49.2" />
-    <meta name="description" content="Description of authentication component">
+    <meta name="description" content="Description of authorization component">
 
 
     
-    <title>Application arhicture authorization component - Altinn Platform :: Altinn Studio</title>
+    <title>Altinn Platform - Authorization :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -5482,23 +5482,44 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1>Application arhicture authorization component - Altinn Platform</h1>
+              <h1>Altinn Platform - Authorization</h1>
             
           
 
 
 
 
-<p>The Authentication component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.</p>
+<div class="notices warning" ><p>This page is a work-in-progress. Currently we haven&rsquo;t defined all the resources and operations for the authorization component.</p>
+</div>
 
-<p>The solution is currently available at <a href="http://platform.altinn.cloud/api/authorization/v1">http://platform.altinn.cloud/api/authorization/v1</a>.</p>
 
-<p>An endpoint for testing purposes is available:</p>
+<p>The Authorization component exposes a REST-API to Altinn Apps.</p>
 
-<pre><code class="language-http">/debug/{echo}
+<p>Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.</p>
+
+<p>Resources: Actor, Roles</p>
+
+<p>Parties
+A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.</p>
+
+<p>Operations</p>
+
+<p>Get a list of parties that the user (identified by JWT) can represent</p>
+
+<pre><code class="language-http">GET /authorization/api/v1/actors
 </code></pre>
 
-<p>Works with any string as echo, and will simply return the inputted string.</p>
+<div class="notices warning" ><p>There can be terminology change shortly. So the url might change</p>
+</div>
+
+
+<p>Roles
+A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.</p>
+
+<p>Get a list of roles that the user can perform for the selected party</p>
+
+<pre><code class="language-http">GET /authorization/api/v1/roles
+</code></pre>
 
 
 <footer class=" footline" >
