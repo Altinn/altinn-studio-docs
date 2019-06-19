@@ -320,18 +320,18 @@ Query result:
 
 ### API to validate data
 
-The apps will support the possibility to validate the datamodel for the app without creating a instance of the data
+The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/validate
+PUT {appPath}/validate?elementType=modelA
 ```
 
 ### API to calculate / perform business rules
 
-The app will support the possibility to perform calculation / perform business rules for a datamodell to an app  
+The app will provide a method to perform calculation / perform business rules for a datamodell to an app  
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/calculate
+PUT {appPath}/calculate?elementType=modelB
 ```
 
 ## Apps API
@@ -348,7 +348,6 @@ Create form data (first time).
 POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=model2
 ```
 
-
 GET or PUT default form data (save data). Update form data.
 
 ```http
@@ -359,13 +358,7 @@ OLD Update formdata
 http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update
 
 
-Lock a data element:
-
-```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/lock
-```
-
-Get application metadata :
+Get application's metadata :
 
 ```http
 GET {appPath}
@@ -377,6 +370,31 @@ Get the application's workflow:
 GET {appPath}/workflow
 ```
 
+## Sequence diagrams
+
+### Instantiate an app
+
+Client instantiates a app. The app create a data file by using it's prefill rules. Instance metadata is returned which allow Client to download the data.
+Workflow is set to first step. This means that data can be updated later on.
+
+{{%excerpt%}}
+<object data="/altinn-api/Instantiate.png" type="image/png" style="width: 50%;";></object>
+{{% /excerpt%}}
+
+### Instantiate an app and complete workflow
+
+Instantiate an app with data as multipart content (stream). Instance and default data element is created.
+The app attempts to complete the workflow.
+
+{{%excerpt%}}
+<object data="/altinn-api/Instantiate and complete workflow.png" type="image/png" style="width: 50%;";></object>
+{{% /excerpt%}}
+
+### Update Data
+
+{{%excerpt%}}
+<object data="/altinn-api/Save data.png" type="image/png" style="width: 50%;";></object>
+{{% /excerpt%}}
 
 ### Workflow methods
 
@@ -384,7 +402,13 @@ GET {appPath}/workflow
 <object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object>
 {{% /excerpt%}}
 
-#### Get workflow state.
+### Validate and calculate
+
+{{%excerpt%}}
+<object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 50%;";></object>
+{{% /excerpt%}}
+
+#### Get workflow state of a specific instance
 
 ```http
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow
@@ -410,7 +434,8 @@ PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/nex
 
 #### Complete workflow. 
 
-Error if no end transition is allowed.
+The complete workflow method will attempt to complete the workflow. Hence, the app will move the workflow to next step until it reaches an valid endstate. 
+If a step condition is not met the workflow will be stopped in the last valid state. 
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
@@ -418,7 +443,8 @@ PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/com
 OLD // CompleteAndSendIn
 http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
 
-Get next steps according to flow. Returns an array of steps that can be selected.
+#### Get steps in a flow ?
+Returns an array of steps that can be selected.
 
 ```http
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?steps=next
@@ -431,6 +457,9 @@ Closes current step and move workflow state to new step, if allowed by flow. Err
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
 ```
+
+## I
+
 
 ### TextResources
 
