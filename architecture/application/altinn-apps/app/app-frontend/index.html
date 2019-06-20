@@ -5580,29 +5580,23 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#react-architecture">React Architecture</a></li>
+<li><a href="#react-architecture">React Architecture</a>
+<ul>
+<li><a href="#store">Store</a></li>
+<li><a href="#reducers">Reducers</a></li>
+<li><a href="#action-creators">Action Creators</a></li>
+</ul></li>
 <li><a href="#app-frontend-features">App Frontend Features</a>
 <ul>
 <li><a href="#instansiate">Instansiate</a></li>
 <li><a href="#ui-render-formfiller">UI Render (FormFiller)</a></li>
 <li><a href="#receipt">Receipt</a></li>
-<li><a href="#overordnet-konsept">Overordnet konsept</a></li>
-<li><a href="#react-komponentene">React komponentene</a></li>
-<li><a href="#redux">Redux</a>
-<ul>
-<li><a href="#appconfigstate">AppConfigState</a></li>
-<li><a href="#datamodelstate">DataModelState</a></li>
-<li><a href="#rulemodelstate">RuleModelState</a></li>
-<li><a href="#textresourcestate">TextResourceState</a></li>
-<li><a href="#formfillerstate">FormFillerState</a></li>
 </ul></li>
-<li><a href="#reducer">Reducer</a></li>
-<li><a href="#action-types">Action Types</a></li>
-<li><a href="#action">Action</a></li>
-<li><a href="#action-creators">Action Creators</a></li>
-<li><a href="#action-dispatcher">Action Dispatcher</a></li>
-<li><a href="#redux-saga">Redux-Saga</a></li>
-<li><a href="#formlayout-file">Formlayout file</a></li>
+<li><a href="#configuration-files">Configuration files</a>
+<ul>
+<li><a href="#formlayout">FormLayout</a></li>
+<li><a href="#language">Language</a></li>
+<li><a href="#servicemetadata">ServiceMetadata</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5637,13 +5631,42 @@ if(host != "localhost")
 <p>App Frontend is a <a href="https://en.wikipedia.org/wiki/Single-page_application">Single Page Application</a> based on React.</p>
 
 <p>This application is responsible to present a UI to the end user. The application consist of serveral different
-Features that is responsible for handling the ui for different steps in the workflow.</p>
+features that is responsible for handling the ui for different steps in the workflow.</p>
 
 <p>Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during
 the build/deploy process to a Altinn Apps environment. This means that there can be different versions of App Frontend for two
 different deployed Apps</p>
 
 <h2 id="react-architecture">React Architecture</h2>
+
+<p>The React Architecture used for App Frontend is based on using different javascript frameworks together REACT to handle different responsibilties.</p>
+
+<p>The React architecture tries to follow best practice React architecture.</p>
+
+<p>The diagram below show the architecture</p>
+
+
+	<p><object data="/architecture/application/altinn-apps/app/app-frontend/app-frontend-application-architecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+
+
+
+<h3 id="store">Store</h3>
+
+<p>A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action on it.</p>
+
+<p><a href="https://redux.js.org/api/store#store">See details</a></p>
+
+<h3 id="reducers">Reducers</h3>
+
+<p>Reducers specify how the application&rsquo;s state changes in response to actions sent to the store. Remember that actions only describe what happened, but don&rsquo;t describe how the application&rsquo;s state changes.</p>
+
+<p><a href="https://redux.js.org/basics/reducers#reducers">See details</a></p>
+
+<h3 id="action-creators">Action Creators</h3>
+
+<p>An action creator is, quite simply, a function that creates an action. Do not confuse the two terms—again, an action is a payload of information, and an action creator is a factory that creates an action.</p>
+
+<p><a href="https://redux.js.org/glossary#action-creator">See details</a></p>
 
 <h2 id="app-frontend-features">App Frontend Features</h2>
 
@@ -5660,296 +5683,31 @@ area for a App. Typical a feature is connected to a type of workflow step. Like 
 
 <p>The UI rendering component is the one that is responsible for rendering the UI designed in Altinn Studio.</p>
 
-<p>This feature uses the formlayout for a app together with other metdata about the datamodell</p>
+<p>This feature uses the formlayout for a app together with other metdata about the datamodell.</p>
+
+<p>Based on the content of the formlayout file the UI Render, renders the correct components like textbox, fileupload ++</p>
 
 <h3 id="receipt">Receipt</h3>
 
-<p>Figuren nedenfor viser den overordnede arkitekturen som er valgt for React App.</p>
+<p>This feature is responsible to show the summary of the instance when a app is sent to end state of the process flow.</p>
 
+<h2 id="configuration-files">Configuration files</h2>
 
-	<p><object data="/products/tjenester/3.0/solutions/runtime/architecture/react-app/ReactAppArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+<p>The App Frontend requires some configuration files to work correctly.</p>
 
+<h3 id="formlayout">FormLayout</h3>
 
+<p>The formlayot is used the UI-render feature.</p>
 
-<h3 id="overordnet-konsept">Overordnet konsept</h3>
+<p>It decides the layoyt of the ui</p>
 
-<p>Det overordnede konseptet er at man har en konfigurasjonsfil som definerer hvilke komponenter
-et skjema skal bestå av og rekkefølgen på disse. Denne konfigurasjonsfilen blir generert av UX Designern i Altinn Studio når
-tjenesteutvikleren designer tjenesten og blir en del av ressursfilene som inkluderes i tjenestepakken.</p>
+<h3 id="language">Language</h3>
 
-<p>FormLayout.json lastes inn av React Appen sammen med selve dataene og annen
-konfigurasjon til en tjeneste når applikasjonen starter.</p>
+<p>Contains all text resources</p>
 
-<p>Applikasjonen rendrer komponentene som er definert i designer FormLayout..
-Dette skjer ved at Preview komponenten løper gjennom design filen og kaller FormComponent
-for hver enkelt element i listen. FormComponent rendrer deretter komponenter som tekstbokser eller nedtrekkliste
-avhengig av hvilken type komponent.</p>
+<h3 id="servicemetadata">ServiceMetadata</h3>
 
-<h3 id="react-komponentene">React komponentene</h3>
-
-<p>React komponentene som kan velges i UX-designer er alle React komponenter som vil
-rendes basert input til FormComponenten.</p>
-
-<p>Disse er for øyeblikket</p>
-
-<ul>
-<li>HeaderComponent</li>
-<li>InputComponent</li>
-<li>CheckboxContainerComponent</li>
-<li>TextAreaComponent</li>
-<li>RadioButtonContainerComponent</li>
-<li>DropdownComponent</li>
-<li>FileUploadComponent</li>
-</ul>
-
-<p>Disse er alle basert på Reactstrap rammeverket.
-TODO: Her skal vi skrive ut Reactstrap</p>
-
-<p>Hver enkel komponent har definert et sett med input data (props) som den forventer som input. Det er opp til den overliggende komponenten å skaffe tilveie
-disse. Dette kan være verdier fra state eller egne input data.</p>
-
-<p>React legger opp til React komponetene har en metode for å mappe verdier fra state til props for de komponentene som krever.</p>
-
-<p>Når sluttbruker gjør endringer i skjema (f.eks fyller inn noe i en tekstboks) vil den trigge en event som igjen trigger
-Actions som håndteres av forskjellige dispatchers</p>
-
-<pre><code> /**
-   * This is the event handler that triggers the Redux Actions
-   * that is sendt to the different Action dispatcher.
-   * This event handler is used for all form components rendered from this
-   */
-  public handleComponentDataUpdate = (callbackValue: any): void =&gt; {
-    if (!this.props.component.dataModelBinding) {
-      return;
-    }
-
-    FormFillerActionDispatchers.updateFormData(
-      this.props.id,
-      callbackValue,
-      this.props.dataModelElement,
-    );
-    ExternalApiActionDispatchers.checkIfApiShouldFetch(this.props.id, this.props.dataModelElement, callbackValue);
-    RuleConnectionActionDispatchers.checkIfRuleShouldRun(this.props.id, this.props.dataModelElement, callbackValue);
-  }
-
-</code></pre>
-
-<h3 id="redux">Redux</h3>
-
-<p>Redux benyttes for å lagre state i applikasjonen. I tjenester 3.0 finnes det flere data store.</p>
-
-<p>For runtime er det følgende Redux store som benyttes</p>
-
-<h4 id="appconfigstate">AppConfigState</h4>
-
-<p>Inneholder informasjon om hvilken modus applikasjonen har.</p>
-
-<pre><code>export interface IAppConfigState {
-  designMode: boolean;
-}
-</code></pre>
-
-<h4 id="datamodelstate">DataModelState</h4>
-
-<p>Inneholder informasjon om alle elementene i datamodellen. Basert på JSON generert fra XSD</p>
-
-<pre><code>export interface IDataModelState {
-  model: IDataModelFieldElement[];
-  fetching: boolean;
-  fetched: boolean;
-  error: Error;
-}
-</code></pre>
-
-<h4 id="rulemodelstate">RuleModelState</h4>
-
-<p>Inneholder definerte regler</p>
-
-<pre><code>export interface IRuleModelState {
-    model: IRuleModelFieldElement[];
-    fetching: boolean;
-    fetched: boolean;
-    error: Error;
-  }
-</code></pre>
-
-<h4 id="textresourcestate">TextResourceState</h4>
-
-<p>Inneholder alle tekstressurser.</p>
-
-<pre><code>export interface ITextResourcesState {
-  resources: ITextResource[];
-  language: string;
-  fetching: boolean;
-  fetched: boolean;
-  error: Error;
-}
-</code></pre>
-
-<h4 id="formfillerstate">FormFillerState</h4>
-
-<p>Inneholder all skjemadata og eventuelle valideringsfeil.</p>
-
-<pre><code>export interface IFormFillerState {
-  formData: any;
-  validationErrors: any;
-}
-</code></pre>
-
-<h3 id="reducer">Reducer</h3>
-
-<p>Redux reducers har til oppgave å oppdatere de forskjellige stores. Det er en reducer for hver enkel store.
-Følgende er definert</p>
-
-<ul>
-<li>formFillerReducer - Ansvarlig for å oppdatere FormFillerState</li>
-<li>errorReducer - Ansvarlig for å oppdatere
-*</li>
-</ul>
-
-<p>Reducerne lytter etter Actions som blir dispatchet</p>
-
-<h3 id="action-types">Action Types</h3>
-
-<p>Action Types er type definisjoner på hendelser</p>
-
-<p>Eksempler:</p>
-
-<pre><code>// All update form data actions
-export const UPDATE_FORM_DATA: string = `${moduleName}.UPDATE_FORM_DATA`;
-export const UPDATE_FORM_DATA_FULFILLED: string = `${moduleName}.UPDATE_FORM_DATA_FULFILLED`;
-export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA_REJECTED`;
-
-</code></pre>
-
-<h3 id="action">Action</h3>
-
-<p>Actions er hendelser som kan bli trigget av de forskjellige komponentene.
-En Action inneholder minimum typen av en Action, men kan også inneholde andre metadata rundt hendelsen.</p>
-
-<p>Eksempel:</p>
-
-<pre><code>export interface IUpdateFormDataAction extends Action {
-  formData: any;
-  componentID: string;
-  dataModelElement: IDataModelFieldElement;
-}
-</code></pre>
-
-<h3 id="action-creators">Action Creators</h3>
-
-<p>Action Creators lager actions</p>
-
-<p>Eksempel:</p>
-
-<pre><code>export function updateFormDataAction(
-  componentID: string,
-  formData: any,
-  dataModelElement: IDataModelFieldElement,
-
-): IUpdateFormDataAction {
-  return {
-    type: ActionTypes.UPDATE_FORM_DATA,
-    formData,
-    componentID,
-    dataModelElement
-  };
-}
-</code></pre>
-
-<h3 id="action-dispatcher">Action Dispatcher</h3>
-
-<p>Action dispatcher</p>
-
-<h3 id="redux-saga">Redux-Saga</h3>
-
-<p>Redux-Saga er Middleware rammeverk som benyttes for å gjøre asynkrone kall mot API i løsningen.
-Dette er f.eks uthenting av skjemdata og lagring av skjemadata.</p>
-
-<p>Hver enkel Saga som defineres definerer metoder som utfører forskjellige typer oppgaver.
-Dette kan f.eks være lagring av skjemdata eller uthenting av skjemadata.</p>
-
-<p>Det er definert forskjellige Saga for de forskjellige funksjonelle områdene. Sagaene er</p>
-
-<ul>
-<li>appData - Ansvarlig for å hente ut regler, tekstressurser og datamodell</li>
-<li>externalApiSaga - Funksjonalitet rundt externe APi</li>
-<li>formFillerSagas - funksjonalitet knyttet til uthenting og lagring av skjemadata</li>
-</ul>
-
-<p>For hver Saga metode knyttes det lytttere som lytter til Actions. Det er dette som trigger
-at de nødvendige kallene skjer.</p>
-
-<pre><code>/**
- * Define a listener for the UPDATE_FORM_DATA event
- */
-export function* watchUpdateFormDataSaga(): SagaIterator {
-  yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
-}
-</code></pre>
-
-<h3 id="formlayout-file">Formlayout file</h3>
-
-<p>Layouten på skjemaet er definiert i en json-fil som ligger i Gitea repoet.<br />
-Denne filen har vært veldig uoversiktlig med tanke på manuell endring, siden det er normalisert for frontend utvikling.
-Nå som denne har blitt endret, vil UI-edtioren ha samme interne layout, men når det lagres vil det skje en konvertering til et format som er enklere å lese og endre manuelt.</p>
-
-<p>Dette nye formatet vil se slik ut:</p>
-
-<pre><code class="language-json">{
-  &quot;data&quot;: {
-    &quot;layout&quot;: [
-      {
-        &quot;id&quot;: &quot;7693ca6a-a4d5-4b78-a7b9-1a499419e256&quot;,
-        &quot;type&quot;: &quot;Checkboxes&quot;,
-        &quot;textResourceBindings&quot;: {
-          &quot;title&quot;: &quot;25795.OppgavegiverNavnPreutfyltdatadef25795.Label&quot;,
-          &quot;description&quot;: &quot;25796.OppgavegiverAdressePreutfyltdatadef25796.Label&quot;
-        },
-        &quot;dataModelBindings&quot;: {
-          &quot;simpleBinding&quot;: &quot;skattyterinforgrp5801.infogrp5802.oppgavegiverNavnPreutfyltdatadef25795.value&quot;
-        },
-        &quot;options&quot;: [
-          {
-            &quot;label&quot;: &quot;Navn1&quot;,
-            &quot;value&quot;: &quot;Verdi1&quot;
-          }
-        ],
-        &quot;required&quot;: true,
-        &quot;readOnly&quot;: false
-      },
-      {
-        &quot;id&quot;: &quot;dbe9155a-9dce-425e-a9f3-1d51c05f42c3&quot;,
-        &quot;type&quot;: &quot;Datepicker&quot;,
-        &quot;textResourceBindings&quot;: {
-          &quot;title&quot;: &quot;25795.OppgavegiverNavnPreutfyltdatadef25795.Label&quot;,
-          &quot;description&quot;: &quot;25796.OppgavegiverAdressePreutfyltdatadef25796.Label&quot;
-        },
-        &quot;dataModelBindings&quot;: {
-          &quot;simpleBinding&quot;: &quot;skattyterinforgrp5801.infogrp5802.oppgavegiverPostnummerPreutfyltdatadef25797.value&quot;
-        },
-        &quot;readOnly&quot;: false,
-        &quot;required&quot;: true
-      },
-      {
-        &quot;id&quot;: &quot;cba318a0-4158-488e-8a47-29a72fb526e0&quot;,
-        &quot;type&quot;: &quot;Input&quot;,
-        &quot;textResourceBindings&quot;: {
-          &quot;title&quot;: &quot;25796.OppgavegiverAdressePreutfyltdatadef25796.Label&quot;,
-          &quot;description&quot;: &quot;25797.OppgavegiverPostnummerPreutfyltdatadef25797.Label&quot;
-        },
-        &quot;dataModelBindings&quot;: {
-          &quot;simpleBinding&quot;: &quot;skattyterinforgrp5801.klagefristgrp5804.klagemeldingSendtInnenKlagefristdatadef25454.value&quot;
-        },
-        &quot;required&quot;: true,
-        &quot;readOnly&quot;: false
-      }
-    ]
-  }
-}
-</code></pre>
-
-<p>Arrayen i dette eksempelet representerer også rekefølgen komponentene vil bli vist i SBL.</p>
+<p>Contains information about the datamodell and is used by UI-render to map the fields to the datamodel.</p>
 
 
 <footer class=" footline" >
