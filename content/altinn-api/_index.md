@@ -29,7 +29,7 @@ A list of common tasks for an application owner.
 - Upload form data
 - Download form data
 - Confirm successful download
-- Change workflow state?
+- Change workflow state
 
 ### Application Users
 
@@ -71,26 +71,52 @@ Should be used by application owners to download data elements. Downloads will b
 ### Create an application instance
 
 Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwnerId*. 
-If you do not know this, you should provide the official identity number, e.g social security or organization number, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.
+If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.
 
-Data elements can be provided as part of the creation request, but can also be uploaded at a later time
+Data elements can be provided as part of the creation request, but can also be uploaded at a later time.
+
+The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form.
 
 ```json
 {
-    "instanceOwnerLookup": { "personNumber": "12247918309" | "organizationNumber": "123456789" | "userName": "xyz" },
+    "instanceOwnerLookup": { "personNumber": "12247918309" | "organisationNumber": "123456789" | "userName": "xyz" },
     "labels" : [ "gr", "x2" ],
     "appId" : "org/appName",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
-    "presentationField": "Arbeidsmelding",
-    "data" : [
-        { "elementType": "default", "contentType": "application/xml", "content": "base64xckljsiojfiewljf"}
-    ]
+    "presentationField": "Arbeidsmelding"
 }
 ```
+Data elements (files) can be attached to the initial request as a *multipart/form-data*. The name of the data element must correspond to the element type defined in the application metadata. 
 
 ```http
 POST {appPath}/instances
+```
+
+{{%excerpt%}}
+<object data="/altinn-api/Instantiate for an instance owner.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
+
+A multipart formdata should contain the instance json document, and the data element files of the instance. Notice that the element types *default*, and *cv* should be defined in application metadata.
+
+```
+Content-Type: multipart/form-data; boundary="abcdefg"
+
+--abcdefg
+Content-Type: application/json; charset=utf-8
+Content-Disposition: form-data; name="instance"
+{ ... }
+
+--abcdefg
+Content-Type: application/xml
+Content-Disposition: form-data; name="default"
+<xml> ... </xml>
+
+--abcdefg
+Content-Type: application/pdf
+Content-Disposition: form-data; name="cv"
+abc4g32dcoj3234jljf...
+--abcdefg--
 ```
 
 This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.
@@ -180,7 +206,7 @@ This call updates and returns instance metadata where each data element are give
 
 ### Update a data element
 
-Update (replace) a data element with a new one (payload)
+Update (replace) a data element with a new one (payload). Data as multipart or as 
 
 ```http
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
@@ -216,8 +242,10 @@ Will update metadata for on data element.
 
 ### Confirm successful download
 
+Application owner must confirm that the data element file was downloaded sucessful.
+
 ```http
-POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
+PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
 ```
 
 ```json
@@ -236,6 +264,23 @@ POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/69
 }
 ```
 
+## Download a complete instance with dataelements and pdf
+
+```http
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
+```
+
+Will create a multipart http response with the following content:
+
+1) instance metadata (application/json)
+2) the first data element (application/xml)
+3) the first data element's pdf (application/pdf)
+4) second data element (e.g. attachement)
+5) third data element (e.g. image)
+6) ...
+
+Data elements with schema has a corresponding pdf file which is generated when the element type's associate workflow step is closed. 
+
 ### Change workflow state
 
 {{%excerpt%}}
@@ -243,7 +288,7 @@ POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/69
 {{% /excerpt%}}
 
 ```http
-POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?goTo=Submit
+POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow/startStep?step=Submit
 ```
 
 ### Query instances
@@ -374,7 +419,7 @@ GET {appPath}/workflow
 
 ### Instantiate an app
 
-Client instantiates a app. The app create a data file by using it's prefill rules. Instance metadata is returned which allow Client to download the data.
+Client instantiates a app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
 Workflow is set to first step. This means that data can be updated later on.
 
 {{%excerpt%}}
@@ -383,8 +428,7 @@ Workflow is set to first step. This means that data can be updated later on.
 
 ### Instantiate an app and complete workflow
 
-Instantiate an app with data as multipart content (stream). Instance and default data element is created.
-The app attempts to complete the workflow.
+Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the workflow.
 
 {{%excerpt%}}
 <object data="/altinn-api/instantiate and complete workflow.png" type="image/png" style="width: 50%;";></object>
@@ -392,20 +436,25 @@ The app attempts to complete the workflow.
 
 ### Update Data
 
+Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client. 
+
 {{%excerpt%}}
 <object data="/altinn-api/Save data.png" type="image/png" style="width: 50%;";></object>
 {{% /excerpt%}}
 
-### Workflow methods
-
-{{%excerpt%}}
-<object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object>
-{{% /excerpt%}}
-
 ### Validate and calculate
+
 
 {{%excerpt%}}
 <object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 50%;";></object>
+{{% /excerpt%}}
+
+### Workflow
+
+Application has a workflow definition that defines a set of workflow steps and flow. A workflow is started by the application and it moves the workflow to the first workflow step.
+
+{{%excerpt%}}
+<object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object>
 {{% /excerpt%}}
 
 #### Get workflow state of a specific instance
@@ -420,7 +469,7 @@ http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?insta
 
 #### Complete a workflow step. 
 
-Application must select next step. Error if multiple steps and user must chose which step. 
+Application must select next step. Error if multiple steps exist and user must chose which step. 
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeStep
@@ -444,18 +493,18 @@ OLD // CompleteAndSendIn
 http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
 
 #### Get steps in a flow ?
-Returns an array of steps that can be selected.
+Returns an list of the next steps that can be reached from the current step.
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?steps=next
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?nextSteps
 ```
 
 #### Start a workflow step. 
 
-Closes current step and move workflow state to new step, if allowed by flow. Error otherwise.
+Closes current step and start the wanted step. Updates workflow state accordingly. If post condition of current step is not met an error will be returned. If the step is not directly reachable by the flow an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/startStep?stepId=step3
 ```
 
 ### TextResources
@@ -472,7 +521,7 @@ OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb
 #### Get text resources for a given element type
 
 ```http
-GET {appPath}/types/{typeName}/resources/texts?lang=nb
+GET {appPath}/elementTypes/{typeName}/resources/texts?lang=nb
 ```
 OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing
 
@@ -481,21 +530,21 @@ OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing
 #### Get the metadata for a given element type
 
 ```http
-GET {appPath}/types/{typeName}/metadata
+GET {appPath}/elementTypes/{typeName}/metadata
 ```
 OLD http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData
 
 #### Get the layout for a given element type
 
 ```http
-GET {appPath}/types/{typeName}/layouts
+GET {appPath}/elementTypes/{typeName}/layouts
 ```
 OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json
 
 #### Gets the rules for a given element type
 
 ```http
-GET {appPath}/types/{typeName}/rules
+GET {appPath}/elementTypes/{typeName}/rules
 ```
 OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js
 
@@ -503,7 +552,7 @@ OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js
 ##### External API use
 
 ```http
-GET {appPath}/types/{typeName}/externalApis
+GET {appPath}/elementTypes/{typeName}/externalApis
 ```
 OLD (Service configuration) http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json
 
