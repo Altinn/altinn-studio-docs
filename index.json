@@ -182,13 +182,6 @@
 	"content": " App Backend is based on ASP.NET Core and is a MVC application.\nThis App Backend exposes REST-Api\u0026rsquo;s consumed by the App Frontend and/or external systems / mobile apps.\nThe REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct operation.\nThe API-controllers uses defined interfaces to communicate with the app logic defined by the developer.\nThe below diagram show how the App Backend is build around 3 main packages.\n AltinnCore Runtime - MVC Application with predefined API\u0026rsquo;s and functionality for Apps created in Altinn Studio ServiceLogic - Class library that contains business logic defined by the org/app developer ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic  \nApp logic The applogic is C# code generated/created as part of the service development process in Altinn Studio.\nThe service implementation class implement a defined interface that backend uses to be able to interact with the service implementation.\nThis is done through reflection. The App container contains a dll of the service logic.\nThe service implementation contains all backend code for logic and rules.\nThe different controllers calls the app logic\nDatamodel The data model in a service is defined as an XSD. From the XSD it is generated a C# representation of that model.\nIn runtime all data is deserialized/serialized from/to this model when communication with frontend/external systems.\nAll logic in the service will typical be related to the datamodel.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/process/",
-	"title": "App Process",
-	"tags": ["tjenester 3.0", "app-backend", "application architecture"],
-	"description": "Description of the application architecture for App Backend",
-	"content": "A App will typical have a process to follow.\nAltinn Apps uses BPMN 2.0 standard to describe the App Process and the App will have functionality to support different types of Tasks in the process.\nThe below diagram show some example processes that a App will support in the future.\n\n"
-},
-{
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/app-frontend/",
 	"title": "App Frontend Application Architecture",
 	"tags": ["tjenester 3.0", "Altinn Apps"],
@@ -600,6 +593,13 @@
 	"tags": ["development", "handbook", "test", "postman", "api"],
 	"description": "API Testing with postman",
 	"content": " Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.\nAuthentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way: - In your browser login to dev.altinn.studio/altin.studio/altinn3.no depending on what environment you are targeting - Notice that the cookies AltinnStudioDesigner, AltinnStudioRuntime and i_like_gitea (among others) has been saved for the domain name you have logged in to. - For Chrome cookies can be found under settings -\u0026gt; advanced -\u0026gt; cookies -\u0026gt; see all.\nThe two cookies AltinnStudioDesigner and AltinnStudioRuntime works as auth against the Designer and Runtime API, so if you are targeting a Designer API you should include the AltinnStudioDesigner cookie, along with the i_like_gitea cookie, and if you are targeting a runtime API the AltinnStudioRuntime cookie should be included. Cookies are easily added to the postman requests under the slightly hidden cookies setting, see:\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/process/",
+	"title": "App Process",
+	"tags": ["tjenester 3.0", "app-backend", "application architecture"],
+	"description": "Description of the process handling of App Backend",
+	"content": "A App will typical have a process to follow.\nAltinn Apps uses BPMN 2.0 standard to describe the App Process and the App will have functionality to support different types of Tasks in the process.\nThe below diagram show some example processes that a App will support in the future.\n\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/profile/",
