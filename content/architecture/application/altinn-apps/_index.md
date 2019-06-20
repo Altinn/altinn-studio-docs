@@ -7,7 +7,7 @@ weight: 100
 ---
 Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. 
 
-Currently these applications together with applications for routing are the only components that is part of Altinn Apps. 
+Apps for a given org is deployed to a Altinn Apps Cluster  
 
 The diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different
 components/parts of Altinn Apps.
@@ -27,13 +27,8 @@ See [deployment architecture](/architecture/infrastructure/deployement/altinn-ap
 
 The App itself consist of two applications with different Application Architecture
 
-### App Frontend
-Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a
-App Frontend. 
+[Read more about the application architecture for App Frontend](app)
 
-[Read more about the application architecture for App Frontend](app-frontend)
+## Kubernetes Proxy
+This is the application that gives Altinn Studio information about a Apps cluster
 
-### App Backend
-App-Backend exposes api to frontend and contains all needed functionality to handle 
-
-[Read more about the application architecture for App Frontend](app-backend)

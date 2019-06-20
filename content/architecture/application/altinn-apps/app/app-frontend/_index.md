@@ -6,22 +6,51 @@ tags: ["tjenester 3.0", "Altinn Apps"]
 weight: 100
 ---
 
-App Frontend is the javascript application 
+App Frontend is a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) based on React.
+
+This application is responsible to present a UI to the end user. The application consist of serveral different
+Features that is responsible for handling the ui for different steps in the workflow.
+
+Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during
+the build/deploy process to a Altinn Apps environment. This means that there can be different versions of App Frontend for two 
+different deployed Apps
+
+
+## React Architecture
 
 
 
-React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som
-ble gjort av tjenesteutvikler. 
 
-Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, 
-men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.
 
-En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke
-React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten
-sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon.
 
-TODO: 
-Det er foreløpig ikke laget bygg av dette. 
+
+## App Frontend Features
+The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given functional
+area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.
+
+Support for new types of workflow steps are added
+
+
+### Instansiate
+This feature is responsible for presenting the user 
+
+### UI Render (FormFiller)
+The UI rendering component is the one that is responsible for rendering the UI designed in Altinn Studio.
+
+This feature uses the formlayout for a app together with other metdata about the datamodell 
+
+
+
+
+
+
+
+### Receipt
+
+
+
+
+
 
 Figuren nedenfor viser den overordnede arkitekturen som er valgt for React App.
 
