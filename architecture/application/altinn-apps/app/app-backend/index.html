@@ -2048,6 +2048,8 @@ if(host != "localhost")
           
           
           
+          
+          
         
           
             
@@ -2057,14 +2059,48 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/" class="dd-item
-     
-      ">
-        <a href="/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/">
-        <span>Application Events</span> 
+    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/process/" class="dd-item 
         
-        </a></li>
-     
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/app/app-backend/process/">
+        <span>App Backend</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/app-events/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/app/app-backend/app-events/">
+        <span>Application Events</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -5584,7 +5620,7 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li><a href="#service-implementation">Service Implementation.</a></li>
+<li><a href="#app-logic">App logic</a></li>
 <li><a href="#datamodel">Datamodel</a></li>
 </ul></li>
 </ul></li>
@@ -5639,19 +5675,23 @@ operation.</p>
 </ul>
 
 
-	<p><object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+	<p><object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%; max-width: 100px;"></object></p>
 
 
 
-<h4 id="service-implementation">Service Implementation.</h4>
+<h4 id="app-logic">App logic</h4>
 
-<p>The service implementation is C# code generated/created as part of the service
+<p>The applogic is C# code generated/created as part of the service
 development process in Altinn Studio.</p>
 
-<p>The Service Implementation implement a defined interface that backend uses to be able to interact
+<p>The service implementation class implement a defined interface that backend uses to be able to interact
 with the service implementation.</p>
 
+<p>This is done through reflection. The App container contains a dll of the service logic.</p>
+
 <p>The service implementation contains all backend code for logic and rules.</p>
+
+<p>The different controllers calls the app logic</p>
 
 <h4 id="datamodel">Datamodel</h4>
 
@@ -6743,6 +6783,8 @@ with frontend/external systems.</p>
 
                     
                     
+                        
+                    
                     
 
                     
@@ -6753,6 +6795,22 @@ with frontend/external systems.</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -8652,7 +8710,7 @@ with frontend/external systems.</p>
             <a class="nav nav-prev" href="/architecture/application/altinn-apps/app/" title="Application Architecture App"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/" title="Application events" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/application/altinn-apps/app/app-backend/process/" title="App Process" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

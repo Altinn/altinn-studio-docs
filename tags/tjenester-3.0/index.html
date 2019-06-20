@@ -2048,6 +2048,8 @@ if(host != "localhost")
           
           
           
+          
+          
         
           
             
@@ -2057,14 +2059,48 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/" class="dd-item
-     
-      ">
-        <a href="/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/">
-        <span>Application Events</span> 
+    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/process/" class="dd-item 
         
-        </a></li>
-     
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/app/app-backend/process/">
+        <span>App Backend</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/app-events/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/app/app-backend/app-events/">
+        <span>Application Events</span>
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -5759,6 +5795,37 @@ Each App developed in Altinn Studio will contain their own App Frontend as part 
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/app-backend/process/">App Process</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>A App will typical have a process to follow.
+Altinn Apps uses BPMN 2.0 standard to describe the App Process and the App will have functionality to support different types of Tasks in the process.
+The below diagram show some example processes that a App will support in the future. <a class="read-more" href="/architecture/application/altinn-apps/app/app-backend/process/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/app-backend/">app-backend</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/application-architecture/">application architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/">Application Architecture Altinn Apps</a></h2>
     </header>
     <section class="post-excerpt">
@@ -5824,34 +5891,6 @@ Backend designer Backend of designer is based on . <a class="read-more" href="/a
     <section class="post-excerpt">
         <p>React architecture NOTE: Parts of the front-end is currently built in .NET Core. This will gradually be ported over to React as we work with the different functional areas.The front-end of Altinn Studio is build using React and Redux. Each functional area has its own React application, complete with Redux store/reducer when needed.
 Navigation/administration of the different applications is done from top-level applications, which import the applications for the different functional areas. <a class="read-more" href="/architecture/application/altinn-studio/react-app/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/">Application Architecture App</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
-The App itself consist of two applications with different Application Architecture
-App Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend.
-Read more about the application architecture for App Frontend <a class="read-more" href="/architecture/application/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6951,8 +6990,26 @@ Read more about the application architecture for App Frontend <a class="read-mor
 
                     
                     
+                        
+                    
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             

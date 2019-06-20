@@ -107,6 +107,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/process/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app/app-frontend/</loc>
   </url>
   
@@ -115,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/</loc>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/app-events/</loc>
   </url>
   
   <url>
