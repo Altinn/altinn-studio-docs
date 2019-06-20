@@ -1,18 +1,32 @@
 ---
-title: Application Architecture Altinn Apps
+title: App Backend Application Arcitecture
 linktitle: App Backend
 description: Description of the application architecture for App Backend 
 tags: ["tjenester 3.0", "app-backend", "application architecture"]
 weight: 100
 ---
 
-Backend is based on [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) and is 
-a [MVC application](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview) that uses defined
-interfaces to run the specific service logic implemented in Altinn Studio.
+App Backend is based on [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) and is 
+a [MVC application](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview).
 
-This backend exposes REST-Api's consumed by the App Frontend and/or external systems / mobile apps.
+This App Backend exposes REST-Api's consumed by the App Frontend and/or external systems / mobile apps.
 
-The MVC backend application loads service specific code from container disk.
+The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct
+operation.
+
+The API-controllers uses defined interfaces to communicate with the app logic defined by the developer.
+
+The below diagram show how the App Backend is build around 3 main packages.
+
+- AltinnCore Runtime - MVC Application with predefined API's and functionality for Apps created in Altinn Studio
+- ServiceLogic - Class library that contains business logic defined by the org/app developer
+- ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic
+
+
+{{%excerpt%}}
+<object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
 
 #### Service Implementation.
 The service implementation is C# code generated/created as part of the service 
