@@ -23,18 +23,22 @@ The below diagram show how the App Backend is build around 3 main packages.
 - ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%; max-width: 100px;"></object>
 {{% /excerpt%}}
 
 
-#### Service Implementation.
-The service implementation is C# code generated/created as part of the service 
+#### App logic
+The applogic is C# code generated/created as part of the service 
 development process in Altinn Studio.
 
-The Service Implementation implement a defined interface that backend uses to be able to interact
+The service implementation class implement a defined interface that backend uses to be able to interact
 with the service implementation.
 
+This is done through reflection. The App container contains a dll of the service logic. 
+
 The service implementation contains all backend code for logic and rules.  
+
+The different controllers calls the app logic
 
 #### Datamodel
 The data model in a service is defined as an XSD. From the XSD it is generated
