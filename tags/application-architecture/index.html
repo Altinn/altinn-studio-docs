@@ -5474,13 +5474,14 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-backend/">Application Architecture Altinn Apps</a></h2>
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-backend/">App Backend Application Arcitecture</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Backend is based on ASP.NET Core and is a MVC application that uses defined interfaces to run the specific service logic implemented in Altinn Studio.
-This backend exposes REST-Api&rsquo;s consumed by the App Frontend and/or external systems / mobile apps.
-The MVC backend application loads service specific code from container disk.
-Service Implementation. The service implementation is C# code generated/created as part of the service development process in Altinn Studio. <a class="read-more" href="/architecture/application/altinn-apps/app-backend/">&raquo;</a></p>
+        <p>App Backend is based on ASP.NET Core and is a MVC application.
+This App Backend exposes REST-Api&rsquo;s consumed by the App Frontend and/or external systems / mobile apps.
+The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct operation.
+The API-controllers uses defined interfaces to communicate with the app logic defined by the developer.
+The below diagram show how the App Backend is build around 3 main packages. <a class="read-more" href="/architecture/application/altinn-apps/app-backend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

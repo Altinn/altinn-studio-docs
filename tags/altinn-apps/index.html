@@ -5477,10 +5477,9 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-frontend/">App Frontend Application Architecture</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>App Frontend is the javascript application
-React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som ble gjort av tjenesteutvikler.
-Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.
-En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke React App for den aktuelle tjenesten. <a class="read-more" href="/architecture/application/altinn-apps/app-frontend/">&raquo;</a></p>
+        <p>App Frontend is a Single Page Application based on React.
+This application is responsible to present a UI to the end user. The application consist of serveral different Features that is responsible for handling the ui for different steps in the workflow.
+Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during the build/deploy process to a Altinn Apps environment. <a class="read-more" href="/architecture/application/altinn-apps/app-frontend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

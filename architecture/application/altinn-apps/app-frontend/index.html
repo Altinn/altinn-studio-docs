@@ -5476,8 +5476,12 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
+<li><a href="#react-architecture">React Architecture</a></li>
+<li><a href="#app-frontend-features">App Frontend Features</a>
 <ul>
+<li><a href="#instansiate">Instansiate</a></li>
+<li><a href="#ui-render-formfiller">UI Render (FormFiller)</a></li>
+<li><a href="#receipt">Receipt</a></li>
 <li><a href="#overordnet-konsept">Overordnet konsept</a></li>
 <li><a href="#react-komponentene">React komponentene</a></li>
 <li><a href="#redux">Redux</a>
@@ -5526,20 +5530,35 @@ if(host != "localhost")
 
 
 
-<p>App Frontend is the javascript application</p>
+<p>App Frontend is a <a href="https://en.wikipedia.org/wiki/Single-page_application">Single Page Application</a> based on React.</p>
 
-<p>React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som
-ble gjort av tjenesteutvikler.</p>
+<p>This application is responsible to present a UI to the end user. The application consist of serveral different
+Features that is responsible for handling the ui for different steps in the workflow.</p>
 
-<p>Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester,
-men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.</p>
+<p>Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during
+the build/deploy process to a Altinn Apps environment. This means that there can be different versions of App Frontend for two
+different deployed Apps</p>
 
-<p>En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke
-React App for den aktuelle tjenesten. Derfor vil den bygges designtime og legges med selve tjenesten
-sammen med nødvendige rammeverk/referanser til rammeverk med en gitt versjon.</p>
+<h2 id="react-architecture">React Architecture</h2>
 
-<p>TODO:
-Det er foreløpig ikke laget bygg av dette.</p>
+<h2 id="app-frontend-features">App Frontend Features</h2>
+
+<p>The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given functional
+area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.</p>
+
+<p>Support for new types of workflow steps are added</p>
+
+<h3 id="instansiate">Instansiate</h3>
+
+<p>This feature is responsible for presenting the user</p>
+
+<h3 id="ui-render-formfiller">UI Render (FormFiller)</h3>
+
+<p>The UI rendering component is the one that is responsible for rendering the UI designed in Altinn Studio.</p>
+
+<p>This feature uses the formlayout for a app together with other metdata about the datamodell</p>
+
+<h3 id="receipt">Receipt</h3>
 
 <p>Figuren nedenfor viser den overordnede arkitekturen som er valgt for React App.</p>
 

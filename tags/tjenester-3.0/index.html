@@ -5598,13 +5598,45 @@ Repository GITEA is used as Repository in Altinn Studio Service Development solu
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-backend/">App Backend Application Arcitecture</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>App Backend is based on ASP.NET Core and is a MVC application.
+This App Backend exposes REST-Api&rsquo;s consumed by the App Frontend and/or external systems / mobile apps.
+The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct operation.
+The API-controllers uses defined interfaces to communicate with the app logic defined by the developer.
+The below diagram show how the App Backend is build around 3 main packages. <a class="read-more" href="/architecture/application/altinn-apps/app-backend/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/app-backend/">app-backend</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/application-architecture/">application architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-frontend/">App Frontend Application Architecture</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>App Frontend is the javascript application
-React App vil i runtime være en React applikasjon som bygges/pakkes basert på valgene som ble gjort av tjenesteutvikler.
-Arkitekturen vil i utgangspunktet være lik på tvers av sluttbrukertjenester, men det kan være forskjeller på hvilke versjoner av rammeverk som det er bygget på.
-En viktig føring for denne appen er at oppdateringer i rammeverk ikke automatisk skal påvirke React App for den aktuelle tjenesten. <a class="read-more" href="/architecture/application/altinn-apps/app-frontend/">&raquo;</a></p>
+        <p>App Frontend is a Single Page Application based on React.
+This application is responsible to present a UI to the end user. The application consist of serveral different Features that is responsible for handling the ui for different steps in the workflow.
+Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during the build/deploy process to a Altinn Apps environment. <a class="read-more" href="/architecture/application/altinn-apps/app-frontend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -5645,38 +5677,6 @@ The diagram below shows the different components in Altinn Apps and below you fi
           
             
                 <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-backend/">Application Architecture Altinn Apps</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Backend is based on ASP.NET Core and is a MVC application that uses defined interfaces to run the specific service logic implemented in Altinn Studio.
-This backend exposes REST-Api&rsquo;s consumed by the App Frontend and/or external systems / mobile apps.
-The MVC backend application loads service specific code from container disk.
-Service Implementation. The service implementation is C# code generated/created as part of the service development process in Altinn Studio. <a class="read-more" href="/architecture/application/altinn-apps/app-backend/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0/">tjenester 3.0</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/app-backend/">app-backend</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/application-architecture/">application architecture</a>
             
         
 
@@ -5748,8 +5748,7 @@ Navigation/administration of the different applications is done from top-level a
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/app-backend/app-events/applicationevents/">Application events</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>NOTE: Work in progress. Stuff will change
-Application Events The runtime has a defined event model that can be used by the service developer to controll when logic in the service implementation will run.
+        <p>Application Events The runtime has a defined event model that can be used by the service developer to controll when logic in the service implementation will run.
 These events are mapped to functional events triggered by end users or systems.
 Instansiation Instansiation is when the end user or system instansiates a new service instance. Events connected to instansiation can contain logic that can prefill the datamodell or validate if the user or system is allowed to instansiate that service. <a class="read-more" href="/architecture/application/altinn-apps/app-backend/app-events/applicationevents/">&raquo;</a></p>
     </section>
