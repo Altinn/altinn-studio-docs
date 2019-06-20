@@ -1,7 +1,7 @@
 ---
 title: App Process
-linktitle: App Backend
-description: Description of the application architecture for App Backend 
+linktitle: Process
+description: Description of the process handling of App Backend 
 tags: ["tjenester 3.0", "app-backend", "application architecture"]
 weight: 100
 ---
@@ -14,5 +14,5 @@ to support different types of Tasks in the process.
 The below diagram show some example processes that a App will support in the future.
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app/app-backend/process/app-backend-process.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/app/app-backend/process/app-backend-process.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
 {{% /excerpt%}}
