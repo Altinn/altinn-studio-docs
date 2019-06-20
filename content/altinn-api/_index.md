@@ -87,7 +87,7 @@ The client specify the instance owner and can set a number of the metadata field
     "presentationField": "Arbeidsmelding"
 }
 ```
-Data elements (files) can be attached to the initial request as a *multipart/form-data*. The name of the data element must correspond to the element type defined in the application metadata. 
+Data elements (files) can be attached to the initial request as a *multipart/form-data*. The name of the parts must correspond to element types defined in the application metadata. 
 
 ```http
 POST {appPath}/instances
@@ -137,7 +137,7 @@ This call will return the instance metadata record which was created. A unique i
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "workflow": {
-        "currentStep": "FormFilling",
+        "currentTask": "FormFilling",
         "isComplete": false
     },
     "instanceOwnerStatus": {
@@ -206,7 +206,7 @@ This call updates and returns instance metadata where each data element are give
 
 ### Update a data element
 
-Update (replace) a data element with a new one (payload). Data as multipart or as 
+Update (replace) a data element with a new one (payload). Data as multipart or as single body.
 
 ```http
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
@@ -272,14 +272,14 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/download
 
 Will create a multipart http response with the following content:
 
-1) instance metadata (application/json)
-2) the first data element (application/xml)
-3) the first data element's pdf (application/pdf)
-4) second data element (e.g. attachement)
-5) third data element (e.g. image)
-6) ...
+1. instance metadata (application/json)
+2. the first data element (application/xml)
+3. the first data element's pdf (application/pdf)
+4. second data element (e.g. attachement)
+5. third data element (e.g. image)
+6. ...
 
-Data elements with schema has a corresponding pdf file which is generated when the element type's associate workflow step is closed. 
+Data elements with schema has a corresponding pdf file which is generated when the element type's associate workflow task is closed. 
 
 ### Change workflow state
 
@@ -288,13 +288,13 @@ Data elements with schema has a corresponding pdf file which is generated when t
 {{% /excerpt%}}
 
 ```http
-POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow/startStep?step=Submit
+PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow/startTask?taskId=Submit
 ```
 
 ### Query instances
 
 ```http
-GET {storagePath}/instances?appId=org/appName&workflow.currentStep=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
+GET {storagePath}/instances?appId=org/appName&workflow.currentTask=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
 ```
 
 Returns a paginated set of instances (JSON)
@@ -327,7 +327,7 @@ Returns a paginated set of instances (JSON)
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/appName/events?after=2019-03-30&workflow.currentStep=Submit&workflow.isComplete=true
+GET {storagePath}/applications/org/appName/events?after=2019-03-30&workflow.currentTask=Submit
 ```
 
 Query result:
@@ -420,10 +420,10 @@ GET {appPath}/workflow
 ### Instantiate an app
 
 Client instantiates a app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
-Workflow is set to first step. This means that data can be updated later on.
+Workflow is set to first task. This means that data can be updated later on.
 
 {{%excerpt%}}
-<object data="/altinn-api/Instantiate.png" type="image/png" style="width: 50%;";></object>
+<object data="/altinn-api/Instantiate.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
 ### Instantiate an app and complete workflow
@@ -431,7 +431,7 @@ Workflow is set to first step. This means that data can be updated later on.
 Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the workflow.
 
 {{%excerpt%}}
-<object data="/altinn-api/instantiate and complete workflow.png" type="image/png" style="width: 50%;";></object>
+<object data="/altinn-api/instantiate and complete workflow.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
 ### Update Data
@@ -439,22 +439,27 @@ Instantiate an app with data as multipart content (stream). The app creates an i
 Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client. 
 
 {{%excerpt%}}
-<object data="/altinn-api/Save data.png" type="image/png" style="width: 50%;";></object>
+<object data="/altinn-api/Save data.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
 ### Validate and calculate
 
+The app provides two methods to check the data before an instance is created. 
+
+The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
+
+The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.
 
 {{%excerpt%}}
-<object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 50%;";></object>
+<object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
 ### Workflow
 
-Application has a workflow definition that defines a set of workflow steps and flow. A workflow is started by the application and it moves the workflow to the first workflow step.
+Application has a workflow definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A workflow is started by the application, which sets the current task to the first task in the workflow (selects a start event which points to a task).
 
 {{%excerpt%}}
-<object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object>
+<object data="/altinn-api/workflow.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
 #### Get workflow state of a specific instance
@@ -467,24 +472,25 @@ Is it in signing? Is it form filling +++ Used by react to decide what to show.
 http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
 
 
-#### Complete a workflow step. 
+#### Complete a workflow task 
 
-Application must select next step. Error if multiple steps exist and user must chose which step. 
+Application attempts to finish the current task and moves the workflow forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select. 
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeStep
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeTask
 ```
 OLD  //Complete
 http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/nextStep
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/nextTask
 ```
 
 #### Complete workflow. 
 
-The complete workflow method will attempt to complete the workflow. Hence, the app will move the workflow to next step until it reaches an valid endstate. 
-If a step condition is not met the workflow will be stopped in the last valid state. 
+The complete workflow method will attempt to complete the workflow. Hence, the app will move the workflow from one task to the next until it reaches an valid end state. 
+
+If a task's exit condition is not met, the workflow will be stopped in the last valid task. And the user must manually fix the problem and complete the workflow.
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
@@ -492,19 +498,19 @@ PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/com
 OLD // CompleteAndSendIn
 http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
 
-#### Get steps in a flow ?
-Returns an list of the next steps that can be reached from the current step.
+#### Get the tasks in a workflow?
+Returns an list of the next tasks that can be reached from the current task.
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?nextSteps
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?nextTasks
 ```
 
-#### Start a workflow step. 
+#### Start a workflow task.
 
-Closes current step and start the wanted step. Updates workflow state accordingly. If post condition of current step is not met an error will be returned. If the step is not directly reachable by the flow an error will be returned.
+Closes current task and start the wanted task. Updates workflow state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/startStep?stepId=step3
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/startTask?taskId=task3
 ```
 
 ### TextResources
