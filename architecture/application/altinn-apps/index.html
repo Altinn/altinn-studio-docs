@@ -1987,12 +1987,48 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/app-backend/" class="dd-item 
+    <li data-nav-id="/architecture/application/altinn-apps/app/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/app-backend/">
+      <a href="/architecture/application/altinn-apps/app/">
+        <span>Altinn Apps</span>
+
+        
+        
+
+          
+            <i class="fa fa-angle-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-apps/app/app-backend/">
         <span>App Backend</span>
 
         
@@ -2021,10 +2057,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/application/altinn-apps/app-backend/app-events/applicationevents/" class="dd-item
+      <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/" class="dd-item
      
       ">
-        <a href="/architecture/application/altinn-apps/app-backend/app-events/applicationevents/">
+        <a href="/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/">
         <span>Application Events</span> 
         
         </a></li>
@@ -2050,12 +2086,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/app-frontend/" class="dd-item 
+    <li data-nav-id="/architecture/application/altinn-apps/app/app-frontend/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/app-frontend/">
+      <a href="/architecture/application/altinn-apps/app/app-frontend/">
         <span>App Frontend</span>
 
         
@@ -2063,6 +2099,15 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -5472,11 +5517,8 @@ if(host != "localhost")
 <li>
 <ul>
 <li><a href="#app-routing">App routing</a></li>
-<li><a href="#application-app">Application (App)</a>
-<ul>
-<li><a href="#app-frontend">App Frontend</a></li>
-<li><a href="#app-backend">App Backend</a></li>
-</ul></li>
+<li><a href="#application-app">Application (App)</a></li>
+<li><a href="#kubernetes-proxy">Kubernetes Proxy</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -5530,18 +5572,11 @@ See <a href="/architecture/infrastructure/deployement/altinn-apps">deployment ar
 
 <p>The App itself consist of two applications with different Application Architecture</p>
 
-<h3 id="app-frontend">App Frontend</h3>
+<p><a href="app">Read more about the application architecture for App Frontend</a></p>
 
-<p>Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a
-App Frontend.</p>
+<h2 id="kubernetes-proxy">Kubernetes Proxy</h2>
 
-<p><a href="app-frontend">Read more about the application architecture for App Frontend</a></p>
-
-<h3 id="app-backend">App Backend</h3>
-
-<p>App-Backend exposes api to frontend and contains all needed functionality to handle</p>
-
-<p><a href="app-backend">Read more about the application architecture for App Frontend</a></p>
+<p>This is the application that gives Altinn Studio information about a Apps cluster</p>
 
 
 <footer class=" footline" >
@@ -6609,6 +6644,21 @@ App Frontend.</p>
 
                     
                     
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
 
                     
@@ -6643,6 +6693,9 @@ App Frontend.</p>
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -8480,7 +8533,7 @@ App Frontend.</p>
             <a class="nav nav-prev" href="/architecture/application/" title="Application Architecture"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="/architecture/application/altinn-apps/app-backend/" title="App Backend Application Arcitecture" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="/architecture/application/altinn-apps/app/" title="Application Architecture App" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

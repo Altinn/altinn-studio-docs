@@ -60,7 +60,14 @@
 	"title": "Application Architecture Altinn Apps",
 	"tags": ["tjenester 3.0"],
 	"description": "Description of the application architecture for Altinn Apps",
-	"content": " Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\nCurrently these applications together with applications for routing are the only components that is part of Altinn Apps.\nThe diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different components/parts of Altinn Apps.\n\n[See fullscreen] or [download as visio]\nApp routing In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod\nApplication (App) The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nApp Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend.\nRead more about the application architecture for App Frontend\nApp Backend App-Backend exposes api to frontend and contains all needed functionality to handle\nRead more about the application architecture for App Frontend\n"
+	"content": " Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\nCurrently these applications together with applications for routing are the only components that is part of Altinn Apps.\nThe diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different components/parts of Altinn Apps.\n\n[See fullscreen] or [download as visio]\nApp routing In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod\nApplication (App) The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nRead more about the application architecture for App Frontend\nKubernetes Proxy This is the application that gives Altinn Studio information about a Apps cluster\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/",
+	"title": "Application Architecture App",
+	"tags": ["tjenester 3.0"],
+	"description": "Description of the application architecture for App",
+	"content": " The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nApp Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend.\nRead more about the application architecture for App Frontend\nApp Backend App-Backend exposes api to frontend and contains all needed functionality to handle\nRead more about the application architecture for App Frontend\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/infrastructure/deployment/altinn-apps/",
@@ -168,14 +175,14 @@
 	"content": " Summary This is a c# project file that is generated when a new service is created. This project file is placed in the root of the service folder. This project file helps in compiling the service.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app-backend/",
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/",
 	"title": "App Backend Application Arcitecture",
 	"tags": ["tjenester 3.0", "app-backend", "application architecture"],
 	"description": "Description of the application architecture for App Backend",
 	"content": " App Backend is based on ASP.NET Core and is a MVC application.\nThis App Backend exposes REST-Api\u0026rsquo;s consumed by the App Frontend and/or external systems / mobile apps.\nThe REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct operation.\nThe API-controllers uses defined interfaces to communicate with the app logic defined by the developer.\nThe below diagram show how the App Backend is build around 3 main packages.\n AltinnCore Runtime - MVC Application with predefined API\u0026rsquo;s and functionality for Apps created in Altinn Studio ServiceLogic - Class library that contains business logic defined by the org/app developer ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic  \nService Implementation. The service implementation is C# code generated/created as part of the service development process in Altinn Studio.\nThe Service Implementation implement a defined interface that backend uses to be able to interact with the service implementation.\nThe service implementation contains all backend code for logic and rules.\nDatamodel The data model in a service is defined as an XSD. From the XSD it is generated a C# representation of that model.\nIn runtime all data is deserialized/serialized from/to this model when communication with frontend/external systems.\nAll logic in the service will typical be related to the datamodel.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app-frontend/",
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/app-frontend/",
 	"title": "App Frontend Application Architecture",
 	"tags": ["tjenester 3.0", "Altinn Apps"],
 	"description": "Description of the Application architecture for App-Frontend",
@@ -189,7 +196,7 @@
 	"content": "The Application Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with eachother.\nIt also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication Architecture Altinn Apps\r\rDescription of the application architecture for Altinn Apps\n\rApplication architecture Altinn Platform\r\rDescription of the Altinn Platform application architecture\n\rApplication Architecture Altinn Studio\r\rDescription of the application architecture for runtime applicationz\n\r"
 },
 {
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app-backend/app-events/applicationevents/",
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/app-events/applicationevents/",
 	"title": "Application events",
 	"tags": ["tjenester 3.0"],
 	"description": "Description of application events",
