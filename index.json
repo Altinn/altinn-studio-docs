@@ -60,14 +60,7 @@
 	"title": "Application Architecture Altinn Apps",
 	"tags": ["tjenester 3.0"],
 	"description": "Description of the application architecture for Altinn Apps",
-	"content": " Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\nCurrently these applications together with applications for routing are the only components that is part of Altinn Apps.\nThe diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different components/parts of Altinn Apps.\n\n[See fullscreen] or [download as visio]\nApp routing In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod\nApplication (App) The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nRead more about the application architecture for App Frontend\nKubernetes Proxy This is the application that gives Altinn Studio information about a Apps cluster\n"
-},
-{
-	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/",
-	"title": "Application Architecture App",
-	"tags": ["tjenester 3.0"],
-	"description": "Description of the application architecture for App",
-	"content": " The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nApp Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend.\nRead more about the application architecture for App Frontend\nApp Backend App-Backend exposes api to frontend and contains all needed functionality to handle\nRead more about the application architecture for App Frontend\n"
+	"content": " Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\nApps for a given org is deployed to a Altinn Apps Cluster\nThe diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different components/parts of Altinn Apps.\n\n[See fullscreen] or [download as visio]\nApp routing In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod\nApplication (App) The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nRead more about the application architecture for App Frontend\nKubernetes Proxy This is the application that gives Altinn Studio information about a Apps cluster\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/infrastructure/deployment/altinn-apps/",
@@ -173,6 +166,13 @@
 	"tags": ["tjenester 3.0", "projectfile", "csproj"],
 	"description": "Description for AltinnService.csproj file",
 	"content": " Summary This is a c# project file that is generated when a new service is created. This project file is placed in the root of the service folder. This project file helps in compiling the service.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/",
+	"title": "Application Architecture App",
+	"tags": ["tjenester 3.0"],
+	"description": "Description of the application architecture for App",
+	"content": " The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nApp Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend.\nRead more about the application architecture for App Frontend\nApp Backend App-Backend exposes api to frontend and contains all needed functionality to handle\nRead more about the application architecture for App Frontend\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/",
@@ -504,6 +504,13 @@
 	"content": " JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens.\nThis is created for scenarios where you have need for API that will be accessed from system with\nThis is created as a seperate C# Project and published as a Nuget Package here\nFeatures  Support Generation of JWT Tokens as bearer tokens Support Generation of JWT Tokens inside Cookies Support Verification of JWT Tokens as bearer tokens Support Verification of Configureble name of cookie used Configurable Signing Ceritcate Configurale Verification certificate Automatic detection if request contains Uses standard JWT Library for verification and generation.  How To Configure JWTCookieAuthentication Configuration for consumers // Configure Authentication // Use [Authorize] to require login on MVC Controller Actions X509Certificate2 cert = new X509Certificate2(\u0026quot;JWTValidationCert.cer\u0026quot;); SecurityKey key = new X509SecurityKey(cert); services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme) .AddJwtCookie(options =\u0026gt; { options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuerSigningKey = true, IssuerSigningKey = key, ValidateIssuer = false, ValidateAudience = false, RequireExpirationTime = true, ValidateLifetime = true }; options.ExpireTimeSpan = new TimeSpan(0, 30, 0); options.Cookie.Name = Common.Constants.General.RuntimeCookieName; });  Configuration for the identity provider The below configuration is relevant for the Identity Provider application.\n// Use [Authorize] to require login on MVC Controller Actions services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) .AddJwtCookie(JwtCookieDefaults.AuthenticationScheme, options =\u0026gt; { options.ExpireTimeSpan = new TimeSpan(0, 30, 0); options.Cookie.Name = Common.Constants.General.RuntimeCookieName; })  How to get access to user information When a application is configured with JWTCookie authentication the information is available in httpContext about the user\npublic static int GetUserId(HttpContext context) { int userId = 0; if (context.User != null) { foreach (Claim claim in context.User.Claims) { if (claim.Type.Equals(AltinnCoreClaimTypes.UserId)) { userId = Convert.ToInt32(claim.Value); } } } return userId; }  Known Issues "
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/kuberneteswrapper/",
+	"title": "Application Architecture Kubernetes Wrapper",
+	"tags": ["tjenester 3.0"],
+	"description": "Description of the application architecture for Kubernetes Wrapper",
+	"content": " The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nApp Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend.\nRead more about the application architecture for App Frontend\nApp Backend App-Backend exposes api to frontend and contains all needed functionality to handle\nRead more about the application architecture for App Frontend\n"
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/loadbalancer/",
 	"title": "Loadbalancer",
 	"tags": ["development", "handbook", "loadbalancer"],
@@ -621,6 +628,13 @@
 	"tags": ["solution", "architecture"],
 	"description": "Description of register component",
 	"content": " The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is now available at http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.\nResource: Organizations, Parties, Persons\n## /organizations\nGet information about an organization:\n/organizations/{orgNr}  (Available testdata. OrgNrs: 10008387, 10008433, 810418192 and 810419962)\n/parties Get information about a party:\n/parties/{partyId}  (Available testdata. PartyIds: 50004216, 50004217, 50004219, 50004232, 50002182, 50003590, 50003681 and 50002550)\n/persons Get information about a person: Send a GET-request with the persons SSN contained in the request body to\n/persons  (Available testdata. SSNs: 01124621077, 22104511094, 24054670016 and 07069400021)\n"
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-apps/routing/",
+	"title": "Application Architecture Routing",
+	"tags": ["tjenester 3.0"],
+	"description": "Descripton of the Application Architecture for the Routing Application",
+	"content": " Routing in Altinn Apps are done by Traefik. See Traefik documentation for detailed architecture information\nConfiguration "
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/",

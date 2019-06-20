@@ -39,10 +39,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/infrastructure/deployment/altinn-apps/</loc>
   </url>
   
@@ -100,6 +96,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app/</loc>
   </url>
   
   <url>
@@ -291,6 +291,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/kuberneteswrapper/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/handbook/loadbalancer/</loc>
   </url>
   
@@ -356,6 +360,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-platform/register/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-apps/routing/</loc>
   </url>
   
   <url>
