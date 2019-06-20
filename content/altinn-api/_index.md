@@ -387,7 +387,7 @@ Instantiate an app with data as multipart content (stream). Instance and default
 The app attempts to complete the workflow.
 
 {{%excerpt%}}
-<object data="/altinn-api/Instantiate and complete workflow.png" type="image/png" style="width: 50%;";></object>
+<object data="/altinn-api/instantiate and complete workflow.png" type="image/png" style="width: 50%;";></object>
 {{% /excerpt%}}
 
 ### Update Data
@@ -457,9 +457,6 @@ Closes current step and move workflow state to new step, if allowed by flow. Err
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
 ```
-
-## I
-
 
 ### TextResources
 
