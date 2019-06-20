@@ -5637,8 +5637,8 @@ An appId refers to the application information element which defines the metadat
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;60238/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    &quot;appId&quot;: &quot;TEST/sailor&quot;,
-    &quot;org&quot;: &quot;TEST&quot;,
+    &quot;appId&quot;: &quot;test/sailor&quot;,
+    &quot;org&quot;: &quot;test&quot;,
     &quot;instanceOwnerId&quot;: &quot;60238&quot;,
     &quot;labels&quot;: [&quot;xyz&quot;, &quot;importantUser&quot;],
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
@@ -5665,7 +5665,7 @@ An appId refers to the application information element which defines the metadat
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;elementType&quot;: &quot;boatdata&quot;,
             &quot;contentType&quot;: &quot;application/json&quot;,
-            &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&quot;,
+            &quot;storageUrl&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&quot;,
             &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
@@ -5673,7 +5673,7 @@ An appId refers to the application information element which defines the metadat
             &quot;fileSize&quot;: 2003,
             &quot;isLocked&quot;: true,
             &quot;pdf&quot;: {
-                &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf&quot;,
+                &quot;storageUrl&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf&quot;,
                 &quot;generated&quot;: &quot;2019-05-30T14:38:22+01:00&quot;
             }
         },
@@ -5681,7 +5681,7 @@ An appId refers to the application information element which defines the metadat
             &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;elementType&quot;: &quot;crewlist&quot;,
             &quot;contentType&quot;: &quot;text/xml&quot;,
-            &quot;storageUrl&quot;: &quot;TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;storageUrl&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
@@ -5860,11 +5860,15 @@ An appId refers to the application information element which defines the metadat
 </tbody>
 </table>
 
+<p>C - creation time, U - can be updated</p>
+
 <h3 id="operations">Operations</h3>
 
-<p>Create a new instance. Post with params that identifies the application and the instance owner.</p>
+<p>Create a new instance of an app for a given instance owner.
+Post with query params that identifies the appId and the instance owner.
+An instance object can be sent as json data to set certian values.</p>
 
-<pre><code class="language-http">POST /instances?appId=TEST/sailor&amp;instanceOwnerId=60238
+<pre><code class="language-http">POST /instances?appId=test/sailor&amp;instanceOwnerId=60238
 </code></pre>
 
 <p>Get information about one instance.</p>
@@ -5874,13 +5878,17 @@ An appId refers to the application information element which defines the metadat
 
 <p>Get (query) all instances that is instance owner has</p>
 
-<pre><code class="language-http">GET /instances&amp;instanceOwnerId={instanceOwnerId}[&amp;label=xyz]
-GET /instances/{instanceOwnerId}?labels=x,y,z
+<pre><code class="language-http">GET /instances/{instanceOwnerId}?[labels=x,y,z]
 </code></pre>
 
-<p>Get (query) all instances of a particular application that is completed</p>
+<p>Query all instances of a particular application that is completed</p>
 
 <pre><code class="language-http">GET /instances?appId={appId}&amp;workflow.isCompleted=true
+</code></pre>
+
+<p>Query all instances of an applicatio owner&rsquo;s organisation</p>
+
+<pre><code class="language-http">GET /instances?org={org}
 </code></pre>
 
 <p>Delete a specific instance (also deletes its data).</p>
@@ -5930,7 +5938,7 @@ that is used to identify the specific data element</p>
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;test/sailor&quot;,
     &quot;versionId&quot;: &quot;v32.23-xyp&quot;,
-    &quot;org&quot;: &quot;TEST&quot;,
+    &quot;org&quot;: &quot;test&quot;,
     &quot;app&quot;: &quot;sailor&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,

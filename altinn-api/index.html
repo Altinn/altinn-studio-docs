@@ -1793,53 +1793,6 @@ if(host != "localhost")
           
         
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/about/goals/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/about/goals/">
-        <span>Goals</span>
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/about/slide/" class="dd-item
-     
-      ">
-        <a href="/about/slide/">
-        <span>Slide NO</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -5574,6 +5527,9 @@ if(host != "localhost")
 <li><a href="#update-a-data-element">Update a data element</a></li>
 <li><a href="#download-a-data-element-as-application-owner">Download a data element (as application owner)</a></li>
 <li><a href="#confirm-successful-download">Confirm successful download</a></li>
+</ul></li>
+<li><a href="#download-a-complete-instance-with-dataelements-and-pdf">Download a complete instance with dataelements and pdf</a>
+<ul>
 <li><a href="#change-workflow-state">Change workflow state</a></li>
 <li><a href="#query-instances">Query instances</a></li>
 <li><a href="#application-events">Application events</a></li>
@@ -5589,8 +5545,8 @@ if(host != "localhost")
 <li><a href="#instantiate-an-app">Instantiate an app</a></li>
 <li><a href="#instantiate-an-app-and-complete-workflow">Instantiate an app and complete workflow</a></li>
 <li><a href="#update-data">Update Data</a></li>
-<li><a href="#workflow-methods">Workflow methods</a></li>
-<li><a href="#validate-and-calculate">Validate and calculate</a>
+<li><a href="#validate-and-calculate">Validate and calculate</a></li>
+<li><a href="#workflow">Workflow</a>
 <ul>
 <li><a href="#get-workflow-state-of-a-specific-instance">Get workflow state of a specific instance</a></li>
 <li><a href="#complete-a-workflow-step">Complete a workflow step.</a></li>
@@ -5671,7 +5627,7 @@ The new API will be available to both parties, but with some functions that will
 <li>Upload form data</li>
 <li>Download form data</li>
 <li>Confirm successful download</li>
-<li>Change workflow state?</li>
+<li>Change workflow state</li>
 </ul>
 
 <h3 id="application-users">Application Users</h3>
@@ -5714,24 +5670,51 @@ The Platform Storage API will provide access to information stored by the applic
 <h3 id="create-an-application-instance">Create an application instance</h3>
 
 <p>Altinn assigns an unique identifier to all users that wishes to report data. We call this id <em>instanceOwnerId</em>.
-If you do not know this, you should provide the official identity number, e.g social security or organization number, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.</p>
+If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.</p>
 
-<p>Data elements can be provided as part of the creation request, but can also be uploaded at a later time</p>
+<p>Data elements can be provided as part of the creation request, but can also be uploaded at a later time.</p>
+
+<p>The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form.</p>
 
 <pre><code class="language-json">{
-    &quot;instanceOwnerLookup&quot;: { &quot;personNumber&quot;: &quot;12247918309&quot; | &quot;organizationNumber&quot;: &quot;123456789&quot; | &quot;userName&quot;: &quot;xyz&quot; },
+    &quot;instanceOwnerLookup&quot;: { &quot;personNumber&quot;: &quot;12247918309&quot; | &quot;organisationNumber&quot;: &quot;123456789&quot; | &quot;userName&quot;: &quot;xyz&quot; },
     &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ],
     &quot;appId&quot; : &quot;org/appName&quot;,
     &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
-    &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
-    &quot;data&quot; : [
-        { &quot;elementType&quot;: &quot;default&quot;, &quot;contentType&quot;: &quot;application/xml&quot;, &quot;content&quot;: &quot;base64xckljsiojfiewljf&quot;}
-    ]
+    &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;
 }
 </code></pre>
 
+<p>Data elements (files) can be attached to the initial request as a <em>multipart/form-data</em>. The name of the data element must correspond to the element type defined in the application metadata.</p>
+
 <pre><code class="language-http">POST {appPath}/instances
+</code></pre>
+
+
+	<p><object data="/altinn-api/Instantiate for an instance owner.png" type="image/png" style="width: 75%;";></object></p>
+
+
+
+<p>A multipart formdata should contain the instance json document, and the data element files of the instance. Notice that the element types <em>default</em>, and <em>cv</em> should be defined in application metadata.</p>
+
+<pre><code>Content-Type: multipart/form-data; boundary=&quot;abcdefg&quot;
+
+--abcdefg
+Content-Type: application/json; charset=utf-8
+Content-Disposition: form-data; name=&quot;instance&quot;
+{ ... }
+
+--abcdefg
+Content-Type: application/xml
+Content-Disposition: form-data; name=&quot;default&quot;
+&lt;xml&gt; ... &lt;/xml&gt;
+
+--abcdefg
+Content-Type: application/pdf
+Content-Disposition: form-data; name=&quot;cv&quot;
+abc4g32dcoj3234jljf...
+--abcdefg--
 </code></pre>
 
 <p>This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.</p>
@@ -5818,7 +5801,7 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <h3 id="update-a-data-element">Update a data element</h3>
 
-<p>Update (replace) a data element with a new one (payload)</p>
+<p>Update (replace) a data element with a new one (payload). Data as multipart or as</p>
 
 <pre><code class="language-http">PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
@@ -5851,7 +5834,9 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <h3 id="confirm-successful-download">Confirm successful download</h3>
 
-<pre><code class="language-http">POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
+<p>Application owner must confirm that the data element file was downloaded sucessful.</p>
+
+<pre><code class="language-http">PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
 </code></pre>
 
 <pre><code class="language-json">{
@@ -5869,6 +5854,22 @@ If you do not know this, you should provide the official identity number, e.g so
 }
 </code></pre>
 
+<h2 id="download-a-complete-instance-with-dataelements-and-pdf">Download a complete instance with dataelements and pdf</h2>
+
+<pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
+</code></pre>
+
+<p>Will create a multipart http response with the following content:</p>
+
+<p>1) instance metadata (application/json)
+2) the first data element (application/xml)
+3) the first data element&rsquo;s pdf (application/pdf)
+4) second data element (e.g. attachement)
+5) third data element (e.g. image)
+6) &hellip;</p>
+
+<p>Data elements with schema has a corresponding pdf file which is generated when the element type&rsquo;s associate workflow step is closed.</p>
+
 <h3 id="change-workflow-state">Change workflow state</h3>
 
 
@@ -5876,7 +5877,7 @@ If you do not know this, you should provide the official identity number, e.g so
 
 
 
-<pre><code class="language-http">POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow?goTo=Submit
+<pre><code class="language-http">POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow/startStep?step=Submit
 </code></pre>
 
 <h3 id="query-instances">Query instances</h3>
@@ -5995,7 +5996,7 @@ If you do not know this, you should provide the official identity number, e.g so
 
 <h3 id="instantiate-an-app">Instantiate an app</h3>
 
-<p>Client instantiates a app. The app create a data file by using it&rsquo;s prefill rules. Instance metadata is returned which allow Client to download the data.
+<p>Client instantiates a app. The app create an initial data element (file) according to the app&rsquo;s prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
 Workflow is set to first step. This means that data can be updated later on.</p>
 
 
@@ -6005,8 +6006,7 @@ Workflow is set to first step. This means that data can be updated later on.</p>
 
 <h3 id="instantiate-an-app-and-complete-workflow">Instantiate an app and complete workflow</h3>
 
-<p>Instantiate an app with data as multipart content (stream). Instance and default data element is created.
-The app attempts to complete the workflow.</p>
+<p>Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the workflow.</p>
 
 
 	<p><object data="/altinn-api/instantiate and complete workflow.png" type="image/png" style="width: 50%;";></object></p>
@@ -6015,15 +6015,10 @@ The app attempts to complete the workflow.</p>
 
 <h3 id="update-data">Update Data</h3>
 
+<p>Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client.</p>
+
 
 	<p><object data="/altinn-api/Save data.png" type="image/png" style="width: 50%;";></object></p>
-
-
-
-<h3 id="workflow-methods">Workflow methods</h3>
-
-
-	<p><object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object></p>
 
 
 
@@ -6031,6 +6026,15 @@ The app attempts to complete the workflow.</p>
 
 
 	<p><object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 50%;";></object></p>
+
+
+
+<h3 id="workflow">Workflow</h3>
+
+<p>Application has a workflow definition that defines a set of workflow steps and flow. A workflow is started by the application and it moves the workflow to the first workflow step.</p>
+
+
+	<p><object data="/altinn-api/workflow.png" type="image/png" style="width: 50%;";></object></p>
 
 
 
@@ -6045,7 +6049,7 @@ Is it in signing? Is it form filling +++ Used by react to decide what to show.
 
 <h4 id="complete-a-workflow-step">Complete a workflow step.</h4>
 
-<p>Application must select next step. Error if multiple steps and user must chose which step.</p>
+<p>Application must select next step. Error if multiple steps exist and user must chose which step.</p>
 
 <pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeStep
 </code></pre>
@@ -6069,16 +6073,16 @@ If a step condition is not met the workflow will be stopped in the last valid st
 
 <h4 id="get-steps-in-a-flow">Get steps in a flow ?</h4>
 
-<p>Returns an array of steps that can be selected.</p>
+<p>Returns an list of the next steps that can be reached from the current step.</p>
 
-<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?steps=next
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?nextSteps
 </code></pre>
 
 <h4 id="start-a-workflow-step">Start a workflow step.</h4>
 
-<p>Closes current step and move workflow state to new step, if allowed by flow. Error otherwise.</p>
+<p>Closes current step and start the wanted step. Updates workflow state accordingly. If post condition of current step is not met an error will be returned. If the step is not directly reachable by the flow an error will be returned.</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?step=step3
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/startStep?stepId=step3
 </code></pre>
 
 <h3 id="textresources">TextResources</h3>
@@ -6092,7 +6096,7 @@ If a step condition is not met the workflow will be stopped in the last valid st
 
 <h4 id="get-text-resources-for-a-given-element-type">Get text resources for a given element type</h4>
 
-<pre><code class="language-http">GET {appPath}/types/{typeName}/resources/texts?lang=nb
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/resources/texts?lang=nb
 </code></pre>
 
 <p>OLD <a href="http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing">http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing</a></p>
@@ -6101,28 +6105,28 @@ If a step condition is not met the workflow will be stopped in the last valid st
 
 <h4 id="get-the-metadata-for-a-given-element-type">Get the metadata for a given element type</h4>
 
-<pre><code class="language-http">GET {appPath}/types/{typeName}/metadata
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/metadata
 </code></pre>
 
 <p>OLD <a href="http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData">http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData</a></p>
 
 <h4 id="get-the-layout-for-a-given-element-type">Get the layout for a given element type</h4>
 
-<pre><code class="language-http">GET {appPath}/types/{typeName}/layouts
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/layouts
 </code></pre>
 
 <p>OLD <a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json</a></p>
 
 <h4 id="gets-the-rules-for-a-given-element-type">Gets the rules for a given element type</h4>
 
-<pre><code class="language-http">GET {appPath}/types/{typeName}/rules
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/rules
 </code></pre>
 
 <p>OLD <a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js</a></p>
 
 <h5 id="external-api-use">External API use</h5>
 
-<pre><code class="language-http">GET {appPath}/types/{typeName}/externalApis
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/externalApis
 </code></pre>
 
 <p>OLD (Service configuration) <a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json</a></p>
