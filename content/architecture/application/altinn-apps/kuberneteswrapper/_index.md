@@ -1,7 +1,7 @@
 ---
-title: Application Architecture App
-linktitle: App
-description: Description of the application architecture for App
+title: Application Architecture Kubernetes Wrapper
+linktitle: Kubernetes Wrapper
+description: Description of the application architecture for Kubernetes Wrapper
 tags: ["tjenester 3.0"]
 weight: 100
 ---

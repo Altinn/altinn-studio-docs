@@ -7,7 +7,7 @@ weight: 100
 ---
 Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed. 
 
-Currently these applications together with applications for routing are the only components that is part of Altinn Apps. 
+Apps for a given org is deployed to a Altinn Apps Cluster  
 
 The diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different
 components/parts of Altinn Apps.
