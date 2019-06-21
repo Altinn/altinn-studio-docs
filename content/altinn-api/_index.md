@@ -414,7 +414,7 @@ Process is set to first task. This means that data can be updated later on.
 Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process. If the process is completed successfully, the data can no longer be updated.
 
 {{%excerpt%}}
-<object data="/altinn-api/prOcess-instantiate-and-complete.png" type="image/png" style="width: 75%;";></object>
+<object data="/altinn-api/process-instantiate-and-complete.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
 ## Process
@@ -432,7 +432,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
 OLD Get Current process state
 Is it in signing? Is it form filling +++ Used by react to decide what to show.
-http://altinn3.no/runtime/api/process/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
+http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
 
 ### Complete a task
 
