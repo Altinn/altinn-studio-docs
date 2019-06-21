@@ -64,12 +64,14 @@ This feature is responsible to show the summary of the instance when a app is se
 
 
 ## Configuration files
-The App Frontend requires some configuration files to work correctly.
+The App Frontend requires some configuration files to work correctly. These files are loaded through API
 
 ### FormLayout
 The formlayot is used the UI-render feature. 
 
-It decides the layoyt of the ui
+It decides the layout elements. App Frontend have access to form layout through API.
+
+[See details about FormLayout.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/)
 
 ### Language
 Contains all text resources 
@@ -77,6 +79,7 @@ Contains all text resources
 ### ServiceMetadata
 Contains information about the datamodell and is used by UI-render to map the fields to the datamodel. 
 
+[See details about ServiceMetadata.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/)
 
 
-
+### 
