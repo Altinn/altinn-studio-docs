@@ -6,13 +6,20 @@ tags: ["tjenester 3.0"]
 weight: 100
 ---
 
-#### Application Events
-The runtime has a defined event model that can be used by the service developer
+
+
+The App Backend has a defined event model that can be used by the service developer
 to controll when logic in the service implementation will run.
 
-These events are mapped to functional events triggered by end users or systems.
+These events are mapped to functional events triggered by end users or systems. This functional events are typical trigged by a API-call 
+from App Frontend or other systems/applications using the API's in App Backend. 
 
-##### Instansiation
+Some Application Events happens in more than one functional event. 
+
+## Functional event and their Application Events
+Below different functional events are listed. For each functional even there is described which Application Events that is triggered.
+
+### Instansiation
 Instansiation is when the end user or system instansiates a new service instance.
 Events connected to instansiation can contain logic that can prefill the datamodell
 or validate if the user or system is allowed to instansiate that service.
@@ -27,7 +34,8 @@ The below sequence diagram shows how the app events are combined with other logi
 <object data="/architecture/application/altinn-apps/app/app-backend/app-events/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
-##### Load form data (GET)
+
+### Load form data (GET)
 Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
 the latest updated form data. 
 
@@ -37,7 +45,9 @@ The following events will be performed
 <object data="/architecture/application/altinn-apps/app/app-backend/app-events/events_get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
-#### Storing of form data (POST)
+
+
+### Storing of form data (POST)
 Update of form data can happen when frontend (REACT app) sends data to backend
 or a end user system does the same. When an update happend there is defined serveral
 events that is performed in a given ordern. The service developer can implement
@@ -57,7 +67,8 @@ The order of events are
 <object data="/architecture/application/altinn-apps/app/app-backend/app-events/events_post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
-#### Update form data (PUT)
+
+### Update form data (PUT)
 Update of form data happens when the frontend or external end user systems/applications 
 want to update a existing form connected to a service instance
 

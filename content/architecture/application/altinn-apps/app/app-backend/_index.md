@@ -23,7 +23,7 @@ The below diagram show how the App Backend is build around 3 main packages.
 - ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%; max-width: 100px;"></object>
+<object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
 {{% /excerpt%}}
 
 
