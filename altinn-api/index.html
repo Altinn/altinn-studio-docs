@@ -5613,7 +5613,7 @@ if(host != "localhost")
 </ul></li>
 <li><a href="#download-a-complete-instance-with-dataelements-and-pdf">Download a complete instance with dataelements and pdf</a>
 <ul>
-<li><a href="#change-workflow-state">Change workflow state</a></li>
+<li><a href="#change-process-state">Change process state</a></li>
 <li><a href="#query-instances">Query instances</a></li>
 <li><a href="#application-events">Application events</a></li>
 </ul></li>
@@ -5626,16 +5626,16 @@ if(host != "localhost")
 <li><a href="#sequence-diagrams">Sequence diagrams</a>
 <ul>
 <li><a href="#instantiate-an-app">Instantiate an app</a></li>
-<li><a href="#instantiate-an-app-and-complete-workflow">Instantiate an app and complete workflow</a></li>
+<li><a href="#instantiate-an-app-and-complete-process">Instantiate an app and complete process</a></li>
 <li><a href="#update-data">Update Data</a></li>
 <li><a href="#validate-and-calculate">Validate and calculate</a></li>
-<li><a href="#workflow">Workflow</a>
+<li><a href="#process">Process</a>
 <ul>
-<li><a href="#get-workflow-state-of-a-specific-instance">Get workflow state of a specific instance</a></li>
-<li><a href="#complete-a-workflow-task">Complete a workflow task</a></li>
-<li><a href="#complete-workflow">Complete workflow.</a></li>
-<li><a href="#get-the-tasks-in-a-workflow">Get the tasks in a workflow?</a></li>
-<li><a href="#start-a-workflow-task">Start a workflow task.</a></li>
+<li><a href="#get-process-state-of-a-specific-instance">Get process state of a specific instance</a></li>
+<li><a href="#complete-a-task">Complete a task</a></li>
+<li><a href="#complete-process">Complete process</a></li>
+<li><a href="#get-the-tasks-in-a-process">Get the tasks in a process?</a></li>
+<li><a href="#start-a-process-task">Start a process task.</a></li>
 </ul></li>
 <li><a href="#textresources">TextResources</a>
 <ul>
@@ -5710,7 +5710,7 @@ The new API will be available to both parties, but with some functions that will
 <li>Upload form data</li>
 <li>Download form data</li>
 <li>Confirm successful download</li>
-<li>Change workflow state</li>
+<li>Change process state (workflow)</li>
 </ul>
 
 <h3 id="application-users">Application Users</h3>
@@ -5721,7 +5721,7 @@ The new API will be available to both parties, but with some functions that will
 <li>Create an application instance</li>
 <li>Upload form data</li>
 <li>Download form data</li>
-<li>Change workflow state</li>
+<li>Change process state (workflow)</li>
 <li>View status of an instance</li>
 </ul>
 
@@ -5729,7 +5729,7 @@ The new API will be available to both parties, but with some functions that will
 
 <p>The new solution will have multiple APIs. There are two APIs available for Application Owners and Users.
 There will be one API for each application cluster, called the <em>Application API</em>, and one for the Platform Storage cluster, called <em>Platform Storage API</em>.
-Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change workflow state of the application instance.
+Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change process state of the application instance.
 The Platform Storage API will provide access to information stored by the application. <a href="/architecture/application/altinn-platform">More information on the Platform apis can be found here</a></p>
 
 <h3 id="application-api">Application API</h3>
@@ -5739,7 +5739,7 @@ The Platform Storage API will provide access to information stored by the applic
 <pre><code class="language-http">apiPath = https://org.apps.altinn.no/org/appName
 </code></pre>
 
-<p>Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change workflow and to save/update data elements.</p>
+<p>Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.</p>
 
 <h3 id="platform-storage-api">Platform Storage API</h3>
 
@@ -5779,9 +5779,9 @@ If you do not know this, you should provide the official identity number, e.g na
 
 
 
-<p>A multipart formdata should contain the instance json document, and the data element files of the instance. Notice that the element types <em>default</em>, and <em>cv</em> should be defined in application metadata.</p>
+<p>A multipart formdata should contain the instance json document and the data element files of the instance. Notice that the name of the parts must correspond to the element types defined in application metadata. Hence the <em>default</em> name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.</p>
 
-<pre><code>Content-Type: multipart/form-data; boundary=&quot;abcdefg&quot;
+<pre><code class="language-http">Content-Type: multipart/form-data; boundary=&quot;abcdefg&quot;
 
 --abcdefg
 Content-Type: application/json; charset=utf-8
@@ -5793,10 +5793,6 @@ Content-Type: application/xml
 Content-Disposition: form-data; name=&quot;default&quot;
 &lt;xml&gt; ... &lt;/xml&gt;
 
---abcdefg
-Content-Type: application/pdf
-Content-Disposition: form-data; name=&quot;cv&quot;
-abc4g32dcoj3234jljf...
 --abcdefg--
 </code></pre>
 
@@ -5805,8 +5801,8 @@ abc4g32dcoj3234jljf...
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;347829/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
     &quot;selfLinks&quot;: {
-        &quot;apps&quot;: &quot;https://org.apps.altinn.no/org/appName/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
-        &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
+        &quot;apps&quot;: &quot;{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
+        &quot;platform&quot;: &quot;{platformPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
     },
     &quot;appId&quot;: &quot;org/appName&quot;,
     &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
@@ -5816,7 +5812,7 @@ abc4g32dcoj3234jljf...
     &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
-    &quot;workflow&quot;: {
+    &quot;process&quot;: {
         &quot;currentTask&quot;: &quot;FormFilling&quot;,
         &quot;isComplete&quot;: false
     },
@@ -5835,8 +5831,8 @@ abc4g32dcoj3234jljf...
         &quot;contentType&quot;: &quot;application/xml&quot;,
         &quot;storageUrl&quot;: &quot;org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;dataLink&quot;: {
-            &quot;apps&quot;:   &quot;https://org.apps.altinn.no/org/appName/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
+            &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
         },
         &quot;fileName&quot;: &quot;prefill.xml&quot;,
         &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
@@ -5867,8 +5863,8 @@ abc4g32dcoj3234jljf...
             &quot;contentType&quot;: &quot;application/xml&quot;,
             &quot;storageUrl&quot;: &quot;org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;dataLinks&quot;: {
-                &quot;apps&quot;:   &quot;https://org.apps.altinn.no/org/appName/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-                &quot;platform&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
+                &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+                &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
             },
             &quot;fileName&quot;: &quot;default.xml&quot;,
             &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
@@ -5953,21 +5949,21 @@ abc4g32dcoj3234jljf...
 <li>&hellip;</li>
 </ol>
 
-<p>Data elements with schema has a corresponding pdf file which is generated when the element type&rsquo;s associate workflow task is closed.</p>
+<p>Data elements with schema has a corresponding pdf file which is generated when the element type&rsquo;s associate process task is closed.</p>
 
-<h3 id="change-workflow-state">Change workflow state</h3>
+<h3 id="change-process-state">Change process state</h3>
 
 
 	<p><object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 25%;";></object></p>
 
 
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow/startTask?taskId=Submit
+<pre><code class="language-http">PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/process/startTask?taskId=Submit
 </code></pre>
 
 <h3 id="query-instances">Query instances</h3>
 
-<pre><code class="language-http">GET {storagePath}/instances?appId=org/appName&amp;workflow.currentTask=Submit&amp;lastChangedDateTime=after(2019-05-01)&amp;label=gr
+<pre><code class="language-http">GET {storagePath}/instances?appId=org/appName&amp;process.currentTask=Submit&amp;lastChangedDateTime=after(2019-05-01)&amp;label=gr
 </code></pre>
 
 <p>Returns a paginated set of instances (JSON)</p>
@@ -5998,7 +5994,7 @@ abc4g32dcoj3234jljf...
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET {storagePath}/applications/org/appName/events?after=2019-03-30&amp;workflow.currentTask=Submit
+<pre><code class="language-http">GET {storagePath}/applications/org/appName/events?after=2019-03-30&amp;process.currentTask=Submit
 </code></pre>
 
 <p>Query result:</p>
@@ -6009,23 +6005,23 @@ abc4g32dcoj3234jljf...
         &quot;at&quot;: &quot;2019-06-01T12:12:22+01:00&quot;,
         &quot;appId&quot;: &quot;org/appName&quot;,
         &quot;instanceOwnerId&quot;: &quot;347829&quot;,
-        &quot;instanceLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
+        &quot;instanceLink&quot;: &quot;{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;dataLinks&quot;: [
             {
                 &quot;elementType&quot;: &quot;default&quot;,
-                &quot;dataLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
+                &quot;dataLink&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
             },
             {
                 &quot;elementType&quot;: &quot;attachement&quot;,
-                &quot;dataLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf&quot;
+                &quot;dataLink&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf&quot;
             },
             {
                 &quot;elementType&quot;: &quot;prefill&quot;,
-                &quot;dataLink&quot;: &quot;https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj&quot;
+                &quot;dataLink&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj&quot;
             }
         ],
         &quot;eventType&quot;: &quot;WorkflowStateChange&quot;,
-        &quot;workflowStep&quot;: &quot;Submit&quot;,
+        &quot;currentTask&quot;: &quot;Submit&quot;,
         &quot;userId&quot;: &quot;userX&quot;
     }
 ]
@@ -6061,6 +6057,11 @@ abc4g32dcoj3234jljf...
 
 <p>GET or PUT default form data (save data). Update form data.</p>
 
+
+	<p><object data="/altinn-api/Save data.png" type="image/png" style="width: 75%;";></object></p>
+
+
+
 <pre><code class="language-http">{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
@@ -6072,9 +6073,9 @@ abc4g32dcoj3234jljf...
 <pre><code class="language-http">GET {appPath}
 </code></pre>
 
-<p>Get the application&rsquo;s workflow:</p>
+<p>Get the application&rsquo;s process:</p>
 
-<pre><code class="language-http">GET {appPath}/workflow
+<pre><code class="language-http">GET {appPath}/process
 </code></pre>
 
 <h2 id="sequence-diagrams">Sequence diagrams</h2>
@@ -6089,12 +6090,12 @@ Workflow is set to first task. This means that data can be updated later on.</p>
 
 
 
-<h3 id="instantiate-an-app-and-complete-workflow">Instantiate an app and complete workflow</h3>
+<h3 id="instantiate-an-app-and-complete-process">Instantiate an app and complete process</h3>
 
-<p>Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the workflow.</p>
+<p>Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process.</p>
 
 
-	<p><object data="/altinn-api/instantiate and complete workflow.png" type="image/png" style="width: 75%;";></object></p>
+	<p><object data="/altinn-api/porcess-instantiate-and-complete.png" type="image/png" style="width: 75%;";></object></p>
 
 
 
@@ -6113,68 +6114,83 @@ Workflow is set to first task. This means that data can be updated later on.</p>
 
 <p>The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.</p>
 
+
+	<p><object data="/altinn-api/data-validate.png" type="image/png" style="width: 75%;";></object></p>
+
+
+
 <p>The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.</p>
 
 
-	<p><object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 75%;";></object></p>
+	<p><object data="/altinn-api/data-calculate.png" type="image/png" style="width: 75%;";></object></p>
 
 
 
-<h3 id="workflow">Workflow</h3>
+<h3 id="process">Process</h3>
 
-<p>Application has a workflow definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A workflow is started by the application, which sets the current task to the first task in the workflow (selects a start event which points to a task).</p>
-
-
-	<p><object data="/altinn-api/workflow.png" type="image/png" style="width: 75%;";></object></p>
+<p>Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).</p>
 
 
+	<p><object data="/altinn-api/process-model.png" type="image/png" style="width: 75%;";></object></p>
 
-<h4 id="get-workflow-state-of-a-specific-instance">Get workflow state of a specific instance</h4>
 
-<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow
+
+<h4 id="get-process-state-of-a-specific-instance">Get process state of a specific instance</h4>
+
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 </code></pre>
 
-<p>OLD Get Current workflow state
+<p>OLD Get Current process state
 Is it in signing? Is it form filling +++ Used by react to decide what to show.
-<a href="http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5">http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5</a></p>
+<a href="http://altinn3.no/runtime/api/process/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5">http://altinn3.no/runtime/api/process/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5</a></p>
 
-<h4 id="complete-a-workflow-task">Complete a workflow task</h4>
+<h4 id="complete-a-task">Complete a task</h4>
 
-<p>Application attempts to finish the current task and moves the workflow forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select.</p>
+<p>Application attempts to finish the current task and moves the process forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select.</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeTask
+
+	<p><object data="/altinn-api/process-completeTask.png" type="image/png" style="width: 75%;";></object></p>
+
+
+
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeTask
 </code></pre>
 
 <p>OLD  //Complete
 <a href="http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete">http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete</a></p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/nextTask
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask
 </code></pre>
 
-<h4 id="complete-workflow">Complete workflow.</h4>
+<h4 id="complete-process">Complete process</h4>
 
-<p>The complete workflow method will attempt to complete the workflow. Hence, the app will move the workflow from one task to the next until it reaches an valid end state.</p>
+<p>The complete process method will attempt to complete the process. Hence, the app will move the process from one task to the next until it reaches an valid end state.</p>
 
-<p>If a task&rsquo;s exit condition is not met, the workflow will be stopped in the last valid task. And the user must manually fix the problem and complete the workflow.</p>
+<p>If a task&rsquo;s exit condition is not met, the process will be stopped in the last valid task. And the user must manually fix the problem and complete the process.</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
+
+	<p><object data="/altinn-api/process-completeProcess.png" type="image/png" style="width: 75%;";></object></p>
+
+
+
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 </code></pre>
 
 <p>OLD // CompleteAndSendIn
 <a href="http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn">http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn</a></p>
 
-<h4 id="get-the-tasks-in-a-workflow">Get the tasks in a workflow?</h4>
+<h4 id="get-the-tasks-in-a-process">Get the tasks in a process?</h4>
 
 <p>Returns an list of the next tasks that can be reached from the current task.</p>
 
-<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?nextTasks
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
 </code></pre>
 
-<h4 id="start-a-workflow-task">Start a workflow task.</h4>
+<h4 id="start-a-process-task">Start a process task.</h4>
 
-<p>Closes current task and start the wanted task. Updates workflow state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.</p>
+<p>Closes current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/startTask?taskId=task3
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/startTask?taskId=task3
 </code></pre>
 
 <h3 id="textresources">TextResources</h3>
