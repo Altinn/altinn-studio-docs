@@ -68,7 +68,7 @@ storagePath = https://platform.altinn.no/storage
 
 Should be used by application owners to download data elements. Downloads will be logged. 
 
-### Create an application instance
+## Create an application instance
 
 Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwnerId*. 
 If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.
@@ -84,7 +84,7 @@ The client specify the instance owner and can set a number of the metadata field
     "appId" : "org/appName",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
-    "presentationField": "Arbeidsmelding"
+    "presentationField": { "nb": "Arbeidsmelding" }
 }
 ```
 
@@ -165,7 +165,7 @@ This call will return the instance metadata record which was created. A unique i
 }
 ```
 
-### Create a data element (optional)
+### Create a data element
 
 Post data file (xml-document) as body of request. Must specify elementType as defined in the application metadata.
 
@@ -203,13 +203,17 @@ This call updates and returns instance metadata where each data element are give
 
 ### Update a data element
 
-Update (replace) a data element with a new one (payload). Data as multipart or as single body.
+Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client. 
+
+{{%excerpt%}}
+<object data="/altinn-api/Save data.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
 
 ```http
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
-### Download a data element (as application owner)
+### Download a specific data element (as application owner)
 
 ```http
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
@@ -261,7 +265,7 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 }
 ```
 
-## Download a complete instance with dataelements and pdf
+### Download a complete instance with data elements and corresponding pdfs
 
 ```http
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
@@ -278,17 +282,12 @@ Will create a multipart http response with the following content:
 
 Data elements with schema has a corresponding pdf file which is generated when the element type's associate process task is closed. 
 
-### Change process state
+OLD http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments
 
-{{%excerpt%}}
-<object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 25%;";></object>
-{{% /excerpt%}}
 
-```http
-PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/process/startTask?taskId=Submit
-```
+## Query instances
 
-### Query instances
+Application owners can search for application instances with a simple query request.
 
 ```http
 GET {storagePath}/instances?appId=org/appName&process.currentTask=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
@@ -352,58 +351,40 @@ Query result:
             }
         ],
         "eventType": "WorkflowStateChange",
+        "previousTask": "FormFilling",
         "currentTask": "Submit",
         "userId": "userX"
     }
 ]
 ```
 
-## Application Users
+## API to validate data
 
-### API to validate data
+The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
 
-The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata.
+{{%excerpt%}}
+<object data="/altinn-api/data-validate.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
+
 
 ```http
 PUT {appPath}/validate?elementType=modelA
 ```
 
-### API to calculate / perform business rules
+## API to calculate / perform business rules
 
-The app will provide a method to perform calculation / perform business rules for a datamodell to an app  
+The app will provide a method to perform calculation / perform business rules for a datamodell to an app.
+The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.
+
+{{%excerpt%}}
+<object data="/altinn-api/data-calculate.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
 
 ```http
 PUT {appPath}/calculate?elementType=modelB
 ```
 
-## Apps API
-
-Get metadata about the instance.
-
-```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc
-```
-
-Create form data (first time).
-
-```http
-POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=model2
-```
-
-GET or PUT default form data (save data). Update form data.
-
-{{%excerpt%}}
-<object data="/altinn-api/Save data.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
-
-
-```http
-{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
-```
-
-OLD Update formdata
-http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Update
-
+## Application metadata
 
 Get application's metadata :
 
@@ -417,12 +398,12 @@ Get the application's process:
 GET {appPath}/process
 ```
 
-## Sequence diagrams
+## Instantiation details
 
 ### Instantiate an app
 
-Client instantiates a app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
-Workflow is set to first task. This means that data can be updated later on.
+Client instantiates an app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
+Process is set to first task. This means that data can be updated later on.
 
 {{%excerpt%}}
 <object data="/altinn-api/Instantiate.png" type="image/png" style="width: 75%;";></object>
@@ -430,38 +411,13 @@ Workflow is set to first task. This means that data can be updated later on.
 
 ### Instantiate an app and complete process
 
-Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process.
+Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process. If the process is completed successfully, the data can no longer be updated.
 
 {{%excerpt%}}
 <object data="/altinn-api/porcess-instantiate-and-complete.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
-### Update Data
-
-Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client. 
-
-{{%excerpt%}}
-<object data="/altinn-api/Save data.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
-
-### Validate and calculate
-
-The app provides two methods to check the data before an instance is created. 
-
-The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
-
-{{%excerpt%}}
-<object data="/altinn-api/data-validate.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
-
-The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.
-
-{{%excerpt%}}
-<object data="/altinn-api/data-calculate.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
-
-
-### Process
+## Process
 
 Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).
 
@@ -469,7 +425,7 @@ Application has a process definition that specifies start events, end events, ta
 <object data="/altinn-api/process-model.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
-#### Get process state of a specific instance
+### Get process state of a specific instance
 
 ```http
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
@@ -478,7 +434,7 @@ OLD Get Current process state
 Is it in signing? Is it form filling +++ Used by react to decide what to show.
 http://altinn3.no/runtime/api/process/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
 
-#### Complete a task 
+### Complete a task
 
 Application attempts to finish the current task and moves the process forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select. 
 
@@ -496,9 +452,9 @@ http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask
 ```
 
-#### Complete process
+### Complete the process
 
-The complete process method will attempt to complete the process. Hence, the app will move the process from one task to the next until it reaches an valid end state. 
+The complete process method will attempt to complete the process for an instance. Hence, the app will move the process from one task to the next until it reaches an valid end state.
 
 If a task's exit condition is not met, the process will be stopped in the last valid task. And the user must manually fix the problem and complete the process.
 
@@ -512,23 +468,31 @@ PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/comp
 OLD // CompleteAndSendIn
 http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
 
-#### Get the tasks in a process?
+### Get the next tasks in a process?
+
 Returns an list of the next tasks that can be reached from the current task.
 
 ```http
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
 ```
 
-#### Start a process task.
+### Start a process task
 
 Closes current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
+{{%excerpt%}}
+<object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 25%;";></object>
+{{% /excerpt%}}
+
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/startTask?taskId=task3
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/startTask?taskId=Submit
 ```
 
-### TextResources
+## Application resource data
 
+The application has a number of resource files that is used by the app's frontend.
+
+### Text resources
 
 #### Get text resources for the application for a specific language
 
@@ -568,18 +532,12 @@ GET {appPath}/elementTypes/{typeName}/rules
 ```
 OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js
 
-
-##### External API use
+#### Get the API service configuration for how the app calls external APIs
 
 ```http
 GET {appPath}/elementTypes/{typeName}/externalApis
 ```
 OLD (Service configuration) http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json
-
-### Other
-
-OLD http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments
-
 
 
 {{% children description="true" depth="2" %}}
