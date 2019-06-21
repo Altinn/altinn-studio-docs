@@ -5621,18 +5621,12 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#application-events">Application Events</a>
+<li><a href="#functional-event-and-their-application-events">Functional event and their Application Events</a>
 <ul>
 <li><a href="#instansiation">Instansiation</a></li>
 <li><a href="#load-form-data-get">Load form data (GET)</a></li>
-</ul></li>
 <li><a href="#storing-of-form-data-post">Storing of form data (POST)</a></li>
 <li><a href="#update-form-data-put">Update form data (PUT)</a></li>
-</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -5662,14 +5656,19 @@ if(host != "localhost")
 
 
 
-<h4 id="application-events">Application Events</h4>
-
-<p>The runtime has a defined event model that can be used by the service developer
+<p>The App Backend has a defined event model that can be used by the service developer
 to controll when logic in the service implementation will run.</p>
 
-<p>These events are mapped to functional events triggered by end users or systems.</p>
+<p>These events are mapped to functional events triggered by end users or systems. This functional events are typical trigged by a API-call
+from App Frontend or other systems/applications using the API&rsquo;s in App Backend.</p>
 
-<h5 id="instansiation">Instansiation</h5>
+<p>Some Application Events happens in more than one functional event.</p>
+
+<h2 id="functional-event-and-their-application-events">Functional event and their Application Events</h2>
+
+<p>Below different functional events are listed. For each functional even there is described which Application Events that is triggered.</p>
+
+<h3 id="instansiation">Instansiation</h3>
 
 <p>Instansiation is when the end user or system instansiates a new service instance.
 Events connected to instansiation can contain logic that can prefill the datamodell
@@ -5687,7 +5686,7 @@ or validate if the user or system is allowed to instansiate that service.</p>
 
 
 
-<h5 id="load-form-data-get">Load form data (GET)</h5>
+<h3 id="load-form-data-get">Load form data (GET)</h3>
 
 <p>Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
 the latest updated form data.</p>
@@ -5699,7 +5698,7 @@ the latest updated form data.</p>
 
 
 
-<h4 id="storing-of-form-data-post">Storing of form data (POST)</h4>
+<h3 id="storing-of-form-data-post">Storing of form data (POST)</h3>
 
 <p>Update of form data can happen when frontend (REACT app) sends data to backend
 or a end user system does the same. When an update happend there is defined serveral
@@ -5723,7 +5722,7 @@ logic related to this event that could perform calculation, validation, API call
 
 
 
-<h4 id="update-form-data-put">Update form data (PUT)</h4>
+<h3 id="update-form-data-put">Update form data (PUT)</h3>
 
 <p>Update of form data happens when the frontend or external end user systems/applications
 want to update a existing form connected to a service instance</p>
