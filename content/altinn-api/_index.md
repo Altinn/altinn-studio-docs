@@ -29,7 +29,7 @@ A list of common tasks for an application owner.
 - Upload form data
 - Download form data
 - Confirm successful download
-- Change workflow state
+- Change process state (workflow)
 
 ### Application Users
 
@@ -38,14 +38,14 @@ A list of common tasks for an end user.
 - Create an application instance
 - Upload form data
 - Download form data
-- Change workflow state
+- Change process state (workflow)
 - View status of an instance
 
 ## Two different APIs
 
 The new solution will have multiple APIs. There are two APIs available for Application Owners and Users.
 There will be one API for each application cluster, called the *Application API*, and one for the Platform Storage cluster, called *Platform Storage API*. 
-Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change workflow state of the application instance. 
+Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change process state of the application instance. 
 The Platform Storage API will provide access to information stored by the application. [More information on the Platform apis can be found here](/architecture/application/altinn-platform)
 
 ### Application API
@@ -56,7 +56,7 @@ An api that provides access to all instances of a specific app.
 apiPath = https://org.apps.altinn.no/org/appName
 ```
 
-Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change workflow and to save/update data elements.
+Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
 
 ### Platform Storage API
 
@@ -87,6 +87,7 @@ The client specify the instance owner and can set a number of the metadata field
     "presentationField": "Arbeidsmelding"
 }
 ```
+
 Data elements (files) can be attached to the initial request as a *multipart/form-data*. The name of the parts must correspond to element types defined in the application metadata. 
 
 ```http
@@ -97,9 +98,9 @@ POST {appPath}/instances
 <object data="/altinn-api/Instantiate for an instance owner.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
-A multipart formdata should contain the instance json document, and the data element files of the instance. Notice that the element types *default*, and *cv* should be defined in application metadata.
+A multipart formdata should contain the instance json document and the data element files of the instance. Notice that the name of the parts must correspond to the element types defined in application metadata. Hence the *default* name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.
 
-```
+```http
 Content-Type: multipart/form-data; boundary="abcdefg"
 
 --abcdefg
@@ -112,10 +113,6 @@ Content-Type: application/xml
 Content-Disposition: form-data; name="default"
 <xml> ... </xml>
 
---abcdefg
-Content-Type: application/pdf
-Content-Disposition: form-data; name="cv"
-abc4g32dcoj3234jljf...
 --abcdefg--
 ```
 
@@ -125,8 +122,8 @@ This call will return the instance metadata record which was created. A unique i
 {
     "id": "347829/762011d1-d341-4c0a-8641-d8a104e83d30",
     "selfLinks": {
-        "apps": "https://org.apps.altinn.no/org/appName/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
-        "platform": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
+        "apps": "{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+        "platform": "{platformPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
     },
     "appId": "org/appName",
     "labels": [ "gr", "x2" ],
@@ -136,7 +133,7 @@ This call will return the instance metadata record which was created. A unique i
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
-    "workflow": {
+    "process": {
         "currentTask": "FormFilling",
         "isComplete": false
     },
@@ -155,8 +152,8 @@ This call will return the instance metadata record which was created. A unique i
         "contentType": "application/xml",
         "storageUrl": "org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "dataLink": {
-            "apps":   "https://org.apps.altinn.no/org/appName/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "platform": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
+            "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
         },
         "fileName": "prefill.xml",
         "createdDateTime": "2019-03-06T15:00:23+01:00",
@@ -189,8 +186,8 @@ This call updates and returns instance metadata where each data element are give
             "contentType": "application/xml",
             "storageUrl": "org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "dataLinks": {
-                "apps":   "https://org.apps.altinn.no/org/appName/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-                "platform": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
+                "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+                "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
             },
             "fileName": "default.xml",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
@@ -279,22 +276,22 @@ Will create a multipart http response with the following content:
 5. third data element (e.g. image)
 6. ...
 
-Data elements with schema has a corresponding pdf file which is generated when the element type's associate workflow task is closed. 
+Data elements with schema has a corresponding pdf file which is generated when the element type's associate process task is closed. 
 
-### Change workflow state
+### Change process state
 
 {{%excerpt%}}
 <object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 25%;";></object>
 {{% /excerpt%}}
 
 ```http
-PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/workflow/startTask?taskId=Submit
+PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/process/startTask?taskId=Submit
 ```
 
 ### Query instances
 
 ```http
-GET {storagePath}/instances?appId=org/appName&workflow.currentTask=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
+GET {storagePath}/instances?appId=org/appName&process.currentTask=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
 ```
 
 Returns a paginated set of instances (JSON)
@@ -327,7 +324,7 @@ Returns a paginated set of instances (JSON)
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/appName/events?after=2019-03-30&workflow.currentTask=Submit
+GET {storagePath}/applications/org/appName/events?after=2019-03-30&process.currentTask=Submit
 ```
 
 Query result:
@@ -339,23 +336,23 @@ Query result:
         "at": "2019-06-01T12:12:22+01:00",
         "appId": "org/appName",
         "instanceOwnerId": "347829",
-        "instanceLink": "https://platform.altinn.no/storage/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+        "instanceLink": "{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "dataLinks": [
             {
                 "elementType": "default",
-                "dataLink": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
+                "dataLink": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
             },
             {
                 "elementType": "attachement",
-                "dataLink": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf"
+                "dataLink": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf"
             },
             {
                 "elementType": "prefill",
-                "dataLink": "https://platform.altinn.no/storage/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj"
+                "dataLink": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj"
             }
         ],
         "eventType": "WorkflowStateChange",
-        "workflowStep": "Submit",
+        "currentTask": "Submit",
         "userId": "userX"
     }
 ]
@@ -395,6 +392,11 @@ POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elemen
 
 GET or PUT default form data (save data). Update form data.
 
+{{%excerpt%}}
+<object data="/altinn-api/Save data.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
+
+
 ```http
 {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
@@ -409,10 +411,10 @@ Get application's metadata :
 GET {appPath}
 ```
 
-Get the application's workflow:
+Get the application's process:
 
 ```http
-GET {appPath}/workflow
+GET {appPath}/process
 ```
 
 ## Sequence diagrams
@@ -426,12 +428,12 @@ Workflow is set to first task. This means that data can be updated later on.
 <object data="/altinn-api/Instantiate.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
-### Instantiate an app and complete workflow
+### Instantiate an app and complete process
 
-Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the workflow.
+Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process.
 
 {{%excerpt%}}
-<object data="/altinn-api/instantiate and complete workflow.png" type="image/png" style="width: 75%;";></object>
+<object data="/altinn-api/porcess-instantiate-and-complete.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
 ### Update Data
@@ -448,69 +450,81 @@ The app provides two methods to check the data before an instance is created.
 
 The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
 
+{{%excerpt%}}
+<object data="/altinn-api/data-validate.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
+
 The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.
 
 {{%excerpt%}}
-<object data="/altinn-api/validate and calculate 2.png" type="image/png" style="width: 75%;";></object>
+<object data="/altinn-api/data-calculate.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
-### Workflow
 
-Application has a workflow definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A workflow is started by the application, which sets the current task to the first task in the workflow (selects a start event which points to a task).
+### Process
+
+Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).
 
 {{%excerpt%}}
-<object data="/altinn-api/workflow.png" type="image/png" style="width: 75%;";></object>
+<object data="/altinn-api/process-model.png" type="image/png" style="width: 75%;";></object>
 {{% /excerpt%}}
 
-#### Get workflow state of a specific instance
+#### Get process state of a specific instance
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
-OLD Get Current workflow state
+OLD Get Current process state
 Is it in signing? Is it form filling +++ Used by react to decide what to show.
-http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
+http://altinn3.no/runtime/api/process/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
 
+#### Complete a task 
 
-#### Complete a workflow task 
+Application attempts to finish the current task and moves the process forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select. 
 
-Application attempts to finish the current task and moves the workflow forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select. 
+{{%excerpt%}}
+<object data="/altinn-api/process-completeTask.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeTask
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeTask
 ```
 OLD  //Complete
 http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/nextTask
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask
 ```
 
-#### Complete workflow. 
+#### Complete process
 
-The complete workflow method will attempt to complete the workflow. Hence, the app will move the workflow from one task to the next until it reaches an valid end state. 
+The complete process method will attempt to complete the process. Hence, the app will move the process from one task to the next until it reaches an valid end state. 
 
-If a task's exit condition is not met, the workflow will be stopped in the last valid task. And the user must manually fix the problem and complete the workflow.
+If a task's exit condition is not met, the process will be stopped in the last valid task. And the user must manually fix the problem and complete the process.
+
+{{%excerpt%}}
+<object data="/altinn-api/process-completeProcess.png" type="image/png" style="width: 75%;";></object>
+{{% /excerpt%}}
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/completeWorkflow
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 ```
 OLD // CompleteAndSendIn
 http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
 
-#### Get the tasks in a workflow?
+#### Get the tasks in a process?
 Returns an list of the next tasks that can be reached from the current task.
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow?nextTasks
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
 ```
 
-#### Start a workflow task.
+#### Start a process task.
 
-Closes current task and start the wanted task. Updates workflow state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
+Closes current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/workflow/startTask?taskId=task3
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/startTask?taskId=task3
 ```
 
 ### TextResources
