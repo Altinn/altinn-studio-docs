@@ -20,12 +20,12 @@ Some Application Events happens in more than one functional event.
 Below different functional events are listed. For each functional even there is described which Application Events that is triggered.
 
 ### Instansiation
-Instansiation is when the end user or system instansiates a new service instance.
+Instansiation is when the end user, end user system or application owner instansiates a new service instance.
 Events connected to instansiation can contain logic that can prefill the datamodell
 or validate if the user or system is allowed to instansiate that service.
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app/app-backend/app-events/events_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
 The below sequence diagram shows how the app events are combined with other logic for a requesting to start a service in the service catalogue
@@ -36,13 +36,13 @@ The below sequence diagram shows how the app events are combined with other logi
 
 
 ### Load form data (GET)
-Loading of form data can be performed by the frontend (REACT) or an end user system that needs to get
+Loading of form data can be performed by the App Frontend or an end user system that needs to get
 the latest updated form data. 
 
 The following events will be performed
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app/app-backend/app-events/events_get.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_getformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
 
@@ -75,6 +75,6 @@ want to update a existing form connected to a service instance
 The following events happens:
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app/app-backend/app-events/event_put.svg" type="image/svg+xml" style="width: 100%; max-width: 300px;"></object>
+<object data="/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_updateformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
