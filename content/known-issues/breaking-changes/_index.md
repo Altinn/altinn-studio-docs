@@ -10,7 +10,7 @@ weight: 100
 - [ 'ServiceImplementation' does not implement interface member* ](#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill)
 - [Breaking change: Change storage format of formlayout](#breakingchange-form-layout)
 - [Cannot deserialize the current JSON object (e.g. {"name":"value"}) into type 'System.Collections.Generic.List'1[AltinnCore.Common.Models.Data]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly....](#cannot-deserialize-the-current-json-object)
--[Breaking change: Instances instanciated before 24.06.19 can't be opened](#archived-instances-not-possible-to-open)
+- [Breaking change: Instances instanciated before 24.06.19 can't be opened](#archived-instances-not-possible-to-open)
 
 <a name="#consume-profile-and-register-api-in-runtime-and-make-it-available-for-service-logic-and-prefill"></a>
 ## Error -The type or namespace name *
@@ -94,7 +94,7 @@ Make the following updates to the application repo (https://altinn.studio/{organ
 Introduced with issue: [#1771](https://github.com/Altinn/altinn-studio/issues/1771)
 
 ### Errors
-When opening opening up an instance instanciated before the code update, the following error message is prompted: 
+When opening an archived instance instanciated before the 24.06.2019, the following error message is prompted: 
 ![open-archived-service.png](open-archived-service.png)
 
 ### How to fix
