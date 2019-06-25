@@ -9,7 +9,7 @@ alwaysopen: true
 
 The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
 
-The solution is now available at http://platform.altinn.cloud/api/v1 and all resources are avaiable through endpoints defined below.
+The solution is now available at https://platform.altinn.cloud/register/api/v1 and all resources are avaiable through endpoints defined below.
 
 Resource: Organizations, Parties, Persons
 
@@ -38,5 +38,5 @@ Send a GET-request with the persons SSN contained in the request body to
 ```http
 /persons
 ```
-(Available testdata. SSNs: 01124621077, 22104511094, 24054670016 and 07069400021)
+(Available testdata. SSNs: 01014922047, 01025170020, 01025101037 and 01025102092)
 
