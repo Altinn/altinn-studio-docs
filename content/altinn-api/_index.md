@@ -1,16 +1,14 @@
 ---
 title: Altinn API
 description: Description of the Altinn API for end users and application owners.
-tags: ["external", "api", "rest"]
+tags: ["api", "rest"]
 weight: 100
 alwaysopen: false
 ---
 
 {{%notice warning%}}
-This page is work-in-progress. This is a proposed api which most likely is going to change.
+This is work-in-progress. This is a proposed API which most likely is going to change.
 {{% /notice%}}
-
-# Altinn API
 
 ## Introduction
 There are primarily two types of consumers of the Altinn APIs. 
