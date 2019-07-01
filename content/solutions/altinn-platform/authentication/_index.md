@@ -1,12 +1,10 @@
 ---
 title: Authentication
-description: The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and system
-tags: ["solution", "apps", "authentication"]
+description: The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.
+tags: [platform, authentication]
 weight: 200
 ---
 
-
-The Authentication component gives authentication functionality needed for user and systems. 
 
 ## API to create JWT Token for user logged in to Altinn Portal
 When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged in user. This cookie is

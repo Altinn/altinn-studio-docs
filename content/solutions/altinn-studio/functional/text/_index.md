@@ -1,17 +1,17 @@
 ---
 title: Text and translations
-description: Solution for designing UI, defining workflow, other settings, deploy ++
-tags: ["studio"]
+description: Using texts when designing UI, defining workflow, other settings, deploy, and more.
+toc: true
 ---
 
-### Text editing and translations
+## Text editing and translations
 
 Easy and efficient text processing and translation are important in an app development solution. The possibility to reuse texts across
 multiple apps are especially important.
 
 Texts in the editor are written in a ini-file that is converted to a simple JSON-file and presented as an API. In that way
 the user could work directly in the code editor or convert the text into other formats supported by external translation tools. 
-Meaning that 3.0 supports any language that is added, not just languages supported by the Altinn portal.
+Meaning that Altinn Studio supports any language that is added, not just languages supported by the Altinn portal.
 
 - Definition of texts using hierarchical and readable keys
 - Reusable texts, internal across different pages and on the levels above the solution
@@ -40,7 +40,7 @@ Where the first param is the language key and the second is the language element
 - Keys are sorted alphabetically
 - Keys are written in lowercase with underscores (example_key)
 
-{{<figure src="oversetting.png?width=1000" title="Editor for oversetting av tekster">}}
+![Editor for oversetting av tekster](oversetting.png?width=1000 "Editor for oversetting av tekster")
 
 ## Language best practice
 

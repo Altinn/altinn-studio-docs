@@ -92,7 +92,7 @@ The platform requires API management software to handle SLA ++. Needs Analyzis
 
 ### Altinn App build and deploy process
 
-{{<figure src="ServiceRuntime.svg?width=1000" title="Service Runtime docker image bundling process.">}}
+![Service Runtime docker image bundling process.](ServiceRuntime.svg?width=1000 "Service Runtime docker image bundling process.")
 
 Building the Altinn App with "app specific" files from Gitea, creating a "App Image", deploying to Azure Container Registry and telling Kubernetes to deploy app.
 

@@ -16,14 +16,14 @@ tags: [tech, frontend, react]
 - Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet.
 - Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter.
 
-![Higher order component](higher-order-component.png)
+![Higher order component](higher-order-component.png "Higher order component")
 
 ### Med redux
 - Ved bruk av redux vil vi ikke være like avhengig av higher order components, da alle komponenenter kan kobles til redux-state av appen,
   og kunne håndtere det å legge til, fjerne eller endre komponenter selv.
 - Håndtering av state skjer igjennom Actions og Reducers, som Redux arkitektur anbefaler.
 
-![Redux architecture](redux-architecture.png?width=800)
+![Redux architecture](redux-architecture.png "Redux architecture")
 
 ### Links
 

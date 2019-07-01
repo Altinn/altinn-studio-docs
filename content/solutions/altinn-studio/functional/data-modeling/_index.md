@@ -1,22 +1,22 @@
 ---
 title: Data modeling
-description: Defining the data model(s) for a service is important. Altinn studio will support importing existing data models and creating new datamodels.
+description: Defining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.
 tags: ["studio", "data-modeling"]
 ---
 
-The data model for a service typical defines the format of the data either sent to the service owner or presented in the service
+The data model for an app typical defines the format of the data either sent to the app owner or presented in the app
 for the user. The data model is important for a consistent and formal definition of the data. It will
-be used for validation both from GUI and for external systems. 
+be used for validation both from UI and for external systems. 
 
 Altinn Studio will support both importing existing data model as XSD or creating
-a datamodell. In MVP only import is in scope. 
+a data modell. In MVP only import is in scope. 
 
 Some requirements for Altinn Studio is:
 
-- It should be easy to model data
-- Built in replacment for SERES (Current tool)
+- It should be easy to model data.
+- Built in replacment for SERES (current tool).
 - Need to support more formats. 
 
 See all issues related to Altinn Studio and data modeling on [Github](https://github.com/Altinn/altinn-studio/labels/data-modeling).
 
-{{<figure src="data-modelling.png?width=800" title="Editor for enkel datamodellering">}}
+![Editor for enkel datamodellering](data-modelling.png "Editor for enkel datamodellering")

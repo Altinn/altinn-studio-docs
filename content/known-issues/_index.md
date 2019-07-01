@@ -1,10 +1,11 @@
 ---
 title: Known issues
-description: Description of errors and weaknesses in Altinn Studio that developers and service developers should know about
-tags: ["issues"]
+description: Description of errors and weaknesses in Altinn Studio that developers should know about.
+tags: [issues]
 weight: 110
 alwaysopen: false
 ---
+
 <div id="knownIssuesContent"></div>
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

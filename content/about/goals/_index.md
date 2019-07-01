@@ -1,37 +1,38 @@
 ---
 title: Goals
-description: Goals for the Altinn Studio platform
+description: Main goals for Altinn Studio.
+toc: true
 aliases:
  - /no/altinncore/goals.html
 weight: 10
 ---
 
-This summarizes the high level goals for Altinn Studio
+This summarizes the high level goals for Altinn Studio.
 
-## Userfriendly and responsive services
+## User friendly and responsive apps
 
-- User interface that is userfriendly, effective and modern.
+- User interface that is user friendly, effective and modern.
 - Support for Responsive Design both for forms and the development tool.
 - Built in accessability with support for [WCAG 2](https://www.w3.org/Translations/WCAG20-no/)
 - Good performance and low response time
 
-## Effective and self-service service development
+## Effective and self-serviced development
 
-- As a service developer you can do everthing yourself (including deployment to production) whenever you want, without need for orders, training ++. Bottlenecks is eliminated.
+- As a developer you can do everthing yourself (including deployment to production) whenever you want, without need for orders, training ++. Bottlenecks is eliminated.
 - Effective and real testing, where unit test works like in a test environment and produiction. 
-- Support for creating automated tests of services
+- Support for creating automated tests of apps
 - Rules and logic is defined once for all channels (portal/web service / rest), and are more robust than current plattform
 - Built inn data modelling in web based tool (and support for XSD import from external tools like [SERES](https://altinnett.brreg.no/no/SERES/), [OR](https://w2.brreg.no/oppgaveregisteret/spesifikasjon_etatsliste.jsp), etc. )
-- Not nescessery with Citrix for access to Altinn Studio Service Development  Ikke nødvendig med Citrix for tilgang til utviklingsmiljø
+- Not nescessery with Citrix for access to Altinn Studio
 
 ## Simple for non-technical developers, flexible for technical developers
 
-- Non-technical service developers have access to needed functionality [in browser](../dev-in-browser)
+- Non-technical app developers have access to needed functionality [in browser](../dev-in-browser)
 - You can reuse good and testet components/widgets
 - It is easy to do call against API's in other systems (retrieve data, run external logic)
-- Techincal skilled deveopers can configure all aspect of the service, as an example make a reusable widgets, stylesheets ++
-- Reuse of text and other resources on the desired level (platform, service owner, service), all languages supported
-- Git (version control) are used for source control for the service developed, both from browser and code editior. 
+- Techincally skilled deveopers can configure all aspect of the apps, as an example make a reusable widgets, stylesheets ++
+- Reuse of text and other resources on the desired level (platform, org, app), all languages supported
+- Git (version control) are used for source control for the apps, both from browser and code editior. 
 
 ## Open Source, cross-platform
 

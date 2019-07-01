@@ -1,15 +1,12 @@
 ---
 title: Reusable resources
-description: A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers
+description: A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.
 tags: ["studio"]
 ---
 
-A important feature with Altinn Studio is that it should promote developers to create
-reusable resources that can be reused by other service developers that uses Altinn Studio.
-
 Reusable resource is typical created by technical developers using code editors.
 
-{{<figure src="react-code-example.png?width=800" title="Development of new React web component">}}
+![Development of new React web component](react-code-example.png?width=800 "Development of new React web component")
 
 ### Web component
 

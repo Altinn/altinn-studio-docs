@@ -1,7 +1,8 @@
 ---
 title: Altinn API
 description: Description of the Altinn API for end users and application owners.
-tags: ["api", "rest"]
+toc: true
+tags: [api]
 weight: 100
 alwaysopen: false
 ---
@@ -92,9 +93,8 @@ Data elements (files) can be attached to the initial request as a *multipart/for
 POST {appPath}/instances
 ```
 
-{{%excerpt%}}
-<object data="/altinn-api/Instantiate for an instance owner.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flow chart for instanciation](instantiate-for-instance-owner.png "Instanciate for instance owner")
+
 
 A multipart formdata should contain the instance json document and the data element files of the instance. Notice that the name of the parts must correspond to the element types defined in application metadata. Hence the *default* name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.
 
@@ -203,9 +203,7 @@ This call updates and returns instance metadata where each data element are give
 
 Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client. 
 
-{{%excerpt%}}
-<object data="/altinn-api/Save data.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flow chart for saving data](save-data.png "Save data")
 
 ```http
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
@@ -360,10 +358,7 @@ Query result:
 
 The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
 
-{{%excerpt%}}
-<object data="/altinn-api/data-validate.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
-
+![Flowchart for data validation](data-validate.png "Validate data")
 
 ```http
 PUT {appPath}/validate?elementType=modelA
@@ -374,9 +369,8 @@ PUT {appPath}/validate?elementType=modelA
 The app will provide a method to perform calculation / perform business rules for a datamodell to an app.
 The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.
 
-{{%excerpt%}}
-<object data="/altinn-api/data-calculate.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flowchart for data calculation](data-calculate.png "Calculate data")
+
 
 ```http
 PUT {appPath}/calculate?elementType=modelB
@@ -403,25 +397,19 @@ GET {appPath}/process
 Client instantiates an app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
 Process is set to first task. This means that data can be updated later on.
 
-{{%excerpt%}}
-<object data="/altinn-api/Instantiate.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flowchart for instanciation an app](Instantiate.png "Instanciate an app")
 
 ### Instantiate an app and complete process
 
 Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process. If the process is completed successfully, the data can no longer be updated.
 
-{{%excerpt%}}
-<object data="/altinn-api/process-instantiate-and-complete.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flowchart for instanciating and completing the process](process-instantiate-and-complete.png "Instanciate and complete a process")
 
 ## Process
 
 Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).
 
-{{%excerpt%}}
-<object data="/altinn-api/process-model.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flowchart for the process](process-model.png "Process model")
 
 ### Get process state of a specific instance
 
@@ -436,9 +424,8 @@ http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?insta
 
 Application attempts to finish the current task and moves the process forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select. 
 
-{{%excerpt%}}
-<object data="/altinn-api/process-completeTask.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flowchart for completing a task](process-completeTask.png "Process complete task")
+
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeTask
@@ -456,9 +443,7 @@ The complete process method will attempt to complete the process for an instance
 
 If a task's exit condition is not met, the process will be stopped in the last valid task. And the user must manually fix the problem and complete the process.
 
-{{%excerpt%}}
-<object data="/altinn-api/process-completeProcess.png" type="image/png" style="width: 75%;";></object>
-{{% /excerpt%}}
+![Flowchart for completing a process](process-completeProcess.png "Complete the process")
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
@@ -478,9 +463,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?next
 
 Closes current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
-{{%excerpt%}}
-<object data="/altinn-api/MVP workflow.png" type="image/png" style="width: 25%;";></object>
-{{% /excerpt%}}
+![Flowchart for MVP workflow](mvp-workflow.png "MVP workflow")
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/startTask?taskId=Submit

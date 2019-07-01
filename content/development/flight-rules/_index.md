@@ -1,6 +1,7 @@
 ---
 title: Flight Rules
 description: Flight rules for Altinn Studio
+toc: true
 tags: [development]
 ---
 
@@ -12,7 +13,7 @@ Essentially, they are extremely detailed, scenario-specific standard operating p
 
 {{% /notice %}}
 
-### Loadbalancer is responding with HTTP Error 502 - bad gateway
+## Loadbalancer is responding with HTTP Error 502 - bad gateway
 
 This occurs when the loadbalancer could not find any of the services in it's configuration.  
 Can be triggerd by these issues:
@@ -21,7 +22,7 @@ Can be triggerd by these issues:
 * Some of the kubernetes pods are not existing
 * Kubernetes mapping between deployments and services are incorrect.
 
-### Loadbalancer is responding with HTTP Error 504 - timeout
+## Loadbalancer is responding with HTTP Error 504 - timeout
 
 This occurs when the loadbalancer is not getting a response from the other services running in kubernetes.
 Because the loadbalancer is not updated when the deployment of new versions or altinn-designer, altinn-runtime or altinn-repositories.
@@ -37,7 +38,7 @@ Then use the whole name, and run the following command:
 kubectl delete pod [POD_NAME]
 ```
 
-### sonarqube-code-analysis pipeline fails on pull request
+## sonarqube-code-analysis pipeline fails on pull request
 
 This occurs when there exists double line shifts in the code that is being analyzed. This somehow crashes the sonarqube code analysis tool.
 To solve this issue you need to identify and remove the double line shift is in the code:
@@ -49,7 +50,7 @@ To solve this issue you need to identify and remove the double line shift is in 
 * Remove the double line shift and update PR
 
 
-### react-app not updating in Runtime when testing locally
+## react-app not updating in Runtime when testing locally
 
 The react application for Runtime is fetched from Runtime/wwwroot/runtime/js/react. To see these changes locally one has to:
 
@@ -88,7 +89,7 @@ The `runtime.js` file should be placed under `/js/runtime.js` and the `runtime.c
 
 --> Reload the manual testing page and start new/run existing instance from there
 
-### Pod is stuck in status ContainerCreating and has warning "Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX"
+## Pod is stuck in status ContainerCreating and has warning "Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX"
 
 The storage we use today don't support two pods accessing it at the same time, 
 so on deploy if the first pod don't release the storage before the other one tries to connect to it the second pod will get stuck in ContainerCreating status. 
@@ -105,7 +106,8 @@ kubectl delete deployment [DEPLOYMENT_NAME]
 ```
 To start a new release go to [release pipeline](https://dev.azure.com/brreg/altinn-studio/_release)
 
-### I got assigned to update altinn.studio with new kode
+## I got assigned to update altinn.studio with new code
+
 Prerequirements: you need build rights to our [release pipeline](https://dev.azure.com/brreg/altinn-studio/_release)
 To deploy latest code to altinn.studio do the following:
 
@@ -120,8 +122,9 @@ To deploy latest code to altinn.studio do the following:
 
 --> A deploy to production has been started use kubectl get pods -w on the altinn.studio cluster to see if pods are updated correctly
 
-### multiple compilation errors for a newly generated app without form components
-![Runtime-Compilation-Error ](runtime-compilation-error.png?width=150)
+## multiple compilation errors for a newly generated app without form components
+
+![Runtime-Compilation-Error](runtime-compilation-error.png "Compilation error")
 
 Two different causes have resulted in this error. 
 
@@ -137,17 +140,18 @@ This can be checked by going to Dependencies -> NuGet / SDK for each project in 
 
 The second cause and resolution of the .NET code not compiling is that the application user in Altinn Studio has a hyphen in it's username. The username is included as a part of the namespace for all code files related to the project, and .NET does not accept hyphens in namespace declarations. The solution is to create an organization under the application user and creating the application with the organization as the app owner. 
 
-### I try to pull master from github and get error "Cannot lock ref"
+## I try to pull master from github and get error "Cannot lock ref"
 
 This happens from time to time, still unsure why. To fix it run the command:
 
 `git gc --prune=now`
 
-### Nuget package update for stylecop analyzer doesn't update the analyzer reference
+## Nuget package update for stylecop analyzer doesn't update the analyzer reference
 
 On updating the style cop nuget package version, the project failed to reference to the ruleset and the analyzers pointed to old version path.
 
-For example, the screenshot below shows that the project points to the stylecop version 1.1.118. 
-{{<figure src="stylecop-update-error.png?width=1000" title="Stylecop analyzer pointing to 1.1.118">}}
+For example, the screenshot below shows that the project points to the stylecop version 1.1.118.
+
+![Stylecop analyzer pointing to 1.1.118](stylecop-update-error.png "Stylecop analyzer pointing to 1.1.118")
 
 Suppose, a new package 1.1.119 is available and you update it. But the analyzers will still points to the 118 version in visual studio. So building the project will throw stylecop errors. To fix this, close and reopen the visual studio to get the reference to the updated nuget version.

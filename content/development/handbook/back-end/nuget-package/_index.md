@@ -31,7 +31,7 @@ Example : Create Altinn.Platform.Storage.Interface nuget package
 
 1. Open Altinn.Platform.Storage solution
 2. Right click on Storage.Interface project and select properties. You will see the screen below
-{{<figure src="storageinterface-props.png?width=1000" title="Project Properties">}}
+![Project Properties](storageinterface-props.png?width=1000 "Project Properties")
 
 3. Choose Package, add the package details such as id, version, description, author, company and tags.
 4. Save the changes

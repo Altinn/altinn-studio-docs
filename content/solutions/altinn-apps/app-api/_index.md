@@ -1,6 +1,6 @@
 ---
 title: App API
-description: Description of the API's available in a App created in Altinn Studio
+description: Description of the API available in an app created in Altinn Studio.
 tags: ["solution", "apps"]
 aliases:
     - "/altinn-studio-apps"
@@ -8,7 +8,7 @@ weight: 200
 ---
 
 {{% notice warning %}}
-NOTE: Work in progress. Stuff will change
+NOTE: Work in progress. Stuff will change.
 {{% /notice %}}
 
 API's have always been important to the Altinn platform. About 50% of all data going throug Altinn to service owners are comming 
@@ -25,12 +25,4 @@ interact with the App Apis and the shared platform Api's.
 {{% /excerpt%}}
 
 
-
 {{% children description="true" depth="1" %}}
-
-
-
-
-
-
-

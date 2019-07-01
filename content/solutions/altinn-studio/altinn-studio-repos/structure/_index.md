@@ -1,13 +1,13 @@
 ---
 title: Data Structure for Repos
 linktitle: Structure
-description: Struktur for repositories og filer i Gitea
+description: Struktur for repositories og filer i Gitea.
 tags: ["repos", "arkitektur"]
 weight: 100
 ---
 
 {{% notice warning %}}
-Under arbeid
+Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 {{% /notice %}}
 
 ## Overordnet struktur
@@ -99,3 +99,6 @@ Under arbeid
 ├── {{<icon name="fa-eye">}}[Alle organisasjoner](https://try.gitea.io/explore/organizations)  
 ├── {{<icon name="fa-eye">}}[Alle repos](https://try.gitea.io/explore/repos)  
 └── {{<icon name="fa-eye">}}[Alle brukere](https://try.gitea.io/explore/users)  
+
+
+{{% children description="true" depth="1" %}}

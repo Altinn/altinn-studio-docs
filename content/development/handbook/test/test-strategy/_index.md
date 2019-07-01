@@ -42,7 +42,7 @@ In the second MVP delivery, deploying services created in the Altinn Studio desi
 ## Test levels
 The pyramid figure below shows an overview of the different levels of test, the possible tools associated with the testing level, as well as which rle has the responsibilty for writing tests at that level.
 
-{{<figure src="testing_pyramid.jpeg?width=400" title="Testpyramiden" >}}
+![Testpyramiden](testing_pyramid.jpeg?width=400 "Testpyramiden")
 
 
 ## Testdata

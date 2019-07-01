@@ -1,7 +1,8 @@
 ---
-title: About 
+title: About Altinn Studio
+linktitle: About
 description: Description of the Altinn Studio and Altinn Studio Apps solutions
-tags: ["about"]
+toc: true
 weight: 100
 alwaysopen: false
 ---
@@ -15,7 +16,7 @@ as one of the five leading digital government technology platforms in the world.
 The current platform is used by over 90% of the Norwegian population and almost 100% 
 of the businesses. Over 55 agencies and municipalities host their solutions in the Altinn platform.
 
-{{<figure src="gartner.png" title="Gartner">}}
+![Gartner](gartner.png "Gartner")
 
 Altinn Studio gives organizations an efficient and self-serviced way to design, build and deploy containerized applications in a modern cloud infrastructure.
 These applications can have GUI for web access and/or APIs for system integrations. An app can contain any type of functionality targeted for users and/or systems.
