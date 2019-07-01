@@ -151,10 +151,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/development/handbook/azure-dev-spaces/</loc>
   </url>
   
@@ -191,11 +187,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/contexthandler/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/create-app/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/create-app/</loc>
   </url>
   
   <url>
@@ -455,31 +455,31 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/navigate-to-service/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/navigation/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/data-model/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/data-model/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/texts/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/texts/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/gui-editor/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/ui-editor/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/codelist/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/codelist/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/api/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/api/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/logic/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/logic/</loc>
   </url>
   
   <url>
@@ -511,11 +511,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-creation/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-platform/intermediary/</loc>
+    <loc>https://docs.altinn.studio/getting-started/app-creation/</loc>
   </url>
   
   <url>
@@ -543,7 +539,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/service-testing/</loc>
+    <loc>https://docs.altinn.studio/getting-started/testing/</loc>
   </url>
   
   <url>
@@ -577,6 +573,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/analysis/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/</loc>
   </url>
   
   <url>
@@ -654,10 +654,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/logic/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/technology/material-ui/</loc>
   </url>
   
@@ -684,10 +680,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/reusable-resources/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/</loc>
   </url>
   
   <url>
@@ -757,11 +749,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/about/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/tags/analysis/</loc>
     <priority>0</priority>
   </url>
@@ -808,6 +795,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/authentication/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/authorization/</loc>
     <priority>0</priority>
   </url>
   
@@ -868,11 +860,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/component-library/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/tags/concept/</loc>
     <priority>0</priority>
   </url>
   
@@ -1017,11 +1004,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/intro/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/tags/issues/</loc>
     <priority>0</priority>
   </url>
@@ -1137,6 +1119,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/profile/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/programming/</loc>
     <priority>0</priority>
   </url>
@@ -1153,6 +1140,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/redux/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/register/</loc>
     <priority>0</priority>
   </url>
   
@@ -1177,6 +1169,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/storage/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/stub/</loc>
     <priority>0</priority>
   </url>
@@ -1193,11 +1190,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/tech/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/tags/term/</loc>
     <priority>0</priority>
   </url>
   
@@ -1248,11 +1240,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/unit-testing/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/tags/wordlist/</loc>
     <priority>0</priority>
   </url>
   
