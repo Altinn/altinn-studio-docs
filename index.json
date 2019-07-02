@@ -970,7 +970,7 @@
 	"title": "API",
 	"tags": ["analysis"],
 	"description": "Analysis of the API area in Altinn Studio.",
-	"content": "\r\rAgency APIs - analysis\rAn analysis of the agency API compatibility with Altinn Studio Apps.\n\r\r\rApplication Architecture for Altinn Apps\rAltinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication Architecture Altinn Studio\rDescription of the application architecture for runtime applicationz\n\r\r\rExternal APIs - analysis\rAn analysis of the SBL external API forward compatibility with Altinn Studio Apps.\n\r\r\r\r"
+	"content": "\r\rAgency APIs - analysis\rAn analysis of the agency API compatibility with Altinn Studio Apps.\n\r\r\r\rExternal APIs - analysis\rAn analysis of the SBL external API forward compatibility with Altinn Studio Apps.\n\r\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/analysis/api/agency/",
