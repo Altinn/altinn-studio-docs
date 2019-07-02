@@ -609,6 +609,13 @@
 	"content": " The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe profile solution is now available locally at http://platform.altinn.cloud/profile/api/v1 and all resources are avaiable through endpoints defined below.\nResources: users\n/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.\nGet information about a user:\n/users/{userId}  (Available testdata. UserId: 1083,2772, 2882 and 1536.)\n"
 },
 {
+	"uri": "https://docs.altinn.studio/about/status/",
+	"title": "Project Status",
+	"tags": [],
+	"description": "Description of the current status of the project",
+	"content": "Building Altinn Studio is a large project. The below diagram shows the project status for the different areas of the project. (Work in Progress)\n\n"
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/rest/",
 	"title": "RESTful APIs (Representation State Transfer)",
 	"tags": ["development", "handbook", "back-end", "rest", "api"],
