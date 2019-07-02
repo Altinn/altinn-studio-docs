@@ -10,12 +10,6 @@ A App deployed to Altinn Apps will typical have a process to follow.
 Altinn Apps uses [BPMN 2.0 standard](https://www.omg.org/spec/BPMN/2.0/) to describe the App Process and the App will have functionality
 to support different types of tasks in the process.
 
-There is some freedom of the order of task in the process, but not all combinations is functional valid.
-
-Each type of task will have som requirement to be fullfilled to be allowed to be completed. 
-
-As en example 
-
 ## Supported Tasks
 Altinn Studio / Altinn Apps / Altinn Platform will support different processes with different types of task as part of the process
 
@@ -39,6 +33,9 @@ This is a task where serverel users need/can sign the data in paralell. The task
 This is a task in a process where user/system can lookup external data with help of inputs from UI or API.
 
 ## Example process
+There is some freedom of the order of task in the process, but not all combinations is functional valid.
+
+Each type of task will have som requirement to be fullfilled to be allowed to be completed. 
 
 The below diagram show some example processes that a App possible will support in the future. Even it is possible to technical order the different types of task 
 
@@ -72,8 +69,6 @@ In this scenario a user will typical fill out formdata and when formfilling task
 can verify the data and then confirm, when the data is confirmed the process is moved to a payment task where the user needs to pay before the process is completed. 
 The payment functionality will be handled by external payment providers. The app will integrate with API's for the payment provider. Altinn runtime will support different payment providers.
 
-
-
 ### Process: Formfilling - Confirmation - External validation
 {{%excerpt%}}
 <object data="/architecture/application/altinn-apps/app/app-backend/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
@@ -90,5 +85,7 @@ The process defintion is defined in a BPMN 2.0 file located in the app repositor
 To change the process the app developer need to modify the BPNM file manually.
 
 Later Altinn Studio will support creating and updating process through GUI.
+
+Later we
 
 
