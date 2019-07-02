@@ -920,8 +920,8 @@
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/",
 	"title": "Process handling",
 	"tags": ["solution", "apps"],
-	"description": "Description of the API available in an app created in Altinn Studio.",
-	"content": "NOTE: Work in progress. Stuff will change.\n\rAPI\u0026rsquo;s have always been important to the Altinn platform. About 50% of all data going throug Altinn to service owners are comming from end user systems implementing Altinn Apis\u0026rsquo;s (SOAP and REST). More than 100 different vendors of different types of applications integrates with Altinns appi and submits data for different \u0026ldquo;services\u0026rdquo;.\nIn addition mobile apps and external governmental portal consumes Altinn Apis to allow users to use services outside the Altinn Portal.\nService Owners also have seperate APIs to interact with the apps. The below figure shows the different consumers of the API\u0026rsquo;s and show that consumers both interact with the App Apis and the shared platform Api\u0026rsquo;s.\n\n\r"
+	"description": "Description of the process handling capability of Apps created in Altinn Studio",
+	"content": "\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/profile/",
