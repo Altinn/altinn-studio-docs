@@ -613,7 +613,7 @@
 	"title": "Project Status",
 	"tags": [],
 	"description": "Description of the current status of the project",
-	"content": "Building Altinn Studio is a large project. The below diagram shows the project status for the different areas of the project. (Work in Progress)\n\nFull screen | Visio\n"
+	"content": " Building Altinn Studio is a large project with lots of complexity.\nThe solutions will be open source, we are having all our issues on Github and the below diagrams shows a visual status of the project. (Updated weekly)\nSolution status This diagram shows the status of the different areas based on the solutions where the areas are implemented. This digram let you understand where in the solution there are work left. \nFull screen | Visio\nFunctional status This diagram has purly functional focus. It does not care about where any issues are located and why things does not work. A area can be red even it is 100% complete if testing of a functionality is blocked by other non related issues.\n\nFull screen | Visio\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/rest/",
