@@ -28,7 +28,6 @@ This digram let you understand where in the solution there are work left.
 This diagram has purly functional focus. It does not care about where any issues are located and why things does not work. 
 A area can be red even it is 100% complete if testing of a functionality is blocked by other non related issues.
 
-
 {{%excerpt%}}
 <object data="/about/status/functionalstatus.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
