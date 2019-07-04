@@ -22,10 +22,10 @@ A party is a person whom  you can represent and perform a request on his behalf.
 
 Operations
 
-Get a list of parties that the user (identified by JWT) can represent
+Get a list of parties that the user can represent. The userid is sent as parameter
 
 ```http
-GET /authorization/api/v1/actors
+GET /authorization/api/v1/parties?userid={userid}
 ```
 
 {{%notice warning%}}
