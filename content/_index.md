@@ -1,9 +1,8 @@
 ---
 title: Altinn Studio
 description: Documentation for Altinn Studio.
+jumbotron: true
 ---
-
-{{<docs-logo>}}
 
 [Altinn Studio] is the next generation Altinn application development solution.
 All you need for testing the preview is to [register an account](/getting-started/first-time-setup).
@@ -12,7 +11,7 @@ All you need for testing the preview is to [register an account](/getting-starte
 - Altinn Studio have an [open backlog] on GitHub and [the code] is open source.
 - Everybody can [create bugs], [request features] or [ask questions].
 
-!["Building the new Altinn... One block at the time"](altinn-lego.jpg "Building the new Altinn... One block at the time")
+![Building the new Altinn... One block at the time](altinn-lego-platform.jpg "Building the new Altinn... One block at the time")
 
 [Altinn Studio]: https://altinn.studio
 [open backlog]: https://github.com/altinn/altinn-studio/issues/

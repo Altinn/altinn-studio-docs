@@ -15,11 +15,11 @@ Azure dev spaces is an offering from Azure for a rapid, iterative Kubernetes dev
 #### Enable Azure Dev Spaces in Storage
 Once you install the visual studio or visual studio code extensions for azure dev spaces, you should see the option for azure dev spaces in debug tool. 
 
-{{<figure src="azds-menu.png" title="Azure dev spaces option in Visualstudio debugger">}}
+![Azure dev spaces option in Visualstudio debugger](azds-menu.png "Azure dev spaces option in Visualstudio debugger")
 
 On selecting the azure dev spaces option for a selected project, azure dev spaces configuration modal popsup where you must select the subscription, cluster name and space.
 
-{{<figure src="azds-select-space.png" title="Azure dev spaces configuration in visual studio">}}
+![Azure dev spaces configuration in visual studio](azds-select-space.png "Azure dev spaces configuration in visual studio")
 
 Azure dev spaces tools for Visual studio automatically generates the required helm charts and dockerfile for the first time.
 

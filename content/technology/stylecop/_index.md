@@ -46,7 +46,7 @@ To turn on/off a rule from the ruleset,
 3. Check/uncheck the rule you want to turn on/off
 4. If you are turning on a rule, select the action to be "Error"
 
-{{<figure src="turnonoffrules.gif?width=1000" title="Turn on/off a rule from ruleset">}}
+![Turn on/off a rule from ruleset](turnonoffrules.gif?width=1000 "Turn on/off a rule from ruleset")
 
 ## Implemented rules in Altinn Studio
 

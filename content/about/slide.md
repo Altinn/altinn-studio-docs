@@ -1,5 +1,5 @@
 ---
-title: Slide NO
+title: Slides
 description: En presentasjon om målsettinger og konsepter for Tjenester 3.0
 type: slide
 theme: beige # black, white, league, beige, sky, night, serif, simple, solarized
@@ -12,7 +12,7 @@ revealOptions:
 weight: 100
 ---
 # Altinn Studio
-Aka Tjenester 3.0
+Aka. "Tjenester 3.0"
 --- 
 ## Dagens løsning
 - Produksjonsatt sommeren 2010

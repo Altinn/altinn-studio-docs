@@ -1,6 +1,7 @@
 ---
-title: Available form components
-description: Overview of the form components that are available for use
+title: Available UI components
+linktitle: Components
+description: Overview of the components that are available for use.
 tags: [ui-designer, ui-components]
 aliases:
     - "/ui-components"

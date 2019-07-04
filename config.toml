@@ -7,7 +7,7 @@ staticDir = "static"
 publishDir = "public"
 
 title = "Altinn Studio"
-theme = "hugo-theme-docdock"
+theme = "hugo-theme-altinn"
 metadataFormat = "yaml"
 pluralizeListTitles = false
 preservetaxonomynames = true
@@ -23,7 +23,7 @@ editURL = "https://github.com/altinn/altinn-studio-docs/blob/master/content/"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
-#themeVariant = "blue" # choose theme variant "green", "gold", "gray", blue" (default)
+themeVariant = "gray" # choose theme variant "green", "gold", "gray", blue" (default)
 
 
 [outputs]
@@ -31,26 +31,20 @@ home = ["HTML", "JSON"] # JSON generates index.json file used by search
 
 
 [[menu.shortcuts]]
-pre = "<h3>Lenker</h3>"
-name = "<i class='fa fa-fw fa-desktop'></i> Altinn Studio"
+pre = "<h3>Links</h3>"
+name = "Altinn Studio"
 identifier = "altinn-studio"
 url = "https://altinn.studio"
 weight = 10
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-fw fa-bug'></i> Backlog / issues"
+name = "Backlog / issues"
 identifier = "altinn-studio-issues"
 url = "https://github.com/Altinn/altinn-studio/issues"
 weight = 20
 
 [[menu.shortcuts]]
-name = "<i class='fa fa-fw fa-map-signs'></i> Milestones"
-identifier = "altinn-studio-milestones"
-url = "https://github.com/Altinn/altinn-studio/milestones?direction=asc&sort=due_date&state=open"
-weight = 30
-
-[[menu.shortcuts]]
 name = "<i class='fa fa-fw fa-github'></i> GitHub"
 identifier = "altinn-studio-repo"
 url = "https://github.com/altinn/altinn-studio"
-weight = 40
+weight = 30

@@ -2,11 +2,12 @@
 title: Functionality in Repos
 linktitle: Functionality
 description: Funksjonalitet for lagring og versjonering av tjenester i Git-repositories samt funksjonalitet for application lifecycle management.
+toc: true
 tags: ["repos"]
 weight: 100
 ---
 
-{{<figure src="t3-repositories.png?width=1000" title="Eksempel-repository for tjenesten \"Starte Enkeltpersonforetak\"">}}
+![Eksempel-repository for tjenesten \"Starte Enkeltpersonforetak\"](t3-repositories.png?width=1000 "Eksempel-repository for tjenesten \"Starte Enkeltpersonforetak\"")
 
 "Altinn Repositories" er en frittstående [Git] versjonskontroll og [Application Lifecycle Management]-løsning, som både [Designer](../../designer/),
 kodeeditorer og andre eksterne verktøy vil benytte som back-end og felles sted for å **lagre** og versjonere tjenestene som utvikles.
@@ -16,7 +17,7 @@ Repositories har et GitHub-lignende brukergrensesnitt og både Git og REST-baser
 [Application Lifecycle Management]: https://en.wikipedia.org/wiki/Application_lifecycle_management
 [Git]: https://en.wikipedia.org/wiki/Git
 
-{{<figure src="git-as-backend.png?width=800" title="Git muliggjør at flere verktøy kan jobbe mot samme tjeneste-repository">}}
+![Git muliggjør at flere verktøy kan jobbe mot samme tjeneste-repository](git-as-backend.png?width=800 "Git muliggjør at flere verktøy kan jobbe mot samme tjeneste-repository")
 
 Det vil være en omfattende jobb å forsøke å utvikle en Git + ALM løsning på egen hånd,
 ref. all [funksjonaliteten som behøves](#funksjonalitet-i-repositories).  
@@ -24,8 +25,6 @@ ref. all [funksjonaliteten som behøves](#funksjonalitet-i-repositories).
 Heldigvis finnes det flere open source "GitHub-kloner" som vi kan benytte, og blant dem virker
 [Gitea](https://github.com/go-gitea/gitea) å være mest lovende (uttales som /ɡɪ’ti:/ - "gitty").
 Bilder fra Gitea benyttes som eksempler videre i denne dokumentasjonen.
-
-!["Gitea logo"](gitea.png?width=100)
 
 ## Funksjonalitet i "Repositories"
 
@@ -42,11 +41,11 @@ Gitea som back-end med andre liknende Git-systemer.
 <object data="t3-repositories-archimate.svg" type="image/svg+xml" style="width: 100%;"></object>
 </div>
 
-### 3.0 Tjeneste
+## 3.0 Tjeneste
 Repository som representerer en "3.0-tjeneste", og inneholder alle filer som tjenesten består av.  
 Hver utgave av en tjeneste vil leve i sin egen mappe, slik at ett repository kan inneholde èn eller flere utgaver av den samme tjenesten.
 
-### Repository management
+## Repository management
 
 Håndtering av repositories er en kjerneaktivitet, da hver tjeneste som utvikles vil lagres i sitt eget repository.
 
@@ -66,11 +65,13 @@ Håndtering av repositories er en kjerneaktivitet, da hver tjeneste som utvikles
 - View raw file
 - Link to file
 
-{{<figure src="create-repository.png?width=600" title="Opprette et nytt repository">}}
-{{<figure src="fork.png?width=600" title="Enkelt å opprett fork">}}
-{{<figure src="fork-done.png?width=600" title="Ny fork (kopi) av en tjeneste">}}
+![Opprette et nytt repository](create-repository.png "Opprette et nytt repository")
 
-### Dokumentering
+![Enkelt å opprett fork](fork.png "Enkelt å opprett fork")
+
+![Ny fork av en tjeneste](fork-done.png "Ny fork av en tjeneste")
+
+## Dokumentering
 
 Det er viktig å ha god støtte for å dokumentere tjenestene man utvikler,
 slik at det vil være enkelt for andre personer på teamet å bidra. Det er derfor ønskelig å ha innebygd Wiki-funksjonalitet med støtte for å
@@ -87,9 +88,9 @@ editere i [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheat
   - Fullscreen
   - Side-by-side
 
-{{<figure src="wiki.png?width=800" title="Wiki">}}
+![Wiki](wiki.png "Wiki")
 
-### Versjonering
+## Versjonering
 
 Hver eneste fil som en 3.0-tjeneste består av skal ha full versjonshistorikk, uavhengig av om man jobber mot filene via [Designer](../designer/)
 eller eksternt og distribuert/lokalt i en kodeeditor på egen maskin.
@@ -104,14 +105,14 @@ Repositories sitt versjonskontrollsystem, som er basert på Git, er laget nettop
   - Comments/messages
 - Diff between versions
 
-{{<figure src="versjonshistorikk.png?width=800" title="Versjonshistorikk for hver eneste fil">}}
+![Versjonshistorikk for hver eneste fil](versjonshistorikk.png "Versjonshistorikk for hver eneste fil")
 
-{{<figure src="diff-i-nettleser.png?width=800" title="Diff for hver eneste fil i nettleser">}}
+![Diff for hver eneste fil i nettleser](diff-i-nettleser.png "Diff for hver eneste fil i nettleser")
 
-{{<figure src="diff-i-kodeeditor.png?width=800" title="En utvikler kan se samme diff og versjonshistorikk lokalt i sin egen editor">}}
+![En utvikler kan se samme diff og versjonshistorikk lokalt i sin egen editor](diff-i-kodeeditor.png "En utvikler kan se samme diff og versjonshistorikk lokalt i sin egen editor")
 
 
-### Release management
+## Release management
 
 En svært viktig egenskap når man utvikler programvare (noe som 3.0-tjenester er) er å kunne tagge ulike versjoner, og kunne gå tilbake
 og teste eller patche en tidligere versjon hvis man ønsker det. Det er også viktig å kunne se alt som har endret seg mellom versjonene.
@@ -129,17 +130,17 @@ og man kan enkelt se hva som er endret.
 - Download zipped files of release
 - Browse content of a given tag/release
 
-{{<figure src="releases.png?width=800" title="Releases som er opprettet for en 3.0-tjeneste">}}
+![Releases som er opprettet for en 3.0-tjeneste](releases.png "Releases som er opprettet for en 3.0-tjeneste")
 
-{{<figure src="browse-pr-tag.png?width=500" title="Man kan enkelt browse repository \"tilbake i tid\"">}}
+![Man kan enkelt browse repository \"tilbake i tid\"](browse-pr-tag.png "Man kan enkelt browse repository \"tilbake i tid\"")
 
 
-### QA
+## QA
 
 En QA-prosess for godkjenning av endringer basert på branching og pull requests, vil for større teams kunne være mulig.
 Dette er i tråd med hvordan programvare utvikles, inkludert selve Altinn.
 
-### Backlog management
+## Backlog management
 
 Som for all annen programvareutvikling, så vil hver 3.0-tjeneste typisk ha en egen backlog med bugs, forbedringer, fremtidige features, etc. som
 tjenesteutviklerne vil jobbe mot. Dette er en sentral del av [Application Lifecycle Management].
@@ -161,12 +162,15 @@ tjenesteutviklerne vil jobbe mot. Dette er en sentral del av [Application Lifecy
 - Issues search
 - List issues
 
-{{<figure src="issues.png?width=800" title="Backlog med issues">}}
-{{<figure src="issue.png?width=800" title="Issue eksempel">}}
-{{<figure src="milestones.png?width=800" title="Milepæler er en fin måte å sette scope for fremtidige releaser, og se fremgang">}}
-{{<figure src="labels.png?width=800" title="Labels gjør det enkelt å kategorisere og filtrere issues">}}
+![Backlog med issues](issues.png "Backlog med issues")
 
-### Org management
+![Issue eksempel](issue.png "Issue eksempel")
+
+![Milepæler er en fin måte å sette scope for fremtidige releaser, og se fremgang](milestones.png "Milepæler er en fin måte å sette scope for fremtidige releaser, og se fremgang")
+
+![Labels gjør det enkelt å kategorisere og filtrere issues](labels.png "Labels gjør det enkelt å kategorisere og filtrere issues")
+
+## Org management
 
 Organisasjoner er tjenesteeiere, men i 3.0 er det ikke noe i veien for at brukere også kan utvikle tjenester. 
 I en organisasjon så kan man gi tilganger til brukere, og man kan opprette teams med tilgang til en eller flere 3.0-tjenester.  
@@ -186,11 +190,13 @@ Det å håndtere organisasjonen, som alt annet, skal være 100% selvbetjent.
 - Add/remove users in teams
 - List users in teams
 
-{{<figure src="orgs.png?width=800" title="Liste over organisasjoner">}}
-{{<figure src="team-repos.png?width=800" title="Repositories tildelt team ENK">}}
-{{<figure src="team.png?width=800" title="Innstillinger for team ENK">}}
+![Liste over organisasjoner](orgs.png "Liste over organisasjoner")
 
-### Brukerstyring
+![Repositories tildelt team ENK](team-repos.png "Repositories tildelt team ENK")
+
+![Innstillinger for team ENK](team.png "Innstillinger for team ENK")
+
+## Brukerstyring
 
 Brukerne i denne sammenheng er tjenesteutvklerne.
 Det å håndtere organisasjonen skal være helt selvbetjent.
@@ -206,11 +212,12 @@ Det å håndtere organisasjonen skal være helt selvbetjent.
 
 I første omgang (MVP) vil tjenesteeier (org-admin) legge til alle sine brukere i gruppen "owner" slik at de får tilgang til å opprette repositories (tjenester). Gruppen "owner" gir vide fullmakter på organisasjonsnivå (dvs tjenesteeiernivå), så på sikt vil det implementeres mer granulert tilgangsstyring.  
 
-{{<figure src="collaboration.png?width=800" title="En ny tjenesteutvikler har fått skrivetilgang">}}
-{{<figure src="activity-log.png?width=800" title="Tjenesteutviklere har egen profil og aktivitetslogg">}}
+![En ny tjenesteutvikler har fått skrivetilgang](collaboration.png "En ny tjenesteutvikler har fått skrivetilgang")
+
+![Tjenesteutviklere har egen profil og aktivitetslogg](activity-log.png "Tjenesteutviklere har egen profil og aktivitetslogg")
 
 
-### Søke
+## Søke
 
 Søk er viktig for å finne frem, og skal være bygd inn i løsningen.
 
@@ -220,9 +227,9 @@ Søk er viktig for å finne frem, og skal være bygd inn i løsningen.
 - Users
 - Organizations
 
-{{<figure src="search.gif?width=800" title="Søk med sortering">}}
+![Søk med sortering](search.gif "Søk med sortering")
 
-### Tilgangsstyring
+## Tilgangsstyring
 
 Det skal være mulig å styre tilgang til repositories, les/skriv/admin, teams, brukere, samt opprette private repos.
 
@@ -234,9 +241,9 @@ Det skal være mulig å styre tilgang til repositories, les/skriv/admin, teams, 
 - AM/AD-integration
 - API access
 
-{{<figure src="swagger-api.png?width=800" title="Gitea tilbyr API med swagger">}}
+![Gitea tilbyr API med swagger](swagger-api.png "Gitea tilbyr API med swagger")
 
-### Trigge hendelser
+## Trigge hendelser
 
 I dagens hverdag, med bruk av Slack og andre systemer ifbm. utvikling, så er det viktig at "Repositories" kan trigge hendelser i andre
 systemer, f.eks. poste til en Slack-kanal når en endring skjer i en 3.0-tjeneste.
@@ -244,9 +251,9 @@ systemer, f.eks. poste til en Slack-kanal når en endring skjer i en 3.0-tjenest
 - Trigger events at org-level
 - Trigger events at 3.0 service-level
 
-{{<figure src="webhook.png?width=800" title="WebHook mot Slack">}}
+![WebHook mot Slack](webhook.png "WebHook mot Slack")
 
-### Logge inn
+## Logge inn
 
 Tjenesteutviklere og andre interessenter skal kunne logge inn og få tilgang til organisasjoner og 3.0-tjenester.
 
@@ -256,12 +263,12 @@ Tjenesteutviklere og andre interessenter skal kunne logge inn og få tilgang til
 - 2-factor auth
 - External authentication
 
-{{<figure src="LoginAS.png?width=800" title="Login">}}
+![Login](LoginAS.png "Login")
 
-### Sende varslinger
+## Sende varslinger
 
 - Send notifications to users based on events or mentions
 - User can control the notifications to receive
 - Users can follow other users and subscripe to issues
 
-{{<figure src="notifications.png?width=800" title="Login">}}
+![Notifications](notifications.png "Notifications")
