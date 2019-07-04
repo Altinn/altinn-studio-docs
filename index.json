@@ -914,14 +914,14 @@
 	"title": "Frontend",
 	"tags": ["solution", "apps"],
 	"description": "Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.",
-	"content": " A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.\nUI rendering "
+	"content": " A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.\nUI rendering The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.\nUI-Components The supported UI-components can be seen here\nTheming In the future Altinn Apps will support theming making it possible to have different style on the App.\nSee epic for this issue on Github.\nUI Layout In the future Altinn Apps will support different types of layout. Now the support is limited to one page UI that is mobile friendly.\nSee epic for this issue on Github\nUI logic As part of designing UI, there can be defined UI-logic that do stuff dynamic rendering (hide or show parts of ui based on input or other parameters) or update data.\nCustom Navigation In the future the App will support different types of navigation to See epic for this issue on Github\nTranslation In the future the App will support having multiple languages in a App See issue for this on Github\nPages In the future the App will support having ui over multiple pages See issue for this on Github\nOn Github you can find all issues related to App-Frontend.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/",
 	"title": "Process handling",
 	"tags": ["solution", "apps"],
 	"description": "Description of the process handling capability of Apps created in Altinn Studio",
-	"content": "\r\r"
+	"content": " A app have a defined process. The process can consist of serveral type of task in different orders.\nIf you want details about the process architechture\nTasks Formfilling Signing ###\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/profile/",
