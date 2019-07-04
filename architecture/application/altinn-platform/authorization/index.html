@@ -6153,9 +6153,9 @@ A party is a person whom  you can represent and perform a request on his behalf.
 
 <p>Operations</p>
 
-<p>Get a list of parties that the user (identified by JWT) can represent</p>
+<p>Get a list of parties that the user can represent. The userid is sent as parameter</p>
 
-<pre><code class="language-http">GET /authorization/api/v1/actors
+<pre><code class="language-http">GET /authorization/api/v1/parties?userid={userid}
 </code></pre>
 
 <div class="notices warning" ><p>There can be terminology change shortly. So the url might change</p>
