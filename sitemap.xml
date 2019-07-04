@@ -307,6 +307,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/operations/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pap/</loc>
   </url>
   
@@ -520,6 +524,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/getting-started/app-creation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-apps/app/features/</loc>
   </url>
   
   <url>
@@ -1095,6 +1103,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/nuget-package/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/operations/</loc>
     <priority>0</priority>
   </url>
   

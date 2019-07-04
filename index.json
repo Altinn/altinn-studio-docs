@@ -17,7 +17,7 @@
 	"uri": "https://docs.altinn.studio/solutions/",
 	"title": "Solutions",
 	"tags": ["solution", "studio", "apps", "repos"],
-	"description": "Altinn Studio consists of three different technical solutions to make a complete application development and hosting platform.",
+	"description": "Altinn Studio, together with Altinn Apps and Altinn Platform is the three different technical solutions to make a complete application development and hosting platform.",
 	"content": "\r\n\rAltinn Studio\rThe design-time solution for developing, testing and maintaining applications.\n\r\rAltinn Apps\rApps is the runtime and infrastructure solution that is responsible for hosting and running the apps created in Altinn Studio as containers.\n\r\rAltinn Platform\rAltinn Platform is the solution where the supporting platform functionality resides.\n\r\r"
 },
 {
@@ -207,7 +207,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nArchitecture Goals \u0026amp; Guidelines The following guidlines and goals have been important to define the architecture.\nFree and open-source software Guideline: Frameworks and applications used in Altinn Studio will need to be Open Source.\nResult: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.\nWeb Standards \u0026amp; Modern frameworks Guideline: Use Web Standards and modern frameworks\nResult: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.\nCloud Native Guideline: The architecture should follow cloud native principles\nResult\n Containers - Isolation (resources, framework) Microservice architecture - Upgrade components seperate. APIs - Reuse Independent of operating system - Can develop and run on any platform  Architectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rApplication Architecture\rThe Application Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\r\rApplication Architecture for Altinn Apps\rAltinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication Architecture Altinn Studio\rDescription of the application architecture for runtime applicationz\n\r\r\rInformation\rDescription of the Information Architecture\n\r\r\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r\rDeployment\rDescription of the Altinn Studio solution\n\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r\rIntegration\rDescription of the Integration Architecture\n\r\r\rApplication Owners\u0026#39; Interface - Altinn Platform\rDescription of the application owner interface for Storage component\n\r\r\rSecurity Architecture\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.\n\r\r\rAuthentication\rDescription of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform\n\r\rAuthorization\rDescription of the Authorization architecture\n\r\r\rDevelopment\r\n\r\r\rBuild process\rAltinn Studio Build Processes\n\r\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\r\rSolution Architecture Altinn Apps\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Platform\rDescription of the Altinn Platform solution\n\r\rSolution Architecture Altinn Studio\rDescription of the Altinn Studio solution architecture\n\r\r\r"
+	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nArchitecture Goals \u0026amp; Guidelines The following guidlines and goals have been important to define the architecture.\nFree and open-source software Guideline: Frameworks and applications used in Altinn Studio will need to be Open Source.\nResult: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.\nWeb Standards \u0026amp; Modern frameworks Guideline: Use Web Standards and modern frameworks\nResult: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.\nCloud Native Guideline: The architecture should follow cloud native principles\nResult\n Containers - Isolation (resources, framework) Microservice architecture - Upgrade components seperate. APIs - Reuse Independent of operating system - Can develop and run on any platform  Architectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rApplication Architecture\rThe Application Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\r\rApplication Architecture for Altinn Apps\rAltinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication Architecture Altinn Studio\rDescription of the application architecture for runtime applicationz\n\r\r\rInformation\rDescription of the Information Architecture\n\r\r\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r\rDeployment\rDescription of the Altinn Studio solution\n\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r\rIntegration\rDescription of the Integration Architecture\n\r\r\rApplication Owners\u0026#39; Interface - Altinn Platform\rDescription of the application owner interface for Storage component\n\r\r\rOperations\rDescription of the Operations Architecture\n\r\r\r\rSecurity Architecture\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.\n\r\r\rAuthentication\rDescription of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform\n\r\rAuthorization\rDescription of the Authorization architecture\n\r\r\rDevelopment\r\n\r\r\rBuild process\rAltinn Studio Build Processes\n\r\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\r\rSolution Architecture Altinn Apps\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Platform\rDescription of the Altinn Platform solution\n\r\rSolution Architecture Altinn Studio\rDescription of the Altinn Studio solution architecture\n\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/authentication/",
@@ -530,6 +530,13 @@
 	"tags": ["nuget package", "create nuget", "back-end", "pre-release nuget"],
 	"description": "Overview of nuget package usage in altinn studio",
 	"content": " This page is constantly updated on the use of nuget package in altinn studio.\n\rNuget Package Altinn Studio publishes nuget package to share common libraries between different solutions. You can read more about nuget here.\nFollowing nuget packages are published and are available for download here\n Altinn.Platform.Storage.Interface AltinnCore.ServiceLibrary JWTCookieAuthentication  Create Nuget Package Detailed documentation on how to create a nuget package, guidelines etc can be found here.\nAn example of nuget package creation in altinn studio Example : Create Altinn.Platform.Storage.Interface nuget package\nSet Project Properties  Open Altinn.Platform.Storage solution Right click on Storage.Interface project and select properties. You will see the screen below  Choose Package, add the package details such as id, version, description, author, company and tags.\n Save the changes\n Choose release mode\n Right click on Storage.Interface and select \u0026ldquo;Pack\u0026rdquo;\n The package will now be created in \u0026ldquo;C:\\Repos\\altinn-studio\\src\\Altinn.Platform\\Altinn.Platform.Storage\\Storage.Interface\\bin\\Release\u0026rdquo;\n Go to commandline, navigate to the release path\n run \u0026ldquo;dotnet nuget push Altinn.Platform.Storage.Interface.1.0.1-alpha.nupkg -k [nuget api key] -s https://api.nuget.org/v3/index.json\u0026quot;\n Your package will now be published to nuget.org\n  "
+},
+{
+	"uri": "https://docs.altinn.studio/architecture/operations/",
+	"title": "Operations",
+	"tags": ["architecture", "operations"],
+	"description": "Description of the Operations Architecture",
+	"content": "The Operations Architecture describes the architecture that support operations of the platform.\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pap/",
@@ -910,6 +917,13 @@
 	"content": "\r\rCreate new app\rInformation on how to create a new apps.\n\r\r\r\rNavigation\rInformation on how to navigate to and within an app.\n\r\r\r\rData model\rHow to import or view the data model.\n\r\r\r\rTexts\rHow to add or edit text resources for an app in Altinn Studio.\n\r\r\r\rUI editor\rHow to create a form using the UI editor in Altinn Studio.\n\r\r\r\rCode lists\rHow to add/edit and configure code lists.\n\r\r\r\rExternal APIs\rHow to configure calls to external APIs to fetch data.\n\r\r\r\rApp logic\rHow to add/edit and configure the three different types of app logic; Validation, Calculation and Dynamics.\n\r\r\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/features/",
+	"title": "Features",
+	"tags": ["solution", "apps"],
+	"description": "Description of features in App",
+	"content": " Prefill Data validation Data Calculation Instansiation Hooks Policy Enforcment Formset \r"
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/frontend/",
 	"title": "Frontend",
 	"tags": ["solution", "apps"],
@@ -921,7 +935,7 @@
 	"title": "Process handling",
 	"tags": ["solution", "apps"],
 	"description": "Description of the process handling capability of Apps created in Altinn Studio",
-	"content": " A app have a defined process. The process can consist of serveral type of task in different orders.\nIf you want details about the process architechture\nTasks Formfilling Signing ###\n\r"
+	"content": " A app have a defined process. The process can consist of serveral type of task in different orders.\nIf you want details about the process architechture\nTasks Formfilling Signing Payment Events \r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/profile/",
@@ -1787,6 +1801,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/nuget-package/",
 	"title": "nuget package",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/operations/",
+	"title": "operations",
 	"tags": [],
 	"description": "",
 	"content": ""

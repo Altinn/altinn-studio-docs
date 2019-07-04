@@ -49,7 +49,7 @@
 			</v:userDefs>
 			<rect x="0" y="1469.59" width="992.126" height="297.638" class="st1"/>
 		</g>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape20-5" v:mID="20" v:groupContext="shape" transform="translate(216.933,-1618.83)">
 				<title>Rectangle</title>
 				<desc>Input</desc>
@@ -68,7 +68,7 @@
 			<v:textRect cx="56.6929" cy="1758.72" width="113.39" height="17.0079"/>
 			<rect x="0" y="1750.22" width="113.386" height="17.0079" class="st4"/>
 			<text x="4" y="1762.32" class="st5" v:langID="1044"><v:paragraph/><v:tabList/>UI-Components</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape22-11" v:mID="22" v:groupContext="shape" transform="translate(341.658,-1618.83)">
 				<title>Rectangle.8</title>
 				<desc>RadioButtons</desc>
@@ -80,7 +80,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="28.49" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>RadioButtons</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape23-14" v:mID="23" v:groupContext="shape" transform="translate(466.382,-1618.83)">
 				<title>Rectangle.9</title>
 				<desc>TextArea</desc>
@@ -92,7 +92,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="37.88" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>TextArea</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape24-17" v:mID="24" v:groupContext="shape" transform="translate(591.106,-1522.45)">
 				<title>Rectangle.11</title>
 				<desc>Dropdown</desc>
@@ -104,7 +104,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
 				<text x="35.14" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Dropdown</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape25-20" v:mID="25" v:groupContext="shape" transform="translate(591.106,-1618.83)">
 				<title>Rectangle.12</title>
 				<desc>FileUpload</desc>
@@ -116,7 +116,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="34.41" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>FileUpload</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape26-23" v:mID="26" v:groupContext="shape" transform="translate(466.382,-1522.45)">
 				<title>Rectangle.13</title>
 				<desc>Paragraph</desc>
@@ -128,7 +128,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="35.34" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Paragraph</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape27-26" v:mID="27" v:groupContext="shape" transform="translate(341.658,-1426.08)">
 				<title>Rectangle.14</title>
 				<desc>Logo</desc>
@@ -140,7 +140,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st8"/>
 				<text x="46.96" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Logo</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape28-29" v:mID="28" v:groupContext="shape" transform="translate(344.492,-1315.53)">
 				<title>Rectangle.16</title>
 				<desc>Theme Selection</desc>
@@ -152,7 +152,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st8"/>
 				<text x="22.91" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Theme Selection</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape29-32" v:mID="29" v:groupContext="shape" transform="translate(216.933,-1522.45)">
 				<title>Rectangle.17</title>
 				<desc>Checkboxes</desc>
@@ -164,7 +164,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="32.17" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Checkboxes</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape30-35" v:mID="30" v:groupContext="shape" transform="translate(715.831,-1618.83)">
 				<title>Rectangle.30</title>
 				<desc>Title</desc>
@@ -176,7 +176,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="47.51" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Title</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape31-38" v:mID="31" v:groupContext="shape" transform="translate(341.658,-1522.45)">
 				<title>Rectangle.31</title>
 				<desc>Datepicker</desc>
@@ -188,7 +188,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="34.12" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Datepicker</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape32-41" v:mID="32" v:groupContext="shape" transform="translate(715.831,-1315.53)">
 				<title>Rectangle.32</title>
 				<desc>Grouping</desc>
@@ -200,7 +200,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
 				<text x="37.78" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Grouping</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape33-44" v:mID="33" v:groupContext="shape" transform="translate(715.831,-1522.45)">
 				<title>Rectangle.33</title>
 				<desc>Adress</desc>
@@ -212,16 +212,18 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
 				<text x="43.03" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Adress</text>			</g>
 		</a>
-		<g id="shape34-47" v:mID="34" v:groupContext="shape" transform="translate(962.445,-1315.53)">
-			<title>Rectangle.136</title>
-			<desc>Frontend logic</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
-			<text x="26.9" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Frontend logic</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
+			<g id="shape34-47" v:mID="34" v:groupContext="shape" transform="translate(962.445,-1315.53)">
+				<title>Rectangle.136</title>
+				<desc>Frontend logic</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
+				<text x="26.9" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Frontend logic</text>			</g>
+		</a>
 		<g id="shape36-50" v:mID="36" v:groupContext="shape" transform="translate(1.5,-1519.62)">
 			<title>Rectangle.34</title>
 			<desc>To be analyzed</desc>
@@ -327,56 +329,66 @@
 			<v:textRect cx="68.0315" cy="1758.72" width="136.07" height="17.0079"/>
 			<rect x="0" y="1750.22" width="136.063" height="17.0079" class="st4"/>
 			<text x="4" y="1762.32" class="st5" v:langID="1044"><v:paragraph/><v:tabList/>Process</text>		</g>
-		<g id="shape50-83" v:mID="50" v:groupContext="shape" transform="translate(1214.73,-1618.83)">
-			<title>Rectangle.128</title>
-			<desc>Formfilling</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
-			<text x="34.32" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Formfilling</text>		</g>
-		<g id="shape51-86" v:mID="51" v:groupContext="shape" transform="translate(1214.73,-1522.45)">
-			<title>Rectangle.129</title>
-			<desc>Signing</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
-			<text x="42.14" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Signing</text>		</g>
-		<g id="shape52-89" v:mID="52" v:groupContext="shape" transform="translate(1339.45,-1522.45)">
-			<title>Rectangle.130</title>
-			<desc>Payment</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
-			<text x="38.67" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Payment</text>		</g>
-		<g id="shape53-92" v:mID="53" v:groupContext="shape" transform="translate(1464.18,-1522.45)">
-			<title>Rectangle.131</title>
-			<desc>Lookup</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
-			<text x="41.79" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Lookup</text>		</g>
-		<g id="shape54-95" v:mID="54" v:groupContext="shape" transform="translate(1214.73,-1426.08)">
-			<title>Rectangle.54</title>
-			<desc>Parallell signing</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
-			<text x="25.16" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Parallell signing</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/">
+			<g id="shape50-83" v:mID="50" v:groupContext="shape" transform="translate(1214.73,-1618.83)">
+				<title>Rectangle.128</title>
+				<desc>Formfilling</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
+				<text x="34.32" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Formfilling</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/">
+			<g id="shape51-86" v:mID="51" v:groupContext="shape" transform="translate(1214.73,-1522.45)">
+				<title>Rectangle.129</title>
+				<desc>Signing</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
+				<text x="42.14" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Signing</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/">
+			<g id="shape52-89" v:mID="52" v:groupContext="shape" transform="translate(1339.45,-1522.45)">
+				<title>Rectangle.130</title>
+				<desc>Payment</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
+				<text x="38.67" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Payment</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/">
+			<g id="shape53-92" v:mID="53" v:groupContext="shape" transform="translate(1464.18,-1522.45)">
+				<title>Rectangle.131</title>
+				<desc>Lookup</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
+				<text x="41.79" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Lookup</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/">
+			<g id="shape54-95" v:mID="54" v:groupContext="shape" transform="translate(1214.73,-1426.08)">
+				<title>Rectangle.54</title>
+				<desc>Parallell signing</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
+				<text x="25.16" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Parallell signing</text>			</g>
+		</a>
 		<g id="shape55-98" v:mID="55" v:groupContext="shape" transform="translate(1211.89,-1119.94)">
 			<title>Rectangle.55</title>
 			<v:userDefs>
@@ -384,16 +396,18 @@
 			</v:userDefs>
 			<rect x="0" y="1469.59" width="493.228" height="297.638" class="st1"/>
 		</g>
-		<g id="shape56-100" v:mID="56" v:groupContext="shape" transform="translate(1214.73,-1315.53)">
-			<title>Rectangle.56</title>
-			<desc>Instansiation</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="30.57" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Instansiation</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/app-api/org-rest/">
+			<g id="shape56-100" v:mID="56" v:groupContext="shape" transform="translate(1214.73,-1315.53)">
+				<title>Rectangle.56</title>
+				<desc>Instansiation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="30.57" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Instansiation</text>			</g>
+		</a>
 		<g id="shape58-103" v:mID="58" v:groupContext="shape" transform="translate(1214.73,-1400.56)">
 			<title>Sheet.58</title>
 			<desc>Org API</desc>
@@ -408,16 +422,18 @@
 			</v:userDefs>
 			<rect x="0" y="1469.59" width="493.228" height="297.638" class="st18"/>
 		</g>
-		<g id="shape60-108" v:mID="60" v:groupContext="shape" transform="translate(216.933,-570.722)">
-			<title>Rectangle.21</title>
-			<desc>Search</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
-			<text x="43.03" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Search</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/">
+			<g id="shape60-108" v:mID="60" v:groupContext="shape" transform="translate(216.933,-570.722)">
+				<title>Rectangle.21</title>
+				<desc>Search</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
+				<text x="43.03" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Search</text>			</g>
+		</a>
 		<g id="shape61-111" v:mID="61" v:groupContext="shape" transform="translate(216.933,-655.762)">
 			<title>Sheet.61</title>
 			<desc>Developer Dashboard</desc>
@@ -425,46 +441,54 @@
 			<v:textRect cx="68.0315" cy="1758.72" width="136.07" height="17.0079"/>
 			<rect x="0" y="1750.22" width="136.063" height="17.0079" class="st4"/>
 			<text x="4" y="1762.32" class="st5" v:langID="1044"><v:paragraph/><v:tabList/>Developer Dashboard</text>		</g>
-		<g id="shape62-114" v:mID="62" v:groupContext="shape" transform="translate(341.658,-570.722)">
-			<title>Rectangle.26</title>
-			<desc>App Overview</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
-			<text x="28.15" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>App Overview</text>		</g>
-		<g id="shape63-117" v:mID="63" v:groupContext="shape" transform="translate(466.382,-570.722)">
-			<title>Rectangle.178</title>
-			<desc>Clone</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
-			<text x="45.13" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Clone</text>		</g>
-		<g id="shape64-120" v:mID="64" v:groupContext="shape" transform="translate(216.933,-474.344)">
-			<title>Rectangle.179</title>
-			<desc>Create New App</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
-			<text x="23.54" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Create New App</text>		</g>
-		<g id="shape65-123" v:mID="65" v:groupContext="shape" transform="translate(344.492,-474.344)">
-			<title>Rectangle.180</title>
-			<desc>Login</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
-			<text x="45.83" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Login</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/">
+			<g id="shape62-114" v:mID="62" v:groupContext="shape" transform="translate(341.658,-570.722)">
+				<title>Rectangle.26</title>
+				<desc>App Overview</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
+				<text x="28.15" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>App Overview</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/">
+			<g id="shape63-117" v:mID="63" v:groupContext="shape" transform="translate(466.382,-570.722)">
+				<title>Rectangle.178</title>
+				<desc>Clone</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
+				<text x="45.13" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Clone</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/">
+			<g id="shape64-120" v:mID="64" v:groupContext="shape" transform="translate(216.933,-474.344)">
+				<title>Rectangle.179</title>
+				<desc>Create New App</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
+				<text x="23.54" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Create New App</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/">
+			<g id="shape65-123" v:mID="65" v:groupContext="shape" transform="translate(344.492,-474.344)">
+				<title>Rectangle.180</title>
+				<desc>Login</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<path d="M0 1767.23 L113.39 1767.23 L113.39 1682.19 L0 1682.19 L0 1767.23 Z" class="st9"/>
+				<text x="45.83" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Login</text>			</g>
+		</a>
 		<g id="shape66-126" v:mID="66" v:groupContext="shape" transform="translate(1710.79,-1423.24)">
 			<title>Rectangle.66</title>
 			<v:userDefs>
@@ -472,70 +496,82 @@
 			</v:userDefs>
 			<rect x="0" y="1469.59" width="493.228" height="297.638" class="st1"/>
 		</g>
-		<g id="shape67-128" v:mID="67" v:groupContext="shape" transform="translate(1713.63,-1618.83)">
-			<title>Rectangle.67</title>
-			<desc>Single Field Backend validation</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
-			<text x="14.44" y="1721.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Single Field Backend <tspan
-						x="35.92" dy="1.2em" class="st15">validation</tspan></text>		</g>
-		<g id="shape68-132" v:mID="68" v:groupContext="shape" transform="translate(1835.52,-1618.83)">
-			<title>Rectangle.68</title>
-			<desc>Register Prefill</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
-			<text x="27.22" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Register Prefill</text>		</g>
-		<g id="shape69-135" v:mID="69" v:groupContext="shape" transform="translate(1957.41,-1618.83)">
-			<title>Rectangle.69</title>
-			<desc>Profil Prefill</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
-			<text x="33" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Profil Prefill</text>		</g>
-		<g id="shape70-138" v:mID="70" v:groupContext="shape" transform="translate(1713.63,-1522.45)">
-			<title>Rectangle.70</title>
-			<desc>Custom instansiation hooks</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="14" y="1721.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Custom instansiation <tspan
-						x="44.56" dy="1.2em" class="st15">hooks</tspan></text>		</g>
-		<g id="shape71-142" v:mID="71" v:groupContext="shape" transform="translate(1835.52,-1522.45)">
-			<title>Rectangle.71</title>
-			<desc>Standard instansiation hooks</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st16"/>
-			<text x="11.17" y="1721.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Standard instansiation <tspan
-						x="44.56" dy="1.2em" class="st15">hooks</tspan></text>		</g>
-		<g id="shape72-146" v:mID="72" v:groupContext="shape" transform="translate(1713.63,-1426.08)">
-			<title>Rectangle.72</title>
-			<desc>PDF Generation</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
-			<text x="24.62" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>PDF Generation</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape67-128" v:mID="67" v:groupContext="shape" transform="translate(1713.63,-1618.83)">
+				<title>Rectangle.67</title>
+				<desc>Single Field Backend validation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
+				<text x="14.44" y="1721.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Single Field Backend <tspan
+							x="35.92" dy="1.2em" class="st15">validation</tspan></text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape68-132" v:mID="68" v:groupContext="shape" transform="translate(1835.52,-1618.83)">
+				<title>Rectangle.68</title>
+				<desc>Register Prefill</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
+				<text x="27.22" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Register Prefill</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape69-135" v:mID="69" v:groupContext="shape" transform="translate(1957.41,-1618.83)">
+				<title>Rectangle.69</title>
+				<desc>Profil Prefill</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
+				<text x="33" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Profil Prefill</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape70-138" v:mID="70" v:groupContext="shape" transform="translate(1713.63,-1522.45)">
+				<title>Rectangle.70</title>
+				<desc>Custom instansiation hooks</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="14" y="1721.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Custom instansiation <tspan
+							x="44.56" dy="1.2em" class="st15">hooks</tspan></text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape71-142" v:mID="71" v:groupContext="shape" transform="translate(1835.52,-1522.45)">
+				<title>Rectangle.71</title>
+				<desc>Standard instansiation hooks</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st16"/>
+				<text x="11.17" y="1721.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Standard instansiation <tspan
+							x="44.56" dy="1.2em" class="st15">hooks</tspan></text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape72-146" v:mID="72" v:groupContext="shape" transform="translate(1713.63,-1426.08)">
+				<title>Rectangle.72</title>
+				<desc>PDF Generation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
+				<text x="24.62" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>PDF Generation</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape74-149" v:mID="74" v:groupContext="shape" transform="translate(469.217,-1315.53)">
 				<title>Rectangle.74</title>
 				<desc>Help Text</desc>
@@ -547,7 +583,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st8"/>
 				<text x="37.42" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Help Text</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape75-152" v:mID="75" v:groupContext="shape" transform="translate(959.61,-1219.15)">
 				<title>Rectangle.75</title>
 				<desc>Custom Navigation</desc>
@@ -559,7 +595,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st8"/>
 				<text x="18.15" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Custom Navigation</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape76-155" v:mID="76" v:groupContext="shape" transform="translate(837.721,-1315.53)">
 				<title>Rectangle.76</title>
 				<desc>Standard Layout</desc>
@@ -571,16 +607,18 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 				<text x="22.65" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Standard Layout</text>			</g>
 		</a>
-		<g id="shape77-158" v:mID="77" v:groupContext="shape" transform="translate(1339.45,-1426.08)">
-			<title>Rectangle.77</title>
-			<desc>Conditional signing</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
-			<text x="18.02" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Conditional signing</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/">
+			<g id="shape77-158" v:mID="77" v:groupContext="shape" transform="translate(1339.45,-1426.08)">
+				<title>Rectangle.77</title>
+				<desc>Conditional signing</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
+				<text x="18.02" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Conditional signing</text>			</g>
+		</a>
 		<g id="shape78-161" v:mID="78" v:groupContext="shape" transform="translate(214.098,-1400.56)">
 			<title>Sheet.78</title>
 			<desc>UI-Features</desc>
@@ -602,46 +640,54 @@
 			<v:textRect cx="68.0315" cy="1758.72" width="136.07" height="17.0079"/>
 			<rect x="0" y="1750.22" width="136.063" height="17.0079" class="st4"/>
 			<text x="4" y="1762.32" class="st5" v:langID="1044"><v:paragraph/><v:tabList/>Deployment</text>		</g>
-		<g id="shape83-169" v:mID="83" v:groupContext="shape" transform="translate(715.831,-572.14)">
-			<title>Rectangle.118</title>
-			<desc>Deploy Status</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="28.7" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Deploy Status</text>		</g>
-		<g id="shape84-172" v:mID="84" v:groupContext="shape" transform="translate(840.555,-572.14)">
-			<title>Rectangle.119</title>
-			<desc>Deploy to environment</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="9.57" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Deploy to environment</text>		</g>
-		<g id="shape85-175" v:mID="85" v:groupContext="shape" transform="translate(965.28,-572.14)">
-			<title>Rectangle.120</title>
-			<desc>Create Release</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="26.43" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Create Release</text>		</g>
-		<g id="shape86-178" v:mID="86" v:groupContext="shape" transform="translate(715.831,-475.762)">
-			<title>Rectangle.127</title>
-			<desc>App Build</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st13"/>
-			<text x="37.15" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>App Build</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+			<g id="shape83-169" v:mID="83" v:groupContext="shape" transform="translate(715.831,-572.14)">
+				<title>Rectangle.118</title>
+				<desc>Deploy Status</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="28.7" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Deploy Status</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+			<g id="shape84-172" v:mID="84" v:groupContext="shape" transform="translate(840.555,-572.14)">
+				<title>Rectangle.119</title>
+				<desc>Deploy to environment</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="9.57" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Deploy to environment</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+			<g id="shape85-175" v:mID="85" v:groupContext="shape" transform="translate(965.28,-572.14)">
+				<title>Rectangle.120</title>
+				<desc>Create Release</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="26.43" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Create Release</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+			<g id="shape86-178" v:mID="86" v:groupContext="shape" transform="translate(715.831,-475.762)">
+				<title>Rectangle.127</title>
+				<desc>App Build</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st13"/>
+				<text x="37.15" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>App Build</text>			</g>
+		</a>
 		<g id="shape87-181" v:mID="87" v:groupContext="shape" transform="translate(1710.79,-1119.94)">
 			<title>Rectangle.87</title>
 			<v:userDefs>
@@ -656,7 +702,7 @@
 			<v:textRect cx="68.0315" cy="1758.72" width="136.07" height="17.0079"/>
 			<rect x="0" y="1750.22" width="136.063" height="17.0079" class="st4"/>
 			<text x="4" y="1762.32" class="st5" v:langID="1044"><v:paragraph/><v:tabList/>End User API</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape89-186" v:mID="89" v:groupContext="shape" transform="translate(593.941,-1315.53)">
 				<title>Rectangle.89</title>
 				<desc>Translation</desc>
@@ -668,16 +714,18 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
 				<text x="33.91" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Translation</text>			</g>
 		</a>
-		<g id="shape90-189" v:mID="90" v:groupContext="shape" transform="translate(1835.52,-1426.08)">
-			<title>Rectangle.90</title>
-			<desc>Receipt</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
-			<text x="41.44" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Receipt</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape90-189" v:mID="90" v:groupContext="shape" transform="translate(1835.52,-1426.08)">
+				<title>Rectangle.90</title>
+				<desc>Receipt</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
+				<text x="41.44" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Receipt</text>			</g>
+		</a>
 		<g id="shape91-192" v:mID="91" v:groupContext="shape" transform="translate(214.098,-0.25)">
 			<title>Rectangle.91</title>
 			<v:userDefs>
@@ -720,16 +768,18 @@
 			<v:textRect cx="184.252" cy="1761.56" width="368.51" height="11.3386"/>
 			<rect x="0" y="1755.89" width="368.504" height="11.3386" class="st4"/>
 			<text x="4" y="1770.56" class="st19" v:langID="1044"><v:paragraph/><v:tabList/>Functionality Operations</text>		</g>
-		<g id="shape97-208" v:mID="97" v:groupContext="shape" transform="translate(228.272,-957.631)">
-			<title>Rectangle.97</title>
-			<desc>Get Instance Data</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="20.43" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Get Instance Data</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+			<g id="shape97-208" v:mID="97" v:groupContext="shape" transform="translate(228.272,-957.631)">
+				<title>Rectangle.97</title>
+				<desc>Get Instance Data</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="20.43" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Get Instance Data</text>			</g>
+		</a>
 		<g id="shape98-211" v:mID="98" v:groupContext="shape" transform="translate(1.5,-942.77)">
 			<title>Rectangle.98</title>
 			<desc>Testing blocked</desc>
@@ -740,57 +790,67 @@
 			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
 			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
 			<text x="24.27" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Testing blocked</text>		</g>
-		<g id="shape99-214" v:mID="99" v:groupContext="shape" transform="translate(1713.63,-1315.53)">
-			<title>Rectangle.99</title>
-			<desc>Instansiation</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="30.57" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Instansiation</text>		</g>
-		<g id="shape100-217" v:mID="100" v:groupContext="shape" transform="translate(1844.02,-1315.53)">
-			<title>Rectangle.100</title>
-			<desc>Validation</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="36.06" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Validation</text>		</g>
-		<g id="shape101-220" v:mID="101" v:groupContext="shape" transform="translate(1974.41,-1315.53)">
-			<title>Rectangle.101</title>
-			<desc>Calculation</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
-			<text x="34.11" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculation</text>		</g>
-		<g id="shape102-223" v:mID="102" v:groupContext="shape" transform="translate(216.933,-186.628)">
-			<title>Rectangle.102</title>
-			<desc>Log management</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st8"/>
-			<text x="21.43" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Log management</text>		</g>
-		<g id="shape103-226" v:mID="103" v:groupContext="shape" transform="translate(1339.45,-1618.83)">
-			<title>Rectangle.103</title>
-			<desc>Instansiation</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
-			<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
-			<text x="29.77" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Instansiation</text>		</g>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/app-api/eus-rest/">
+			<g id="shape99-214" v:mID="99" v:groupContext="shape" transform="translate(1713.63,-1315.53)">
+				<title>Rectangle.99</title>
+				<desc>Instansiation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="30.57" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Instansiation</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/app-api/eus-rest/">
+			<g id="shape100-217" v:mID="100" v:groupContext="shape" transform="translate(1844.02,-1315.53)">
+				<title>Rectangle.100</title>
+				<desc>Validation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="36.06" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Validation</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/app-api/eus-rest/">
+			<g id="shape101-220" v:mID="101" v:groupContext="shape" transform="translate(1974.41,-1315.53)">
+				<title>Rectangle.101</title>
+				<desc>Calculation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st6"/>
+				<text x="34.11" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Calculation</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/architecture/operations">
+			<g id="shape102-223" v:mID="102" v:groupContext="shape" transform="translate(216.933,-186.628)">
+				<title>Rectangle.102</title>
+				<desc>Log management</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st8"/>
+				<text x="21.43" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Log management</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/">
+			<g id="shape103-226" v:mID="103" v:groupContext="shape" transform="translate(1339.45,-1618.83)">
+				<title>Rectangle.103</title>
+				<desc>Instansiation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st2"/>
+				<text x="29.77" y="1727.71" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Instansiation</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape104-229" v:mID="104" v:groupContext="shape" transform="translate(1087.17,-1315.53)">
 				<title>Rectangle.104</title>
 				<desc>Wide Layout</desc>
@@ -802,7 +862,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
 				<text x="31.15" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Wide Layout</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape105-232" v:mID="105" v:groupContext="shape" transform="translate(1087.17,-1219.15)">
 				<title>Rectangle.105</title>
 				<desc>Dashboard Layout</desc>
@@ -814,7 +874,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
 				<text x="19.78" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Dashboard Layout</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/frontend/">
 			<g id="shape106-235" v:mID="106" v:groupContext="shape" transform="translate(216.933,-1315.53)">
 				<title>Rectangle.106</title>
 				<desc>Pages</desc>
@@ -826,7 +886,7 @@
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
 				<text x="44.92" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Pages</text>			</g>
 		</a>
-		<a xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
 			<g id="shape107-238" v:mID="107" v:groupContext="shape" transform="translate(1957.41,-1522.45)">
 				<title>Rectangle.107</title>
 				<desc>Form set</desc>
@@ -837,6 +897,18 @@
 				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
 				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st14"/>
 				<text x="38.77" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Form set</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-apps/app/features">
+			<g id="shape108-241" v:mID="108" v:groupContext="shape" transform="translate(1957.41,-1426.08)">
+				<title>Rectangle.108</title>
+				<desc>Policy Enforcment</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1724.71" width="113.39" height="85.0394"/>
+				<rect x="0" y="1682.19" width="113.386" height="85.0394" class="st17"/>
+				<text x="19.8" y="1727.71" class="st7" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Policy Enforcment</text>			</g>
 		</a>
 	</g>
 </svg>
