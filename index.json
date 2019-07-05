@@ -18,7 +18,7 @@
 	"title": "Solutions",
 	"tags": ["solution", "studio", "apps", "repos"],
 	"description": "Altinn Studio, together with Altinn Apps and Altinn Platform is the solutions that makes a complete application development and hosting platform.",
-	"content": "\r\n\rAltinn Studio\rThe design-time solution for developing, testing and maintaining applications.\n\r\rAltinn Apps\rApps is the runtime and infrastructure solution that is responsible for hosting and running the apps created in Altinn Studio as containers.\n\r\rAltinn Platform\rAltinn Platform is the solution where the supporting platform functionality resides.\n\r\r"
+	"content": "\r\n\rAltinn Studio\rThe design-time solution for developing, testing and maintaining applications.\n\r\rAltinn Apps\rAltinn Apps is the solution where all the apps created in Altinn Studio is hosted.\n\r\rAltinn Platform\rAltinn Platform is the solution where the supporting platform functionality resides.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/",
@@ -871,8 +871,8 @@
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/",
 	"title": "Altinn Apps",
 	"tags": ["solution", "apps"],
-	"description": "Apps is the runtime and infrastructure solution that is responsible for hosting and running the apps created in Altinn Studio as containers.",
-	"content": "It has all required functionality to render UI, host and call APIs, handle workflow, logic, scaling and everthing else related to an app.\n\rApp\rDescription of the app created in Altinn Studio and that is deployed to Altinn Apps.\n\r\r"
+	"description": "Altinn Apps is the solution where all the apps created in Altinn Studio is hosted.",
+	"content": "Altinn Apps is build around Kubernetes and Docker and every app hosted in Altinn Apps needs to be a deployed in a Docker Container.\nThe infrastructure is Public Cloud based and every org has a separate and isolated Kubernetes Cluster.\n\rApp\rDescription of the app created in Altinn Studio and that is deployed to Altinn Apps.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/",
@@ -886,7 +886,7 @@
 	"title": "App",
 	"tags": ["solution", "apps"],
 	"description": "Description of the app created in Altinn Studio and that is deployed to Altinn Apps.",
-	"content": "The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.\nThe app have API\u0026rsquo;s, handles support different types of app processes and can have a optional GUI.\n"
+	"content": "The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.\nCurrently there is only one \u0026ldquo;App Template\u0026rdquo; that is used, but in future the App could be based on different types of templates and even different types of frameworks.\nThe App template contains functionality for API, process handling, GUI, and many other features making it easy for the developers to create a Apps to support different types of functional needs.\nThe current version contains support for simple user needs, but the platform and the app templates will get more functionality in the future.\n\rApp API\rDescription of the API available in an app created in Altinn Studio.\n\r\rFeatures\rDescription of features in App\n\r\rFrontend\rDescription of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.\n\r\rProcess handling\rDescription of the process handling capability of Apps created in Altinn Studio\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/app-api/",
