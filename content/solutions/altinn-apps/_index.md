@@ -1,12 +1,15 @@
 ---
 title: Altinn Apps
-description: Apps is the runtime and infrastructure solution that is responsible for hosting and running the apps created in Altinn Studio as containers.
+description: Altinn Apps is the solution where all the apps created in Altinn Studio is hosted.  
 tags: [solution, apps]
 aliases:
     - "/altinn-studio-apps"
 weight: 200
 ---
 
-It has all required functionality to render UI, host and call APIs, handle workflow, logic, scaling and everthing else related to an app. 
+Altinn Apps is build around Kubernetes and Docker and every app hosted in Altinn Apps needs to be a deployed in a Docker Container. 
+
+The infrastructure is Public Cloud based and every org has a separate and isolated Kubernetes Cluster. 
+
 
 {{% children description="true" depth="1" %}}
