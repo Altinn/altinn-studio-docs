@@ -21,9 +21,11 @@ weight: 200
 
 
 ## Policy Enforcment
+A App has built in Policy Enforcments Points at the different API endpoints to make sure that the user / system is authorized to perform operation on the app / data.
 
 
 ## Formset
+In the future the App will support multiple datamodels
 
 
 

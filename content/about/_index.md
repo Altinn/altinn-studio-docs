@@ -1,7 +1,7 @@
 ---
 title: About Altinn Studio
 linktitle: About
-description: Description of the Altinn Studio and Altinn Studio Apps solutions
+description: Description of the Altinn Studio, Altinn Apps and Altinn Platform solutions
 toc: true
 weight: 100
 alwaysopen: false

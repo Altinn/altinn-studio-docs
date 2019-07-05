@@ -5,9 +5,9 @@ tags: ["solution", "apps"]
 weight: 200
 ---
 
-A app have a defined process.  The process can consist of serveral type of task in different orders.
+A app have a defined business process.  The business process can consist of serveral type of task in different orders.
 
-If you want details about the process architechture 
+If you want details about the business process architechture see Business Process Architecture  
 
 
 ## Tasks
