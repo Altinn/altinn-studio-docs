@@ -17,7 +17,7 @@
 	"uri": "https://docs.altinn.studio/solutions/",
 	"title": "Solutions",
 	"tags": ["solution", "studio", "apps", "repos"],
-	"description": "Altinn Studio, together with Altinn Apps and Altinn Platform is the three different technical solutions to make a complete application development and hosting platform.",
+	"description": "Altinn Studio, together with Altinn Apps and Altinn Platform is the solutions that makes a complete application development and hosting platform.",
 	"content": "\r\n\rAltinn Studio\rThe design-time solution for developing, testing and maintaining applications.\n\r\rAltinn Apps\rApps is the runtime and infrastructure solution that is responsible for hosting and running the apps created in Altinn Studio as containers.\n\r\rAltinn Platform\rAltinn Platform is the solution where the supporting platform functionality resides.\n\r\r"
 },
 {
@@ -45,7 +45,7 @@
 	"uri": "https://docs.altinn.studio/about/",
 	"title": "About Altinn Studio",
 	"tags": [],
-	"description": "Description of the Altinn Studio and Altinn Studio Apps solutions",
+	"description": "Description of the Altinn Studio, Altinn Apps and Altinn Platform solutions",
 	"content": " What is Altinn Studio? Altinn Studio is the third-generation application development solution from Altinn. Norway\u0026rsquo;s public platform for E-Government.\nThe current development solution and hosting platform (launched 2010) is considered by Gartner as one of the five leading digital government technology platforms in the world.\nThe current platform is used by over 90% of the Norwegian population and almost 100% of the businesses. Over 55 agencies and municipalities host their solutions in the Altinn platform.\nAltinn Studio gives organizations an efficient and self-serviced way to design, build and deploy containerized applications in a modern cloud infrastructure. These applications can have GUI for web access and/or APIs for system integrations. An app can contain any type of functionality targeted for users and/or systems.\nThe current platform has almost 1000 active solutions supporting different user scenarios.\nExamples of solutions in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more.\nWhat is Altinn Apps? Altinn Apps is the infrastructure where services (apps) developed in Altinn Studio is running. This is a highly scalable platform for running container-applications with a seperate Kubernetes cluster for each organization, giving maximum isolation and flexibility.\nWhat is Altinn Platform? Altinn Platform is a highly scalable platform with reusable micro services used by apps and other systems. Altinn Platform have services for storage of data, authorization, authentication, userprofile+++.\nWhat types of apps can be built with Altinn Studio and hosted in Altinn Apps? The first version will support apps where the use case is to submit data from the end user or system to the app owner.\nWhy Altinn Studio? There are many reasons to use Altinn Studio instead of building everything from scratch.\n Easy to develop and deploy apps Reuse of data, APIs and functionality (code) A known platform for end users Highly scalable and secure infrastructure Open source  When will it be released First version is planned to be launched 2019\nPresentations Presentation Mars 2019 Norwegian\n"
 },
 {
@@ -424,7 +424,7 @@
 	"title": "Functionality in Altinn Studio",
 	"tags": ["solution", "studio"],
 	"description": "Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.",
-	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rTheming and styling\rSolution for theming and styling conventions.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Designer\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\rUsing APIs\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\rWorkflow\rAs part of the development one must define a workflow for the app.\n\r\r"
+	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rTheming and styling\rSolution for theming and styling conventions.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rCode Editor\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Designer\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\rUsing APIs\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/general/",
@@ -921,7 +921,7 @@
 	"title": "Features",
 	"tags": ["solution", "apps"],
 	"description": "Description of features in App",
-	"content": " Prefill Data validation Data Calculation Instansiation Hooks Policy Enforcment Formset \r"
+	"content": " Prefill Data validation Data Calculation Instansiation Hooks Policy Enforcment A App has built in Policy Enforcments Points at the different API endpoints to make sure that the user / system is authorized to perform operation on the app / data.\nFormset In the future the App will support multiple datamodels\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/frontend/",
@@ -935,7 +935,7 @@
 	"title": "Process handling",
 	"tags": ["solution", "apps"],
 	"description": "Description of the process handling capability of Apps created in Altinn Studio",
-	"content": " A app have a defined process. The process can consist of serveral type of task in different orders.\nIf you want details about the process architechture\nTasks Formfilling Signing Payment Events \r"
+	"content": " A app have a defined business process. The business process can consist of serveral type of task in different orders.\nIf you want details about the business process architechture see Business Process Architecture\nTasks Formfilling Signing Payment Events \r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/profile/",
@@ -1071,6 +1071,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/code-editor/",
+	"title": "Code Editor",
+	"tags": ["studio", "workflow", "process"],
+	"description": "In Altinn Studio there is a web based code editor for editing front-end and back-end logic",
+	"content": " Code Editor for back-end logic Code Editor for front-end logic "
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/",
 	"title": "Dashboard",
 	"tags": ["studio"],
@@ -1083,6 +1090,13 @@
 	"tags": ["studio", "data-modeling"],
 	"description": "Defining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.",
 	"content": "The data model for an app typical defines the format of the data either sent to the app owner or presented in the app for the user. The data model is important for a consistent and formal definition of the data. It will be used for validation both from UI and for external systems.\nAltinn Studio will support both importing existing data model as XSD or creating a data modell. In MVP only import is in scope.\nSome requirements for Altinn Studio is:\n It should be easy to model data. Built in replacment for SERES (current tool). Need to support more formats.  See all issues related to Altinn Studio and data modeling on Github.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/define-process/",
+	"title": "Define process",
+	"tags": ["studio", "workflow", "process"],
+	"description": "As part of the development one must define a process for the app that end user needs to follow.",
+	"content": "A app will typical have a process that a end user / or system needs to follow. It could be anything from a single task process where the app is used to retrieve data from some external api, to long living processes with many tasks involving.\nIn Altinn Studio the developer will need to define the process for the app.\nIn current version of Altinn Studio the only support for process definition is to upload a BPMN process file and the only task type we support are FormFilling\n[See Process Architecture for more details how process is define)()\nSee all issues related to Altinn Studio and workflow on Github.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/development/",
@@ -1328,13 +1342,6 @@
 	"tags": ["studio", "work in progress"],
 	"description": "A work in progress information is displayed to users of Altinn Studio.",
 	"content": " Work in progress page There are many areas in altinn.studio where the functionality is not implemented yet (but will be available in upcoming releases).\nThere is a need to inform the user about this and provide a good user experience. So a work in progress page is displayed on all areas where the implementation has either not started or in progress.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/workflow/",
-	"title": "Workflow",
-	"tags": ["studio", "workflow"],
-	"description": "As part of the development one must define a workflow for the app.",
-	"content": " See all issues related to Altinn Studio and workflow on Github.\nDefinere arbeidsflyt Definere arbeidsflyt for en app. Må være MYE kraftigere og mer fleksibel enn det som finnes i dagens løsning. Målsettingen er å muliggjøre at vi kan fjerne de ulike tjenestetypene i dagens løsning.\nTanken er at hvis man både kan gjøre henting av data (innsyn) og ta i mot meldinger, og gjøre en eller flere arkivering, så faller behovet for tjenestetyper bort. Behovet for samhandlingstjenesten forsvinner også.\nEn annen veldig spennende tanke er at dette også åpner opp for å \u0026ldquo;koble sammen\u0026rdquo; dialogen for brukeren, siden det da per. def ikke er noe å koble sammen. Hele dialogen er bare ulike steg i den samme appen, og siden man også kan legge til API\u0026rsquo;er på en 3.0-app, så åpner det opp for at tjenesteeier modellerer flyten istedenfor at den må passe inn i et mønster som er bestemt av Altinn.\nStegene i en arbeidsflyt skal også være del av selve appen som deployes, og ikke kjøre i plattformen slik som i dag. Dette åpner opp for stor grad av tilpasninger, gjør at hele flyten kan enhetstestes, og gjør at appen i større grad blir immun mot påvirkning fra endringer i plattformen. En naturlig vei å gå vil være å benytte de samme mekanismene for å kunne gjenbruke og (re)definere arbeidsflyt og UI per steg, som for UI for appene. Og da er vi veldig nærme det at arbeidsflyt ikke er noe eget, det er det samme som flyten internt i et skjema.\nEksempler på steg:\n Signering Hente prefill, gjøre oppslag mot eksterne data Gjøre eksterne valideringer via API Motta melding via API Gjøre ekstern signering Egendefinerte steg, med UX  "
 },
 {
 	"uri": "https://docs.altinn.studio/tags/xacml/",
