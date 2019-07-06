@@ -900,14 +900,14 @@
 	"title": "Authentication",
 	"tags": ["platform", "authentication"],
 	"description": "The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.",
-	"content": " API to create JWT Token for user logged in to Altinn Portal When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged in user. This cookie is a propiaritary format for ASP.Net (Full Framework) and can only be understood with application based on .Net full framework having access to the symmetric encryption key. The Altinn Platform is based on .ASP.Net core I cant understand the cookie.\nTo allow for a user accessing a App in Altinn Apps or a component in Altinn Platform the current platform will expose a API that can decrypt a ASP.Net cookie and return user information to the Authentication component in Altinn Platform.\n"
+	"content": " API to create JWT Token for user logged in to Altinn Portal When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged in user. This cookie is a propiaritary format for ASP.Net (Full Framework) and can only be understood with application based on .Net full framework having access to the symmetric encryption key. The Altinn Platform is based on .ASP.Net core I cant understand the cookie.\nTo allow for a user accessing a App in Altinn Apps or a component in Altinn Platform the current platform will expose a API that can decrypt a ASP.Net cookie and return user information to the Authentication component in Altinn Platform.\nSee all open issues for Authentication on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/authorization/",
 	"title": "Authorization",
 	"tags": ["platform", "authorization"],
 	"description": "The authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.",
-	"content": "The authorization component consist of a Policy Decision Point (PDP), Policy Retriaval Point (PRP) and is integrated with other external Policy Information Points.\n"
+	"content": "The authorization component consist of a Policy Decision Point (PDP), Policy Retriaval Point (PRP) and is integrated with other external Policy Information Points.\nSee all open issues for Authorization on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/getting-started/app-creation/",
@@ -921,14 +921,14 @@
 	"title": "Features",
 	"tags": ["solution", "apps"],
 	"description": "Description of features in App",
-	"content": " Prefill Data validation Data Calculation Instansiation Hooks Policy Enforcment A App has built in Policy Enforcments Points at the different API endpoints to make sure that the user / system is authorized to perform operation on the app / data.\nFormset In the future the App will support multiple datamodels\n\r"
+	"content": " Prefill A application can prefill data in the datamodels for the app based on standard configuration for profile and register data, but can also prefill data based on data from service owner or prefill based on logic define in the custom app logic defined by the application developer.\nData validation The application can validate the datamodel based on the datamodel itself and based on custom app logic defined by the application developer.\nData Calculation The application can calculate data in the datamodels based on custom applogic defined by the application developer.\nInstansiation Hooks A app can perform instansiations checks as part of standard instansiations hooks and\nPolicy Enforcment A App has built in Policy Enforcments Points at the different API endpoints to make sure that the user / system is authorized to perform operation on the app / data.\nFormset In the future the App will support multiple datamodels\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/frontend/",
 	"title": "Frontend",
 	"tags": ["solution", "apps"],
 	"description": "Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.",
-	"content": " A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.\nUI rendering The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.\nUI-Components The supported UI-components can be seen here\nTheming In the future Altinn Apps will support theming making it possible to have different style on the App.\nSee epic for this issue on Github.\nUI Layout In the future Altinn Apps will support different types of layout. Now the support is limited to one page UI that is mobile friendly.\nSee epic for this issue on Github\nUI logic As part of designing UI, there can be defined UI-logic that do stuff dynamic rendering (hide or show parts of ui based on input or other parameters) or update data.\nCustom Navigation In the future the App will support different types of navigation to See epic for this issue on Github\nTranslation In the future the App will support having multiple languages in a App See issue for this on Github\nPages In the future the App will support having ui over multiple pages See issue for this on Github\nOn Github you can find all issues related to App-Frontend.\n"
+	"content": " A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.\nThis frontend is a React based SPA (Singe Page Application) that uses configuration to render based settings for a given application.\nUI rendering The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.\nUI-Components The supported UI-components can be seen here\nTheming In the future Altinn Apps will support theming making it possible to have different style on the App.\nSee epic for this issue on Github.\nUI Layout In the future Altinn Apps will support different types of layout. Now the support is limited to one page UI that is mobile friendly.\nSee epic for this issue on Github\nUI logic As part of designing UI, there can be defined UI-logic that do stuff dynamic rendering (hide or show parts of ui based on input or other parameters) or update data.\nCustom Navigation In the future the App will support different types of navigation to See epic for this issue on Github\nTranslation In the future the App will support having multiple languages in a App See issue for this on Github\nPages In the future the App will support having ui over multiple pages See issue for this on Github\nOn Github you can find all issues related to App-Frontend.\nCustom Frontend In the future it is possible that Altinn Studio will support having a frontend that is costum application created by the developer. This could be a frontend based on any javascript based frameworks like Angular,\nSee Github for issue\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/",
@@ -942,7 +942,7 @@
 	"title": "Profile",
 	"tags": ["platform", "profile"],
 	"description": "The Profile component gives profile information for users in Altinn.",
-	"content": ""
+	"content": "See all open issues for Profile on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/app-api/eus-rest/",
@@ -963,7 +963,7 @@
 	"title": "Register",
 	"tags": ["platform", "register"],
 	"description": "The Register micro service gives register information to Apps.",
-	"content": "  ER - Enhetsregisteret - Information about organizations in Norway DSF - Det Sentrale Folkeregisteret - Information about citizens in Norway.  ER - Enhetsregisteret ER registeret can be used to prefill information, retrieve information based on user input or for validation of input of users.\nAltinn Platform does not have a own copy of ER. It currently uses Altinn II plaform as source for register.\nSee Application architecture for details.\n"
+	"content": "  ER - Enhetsregisteret - Information about organizations in Norway DSF - Det Sentrale Folkeregisteret - Information about citizens in Norway.  ER - Enhetsregisteret ER registeret can be used to prefill information, retrieve information based on user input or for validation of input of users.\nAltinn Platform does not have a own copy of ER. It currently uses Altinn II plaform as source for register.\nSee Application architecture for details.\nSee all open issues for Register on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/storage/",
@@ -1033,7 +1033,7 @@
 	"title": "Altinn Studio",
 	"tags": [],
 	"description": "Documentation for Altinn Studio.",
-	"content": "Altinn Studio is the next generation Altinn application development solution. All you need for testing the preview is to register an account.\n This is the documentation for Altinn Studio, Altinn Apps and Altinn Platform. Altinn Studio have an open backlog on GitHub and the code is open source. Everybody can create bugs, request features or ask questions.  "
+	"content": "Altinn Studio is the next generation Altinn application development solution. All you need for testing the preview is to register an account.\nTogether with Altinn Apps and Altinn Platform, Altinn Studio makes a complete development and hosting platform for web and api based applications.\n This is the documentation for Altinn Studio, Altinn Apps and Altinn Platform. Altinn Studio have an open backlog on GitHub and the code is open source. Everybody can create bugs, request features or ask questions.  "
 },
 {
 	"uri": "https://docs.altinn.studio/development/analysis/",
