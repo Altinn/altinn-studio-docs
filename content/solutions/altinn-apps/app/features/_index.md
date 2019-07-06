@@ -6,18 +6,20 @@ weight: 200
 ---
 
 
-
-
 ## Prefill
-
+A application can prefill data in the datamodels for the app based on standard configuration for profile and register data, 
+but can also prefill data based on data from service owner or prefill based on logic define in the custom app logic defined
+by the application developer.
 
 ## Data validation
-
+The application can validate the datamodel based on the datamodel itself and based on custom app logic 
+defined by the application developer.
 
 ## Data Calculation
-
+The application can calculate data in the datamodels based on custom applogic defined by the application developer.
 
 ## Instansiation Hooks
+A app can perform instansiations checks as part of standard instansiations hooks and 
 
 
 ## Policy Enforcment

@@ -7,6 +7,9 @@ jumbotron: true
 [Altinn Studio] is the next generation Altinn application development solution.
 All you need for testing the preview is to [register an account](/getting-started/first-time-setup).
 
+Together with Altinn Apps and Altinn Platform, Altinn Studio makes a complete development and hosting
+platform for web and api based applications.
+
 - This is the documentation for Altinn Studio, Altinn Apps and Altinn Platform. 
 - Altinn Studio have an [open backlog] on GitHub and [the code] is open source.
 - Everybody can [create bugs], [request features] or [ask questions].

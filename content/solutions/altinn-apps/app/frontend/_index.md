@@ -7,6 +7,8 @@ weight: 200
 
 A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.
 
+This frontend is a React based SPA (Singe Page Application) that uses configuration to render based settings for a given application.
+
 ## UI rendering
 
 The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.
@@ -42,13 +44,13 @@ In the future the App will support having multiple languages in a App
 In the future the App will support having ui over multiple pages
 [See issue for this on Github](https://github.com/Altinn/altinn-studio/issues/1265)
 
-
-
 [On Github you can find all issues related to App-Frontend](https://github.com/Altinn/altinn-studio/labels/app-frontend).
 
+## Custom Frontend
+In the future it is possible that Altinn Studio will support having a frontend that is costum application created by 
+the developer. This could be a frontend based on any javascript based frameworks like Angular, 
 
-
-
+[See Github for issue](https://github.com/Altinn/altinn-studio/issues/2142)
 
 
 

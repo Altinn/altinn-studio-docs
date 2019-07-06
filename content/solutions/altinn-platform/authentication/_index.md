@@ -14,3 +14,5 @@ symmetric encryption key. The Altinn Platform is based on .ASP.Net core I cant u
 To allow for a user accessing a App in Altinn Apps or a component in Altinn Platform the current platform will expose a API that can decrypt a ASP.Net 
 cookie and return user information to the Authentication component in Altinn Platform. 
 
+
+[See all open issues for Authentication on Github](https://github.com/Altinn/altinn-studio/labels/authentication)

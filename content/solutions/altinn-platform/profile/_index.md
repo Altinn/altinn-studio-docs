@@ -6,3 +6,6 @@ weight: 200
 ---
 
 
+
+[See all open issues for Profile on Github](https://github.com/Altinn/altinn-studio/labels/profile)
+
