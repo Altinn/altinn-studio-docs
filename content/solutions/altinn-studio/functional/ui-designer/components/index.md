@@ -237,3 +237,6 @@ Once this is done, the UI editor in Altinn Studio should be re-loaded, and the c
 {{% notice info %}}
 NOTE: Editing properties for custom components in the UI editor is currently not supported. As such, and properties for the component should be set directly in the code for the component. The documentation will be updated once this functionality is made available through the UI editor. 
 {{% /notice %}}
+
+
+[See all Github issues for UI-Designer](https://github.com/Altinn/altinn-studio/labels/ui-editor)
