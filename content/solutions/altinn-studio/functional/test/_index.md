@@ -9,9 +9,8 @@ over time.
 
 Altinn Studio will seek to support automatic tests of apps. Currently we are looking at TestCafe as framework.
 
-## Manuell testing
+## Preview
 
-Samme [Runtime](../runtime/) som vil kjøre i altinn.no vil også benyttes for testing av tjenester i Designer.
-Dette betyr at enhetstesting av UX og API'er vil gi stor grad av sikkerhet,
-siden det er samme runtime-koden som vil kjøre både i prod og under utvikling.
-En annen positiv effekt er at mer tekniske utviklere faktisk kan gjøre realistisk lokal debugging og stepping i runtime-koden.
+In Altinn Studio a developer can test most aspects of a App without building and deploying it to a test environment. 
+
+[See all issues on Github for App Testing](https://github.com/Altinn/altinn-studio/issues?q=is%3Aissue+is%3Aopen+label%3Aapp-test)

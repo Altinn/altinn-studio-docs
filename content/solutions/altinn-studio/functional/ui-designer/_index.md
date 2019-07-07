@@ -27,3 +27,10 @@ The form components are reusable components that are used to build the user inte
 Examples include input fields and title components. See a list of all available form components [here](/ui-components/).
 
 It is also possible to define custom components and use this in the service. 
+
+
+## Multiple form layouts
+In the future Altinn Studio will support creating different UI for seperate datamodels for sub forms or forms in seperate form filling task in a process.
+
+
+[See all Github issues for UI-Designer](https://github.com/Altinn/altinn-studio/labels/ui-editor)

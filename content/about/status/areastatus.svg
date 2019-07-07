@@ -390,7 +390,7 @@
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
-				<path d="M0 1704.86 L113.39 1704.86 L113.39 1619.82 L0 1619.82 L0 1704.86 Z" class="st2"/>
+				<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st7"/>
 				<text x="34.79" y="1665.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Encryption</text>			</g>
 		</a>
 		<g id="shape51-102" v:mID="51" v:groupContext="shape" transform="translate(667.642,-346.077)">
@@ -1612,6 +1612,129 @@
 				<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
 				<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st7"/>
 				<text x="6.04" y="1665.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Policy Enforcment Points</text>			</g>
+		</a>
+		<g id="shape182-462" v:mID="182" v:groupContext="shape" transform="translate(1169.37,-1460.09)">
+			<title>Rectangle.182</title>
+			<desc>Generate datamodel based on UI</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st16"/>
+			<text x="14.52" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Generate datamodel <tspan
+						x="32.61" dy="1.2em" class="st15">based on UI</tspan></text>		</g>
+		<g id="shape183-466" v:mID="183" v:groupContext="shape" transform="translate(795.201,-1063.24)">
+			<title>Rectangle.133</title>
+			<desc>Define authorization rules for app</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st8"/>
+			<text x="14.9" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define authorization <tspan
+						x="30.92" dy="1.2em" class="st15">rules for app</tspan></text>		</g>
+		<g id="shape184-470" v:mID="184" v:groupContext="shape" transform="translate(919.925,-1063.24)">
+			<title>Rectangle.184</title>
+			<desc>Set up instansiations hooks</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st8"/>
+			<text x="14.75" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Set up instansiations <tspan
+						x="44.56" dy="1.2em" class="st15">hooks</tspan></text>		</g>
+		<g id="shape185-474" v:mID="185" v:groupContext="shape" transform="translate(1044.65,-1063.24)">
+			<title>Rectangle.185</title>
+			<desc>Codelist</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st16"/>
+			<text x="40.35" y="1665.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Codelist</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/">
+			<g id="shape186-477" v:mID="186" v:groupContext="shape" transform="translate(1917.72,-1060.41)">
+				<title>Rectangle.186</title>
+				<desc>Define API Usage logic frontend</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+				<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st7"/>
+				<text x="11.41" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define API Usage logic <tspan
+							x="38.74" dy="1.2em" class="st15">frontend</tspan></text>			</g>
+		</a>
+		<g id="shape187-481" v:mID="187" v:groupContext="shape" transform="translate(919.925,-1253.16)">
+			<title>Rectangle.187</title>
+			<desc>Push and pull changes to source control</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<path d="M0 1704.86 L113.39 1704.86 L113.39 1619.82 L0 1619.82 L0 1704.86 Z" class="st2"/>
+			<text x="6.31" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Push and pull changes to <tspan
+						x="27.42" dy="1.2em" class="st15">source control</tspan></text>		</g>
+		<g id="shape188-485" v:mID="188" v:groupContext="shape" transform="translate(1044.65,-1156.79)">
+			<title>Rectangle.188</title>
+			<desc>Configure Presentation FIelds</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st16"/>
+			<text x="9.71" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Configure Presentation <tspan
+						x="44.92" dy="1.2em" class="st15">FIelds</tspan></text>		</g>
+		<g id="shape189-489" v:mID="189" v:groupContext="shape" transform="translate(2167.17,-1460.09)">
+			<title>Rectangle.189</title>
+			<desc>Create Unit Tests</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st16"/>
+			<text x="21.81" y="1665.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Create Unit Tests</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+			<g id="shape190-492" v:mID="190" v:groupContext="shape" transform="translate(548.587,-711.746)">
+				<title>Rectangle.190</title>
+				<desc>Printout / PDF Generation</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+				<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st8"/>
+				<text x="27.83" y="1659.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Printout / PDF <tspan
+							x="33.71" dy="1.2em" class="st15">Generation</tspan></text>			</g>
+		</a>
+		<g id="shape192-496" v:mID="192" v:groupContext="shape" transform="translate(1044.65,-1253.16)">
+			<title>Rectangle.192</title>
+			<desc>Configure PDF Printout</desc>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+			</v:userDefs>
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+			<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st16"/>
+			<text x="9.95" y="1665.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Configure PDF Printout</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+			<g id="shape193-499" v:mID="193" v:groupContext="shape" transform="translate(296.303,-445.289)">
+				<title>Rectangle.193</title>
+				<desc>Event Feed</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1662.34" width="113.39" height="85.0394"/>
+				<rect x="0" y="1619.82" width="113.386" height="85.0394" class="st16"/>
+				<text x="34.17" y="1665.34" class="st3" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Event Feed</text>			</g>
 		</a>
 	</g>
 </svg>
