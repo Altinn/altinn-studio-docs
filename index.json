@@ -424,7 +424,7 @@
 	"title": "Functionality in Altinn Studio",
 	"tags": ["solution", "studio"],
 	"description": "Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.",
-	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rTheming and styling\rSolution for theming and styling conventions.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rCode Editor\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Designer\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\rUsing APIs\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\r"
+	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rTheming and styling\rSolution for theming and styling conventions.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rCode Editor\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rPrefill\rAltinn Studio will let the developer define prefill for datamodel from register and profile\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rSet Authorization Rules\rAltinn Studio let the developer set the authorization requirements for a App\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Designer\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\rUsing APIs\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/general/",
@@ -1047,7 +1047,7 @@
 	"title": "App Deployment",
 	"tags": ["studio"],
 	"description": "Altinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.",
-	"content": "An app developer you will be able to deploy the developed app to Altinn Studio Apps for testing/production.\nThis functionality will be 100% self-serviced without involving other parties.\n"
+	"content": "An app developer you will be able to deploy the developed app to Altinn Studio Apps for testing/production.\nThis functionality will be 100% self-serviced without involving other parties.\nSee issues related to app-deployment on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/branching/",
@@ -1096,7 +1096,7 @@
 	"title": "Define process",
 	"tags": ["studio", "workflow", "process"],
 	"description": "As part of the development one must define a process for the app that end user needs to follow.",
-	"content": "A app will typical have a process that a end user / or system needs to follow. It could be anything from a single task process where the app is used to retrieve data from some external api, to long living processes with many tasks involving.\nIn Altinn Studio the developer will need to define the process for the app.\nIn current version of Altinn Studio the only support for process definition is to upload a BPMN process file and the only task type we support are FormFilling\n[See Process Architecture for more details how process is define)()\nSee all issues related to Altinn Studio and workflow on Github.\n"
+	"content": " A app will typical have a process that a end user / or system needs to follow. It could be anything from a single task process where the app is used to retrieve data from some external api, to long living processes with many tasks involving.\nIn Altinn Studio the developer will need to define the process for the app.\nIn current version of Altinn Studio the only support for process definition is to upload a BPMN process file and the only task type we support are FormFilling\n[See Process Architecture for more details how process is defined)(https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/process/)\nSee all issues related to Altinn Studio and workflow on Github.\nInstansiations hooks Instansiation is the event that triggers a new instance of a App and starts the process for that instance.\nRelated to this event a developer can set instansiations hooks that are triggered when a new process is started.\nSee Github for issues related to instansiation\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/development/",
@@ -1218,6 +1218,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/prefill/",
+	"title": "Prefill",
+	"tags": ["studio"],
+	"description": "Altinn Studio will let the developer define prefill for datamodel from register and profile",
+	"content": "See issues related to prefill on Github\n"
+},
+{
 	"uri": "https://docs.altinn.studio/technology/prometheus/",
 	"title": "Prometheus",
 	"tags": ["tech", "monitoring"],
@@ -1244,6 +1251,13 @@
 	"tags": ["studio"],
 	"description": "A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.",
 	"content": " Reusable resource is typical created by technical developers using code editors.\nWeb component When building UI, you will use and configure premade web components. The components will be based on React, and vil vary in size and complexity. Web components are developed in code editors.\nSome basic requirements:\n The component should be flexible and configurable The component should be able to be connected to the data model, and use the metadata from the data model. The component should be able to connect to text resources The component should support responsive design and WCAG 2 AA It should be simple for service owners to add more components  Overall layout When building UI it will be possible to select a overall layout (aka \u0026ldquo;look\u0026amp;feel\u0026rdquo;). This could bee neded because of the complexity of the service or a wish for branding of the service.\n Create reuasable artifacts\n Look\u0026amp;feel Texts and translations Code lists Logic (C#? TypeScript? WebAssembly?) Data models (Seres?) API calls  Reuse these artifacts\n  F.eks. det å lage nye web componenter og layouts vil typisk være noe som tekniske utviklere gjør i kode-editorer.\nDet å sette disse sammen og konfigurere dem, er noe alle skal kunne gjøre.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/authorization-rules/",
+	"title": "Set Authorization Rules",
+	"tags": ["studio"],
+	"description": "Altinn Studio let the developer set the authorization requirements for a App",
+	"content": "In Altinn the developer can set the Authorization Requirments for a app\nSee issues related to authorization on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/solution/",

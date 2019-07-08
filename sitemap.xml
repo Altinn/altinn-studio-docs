@@ -703,6 +703,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/prefill/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/technology/prometheus/</loc>
   </url>
   
@@ -716,6 +720,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/reusable-resources/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/authorization-rules/</loc>
   </url>
   
   <url>
