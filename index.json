@@ -424,7 +424,7 @@
 	"title": "Functionality in Altinn Studio",
 	"tags": ["solution", "studio"],
 	"description": "Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.",
-	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rTheming and styling\rSolution for theming and styling conventions.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rCode Editor\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rPrefill\rAltinn Studio will let the developer define prefill for datamodel from register and profile\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rSet Authorization Rules\rAltinn Studio let the developer set the authorization requirements for a App\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Designer\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\rUsing APIs\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\r"
+	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rTheming and styling\rSolution for theming and styling conventions.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rApp Parameters\rIn Altinn Studio the developer can set various parameters for the app\n\r\rCode Editor\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rPrefill\rAltinn Studio will let the developer define prefill for datamodel from register and profile\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rSet Authorization Rules\rAltinn Studio let the developer set the authorization requirements for a App\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Designer\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\rUsing APIs\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/general/",
@@ -1050,6 +1050,13 @@
 	"content": "An app developer you will be able to deploy the developed app to Altinn Studio Apps for testing/production.\nThis functionality will be 100% self-serviced without involving other parties.\nSee issues related to app-deployment on Github\n"
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/app-parameters/",
+	"title": "App Parameters",
+	"tags": ["studio", "workflow", "process"],
+	"description": "In Altinn Studio the developer can set various parameters for the app",
+	"content": " App Parameters Presentation Field "
+},
+{
 	"uri": "https://docs.altinn.studio/development/branching/",
 	"title": "Branching",
 	"tags": ["development", "git", "branching"],
@@ -1075,7 +1082,7 @@
 	"title": "Code Editor",
 	"tags": ["studio", "workflow", "process"],
 	"description": "In Altinn Studio there is a web based code editor for editing front-end and back-end logic",
-	"content": " Code Editor for back-end logic Code Editor for front-end logic "
+	"content": " Code Editor for back-end logic Code Editor for front-end logic See github issues related to logic \u0026amp; rules\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/",
