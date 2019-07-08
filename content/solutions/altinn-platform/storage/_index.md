@@ -5,11 +5,8 @@ tags: [platform, storage]
 weight: 200
 ---
 
-
 Storage support storage of structured and unstructured data for apps. 
-Apps that need the cabability to store data uses the storage service in Altinn platform to stor structured data 
-
-
+Apps that need the cabability to store data uses the storage service in Altinn platform to store structured data 
 
 ## Encryption
 Since data is hosted in public cloud, Storage component will support encryption of data. 
