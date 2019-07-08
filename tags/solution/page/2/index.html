@@ -685,42 +685,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/deployment/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/deployment/">
-        <span>App Deployment</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/solutions/altinn-studio/functional/build-app/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/solutions/altinn-studio/functional/build-app/">
-        <span>Build-app</span>
+        <span>Building and configuring app</span>
 
         
 
@@ -788,6 +759,35 @@ if(host != "localhost")
         ">
       <a href="/solutions/altinn-studio/functional/build-app/code-editor/">
         <span>Code Editor</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/solutions/altinn-studio/functional/build-app/api-use/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-studio/functional/build-app/api-use/">
+        <span>Configure API use</span>
 
         
 
@@ -1042,6 +1042,15 @@ if(host != "localhost")
 
             
           
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
             
             
 
@@ -1049,13 +1058,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/api-use/" class="dd-item 
+    <li data-nav-id="/solutions/altinn-studio/functional/deployment/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/api-use/">
-        <span>Using APIs</span>
+      <a href="/solutions/altinn-studio/functional/deployment/">
+        <span>App Deployment</span>
 
         
 
@@ -1064,15 +1073,6 @@ if(host != "localhost")
 
         
       </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -6507,6 +6507,36 @@ Get information about an organization:
 	
 	   <article class="post solutions">
     <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-studio/functional/build-app/">Building and configuring app</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app.
+App ParametersIn Altinn Studio the developer can set various parameters for the app
+Code EditorIn Altinn Studio there is a web based code editor for editing front-end and back-end logic
+Configure API useTo be able to support &#34;once-only&#34; it is essensial that it is easy to do API-call from an app to other systems APIs. <a class="read-more" href="/solutions/altinn-studio/functional/build-app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studiotags/studio/">studio</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
         <h2 class="post-title"><a href="/solutions/altinn-apps/app/features/">Features</a></h2>
     </header>
     <section class="post-excerpt">
@@ -6570,10 +6600,9 @@ Theming In the future Altinn Apps will support theming making it possible to hav
     </header>
     <section class="post-excerpt">
         <p>The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.
-App DeploymentAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.
-Build-app
-DashboardThe Dashboard in Altinn Studio gives the developer full overview over apps
-TestingIn Altinn Studio there will different ways for developers to test their apps. <a class="read-more" href="/solutions/altinn-studio/functional/">&raquo;</a></p>
+Building and configuring appAltinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.
+App DeploymentAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.
+DashboardThe Dashboard in Altinn Studio gives the developer full overview over apps <a class="read-more" href="/solutions/altinn-studio/functional/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6634,36 +6663,6 @@ Tasks Formfilling Signing Payment Events  <a class="read-more" href="/solutions
 The end user system needs to call different APIS based on the need. The below figure show the different components relevant for an end user System calling Altinn through REST.
 
 API to authenticate end user systems For new API&rsquo;s the goal is to use JWT Tokens to authenticate against the API. <a class="read-more" href="/solutions/altinn-apps/app/app-api/eus-rest/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studiotags/apps/">apps</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-apps/app/app-api/org-rest/">REST-API for orgs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>NOTE: Work in progress. Stuff will change.
-For apps created in Altinn Studio and hosted in Altinn Apps, REST-API are the main channel to interact with the App / Altinn Platform.
-API to authenticate end agency systems In the current Altinn Platform SOAP is used for most of the agencies API&rsquo;s. Altinn support both username/password for agencies.
-API to instansiate a new instance of an app with prefill See Application Users API <a class="read-more" href="/solutions/altinn-apps/app/app-api/org-rest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6978,22 +6977,6 @@ API to instansiate a new instance of an app with prefill See Application Users A
           
                               
                               
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                                   
                               
                               
@@ -7140,6 +7123,22 @@ API to instansiate a new instance of an app with prefill See Application Users A
                               
           
                               
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
                                   
                       
                       
@@ -7159,6 +7158,9 @@ API to instansiate a new instance of an app with prefill See Application Users A
                       
                   
                               
+                      
+                  
+                              
                                   
                       
                       
@@ -7171,9 +7173,6 @@ API to instansiate a new instance of an app with prefill See Application Users A
                               
                               
           
-                              
-                      
-                  
                               
                       
                   

@@ -179,6 +179,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/</loc>
   </url>
   
@@ -612,11 +616,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/technology/c-sharp/</loc>
   </url>
   
@@ -627,6 +626,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/code-editor/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/api-use/</loc>
   </url>
   
   <url>
@@ -778,10 +781,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/ui-designer/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/api-use/</loc>
   </url>
   
   <url>
