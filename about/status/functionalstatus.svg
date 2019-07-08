@@ -777,7 +777,7 @@
 			<rect x="0" y="1757.31" width="368.504" height="11.3386" class="st5"/>
 			<text x="4" y="1771.97" class="st20" v:langID="1044"><v:paragraph/><v:tabList/>Functionality Operations</text>		</g>
 		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
-			<g id="shape97-210" v:mID="97" v:groupContext="shape" transform="translate(228.272,-957.631)">
+			<g id="shape97-210" v:mID="97" v:groupContext="shape" transform="translate(216.933,-957.631)">
 				<title>Rectangle.97</title>
 				<desc>Get Instance Data</desc>
 				<v:userDefs>
@@ -975,7 +975,7 @@
 				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st18"/>
 				<text x="43.03" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Search</text>			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/code-editor/">
 			<g id="shape116-263" v:mID="116" v:groupContext="shape" transform="translate(1217.56,-578.518)">
 				<title>Rectangle.116</title>
 				<desc>C# Basic Code Editor</desc>
@@ -1013,48 +1013,56 @@
 			<v:textRect cx="68.0315" cy="1760.14" width="136.07" height="17.0079"/>
 			<rect x="0" y="1751.64" width="136.063" height="17.0079" class="st5"/>
 			<text x="4" y="1763.74" class="st6" v:langID="1044"><v:paragraph/><v:tabList/>Datamodelling</text>		</g>
-		<g id="shape121-274" v:mID="121" v:groupContext="shape" transform="translate(1467.01,-578.518)">
-			<title>Rectangle.121</title>
-			<desc>Import datamodel</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<path d="M0 1768.64 L113.39 1768.64 L113.39 1683.6 L0 1683.6 L0 1768.64 Z" class="st10"/>
-			<text x="19.64" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Import datamodel</text>		</g>
-		<g id="shape122-277" v:mID="122" v:groupContext="shape" transform="translate(1591.74,-578.518)">
-			<title>Rectangle.122</title>
-			<desc>Define datamodell</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
-			<text x="19.08" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define datamodell</text>		</g>
-		<g id="shape123-280" v:mID="123" v:groupContext="shape" transform="translate(1716.46,-578.518)">
-			<title>Rectangle.123</title>
-			<desc>Export datamodel</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
-			<text x="20.29" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Export datamodel</text>		</g>
-		<g id="shape124-283" v:mID="124" v:groupContext="shape" transform="translate(1841.19,-578.518)">
-			<title>Rectangle.124</title>
-			<desc>Define multiple datamodel for app</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
-			<text x="25.36" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define multiple <tspan
-						x="18.89" dy="1.2em" class="st16">datamodel for app</tspan></text>		</g>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/data-modeling/">
+			<g id="shape121-274" v:mID="121" v:groupContext="shape" transform="translate(1467.01,-578.518)">
+				<title>Rectangle.121</title>
+				<desc>Import datamodel</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<path d="M0 1768.64 L113.39 1768.64 L113.39 1683.6 L0 1683.6 L0 1768.64 Z" class="st10"/>
+				<text x="19.64" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Import datamodel</text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/data-modeling/">
+			<g id="shape122-277" v:mID="122" v:groupContext="shape" transform="translate(1591.74,-578.518)">
+				<title>Rectangle.122</title>
+				<desc>Define datamodell</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
+				<text x="19.08" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define datamodell</text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/data-modeling/">
+			<g id="shape123-280" v:mID="123" v:groupContext="shape" transform="translate(1716.46,-578.518)">
+				<title>Rectangle.123</title>
+				<desc>Export datamodel</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
+				<text x="20.29" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Export datamodel</text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/data-modeling/">
+			<g id="shape124-283" v:mID="124" v:groupContext="shape" transform="translate(1841.19,-578.518)">
+				<title>Rectangle.124</title>
+				<desc>Define multiple datamodel for app</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
+				<text x="25.36" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define multiple <tspan
+							x="18.89" dy="1.2em" class="st16">datamodel for app</tspan></text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/code-editor/">
 			<g id="shape125-287" v:mID="125" v:groupContext="shape" transform="translate(1342.29,-578.518)">
 				<title>Rectangle.125</title>
 				<desc>C# Advanced Code Editor with code completion</desc>
@@ -1067,7 +1075,7 @@
 				<text x="5.43" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>C# Advanced Code Editor <tspan
 							x="12.45" dy="1.2em" class="st16">with code completion</tspan></text>			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/code-editor/">
 			<g id="shape126-291" v:mID="126" v:groupContext="shape" transform="translate(1217.56,-482.14)">
 				<title>Rectangle.126</title>
 				<desc>Javascript Basic Code Editor</desc>
@@ -1080,7 +1088,7 @@
 				<text x="13.78" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Javascript Basic Code <tspan
 							x="44.42" dy="1.2em" class="st16">Editor</tspan></text>			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/code-editor/">
 			<g id="shape127-295" v:mID="127" v:groupContext="shape" transform="translate(1342.29,-482.14)">
 				<title>Rectangle.127</title>
 				<desc>Javascript Advanced Code Editor with code completion</desc>
@@ -1112,17 +1120,19 @@
 				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
 				<text x="21.29" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Custom Frontend</text>			</g>
 		</a>
-		<g id="shape130-306" v:mID="130" v:groupContext="shape" transform="translate(1467.01,-482.14)">
-			<title>Rectangle.182</title>
-			<desc>Generate datamodel based on UI</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
-			<text x="14.52" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Generate datamodel <tspan
-						x="32.61" dy="1.2em" class="st16">based on UI</tspan></text>		</g>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/data-modeling/">
+			<g id="shape130-306" v:mID="130" v:groupContext="shape" transform="translate(1467.01,-482.14)">
+				<title>Rectangle.182</title>
+				<desc>Generate datamodel based on UI</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
+				<text x="14.52" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Generate datamodel <tspan
+							x="32.61" dy="1.2em" class="st16">based on UI</tspan></text>			</g>
+		</a>
 		<g id="shape131-310" v:mID="131" v:groupContext="shape" transform="translate(1963.07,-382.927)">
 			<title>Rectangle.131</title>
 			<v:userDefs>
@@ -1137,40 +1147,46 @@
 			<v:textRect cx="68.0315" cy="1760.14" width="136.07" height="17.0079"/>
 			<rect x="0" y="1751.64" width="136.063" height="17.0079" class="st5"/>
 			<text x="4" y="1763.74" class="st6" v:langID="1044"><v:paragraph/><v:tabList/>App Settings</text>		</g>
-		<g id="shape133-315" v:mID="133" v:groupContext="shape" transform="translate(1965.91,-578.518)">
-			<title>Rectangle.133</title>
-			<desc>Define authorization rules for app</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st18"/>
-			<text x="14.9" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define authorization <tspan
-						x="30.92" dy="1.2em" class="st16">rules for app</tspan></text>		</g>
-		<g id="shape138-319" v:mID="138" v:groupContext="shape" transform="translate(2090.63,-578.518)">
-			<title>Rectangle.138</title>
-			<desc>Confiure Profile and register prefill</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st18"/>
-			<text x="16.05" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Confiure Profile and <tspan
-						x="28.14" dy="1.2em" class="st16">register prefill</tspan></text>		</g>
-		<g id="shape139-323" v:mID="139" v:groupContext="shape" transform="translate(2215.36,-578.518)">
-			<title>Rectangle.184</title>
-			<desc>Set up instansiations hooks</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
-			<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st18"/>
-			<text x="14.75" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Set up instansiations <tspan
-						x="44.56" dy="1.2em" class="st16">hooks</tspan></text>		</g>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/deployment/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/authorization-rules/">
+			<g id="shape133-315" v:mID="133" v:groupContext="shape" transform="translate(1965.91,-578.518)">
+				<title>Rectangle.133</title>
+				<desc>Define authorization rules for app</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st18"/>
+				<text x="14.9" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Define authorization <tspan
+							x="30.92" dy="1.2em" class="st16">rules for app</tspan></text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/prefill/">
+			<g id="shape138-319" v:mID="138" v:groupContext="shape" transform="translate(2090.63,-578.518)">
+				<title>Rectangle.138</title>
+				<desc>Confiure Profile and register prefill</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st18"/>
+				<text x="16.05" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Confiure Profile and <tspan
+							x="28.14" dy="1.2em" class="st16">register prefill</tspan></text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/define-process/">
+			<g id="shape139-323" v:mID="139" v:groupContext="shape" transform="translate(2215.36,-578.518)">
+				<title>Rectangle.184</title>
+				<desc>Set up instansiations hooks</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st18"/>
+				<text x="14.75" y="1723.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Set up instansiations <tspan
+							x="44.56" dy="1.2em" class="st16">hooks</tspan></text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-studio/functional/code-editor/">
 			<g id="shape140-327" v:mID="140" v:groupContext="shape" transform="translate(1217.56,-390.014)">
 				<title>Rectangle.140</title>
 				<desc>Create unit tests</desc>
@@ -1231,6 +1247,18 @@
 				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
 				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st15"/>
 				<text x="24.73" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Multiple Layout</text>			</g>
+		</a>
+		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+			<g id="shape147-344" v:mID="147" v:groupContext="shape" transform="translate(344.492,-957.631)">
+				<title>Rectangle.147</title>
+				<desc>Get Instance Data</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(15):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+				<v:textRect cx="56.6929" cy="1726.12" width="113.39" height="85.0394"/>
+				<rect x="0" y="1683.6" width="113.386" height="85.0394" class="st7"/>
+				<text x="20.43" y="1729.12" class="st8" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Get Instance Data</text>			</g>
 		</a>
 	</g>
 </svg>
