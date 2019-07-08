@@ -134,7 +134,11 @@ This call will return the instance metadata record that was created. A unique id
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "process": {
-        "currentTask": "FormFilling",
+        "currentTask": {
+            "id": "Task_18z2cpd",
+            "name":  "FormFilling",
+            "tasktype": "formfilling"
+        },
         "isComplete": false
     },
     "instanceOwnerStatus": {
@@ -304,11 +308,20 @@ Will return a multipart http response with the following content:
 
 Application owners can search for application instances with a simple query request.
 
+For example: To get all instances of appId *org/appName*, that is in at task id *Task_129py2c* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
+
 ```http
-GET {storagePath}/instances?appId=org/appName&process.currentTask=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
+GET {storagePath}/instances?appId=org/appName&process.currentTask.id=Task_129py2c&lastChangedDateTime=gte:2019-05-01&label=gruppe3
 ```
 
-Returns a paginated set of instances (JSON)
+Another example is get all instances of appId *org/appName* that has completed their process.
+
+```http
+GET {storagePath}/instances?appId=org/appName&process.isComplete=true
+```
+
+
+The query returns a paginated set of instances (JSON)
 
 ```json
 {
@@ -351,10 +364,13 @@ Example of event data.
     "instanceId": "60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb",
     "eventType": "deleted",
     "createdDateTime": "2019-05-02T13:08:21.981476Z",
-    "instanceOwnerId": "123456",
-    "userId": 3,
+    "instanceOwnerId": "60238",
+    "userId": 338829,
     "authenticationLevel": 1,
-    "taskName": "Submit",
+    "currentTask":  {
+        "id": "Task_129py2c",
+        "name": "Submit"
+    },
     "enduserSystemId": 2
 }
 ```
@@ -366,7 +382,7 @@ Selected instance events. Created, first read, change process state. Optinally s
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/appName/events?after=2019-03-30&process.currentTask.name=Submit
+GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Task_129py2c
 ```
 
 Query result:
@@ -394,8 +410,14 @@ Query result:
             }
         ],
         "eventType": "WorkflowStateChange",
-        "previousTask": "FormFilling",
-        "currentTask": "Submit",
+        "previousTask": {
+            "id": "Task_18z2cpd",
+            "name": "FormFilling"
+        },
+        "currentTask": {
+            "id": "Task_129py2c",
+            "name": "Submit"
+        },
         "userId": "userX"
     }
 ]
