@@ -6383,17 +6383,20 @@ if(host != "localhost")
 <ul>
 <li><a href="#create-a-data-element">Create a data element</a></li>
 <li><a href="#update-a-data-element">Update a data element</a></li>
-<li><a href="#download-a-specific-data-element-as-application-owner">Download a specific data element (as application owner)</a></li>
-<li><a href="#confirm-successful-download">Confirm successful download</a></li>
+<li><a href="#get-a-specific-data-element">Get a specific data element</a></li>
+<li><a href="#download-the-pdf-of-a-data-element">Download the PDF of a data element</a></li>
+<li><a href="#download-both-data-and-pdf">Download both data and PDF</a></li>
+<li><a href="#confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</a></li>
 <li><a href="#download-a-complete-instance-with-data-elements-and-corresponding-pdfs">Download a complete instance with data elements and corresponding pdfs</a></li>
 </ul></li>
-<li><a href="#query-instances">Query instances</a>
+<li><a href="#query-instances">Query instances</a></li>
+<li><a href="#events">Events</a>
 <ul>
-<li><a href="#application-events">Application events</a></li>
+<li><a href="#instance-events">Instance events</a></li>
+<li><a href="#application-events-for-application-owners">Application events (for application owners)</a></li>
 </ul></li>
-<li><a href="#api-to-validate-data">API to validate data</a></li>
-<li><a href="#api-to-calculate-perform-business-rules">API to calculate / perform business rules</a></li>
-<li><a href="#application-metadata">Application metadata</a></li>
+<li><a href="#validate-data">Validate data</a></li>
+<li><a href="#calculate-check-business-rules">Calculate / check business rules</a></li>
 <li><a href="#instantiation-details">Instantiation details</a>
 <ul>
 <li><a href="#instantiate-an-app">Instantiate an app</a></li>
@@ -6404,23 +6407,20 @@ if(host != "localhost")
 <li><a href="#get-process-state-of-a-specific-instance">Get process state of a specific instance</a></li>
 <li><a href="#complete-a-task">Complete a task</a></li>
 <li><a href="#complete-the-process">Complete the process</a></li>
-<li><a href="#get-the-next-tasks-in-a-process">Get the next tasks in a process?</a></li>
-<li><a href="#start-a-process-task">Start a process task</a></li>
+<li><a href="#get-the-next-tasks-in-a-process">Get the next tasks in a process</a></li>
+<li><a href="#start-a-task">Start a task</a></li>
 </ul></li>
-<li><a href="#application-resource-data">Application resource data</a>
+<li><a href="#application-resources">Application resources</a>
 <ul>
-<li><a href="#text-resources">Text resources</a>
-<ul>
+<li><a href="#application-metadata">Application metadata</a></li>
+<li><a href="#process-model">Process model</a></li>
 <li><a href="#get-text-resources-for-the-application-for-a-specific-language">Get text resources for the application for a specific language</a></li>
 <li><a href="#get-text-resources-for-a-given-element-type">Get text resources for a given element type</a></li>
-</ul></li>
-<li><a href="#metadata">Metadata</a>
-<ul>
-<li><a href="#get-the-metadata-for-a-given-element-type">Get the metadata for a given element type</a></li>
+<li><a href="#get-the-schema-for-a-given-element-type">Get the schema for a given element type</a></li>
+<li><a href="#get-the-model-config-for-a-given-element-type">Get the model config for a given element type</a></li>
 <li><a href="#get-the-layout-for-a-given-element-type">Get the layout for a given element type</a></li>
 <li><a href="#gets-the-rules-for-a-given-element-type">Gets the rules for a given element type</a></li>
 <li><a href="#get-the-api-service-configuration-for-how-the-app-calls-external-apis">Get the API service configuration for how the app calls external APIs</a></li>
-</ul></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -6435,7 +6435,9 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" ><p>This is work-in-progress. This is a proposed API which most likely is going to change.</p>
+<div class="notices warning" ><p>This is work-in-progress. This is a proposed API which most likely is going to change.
+- HAL description is missing
+- Large data elements/attachement examples are missing</p>
 </div>
 
 
@@ -6522,9 +6524,9 @@ If you do not know this, you should provide the official identity number, e.g na
 <pre><code class="language-http">POST {appPath}/instances
 </code></pre>
 
-<figure><a href="instantiate-for-instance-owner.png"><img src="instantiate-for-instance-owner.png" alt="Flow chart for instanciation" title="Instanciate for instance owner" /></a><figcaption><h4>Instanciate for instance owner</h4></figcaption></figure>
+<figure><a href="instantiate-for-an-instance-owner.png"><img src="instantiate-for-an-instance-owner.png" alt="Flow chart for instantiation" title="Instantiate for instance owner" /></a><figcaption><h4>Instantiate for instance owner</h4></figcaption></figure>
 
-<p>A multipart formdata should contain the instance json document and the data element files of the instance. Notice that the name of the parts must correspond to the element types defined in application metadata. Hence the <em>default</em> name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.</p>
+<p>A multipart formdata should contain the instance json document and the data element files of the instance. The first part should be the instance. The subsequent parts must have a name that correspond to the element types defined in application metadata. Hence the <em>default</em> name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.</p>
 
 <pre><code class="language-http">Content-Type: multipart/form-data; boundary=&quot;abcdefg&quot;
 
@@ -6541,7 +6543,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
 --abcdefg--
 </code></pre>
 
-<p>This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.</p>
+<p>This call will return the instance metadata record that was created. A unique identifier, which consist of the instance owner id and an guid, will be generated and should be used for later reference.</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;347829/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
@@ -6632,12 +6634,12 @@ Content-Disposition: form-data; name=&quot;default&quot;
 <pre><code class="language-http">PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
-<h3 id="download-a-specific-data-element-as-application-owner">Download a specific data element (as application owner)</h3>
+<h3 id="get-a-specific-data-element">Get a specific data element</h3>
+
+<p>Clients can download the data element by a get request. Notice that application owner&rsquo;s get of an instance owners data will update metadata for on data element.</p>
 
 <pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
-
-<p>Will update metadata for on data element.</p>
 
 <pre><code class="language-json">{
 ...
@@ -6658,7 +6660,24 @@ Content-Disposition: form-data; name=&quot;default&quot;
 }
 </code></pre>
 
-<h3 id="confirm-successful-download">Confirm successful download</h3>
+<h3 id="download-the-pdf-of-a-data-element">Download the PDF of a data element</h3>
+
+<p>Data elements with schemas will have a corresponding pdf file, this pdf file is generated when the element type&rsquo;s associate process task is closed.</p>
+
+<pre><code class="language-http">Accept=application/pdf
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+</code></pre>
+
+<h3 id="download-both-data-and-pdf">Download both data and PDF</h3>
+
+<pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/download
+</code></pre>
+
+<p>Will return a multipart http response which consists of two parts:
+- the data
+- the generated PDF</p>
+
+<h3 id="confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</h3>
 
 <p>Application owner must confirm that the data element file was downloaded sucessful.</p>
 
@@ -6685,7 +6704,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
 <pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
 </code></pre>
 
-<p>Will create a multipart http response with the following content:</p>
+<p>Will return a multipart http response with the following content:</p>
 
 <ol>
 <li>instance metadata (application/json)</li>
@@ -6696,9 +6715,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
 <li>&hellip;</li>
 </ol>
 
-<p>Data elements with schema has a corresponding pdf file which is generated when the element type&rsquo;s associate process task is closed.</p>
-
-<p>OLD <a href="http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments">http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments</a></p>
+<!-- OLD http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments -->
 
 <h2 id="query-instances">Query instances</h2>
 
@@ -6731,11 +6748,37 @@ Content-Disposition: form-data; name=&quot;default&quot;
 }
 </code></pre>
 
-<h3 id="application-events">Application events</h3>
+<h2 id="events">Events</h2>
+
+<h3 id="instance-events">Instance events</h3>
+
+<p>All instance events, e.g. creation, read, save, change process state, &hellip;</p>
+
+<pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
+</code></pre>
+
+<p>Example of event data.</p>
+
+<pre><code class="language-json">{
+    &quot;id&quot;:&quot;6dff32bc-0928-4ae8-937c-b362d6941c89&quot;,
+    &quot;instanceId&quot;: &quot;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&quot;,
+    &quot;eventType&quot;: &quot;deleted&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-05-02T13:08:21.981476Z&quot;,
+    &quot;instanceOwnerId&quot;: &quot;123456&quot;,
+    &quot;userId&quot;: 3,
+    &quot;authenticationLevel&quot;: 1,
+    &quot;taskName&quot;: &quot;Submit&quot;,
+    &quot;enduserSystemId&quot;: 2
+}
+</code></pre>
+
+<h3 id="application-events-for-application-owners">Application events (for application owners)</h3>
+
+<p>Selected instance events. Created, first read, change process state. Optinally specified by application developer.</p>
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET {storagePath}/applications/org/appName/events?after=2019-03-30&amp;process.currentTask=Submit
+<pre><code class="language-http">GET {storagePath}/applications/org/appName/events?after=2019-03-30&amp;process.currentTask.name=Submit
 </code></pre>
 
 <p>Query result:</p>
@@ -6769,7 +6812,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
 ]
 </code></pre>
 
-<h2 id="api-to-validate-data">API to validate data</h2>
+<h2 id="validate-data">Validate data</h2>
 
 <p>The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.</p>
 
@@ -6778,7 +6821,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
 <pre><code class="language-http">PUT {appPath}/validate?elementType=modelA
 </code></pre>
 
-<h2 id="api-to-calculate-perform-business-rules">API to calculate / perform business rules</h2>
+<h2 id="calculate-check-business-rules">Calculate / check business rules</h2>
 
 <p>The app will provide a method to perform calculation / perform business rules for a datamodell to an app.
 The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.</p>
@@ -6788,47 +6831,71 @@ The calculate method takes a data file and performs calculations and returns the
 <pre><code class="language-http">PUT {appPath}/calculate?elementType=modelB
 </code></pre>
 
-<h2 id="application-metadata">Application metadata</h2>
-
-<p>Get application&rsquo;s metadata :</p>
-
-<pre><code class="language-http">GET {appPath}
-</code></pre>
-
-<p>Get the application&rsquo;s process:</p>
-
-<pre><code class="language-http">GET {appPath}/process
-</code></pre>
-
 <h2 id="instantiation-details">Instantiation details</h2>
 
 <h3 id="instantiate-an-app">Instantiate an app</h3>
 
 <p>Client instantiates an app. The app create an initial data element (file) according to the app&rsquo;s prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
-Process is set to first task. This means that data can be updated later on.</p>
+Process is set to first task. The task specifies if the data can be updated or not.</p>
 
-<figure><a href="Instantiate.png"><img src="Instantiate.png" alt="Flowchart for instanciation an app" title="Instanciate an app" /></a><figcaption><h4>Instanciate an app</h4></figcaption></figure>
+<figure><a href="instantiate.png"><img src="instantiate.png" alt="Flowchart for instantiation an app" title="Instantiate an app" /></a><figcaption><h4>Instantiate an app</h4></figcaption></figure>
 
 <h3 id="instantiate-an-app-and-complete-process">Instantiate an app and complete process</h3>
 
 <p>Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process. If the process is completed successfully, the data can no longer be updated.</p>
 
-<figure><a href="process-instantiate-and-complete.png"><img src="process-instantiate-and-complete.png" alt="Flowchart for instanciating and completing the process" title="Instanciate and complete a process" /></a><figcaption><h4>Instanciate and complete a process</h4></figcaption></figure>
+<figure><a href="process-instantiate-and-complete.png"><img src="process-instantiate-and-complete.png" alt="Flowchart for instantiating and completing the process" title="Instantiate and complete a process" /></a><figcaption><h4>Instantiate and complete a process</h4></figcaption></figure>
 
 <h2 id="process">Process</h2>
 
-<p>Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).</p>
+<p>Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).</p>
 
-<figure><a href="process-model.png"><img src="process-model.png" alt="Flowchart for the process" title="Process model" /></a><figcaption><h4>Process model</h4></figcaption></figure>
+<figure><a href="mvp-process.png"><img src="mvp-process.png" alt="Flowchart for MVP process" title="MVP Process" /></a><figcaption><h4>MVP Process</h4></figcaption></figure>
+
+<p>A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.</p>
+
+<pre><code class="language-xml"> &lt;bpmn2:process id=&quot;Process_1&quot; isExecutable=&quot;false&quot;&gt;
+    &lt;bpmn2:startEvent id=&quot;StartEvent_1&quot;&gt;
+      &lt;bpmn2:outgoing&gt;SequenceFlow_1yfgtgp&lt;/bpmn2:outgoing&gt;
+    &lt;/bpmn2:startEvent&gt;
+    &lt;bpmn2:task id=&quot;Task_18z2cpd&quot; name=&quot;FormFilling&quot; altinn:tasktype=&quot;formfilling&quot;&gt;
+      &lt;bpmn2:incoming&gt;SequenceFlow_1yfgtgp&lt;/bpmn2:incoming&gt;
+      &lt;bpmn2:outgoing&gt;SequenceFlow_0m0zxxn&lt;/bpmn2:outgoing&gt;
+    &lt;/bpmn2:task&gt;
+    &lt;bpmn2:task id=&quot;Task_129py2c&quot; name=&quot;Submit&quot; altinn:tasktype=&quot;submit&quot;&gt;
+      &lt;bpmn2:incoming&gt;SequenceFlow_0m0zxxn&lt;/bpmn2:incoming&gt;
+      &lt;bpmn2:outgoing&gt;SequenceFlow_0zejpwt&lt;/bpmn2:outgoing&gt;
+    &lt;/bpmn2:task&gt;
+    &lt;bpmn2:endEvent id=&quot;EndEvent_1qp79ji&quot;&gt;
+      &lt;bpmn2:incoming&gt;SequenceFlow_0zejpwt&lt;/bpmn2:incoming&gt;
+    &lt;/bpmn2:endEvent&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_1yfgtgp&quot; sourceRef=&quot;StartEvent_1&quot; targetRef=&quot;Task_18z2cpd&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_0m0zxxn&quot; sourceRef=&quot;Task_18z2cpd&quot; targetRef=&quot;Task_129py2c&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_0zejpwt&quot; sourceRef=&quot;Task_129py2c&quot; targetRef=&quot;EndEvent_1qp79ji&quot; /&gt;
+  &lt;/bpmn2:process&gt;
+</code></pre>
 
 <h3 id="get-process-state-of-a-specific-instance">Get process state of a specific instance</h3>
 
 <pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 </code></pre>
 
-<p>OLD Get Current process state
+<p>Returns:</p>
+
+<pre><code class="language-json">{
+    &quot;currentTask&quot;:
+    {
+        &quot;id&quot;: &quot;Task_18z2cpd&quot;,
+        &quot;name&quot;: &quot;FormFilling&quot;,
+        &quot;tasktype&quot;: &quot;formfilling&quot;
+    },
+    &quot;isComplete&quot;: false
+}
+</code></pre>
+
+<!-- OLD Get Current process state
 Is it in signing? Is it form filling +++ Used by react to decide what to show.
-<a href="http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5">http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5</a></p>
+http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5 -->
 
 <h3 id="complete-a-task">Complete a task</h3>
 
@@ -6839,8 +6906,10 @@ Is it in signing? Is it form filling +++ Used by react to decide what to show.
 <pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeTask
 </code></pre>
 
-<p>OLD  //Complete
-<a href="http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete">http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete</a></p>
+<!--OLD  //Complete
+http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete -->
+
+<p>Alternatively one can ask the app to go to the next task. The application will try to close the current task and attempt to start the next task.</p>
 
 <pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask
 </code></pre>
@@ -6856,74 +6925,144 @@ Is it in signing? Is it form filling +++ Used by react to decide what to show.
 <pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 </code></pre>
 
-<p>OLD // CompleteAndSendIn
-<a href="http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn">http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn</a></p>
+<!-- OLD // CompleteAndSendIn
+http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn -->
 
-<h3 id="get-the-next-tasks-in-a-process">Get the next tasks in a process?</h3>
+<h3 id="get-the-next-tasks-in-a-process">Get the next tasks in a process</h3>
 
 <p>Returns an list of the next tasks that can be reached from the current task.</p>
 
 <pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
 </code></pre>
 
-<h3 id="start-a-process-task">Start a process task</h3>
+<h3 id="start-a-task">Start a task</h3>
 
-<p>Closes current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.</p>
+<p>Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.</p>
 
-<figure><a href="mvp-workflow.png"><img src="mvp-workflow.png" alt="Flowchart for MVP workflow" title="MVP workflow" /></a><figcaption><h4>MVP workflow</h4></figcaption></figure>
-
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/startTask?taskId=Submit
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Task_129py2c
 </code></pre>
 
-<h2 id="application-resource-data">Application resource data</h2>
+<h2 id="application-resources">Application resources</h2>
 
-<p>The application has a number of resource files that is used by the app&rsquo;s frontend.</p>
+<p>The application has a number of resource files that is used by the app&rsquo;s frontend and which defines it&rsquo;s behaviour.</p>
 
-<h3 id="text-resources">Text resources</h3>
+<h3 id="application-metadata">Application metadata</h3>
 
-<h4 id="get-text-resources-for-the-application-for-a-specific-language">Get text resources for the application for a specific language</h4>
+<p>Get application&rsquo;s metadata :</p>
 
-<pre><code class="language-http">GET {appPath}/resources/texts?lang=nb
+<pre><code class="language-http">GET {appPath}
 </code></pre>
 
-<p>OLD <a href="http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb">http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb</a></p>
-
-<h4 id="get-text-resources-for-a-given-element-type">Get text resources for a given element type</h4>
-
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/resources/texts?lang=nb
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;test/sailor&quot;,
+    &quot;versionId&quot;: &quot;v32.23-xyp&quot;,
+    &quot;org&quot;: &quot;test&quot;,
+    &quot;app&quot;: &quot;sailor&quot;,
+    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;XXX&quot;,
+    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; }, 
+    &quot;workflowId&quot;: &quot;standard&quot;,
+    &quot;validFrom&quot;: &quot;2019-04-01T12:14:22+01:00&quot;,
+    &quot;validTo&quot;: null,
+    &quot;maxSize&quot;: -1,
+    &quot;elementTypes&quot;: [
+        {
+            &quot;id&quot;: &quot;default&quot;,
+            &quot;description&quot;: {&quot;nb&quot;: &quot;Båtdata&quot;, &quot;en&quot;: &quot;Boat data&quot;},
+            &quot;allowedContentType&quot;: [&quot;application/json&quot;],
+            &quot;schema&quot;: {
+                &quot;fileName&quot;: &quot;boat.json-schema&quot;,
+                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
+            },
+            &quot;maxSize&quot;: 200000,
+            &quot;maxCount&quot;: 1,
+            &quot;shouldSign&quot;: true,
+            &quot;shouldEncrypt&quot;: true
+        },
+        {
+            &quot;id&quot;: &quot;crewlist&quot;,
+            &quot;allowedContentType&quot;: [&quot;application/xml&quot;],
+            &quot;schema&quot;: {
+                &quot;fileName&quot;: &quot;crew.xsd&quot;,
+                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
+            },
+            &quot;maxSize&quot;: -1,
+            &quot;maxCount&quot;: 3,
+            &quot;shouldSign&quot;: false,
+            &quot;shouldEncrypt&quot;: false
+        },
+        {
+            &quot;id&quot;: &quot;certificate&quot;,
+            &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
+            &quot;maxSize&quot;: -1,
+            &quot;maxCount&quot;: 1,
+            &quot;shouldSign&quot;: false,
+            &quot;shouldEncrypt&quot;: false
+        }
+    ]
+}
 </code></pre>
 
-<p>OLD <a href="http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing">http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing</a></p>
+<h3 id="process-model">Process model</h3>
 
-<h3 id="metadata">Metadata</h3>
+<p>Get the application&rsquo;s process model.</p>
 
-<h4 id="get-the-metadata-for-a-given-element-type">Get the metadata for a given element type</h4>
-
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/metadata
+<pre><code class="language-http">GET {appPath}/process
 </code></pre>
 
-<p>OLD <a href="http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData">http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData</a></p>
+<p>Returns the bpmn file defining the process.</p>
 
-<h4 id="get-the-layout-for-a-given-element-type">Get the layout for a given element type</h4>
+<h3 id="get-text-resources-for-the-application-for-a-specific-language">Get text resources for the application for a specific language</h3>
 
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/layouts
+<pre><code class="language-http">GET {appPath}/texts?lang=nb
 </code></pre>
 
-<p>OLD <a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json</a></p>
+<!-- OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb -->
 
-<h4 id="gets-the-rules-for-a-given-element-type">Gets the rules for a given element type</h4>
+<h3 id="get-text-resources-for-a-given-element-type">Get text resources for a given element type</h3>
+
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/texts?lang=nb
+</code></pre>
+
+<!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
+
+<h3 id="get-the-schema-for-a-given-element-type">Get the schema for a given element type</h3>
+
+<pre><code class="language-http">Accept=application/schema+json
+GET {appPath}/elementTypes/{typeName}/schema
+</code></pre>
+
+<h3 id="get-the-model-config-for-a-given-element-type">Get the model config for a given element type</h3>
+
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/modelConfig
+</code></pre>
+
+<p>(ServiceMetadata.json)
+<!-- OLD http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData --></p>
+
+<h3 id="get-the-layout-for-a-given-element-type">Get the layout for a given element type</h3>
+
+<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/layout
+</code></pre>
+
+<p>(FormLayout.json)
+<!-- OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json--></p>
+
+<h3 id="gets-the-rules-for-a-given-element-type">Gets the rules for a given element type</h3>
 
 <pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/rules
 </code></pre>
 
-<p>OLD <a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js</a></p>
+<p>(RuleHandler.js)
+<!-- OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js --></p>
 
-<h4 id="get-the-api-service-configuration-for-how-the-app-calls-external-apis">Get the API service configuration for how the app calls external APIs</h4>
+<h3 id="get-the-api-service-configuration-for-how-the-app-calls-external-apis">Get the API service configuration for how the app calls external APIs</h3>
 
 <pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/externalApis
 </code></pre>
 
-<p>OLD (Service configuration) <a href="http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json">http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json</a></p>
+<p>(ServiceConfiguration.json)
+<!-- OLD (Service configuration) http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json --></p>
 
 
 
