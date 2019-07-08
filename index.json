@@ -1092,6 +1092,13 @@
 	"content": " Code Editor for back-end logic A developer can edit logic that will be part of app-backend when application is running in Altinn Apps\nSee Getting started to se how to do that\nCode Editor for front-end logic A developer can edit logic that will run in the browser for a given app.\nSee Getting started to se how to do that\nSee github issues related to logic \u0026amp; rules\n"
 },
 {
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/prefill/",
+	"title": "Configure Prefill",
+	"tags": ["studio"],
+	"description": "Altinn Studio will let the developer define prefill for datamodel from register and profile",
+	"content": "See issues related to prefill on Github\n"
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/",
 	"title": "Dashboard",
 	"tags": ["studio"],
@@ -1230,13 +1237,6 @@
 	"tags": [],
 	"description": "",
 	"content": ""
-},
-{
-	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/prefill/",
-	"title": "Prefill",
-	"tags": ["studio"],
-	"description": "Altinn Studio will let the developer define prefill for datamodel from register and profile",
-	"content": "See issues related to prefill on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/prometheus/",
