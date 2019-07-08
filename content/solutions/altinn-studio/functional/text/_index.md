@@ -154,3 +154,7 @@ Sections are used to categorize keys (properties) that belong together. It may b
 ```
 
 > Try to not use application wide sections that might need container or component reference in the key name.
+
+
+
+[See all issues related to text and language on Github](https://github.com/Altinn/altinn-studio/labels/language)

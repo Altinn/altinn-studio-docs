@@ -8,3 +8,7 @@ Each app will have its unique set of APIs. Compared to current API it makes it p
 have documentation that is target for the specific app.
 
 For more details, see https://docs.altinn.studio/altinn-api.
+
+
+[See all issues for API-Expose on Github](https://github.com/Altinn/altinn-studio/labels/api-expose)
+
