@@ -1,5 +1,5 @@
 ---
-title: Using APIs
+title: Configure API use
 description: To be able to support "once-only" it is essensial that it is easy to do API-call from an app to other systems APIs.
 tags: ["studio", "api"]
 ---
