@@ -187,7 +187,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/components/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/ui-designer/components/</loc>
   </url>
   
   <url>
@@ -604,11 +604,16 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/app-parameters/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/app-parameters/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/development/branching/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -621,7 +626,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/code-editor/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/code-editor/</loc>
   </url>
   
   <url>
@@ -629,11 +634,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/data-modeling/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/data-modeling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/define-process/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/define-process/</loc>
   </url>
   
   <url>
@@ -646,7 +651,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/api-expose/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/api-expose/</loc>
   </url>
   
   <url>
@@ -707,7 +712,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/prefill/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/prefill/</loc>
   </url>
   
   <url>
@@ -727,7 +732,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/authorization-rules/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/authorization-rules/</loc>
   </url>
   
   <url>
@@ -752,7 +757,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/text/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/text/</loc>
   </url>
   
   <url>
@@ -772,11 +777,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/ui-designer/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/ui-designer/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/api-use/</loc>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/api-use/</loc>
   </url>
   
   <url>
