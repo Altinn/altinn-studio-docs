@@ -2,8 +2,6 @@
 title: App
 description: Description of the app created in Altinn Studio and that is deployed to Altinn Apps.
 tags: ["solution", "apps"]
-aliases:
-    - "/altinn-studio-apps"
 weight: 200
 ---
 

@@ -13,6 +13,11 @@ tags: ["studio", "workflow", "process"]
 
 
 
+[See github issues related to logic & rules](https://github.com/Altinn/altinn-studio/labels/logic%20%26%20rules)
+
+
+
+
 
 
 
