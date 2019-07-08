@@ -429,7 +429,7 @@ PUT {appPath}/calculate?elementType=modelB
 Client instantiates an app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
 Process is set to first task. The task specifies if the data can be updated or not.
 
-![Flowchart for instantiation an app](instantiate.png "Instantiate an app")
+![Flowchart for instantiation an app](app-instantiate.png "Instantiate an app")
 
 ### Instantiate an app and complete process
 
