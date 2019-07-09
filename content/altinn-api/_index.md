@@ -8,7 +8,10 @@ alwaysopen: false
 ---
 
 {{%notice warning%}}
-This is work-in-progress. This is a proposed API which most likely is going to change.
+This is work-in-progress. This is a proposed API which most likely is going to change. 
+- HAL description is missing
+- Large data elements/attachement examples are missing
+
 {{% /notice%}}
 
 ## Introduction
@@ -93,10 +96,9 @@ Data elements (files) can be attached to the initial request as a *multipart/for
 POST {appPath}/instances
 ```
 
-![Flow chart for instanciation](instantiate-for-instance-owner.png "Instanciate for instance owner")
+![Flow chart for instantiation](instantiate-for-an-instance-owner.png "Instantiate for instance owner")
 
-
-A multipart formdata should contain the instance json document and the data element files of the instance. Notice that the name of the parts must correspond to the element types defined in application metadata. Hence the *default* name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.
+A multipart formdata should contain the instance json document and the data element files of the instance. The first part should be the instance. The subsequent parts must have a name that correspond to the element types defined in application metadata. Hence the *default* name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.
 
 ```http
 Content-Type: multipart/form-data; boundary="abcdefg"
@@ -114,7 +116,7 @@ Content-Disposition: form-data; name="default"
 --abcdefg--
 ```
 
-This call will return the instance metadata record which was created. A unique identifier (guid) will be created and should be used for later reference.
+This call will return the instance metadata record that was created. A unique identifier, which consist of the instance owner id and an guid, will be generated and should be used for later reference.
 
 ```json
 {
@@ -132,7 +134,11 @@ This call will return the instance metadata record which was created. A unique i
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "process": {
-        "currentTask": "FormFilling",
+        "currentTask": {
+            "id": "Task_18z2cpd",
+            "name":  "FormFilling",
+            "tasktype": "formfilling"
+        },
         "isComplete": false
     },
     "instanceOwnerStatus": {
@@ -209,13 +215,13 @@ Update (replace) a data element with a new one (payload). Data as multipart or a
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
-### Download a specific data element (as application owner)
+### Get a specific data element
+
+Clients can download the data element by a get request. Notice that application owner's get of an instance owners data will update metadata for on data element.
 
 ```http
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
-
-Will update metadata for on data element.
 
 ```json
 {
@@ -237,7 +243,26 @@ Will update metadata for on data element.
 }
 ```
 
-### Confirm successful download
+### Download the PDF of a data element
+
+Data elements with schemas will have a corresponding pdf file, this pdf file is generated when the element type's associate process task is closed.
+
+```http
+Accept=application/pdf
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+```
+
+### Download both data and PDF
+
+```http
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/download
+```
+
+Will return a multipart http response which consists of two parts:
+- the data
+- the generated PDF
+
+### Confirm successful download (as application owner)
 
 Application owner must confirm that the data element file was downloaded sucessful.
 
@@ -267,7 +292,7 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
 ```
 
-Will create a multipart http response with the following content:
+Will return a multipart http response with the following content:
 
 1. instance metadata (application/json)
 2. the first data element (application/xml)
@@ -276,20 +301,27 @@ Will create a multipart http response with the following content:
 5. third data element (e.g. image)
 6. ...
 
-Data elements with schema has a corresponding pdf file which is generated when the element type's associate process task is closed. 
-
-OLD http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments
+<!-- OLD http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments -->
 
 
 ## Query instances
 
 Application owners can search for application instances with a simple query request.
 
+For example: To get all instances of appId *org/appName*, that is in at task id *Task_129py2c* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
+
 ```http
-GET {storagePath}/instances?appId=org/appName&process.currentTask=Submit&lastChangedDateTime=after(2019-05-01)&label=gr
+GET {storagePath}/instances?appId=org/appName&process.currentTask.id=Task_129py2c&lastChangedDateTime=gte:2019-05-01&label=gruppe3
 ```
 
-Returns a paginated set of instances (JSON)
+Another example is get all instances of appId *org/appName* that has completed their process.
+
+```http
+GET {storagePath}/instances?appId=org/appName&process.isComplete=true
+```
+
+
+The query returns a paginated set of instances (JSON)
 
 ```json
 {
@@ -314,12 +346,43 @@ Returns a paginated set of instances (JSON)
 }
 ```
 
-### Application events
+## Events
+
+### Instance events
+
+All instance events, e.g. creation, read, save, change process state, ...
+
+```http
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
+```
+
+Example of event data.
+
+```json
+{
+    "id":"6dff32bc-0928-4ae8-937c-b362d6941c89",
+    "instanceId": "60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb",
+    "eventType": "deleted",
+    "createdDateTime": "2019-05-02T13:08:21.981476Z",
+    "instanceOwnerId": "60238",
+    "userId": 338829,
+    "authenticationLevel": 1,
+    "currentTask":  {
+        "id": "Task_129py2c",
+        "name": "Submit"
+    },
+    "enduserSystemId": 2
+}
+```
+
+### Application events (for application owners)
+
+Selected instance events. Created, first read, change process state. Optinally specified by application developer.
 
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/appName/events?after=2019-03-30&process.currentTask=Submit
+GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Task_129py2c
 ```
 
 Query result:
@@ -347,14 +410,20 @@ Query result:
             }
         ],
         "eventType": "WorkflowStateChange",
-        "previousTask": "FormFilling",
-        "currentTask": "Submit",
+        "previousTask": {
+            "id": "Task_18z2cpd",
+            "name": "FormFilling"
+        },
+        "currentTask": {
+            "id": "Task_129py2c",
+            "name": "Submit"
+        },
         "userId": "userX"
     }
 ]
 ```
 
-## API to validate data
+## Validate data
 
 The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
 
@@ -364,30 +433,15 @@ The application will provide a method to validate the datamodel without creating
 PUT {appPath}/validate?elementType=modelA
 ```
 
-## API to calculate / perform business rules
+## Calculate / check business rules
 
 The app will provide a method to perform calculation / perform business rules for a datamodell to an app.
 The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.
 
 ![Flowchart for data calculation](data-calculate.png "Calculate data")
 
-
 ```http
 PUT {appPath}/calculate?elementType=modelB
-```
-
-## Application metadata
-
-Get application's metadata :
-
-```http
-GET {appPath}
-```
-
-Get the application's process:
-
-```http
-GET {appPath}/process
 ```
 
 ## Instantiation details
@@ -395,30 +449,69 @@ GET {appPath}/process
 ### Instantiate an app
 
 Client instantiates an app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
-Process is set to first task. This means that data can be updated later on.
+Process is set to first task. The task specifies if the data can be updated or not.
 
-![Flowchart for instanciation an app](Instantiate.png "Instanciate an app")
+![Flowchart for instantiation an app](app-instantiate.png "Instantiate an app")
 
 ### Instantiate an app and complete process
 
 Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process. If the process is completed successfully, the data can no longer be updated.
 
-![Flowchart for instanciating and completing the process](process-instantiate-and-complete.png "Instanciate and complete a process")
+![Flowchart for instantiating and completing the process](process-instantiate-and-complete.png "Instantiate and complete a process")
 
 ## Process
 
-Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between the these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).
+Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).
 
-![Flowchart for the process](process-model.png "Process model")
+![Flowchart for MVP process](mvp-process.png "MVP Process")
+
+A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
+
+```xml
+ <bpmn2:process id="Process_1" isExecutable="false">
+    <bpmn2:startEvent id="StartEvent_1">
+      <bpmn2:outgoing>SequenceFlow_1yfgtgp</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="Task_18z2cpd" name="FormFilling" altinn:tasktype="formfilling">
+      <bpmn2:incoming>SequenceFlow_1yfgtgp</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0m0zxxn</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:task id="Task_129py2c" name="Submit" altinn:tasktype="submit">
+      <bpmn2:incoming>SequenceFlow_0m0zxxn</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_0zejpwt</bpmn2:outgoing>
+    </bpmn2:task>
+    <bpmn2:endEvent id="EndEvent_1qp79ji">
+      <bpmn2:incoming>SequenceFlow_0zejpwt</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="SequenceFlow_1yfgtgp" sourceRef="StartEvent_1" targetRef="Task_18z2cpd" />
+    <bpmn2:sequenceFlow id="SequenceFlow_0m0zxxn" sourceRef="Task_18z2cpd" targetRef="Task_129py2c" />
+    <bpmn2:sequenceFlow id="SequenceFlow_0zejpwt" sourceRef="Task_129py2c" targetRef="EndEvent_1qp79ji" />
+  </bpmn2:process>
+```
 
 ### Get process state of a specific instance
 
 ```http
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
-OLD Get Current process state
+
+Returns:
+
+```json
+{
+    "currentTask":
+    {
+        "id": "Task_18z2cpd",
+        "name": "FormFilling",
+        "tasktype": "formfilling"
+    },
+    "isComplete": false
+}
+```
+
+<!-- OLD Get Current process state
 Is it in signing? Is it form filling +++ Used by react to decide what to show.
-http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5
+http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5 -->
 
 ### Complete a task
 
@@ -426,12 +519,13 @@ Application attempts to finish the current task and moves the process forward to
 
 ![Flowchart for completing a task](process-completeTask.png "Process complete task")
 
-
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeTask
 ```
-OLD  //Complete
-http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete
+<!--OLD  //Complete
+http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete -->
+
+Alternatively one can ask the app to go to the next task. The application will try to close the current task and attempt to start the next task. 
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask
@@ -448,10 +542,10 @@ If a task's exit condition is not met, the process will be stopped in the last v
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 ```
-OLD // CompleteAndSendIn
-http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn
+<!-- OLD // CompleteAndSendIn
+http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn -->
 
-### Get the next tasks in a process?
+### Get the next tasks in a process
 
 Returns an list of the next tasks that can be reached from the current task.
 
@@ -459,66 +553,140 @@ Returns an list of the next tasks that can be reached from the current task.
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
 ```
 
-### Start a process task
+### Start a task
 
-Closes current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
-
-![Flowchart for MVP workflow](mvp-workflow.png "MVP workflow")
+Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/startTask?taskId=Submit
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Task_129py2c
 ```
 
-## Application resource data
+## Application resources
 
-The application has a number of resource files that is used by the app's frontend.
+The application has a number of resource files that is used by the app's frontend and which defines it's behaviour.
 
-### Text resources
+### Application metadata
 
-#### Get text resources for the application for a specific language
+Get application's metadata :
 
 ```http
-GET {appPath}/resources/texts?lang=nb
+GET {appPath}
 ```
-OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb
 
+```json
+{
+    "id": "test/sailor",
+    "versionId": "v32.23-xyp",
+    "org": "test",
+    "app": "sailor",
+    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdBy": "XXX",
+    "title": { "nb": "Testapplikasjon", "en": "Test Application" }, 
+    "workflowId": "standard",
+    "validFrom": "2019-04-01T12:14:22+01:00",
+    "validTo": null,
+    "maxSize": -1,
+    "elementTypes": [
+        {
+            "id": "default",
+            "description": {"nb": "Båtdata", "en": "Boat data"},
+            "allowedContentType": ["application/json"],
+            "schema": {
+                "fileName": "boat.json-schema",
+                "schemaUrl": "/applications/test/sailor/schemas/boatdata"
+            },
+            "maxSize": 200000,
+            "maxCount": 1,
+            "shouldSign": true,
+            "shouldEncrypt": true
+        },
+        {
+            "id": "crewlist",
+            "allowedContentType": ["application/xml"],
+            "schema": {
+                "fileName": "crew.xsd",
+                "schemaUrl": "/applications/test/sailor/schemas/crewlist",
+            },
+            "maxSize": -1,
+            "maxCount": 3,
+            "shouldSign": false,
+            "shouldEncrypt": false
+        },
+        {
+            "id": "certificate",
+            "allowedContentType": ["application/pdf"],
+            "maxSize": -1,
+            "maxCount": 1,
+            "shouldSign": false,
+            "shouldEncrypt": false
+        }
+    ]
+}
+```
 
-#### Get text resources for a given element type
+### Process model
+
+Get the application's process model.
 
 ```http
-GET {appPath}/elementTypes/{typeName}/resources/texts?lang=nb
+GET {appPath}/process
 ```
-OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing
 
-### Metadata
+Returns the bpmn file defining the process.
 
-#### Get the metadata for a given element type
+### Get text resources for the application for a specific language
 
 ```http
-GET {appPath}/elementTypes/{typeName}/metadata
+GET {appPath}/texts?lang=nb
 ```
-OLD http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData
+<!-- OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb -->
 
-#### Get the layout for a given element type
+### Get text resources for a given element type
 
 ```http
-GET {appPath}/elementTypes/{typeName}/layouts
+GET {appPath}/elementTypes/{typeName}/texts?lang=nb
 ```
-OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json
+<!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
 
-#### Gets the rules for a given element type
+### Get the schema for a given element type
+
+```http
+Accept=application/schema+json
+GET {appPath}/elementTypes/{typeName}/schema
+```
+
+### Get the model config for a given element type
+
+```http
+GET {appPath}/elementTypes/{typeName}/modelConfig
+```
+(ServiceMetadata.json)
+<!-- OLD http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData -->
+
+### Get the layout for a given element type
+
+```http
+GET {appPath}/elementTypes/{typeName}/layout
+```
+(FormLayout.json)
+<!-- OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json-->
+
+### Gets the rules for a given element type
 
 ```http
 GET {appPath}/elementTypes/{typeName}/rules
 ```
-OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js
 
-#### Get the API service configuration for how the app calls external APIs
+(RuleHandler.js)
+<!-- OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js -->
+
+### Get the API service configuration for how the app calls external APIs
 
 ```http
 GET {appPath}/elementTypes/{typeName}/externalApis
 ```
-OLD (Service configuration) http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json
+(ServiceConfiguration.json)
+<!-- OLD (Service configuration) http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json -->
 
 
 {{% children description="true" depth="2" %}}
