@@ -41,3 +41,12 @@ Read-only components test not editable in app frontend | testcafe | app frontend
 Fill out, save, and submit a form | testcafe | app frontend | no
 conditional rendering of component in runtime | testcafe | app frontend | no
 Automated accesibility testing for app frontend | testcafe/axe | app | no
+|||
+Add instance events | Postman | Storage | no
+Retrieve instance events with filters | Postman | Storage | no
+Delete instance events | Postman | Storage | no
+Add, Change, Delete application | Postman | Storage | no
+Retrieve Owner id of an application| Postman | Storage | no
+Retrieve Organization, parties, person | Postman | Platform/Register | no
+Get profile of an user | Postman | Platform/Profile | no
+Get Authentication ticket | Postman | Platform/Authentication | no
