@@ -6589,11 +6589,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
     &quot;process&quot;: {
-        &quot;currentTask&quot;: {
-            &quot;id&quot;: &quot;Task_18z2cpd&quot;,
-            &quot;name&quot;:  &quot;FormFilling&quot;,
-            &quot;tasktype&quot;: &quot;formfilling&quot;
-        },
+        &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
         &quot;isComplete&quot;: false
     },
     &quot;instanceOwnerStatus&quot;: {
@@ -6754,9 +6750,9 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 
 <p>Application owners can search for application instances with a simple query request.</p>
 
-<p>For example: To get all instances of appId <em>org/appName</em>, that is in at task id <em>Task_129py2c</em> (which is Submit, see process definition), has last changed date greater than <em>2019-05-01</em> and that has label <em>gruppe3</em>.</p>
+<p>For example: To get all instances of appId <em>org/appName</em>, that is in at task id <em>Submit_1</em> (which is Submit, see process definition), has last changed date greater than <em>2019-05-01</em> and that has label <em>gruppe3</em>.</p>
 
-<pre><code class="language-http">GET {storagePath}/instances?appId=org/appName&amp;process.currentTask.id=Task_129py2c&amp;lastChangedDateTime=gte:2019-05-01&amp;label=gruppe3
+<pre><code class="language-http">GET {storagePath}/instances?appId=org/appName&amp;process.currentTask=Submit_1&amp;lastChangedDateTime=gte:2019-05-01&amp;label=gruppe3
 </code></pre>
 
 <p>Another example is get all instances of appId <em>org/appName</em> that has completed their process.</p>
@@ -6807,10 +6803,7 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
     &quot;instanceOwnerId&quot;: &quot;60238&quot;,
     &quot;userId&quot;: 338829,
     &quot;authenticationLevel&quot;: 1,
-    &quot;currentTask&quot;:  {
-        &quot;id&quot;: &quot;Task_129py2c&quot;,
-        &quot;name&quot;: &quot;Submit&quot;
-    },
+    &quot;currentTask&quot;: &quot;Submit_1&quot;,
     &quot;enduserSystemId&quot;: 2
 }
 </code></pre>
@@ -6821,7 +6814,7 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&amp;process.currentTask.id=Task_129py2c
+<pre><code class="language-http">GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&amp;process.currentTask.id=Submit_1
 </code></pre>
 
 <p>Query result:</p>
@@ -6847,15 +6840,9 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
                 &quot;dataLink&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj&quot;
             }
         ],
-        &quot;eventType&quot;: &quot;WorkflowStateChange&quot;,
-        &quot;previousTask&quot;: {
-            &quot;id&quot;: &quot;Task_18z2cpd&quot;,
-            &quot;name&quot;: &quot;FormFilling&quot;
-        },
-        &quot;currentTask&quot;: {
-            &quot;id&quot;: &quot;Task_129py2c&quot;,
-            &quot;name&quot;: &quot;Submit&quot;
-        },
+        &quot;eventType&quot;: &quot;ProcessStateChange&quot;,
+        &quot;previousTask&quot;: &quot;FormFilling_1&quot;,
+        &quot;currentTask&quot;: &quot;Submit_1&quot;,
         &quot;userId&quot;: &quot;userX&quot;
     }
 ]
@@ -6905,22 +6892,22 @@ Process is set to first task. The task specifies if the data can be updated or n
 
 <pre><code class="language-xml"> &lt;bpmn2:process id=&quot;Process_1&quot; isExecutable=&quot;false&quot;&gt;
     &lt;bpmn2:startEvent id=&quot;StartEvent_1&quot;&gt;
-      &lt;bpmn2:outgoing&gt;SequenceFlow_1yfgtgp&lt;/bpmn2:outgoing&gt;
+      &lt;bpmn2:outgoing&gt;SequenceFlow_1&lt;/bpmn2:outgoing&gt;
     &lt;/bpmn2:startEvent&gt;
-    &lt;bpmn2:task id=&quot;Task_18z2cpd&quot; name=&quot;FormFilling&quot; altinn:tasktype=&quot;formfilling&quot;&gt;
-      &lt;bpmn2:incoming&gt;SequenceFlow_1yfgtgp&lt;/bpmn2:incoming&gt;
-      &lt;bpmn2:outgoing&gt;SequenceFlow_0m0zxxn&lt;/bpmn2:outgoing&gt;
+    &lt;bpmn2:task id=&quot;FormFilling_1&quot; name=&quot;Fyll ut&quot; altinn:tasktype=&quot;formfilling&quot;&gt;
+      &lt;bpmn2:incoming&gt;SequenceFlow_1&lt;/bpmn2:incoming&gt;
+      &lt;bpmn2:outgoing&gt;SequenceFlow_2&lt;/bpmn2:outgoing&gt;
     &lt;/bpmn2:task&gt;
-    &lt;bpmn2:task id=&quot;Task_129py2c&quot; name=&quot;Submit&quot; altinn:tasktype=&quot;submit&quot;&gt;
-      &lt;bpmn2:incoming&gt;SequenceFlow_0m0zxxn&lt;/bpmn2:incoming&gt;
-      &lt;bpmn2:outgoing&gt;SequenceFlow_0zejpwt&lt;/bpmn2:outgoing&gt;
+    &lt;bpmn2:task id=&quot;Submit_1&quot; name=&quot;Send inn&quot; altinn:tasktype=&quot;submit&quot;&gt;
+      &lt;bpmn2:incoming&gt;SequenceFlow_2&lt;/bpmn2:incoming&gt;
+      &lt;bpmn2:outgoing&gt;SequenceFlow_3&lt;/bpmn2:outgoing&gt;
     &lt;/bpmn2:task&gt;
-    &lt;bpmn2:endEvent id=&quot;EndEvent_1qp79ji&quot;&gt;
-      &lt;bpmn2:incoming&gt;SequenceFlow_0zejpwt&lt;/bpmn2:incoming&gt;
+    &lt;bpmn2:endEvent id=&quot;EndEvent_1&quot;&gt;
+      &lt;bpmn2:incoming&gt;SequenceFlow_3&lt;/bpmn2:incoming&gt;
     &lt;/bpmn2:endEvent&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_1yfgtgp&quot; sourceRef=&quot;StartEvent_1&quot; targetRef=&quot;Task_18z2cpd&quot; /&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_0m0zxxn&quot; sourceRef=&quot;Task_18z2cpd&quot; targetRef=&quot;Task_129py2c&quot; /&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_0zejpwt&quot; sourceRef=&quot;Task_129py2c&quot; targetRef=&quot;EndEvent_1qp79ji&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_1&quot; sourceRef=&quot;StartEvent_1&quot; targetRef=&quot;FormFilling_1&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_2&quot; sourceRef=&quot;FormFilling_1&quot; targetRef=&quot;Submit_1&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_3&quot; sourceRef=&quot;Submit_1&quot; targetRef=&quot;EndEvent_1&quot; /&gt;
   &lt;/bpmn2:process&gt;
 </code></pre>
 
@@ -6932,12 +6919,7 @@ Process is set to first task. The task specifies if the data can be updated or n
 <p>Returns:</p>
 
 <pre><code class="language-json">{
-    &quot;currentTask&quot;:
-    {
-        &quot;id&quot;: &quot;Task_18z2cpd&quot;,
-        &quot;name&quot;: &quot;FormFilling&quot;,
-        &quot;tasktype&quot;: &quot;formfilling&quot;
-    },
+    &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
     &quot;isComplete&quot;: false
 }
 </code></pre>
@@ -6988,7 +6970,7 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
 
 <p>Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Task_129py2c
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Submit_1
 </code></pre>
 
 <h2 id="application-resources">Application resources</h2>
@@ -7009,8 +6991,8 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
     &quot;app&quot;: &quot;sailor&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; }, 
-    &quot;workflowId&quot;: &quot;standard&quot;,
+    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; },
+    &quot;processId&quot;: &quot;mvp1&quot;,
     &quot;validFrom&quot;: &quot;2019-04-01T12:14:22+01:00&quot;,
     &quot;validTo&quot;: null,
     &quot;maxSize&quot;: -1,
