@@ -134,11 +134,7 @@ This call will return the instance metadata record that was created. A unique id
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "process": {
-        "currentTask": {
-            "id": "Task_18z2cpd",
-            "name":  "FormFilling",
-            "tasktype": "formfilling"
-        },
+        "currentTask": "FormFilling_1",
         "isComplete": false
     },
     "instanceOwnerStatus": {
@@ -308,10 +304,10 @@ Will return a multipart http response with the following content:
 
 Application owners can search for application instances with a simple query request.
 
-For example: To get all instances of appId *org/appName*, that is in at task id *Task_129py2c* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
+For example: To get all instances of appId *org/appName*, that is in at task id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
 
 ```http
-GET {storagePath}/instances?appId=org/appName&process.currentTask.id=Task_129py2c&lastChangedDateTime=gte:2019-05-01&label=gruppe3
+GET {storagePath}/instances?appId=org/appName&process.currentTask=Submit_1&lastChangedDateTime=gte:2019-05-01&label=gruppe3
 ```
 
 Another example is get all instances of appId *org/appName* that has completed their process.
@@ -367,10 +363,7 @@ Example of event data.
     "instanceOwnerId": "60238",
     "userId": 338829,
     "authenticationLevel": 1,
-    "currentTask":  {
-        "id": "Task_129py2c",
-        "name": "Submit"
-    },
+    "currentTask": "Submit_1",
     "enduserSystemId": 2
 }
 ```
@@ -382,7 +375,7 @@ Selected instance events. Created, first read, change process state. Optinally s
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Task_129py2c
+GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Submit_1
 ```
 
 Query result:
@@ -409,15 +402,9 @@ Query result:
                 "dataLink": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj"
             }
         ],
-        "eventType": "WorkflowStateChange",
-        "previousTask": {
-            "id": "Task_18z2cpd",
-            "name": "FormFilling"
-        },
-        "currentTask": {
-            "id": "Task_129py2c",
-            "name": "Submit"
-        },
+        "eventType": "ProcessStateChange",
+        "previousTask": "FormFilling_1",
+        "currentTask": "Submit_1",
         "userId": "userX"
     }
 ]
@@ -470,22 +457,22 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
 ```xml
  <bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:startEvent id="StartEvent_1">
-      <bpmn2:outgoing>SequenceFlow_1yfgtgp</bpmn2:outgoing>
+      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="Task_18z2cpd" name="FormFilling" altinn:tasktype="formfilling">
-      <bpmn2:incoming>SequenceFlow_1yfgtgp</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_0m0zxxn</bpmn2:outgoing>
+    <bpmn2:task id="FormFilling_1" name="Fyll ut" altinn:tasktype="formfilling">
+      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:task id="Task_129py2c" name="Submit" altinn:tasktype="submit">
-      <bpmn2:incoming>SequenceFlow_0m0zxxn</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_0zejpwt</bpmn2:outgoing>
+    <bpmn2:task id="Submit_1" name="Send inn" altinn:tasktype="submit">
+      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+      <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:endEvent id="EndEvent_1qp79ji">
-      <bpmn2:incoming>SequenceFlow_0zejpwt</bpmn2:incoming>
+    <bpmn2:endEvent id="EndEvent_1">
+      <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_1yfgtgp" sourceRef="StartEvent_1" targetRef="Task_18z2cpd" />
-    <bpmn2:sequenceFlow id="SequenceFlow_0m0zxxn" sourceRef="Task_18z2cpd" targetRef="Task_129py2c" />
-    <bpmn2:sequenceFlow id="SequenceFlow_0zejpwt" sourceRef="Task_129py2c" targetRef="EndEvent_1qp79ji" />
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="FormFilling_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="FormFilling_1" targetRef="Submit_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Submit_1" targetRef="EndEvent_1" />
   </bpmn2:process>
 ```
 
@@ -499,12 +486,7 @@ Returns:
 
 ```json
 {
-    "currentTask":
-    {
-        "id": "Task_18z2cpd",
-        "name": "FormFilling",
-        "tasktype": "formfilling"
-    },
+    "currentTask": "FormFilling_1",
     "isComplete": false
 }
 ```
@@ -558,7 +540,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?next
 Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Task_129py2c
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Submit_1
 ```
 
 ## Application resources
@@ -581,8 +563,8 @@ GET {appPath}
     "app": "sailor",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
-    "title": { "nb": "Testapplikasjon", "en": "Test Application" }, 
-    "workflowId": "standard",
+    "title": { "nb": "Testapplikasjon", "en": "Test Application" },
+    "processId": "mvp1",
     "validFrom": "2019-04-01T12:14:22+01:00",
     "validTo": null,
     "maxSize": -1,
