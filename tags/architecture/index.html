@@ -6562,10 +6562,11 @@ The application architecture for each component is described below. <a class="re
         <h2 class="post-title"><a href="/architecture/application/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-The solution is currently available locally and remotely at http://localhost:5040/api/v1 and http://platform.altinn.cloud/api/authentication/v1, respectively.
-An endpoint for testing purposes is available:
-/debug/{echo}  Works with any string as echo, and will simply return the inputted string. <a class="read-more" href="/architecture/application/altinn-platform/authentication/">&raquo;</a></p>
+        <p> The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The solution is currently available at http://platform.altinn.cloud/authentication/api/v1.
+Resources: authentication
+/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
+/authentication?goto={url}   <a class="read-more" href="/architecture/application/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6619,12 +6620,12 @@ An endpoint for testing purposes is available:
         <h2 class="post-title"><a href="/architecture/application/altinn-platform/profile/">Application arhicture profile component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+        <p> The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
 The profile solution is now available locally at http://platform.altinn.cloud/profile/api/v1 and all resources are avaiable through endpoints defined below.
 Resources: users
 /users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.
 Get information about a user:
-/users/{userId}  (Available testdata. UserId: 1083,2772, 2882 and 1536. <a class="read-more" href="/architecture/application/altinn-platform/profile/">&raquo;</a></p>
+/users/{userId}   <a class="read-more" href="/architecture/application/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6654,11 +6655,9 @@ Get information about a user:
         <p>The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
 The solution is now available at https://platform.altinn.cloud/register/api/v1 and all resources are avaiable through endpoints defined below.
 Resource: Organizations, Parties, Persons
-## /organizations
-Get information about an organization:
-/organizations/{orgNr}  (Available testdata. OrgNrs: 10008387, 10008433, 810418192 and 810419962)
-/parties Get information about a party:
-/parties/{partyId}  (Available testdata. PartyIds: 50004216, 50004217, 50004219, 50004232, 50002182, 50003590, 50003681 and 50002550) <a class="read-more" href="/architecture/application/altinn-platform/register/">&raquo;</a></p>
+/organizations Get information about an organization:
+/organizations/{orgNr}  /parties Get information about a party:
+/parties/{partyId}  /persons Get information about a person: Send a GET-request with the persons SSN contained in the request body to <a class="read-more" href="/architecture/application/altinn-platform/register/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

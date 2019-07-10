@@ -3500,14 +3500,23 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
-        <span>Authentication API</span> 
+    <li data-nav-id="/development/handbook/front-end/best-practices/" class="dd-item 
         
-        </a></li>
-     
+        
+        
+        ">
+      <a href="/development/handbook/front-end/best-practices/">
+        <span>Best practices</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -3520,14 +3529,23 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
-        <span>JWT Format</span> 
+    <li data-nav-id="/development/handbook/front-end/build/" class="dd-item 
         
-        </a></li>
-     
+        
+        
+        ">
+      <a href="/development/handbook/front-end/build/">
+        <span>Build</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -3540,14 +3558,197 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
-     
-      ">
-        <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
-        <span>JWTCookieAuthentication</span> 
+    <li data-nav-id="/development/handbook/front-end/component-library/" class="dd-item 
         
-        </a></li>
-     
+        
+        
+        ">
+      <a href="/development/handbook/front-end/component-library/">
+        <span>Component Library</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/debug/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/debug/">
+        <span>Debug</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/error-handling/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/error-handling/">
+        <span>Error handling</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/postmessage/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/postmessage/">
+        <span>Post Message</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/react/">
+        <span>React</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/redux/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/redux/">
+        <span>Redux</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/front-end/styling/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/front-end/styling/">
+        <span>Styling (css)</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -6417,16 +6618,21 @@ if(host != "localhost")
 
 
 
+
+
 <p>The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.</p>
 
-<p>The solution is currently available locally and remotely at  <a href="http://localhost:5040/api/v1">http://localhost:5040/api/v1</a>  and <a href="http://platform.altinn.cloud/api/authentication/v1">http://platform.altinn.cloud/api/authentication/v1</a>, respectively.</p>
+<p>The solution is currently available at <a href="http://platform.altinn.cloud/authentication/api/v1">http://platform.altinn.cloud/authentication/api/v1</a>.</p>
 
-<p>An endpoint for testing purposes is available:</p>
+<p>Resources: authentication</p>
 
-<pre><code class="language-http">/debug/{echo}
+<h2 id="authentication">/authentication</h2>
+
+<p>The authentication resource enables authenticating a user and redirecting it to another Altinn-url.
+If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.</p>
+
+<pre><code class="language-http">/authentication?goto={url}
 </code></pre>
-
-<p>Works with any string as echo, and will simply return the inputted string.</p>
 
 
 <footer class=" footline" >
