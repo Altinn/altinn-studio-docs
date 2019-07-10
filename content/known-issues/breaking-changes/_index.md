@@ -13,7 +13,7 @@ It is no longer possible to access repositories in Gitea through http://altinn.s
 This is due to changes made in backend routing with release v2019.27, url to Gitea and the application repositories now requires a /repos.
 
 ### How to fix
-To access your repository go to: http://altinn.studio/repos/{org}/app
+To access your repository go to: http://altinn.studio/repos/{organizationShortName}/{appName}
 
 ## Error -The type or namespace name *
 Introduced with issue: [#875](https://github.com/Altinn/altinn-studio/issues/875)
