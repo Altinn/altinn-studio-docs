@@ -629,15 +629,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/code-editor/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/api-use/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/prefill/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/code-editor/</loc>
   </url>
   
   <url>
@@ -796,7 +796,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-studio/functional/work-in-progress/</loc>
+    <loc>https://docs.altinn.studio/about/work-in-progress/</loc>
   </url>
   
   <url>

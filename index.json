@@ -312,7 +312,7 @@
 	"title": "Building and configuring app",
 	"tags": ["solution", "studio"],
 	"description": "Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.",
-	"content": "To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app.\n\rApp Parameters\rIn Altinn Studio the developer can set various parameters for the app\n\r\rCode Editor\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rConfigure API use\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rConfigure Prefill\rAltinn Studio will let the developer define prefill for datamodel from register and profile\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rSet Authorization Rules\rAltinn Studio let the developer set the authorization requirements for a App\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Designer\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\r"
+	"content": "To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app.\n\rApp Parameters\rIn Altinn Studio the developer can set various parameters for the app\n\r\rConfigure API use\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rConfigure Prefill\rAltinn Studio will let the developer define prefill for datamodel from register and profile\n\r\rCreate Logic with code\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rSet Authorization Rules\rAltinn Studio let the developer set the authorization requirements for a App\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Design\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/",
@@ -431,7 +431,7 @@
 	"title": "Functionality in Altinn Studio",
 	"tags": ["solution", "studio"],
 	"description": "Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.",
-	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rBuilding and configuring app\rAltinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\r"
+	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rBuilding and configuring app\rAltinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/general/",
@@ -1092,13 +1092,6 @@
 	"content": ""
 },
 {
-	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/code-editor/",
-	"title": "Code Editor",
-	"tags": ["studio", "workflow", "process"],
-	"description": "In Altinn Studio there is a web based code editor for editing front-end and back-end logic",
-	"content": " Code Editor for back-end logic A developer can edit logic that will be part of app-backend when application is running in Altinn Apps\nSee Getting started to se how to do that\nCode Editor for front-end logic A developer can edit logic that will run in the browser for a given app.\nSee Getting started to se how to do that\nSee github issues related to logic \u0026amp; rules\n"
-},
-{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/api-use/",
 	"title": "Configure API use",
 	"tags": ["studio", "api"],
@@ -1111,6 +1104,13 @@
 	"tags": ["studio"],
 	"description": "Altinn Studio will let the developer define prefill for datamodel from register and profile",
 	"content": "See issues related to prefill on Github\n"
+},
+{
+	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/code-editor/",
+	"title": "Create Logic with code",
+	"tags": ["studio", "workflow", "process"],
+	"description": "In Altinn Studio there is a web based code editor for editing front-end and back-end logic",
+	"content": " Code Editor for back-end logic A developer can edit logic that will be part of app-backend when application is running in Altinn Apps\nSee Getting started to se how to do that\nCode Editor for front-end logic A developer can edit logic that will run in the browser for a given app.\nSee Getting started to se how to do that\nSee github issues related to logic \u0026amp; rules\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/dashboard/",
@@ -1359,7 +1359,7 @@
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/build-app/ui-designer/",
-	"title": "UI Designer",
+	"title": "UI Design",
 	"tags": [],
 	"description": "The UI-designer is the part of Altinn Studio where the developer can create UI for the app.",
 	"content": " The possibility to effectly build a user friendly user interface for an app, is an essential feature for Altinn Studio. This is one of the more complex functionalities developed as part of Altinn Studio.\nThe UI-designer has the following functionality:\n Define a detailed layout (responsive design)  Add reusable form components Configure form components  Connection to data model Connection to texts/translations   Define/configure connections to external API Define/configure rules for validation, calculation and dynamics  See all issues related to Altinn Studio and UI-designer on Github\nForm components The form components are reusable components that are used to build the user interface of the service. Examples include input fields and title components. See a list of all available form components here.\nIt is also possible to define custom components and use this in the service.\nMultiple form layouts In the future Altinn Studio will support creating different UI for seperate datamodels for sub forms or forms in seperate form filling task in a process.\nSee all Github issues for UI-Designer\n"
@@ -1379,7 +1379,7 @@
 	"content": " Visual Studio Code is a lightweight and extendable code editor which runs on your desktop and is available for Windows, macOS and Linux.\nWe use it when developing altinn-studio, and it can be used for editing files from Altinn Studio Repos locally using the built-in git support.\nVS Code comes with support for hundreds of languages and technologies, including all the ones that are relevant in Altinn Studio:\n C# CSS Docker Go HTML JavaScript JSON Kubernetes Markdown .NET Core Node.js React and JSX TypeScript  Links  https://code.visualstudio.com/docs https://github.com/Microsoft/vscode  "
 },
 {
-	"uri": "https://docs.altinn.studio/solutions/altinn-studio/functional/work-in-progress/",
+	"uri": "https://docs.altinn.studio/about/work-in-progress/",
 	"title": "Work in progress",
 	"tags": ["studio", "work in progress"],
 	"description": "A work in progress information is displayed to users of Altinn Studio.",
