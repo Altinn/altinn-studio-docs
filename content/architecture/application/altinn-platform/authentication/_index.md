@@ -8,12 +8,15 @@ weight: 100
 
 The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
 
-The solution is currently available locally and remotely at  http://localhost:5040/api/v1  and http://platform.altinn.cloud/api/authentication/v1, respectively.
+The solution is currently available at http://platform.altinn.cloud/authentication/api/v1. 
 
-An endpoint for testing purposes is available:
+Resources: authentication 
+
+## /authentication
+
+The authentication resource enables authenticating a user and redirecting it to another Altinn-url. 
+If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
 
 ```http
-/debug/{echo}
+/authentication?goto={url}
 ```
-  Works with any string as echo, and will simply return the inputted string.
-
