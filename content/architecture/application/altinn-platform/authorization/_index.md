@@ -4,7 +4,6 @@ linktitle: Authorization
 description: Description of authorization component
 tags: ["solution", "architecture"]
 weight: 100
-alwaysopen: true
 ---
 
 {{%notice warning%}}

@@ -4,7 +4,6 @@ linktitle: Register
 description: Description of register component
 tags: ["solution", "architecture"]
 weight: 100
-alwaysopen: true
 ---
 
 The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.

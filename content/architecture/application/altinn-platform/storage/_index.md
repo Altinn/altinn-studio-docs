@@ -4,7 +4,6 @@ linktitle: Storage
 description: Description of the application architecture for Storage component
 tags: ["solution", "architecture"]
 weight: 100
-alwaysopen: true
 ---
 
 The Storage component exposes a REST-API to Altinn Apps.

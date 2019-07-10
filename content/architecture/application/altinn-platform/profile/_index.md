@@ -4,7 +4,6 @@ linktitle: Profile
 description: Description of profile component
 tags: ["solution", "architecture"]
 weight: 100
-alwaysopen: true
 ---
 
 The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
