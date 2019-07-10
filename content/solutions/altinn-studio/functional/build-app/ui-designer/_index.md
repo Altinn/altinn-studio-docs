@@ -1,5 +1,5 @@
 ---
-title: UI Designer
+title: UI Design
 description: The UI-designer is the part of Altinn Studio where the developer can create UI for the app.
 ---
 
