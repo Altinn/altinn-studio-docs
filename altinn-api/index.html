@@ -6515,7 +6515,7 @@ The Platform Storage API will provide access to information stored by the applic
 
 <p>An api that provides access to all instances of a specific app.</p>
 
-<pre><code class="language-http">apiPath = https://org.apps.altinn.no/org/appName
+<pre><code class="language-http">apiPath = https://org.apps.altinn.no/org/app
 </code></pre>
 
 <p>Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.</p>
@@ -6541,7 +6541,7 @@ If you do not know this, you should provide the official identity number, e.g na
 <pre><code class="language-json">{
     &quot;instanceOwnerLookup&quot;: { &quot;personNumber&quot;: &quot;12247918309&quot; | &quot;organisationNumber&quot;: &quot;123456789&quot; | &quot;userName&quot;: &quot;xyz&quot; },
     &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ],
-    &quot;appId&quot; : &quot;org/appName&quot;,
+    &quot;appId&quot; : &quot;org/app&quot;,
     &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
     &quot;presentationField&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding&quot; }
@@ -6580,7 +6580,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
         &quot;apps&quot;: &quot;{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;platform&quot;: &quot;{platformPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
     },
-    &quot;appId&quot;: &quot;org/appName&quot;,
+    &quot;appId&quot;: &quot;org/app&quot;,
     &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
     &quot;instanceOwnerId&quot;: &quot;347829&quot;,
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
@@ -6605,7 +6605,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;elementType&quot;: &quot;default&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
-        &quot;storageUrl&quot;: &quot;org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+        &quot;storageUrl&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;dataLink&quot;: {
             &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
@@ -6637,7 +6637,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;elementType&quot;: &quot;default&quot;,
             &quot;contentType&quot;: &quot;application/xml&quot;,
-            &quot;storageUrl&quot;: &quot;org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+            &quot;storageUrl&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;dataLinks&quot;: {
                 &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
                 &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
@@ -6750,14 +6750,14 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 
 <p>Application owners can search for application instances with a simple query request.</p>
 
-<p>For example: To get all instances of appId <em>org/appName</em>, that is in at task id <em>Submit_1</em> (which is Submit, see process definition), has last changed date greater than <em>2019-05-01</em> and that has label <em>gruppe3</em>.</p>
+<p>For example: To get all instances of appId <em>org/app</em>, that is in at task id <em>Submit_1</em> (which is Submit, see process definition), has last changed date greater than <em>2019-05-01</em> and that has label <em>gruppe3</em>.</p>
 
-<pre><code class="language-http">GET {storagePath}/instances?appId=org/appName&amp;process.currentTask=Submit_1&amp;lastChangedDateTime=gte:2019-05-01&amp;label=gruppe3
+<pre><code class="language-http">GET {storagePath}/instances?appId=org/app&amp;process.currentTask=Submit_1&amp;lastChangedDateTime=gte:2019-05-01&amp;label=gruppe3
 </code></pre>
 
-<p>Another example is get all instances of appId <em>org/appName</em> that has completed their process.</p>
+<p>Another example is get all instances of appId <em>org/app</em> that has completed their process.</p>
 
-<pre><code class="language-http">GET {storagePath}/instances?appId=org/appName&amp;process.isComplete=true
+<pre><code class="language-http">GET {storagePath}/instances?appId=org/app&amp;process.isComplete=true
 </code></pre>
 
 <p>The query returns a paginated set of instances (JSON)</p>
@@ -6814,7 +6814,7 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&amp;process.currentTask.id=Submit_1
+<pre><code class="language-http">GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&amp;process.currentTask.id=Submit_1
 </code></pre>
 
 <p>Query result:</p>
@@ -6823,7 +6823,7 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
     {
         &quot;id&quot;: &quot;112453234523423344&quot;,
         &quot;at&quot;: &quot;2019-06-01T12:12:22+01:00&quot;,
-        &quot;appId&quot;: &quot;org/appName&quot;,
+        &quot;appId&quot;: &quot;org/app&quot;,
         &quot;instanceOwnerId&quot;: &quot;347829&quot;,
         &quot;instanceLink&quot;: &quot;{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
         &quot;dataLinks&quot;: [
