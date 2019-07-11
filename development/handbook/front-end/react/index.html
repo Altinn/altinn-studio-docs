@@ -6563,26 +6563,29 @@ In the templates folder, in the <code>src/index.tsx</code>-file, a function call
       - reducers / 
   - reducers /
     - index.ts
-  - sharedResources / # Shared resources 
-    - language /
-      - fetch /
-        - fetchLanguageActions.ts
-        - fetchLanguageSagas.ts
-      - someAction /
-        - someActionOnLanguageActions.ts
-        - someActionOnLanguageSagas.ts
-      - languageActions.ts
-      - languageActionTypes.ts
-      - languageReducer.ts
-      - languageSagas.ts
-    - repoStatus /
-      - fetch /
-        - fetchRepoStatusActions.ts
-        - fetchRepoStatusSagas.ts
-      - repoStatusActions.ts
-      - repoStatusActionTypes.ts
-      - repoStatusReducer.ts
-      - repoStatusSagas.ts
+  - shared /
+    - components / # Shared components
+      - altinnAppHeader.tsx
+    - resources / # Shared resources
+      - language /
+          - fetch /
+            - fetchLanguageActions.ts
+            - fetchLanguageSagas.ts
+          - someAction /
+            - someActionOnLanguageActions.ts
+            - someActionOnLanguageSagas.ts
+          - languageActions.ts
+          - languageActionTypes.ts
+          - languageReducer.ts
+          - languageSagas.ts
+        - repoStatus /
+          - fetch /
+            - fetchRepoStatusActions.ts
+            - fetchRepoStatusSagas.ts
+          - repoStatusActions.ts
+          - repoStatusActionTypes.ts
+          - repoStatusReducer.ts
+          - repoStatusSagas.ts
   - types /
   - utils /
 - store
