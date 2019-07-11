@@ -132,10 +132,10 @@ This is the best practice for folder structure in applications.
       - reducers / 
   - reducers /
     - index.ts
-  - shared / # Shared resources
-    - components
+  - shared /
+    - components / # Shared components
       - altinnAppHeader.tsx
-    - resources /
+    - resources / # Shared resources
       - language /
           - fetch /
             - fetchLanguageActions.ts
