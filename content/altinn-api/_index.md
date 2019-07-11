@@ -55,7 +55,7 @@ The Platform Storage API will provide access to information stored by the applic
 An api that provides access to all instances of a specific app.
 
 ```http
-apiPath = https://org.apps.altinn.no/org/appName
+apiPath = https://org.apps.altinn.no/org/app
 ```
 
 Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
@@ -83,7 +83,7 @@ The client specify the instance owner and can set a number of the metadata field
 {
     "instanceOwnerLookup": { "personNumber": "12247918309" | "organisationNumber": "123456789" | "userName": "xyz" },
     "labels" : [ "gr", "x2" ],
-    "appId" : "org/appName",
+    "appId" : "org/app",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": { "nb": "Arbeidsmelding" }
@@ -125,7 +125,7 @@ This call will return the instance metadata record that was created. A unique id
         "apps": "{appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "platform": "{platformPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
     },
-    "appId": "org/appName",
+    "appId": "org/app",
     "labels": [ "gr", "x2" ],
     "instanceOwnerId": "347829",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
@@ -150,7 +150,7 @@ This call will return the instance metadata record that was created. A unique id
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "elementType": "default",
         "contentType": "application/xml",
-        "storageUrl": "org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        "storageUrl": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "dataLink": {
             "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
@@ -184,7 +184,7 @@ This call updates and returns instance metadata where each data element are give
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "elementType": "default",
             "contentType": "application/xml",
-            "storageUrl": "org/appName/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "storageUrl": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "dataLinks": {
                 "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
                 "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
@@ -304,16 +304,16 @@ Will return a multipart http response with the following content:
 
 Application owners can search for application instances with a simple query request.
 
-For example: To get all instances of appId *org/appName*, that is in at task id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
+For example: To get all instances of appId *org/app*, that is in at task id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
 
 ```http
-GET {storagePath}/instances?appId=org/appName&process.currentTask=Submit_1&lastChangedDateTime=gte:2019-05-01&label=gruppe3
+GET {storagePath}/instances?appId=org/app&process.currentTask=Submit_1&lastChangedDateTime=gte:2019-05-01&label=gruppe3
 ```
 
-Another example is get all instances of appId *org/appName* that has completed their process.
+Another example is get all instances of appId *org/app* that has completed their process.
 
 ```http
-GET {storagePath}/instances?appId=org/appName&process.isComplete=true
+GET {storagePath}/instances?appId=org/app&process.isComplete=true
 ```
 
 
@@ -375,7 +375,7 @@ Selected instance events. Created, first read, change process state. Optinally s
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/appName/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Submit_1
+GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Submit_1
 ```
 
 Query result:
@@ -385,7 +385,7 @@ Query result:
     {
         "id": "112453234523423344",
         "at": "2019-06-01T12:12:22+01:00",
-        "appId": "org/appName",
+        "appId": "org/app",
         "instanceOwnerId": "347829",
         "instanceLink": "{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
         "dataLinks": [
