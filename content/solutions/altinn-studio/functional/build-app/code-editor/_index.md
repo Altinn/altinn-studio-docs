@@ -1,5 +1,5 @@
 ---
-title: Code Editor
+title: Create Logic with code
 description: In Altinn Studio there is a web based code editor for editing front-end and back-end logic
 tags: ["studio", "workflow", "process"]
 ---

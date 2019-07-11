@@ -132,26 +132,29 @@ This is the best practice for folder structure in applications.
       - reducers / 
   - reducers /
     - index.ts
-  - sharedResources / # Shared resources 
-    - language /
-      - fetch /
-        - fetchLanguageActions.ts
-        - fetchLanguageSagas.ts
-      - someAction /
-        - someActionOnLanguageActions.ts
-        - someActionOnLanguageSagas.ts
-      - languageActions.ts
-      - languageActionTypes.ts
-      - languageReducer.ts
-      - languageSagas.ts
-    - repoStatus /
-      - fetch /
-        - fetchRepoStatusActions.ts
-        - fetchRepoStatusSagas.ts
-      - repoStatusActions.ts
-      - repoStatusActionTypes.ts
-      - repoStatusReducer.ts
-      - repoStatusSagas.ts
+  - shared /
+    - components / # Shared components
+      - altinnAppHeader.tsx
+    - resources / # Shared resources
+      - language /
+          - fetch /
+            - fetchLanguageActions.ts
+            - fetchLanguageSagas.ts
+          - someAction /
+            - someActionOnLanguageActions.ts
+            - someActionOnLanguageSagas.ts
+          - languageActions.ts
+          - languageActionTypes.ts
+          - languageReducer.ts
+          - languageSagas.ts
+        - repoStatus /
+          - fetch /
+            - fetchRepoStatusActions.ts
+            - fetchRepoStatusSagas.ts
+          - repoStatusActions.ts
+          - repoStatusActionTypes.ts
+          - repoStatusReducer.ts
+          - repoStatusSagas.ts
   - types /
   - utils /
 - store
