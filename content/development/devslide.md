@@ -34,7 +34,8 @@ Aka. "Tjenester 3.0"
 - Define frontend logic
 - Define datamodel for app
 - Define app logic for backend
-- Build & deploy app container 
+- Build & deploy app container
+- Source Control for App files 
 ___
 ![](/about/feature_git.png)
 ___
@@ -55,10 +56,14 @@ ___
 - Storage
 - Register
 - Profile
+---
 ## Documentation
 - The different solutions are described in detail
-under Archicture under docs.altinn.studio
-
+on docs
+[Terms](/terms)
+[Architecture](/architecture/)
+ 
+---
 ## The End
 
 [Tilbake](../)
