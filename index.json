@@ -375,7 +375,7 @@
 	"title": "Development",
 	"tags": ["development", "architecture"],
 	"description": "Information about developing the open source Altinn Studio solution.",
-	"content": "See the projects Github page.\n\rAnalysis\rAnalysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.\n\r\rBranching\rBranching information for Altinn Studio\n\r\rFlight Rules\rFlight rules for Altinn Studio\n\r\rHandbook\rDevelopment handbook for Altinn Studio\n\r\r"
+	"content": "See the projects Github page.\n\rIntro for Developers\rIntroduction\n\r\rAnalysis\rAnalysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.\n\r\rBranching\rBranching information for Altinn Studio\n\r\rFlight Rules\rFlight rules for Altinn Studio\n\r\rHandbook\rDevelopment handbook for Altinn Studio\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/front-end/error-handling/",
@@ -495,6 +495,13 @@
 	"tags": ["solution", "architecture"],
 	"description": "Description of intermediary component",
 	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/devslide/",
+	"title": "Intro for Developers",
+	"tags": [],
+	"description": "Introduction",
+	"content": " Altinn Studio Aka. \u0026ldquo;Tjenester 3.0\u0026rdquo; What are we creating  A app development solution Altinn Studio: The development tool Altinn Platform: The supporting platform Altinn Apps: The solution to host the Apps  What technologies are we using  .Net Core : Backend / API REACT : Frontend Altinn Studio \u0026amp; App Docker: Apps are created as Docker Containers Kubernetes: The containers are hosted in Kubernetes Azure: We use Azure for Kubernetes hosting  Altinn Studio  Design frontend Define frontend logic Define datamodel for app Define app logic for backend Build \u0026amp; deploy app container\n Altinn Apps Kubernetes Cluster where apps are hosted\n One cluster per Organization Altinn Platform Supporting functionality\n Authentication\n Authorization\n Storage\n Register\n Profile\nDocumentation The different solutions are described in detail under Archicture under docs.altinn.studio\n  The End Tilbake\n"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authentication/altinn-platform/jwt-format/",

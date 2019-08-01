@@ -287,6 +287,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/devslide/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/authentication/altinn-platform/jwt-format/</loc>
   </url>
   
