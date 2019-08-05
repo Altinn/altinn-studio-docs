@@ -3,11 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ .Hugo.Generator }}
     {{ partial "meta.html" . }}
     {{if .IsHome}}
-    <title>Altinn Studio documentation</title>
+    <title>Altinn digitalisering - Utvikling</title>
     {{else}}
-    <title>{{ .Title }} :: Altinn - Documentation</title>
+    <title>{{ .Title }} :: Altinn digitalisering - Utvikling</title>
     {{end}}
     <link rel="shortcut icon" href="{{"images/favicon.png" | relURL}}" type="image/x-icon" />
     <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
@@ -97,7 +98,7 @@
           {{end}}
 
           {{ if and (gt .WordCount 100 ) (.Params.toc) }}
-            <h2>On this page:</h2>
+            <h2>På denne siden:</h2>
               {{ .TableOfContents }}
           {{ end }}
 

@@ -45,6 +45,11 @@ Altinn Studio have an open backlog on GitHub and the code is open source. Everyb
   </div>
 </div>
 
+{{% panel %}}
+**Develop digital services using our tools and APIs**<br>
+Looking for technical guidance on how to build your own services with our products? Go to [Altinn Digital - Development](https://altinn.github.io/docs/")
+{{% /panel %}}
+
 [Altinn Studio]: https://altinn.studio
 [open backlog]: https://github.com/altinn/altinn-studio/issues/
 [milestones]: https://github.com/altinn/altinn-studio/milestones?direction=asc&sort=due_date&state=open

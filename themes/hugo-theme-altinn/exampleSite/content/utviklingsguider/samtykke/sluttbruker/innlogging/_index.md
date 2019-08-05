@@ -16,4 +16,4 @@ For å kunne gi et samtykke i Altinn må brukeren identifisere seg for det offen
 Innen føderert BankID mellom bankene og ID-porten er mulig, må brukere potensielt logge inn to ganger.  
 
 
-![Innlogging ID-porten](innlogging.png "Innlogging ID-porten")
+{{<figure src="innlogging.png" title="Innlogging ID-porten" >}}
