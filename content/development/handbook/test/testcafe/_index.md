@@ -68,7 +68,7 @@ Code for [Testcafe tests](https://github.com/Altinn/altinn-studio/tree/master/sr
 
 
 ### Debug Tests
-Details are on the way !!
+    Use Chrome Developer Tools for inspecting an element and working on the tests. Testcafe continues to work towards implementing a method to debug an application interactively. Refer: https://github.com/DevExpress/testcafe/issues/3244
 
 ### Pipeline in Azure Devops
 [Azure Devops Pipeline](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=5)

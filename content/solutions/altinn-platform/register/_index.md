@@ -1,11 +1,9 @@
 ---
 title: Register
-description: The Register componnt gives register information to Apps
-tags: ["solution", "apps"]
+description: The Register micro service gives register information to Apps.
+tags: [platform, register]
 weight: 200
 ---
-
-The Register component gives register information to Apps
 
 - ER - Enhetsregisteret - Information about organizations in Norway
 - DSF - Det Sentrale Folkeregisteret - Information about citizens in Norway.
@@ -17,3 +15,5 @@ Altinn Platform does not have a own copy of ER. It currently uses Altinn II plaf
 
 See [Application architecture](/architecture/applicaion/altinn-platform/register) for details.
 
+
+[See all open issues for Register on Github](https://github.com/Altinn/altinn-studio/labels/register)

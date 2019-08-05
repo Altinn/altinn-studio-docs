@@ -1,12 +1,10 @@
 ---
 title: Authentication
-description: The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and system
-tags: ["solution", "apps", "authentication"]
+description: The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.
+tags: [platform, authentication]
 weight: 200
 ---
 
-
-The Authentication component gives authentication functionality needed for user and systems. 
 
 ## API to create JWT Token for user logged in to Altinn Portal
 When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged in user. This cookie is
@@ -16,3 +14,5 @@ symmetric encryption key. The Altinn Platform is based on .ASP.Net core I cant u
 To allow for a user accessing a App in Altinn Apps or a component in Altinn Platform the current platform will expose a API that can decrypt a ASP.Net 
 cookie and return user information to the Authentication component in Altinn Platform. 
 
+
+[See all open issues for Authentication on Github](https://github.com/Altinn/altinn-studio/labels/authentication)

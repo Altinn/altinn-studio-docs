@@ -4,7 +4,6 @@ linktitle: Storage
 description: Description of the application architecture for Storage component
 tags: ["solution", "architecture"]
 weight: 100
-alwaysopen: true
 ---
 
 The Storage component exposes a REST-API to Altinn Apps.
@@ -27,8 +26,8 @@ An appId refers to the application information element which defines the metadat
 ```json
 {
     "id": "60238/762011d1-d341-4c0a-8641-d8a104e83d30",
-    "appId": "TEST/sailor",
-    "org": "TEST",
+    "appId": "test/sailor",
+    "org": "test",
     "instanceOwnerId": "60238",
     "labels": ["xyz", "importantUser"],
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
@@ -55,7 +54,7 @@ An appId refers to the application information element which defines the metadat
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "elementType": "boatdata",
             "contentType": "application/json",
-            "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json",
+            "storageUrl": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json",
             "fileName": "davidsyacht.json",
             "createdDateTime": "2019-03-06T15:00:23+01:00",
             "createdBy": "XXX",
@@ -63,7 +62,7 @@ An appId refers to the application information element which defines the metadat
             "fileSize": 2003,
             "isLocked": true,
             "pdf": {
-                "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf",
+                "storageUrl": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf",
                 "generated": "2019-05-30T14:38:22+01:00"
             }
         },
@@ -71,7 +70,7 @@ An appId refers to the application information element which defines the metadat
             "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
             "elementType": "crewlist",
             "contentType": "text/xml",
-            "storageUrl": "TEST/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
+            "storageUrl": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
             "fileName": "crewLIst.xml",
             "createdDateTime": "2019-03-07T23:59:49+01:00",
             "createdBy": "XXX",
@@ -102,12 +101,16 @@ userStatus | InboxStatus | statuses that the user can change  | U
 appOwnerStatus | AppOwnerStatus | status from app owner | | CU | |
 data | DataElement[] | data elements | | | CU
 
+C - creation time, U - can be updated
+
 ### Operations
 
-Create a new instance. Post with params that identifies the application and the instance owner.
+Create a new instance of an app for a given instance owner. 
+Post with query params that identifies the appId and the instance owner. 
+An instance object can be sent as json data to set certian values.
 
 ```http
-POST /instances?appId=TEST/sailor&instanceOwnerId=60238
+POST /instances?appId=test/sailor&instanceOwnerId=60238
 ```
 
 Get information about one instance.
@@ -119,14 +122,18 @@ GET /instances/{instanceId}
 Get (query) all instances that is instance owner has
 
 ```http
-GET /instances&instanceOwnerId={instanceOwnerId}[&label=xyz]
-GET /instances/{instanceOwnerId}?labels=x,y,z
+GET /instances/{instanceOwnerId}?[labels=x,y,z]
 ```
 
-Get (query) all instances of a particular application that is completed
+Query all instances of a particular application that is completed
 
 ```http
 GET /instances?appId={appId}&workflow.isCompleted=true
+```
+
+Query all instances of an applicatio owner's organisation
+```http
+GET /instances?org={org}
 ```
 
 Delete a specific instance (also deletes its data).
@@ -183,7 +190,7 @@ Resource: http://platform.altinn.no/applications/test/sailor
 {
     "id": "test/sailor",
     "versionId": "v32.23-xyp",
-    "org": "TEST",
+    "org": "test",
     "app": "sailor",
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
@@ -235,7 +242,7 @@ Resource: http://platform.altinn.no/applications/test/sailor
 ### Application type
 
 | Attribute | Type | Description |
-| --- | --- |---| ---| ---|---| --- |
+| --------- | ---- | ----------- |
 id | string | application id 
 versionId | string | release or commit id 
 workflowId | string | application workflow id

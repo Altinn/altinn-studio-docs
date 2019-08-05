@@ -1,5 +1,4 @@
 
-
 /* External links */
 
 a[href^=http]:not([href*='altinn.no']):not([href*='basefarm.net']):not([href*='local.altinn'])::after {
