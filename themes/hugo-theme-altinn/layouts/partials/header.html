@@ -76,11 +76,13 @@
           </div>
         {{end}}
         {{if .Params.tags }}
+        <!-- Removing tags until they are better defined and used consistent.
           <div id="tags">
             {{ range $index, $tag := .Params.tags }}
               <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
             {{ end }}
           </div>
+         -->
         {{end}}
         <div id="body-inner">
           {{if not .IsHome}}

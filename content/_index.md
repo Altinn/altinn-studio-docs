@@ -7,10 +7,14 @@ jumbotron: true
 # System documentation
 <p class="a-leadText">This is the system documentation for Altinn Studio, Altinn Apps and Altinn Platform. </p>
 
-[Altinn Studio] is the next generation Altinn application development solution.
-All you need for testing the preview is to [register an account](/getting-started/first-time-setup).
+{{% panel %}}
+**Develop digital services using our tools and APIs**<br>
+Looking for technical guidance on how to build your own services with our products? Go to [Altinn Digital - Development](https://altinn.github.io/docs/")
+{{% /panel %}}<br>
+<p>Altinn Studio is the next generation Altinn application development solution.
+All you need for testing the preview is to [register an account](/getting-started/first-time-setup).</p>
 
-Altinn Studio have an open backlog on GitHub and the code is open source. Everybody can [create bugs], [request features]</a> or [ask questions]</a>.
+Altinn Studio have an open backlog on GitHub and the code is open source. Everybody can [create bugs], [request features] or [ask questions].
 
 <div class="a-card a-cardImage mt-3 mb-3">
   <img src="/images/github.svg" alt="Illustrasjon tilganger">
@@ -44,11 +48,6 @@ Altinn Studio have an open backlog on GitHub and the code is open source. Everyb
     <p class="pt-1">The development handbook should provide all basic information needed to get started with development on Altinn Studio.</p>
   </div>
 </div>
-
-{{% panel %}}
-**Develop digital services using our tools and APIs**<br>
-Looking for technical guidance on how to build your own services with our products? Go to [Altinn Digital - Development](https://altinn.github.io/docs/")
-{{% /panel %}}
 
 [Altinn Studio]: https://altinn.studio
 [open backlog]: https://github.com/altinn/altinn-studio/issues/
