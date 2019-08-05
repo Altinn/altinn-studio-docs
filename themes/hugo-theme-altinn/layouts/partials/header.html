@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ .Hugo.Generator }}
     {{ partial "meta.html" . }}
     {{if .IsHome}}
     <title>Altinn digitalisering - Utvikling</title>
@@ -76,13 +75,11 @@
           </div>
         {{end}}
         {{if .Params.tags }}
-        <!-- Removing tags until they are better defined and used consistent.
           <div id="tags">
             {{ range $index, $tag := .Params.tags }}
               <a class="label label-default" href="{{$.Site.BaseURL}}tags/{{ $tag | urlize }}">{{ $tag }}</a>
             {{ end }}
           </div>
-         -->
         {{end}}
         <div id="body-inner">
           {{if not .IsHome}}

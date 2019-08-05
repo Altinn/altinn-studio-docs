@@ -5,3 +5,4 @@ themes
 *.docx
 *.db
 .vs
+.DS_Store
