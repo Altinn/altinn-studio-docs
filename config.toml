@@ -38,9 +38,9 @@ url = "https://altinn.studio"
 weight = 10
 
 [[menu.shortcuts]]
-name = "Backlog / issues"
-identifier = "altinn-studio-issues"
-url = "https://github.com/Altinn/altinn-studio/issues"
+name = "<i class='fa fa-fw fa-slack'></i> Slack"
+identifier = "altinn-studio-slack"
+url = "https://altinnstudio.slack.com"
 weight = 20
 
 [[menu.shortcuts]]

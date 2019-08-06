@@ -17,7 +17,7 @@ other = "Next Pages"
 other = "Previous Pages"
 
 [pagination-on]
-other = "on"
+other = "of"
 
 [Attachments-label]
 other = "Attachments"

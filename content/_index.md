@@ -4,12 +4,13 @@ description: Documentation for Altinn Studio.
 jumbotron: true
 ---
 
-# System documentation
-<p class="a-leadText">This is the system documentation for Altinn Studio, Altinn Apps and Altinn Platform. </p>
+# System Documentation
+
+This is the system documentation for Altinn Studio, Altinn Apps and Altinn Platform.
 
 {{% panel %}}
-**Develop digital services using our tools and APIs**<br>
-Looking for technical guidance on how to build your own services with our products? Go to [Altinn Digital - Development](https://altinn.github.io/docs/")
+**Develop digital applications using our tools and APIs**<br>
+Looking for technical guidance on how to build your own apps with our products? See to [Getting started](/getting-started).
 {{% /panel %}}<br>
 <p>Altinn Studio is the next generation Altinn application development solution.
 All you need for testing the preview is to [register an account](/getting-started/first-time-setup).</p>
