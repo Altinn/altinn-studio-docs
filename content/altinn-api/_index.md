@@ -90,6 +90,8 @@ The client specify the instance owner and can set a number of the metadata field
 }
 ```
 
+Notice that all dates must be expressed in **Utc (Zulu)** time zone and represented according to ISO 8601!
+
 Data elements (files) can be attached to the initial request as a *multipart/form-data*. The name of the parts must correspond to element types defined in the application metadata. 
 
 ```http
@@ -302,34 +304,68 @@ Will return a multipart http response with the following content:
 
 ## Query instances
 
-Application owners can search for application instances with a simple query request.
+Application owners can search for application instances with a simple GET request towards the *instances* endpoint.
 
-For example: To get all instances of appId *org/app*, that is in at task id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
-
-```http
-GET {storagePath}/instances?appId=org/app&process.currentTask=Submit_1&lastChangedDateTime=gte:2019-05-01&label=gruppe3
-```
-
-Another example is get all instances of appId *org/app* that has completed their process.
+For example: To get all instances of appId *org/app*, that is in at task with id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
 
 ```http
-GET {storagePath}/instances?appId=org/app&process.isComplete=true
+GET {storagePath}/instances?appId=org/app&process.currentTask=Submit_1&lastChangedDateTime=gt:2019-05-01&label=gruppe3
 ```
 
+Another example is get all instances of all apps of an organistation *org* that has completed their process.
 
-The query returns a paginated set of instances (JSON)
+```http
+GET {storagePath}/instances?org=org&process.isComplete=true
+```
+
+On query parameters specifying date time you can use the following operators:
+
+* gt: - greater than
+* gte: - greater than or equal to
+* lt: - less than
+* lte: - less than or equal to
+* eq: - equal (can also be blank)
+
+They can be combined to define a range:
+
+```http
+dueDateTime=gt:2019-02&dueDateTime=lt:2019-03-01
+```
+
+The query returns a result object (page) which includes a collection of instance that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link. 
+
+The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
+
+The endpoint supports plain *application/json* and *application/hal+json*. Use the Accept parameter in the http request to specify your preferred format.
+
 
 ```json
+Accept: application/json
 {
+    "totalHits": 234,
+    "count": 50,
+    "self": "{storagePath}/instances?appId=org/app&size=50",
+    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
+    "instances": [
+            {...},
+            {...},
+            ...
+      ]
+    }
+}
+```
+
+```json
+Accept: application/hal+json
+{
+    "totalHits": 234,
+    "count": 50,
     "_links": {
         "self": {
-            "href": "{storagePath}/instances?page=0&size=100"
+            "href": "{storagePath}/instances?appId=org/app&size=50"
         },
         "next": {
-            "href": "{storagePath}/instances?page=1&size=100"
-        },
-        "last": {
-            "href": "{storagePath}/instances?page=123&size=100"
+            "href": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
         }
     },
     "_embedded": {
