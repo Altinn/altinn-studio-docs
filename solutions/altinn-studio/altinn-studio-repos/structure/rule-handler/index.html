@@ -7,7 +7,7 @@
 
 
     
-    <title>RuleHandler.js :: Altinn - Documentation</title>
+    <title>RuleHandler.js :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -26,7 +26,6 @@
     <script src="/js/jquery-2.x.min.js"></script>
 
     
-<link href="/css/altinndigital.css" rel="stylesheet"> 
 <link href="/css/custom.css" rel="stylesheet">
 
 
@@ -53,8 +52,8 @@ if(host != "localhost")
   <body class="a-page" data-url="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Jump to main content</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to menu</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til meny</a></li>
   </ul>
 </nav>
 
@@ -70,46 +69,8 @@ if(host != "localhost")
             <span style="font-size: 1.6em"><b>altinn.studio</b>/</span><span style="font-size: 1.4em;">docs</span>
             <span class="sr-only">To the front page</span>
           </a>
-
-          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
-          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
-            <ul id="exCollapsingNavbar">
-              <li class="d-md-none">
-                <div class="form-group a-form-group">
-                  <label class="a-form-label sr-only" for="text-input-search-12">
-                    Search for content
-                  </label>
-                  <div class="a-form-group-items input-group">
-                    <input type="text" class="form-control a-hasButton" id="mobilesearch-by" placeholder="Søk etter innhold">
-                    <div class="input-group-append">
-                      <button class="btn btn-secondary" type="submit" name="search-button-mob" id="mobilesearch-submit" aria-label="Search">
-                        <i class="ai ai-search" aria-hidden="true">
-                          <span class="sr-only">Search</span>
-                        </i>
-                      </button>
-                    </div>
-                  </div>
-
-                </div>
-              </li>
-
-              
-            </ul>
-          </div>
-
         </nav> 
-        <ul class="nav nav-pills a-header-options" id="nav-list">
-
-          <li class="nav-item dropdown d-none d-md-block">
-            
-            <button class="a-collapse-title nav-link adocs-toggle-search" type="button" data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent">
-                <span>
-                    <i class="ai ai-search" aria-hidden="true">
-                      <span class="sr-only">Search</span></i>
-                  </span>
-              </button>
-          </li>
-        </ul>
+        
       </div>
     </div> 
   </div> 
@@ -117,30 +78,6 @@ if(host != "localhost")
 
 
 
-<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
-  <div class="a-collapseContent-inside px-0">
-    <div class="bg-white pt-3 pb-3">
-      <div class="container">
-        <div class="row arrow-tr">
-          <div class="col-sm-8 offset-sm-2 col-lg-6 offset-lg-3">
-            <div class="form-group a-form-group  a-form-group-large">
-              <label class="a-h2" for="topbar-search-by">What are you looking for?</label>
-              <div class="a-form-group-items input-group">
-                <input data-search-input id="topbar-search-by" class="form-control a-hasButton" type="text" placeholder="Søk etter innhold" autofocus>
-                <div class="input-group-append">
-                  <button class="btn btn-secondary" type="submit" name="search-button" id="topbar-search-submit" aria-label="Search">
-                    <i class="ai ai-search" aria-hidden="true"></i>
-                    <span class="sr-only">Search</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
     
 
@@ -158,22 +95,17 @@ if(host != "localhost")
 <div class="highlightable">
   <div id="header-wrapper">
     
-        <div class="form-group a-form-group ">
-    <label class="a-form-label sr-only" for="searchdocumentation">Search</label>
-    
-    <div class="a-form-group-items input-group">
-    
-        <input id="searchdocumentation" class="form-control a-hasButton" type="search" placeholder="Search" name="input-field" data-val="true">
-    
-        <div class="input-group-append">
-            <button class="btn btn-secondary" type="button" id="searchdocumentation-submit">
-                <i class="ai ai-search"></i>
-                <span class="sr-only">Search</span>
-            </button>
-        </div>
-    </div>
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
-
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script>
     
   </div>
 
@@ -220,6 +152,343 @@ if(host != "localhost")
           
         
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/first-time-setup/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/first-time-setup/">
+        <span>First-time setup</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/">
+        <span>Create or edit apps</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/create-app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/create-app/">
+        <span>Create new app</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/navigation/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/navigation/">
+        <span>Navigation</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/data-model/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/data-model/">
+        <span>Data model</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/texts/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/texts/">
+        <span>Texts</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/ui-editor/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/ui-editor/">
+        <span>UI editor</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/codelist/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/codelist/">
+        <span>Code lists</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/api/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/api/">
+        <span>External APIs</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/app-creation/logic/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/app-creation/logic/">
+        <span>App logic</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/getting-started/testing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/getting-started/testing/">
+        <span>Testing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -264,1567 +533,6 @@ if(host != "localhost")
           
           
         
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/" class="dd-item 
-        parent
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/">
-        <span>Altinn Studio</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/">
-        <span>Functionality</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/">
-        <span>Building and configuring app</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/app-parameters/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/app-parameters/">
-        <span>App Parameters</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/api-use/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/api-use/">
-        <span>Configure API use</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/prefill/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/prefill/">
-        <span>Configure Prefill</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/code-editor/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/code-editor/">
-        <span>Create Logic with code</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/data-modeling/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/data-modeling/">
-        <span>Data modeling</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/define-process/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/define-process/">
-        <span>Define process</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/api-expose/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/api-expose/">
-        <span>Exposing API</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/authorization-rules/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/authorization-rules/">
-        <span>Set Authorization Rules</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/text/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/text/">
-        <span>Text and translations</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/ui-designer/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/build-app/ui-designer/">
-        <span>UI Design</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/solutions/altinn-studio/functional/build-app/ui-designer/components/" class="dd-item
-     
-      ">
-        <a href="/solutions/altinn-studio/functional/build-app/ui-designer/components/">
-        <span>Components</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/deployment/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/deployment/">
-        <span>App Deployment</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/dashboard/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/dashboard/">
-        <span>Dashboard</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/test/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/test/">
-        <span>Testing</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/functional/version-control/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/functional/version-control/">
-        <span>Version Control</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/" class="dd-item 
-        parent
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/">
-        <span>Altinn Studio Repos</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/functional/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/functional/">
-        <span>Functionality</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/" class="dd-item 
-        parent
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/">
-        <span>Structure</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/">
-        <span>ServiceConfigurations.json</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">
-        <span>RuleHandler.js</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/">
-        <span>AltinnService.csproj</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/">
-        <span>CalculationHandler.cs</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">
-        <span>FormLayout.json</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/">
-        <span>InstansiationHandler.cs</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/serviceimplementation/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/serviceimplementation/">
-        <span>ServiceImplementation.cs</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/servicemetadata/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/servicemetadata/">
-        <span>ServiceMetadata.json</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodel/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodel/">
-        <span>ServiceModel.cs</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodelxsd/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodelxsd/">
-        <span>ServiceModel.xsd</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/validationhandler/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/validationhandler/">
-        <span>ValidationHandler.cs</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/">
-        <span>applicationmetadata.json</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/">
-        <span>react-app.js</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/">
-        <span>Altinn Apps</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/app/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/app/">
-        <span>App</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/app/app-api/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/app/app-api/">
-        <span>App API</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/app/app-api/eus-rest/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/app/app-api/eus-rest/">
-        <span>REST-API for End User Systems</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/app/app-api/org-rest/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/app/app-api/org-rest/">
-        <span>REST-API for orgs</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/app/features/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/app/features/">
-        <span>Features</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/app/frontend/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/app/frontend/">
-        <span>Frontend</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-apps/app/processhandling/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-apps/app/processhandling/">
-        <span>Process handling</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-platform/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-platform/">
-        <span>Altinn Platform</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-platform/authentication/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-platform/authentication/">
-        <span>Authentication</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-platform/authorization/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-platform/authorization/">
-        <span>Authorization</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-platform/profile/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-platform/profile/">
-        <span>Profile</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-platform/register/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-platform/register/">
-        <span>Register</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/solutions/altinn-platform/storage/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/solutions/altinn-platform/storage/">
-        <span>Storage</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
           
         
         </ul>
@@ -6004,7 +4712,7 @@ if(host != "localhost")
             
                 <li>
                     
-                    <a href="https://github.com/Altinn/altinn-studio/issues">Backlog / issues</a>
+                    <a href="https://altinnstudio.slack.com"><i class='fa fa-fw fa-slack'></i> Slack</a>
                     
                 </li>
             
@@ -6080,9 +4788,9 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studiotags/tjenester-3.0">tjenester 3.0</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/tjenester-3.0">tjenester 3.0</a>
             
-              <a class="label label-default" href="https://docs.altinn.studiotags/dataformat">dataformat</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/dataformat">dataformat</a>
             
           </div>
         
@@ -9397,7 +8105,7 @@ Deretter knytter man &lsquo;action&rsquo; til felter som er lagt inn i skjema. M
                 <div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
-                    Edit page on GitHub
+                    Edit page
                   </a>
                 </div>
               
@@ -9411,71 +8119,33 @@ Deretter knytter man &lsquo;action&rsquo; til felter som er lagt inn i skjema. M
     </div>
     </div> 
 
-    <footer class="an-footer a-bgBlueDarker ">
+    <footer class="a-footer a-bgBlueDarker ">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-3 an-footer-contactColumn">
-                <div class="an-footer-contactInfo">
-                    <h1 class="an-footer-heading">Not enough?</h1>
-                    <ul class="an-footer-contactLinks">
-                        <li>
-                            <a href="tel:75006299">
-                                <i class="ai ai-phone   " aria-hidden="true"></i>
-                                <span>75 00 62 99</span>
+            <div class="col-12">
+                <nav class="a-footerExtraNav">
+                        
+                        
+                        <div class="a-footerExtraNav-toTop d-md-none">
+                            <a href="#top" class="a-linkArea a-btn ">
+                                To the top
                             </a>
-                        </li>
-                        <li>
-                            <a href="https://www.altinndigital.no/om-altinn/">
-                                
-                                <i class="ai ai-send   " aria-hidden="true"></i>
-
-                                
-                                <span>Kontakt oss</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-9 an-footer-navigationColumn">
-                <div class="an-footer-search">
-                    <div class="form-group a-form-group   a-form-group-darkBackground  ">
-                        <label class="a-form-label  sr-only  " for="text-input-search-footer">Search</label>
-                        <div class="a-form-group-items input-group   ">
-                            <input class="form-control a-hasButton  " type="search" placeholder="Search for content"
-                                name="query" data-val="true" id="text-input-search-footer">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button" id="footerserachbutton">
-                                    <i class="ai ai-search   " aria-hidden="true"></i>
-                                    <span class="sr-only">Søk</span>
-                                </button>
-                            </div>
                         </div>
-                    </div>
-                </div>
-
-
-                <ul class="an-footer-infoLinks">
-                    <li>
-                        <a class="" href="https://www.altinndigital.no/om-altinn/">About Altinn</a>
-                    </li>
-                    <li>
-                        <a class="" href="https://jobb.altinndigital.no/">Work for us</a>
-                    </li>
-                </ul>
-                <div class="an-footer-supplementaryInfo">
-                    <ul class="an-footer-smallLinks">
-                        <li>
-                            <a class="" href="https://www.altinndigital.no/driftsmeldinger/">Driftsmeldinger</a>
-                        </li>
-                        <li>
-                            <a class="" href="https://www.altinndigital.no/om-altinn/personvern/">Personvern</a>
-                        </li>
-                        <li>
-                            <a class="" href="https://www.altinndigital.no/hjelp/">Hjelp</a>
-                        </li>
-                    </ul>
-                    <span class="an-footer-address">Brønnøysundregistrene, 8910 Brønnøysund</span>
-                </div>
+                        <ul>
+                            <li>
+                                <a class="d-none d-md-inline" href="https://altinn.no/en/about-altinn/">About Altinn</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                            </li>
+                            <li>
+                                <a href="https://altinnstudio.slack.com">Slack</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/altinn/altinn-studio">GitHub</a>
+                            </li>
+                        </ul>
+                    </nav>
             </div>
         </div>
     </div>
@@ -9513,7 +8183,7 @@ Deretter knytter man &lsquo;action&rsquo; til felter som er lagt inn i skjema. M
     <script>mermaid.initialize({startOnLoad:true});</script>
 
     
-<script src="/js/custom.js"></script>
+
 
   </body>
 </html>
