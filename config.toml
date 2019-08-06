@@ -1,4 +1,4 @@
-baseURL = "https://docs.altinn.studio"
+baseURL = "https://docs.altinn.studio/"
 languageCode = "en"
 defaultContentLanguage = "en"
 
@@ -23,7 +23,7 @@ editURL = "https://github.com/altinn/altinn-studio-docs/blob/master/content/"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
-themeVariant = "gray" # choose theme variant "green", "gold", "gray", blue" (default)
+themeVariant = "gray" # Blue is used for "Altinn digital - Utvikling". Gray is used for system documentation. 
 
 
 [outputs]
@@ -38,9 +38,9 @@ url = "https://altinn.studio"
 weight = 10
 
 [[menu.shortcuts]]
-name = "Backlog / issues"
-identifier = "altinn-studio-issues"
-url = "https://github.com/Altinn/altinn-studio/issues"
+name = "<i class='fa fa-fw fa-slack'></i> Slack"
+identifier = "altinn-studio-slack"
+url = "https://altinnstudio.slack.com"
 weight = 20
 
 [[menu.shortcuts]]
