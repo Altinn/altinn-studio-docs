@@ -130,7 +130,7 @@ This call will return the instance metadata record that was created. A unique id
     "appId": "org/app",
     "labels": [ "gr", "x2" ],
     "instanceOwnerId": "347829",
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdDateTime": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "org23",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
@@ -139,7 +139,7 @@ This call will return the instance metadata record that was created. A unique id
         "currentTask": "FormFilling_1",
         "isComplete": false
     },
-    "instanceOwnerStatus": {
+    "instanceStatus": {
         "isArchived": false,
         "isSoftDeleted": false,
         "isMarkedForHardDelete": false
@@ -158,7 +158,7 @@ This call will return the instance metadata record that was created. A unique id
             "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
         },
         "fileName": "prefill.xml",
-        "createdDateTime": "2019-03-06T15:00:23+01:00",
+        "createdDateTime": "2019-03-06T15:00:23Z",
         "createdBy": "org23",
         "fileSize": 20001,
         "isLocked": false,
@@ -420,7 +420,7 @@ Query result:
 [
     {
         "id": "112453234523423344",
-        "at": "2019-06-01T12:12:22+01:00",
+        "at": "2019-06-01T12:12:22Z",
         "appId": "org/app",
         "instanceOwnerId": "347829",
         "instanceLink": "{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
@@ -597,11 +597,11 @@ GET {appPath}
     "versionId": "v32.23-xyp",
     "org": "test",
     "app": "sailor",
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdDateTime": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" },
     "processId": "mvp1",
-    "validFrom": "2019-04-01T12:14:22+01:00",
+    "validFrom": "2019-04-01T12:14:22Z",
     "validTo": null,
     "maxSize": -1,
     "elementTypes": [
