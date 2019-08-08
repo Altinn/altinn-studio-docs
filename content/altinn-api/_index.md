@@ -192,9 +192,9 @@ This call updates and returns instance metadata where each data element are give
                 "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
             },
             "fileName": "default.xml",
-            "createdDateTime": "2019-03-06T15:00:23+01:00",
+            "createdDateTime": "2019-03-06T15:00:23Z",
             "createdBy": "org23",
-            "lastChangedDateTime": "2019-03-07T15:00:23+01:00",
+            "lastChangedDateTime": "2019-03-07T15:00:23Z",
             "lastChangedBy": "org23",
             "fileSize": 20001,
             "isLocked": false
@@ -229,12 +229,12 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         ...
         "fileName": "default.xml",
-        "lastChangedDateTime": "2019-03-06T15:00:23+01:00",
+        "lastChangedDateTime": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
         "fileSize": 34059,
         "isLocked": false,
         "applicationOwner": {
-            "downloaded": ["2019-05-15T08:23:01+01:00"]
+            "downloaded": ["2019-05-15T08:23:01Z"]
         }
     }
 ]
@@ -276,8 +276,8 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         ...
         "applicationOwner": {
-            "downloaded": ["2019-05-15T08:23:01+01:00"],
-            "downloadConfirmed": ["2019-05-16T10:23:00+01:00"]
+            "downloaded": ["2019-05-15T08:23:01Z"],
+            "downloadConfirmed": ["2019-05-16T10:23:00Z"]
         }
     }
 ]
