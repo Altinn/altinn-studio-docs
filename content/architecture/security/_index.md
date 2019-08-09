@@ -1,7 +1,7 @@
 ---
 title: Security Architecture
 description: Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 alwaysopen: false
 ---

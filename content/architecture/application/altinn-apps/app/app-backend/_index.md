@@ -2,7 +2,7 @@
 title: App Backend Application Arcitecture
 linktitle: App Backend
 description: Description of the application architecture for App Backend 
-tags: ["tjenester 3.0", "app-backend", "application architecture"]
+tags: [architecture, app-backend]
 weight: 100
 ---
 

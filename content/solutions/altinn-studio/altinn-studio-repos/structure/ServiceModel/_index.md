@@ -1,7 +1,7 @@
 ---
 title: ServiceModel.cs
 description: Beskrivelse av ServiceModel.cs
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 100
 ---
 

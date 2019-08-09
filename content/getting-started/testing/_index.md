@@ -1,8 +1,8 @@
 ---
 title: Testing in Altinn Studio
 linktitle: Testing
-description: An app can be tested in Altinn Studio without migrating to a test environment. This is a way to check that the app looks and behaves as expected. 
-tags: ["guide"]
+descripion: An app can be tested in Altinn Studio without migrating to a test environment. This is a way to check that the app looks and behaves as expected. 
+tags: [guide]
 weight: 500
 ---
 

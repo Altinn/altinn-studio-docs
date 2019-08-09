@@ -2,7 +2,6 @@
 title: Functionality in Altinn Studio
 linktitle: Functionality
 description: Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.
-tags: ["solution", "studio"]
 weight: 100
 ---
 

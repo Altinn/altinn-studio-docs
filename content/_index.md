@@ -11,9 +11,10 @@ This is the system documentation for Altinn Studio, Altinn Apps and Altinn Platf
 {{% panel %}}
 **Develop digital applications using our tools and APIs**<br>
 Looking for technical guidance on how to build your own apps with our products? See [Getting started](/getting-started).
-{{% /panel %}}<br>
-<p>Altinn Studio is the next generation Altinn application development solution.
-All you need for testing the preview is to [register an account](/getting-started/first-time-setup).</p>
+{{% /panel %}}
+
+Altinn Studio is the next generation Altinn application development solution.
+All you need for testing the preview is to [register an account](/getting-started/first-time-setup).
 
 Altinn Studio have an open backlog on GitHub and the code is open source. Everybody can [create bugs], [request features] or [ask questions].
 
@@ -35,7 +36,7 @@ Altinn Studio have an open backlog on GitHub and the code is open source. Everyb
       Architecture
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>
-    <p class="pt-1">Description of the Altinn Studio application architecture, build process, infrastructure and security.</p>
+    <p class="pt-1">Description of the Altinn Studio architecture, build process, infrastructure and security.</p>
   </div>
 </div>
 
@@ -46,7 +47,7 @@ Altinn Studio have an open backlog on GitHub and the code is open source. Everyb
       Development handbook
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>
-    <p class="pt-1">The development handbook should provide all basic information needed to get started with development on Altinn Studio.</p>
+    <p class="pt-1">The development handbook should provide the information needed to contribute to the development of Altinn Studio.</p>
   </div>
 </div>
 

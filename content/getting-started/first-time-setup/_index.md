@@ -3,7 +3,7 @@ title: First-time setup of Altinn Studio
 linktitle: First-time setup
 description: Set up your user in Altinn Studio for the first time.
 toc: true
-tags: ["guide"]
+tags: [guide]
 weight: 100
 ---
 

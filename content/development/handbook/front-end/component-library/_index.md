@@ -1,7 +1,7 @@
 ---
 title: Component Library
 description: Component documentation for altinn.studio
-tags: ["development", "component library"]
+tags: [development]
 weight: 100
 ---
 

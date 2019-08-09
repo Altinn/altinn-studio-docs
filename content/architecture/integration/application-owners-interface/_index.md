@@ -2,7 +2,7 @@
 title: Application Owners' Interface - Altinn Platform
 linktitle: Platform Api for Application Owners
 description: Description of the application owner interface for Storage component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 alwaysopen: true
 ---

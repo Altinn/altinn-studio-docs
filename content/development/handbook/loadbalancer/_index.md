@@ -1,7 +1,7 @@
 ---
 title: Loadbalancer
 description: Information about loadbalancer
-tags: ["development", "handbook", "loadbalancer"]
+tags: [development, load-balancer]
 weight: 100
 ---
 

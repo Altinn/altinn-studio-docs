@@ -1,7 +1,7 @@
 ---
 title: Information
 description: Description of the Information Architecture
-tags: ["architecture", "information"]
+tags: [architecture]
 weight: 100
 alwaysopen: false
 ---

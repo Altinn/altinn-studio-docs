@@ -2,7 +2,7 @@
 title: Application arhicture intermediary component - Altinn Platform
 linktitle: Intermediary
 description: Description of intermediary component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 

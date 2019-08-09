@@ -1,7 +1,7 @@
 ---
 title: Authentication APIs
 description: Description of the Authentications API in Authentication Component
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: Authentication API
 alwaysopen: false

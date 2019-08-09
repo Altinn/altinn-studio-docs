@@ -1,7 +1,7 @@
 ---
 title: Authorization
 description: Description of the Authorization architecture
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 alwaysopen: false
 ---

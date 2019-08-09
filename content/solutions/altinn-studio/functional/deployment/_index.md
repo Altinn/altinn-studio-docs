@@ -1,7 +1,6 @@
 ---
 title: App Deployment
 description: Altinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.
-tags: ["studio"]
 ---
 
 An app developer you will be able to deploy the developed app to Altinn Studio Apps for testing/production.

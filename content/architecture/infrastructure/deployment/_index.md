@@ -1,7 +1,7 @@
 ---
 title: Deployment
 description: Description of the Altinn Studio solution
-tags: ["deployment", "architecture"]
+tags: [deployment]
 weight: 100
 ---
 

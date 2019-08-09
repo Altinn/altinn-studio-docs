@@ -1,7 +1,7 @@
 ---
 title: Integration 
 description: Description of the Integration Architecture
-tags: ["architecture", "information", "rest", "api"]
+tags: [architecture]
 weight: 100
 alwaysopen: false
 ---

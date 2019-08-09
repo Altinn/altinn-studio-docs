@@ -2,7 +2,6 @@
 title: Application Architecture Altinn Studio - Front-end
 linktitle: Front-end
 description: Description of the application architecture for Altinn Studio Front-end
-tags: ["tjenester 3.0"]
 weight: 100
 ---
 

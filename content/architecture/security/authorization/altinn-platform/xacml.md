@@ -1,7 +1,7 @@
 ---
 title: XACML - Altinn Studio 
 description: Description of XACML use in Altinn Studio
-tags: ["architecture", "security", "XACML"]
+tags: [architecture, security, XACML]
 weight: 100
 linktitle: XACML
 alwaysopen: false

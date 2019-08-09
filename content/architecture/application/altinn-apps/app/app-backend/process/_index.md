@@ -2,7 +2,7 @@
 title: App Process
 linktitle: Process
 description: Description of the process handling of App Backend 
-tags: ["tjenester 3.0", "app-backend", "application architecture", "process", "bmpn" ]
+tags: [app-backend]
 weight: 100
 ---
 A App deployed to Altinn Apps will typical have a process to follow. 

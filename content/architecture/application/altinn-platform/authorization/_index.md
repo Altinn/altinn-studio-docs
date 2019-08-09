@@ -2,7 +2,7 @@
 title: Altinn Platform - Authorization
 linktitle: Authorization
 description: Description of authorization component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 

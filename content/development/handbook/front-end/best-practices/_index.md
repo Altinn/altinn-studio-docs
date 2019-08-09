@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Best practices for altinn.studio frontend
-tags: ["development", "frontend", "best practices"]
+tags: [development, front-end]
 weight: 100
 ---
 

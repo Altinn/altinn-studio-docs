@@ -2,7 +2,7 @@
 title: Navigation
 description: Information on how to navigate to and within an app.
 toc: true
-tags: ["guide", "navigation"]
+tags: [guide]
 weight: 101
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Testing
 description: In Altinn Studio there will different ways for developers to test their apps.
-tags: ["studio", "test"]
+tags: [testing]
 ---
 
 Automatic testing of all Altinn Studio apps that is developed will give a positive effect, both on quality and reduced development time

@@ -1,7 +1,7 @@
 ---
 title: Infrastructure
 description: Description of the Altinn Studio infrastructure
-tags: [infrastructure, architecture, studio, apps, platform]
+tags: [architecture, infrastructure]
 weight: 100
 alwaysopen: false
 ---

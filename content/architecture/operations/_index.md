@@ -1,7 +1,7 @@
 ---
 title: Operations
 description: Description of the Operations Architecture
-tags: ["architecture", "operations"]
+tags: [architecture]
 weight: 100
 alwaysopen: false
 ---

@@ -2,7 +2,7 @@
 title: Application arhicture profile component - Altinn Platform
 linktitle: Profile
 description: Description of profile component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 

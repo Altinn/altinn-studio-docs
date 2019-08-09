@@ -1,7 +1,7 @@
 ---
 title: Policy Information Point
 description: Description of Policy Information Point for 
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: PIP
 alwaysopen: false

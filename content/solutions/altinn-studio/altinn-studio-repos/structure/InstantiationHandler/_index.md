@@ -1,7 +1,7 @@
 ---
 title: InstansiationHandler.cs
 description: Beskrivelse av format for InstansiationHandler
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 100
 ---
 

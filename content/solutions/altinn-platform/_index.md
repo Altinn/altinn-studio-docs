@@ -1,7 +1,7 @@
 ---
 title: Altinn Platform
 description: Altinn Platform is the solution where the supporting platform functionality resides.
-tags: ["solution", "apps"]
+tags: [altinn-apps]
 weight: 200
 ---
 The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps.

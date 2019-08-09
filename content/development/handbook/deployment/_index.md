@@ -1,7 +1,7 @@
 ---
 title: Deployment
 description: Guidelines for deploying
-tags: ["development", "handbook", "deploy"]
+tags: [development, deploy]
 weight: 100
 ---
 

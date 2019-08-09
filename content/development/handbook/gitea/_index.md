@@ -1,7 +1,7 @@
 ---
 title: Gitea
 description: Gitea documentation for altinn.studio
-tags: ["development", "gitea"]
+tags: [development, gitea]
 weight: 100
 ---
 

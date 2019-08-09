@@ -1,8 +1,7 @@
 ---
 title: Create or edit applications
 linktitle: Create or edit apps
-description: Information on how to create or edit apps in Altinn Studio
-tags: ["guide"]
+description: How to create and edit apps in Altinn Studio.
 weight: 200
 ---
 

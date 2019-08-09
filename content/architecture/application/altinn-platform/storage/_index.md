@@ -2,7 +2,7 @@
 title: Altinn Platform - Storage
 linktitle: Storage
 description: Description of the application architecture for Storage component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 

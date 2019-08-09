@@ -1,7 +1,7 @@
 ---
 title: Test Coverage
 description: Automation testcases by area
-tags: ["development", "handbook", "test", "postman", "api", "testcafe"]
+tags: [development, testing]
 weight: 100
 ---
 

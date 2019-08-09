@@ -1,7 +1,7 @@
 ---
 title: Altinn Studio Repos
 description: The Git repository solution for storing and versioning apps developed with Altinn Studio.
-tags: ["solution", "repos"]
+tags: [altinn-repos]
 aliases:
     - "/altinn-studio-repos"
 weight: 300

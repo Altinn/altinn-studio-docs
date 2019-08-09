@@ -1,7 +1,7 @@
 ---
 title: REST-API for orgs
 description: Description of the  API for organizations (App Owners).
-tags: ["solution", "apps"]
+tags: [altinn-apps]
 aliases:
     - "/altinn-studio-apps"
 weight: 200

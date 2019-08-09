@@ -1,7 +1,7 @@
 ---
 title: Authentication Architecture Altinn Platform
 description: Description of the Authentication architecture Altinn Platform
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: Altinn Platform
 alwaysopen: false

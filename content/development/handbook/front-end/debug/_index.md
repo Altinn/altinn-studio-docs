@@ -1,7 +1,7 @@
 ---
 title: Debug
 description: Debug documentation for altinn.studio frontend
-tags: ["development", "frontend", "debug"]
+tags: [development, debug]
 weight: 100
 ---
 

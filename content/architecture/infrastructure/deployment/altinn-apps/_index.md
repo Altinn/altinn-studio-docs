@@ -2,7 +2,6 @@
 title: Altinn Apps - Deployment Architecture
 linktitle: Altinn Apps
 description: Description of the deployment architecture for Altinn Apps
-tags: ["tjenester 3.0"]
 weight: 100
 ---
 {{% notice warning %}}

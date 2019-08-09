@@ -1,7 +1,7 @@
 ---
 title: Define process
 description: As part of the development one must define a process for the app that end user needs to follow.
-tags: ["studio", "workflow", "process"]
+tags: [process]
 ---
 
 A app will typical have a process that a end user / or system needs to follow. It could be anything from a single task process where the app is used

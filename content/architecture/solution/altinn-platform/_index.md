@@ -2,7 +2,7 @@
 title: Solution Architecture Altinn Platform
 linktitle: Altinn Platform
 description: Description of the Altinn Platform solution
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 alwaysopen: true
 ---

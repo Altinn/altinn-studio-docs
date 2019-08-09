@@ -1,7 +1,7 @@
 ---
 title: Test Strategy
 description: Test Strategy
-tags: ["development", "handbook", "test"]
+tags: [development, testing]
 weight: 100
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: RuleHandler.js
 description: Beskrivelse av format for rule handler js filen
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 90
 ---
 

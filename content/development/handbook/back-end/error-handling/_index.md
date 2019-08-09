@@ -1,7 +1,7 @@
 ---
 title: Error handling and Error logging
 description: Guidelines for error handling and error logging in backend
-tags: ["development", "handbook", "back-end", "error-handling", "error-logging"]
+tags: [development, error-handling]
 weight: 100
 ---
 {{%notice warning%}}

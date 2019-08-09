@@ -1,7 +1,7 @@
 ---
 title: ServiceMetadata.json
 description: Beskrivelse av format for ServiceMetadata
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 100
 ---
 

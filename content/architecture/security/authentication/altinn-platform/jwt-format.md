@@ -1,7 +1,7 @@
 ---
 title: JWT Format
 description: Description of the JWT Format used in Altinn Studio, Altinn Platform and Altinn Apps
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: JWT Format
 alwaysopen: false

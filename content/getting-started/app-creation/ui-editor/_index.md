@@ -2,7 +2,7 @@
 title: UI editor
 description: How to create a form using the UI editor in Altinn Studio.
 toc: true
-tags: ["guide", "ui-editor"]
+tags: [guide]
 weight: 104
 ---
 

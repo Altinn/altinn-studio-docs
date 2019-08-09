@@ -1,7 +1,7 @@
 ---
 title: Process handling
 description: Description of the process handling capability of Apps created in Altinn Studio
-tags: ["solution", "apps"]
+tags: [altinn-apps]
 weight: 200
 ---
 

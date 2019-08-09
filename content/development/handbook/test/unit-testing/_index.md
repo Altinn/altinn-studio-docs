@@ -1,7 +1,7 @@
 ---
 title: Unit testing
 description: How to write jest test in altinn studio, what we know so far
-tags: ["development", "handbook", "front-end", "frontend", "unit-testing", "jest", "enzyme", "mock", "stub"]
+tags: [development, front-end, testing]
 weight: 100
 ---
 # Introduction to unit testing with Jest

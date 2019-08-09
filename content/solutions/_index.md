@@ -1,7 +1,6 @@
 ---
 title: Solutions
 description: Altinn Studio, together with Altinn Apps and Altinn Platform is the solutions that makes a complete application development and hosting platform.
-tags: ["solution", "studio", "apps", "repos"]
 weight: 10
 alwaysopen: false
 ---
