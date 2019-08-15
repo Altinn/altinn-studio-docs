@@ -6365,6 +6365,95 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/">Authorization - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. See Github Issue
+Altinn Platform has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The Authorization architecture in Altinn Platform are used as important components in authorization Architecture form Altinn Apps
+Authorization Components The authorization architecture for Altinn Platform are based on the XACML reference architecture. <a class="read-more" href="/architecture/security/authorization/altinn-platform/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio/">Authorization - Altinn Studio</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. See Github Issue
+Altinn Studio has Role Based access control where all user in a given role is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.
+Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
+This architecture defines the following components.
+Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-studio/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/model/">Authorization model</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
+Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-apps/model/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/model/">Authorization model</a></h2>
     </header>
     <section class="post-excerpt">
@@ -6410,35 +6499,6 @@ Output will be - AppId - ReporteeId - TaskId - InstanceId <a class="read-more" h
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/infrastructure/deployment/">Deployment</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Altinn Studio components are deployed as two different solutions.
- Altinn Studio - The complete Development solution Altinn Studio Apps - Where services are hosted and accessed by end users.  In this section you will find details about the deployment architecture for these solutions.
-In addition there is a seperate article on how End Users Services developed in Altinn Studio Service Development solution are deployed to the runtime solution <a class="read-more" href="/architecture/infrastructure/deployment/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/deployment/">deployment</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
 
@@ -6500,8 +6560,6 @@ In addition there is a seperate article on how End Users Services developed in A
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/information/">information</a>
-            
         
 
     </footer>
@@ -6530,15 +6588,9 @@ Full screen | Visio
         
           
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/studio/">studio</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/apps/">apps</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/platform/">platform</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
 
@@ -6568,12 +6620,6 @@ Altinn Apps REST APIs An Altinn App provides application specific APIS to the fo
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/information/">information</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/rest/">rest</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
-            
         
 
     </footer>
@@ -6601,64 +6647,6 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">JWTCookieAuthentication</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens.
-This is created for scenarios where you have need for API that will be accessed from system with
-This is created as a seperate C# Project and published as a Nuget Package here
-Features  Support Generation of JWT Tokens as bearer tokens Support Generation of JWT Tokens inside Cookies Support Verification of JWT Tokens as bearer tokens Support Verification of Configureble name of cookie used Configurable Signing Ceritcate Configurale Verification certificate Automatic detection if request contains Uses standard JWT Library for verification and generation. <a class="read-more" href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/operations/">Operations</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Operations Architecture describes the architecture that support operations of the platform.
- <a class="read-more" href="/architecture/operations/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/operations/">operations</a>
             
         
 

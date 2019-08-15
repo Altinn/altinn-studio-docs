@@ -6361,11 +6361,11 @@ if(host != "localhost")
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/front-end/error-handling/">Error handling</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/front-end/best-practices/">Best practices</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors.
-React components Error boundaries Error boundaries are React&rsquo;s official way of handling errors that occur in a component. This functionality is available from React 16. <a class="read-more" href="/development/handbook/front-end/error-handling/">&raquo;</a></p>
+        <p> Altinn.studio best practices will be updated with more and better practices ;)
+Best practices  Simple lists should be sorted alphabetically   <a class="read-more" href="/development/handbook/front-end/best-practices/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6376,11 +6376,40 @@ if(host != "localhost")
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/build/">Build</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Building of react apps in altinn.studio The building of react apps are done in dockerfiles which then again are used in the build of altinn-core docker-image.
+Apps are compiled and copied.
+Adding new packages to react-applications Adding of a new package in an app is done with lerna in the lerna-folder (/src/react-apps/). Command syntax for this will be:
+lerna add [package-name] --scope=[app-name] --exact
+If you are going to add react to a new app called Foo: <a class="read-more" href="/development/handbook/front-end/build/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/error-handling/">error-handling</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/build/">build</a>
             
         
 
@@ -6414,8 +6443,6 @@ if(host != "localhost")
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
@@ -6445,46 +6472,7 @@ Usage Dispatching a message event is done the following way:
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/post/">post</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/post-message/">post message</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/front-end/react/">React</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>React React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.
-React Components lifecycle There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:
-Mounting  constructor() static getDerivedStateFromProps() render() componentDidMount()  Updating  static getDerivedStateFromProps() shouldComponentUpdate() render() getSnapshotBeforeUpdate() componentDidUpdate()  Unmounting  componentWillUnmount()  Error handling  static getDerivedStateFromError() componentDidCatch()  Other React component APIs and properties APIs  setState() forceUpdate()  Class Properties  defaultProps displayName  Instance Properties  props state  Adding a new react-app to altinn. <a class="read-more" href="/development/handbook/front-end/react/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
 
@@ -6513,11 +6501,9 @@ export interface IUpdateFormDataAction extends Action { formData: any; component
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/redux/">redux</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
 
@@ -6548,19 +6534,9 @@ Proposed order of styling methods The following order is proposed when consideri
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/css/">css</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/material-ui/">material-ui</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/styled-components/">styled components</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/jss/">jss</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/css-in-js/">css-in-js</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/styling/">styling</a>
             
         
 
@@ -6588,21 +6564,9 @@ Proposed order of styling methods The following order is proposed when consideri
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/frontend/">frontend</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/unit-testing/">unit-testing</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/jest/">jest</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/enzyme/">enzyme</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/mock/">mock</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/stub/">stub</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
 

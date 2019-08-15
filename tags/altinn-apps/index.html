@@ -7,7 +7,7 @@
 
 
     
-    <title>Altinn Apps :: Altinn Studio</title>
+    <title>altinn-apps :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -4256,6 +4256,46 @@ if(host != "localhost")
           
         
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/development/analysis/api/agency/" class="dd-item
+     
+      ">
+        <a href="/development/analysis/api/agency/">
+        <span>Agency API</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/development/analysis/api/external/" class="dd-item
+     
+      ">
+        <a href="/development/analysis/api/external/">
+        <span>External APIs</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -6276,7 +6316,7 @@ if(host != "localhost")
                   
                   
 
- Altinn Apps
+ altinn-apps
 
 
                 </span>
@@ -6287,7 +6327,7 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1 class="a-fontBold">Tag: Altinn Apps</h1>
+              <h1 class="a-fontBold">Tag: altinn-apps</h1>
             
           
 
@@ -6319,14 +6359,16 @@ if(host != "localhost")
 	</div>
 
 	
-	   <article class="post architecture">
+	   <article class="post solutions">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/app-frontend/">App Frontend Application Architecture</a></h2>
+        <h2 class="post-title"><a href="/solutions/altinn-platform/">Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>App Frontend is a Single Page Application based on React.
-This application is responsible to present a UI to the end user. The application consist of serveral different features that is responsible for handling the ui for different steps in the workflow.
-Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during the build/deploy process to a Altinn Apps environment. <a class="read-more" href="/architecture/application/altinn-apps/app/app-frontend/">&raquo;</a></p>
+        <p>The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.
+See below for details about each component.
+AuthenticationThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.
+AuthorizationThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.
+ProfileThe Profile component gives profile information for users in Altinn. <a class="read-more" href="/solutions/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6335,9 +6377,200 @@ Each App developed in Altinn Studio will contain their own App Frontend as part 
         
           
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tjenester-3.0/">tjenester 3.0</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">Altinn Apps</a>
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-apps/app/">App</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.
+Currently there is only one &ldquo;App Template&rdquo; that is used, but in future the App could be based on different types of templates and even different types of frameworks.
+The App template contains functionality for API, process handling, GUI, and many other features making it easy for the developers to create a Apps to support different types of functional needs. <a class="read-more" href="/solutions/altinn-apps/app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-apps/app/app-api/">App API</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. Stuff will change.
+API&rsquo;s have always been important to the Altinn platform. About 50% of all data going throug Altinn to service owners are comming from end user systems implementing Altinn Apis&rsquo;s (SOAP and REST). More than 100 different vendors of different types of applications integrates with Altinns appi and submits data for different &ldquo;services&rdquo;.
+In addition mobile apps and external governmental portal consumes Altinn Apis to allow users to use services outside the Altinn Portal. <a class="read-more" href="/solutions/altinn-apps/app/app-api/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-apps/app/features/">Features</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Prefill A application can prefill data in the datamodels for the app based on standard configuration for profile and register data, but can also prefill data based on data from service owner or prefill based on logic define in the custom app logic defined by the application developer.
+Data validation The application can validate the datamodel based on the datamodel itself and based on custom app logic defined by the application developer. <a class="read-more" href="/solutions/altinn-apps/app/features/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-apps/app/frontend/">Frontend</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.
+This frontend is a React based SPA (Singe Page Application) that uses configuration to render based settings for a given application.
+UI rendering The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.
+UI-Components The supported UI-components can be seen here
+Theming In the future Altinn Apps will support theming making it possible to have different style on the App. <a class="read-more" href="/solutions/altinn-apps/app/frontend/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-apps/app/processhandling/">Process handling</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> A app have a defined business process. The business process can consist of serveral type of task in different orders.
+If you want details about the business process architechture see Business Process Architecture
+Tasks Formfilling Signing Payment Events  <a class="read-more" href="/solutions/altinn-apps/app/processhandling/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-apps/app/app-api/eus-rest/">REST-API for End User Systems</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. Stuff will change
+The main API&rsquo;channel for data in the platform is REST for services created in Altinn Studio.
+The end user system needs to call different APIS based on the need. The below figure show the different components relevant for an end user System calling Altinn through REST.
+
+API to authenticate end user systems For new API&rsquo;s the goal is to use JWT Tokens to authenticate against the API. <a class="read-more" href="/solutions/altinn-apps/app/app-api/eus-rest/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post solutions">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/solutions/altinn-apps/app/app-api/org-rest/">REST-API for orgs</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. Stuff will change.
+For apps created in Altinn Studio and hosted in Altinn Apps, REST-API are the main channel to interact with the App / Altinn Platform.
+API to authenticate end agency systems In the current Altinn Platform SOAP is used for most of the agencies API&rsquo;s. Altinn support both username/password for agencies.
+API to instansiate a new instance of an app with prefill See Application Users API <a class="read-more" href="/solutions/altinn-apps/app/app-api/org-rest/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
             
         
 

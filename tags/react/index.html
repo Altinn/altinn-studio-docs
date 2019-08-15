@@ -6438,10 +6438,6 @@ Mounting  constructor() static getDerivedStateFromProps() render() componentDidM
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/handbook/">handbook</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
         
@@ -6482,6 +6478,37 @@ Mounting  constructor() static getDerivedStateFromProps() render() componentDidM
 
 
 	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/redux/">Redux</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Redux is used to manage the states of the ux-editor.
+Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:
+export interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/development/handbook/front-end/redux/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
 	   <article class="post technology">
     <header class="post-header">
         <h2 class="post-title"><a href="/technology/react/redux/">Redux</a></h2>
@@ -6500,6 +6527,35 @@ Mounting  constructor() static getDerivedStateFromProps() render() componentDidM
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/frontend/">frontend</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post technology">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/technology/custom-components/">Third party components</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>It should be possible to create and use custom/third party components as a part of a service in Altinn Studio.
+NOTE: It is not currently supported to change properties on custom components via the Altinn Studio UI editor (f.ex. texts). Therefore, any properties must be hard coded into the component at this time.
+How to create a custom component All the form components in Altinn Studio and Altinn Studio Apps are created using React, and this is also a requirement for any custom components. <a class="read-more" href="/technology/custom-components/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             

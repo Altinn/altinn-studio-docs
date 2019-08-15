@@ -6379,9 +6379,9 @@ Parties A party is a person whom you can represent and perform a request on his 
         
           
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
 
@@ -6410,7 +6410,65 @@ Instance An application instance is created when a instance owner (reportee) sta
         
           
             
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/app-backend/">App Backend Application Arcitecture</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>App Backend is based on ASP.NET Core and is a MVC application.
+This App Backend exposes REST-Api&rsquo;s consumed by the App Frontend and/or external systems / mobile apps.
+The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct operation.
+The API-controllers uses defined interfaces to communicate with the app logic defined by the developer.
+The below diagram show how the App Backend is build around 3 main packages. <a class="read-more" href="/architecture/application/altinn-apps/app/app-backend/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/app-backend/">app-backend</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/app-frontend/">App Frontend Application Architecture</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>App Frontend is a Single Page Application based on React.
+This application is responsible to present a UI to the end user. The application consist of serveral different features that is responsible for handling the ui for different steps in the workflow.
+Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during the build/deploy process to a Altinn Apps environment. <a class="read-more" href="/architecture/application/altinn-apps/app/app-frontend/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
@@ -6454,6 +6512,35 @@ Instance An application instance is created when a instance owner (reportee) sta
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/">Application Architecture App</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
+The App itself consist of two applications with different Application Architecture
+App Backend App-Backend exposes api to frontend and contains all needed functionality to handle
+Read more about the application architecture for App Frontend
+App Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend. <a class="read-more" href="/architecture/application/altinn-apps/app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/integration/application-owners-interface/">Application Owners&#39; Interface - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
@@ -6468,9 +6555,9 @@ An application instance is created when:
         
           
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
 
@@ -6496,9 +6583,9 @@ The application architecture for each component is described below. <a class="re
         
           
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
 
@@ -6527,9 +6614,9 @@ Resources: authentication
         
           
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
 
@@ -6554,102 +6641,9 @@ Resources: authentication
         
           
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-platform/profile/">Application arhicture profile component - Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-The profile solution is now available locally at http://platform.altinn.cloud/profile/api/v1 and all resources are avaiable through endpoints defined below.
-Resources: users
-/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.
-Get information about a user:
-/users/{userId}   <a class="read-more" href="/architecture/application/altinn-platform/profile/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-platform/register/">Application arhicture register component - Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-The solution is now available at https://platform.altinn.cloud/register/api/v1 and all resources are avaiable through endpoints defined below.
-Resource: Organizations, Parties, Persons
-/organizations Get information about an organization:
-/organizations/{orgNr}  /parties Get information about a party:
-/parties/{partyId}  /persons Get information about a person: Send a GET-request with the persons SSN contained in the request body to <a class="read-more" href="/architecture/application/altinn-platform/register/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/">Architecture</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.
-Architecture Goals &amp; Guidelines The following guidlines and goals have been important to define the architecture.
-Free and open-source software Guideline: Frameworks and applications used in Altinn Studio will need to be Open Source.
-Result: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.
-Web Standards &amp; Modern frameworks Guideline: Use Web Standards and modern frameworks <a class="read-more" href="/architecture/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
 
