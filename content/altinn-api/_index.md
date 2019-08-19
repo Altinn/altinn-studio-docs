@@ -55,7 +55,7 @@ The Platform Storage API will provide access to information stored by the applic
 An api that provides access to all instances of a specific app.
 
 ```http
-apiPath = https://org.apps.altinn.no/org/app
+appPath = https://org.apps.altinn.no/org/app
 ```
 
 Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
