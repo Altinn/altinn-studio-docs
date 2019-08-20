@@ -2,7 +2,6 @@
 title: Altinn Studio - Deployment Architecture
 linktitle: Altinn Studio
 description: Description of the deployment architecture for runtime application
-tags: ["tjenester 3.0"]
 weight: 100
 ---
 {{% notice warning %}}

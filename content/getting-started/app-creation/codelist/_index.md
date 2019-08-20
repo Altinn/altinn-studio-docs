@@ -2,7 +2,7 @@
 title: Code lists
 description: How to add/edit and configure code lists.
 toc: true
-tags: ["guide", "codelist"]
+tags: [guide]
 weight: 105
 ---
 

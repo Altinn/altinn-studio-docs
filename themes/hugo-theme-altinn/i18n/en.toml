@@ -17,7 +17,7 @@ other = "Next Pages"
 other = "Previous Pages"
 
 [pagination-on]
-other = "on"
+other = "of"
 
 [Attachments-label]
 other = "Attachments"
@@ -32,7 +32,7 @@ other = "Woops. Looks like this page doesn't exist."
 other = "Go to homepage"
 
 [Edit-this-page]
-other = "Edit page on GitHub"
+other = "Edit page"
 
 [Navigation]
 other = "Navigation"

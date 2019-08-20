@@ -1,7 +1,7 @@
 ---
 title: Third party components
 description: Information on how custom/third party components are set up
-tags: ["tech", "ui-designer"]
+tags: [tech, react]
 ---
 
 It should be possible to create and use custom/third party components as a part of a service in Altinn Studio. 

@@ -1,7 +1,7 @@
 ---
 title: REST-API for End User Systems
 description: Description of the Rest API for end user systems
-tags: ["solution", "apps"]
+tags: [altinn-apps]
 aliases:
     - "/altinn-studio-apps"
 weight: 200

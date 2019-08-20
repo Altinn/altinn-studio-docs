@@ -1,7 +1,7 @@
 ---
 title: Getting started
 description: Information about how to get started
-tags: ["development", "handbook", "git"]
+tags: [development]
 weight: 100
 ---
 <style>

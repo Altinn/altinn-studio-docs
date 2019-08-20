@@ -1,7 +1,6 @@
 ---
 title: Configure Prefill
 description: Altinn Studio will let the developer define prefill for datamodel from register and profile
-tags: ["studio"]
 ---
 
 

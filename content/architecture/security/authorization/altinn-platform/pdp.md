@@ -1,7 +1,7 @@
 ---
 title: Policy Decision Point
 description: Description of the Authoirzation architecture
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: PDP
 alwaysopen: false

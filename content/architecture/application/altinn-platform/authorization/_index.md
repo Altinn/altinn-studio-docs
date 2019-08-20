@@ -2,7 +2,7 @@
 title: Altinn Platform - Authorization
 linktitle: Authorization
 description: Description of authorization component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 
@@ -16,10 +16,10 @@ Authorization is used by the applications to authorize an action requested by th
 
 Resources: Actor, Roles
 
-Parties
+## Parties
 A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.
 
-Operations
+### Operations
 
 Get a list of parties that the user can represent. The userid is sent as parameter
 
@@ -27,13 +27,16 @@ Get a list of parties that the user can represent. The userid is sent as paramet
 GET /authorization/api/v1/parties?userid={userid}
 ```
 
-{{%notice warning%}}
-There can be terminology change shortly. So the url might change
-{{% /notice%}}
+Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters
 
-Roles
+```http
+GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
+```
+
+## Roles
 A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone. 
 
+### Operations
 Get a list of roles that the user can perform for the selected party
 
 ```http

@@ -1,7 +1,7 @@
 ---
 title: ValidationHandler.cs
 description: Beskrivelse av format for ValidationHandler
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 100
 ---
 

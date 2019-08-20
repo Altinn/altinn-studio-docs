@@ -1,7 +1,7 @@
 ---
 title: Postman
 description: API Testing with postman
-tags: ["development", "handbook", "test", "postman", "api"]
+tags: [development, testing, api]
 weight: 100
 ---
 

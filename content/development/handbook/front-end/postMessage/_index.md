@@ -1,7 +1,7 @@
 ---
 title: Post Message
 description: Guidelines for using post message functionality in Altinn Studio
-tags: ["development", "handbook", "front-end", "post", "post message"]
+tags: [development, front-end]
 weight: 100
 ---
 

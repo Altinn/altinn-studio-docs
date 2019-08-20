@@ -1,7 +1,7 @@
 ---
 title: Testcafe
 description: Testcafe
-tags: ["development", "handbook", "test", "testcafe"]
+tags: [development, testing]
 weight: 100
 ---
 This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to writing automation code with java script and debug of the tests.

@@ -2,7 +2,7 @@
 title: Application Architecture App
 linktitle: App
 description: Description of the application architecture for App
-tags: ["tjenester 3.0"]
+tags: [architecture]
 weight: 100
 ---
 

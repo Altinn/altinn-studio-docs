@@ -1,7 +1,7 @@
 ---
 title: App API
 description: Description of the API available in an app created in Altinn Studio.
-tags: ["solution", "apps"]
+tags: [altinn-apps]
 aliases:
     - "/altinn-studio-apps"
 weight: 200

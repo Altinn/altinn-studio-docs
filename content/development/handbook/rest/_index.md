@@ -1,7 +1,7 @@
 ---
 title: RESTful APIs (Representation State Transfer)
 description: Guidelines for designing REST apis for microservices in Altinn
-tags: ["development", "handbook", "back-end", "rest", "api"]
+tags: [development, api]
 weight: 100
 ---
 {{%notice warning%}}

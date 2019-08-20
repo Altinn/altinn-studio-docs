@@ -1,7 +1,7 @@
 ---
 title: Features
 description: Description of features in App
-tags: ["solution", "apps"]
+tags: [altinn-apps]
 weight: 200
 ---
 

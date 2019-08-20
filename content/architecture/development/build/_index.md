@@ -2,7 +2,7 @@
 title: Build process
 description: Altinn Studio Build Processes
 weight: 100
-tags: ["ci", "build", "devops", "pipeline", "pipelines"]
+tags: [build, ci]
 ---
 
 > For information regarding Altinn App build process, see Architecture/Infrastructure/Deployment.

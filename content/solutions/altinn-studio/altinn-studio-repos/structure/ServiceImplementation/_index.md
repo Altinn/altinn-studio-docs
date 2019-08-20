@@ -1,7 +1,7 @@
 ---
 title: ServiceImplementation.cs
 description: Beskrivelse av format for tjenesteimplementasjonen
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 100
 ---
 

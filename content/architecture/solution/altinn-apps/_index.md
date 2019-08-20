@@ -2,7 +2,7 @@
 title: Solution Architecture Altinn Apps
 linktitle: Altinn Apps
 description: Description of the Altinn Studio solution
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 alwaysopen: true
 ---

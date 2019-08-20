@@ -1,7 +1,7 @@
 ---
 title: Context Handler
 description: Description of Context Handler in Altinn Studio Apps 
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: Context Handler
 alwaysopen: false

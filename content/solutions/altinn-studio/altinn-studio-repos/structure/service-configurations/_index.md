@@ -1,7 +1,7 @@
 ---
 title: ServiceConfigurations.json
 description: Beskrivelse av format for tjeneste konfigurasjons filen
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 70
 ---
 

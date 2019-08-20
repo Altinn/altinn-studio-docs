@@ -2,7 +2,7 @@
 title: App logic
 description: How to add/edit and configure the three different types of app logic; Validation, Calculation and Dynamics.
 toc: true
-tags: ["guide", "logic"]
+tags: [guide]
 weight: 107
 ---
 

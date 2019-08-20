@@ -1,7 +1,6 @@
 ---
 title: Reusable resources
 description: A important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.
-tags: ["studio"]
 ---
 
 Reusable resource is typical created by technical developers using code editors.

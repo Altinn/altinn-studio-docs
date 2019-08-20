@@ -3,7 +3,7 @@ title: Functionality in Repos
 linktitle: Functionality
 description: Funksjonalitet for lagring og versjonering av tjenester i Git-repositories samt funksjonalitet for application lifecycle management.
 toc: true
-tags: ["repos"]
+tags: [altinn-repos]
 weight: 100
 ---
 

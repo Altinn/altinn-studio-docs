@@ -2,7 +2,7 @@
 title: Application arhicture register component - Altinn Platform
 linktitle: Register
 description: Description of register component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 

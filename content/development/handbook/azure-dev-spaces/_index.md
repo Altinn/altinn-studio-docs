@@ -1,7 +1,7 @@
 ---
 title: Azure Dev Spaces
 description: Guidelines for deploying storage 
-tags: ["development", "handbook", "azure dev spaces","dev spaces"]
+tags: [development]
 weight: 100
 ---
 

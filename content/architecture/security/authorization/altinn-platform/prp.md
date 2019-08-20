@@ -1,7 +1,7 @@
 ---
 title: Policy Retrieval Point
 description: Description of Policy Information Point for Altinn Platform
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: PRP
 alwaysopen: false

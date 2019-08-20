@@ -2,7 +2,7 @@
 title: Altinn Platform - Storage
 linktitle: Storage
 description: Description of the application architecture for Storage component
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 
@@ -292,7 +292,7 @@ Format of the JSON object stored in the database.
     "instanceId": "60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb",
     "eventType": "deleted",
     "createdDateTime": "2019-05-02T13:08:21.981476Z",
-    "instanceOwnerId": "123456",
+    "instanceOwnerId": "60238",
     "userId": 3,
     "authenticationLevel": 1,
     "workflowStep": "8",

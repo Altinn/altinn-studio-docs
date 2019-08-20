@@ -1,7 +1,7 @@
 ---
 title: ServiceModel.xsd
 description: Beskrivelse av ServiceModel.xsd
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 100
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: CalculationHandler.cs
 description: Beskrivelse av format for calculation handler
-tags: ["tjenester 3.0", "dataformat"]
 weight: 100
 ---
 

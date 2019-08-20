@@ -1,7 +1,7 @@
 ---
 title: Texts
 description: How to add or edit text resources for an app in Altinn Studio.
-tags: ["guide", "texts"]
+tags: [guide]
 weight: 103
 ---
 

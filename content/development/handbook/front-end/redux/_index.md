@@ -1,7 +1,7 @@
 ---
 title: Redux
 description: Guidelines for using Redux in Altinn Studio
-tags: ["development", "handbook", "front-end", "redux"]
+tags: [development, front-end, react]
 weight: 100
 ---
 Redux is used to manage the states of the ux-editor.

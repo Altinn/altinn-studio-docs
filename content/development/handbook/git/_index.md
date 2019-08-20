@@ -1,7 +1,7 @@
 ---
 title: Git
 description: Information about version control with Git
-tags: ["development", "handbook", "git"]
+tags: [development, git]
 weight: 100
 ---
 <div id="contributionContent"></div>

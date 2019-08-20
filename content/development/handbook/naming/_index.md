@@ -1,7 +1,7 @@
 ---
 title: Naming Conventions
 description: Naming guidelines for Altinn Studio development
-tags: ["development", "handbook", "naming"]
+tags: [development]
 weight: 100
 ---
 ### C\#

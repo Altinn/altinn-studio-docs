@@ -4,3 +4,4 @@ public
 *.docx
 *.db
 .vs
+.DS_Store

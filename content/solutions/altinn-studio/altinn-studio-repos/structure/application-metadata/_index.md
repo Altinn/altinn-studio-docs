@@ -1,7 +1,7 @@
 ---
 title: applicationmetadata.json
 description: Description of format for application metadata
-tags: ["tjenester 3.0", "application metadata","metadata", "meta data"]
+tags: [app-structure]
 weight: 100
 ---
 

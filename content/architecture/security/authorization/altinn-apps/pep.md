@@ -1,7 +1,7 @@
 ---
 title: Policy Enforcment Point
 description: Description of Policy Enforcment Point for Altinn Apps
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: PEP
 alwaysopen: false

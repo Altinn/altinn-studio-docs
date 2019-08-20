@@ -2,7 +2,7 @@
 title: BPMN 2.0
 description: Business Process Model and Notation (BMN) - Workflow
 weight: 100
-tags: ["bpmn", "workflow", "arbeidsflyt"]
+tags: [process]
 ---
 
 ## Needs/Background

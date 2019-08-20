@@ -2,7 +2,7 @@
 title: Data Structure for Repos
 linktitle: Structure
 description: Struktur for repositories og filer i Gitea.
-tags: ["repos", "arkitektur"]
+tags: [altinn-repos, arkitektur]
 weight: 100
 ---
 

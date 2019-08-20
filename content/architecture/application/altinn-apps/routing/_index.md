@@ -2,7 +2,6 @@
 title: Application Architecture Routing
 linktitle: Routing
 description: Descripton of the Application Architecture for the Routing Application
-tags: ["tjenester 3.0"]
 weight: 100
 ---
 

@@ -1,7 +1,6 @@
 ---
 title: Altinn Studio
 description: The design-time solution for developing, testing and maintaining applications.
-tags: ["solution", "studio"]
 aliases:
     - "/altinn-studio"
 weight: 100

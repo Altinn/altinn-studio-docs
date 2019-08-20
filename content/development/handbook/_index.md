@@ -1,7 +1,7 @@
 ---
 title: Handbook
 description: Development handbook for Altinn Studio
-tags: [development, handbook]
+tags: [development]
 ---
 
 {{% notice warning %}}

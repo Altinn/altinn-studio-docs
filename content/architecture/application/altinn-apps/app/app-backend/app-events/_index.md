@@ -2,7 +2,6 @@
 title: Application events
 linktitle: Application Events
 description: Description of application events
-tags: ["tjenester 3.0"]
 weight: 100
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Styling (css)
 description: Guidelines for styling components in Altinn Studio
-tags: ["development", "handbook", "front-end", "css", "material-ui", "styled components", "jss", "css-in-js"]
+tags: [development, front-end, styling]
 weight: 100
 ---
 

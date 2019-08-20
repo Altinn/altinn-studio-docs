@@ -1,7 +1,7 @@
 ---
 title: Frontend
 description: Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.
-tags: ["solution", "apps"]
+tags: [altinn-apps]
 weight: 200
 ---
 

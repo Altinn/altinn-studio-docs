@@ -2,7 +2,6 @@
 title: API Catalogue
 linktitle: API Catalogue
 description: Description of the API in Altinn Studio
-tags: ["tjenester 3.0"]
 weight: 100
 ---
 {{% notice warning %}}

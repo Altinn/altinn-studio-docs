@@ -1,7 +1,7 @@
 ---
 title: Test
 description: Coding guidelines for tests
-tags: ["development", "handbook", "test"]
+tags: [development, testing]
 weight: 100
 ---
 

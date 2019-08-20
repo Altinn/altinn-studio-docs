@@ -1,7 +1,7 @@
 ---
 title: Authentication
 description: Description of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 alwaysopen: false
 ---

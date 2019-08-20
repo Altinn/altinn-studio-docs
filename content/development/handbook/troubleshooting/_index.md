@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 description: Troubleshooting for altinn.studio
-tags: ["development", "troubleshooting"]
+tags: [development]
 weight: 100
 ---
 

@@ -2,7 +2,7 @@
 title: App Frontend Application Architecture
 linktitle: App Frontend
 description: Description of the Application architecture for App-Frontend
-tags: ["tjenester 3.0", "Altinn Apps"]
+tags: [architecture]
 weight: 100
 ---
 

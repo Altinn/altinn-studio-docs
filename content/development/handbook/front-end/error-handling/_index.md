@@ -1,7 +1,7 @@
 ---
 title: Error handling
 description: Guidelines for error handling front-end
-tags: ["development", "handbook", "front-end", "error-handling"]
+tags: [development, error-handling]
 weight: 100
 ---
 {{%notice warning%}}

@@ -1,7 +1,7 @@
 ---
 title: JWTCookieAuthentication
 description: Description of the JWTCookieAuthentication created for Altinn
-tags: ["architecture", "security"]
+tags: [architecture, security]
 weight: 100
 linktitle: JWTCookieAuthentication
 alwaysopen: false

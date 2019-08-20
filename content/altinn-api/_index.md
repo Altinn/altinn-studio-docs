@@ -55,7 +55,7 @@ The Platform Storage API will provide access to information stored by the applic
 An api that provides access to all instances of a specific app.
 
 ```http
-apiPath = https://org.apps.altinn.no/org/app
+appPath = https://org.apps.altinn.no/org/app
 ```
 
 Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
@@ -89,6 +89,8 @@ The client specify the instance owner and can set a number of the metadata field
     "presentationField": { "nb": "Arbeidsmelding" }
 }
 ```
+
+Notice that all dates must be expressed in **Utc (Zulu)** time zone and represented according to ISO 8601!
 
 Data elements (files) can be attached to the initial request as a *multipart/form-data*. The name of the parts must correspond to element types defined in the application metadata. 
 
@@ -128,7 +130,7 @@ This call will return the instance metadata record that was created. A unique id
     "appId": "org/app",
     "labels": [ "gr", "x2" ],
     "instanceOwnerId": "347829",
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdDateTime": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "org23",
     "dueDateTime": "2019-06-01T12:00:00Z",
     "visibleDateTime": "2019-05-20T00:00:00Z",
@@ -137,7 +139,7 @@ This call will return the instance metadata record that was created. A unique id
         "currentTask": "FormFilling_1",
         "isComplete": false
     },
-    "instanceOwnerStatus": {
+    "instanceStatus": {
         "isArchived": false,
         "isSoftDeleted": false,
         "isMarkedForHardDelete": false
@@ -156,7 +158,7 @@ This call will return the instance metadata record that was created. A unique id
             "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
         },
         "fileName": "prefill.xml",
-        "createdDateTime": "2019-03-06T15:00:23+01:00",
+        "createdDateTime": "2019-03-06T15:00:23Z",
         "createdBy": "org23",
         "fileSize": 20001,
         "isLocked": false,
@@ -190,9 +192,9 @@ This call updates and returns instance metadata where each data element are give
                 "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
             },
             "fileName": "default.xml",
-            "createdDateTime": "2019-03-06T15:00:23+01:00",
+            "createdDateTime": "2019-03-06T15:00:23Z",
             "createdBy": "org23",
-            "lastChangedDateTime": "2019-03-07T15:00:23+01:00",
+            "lastChangedDateTime": "2019-03-07T15:00:23Z",
             "lastChangedBy": "org23",
             "fileSize": 20001,
             "isLocked": false
@@ -227,12 +229,12 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         ...
         "fileName": "default.xml",
-        "lastChangedDateTime": "2019-03-06T15:00:23+01:00",
+        "lastChangedDateTime": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
         "fileSize": 34059,
         "isLocked": false,
         "applicationOwner": {
-            "downloaded": ["2019-05-15T08:23:01+01:00"]
+            "downloaded": ["2019-05-15T08:23:01Z"]
         }
     }
 ]
@@ -274,8 +276,8 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         ...
         "applicationOwner": {
-            "downloaded": ["2019-05-15T08:23:01+01:00"],
-            "downloadConfirmed": ["2019-05-16T10:23:00+01:00"]
+            "downloaded": ["2019-05-15T08:23:01Z"],
+            "downloadConfirmed": ["2019-05-16T10:23:00Z"]
         }
     }
 ]
@@ -302,34 +304,68 @@ Will return a multipart http response with the following content:
 
 ## Query instances
 
-Application owners can search for application instances with a simple query request.
+Application owners can search for application instances with a simple GET request towards the *instances* endpoint.
 
-For example: To get all instances of appId *org/app*, that is in at task id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
-
-```http
-GET {storagePath}/instances?appId=org/app&process.currentTask=Submit_1&lastChangedDateTime=gte:2019-05-01&label=gruppe3
-```
-
-Another example is get all instances of appId *org/app* that has completed their process.
+For example: To get all instances of appId *org/app*, that is in at task with id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
 
 ```http
-GET {storagePath}/instances?appId=org/app&process.isComplete=true
+GET {storagePath}/instances?appId=org/app&process.currentTask=Submit_1&lastChangedDateTime=gt:2019-05-01&label=gruppe3
 ```
 
+Another example is get all instances of all apps of an organistation *org* that has completed their process.
 
-The query returns a paginated set of instances (JSON)
+```http
+GET {storagePath}/instances?org=org&process.isComplete=true
+```
+
+On query parameters specifying date time you can use the following operators:
+
+* gt: - greater than
+* gte: - greater than or equal to
+* lt: - less than
+* lte: - less than or equal to
+* eq: - equal (can also be blank)
+
+They can be combined to define a range:
+
+```http
+dueDateTime=gt:2019-02&dueDateTime=lt:2019-03-01
+```
+
+The query returns a result object (page) which includes a collection of instance that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link. 
+
+The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
+
+The endpoint supports plain *application/json* and *application/hal+json*. Use the Accept parameter in the http request to specify your preferred format.
+
 
 ```json
+Accept: application/json
 {
+    "totalHits": 234,
+    "count": 50,
+    "self": "{storagePath}/instances?appId=org/app&size=50",
+    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
+    "instances": [
+            {...},
+            {...},
+            ...
+      ]
+    }
+}
+```
+
+```json
+Accept: application/hal+json
+{
+    "totalHits": 234,
+    "count": 50,
     "_links": {
         "self": {
-            "href": "{storagePath}/instances?page=0&size=100"
+            "href": "{storagePath}/instances?appId=org/app&size=50"
         },
         "next": {
-            "href": "{storagePath}/instances?page=1&size=100"
-        },
-        "last": {
-            "href": "{storagePath}/instances?page=123&size=100"
+            "href": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
         }
     },
     "_embedded": {
@@ -384,7 +420,7 @@ Query result:
 [
     {
         "id": "112453234523423344",
-        "at": "2019-06-01T12:12:22+01:00",
+        "at": "2019-06-01T12:12:22Z",
         "appId": "org/app",
         "instanceOwnerId": "347829",
         "instanceLink": "{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
@@ -561,11 +597,11 @@ GET {appPath}
     "versionId": "v32.23-xyp",
     "org": "test",
     "app": "sailor",
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "createdDateTime": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" },
     "processId": "mvp1",
-    "validFrom": "2019-04-01T12:14:22+01:00",
+    "validFrom": "2019-04-01T12:14:22Z",
     "validTo": null,
     "maxSize": -1,
     "elementTypes": [

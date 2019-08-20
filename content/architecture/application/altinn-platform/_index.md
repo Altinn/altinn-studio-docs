@@ -2,7 +2,7 @@
 title: Application architecture Altinn Platform
 linktitle: Altinn Platform
 description: Description of the Altinn Platform application architecture
-tags: ["solution", "architecture"]
+tags: [architecture, solution]
 weight: 100
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: React
 description: Guidelines for using React in Altinn Studio
-tags: ["development", "handbook", "front-end", "react"]
+tags: [development, react]
 weight: 100
 ---
 

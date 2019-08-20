@@ -1,7 +1,7 @@
 ---
 title: Build
 description: Build documentation for altinn.studio frontend
-tags: ["development", "frontend", "build"]
+tags: [development, front-end, build]
 weight: 100
 ---
 

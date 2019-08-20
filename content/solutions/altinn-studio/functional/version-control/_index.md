@@ -1,7 +1,7 @@
 ---
 title: Version Control
 description: In Altinn Studio a developer can perform version control operation on the source code for the app
-tags: ["studio", "test"]
+tags: [todo]
 ---
 
 ## Clone

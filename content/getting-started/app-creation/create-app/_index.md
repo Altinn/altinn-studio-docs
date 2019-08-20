@@ -1,7 +1,7 @@
 ---
 title: Create new app
-description: Information on how to create a new apps.
-tags: ["guide", "external-api"]
+description: How to create a new Altinn Studio app.
+tags: [guide]
 weight: 100
 ---
 

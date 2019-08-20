@@ -1,7 +1,7 @@
 ---
 title: react-app.js
 description: Beskrivelse av React-App.js
-tags: ["tjenester 3.0", "dataformat"]
+tags: [app-structure]
 weight: 100
 ---
 

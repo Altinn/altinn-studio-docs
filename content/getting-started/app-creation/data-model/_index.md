@@ -1,7 +1,7 @@
 ---
 title: Data model
 description: How to import or view the data model.
-tags: ["guide", "data-model"]
+tags: [guide]
 weight: 102
 ---
 

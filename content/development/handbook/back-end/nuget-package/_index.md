@@ -1,7 +1,7 @@
 ---
 title: Nuget Package
 description: Overview of nuget package usage in altinn studio
-tags: ["nuget package", "create nuget", "back-end", "pre-release nuget"]
+tags: [nuget]
 weight: 100
 ---
 {{%notice warning%}}

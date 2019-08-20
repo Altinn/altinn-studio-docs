@@ -1,7 +1,6 @@
 ---
 title: AltinnService.csproj
 description: Description for AltinnService.csproj file
-tags: ["tjenester 3.0", "projectfile", "csproj"]
 weight: 100
 ---
 

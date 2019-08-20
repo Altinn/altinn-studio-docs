@@ -1,7 +1,7 @@
 ---
 title: Work in progress
 description: A work in progress information is displayed to users of Altinn Studio.
-tags: ["studio", "work in progress"]
+tags: [wip]
 ---
 
 ## Work in progress page
