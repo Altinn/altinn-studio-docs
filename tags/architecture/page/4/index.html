@@ -6454,8 +6454,10 @@ Altinn Studio Apps will not have any administration of authorization rules. <a c
     </header>
     <section class="post-excerpt">
         <p>The Policy Decision Point is implemented in the authorization application that is deployed Altinn Platform.
-Policy Decision Point exposes a method that authorize request based on the following
- ResourceId (instanceId, dataId or appId) SubjectId (systemId, userId) ReporteeId (in case of appId) Action  If instanceID or dataID is used as Resource ID PDP will use Context Handler to identifiy the correct appId, the instance workflow state and the reporteId for the existing resource. <a class="read-more" href="/architecture/security/authorization/altinn-platform/pdp/">&raquo;</a></p>
+The Policy Decision Point follow eXtensible Access Control Markup Language (XACML) Version 3.0.
+This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules.
+The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
+Policy Decision Point exposes a method that authorize request based on the following <a class="read-more" href="/architecture/security/authorization/altinn-platform/pdp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
