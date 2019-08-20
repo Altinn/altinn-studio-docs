@@ -51,8 +51,8 @@ resource.
 [Learn about Policy Enforcment Point in Altinn Studio Apps](pdp)
 
 ### Context handler
-The context handler is responsible for converting the resource ID to 
-something that PDP can understand. 
+The context handler is responsible enriching the decision request so that PDP has the 
+needed information to identify the policy and evaluate the rules and conditions.
 
 [Learn about Policy Enforcment Point in Altinn Studio Apps](contexthandler)
 
