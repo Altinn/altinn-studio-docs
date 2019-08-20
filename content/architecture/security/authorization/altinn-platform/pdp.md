@@ -10,6 +10,13 @@ The Policy Decision Point is implemented in the
 [authorization application](https://github.com/Altinn/altinn-studio/issues/1166) 
 that is deployed Altinn Platform. 
 
+The Policy Decision Point follow [eXtensible Access Control Markup Language (XACML) Version 3.0](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html). 
+
+This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules. 
+
+The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
+
+
 Policy Decision Point exposes a method that authorize request based on the following
 
 - ResourceId (instanceId, dataId or appId)
@@ -31,7 +38,7 @@ The diagram below show the detailed flow.
 Flow explained
 
 1. Context for the inputed resource is retrieved from database. This inlcude the correct reportee owning the app data instance 
-2. Rules for the app is retrieved from PIP in Altinn Studio. 
+2. Policy for the app is retrieved from PRP in the Authorization component in Altinn Platform. 
 3. Check if the operation requested by the user is a regular end user request or a service owner user request
 4. Check if request is comming from a end user system
 5. Check if owner of system is the reportee of app data instance
