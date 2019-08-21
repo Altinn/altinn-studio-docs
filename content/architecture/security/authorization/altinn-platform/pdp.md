@@ -34,30 +34,19 @@ The diagram below show the detailed flow.
 
 Flow explained
 
-1. Context for the inputed resource is retrieved from database. This inlcude the correct reportee owning the app data instance 
-2. Policy for the app is retrieved from PRP in the Authorization component in Altinn Platform. 
-3. Check if the operation requested by the user is a regular end user request or a service owner user request
-4. Check if request is comming from a end user system
-5. Check if owner of system is the reportee of app data instance
-6. Get roles the system (eg owner of the system) has for the reportee that owns app data instance from Altinn II platform. This need to be cached
-7. Validate to see if system is authorized based on the roles. If yes go to 10. If not go to 8.
-8. Get delegated rights system (eg owner) has for the reportee for the given app. This is retrieved from Altinn II platform. The delegation is described
-as XACML rules
-9.  Verify if the delegated righs is enough for accessing. If not system is not authorized. If go to 10.
-10. Verify if it is a authenticated user that uses the end user system. If not go to 11. If go to 12.
-11. Verify if the action is allowed to be performed with only end user system
-credentials.
-12. Get the roles the user has for the given reportee
-13. Verify if the rules matches the roles user has for reportee. If not go to 14. If it has it is authorized
-14. Get the delegated rights from ALtinn II pip for the given app/reportee
-15. Verify if the delegated rights matches the request. If so, it is authoirzed, if not denied
-16. Get the IP rules for the given org. 
-17. Verify if user is accessing service owner archive is accessing from
-a allowed IP range
-18. Get the reportee adress type
-19. Verify if the reportee has secret adress
-20. Get the org roles (user have for org that owns the org)(serice owner roles)
-21. Verify if user has needed service owner roles
+1. Decision Request is sent to context handler for enriching
+2. Context handler call PIP for resource attributes
+3. Context handler call PIP for subject attributes
+4. PRP Identifies the correct policy based on resource attributes in enriched decision request
+5. PDP identifyes matching rules
+6. PDP checks if there is any matching rules and returnes interderminate if not
+7. Matches the rules with subject attributes
+8. Verify match and return indeterminate if not
+9. Evaluate any conditions in policy
+10. If condiation does not match return indterminate
+11. Add any obligations to the result
+12. Return the decsion result
+
 
 ## Technical Considerations
 

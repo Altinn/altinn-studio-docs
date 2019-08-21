@@ -74,7 +74,7 @@ The rules is slightly different since rules defined by the end user have differe
 #### User defined rule 
 
 {{%excerpt%}}
-<object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_in_altinnstudio.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_by_user.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 
