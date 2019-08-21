@@ -6413,6 +6413,7 @@ A rule in Altinn Studio consist of 4 elements</p>
 <li>User</li>
 <li>Party</li>
 <li>RoleType</li>
+<li>org</li>
 </ul>
 
 <h3 id="action">Action</h3>
@@ -6438,13 +6439,6 @@ we have the following types of conditions.</p>
 <li>Valid To</li>
 </ul>
 
-<p>The figure below shows how rules are defined</p>
-
-
-	<p><object data="/architecture/security/authorization/Altinn_Studio_Authorization_Architecture_Rule.svg" type="image/svg+xml" style="width: 100%;"></object></p>
-
-
-
 <h2 id="creation-of-rules">Creation of rules</h2>
 
 <p>The rules in Altinn Studio Apps is defined when the service developer defines the rules for the service.
@@ -6453,6 +6447,22 @@ The rules are deployed together with the Service App to a given Altinn Studio Ap
 <p>In Altinn II end user can also create rules. This happens when:
 - When user creates a local role that contains rights that user have through other roles
 - When delegating single rights to a user or organization.</p>
+
+<p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a more limited resource.</p>
+
+<h4 id="altinn-studio-rule">Altinn Studio rule</h4>
+
+
+	<p><object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_in_altinnstudio.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+
+
+
+<h4 id="user-defined-rule">User defined rule</h4>
+
+
+	<p><object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_in_altinnstudio.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+
+
 
 <h2 id="roles">Roles</h2>
 

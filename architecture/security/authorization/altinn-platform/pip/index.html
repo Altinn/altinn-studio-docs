@@ -3074,64 +3074,6 @@ if(host != "localhost")
           
         
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/infrastructure/deployment/altinn-apps/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/infrastructure/deployment/altinn-apps/">
-        <span>Altinn Apps</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/architecture/infrastructure/deployment/altinn-studio/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/architecture/infrastructure/deployment/altinn-studio/">
-        <span>Altinn Studio</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -6374,15 +6316,19 @@ if(host != "localhost")
 
 
 
-<p>For Altinn Platform there is different type of policy information needed</p>
+<p>A Policy Information Point is a component that is used by the Context Handler to enrich the decision request
+with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.</p>
+
+<p>For the Altinn Platform there is serveral Policy Information Points</p>
 
 <ul>
-<li>The rules defined by end user for a resource</li>
-<li>The roles a user have for a given resource owner. (reportee)</li>
+<li>Altinn II Authorization - Get information about roles a user or system has for a given party</li>
+<li>Storage PIP - Get attributes about the resource in the decision request</li>
+<li>Register PIP - Possible information about the party (is he still alive?)</li>
+<li>Other Register - Roles/claims stored other places than in Altinn</li>
 </ul>
 
-<p>The roles a user or system has for a reportee is retrieved directly from Authorization component
-in Altinn II</p>
+<p>The exact number of pips are work in progress.</p>
 
 
 <footer class=" footline" >
