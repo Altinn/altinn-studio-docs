@@ -11,11 +11,9 @@ alwaysopen: false
 NOTE: Work in progress. [See Github Issue](https://github.com/Altinn/altinn-studio/issues/963)
 {{% /notice %}}
 
-Altinn Platform has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
+Altinn Platform has a [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
 what type of data element and so on.
-
-The Authorization architecture in Altinn Platform are used as important components in authorization Architecture form Altinn Apps 
 
 ## Authorization Components
 The authorization architecture for Altinn Platform are based on the 
@@ -35,7 +33,7 @@ The Policy Information Point is used by PDP to gather information needed to perf
 [Learn about Policy Information Point in Altinn Platform](pip)
 
 ### Policy Administration Point
-The policy administration point is where the rules are defined
+The policy administration point is where the rules and polices are defined
 
 [Learn about Policy Administration Point in Altinn Platform](pap)
 

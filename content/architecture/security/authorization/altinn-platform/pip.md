@@ -7,13 +7,18 @@ linktitle: PIP
 alwaysopen: false
 ---
 
-For Altinn Platform there is different type of policy information needed
+A Policy Information Point is a component that is used by the Context Handler to enrich the decision request
+with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.
 
-- The rules defined by end user for a resource
-- The roles a user have for a given resource owner. (reportee)
+For the Altinn Platform there is serveral Policy Information Points
 
-The roles a user or system has for a reportee is retrieved directly from Authorization component
-in Altinn II 
+- Altinn II Authorization - Get information about roles a user or system has for a given party
+- Storage PIP - Get attributes about the resource in the decision request 
+- Register PIP - Possible information about the party (is he still alive?)
+- Other Register - Roles/claims stored other places than in Altinn
+
+The exact number of pips are work in progress.
+
 
 
 

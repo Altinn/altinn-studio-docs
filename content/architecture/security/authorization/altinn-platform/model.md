@@ -36,6 +36,7 @@ The subject in a authorization rule identifies who the rules applies for. In Alt
 - User
 - Party
 - RoleType
+- org
 
 ### Action
 The Action part of the rule define what type of action that the subject can perform on the resource.
@@ -54,12 +55,6 @@ we have the following types of conditions.
 - Authentication level
 - Valid To
 
-The figure below shows how rules are defined
-
-{{%excerpt%}}
-<object data="/architecture/security/authorization/Altinn_Studio_Authorization_Architecture_Rule.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
-
 ## Creation of rules
 The rules in Altinn Studio Apps is defined when the service developer defines the rules for the service. 
 The rules are deployed together with the Service App to a given Altinn Studio App environment.
@@ -67,6 +62,21 @@ The rules are deployed together with the Service App to a given Altinn Studio Ap
 In Altinn II end user can also create rules. This happens when:
 - When user creates a local role that contains rights that user have through other roles
 - When delegating single rights to a user or organization.
+
+The rules is slightly different since rules defined by the end user have different subjects and can be defined for a more limited resource.
+
+#### Altinn Studio rule
+
+{{%excerpt%}}
+<object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_in_altinnstudio.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
+#### User defined rule 
+
+{{%excerpt%}}
+<object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_in_altinnstudio.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
 
 ## Roles
 Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles. 

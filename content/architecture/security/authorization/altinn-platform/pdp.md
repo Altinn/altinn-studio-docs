@@ -16,13 +16,10 @@ This mean that the rules are defined in XACML Policies files and PDP evalutes re
 
 The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
 
+Policy Decision Point exposes a method that authorize the decision request. 
 
-Policy Decision Point exposes a method that authorize request based on the following
+PDP uses the configured [context handler](contexthandler) to enrich the decision request with attributes about the subject, resource and environment. 
 
-- ResourceId (instanceId, dataId or appId)
-- SubjectId (systemId, userId)
-- ReporteeId (in case of appId)
-- Action
 
 If instanceID or dataID is used as Resource ID PDP will use [Context Handler](ContextHandler) to identifiy the correct appId, 
 the instance workflow state and the reporteId for the existing resource.
