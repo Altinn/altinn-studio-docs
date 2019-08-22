@@ -37,6 +37,8 @@ This area covers the following sub areas
 ### Encryption
 The ability to encrypt data 
 
+[See encryption architecture](encryption)
+
 ### Digital Signatures
 The ability to sign data to make sure it has not been modified
 
