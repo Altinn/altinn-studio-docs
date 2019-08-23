@@ -27,9 +27,11 @@ Azure Blob storage encrypts all data at rest. This is transparent for Altinn Pla
 [See documentation about Azure Storage Encryption](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption)
 
 
-### application layer encryption
+### Application layer encryption
 For App scenario where there is a higher requirement for encryption there might be a need to implement Application layer encryption. 
 
+This can be done throug custom encryption code using standard algorithms or through existing libraries like 
+the [Azure Storage client library](https://docs.microsoft.com/en-us/azure/storage/common/storage-client-side-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) .
 
 #### Algorithms
 For a application layer encryption functionality we would need to choose a best practice encryption algoritmh together with best practice key length-

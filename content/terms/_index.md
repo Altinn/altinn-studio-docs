@@ -175,6 +175,16 @@ The current Altinn end user solution (SluttBrukerLøsning). See [Solution Archit
 Applicaton that exposes SBL components as REST interface to Altinn Platform components. 
 [See Git Issues](https://github.com/Altinn/altinn-studio/labels/sbl-bridge)
 
+
+## Statefull App
+A statefull app uses Altinn Platform to store data
+
+
+## Stateless App
+A stateless app is a application where no data is store in in the platform. This could be a app acting like a proxy to som external APIS.
+State could potensial be stored in the external API, so term statless is limited to how the App not use any state in Altinn Platform.
+
+
 ## Workflow
 
 ## XACML
