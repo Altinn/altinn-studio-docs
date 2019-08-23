@@ -241,8 +241,8 @@
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/",
 	"title": "Authorization",
 	"tags": ["architecture", "security"],
-	"description": "Description of the Authorization architecture",
-	"content": "Description of the Altinn Studio Authorization architecture.\n\rAuthorization - Altinn Apps\rDescription of the Authorization Architecture for Altinn Studio Apps\n\r\r\rAuthorization model\rThe authorization model\n\r\rPolicy Enforcment Point\rDescription of Policy Enforcment Point for Altinn Apps\n\r\r\rAuthorization - Altinn Platform\rDescription of the Authorization Architecture for Altinn Platform\n\r\r\rAuthorization model\rThe authorization model\n\r\rContext Handler\rDescription of Context Handler in Altinn Studio Apps\n\r\rPolicy Administration Point\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\r\rPolicy Decision Point\rDescription of the Authoirzation architecture\n\r\rPolicy Enforcment Point\rDescription of Policy Enforcment Point for Altinn Studio Apps\n\r\rPolicy Information Point\rDescription of Policy Information Point for\n\r\rPolicy Retrieval Point\rDescription of Policy Information Point for Altinn Platform\n\r\rXACML - Altinn Studio\rDescription of XACML use in Altinn Studio\n\r\r\rAuthorization - Altinn Studio\rDescription of the Authorization Architecture for Altinn Studio\n\r\r\r\r"
+	"description": "The Authorization architecture.",
+	"content": "Description of the Altinn Studio Authorization architecture.\n\rAuthorization - Altinn Apps\rDescription of the Authorization Architecture for Altinn Studio Apps\n\r\rAuthorization - Altinn Platform\rDescription of the Authorization Architecture for Altinn Platform\n\r\rAuthorization - Altinn Studio\rDescription of the Authorization Architecture for Altinn Studio\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-apps/model/",
