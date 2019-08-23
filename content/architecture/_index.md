@@ -38,8 +38,4 @@ The figure below shows the relation between the different types of architecture 
 <object data="/architecture/architectureoverview.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
-{{% children description="true" depth="2" %}}
-
-
-
-
+{{% children description="true" depth="1" %}}
