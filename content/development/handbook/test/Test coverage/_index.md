@@ -10,15 +10,15 @@ weight: 100
 Testcase name   |   Test framework   |   Area of Solution   | skipped
 :--- | :---: | :---: | :---:
 Login to altinn studio | testcafe | All areas | no
-Create a new service | testcafe | dashboard | yes
-Cannot create new service, as service name already exists | testcafe | dashboard | no
-Create a new service | testcafe | dashboard | yes
-Search for only my users services | testcafe | dashboard | no
-filter away a users services by unselecting all bubbles | testcafe | dashboard | yes
-deploy a service to a test environment after a change | testcafe | deploy to test | no
-Service cannot deploy due to compilation error | testcafe | deploy to test | no
-Service cannot be deployed due to local changes | testcafe | deploy to test | no
-User does not have write access to service, and cannot deploy | testcafe | deploy to test | no
+Create a new app | testcafe | dashboard | yes
+Cannot create new app, as app name already exists | testcafe | dashboard | no
+Create a new app | testcafe | dashboard | yes
+Search for only my users apps | testcafe | dashboard | no
+filter away a users apps by unselecting all bubbles | testcafe | dashboard | yes
+deploy an app to a test environment after a change | testcafe | deploy to test | no
+App cannot deploy due to compilation error | testcafe | deploy to test | no
+App cannot be deployed due to local changes | testcafe | deploy to test | no
+User does not have write access to app, and cannot deploy | testcafe | deploy to test | no
 Accessibility testing for deployment to test environment page | testcafe/axe | deploy to test | no
 Navigating using the "about" tab | testcafe | UI-editor | no
 Navigating using the "create" tab | testcafe | UI-editor | no
@@ -28,11 +28,11 @@ Navigating using the "Publish" tab | testcafe | UI-editor | no
 Automated accesibility testing for GUI editor | testcafe/axe | UI-editor | no
 Drag and drop of components | testcafe | UI-editor | no
 Add one of each component to the designer using keyboard | testcafe | UI-editor | no
-Sync a service with master | testcafe | UI-editor | no
-"About" page items, and editing of service data | testcafe | UI-editor | no
+Sync an app with master | testcafe | UI-editor | no
+"About" page items, and editing of app data | testcafe | UI-editor | no
 Create Repeating groups | testcafe | UI-editor | yes
 Automated accessibility tests for about page | testcafe | UI-editor | no
-Instantiate a service in app frontend | testcafe | app frontend | no
+Instantiate an app in app frontend | testcafe | app frontend | no
 Direct link navigation to app frontend | testcafe | app frontend | no
 Upload files in app frontend using file component from editor | testcafe | app frontend | no
 Upload a file larger than 500MB in runtime/streaming test | testcafe | app frontend | yes
