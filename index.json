@@ -539,6 +539,13 @@
 	"content": " Loadbalancer The loadbalancer config is stored as a configmap in our kubernetes cluster. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).\nApply the changes, and restart the pod:\nOption 1: kill the pod and let the deployment spinn up a new pod.\nOption 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload\n"
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/security/log/",
+	"title": "Log and log managament",
+	"tags": ["architecture", "security", "encryption"],
+	"description": "Description of the log management",
+	"content": "NOTE: Work in progress. See Github Issue\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/naming/",
 	"title": "Naming Conventions",
 	"tags": ["development"],
