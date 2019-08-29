@@ -337,3 +337,28 @@ Delete all instance events for a specific instance. DELETE request.
 ```http
 DELETE /instances/{instanceId}/events
 ```
+
+## MessageBoxInstance
+
+A message box instance is a compressed instance object stripped for data that is 
+not relevant for the Altinn II message box. In addition some properties from the application 
+metadata such as application title are included in the object. 
+
+### Operations
+**Note** Request header must include _"Accept":"application/vnd+altinn2.inbox+json"_ in order to not return a regular instance object.
+<br/>
+<br/>
+Get a single instance in message box instance format in (optional) preffered language default lanugage is norsk bokmål (nb).
+Available language specifications: en, nb, nn-NO.
+
+```http
+GET /instances/{instanceId}?language={languageId}
+```
+
+Get list of all instances for an instance owner in a specific state and (optional) preffered language.
+Available states: active, deleted, archied.
+Available language specifications: en, nb, nn-NO.
+
+```http
+GET /instances/{instanceOwnerId}/{instanceState}?language={languageId}
+```
