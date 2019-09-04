@@ -369,7 +369,7 @@ Available language specifications: en, nb, nn-NO.
 GET /sbl/instances/{instanceOwnerId}/{instanceId}?language={languageId}
 ```
 
-Get list of all instances for an instance owner in a specific state and (optional) preffered language.
+Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
 Available states: active, deleted, archived.
 Available language specifications: en, nb, nn-NO.
 
