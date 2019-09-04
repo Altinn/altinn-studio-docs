@@ -340,16 +340,33 @@ DELETE /instances/{instanceId}/events
 
 ## MessageBoxInstance
 
-A message box instance is a compressed instance object stripped for data that is 
-not relevant for the Altinn II message box. In addition some properties from the application 
-metadata such as application title are included in the object. 
+A message box instance is a compressed instance object stripped for data that is
+not relevant for the Altinn II message box. In addition some properties from the application
+metadata such as application title are included in the object.
+
+### MessageBoxInstance type
+
+| Attribute | Type | Description |
+| --- | --- |---| ---|
+id | string | unique id (corrresponds to instance guid) |
+instanceOwnerId | integer | id of instance owner |
+org | string | Application owner for the app |
+appName | string | name of the application |
+title | string | title of the application in language defined in the request |
+processCurrentTask | string | current task in the process state
+createDateTime | dateTime | creation time |
+lastChangedBy| string | user id of the user who last changed the instance |
+lastChangedBy | string | user id | |
+dueDateTime | dateTime? | deadline for submit|
+bool | allowDelete | is current user allowed to delete instance|
+bool | authorizedForWrite  | is current user allowed to write to edit the instance|
 
 ### Operations
 Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
 Available language specifications: en, nb, nn-NO.
 
 ```http
-GET /sbl/instances/{instanceId}?language={languageId}
+GET /sbl/instances/{instanceOwnerId}/{instanceId}?language={languageId}
 ```
 
 Get list of all instances for an instance owner in a specific state and (optional) preffered language.
