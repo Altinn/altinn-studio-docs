@@ -7012,6 +7012,44 @@ The times are strings defined in UTC-format. E.g. &ldquo;2019-05-03T12:55:23&rdq
 <pre><code class="language-http">DELETE /instances/{instanceId}/events
 </code></pre>
 
+<h2 id="messageboxinstance">MessageBoxInstance</h2>
+
+<p>A message box instance is a compressed instance object stripped for data that is
+not relevant for the Altinn II message box. In addition some properties from the application
+metadata such as application title are included in the object.</p>
+
+<h3 id="messageboxinstance-type">MessageBoxInstance type</h3>
+
+<p>| Attribute | Type | Description |
+| &mdash; | &mdash; |&mdash;| &mdash;|
+id | string | unique id (corrresponds to instance guid) |
+instanceOwnerId | integer | id of instance owner |
+org | string | Application owner for the app |
+appName | string | name of the application |
+title | string | title of the application in language defined in the request |
+processCurrentTask | string | current task in the process state
+createDateTime | dateTime | creation time |
+lastChangedBy| string | user id of the user who last changed the instance |
+lastChangedBy | string | user id | |
+dueDateTime | dateTime? | deadline for submit|
+bool | allowDelete | is current user allowed to delete instance|
+bool | authorizedForWrite  | is current user allowed to write to edit the instance|</p>
+
+<h3 id="operations-2">Operations</h3>
+
+<p>Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
+Available language specifications: en, nb, nn-NO.</p>
+
+<pre><code class="language-http">GET /sbl/instances/{instanceOwnerId}/{instanceId}?language={languageId}
+</code></pre>
+
+<p>Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
+Available states: active, deleted, archived.
+Available language specifications: en, nb, nn-NO.</p>
+
+<pre><code class="language-http">GET /sbl/instances/{instanceOwnerId}?state={instanceState}&amp;language={languageId}
+</code></pre>
+
 
 <footer class=" footline" >
 	
