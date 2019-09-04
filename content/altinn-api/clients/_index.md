@@ -45,7 +45,7 @@ Here is the content from one of the XML files (`01036800298.xml`):
 2: Then we start the application from a command-line interface with a set of parameters:
 
 ```console
-C:\repos\altinn-studio\src\Altinn.ExampleClients\PrefillClient>dotnet run PrefillClient -url=https://platform.at21.altinn.cloud/storage/api/v1/instances -folder=C:\test\input -appid=tdd/dog
+dotnet run PrefillClient -url=https://platform.at21.altinn.cloud/storage/api/v1/instances -folder=C:\test\input -appid=tdd/dog
 ```
 
 3: After the application have run, the same folder now contain the additional files:
@@ -110,8 +110,6 @@ Lastly to be examined from the folder, is the error file on the failed instantia
 Status code '400', error message: "Instance owner lookup failed."
 ```
 
-*With purpose we tried to use a person number which does not exist in database to generate an error.*
-
 ## Behind the scenes
 
 Now we will take a short look of what happens behind the scenes when running the example application.
@@ -122,48 +120,48 @@ XML file iteration and instanceOwnerLookup creation:
 
 ```c#
 foreach (string xmlFilePath in xmlFilePaths)
-            {
-                xmlFileName = xmlFilePath.Split("\\").Last();
+{
+    xmlFileName = xmlFilePath.Split("\\").Last();
 
-                // The person number is the XML filename
-                personNumber = xmlFileName.Split(".").First();
+    // The person number is the XML filename
+    personNumber = xmlFileName.Split(".").First();
 
-                Instance instanceTemplate = new Instance()
-                {
-                    InstanceOwnerLookup = new InstanceOwnerLookup()
-                    {
-                        PersonNumber = personNumber,
-                    }
-                };
+    Instance instanceTemplate = new Instance()
+    {
+        InstanceOwnerLookup = new InstanceOwnerLookup()
+        {
+            PersonNumber = personNumber,
+        }
+    };
 ```
 
 Multipart content creation:
 
 ```c#
 MultipartFormDataContent content = new MultipartContentBuilder(instanceTemplate)
-                .AddDataElement("default", new FileStream(xmlFilePath, FileMode.Open), "application/xml")
-                .Build();
+    .AddDataElement("default", new FileStream(xmlFilePath, FileMode.Open), "application/xml")
+    .Build();
 ```
 
 *We have made a helper class, `MultipartContentBuilder`, to easily add new data elements to the multipart in case several attachements are to be used for prefill.*
 
-In our example we have used an element type "`default`" and content type "`application/xml`". These two must be declared in the application metadata in order to store the files. The same goes for "`instance`" and "`application/json`" to create the instance, which is added within the constructor of `MultipartContentBuilder`:
+In our example we have used an element type "`default`" and content type "`application/xml`". These two must be declared in the application metadata in order to store the files. The same goes for "`instance`" and "`application/json`" to create the instance template, which is added within the constructor of `MultipartContentBuilder` class:
 
 ```c#
 public class MultipartContentBuilder
+{
+    private MultipartFormDataContent builder;
+
+    public MultipartContentBuilder(Instance instanceTemplate)
     {
-        private MultipartFormDataContent builder;
-
-        public MultipartContentBuilder(Instance instanceTemplate)
+        builder = new MultipartFormDataContent();
+        if (instanceTemplate != null)
         {
-            builder = new MultipartFormDataContent();
-            if (instanceTemplate != null)
-            {
-                StringContent instanceContent = new StringContent(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
+            StringContent instanceContent = new StringContent(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
 
-                builder.Add(instanceContent, "instance");
-            }
+            builder.Add(instanceContent, "instance");
         }
+    }
 ```
 
 The C# code then generates the following multipart information to be sent with the request to the Altinn API:
@@ -176,8 +174,7 @@ Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="instance"
 
 {
-  "instanceOwnerLookup":  { "personNumber": "01036800298" },
-  "createdDateTime": "0001-01-01T00:00:00"
+  "instanceOwnerLookup":  { "personNumber": "01036800298" }
 }
 --abcdefg
 Content-Type: application/xml
@@ -192,10 +189,15 @@ Content-Disposition: form-data; name="default"
 --abcdefg--
 ```
 
-Here we see the C# codeline to post the multipart content to the the Altinn API, and to retrieve the response:
+Here we see two C# codelines to post the multipart content to the Altinn API and retrieve the response, then store it temporarily as `string result`:
 
 ```c#
 HttpResponseMessage response = client.PostAsync(requestUri, content).Result;
+string result = response.Content.ReadAsStringAsync().Result;
 ```
 
-The Altinn API processes this multipart by iterating over each content part separated by the boundary. This way we can do **one** post request to the server to achieve multiple upload of data files in one application instance.
+At last we include the deserialization of the `result` to an `Instance` object with `Json.NET` functionality.
+
+```c#
+Instance instanceResult = JsonConvert.DeserializeObject<Instance>(result);
+```
