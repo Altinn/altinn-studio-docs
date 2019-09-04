@@ -345,9 +345,6 @@ not relevant for the Altinn II message box. In addition some properties from the
 metadata such as application title are included in the object. 
 
 ### Operations
-**Note** Request header should include _"Accept":"application/vnd+altinn2.inbox+json"_ in order to not return a regular instance object.
-<br/>
-<br/>
 Get a single instance in message box instance format in (optional) preffered language default lanugage is norsk bokmål (nb).
 Available language specifications: en, nb, nn-NO.
 
@@ -360,5 +357,5 @@ Available states: active, deleted, archied.
 Available language specifications: en, nb, nn-NO.
 
 ```http
-GET /sbl/instances/{instanceOwnerId}?state={instanceState}?language={languageId}
+GET /sbl/instances/{instanceOwnerId}?state={instanceState}&language={languageId}
 ```
