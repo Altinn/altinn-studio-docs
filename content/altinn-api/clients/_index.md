@@ -10,7 +10,8 @@ alwaysopen: false
 ## Introduction
 
 {{%notice info%}}
-Link to the example client application codebase: <https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.ExampleClients/PrefillClient>
+Link to the example client application codebase:
+<https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.ExampleClients/PrefillClient>
 {{%/notice%}}
 
 This is an example client appliation which demonstrate how an application owner can use the Altinn API to instantiate applications with prefill data on a multiple set of persons (or organizations). To achieve this the Altinn API supports an HTTP technique called multipart request. This allow us to send and process an HTTP request with several content parts in **one** operation.
@@ -29,7 +30,7 @@ We have named each XML file with a person number. The XML content is the prefill
 
 *For the example purpose these files contain just a few XML lines. In a real world situation this could be large files containing schema data for a given set of persons or organizations.*
 
-Here is the content from one of the XML files (`01036800298.xml`):
+Here is the content from one of the XML files (**01036800298.xml**):
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -56,7 +57,7 @@ Our example application creates JSON files containing the application instance i
 
 Therefore we see three persons have had an application successfully instantiated with prefill data, and lastly one application instantiation for a person failed.
 
-The next code block show the content of a newly created JSON file (`01036800298.json`):
+The next code block show the content of a newly created JSON file (**01036800298.json**):
 
 ```json
 {
@@ -100,11 +101,11 @@ The next code block show the content of a newly created JSON file (`01036800298.
 }
 ```
 
-If we follow the URL given under the "`dataLinks`" property from the JSON file, we see the content of the XML file saved as a data element to the application instance (<https://platform.at21.altinn.cloud/storage/api/v1/instances/50006341/3a0c71c2-4448-4620-bd04-c742b6e41074/data/269909ea-3d1b-4a6b-85c5-021e5d63eef9>):
+If we follow the URL given under the **dataLinks** property from the JSON file, we see the content of the XML file saved as a data element to the application instance:
 
-![xml-uploaded-and-viewed-in-internet-browser](xml-uploaded-and-viewed-in-internet-browser.PNG "The XML uploaded and viewed in internet browser")
+![xml-uploaded-and-viewed-in-browser](xml-uploaded-and-viewed-in-internet-browser.PNG "The XML uploaded and viewed in browser")
 
-Lastly to be examined from the folder, is the error file on the failed instantiation (`error-01036800236.txt`) from our example:
+Lastly to be examined from the folder, is the error file on the failed instantiation (**error-01036800236.txt**) from our example:
 
 ```txt
 Status code '400', error message: "Instance owner lookup failed."
@@ -143,9 +144,9 @@ MultipartFormDataContent content = new MultipartContentBuilder(instanceTemplate)
     .Build();
 ```
 
-*We have made a helper class, `MultipartContentBuilder`, to easily add new data elements to the multipart in case several attachements are to be used for prefill.*
+*We have made a helper class, **MultipartContentBuilder**, to easily add new data elements to the multipart in case several attachements are to be used for prefill.*
 
-In our example we have used an element type "`default`" and content type "`application/xml`". These two must be declared in the application metadata in order to store the files. The same goes for "`instance`" and "`application/json`" to create the instance template, which is added within the constructor of `MultipartContentBuilder` class:
+In our example we have used an element type **default** and content type **application/xml**. These two must be declared in the application metadata in order to store the files. The same goes for **instance** and **application/json** to create the instance template, which is added within the constructor of the **MultipartContentBuilder** class:
 
 ```c#
 public class MultipartContentBuilder
@@ -189,14 +190,14 @@ Content-Disposition: form-data; name="default"
 --abcdefg--
 ```
 
-Here we see two C# codelines to post the multipart content to the Altinn API and retrieve the response, then store it temporarily as `string result`:
+Here we see two C# codelines to post the multipart content to the Altinn API and retrieve the response, then store it temporarily as **string result**:
 
 ```c#
 HttpResponseMessage response = client.PostAsync(requestUri, content).Result;
 string result = response.Content.ReadAsStringAsync().Result;
 ```
 
-At last we include the deserialization of the `result` to an `Instance` object with `Json.NET` functionality.
+At last we include the deserialization of the **result** to an **Instance** object with **Json. NET** functionality.
 
 ```c#
 Instance instanceResult = JsonConvert.DeserializeObject<Instance>(result);
