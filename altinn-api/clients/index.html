@@ -6507,7 +6507,8 @@ if(host != "localhost")
 
 <h2 id="introduction">Introduction</h2>
 
-<div class="notices info" ><p>Link to the example client application codebase: <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.ExampleClients/PrefillClient">https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.ExampleClients/PrefillClient</a></p>
+<div class="notices info" ><p>Link to the example client application codebase:
+<a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.ExampleClients/PrefillClient">https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.ExampleClients/PrefillClient</a></p>
 </div>
 
 
@@ -6527,7 +6528,7 @@ if(host != "localhost")
 
 <p><em>For the example purpose these files contain just a few XML lines. In a real world situation this could be large files containing schema data for a given set of persons or organizations.</em></p>
 
-<p>Here is the content from one of the XML files (<code>01036800298.xml</code>):</p>
+<p>Here is the content from one of the XML files (<strong>01036800298.xml</strong>):</p>
 
 <pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
 &lt;testcase&gt;
@@ -6552,7 +6553,7 @@ if(host != "localhost")
 
 <p>Therefore we see three persons have had an application successfully instantiated with prefill data, and lastly one application instantiation for a person failed.</p>
 
-<p>The next code block show the content of a newly created JSON file (<code>01036800298.json</code>):</p>
+<p>The next code block show the content of a newly created JSON file (<strong>01036800298.json</strong>):</p>
 
 <pre><code class="language-json">{
   &quot;id&quot;: &quot;50006341/3a0c71c2-4448-4620-bd04-c742b6e41074&quot;,
@@ -6595,11 +6596,11 @@ if(host != "localhost")
 }
 </code></pre>
 
-<p>If we follow the URL given under the &ldquo;<code>dataLinks</code>&rdquo; property from the JSON file, we see the content of the XML file saved as a data element to the application instance (<a href="https://platform.at21.altinn.cloud/storage/api/v1/instances/50006341/3a0c71c2-4448-4620-bd04-c742b6e41074/data/269909ea-3d1b-4a6b-85c5-021e5d63eef9">https://platform.at21.altinn.cloud/storage/api/v1/instances/50006341/3a0c71c2-4448-4620-bd04-c742b6e41074/data/269909ea-3d1b-4a6b-85c5-021e5d63eef9</a>):</p>
+<p>If we follow the URL given under the <strong>dataLinks</strong> property from the JSON file, we see the content of the XML file saved as a data element to the application instance:</p>
 
-<figure><a href="xml-uploaded-and-viewed-in-internet-browser.PNG"><img src="xml-uploaded-and-viewed-in-internet-browser.PNG" alt="xml-uploaded-and-viewed-in-internet-browser" title="The XML uploaded and viewed in internet browser" /></a><figcaption><h4>The XML uploaded and viewed in internet browser</h4></figcaption></figure>
+<figure><a href="xml-uploaded-and-viewed-in-internet-browser.PNG"><img src="xml-uploaded-and-viewed-in-internet-browser.PNG" alt="xml-uploaded-and-viewed-in-browser" title="The XML uploaded and viewed in browser" /></a><figcaption><h4>The XML uploaded and viewed in browser</h4></figcaption></figure>
 
-<p>Lastly to be examined from the folder, is the error file on the failed instantiation (<code>error-01036800236.txt</code>) from our example:</p>
+<p>Lastly to be examined from the folder, is the error file on the failed instantiation (<strong>error-01036800236.txt</strong>) from our example:</p>
 
 <pre><code class="language-txt">Status code '400', error message: &quot;Instance owner lookup failed.&quot;
 </code></pre>
@@ -6635,9 +6636,9 @@ if(host != "localhost")
     .Build();
 </code></pre>
 
-<p><em>We have made a helper class, <code>MultipartContentBuilder</code>, to easily add new data elements to the multipart in case several attachements are to be used for prefill.</em></p>
+<p>*We have made a helper class, <strong>MultipartContentBuilder</strong>, to easily add new data elements to the multipart in case several attachements are to be used for prefill.*</p>
 
-<p>In our example we have used an element type &ldquo;<code>default</code>&rdquo; and content type &ldquo;<code>application/xml</code>&rdquo;. These two must be declared in the application metadata in order to store the files. The same goes for &ldquo;<code>instance</code>&rdquo; and &ldquo;<code>application/json</code>&rdquo; to create the instance template, which is added within the constructor of <code>MultipartContentBuilder</code> class:</p>
+<p>In our example we have used an element type <strong>default</strong> and content type <strong>application/xml</strong>. These two must be declared in the application metadata in order to store the files. The same goes for <strong>instance</strong> and <strong>application/json</strong> to create the instance template, which is added within the constructor of the <strong>MultipartContentBuilder</strong> class:</p>
 
 <pre><code class="language-c#">public class MultipartContentBuilder
 {
@@ -6679,13 +6680,13 @@ Content-Disposition: form-data; name=&quot;default&quot;
 --abcdefg--
 </code></pre>
 
-<p>Here we see two C# codelines to post the multipart content to the Altinn API and retrieve the response, then store it temporarily as <code>string result</code>:</p>
+<p>Here we see two C# codelines to post the multipart content to the Altinn API and retrieve the response, then store it temporarily as <strong>string result</strong>:</p>
 
 <pre><code class="language-c#">HttpResponseMessage response = client.PostAsync(requestUri, content).Result;
 string result = response.Content.ReadAsStringAsync().Result;
 </code></pre>
 
-<p>At last we include the deserialization of the <code>result</code> to an <code>Instance</code> object with <code>Json.NET</code> functionality.</p>
+<p>At last we include the deserialization of the <strong>result</strong> to an <strong>Instance</strong> object with <strong>Json. NET</strong> functionality.</p>
 
 <pre><code class="language-c#">Instance instanceResult = JsonConvert.DeserializeObject&lt;Instance&gt;(result);
 </code></pre>
