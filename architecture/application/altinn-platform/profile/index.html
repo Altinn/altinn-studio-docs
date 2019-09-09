@@ -6544,9 +6544,73 @@ if(host != "localhost")
 
 <p>A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.</p>
 
+<h3 id="user-type">User type</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>UserId</td>
+<td>int</td>
+<td>user ID</td>
+</tr>
+
+<tr>
+<td>UserName</td>
+<td>string</td>
+<td>username set by the user</td>
+</tr>
+
+<tr>
+<td>PhoneNumber</td>
+<td>string</td>
+<td>phone number</td>
+</tr>
+
+<tr>
+<td>Email</td>
+<td>string</td>
+<td>email address</td>
+</tr>
+
+<tr>
+<td>PartyId</td>
+<td>int</td>
+<td>party ID</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/ServiceLibrary/Models/Party.cs">Party</a></td>
+<td>Party</td>
+<td>party object that represents the user</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/ServiceLibrary/Enums/UserType.cs">UserType</a></td>
+<td>UserType</td>
+<td>user type</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/ServiceLibrary/Models/ProfileSettingPreference.cs">ProfileSettingPreference</a></td>
+<td>ProfileSettingPreference</td>
+<td>object containing the users profile setting preferences</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="operations">Operations</h3>
+
 <p>Get information about a user:</p>
 
-<pre><code class="language-http">/users/{userId}
+<pre><code class="language-http">GET /users/{userId}
 </code></pre>
 
 
