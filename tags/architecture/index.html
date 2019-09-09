@@ -2880,6 +2880,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/architecture/application/altinn-platform/receipt/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-platform/receipt/">
+        <span>Receipt</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/architecture/application/altinn-platform/register/" class="dd-item 
         
         
@@ -6732,14 +6761,11 @@ The application architecture for each component is described below. <a class="re
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
+        <h2 class="post-title"><a href="/architecture/application/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-The solution is currently available at http://platform.altinn.cloud/authentication/api/v1.
-Resources: authentication
-/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
-/authentication?goto={url}   <a class="read-more" href="/architecture/application/altinn-platform/authentication/">&raquo;</a></p>
+        <p>The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.
+The receipt frontend view is available at http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}, example https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b The receipt component also exposes an api which is available at http://at21.platform.altinn.cloud/receipt/api/v1, where available resources are defined below. This api is intended for use by the receipt frontend, if you need information about the user you should use the profile component. <a class="read-more" href="/architecture/application/altinn-platform/receipt/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6752,6 +6778,8 @@ Resources: authentication
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
+                <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
+            
         
 
     </footer>
@@ -6763,10 +6791,14 @@ Resources: authentication
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-platform/intermediary/">Application arhicture intermediary component - Altinn Platform</a></h2>
+        <h2 class="post-title"><a href="/architecture/application/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps. <a class="read-more" href="/architecture/application/altinn-platform/intermediary/">&raquo;</a></p>
+        <p> The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The solution is currently available at http://platform.altinn.cloud/authentication/api/v1.
+Resources: authentication
+/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
+/authentication?goto={url}   <a class="read-more" href="/architecture/application/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8138,6 +8170,22 @@ Resources: authentication
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

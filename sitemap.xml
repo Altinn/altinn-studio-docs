@@ -387,6 +387,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/receipt/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/development/handbook/front-end/redux/</loc>
   </url>
   
@@ -1021,6 +1025,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/react/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/receipt/</loc>
     <priority>0</priority>
   </url>
   

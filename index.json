@@ -672,6 +672,13 @@
 	"content": " React React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.\nReact Components lifecycle There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:\nMounting  constructor() static getDerivedStateFromProps() render() componentDidMount()  Updating  static getDerivedStateFromProps() shouldComponentUpdate() render() getSnapshotBeforeUpdate() componentDidUpdate()  Unmounting  componentWillUnmount()  Error handling  static getDerivedStateFromError() componentDidCatch()  Other React component APIs and properties APIs  setState() forceUpdate()  Class Properties  defaultProps displayName  Instance Properties  props state  Adding a new react-app to altinn.studio When adding a new react-app, use the template folder that is in the github repo. Create a new folder in the src/react-apps/applications-folder and copy the contents from the src/react-apps/templates/template-app-folder of that newly created folder.\nThen change the names in the package.json-file and start developing the new application.\nIn the templates folder, in the src/index.tsx-file, a function called run is commented out, if your application needs to have sagas, uncomment the run-function which should initialize the sagas.\nReact Folder Structure This is the best practice for folder structure in applications.\n- src / - config / - config.json - exportedConfig.ts - features / # routes,pages,features - [featureName] / - components / - containers / - resources / - featureSpecificData / - delete / - deleteFeatureSpecificDataActions.ts - deleteFeatureSpecificDataSagas.ts - fetch / - ... - upload / - ... - featureSpecificDataActions.ts - featureSpecificDataActionTypes.ts - featureSpecificDataReducers.ts - featureSpecificDataSagas.ts - selectors / - getSomeResourceSelector.ts - reducers / - featureNameReducer.ts - utils / # Feature specific utils - formFiller / # Example feature - components / - containers / - resources - attachments / # FileUpload example - delete / - deleteAttachmentsActions.ts - deleteAttachmentsSagas.ts - fetch / - fetchAttachmentsActions.ts - ... - upload / - ... - attachmentsActions.ts - attachmentsActionTypes.ts - attachmentsReducers.ts - attachmentsSagas.ts - validations / - componentValidation - componentValidationActions.ts - ... - singleFieldValidation / - singleFieldValidationActions.ts - ... - validationsActions.ts - validationsActionTypes.ts - validationsReducers.ts - validationsSagas.ts - selectors / - getSomeResouceSelector.ts - reducers / - formfillerReducer.ts - utils / - instantiate / - components / - containers / - resources / - selectors / - reducers / - reducers / - index.ts - shared / - components / # Shared components - altinnAppHeader.tsx - resources / # Shared resources - language / - fetch / - fetchLanguageActions.ts - fetchLanguageSagas.ts - someAction / - someActionOnLanguageActions.ts - someActionOnLanguageSagas.ts - languageActions.ts - languageActionTypes.ts - languageReducer.ts - languageSagas.ts - repoStatus / - fetch / - fetchRepoStatusActions.ts - fetchRepoStatusSagas.ts - repoStatusActions.ts - repoStatusActionTypes.ts - repoStatusReducer.ts - repoStatusSagas.ts - types / - utils / - store - types - utils  Links  Documentation for react components  "
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/receipt/",
+	"title": "Application architecture receipt component - Altinn Platform",
+	"tags": ["architecture", "solution", "receipt"],
+	"description": "Description of receipt component",
+	"content": " The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.\nThe receipt frontend view is available at http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}, example https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b The receipt component also exposes an api which is available at http://at21.platform.altinn.cloud/receipt/api/v1, where available resources are defined below. This api is intended for use by the receipt frontend, if you need information about the user you should use the profile component.\n/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.\nGet information about the currently logged in user\n/users/current  "
+},
+{
 	"uri": "https://docs.altinn.studio/development/handbook/front-end/redux/",
 	"title": "Redux",
 	"tags": ["development", "front-end", "react"],
@@ -1005,7 +1012,7 @@
 	"title": "Receipt",
 	"tags": ["platform", "register"],
 	"description": "The Receipt component in Altinn Platform presents a receipt for apps",
-	"content": "The Receipt component is build to present receipt for all apps. Since apps over time will be removed from Altinn Apps, but the data will live forever the Receipt component is responsible for presenting a generic receipt view\n"
+	"content": "The Receipt component is build to present receipt for all apps. Since apps over time will be removed from Altinn Apps, but the data will live forever the Receipt component is responsible for presenting a generic receipt view.\nThe endpoints available in the receipt component is documented here.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/register/",
@@ -1703,6 +1710,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/react/",
 	"title": "react",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/receipt/",
+	"title": "receipt",
 	"tags": [],
 	"description": "",
 	"content": ""

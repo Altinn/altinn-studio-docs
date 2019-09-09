@@ -2880,6 +2880,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/architecture/application/altinn-platform/receipt/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-platform/receipt/">
+        <span>Receipt</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/architecture/application/altinn-platform/register/" class="dd-item 
         
         
@@ -6499,6 +6528,34 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/integration/">Integration</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The integration architecture describes mechanismen and components that enables integration between components in Altinn Studio, Altinn Apps and Altinn Platform and integration against external solutions.
+The architecture give guidelines and constraints for how different types of integration should be implemented.
+Altinn Apps REST APIs An Altinn App provides application specific APIS to the following user groups:
+ End Users Application Owners  Altinn Platform REST APIS Altinn Platform offers REST Apis for the following user groups: <a class="read-more" href="/architecture/integration/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authentication/altinn-platform/jwt-format/">JWT Format</a></h2>
     </header>
     <section class="post-excerpt">
@@ -6736,37 +6793,6 @@ Policy Enforcment Point in Storage will identify the instanceId/dataid/appid tha
         <p>A Policy Information Point is a component that is used by the Context Handler to enrich the decision request with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.
 For the Altinn Platform there is serveral Policy Information Points
  Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request Register PIP - Possible information about the party (is he still alive? <a class="read-more" href="/architecture/security/authorization/altinn-platform/pip/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-platform/prp/">Policy Retrieval Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.
-During deployment of a app the rules for the app is added to the Altinn Studio Apps database.
-The rules are defined as XACML 3.0 Policy document.
-See XACML for detailed description of Policy format
-For delegated rights Altinn II will provide the delegated policy. <a class="read-more" href="/architecture/security/authorization/altinn-platform/prp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8140,6 +8166,22 @@ For delegated rights Altinn II will provide the delegated policy. <a class="read
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
