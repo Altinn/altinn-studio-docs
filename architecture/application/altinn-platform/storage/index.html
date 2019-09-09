@@ -7079,6 +7079,17 @@ Available language specifications: en, nb, nn-NO.</p>
 <pre><code class="language-http">GET /sbl/instances/{instanceOwnerId}?state={instanceState}&amp;language={languageId}
 </code></pre>
 
+<p>Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
+Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted.</p>
+
+<pre><code class="language-http">DELETE /sbl/instances/{instanceOwnerId}/{instanceId}?hard={true/false}
+</code></pre>
+
+<p>Restore a soft deleted instance.</p>
+
+<pre><code class="language-http">PUT /sbl/instances/{instanceOwnerId}/{instanceId}/undelete
+</code></pre>
+
 
 <footer class=" footline" >
 	
