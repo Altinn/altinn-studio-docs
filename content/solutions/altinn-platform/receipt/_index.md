@@ -6,4 +6,6 @@ weight: 200
 ---
 
 The Receipt component is build to present receipt for all apps. Since apps over time will be removed from Altinn Apps, but the data will live forever
-the Receipt component is responsible for presenting a generic receipt view
+the Receipt component is responsible for presenting a generic receipt view.
+
+The endpoints available in the receipt component is documented [here.](/architecture/application/altinn-platform/receipt)
