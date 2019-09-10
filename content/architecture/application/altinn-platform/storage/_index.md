@@ -95,11 +95,14 @@ lastChangedDateTime | dateTime? | last changed time | | | | C
 lastChangedBy | string | user id | | | | C
 dueDateTime | dateTime? | deadline for submit| | CU
 visibleDateTime | dateTime? | when visible for user | | CU |
+deletedDateTime | dateTime? | date the instance was deleted |
+archivedDateTime | dateTime? | date the instance was archived |
 presentationField | string | text shown in inbox | | CU | U
 workflow  | WorkflowState | workflow state info | | | U | (U)
 userStatus | InboxStatus | statuses that the user can change  | U
 appOwnerStatus | AppOwnerStatus | status from app owner | | CU | |
 data | DataElement[] | data elements | | | CU
+
 
 C - creation time, U - can be updated
 
@@ -372,6 +375,8 @@ lastChangedBy | string | user id | |
 dueDateTime | dateTime? | deadline for submit|
 bool | allowDelete | is current user allowed to delete instance|
 bool | authorizedForWrite  | is current user allowed to write to edit the instance|
+deletedDateTime | dateTime? | date the instance was deleted |
+archivedDateTime | dateTime? | date the instance was archived |
 
 ### Operations
 Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
