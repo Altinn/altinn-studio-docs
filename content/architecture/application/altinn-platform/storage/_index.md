@@ -95,13 +95,12 @@ lastChangedDateTime | dateTime? | last changed time | | | | C
 lastChangedBy | string | user id | | | | C
 dueDateTime | dateTime? | deadline for submit| | CU
 visibleDateTime | dateTime? | when visible for user | | CU |
-deletedDateTime | dateTime? | date the instance was deleted |
-archivedDateTime | dateTime? | date the instance was archived |
 presentationField | string | text shown in inbox | | CU | U
 workflow  | WorkflowState | workflow state info | | | U | (U)
 userStatus | InboxStatus | statuses that the user can change  | U
-appOwnerStatus | AppOwnerStatus | status from app owner | | CU | |
-data | DataElement[] | data elements | | | CU
+[instanceState](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs) | InstanceState | data on delete and archive state of the instance | | |U|C|
+[appOwnerState](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs) | AppOwnerState  | status from app owner | | CU | |
+data | List<DataElement> | data elements | | | CU
 
 
 C - creation time, U - can be updated
