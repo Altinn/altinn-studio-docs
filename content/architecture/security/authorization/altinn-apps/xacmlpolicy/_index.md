@@ -28,22 +28,20 @@ The below example show a part of XACML 3.0 Policy where a resource is identified
 
 
 ´´´xml
-
-        <xacml:AllOf>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SKD</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TaxReport</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Instansiate</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-        </xacml:AllOf>
-
+<xacml:AllOf>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SKD</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  </xacml:Match>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TaxReport</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  </xacml:Match>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Instansiate</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  </xacml:Match>
+</xacml:AllOf>
 ´´´ 
 
 ## Subject Attributes
@@ -60,24 +58,24 @@ The org code is used for rule that target orgs
 #### RolCode
 
 ´´´xml
-     <xacml:AllOf>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-        </xacml:AllOf>
+<xacml:AllOf>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  </xacml:Match>
+</xacml:AllOf>
 ´´´ 
 
 
 #### Org 
 
 ´´´xml
-             <xacml:AllOf>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-        </xacml:AllOf>
+<xacml:AllOf>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  </xacml:Match>
+</xacml:AllOf>
 ´´´ 
 
 ## Action Attributes
@@ -86,11 +84,11 @@ The org code is used for rule that target orgs
 ### Example
 
 ´´´xml
-  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-  </xacml:AllOf>
+<xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</xacml:AttributeValue>
+      <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+    </xacml:Match>
+</xacml:AllOf>
 ´´´ 
 
 ### Action ID
@@ -98,8 +96,6 @@ The org code is used for rule that target orgs
 
 ## Obligation
 The obligation part is used to define information that should be used by PEP. For Altinn Apps the minimum authentication level 
-
-
 
 ´´´xml
 <xacml:ObligationExpressions>
@@ -110,9 +106,6 @@ The obligation part is used to define information that should be used by PEP. Fo
     </xacml:ObligationExpression>
   </xacml:ObligationExpressions>
 ´´´ 
-
-
-
 
 ## Full examples
 On Github you can look at some full [policy examples](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps)
