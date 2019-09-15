@@ -6629,8 +6629,9 @@ defining which resource, subject and which action it targets.</p>
 
 <p>The below example show a part of XACML 3.0 Policy where a resource is identified.</p>
 
-<p>´´´xml
-<a href="xacml:AllOf">xacml:AllOf</a>
+<p>´´´xml</p>
+
+<p><a href="xacml:AllOf">xacml:AllOf</a>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SKD<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
     <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
@@ -6643,8 +6644,9 @@ defining which resource, subject and which action it targets.</p>
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Instansiate<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
     <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   <a href="/xacml:Match">/xacml:Match</a>
-<a href="/xacml:AllOf">/xacml:AllOf</a>
-´´´</p>
+<a href="/xacml:AllOf">/xacml:AllOf</a></p>
+
+<p>´´´</p>
 
 <h2 id="subject-attributes">Subject Attributes</h2>
 
@@ -6662,37 +6664,43 @@ defining which resource, subject and which action it targets.</p>
 
 <h4 id="rolcode">RolCode</h4>
 
-<p>´´´xml
-<a href="xacml:AllOf">xacml:AllOf</a>
+<p>´´´xml</p>
+
+<p><a href="xacml:AllOf">xacml:AllOf</a>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
     <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   <a href="/xacml:Match">/xacml:Match</a>
-<a href="/xacml:AllOf">/xacml:AllOf</a>
-´´´</p>
+<a href="/xacml:AllOf">/xacml:AllOf</a></p>
+
+<p>´´´</p>
 
 <h4 id="org-2">Org</h4>
 
-<p>´´´xml
-<a href="xacml:AllOf">xacml:AllOf</a>
+<p>´´´xml</p>
+
+<p><a href="xacml:AllOf">xacml:AllOf</a>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
     <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   <a href="/xacml:Match">/xacml:Match</a>
-<a href="/xacml:AllOf">/xacml:AllOf</a>
-´´´</p>
+<a href="/xacml:AllOf">/xacml:AllOf</a></p>
+
+<p>´´´</p>
 
 <h2 id="action-attributes">Action Attributes</h2>
 
 <h3 id="example-2">Example</h3>
 
-<p>´´´xml
-<xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+<p>´´´xml</p>
+
+<p><xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
       <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
     <a href="/xacml:Match">/xacml:Match</a>
-<a href="/xacml:AllOf">/xacml:AllOf</a>
-´´´</p>
+<a href="/xacml:AllOf">/xacml:AllOf</a></p>
+
+<p>´´´</p>
 
 <h3 id="action-id">Action ID</h3>
 
@@ -6700,15 +6708,17 @@ defining which resource, subject and which action it targets.</p>
 
 <p>The obligation part is used to define information that should be used by PEP. For Altinn Apps the minimum authentication level</p>
 
-<p>´´´xml
-<a href="xacml:ObligationExpressions">xacml:ObligationExpressions</a>
+<p>´´´xml</p>
+
+<p><a href="xacml:ObligationExpressions">xacml:ObligationExpressions</a>
     <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
       <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
         <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
       <a href="/xacml:AttributeAssignmentExpression">/xacml:AttributeAssignmentExpression</a>
     <a href="/xacml:ObligationExpression">/xacml:ObligationExpression</a>
-  <a href="/xacml:ObligationExpressions">/xacml:ObligationExpressions</a>
-´´´</p>
+  <a href="/xacml:ObligationExpressions">/xacml:ObligationExpressions</a></p>
+
+<p>´´´</p>
 
 <h2 id="full-examples">Full examples</h2>
 
