@@ -6629,25 +6629,22 @@ defining which resource, subject and which action it targets.</p>
 
 <p>The below example show a part of XACML 3.0 Policy where a resource is identified.</p>
 
-<p>´´´xml</p>
-
-<pre><code>    &lt;xacml:AllOf&gt;
-      &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
-        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;SKD&lt;/xacml:AttributeValue&gt;
-        &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:org&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
-      &lt;/xacml:Match&gt;
-      &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
-        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;TaxReport&lt;/xacml:AttributeValue&gt;
-        &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:app&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
-      &lt;/xacml:Match&gt;
-      &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
-        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Instansiate&lt;/xacml:AttributeValue&gt;
-        &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:event&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
-      &lt;/xacml:Match&gt;
-    &lt;/xacml:AllOf&gt;
-</code></pre>
-
-<p>´´´</p>
+<p>´´´xml
+<a href="xacml:AllOf">xacml:AllOf</a>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SKD<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  <a href="/xacml:Match">/xacml:Match</a>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TaxReport<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  <a href="/xacml:Match">/xacml:Match</a>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Instansiate<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  <a href="/xacml:Match">/xacml:Match</a>
+<a href="/xacml:AllOf">/xacml:AllOf</a>
+´´´</p>
 
 <h2 id="subject-attributes">Subject Attributes</h2>
 
@@ -6666,23 +6663,23 @@ defining which resource, subject and which action it targets.</p>
 <h4 id="rolcode">RolCode</h4>
 
 <p>´´´xml
-     <a href="xacml:AllOf">xacml:AllOf</a>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          <a href="/xacml:Match">/xacml:Match</a>
-        <a href="/xacml:AllOf">/xacml:AllOf</a>
+<a href="xacml:AllOf">xacml:AllOf</a>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  <a href="/xacml:Match">/xacml:Match</a>
+<a href="/xacml:AllOf">/xacml:AllOf</a>
 ´´´</p>
 
 <h4 id="org-2">Org</h4>
 
 <p>´´´xml
-             <a href="xacml:AllOf">xacml:AllOf</a>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          <a href="/xacml:Match">/xacml:Match</a>
-        <a href="/xacml:AllOf">/xacml:AllOf</a>
+<a href="xacml:AllOf">xacml:AllOf</a>
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+  <a href="/xacml:Match">/xacml:Match</a>
+<a href="/xacml:AllOf">/xacml:AllOf</a>
 ´´´</p>
 
 <h2 id="action-attributes">Action Attributes</h2>
@@ -6690,11 +6687,11 @@ defining which resource, subject and which action it targets.</p>
 <h3 id="example-2">Example</h3>
 
 <p>´´´xml
-  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
-            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          <a href="/xacml:Match">/xacml:Match</a>
-  <a href="/xacml:AllOf">/xacml:AllOf</a>
+<xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+      <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+    <a href="/xacml:Match">/xacml:Match</a>
+<a href="/xacml:AllOf">/xacml:AllOf</a>
 ´´´</p>
 
 <h3 id="action-id">Action ID</h3>
