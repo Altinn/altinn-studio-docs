@@ -56,6 +56,9 @@ The role code is used for rule that target end users and systems
 The org code is used for rule that target orgs
 
 ### Example
+
+#### RolCode
+
 ´´´xml
      <xacml:AllOf>
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
@@ -63,7 +66,12 @@ The org code is used for rule that target orgs
             <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
         </xacml:AllOf>
+´´´ 
 
+
+#### Org 
+
+´´´xml
              <xacml:AllOf>
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd</xacml:AttributeValue>
@@ -82,7 +90,7 @@ The org code is used for rule that target orgs
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
-        </xacml:AllOf>
+  </xacml:AllOf>
 ´´´ 
 
 ### Action ID
