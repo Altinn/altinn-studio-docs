@@ -3745,6 +3745,8 @@ if(host != "localhost")
           
           
           
+          
+          
         
           
             
@@ -3782,6 +3784,35 @@ if(host != "localhost")
         
         </a></li>
      
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/security/authorization/altinn-apps/xacmlpolicy/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">
+        <span>Policy</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
   
  
 
@@ -6627,11 +6658,10 @@ Instance An application instance is created when a instance owner (reportee) sta
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/app-backend/">App Backend Application Arcitecture</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>App Backend is based on ASP.NET Core and is a MVC application.
-This App Backend exposes REST-Api&rsquo;s consumed by the App Frontend and/or external systems / mobile apps.
+        <p>In this app template the App Backend is based on ASP.NET Core and is a MVC application.
+This App Backend exposes REST-Api&rsquo;s consumed by the App Frontend and/or external systems / mobile apps. The structure of the API&rsquo;s is documentet here
 The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct operation.
-The API-controllers uses defined interfaces to communicate with the app logic defined by the developer.
-The below diagram show how the App Backend is build around 3 main packages. <a class="read-more" href="/architecture/application/altinn-apps/app/app-backend/">&raquo;</a></p>
+The API-controllers uses defined interfaces to communicate with the app logic defined by the developer. <a class="read-more" href="/architecture/application/altinn-apps/app/app-backend/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6714,11 +6744,9 @@ Each App developed in Altinn Studio will contain their own App Frontend as part 
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/">Application Architecture App</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
-The App itself consist of two applications with different Application Architecture
-App Backend App-Backend exposes api to frontend and contains all needed functionality to handle
-Read more about the application architecture for App Frontend
-App Frontend Apps created in Altinn Studio can have a optional frontend. Apps created for beeing only a backend for mobile apps other systems will not have a App Frontend. <a class="read-more" href="/architecture/application/altinn-apps/app/">&raquo;</a></p>
+        <p>The App developed in Altinn Studio is based on a application template that contains backend and frontend components. The app developer modifies and enhances the template with changing code and configuration in Altinn Studio or external devlopment tools.
+The application is built and deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.
+In the future Altinn Studio will support apps based on different templates. <a class="read-more" href="/architecture/application/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8695,8 +8723,26 @@ Resources: authentication
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

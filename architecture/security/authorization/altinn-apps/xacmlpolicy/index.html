@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the API in Altinn Studio">
+    <meta name="description" content="Description of the XACML Policy defined for a app">
 
 
     
-    <title>API Catalogue :: Altinn Studio</title>
+    <title>Authorization - Altinn Apps - Policy :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -49,7 +49,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/architecture/application/altinn-studio/api/">
+  <body class="a-page" data-url="/architecture/security/authorization/altinn-apps/xacmlpolicy/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -2403,7 +2403,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -2416,7 +2416,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -3013,7 +3013,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/application/altinn-studio/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -3026,7 +3026,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -3051,7 +3051,7 @@ if(host != "localhost")
   
     
       <li data-nav-id="/architecture/application/altinn-studio/api/" class="dd-item
-     active
+     
       ">
         <a href="/architecture/application/altinn-studio/api/">
         <span>API Catalogue</span> 
@@ -3433,7 +3433,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/security/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3446,7 +3446,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3681,7 +3681,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/security/authorization/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3694,7 +3694,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3719,7 +3719,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/security/authorization/altinn-apps/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3732,7 +3732,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3797,8 +3797,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/security/authorization/altinn-apps/xacmlpolicy/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">
@@ -6556,7 +6556,12 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/application/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> API Catalogue
+
+
+
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/'>Security Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> Policy
+
+ 
 
  
 
@@ -6572,14 +6577,22 @@ if(host != "localhost")
           </div>
         
         
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a>
+            
+          </div>
+        
         <div id="body-inner">
           
             
               <h1 class="a-fontBold">
-                API Catalogue
+                Authorization - Altinn Apps - Policy
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the API in Altinn Studio</p>
+              <p class="a-leadText" id="leadText">Description of the XACML Policy defined for a app</p>
             
           
 
@@ -6593,78 +6606,120 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" ><p>NOTE: Work in progress. Stuff will change</p>
-</div>
+<p>A App needs to have defined a Authoriation Policy that will be imported in to Policy Retrieval Point when a app is deloyed to a Altinn Apps/Platform environment.</p>
 
+<p>The policy format follows XACML 3.0 and for every rule in the policy, there is attributes
+defining which resource, subject and which action it targets.</p>
 
-<p>The Altinn Studio Designer and Altinn Studio Repository exposes API.</p>
+<h2 id="resource-attributes">Resource Attributes</h2>
 
-<h2 id="designer-api">Designer API</h2>
+<h3 id="org">Org</h3>
 
-<p>The designer API is implemented as Controllers in the MVC</p>
+<p>The org part of the resource attribute defines which org that owns the app</p>
 
-<h3 id="codelist">CodeList</h3>
+<h3 id="app">App</h3>
 
-<p>This exposes functionality related to code lists</p>
+<p>The app part of the  identifies the app itself.</p>
 
-<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Controllers/CodelistController.cs">code</a></p>
+<h3 id="task-event">Task / Event</h3>
 
-<p>Methods:</p>
+<p>The task/event part of the resource makes it possible to have seperate rules for the different tasks</p>
 
-<h4 id="codelists">CodeLists</h4>
+<h3 id="example">Example</h3>
 
-<p>Returns a list over codelist in a service</p>
+<p>The below example show a part of XACML 3.0 Policy where a resource is identified.</p>
 
-<h4 id="delete">Delete</h4>
+<p>´´´xml</p>
 
-<p>Deletes a given codelist</p>
+<pre><code>    &lt;xacml:AllOf&gt;
+      &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;SKD&lt;/xacml:AttributeValue&gt;
+        &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:org&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+      &lt;/xacml:Match&gt;
+      &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;TaxReport&lt;/xacml:AttributeValue&gt;
+        &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:app&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+      &lt;/xacml:Match&gt;
+      &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Instansiate&lt;/xacml:AttributeValue&gt;
+        &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:event&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+      &lt;/xacml:Match&gt;
+    &lt;/xacml:AllOf&gt;
+</code></pre>
 
-<h4 id="edit">Edit</h4>
+<p>´´´</p>
 
-<p>Saves the codelist</p>
+<h2 id="subject-attributes">Subject Attributes</h2>
 
-<h3 id="config">Config</h3>
+<p>The subject part of the target for the rule defines who the rule target</p>
 
-<p>This exposes functionality related to config</p>
+<h3 id="role-code">Role Code</h3>
 
-<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Controllers/ConfigController.cs">code</a></p>
+<p>The role code is used for rule that target end users and systems</p>
 
-<h4 id="saveconfig">SaveConfig</h4>
+<h3 id="org-1">Org</h3>
 
-<p>Saves configuration
-TODO: Need to verify use and c</p>
+<p>The org code is used for rule that target orgs</p>
 
-<h4 id="getconfig">GetConfig</h4>
+<h3 id="example-1">Example</h3>
 
-<h4 id="getserviceconfig">GetServiceConfig</h4>
+<p>´´´xml
+     <a href="xacml:AllOf">xacml:AllOf</a>
+          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+            <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          <a href="/xacml:Match">/xacml:Match</a>
+        <a href="/xacml:AllOf">/xacml:AllOf</a></p>
 
-<h4 id="setserviceconfig">SetServiceConfig</h4>
+<pre><code>         &lt;xacml:AllOf&gt;
+      &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;skd&lt;/xacml:AttributeValue&gt;
+        &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:org&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+      &lt;/xacml:Match&gt;
+    &lt;/xacml:AllOf&gt;
+</code></pre>
 
-<h3 id="datasource">DataSource</h3>
+<p>´´´</p>
 
-<p>TODO: Should be deleted</p>
+<h2 id="action-attributes">Action Attributes</h2>
 
-<h3 id="deploy">Deploy</h3>
+<h3 id="example-2">Example</h3>
 
-<p>Api responsible for deployment functionality
-See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Controllers/DeployController.cs">code</a></p>
+<p>´´´xml
+  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+            <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+          <a href="/xacml:Match">/xacml:Match</a>
+        <a href="/xacml:AllOf">/xacml:AllOf</a>
+´´´</p>
 
-<h4 id="start-deployment">Start deployment</h4>
+<h3 id="action-id">Action ID</h3>
 
-<p>Starts a new deployment</p>
+<h2 id="obligation">Obligation</h2>
 
-<h4 id="fetchdeploymentstatus">FetchDeploymentStatus</h4>
+<p>The obligation part is used to define information that should be used by PEP. For Altinn Apps the minimum authentication level</p>
 
-<p>Returns deployment status</p>
+<p>´´´xml
+<a href="xacml:ObligationExpressions">xacml:ObligationExpressions</a>
+    <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
+      <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
+        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2<a href="/xacml:AttributeValue">/xacml:AttributeValue</a>
+      <a href="/xacml:AttributeAssignmentExpression">/xacml:AttributeAssignmentExpression</a>
+    <a href="/xacml:ObligationExpression">/xacml:ObligationExpression</a>
+  <a href="/xacml:ObligationExpressions">/xacml:ObligationExpressions</a>
+´´´</p>
 
-<h3 id="model">Model</h3>
+<h2 id="full-examples">Full examples</h2>
 
-<p>API responsible for data model</p>
+<p>On Github you can look at some full <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps">policy examples</a></p>
 
 
 <footer class=" footline" >
 	
 </footer>
+
+
+
 
 
                 </div>
@@ -7846,6 +7901,8 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                           
                               
+                                  
+                                  
                               
                           
                           
@@ -7861,9 +7918,6 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -8145,7 +8199,6 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                           
                               
-                              
                           
                           
           
@@ -8161,7 +8214,6 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                           
                               
-                              
                           
                           
           
@@ -8177,9 +8229,6 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -8352,6 +8401,7 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                       
                           
+                              
                               
                           
                           
@@ -8368,6 +8418,9 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                           
                               
+                                  
+                                  
+                              
                           
                           
           
@@ -8482,6 +8535,7 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                           
                               
+                              
                           
                           
           
@@ -8497,6 +8551,7 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                           
                               
+                              
                           
                           
           
@@ -8511,6 +8566,9 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -8543,6 +8601,7 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                       
                           
+                              
                               
                           
                           
@@ -8562,6 +8621,9 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -9988,10 +10050,10 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
           
           
                   
-                      <a class="nav nav-prev" href="/architecture/application/altinn-studio/" title="Application Architecture Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/architecture/security/authorization/altinn-apps/pep/" title="Policy Enforcment Point"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/architecture/application/altinn-studio/react-app/" title="Application Architecture Altinn Studio - Front-end" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/architecture/security/authorization/altinn-platform/" title="Authorization - Altinn Platform" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -10003,7 +10065,7 @@ See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/application/altinn-studio/api.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/security/authorization/altinn-apps/xacmlpolicy/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Edit page
                   </a>
