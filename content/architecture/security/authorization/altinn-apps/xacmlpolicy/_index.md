@@ -27,8 +27,7 @@ The task/event part of the resource makes it possible to have seperate rules for
 The below example show a part of XACML 3.0 Policy where a resource is identified. 
 
 
-´´´xml
-
+```xml
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SKD</xacml:AttributeValue>
@@ -59,8 +58,9 @@ The org code is used for rule that target orgs
 
 #### RolCode
 
-´´´xml
+Example with rolecode
 
+```xml
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA</xacml:AttributeValue>
@@ -73,8 +73,9 @@ The org code is used for rule that target orgs
 
 #### Org 
 
-´´´xml
+Example with org
 
+```xml
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd</xacml:AttributeValue>
@@ -89,8 +90,9 @@ The org code is used for rule that target orgs
 
 ### Example
 
-´´´xml
+Example with read action
 
+```xml
 <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</xacml:AttributeValue>
       <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
@@ -105,8 +107,7 @@ The org code is used for rule that target orgs
 ## Obligation
 The obligation part is used to define information that should be used by PEP. For Altinn Apps the minimum authentication level 
 
-´´´xml
-
+```xml
 <xacml:ObligationExpressions>
     <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
       <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
