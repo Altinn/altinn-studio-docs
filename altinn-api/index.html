@@ -6782,9 +6782,10 @@ Content-Disposition: form-data; name=&quot;default&quot;
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
     &quot;process&quot;: {
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
-        &quot;currentTask&quot;: {
+        &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
+        &quot;taskInfo&quot;: {
             &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
-            &quot;taskId&quot;: &quot;FormFilling_1&quot;,
+            &quot;processElementId&quot;: &quot;FormFilling_1&quot;,
             &quot;validated&quot;: {
                 &quot;timestamp&quot;: &quot;2019-10-04T12:00.00Z&quot;,
                 &quot;canCompleteTask&quot;: true
@@ -7043,11 +7044,15 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 
 <h3 id="application-events-for-application-owners">Application events (for application owners)</h3>
 
+<blockquote>
+<p><strong>WARNING</strong>: This section will be redesigned</p>
+</blockquote>
+
 <p>Selected instance events. Created, first read, change process state. Optinally specified by application developer.</p>
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&amp;process.currentTask.id=Submit_1
+<pre><code class="language-http">GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&amp;process.currentTask=Submit_1
 </code></pre>
 
 <p>Query result:</p>
@@ -7153,10 +7158,11 @@ Process is set to first task. The task specifies if the data can be updated or n
 
 <pre><code class="language-json">{
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
-        &quot;currentTask&quot;: {
+        &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
+        &quot;taskInfo&quot;: {
             &quot;sequenceNumber&quot;: 2,
             &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
-            &quot;bpmnId&quot;: &quot;FormFilling_1&quot;,
+            &quot;processElementId&quot;: &quot;FormFilling_1&quot;,
             &quot;validated&quot;: {
                 &quot;timestamp&quot;: &quot;2019-10-04T12:00.00Z&quot;,
                 &quot;canCompleteTask&quot;: true
@@ -7193,7 +7199,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &quot;eventType&quot;: &quot;process:Start&quot;,
     &quot;info&quot;: {
         &quot;sequenceNumber&quot;: 1,
-        &quot;bpmnId&quot;: &quot;StartEvent_1&quot;,
+        &quot;processElementId&quot;: &quot;StartEvent_1&quot;,
     },
     &quot;createdDateTime&quot;: &quot;2019-10-10T14:01:22.034Z&quot;,
 }
@@ -7206,7 +7212,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &quot;eventType&quot;: &quot;process:StartTask&quot;,
     &quot;info&quot;: {
         &quot;sequenceNumber&quot;: 2,
-        &quot;bpmnId&quot;: &quot;FormFilling_1&quot;,
+        &quot;processElementId&quot;: &quot;FormFilling_1&quot;,
         &quot;source&quot;: 1
     },
     &quot;createdDateTime&quot;: &quot;2019-10-01T13:22.01Z&quot;,
@@ -7220,7 +7226,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &quot;eventType&quot;: &quot;process:EndTask&quot;,
     &quot;info&quot;: {
         &quot;sequenceNumber&quot;: 2,
-        &quot;bpmnId&quot;: &quot;FormFilling_1&quot;
+        &quot;processElementId&quot;: &quot;FormFilling_1&quot;
     }
     &quot;createdDateTime&quot;: &quot;2019-10-05T01:11.33Z&quot;,
 }
@@ -7233,7 +7239,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &quot;eventType&quot;: &quot;process:EndEvent&quot;,
     &quot;info&quot;: {
         &quot;sequenceNumber&quot;: 3,
-        &quot;bpmnId&quot;: &quot;EndEvent_1&quot;,
+        &quot;processElementId&quot;: &quot;EndEvent_1&quot;,
         &quot;source&quot;: 2
     },
     &quot;createdDateTime&quot;: &quot;2019-10-05T08:15:23.544Z&quot;,
@@ -7250,27 +7256,27 @@ Process is set to first task. The task specifies if the data can be updated or n
 <pre><code class="language-json">[{
     &quot;sequenceNumber&quot;: 1,
     &quot;type&quot;: &quot;process:startEvent&quot;,
-    &quot;bpmnId&quot;: &quot;StartEvent_1&quot;,
+    &quot;processElementId&quot;: &quot;StartEvent_1&quot;,
     &quot;occured&quot;: &quot;2019-10-10T14:01:22.034Z&quot;,
 },
 {
     &quot;sequenceNumber&quot;: 2,
     &quot;type&quot;: &quot;process:task&quot;,
-    &quot;bpmnId&quot;: &quot;Formfilling_1&quot;,
+    &quot;processElementId&quot;: &quot;Formfilling_1&quot;,
     &quot;started&quot;: &quot;2019-10-01T13:22.01Z&quot;,
     &quot;ended&quot;: &quot;2019-10-05T01:11.33Z&quot;,
 },
 {
     &quot;sequenceNumber&quot;: 3,
     &quot;type&quot;: &quot;process:task&quot;,
-    &quot;bpmnId&quot;: &quot;Submit_1&quot;,
+    &quot;processElementId&quot;: &quot;Submit_1&quot;,
     &quot;started&quot;: &quot;2019-10-05T08:14:33.232Z&quot;,
     &quot;ended&quot;: &quot;2019-10-05T08:15:23.543Z&quot;
 },
 {
     &quot;sequenceNumber&quot;: 4,
     &quot;type&quot;: &quot;process:endEvent&quot;,
-    &quot;bpmnId&quot;: &quot;EndEvent_1&quot;,
+    &quot;processElementId&quot;: &quot;EndEvent_1&quot;,
     &quot;occured&quot;: &quot;2019-10-05T08:15:23.544Z&quot;
 }]
 </code></pre>
