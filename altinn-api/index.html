@@ -6615,6 +6615,10 @@ if(host != "localhost")
 </ul></li>
 <li><a href="#process">Process</a>
 <ul>
+<li>
+<ul>
+<li><a href="#altinn-specific-task-types">Altinn specific task types</a></li>
+</ul></li>
 <li><a href="#get-process-state-of-a-specific-instance">Get process state of a specific instance</a></li>
 <li><a href="#process-events">Process events</a>
 <ul>
@@ -6654,9 +6658,7 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" ><p>This is work-in-progress. This is a proposed API which most likely is going to change.
-- HAL description is missing
-- Large data elements/attachement examples are missing</p>
+<div class="notices warning" ><p>This is work-in-progress. This is a proposed API which most likely is going to change.</p>
 </div>
 
 
@@ -6729,7 +6731,7 @@ If you do not know this, you should provide the official identity number, e.g na
 <p>The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form.</p>
 
 <pre><code class="language-json">{
-    &quot;instanceOwnerLookup&quot;: { &quot;personNumber&quot;: &quot;12247918309&quot; | &quot;organisationNumber&quot;: &quot;123456789&quot; | &quot;userName&quot;: &quot;xyz&quot; },
+    &quot;instanceOwnerLookup&quot;: { &quot;personNumber&quot;: &quot;12247918309&quot; | &quot;organisationNumber&quot;: &quot;123456789&quot; },
     &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ],
     &quot;appId&quot; : &quot;org/app&quot;,
     &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
@@ -6782,12 +6784,12 @@ Content-Disposition: form-data; name=&quot;default&quot;
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
     &quot;process&quot;: {
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
-        &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
+        &quot;currentTask&quot;: &quot;Data_1&quot;,
         &quot;taskInfo&quot;: {
             &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
-            &quot;processElementId&quot;: &quot;FormFilling_1&quot;,
+            &quot;processElementId&quot;: &quot;Data_1&quot;,
             &quot;name&quot;: &quot;Fyll ut&quot;,
-            &quot;altinnTaskType&quot;: &quot;formfilling&quot;,
+            &quot;altinnTaskType&quot;: &quot;data&quot;,
             &quot;validated&quot;: {
                 &quot;timestamp&quot;: &quot;2019-10-04T12:00.00Z&quot;,
                 &quot;canCompleteTask&quot;: true
@@ -7081,7 +7083,7 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
             }
         ],
         &quot;eventType&quot;: &quot;ProcessStateChange&quot;,
-        &quot;previousTask&quot;: &quot;FormFilling_1&quot;,
+        &quot;previousTask&quot;: &quot;Data_1&quot;,
         &quot;currentTask&quot;: &quot;Submit_1&quot;,
         &quot;userId&quot;: &quot;userX&quot;
     }
@@ -7134,7 +7136,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &lt;bpmn2:startEvent id=&quot;StartEvent_1&quot;&gt;
       &lt;bpmn2:outgoing&gt;SequenceFlow_1&lt;/bpmn2:outgoing&gt;
     &lt;/bpmn2:startEvent&gt;
-    &lt;bpmn2:task id=&quot;FormFilling_1&quot; name=&quot;Fyll ut&quot; altinn:tasktype=&quot;formfilling&quot;&gt;
+    &lt;bpmn2:task id=&quot;Data_1&quot; name=&quot;Fyll ut&quot; altinn:tasktype=&quot;data&quot;&gt;
       &lt;bpmn2:incoming&gt;SequenceFlow_1&lt;/bpmn2:incoming&gt;
       &lt;bpmn2:outgoing&gt;SequenceFlow_2&lt;/bpmn2:outgoing&gt;
     &lt;/bpmn2:task&gt;
@@ -7145,28 +7147,40 @@ Process is set to first task. The task specifies if the data can be updated or n
     &lt;bpmn2:endEvent id=&quot;EndEvent_1&quot;&gt;
       &lt;bpmn2:incoming&gt;SequenceFlow_3&lt;/bpmn2:incoming&gt;
     &lt;/bpmn2:endEvent&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_1&quot; sourceRef=&quot;StartEvent_1&quot; targetRef=&quot;FormFilling_1&quot; /&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_2&quot; sourceRef=&quot;FormFilling_1&quot; targetRef=&quot;Submit_1&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_1&quot; sourceRef=&quot;StartEvent_1&quot; targetRef=&quot;data_1&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_2&quot; sourceRef=&quot;Data_1&quot; targetRef=&quot;Submit_1&quot; /&gt;
     &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_3&quot; sourceRef=&quot;Submit_1&quot; targetRef=&quot;EndEvent_1&quot; /&gt;
   &lt;/bpmn2:process&gt;
 </code></pre>
+
+<h4 id="altinn-specific-task-types">Altinn specific task types</h4>
+
+<p>Application developers can in their BPMN Definition specify some altinn specific task types, see <code>altinn:tasktype</code>, which signify the behaviour of the task. So far we have defined the following:</p>
+
+<ul>
+<li><em>data</em> - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms</li>
+<li><em>submit</em> - user is asked if he should submit the information which has been filled in on previous tasks</li>
+<li><em>payment</em> - user is asked to pay a specific amount</li>
+<li><em>signing</em> - user is asked to provide a digital signature</li>
+<li><em>external</em> - task is handled by extern entity, user must wait until they have completed the task.</li>
+</ul>
 
 <h3 id="get-process-state-of-a-specific-instance">Get process state of a specific instance</h3>
 
 <pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 </code></pre>
 
-<p>For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it&rsquo;s current task is <em>FormFilling_1</em>. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process.</p>
+<p>For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it&rsquo;s current task is <em>Data_1</em>. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.</p>
 
 <pre><code class="language-json">{
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
-        &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
+        &quot;currentTask&quot;: &quot;Data_1&quot;,
         &quot;taskInfo&quot;: {
             &quot;sequenceNumber&quot;: 2,
             &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
-            &quot;processElementId&quot;: &quot;FormFilling_1&quot;,
+            &quot;processElementId&quot;: &quot;Data_1&quot;,
             &quot;name&quot;: &quot;Fyll ut&quot;,
-            &quot;altinnTaskType&quot;: &quot;formfilling&quot;,
+            &quot;altinnTaskType&quot;: &quot;data&quot;,
             &quot;validated&quot;: {
                 &quot;timestamp&quot;: &quot;2019-10-04T12:00.00Z&quot;,
                 &quot;canCompleteTask&quot;: true
@@ -7216,7 +7230,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &quot;eventType&quot;: &quot;process:StartTask&quot;,
     &quot;info&quot;: {
         &quot;sequenceNumber&quot;: 2,
-        &quot;processElementId&quot;: &quot;FormFilling_1&quot;,
+        &quot;processElementId&quot;: &quot;Data_1&quot;,
         &quot;source&quot;: 1
     },
     &quot;createdDateTime&quot;: &quot;2019-10-01T13:22.01Z&quot;,
@@ -7230,7 +7244,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &quot;eventType&quot;: &quot;process:EndTask&quot;,
     &quot;info&quot;: {
         &quot;sequenceNumber&quot;: 2,
-        &quot;processElementId&quot;: &quot;FormFilling_1&quot;
+        &quot;processElementId&quot;: &quot;Data_1&quot;
     }
     &quot;createdDateTime&quot;: &quot;2019-10-05T01:11.33Z&quot;,
 }
@@ -7266,7 +7280,7 @@ Process is set to first task. The task specifies if the data can be updated or n
 {
     &quot;sequenceNumber&quot;: 2,
     &quot;type&quot;: &quot;process:task&quot;,
-    &quot;processElementId&quot;: &quot;Formfilling_1&quot;,
+    &quot;processElementId&quot;: &quot;Data_1&quot;,
     &quot;started&quot;: &quot;2019-10-01T13:22.01Z&quot;,
     &quot;ended&quot;: &quot;2019-10-05T01:11.33Z&quot;,
 },
@@ -7366,7 +7380,7 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
                 &quot;fileName&quot;: &quot;boat.json-schema&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
             },
-            &quot;task&quot;: &quot;FormFilling_1&quot;,
+            &quot;task&quot;: &quot;Data_1&quot;,
             &quot;maxSize&quot;: 200000,
             &quot;maxCount&quot;: 1,
         },
@@ -7377,14 +7391,14 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
                 &quot;fileName&quot;: &quot;crew.xsd&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
             },
-            &quot;task&quot;: &quot;FormFilling_2&quot;,
+            &quot;task&quot;: &quot;Data_2&quot;,
             &quot;maxSize&quot;: -1,
             &quot;maxCount&quot;: 3,
         },
         {
             &quot;id&quot;: &quot;certificate&quot;,
             &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
-            &quot;task&quot;: &quot;FormFilling_1&quot;,
+            &quot;task&quot;: &quot;Data_1&quot;,
             &quot;maxSize&quot;: -1,
             &quot;maxCount&quot;: 1,
         }
