@@ -6616,6 +6616,14 @@ if(host != "localhost")
 <li><a href="#process">Process</a>
 <ul>
 <li><a href="#get-process-state-of-a-specific-instance">Get process state of a specific instance</a></li>
+<li><a href="#process-events">Process events</a>
+<ul>
+<li><a href="#start-event">Start Event</a></li>
+<li><a href="#starttask-event">StartTask Event</a></li>
+<li><a href="#endtask-event">EndTask Event</a></li>
+<li><a href="#end-event">End Event</a></li>
+<li><a href="#get-process-history-of-a-specific-instance">Get process history of a specific instance</a></li>
+</ul></li>
 <li><a href="#complete-a-task">Complete a task</a></li>
 <li><a href="#complete-the-process">Complete the process</a></li>
 <li><a href="#get-the-next-tasks-in-a-process">Get the next tasks in a process</a></li>
@@ -6773,8 +6781,15 @@ Content-Disposition: form-data; name=&quot;default&quot;
     &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
     &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
     &quot;process&quot;: {
-        &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
-        &quot;isComplete&quot;: false
+        &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
+        &quot;currentTask&quot;: {
+            &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
+            &quot;taskId&quot;: &quot;FormFilling_1&quot;,
+            &quot;validated&quot;: {
+                &quot;timestamp&quot;: &quot;2019-10-04T12:00.00Z&quot;,
+                &quot;canCompleteTask&quot;: true
+            }
+        }
     },
     &quot;instanceStatus&quot;: {
         &quot;isArchived&quot;: false,
@@ -7102,7 +7117,7 @@ Process is set to first task. The task specifies if the data can be updated or n
 
 <h2 id="process">Process</h2>
 
-<p>Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).</p>
+<p>Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and creates a current task object to holde the process state.</p>
 
 <figure><a href="mvp-process.png"><img src="mvp-process.png" alt="Flowchart for MVP process" title="MVP Process" /></a><figcaption><h4>MVP Process</h4></figcaption></figure>
 
@@ -7134,12 +7149,130 @@ Process is set to first task. The task specifies if the data can be updated or n
 <pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 </code></pre>
 
-<p>Returns:</p>
+<p>For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it&rsquo;s current task is <em>FormFilling_1</em>. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process.</p>
 
 <pre><code class="language-json">{
-    &quot;currentTask&quot;: &quot;FormFilling_1&quot;,
-    &quot;isComplete&quot;: false
+        &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
+        &quot;currentTask&quot;: {
+            &quot;sequenceNumber&quot;: 2,
+            &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
+            &quot;bpmnId&quot;: &quot;FormFilling_1&quot;,
+            &quot;validated&quot;: {
+                &quot;timestamp&quot;: &quot;2019-10-04T12:00.00Z&quot;,
+                &quot;canCompleteTask&quot;: true
+            }
+        }
+    },
+</code></pre>
+
+<p>For an ended process the following will be returned:</p>
+
+<pre><code class="language-json">{
+    &quot;sequenceNumber&quot;: 5,
+    &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
+    &quot;ended&quot;: &quot;2019-10-10T14:01:22.034Z&quot;,
+    &quot;endEvent&quot;: &quot;EndEvent_1&quot;
 }
+</code></pre>
+
+<h3 id="process-events">Process events</h3>
+
+<p>The system will generate a number of process related events, which can be found in the instances event history.</p>
+
+<ul>
+<li>Start Event</li>
+<li>StartTask Event</li>
+<li>EndTask Event</li>
+<li>End Event</li>
+</ul>
+
+<h4 id="start-event">Start Event</h4>
+
+<pre><code class="language-json">{
+    &quot;instanceId&quot;: &quot;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
+    &quot;eventType&quot;: &quot;process:Start&quot;,
+    &quot;info&quot;: {
+        &quot;sequenceNumber&quot;: 1,
+        &quot;bpmnId&quot;: &quot;StartEvent_1&quot;,
+    },
+    &quot;createdDateTime&quot;: &quot;2019-10-10T14:01:22.034Z&quot;,
+}
+</code></pre>
+
+<h4 id="starttask-event">StartTask Event</h4>
+
+<pre><code class="language-json">{
+    &quot;instanceId&quot;: &quot;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
+    &quot;eventType&quot;: &quot;process:StartTask&quot;,
+    &quot;info&quot;: {
+        &quot;sequenceNumber&quot;: 2,
+        &quot;bpmnId&quot;: &quot;FormFilling_1&quot;,
+        &quot;source&quot;: 1
+    },
+    &quot;createdDateTime&quot;: &quot;2019-10-01T13:22.01Z&quot;,
+}
+</code></pre>
+
+<h4 id="endtask-event">EndTask Event</h4>
+
+<pre><code class="language-json">{
+    &quot;instanceId&quot;: &quot;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
+    &quot;eventType&quot;: &quot;process:EndTask&quot;,
+    &quot;info&quot;: {
+        &quot;sequenceNumber&quot;: 2,
+        &quot;bpmnId&quot;: &quot;FormFilling_1&quot;
+    }
+    &quot;createdDateTime&quot;: &quot;2019-10-05T01:11.33Z&quot;,
+}
+</code></pre>
+
+<h4 id="end-event">End Event</h4>
+
+<pre><code class="language-json">{
+    &quot;instanceId&quot;: &quot;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
+    &quot;eventType&quot;: &quot;process:EndEvent&quot;,
+    &quot;info&quot;: {
+        &quot;sequenceNumber&quot;: 3,
+        &quot;bpmnId&quot;: &quot;EndEvent_1&quot;,
+        &quot;source&quot;: 2
+    },
+    &quot;createdDateTime&quot;: &quot;2019-10-05T08:15:23.544Z&quot;,
+}
+</code></pre>
+
+<h4 id="get-process-history-of-a-specific-instance">Get process history of a specific instance</h4>
+
+<p>Based on the process events the history of the instance&rsquo;s process is generated. The following illustrates an ended process:</p>
+
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/history
+</code></pre>
+
+<pre><code class="language-json">[{
+    &quot;sequenceNumber&quot;: 1,
+    &quot;type&quot;: &quot;process:startEvent&quot;,
+    &quot;bpmnId&quot;: &quot;StartEvent_1&quot;,
+    &quot;occured&quot;: &quot;2019-10-10T14:01:22.034Z&quot;,
+},
+{
+    &quot;sequenceNumber&quot;: 2,
+    &quot;type&quot;: &quot;process:task&quot;,
+    &quot;bpmnId&quot;: &quot;Formfilling_1&quot;,
+    &quot;started&quot;: &quot;2019-10-01T13:22.01Z&quot;,
+    &quot;ended&quot;: &quot;2019-10-05T01:11.33Z&quot;,
+},
+{
+    &quot;sequenceNumber&quot;: 3,
+    &quot;type&quot;: &quot;process:task&quot;,
+    &quot;bpmnId&quot;: &quot;Submit_1&quot;,
+    &quot;started&quot;: &quot;2019-10-05T08:14:33.232Z&quot;,
+    &quot;ended&quot;: &quot;2019-10-05T08:15:23.543Z&quot;
+},
+{
+    &quot;sequenceNumber&quot;: 4,
+    &quot;type&quot;: &quot;process:endEvent&quot;,
+    &quot;bpmnId&quot;: &quot;EndEvent_1&quot;,
+    &quot;occured&quot;: &quot;2019-10-05T08:15:23.544Z&quot;
+}]
 </code></pre>
 
 <!-- OLD Get Current process state
@@ -7181,14 +7314,14 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
 
 <p>Returns an list of the next tasks that can be reached from the current task.</p>
 
-<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
+<pre><code class="language-http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/tasks
 </code></pre>
 
 <h3 id="start-a-task">Start a task</h3>
 
 <p>Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.</p>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Submit_1
+<pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/tasks?moveto=Submit_1
 </code></pre>
 
 <h2 id="application-resources">Application resources</h2>
@@ -7210,7 +7343,7 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148Z&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
     &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; },
-    &quot;processId&quot;: &quot;mvp1&quot;,
+    &quot;processId&quot;: &quot;twoformsAndsubmit&quot;,
     &quot;validFrom&quot;: &quot;2019-04-01T12:14:22Z&quot;,
     &quot;validTo&quot;: null,
     &quot;maxSize&quot;: -1,
@@ -7223,10 +7356,9 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
                 &quot;fileName&quot;: &quot;boat.json-schema&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
             },
+            &quot;task&quot;: &quot;FormFilling_1&quot;,
             &quot;maxSize&quot;: 200000,
             &quot;maxCount&quot;: 1,
-            &quot;shouldSign&quot;: true,
-            &quot;shouldEncrypt&quot;: true
         },
         {
             &quot;id&quot;: &quot;crewlist&quot;,
@@ -7235,18 +7367,16 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
                 &quot;fileName&quot;: &quot;crew.xsd&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
             },
+            &quot;task&quot;: &quot;FormFilling_2&quot;,
             &quot;maxSize&quot;: -1,
             &quot;maxCount&quot;: 3,
-            &quot;shouldSign&quot;: false,
-            &quot;shouldEncrypt&quot;: false
         },
         {
             &quot;id&quot;: &quot;certificate&quot;,
             &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
+            &quot;task&quot;: &quot;FormFilling_1&quot;,
             &quot;maxSize&quot;: -1,
             &quot;maxCount&quot;: 1,
-            &quot;shouldSign&quot;: false,
-            &quot;shouldEncrypt&quot;: false
         }
     ]
 }
@@ -8774,22 +8904,6 @@ GET {appPath}/elementTypes/{typeName}/schema
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                       
                   
