@@ -141,6 +141,8 @@ This call will return the instance metadata record that was created. A unique id
         "taskInfo": {
             "started": "2019-10-10T32:22.00Z",
             "processElementId": "FormFilling_1",
+            "name": "Fyll ut",
+            "altinnTaskType": "formfilling",
             "validated": {
                 "timestamp": "2019-10-04T12:00.00Z",
                 "canCompleteTask": true
@@ -538,6 +540,8 @@ For an ongoing process this process state can look like the json below. It indic
             "sequenceNumber": 2,
             "started": "2019-10-10T32:22.00Z",
             "processElementId": "FormFilling_1",
+            "name": "Fyll ut",
+            "altinnTaskType": "formfilling",
             "validated": {
                 "timestamp": "2019-10-04T12:00.00Z",
                 "canCompleteTask": true
