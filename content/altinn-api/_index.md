@@ -137,9 +137,10 @@ This call will return the instance metadata record that was created. A unique id
     "presentationField": "Arbeidsmelding",
     "process": {
         "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": {
+        "currentTask": "FormFilling_1",
+        "taskInfo": {
             "started": "2019-10-10T32:22.00Z",
-            "taskId": "FormFilling_1",
+            "processElementId": "FormFilling_1",
             "validated": {
                 "timestamp": "2019-10-04T12:00.00Z",
                 "canCompleteTask": true
@@ -413,15 +414,17 @@ Example of event data.
 
 ### Application events (for application owners)
 
+> **WARNING**: This section will be redesigned
+
 Selected instance events. Created, first read, change process state. Optinally specified by application developer.
 
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Submit_1
+GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask=Submit_1
 ```
 
-Query result:
+Query result: 
 
 ```json
 [
@@ -530,10 +533,11 @@ For an ongoing process this process state can look like the json below. It indic
 ```json
 {
         "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": {
+        "currentTask": "FormFilling_1",
+        "taskInfo": {
             "sequenceNumber": 2,
             "started": "2019-10-10T32:22.00Z",
-            "bpmnId": "FormFilling_1",
+            "processElementId": "FormFilling_1",
             "validated": {
                 "timestamp": "2019-10-04T12:00.00Z",
                 "canCompleteTask": true
@@ -570,7 +574,7 @@ The system will generate a number of process related events, which can be found 
     "eventType": "process:Start",
     "info": {
         "sequenceNumber": 1,
-        "bpmnId": "StartEvent_1",
+        "processElementId": "StartEvent_1",
     },
     "createdDateTime": "2019-10-10T14:01:22.034Z",
 }
@@ -584,7 +588,7 @@ The system will generate a number of process related events, which can be found 
     "eventType": "process:StartTask",
     "info": {
         "sequenceNumber": 2,
-        "bpmnId": "FormFilling_1",
+        "processElementId": "FormFilling_1",
         "source": 1
     },
     "createdDateTime": "2019-10-01T13:22.01Z",
@@ -599,7 +603,7 @@ The system will generate a number of process related events, which can be found 
     "eventType": "process:EndTask",
     "info": {
         "sequenceNumber": 2,
-        "bpmnId": "FormFilling_1"
+        "processElementId": "FormFilling_1"
     }
     "createdDateTime": "2019-10-05T01:11.33Z",
 }
@@ -613,7 +617,7 @@ The system will generate a number of process related events, which can be found 
     "eventType": "process:EndEvent",
     "info": {
         "sequenceNumber": 3,
-        "bpmnId": "EndEvent_1",
+        "processElementId": "EndEvent_1",
         "source": 2
     },
     "createdDateTime": "2019-10-05T08:15:23.544Z",
@@ -632,27 +636,27 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 [{
     "sequenceNumber": 1,
     "type": "process:startEvent",
-    "bpmnId": "StartEvent_1",
+    "processElementId": "StartEvent_1",
     "occured": "2019-10-10T14:01:22.034Z",
 },
 {
     "sequenceNumber": 2,
     "type": "process:task",
-    "bpmnId": "Formfilling_1",
+    "processElementId": "Formfilling_1",
     "started": "2019-10-01T13:22.01Z",
     "ended": "2019-10-05T01:11.33Z",
 },
 {
     "sequenceNumber": 3,
     "type": "process:task",
-    "bpmnId": "Submit_1",
+    "processElementId": "Submit_1",
     "started": "2019-10-05T08:14:33.232Z",
     "ended": "2019-10-05T08:15:23.543Z"
 },
 {
     "sequenceNumber": 4,
     "type": "process:endEvent",
-    "bpmnId": "EndEvent_1",
+    "processElementId": "EndEvent_1",
     "occured": "2019-10-05T08:15:23.544Z"
 }]
 ```
