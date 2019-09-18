@@ -136,8 +136,15 @@ This call will return the instance metadata record that was created. A unique id
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "process": {
-        "currentTask": "FormFilling_1",
-        "isComplete": false
+        "started": "2019-09-25T09:32:44.20Z",
+        "currentTask": {
+            "started": "2019-10-10T32:22.00Z",
+            "taskId": "FormFilling_1",
+            "validated": {
+                "timestamp": "2019-10-04T12:00.00Z",
+                "canCompleteTask": true
+            }
+        }
     },
     "instanceStatus": {
         "isArchived": false,
@@ -484,7 +491,7 @@ Instantiate an app with data as multipart content (stream). The app creates an i
 
 ## Process
 
-Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).
+Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and creates a current task object to holde the process state.
 
 ![Flowchart for MVP process](mvp-process.png "MVP Process")
 
@@ -518,13 +525,136 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
 
-Returns:
+For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *FormFilling_1*. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process.
 
 ```json
 {
-    "currentTask": "FormFilling_1",
-    "isComplete": false
+        "started": "2019-09-25T09:32:44.20Z",
+        "currentTask": {
+            "sequenceNumber": 2,
+            "started": "2019-10-10T32:22.00Z",
+            "bpmnId": "FormFilling_1",
+            "validated": {
+                "timestamp": "2019-10-04T12:00.00Z",
+                "canCompleteTask": true
+            }
+        }
+    },
+```
+
+For an ended process the following will be returned:
+
+```json
+{
+    "sequenceNumber": 5,
+    "started": "2019-09-25T09:32:44.20Z",
+    "ended": "2019-10-10T14:01:22.034Z",
+    "endEvent": "EndEvent_1"
 }
+```
+
+### Process events
+
+The system will generate a number of process related events, which can be found in the instances event history.
+
+- Start Event
+- StartTask Event
+- EndTask Event
+- End Event
+
+#### Start Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:Start",
+    "info": {
+        "sequenceNumber": 1,
+        "bpmnId": "StartEvent_1",
+    },
+    "createdDateTime": "2019-10-10T14:01:22.034Z",
+}
+```
+
+#### StartTask Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:StartTask",
+    "info": {
+        "sequenceNumber": 2,
+        "bpmnId": "FormFilling_1",
+        "source": 1
+    },
+    "createdDateTime": "2019-10-01T13:22.01Z",
+}
+```
+
+#### EndTask Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:EndTask",
+    "info": {
+        "sequenceNumber": 2,
+        "bpmnId": "FormFilling_1"
+    }
+    "createdDateTime": "2019-10-05T01:11.33Z",
+}
+```
+
+#### End Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:EndEvent",
+    "info": {
+        "sequenceNumber": 3,
+        "bpmnId": "EndEvent_1",
+        "source": 2
+    },
+    "createdDateTime": "2019-10-05T08:15:23.544Z",
+}
+```
+
+#### Get process history of a specific instance
+
+Based on the process events the history of the instance's process is generated. The following illustrates an ended process:
+
+```http
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/history
+```
+
+```json
+[{
+    "sequenceNumber": 1,
+    "type": "process:startEvent",
+    "bpmnId": "StartEvent_1",
+    "occured": "2019-10-10T14:01:22.034Z",
+},
+{
+    "sequenceNumber": 2,
+    "type": "process:task",
+    "bpmnId": "Formfilling_1",
+    "started": "2019-10-01T13:22.01Z",
+    "ended": "2019-10-05T01:11.33Z",
+},
+{
+    "sequenceNumber": 3,
+    "type": "process:task",
+    "bpmnId": "Submit_1",
+    "started": "2019-10-05T08:14:33.232Z",
+    "ended": "2019-10-05T08:15:23.543Z"
+},
+{
+    "sequenceNumber": 4,
+    "type": "process:endEvent",
+    "bpmnId": "EndEvent_1",
+    "occured": "2019-10-05T08:15:23.544Z"
+}]
 ```
 
 <!-- OLD Get Current process state
@@ -568,7 +698,7 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
 Returns an list of the next tasks that can be reached from the current task.
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/tasks
 ```
 
 ### Start a task
@@ -576,7 +706,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?next
 Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Submit_1
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/tasks?moveto=Submit_1
 ```
 
 ## Application resources
@@ -600,7 +730,7 @@ GET {appPath}
     "createdDateTime": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" },
-    "processId": "mvp1",
+    "processId": "twoformsAndsubmit",
     "validFrom": "2019-04-01T12:14:22Z",
     "validTo": null,
     "maxSize": -1,
@@ -613,10 +743,9 @@ GET {appPath}
                 "fileName": "boat.json-schema",
                 "schemaUrl": "/applications/test/sailor/schemas/boatdata"
             },
+            "task": "FormFilling_1",
             "maxSize": 200000,
             "maxCount": 1,
-            "shouldSign": true,
-            "shouldEncrypt": true
         },
         {
             "id": "crewlist",
@@ -625,18 +754,16 @@ GET {appPath}
                 "fileName": "crew.xsd",
                 "schemaUrl": "/applications/test/sailor/schemas/crewlist",
             },
+            "task": "FormFilling_2",
             "maxSize": -1,
             "maxCount": 3,
-            "shouldSign": false,
-            "shouldEncrypt": false
         },
         {
             "id": "certificate",
             "allowedContentType": ["application/pdf"],
+            "task": "FormFilling_1",
             "maxSize": -1,
             "maxCount": 1,
-            "shouldSign": false,
-            "shouldEncrypt": false
         }
     ]
 }
