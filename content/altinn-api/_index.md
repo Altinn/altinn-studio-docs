@@ -9,8 +9,6 @@ alwaysopen: false
 
 {{%notice warning%}}
 This is work-in-progress. This is a proposed API which most likely is going to change. 
-- HAL description is missing
-- Large data elements/attachement examples are missing
 
 {{% /notice%}}
 
@@ -81,7 +79,7 @@ The client specify the instance owner and can set a number of the metadata field
 
 ```json
 {
-    "instanceOwnerLookup": { "personNumber": "12247918309" | "organisationNumber": "123456789" | "userName": "xyz" },
+    "instanceOwnerLookup": { "personNumber": "12247918309" | "organisationNumber": "123456789" },
     "labels" : [ "gr", "x2" ],
     "appId" : "org/app",
     "dueDateTime": "2019-06-01T12:00:00Z",
@@ -137,12 +135,12 @@ This call will return the instance metadata record that was created. A unique id
     "presentationField": "Arbeidsmelding",
     "process": {
         "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": "FormFilling_1",
+        "currentTask": "Data_1",
         "taskInfo": {
             "started": "2019-10-10T32:22.00Z",
-            "processElementId": "FormFilling_1",
+            "processElementId": "Data_1",
             "name": "Fyll ut",
-            "altinnTaskType": "formfilling",
+            "altinnTaskType": "data",
             "validated": {
                 "timestamp": "2019-10-04T12:00.00Z",
                 "canCompleteTask": true
@@ -451,7 +449,7 @@ Query result:
             }
         ],
         "eventType": "ProcessStateChange",
-        "previousTask": "FormFilling_1",
+        "previousTask": "Data_1",
         "currentTask": "Submit_1",
         "userId": "userX"
     }
@@ -507,7 +505,7 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
     <bpmn2:startEvent id="StartEvent_1">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="FormFilling_1" name="Fyll ut" altinn:tasktype="formfilling">
+    <bpmn2:task id="Data_1" name="Fyll ut" altinn:tasktype="data">
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
     </bpmn2:task>
@@ -518,11 +516,21 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
     <bpmn2:endEvent id="EndEvent_1">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="FormFilling_1" />
-    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="FormFilling_1" targetRef="Submit_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="data_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Data_1" targetRef="Submit_1" />
     <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Submit_1" targetRef="EndEvent_1" />
   </bpmn2:process>
 ```
+
+#### Altinn specific task types
+
+Application developers can in their BPMN Definition specify some altinn specific task types, see ```altinn:tasktype```, which signify the behaviour of the task. So far we have defined the following:
+
+- *data* - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms
+- *submit* - user is asked if he should submit the information which has been filled in on previous tasks
+- *payment* - user is asked to pay a specific amount
+- *signing* - user is asked to provide a digital signature
+- *external* - task is handled by extern entity, user must wait until they have completed the task.
 
 ### Get process state of a specific instance
 
@@ -530,18 +538,18 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
 
-For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *FormFilling_1*. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process.
+For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *Data_1*. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.
 
 ```json
 {
         "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": "FormFilling_1",
+        "currentTask": "Data_1",
         "taskInfo": {
             "sequenceNumber": 2,
             "started": "2019-10-10T32:22.00Z",
-            "processElementId": "FormFilling_1",
+            "processElementId": "Data_1",
             "name": "Fyll ut",
-            "altinnTaskType": "formfilling",
+            "altinnTaskType": "data",
             "validated": {
                 "timestamp": "2019-10-04T12:00.00Z",
                 "canCompleteTask": true
@@ -592,7 +600,7 @@ The system will generate a number of process related events, which can be found 
     "eventType": "process:StartTask",
     "info": {
         "sequenceNumber": 2,
-        "processElementId": "FormFilling_1",
+        "processElementId": "Data_1",
         "source": 1
     },
     "createdDateTime": "2019-10-01T13:22.01Z",
@@ -607,7 +615,7 @@ The system will generate a number of process related events, which can be found 
     "eventType": "process:EndTask",
     "info": {
         "sequenceNumber": 2,
-        "processElementId": "FormFilling_1"
+        "processElementId": "Data_1"
     }
     "createdDateTime": "2019-10-05T01:11.33Z",
 }
@@ -646,7 +654,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 {
     "sequenceNumber": 2,
     "type": "process:task",
-    "processElementId": "Formfilling_1",
+    "processElementId": "Data_1",
     "started": "2019-10-01T13:22.01Z",
     "ended": "2019-10-05T01:11.33Z",
 },
@@ -751,7 +759,7 @@ GET {appPath}
                 "fileName": "boat.json-schema",
                 "schemaUrl": "/applications/test/sailor/schemas/boatdata"
             },
-            "task": "FormFilling_1",
+            "task": "Data_1",
             "maxSize": 200000,
             "maxCount": 1,
         },
@@ -762,14 +770,14 @@ GET {appPath}
                 "fileName": "crew.xsd",
                 "schemaUrl": "/applications/test/sailor/schemas/crewlist",
             },
-            "task": "FormFilling_2",
+            "task": "Data_2",
             "maxSize": -1,
             "maxCount": 3,
         },
         {
             "id": "certificate",
             "allowedContentType": ["application/pdf"],
-            "task": "FormFilling_1",
+            "task": "Data_1",
             "maxSize": -1,
             "maxCount": 1,
         }
