@@ -135,8 +135,7 @@ This call will return the instance metadata record that was created. A unique id
     "presentationField": "Arbeidsmelding",
     "process": {
         "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": "Data_1",
-        "taskInfo": {
+        "currentTask": {
             "started": "2019-10-10T32:22.00Z",
             "processElementId": "Data_1",
             "name": "Fyll ut",
