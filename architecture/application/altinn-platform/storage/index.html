@@ -6578,6 +6578,8 @@ if(host != "localhost")
             
               <a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a>
             
+              <a class="label label-default" href="https://docs.altinn.studio/tags/platform">platform</a>
+            
           </div>
         
         <div id="body-inner">
@@ -6603,7 +6605,7 @@ if(host != "localhost")
 
 <p>The Storage component exposes a REST-API to Altinn Apps.</p>
 
-<p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, element types and events.</p>
+<p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, element types and events. It is also intended to be used by application owners and other clients to read data.</p>
 
 <p>Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxInstance</p>
 
@@ -6614,7 +6616,7 @@ if(host != "localhost")
 
 <h2 id="instance">Instance</h2>
 
-<p>An application instance is created when a instance owner (reportee) starts a workflow in an Altinn application.
+<p>An application instance is created when a instance owner (reportee) starts a process in an Altinn application.
 An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
 An appId refers to the application information element which defines the metadata about the application.</p>
@@ -6631,15 +6633,28 @@ An appId refers to the application information element which defines the metadat
     &quot;lastChangedBy&quot;: &quot;user34&quot;,
     &quot;dueDateTime&quot;: null,
     &quot;visibleDateTime&quot;: null,
-    &quot;presentationField&quot;: &quot;Færder påmelding 2019&quot;,
-    &quot;workflow&quot;: {
-        &quot;currentStep&quot;: &quot;FormFilling&quot;,
-        &quot;isComplete&quot;: false
+    &quot;presentationField&quot;: { 
+        &quot;nb&quot;: &quot;Færder påmelding 2019&quot;,
+        &quot;en&quot;: &quot;Fearder Race Registration 2019&quot;
+    },
+    &quot;process&quot;:  &quot;process&quot;: {
+        &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
+        &quot;currentTask&quot;: {
+            &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
+            &quot;processElementId&quot;: &quot;Data_1&quot;,
+            &quot;name&quot;: &quot;Fyll ut&quot;,
+            &quot;altinnTaskType&quot;: &quot;data&quot;,
+            &quot;validated&quot;: {
+                &quot;timestamp&quot;: &quot;2019-10-04T12:00.00Z&quot;,
+                &quot;canCompleteTask&quot;: true
+            }
+        }
     },
     &quot;userStatus&quot;: {
         &quot;isSoftDeleted&quot;: false,
-        &quot;isArchived&quot;: false,
-        &quot;isMarkedForHardDelete&quot;: false
+        &quot;isArchived&quot;: true,
+        &quot;archivedDateTime&quot;: &quot;2019-12-20T20:30:33.233Z&quot;,
+        &quot;isMarkedForHardDelete&quot;: false,
     },
     &quot;appOwnerStatus&quot;: {
         &quot;message&quot;: { &quot;nb&quot;: &quot;field 32 is incorrect&quot;, &quot;at&quot;: &quot;2018-12-22&quot;}
@@ -6823,9 +6838,9 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>workflow</td>
+<td>process</td>
 <td>WorkflowState</td>
-<td>workflow state info</td>
+<td>process state info</td>
 <td></td>
 <td></td>
 <td>U</td>
@@ -6882,12 +6897,12 @@ An instance object can be sent as json data to set certian values.</p>
 
 <p>Get (query) all instances that is instance owner has</p>
 
-<pre><code class="language-http">GET /instances/{instanceOwnerId}?[labels=x,y,z]
+<pre><code class="language-http">GET /instances/{instanceOwnerId}
 </code></pre>
 
 <p>Query all instances of a particular application that is completed</p>
 
-<pre><code class="language-http">GET /instances?appId={appId}&amp;workflow.isCompleted=true
+<pre><code class="language-http">GET /instances?appId={appId}&amp;process.isCompleted=true
 </code></pre>
 
 <p>Query all instances of an applicatio owner&rsquo;s organisation</p>
@@ -6925,19 +6940,21 @@ that is used to identify the specific data element</p>
 
 <p>Get a predefined PDF of a data element, if it exists.</p>
 
-<pre><code class="language-http">GET /instances/{instanceId}/data/{dataId}/pdf
+<pre><code class="language-http">Accept: application/pdf
+GET /instances/{instanceId}/data/{dataId}
 </code></pre>
 
 <p>Update a predefined PDF for a given data element</p>
 
-<pre><code class="language-http">PUT /instances/{instanceId}/data/{dataId}/pdf
+<pre><code class="language-http">ContentType: application/pdf
+PUT /instances/{instanceId}/data/{dataId}
 </code></pre>
 
 <h2 id="application">Application</h2>
 
 <p>Application metadata used to validate data element types in instances. And to provide application events.</p>
 
-<p>Resource: <a href="http://platform.altinn.no/applications/test/sailor">http://platform.altinn.no/applications/test/sailor</a></p>
+<p>Resource: /applications/test/sailor</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;test/sailor&quot;,
@@ -6947,15 +6964,16 @@ that is used to identify the specific data element</p>
     &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
     &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; }, 
-    &quot;workflowId&quot;: &quot;standard&quot;,
+    &quot;processId&quot;: &quot;standard&quot;,
     &quot;validFrom&quot;: &quot;2019-04-01T12:14:22+01:00&quot;,
     &quot;validTo&quot;: null,
-    &quot;maxSize&quot;: -1,
+    &quot;maxSize&quot;: null,
     &quot;elementTypes&quot;: [
         {
             &quot;id&quot;: &quot;boatdata&quot;,
             &quot;description&quot;: {&quot;nb&quot;: &quot;Båtdata&quot;, &quot;en&quot;: &quot;Boat data&quot;},
             &quot;allowedContentType&quot;: [&quot;application/json&quot;],
+            &quot;appLogic&quot;: true,
             &quot;schema&quot;: {
                 &quot;fileName&quot;: &quot;boat.json-schema&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
@@ -6969,12 +6987,13 @@ that is used to identify the specific data element</p>
         {
             &quot;id&quot;: &quot;crewlist&quot;,
             &quot;allowedContentType&quot;: [&quot;application/xml&quot;],
+            &quot;appLogic&quot;: true,
             &quot;schema&quot;: {
                 &quot;fileName&quot;: &quot;crew.xsd&quot;,
                 &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
             },
             &quot;canRegisterPdf&quot;: true,
-            &quot;maxSize&quot;: -1,
+            &quot;maxSize&quot;: null,
             &quot;maxCount&quot;: 3,
             &quot;shouldSign&quot;: false,
             &quot;shouldEncrypt&quot;: false
@@ -6982,7 +7001,8 @@ that is used to identify the specific data element</p>
         {
             &quot;id&quot;: &quot;certificate&quot;,
             &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
-            &quot;maxSize&quot;: -1,
+            &quot;appLogic&quot;: false,
+            &quot;maxSize&quot;: null,
             &quot;maxCount&quot;: 1,
             &quot;shouldSign&quot;: false,
             &quot;shouldEncrypt&quot;: false
@@ -7016,9 +7036,9 @@ that is used to identify the specific data element</p>
 </tr>
 
 <tr>
-<td>workflowId</td>
+<td>processId</td>
 <td>string</td>
-<td>application workflow id</td>
+<td>application process id</td>
 </tr>
 
 <tr>
@@ -7073,7 +7093,7 @@ that is used to identify the specific data element</p>
 <h2 id="instanceevent">InstanceEvent</h2>
 
 <p>User actions on an instance trigger instance events such as <em>created</em>, <em>saved</em>, _submitted, <em>deleted</em>, and <em>undeleted</em>.
-The events are associated with an instance, a user and an instance owner adn generated by the application and stored in CosmosDB.</p>
+The events are associated with an instance, a user and an instance owner and generated by the application and stored in CosmosDB.</p>
 
 <p>Format of the JSON object stored in the database.</p>
 
@@ -7085,7 +7105,6 @@ The events are associated with an instance, a user and an instance owner adn gen
     &quot;instanceOwnerId&quot;: &quot;60238&quot;,
     &quot;userId&quot;: 3,
     &quot;authenticationLevel&quot;: 1,
-    &quot;workflowStep&quot;: &quot;8&quot;,
     &quot;enduserSystemId&quot;: 2
 }
 </code></pre>
@@ -7159,7 +7178,7 @@ The events are associated with an instance, a user and an instance owner adn gen
 <tr>
 <td>WorkflowStep</td>
 <td>string</td>
-<td>the workflow step during which the event occured</td>
+<td>the process step during which the event occured</td>
 </tr>
 </tbody>
 </table>
