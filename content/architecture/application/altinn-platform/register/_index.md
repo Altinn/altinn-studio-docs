@@ -41,32 +41,6 @@ Get information about an organization:
 GET /organizations/{orgNr}
 ```
 
-## /parties
-
-### Party type
-
-| Attribute | Type | Description |
-| --------- | ---- | ----------- |
-| PartyId | int | the party ID |  
-| PartyTypeName | PartyType | the type of the party; organization or person |  
-| OrgNumber | string | the organization number. Empty string if party is person. |  
-| SSN | string | the social security number. Empty string if party is organization. |  
-| UnitType | string |  |  
-| Name | string | the full name of the person or name of the organization |  
-| IsDeleted | bool | true is the organization has been deleted from the registery |  
-| OnlyHiearhyElementWithNoAccess | bool | true if party is a parent unit with no access in current context|  
-| Person | Person | the person the party represents |  
-| Organization | Organization | the organization the party represents |  
-| ChildParties | List<Party> | List of sub units if the party is an organization |  
-
-### Operations
-
-Get information about a party:
-
-```http
-GET /parties/{partyId}
-```
-
 ## /persons
 
 ### Person type
@@ -96,4 +70,44 @@ Send a GET-request with the persons SSN contained in the request body to
 
 ```http
 GET /persons
+```
+
+## /parties
+
+### Party type
+
+| Attribute | Type | Description |
+| --------- | ---- | ----------- |
+| PartyId | int | the party ID |  
+| PartyTypeName | PartyType | the type of the party; organization or person |  
+| OrgNumber | string | the organization number. Empty string if party is person. |  
+| SSN | string | the social security number. Empty string if party is organization. |  
+| UnitType | string |  |  
+| Name | string | the full name of the person or name of the organization |  
+| IsDeleted | bool | true is the organization has been deleted from the registery |  
+| OnlyHiearhyElementWithNoAccess | bool | true if party is a parent unit with no access in current context|  
+| Person | Person | the person the party represents |  
+| Organization | Organization | the organization the party represents |  
+| ChildParties | List<Party> | List of sub units if the party is an organization |  
+
+### Operations
+
+Get information about a party:
+
+```http
+GET /parties/{partyId}
+```
+
+Lookup a party id based on social secutiry number or organisation number:
+(SSN or OrgNumber should be included in string format in the request body.)
+
+```http
+GET /parties/lookup
+```
+
+Lookup a party based on social secutiry number or organisation number:
+(SSN or OrgNumber should be included in string format in the request body.)
+
+```http
+GET /parties/lookupObject
 ```

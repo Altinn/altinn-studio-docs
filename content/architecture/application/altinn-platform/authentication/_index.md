@@ -10,7 +10,7 @@ The Authentication component is an a ASP.Net Core MVC Application exposing REST-
 
 The solution is currently available at http://platform.altinn.cloud/authentication/api/v1. 
 
-Resources: authentication 
+Resources: authentication
 
 ## /authentication
 
@@ -18,5 +18,10 @@ The authentication resource enables authenticating a user and redirecting it to 
 If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
 
 ```http
-/authentication?goto={url}
+GET /authentication?goto={url}
+```
+
+Refresh a valid JwtToken:
+```http
+GET /refresh
 ```
