@@ -542,8 +542,7 @@ For an ongoing process this process state can look like the json below. It indic
 ```json
 {
         "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": "Data_1",
-        "taskInfo": {
+        "currentTask": {
             "sequenceNumber": 2,
             "started": "2019-10-10T32:22.00Z",
             "processElementId": "Data_1",
