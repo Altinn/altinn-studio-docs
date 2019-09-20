@@ -6612,7 +6612,12 @@ if(host != "localhost")
 <p>The authentication resource enables authenticating a user and redirecting it to another Altinn-url.
 If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.</p>
 
-<pre><code class="language-http">/authentication?goto={url}
+<pre><code class="language-http">GET /authentication?goto={url}
+</code></pre>
+
+<p>Refresh a valid JwtToken:</p>
+
+<pre><code class="language-http">GET /refresh
 </code></pre>
 
 

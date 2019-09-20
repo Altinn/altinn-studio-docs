@@ -6808,26 +6808,6 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>deletedDateTime</td>
-<td>dateTime?</td>
-<td>date the instance was deleted</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
-<td>archivedDateTime</td>
-<td>dateTime?</td>
-<td>date the instance was archived</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
 <td>presentationField</td>
 <td>string</td>
 <td>text shown in inbox</td>
@@ -6858,8 +6838,18 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>appOwnerStatus</td>
-<td>AppOwnerStatus</td>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs">instanceState</a></td>
+<td>InstanceState</td>
+<td>data on delete and archive state of the instance</td>
+<td></td>
+<td></td>
+<td>U</td>
+<td>C</td>
+</tr>
+
+<tr>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs">appOwnerState</a></td>
+<td>AppOwnerState</td>
 <td>status from app owner</td>
 <td></td>
 <td>CU</td>
@@ -6869,7 +6859,7 @@ An appId refers to the application information element which defines the metadat
 
 <tr>
 <td>data</td>
-<td>DataElement[]</td>
+<td>List<DataElement></td>
 <td>data elements</td>
 <td></td>
 <td></td>

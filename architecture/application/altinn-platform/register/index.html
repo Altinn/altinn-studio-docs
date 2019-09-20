@@ -6714,95 +6714,6 @@ if(host != "localhost")
 <pre><code class="language-http">GET /organizations/{orgNr}
 </code></pre>
 
-<h2 id="parties">/parties</h2>
-
-<h3 id="party-type">Party type</h3>
-
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>PartyId</td>
-<td>int</td>
-<td>the party ID</td>
-</tr>
-
-<tr>
-<td>PartyTypeName</td>
-<td>PartyType</td>
-<td>the type of the party; organization or person</td>
-</tr>
-
-<tr>
-<td>OrgNumber</td>
-<td>string</td>
-<td>the organization number. Empty string if party is person.</td>
-</tr>
-
-<tr>
-<td>SSN</td>
-<td>string</td>
-<td>the social security number. Empty string if party is organization.</td>
-</tr>
-
-<tr>
-<td>UnitType</td>
-<td>string</td>
-<td></td>
-</tr>
-
-<tr>
-<td>Name</td>
-<td>string</td>
-<td>the full name of the person or name of the organization</td>
-</tr>
-
-<tr>
-<td>IsDeleted</td>
-<td>bool</td>
-<td>true is the organization has been deleted from the registery</td>
-</tr>
-
-<tr>
-<td>OnlyHiearhyElementWithNoAccess</td>
-<td>bool</td>
-<td>true if party is a parent unit with no access in current context</td>
-</tr>
-
-<tr>
-<td>Person</td>
-<td>Person</td>
-<td>the person the party represents</td>
-</tr>
-
-<tr>
-<td>Organization</td>
-<td>Organization</td>
-<td>the organization the party represents</td>
-</tr>
-
-<tr>
-<td>ChildParties</td>
-<td>List<Party></td>
-<td>List of sub units if the party is an organization</td>
-</tr>
-</tbody>
-</table>
-
-<h3 id="operations-1">Operations</h3>
-
-<p>Get information about a party:</p>
-
-<pre><code class="language-http">GET /parties/{partyId}
-</code></pre>
-
 <h2 id="persons">/persons</h2>
 
 <h3 id="person-type">Person type</h3>
@@ -6915,12 +6826,113 @@ if(host != "localhost")
 </tbody>
 </table>
 
-<h3 id="operations-2">Operations</h3>
+<h3 id="operations-1">Operations</h3>
 
 <p>Get information about a person:
 Send a GET-request with the persons SSN contained in the request body to</p>
 
 <pre><code class="language-http">GET /persons
+</code></pre>
+
+<h2 id="parties">/parties</h2>
+
+<h3 id="party-type">Party type</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>PartyId</td>
+<td>int</td>
+<td>the party ID</td>
+</tr>
+
+<tr>
+<td>PartyTypeName</td>
+<td>PartyType</td>
+<td>the type of the party; organization or person</td>
+</tr>
+
+<tr>
+<td>OrgNumber</td>
+<td>string</td>
+<td>the organization number. Empty string if party is person.</td>
+</tr>
+
+<tr>
+<td>SSN</td>
+<td>string</td>
+<td>the social security number. Empty string if party is organization.</td>
+</tr>
+
+<tr>
+<td>UnitType</td>
+<td>string</td>
+<td></td>
+</tr>
+
+<tr>
+<td>Name</td>
+<td>string</td>
+<td>the full name of the person or name of the organization</td>
+</tr>
+
+<tr>
+<td>IsDeleted</td>
+<td>bool</td>
+<td>true is the organization has been deleted from the registery</td>
+</tr>
+
+<tr>
+<td>OnlyHiearhyElementWithNoAccess</td>
+<td>bool</td>
+<td>true if party is a parent unit with no access in current context</td>
+</tr>
+
+<tr>
+<td>Person</td>
+<td>Person</td>
+<td>the person the party represents</td>
+</tr>
+
+<tr>
+<td>Organization</td>
+<td>Organization</td>
+<td>the organization the party represents</td>
+</tr>
+
+<tr>
+<td>ChildParties</td>
+<td>List<Party></td>
+<td>List of sub units if the party is an organization</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="operations-2">Operations</h3>
+
+<p>Get information about a party:</p>
+
+<pre><code class="language-http">GET /parties/{partyId}
+</code></pre>
+
+<p>Lookup a party id based on social secutiry number or organisation number:
+(SSN or OrgNumber should be included in string format in the request body.)</p>
+
+<pre><code class="language-http">GET /parties/lookup
+</code></pre>
+
+<p>Lookup a party based on social secutiry number or organisation number:
+(SSN or OrgNumber should be included in string format in the request body.)</p>
+
+<pre><code class="language-http">GET /parties/lookupObject
 </code></pre>
 
 
