@@ -9,8 +9,6 @@ alwaysopen: false
 
 {{%notice warning%}}
 This is work-in-progress. This is a proposed API which most likely is going to change. 
-- HAL description is missing
-- Large data elements/attachement examples are missing
 
 {{% /notice%}}
 
@@ -81,7 +79,7 @@ The client specify the instance owner and can set a number of the metadata field
 
 ```json
 {
-    "instanceOwnerLookup": { "personNumber": "12247918309" | "organisationNumber": "123456789" | "userName": "xyz" },
+    "instanceOwnerLookup": { "personNumber": "12247918309" | "organisationNumber": "123456789" },
     "labels" : [ "gr", "x2" ],
     "appId" : "org/app",
     "dueDateTime": "2019-06-01T12:00:00Z",
@@ -136,8 +134,17 @@ This call will return the instance metadata record that was created. A unique id
     "visibleDateTime": "2019-05-20T00:00:00Z",
     "presentationField": "Arbeidsmelding",
     "process": {
-        "currentTask": "FormFilling_1",
-        "isComplete": false
+        "started": "2019-09-25T09:32:44.20Z",
+        "currentTask": {
+            "started": "2019-10-10T32:22.00Z",
+            "processElementId": "Data_1",
+            "name": "Fyll ut",
+            "altinnTaskType": "data",
+            "validated": {
+                "timestamp": "2019-10-04T12:00.00Z",
+                "canCompleteTask": true
+            }
+        }
     },
     "instanceStatus": {
         "isArchived": false,
@@ -406,15 +413,17 @@ Example of event data.
 
 ### Application events (for application owners)
 
+> **WARNING**: This section will be redesigned
+
 Selected instance events. Created, first read, change process state. Optinally specified by application developer.
 
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask.id=Submit_1
+GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask=Submit_1
 ```
 
-Query result:
+Query result: 
 
 ```json
 [
@@ -439,7 +448,7 @@ Query result:
             }
         ],
         "eventType": "ProcessStateChange",
-        "previousTask": "FormFilling_1",
+        "previousTask": "Data_1",
         "currentTask": "Submit_1",
         "userId": "userX"
     }
@@ -484,7 +493,7 @@ Instantiate an app with data as multipart content (stream). The app creates an i
 
 ## Process
 
-Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which sets the current task to the first task in the process (selects a start event which points to a task).
+Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and creates a current task object to holde the process state.
 
 ![Flowchart for MVP process](mvp-process.png "MVP Process")
 
@@ -495,7 +504,7 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
     <bpmn2:startEvent id="StartEvent_1">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="FormFilling_1" name="Fyll ut" altinn:tasktype="formfilling">
+    <bpmn2:task id="Data_1" name="Fyll ut" altinn:tasktype="data">
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
     </bpmn2:task>
@@ -506,11 +515,21 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
     <bpmn2:endEvent id="EndEvent_1">
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="FormFilling_1" />
-    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="FormFilling_1" targetRef="Submit_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="data_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Data_1" targetRef="Submit_1" />
     <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Submit_1" targetRef="EndEvent_1" />
   </bpmn2:process>
 ```
+
+#### Altinn specific task types
+
+Application developers can in their BPMN Definition specify some altinn specific task types, see ```altinn:tasktype```, which signify the behaviour of the task. So far we have defined the following:
+
+- *data* - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms
+- *submit* - user is asked if he should submit the information which has been filled in on previous tasks
+- *payment* - user is asked to pay a specific amount
+- *signing* - user is asked to provide a digital signature
+- *external* - task is handled by extern entity, user must wait until they have completed the task.
 
 ### Get process state of a specific instance
 
@@ -518,13 +537,139 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
 
-Returns:
+For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *Data_1*. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.
 
 ```json
 {
-    "currentTask": "FormFilling_1",
-    "isComplete": false
+        "started": "2019-09-25T09:32:44.20Z",
+        "currentTask": "Data_1",
+        "taskInfo": {
+            "sequenceNumber": 2,
+            "started": "2019-10-10T32:22.00Z",
+            "processElementId": "Data_1",
+            "name": "Fyll ut",
+            "altinnTaskType": "data",
+            "validated": {
+                "timestamp": "2019-10-04T12:00.00Z",
+                "canCompleteTask": true
+            }
+        }
+    },
+```
+
+For an ended process the following will be returned:
+
+```json
+{
+    "sequenceNumber": 5,
+    "started": "2019-09-25T09:32:44.20Z",
+    "ended": "2019-10-10T14:01:22.034Z",
+    "endEvent": "EndEvent_1"
 }
+```
+
+### Process events
+
+The system will generate a number of process related events, which can be found in the instances event history.
+
+- Start Event
+- StartTask Event
+- EndTask Event
+- End Event
+
+#### Start Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:Start",
+    "info": {
+        "sequenceNumber": 1,
+        "processElementId": "StartEvent_1",
+    },
+    "createdDateTime": "2019-10-10T14:01:22.034Z",
+}
+```
+
+#### StartTask Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:StartTask",
+    "info": {
+        "sequenceNumber": 2,
+        "processElementId": "Data_1",
+        "source": 1
+    },
+    "createdDateTime": "2019-10-01T13:22.01Z",
+}
+```
+
+#### EndTask Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:EndTask",
+    "info": {
+        "sequenceNumber": 2,
+        "processElementId": "Data_1"
+    }
+    "createdDateTime": "2019-10-05T01:11.33Z",
+}
+```
+
+#### End Event
+
+```json
+{
+    "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
+    "eventType": "process:EndEvent",
+    "info": {
+        "sequenceNumber": 3,
+        "processElementId": "EndEvent_1",
+        "source": 2
+    },
+    "createdDateTime": "2019-10-05T08:15:23.544Z",
+}
+```
+
+#### Get process history of a specific instance
+
+Based on the process events the history of the instance's process is generated. The following illustrates an ended process:
+
+```http
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/history
+```
+
+```json
+[{
+    "sequenceNumber": 1,
+    "type": "process:startEvent",
+    "processElementId": "StartEvent_1",
+    "occured": "2019-10-10T14:01:22.034Z",
+},
+{
+    "sequenceNumber": 2,
+    "type": "process:task",
+    "processElementId": "Data_1",
+    "started": "2019-10-01T13:22.01Z",
+    "ended": "2019-10-05T01:11.33Z",
+},
+{
+    "sequenceNumber": 3,
+    "type": "process:task",
+    "processElementId": "Submit_1",
+    "started": "2019-10-05T08:14:33.232Z",
+    "ended": "2019-10-05T08:15:23.543Z"
+},
+{
+    "sequenceNumber": 4,
+    "type": "process:endEvent",
+    "processElementId": "EndEvent_1",
+    "occured": "2019-10-05T08:15:23.544Z"
+}]
 ```
 
 <!-- OLD Get Current process state
@@ -546,7 +691,7 @@ http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f
 Alternatively one can ask the app to go to the next task. The application will try to close the current task and attempt to start the next task. 
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
 ```
 
 ### Complete the process
@@ -565,10 +710,10 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
 
 ### Get the next tasks in a process
 
-Returns an list of the next tasks that can be reached from the current task.
+Returns an list of the next tasks/events that can be reached from the current task.
 
 ```http
-GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?nextTasks
+GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
 ```
 
 ### Start a task
@@ -576,7 +721,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process?next
 Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/nextTask?id=Submit_1
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Submit_1
 ```
 
 ## Application resources
@@ -600,7 +745,7 @@ GET {appPath}
     "createdDateTime": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" },
-    "processId": "mvp1",
+    "processId": "twoformsAndsubmit",
     "validFrom": "2019-04-01T12:14:22Z",
     "validTo": null,
     "maxSize": -1,
@@ -613,10 +758,9 @@ GET {appPath}
                 "fileName": "boat.json-schema",
                 "schemaUrl": "/applications/test/sailor/schemas/boatdata"
             },
+            "task": "Data_1",
             "maxSize": 200000,
             "maxCount": 1,
-            "shouldSign": true,
-            "shouldEncrypt": true
         },
         {
             "id": "crewlist",
@@ -625,18 +769,16 @@ GET {appPath}
                 "fileName": "crew.xsd",
                 "schemaUrl": "/applications/test/sailor/schemas/crewlist",
             },
+            "task": "Data_2",
             "maxSize": -1,
             "maxCount": 3,
-            "shouldSign": false,
-            "shouldEncrypt": false
         },
         {
             "id": "certificate",
             "allowedContentType": ["application/pdf"],
+            "task": "Data_1",
             "maxSize": -1,
             "maxCount": 1,
-            "shouldSign": false,
-            "shouldEncrypt": false
         }
     ]
 }

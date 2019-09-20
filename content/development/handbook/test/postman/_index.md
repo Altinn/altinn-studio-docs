@@ -18,4 +18,4 @@ Several of the exposed APIs requires various cookies, for instance authenticatio
 The two cookies AltinnStudioDesigner and AltinnStudioRuntime works as auth against the Designer and Runtime API, so if you are targeting a Designer API you should include the AltinnStudioDesigner cookie, along with the i_like_gitea cookie, and if you are targeting a runtime API the AltinnStudioRuntime cookie should be included.
 Cookies are easily added to the postman requests under the slightly hidden cookies setting, see:
 
-![Postman Cookies](postman-cookies.PNG?width=800)
+![Postman Cookies](postman-cookies.PNG "Postman cookies")
