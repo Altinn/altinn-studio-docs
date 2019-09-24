@@ -2,13 +2,13 @@
 title: Altinn Platform - Storage
 linktitle: Storage
 description: Description of the application architecture for Storage component
-tags: [architecture, solution]
+tags: [architecture, solution, platform]
 weight: 100
 ---
 
 The Storage component exposes a REST-API to Altinn Apps.
 
-Storage provides persistent storage service for applications in Altinn. It is mostly used by the applications to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, element types and events. 
+Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, element types and events. It is also intended to be used by application owners and other clients to read data.
 
 Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxInstance
 
@@ -18,7 +18,7 @@ Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxIns
 
 ## Instance
 
-An application instance is created when a instance owner (reportee) starts a workflow in an Altinn application.
+An application instance is created when a instance owner (reportee) starts a process in an Altinn application.
 An instance replaces Altinn2 Message. 
 An instanceOwner is a person/company that reports information via Altinn.
 An appId refers to the application information element which defines the metadata about the application.
@@ -36,15 +36,28 @@ An appId refers to the application information element which defines the metadat
     "lastChangedBy": "user34",
     "dueDateTime": null,
     "visibleDateTime": null,
-    "presentationField": "Færder påmelding 2019",
-    "workflow": {
-        "currentStep": "FormFilling",
-        "isComplete": false
+    "presentationField": { 
+        "nb": "Færder påmelding 2019",
+        "en": "Fearder Race Registration 2019"
+    },
+    "process":  "process": {
+        "started": "2019-09-25T09:32:44.20Z",
+        "currentTask": {
+            "started": "2019-10-10T32:22.00Z",
+            "processElementId": "Data_1",
+            "name": "Fyll ut",
+            "altinnTaskType": "data",
+            "validated": {
+                "timestamp": "2019-10-04T12:00.00Z",
+                "canCompleteTask": true
+            }
+        }
     },
     "userStatus": {
         "isSoftDeleted": false,
-        "isArchived": false,
-        "isMarkedForHardDelete": false
+        "isArchived": true,
+        "archivedDateTime": "2019-12-20T20:30:33.233Z",
+        "isMarkedForHardDelete": false,
     },
     "appOwnerStatus": {
         "message": { "nb": "field 32 is incorrect", "at": "2018-12-22"}
@@ -95,13 +108,12 @@ lastChangedDateTime | dateTime? | last changed time | | | | C
 lastChangedBy | string | user id | | | | C
 dueDateTime | dateTime? | deadline for submit| | CU
 visibleDateTime | dateTime? | when visible for user | | CU |
-deletedDateTime | dateTime? | date the instance was deleted |
-archivedDateTime | dateTime? | date the instance was archived |
 presentationField | string | text shown in inbox | | CU | U
-workflow  | WorkflowState | workflow state info | | | U | (U)
+process  | WorkflowState | process state info | | | U | (U)
 userStatus | InboxStatus | statuses that the user can change  | U
-appOwnerStatus | AppOwnerStatus | status from app owner | | CU | |
-data | DataElement[] | data elements | | | CU
+[instanceState](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs) | InstanceState | data on delete and archive state of the instance | | |U|C|
+[appOwnerState](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs) | AppOwnerState  | status from app owner | | CU | |
+data | List<DataElement> | data elements | | | CU
 
 
 C - creation time, U - can be updated
@@ -125,13 +137,13 @@ GET /instances/{instanceId}
 Get (query) all instances that is instance owner has
 
 ```http
-GET /instances/{instanceOwnerId}?[labels=x,y,z]
+GET /instances/{instanceOwnerId}
 ```
 
 Query all instances of a particular application that is completed
 
 ```http
-GET /instances?appId={appId}&workflow.isCompleted=true
+GET /instances?appId={appId}&process.isCompleted=true
 ```
 
 Query all instances of an applicatio owner's organisation
@@ -174,20 +186,22 @@ PUT /instances/{instanceId}/data/{dataId}
 Get a predefined PDF of a data element, if it exists.
 
 ```http
-GET /instances/{instanceId}/data/{dataId}/pdf
+Accept: application/pdf
+GET /instances/{instanceId}/data/{dataId}
 ```
 
 Update a predefined PDF for a given data element
 
 ```http
-PUT /instances/{instanceId}/data/{dataId}/pdf
+ContentType: application/pdf
+PUT /instances/{instanceId}/data/{dataId}
 ```
 
 ## Application
 
 Application metadata used to validate data element types in instances. And to provide application events.
 
-Resource: http://platform.altinn.no/applications/test/sailor
+Resource: /applications/test/sailor
 
 ```json
 {
@@ -198,15 +212,16 @@ Resource: http://platform.altinn.no/applications/test/sailor
     "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" }, 
-    "workflowId": "standard",
+    "processId": "standard",
     "validFrom": "2019-04-01T12:14:22+01:00",
     "validTo": null,
-    "maxSize": -1,
+    "maxSize": null,
     "elementTypes": [
         {
             "id": "boatdata",
             "description": {"nb": "Båtdata", "en": "Boat data"},
             "allowedContentType": ["application/json"],
+            "appLogic": true,
             "schema": {
                 "fileName": "boat.json-schema",
                 "schemaUrl": "/applications/test/sailor/schemas/boatdata"
@@ -220,12 +235,13 @@ Resource: http://platform.altinn.no/applications/test/sailor
         {
             "id": "crewlist",
             "allowedContentType": ["application/xml"],
+            "appLogic": true,
             "schema": {
                 "fileName": "crew.xsd",
                 "schemaUrl": "/applications/test/sailor/schemas/crewlist",
             },
             "canRegisterPdf": true,
-            "maxSize": -1,
+            "maxSize": null,
             "maxCount": 3,
             "shouldSign": false,
             "shouldEncrypt": false
@@ -233,7 +249,8 @@ Resource: http://platform.altinn.no/applications/test/sailor
         {
             "id": "certificate",
             "allowedContentType": ["application/pdf"],
-            "maxSize": -1,
+            "appLogic": false,
+            "maxSize": null,
             "maxCount": 1,
             "shouldSign": false,
             "shouldEncrypt": false
@@ -248,7 +265,7 @@ Resource: http://platform.altinn.no/applications/test/sailor
 | --------- | ---- | ----------- |
 id | string | application id 
 versionId | string | release or commit id 
-workflowId | string | application workflow id
+processId | string | application process id
 title | LanguageString[] | application title in different languages
 validFrom | dateTime | when the application is valid from
 validTo | dateTime? | when the application is valid to 
@@ -276,8 +293,9 @@ GET /applications/{appId}/events
 ```
 
 ## InstanceEvent
+
 User actions on an instance trigger instance events such as _created_, _saved_, _submitted, _deleted_, and _undeleted_.
-The events are associated with an instance, a user and an instance owner adn generated by the application and stored in CosmosDB.
+The events are associated with an instance, a user and an instance owner and generated by the application and stored in CosmosDB.
 
 Format of the JSON object stored in the database.
 
@@ -290,7 +308,6 @@ Format of the JSON object stored in the database.
     "instanceOwnerId": "60238",
     "userId": 3,
     "authenticationLevel": 1,
-    "workflowStep": "8",
     "enduserSystemId": 2
 }
 ```
@@ -307,7 +324,7 @@ Format of the JSON object stored in the database.
 | UserId | int? | the user who triggered the event |  
 | AuthenticationLevel | int | the authentication level for the user or system that triggered the event |  
 | EndUserSystemId | int? | the end user system that triggered the event |  
-| WorkflowStep | string | the workflow step during which the event occured |  
+| WorkflowStep | string | the process step during which the event occured |  
 
 ### Operations
 
