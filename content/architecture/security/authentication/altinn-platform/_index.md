@@ -33,8 +33,10 @@ as the bearer of information about users and systems.
 The JWTToken is created in an asymmetric process where the Authentication component will use a private key from a certificate to sign the token, and the different apps and components that needs
 to verify it will use the public key. See [JWT Format](jwt-format) for details on the algorithm used.
 
+The application architecture below show how JWT flows between the different parts of the solutions.
+
 {{%excerpt%}}
-<object data="/architecture/security/authentication/altinn-platform/authentication_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/architecture/application/altinn-platform/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 ### End user using web frontend
