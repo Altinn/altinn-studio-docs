@@ -51,6 +51,9 @@ Altinn Studio have an open backlog on GitHub and the code is open source. Everyb
   </div>
 </div>
 
+
+![Altinn as lego](altinn-lego-platform.jpg "Building the new Altinn. One brick at the time...")
+
 [Altinn Studio]: https://altinn.studio
 [open backlog]: https://github.com/altinn/altinn-studio/issues/
 [milestones]: https://github.com/altinn/altinn-studio/milestones?direction=asc&sort=due_date&state=open

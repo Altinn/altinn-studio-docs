@@ -15,8 +15,21 @@ Resources: users
 ## /users
 A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.
 
+### User type
+| Attribute | Type | Description |
+| --------- | ---- | ----------- |
+| UserId | int | user ID |
+| UserName | string | username set by the user|
+| PhoneNumber | string | phone number |
+| Email | string  | email address|
+| PartyId | int | party ID |
+| [Party](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/ServiceLibrary/Models/Party.cs) | Party  | party object that represents the user |
+| [UserType](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/ServiceLibrary/Enums/UserType.cs)  | UserType | user type |
+| [ProfileSettingPreference](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/ServiceLibrary/Models/ProfileSettingPreference.cs) |  ProfileSettingPreference |  object containing the users profile setting preferences |
+
+### Operations
 Get information about a user:
 
 ```http
-/users/{userId}
+GET /users/{userId}
 ```
