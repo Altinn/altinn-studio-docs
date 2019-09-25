@@ -44,7 +44,7 @@ An appId refers to the application information element which defines the metadat
         "started": "2019-09-25T09:32:44.20Z",
         "currentTask": {
             "started": "2019-10-10T32:22.00Z",
-            "processElementId": "Data_1",
+            "elementId": "Data_1",
             "name": "Fyll ut",
             "altinnTaskType": "data",
             "validated": {
