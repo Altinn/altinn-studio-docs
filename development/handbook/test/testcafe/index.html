@@ -5479,8 +5479,55 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/testcafe/testcafe-howto/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/testcafe/testcafe-howto/">
+        <span>Testcafe - Tests</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6601,84 +6648,67 @@ if(host != "localhost")
 
 
 
-<p>This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to writing automation code with java script and debug of the tests.</p>
+<p>This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to run tests and pipeline information.</p>
 
 <h3 id="clone-project-in-visual-studio-code">Clone project in Visual Studio Code</h3>
 
-<pre><code>1.  Create account in github.com
-2.  Get write access to AltinnStudio - https://github.com/Altinn/altinn-studio
-3.  Use windows 10 image with docker
-4.  Create a folder - C:\Altinn Studio
-5.  Open Visual Studio Code
-6.  Ctrl + Shift + P -&gt; Create New Integrated Terminal
-7.  Terminal opens down of Visual Studio Code
-8.  Navigate to the folder create in step 4 using “cd”
-9.  Clone the project- git clone https://github.com/Altinn/altinn-studio.git
-10. File -&gt; Add Folder to Workspace -&gt; Select the cloned project: C:\Altinn Studio
-11. Checkout branch: testcafe-UI-tests
-</code></pre>
+<ol>
+<li>Create account in github.com</li>
+<li>Get write access to AltinnStudio - <a href="https://github.com/Altinn/altinn-studio">https://github.com/Altinn/altinn-studio</a></li>
+<li>Use windows 10 image with docker.</li>
+<li>Create a folder - C:\Repos</li>
+<li>Open Visual Studio Code</li>
+<li>Ctrl + Shift + P -&gt; Create New Integrated Terminal</li>
+<li>Terminal opens down of Visual Studio Code.</li>
+<li>Navigate to the folder create in step 4 using “cd”</li>
+<li>Clone the project- git clone <a href="https://github.com/Altinn/altinn-studio.git">https://github.com/Altinn/altinn-studio.git</a></li>
+<li>File -&gt; Add Folder to Workspace -&gt; Select the cloned project: C:\Altinn Studio</li>
+<li>Checkout branch: master</li>
+</ol>
 
 <p>Code for <a href="https://github.com/Altinn/altinn-studio/tree/master/src/test/Testcafe">Testcafe tests</a> in altinn.studio</p>
 
 <h3 id="install-tools">Install Tools</h3>
 
-<pre><code>1.  Open PowerShell -&gt; Verify Node and Npm version
-        npm -v (6.9.0)
-        node -v (9.5.0)
-2.  Install npm
-        a. npm install -g npm
-3.  Install npm in the Altinn Studio project
-        a.  Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe
-        b.  Run command – npm install
-4.  Ensure that the environment variables has the path of npm
-        a.  C:\Users\UserName\AppData\Roaming\npm
-5.  Navigate to the folder of the testcafe tests in command line (altinn-studio\src\test\Testcafe)
-        a. Run command - npm install testcafe
+<pre><code>    1.  Open PowerShell -&gt; Verify Node and Npm version
+            npm -v (6.9.0)
+            node -v (9.5.0)
+    2.  Install npm
+            a. npm install -g npm
+    3.  Install npm in the Altinn Studio project
+            a.  Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe
+            b.  Run command – npm install
+    4.  Ensure that the environment variables has the path of npm
+            a.  C:\Users\UserName\AppData\Roaming\npm
+    5.  Navigate to the folder of the testcafe tests in command line (altinn-studio\src\test\Testcafe)
+            a. Run command - npm install testcafe
 </code></pre>
 
-<h3 id="automation">Automation</h3>
+<h3 id="run-a-test-locally-from-powershell">Run a Test Locally from PowerShell</h3>
 
-<pre><code>1.  config.json has the URLs
-2.  Use of objects from POM
-    a.  Import page – import page_name from ‘path to the file’
-    b.  Declare an object for the page - let object name = new page_name();
-3.  To debug  
-    a.  rename the test to “test.only”
-    b.  in testRunner.js
-        i.  Remove “headless” from browsers
-        ii. Reduce the speed to 0.8 (percentage)
-        iii. debugOnFail : True
-        iv. stopOnFirstFail: True
-    c.  When test fails check for logs in junit.xml
-4.  Selectors
-    a.  Id – starts with ‘#’
-    b.  Class – starts with ‘.’
-    c.  Html -&gt; “ul &gt; li”
-5.  test.skip – to skip a test in a test run (The results for the tests goes to Others)
-</code></pre>
+<ol>
+<li>Open testRunner.js in Visual Studio Code</li>
+<li>Set the browser as: Chrome</li>
+<li>Speed controls the speed of the execution</li>
+<li>Open a test fixture .js file (e.x., designer_tests -&gt; navigation-tests.js)</li>
+<li>‘.only’ can be used to run a specific fixture or a test case</li>
+<li>Save the project</li>
+<li>Open PowerShell and navigate to C:\Altinn Studio\altinn-studio\src\test\Testcafe</li>
+<li>Run the command – ‘node .\testRunner.js &ndash;env=dev’</li>
+</ol>
 
-<p><a href="https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors/">More about Selectors</a></p>
+<h3 id="branching">Branching</h3>
 
-<h3 id="run-a-test-from-powershell">Run a Test from PowerShell</h3>
+<ol>
+<li>Create a new branch with addition or changing of a new test from master.</li>
+<li>Do necessary changes and commit the same to the new branch.</li>
+<li>Create a new pull request from Github with the commits created.</li>
+<li>Once PR is approved, merge the branch to master and delete the branch.</li>
+</ol>
 
-<pre><code>1.  Open testRunner.js in Visual Studio Code
-2.  Remove ‘headless’ from the browsers
-3.  Speed controls the speed of the execution
-4.  Open a test fixture .js file (e.x., designer_tests -&gt; navigation-tests.js)
-5.  ‘.only’ can be used to run a specific fixture or a test case
-6.  Save the project
-7.  Open PowerShell and navigate to C:\Altinn Studio\altinn-studio\src\test\Testcafe
-8.  Run the command – ‘node .\testRunner.js --env=dev’
-</code></pre>
+<h3 id="test-cafe-pipeline-in-azure-devops">Test cafe pipeline in Azure Devops</h3>
 
-<h3 id="debug-tests">Debug Tests</h3>
-
-<pre><code>Use Chrome Developer Tools for inspecting an element and working on the tests. Testcafe continues to work towards implementing a method to debug an application interactively. Refer: https://github.com/DevExpress/testcafe/issues/3244
-</code></pre>
-
-<h3 id="pipeline-in-azure-devops">Pipeline in Azure Devops</h3>
-
-<p><a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=5">Azure Devops Pipeline</a></p>
+<p><a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=25">Azure Devops Pipeline</a></p>
 
 
 <footer class=" footline" >
@@ -9473,11 +9503,10 @@ if(host != "localhost")
           
                               
                               
+                                  
+                              
                               
           
-                              
-                      
-                  
                               
                                   
                       
@@ -9486,6 +9515,25 @@ if(host != "localhost")
                               
                                   
                                   
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
                               
                           
                           
@@ -10019,7 +10067,7 @@ if(host != "localhost")
                       <a class="nav nav-prev" href="/development/handbook/test/test-strategy/" title="Test Strategy"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/development/handbook/test/unit-testing/" title="Unit testing" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/development/handbook/test/testcafe/testcafe-howto/" title="Testcafe - Tests" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 

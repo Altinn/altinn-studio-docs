@@ -5479,8 +5479,55 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/testcafe/testcafe-howto/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/testcafe/testcafe-howto/">
+        <span>Testcafe - Tests</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6617,7 +6664,31 @@ if(host != "localhost")
 <p>The two cookies AltinnStudioDesigner and AltinnStudioRuntime works as auth against the Designer and Runtime API, so if you are targeting a Designer API you should include the AltinnStudioDesigner cookie, along with the i_like_gitea cookie, and if you are targeting a runtime API the AltinnStudioRuntime cookie should be included.
 Cookies are easily added to the postman requests under the slightly hidden cookies setting, see:</p>
 
-<figure><a href="postman-cookies.PNG"><img src="postman-cookies.PNG" alt="Postman Cookies" title="Postman cookies" /></a><figcaption><h4>Postman cookies</h4></figcaption></figure>
+<p><img src="postman-cookies.PNG?width=800" alt="Postman Cookies" /></p>
+
+<h3 id="set-up-postman-tests">Set up postman tests</h3>
+
+<ol>
+<li>Download and install postman native app.</li>
+<li>Import the files from src/test/Postman/Collection to the collections area in Postman.</li>
+<li>Import the environment .json file from src/test/Postman to the environments area in Postman.</li>
+</ol>
+
+<h3 id="how-to-write-postman-tests">How to write postman tests</h3>
+
+<ol>
+<li>Find the area/collection where the new test has to be added.</li>
+<li>Add a new request of type GET/POST/PUT/DELETE under the right folder.</li>
+<li>Provide the endpoint, input for the request.</li>
+<li>Make sure the variable values are accessed from environments file.</li>
+<li>Write the tests as a javascript code in the &lsquo;tests&rsquo; section of a request.
+<a href="https://learning.getpostman.com/docs/postman/scripts/test_scripts/">More about test scrips</a></li>
+<li>Tests should have one test to verify valid response code and another test to validate the content of the response.</li>
+</ol>
+
+<h3 id="postman-test-pipeline-in-azure-devops">Postman test pipeline in Azure Devops</h3>
+
+<p><a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=54">Azure Devops Pipeline</a></p>
 
 
 <footer class=" footline" >
@@ -9412,8 +9483,26 @@ Cookies are easily added to the postman requests under the slightly hidden cooki
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

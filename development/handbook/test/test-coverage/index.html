@@ -5479,8 +5479,55 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/testcafe/testcafe-howto/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/testcafe/testcafe-howto/">
+        <span>Testcafe - Tests</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6601,304 +6648,372 @@ if(host != "localhost")
 
 
 
-<h3 id="automation-tests">Automation tests</h3>
+<h3 id="testcafe-tests">Testcafe tests</h3>
 
 <table>
 <thead>
 <tr>
+<th align="left">Sl.No.</th>
 <th align="left">Testcase name</th>
-<th align="center">Test framework</th>
 <th align="center">Area of Solution</th>
-<th align="center">skipped</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
+<td align="left">1.</td>
 <td align="left">Login to altinn studio</td>
-<td align="center">testcafe</td>
 <td align="center">All areas</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Create a new app</td>
-<td align="center">testcafe</td>
-<td align="center">dashboard</td>
-<td align="center">yes</td>
-</tr>
-
-<tr>
+<td align="left">2.</td>
 <td align="left">Cannot create new app, as app name already exists</td>
-<td align="center">testcafe</td>
 <td align="center">dashboard</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">3.</td>
 <td align="left">Create a new app</td>
-<td align="center">testcafe</td>
 <td align="center">dashboard</td>
-<td align="center">yes</td>
 </tr>
 
 <tr>
+<td align="left">4.</td>
 <td align="left">Search for only my users apps</td>
-<td align="center">testcafe</td>
 <td align="center">dashboard</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">filter away a users apps by unselecting all bubbles</td>
-<td align="center">testcafe</td>
-<td align="center">dashboard</td>
-<td align="center">yes</td>
+<td align="left">5.</td>
+<td align="left">Happy case; deploy an app to a test environment after a change</td>
+<td align="center">Deploy to test</td>
 </tr>
 
 <tr>
-<td align="left">deploy an app to a test environment after a change</td>
-<td align="center">testcafe</td>
-<td align="center">deploy to test</td>
-<td align="center">no</td>
+<td align="left">6.</td>
+<td align="left">Deploy an app to a test environment after a change</td>
+<td align="center">Deploy to test</td>
 </tr>
 
 <tr>
+<td align="left">7.</td>
 <td align="left">App cannot deploy due to compilation error</td>
-<td align="center">testcafe</td>
-<td align="center">deploy to test</td>
-<td align="center">no</td>
+<td align="center">Deploy to test</td>
 </tr>
 
 <tr>
+<td align="left">8.</td>
 <td align="left">App cannot be deployed due to local changes</td>
-<td align="center">testcafe</td>
-<td align="center">deploy to test</td>
-<td align="center">no</td>
+<td align="center">Deploy to test</td>
 </tr>
 
 <tr>
+<td align="left">9.</td>
 <td align="left">User does not have write access to app, and cannot deploy</td>
-<td align="center">testcafe</td>
-<td align="center">deploy to test</td>
-<td align="center">no</td>
+<td align="center">Deploy to test</td>
 </tr>
 
 <tr>
+<td align="left">10.</td>
 <td align="left">Accessibility testing for deployment to test environment page</td>
-<td align="center">testcafe/axe</td>
-<td align="center">deploy to test</td>
-<td align="center">no</td>
+<td align="center">Deploy to test</td>
 </tr>
 
 <tr>
+<td align="left">11.</td>
 <td align="left">Navigating using the &ldquo;about&rdquo; tab</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">12.</td>
 <td align="left">Navigating using the &ldquo;create&rdquo; tab</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">13.</td>
 <td align="left">Navigating using the &ldquo;Language&rdquo; tab</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">14.</td>
 <td align="left">Navigating using the &ldquo;Test&rdquo; tab</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">15.</td>
 <td align="left">Navigating using the &ldquo;Publish&rdquo; tab</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">16.</td>
 <td align="left">Automated accesibility testing for GUI editor</td>
-<td align="center">testcafe/axe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">17.</td>
 <td align="left">Drag and drop of components</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">18.</td>
 <td align="left">Add one of each component to the designer using keyboard</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">19.</td>
 <td align="left">Sync an app with master</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">20.</td>
 <td align="left">&ldquo;About&rdquo; page items, and editing of app data</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Create Repeating groups</td>
-<td align="center">testcafe</td>
-<td align="center">UI-editor</td>
-<td align="center">yes</td>
-</tr>
-
-<tr>
+<td align="left">21.</td>
 <td align="left">Automated accessibility tests for about page</td>
-<td align="center">testcafe</td>
 <td align="center">UI-editor</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">22.</td>
 <td align="left">Instantiate an app in app frontend</td>
-<td align="center">testcafe</td>
 <td align="center">app frontend</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">23.</td>
 <td align="left">Direct link navigation to app frontend</td>
-<td align="center">testcafe</td>
 <td align="center">app frontend</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">24.</td>
 <td align="left">Upload files in app frontend using file component from editor</td>
-<td align="center">testcafe</td>
 <td align="center">app frontend</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Upload a file larger than 500MB in runtime/streaming test</td>
-<td align="center">testcafe</td>
-<td align="center">app frontend</td>
-<td align="center">yes</td>
-</tr>
-
-<tr>
+<td align="left">25.</td>
 <td align="left">Check for correct validations when uploading a file</td>
-<td align="center">testcafe</td>
 <td align="center">app frontend</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">26.</td>
 <td align="left">Read-only components test not editable in app frontend</td>
-<td align="center">testcafe</td>
 <td align="center">app frontend</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">27.</td>
 <td align="left">Fill out, save, and submit a form</td>
-<td align="center">testcafe</td>
 <td align="center">app frontend</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">28.</td>
 <td align="left">conditional rendering of component in runtime</td>
-<td align="center">testcafe</td>
 <td align="center">app frontend</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
+<td align="left">29.</td>
 <td align="left">Automated accesibility testing for app frontend</td>
-<td align="center">testcafe/axe</td>
-<td align="center">app</td>
-<td align="center">no</td>
+<td align="center">app frontend</td>
 </tr>
 
 <tr>
-<td align="left"></td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="left">30.</td>
+<td align="left">Clone modal functionality</td>
+<td align="center">Deploy</td>
 </tr>
 
 <tr>
-<td align="left">Add instance events</td>
-<td align="center">Postman</td>
+<td align="left">31.</td>
+<td align="left">Validation of missing datamodel in clone modal</td>
+<td align="center">Deploy</td>
+</tr>
+
+<tr>
+<td align="left">32.</td>
+<td align="left">Fill out Access control information on an app</td>
+<td align="center">Designer</td>
+</tr>
+
+<tr>
+<td align="left">33.</td>
+<td align="left">Configure and delete rules</td>
+<td align="center">UI-editor</td>
+</tr>
+
+<tr>
+<td align="left">34.</td>
+<td align="left">Links in App Logic menu</td>
+<td align="center">Ui-editor</td>
+</tr>
+
+<tr>
+<td align="left">35.</td>
+<td align="left">Add and delete conditional rendering connections</td>
+<td align="center">UI-editor</td>
+</tr>
+
+<tr>
+<td align="left">36.</td>
+<td align="left">Instantiation of an access controlled app not possible</td>
+<td align="center">Instantiation</td>
+</tr>
+
+<tr>
+<td align="left">37.</td>
+<td align="left">Party Selection page with error message and party list</td>
+<td align="center">Instantiation</td>
+</tr>
+
+<tr>
+<td align="left">38.</td>
+<td align="left">Attachment dropdown and download on receipt page</td>
+<td align="center">App frontend</td>
+</tr>
+
+<tr>
+<td align="left">39.</td>
+<td align="left">Check that cookie for Altinn Party is set correctly</td>
+<td align="center">App frontend</td>
+</tr>
+
+<tr>
+<td align="left">40.</td>
+<td align="left">Receipt page test</td>
+<td align="center">Receipt</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="postman-tests">Postman tests</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">Sl.No.</th>
+<th align="left">Testcase name</th>
+<th align="center">Area of Solution</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">1.</td>
+<td align="left">GET Organization</td>
+<td align="center">Platform-Register</td>
+</tr>
+
+<tr>
+<td align="left">2.</td>
+<td align="left">GET Parties</td>
+<td align="center">Platform-Register</td>
+</tr>
+
+<tr>
+<td align="left">3.</td>
+<td align="left">GET Person information</td>
+<td align="center">Platform-Register</td>
+</tr>
+
+<tr>
+<td align="left">4.</td>
+<td align="left">GET Party id by SSN and Org number</td>
+<td align="center">Platform-Register</td>
+</tr>
+
+<tr>
+<td align="left">5.</td>
+<td align="left">GET Party information by SSN and Org number</td>
+<td align="center">Platform-Register</td>
+</tr>
+
+<tr>
+<td align="left">6.</td>
+<td align="left">GET User profile details</td>
+<td align="center">Platform-Profile</td>
+</tr>
+
+<tr>
+<td align="left">7.</td>
+<td align="left">GET Authentication ticket</td>
+<td align="center">Platform-Authentication</td>
+</tr>
+
+<tr>
+<td align="left">8.</td>
+<td align="left">GET Parties</td>
+<td align="center">Platform-Authorization</td>
+</tr>
+
+<tr>
+<td align="left">9.</td>
+<td align="left">GET Roles</td>
+<td align="center">Platform-Authorization</td>
+</tr>
+
+<tr>
+<td align="left">10.</td>
+<td align="left">Create, get with filter, edit and delete applications</td>
 <td align="center">Storage</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Retrieve instance events with filters</td>
-<td align="center">Postman</td>
+<td align="left">11.</td>
+<td align="left">Create, get with filter, edit and delete app instances</td>
 <td align="center">Storage</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Delete instance events</td>
-<td align="center">Postman</td>
+<td align="left">12.</td>
+<td align="left">Create, get with filter, edit and delete app instance data</td>
 <td align="center">Storage</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Add, Change, Delete application</td>
-<td align="center">Postman</td>
+<td align="left">13.</td>
+<td align="left">Create, get with filter, delete app instance events</td>
 <td align="center">Storage</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Retrieve Owner id of an application</td>
-<td align="center">Postman</td>
+<td align="left">14.</td>
+<td align="left">Soft and Hard delete app instances</td>
 <td align="center">Storage</td>
-<td align="center">no</td>
 </tr>
 
 <tr>
-<td align="left">Retrieve Organization, parties, person</td>
-<td align="center">Postman</td>
-<td align="center">Platform/Register</td>
-<td align="center">no</td>
+<td align="left">15.</td>
+<td align="left">Restore soft deleted app instance</td>
+<td align="center">Storage</td>
 </tr>
 
 <tr>
-<td align="left">Get profile of an user</td>
-<td align="center">Postman</td>
-<td align="center">Platform/Profile</td>
-<td align="center">no</td>
+<td align="left">16.</td>
+<td align="left">Restore hard deleted app instance - negative</td>
+<td align="center">Storage</td>
 </tr>
 
 <tr>
-<td align="left">Get Authentication ticket</td>
-<td align="center">Postman</td>
-<td align="center">Platform/Authentication</td>
-<td align="center">no</td>
+<td align="left">17.</td>
+<td align="left">Create app instance with multipart data</td>
+<td align="center">Storage</td>
 </tr>
 </tbody>
 </table>
@@ -9699,8 +9814,26 @@ if(host != "localhost")
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

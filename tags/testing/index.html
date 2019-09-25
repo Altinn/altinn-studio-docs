@@ -5479,8 +5479,55 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/test/testcafe/testcafe-howto/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/test/testcafe/testcafe-howto/">
+        <span>Testcafe - Tests</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6657,7 +6704,7 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
         <h2 class="post-title"><a href="/development/handbook/test/test-coverage/">Test Coverage</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> Automation tests    Testcase name Test framework Area of Solution skipped     Login to altinn studio testcafe All areas no   Create a new app testcafe dashboard yes   Cannot create new app, as app name already exists testcafe dashboard no   Create a new app testcafe dashboard yes   Search for only my users apps testcafe dashboard no   filter away a users apps by unselecting all bubbles testcafe dashboard yes   deploy an app to a test environment after a change testcafe deploy to test no   App cannot deploy due to compilation error testcafe deploy to test no   App cannot be deployed due to local changes testcafe deploy to test no   User does not have write access to app, and cannot deploy testcafe deploy to test no   Accessibility testing for deployment to test environment page testcafe/axe deploy to test no   Navigating using the &ldquo;about&rdquo; tab testcafe UI-editor no   Navigating using the &ldquo;create&rdquo; tab testcafe UI-editor no   Navigating using the &ldquo;Language&rdquo; tab testcafe UI-editor no   Navigating using the &ldquo;Test&rdquo; tab testcafe UI-editor no   Navigating using the &ldquo;Publish&rdquo; tab testcafe UI-editor no   Automated accesibility testing for GUI editor testcafe/axe UI-editor no   Drag and drop of components testcafe UI-editor no   Add one of each component to the designer using keyboard testcafe UI-editor no   Sync an app with master testcafe UI-editor no   &ldquo;About&rdquo; page items, and editing of app data testcafe UI-editor no   Create Repeating groups testcafe UI-editor yes   Automated accessibility tests for about page testcafe UI-editor no   Instantiate an app in app frontend testcafe app frontend no   Direct link navigation to app frontend testcafe app frontend no   Upload files in app frontend using file component from editor testcafe app frontend no   Upload a file larger than 500MB in runtime/streaming test testcafe app frontend yes   Check for correct validations when uploading a file testcafe app frontend no   Read-only components test not editable in app frontend testcafe app frontend no   Fill out, save, and submit a form testcafe app frontend no   conditional rendering of component in runtime testcafe app frontend no   Automated accesibility testing for app frontend testcafe/axe app no         Add instance events Postman Storage no   Retrieve instance events with filters Postman Storage no   Delete instance events Postman Storage no   Add, Change, Delete application Postman Storage no   Retrieve Owner id of an application Postman Storage no   Retrieve Organization, parties, person Postman Platform/Register no   Get profile of an user Postman Platform/Profile no   Get Authentication ticket Postman Platform/Authentication no     <a class="read-more" href="/development/handbook/test/test-coverage/">&raquo;</a></p>
+        <p>Testcafe tests    Sl.No. Testcase name Area of Solution     1. Login to altinn studio All areas   2. Cannot create new app, as app name already exists dashboard   3. Create a new app dashboard   4. Search for only my users apps dashboard   5. Happy case; deploy an app to a test environment after a change Deploy to test   6. <a class="read-more" href="/development/handbook/test/test-coverage/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6712,8 +6759,36 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
         <h2 class="post-title"><a href="/development/handbook/test/testcafe/">Testcafe</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to writing automation code with java script and debug of the tests.
-Clone project in Visual Studio Code 1. Create account in github.com 2. Get write access to AltinnStudio - https://github.com/Altinn/altinn-studio 3. Use windows 10 image with docker 4. Create a folder - C:\Altinn Studio 5. Open Visual Studio Code 6. <a class="read-more" href="/development/handbook/test/testcafe/">&raquo;</a></p>
+        <p>This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to run tests and pipeline information.
+Clone project in Visual Studio Code  Create account in github.com Get write access to AltinnStudio - https://github.com/Altinn/altinn-studio Use windows 10 image with docker. Create a folder - C:\Repos Open Visual Studio Code Ctrl + Shift + P -&gt; Create New Integrated Terminal Terminal opens down of Visual Studio Code. <a class="read-more" href="/development/handbook/test/testcafe/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/test/testcafe/testcafe-howto/">Testcafe - Tests</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>This document describes how one can start writing tests on a test cafe project , and debug of the tests.
+Procedure to write a testcafe test  Find a test case and area that has to be automated. Find the &lsquo;-tests.js&rsquo; file that the test case has to be added or create a new folder and new .js file for the test under src/test/Testcafe. Identify and add the page objects with the selectors information under respective file under src/test/Testcafe/page-objects. <a class="read-more" href="/development/handbook/test/testcafe/testcafe-howto/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -9603,8 +9678,26 @@ See all issues on Github for App Testing <a class="read-more" href="/solutions/a
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   
