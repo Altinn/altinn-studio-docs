@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="An app used solely for automated testing in the browser">
 
 
     
-    <title>process :: Altinn Studio</title>
+    <title>Automated test app :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -49,7 +49,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/tags/process/">
+  <body class="a-page" data-url="/development/handbook/test/automated-test-app/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -4146,7 +4146,7 @@ if(host != "localhost")
     
     <li data-nav-id="/architecture/development/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/architecture/development/">
@@ -4362,7 +4362,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -4375,7 +4375,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -4610,7 +4610,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -4623,7 +4623,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -5342,7 +5342,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/test/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -5355,7 +5355,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -5380,8 +5380,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/development/handbook/test/automated-test-app/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/development/handbook/test/automated-test-app/">
@@ -6618,11 +6618,29 @@ if(host != "localhost")
                 </span>
                 <span class="links">
                   
-                    <a href="/docs/tags/">Tags</a> /
-                  
                   
 
- process
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/development/handbook/test/'>Test</a> <span class='adocs-breadcrumb-divider'> / </span> Automated test app
+
+ 
+
+ 
+
+ 
+
+ 
 
 
                 </span>
@@ -6630,10 +6648,22 @@ if(host != "localhost")
           </div>
         
         
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/testing">testing</a>
+            
+          </div>
+        
         <div id="body-inner">
           
             
-              <h1 class="a-fontBold">Tag: process</h1>
+              <h1 class="a-fontBold">
+                Automated test app
+                
+              </h1>
+              <p class="a-leadText" id="leadText">An app used solely for automated testing in the browser</p>
             
           
 
@@ -6645,141 +6675,121 @@ if(host != "localhost")
 
 
 
+
+
+<p><a href="#rules">Rules</a></p>
+
+<p><a href="#conditional-rules">Conditional rules</a></p>
+
+<p><a href="#validation">Validation</a></p>
+
+<p><a href="#api-connections">API connections</a></p>
+
+<h2 id="automated-test-app-https-dev-altinn-studio-designer-tdd-automatedtest"><a href="https://dev.altinn.studio/designer/tdd/automatedtest">Automated test app</a></h2>
+
+<p>This is an app which should only be used to run automated tests against.
+It contains these components:</p>
+
+<ul>
+<li>Title</li>
+<li>Paragraph</li>
+<li>Input</li>
+<li>Textarea</li>
+<li>Checkbox</li>
+<li>Radio button</li>
+<li>Attachment</li>
+<li>Datepicker</li>
+<li>Address</li>
+<li>API
+
+<ul>
+<li>Bring postnummer API</li>
+</ul></li>
+<li>Button</li>
+</ul>
+
+<p>All the components are connected to the <a href="./automatedtest.xsd">datamodel</a>.</p>
+
+<hr />
+
+<h3 id="rules">Rules</h3>
+
+<p>In the input field with the label <em>Kort svar komponent (dynamics) for automatisert testing</em>, write a year there (i.e. 2019)
+and the datepicker below with the label <em>Dato komponent (dynamics) for automatisert testing</em> should be filled with 01-01-2019.
+The relevant code:</p>
+
+<pre><code class="language-javascript">beregnStartdato: (obj) =&gt; {
+    return obj.regnskapsaar.concat(&quot;-01-01&quot;);
+}
+
+beregnStartdato: () =&gt; {
+    return {
+        regnskapsaar: &quot;regnskapsår&quot;
+    }
+}
+</code></pre>
+
+<h3 id="conditional-rules">Conditional rules</h3>
+
+<p>If you click the option <em>Ja</em> on the radio buttons with the label <em>Radioknapp komponent for automatisert testing</em>, the first paragraph with the label <em>Paragraf</em> at the top of the app will be shown.
+If you click the option  <em>Nei</em> on the same radio button component, that same paragraph will be hidden.
+The relevant code:</p>
+
+<pre><code class="language-javascript">sjekkOmJa: (obj) =&gt; {
+    return (obj.value &amp;&amp; obj.value === &quot;Ja&quot;);
+}
+
+sjekkOmJa: () =&gt; {
+    return {
+        value: &quot;Verdi&quot;
+    }
+}
+</code></pre>
+
+<h3 id="validation">Validation</h3>
+
+<p>In the input field with the label <em>Kort svar komponent (hard validation) for automatisert testing</em>, hard validation has been connected.
+That means it checks your input and validates that the input has fewer than 4 characters as seen here:</p>
+
+<pre><code class="language-csharp">private void ValidateKortsvarHard(Skjema skjema, ModelStateDictionary modelState) {
+    string input = skjema?.AutomatedTest_HardValidering;
+
+    if(input == null) {
+        modelState.AddModelError(
+            &quot;automatedTest_HardValidering&quot;,
+            &quot;mangler svar&quot;);
+    } else if (input.Length &gt;= 5) {
+        modelState.AddModelError(
+            &quot;automatedTest_HardValidering&quot;,
+            &quot;ikke mer enn 4 tegn&quot;);
+    }
+}
+</code></pre>
+
+<p>In the input field with the label <em>Kort svar komponent (soft validation) for automatisert testing</em>, soft validation has been connected.
+It will check if the input has any characters, and if it has any, the soft validation will trigger.</p>
+
+<pre><code class="language-csharp">private void ValidateKortsvarMyk(Skjema skjema, ModelStateDictionary modelState) {
+    string input = skjema?.AutomatedTest_MykValidering;
+
+    if(input != null) {
+        modelState.AddModelError(
+            &quot;automatedTest_MykValidering&quot;,
+            &quot;*WARNING*du skrev noe&quot;);
+    }
+}
+</code></pre>
+
+<h3 id="api-connections">API connections</h3>
+
+<p>In the input field with the label <em>API tilkobling input (Bring postnummer) for automatisert testing</em>, write a postal code in Norway (i.e. 0155).
+The input field with the label <em>API tilkobling output (Bring postnummer) for automatisert testing</em> should now show the city in Norway based on the postal code written in the previous field.</p>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio/functional/build-app/app-parameters/">App Parameters</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>App Parameters Presentation Field See all issues related to App-Parameters on Github <a class="read-more" href="/solutions/altinn-studio/functional/build-app/app-parameters/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/process/">process</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/bpmn/">BPMN 2.0</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Needs/Background  Support for visually creating and editing a workflow. Standardized workflow format (XML/JSON). Step parameters.  BPMN 2.0 Business Process Model and Notation (BPMN) is a standard for business process modeling that provides a graphical notation for specifying business processes in a Business Process Diagram, based on a flowcharting technique very similar to activity diagrams from Unified Modeling Language (UML) -*Wikipedia.
- BPMN 2.0 has a standardized XML format for exchanging BPMN 2. <a class="read-more" href="/technology/bpmn/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/process/">process</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio/functional/build-app/code-editor/">Create Logic with code</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Code Editor for back-end logic A developer can edit logic that will be part of app-backend when application is running in Altinn Apps
-See Getting started to se how to do that
-Code Editor for front-end logic A developer can edit logic that will run in the browser for a given app.
-See Getting started to se how to do that
-See github issues related to logic &amp; rules <a class="read-more" href="/solutions/altinn-studio/functional/build-app/code-editor/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/process/">process</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post solutions">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/solutions/altinn-studio/functional/build-app/define-process/">Define process</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>A app will typical have a process that a end user / or system needs to follow. It could be anything from a single task process where the app is used to retrieve data from some external api, to long living processes with many tasks involving.
-In Altinn Studio the developer will need to define the process for the app.
-In current version of Altinn Studio the only support for process definition is to upload a BPMN process file and the only task type we support are FormFilling <a class="read-more" href="/solutions/altinn-studio/functional/build-app/define-process/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/process/">process</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 of 1</span>
-	
-</nav>
 
 
 
@@ -8971,6 +8981,7 @@ In current version of Altinn Studio the only support for process definition is t
                       
                           
                               
+                              
                           
                           
           
@@ -8985,6 +8996,9 @@ In current version of Altinn Studio the only support for process definition is t
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -9099,6 +9113,7 @@ In current version of Altinn Studio the only support for process definition is t
                       
                       
                           
+                              
                               
                           
                           
@@ -9114,6 +9129,9 @@ In current version of Altinn Studio the only support for process definition is t
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -9487,6 +9505,7 @@ In current version of Altinn Studio the only support for process definition is t
                       
                           
                               
+                              
                           
                           
           
@@ -9501,6 +9520,7 @@ In current version of Altinn Studio the only support for process definition is t
                       
                       
                           
+                              
                               
                           
                           
@@ -9518,6 +9538,9 @@ In current version of Altinn Studio the only support for process definition is t
                       
                           
                               
+                                  
+                                  
+                              
                           
                           
           
@@ -10128,15 +10151,28 @@ In current version of Altinn Studio the only support for process definition is t
                   
           
           
+                  
+                      <a class="nav nav-prev" href="/development/handbook/test/" title="Test"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/getting-started/" title="Getting started with Altinn Studio" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/development/handbook/test/postman/" title="Postman" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
 
             </div>
 
+            
+              
+              
+              
+                <div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/development/handbook/test/automated-test-app/_index.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page
+                  </a>
+                </div>
+              
             
 
         </section>
