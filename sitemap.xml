@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/about/goals/</loc>
   </url>
   
@@ -203,10 +199,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/create-app/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/development/handbook/front-end/debug/</loc>
   </url>
   
@@ -232,10 +224,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/back-end/error-handling/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/first-time-setup/</loc>
   </url>
   
   <url>
@@ -507,34 +495,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/navigation/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/data-model/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/texts/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/ui-editor/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/codelist/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/api/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/logic/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/development/handbook/theming/</loc>
   </url>
   
@@ -564,10 +524,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-platform/authorization/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/app-creation/</loc>
   </url>
   
   <url>
@@ -608,10 +564,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/getting-started/testing/</loc>
   </url>
   
   <url>
@@ -981,11 +933,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/gitea/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/tags/guide/</loc>
     <priority>0</priority>
   </url>
   
