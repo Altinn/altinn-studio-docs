@@ -35,6 +35,7 @@ Below is an example of a prefill where two fields are connected to the name from
 
 ```
 {
+	"$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
 	"allowOverwrite": true,
 	"ER": {
 	},
