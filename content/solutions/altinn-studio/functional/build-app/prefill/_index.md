@@ -9,7 +9,7 @@ The prefill comes with a json-schema and which gives auto complete on the source
 
 To get started using prefill you can copy the following template into your repository:
 
-```{
+```
 {
     "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
 	"allowOverwrite": false,
@@ -33,7 +33,8 @@ The `allowOverwrite ` field is a flag to determine if existing values in the app
 
 Below is an example of a prefill where two fields are connected to the name from DFS and user name from the user profile, and we have allowed prefill values to overwrite values in the data model:
 
-```{
+```
+{
 	"allowOverwrite": true,
 	"ER": {
 	},
