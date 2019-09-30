@@ -6296,31 +6296,31 @@ if(host != "localhost")
 
 <p>To get started using prefill you can copy the following template into your repository:</p>
 
-<p>```{
-{
-    &ldquo;$schema&rdquo;: &ldquo;<a href="https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&quot;">https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&quot;</a>,
-    &ldquo;allowOverwrite&rdquo;: false,
-    &ldquo;ER&rdquo;: {
+<pre><code>{
+    &quot;$schema&quot;: &quot;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&quot;,
+    &quot;allowOverwrite&quot;: false,
+    &quot;ER&quot;: {
     },
-    &ldquo;DSF&rdquo;: {
+    &quot;DSF&quot;: {
     },
-    &ldquo;UserProfile&rdquo;: {
+    &quot;UserProfile&quot;: {
     }
-}</p>
+}
+</code></pre>
 
-<pre><code>
-There are three sources you can prefill from as of now
+<p>There are three sources you can prefill from as of now</p>
 
-- ER (enhetsregisteret)
-- DSF (det sentrale folkeregisteret)
-- UserProfile 
+<ul>
+<li>ER (enhetsregisteret)</li>
+<li>DSF (det sentrale folkeregisteret)</li>
+<li>UserProfile</li>
+</ul>
 
+<p>The <code>allowOverwrite</code> field is a flag to determine if existing values in the app data model can be overwritten by prefill data.</p>
 
-The `allowOverwrite ` field is a flag to determine if existing values in the app data model can be overwritten by prefill data. 
+<p>Below is an example of a prefill where two fields are connected to the name from DFS and user name from the user profile, and we have allowed prefill values to overwrite values in the data model:</p>
 
-Below is an example of a prefill where two fields are connected to the name from DFS and user name from the user profile, and we have allowed prefill values to overwrite values in the data model:
-
-```{
+<pre><code>{
     &quot;allowOverwrite&quot;: true,
     &quot;ER&quot;: {
     },
