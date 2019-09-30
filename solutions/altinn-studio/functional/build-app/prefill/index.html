@@ -6290,6 +6290,49 @@ if(host != "localhost")
 
 
 
+<p>The prefill configuration is handled by a json file where source values are linked to fields in the app data model.  In order to add prefill to your application this file needs to be added to the repository alongside the datamodel under the <code>Model</code> folder, with the same name as the data model it is connected to, and a prefill extension. So, if you have a data model named <code>ServiceModel.xsd</code>, the file should be named <code>ServiceModel.prefill.json</code></p>
+
+<p>The prefill comes with a json-schema and which gives auto complete on the source fields. As of now there is no auto complete on the target fields.</p>
+
+<p>To get started using prefill you can copy the following template into your repository:</p>
+
+<p>```{
+{
+    &ldquo;$schema&rdquo;: &ldquo;<a href="https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&quot;">https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&quot;</a>,
+    &ldquo;allowOverwrite&rdquo;: false,
+    &ldquo;ER&rdquo;: {
+    },
+    &ldquo;DSF&rdquo;: {
+    },
+    &ldquo;UserProfile&rdquo;: {
+    }
+}</p>
+
+<pre><code>
+There are three sources you can prefill from as of now
+
+- ER (enhetsregisteret)
+- DSF (det sentrale folkeregisteret)
+- UserProfile 
+
+
+The `allowOverwrite ` field is a flag to determine if existing values in the app data model can be overwritten by prefill data. 
+
+Below is an example of a prefill where two fields are connected to the name from DFS and user name from the user profile, and we have allowed prefill values to overwrite values in the data model:
+
+```{
+    &quot;allowOverwrite&quot;: true,
+    &quot;ER&quot;: {
+    },
+    &quot;DSF&quot;: {
+        &quot;Name&quot;: &quot;Skattyterinforgrp5801.infogrp5802.OppgavegiverNavnPreutfyltdatadef25795.value&quot;
+    },
+    &quot;UserProfile&quot;: {
+        &quot;UserName&quot;: &quot;Skattyterinforgrp5801.infogrp5802.OppgavegiverAdressePreutfyltdatadef25796.value&quot;
+    }
+}
+</code></pre>
+
 <p><a href="https://github.com/Altinn/altinn-studio/labels/prefill">See issues related to prefill on Github</a></p>
 
 
