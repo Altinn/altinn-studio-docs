@@ -582,7 +582,7 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:Start",
-    "info": {
+    "processInfo": {
         "flow": 1,
         "elementId": "StartEvent_1",
     },
@@ -596,10 +596,9 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:StartTask",
-    "info": {
+    "processInfo": {
         "flow": 2,
-        "elementId": "Task_1",
-        "source": "StartEvent_1"
+        "elementId": "Task_1"
     },
     "createdDateTime": "2019-10-01T13:22.01Z",
 }
@@ -611,7 +610,7 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndTask",
-    "info": {
+    "processInfo": {
         "flow": 2,
         "elementId": "Task_1"
     }
@@ -625,10 +624,9 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndEvent",
-    "info": {
+    "processInfo": {
         "flow": 3,
-        "elementId": "EndEvent_1",
-        "source": "Task_2"
+        "elementId": "EndEvent_1"
     },
     "createdDateTime": "2019-10-05T08:15:23.544Z",
 }
