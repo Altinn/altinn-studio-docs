@@ -560,8 +560,8 @@ For an ended process the following will be returned:
 
 ```json
 {
-    "flow": 5,
     "started": "2019-09-25T09:32:44.20Z",
+    "startEvent": "StartEvent_1",
     "ended": "2019-10-10T14:01:22.034Z",
     "endEvent": "EndEvent_1"
 }
@@ -583,8 +583,8 @@ The system will generate a number of process related events, which can be found 
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:Start",
     "processInfo": {
-        "flow": 1,
-        "elementId": "StartEvent_1",
+        "started": "2019-09-25T09:32:44.20Z",
+        "startEvent": "StartEvent_1"
     },
     "createdDateTime": "2019-10-10T14:01:22.034Z",
 }
@@ -597,8 +597,15 @@ The system will generate a number of process related events, which can be found 
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:StartTask",
     "processInfo": {
-        "flow": 2,
-        "elementId": "Task_1"
+        "started": "2019-09-25T09:32:44.20Z",
+        "startEvent": "StartEvent_1",
+        "currentTask": {
+            "flow": 2,
+            "started": "2019-10-01T13:22.01Z",
+            "elementId": "Task_1",
+            "name": "Fyll ut MVA rapport",
+            "altinnTaskId": "data"
+        }
     },
     "createdDateTime": "2019-10-01T13:22.01Z",
 }
@@ -611,9 +618,16 @@ The system will generate a number of process related events, which can be found 
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndTask",
     "processInfo": {
-        "flow": 2,
-        "elementId": "Task_1"
-    }
+        "started": "2017-10-01T13:22.00Z",
+        "startEvent": "StartEvent_1",
+        "currentTask": {
+            "flow": 2,
+            "started": "2019-10-05T01:11.33Z",
+            "elementId": "Task_1",
+            "altinnTaskId": "data",
+            "ended": "2019-10-05T01:11.33Z"
+        }
+    },
     "createdDateTime": "2019-10-05T01:11.33Z",
 }
 ```
@@ -625,8 +639,10 @@ The system will generate a number of process related events, which can be found 
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndEvent",
     "processInfo": {
-        "flow": 3,
-        "elementId": "EndEvent_1"
+        "started": "2017-10-01T13:22.00Z",
+        "startEvent": "StartEvent_1",
+        "ended": "2019-10-05T08:15:23.544Z",
+        "endEvent": "EndEvent_1"
     },
     "createdDateTime": "2019-10-05T08:15:23.544Z",
 }
