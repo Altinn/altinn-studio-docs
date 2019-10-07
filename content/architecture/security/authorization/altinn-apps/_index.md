@@ -56,10 +56,11 @@ resource. Altinn Apps uses PRP in Altinn Platform
 
 
 ### Context handler
-The context handler is responsible for converting the resource ID to 
-something that PDP can understand. Altinn Apps uses Context Handler in Altinn Platform
+The context handler is responsible for enriching the decision request so 
+it contains all attributes that PDP needs to take a decision.
+ Altinn Apps uses Context Handler in Altinn Platform
 
-[Learn about Policy Enforcment Point in Altinn Studio Apps](../altinn-platform/contexthandler)
+[Learn about Context Handler in Altinn Platform](../altinn-platform/contexthandler)
 
 The diagram below show the solution architecture where the different authorization functionality is located.
 
@@ -70,7 +71,7 @@ The diagram below show the solution architecture where the different authorizati
 ## The Authorization Model
 The authorization model is flexible.
 
-[Learn about authorization model in Altinn Studio Apps](model)
+[Learn about authorization model in Altinn Apps](model)
 
 ## The Overall Authorization flow
 The sequence diagram below show how request are authorized
