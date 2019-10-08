@@ -1,9 +1,9 @@
 ---
 title: Authorization - Altinn Apps
-description: Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template
+description: Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps
 tags: [architecture, security]
 weight: 100
-linktitle: App (.Net web Template)
+linktitle: App (asp.net)
 alwaysopen: false
 ---
 
@@ -11,15 +11,15 @@ alwaysopen: false
 NOTE: Work in progress. [See Github Issue](https://github.com/Altinn/altinn-studio/issues/963)
 {{% /notice %}}
 
-Altinn Apps has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
+Apps hosted in Altinn Apps has [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
 what type of data element and so on.
 
 The opposite is [Role Based access control](https://en.wikipedia.org/wiki/Role-based_access_control) where all user in a given role
-is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.
+is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Apps support.
 
 ## Authorization Components
-The authorization architecture for Altinn Studio Apps are based on the 
+The authorization architecture for Altinn Apps are based on the 
 [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
 
 This architecture defines the following components.
@@ -38,15 +38,15 @@ Altinn Apps uses Policy Information Point in Altinn Platform
 [Learn about Policy Information Point in Altinn Studio Apps](../altinn-platform/pip)
 
 ### Policy Administration Point
-The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform
+The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform and Altinn Studio
 
 [Learn about Policy Administration Point in Altinn Platform](../altinn-platform/pap)
 
 ### Policy Enforcment Point
 The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation
-on a resource. 
+on a resource. Each App in Altinn Apps need to have a Policy Enformcent Points on all resources that needs to be authorized
 
-[Learn about Policy Enforcment Point in Altinn Studio Apps](pep)
+[Learn about Policy Enforcment Point in apps based on ASP.NET core template](pep)
 
 
 ### Policy Retrival Point
