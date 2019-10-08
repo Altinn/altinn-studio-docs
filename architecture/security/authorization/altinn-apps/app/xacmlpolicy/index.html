@@ -6375,27 +6375,21 @@ defining which resource, subject and which action it targets.</p>
 
 <p>The below example show a part of XACML 3.0 Policy where a resource is identified.</p>
 
-<pre>
-<code>
-
-<xacml:AllOf>
-  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SKD</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-  </xacml:Match>
-  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TaxReport</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-  </xacml:Match>
-  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Instansiate</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-  </xacml:Match>
-</xacml:AllOf>
-
-
-</code>
-</pre>
+<pre><code class="language-xml">&lt;xacml:AllOf&gt;
+  &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+    &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;skd&lt;/xacml:AttributeValue&gt;
+    &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:org&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+  &lt;/xacml:Match&gt;
+  &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+    &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;taxreport&lt;/xacml:AttributeValue&gt;
+    &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:app&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+  &lt;/xacml:Match&gt;
+  &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+    &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;instansiate&lt;/xacml:AttributeValue&gt;
+    &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:event&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+  &lt;/xacml:Match&gt;
+&lt;/xacml:AllOf&gt;
+</code></pre>
 
 <h2 id="subject-attributes">Subject Attributes</h2>
 
@@ -6415,35 +6409,25 @@ defining which resource, subject and which action it targets.</p>
 
 <p>Example with rolecode</p>
 
-<pre>
-<code>
-
-<xacml:AllOf>
-  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-  </xacml:Match>
-</xacml:AllOf>
-
-</code>
-</pre>
+<pre><code class="language-xml">&lt;xacml:AllOf&gt;
+  &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+    &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;regna&lt;/xacml:AttributeValue&gt;
+    &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:rolecode&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+  &lt;/xacml:Match&gt;
+&lt;/xacml:AllOf&gt;
+</code></pre>
 
 <h4 id="org-2">Org</h4>
 
 <p>Example with org</p>
 
-<pre>
-<code>
-
-<xacml:AllOf>
-  <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-  </xacml:Match>
-</xacml:AllOf>
-
-</code>
-</pre>
+<pre><code class="language-xml">&lt;xacml:AllOf&gt;
+  &lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+    &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;skd&lt;/xacml:AttributeValue&gt;
+    &lt;xacml:AttributeDesignator AttributeId=&quot;urn:altinn:org&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+  &lt;/xacml:Match&gt;
+&lt;/xacml:AllOf&gt;
+</code></pre>
 
 <h2 id="action-attributes">Action Attributes</h2>
 
@@ -6451,17 +6435,12 @@ defining which resource, subject and which action it targets.</p>
 
 <p>Example with read action</p>
 
-<pre>
-<code>
-
-<xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</xacml:AttributeValue>
-      <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-    </xacml:Match>
-</xacml:AllOf>
-
-</code>
-</pre>
+<pre><code class="language-xml">&lt;xacml:Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+    &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;read&lt;/xacml:AttributeValue&gt;
+      &lt;xacml:AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+    &lt;/xacml:Match&gt;
+&lt;/xacml:AllOf&gt;
+</code></pre>
 
 <h3 id="action-id">Action ID</h3>
 
@@ -6469,23 +6448,18 @@ defining which resource, subject and which action it targets.</p>
 
 <p>The obligation part is used to define information that should be used by PEP. For Altinn Apps the minimum authentication level</p>
 
-<pre>
-<code>
-
-<xacml:ObligationExpressions>
-    <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
-      <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
-        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</xacml:AttributeValue>
-      </xacml:AttributeAssignmentExpression>
-    </xacml:ObligationExpression>
-  </xacml:ObligationExpressions>
-
-</code>
-</pre>
+<pre><code class="language-xml">&lt;xacml:ObligationExpressions&gt;
+    &lt;xacml:ObligationExpression FulfillOn=&quot;Permit&quot; ObligationId=&quot;urn:altinn:obligation:authenticationLevel1&quot;&gt;
+      &lt;xacml:AttributeAssignmentExpression AttributeId=&quot;urn:altinn:obligation1-assignment1&quot; Category=&quot;urn:altinn:minimum-authenticationlevel&quot;&gt;
+        &lt;xacml:AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#integer&quot;&gt;2&lt;/xacml:AttributeValue&gt;
+      &lt;/xacml:AttributeAssignmentExpression&gt;
+    &lt;/xacml:ObligationExpression&gt;
+  &lt;/xacml:ObligationExpressions&gt;
+</code></pre>
 
 <h2 id="full-examples">Full examples</h2>
 
-<p>On Github you can look at some full <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps">policy examples</a></p>
+<p>On Github you can look at some full <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/skd/taxreport/policy.xml">policy examples</a></p>
 
 
 <footer class=" footline" >
