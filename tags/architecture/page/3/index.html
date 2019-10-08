@@ -3374,10 +3374,48 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/model/" class="dd-item
+    <li data-nav-id="/architecture/security/authorization/altinn-apps/app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/security/authorization/altinn-apps/app/">
+        <span>App (.Net web Template)</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-apps/app/model/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-apps/model/">
+        <a href="/architecture/security/authorization/altinn-apps/app/model/">
         <span>Authorization model</span> 
         
         </a></li>
@@ -3394,10 +3432,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pep/" class="dd-item
+      <li data-nav-id="/architecture/security/authorization/altinn-apps/app/pep/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-apps/pep/">
+        <a href="/architecture/security/authorization/altinn-apps/app/pep/">
         <span>PEP</span> 
         
         </a></li>
@@ -3414,12 +3452,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/altinn-apps/xacmlpolicy/" class="dd-item 
+    <li data-nav-id="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">
+      <a href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">
         <span>Policy</span>
 
         
@@ -3429,6 +3467,15 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6293,8 +6340,10 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. See Github Issue
-Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
-The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/">&raquo;</a></p>
+Altinn Apps consist of Apps owned by the org and other monitoring applications in the Kubernetes cluster.
+The authorization architecture is different
+Authorization - Altinn AppsDescription of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template
+ <a class="read-more" href="/architecture/security/authorization/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6318,12 +6367,41 @@ The opposite is Role Based access control where all user in a given role is allo
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">Authorization - Altinn Apps - Policy</a></h2>
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/">Authorization - Altinn Apps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. See Github Issue
+Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">Authorization - Altinn Apps - Policy</a></h2>
     </header>
     <section class="post-excerpt">
         <p>A App needs to have defined a Authoriation Policy that will be imported in to Policy Retrieval Point when a app is deloyed to a Altinn Apps/Platform environment.
 The policy format follows XACML 3.0 and for every rule in the policy, there is attributes defining which resource, subject and which action it targets.
-Resource Attributes Org The org part of the resource attribute defines which org that owns the app <a class="read-more" href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">&raquo;</a></p>
+Resource Attributes Org The org part of the resource attribute defines which org that owns the app <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6409,11 +6487,11 @@ Policy Decision Point (PDP) The Policy Decision Point is responsible for decidin
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/model/">Authorization model</a></h2>
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/model/">Authorization model</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The authorization model in Altinn Studio Apps is flexible and supports different needs.
-Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-apps/model/">&raquo;</a></p>
+Rights In Altinn Studio Apps a right is a permission to perform a action on a given resource. The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead. The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization). <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/model/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6546,33 +6624,6 @@ The Org that creates the App, would based on the type of data have spceial requi
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/encryption/">encryption</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/information/">Information</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> Conceptual information model The following guidlines and goals have been important to define the architecture.
-
- <a class="read-more" href="/architecture/information/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
 
@@ -8243,11 +8294,10 @@ The Org that creates the App, would based on the type of data have spceial requi
           
                               
                               
+                                  
+                              
                               
           
-                              
-                      
-                  
                               
                                   
                       
@@ -8277,6 +8327,25 @@ The Org that creates the App, would based on the type of data have spceial requi
                               
                               
           
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

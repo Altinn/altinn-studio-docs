@@ -3374,10 +3374,48 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/model/" class="dd-item
+    <li data-nav-id="/architecture/security/authorization/altinn-apps/app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/security/authorization/altinn-apps/app/">
+        <span>App (.Net web Template)</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/architecture/security/authorization/altinn-apps/app/model/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-apps/model/">
+        <a href="/architecture/security/authorization/altinn-apps/app/model/">
         <span>Authorization model</span> 
         
         </a></li>
@@ -3394,10 +3432,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/pep/" class="dd-item
+      <li data-nav-id="/architecture/security/authorization/altinn-apps/app/pep/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-apps/pep/">
+        <a href="/architecture/security/authorization/altinn-apps/app/pep/">
         <span>PEP</span> 
         
         </a></li>
@@ -3414,12 +3452,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/altinn-apps/xacmlpolicy/" class="dd-item 
+    <li data-nav-id="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">
+      <a href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">
         <span>Policy</span>
 
         
@@ -3429,6 +3467,15 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6468,8 +6515,10 @@ GIT Repo authentication When users tries to update the Git repo where source fil
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. See Github Issue
-Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
-The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/">&raquo;</a></p>
+Altinn Apps consist of Apps owned by the org and other monitoring applications in the Kubernetes cluster.
+The authorization architecture is different
+Authorization - Altinn AppsDescription of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template
+ <a class="read-more" href="/architecture/security/authorization/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6493,12 +6542,41 @@ The opposite is Role Based access control where all user in a given role is allo
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">Authorization - Altinn Apps - Policy</a></h2>
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/">Authorization - Altinn Apps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. See Github Issue
+Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">Authorization - Altinn Apps - Policy</a></h2>
     </header>
     <section class="post-excerpt">
         <p>A App needs to have defined a Authoriation Policy that will be imported in to Policy Retrieval Point when a app is deloyed to a Altinn Apps/Platform environment.
 The policy format follows XACML 3.0 and for every rule in the policy, there is attributes defining which resource, subject and which action it targets.
-Resource Attributes Org The org part of the resource attribute defines which org that owns the app <a class="read-more" href="/architecture/security/authorization/altinn-apps/xacmlpolicy/">&raquo;</a></p>
+Resource Attributes Org The org part of the resource attribute defines which org that owns the app <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6530,37 +6608,6 @@ Resource Attributes Org The org part of the resource attribute defines which org
 Authorization Components The authorization architecture for Altinn Platform are based on the XACML reference architecture.
 This architecture defines the following components.
 Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-platform/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio/">Authorization - Altinn Studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>NOTE: Work in progress. See Github Issue
-Altinn Studio has Role Based access control where all user in a given role is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.
-Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
-This architecture defines the following components.
-Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8240,11 +8287,10 @@ Policy Decision Point (PDP) The Policy Decision Point is responsible for decidin
           
                               
                               
+                                  
+                              
                               
           
-                              
-                      
-                  
                               
                                   
                       
@@ -8274,6 +8320,25 @@ Policy Decision Point (PDP) The Policy Decision Point is responsible for decidin
                               
                               
           
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

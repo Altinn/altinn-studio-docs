@@ -99,6 +99,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/app/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/</loc>
   </url>
   
@@ -139,7 +143,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/model/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/app/model/</loc>
   </url>
   
   <url>
@@ -327,7 +331,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/pep/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/app/pep/</loc>
   </url>
   
   <url>
@@ -347,7 +351,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/xacmlpolicy/</loc>
+    <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-apps/app/xacmlpolicy/</loc>
   </url>
   
   <url>
