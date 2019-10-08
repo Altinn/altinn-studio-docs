@@ -184,7 +184,7 @@ Altinn Studio will provide a better solution (and APIs) for code lists.
 
 ### Organizations
 
-#### :white_check_mark: GET organizations?showConsentReportees={showConsentReportees}&includeInactiveReportees={includeInactiveReportees}
+#### :white_check_mark: GET s?showConsentReportees={showConsentReportees}&includeInactiveReportees={includeInactiveReportees}
 [🛈](https://www.altinn.no/api/Help/Api/GET-organizations_showConsentReportees_includeInactiveReportees "API help")
 
 #### :white_check_mark: GET organizations/{organizationId}

@@ -11,13 +11,13 @@ weight: 200
 NOTE: Work in progress. Stuff will change.
 {{% /notice %}}
 
-API's have always been important to the Altinn platform. About 50% of all data going throug Altinn to service owners are comming 
+API's have always been important to the Altinn platform. About 50% of all data going throug Altinn to organisations are coming 
 from end user systems implementing Altinn Apis's (SOAP and REST). More than 100 different vendors of different types of 
-applications integrates with Altinns appi and submits data for different "services". 
+applications integrates with Altinns appi and submits data for different apps. 
 
 In addition mobile apps and external governmental portal consumes Altinn Apis to allow users to use services outside the Altinn Portal.
 
-Service Owners also have seperate APIs to interact with the apps. The below figure shows the different consumers of the API's and show that consumers both
+Organisations also have seperate APIs to interact with the apps. The below figure shows the different consumers of the API's and show that consumers both
 interact with the App Apis and the shared platform Api's.
 
 {{%excerpt%}}

@@ -65,4 +65,4 @@ The simplest way is to use `weight` parameter in the front matter of your page.
 
 Be aware that weight are applied separately for each menu level. 
 
-[{{%icon circle-arrow-right%}}Read more on content organization]({{%relref "organisation.md"%}})
+[{{%icon circle-arrow-right%}}Read more on content organisation]({{%relref "organisation.md"%}})

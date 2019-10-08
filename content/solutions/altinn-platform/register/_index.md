@@ -5,7 +5,7 @@ tags: [platform, register]
 weight: 200
 ---
 
-- ER - Enhetsregisteret - Information about organizations in Norway
+- ER - Enhetsregisteret - Information about organisations in Norway
 - DSF - Det Sentrale Folkeregisteret - Information about citizens in Norway.
 
 ## ER - Enhetsregisteret

@@ -6,24 +6,24 @@ alwaysopen: false
 ---
 
 ## Actor 
-A actor is organization or person that a user/system is acting on behalf of. 
-As an example User A can fill out a form on behalf of Organization B. 
+A actor is organisation or person that a user/system is acting on behalf of. 
+As an example User A can fill out a form on behalf of Organisation B. 
 
 deprecated term: ~~Reportee~~
 
 ## Actor List
-The Actor list is a list over person and organization that a user can act on behalf of. 
+The Actor list is a list over person and organisation that a user can act on behalf of. 
 This right is given through roles or rights delegations. 
 
 deprecated term: ~~ReporteeList~~
 
 ## Actor Type
-The type a Actor can be. Typical a person or organization but also sub types of organizations
+The type a Actor can be. Typical a person or organisation but also sub types of organisations.
 
 deprecated term: ~~Reportee Type~~
 
 ## Actor Type Requirement
-The requirent a app has for the Actor. Typical checked when a app is instansiated
+The requirent a app has for the Actor. Typical checked when a app is instantiated
 
 deprecated term: ~~Reportee Type Requirement~~
 
@@ -35,7 +35,7 @@ Norways E-Governement plattform. Launched december 4. 2003.
 ## Altinn Apps
 
 Altinn Apps is the solution where the developed apps is deployed.
-It consist of isolated organization Kubernetes clusters and supporting functionality and infrastructure.
+It consist of isolated organisation Kubernetes clusters and supporting functionality and infrastructure.
 See Altinn Apps [application architecture](/architecture/application/altinn-apps/) or [deployment architecture](/architecture/deployment/altinn-apps/).
 
 ## Altinn Platform
@@ -54,8 +54,7 @@ Lets the application developer create apps that are deployed like a seperate app
 
 ## Altinn Apps environment
 
-A Altinn Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created
-in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment
+A Altinn Apps environment is a isolated setup of an Altinn Studio Apps solution. There will be 3 environments created in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment.
 
 ## Altinn Studio Repos
 
@@ -67,28 +66,26 @@ Application Programmers Interface.
 
 ## App
 
-Short for Application. See Application
+Short for Application. App is the name that is given for an app. It is used as repository name and as part of AppId and in different metadata. Inside an org the app needs to be a unique name. See also Application.
+
+Deprecated terms: ~~AppName~~ ~~Service~~
 
 ## AppId
-A AppId identifies a given application. It is has the following pattern [org]/[appName]
 
-## Appname
-Appname is the name that is given for a app. It is used as repository name and as part of AppId and in different metadata.
-Inside a org the Appname needs to be unique
+A AppId identifies a given application. It is has the following pattern [org]/[app].
 
 ## Application
 
-An end user service created in Altinn Studio is called an app, short for application. 
+An end user application created in Altinn Studio is called an app, short for application.
 The app is deployed to a Altinn Studio Apps environment.
-The app provides two things: 
+The app provides two things:
 
-- an interactive user interface for users wishing to submitt data to an application owner, e.g. to fill out a form manually, to read information or to sign an agrement;
+- an interactive user interface for users wishing to submit data to an organisation, e.g. to fill out a form manually, to read information or to sign an agreement;
 - an api that client applications can interact with.
 
 The application also has a metadata representation in the application repository (platform storage), which defines the various element types that an instance of an application can have.
 
 deprecated term: ~~Service~~
-
 
 ## Apps
 
@@ -96,13 +93,13 @@ Short for Altinn Apps. See Altinn Apps
 
 ## Application Developer
 
-A user developing application in Altinn Studio. 
+A user developing application in Altinn Studio.
 
-## Application Owner
+## Org
 
-The owner of the application. Typical identified by a unique acronoym representing the organization that owns the app, e.g. SKD, NAV, OSLK.
+Short for organisation. Organisation is the entity responsible for an app. Typically identified by an unique acronym, e.g. SKD, NAV, OSLK.
 
-deprecated term: ~~Service Owner~~
+Deprecated terms: ~~Application Owner~~ ~~Service Owner~~
 
 ## Data
 
@@ -116,14 +113,14 @@ A record of activites on a specific instance.
 
 ## Instance
 
-An instance of an application for a specific instance owner is represented as an object. Is created by application owner or instance owner. 
-It contains information of the formdata and attachements stored associated with the instance.
+An instance of an application for a specific instance owner is represented as an object. Is created by organisation or instance owner.
+It contains information of the formdata and attachments stored associated with the instance.
 
 deprecated term: ~~ReporteeElement~~
 
 ## Instance Owner
 
-The person or entity that is responsible for submitting an instance of an application to an application owner. 
+The person or entity that is responsible for submitting an instance of an application to an organisation.
 
 deprecated term: ~~Reportee~~
 

@@ -128,7 +128,7 @@ alwaysopen = true
 
 ### Folder structure and file name
 
-Content organization **is** your `content` folder structure.
+Content organisation **is** your `content` folder structure.
 
 ### Homepage
 
