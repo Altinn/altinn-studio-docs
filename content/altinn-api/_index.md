@@ -691,13 +691,13 @@ http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?insta
 
 ### Start Process
 
-To start a process one can post start to the process endopoint.
+To start a process one can post start to the process endpoint.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/start[?startEvent=StartEvent_1]
+POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/start[?startEvent=StartEvent_1]
 ```
 
-This will start the process and move the process state to the first task  from the given start. If process has more than one start event, then the client has to chose which one to start with the startEvent query parameter.
+This will start the process and move the process state to the first task from the given start. If process has more than one start event, then the client has to chose which one to start with the startEvent query parameter.
 
 ### Complete and move to next task
 
@@ -737,7 +737,7 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
 
 ### Start a task
 
-Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
+If you are at a specific task and want to start the next task you can try to put next to the process endpoint. The process controller then tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Task_2
