@@ -47,7 +47,7 @@ ___
 ---
 ## Altinn Apps
 - Kubernetes Cluster where apps are hosted
-- One cluster per Organization
+- One cluster per Organisation
 ---
 ## Altinn Platform
 - Supporting functionality

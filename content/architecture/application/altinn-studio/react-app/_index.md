@@ -96,9 +96,9 @@ When an end user makes changes in a form (for example type something in a text b
 #### Containers
 
 Components are rendered within containers. There is a base container which is always available, and unless otherwise specified, components are rendered within the base container. Any other containers that are defined in FormLayout.json are also rendered inside the base container.
-When a service developer first creates a form, the base container is automatically generated with the first component added. 
+When an app developer first creates a form, the base container is automatically generated with the first component added. 
 
-A service developer can add new containers to group together fields in a form. These groups may be _repeating_ if the data model allows for this. If a group is defined as repeating, it must be connected to the relevant repeating group in the data model. 
+An app developer can add new containers to group together fields in a form. These groups may be _repeating_ if the data model allows for this. If a group is defined as repeating, it must be connected to the relevant repeating group in the data model. 
 
 #### Redux
 
@@ -127,7 +127,7 @@ export interface IDataModelState {
 
 **RuleModelState**
 
-Information about the rules defined for the service.
+Information about the rules defined for the app.
 ```typescript
 export interface IRuleModelState {
     model: IRuleModelFieldElement[];
@@ -139,7 +139,7 @@ export interface IRuleModelState {
 
 **TextResourceState**
 
-All text resources for the service.
+All text resources for the ap.
 ```typescript
 export interface ITextResourcesState {
   resources: ITextResource[];

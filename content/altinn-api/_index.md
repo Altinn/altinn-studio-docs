@@ -15,7 +15,7 @@ This is work-in-progress. This is a proposed API which most likely is going to c
 ## Introduction
 There are primarily two types of consumers of the Altinn APIs. 
 The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called *Application Owners*.
-The second group consists of organizations and people using the applications through a client system, the group is called *Application Users*. 
+The second group consists of organisations and people using the applications through a client system, the group is called *Application Users*. 
 The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform. 
 Traditionally the two groups have had access to completely separated API endpoints in Altinn. 
 The new API will be available to both parties, but with some functions that will normally be used only by one of the groups. 
@@ -56,7 +56,7 @@ An api that provides access to all instances of a specific app.
 appPath = https://org.apps.altinn.no/org/app
 ```
 
-Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
+Identifies the organisation cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
 
 ### Platform Storage API
 
@@ -319,7 +319,7 @@ For example: To get all instances of appId *org/app*, that is in at task with id
 GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChangedDateTime=gt:2019-05-01&label=gruppe3
 ```
 
-Another example is get all instances of all apps of an organistation *org* that has completed their process.
+Another example is get all instances of all apps of an organisation *org* that has completed their process.
 
 ```http
 GET {storagePath}/instances?org=org&process.isComplete=true

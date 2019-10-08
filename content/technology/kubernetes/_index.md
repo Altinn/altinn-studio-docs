@@ -8,7 +8,7 @@ tags: [tech, containers]
 
 Both Altinn Studio and Altinn Studio Apps consists of many different applications
 running in docker containers. For the Altinn Studio Apps solution this could possible
-over time be many thousands containers running different end user services.  
+over time be many thousands containers running different end user apps.  
 
 Kubernetes is used to manage the containers.  
 

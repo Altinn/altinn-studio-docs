@@ -122,7 +122,7 @@ unfoldedMenus = ["start"]
 
 ### Folder structure and file name
 
-Content organization is not your folder structure.
+Content organisation is not your folder structure.
 Feel free to save your .md file the way your want, it may not necessary reflects your menu organisation. 
 
 ### Homepage

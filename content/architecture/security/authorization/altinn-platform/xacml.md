@@ -24,7 +24,7 @@ Each rule has the following part
 
 ### Resource
 The resource section defines the app resource the rule
- - org - The owner of the app
+ - org - The organisation who is responsible for the app
  - app - The app id
  - task/event - The task or identifier of the bpmn process. [See example process](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Templates/workflow.bpmn).
 

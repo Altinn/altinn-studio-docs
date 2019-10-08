@@ -8,7 +8,7 @@ weight: 200
 
 ## Prefill
 A application can prefill data in the datamodels for the app based on standard configuration for profile and register data, 
-but can also prefill data based on data from service owner or prefill based on logic define in the custom app logic defined
+but can also prefill data based on data from organisation or prefill based on logic define in the custom app logic defined
 by the application developer.
 
 ## Data validation
