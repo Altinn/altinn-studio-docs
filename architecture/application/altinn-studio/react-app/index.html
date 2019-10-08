@@ -6438,9 +6438,9 @@ Similar to the header menu, the side menu is also rendered by looping over the m
 <h4 id="containers">Containers</h4>
 
 <p>Components are rendered within containers. There is a base container which is always available, and unless otherwise specified, components are rendered within the base container. Any other containers that are defined in FormLayout.json are also rendered inside the base container.
-When a service developer first creates a form, the base container is automatically generated with the first component added.</p>
+When an app developer first creates a form, the base container is automatically generated with the first component added.</p>
 
-<p>A service developer can add new containers to group together fields in a form. These groups may be <em>repeating</em> if the data model allows for this. If a group is defined as repeating, it must be connected to the relevant repeating group in the data model.</p>
+<p>An app developer can add new containers to group together fields in a form. These groups may be <em>repeating</em> if the data model allows for this. If a group is defined as repeating, it must be connected to the relevant repeating group in the data model.</p>
 
 <h4 id="redux">Redux</h4>
 
@@ -6469,7 +6469,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p><strong>RuleModelState</strong></p>
 
-<p>Information about the rules defined for the service.</p>
+<p>Information about the rules defined for the app.</p>
 
 <pre><code class="language-typescript">export interface IRuleModelState {
     model: IRuleModelFieldElement[];
@@ -6481,7 +6481,7 @@ When a service developer first creates a form, the base container is automatical
 
 <p><strong>TextResourceState</strong></p>
 
-<p>All text resources for the service.</p>
+<p>All text resources for the ap.</p>
 
 <pre><code class="language-typescript">export interface ITextResourcesState {
   resources: ITextResource[];

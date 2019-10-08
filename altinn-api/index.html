@@ -6408,7 +6408,7 @@ if(host != "localhost")
 
 <p>There are primarily two types of consumers of the Altinn APIs.
 The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called <em>Application Owners</em>.
-The second group consists of organizations and people using the applications through a client system, the group is called <em>Application Users</em>.
+The second group consists of organisations and people using the applications through a client system, the group is called <em>Application Users</em>.
 The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform.
 Traditionally the two groups have had access to completely separated API endpoints in Altinn.
 The new API will be available to both parties, but with some functions that will normally be used only by one of the groups.</p>
@@ -6452,7 +6452,7 @@ The Platform Storage API will provide access to information stored by the applic
 <pre><code class="language-http">appPath = https://org.apps.altinn.no/org/app
 </code></pre>
 
-<p>Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.</p>
+<p>Identifies the organisation cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.</p>
 
 <h3 id="platform-storage-api">Platform Storage API</h3>
 
@@ -6700,7 +6700,7 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 <pre><code class="language-http">GET {storagePath}/instances?appId=org/app&amp;process.currentTask=Task_2&amp;lastChangedDateTime=gt:2019-05-01&amp;label=gruppe3
 </code></pre>
 
-<p>Another example is get all instances of all apps of an organistation <em>org</em> that has completed their process.</p>
+<p>Another example is get all instances of all apps of an organisation <em>org</em> that has completed their process.</p>
 
 <pre><code class="language-http">GET {storagePath}/instances?org=org&amp;process.isComplete=true
 </code></pre>

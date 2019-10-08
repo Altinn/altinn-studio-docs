@@ -6321,27 +6321,27 @@ if(host != "localhost")
 
 <h2 id="actor">Actor</h2>
 
-<p>A actor is organization or person that a user/system is acting on behalf of.
-As an example User A can fill out a form on behalf of Organization B.</p>
+<p>A actor is organisation or person that a user/system is acting on behalf of.
+As an example User A can fill out a form on behalf of Organisation B.</p>
 
 <p>deprecated term: <del>Reportee</del></p>
 
 <h2 id="actor-list">Actor List</h2>
 
-<p>The Actor list is a list over person and organization that a user can act on behalf of.
+<p>The Actor list is a list over person and organisation that a user can act on behalf of.
 This right is given through roles or rights delegations.</p>
 
 <p>deprecated term: <del>ReporteeList</del></p>
 
 <h2 id="actor-type">Actor Type</h2>
 
-<p>The type a Actor can be. Typical a person or organization but also sub types of organizations</p>
+<p>The type a Actor can be. Typical a person or organisation but also sub types of organisations.</p>
 
 <p>deprecated term: <del>Reportee Type</del></p>
 
 <h2 id="actor-type-requirement">Actor Type Requirement</h2>
 
-<p>The requirent a app has for the Actor. Typical checked when a app is instansiated</p>
+<p>The requirent a app has for the Actor. Typical checked when a app is instantiated</p>
 
 <p>deprecated term: <del>Reportee Type Requirement</del></p>
 
@@ -6353,7 +6353,7 @@ This right is given through roles or rights delegations.</p>
 <h2 id="altinn-apps">Altinn Apps</h2>
 
 <p>Altinn Apps is the solution where the developed apps is deployed.
-It consist of isolated organization Kubernetes clusters and supporting functionality and infrastructure.
+It consist of isolated organisation Kubernetes clusters and supporting functionality and infrastructure.
 See Altinn Apps <a href="/architecture/application/altinn-apps/">application architecture</a> or <a href="/architecture/deployment/altinn-apps/">deployment architecture</a>.</p>
 
 <h2 id="altinn-platform">Altinn Platform</h2>
@@ -6372,8 +6372,7 @@ Lets the application developer create apps that are deployed like a seperate app
 
 <h2 id="altinn-apps-environment">Altinn Apps environment</h2>
 
-<p>A Altinn Apps environment is a isoleted setup of a Altinn Studio Apps solution. There will be 3 environments created
-in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment</p>
+<p>A Altinn Apps environment is a isolated setup of an Altinn Studio Apps solution. There will be 3 environments created in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment.</p>
 
 <h2 id="altinn-studio-repos">Altinn Studio Repos</h2>
 
@@ -6385,25 +6384,22 @@ in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of 
 
 <h2 id="app">App</h2>
 
-<p>Short for Application. See Application</p>
+<p>Short for Application. App is the name that is given for an app. It is used as repository name and as part of AppId and in different metadata. Inside an org the app needs to be a unique name. See also Application.</p>
+
+<p>Deprecated terms: <del>AppName</del> <del>Service</del></p>
 
 <h2 id="appid">AppId</h2>
 
-<p>A AppId identifies a given application. It is has the following pattern [org]/[appName]</p>
-
-<h2 id="appname">Appname</h2>
-
-<p>Appname is the name that is given for a app. It is used as repository name and as part of AppId and in different metadata.
-Inside a org the Appname needs to be unique</p>
+<p>A AppId identifies a given application. It is has the following pattern [org]/[app].</p>
 
 <h2 id="application">Application</h2>
 
-<p>An end user service created in Altinn Studio is called an app, short for application.
+<p>An end user application created in Altinn Studio is called an app, short for application.
 The app is deployed to a Altinn Studio Apps environment.
 The app provides two things:</p>
 
 <ul>
-<li>an interactive user interface for users wishing to submitt data to an application owner, e.g. to fill out a form manually, to read information or to sign an agrement;</li>
+<li>an interactive user interface for users wishing to submit data to an organisation, e.g. to fill out a form manually, to read information or to sign an agreement;</li>
 <li>an api that client applications can interact with.</li>
 </ul>
 
@@ -6419,11 +6415,11 @@ The app provides two things:</p>
 
 <p>A user developing application in Altinn Studio.</p>
 
-<h2 id="application-owner">Application Owner</h2>
+<h2 id="org">Org</h2>
 
-<p>The owner of the application. Typical identified by a unique acronoym representing the organization that owns the app, e.g. SKD, NAV, OSLK.</p>
+<p>Short for organisation. Organisation is the entity responsible for an app. Typically identified by an unique acronym, e.g. SKD, NAV, OSLK.</p>
 
-<p>deprecated term: <del>Service Owner</del></p>
+<p>Deprecated terms: <del>Application Owner</del> <del>Service Owner</del></p>
 
 <h2 id="data">Data</h2>
 
@@ -6437,14 +6433,14 @@ The app provides two things:</p>
 
 <h2 id="instance">Instance</h2>
 
-<p>An instance of an application for a specific instance owner is represented as an object. Is created by application owner or instance owner.
-It contains information of the formdata and attachements stored associated with the instance.</p>
+<p>An instance of an application for a specific instance owner is represented as an object. Is created by organisation or instance owner.
+It contains information of the formdata and attachments stored associated with the instance.</p>
 
 <p>deprecated term: <del>ReporteeElement</del></p>
 
 <h2 id="instance-owner">Instance Owner</h2>
 
-<p>The person or entity that is responsible for submitting an instance of an application to an application owner.</p>
+<p>The person or entity that is responsible for submitting an instance of an application to an organisation.</p>
 
 <p>deprecated term: <del>Reportee</del></p>
 

@@ -6353,7 +6353,7 @@ if(host != "localhost")
 
 <p>In Altinn Studio Apps a right is a permission to perform a action on a given resource.
 The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead.
-The resource is typical a service instance or part of it hver data belongs to a given reportee (person or organization).</p>
+The resource is typical a app instance or part of it hver data belongs to a given reportee (person or organisation).</p>
 
 <p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
 
@@ -6367,14 +6367,14 @@ A rule in Altinn Studio consist of 4 elements</p>
 <p>This desribe which resource the rule applies for. Altinn Studio Apps currently support the following resource types in rules.</p>
 
 <ul>
-<li>Org - The service owner of the app</li>
-<li>App - The app id</li>
+<li>Org - Unique identifier of the organisation responsible for the app.</li>
+<li>App - Application identifier which is unique within an organisation.</li>
 <li>Task - A specific task in the process defined for a app</li>
 <li>Reportee - A owner of</li>
 <li>InstanceId</li>
 </ul>
 
-<p>Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for a service for a given reportee</p>
+<p>Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee</p>
 
 <h3 id="subject">Subject</h3>
 
@@ -6412,12 +6412,12 @@ we have the following types of conditions.</p>
 
 <h2 id="creation-of-rules">Creation of rules</h2>
 
-<p>The rules in Altinn Studio Apps is defined when the service developer defines the rules for the service.
-The rules are deployed together with the Service App to a given Altinn Studio App environment.</p>
+<p>The rules in Altinn Studio Apps is defined when the app developer defines the rules for the app.
+The rules are deployed together with the App to a given Altinn Studio App environment.</p>
 
 <p>In Altinn II end user can also create rules. This happens when:
 - When user creates a local role that contains rights that user have through other roles
-- When delegating single rights to a user or organization.</p>
+- When delegating single rights to a user or organisation.</p>
 
 <p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a more limited resource.</p>
 

@@ -6344,7 +6344,7 @@ if(host != "localhost")
 
 
 
-<p>The App Backend has a defined event model that can be used by the service developer
+<p>The App Backend has a defined event model that can be used by the app developer
 to controll when logic in the service implementation will run.</p>
 
 <p>These events are mapped to functional events triggered by end users or systems. This functional events are typical trigged by a API-call
@@ -6358,16 +6358,16 @@ from App Frontend or other systems/applications using the API&rsquo;s in App Bac
 
 <h3 id="instansiation">Instansiation</h3>
 
-<p>Instansiation is when the end user, end user system or application owner instansiates a new service instance.
+<p>Instansiation is when the end user, end user system or organisation instansiates a new app instance.
 Events connected to instansiation can contain logic that can prefill the datamodell
-or validate if the user or system is allowed to instansiate that service.</p>
+or validate if the user or system is allowed to instansiate that app.</p>
 
 
 	<p><object data="/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
 
 
 
-<p>The below sequence diagram shows how the app events are combined with other logic for a requesting to start a service in the service catalogue</p>
+<p>The below sequence diagram shows how the app events are combined with other logic for a requesting to start an app in the app catalogue.</p>
 
 
 	<p><object data="/architecture/application/altinn-apps/app/app-backend/app-events/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
@@ -6390,14 +6390,14 @@ the latest updated form data.</p>
 
 <p>Update of form data can happen when frontend (REACT app) sends data to backend
 or a end user system does the same. When an update happend there is defined serveral
-events that is performed in a given ordern. The service developer can implement
+events that is performed in a given order. The app developer can implement
 logic related to this event that could perform calculation, validation, API calls and much more.</p>
 
 <p>The API for updating form data support different modes</p>
 
 <ul>
 <li>Create - Data should be stored as a new form instance</li>
-<li>Complete - Data is complete and the service should move ahead in the workflow</li>
+<li>Complete - Data is complete and the app should move ahead in the workflow</li>
 <li>Calculate - Logic in the calculation event should be performed and the updated form data should be returned</li>
 <li>Validate - Calculation will be performend and then validation logic is runned and any validation errors is returned.</li>
 <li>Update - Calculation is runned before data is stored in to the database.</li>
@@ -6413,7 +6413,7 @@ logic related to this event that could perform calculation, validation, API call
 <h3 id="update-form-data-put">Update form data (PUT)</h3>
 
 <p>Update of form data happens when the frontend or external end user systems/applications
-want to update a existing form connected to a service instance</p>
+want to update a existing form connected to an app instance</p>
 
 <p>The following events happens:</p>
 

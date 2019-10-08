@@ -6332,7 +6332,7 @@ if(host != "localhost")
 
 
 
-<p>It should be possible to create and use custom/third party components as a part of a service in Altinn Studio.</p>
+<p>It should be possible to create and use custom/third party components as a part of an app in Altinn Studio.</p>
 
 <div class="notices info" ><p>NOTE: It is not currently supported to change properties on custom components via the Altinn Studio UI editor (f.ex. texts). Therefore, any properties must be hard coded into the component at this time.</p>
 </div>
@@ -6428,11 +6428,11 @@ export class BalloonCounter extends React.Component {
 <pre><code>npm run build
 </code></pre>
 
-<p>This will create a folder named <code>dist</code>, and place a file called <code>index.js</code> into this folder. This file needs to be available online, accessible by URL, to be used by Altinn Studio. The easiest way to do this is to add the file to your service repository in Gitea. You can then find the URL to the file by navigating to your service in the <em>Repositories</em> part of the soluton (<code>https://altinn.studio/&lt;organization or user name&gt;/&lt;service&gt;</code>) and opening the file from there. Choose to view the file <em>raw</em> to get only the file contents, and use the URL shown in the browser.</p>
+<p>This will create a folder named <code>dist</code>, and place a file called <code>index.js</code> into this folder. This file needs to be available online, accessible by URL, to be used by Altinn Studio. The easiest way to do this is to add the file to your app repository in Gitea. You can then find the URL to the file by navigating to your app in the <em>Repositories</em> part of the soluton (<code>https://altinn.studio/repos/&lt;org&gt;/&lt;app&gt;</code>) and opening the file from there. Choose to view the file <em>raw</em> to get only the file contents, and use the URL shown in the browser.</p>
 
-<h4 id="adding-custom-component-to-service-in-altinn-studio">Adding custom component to service in Altinn Studio</h4>
+<h4 id="adding-custom-component-to-app-in-altinn-studio">Adding custom component to app in Altinn Studio</h4>
 
-<p>In the service where the custom component is to be used, create a file called <code>ThirdPartyComponent.json</code>. It is important that the file is called exactly this, and that it is placed in the <code>Resources</code> folder in the service repository.</p>
+<p>In the app where the custom component is to be used, create a file called <code>ThirdPartyComponent.json</code>. It is important that the file is called exactly this, and that it is placed in the <code>Resources</code> folder in the app repository.</p>
 
 <p>Copy the following content into the file and replace the placeholders with your own values:</p>
 
@@ -6446,7 +6446,7 @@ export class BalloonCounter extends React.Component {
 }
 </code></pre>
 
-<p>Once this is done, sync your version of the service with the updated <em>Repositories</em> version in Altinn Studio, and load the UI editor. The custom component(s) should appear in the list of available form components.</p>
+<p>Once this is done, sync your version of the app with the updated <em>Repositories</em> version in Altinn Studio, and load the UI editor. The custom component(s) should appear in the list of available form components.</p>
 
 
 <footer class=" footline" >

@@ -6558,13 +6558,13 @@ if(host != "localhost")
 
 <h3 id="custom-third-party-components">Custom / third party components</h3>
 
-<p>If there is a need for specialized/custom components, it is possible to use components that are not part of the Altinn Studio component library. These components need to be written in React, and imported to the service. See [here]() for instructions on how to create a custom component using React.</p>
+<p>If there is a need for specialized/custom components, it is possible to use components that are not part of the Altinn Studio component library. These components need to be written in React, and imported to the app. See [here]() for instructions on how to create a custom component using React.</p>
 
-<h4 id="adding-a-custom-component-to-a-service">Adding a custom component to a service</h4>
+<h4 id="adding-a-custom-component-to-an-app">Adding a custom component to an app</h4>
 
-<p>The custom component needs to be defined in a <em>index.js</em>-file. This file can then be included in the service repository. To make the component available to the service, create a file called <code>ThirdPartyComponents.json</code> in the service repository, under the <code>Resources</code> folder.</p>
+<p>The custom component needs to be defined in a <em>index.js</em>-file. This file can then be included in the app repository. To make the component available to the app, create a file called <code>ThirdPartyComponents.json</code> in the app repository, under the <code>Resources</code> folder.</p>
 
-<div class="notices info" ><p>NOTE: It is important that the name and location of the file <em>ThirdPartyComponents.json</em> is correct, otherwise the component will not be available for the service.</p>
+<div class="notices info" ><p>NOTE: It is important that the name and location of the file <em>ThirdPartyComponents.json</em> is correct, otherwise the component will not be available for the app.</p>
 </div>
 
 
@@ -6573,14 +6573,14 @@ if(host != "localhost")
 <pre><code>{
   &quot;packages&quot;: [{
     &quot;packageName&quot;: &quot;[name of the component]&quot;,
-    &quot;location&quot;: &quot;[Link to raw format of index.js in service repository]&quot;
+    &quot;location&quot;: &quot;[Link to raw format of index.js in app repository]&quot;
   }]
 }
 </code></pre>
 
 <ul>
 <li><code>[name of the component]</code> should be replaced with the name that will be shown in the Altinn Studio UI editor.</li>
-<li><code>[Link to raw format of index.js in service repository]</code> should be replaced with the full url to the file in the git repo (can be found by navigating to the file in the [Repositories] solution and copying the url).</li>
+<li><code>[Link to raw format of index.js in app repository]</code> should be replaced with the full url to the file in the git repo (can be found by navigating to the file in the [Repositories] solution and copying the url).</li>
 </ul>
 
 <p>Once this is done, the UI editor in Altinn Studio should be re-loaded, and the custom component will appear in the component menu on the left.</p>
