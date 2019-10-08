@@ -27,27 +27,24 @@ The task/event part of the resource makes it possible to have seperate rules for
 The below example show a part of XACML 3.0 Policy where a resource is identified. 
 
 
-<pre>
-<code>
-
+```xml
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">SKD</xacml:AttributeValue>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd</xacml:AttributeValue>
     <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">TaxReport</xacml:AttributeValue>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">taxreport</xacml:AttributeValue>
     <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Instansiate</xacml:AttributeValue>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instansiate</xacml:AttributeValue>
     <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
 </xacml:AllOf>
+```
 
 
-</code>
-</pre>
 
 ## Subject Attributes
 The subject part of the target for the rule defines who the rule target
@@ -65,35 +62,28 @@ The org code is used for rule that target orgs
 Example with rolecode
 
 
-<pre>
-<code>
-
+```xml
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA</xacml:AttributeValue>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">regna</xacml:AttributeValue>
     <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
 </xacml:AllOf>
-
-</code>
-</pre>
+```
 
 #### Org 
 
 Example with org
 
-<pre>
-<code>
 
+```xml
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">skd</xacml:AttributeValue>
     <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
 </xacml:AllOf>
-
-</code>
-</pre>
+```
 
 
 ## Action Attributes
@@ -103,17 +93,13 @@ Example with org
 
 Example with read action
 
-<pre>
-<code>
-
+```xml
 <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Read</xacml:AttributeValue>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
       <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
     </xacml:Match>
 </xacml:AllOf>
-
-</code>
-</pre>
+```
 
 ### Action ID
 
@@ -121,9 +107,7 @@ Example with read action
 ## Obligation
 The obligation part is used to define information that should be used by PEP. For Altinn Apps the minimum authentication level 
 
-<pre>
-<code>
-
+```xml
 <xacml:ObligationExpressions>
     <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
       <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
@@ -131,9 +115,7 @@ The obligation part is used to define information that should be used by PEP. Fo
       </xacml:AttributeAssignmentExpression>
     </xacml:ObligationExpression>
   </xacml:ObligationExpressions>
-
-</code>
-</pre>
+```
 
 ## Full examples
-On Github you can look at some full [policy examples](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps)
+On Github you can look at some full [policy examples](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/skd/taxreport/policy.xml)
