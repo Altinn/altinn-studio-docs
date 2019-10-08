@@ -3380,7 +3380,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authorization/altinn-apps/app/">
-        <span>App (.Net web Template)</span>
+        <span>App (asp.net)</span>
 
         
 
@@ -6364,35 +6364,297 @@ an architecture, and a processing model describing how to evaluate access reques
 
 <h2 id="xacml-policy">XACML Policy</h2>
 
-<p>The Policy Document consist of one or many rules.
-Each rule has the following part</p>
+<p>The Policy Document describes the rules for a App. This policy
+is imported to the Policy Retrieval Point.</p>
 
-<h3 id="resource">Resource</h3>
-
-<p>The resource section defines the app resource the rule
- - org - The owner of the app
- - app - The app id
- - task/event - The task or identifier of the bpmn process. <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Templates/workflow.bpmn">See example process</a>.</p>
-
-<h3 id="subject">Subject</h3>
-
-<p>This identifies who the rules applies for. For rules defined in Altinn Studio
-this is persons with a given role in Altinn. Later this can be expanded.</p>
-
-<h3 id="action">Action</h3>
-
-<p>The action defines the action that the rules allow for.
-This can be READ, WRITE, SIGN, ARCHIVEREAD, ARCHIVEDELETE</p>
-
-<p><a href="/architecture/security/authorization/altinn-studio-apps/AuthorizationRulesSample.xml">See example policy file</a></p>
+<p><a href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">See details about the XACML Policy for Apps</a></p>
 
 <h2 id="xacml-request">XACML Request</h2>
 
 <p>The XACML Request will follow XACML 3.0 JSON profile. <a href="http://docs.oasis-open.org/xacml/xacml-json-http/v1.0/xacml-json-http-v1.0.html">See documentation</a></p>
 
+<h3 id="single-request">Single request</h3>
+
+<p>The below example show how a request try to verify that a user is allowed to read a given instance</p>
+
+<pre><code class="language-json">{
+  &quot;Request&quot;: {
+    &quot;ReturnPolicyIdList&quot;: true,
+    &quot;AccessSubject&quot;: [
+      {
+        &quot;Attribute&quot;: [
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:user-id&quot;,
+            &quot;Value&quot;: &quot;1&quot;
+          }
+        ]
+      }
+    ],
+    &quot;Action&quot;: [
+      {
+        &quot;Attribute&quot;: [
+          {
+            &quot;AttributeId&quot;: &quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;,
+            &quot;Value&quot;: &quot;read&quot;,
+            &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;
+          }
+        ]
+      }
+    ],
+    &quot;Resource&quot;: [
+      {
+        &quot;Attribute&quot;: [
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:instance-id&quot;,
+            &quot;Value&quot;: &quot;1000/26133fb5-a9f2-45d4-90b1-f6d93ad40713&quot;
+          }
+        ]
+      }
+    ]
+  }
+}
+</code></pre>
+
+<h3 id="request-for-multiple-decisions">Request for Multiple Decisions</h3>
+
+<p>Policy Decision Point supports Request for Multiple Decisions. The below request show how you can request decision for both read an write for the same resource.</p>
+
+<pre><code class="language-json">{
+  &quot;Request&quot;: {
+    &quot;ReturnPolicyIdList&quot;: true,
+    &quot;AccessSubject&quot;: [
+      {
+        &quot;Id&quot;: &quot;s1&quot;,
+        &quot;Attribute&quot;: [
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:user-id&quot;,
+            &quot;Value&quot;: &quot;1&quot;
+          }
+        ]
+      }
+    ],
+    &quot;Action&quot;: [
+      {
+        &quot;Id&quot;: &quot;a1&quot;,
+        &quot;Attribute&quot;: [
+          {
+            &quot;AttributeId&quot;: &quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;,
+            &quot;Value&quot;: &quot;read&quot;,
+            &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;,
+            &quot;IncludeInResult&quot;: true
+          }
+        ]
+      },
+      {
+        &quot;Id&quot;: &quot;a2&quot;,
+        &quot;Attribute&quot;: [
+          {
+            &quot;AttributeId&quot;: &quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;,
+            &quot;Value&quot;: &quot;write&quot;,
+            &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;,
+            &quot;IncludeInResult&quot;: true
+          }
+        ]
+      }
+    ],
+    &quot;Resource&quot;: [
+      {
+        &quot;Id&quot;: &quot;r1&quot;,
+        &quot;Attribute&quot;: [
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:instance-id&quot;,
+            &quot;Value&quot;: &quot;1000/26133fb5-a9f2-45d4-90b1-f6d93ad40713&quot;,
+            &quot;IncludeInResult&quot;: true
+          },
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:org&quot;,
+            &quot;Value&quot;: &quot;skd&quot;
+          },
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:app&quot;,
+            &quot;Value&quot;: &quot;taxreport&quot;
+          },
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:partyid&quot;,
+            &quot;Value&quot;: &quot;1000&quot;
+
+          },
+          {
+            &quot;AttributeId&quot;: &quot;urn:altinn:task&quot;,
+            &quot;Value&quot;: &quot;formfilling&quot;
+
+          }
+
+        ]
+      }
+    ],
+    &quot;MultiRequests&quot;: {
+      &quot;RequestReference&quot;: [
+        {
+          &quot;ReferenceId&quot;: [
+            &quot;s1&quot;,
+            &quot;a1&quot;,
+            &quot;r1&quot;
+          ]
+        },
+        {
+          &quot;ReferenceId&quot;: [
+            &quot;s1&quot;,
+            &quot;a2&quot;,
+            &quot;r1&quot;
+          ]
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+
 <h2 id="xacml-response">XACML Response</h2>
 
 <p>The XACML Response will follow XACML 3.0 JSON profile. <a href="http://docs.oasis-open.org/xacml/xacml-json-http/v1.0/xacml-json-http-v1.0.html">See documentation</a></p>
+
+<h3 id="response-for-single-decision-request">Response for single decision request</h3>
+
+<pre><code class="language-json">{
+  &quot;Response&quot;: [
+    {
+      &quot;Decision&quot;: &quot;Permit&quot;,
+      &quot;Status&quot;: {
+        &quot;StatusCode&quot;: {
+          &quot;Value&quot;: &quot;urn:oasis:names:tc:xacml:1.0:status:ok&quot;
+        }
+      },
+      &quot;Obligations&quot;: [
+        {
+          &quot;id&quot;: &quot;urn:altinn:obligation:authenticationLevel1&quot;,
+          &quot;attributeAssignment&quot;: [
+
+            {
+              &quot;attributeId&quot;: &quot;urn:altinn:obligation1-assignment1&quot;,
+              &quot;value&quot;: &quot;2&quot;,
+              &quot;category&quot;: &quot;urn:altinn:minimum-authenticationlevel&quot;,
+              &quot;dataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#integer&quot;,
+              &quot;issuer&quot;: null
+            }
+          ]
+        }
+      ],
+        &quot;Category&quot;: [
+          {
+            &quot;CategoryId&quot;: &quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot;,
+            &quot;Attribute&quot;: [
+              {
+                &quot;AttributeId&quot;: &quot;urn:altinn:partyid&quot;,
+                &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;,
+                &quot;Value&quot;: &quot;1000&quot;
+              }
+            ]
+          }
+        ]
+    }
+  ]
+}
+</code></pre>
+
+<h3 id="response-for-multipe-decision">Response for multipe decision</h3>
+
+<pre><code class="language-json">{
+  &quot;Response&quot;: [
+    {
+      &quot;Decision&quot;: &quot;Permit&quot;,
+      &quot;Status&quot;: {
+        &quot;StatusCode&quot;: {
+          &quot;Value&quot;: &quot;urn:oasis:names:tc:xacml:1.0:status:ok&quot;
+        }
+      },
+      &quot;Obligations&quot;: [
+        {
+          &quot;id&quot;: &quot;urn:altinn:obligation:authenticationLevel1&quot;,
+          &quot;attributeAssignment&quot;: [
+
+            {
+              &quot;attributeId&quot;: &quot;urn:altinn:obligation1-assignment1&quot;,
+              &quot;value&quot;: &quot;2&quot;,
+              &quot;category&quot;: &quot;urn:altinn:minimum-authenticationlevel&quot;,
+              &quot;dataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#integer&quot;,
+              &quot;issuer&quot;: null
+            }
+          ]
+        }
+      ],
+      &quot;Category&quot;: [
+        {
+          &quot;CategoryId&quot;: &quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;,
+          &quot;Attribute&quot;: [
+            {
+              &quot;AttributeId&quot;: &quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;,
+              &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;,
+              &quot;Value&quot;: &quot;read&quot;
+            }
+          ]
+        },
+        {
+          &quot;CategoryId&quot;: &quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot;,
+          &quot;Attribute&quot;: [
+            {
+              &quot;AttributeId&quot;: &quot;urn:altinn:instance-id&quot;,
+              &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;,
+              &quot;Value&quot;: &quot;1000/26133fb5-a9f2-45d4-90b1-f6d93ad40713&quot;
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &quot;Decision&quot;: &quot;Permit&quot;,
+      &quot;Status&quot;: {
+        &quot;StatusCode&quot;: {
+          &quot;Value&quot;: &quot;urn:oasis:names:tc:xacml:1.0:status:ok&quot;
+        }
+      },
+      &quot;Obligations&quot;: [
+        {
+          &quot;id&quot;: &quot;urn:altinn:obligation:authenticationLevel1&quot;,
+          &quot;attributeAssignment&quot;: [
+
+            {
+              &quot;attributeId&quot;: &quot;urn:altinn:obligation1-assignment1&quot;,
+              &quot;value&quot;: &quot;2&quot;,
+              &quot;category&quot;: &quot;urn:altinn:minimum-authenticationlevel&quot;,
+              &quot;dataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#integer&quot;,
+              &quot;issuer&quot;: null
+            }
+          ]
+        }
+      ],
+      &quot;Category&quot;: [
+        {
+          &quot;CategoryId&quot;: &quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;,
+          &quot;Attribute&quot;: [
+            {
+              &quot;AttributeId&quot;: &quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;,
+              &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;,
+              &quot;Value&quot;: &quot;write&quot;
+            }
+          ]
+        },
+        {
+          &quot;CategoryId&quot;: &quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot;,
+          &quot;Attribute&quot;: [
+            {
+              &quot;AttributeId&quot;: &quot;urn:altinn:instance-id&quot;,
+              &quot;DataType&quot;: &quot;http://www.w3.org/2001/XMLSchema#string&quot;,
+              &quot;Value&quot;: &quot;1000/26133fb5-a9f2-45d4-90b1-f6d93ad40713&quot;
+            }
+          ]
+        }
+
+      ]
+    }
+  ]
+}
+</code></pre>
 
 
 <footer class=" footline" >

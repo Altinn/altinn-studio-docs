@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template">
+    <meta name="description" content="Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps">
 
 
     
@@ -3380,7 +3380,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authorization/altinn-apps/app/">
-        <span>App (.Net web Template)</span>
+        <span>App (asp.net)</span>
 
         
 
@@ -6300,7 +6300,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/'>Security Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> App (.Net web Template)
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/'>Security Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> App (asp.net)
 
  
 
@@ -6333,7 +6333,7 @@ if(host != "localhost")
                 Authorization - Altinn Apps
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template</p>
+              <p class="a-leadText" id="leadText">Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps</p>
             
           
 
@@ -6351,16 +6351,16 @@ if(host != "localhost")
 </div>
 
 
-<p>Altinn Apps has <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
+<p>Apps hosted in Altinn Apps has <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
 what type of data element and so on.</p>
 
 <p>The opposite is <a href="https://en.wikipedia.org/wiki/Role-based_access_control">Role Based access control</a> where all user in a given role
-is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.</p>
+is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Apps support.</p>
 
 <h2 id="authorization-components">Authorization Components</h2>
 
-<p>The authorization architecture for Altinn Studio Apps are based on the
+<p>The authorization architecture for Altinn Apps are based on the
 <a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
 
 <p>This architecture defines the following components.</p>
@@ -6382,16 +6382,16 @@ Altinn Apps uses Policy Information Point in Altinn Platform</p>
 
 <h3 id="policy-administration-point">Policy Administration Point</h3>
 
-<p>The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform</p>
+<p>The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform and Altinn Studio</p>
 
 <p><a href="../altinn-platform/pap">Learn about Policy Administration Point in Altinn Platform</a></p>
 
 <h3 id="policy-enforcment-point">Policy Enforcment Point</h3>
 
 <p>The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation
-on a resource.</p>
+on a resource. Each App in Altinn Apps need to have a Policy Enformcent Points on all resources that needs to be authorized</p>
 
-<p><a href="pep">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
+<p><a href="pep">Learn about Policy Enforcment Point in apps based on ASP.NET core template</a></p>
 
 <h3 id="policy-retrival-point">Policy Retrival Point</h3>
 
