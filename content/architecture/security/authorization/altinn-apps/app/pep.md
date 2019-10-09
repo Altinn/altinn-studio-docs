@@ -12,8 +12,9 @@ configured PEP's on all API exposing user data.
 
 ## PEP for App backend
 
-[See Github](https://github.com/Altinn/altinn-studio/issues/71)
+[See Github](https://github.com/Altinn/altinn-studio/issues/2554)
 
+The Policy Enforcment Point in the ASP.Net Web application template is created as a Authorization Handler 
 
 
 

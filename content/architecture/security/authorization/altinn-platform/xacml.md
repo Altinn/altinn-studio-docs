@@ -25,7 +25,7 @@ is imported to the Policy Retrieval Point.
 [See details about the XACML Policy for Apps](/architecture/security/authorization/altinn-apps/app/xacmlpolicy/)
 
 ## XACML Request
-The XACML Request will follow XACML 3.0 JSON profile. [See documentation](http://docs.oasis-open.org/xacml/xacml-json-http/v1.0/xacml-json-http-v1.0.html)
+The XACML Request will follow XACML 3.0 JSON profile. [See documentation](http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html)
 
 ### Single request
 The below example show how a request try to verify that a user is allowed to read a given instance
@@ -167,7 +167,7 @@ Policy Decision Point supports Request for Multiple Decisions. The below request
 ```
 
 ## XACML Response
-The XACML Response will follow XACML 3.0 JSON profile. [See documentation](http://docs.oasis-open.org/xacml/xacml-json-http/v1.0/xacml-json-http-v1.0.html)
+The XACML Response will follow XACML 3.0 JSON profile. [See documentation](http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html)
 
 
 ### Response for single decision request
