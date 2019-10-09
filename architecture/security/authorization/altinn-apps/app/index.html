@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps">
+    <meta name="description" content="Description of the Authorization Architecture for an app created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps">
 
 
     
-    <title>Authorization - Altinn Apps :: Altinn Studio</title>
+    <title>Authorization architecture - app :: Altinn Studio</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -6330,10 +6330,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Authorization - Altinn Apps
+                Authorization architecture - app
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the Authorization Architecture for an App created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps</p>
+              <p class="a-leadText" id="leadText">Description of the Authorization Architecture for an app created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps</p>
             
           
 
@@ -6347,11 +6347,7 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" ><p>NOTE: Work in progress. <a href="https://github.com/Altinn/altinn-studio/issues/963">See Github Issue</a></p>
-</div>
-
-
-<p>Apps hosted in Altinn Apps has <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
+<p>The general rule is that a app hosted in Altinn Apps has <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
 what type of data element and so on.</p>
 
@@ -6362,6 +6358,8 @@ is allowed to access a operation and access all data. This would not work in the
 
 <p>The authorization architecture for Altinn Apps are based on the
 <a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
+
+<p>A app created in Altinn Studio and hosted in Altinn Apps follows the same architecture.</p>
 
 <p>This architecture defines the following components.</p>
 
@@ -6378,7 +6376,7 @@ user or system is allowed to perform the request. Altinn Apps used Policy Decisi
 <p>The Policy Information Point is used by PDP to gather information needed to perform the decision.
 Altinn Apps uses Policy Information Point in Altinn Platform</p>
 
-<p><a href="../altinn-platform/pip">Learn about Policy Information Point in Altinn Studio Apps</a></p>
+<p><a href="../altinn-platform/pip">Learn about Policy Information Point in Altinn Platform</a></p>
 
 <h3 id="policy-administration-point">Policy Administration Point</h3>
 
@@ -6407,19 +6405,6 @@ it contains all attributes that PDP needs to take a decision.
 
 <p><a href="../altinn-platform/contexthandler">Learn about Context Handler in Altinn Platform</a></p>
 
-<p>The diagram below show the solution architecture where the different authorization functionality is located.</p>
-
-
-	<p><object data="/architecture/solution/altinn-studio-apps/AltinnStudioApps_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
-
-
-
-<h2 id="the-authorization-model">The Authorization Model</h2>
-
-<p>The authorization model is flexible.</p>
-
-<p><a href="model">Learn about authorization model in Altinn Apps</a></p>
-
 <h2 id="the-overall-authorization-flow">The Overall Authorization flow</h2>
 
 <p>The sequence diagram below show how request are authorized</p>
@@ -6436,10 +6421,14 @@ it contains all attributes that PDP needs to take a decision.
 <ol>
 <li>User press save in the REACT application. REACT application makes a http post request against the
 <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css">ServiceAPIController</a> in</li>
-<li>The configured Policy Enforcment Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,  triggers to verify that user is authorized</li>
+<li>The configured Policy Enforcment Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,<br />
+triggers to verify that user is authorized</li>
 <li>The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request</li>
-<li>The PEP calls the PDP functionality in AltinnCore.Authorization application</li>
-<li></li>
+<li>The PEP calls the PDP functionality in <a href="/solutions/altinn-platform/authorization/">Authorization Component</a> in Altinn Platform</li>
+<li>PDP evaluates the decision request and returns a descision response</li>
+<li>If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough. If it is enough the request is let through</li>
+<li>If the authentication level is not high enough the PEP need to return a exception with that information</li>
+<li>If the result was &ldquo;Not Applicable&rdquo; the PEP will throw exception</li>
 </ol>
 
 

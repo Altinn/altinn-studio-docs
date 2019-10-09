@@ -6336,14 +6336,11 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-studio/">Authorization - Altinn Studio</a></h2>
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/">Authorization architecture - app</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>NOTE: Work in progress. See Github Issue
-Altinn Studio has Role Based access control where all user in a given role is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.
-Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
-This architecture defines the following components.
-Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-studio/">&raquo;</a></p>
+        <p>The general rule is that a app hosted in Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
