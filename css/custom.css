@@ -86,4 +86,27 @@ li > label {
     font-weight: normal;
 }
 
+.adocs-footer {
+    margin-top:36px;
+    padding: 36px;
+    background: #6a6a6a;
+}
 
+.adocs-footer ul {
+    text-align: center;
+}
+
+.adocs-footer ul li{
+    display: inline;
+    padding:  0 12px;
+}
+
+.adocs-footer ul li a{
+    display: inline;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.adocs-footer ul li a:after {
+    content: none !important;
+}
