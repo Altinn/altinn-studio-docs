@@ -23,10 +23,10 @@ See all issues related to Altinn Studio and UI-designer on [Github](https://gith
 
 ## Form components
 
-The form components are reusable components that are used to build the user interface of the service.
+The form components are reusable components that are used to build the user interface of the app.
 Examples include input fields and title components. See a list of all available form components [here](/ui-components/).
 
-It is also possible to define custom components and use this in the service. 
+It is also possible to define custom components and use this in the app. 
 
 
 ## Multiple form layouts

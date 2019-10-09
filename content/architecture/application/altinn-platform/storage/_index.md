@@ -8,7 +8,7 @@ weight: 100
 
 The Storage component exposes a REST-API to Altinn Apps.
 
-Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, element types and events. It is also intended to be used by application owners and other clients to read data.
+Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, element types and events. It is also intended to be used by organisations and other clients to read data.
 
 Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxInstance
 

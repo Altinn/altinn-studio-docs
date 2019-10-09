@@ -138,7 +138,7 @@ There are two steps to solving this issue
 2. Ensure that the path of all .NET Core references in the Visual Studio solution are in the `C:\Program Files\dotnet` directory. 
 This can be checked by going to Dependencies -> NuGet / SDK for each project in the AltinnCore solution. If this is not the case, remove the reference and re-install it using NuGet package manager or a tool of your own choice.
 
-The second cause and resolution of the .NET code not compiling is that the application user in Altinn Studio has a hyphen in it's username. The username is included as a part of the namespace for all code files related to the project, and .NET does not accept hyphens in namespace declarations. The solution is to create an organization under the application user and creating the application with the organization as the app owner. 
+The second cause and resolution of the .NET code not compiling is that the application user in Altinn Studio has a hyphen in it's username. The username is included as a part of the namespace for all code files related to the project, and .NET does not accept hyphens in namespace declarations. The solution is to create an organisation under the application user and creating the application with the organisation as the app owner. 
 
 ## I try to pull master from github and get error "Cannot lock ref"
 

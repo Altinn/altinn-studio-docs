@@ -4,7 +4,7 @@ description: Information on how custom/third party components are set up
 tags: [tech, react]
 ---
 
-It should be possible to create and use custom/third party components as a part of a service in Altinn Studio. 
+It should be possible to create and use custom/third party components as a part of an app in Altinn Studio. 
 
 {{% notice info %}}
 NOTE: It is not currently supported to change properties on custom components via the Altinn Studio UI editor (f.ex. texts). Therefore, any properties must be hard coded into the component at this time.
@@ -97,10 +97,10 @@ From the root directory of the repository, run the following command:
 npm run build
 ```
 
-This will create a folder named `dist`, and place a file called `index.js` into this folder. This file needs to be available online, accessible by URL, to be used by Altinn Studio. The easiest way to do this is to add the file to your service repository in Gitea. You can then find the URL to the file by navigating to your service in the _Repositories_ part of the soluton (`https://altinn.studio/<organization or user name>/<service>`) and opening the file from there. Choose to view the file _raw_ to get only the file contents, and use the URL shown in the browser.
+This will create a folder named `dist`, and place a file called `index.js` into this folder. This file needs to be available online, accessible by URL, to be used by Altinn Studio. The easiest way to do this is to add the file to your app repository in Gitea. You can then find the URL to the file by navigating to your app in the _Repositories_ part of the soluton (`https://altinn.studio/repos/<org>/<app>`) and opening the file from there. Choose to view the file _raw_ to get only the file contents, and use the URL shown in the browser.
 
-#### Adding custom component to service in Altinn Studio
-In the service where the custom component is to be used, create a file called `ThirdPartyComponent.json`. It is important that the file is called exactly this, and that it is placed in the `Resources` folder in the service repository. 
+#### Adding custom component to app in Altinn Studio
+In the app where the custom component is to be used, create a file called `ThirdPartyComponent.json`. It is important that the file is called exactly this, and that it is placed in the `Resources` folder in the app repository.
 
 Copy the following content into the file and replace the placeholders with your own values:
 
@@ -115,4 +115,4 @@ Copy the following content into the file and replace the placeholders with your 
 }
 ```
 
-Once this is done, sync your version of the service with the updated _Repositories_ version in Altinn Studio, and load the UI editor. The custom component(s) should appear in the list of available form components. 
+Once this is done, sync your version of the app with the updated _Repositories_ version in Altinn Studio, and load the UI editor. The custom component(s) should appear in the list of available form components. 

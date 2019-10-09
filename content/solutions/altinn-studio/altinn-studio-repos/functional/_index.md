@@ -120,7 +120,7 @@ og teste eller patche en tidligere versjon hvis man ønsker det. Det er også vi
 Siden Git benyttes for versjonering, så vil en release/tag som opprettes peke på en _eksakt_ versjon av hver eneste fil som en 3.0-tjeneste består av,
 og man kan enkelt se hva som er endret.
 
-- Create tags for the 3.0 service
+- Create tags for the 3.0 app
 - Link to tags
 - Create/delete releases
 - Link to releases
@@ -145,7 +145,7 @@ Dette er i tråd med hvordan programvare utvikles, inkludert selve Altinn.
 Som for all annen programvareutvikling, så vil hver 3.0-tjeneste typisk ha en egen backlog med bugs, forbedringer, fremtidige features, etc. som
 tjenesteutviklerne vil jobbe mot. Dette er en sentral del av [Application Lifecycle Management].
 
-- Create/close issues pr. 3.0 service
+- Create/close issues pr. 3.0 app
   - Time of creation
   - Who
 - Filter issues by open/closed
@@ -176,17 +176,17 @@ Organisasjoner er tjenesteeiere, men i 3.0 er det ikke noe i veien for at bruker
 I en organisasjon så kan man gi tilganger til brukere, og man kan opprette teams med tilgang til en eller flere 3.0-tjenester.  
 Det å håndtere organisasjonen, som alt annet, skal være 100% selvbetjent.
 
-- Create/delete organizations
+- Create/delete organisations
   - Name/shortname
   - URL
   - Logo
-- List organizations
-- Link to organization
-- Create repository for organization ref. [repository management](#repository-management)
-- Add/remove teams in organization
-- List teams in organization
-- Add/remove users in organization
-- List all users in organization
+- List organisations
+- Link to organisation
+- Create repository for organisation ref. [repository management](#repository-management)
+- Add/remove teams in organisation
+- List teams in organisation
+- Add/remove users in organisation
+- List all users in organisation
 - Add/remove users in teams
 - List users in teams
 
@@ -225,7 +225,7 @@ Søk er viktig for å finne frem, og skal være bygd inn i løsningen.
 - Issues
 - Edits
 - Users
-- Organizations
+- Organisations
 
 ![Søk med sortering](search.gif "Søk med sortering")
 
@@ -233,10 +233,10 @@ Søk er viktig for å finne frem, og skal være bygd inn i løsningen.
 
 Det skal være mulig å styre tilgang til repositories, les/skriv/admin, teams, brukere, samt opprette private repos.
 
-- Access to 3.0 services (read/write)
+- Access to 3.0 apps (read/write)
 - Access to orgs
 - Users access
-- Private/public service-repos
+- Private/public app-repos
 - Administrator
 - AM/AD-integration
 - API access
@@ -249,7 +249,7 @@ I dagens hverdag, med bruk av Slack og andre systemer ifbm. utvikling, så er de
 systemer, f.eks. poste til en Slack-kanal når en endring skjer i en 3.0-tjeneste.
 
 - Trigger events at org-level
-- Trigger events at 3.0 service-level
+- Trigger events at 3.0 app-level
 
 ![WebHook mot Slack](webhook.png "WebHook mot Slack")
 
