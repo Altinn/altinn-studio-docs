@@ -19,6 +19,14 @@ Following nuget packages are published and are available for download [here] (ht
 - [JWTCookieAuthentication](https://www.nuget.org/packages/JWTCookieAuthentication/)
 
 
+### Procedure for Nuget Packages
+1.	Implement all changes necessary in the Nuget Package project e.g. Storage.Interface.csproj.
+2.	Submit PR on these changes only. No implementation on other projects should be included.
+3.	Once PR approved and changes are merged into master; create and deploy new Nuget Package based on master branch.  
+4.	Continue with implementation, referencing the updated Nuget wherever it is needed. 
+5.	Remember to update all outdated references to the Nuget and check that all tests run successfully before submitting a final PR. 
+
+
 ### Create Nuget Package
 
 Detailed documentation on how to create a nuget package, guidelines etc can be found [here](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio). 
