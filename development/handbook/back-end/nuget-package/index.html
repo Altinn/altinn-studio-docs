@@ -6356,6 +6356,16 @@ if(host != "localhost")
 <li><a href="https://www.nuget.org/packages/JWTCookieAuthentication/">JWTCookieAuthentication</a></li>
 </ul>
 
+<h3 id="procedure-for-nuget-packages">Procedure for Nuget Packages</h3>
+
+<ol>
+<li>Implement all changes necessary in the Nuget Package project e.g. Storage.Interface.csproj.</li>
+<li>Submit PR on these changes only. No implementation on other projects should be included.</li>
+<li>Once PR approved and changes are merged into master; create and deploy new Nuget Package based on master branch.<br /></li>
+<li>Continue with implementation, referencing the updated Nuget wherever it is needed.</li>
+<li>Remember to update all outdated references to the Nuget and check that all tests run successfully before submitting a final PR.</li>
+</ol>
+
 <h3 id="create-nuget-package">Create Nuget Package</h3>
 
 <p>Detailed documentation on how to create a nuget package, guidelines etc can be found <a href="https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio">here</a>.</p>
