@@ -5,6 +5,19 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 weight: 100
 ---
+## Breaking change: Added parameter to identify form data in applicationMetadata file
+Introduced with issue: [#2592](https://github.com/Altinn/altinn-studio/issues/2592)
+
+When posting data to an instance the element type should be specified. default is currently used to identify form data, 
+and in application metadata there is a boolean to indicate that elements of thios type are form data. 
+This will cause POST requests to https://{{appOwner}}.apps.{{platformUrl}}/{{appOwner}}/{{appName}}/instances/{{instanceOwnerId}}/{{instanceId}}/data?elementType=default
+to fail if application metadata has not been updated.
+
+## How to fix
+Set appLogic equal to true for element type with id 'default'.
+Log onto altinn.studio and access the metadata file using this url: https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json
+Edit the default element type in the metadata to match the example below
+![element-types](element-types.PNG "Updated application metadata.")
 
 ## Breaking change: Url for application repository is updated.
 Introduced with issue: [#2029](https://github.com/Altinn/altinn-studio/issues/2029)
