@@ -14,7 +14,7 @@ Link to the example client application codebase:
 <https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.ExampleClients/PrefillClient>
 {{%/notice%}}
 
-This is an example client appliation which demonstrate how an application owner can use the Altinn API to instantiate applications with prefill data on a multiple set of persons (or organizations). To achieve this the Altinn API supports an HTTP technique called multipart request. This allow us to send and process an HTTP request with several content parts in **one** operation.
+This is an example client appliation which demonstrate how an prganisation can use the Altinn API to instantiate applications with prefill data on a multiple set of persons (or organisations). To achieve this the Altinn API supports an HTTP technique called multipart request. This allow us to send and process an HTTP request with several content parts in **one** operation.
 
 This example application gives you an idea on how to work with multipart prefill instantiation of applications.
 
@@ -28,7 +28,7 @@ First we will walk you through a scenario of running the application from start 
 
 We have named each XML file with a person number. The XML content is the prefill data we wish to instantiate the applications with for each person.
 
-*For the example purpose these files contain just a few XML lines. In a real world situation this could be large files containing schema data for a given set of persons or organizations.*
+*For the example purpose these files contain just a few XML lines. In a real world situation this could be large files containing schema data for a given set of persons or organisations.*
 
 Here is the content from one of the XML files (**01036800298.xml**):
 

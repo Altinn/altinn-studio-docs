@@ -14,23 +14,23 @@ Resource: Organizations, Parties, Persons
 
 ## /organizations
 
-Get information about an organization:
+Get information about an organisation:
 
 ### Organization type
 
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
-| OrgNumber | string  | the organization number nine digits |
-| Name |  string | the registered name of the organization |
+| OrgNumber | string  | the organisation number nine digits |
+| Name |  string | the registered name of the organisation |
 | UnitType | string  |    |
 | TelephoneNumber | string   | the telephone number |
 | MobileNumber |  string | the mobile number |
 | FaxNumber |  string | the fax number |
 | EMailAddress | string | the email adress  |
 | InternetAddress | string | the url for a web site |
-| MailingAddress | string | the adress for sending mail to the organization |
-| MailingPostalCode | string | the postal code for sending mail to the organization |
-| MailingPostalCity | string | the city for sending mail to the organization  |
+| MailingAddress | string | the adress for sending mail to the organisation |
+| MailingPostalCode | string | the postal code for sending mail to the organisation |
+| MailingPostalCity | string | the city for sending mail to the organisation  |
 | BusinessAddress | string | the address of the daily business |
 | BusinessPostalCode | string | the postal code for the daily business  |  
 | BusinessPostalCity | string | the city for the daily business|  
@@ -79,16 +79,16 @@ GET /persons
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
 | PartyId | int | the party ID |  
-| PartyTypeName | PartyType | the type of the party; organization or person |  
-| OrgNumber | string | the organization number. Empty string if party is person. |  
-| SSN | string | the social security number. Empty string if party is organization. |  
+| PartyTypeName | PartyType | the type of the party; organisation or person |  
+| OrgNumber | string | the organisation number. Empty string if party is person. |  
+| SSN | string | the social security number. Empty string if party is organisation. |  
 | UnitType | string |  |  
-| Name | string | the full name of the person or name of the organization |  
-| IsDeleted | bool | true is the organization has been deleted from the registery |  
+| Name | string | the full name of the person or name of the organisation |  
+| IsDeleted | bool | true is the organisation has been deleted from the registery |  
 | OnlyHiearhyElementWithNoAccess | bool | true if party is a parent unit with no access in current context|  
 | Person | Person | the person the party represents |  
-| Organization | Organization | the organization the party represents |  
-| ChildParties | List<Party> | List of sub units if the party is an organization |  
+| Organization | Organization | the organisation the party represents |  
+| ChildParties | List<Party> | List of sub units if the party is an organisation |  
 
 ### Operations
 

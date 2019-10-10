@@ -1,6 +1,6 @@
 ---
 title: REST-API for orgs
-description: Description of the  API for organizations (App Owners).
+description: Description of the  API for organisations (orgs).
 tags: [altinn-apps]
 aliases:
     - "/altinn-studio-apps"

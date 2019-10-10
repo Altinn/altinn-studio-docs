@@ -22,11 +22,11 @@ Edit the default element type in the metadata to match the example below
 ## Breaking change: Url for application repository is updated.
 Introduced with issue: [#2029](https://github.com/Altinn/altinn-studio/issues/2029)
 
-It is no longer possible to access repositories in Gitea through https://altinn.studio/{organizationShortName}/{appName}.
+It is no longer possible to access repositories in Gitea through https://altinn.studio/{org}/{app}.
 This is due to changes made in backend routing with release v2019.27, url to Gitea and the application repositories now requires a /repos.
 
 ### How to fix
-To access your repository go to: https://altinn.studio/repos/{organizationShortName}/{appName}
+To access your repository go to: https://altinn.studio/repos/{org}/{app}
 
 ## Error -The type or namespace name *
 Introduced with issue: [#875](https://github.com/Altinn/altinn-studio/issues/875)
@@ -44,7 +44,7 @@ When compiling C# files for a given service application the following errors occ
 
 ### How to fix
 
-Make the following updates to the application repo (https://altinn.studio/{organizationShortName}/{appName}):
+Make the following updates to the application repo (https://altinn.studio/{org}/{app}):
 
 - /AltinnService.csproj (update to latest nuget package)
 
@@ -71,7 +71,7 @@ When compiling C# files for a given app the following errors occurs:
 
 ### How to fix
 
-Make the following updates to the application repo (https://altinn.studio/{organizationShortName}/{appName}):
+Make the following updates to the application repo (https://altinn.studio/{org}/{app}):
 
 - /AltinnService.csproj (update to latest nuget package)
 
@@ -109,17 +109,17 @@ Error when trying to test app:
 
 ### How to fix
 
-Make the following updates to the application repo (https://altinn.studio/{organizationShortName}/{appName}):
+Make the following updates to the application repo (https://altinn.studio/{org}/{app}):
 
 - Delete all files under the 'Testdataforparty', this has to be done by deleting one by one file:
 
 ![Delete file from Gitea](delete-file.png "Delete files from Gitea")
 
-- or you can clone your app by using git clone, then remove the files from the clone folder, git add to specify which files to check in, git commit -m to commit and git push to push changes to master (git clone urlToService):
+- or you can clone your app by using git clone, then remove the files from the clone folder, git add to specify which files to check in, git commit -m to commit and git push to push changes to master (git clone urlToApp):
 
 ![Clone app from Gitea](clone-service.png "Clone app from Gitea")
 
-- if help is needed send a <a href="mailto:extsbu@brreg.no">mail</a> with the name of the organization and the repo-name.
+- if help is needed send a <a href="mailto:extsbu@brreg.no">mail</a> with the name of the organisation and the repo-name.
 
 ## Error when trying to open an archived instance in message box
 Introduced with issue: [#1771](https://github.com/Altinn/altinn-studio/issues/1771).

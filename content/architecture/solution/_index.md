@@ -12,7 +12,7 @@ Functionality in Altinn is distributed between five different solutions
 - Altinn Apps - The new hosting and infrastructure solution for applications
 - Altinn Platform - The new supporting platform solution
 - SBL - The old hosting solution for InfoPath services
-- TUL - The old service development solution
+- TUL - The old app development solution
 
 The diagram below shows where functionality is located in the five different solutions:
 

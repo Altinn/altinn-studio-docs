@@ -66,7 +66,7 @@ Each organisation will have their own sub domain.
 
 #### Path for the Altinn App
 
-> org.apps.altinn.no/appname
+> org.apps.altinn.no/app
 
 #### Encrypted traffic and network policy
 

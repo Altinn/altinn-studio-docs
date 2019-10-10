@@ -15,7 +15,7 @@ This is work-in-progress. This is a proposed API which most likely is going to c
 ## Introduction
 There are primarily two types of consumers of the Altinn APIs. 
 The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called *Application Owners*.
-The second group consists of organizations and people using the applications through a client system, the group is called *Application Users*. 
+The second group consists of organisations and people using the applications through a client system, the group is called *Application Users*. 
 The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform. 
 Traditionally the two groups have had access to completely separated API endpoints in Altinn. 
 The new API will be available to both parties, but with some functions that will normally be used only by one of the groups. 
@@ -56,7 +56,7 @@ An api that provides access to all instances of a specific app.
 appPath = https://org.apps.altinn.no/org/app
 ```
 
-Identifies the organization cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
+Identifies the organisation cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
 
 ### Platform Storage API
 
@@ -137,7 +137,7 @@ This call will return the instance metadata record that was created. A unique id
         "started": "2019-09-25T09:32:44.20Z",
         "currentTask": {
             "started": "2019-10-10T32:22.00Z",
-            "processElementId": "Data_1",
+            "elementId": "Task_1",
             "name": "Fyll ut",
             "altinnTaskType": "data",
             "validated": {
@@ -313,13 +313,13 @@ Will return a multipart http response with the following content:
 
 Application owners can search for application instances with a simple GET request towards the *instances* endpoint.
 
-For example: To get all instances of appId *org/app*, that is in at task with id *Submit_1* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
+For example: To get all instances of appId *org/app*, that is in at task with id *Task_2* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
 
 ```http
-GET {storagePath}/instances?appId=org/app&process.currentTask=Submit_1&lastChangedDateTime=gt:2019-05-01&label=gruppe3
+GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChangedDateTime=gt:2019-05-01&label=gruppe3
 ```
 
-Another example is get all instances of all apps of an organistation *org* that has completed their process.
+Another example is get all instances of all apps of an organisation *org* that has completed their process.
 
 ```http
 GET {storagePath}/instances?org=org&process.isComplete=true
@@ -406,7 +406,7 @@ Example of event data.
     "instanceOwnerId": "60238",
     "userId": 338829,
     "authenticationLevel": 1,
-    "currentTask": "Submit_1",
+    "currentTask": "Task_2",
     "enduserSystemId": 2
 }
 ```
@@ -420,7 +420,7 @@ Selected instance events. Created, first read, change process state. Optinally s
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask=Submit_1
+GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask=Task_2
 ```
 
 Query result: 
@@ -448,8 +448,8 @@ Query result:
             }
         ],
         "eventType": "ProcessStateChange",
-        "previousTask": "Data_1",
-        "currentTask": "Submit_1",
+        "previousTask": "Task_1",
+        "currentTask": "Task_2",
         "userId": "userX"
     }
 ]
@@ -504,11 +504,11 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
     <bpmn2:startEvent id="StartEvent_1">
       <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
-    <bpmn2:task id="Data_1" name="Fyll ut" altinn:tasktype="data">
+    <bpmn2:task id="Task_1" name="Fyll ut" altinn:tasktype="data">
       <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
     </bpmn2:task>
-    <bpmn2:task id="Submit_1" name="Send inn" altinn:tasktype="submit">
+    <bpmn2:task id="Task_2" name="Send inn" altinn:tasktype="submit">
       <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
       <bpmn2:outgoing>SequenceFlow_3</bpmn2:outgoing>
     </bpmn2:task>
@@ -516,8 +516,8 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
       <bpmn2:incoming>SequenceFlow_3</bpmn2:incoming>
     </bpmn2:endEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="data_1" />
-    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Data_1" targetRef="Submit_1" />
-    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Submit_1" targetRef="EndEvent_1" />
+    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="Task_2" />
+    <bpmn2:sequenceFlow id="SequenceFlow_3" sourceRef="Task_2" targetRef="EndEvent_1" />
   </bpmn2:process>
 ```
 
@@ -529,7 +529,7 @@ Application developers can in their BPMN Definition specify some altinn specific
 - *submit* - user is asked if he should submit the information which has been filled in on previous tasks
 - *payment* - user is asked to pay a specific amount
 - *signing* - user is asked to provide a digital signature
-- *external* - task is handled by extern entity, user must wait until they have completed the task.
+- *external* - task is handled by an external entity, user must wait until they have completed the task.
 
 ### Get process state of a specific instance
 
@@ -537,16 +537,15 @@ Application developers can in their BPMN Definition specify some altinn specific
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
 
-For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *Data_1*. The sequence number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.
+For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *Task_1*. The flow number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.
 
 ```json
 {
         "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": "Data_1",
-        "taskInfo": {
-            "sequenceNumber": 2,
+        "currentTask": {
+            "flow": 2,
             "started": "2019-10-10T32:22.00Z",
-            "processElementId": "Data_1",
+            "elementId": "Task_1",
             "name": "Fyll ut",
             "altinnTaskType": "data",
             "validated": {
@@ -561,8 +560,8 @@ For an ended process the following will be returned:
 
 ```json
 {
-    "sequenceNumber": 5,
     "started": "2019-09-25T09:32:44.20Z",
+    "startEvent": "StartEvent_1",
     "ended": "2019-10-10T14:01:22.034Z",
     "endEvent": "EndEvent_1"
 }
@@ -583,9 +582,9 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:Start",
-    "info": {
-        "sequenceNumber": 1,
-        "processElementId": "StartEvent_1",
+    "processInfo": {
+        "started": "2019-09-25T09:32:44.20Z",
+        "startEvent": "StartEvent_1"
     },
     "createdDateTime": "2019-10-10T14:01:22.034Z",
 }
@@ -597,10 +596,16 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:StartTask",
-    "info": {
-        "sequenceNumber": 2,
-        "processElementId": "Data_1",
-        "source": 1
+    "processInfo": {
+        "started": "2019-09-25T09:32:44.20Z",
+        "startEvent": "StartEvent_1",
+        "currentTask": {
+            "flow": 2,
+            "started": "2019-10-01T13:22.01Z",
+            "elementId": "Task_1",
+            "name": "Fyll ut MVA rapport",
+            "altinnTaskId": "data"
+        }
     },
     "createdDateTime": "2019-10-01T13:22.01Z",
 }
@@ -612,10 +617,17 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndTask",
-    "info": {
-        "sequenceNumber": 2,
-        "processElementId": "Data_1"
-    }
+    "processInfo": {
+        "started": "2017-10-01T13:22.00Z",
+        "startEvent": "StartEvent_1",
+        "currentTask": {
+            "flow": 2,
+            "started": "2019-10-05T01:11.33Z",
+            "elementId": "Task_1",
+            "altinnTaskId": "data",
+            "ended": "2019-10-05T01:11.33Z"
+        }
+    },
     "createdDateTime": "2019-10-05T01:11.33Z",
 }
 ```
@@ -626,10 +638,11 @@ The system will generate a number of process related events, which can be found 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndEvent",
-    "info": {
-        "sequenceNumber": 3,
-        "processElementId": "EndEvent_1",
-        "source": 2
+    "processInfo": {
+        "started": "2017-10-01T13:22.00Z",
+        "startEvent": "StartEvent_1",
+        "ended": "2019-10-05T08:15:23.544Z",
+        "endEvent": "EndEvent_1"
     },
     "createdDateTime": "2019-10-05T08:15:23.544Z",
 }
@@ -645,29 +658,29 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 
 ```json
 [{
-    "sequenceNumber": 1,
+    "flow": 1,
     "type": "process:startEvent",
-    "processElementId": "StartEvent_1",
+    "elementId": "StartEvent_1",
     "occured": "2019-10-10T14:01:22.034Z",
 },
 {
-    "sequenceNumber": 2,
+    "flow": 2,
     "type": "process:task",
-    "processElementId": "Data_1",
+    "elementId": "Task_1",
     "started": "2019-10-01T13:22.01Z",
     "ended": "2019-10-05T01:11.33Z",
 },
 {
-    "sequenceNumber": 3,
+    "flow": 3,
     "type": "process:task",
-    "processElementId": "Submit_1",
+    "elementId": "Task_2",
     "started": "2019-10-05T08:14:33.232Z",
     "ended": "2019-10-05T08:15:23.543Z"
 },
 {
-    "sequenceNumber": 4,
+    "flow": 4,
     "type": "process:endEvent",
-    "processElementId": "EndEvent_1",
+    "elementId": "EndEvent_1",
     "occured": "2019-10-05T08:15:23.544Z"
 }]
 ```
@@ -676,23 +689,28 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 Is it in signing? Is it form filling +++ Used by react to decide what to show.
 http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5 -->
 
-### Complete a task
+### Start Process
 
-Application attempts to finish the current task and moves the process forward to the next task in the flow. The application cannot always select the next task, especially when more than one tasks can be chosen. In this case the user must chose which task to select. 
-
-![Flowchart for completing a task](process-completeTask.png "Process complete task")
+To start a process one can post start to the process endpoint.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeTask
+POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/start[?startEvent=StartEvent_1]
 ```
+
+This will start the process and move the process state to the first task from the given start. If process has more than one start event, then the client has to chose which one to start with the startEvent query parameter.
+
+### Complete and move to next task
+
+The process logic attempts to finish the current task and then moves the process forward to the next task in the flow. The cannot always select the next task, especially when more than one tasks can be chosen. In this case the client must chose which process element id to select.
+
+![Flowchart for completing a task](process-completeTask.png "Process next task")
+
+```http
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next[?id=Task_2]
+```
+
 <!--OLD  //Complete
 http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete -->
-
-Alternatively one can ask the app to go to the next task. The application will try to close the current task and attempt to start the next task. 
-
-```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
-```
 
 ### Complete the process
 
@@ -705,6 +723,7 @@ If a task's exit condition is not met, the process will be stopped in the last v
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 ```
+
 <!-- OLD // CompleteAndSendIn
 http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn -->
 
@@ -718,10 +737,10 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
 
 ### Start a task
 
-Tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
+If you are at a specific task and want to start the next task you can try to put next to the process endpoint. The process controller then tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.
 
 ```http
-PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Submit_1
+PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Task_2
 ```
 
 ## Application resources
@@ -745,25 +764,28 @@ GET {appPath}
     "createdDateTime": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" },
-    "processId": "twoformsAndsubmit",
+    "processId": "twoTasksDataAndSubmit",
     "validFrom": "2019-04-01T12:14:22Z",
     "validTo": null,
     "maxSize": -1,
     "elementTypes": [
         {
             "id": "default",
+            "appLogic": true,
             "description": {"nb": "Båtdata", "en": "Boat data"},
             "allowedContentType": ["application/json"],
             "schema": {
                 "fileName": "boat.json-schema",
                 "schemaUrl": "/applications/test/sailor/schemas/boatdata"
             },
-            "task": "Data_1",
+            "task": "Task_1",
             "maxSize": 200000,
+            "minCount": 1,
             "maxCount": 1,
         },
         {
             "id": "crewlist",
+            "appLogic": true,
             "allowedContentType": ["application/xml"],
             "schema": {
                 "fileName": "crew.xsd",
@@ -771,13 +793,16 @@ GET {appPath}
             },
             "task": "Data_2",
             "maxSize": -1,
+            "minCount": 1,
             "maxCount": 3,
         },
         {
             "id": "certificate",
+            "appLogic": false,
             "allowedContentType": ["application/pdf"],
-            "task": "Data_1",
+            "task": "Task_1",
             "maxSize": -1,
+            "minCount": 1,
             "maxCount": 1,
         }
     ]

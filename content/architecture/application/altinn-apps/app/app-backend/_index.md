@@ -29,26 +29,25 @@ The below diagram show how the App Backend is build around 3 main packages.
 
 
 #### App logic
-The applogic is C# code generated/created as part of the service 
-development process in Altinn Studio.
+The app logic is C# code generated/created as part of the app development process in Altinn Studio.
 
 The service implementation class implement a defined interface that backend uses to be able to interact
 with the service implementation.
 
-This is done through reflection. The App container contains a dll of the service logic. 
+This is done through reflection. The App container contains a dll of the app logic. 
 
 The service implementation contains all backend code for logic and rules.  
 
 The different controllers calls the app logic
 
 #### Datamodel
-The data model in a service is defined as an XSD. From the XSD it is generated
-a C# representation of that model. 
+The data model in an app is defined as an XSD. From the XSD it is generated
+a C# representation of that model.
 
 In runtime all data is deserialized/serialized from/to this model when communication
 with frontend/external systems.
 
-All logic in the service will typical be related to the datamodel.
+All logic in the app will typical be related to the datamodel.
 
 [download as visio]: /architecture/application/altinn-apps/altinnapps_application_architecture.vsdx
 [See fullscreen]: /architecture/application/altinn-apps/altinnapps_application_architecture.svg

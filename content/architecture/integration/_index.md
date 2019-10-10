@@ -16,7 +16,7 @@ The architecture give guidelines and constraints for how different types of inte
 An Altinn App provides application specific APIS to the following user groups:
 
 * End Users
-* Application Owners
+* Organisations
 
 ## Altinn Platform REST APIS
 
@@ -24,7 +24,7 @@ Altinn Platform offers REST Apis for the following user groups:
 
 * Altinn Apps
 * End User Systems
-* Application Owners
+* Organisations
 * External Systems
 
 {{% children description="true" depth="1" %}}

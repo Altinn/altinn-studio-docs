@@ -12,8 +12,7 @@ This application is responsible to present a UI to the end user. The application
 features that is responsible for handling the ui for different steps in the workflow.
 
 Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during
-the build/deploy process to a Altinn Apps environment. This means that there can be different versions of App Frontend for two 
-different deployed Apps
+the build/deploy process to a Altinn Apps environment. This means that there can be different versions of App Frontend for two different deployed Apps
 
 ## React Architecture
 The React Architecture used for App Frontend is based on using different javascript frameworks together REACT to handle different responsibilties.
@@ -55,12 +54,12 @@ This feature is responsible for presenting the user
 ### UI Render (FormFiller)
 The UI rendering component is the one that is responsible for rendering the UI designed in Altinn Studio.
 
-This feature uses the formlayout for a app together with other metdata about the datamodell.
+This feature uses the formlayout for an app together with other metdata about the datamodell.
 
 Based on the content of the formlayout file the UI Render, renders the correct components like textbox, fileupload ++
 
 ### Receipt
-This feature is responsible to show the summary of the instance when a app is sent to end state of the process flow.
+This feature is responsible to show the summary of the instance when an app is sent to end state of the process flow.
 
 
 ## Configuration files
@@ -77,7 +76,7 @@ It decides the layout elements. App Frontend have access to form layout through 
 Contains all text resources 
 
 ### ServiceMetadata
-Contains information about the datamodell and is used by UI-render to map the fields to the datamodel. 
+Contains information about the data model and is used by UI-render to map the fields to the data model. 
 
 [See details about ServiceMetadata.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/)
 

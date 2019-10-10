@@ -39,6 +39,7 @@ As an example a decision request could only contain instanceID and userId toghet
 ```
 
 The enriched decision request contains all the needed attributes so PDP can identify the correct policy and evauluate the request based on it.
+Context handler uses instance data from storage 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

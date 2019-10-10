@@ -22,7 +22,7 @@ See [code](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/De
 Methods:
 
 #### CodeLists
-Returns a list over codelist in a service
+Returns a list over codelist in an app
 
 #### Delete
 Deletes a given codelist
