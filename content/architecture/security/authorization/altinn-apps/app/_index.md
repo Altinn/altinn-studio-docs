@@ -1,5 +1,5 @@
 ---
-title: Authorization architecture - app
+title: App (asp.net web template)
 description: Description of the Authorization Architecture for an app created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps
 tags: [architecture, security]
 weight: 100
@@ -25,18 +25,19 @@ This architecture defines the following components.
 ### Policy Decision Point (PDP)
 The Policy Decision Point is responsible for deciding if the requested operation is allowed.
 PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request. Altinn Apps used Policy Decision Point in Altinn Platform solution
+user or system is allowed to perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution
 
 [Learn about Policy Decision Point in Altinn Platform](/../altinn-platform/pdp)
 
 ### Policy Information Point
 The Policy Information Point is used by PDP to gather information needed to perform the decision.
-Altinn Apps uses Policy Information Point in Altinn Platform
+Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.
 
 [Learn about Policy Information Point in Altinn Platform](../altinn-platform/pip)
 
 ### Policy Administration Point
-The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform and Altinn Studio
+The policy administration point is where the policy rules are defined. 
+The policy for Apps are defined in Altinn Studio
 
 [Learn about Policy Administration Point in Altinn Platform](../altinn-platform/pap)
 
