@@ -6348,26 +6348,26 @@ if(host != "localhost")
 
 
 <p>The general rule is that a app hosted in Altinn Apps has <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
-In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
+In short, request is authorized based on attributes for the request. E.g. what data element is the user accessing, who owns it,
 what type of data element and so on.</p>
 
 <p>The opposite is <a href="https://en.wikipedia.org/wiki/Role-based_access_control">Role Based access control</a> where all user in a given role
-is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Apps support.</p>
+is allowed to access an operation and access all data. This would not work in the scenarios that Altinn Apps support.</p>
 
 <h2 id="authorization-components">Authorization Components</h2>
 
 <p>The authorization architecture for Altinn Apps are based on the
 <a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
 
-<p>A app created in Altinn Studio and hosted in Altinn Apps follows the same architecture.</p>
+<p>An app created in Altinn Studio and hosted in Altinn Apps follows the same architecture.</p>
 
 <p>This architecture defines the following components.</p>
 
 <h3 id="policy-decision-point-pdp">Policy Decision Point (PDP)</h3>
 
 <p>The Policy Decision Point is responsible for deciding if the requested operation is allowed.
-PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution</p>
+PDP looks at the rules defined for a given resource and based on roles or other claims it decides if
+user or system can perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution</p>
 
 <p><a href="/../altinn-platform/pdp">Learn about Policy Decision Point in Altinn Platform</a></p>
 
@@ -6381,26 +6381,26 @@ Altinn Apps uses Policy Information Point in Altinn Platform to get information 
 <h3 id="policy-administration-point">Policy Administration Point</h3>
 
 <p>The policy administration point is where the policy rules are defined.
-The policy for Apps are defined in Altinn Studio</p>
+The policy for Apps is defined in Altinn Studio</p>
 
 <p><a href="../altinn-platform/pap">Learn about Policy Administration Point in Altinn Platform</a></p>
 
-<h3 id="policy-enforcment-point">Policy Enforcment Point</h3>
+<h3 id="policy-enforcement-point">Policy Enforcement Point</h3>
 
-<p>The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation
-on a resource. Each App in Altinn Apps need to have a Policy Enformcent Points on all resources that needs to be authorized</p>
+<p>The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
+on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized</p>
 
-<p><a href="pep">Learn about Policy Enforcment Point in apps based on ASP.NET core template</a></p>
+<p><a href="pep">Learn about Policy Enforcement Point in apps based on ASP.NET core template</a></p>
 
-<h3 id="policy-retrival-point">Policy Retrival Point</h3>
+<h3 id="policy-retrieval-point">Policy Retrieval Point</h3>
 
 <p>The policy retrieval point is where PDP can request the policies for a given
 resource. Altinn Apps uses PRP in Altinn Platform
-<a href="../altinn-platform/pdp">Learn about Policy Enforcment Point in Altinn Platform</a></p>
+<a href="../altinn-platform/prp">Learn about Policy Retrieval Point in Altinn Platform</a></p>
 
 <h3 id="context-handler">Context handler</h3>
 
-<p>The context handler is responsible for enriching the decision request so
+<p>The context handler is responsible for enriching the decision request, so
 it contains all attributes that PDP needs to take a decision.
  Altinn Apps uses Context Handler in Altinn Platform</p>
 
@@ -6408,10 +6408,10 @@ it contains all attributes that PDP needs to take a decision.
 
 <h2 id="the-overall-authorization-flow">The Overall Authorization flow</h2>
 
-<p>The sequence diagram below show how request are authorized</p>
+<p>The sequence diagram below shows how request are authorized</p>
 
 
-	<p><object data="/architecture/security/authorization/altinn-studio-apps/AuthorizationFlow.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+	<p><object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;"></object></p>
 
 
 
