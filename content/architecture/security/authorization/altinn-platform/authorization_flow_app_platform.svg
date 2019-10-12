@@ -23,10 +23,10 @@
 		.st9 {fill:#4f87bb;font-family:Calibri;font-size:0.666664em}
 		.st10 {font-size:1em}
 		.st11 {marker-end:url(#mrkr3-147);stroke:#5b9bd5;stroke-dasharray:7,5;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
-		.st12 {fill:#ffffff;stroke:none;stroke-linecap:butt}
-		.st13 {fill:#5b9bd5;fill-opacity:0;stroke:#4f87bb;stroke-width:0.75}
-		.st14 {fill:#ffffff;stroke:#4f87bb;stroke-width:0.75}
-		.st15 {fill:#4f88bb;font-family:Calibri;font-size:0.666664em;font-weight:bold}
+		.st12 {fill:#5b9bd5;fill-opacity:0;stroke:#4f87bb;stroke-width:0.75}
+		.st13 {fill:#ffffff;stroke:#4f87bb;stroke-width:0.75}
+		.st14 {fill:#4f88bb;font-family:Calibri;font-size:0.666664em;font-weight:bold}
+		.st15 {fill:#ffffff;stroke:none;stroke-linecap:butt}
 		.st16 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -313,7 +313,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-59.5276" cy="1150.18" width="98.29" height="17.6036"/>
 			<path d="M0 1150.18 L-119.06 1150.18" class="st11"/>
-			<rect v:rectContext="textBkgnd" x="-103.763" y="1145.38" width="88.4713" height="9.59985" class="st12"/>
+			<rect v:rectContext="textBkgnd" x="-103.763" y="1145.38" width="88.4713" height="9.59985" class="st8"/>
 			<text x="-103.76" y="1152.58" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>decisionRequest (Enriched)</text>		</g>
 		<g id="shape87-150" v:mID="87" v:groupContext="shape" v:layerMember="0" transform="translate(1060.55,-873.354)">
 			<title>Message.29</title>
@@ -391,7 +391,7 @@
 			</v:userDefs>
 			<title>Optional fragment</title>
 			<g id="shape92-186" v:mID="92" v:groupContext="groupContent">
-				<rect x="0" y="1012.7" width="493.228" height="144.567" class="st13"/>
+				<rect x="0" y="1012.7" width="493.228" height="144.567" class="st12"/>
 			</g>
 			<g id="shape93-188" v:mID="93" v:groupContext="shape" transform="translate(0,-126.963)">
 				<title>Sheet.93</title>
@@ -409,8 +409,8 @@
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="32" cy="1148.46" width="64" height="17.6036"/>
-				<path d="M0 1157.26 L56.91 1157.26 L64 1150.18 L64 1139.66 L0 1139.66 L0 1157.26 Z" class="st14"/>
-				<text x="4" y="1150.86" class="st15" v:langID="1044"><v:paragraph/><v:tabList/>IfNotAuthorized</text>			</g>
+				<path d="M0 1157.26 L56.91 1157.26 L64 1150.18 L64 1139.66 L0 1139.66 L0 1157.26 Z" class="st13"/>
+				<text x="4" y="1150.86" class="st14" v:langID="1044"><v:paragraph/><v:tabList/>IfNotAuthorized</text>			</g>
 		</g>
 		<g id="shape94-191" v:mID="94" v:groupContext="shape" v:layerMember="0" transform="translate(1060.55,-723.118)">
 			<title>Message.42</title>
@@ -524,7 +524,7 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="96.3779" cy="1150.18" width="130.56" height="17.6036"/>
 			<path d="M0 1150.18 L184.28 1150.18" class="st6"/>
-			<rect v:rectContext="textBkgnd" x="36.0057" y="1145.38" width="120.745" height="9.59985" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="36.0057" y="1145.38" width="120.745" height="9.59985" class="st15"/>
 			<text x="36.01" y="1152.58" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>GetResourceInfo(resourceAttributes)</text>		</g>
 		<g id="shape104-252" v:mID="104" v:groupContext="shape" v:layerMember="0" transform="translate(1372.36,-944.22)">
 			<title>Return Message.55</title>
@@ -710,17 +710,17 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="7.08661" cy="1167.18" width="74.45" height="17.6036"/>
 			<path d="M7.09 1157.26 L25.09 1157.26 L25.09 1177.1 L15.57 1177.1" class="st6"/>
-			<rect v:rectContext="textBkgnd" x="-25.2294" y="1162.38" width="64.6323" height="9.59985" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-25.2294" y="1162.38" width="64.6323" height="9.59985" class="st15"/>
 			<text x="-25.23" y="1169.58" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Identify requestInfo</text>		</g>
-		<g id="group121-349" transform="translate(689.386,-477.921)" v:mID="121" v:groupContext="group">
+		<g id="group121-349" transform="translate(692.22,-452.409)" v:mID="121" v:groupContext="group">
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<title>Optional fragment.121</title>
 			<g id="shape121-350" v:mID="121" v:groupContext="groupContent">
-				<rect x="0" y="1069.39" width="493.228" height="87.874" class="st13"/>
+				<rect x="0" y="1097.73" width="493.228" height="59.5276" class="st12"/>
 			</g>
-			<g id="shape122-352" v:mID="122" v:groupContext="shape" transform="translate(0,-70.2704)">
+			<g id="shape122-352" v:mID="122" v:groupContext="shape" transform="translate(0,-41.924)">
 				<title>Sheet.122</title>
 				<desc>IfNotAuthorized</desc>
 				<v:userDefs>
@@ -736,10 +736,10 @@
 				</v:userDefs>
 				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 				<v:textRect cx="32" cy="1148.46" width="64" height="17.6036"/>
-				<path d="M0 1157.26 L56.91 1157.26 L64 1150.18 L64 1139.66 L0 1139.66 L0 1157.26 Z" class="st14"/>
-				<text x="4" y="1150.86" class="st15" v:langID="1044"><v:paragraph/><v:tabList/>IfNotAuthorized</text>			</g>
+				<path d="M0 1157.26 L56.91 1157.26 L64 1150.18 L64 1139.66 L0 1139.66 L0 1157.26 Z" class="st13"/>
+				<text x="4" y="1150.86" class="st14" v:langID="1044"><v:paragraph/><v:tabList/>IfNotAuthorized</text>			</g>
 		</g>
-		<g id="shape123-355" v:mID="123" v:groupContext="shape" v:layerMember="0" transform="translate(849.402,-510.52)">
+		<g id="shape123-355" v:mID="123" v:groupContext="shape" v:layerMember="0" transform="translate(849.402,-456.661)">
 			<title>Return Message.123</title>
 			<desc>Not Authorized (403)</desc>
 			<v:userDefs>
@@ -753,7 +753,7 @@
 			<path d="M0 1150.18 L-100.49 1150.18" class="st11"/>
 			<rect v:rectContext="textBkgnd" x="-84.5428" y="1145.38" width="68.5975" height="9.59985" class="st8"/>
 			<text x="-84.54" y="1152.58" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Not Authorized (403)</text>		</g>
-		<g id="shape126-362" v:mID="126" v:groupContext="shape" v:layerMember="0" transform="translate(947.339,-541.701)">
+		<g id="shape126-362" v:mID="126" v:groupContext="shape" v:layerMember="0" transform="translate(947.339,-487.843)">
 			<title>Return Message.126</title>
 			<desc>Context.Fail()</desc>
 			<v:userDefs>
@@ -765,19 +765,23 @@
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
 			<v:textRect cx="-48.9685" cy="1164.35" width="53.36" height="17.6036"/>
 			<path d="M0 1164.35 L-97.94 1164.35" class="st11"/>
-			<rect v:rectContext="textBkgnd" x="-70.7396" y="1159.55" width="43.5424" height="9.59985" class="st8"/>
+			<rect v:rectContext="textBkgnd" x="-70.7396" y="1159.55" width="43.5424" height="9.59985" class="st15"/>
 			<text x="-70.74" y="1166.75" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Context.Fail()</text>		</g>
-		<g id="shape127-369" v:mID="127" v:groupContext="shape" v:layerMember="0" transform="translate(257.102,-659.339)">
+		<g id="shape127-369" v:mID="127" v:groupContext="shape" v:layerMember="0" transform="translate(940.252,-554.457)">
 			<title>Self Message.127</title>
+			<desc>Validate response and obligations</desc>
 			<v:userDefs>
 				<v:ud v:nameU="IsReturn" v:prompt="" v:val="VT0(0):5"/>
 				<v:ud v:nameU="IsAsync" v:prompt="" v:val="VT0(0):26"/>
 				<v:ud v:nameU="IsSelfMessage" v:prompt="" v:val="VT0(1):5"/>
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
-			<path d="M7.09 1157.26 L25.09 1157.26 L25.09 1191.28 L15.57 1191.28" class="st6"/>
-		</g>
-		<g id="shape128-374" v:mID="128" v:groupContext="shape" v:layerMember="0" transform="translate(947.339,-470.835)">
+			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
+			<v:textRect cx="7.08661" cy="1167.18" width="119.61" height="17.6036"/>
+			<path d="M7.09 1157.26 L25.09 1157.26 L25.09 1177.1 L15.57 1177.1" class="st6"/>
+			<rect v:rectContext="textBkgnd" x="-47.8091" y="1162.38" width="109.792" height="9.59985" class="st8"/>
+			<text x="-47.81" y="1169.58" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Validate response and obligations</text>		</g>
+		<g id="shape128-376" v:mID="128" v:groupContext="shape" v:layerMember="0" transform="translate(947.339,-450.992)">
 			<title>Return Message.128</title>
 			<desc>Context.Success</desc>
 			<v:userDefs>
@@ -791,7 +795,7 @@
 			<path d="M0 1164.35 L-97.94 1164.35" class="st11"/>
 			<rect v:rectContext="textBkgnd" x="-75.1653" y="1159.55" width="52.3938" height="9.59985" class="st8"/>
 			<text x="-75.17" y="1166.75" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Context.Success</text>		</g>
-		<g id="shape129-381" v:mID="129" v:groupContext="shape" v:layerMember="0" transform="translate(842.315,-443.905)">
+		<g id="shape129-383" v:mID="129" v:groupContext="shape" v:layerMember="0" transform="translate(842.315,-426.898)">
 			<title>Self Message.129</title>
 			<desc>Run API Logic</desc>
 			<v:userDefs>
@@ -801,11 +805,11 @@
 				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(15):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-			<v:textRect cx="7.08661" cy="1174.27" width="53.53" height="17.6036"/>
-			<path d="M7.09 1157.26 L25.09 1157.26 L25.09 1191.28 L15.57 1191.28" class="st6"/>
-			<rect v:rectContext="textBkgnd" x="-14.7685" y="1169.47" width="43.7105" height="9.59985" class="st8"/>
-			<text x="-14.77" y="1176.67" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Run API Logic</text>		</g>
-		<g id="shape130-388" v:mID="130" v:groupContext="shape" v:layerMember="0" transform="translate(849.402,-382.961)">
+			<v:textRect cx="7.08661" cy="1165.77" width="53.53" height="17.6036"/>
+			<path d="M7.09 1157.26 L25.09 1157.26 L25.09 1174.27 L15.57 1174.27" class="st6"/>
+			<rect v:rectContext="textBkgnd" x="-14.7685" y="1160.97" width="43.7105" height="9.59985" class="st8"/>
+			<text x="-14.77" y="1168.17" class="st9" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Run API Logic</text>		</g>
+		<g id="shape130-390" v:mID="130" v:groupContext="shape" v:layerMember="0" transform="translate(849.402,-382.961)">
 			<title>Return Message.130</title>
 			<desc>API Response</desc>
 			<v:userDefs>
