@@ -3,9 +3,9 @@ title: Security Architecture
 description: Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.
 tags: [architecture, security]
 weight: 100
+linktitle: Security
 alwaysopen: false
 ---
-
 
 For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.
 
