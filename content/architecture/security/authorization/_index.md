@@ -1,6 +1,6 @@
 ---
 title: Authorization
-description: Describres Authorization architecture used for Altinn Studio, Altinn Apps and Altinn Platform
+description: Describes Authorization architecture used for Altinn Studio, Altinn Apps and Altinn Platform
 tags: [architecture, security]
 weight: 100
 alwaysopen: false
