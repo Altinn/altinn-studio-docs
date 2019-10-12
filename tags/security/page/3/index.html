@@ -3056,7 +3056,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/">
-        <span>Security Architecture</span>
+        <span>Security</span>
 
         
 
@@ -6339,7 +6339,9 @@ if(host != "localhost")
     <section class="post-excerpt">
         <p>The Policy Enforcment points in apps based on the Asp.Net web application template for Altinn have configured PEP&rsquo;s on all API exposing user data.
 PEP for App backend See Github
-The Policy Enforcment Point in the ASP.Net Web application template is created as a Authorization Handler <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/pep/">&raquo;</a></p>
+Attribute based authorization is best solved with Policy Based Authorization in asp.net core
+The Policy Enforcment Point in the ASP.Net Web application template is created as a Authorization Handler.
+In the App there is defined a set of AuthorizationRequirements and for each operation of the different API endpoins needs to be configured with the correct requirement. <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

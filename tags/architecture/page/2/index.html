@@ -3056,7 +3056,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/">
-        <span>Security Architecture</span>
+        <span>Security</span>
 
         
 
@@ -6336,6 +6336,37 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The solution is currently available at http://platform.altinn.cloud/authentication/api/v1.
+Resources: authentication
+/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
+GET /authentication?goto={url}  Refresh a valid JwtToken: <a class="read-more" href="/architecture/application/altinn-platform/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/application/altinn-platform/intermediary/">Application arhicture intermediary component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
@@ -6577,37 +6608,6 @@ Overall Authentication architecture There are several requirements to an authent
 Developer authentication The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea.
 The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea.
 GIT Repo authentication When users tries to update the Git repo where source files for the app is stored it needs to authenticate agains the GIT repo. <a class="read-more" href="/architecture/security/authentication/altinn-studio/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/">Authorization</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Description of the Altinn Studio Authorization architecture.
-Authorization - Altinn AppsDescription of the Authorization Architecture for Altinn Studio Apps
-Authorization - Altinn PlatformDescription of the Authorization Architecture for Altinn Platform
-Authorization - Altinn StudioDescription of the Authorization Architecture for Altinn Studio
- <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

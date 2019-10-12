@@ -3056,7 +3056,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/">
-        <span>Security Architecture</span>
+        <span>Security</span>
 
         
 
@@ -6303,7 +6303,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/'>Security Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/app/'>App (asp.net)</a> <span class='adocs-breadcrumb-divider'> / </span> PEP
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/'>Security</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/app/'>App (asp.net)</a> <span class='adocs-breadcrumb-divider'> / </span> PEP
 
  
 
@@ -6359,7 +6359,23 @@ configured PEP&rsquo;s on all API exposing user data.</p>
 
 <p><a href="https://github.com/Altinn/altinn-studio/issues/2554">See Github</a></p>
 
-<p>The Policy Enforcment Point in the ASP.Net Web application template is created as a Authorization Handler</p>
+<p>Attribute based authorization is best solved with <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0">Policy Based Authorization in asp.net core</a></p>
+
+<p>The Policy Enforcment Point in the ASP.Net Web application template
+is created as a <a href="https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs">Authorization Handler</a>.</p>
+
+<p>In the App there is defined a set of <a href="https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/IAuthorizationRequirement.cs">AuthorizationRequirements</a>
+and for each operation of the different API endpoins needs to be configured with the correct requirement.</p>
+
+<p>Example on requirements are
+- InstanceRead (User/system needs to be authorized to perform read operation on the instance in current state)
+- InstanceWrite (User/system needs to be authorized to perform write operation on the instance and its data in current state)
+- InstanceInstansiate (user/system needs to be authorized to instansiate a instance for a app)</p>
+
+<p>The PEP will based on route data (like instanceId) and the authenticated Identity create a <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json">decision request</a> and call PDP.
+Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Response.json">response</a> the PEP will deny or approve the user. (Deny = http 403)</p>
+
+<p>The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied. (http 403)</p>
 
 
 <footer class=" footline" >

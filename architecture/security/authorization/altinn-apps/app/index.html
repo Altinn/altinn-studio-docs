@@ -7,7 +7,7 @@
 
 
     
-    <title>Authorization architecture - app :: Altinn digitalisering - Utvikling</title>
+    <title>App (asp.net web template) :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -3056,7 +3056,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/">
-        <span>Security Architecture</span>
+        <span>Security</span>
 
         
 
@@ -6300,7 +6300,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/'>Security Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> App (asp.net)
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/'>Security</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/security/authorization/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> App (asp.net)
 
  
 
@@ -6330,7 +6330,7 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Authorization architecture - app
+                App (asp.net web template)
                 
               </h1>
               <p class="a-leadText" id="leadText">Description of the Authorization Architecture for an app created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps</p>
@@ -6367,20 +6367,21 @@ is allowed to access a operation and access all data. This would not work in the
 
 <p>The Policy Decision Point is responsible for deciding if the requested operation is allowed.
 PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request. Altinn Apps used Policy Decision Point in Altinn Platform solution</p>
+user or system is allowed to perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution</p>
 
 <p><a href="/../altinn-platform/pdp">Learn about Policy Decision Point in Altinn Platform</a></p>
 
 <h3 id="policy-information-point">Policy Information Point</h3>
 
 <p>The Policy Information Point is used by PDP to gather information needed to perform the decision.
-Altinn Apps uses Policy Information Point in Altinn Platform</p>
+Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.</p>
 
 <p><a href="../altinn-platform/pip">Learn about Policy Information Point in Altinn Platform</a></p>
 
 <h3 id="policy-administration-point">Policy Administration Point</h3>
 
-<p>The policy administration point is where the rules are defined. Altinn Apps used PAP from Altinn Platform and Altinn Studio</p>
+<p>The policy administration point is where the policy rules are defined.
+The policy for Apps are defined in Altinn Studio</p>
 
 <p><a href="../altinn-platform/pap">Learn about Policy Administration Point in Altinn Platform</a></p>
 

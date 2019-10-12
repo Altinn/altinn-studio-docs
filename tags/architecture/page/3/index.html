@@ -3056,7 +3056,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/">
-        <span>Security Architecture</span>
+        <span>Security</span>
 
         
 
@@ -6336,12 +6336,43 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/">Authorization</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The different solutions in Altinn have different authorization architecture. Find details below.
+Authorization - Altinn AppsDescription of the Authorization Architecture for Altinn Studio Apps
+Authorization - Altinn PlatformDescription of the Authorization Architecture for Altinn Platform
+Authorization - Altinn StudioDescription of the Authorization Architecture for Altinn Studio
+ <a class="read-more" href="/architecture/security/authorization/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/">Authorization - Altinn Apps</a></h2>
     </header>
     <section class="post-excerpt">
         <p>Altinn Apps consist of Apps owned by the org and other monitoring applications in the Kubernetes cluster.
 The authorization architecture can be different based on the type of framework used in the app.
-Authorization architecture - appDescription of the Authorization Architecture for an app created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps
+App (asp.net web template)Description of the Authorization Architecture for an app created in Altinn Studio following the standard Asp.Net Core web application template created for Altinn Apps
  <a class="read-more" href="/architecture/security/authorization/altinn-apps/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -6430,38 +6461,7 @@ Policy Decision Point (PDP) The Policy Decision Point is responsible for decidin
     </header>
     <section class="post-excerpt">
         <p>NOTE: Work in progress. See Github Issue
-Altinn Studio has Role Based access control where all user in a given role is allowed to access a operation and access all data. This would not work in the scenarios that Altinn Studio Apps support.
-Authorization Components The authorization architecture for Altinn Studio Apps are based on the XACML reference architecture.
-This architecture defines the following components.
-Policy Decision Point (PDP) The Policy Decision Point is responsible for deciding if the requested operation is allowed. <a class="read-more" href="/architecture/security/authorization/altinn-studio/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/">Authorization architecture - app</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The general rule is that a app hosted in Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
-The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/">&raquo;</a></p>
+Altinn Studio has Role Based access control where all user in a given roles for the different orgs. <a class="read-more" href="/architecture/security/authorization/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

@@ -3056,7 +3056,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/">
-        <span>Security Architecture</span>
+        <span>Security</span>
 
         
 
@@ -6398,6 +6398,34 @@ Instance An application instance is created when a instance owner (reportee) sta
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/security/authorization/altinn-apps/app/">App (asp.net web template)</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The general rule is that a app hosted in Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The opposite is Role Based access control where all user in a given role is allowed to access a operation and access all data. <a class="read-more" href="/architecture/security/authorization/altinn-apps/app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/application/altinn-apps/app/app-backend/">App Backend Application Arcitecture</a></h2>
     </header>
     <section class="post-excerpt">
@@ -6586,37 +6614,6 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-The solution is currently available at http://platform.altinn.cloud/authentication/api/v1.
-Resources: authentication
-/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
-GET /authentication?goto={url}  Refresh a valid JwtToken: <a class="read-more" href="/architecture/application/altinn-platform/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
 
