@@ -68,8 +68,7 @@ The sequence diagram below shows how request is authorized
 <object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
-[See fullscreen](/architecture/application/altinn-apps/authorization_flow_app_platform.svg)
-
+[See fullscreen](/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg)
 ### Example process
 
 The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data
