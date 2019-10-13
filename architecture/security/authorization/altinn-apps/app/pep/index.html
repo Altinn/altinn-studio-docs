@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of Policy Enforcment Point for Apps based on the .Net web template for Altinn Apps">
+    <meta name="description" content="Description of Policy Enforcement Point for Apps based on the .Net web template for Altinn Apps">
 
 
     
-    <title>Policy Enforcment Point :: Altinn digitalisering - Utvikling</title>
+    <title>Policy Enforcement Point :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -6335,10 +6335,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Policy Enforcment Point
+                Policy Enforcement Point
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of Policy Enforcment Point for Apps based on the .Net web template for Altinn Apps</p>
+              <p class="a-leadText" id="leadText">Description of Policy Enforcement Point for Apps based on the .Net web template for Altinn Apps</p>
             
           
 
@@ -6352,7 +6352,7 @@ if(host != "localhost")
 
 
 
-<p>The Policy Enforcment points in apps based on the Asp.Net web application template for Altinn have
+<p>The Policy Enforcement points in apps based on the Asp.Net web application template for Altinn have
 configured PEP&rsquo;s on all API exposing user data.</p>
 
 <h2 id="pep-for-app-backend">PEP for App backend</h2>
@@ -6361,15 +6361,15 @@ configured PEP&rsquo;s on all API exposing user data.</p>
 
 <p>Attribute based authorization is best solved with <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0">Policy Based Authorization in asp.net core</a></p>
 
-<p>The Policy Enforcment Point in the ASP.Net Web application template
+<p>The Policy Enforcement Point in the ASP.Net Web application template
 is created as a <a href="https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs">Authorization Handler</a>.</p>
 
 <p>In the App there is defined a set of <a href="https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/IAuthorizationRequirement.cs">AuthorizationRequirements</a>
 and for each operation of the different API endpoins needs to be configured with the correct requirement.</p>
 
 <p>Example on requirements are
-- InstanceRead (User/system needs to be authorized to perform read operation on the instance in current state)
-- InstanceWrite (User/system needs to be authorized to perform write operation on the instance and its data in current state)
+- InstanceRead (User/system needs to be authorized to perform read action on the instance in current state)
+- InstanceWrite (User/system needs to be authorized to perform write action on the instance and its data in current state)
 - InstanceInstansiate (user/system needs to be authorized to instansiate a instance for a app)</p>
 
 <p>The PEP will based on route data (like instanceId) and the authenticated Identity create a <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json">decision request</a> and call PDP.

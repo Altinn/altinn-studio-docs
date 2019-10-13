@@ -6408,21 +6408,23 @@ it contains all attributes that PDP needs to take a decision.
 
 <h2 id="the-overall-authorization-flow">The Overall Authorization flow</h2>
 
-<p>The sequence diagram below shows how request are authorized</p>
+<p>The sequence diagram below shows how request is authorized</p>
 
 
-	<p><object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+	<p><object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object></p>
 
 
+
+<p><a href="/architecture/application/altinn-apps/authorization_flow_app_platform.svg">See fullscreen</a></p>
 
 <h3 id="example-process">Example process</h3>
 
-<p>The following example flow describes in detail the authorization processs when the REACT frontend calls a API to store form data</p>
+<p>The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data</p>
 
 <ol>
 <li>User trigger save in the REACT application. REACT application makes a http post request against the
 <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css">ServiceAPIController</a> in</li>
-<li>The configured Policy Enforcment Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,<br />
+<li>The configured Policy Enforcement Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,<br />
 triggers to verify that user is authorized</li>
 <li>The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request</li>
 <li>The PEP calls the PDP functionality in <a href="/solutions/altinn-platform/authorization/">Authorization Component</a> in Altinn Platform</li>
@@ -6431,10 +6433,11 @@ triggers to verify that user is authorized</li>
 <li>Context handler calls authorization PIP to get roles user have for resource party</li>
 <li>Context handler enriches the decision request and return to PDP</li>
 <li>PDP calls PRP to get the policy for the resource</li>
-<li>PDP evaluates the decision request and returns a descision response</li>
-<li>If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough. If it is enough the request is let through</li>
-<li>If the authentication level is not high enough the PEP need to return a exception with that information</li>
-<li>If the result was &ldquo;Not Applicable&rdquo; the PEP will throw exception</li>
+<li>PDP evaluates the decision request and returns a decision response</li>
+<li>If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough.
+If it is enough the request is let through</li>
+<li>If the authentication level is not high enough the PEP will throw a not authorized exception (403)</li>
+<li>If the result was &ldquo;Not Applicable&rdquo; the PEP will throw  a not authorized exception (403)</li>
 </ol>
 
 
@@ -9467,6 +9470,38 @@ triggers to verify that user is authorized</li>
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   
