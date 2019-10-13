@@ -1,13 +1,13 @@
 ---
-title: Policy Enforcment Point
-description: Description of Policy Enforcment Point for Apps based on the .Net web template for Altinn Apps
+title: Policy Enforcement Point
+description: Description of Policy Enforcement Point for Apps based on the .Net web template for Altinn Apps
 tags: [architecture, security]
 weight: 100
 linktitle: PEP
 alwaysopen: false
 ---
 
-The Policy Enforcment points in apps based on the Asp.Net web application template for Altinn have
+The Policy Enforcement points in apps based on the Asp.Net web application template for Altinn have
 configured PEP's on all API exposing user data.
 
 ## PEP for App backend
@@ -16,15 +16,15 @@ configured PEP's on all API exposing user data.
 
 Attribute based authorization is best solved with [Policy Based Authorization in asp.net core](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0)
 
-The Policy Enforcment Point in the ASP.Net Web application template 
+The Policy Enforcement Point in the ASP.Net Web application template 
 is created as a [Authorization Handler](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
 In the App there is defined a set of [AuthorizationRequirements](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/IAuthorizationRequirement.cs) 
 and for each operation of the different API endpoins needs to be configured with the correct requirement.
 
 Example on requirements are
-- InstanceRead (User/system needs to be authorized to perform read operation on the instance in current state)
-- InstanceWrite (User/system needs to be authorized to perform write operation on the instance and its data in current state)
+- InstanceRead (User/system needs to be authorized to perform read action on the instance in current state)
+- InstanceWrite (User/system needs to be authorized to perform write action on the instance and its data in current state)
 - InstanceInstansiate (user/system needs to be authorized to instansiate a instance for a app)
 
 The PEP will based on route data (like instanceId) and the authenticated Identity create a [decision request](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json) and call PDP.

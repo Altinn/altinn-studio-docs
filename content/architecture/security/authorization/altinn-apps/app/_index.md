@@ -62,19 +62,21 @@ it contains all attributes that PDP needs to take a decision.
 [Learn about Context Handler in Altinn Platform](../altinn-platform/contexthandler)
 
 ## The Overall Authorization flow
-The sequence diagram below shows how request are authorized
+The sequence diagram below shows how request is authorized
 
 {{%excerpt%}}
-<object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
+
+[See fullscreen](/architecture/application/altinn-apps/authorization_flow_app_platform.svg)
 
 ### Example process
 
-The following example flow describes in detail the authorization processs when the REACT frontend calls a API to store form data
+The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data
 
 1. User trigger save in the REACT application. REACT application makes a http post request against the 
 [ServiceAPIController](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css) in 
-2. The configured Policy Enforcment Point for the API, the [Service Access Handler](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs),  
+2. The configured Policy Enforcement Point for the API, the [Service Access Handler](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs),  
 triggers to verify that user is authorized
 3. The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request
 4. The PEP calls the PDP functionality in [Authorization Component](/solutions/altinn-platform/authorization/) in Altinn Platform
@@ -83,7 +85,8 @@ triggers to verify that user is authorized
 7. Context handler calls authorization PIP to get roles user have for resource party
 8. Context handler enriches the decision request and return to PDP
 9. PDP calls PRP to get the policy for the resource
-5. PDP evaluates the decision request and returns a descision response
-7. If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough. If it is enough the request is let through
-8. If the authentication level is not high enough the PEP need to return a exception with that information
-9. If the result was "Not Applicable" the PEP will throw exception
+10. PDP evaluates the decision request and returns a decision response
+11. If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough. 
+If it is enough the request is let through
+12. If the authentication level is not high enough the PEP will throw a not authorized exception (403)
+13. If the result was "Not Applicable" the PEP will throw  a not authorized exception (403)
