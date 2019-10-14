@@ -46,7 +46,8 @@ There are many reasons to use Altinn Studio instead of building everything from 
 - Open source
 
 ## When will it be released
-First version is planned to be launched 2019
+First version is planned to be launched December 2019. 
+The first version will provide the required APIs and other infrastructure to setup a service using C# and system integrations. In 2020 further functionality and GUI for setting up services without programming/C# skills.
 
 ## Presentations
 
