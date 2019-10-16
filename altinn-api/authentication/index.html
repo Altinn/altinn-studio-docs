@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the Altinn Studio infrastructure">
+    <meta name="description" content="How to access the apis">
 
 
     
-    <title>Infrastructure :: Altinn digitalisering - Utvikling</title>
+    <title>Altinn API - Authentication :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -49,7 +49,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/architecture/infrastructure/">
+  <body class="a-page" data-url="/altinn-api/authentication/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -1909,7 +1909,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/altinn-api/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1922,7 +1922,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -1947,8 +1947,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/altinn-api/authentication/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/altinn-api/authentication/">
@@ -2012,7 +2012,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -2025,7 +2025,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -2794,8 +2794,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/architecture/infrastructure/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/architecture/infrastructure/">
@@ -2807,7 +2807,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -6320,7 +6320,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> Infrastructure
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/altinn-api/'>Altinn API</a> <span class='adocs-breadcrumb-divider'> / </span> Altinn API - Authentication
 
  
 
@@ -6334,9 +6334,7 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure">infrastructure</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a>
             
           </div>
         
@@ -6344,101 +6342,88 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Infrastructure
+                Altinn API - Authentication
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the Altinn Studio infrastructure</p>
+              <p class="a-leadText" id="leadText">How to access the apis</p>
             
           
 
           
-
-
-
-
-
-
-
-<p>Altinn Studio consists of three different technical solutions to make a complete application development platform.</p>
-
-<p><a href="/architecture/infrastructure/altinn_infrastructure.svg">Full screen</a> | <a href="/architecture/infrastructure/altinn_infrastructure.vsdx">Visio</a></p>
-
-
-	<p><object data="/architecture/infrastructure/altinn_infrastructure.svg" type="image/svg+xml" style="width: 100%;"></object></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
+            <h2>På denne siden:</h2>
+              <nav id="TableOfContents">
+<ul>
 <li>
-<a href="/architecture/infrastructure/deployment/" >Deployment</a>
-<p>Description of the Altinn Studio solution</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/architecture/infrastructure/altinn-cdn/" >Altinn CDN</a>
-<p>Description of Altinn Content Delivery Network</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-
-	
+<ul>
+<li><a href="#application-owners">Application owners</a>
+<ul>
+<li><a href="#scopes">Scopes</a>
+<ul>
+<li><a href="#apps-scope">Apps scope</a></li>
+<li><a href="#single-app-scope">Single app scope</a></li>
+<li><a href="#platform-scope">Platform scope</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#exchange-jwt-token">Exchange JWT token</a></li>
+</ul></li>
 </ul>
+</nav>
+          
 
 
 
 
+
+
+
+
+
+<h2 id="application-owners">Application owners</h2>
+
+<p>Should be authenticated with <a href="https://difi.github.io/felleslosninger/oidc_guide_maskinporten.html">maskinporten</a>.</p>
+
+<h3 id="scopes">Scopes</h3>
+
+<h4 id="apps-scope">Apps scope</h4>
+
+<pre><code class="language-uri">altinn:apps.read
+altinn:apps.write
+</code></pre>
+
+<p>This is the most general scope which can be given to an organisation by Altinn.
+It means that the application owner can create a client that can access all apps issued by that application owner.
+Clients with <em>write</em> scope will be able to instantiate applications through direct
+access to the app&rsquo;s api, update metadata,  upload data, validate data, and change process of an instance. Clients with <em>read</em> token
+will only be allowed to read from the <em>platform</em> api.</p>
+
+<h4 id="single-app-scope">Single app scope</h4>
+
+<pre><code class="language-cs">altinn:apps/skd/mva.read
+altinn:apps/skd/mva.write
+</code></pre>
+
+<p>This is a more specific scope which gives clients access to data for a specific application.
+Clients can read/write data for a specific app.</p>
+
+<h4 id="platform-scope">Platform scope</h4>
+
+<pre><code class="language-cs">altinn:platform/storage.read
+altinn:platform/storage/instances.read
+altinn:platform/storage/instances/data.read
+altinn:platform/storage/instances/events.read
+altinn:platform/storage/applications.read
+altinn:platform/storage/applications/events.read
+altinn:platform/profile.read
+altinn:platform/authentication.read
+altinn:platform/authorisation.read
+altinn:platform/register.read
+</code></pre>
+
+<p>Gives a client access to a specific api-endpoint restricted to the data for the organisation.</p>
+
+<h2 id="exchange-jwt-token">Exchange JWT token</h2>
+
+<p>Application owners register clients in</p>
 
 
 <footer class=" footline" >
@@ -7382,6 +7367,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -7397,6 +7383,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -7412,6 +7399,9 @@ if(host != "localhost")
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -7431,7 +7421,6 @@ if(host != "localhost")
                       
                       
                           
-                              
                               
                           
                           
@@ -7448,9 +7437,6 @@ if(host != "localhost")
                       
                           
                               
-                                  
-                                  
-                              
                           
                           
           
@@ -7815,7 +7801,6 @@ if(host != "localhost")
                       
                           
                               
-                              
                           
                           
           
@@ -7830,9 +7815,6 @@ if(host != "localhost")
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -9640,10 +9622,10 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/architecture/information/" title="Information"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/altinn-api/" title="Altinn API"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/architecture/infrastructure/deployment/" title="Deployment" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/altinn-api/clients/" title="Prefill Client Example" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -9655,7 +9637,7 @@ if(host != "localhost")
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/architecture/infrastructure/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/altinn-api/authentication/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Edit page
                   </a>
