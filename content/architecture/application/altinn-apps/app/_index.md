@@ -1,7 +1,7 @@
 ---
 title: Application Architecture App
-linktitle: App
-description: Description of the application architecture for App
+linktitle: App (Asp.Net Web)
+description: Description of the application architecture for 
 tags: [architecture]
 weight: 100
 ---

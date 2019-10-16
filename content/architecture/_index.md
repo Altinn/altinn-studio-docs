@@ -1,7 +1,6 @@
 ---
 title: Architecture
 description: Description of the Altinn Studio architecture.
-toc: true
 tags: [architecture]
 weight: 100
 alwaysopen: false

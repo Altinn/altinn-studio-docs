@@ -48,17 +48,13 @@ Flow explained
 12. Return the decsion result
 
 
-## Technical Considerations
-
-### Caching
-The number of calls to external component should be kept at a minimum. 
-
-We need to implement caching of
-- Roles user/system has for a reportee
-- Policy for a app
+## XACML Conformance
+The PDP tries to follow XACML standard and have implemented some conformance tests. The goal is to fully implement
+all conformance test. See test here. 
 
 
-### Logging
+### Supported matching algorithms
+
 
 
 

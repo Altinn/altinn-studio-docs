@@ -6,35 +6,32 @@ weight: 100
 linktitle: Authorization model
 alwaysopen: false
 ---
-The authorization model in Altinn Studio Apps is flexible and supports different needs. 
+The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs. 
 
 ## Rights
-In Altinn Studio Apps a right is a permission to perform a action on a given resource. 
-The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead.
-The resource is typical a app instance or part of it hver data belongs to a given reportee (person or organisation).
+In Altinn Apps/Platform a right is a permission to perform an action on a given resource. 
+The action can be one of some predefined option like read, write and sign but can also be any other action defined on a 
+custom api in the apps.
+The resource is typical an app instance or part of it where data belongs to a given party (person or organisation).
 
 A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.
 
 ## Rules
-A authorization rule in Altinn Studio defines who has been given the right to perform actions on a given resource.
-A rule in Altinn Studio consist of 4 elements
+A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
+A rule consist of 5 elements
 
 ### Resource
-This desribe which resource the rule applies for. Altinn Studio Apps currently support the following resource types in rules.
+This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.
 
 - Org - Unique identifier of the organisation responsible for the app.
 - App - Application identifier which is unique within an organisation.
 - Task - A specific task in the process defined for a app
-- Reportee - A owner of 
-- InstanceId
 
 Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee
 
 ### Subject
-The subject in a authorization rule identifies who the rules applies for. In Altinn Studio the resource can be the following.
+The subject in a authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.
 
-- User
-- Party
 - RoleType
 - org
 
@@ -52,8 +49,11 @@ In Altinn Studio we have the following actions
 The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
 we have the following types of conditions.
 
-- Authentication level
 - Valid To
+
+### Obligation
+A obligation is a obligation that needs to be followed it the user is permited or denied.
+In Altinn Apps/Platform this is used to define the minimun authentication level.
 
 ## Creation of rules
 The rules in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
@@ -63,7 +63,8 @@ In Altinn II end user can also create rules. This happens when:
 - When user creates a local role that contains rights that user have through other roles
 - When delegating single rights to a user or organisation.
 
-The rules is slightly different since rules defined by the end user have different subjects and can be defined for a more limited resource.
+The rules is slightly different since rules defined by the end user have different subjects and can be defined for a 
+more limited resource.
 
 #### Altinn Studio rule
 

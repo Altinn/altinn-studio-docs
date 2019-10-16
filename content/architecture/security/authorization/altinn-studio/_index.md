@@ -3,7 +3,7 @@ title: Authorization - Altinn Studio
 description: Description of the Authorization Architecture for Altinn Studio
 tags: [architecture, security]
 weight: 100
-linktitle: Altinn Studio Apps
+linktitle: Altinn Studio
 alwaysopen: false
 ---
 

@@ -7,9 +7,9 @@ weight: 100
 ---
 
 In this app template the App Backend is based on [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) and is 
-a [MVC application](https://docs.microsoft.com/en-us/aspnet/core/mvc/overview).
+a [Web Api application](https://docs.microsoft.com/en-us/aspnet/core/web-api/).
 
-This App Backend exposes REST-Api's consumed by the App Frontend and/or external systems / mobile apps.
+This App Backend exposes REST-Api's consumed by a optinal App Frontend and/or external systems / mobile apps.
 The structure of the API's is documentet [here](/altinn-api/)
 
 The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct

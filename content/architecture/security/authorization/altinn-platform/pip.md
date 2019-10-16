@@ -1,6 +1,6 @@
 ---
 title: Policy Information Point
-description: Description of Policy Information Point for 
+description: Description of Policy Information Point for Altinn Platform
 tags: [architecture, security]
 weight: 100
 linktitle: PIP
