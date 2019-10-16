@@ -9,7 +9,7 @@ This page is a work-in-progress. Because we do not have details on how potential
 {{% /notice%}}
 
 #### Exception Handling
-.Net core provides a default middleware "UseExceptionHandler" that will catch exceptions and log them. You can read more about it [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2).
+.Net core provides a default middleware "UseExceptionHandler" that will catch exceptions and log them. You can read more about it [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-3.0).
 In addition to the default exception middleware, a custom exception middleware can be added to customize the error handling to suit application needs. Custom exception middleware will be implemented once we have a functional understanding of how users should experience errors.
 
 ### API
@@ -33,7 +33,7 @@ By limiting the usage of status codes, we could also ease the handling of differ
 The exceptions rising from internal web services will bubble up and will be handled in API that requested the service.
 
 #### Logging
-.Net core provides a standard logging framework that can be used to log exceptions or events to a desired logging provider (console, eventlog, azure app service, application insights). You can read more about logging in asp.net core from [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2).
+.Net core provides a standard logging framework that can be used to log exceptions or events to a desired logging provider (console, eventlog, azure app service, application insights). You can read more about logging in asp.net core from [here](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-3.0).
 
 ### What to log?
 Context is very important to any warning message or error that is logged. Without context, it can be difficult to relate applicaiton failures to logs. So it is important to include the following details in the log
