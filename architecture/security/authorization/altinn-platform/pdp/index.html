@@ -2102,7 +2102,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/application/altinn-apps/app/">
-        <span>App</span>
+        <span>App (Asp.Net Web)</span>
 
         
 
@@ -3710,7 +3710,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authorization/altinn-studio/">
-        <span>Altinn Studio Apps</span>
+        <span>Altinn Studio</span>
 
         
 
@@ -6390,17 +6390,12 @@ the instance workflow state and the reporteId for the existing resource.</p>
 <li>Return the decsion result</li>
 </ol>
 
-<h2 id="technical-considerations">Technical Considerations</h2>
+<h2 id="xacml-conformance">XACML Conformance</h2>
 
-<h3 id="caching">Caching</h3>
+<p>The PDP tries to follow XACML standard and have implemented some conformance tests. The goal is to fully implement
+all conformance test. See test here.</p>
 
-<p>The number of calls to external component should be kept at a minimum.</p>
-
-<p>We need to implement caching of
-- Roles user/system has for a reportee
-- Policy for a app</p>
-
-<h3 id="logging">Logging</h3>
+<h3 id="supported-matching-algorithms">Supported matching algorithms</h3>
 
 
 <footer class=" footline" >

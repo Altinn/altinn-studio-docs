@@ -2102,7 +2102,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/application/altinn-apps/app/">
-        <span>App</span>
+        <span>App (Asp.Net Web)</span>
 
         
 
@@ -3710,7 +3710,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authorization/altinn-studio/">
-        <span>Altinn Studio Apps</span>
+        <span>Altinn Studio</span>
 
         
 
@@ -6342,10 +6342,6 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" ><p>NOTE: Work in progress. <a href="https://github.com/Altinn/altinn-studio/issues/963">See Github Issue</a></p>
-</div>
-
-
 <p>Altinn Platform has a <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
 what type of data element and so on.</p>
@@ -6360,75 +6356,78 @@ what type of data element and so on.</p>
 <h3 id="policy-decision-point-pdp">Policy Decision Point (PDP)</h3>
 
 <p>The Policy Decision Point is responsible for deciding if the requested operation is allowed.
-PDP looks at the rules defined for a given resource, and based on roles or other claims it decides if
-user or system is allowed to perform the request
-<a href="pdp">Learn about Policy Decision Point in Altinn Platform</a></p>
+PDP looks at the rules defined for a given resource and based on roles or other claims it decides if
+user or system can perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution</p>
+
+<p><a href="/../altinn-platform/pdp">Learn about Policy Decision Point in Altinn Platform</a></p>
 
 <h3 id="policy-information-point">Policy Information Point</h3>
 
-<p>The Policy Information Point is used by PDP to gather information needed to perform the decision.</p>
+<p>The Policy Information Point is used by PDP to gather information needed to perform the decision.
+Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.</p>
 
-<p><a href="pip">Learn about Policy Information Point in Altinn Platform</a></p>
+<p><a href="../altinn-platform/pip">Learn about Policy Information Point in Altinn Platform</a></p>
 
 <h3 id="policy-administration-point">Policy Administration Point</h3>
 
-<p>The policy administration point is where the rules and polices are defined</p>
+<p>The policy administration point is where the policy rules are defined.
+The policy for Apps is defined in Altinn Studio</p>
 
-<p><a href="pap">Learn about Policy Administration Point in Altinn Platform</a></p>
+<p><a href="../altinn-platform/pap">Learn about Policy Administration Point in Altinn Platform</a></p>
 
-<h3 id="policy-enforcment-point">Policy Enforcment Point</h3>
+<h3 id="policy-enforcement-point">Policy Enforcement Point</h3>
 
-<p>The Policy Enforcment Point is where the user or system is actual stopped or allowed to perform a requested operation
-on a resource.</p>
+<p>The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
+on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized</p>
 
-<p><a href="pdp">Learn about Policy Enforcment Point in Altinn Platform</a></p>
+<p><a href="pep">Learn about Policy Enforcement Point in apps based on ASP.NET core template</a></p>
 
-<h3 id="policy-retrival-point">Policy Retrival Point</h3>
+<h3 id="policy-retrieval-point">Policy Retrieval Point</h3>
 
 <p>The policy retrieval point is where PDP can request the policies for a given
-resource.
-<a href="pdp">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
+resource. Altinn Apps uses PRP in Altinn Platform
+<a href="../altinn-platform/prp">Learn about Policy Retrieval Point in Altinn Platform</a></p>
 
 <h3 id="context-handler">Context handler</h3>
 
-<p>The context handler is responsible enriching the decision request so that PDP has the
-needed information to identify the policy and evaluate the rules and conditions.</p>
+<p>The context handler is responsible for enriching the decision request, so
+it contains all attributes that PDP needs to take a decision.
+ Altinn Apps uses Context Handler in Altinn Platform</p>
 
-<p><a href="contexthandler">Learn about Policy Enforcment Point in Altinn Studio Apps</a></p>
-
-<p>The diagram below show the solution architecture where the different authorization functionality is located.</p>
-
-
-	<p><object data="/architecture/solution/altinn-apps/AltinnAppsEcosystem_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
-
-
-
-<h2 id="the-authorization-model">The Authorization Model</h2>
-
-<p>The authorization model is flexible.</p>
-
-<p><a href="model">Learn about authorization model in Altinn Platform</a></p>
+<p><a href="../altinn-platform/contexthandler">Learn about Context Handler in Altinn Platform</a></p>
 
 <h2 id="the-overall-authorization-flow">The Overall Authorization flow</h2>
 
-<p>The sequence diagram below show how request are authorized</p>
+<p>The sequence diagram below shows how request is authorized</p>
 
 
-	<p><object data="/architecture/security/authorization/altinn-platform/AuthorizationFlow.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+	<p><object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object></p>
 
 
+
+<p><a href="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg">See fullscreen</a></p>
 
 <h3 id="example-process">Example process</h3>
 
-<p>The following flow describes in detail the authorization processs when the REACT frontend calls a API to store form data</p>
+<p>The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data</p>
 
 <ol>
-<li>User press save in the REACT application. REACT application makes a http post request against the
+<li>User trigger save in the REACT application. REACT application makes a http post request against the
 <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css">ServiceAPIController</a> in</li>
-<li>The configured Policy Enforcment Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,  triggers to verify that user is authorized</li>
+<li>The configured Policy Enforcement Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,<br />
+triggers to verify that user is authorized</li>
 <li>The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request</li>
-<li>The PEP calls the PDP functionality in AltinnCore.Authorization application</li>
-<li></li>
+<li>The PEP calls the PDP functionality in <a href="/solutions/altinn-platform/authorization/">Authorization Component</a> in Altinn Platform</li>
+<li>PDP calls context handler to enrich the decision request</li>
+<li>Context handler calls Storage PIP to get resource information</li>
+<li>Context handler calls authorization PIP to get roles user have for resource party</li>
+<li>Context handler enriches the decision request and return to PDP</li>
+<li>PDP calls PRP to get the policy for the resource</li>
+<li>PDP evaluates the decision request and returns a decision response</li>
+<li>If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough.
+If it is enough the request is let through</li>
+<li>If the authentication level is not high enough the PEP will throw a not authorized exception (403)</li>
+<li>If the result was &ldquo;Not Applicable&rdquo; the PEP will throw  a not authorized exception (403)</li>
 </ol>
 
 

@@ -2102,7 +2102,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/application/altinn-apps/app/">
-        <span>App</span>
+        <span>App (Asp.Net Web)</span>
 
         
 
@@ -3710,7 +3710,7 @@ if(host != "localhost")
         
         ">
       <a href="/architecture/security/authorization/altinn-studio/">
-        <span>Altinn Studio Apps</span>
+        <span>Altinn Studio</span>
 
         
 
@@ -6347,42 +6347,39 @@ if(host != "localhost")
 
 
 
-<p>The authorization model in Altinn Studio Apps is flexible and supports different needs.</p>
+<p>The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs.</p>
 
 <h2 id="rights">Rights</h2>
 
-<p>In Altinn Studio Apps a right is a permission to perform a action on a given resource.
-The action can be one of some predfined option like Read, Write, Sign, ArchiveRead, ArchiveDelete and ServiceOwnerArchiveRead.
-The resource is typical a app instance or part of it hver data belongs to a given reportee (person or organisation).</p>
+<p>In Altinn Apps/Platform a right is a permission to perform an action on a given resource.
+The action can be one of some predefined option like read, write and sign but can also be any other action defined on a
+custom api in the apps.
+The resource is typical an app instance or part of it where data belongs to a given party (person or organisation).</p>
 
 <p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
 
 <h2 id="rules">Rules</h2>
 
-<p>A authorization rule in Altinn Studio defines who has been given the right to perform actions on a given resource.
-A rule in Altinn Studio consist of 4 elements</p>
+<p>A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
+A rule consist of 5 elements</p>
 
 <h3 id="resource">Resource</h3>
 
-<p>This desribe which resource the rule applies for. Altinn Studio Apps currently support the following resource types in rules.</p>
+<p>This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.</p>
 
 <ul>
 <li>Org - Unique identifier of the organisation responsible for the app.</li>
 <li>App - Application identifier which is unique within an organisation.</li>
 <li>Task - A specific task in the process defined for a app</li>
-<li>Reportee - A owner of</li>
-<li>InstanceId</li>
 </ul>
 
 <p>Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee</p>
 
 <h3 id="subject">Subject</h3>
 
-<p>The subject in a authorization rule identifies who the rules applies for. In Altinn Studio the resource can be the following.</p>
+<p>The subject in a authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.</p>
 
 <ul>
-<li>User</li>
-<li>Party</li>
 <li>RoleType</li>
 <li>org</li>
 </ul>
@@ -6406,9 +6403,13 @@ In Altinn Studio we have the following actions</p>
 we have the following types of conditions.</p>
 
 <ul>
-<li>Authentication level</li>
 <li>Valid To</li>
 </ul>
+
+<h3 id="obligation">Obligation</h3>
+
+<p>A obligation is a obligation that needs to be followed it the user is permited or denied.
+In Altinn Apps/Platform this is used to define the minimun authentication level.</p>
 
 <h2 id="creation-of-rules">Creation of rules</h2>
 
@@ -6419,7 +6420,8 @@ The rules are deployed together with the App to a given Altinn Studio App enviro
 - When user creates a local role that contains rights that user have through other roles
 - When delegating single rights to a user or organisation.</p>
 
-<p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a more limited resource.</p>
+<p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
+more limited resource.</p>
 
 <h4 id="altinn-studio-rule">Altinn Studio rule</h4>
 
