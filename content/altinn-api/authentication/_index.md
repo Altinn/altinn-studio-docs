@@ -11,6 +11,49 @@ alwaysopen: false
 
 Should be authenticated with [maskinporten](https://difi.github.io/felleslosninger/oidc_guide_maskinporten.html).
 
+### API provisioning in Maskinporten
+
+#### Api-provider
+
+To provide an API in maskinporten Altinn has to do two operations.
+
+ 1. As Api-provider Altinn registres scopes in *Maskinporten*:
+
+```uri
+POST /scopes
+{
+    "prefix": "altinn",
+    "subscope": "apps.read",
+    "description": "Clients can read data from apps apis for the organisation"
+}
+```
+
+ 2. As Api-provider Altinn has to provide access to its scope for a given organisation:
+
+```uri
+PUT /scopes/access/889640782?scope=altinn:apps.read
+```
+
+Here we have given organisation 889640782 access to the scope ```altinn:apps.read```
+The organisation must then create a client that uses the scope.
+
+#### Api-consumer
+
+To access the Altinn api an organisation must create a client
+
+ 1. As Api-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn.
+
+```uri
+POST /clients/
+{
+    "client_name": "altinnRead",
+    "client_type": "CONFIDENTIAL",
+    "description": "Client for accessing the my orgs app data"
+    "scopes": [ "altinn:apps.read" ],
+    "token_reference": "SELF_CONTAINED"
+}
+```
+
 ### Scopes
 
 #### Apps scope
@@ -51,8 +94,21 @@ altinn:platform/authorisation.read
 altinn:platform/register.read
 ```
 
-Gives a client access to a specific api-endpoint restricted to the data for the organisation. 
+Gives a client access to a specific platform api-endpoint that is restricted to only return data for a given organisation. 
+If client has single app scope this will restrict the data returned further.
 
-## Exchange JWT token
+## End user systems
 
-Application owners register clients in 
+```uri
+altinn:apps.read
+altinn:apps.write
+```
+
+## Exchange of JWT token
+
+Application owners register clients in Maskinporten and selects the scope they need.
+
+A client is authenticated by *Maskinporten* and are given a *Maskinporten JWT access token*.
+
+This token has to be validated and replaced with an *Altinn JWT access token*.
+The scope 
