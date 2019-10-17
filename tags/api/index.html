@@ -6421,7 +6421,8 @@ An analysis of the agency API compatibility with Altinn Studio Apps. <a class="r
     </header>
     <section class="post-excerpt">
         <p>Application owners Should be authenticated with maskinporten.
-Scopes Apps scope altinn:apps.read altinn:apps.write  This is the most general scope which can be given to an organisation by Altinn. It means that the application owner can create a client that can access all apps issued by that application owner. Clients with write scope will be able to instantiate applications through direct access to the app&rsquo;s api, update metadata, upload data, validate data, and change process of an instance. <a class="read-more" href="/altinn-api/authentication/">&raquo;</a></p>
+API provisioning in Maskinporten Api-provider To provide an API in maskinporten Altinn has to do two operations.
+ As Api-provider Altinn registres scopes in Maskinporten:  POST /scopes { &quot;prefix&quot;: &quot;altinn&quot;, &quot;subscope&quot;: &quot;apps.read&quot;, &quot;description&quot;: &quot;Clients can read data from apps apis for the organisation&quot; }   As Api-provider Altinn has to provide access to its scope for a given organisation:  PUT /scopes/access/889640782? <a class="read-more" href="/altinn-api/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

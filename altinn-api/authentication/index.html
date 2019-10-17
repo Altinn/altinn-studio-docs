@@ -6357,6 +6357,11 @@ if(host != "localhost")
 <ul>
 <li><a href="#application-owners">Application owners</a>
 <ul>
+<li><a href="#api-provisioning-in-maskinporten">API provisioning in Maskinporten</a>
+<ul>
+<li><a href="#api-provider">Api-provider</a></li>
+<li><a href="#api-consumer">Api-consumer</a></li>
+</ul></li>
 <li><a href="#scopes">Scopes</a>
 <ul>
 <li><a href="#apps-scope">Apps scope</a></li>
@@ -6364,7 +6369,8 @@ if(host != "localhost")
 <li><a href="#platform-scope">Platform scope</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#exchange-jwt-token">Exchange JWT token</a></li>
+<li><a href="#end-user-systems">End user systems</a></li>
+<li><a href="#exchange-of-jwt-token">Exchange of JWT token</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -6381,6 +6387,52 @@ if(host != "localhost")
 <h2 id="application-owners">Application owners</h2>
 
 <p>Should be authenticated with <a href="https://difi.github.io/felleslosninger/oidc_guide_maskinporten.html">maskinporten</a>.</p>
+
+<h3 id="api-provisioning-in-maskinporten">API provisioning in Maskinporten</h3>
+
+<h4 id="api-provider">Api-provider</h4>
+
+<p>To provide an API in maskinporten Altinn has to do two operations.</p>
+
+<ol>
+<li>As Api-provider Altinn registres scopes in <em>Maskinporten</em>:</li>
+</ol>
+
+<pre><code class="language-uri">POST /scopes
+{
+    &quot;prefix&quot;: &quot;altinn&quot;,
+    &quot;subscope&quot;: &quot;apps.read&quot;,
+    &quot;description&quot;: &quot;Clients can read data from apps apis for the organisation&quot;
+}
+</code></pre>
+
+<ol>
+<li>As Api-provider Altinn has to provide access to its scope for a given organisation:</li>
+</ol>
+
+<pre><code class="language-uri">PUT /scopes/access/889640782?scope=altinn:apps.read
+</code></pre>
+
+<p>Here we have given organisation 889640782 access to the scope <code>altinn:apps.read</code>
+The organisation must then create a client that uses the scope.</p>
+
+<h4 id="api-consumer">Api-consumer</h4>
+
+<p>To access the Altinn api an organisation must create a client</p>
+
+<ol>
+<li>As Api-consumer the organisation must create a client in <em>Maskinporten</em> with scopes provided by Altinn.</li>
+</ol>
+
+<pre><code class="language-uri">POST /clients/
+{
+    &quot;client_name&quot;: &quot;altinnRead&quot;,
+    &quot;client_type&quot;: &quot;CONFIDENTIAL&quot;,
+    &quot;description&quot;: &quot;Client for accessing the my orgs app data&quot;
+    &quot;scopes&quot;: [ &quot;altinn:apps.read&quot; ],
+    &quot;token_reference&quot;: &quot;SELF_CONTAINED&quot;
+}
+</code></pre>
 
 <h3 id="scopes">Scopes</h3>
 
@@ -6419,11 +6471,23 @@ altinn:platform/authorisation.read
 altinn:platform/register.read
 </code></pre>
 
-<p>Gives a client access to a specific api-endpoint restricted to the data for the organisation.</p>
+<p>Gives a client access to a specific platform api-endpoint that is restricted to only return data for a given organisation.
+If client has single app scope this will restrict the data returned further.</p>
 
-<h2 id="exchange-jwt-token">Exchange JWT token</h2>
+<h2 id="end-user-systems">End user systems</h2>
 
-<p>Application owners register clients in</p>
+<pre><code class="language-uri">altinn:apps.read
+altinn:apps.write
+</code></pre>
+
+<h2 id="exchange-of-jwt-token">Exchange of JWT token</h2>
+
+<p>Application owners register clients in Maskinporten and selects the scope they need.</p>
+
+<p>A client is authenticated by <em>Maskinporten</em> and are given a <em>Maskinporten JWT access token</em>.</p>
+
+<p>This token has to be validated and replaced with an <em>Altinn JWT access token</em>.
+The scope</p>
 
 
 <footer class=" footline" >
