@@ -907,7 +907,7 @@
 	"title": "App",
 	"tags": ["altinn-apps"],
 	"description": "Description of the app created in Altinn Studio and that is deployed to Altinn Apps.",
-	"content": "The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.\nCurrently there is only one \u0026ldquo;App Template\u0026rdquo; that is used, but in future the App could be based on different types of templates and even different types of frameworks.\nThe App template contains functionality for API, process handling, GUI, and many other features making it easy for the developers to create a Apps to support different types of functional needs.\nThe current version contains support for simple user needs, but the platform and the app templates will get more functionality in the future.\n\rApp API\rDescription of the API available in an app created in Altinn Studio.\n\r\rFeatures\rDescription of features in App\n\r\rFrontend\rDescription of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.\n\r\rProcess handling\rDescription of the process handling capability of Apps created in Altinn Studio\n\r\r"
+	"content": "The App is created, designed and build in Altinn Studio and deployed to Altinn Apps.\nCurrently there is only one \u0026ldquo;App Template\u0026rdquo; that is used, but in future the App could be based on different types of templates and even different types of frameworks.\nThe App template contains functionality for API, process handling, GUI, and many other features making it easy for the developers to create a Apps to support different types of functional needs.\nThe current version contains support for simple user needs, but the platform and the app templates will get more functionality in the future.\n\rApp API\rDescription of the API available in an app created in Altinn Studio.\n\r\rFeatures\rDescription of features in App\n\r\rFrontend\rDescription of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.\n\r\rProcess handling\rDescription of the process handling capability of Apps created in Altinn Studio\n\r\rApptemplates\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/app-api/",
@@ -915,6 +915,13 @@
 	"tags": ["altinn-apps"],
 	"description": "Description of the API available in an app created in Altinn Studio.",
 	"content": "NOTE: Work in progress. Stuff will change.\n\rAPI\u0026rsquo;s have always been important to the Altinn platform. About 50% of all data going throug Altinn to organisations are coming from end user systems implementing Altinn Apis\u0026rsquo;s (SOAP and REST). More than 100 different vendors of different types of applications integrates with Altinns appi and submits data for different apps.\nIn addition mobile apps and external governmental portal consumes Altinn Apis to allow users to use services outside the Altinn Portal.\nOrganisations also have seperate APIs to interact with the apps. The below figure shows the different consumers of the API\u0026rsquo;s and show that consumers both interact with the App Apis and the shared platform Api\u0026rsquo;s.\n\n\rREST-API for End User Systems\rDescription of the Rest API for end user systems\n\r\rREST-API for orgs\rDescription of the API for organisations (orgs).\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/apptemplates/asp.net/",
+	"title": "Asp.Net App Template",
+	"tags": ["altinn-apps"],
+	"description": "Description of the app created in Altinn Studio and that is deployed to Altinn Apps.",
+	"content": " This template is based on a ASP.Net Web application with API controllers.\nThe template has features to easily support different types of applications running in Altinn Apps.\nWhen a new App is created in Altinn Studio this is the template that is used as\nApp Configuration The App template based on Asp.Net Core contains different types of standard configuration files.\nProcess The Process.xml defines the business process of the app and is based om BPMN 2.0\nXACML The Polixy.xml defines the authorization policy with rules. Is based on XACML 3.0\nForm Layout The Formlayout.json defines the rendering of the UI based on Altinn Studio UI designer.\nText Resources Prefill Prefill.json defines the prefill for a app\nApp libraries The Asp.Net Template uses some libraries created by Altinn.\nAltinn.App.Api This library contains controllers for the standard App APIS\nInstance API API for instances\nData Api API for data\nProcess Api API for process\nAltinn.App.Services The Service Library contains client functionality for platform and other functionality that a App can choose to need.\nAltinn.App.Common Contains common functionality needed.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/authentication/",
@@ -1062,6 +1069,13 @@
 	"tags": ["process"],
 	"description": "In Altinn Studio the developer can set various parameters for the app",
 	"content": " App Parameters Presentation Field See all issues related to App-Parameters on Github\n"
+},
+{
+	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/apptemplates/",
+	"title": "Apptemplates",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/development/branching/",
