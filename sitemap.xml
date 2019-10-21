@@ -511,6 +511,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-apps/app/apptemplates/asp.net/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-apps/</loc>
   </url>
   
@@ -524,10 +528,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-apps/app/app-api/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/solutions/altinn-apps/app/apptemplates/asp.net/</loc>
   </url>
   
   <url>

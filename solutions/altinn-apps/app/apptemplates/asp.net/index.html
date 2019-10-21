@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the app created in Altinn Studio and that is deployed to Altinn Apps.">
+    <meta name="description" content="Description of ASP.NET based App template">
 
 
     
-    <title>Asp.Net Web Application Template :: Altinn digitalisering - Utvikling</title>
+    <title>ASP.NET Web Application Template :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -1554,7 +1554,7 @@ if(host != "localhost")
         
         ">
       <a href="/solutions/altinn-apps/app/apptemplates/asp.net/">
-        <span>Asp.Net Web Application Template</span>
+        <span>ASP.NET Web Application Template</span>
 
         
 
@@ -6405,7 +6405,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-apps/app/'>App</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-apps/app/apptemplates/'>Apptemplates</a> <span class='adocs-breadcrumb-divider'> / </span> Asp.Net Web Application Template
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-apps/app/'>App</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-apps/app/apptemplates/'>Apptemplates</a> <span class='adocs-breadcrumb-divider'> / </span> ASP.NET Web Application Template
 
  
 
@@ -6433,10 +6433,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Asp.Net Web Application Template
+                ASP.NET Web Application Template
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the app created in Altinn Studio and that is deployed to Altinn Apps.</p>
+              <p class="a-leadText" id="leadText">Description of ASP.NET based App template</p>
             
           
 
@@ -6450,16 +6450,18 @@ if(host != "localhost")
 
 
 
-<p>This template is based on a <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps">ASP.Net Core Web application</a> with <a href="https://dotnet.microsoft.com/apps/aspnet/apis">Rest APIs</a></p>
+<p>This template is based on a <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps">ASP.NET Core Web application</a> with <a href="https://dotnet.microsoft.com/apps/aspnet/apis">Rest APIs</a></p>
 
 <p>It is integrated with Altinn Platform making it easy to utilize the functionality provided in Altinn Platform like storage, authentication, authorization and other components.</p>
 
-<p>For web applications that need a web based UI, it has a React based frontend that can be configured in Altinn Studio.</p>
+<p>For web applications that need a web based UI, it has a <a href="https://reactjs.org/">React</a> based frontend that can be <a href="https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/">configured in Altinn Studio</a>.</p>
 
 <p><a href="https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0">ASP.Net Core</a> is a cross-platform, high performance,
 open-source framework for building modern cloud-based, Internet-connected application.</p>
 
-<p>Together with the added Altinn functionality in the template it is a effective platform to build application powered by Altinn Platform.</p>
+<p>Together with the added Altinn functionality in the template, it is a effective platform to build application powered by Altinn Platform.</p>
+
+<p>The application based on this templates are buildt as Docker Containers and hosted in Kubernetes.</p>
 
 <h2 id="template-content">Template Content</h2>
 
@@ -6473,11 +6475,14 @@ open-source framework for building modern cloud-based, Internet-connected applic
 
 <h4 id="process">Process</h4>
 
-<p>The Process.xml defines the business process of the app and is based om BPMN 2.0.</p>
+<p>The Process.xml defines the business process of the app and is based om <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0.</a>
+The app supports differen types of processes.</p>
 
 <h4 id="xacml">XACML</h4>
 
-<p>The Polixy.xml defines the authorization policy with rules. Is based on XACML 3.0</p>
+<p>The Polixy.xml defines the authorization policy with rules. Is based on <a href="http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML 3.0.</a></p>
+
+<p>The XACML is imported in to authorization component.</p>
 
 <h4 id="ui">UI</h4>
 
@@ -6497,7 +6502,8 @@ open-source framework for building modern cloud-based, Internet-connected applic
 
 <h4 id="altinn-app-api">Altinn.App.Api</h4>
 
-<p>This library contains controllers for the standard App APIS in a App. The app uses this API to expose all the API&rsquo;s typical needed by Apps.</p>
+<p>This library contains controllers for the standard App APIS in a App. The app uses this API to expose all the API&rsquo;s typical needed by Apps.
+The API&rsquo;s are in detailed explained <a href="https://docs.altinn.studio/altinn-api/">here</a>, the below summaries the most important ones.</p>
 
 <h5 id="instance-api">Instance API</h5>
 
