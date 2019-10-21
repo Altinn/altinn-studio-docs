@@ -5,8 +5,6 @@ description: Description of application events
 weight: 100
 ---
 
-
-
 The App Backend has a defined event model that can be used by the app developer
 to controll when logic in the service implementation will run.
 
