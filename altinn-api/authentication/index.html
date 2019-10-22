@@ -6498,13 +6498,11 @@ if(host != "localhost")
 </ul></li>
 <li><a href="#scopes">Scopes</a>
 <ul>
-<li><a href="#apps-scope">Apps scope</a></li>
-<li><a href="#single-app-scope">Single app scope</a></li>
-<li><a href="#platform-scope">Platform scope</a></li>
+<li><a href="#all-instances-scope">All instances scope</a></li>
+<li><a href="#single-app-and-data-scope">Single app and data scope</a></li>
 </ul></li>
 </ul></li>
 <li><a href="#exchange-of-jwt-token">Exchange of JWT token</a></li>
-<li><a href="#end-user-systems">End user systems</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -6528,85 +6526,96 @@ if(host != "localhost")
 
 <p>To provide an API in maskinporten Altinn has to do two operations.</p>
 
-<ol>
-<li>As Api-provider Altinn registres scopes in <em>Maskinporten</em>:</li>
-</ol>
+<blockquote>
+<p>As Api-provider Altinn registres scopes in <em>Maskinporten</em>:</p>
+</blockquote>
 
 <pre><code class="language-json">POST /scopes
 {
     &quot;prefix&quot;: &quot;altinn&quot;,
-    &quot;subscope&quot;: &quot;apps.read&quot;,
-    &quot;description&quot;: &quot;Clients can read data from apps apis for the organisation&quot;
+    &quot;subscope&quot;: &quot;instances/metadata.read&quot;,
+    &quot;description&quot;: &quot;Clients can access metadata for all instances for all apps in the organisation&quot;
 }
 </code></pre>
 
-<ol>
-<li>As Api-provider Altinn has to provide access to its scope for a given organisation:</li>
-</ol>
+<blockquote>
+<p>As Api-provider Altinn has to provide access to its scope for a given organisation:</p>
+</blockquote>
 
 <pre><code class="language-json">PUT /scopes/access/889640782?scope=altinn:apps.read
 </code></pre>
 
-<p>Here we have given organisation 889640782 access to the scope <code>altinn:apps.read</code>
+<p>Here we have given organisation 889640782 access to the scope <code>altinn:instances/metadata.read</code>
 The organisation must then create a client that uses the scope.</p>
 
 <h4 id="api-consumer">Api-consumer</h4>
 
 <p>To access the Altinn api an organisation must create a client</p>
 
-<ol>
-<li>As Api-consumer the organisation must create a client in <em>Maskinporten</em> with scopes provided by Altinn.</li>
-</ol>
+<blockquote>
+<p>As Api-consumer the organisation must create a client in <em>Maskinporten</em> with scopes provided by Altinn:</p>
+</blockquote>
 
 <pre><code class="language-json">POST /clients/
 {
-    &quot;client_name&quot;: &quot;altinnRead&quot;,
+    &quot;client_name&quot;: &quot;altinnOrgRead&quot;,
     &quot;client_type&quot;: &quot;CONFIDENTIAL&quot;,
-    &quot;description&quot;: &quot;Client for accessing the my orgs app data&quot;
-    &quot;scopes&quot;: [ &quot;altinn:apps.read&quot; ],
+    &quot;description&quot;: &quot;Client for accessing the my orgs app data&quot;,
+    &quot;scopes&quot;: [ &quot;altinn:instances/metadata.read&quot; ],
     &quot;token_reference&quot;: &quot;SELF_CONTAINED&quot;
 }
 </code></pre>
 
 <h3 id="scopes">Scopes</h3>
 
-<h4 id="apps-scope">Apps scope</h4>
+<h4 id="all-instances-scope">All instances scope</h4>
 
-<pre><code class="language-cs">altinn:apps.read
-altinn:apps.write
+<pre><code class="language-cs">altinn:instances.read
+altinn:instances.write
 </code></pre>
 
-<p>This is the most general scope which can be given to an organisation by Altinn.
-It means that the application owner can create a client that can access all apps issued by that application owner.
-Clients with <em>write</em> scope will be able to instantiate applications through direct
-access to the app&rsquo;s api, update metadata,  upload data, validate data, and change process of an instance. Clients with <em>read</em> token
-will only be allowed to read from the <em>platform</em> api.</p>
+<p>This is the most general scope which can be given to an organisation by Altinn. It means that the application owner can create a client that can access all instances of apps issued by that application owner. Clients with <em>write</em> scope will be able to instantiate applications through direct access to the app&rsquo;s api, update metadata, update process state, upload data, validate data, and change process of an instance. Clients with <em>read</em> token will only be allowed to read metadata, data and events information.</p>
 
-<h4 id="single-app-scope">Single app scope</h4>
+<h4 id="single-app-and-data-scope">Single app and data scope</h4>
 
-<pre><code class="language-cs">altinn:apps/skd/mva.read
-altinn:apps/skd/mva.write
+<pre><code class="language-cs">altinn:instances/{appId}/metadata.read
+altinn:instances/{appId}/metadata.write
+
+altinn:instances/{appId}/data.read
+altinn:instances/{appId}/data.write
+
+altinn:instances/{appId}/events.read
+altinn:instances/{appId}/events.write
 </code></pre>
 
-<p>This is a more specific scope which gives clients access to data for a specific application.
-Clients can read/write data for a specific app.</p>
+<blockquote>
+<p>appId = {org}/{app}</p>
+</blockquote>
 
-<h4 id="platform-scope">Platform scope</h4>
+<p>This is a more specific scope which gives clients access to data for a specific app, identified by <code>appId</code> restricted to specific data types, that is metadata, data and events.</p>
 
-<pre><code class="language-cs">altinn:platform/storage.read
-altinn:platform/storage/instances.read
-altinn:platform/storage/instances/data.read
-altinn:platform/storage/instances/events.read
-altinn:platform/storage/applications.read
-altinn:platform/storage/applications/events.read
-altinn:platform/profile.read
-altinn:platform/authentication.read
-altinn:platform/authorisation.read
-altinn:platform/register.read
-</code></pre>
+<ul>
+<li>metadata - allow clients to read/write instance metadata about a specific app. Clients with write access can update process state and selected attributes of the instance metadata. Clients can use the following apis:
 
-<p>Gives a client access to a specific platform api-endpoint that is restricted to only return data for a given organisation.
-If client has single app scope this will restrict the data returned further.</p>
+<ul>
+<li><code>{appPath}/org/app/instances</code> (read/write)</li>
+<li><code>{storagePath}/instances</code> (read)</li>
+</ul></li>
+<li>data - allow clients to read/write the data elements (formdata or attachement) associated with the instance metadata for a given app. Both app-backen and storage apis are awailable:
+
+<ul>
+<li><code>{appPath}/org/app/instances/{instanceOwnerId}/{instanceGuid}/data</code> (read/write)</li>
+<li><code>{storagePath}/instances/{instanceOwnerId}/{instanceGuid}/data</code> (read)</li>
+</ul></li>
+<li>events - allow clients to read events for a specific app. Events are found at the platform api:
+
+<ul>
+<li><code>{storagePath}/instances/{instanceOwnerId}/{instanceGuid}/events</code> (read)</li>
+<li><code>{storagePath}/applications/{org}/{app}/events</code> (read)</li>
+</ul></li>
+</ul>
+
+<p>Clients with read scope are allowed to query for data using GET. Clients with write scope are allowed to update data: POST, PUT and DELETE.</p>
 
 <h2 id="exchange-of-jwt-token">Exchange of JWT token</h2>
 
@@ -6616,7 +6625,7 @@ If client has single app scope this will restrict the data returned further.</p>
 
 <p>This token has to be validated and replaced with an <em>Altinn JWT access token</em>.</p>
 
-<p>Maksinporten provides the legal consumer of the token:</p>
+<p>Maksinporten provides the legal consumer of the token in the following format:</p>
 
 <pre><code class="language-json">{
     &quot;consumer&quot;: {
@@ -6624,20 +6633,14 @@ If client has single app scope this will restrict the data returned further.</p>
         &quot;Authority&quot;: &quot;iso6523-actorid-upis&quot;,
         &quot;ID&quot;: &quot;9908:910075918&quot;
     },
-    &quot;consumer_org&quot;: &quot;910075918&quot;,
-    &quot;client_org&quot;: &quot;910075918&quot;
 }
 </code></pre>
-
-<blockquote>
-<p>Which one to select, which one comes from Maskinporten?</p>
-</blockquote>
 
 <p>The exchange calls:</p>
 
 <p>Client provides a self-contained access-token.</p>
 
-<pre><code class="language-http">Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJnbG9iYWxcL2tvbnRha3RpbmZvcm1hc2pvbi5yZWFkIGdsb2JhbFwvcG9zdGFkcmVzc2UucmVhZCBnbG9iYWxcL3NlcnRpZmlrYXQucmVhZCBnbG9iYWxcL3ZhcnNsaW5nc3N0YXR1cy5yZWFkIGdsb2JhbFwvbmF2bi5yZWFkIiwiaXNzIjoiaHR0cHM6XC9cL29pZGMtdGVzdDEuZGlmaS5lb24ubm9cL2lkcG9ydGVuLW9pZGMtcHJvdmlkZXJcLyIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJleHAiO ...
+<pre><code class="language-http">Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
 GET /authentication/api/v1/convert
 </code></pre>
 
@@ -6656,13 +6659,19 @@ GET /authentication/api/v1/convert
   &quot;exp&quot;: 1520590409,
   &quot;iat&quot;: 1520589809,
   &quot;client_orgno&quot;: &quot;991825827&quot;,
+  &quot;consumer&quot;: {
+    &quot;Identifier&quot;: {
+      &quot;Authority&quot;: &quot;iso6523-actorid-upis&quot;,
+      &quot;ID&quot;: &quot;9908:910075918&quot;
+    }
+  },
   &quot;jti&quot;: &quot;wTBYC7E2zF6vmflhQm8OYF9WQyYRAi2EuJenQsIo9kk=&quot;
 }
 .
 &lt;&lt;signature&gt;&gt;
 </code></pre>
 
-<p>The convert operation validates the incomming token and generates a new JWT token with the same scope as the token.</p>
+<p>The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.</p>
 
 <pre><code class="language-json">{
   &quot;alg&quot;: &quot;RS256&quot;,
@@ -6672,27 +6681,16 @@ GET /authentication/api/v1/convert
 }
 .
 {
-  &quot;consumer&quot;: &quot;{\&quot;Identifier\&quot;:{\&quot;Authority\&quot;:\&quot;iso6523-actorid-upis\&quot;,\&quot;ID\&quot;:\&quot;9908:974760223\&quot;}}&quot;,
-  &quot;client_orgno&quot;: &quot;974760223&quot;,
-  &quot;scopes&quot;: &quot;altinn:apps altinn:apps/dibk/testapp.write altinn:platform/storage.read&quot;,
-  &quot;iss&quot;: &quot;https://platform.at21.altinn.cloud/altinn-oidc-provider/&quot;,
+  &quot;scopes&quot;: &quot;altinn:instances.read&quot;,
   &quot;nbf&quot;: 1571739892,
   &quot;exp&quot;: 1571741692,
   &quot;iat&quot;: 1571739892,
-  &quot;organsiationNumber&quot;: &quot;974760223&quot;,
+  &quot;organsationNumber&quot;: &quot;974760223&quot;,
   &quot;org&quot;: &quot;dibk&quot;,
   &quot;name&quot;: &quot;Direktoratet for byggkvalitet&quot;
 }
 .
 &lt;&lt;signature&gt;&gt;
-</code></pre>
-
-<h2 id="end-user-systems">End user systems</h2>
-
-<p>Area under construction!</p>
-
-<pre><code class="language-uri">altinn:apps.read
-altinn:apps.write
 </code></pre>
 
 
