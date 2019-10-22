@@ -17,85 +17,82 @@ Should be authenticated with [maskinporten](https://difi.github.io/felleslosning
 
 To provide an API in maskinporten Altinn has to do two operations.
 
- 1. As Api-provider Altinn registres scopes in *Maskinporten*:
+> As Api-provider Altinn registres scopes in *Maskinporten*:
 
 ```json
 POST /scopes
 {
     "prefix": "altinn",
-    "subscope": "apps.read",
-    "description": "Clients can read data from apps apis for the organisation"
+    "subscope": "instances/metadata.read",
+    "description": "Clients can access metadata for all instances for all apps in the organisation"
 }
 ```
 
- 1. As Api-provider Altinn has to provide access to its scope for a given organisation:
+> As Api-provider Altinn has to provide access to its scope for a given organisation:
 
 ```json
 PUT /scopes/access/889640782?scope=altinn:apps.read
 ```
 
-Here we have given organisation 889640782 access to the scope ```altinn:apps.read```
+Here we have given organisation 889640782 access to the scope ```altinn:instances/metadata.read```
 The organisation must then create a client that uses the scope.
 
 #### Api-consumer
 
 To access the Altinn api an organisation must create a client
 
- 1. As Api-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn.
+> As Api-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn:
 
 ```json
 POST /clients/
 {
-    "client_name": "altinnRead",
+    "client_name": "altinnOrgRead",
     "client_type": "CONFIDENTIAL",
-    "description": "Client for accessing the my orgs app data"
-    "scopes": [ "altinn:apps.read" ],
+    "description": "Client for accessing the my orgs app data",
+    "scopes": [ "altinn:instances/metadata.read" ],
     "token_reference": "SELF_CONTAINED"
 }
 ```
 
 ### Scopes
 
-#### Apps scope
+#### All instances scope
 
 ```cs
-altinn:apps.read
-altinn:apps.write
+altinn:instances.read
+altinn:instances.write
 ```
 
-This is the most general scope which can be given to an organisation by Altinn. 
-It means that the application owner can create a client that can access all apps issued by that application owner.
-Clients with *write* scope will be able to instantiate applications through direct
-access to the app's api, update metadata,  upload data, validate data, and change process of an instance. Clients with *read* token
-will only be allowed to read from the *platform* api.
+This is the most general scope which can be given to an organisation by Altinn. It means that the application owner can create a client that can access all instances of apps issued by that application owner. Clients with *write* scope will be able to instantiate applications through direct access to the app's api, update metadata, update process state, upload data, validate data, and change process of an instance. Clients with *read* token will only be allowed to read metadata, data and events information.
 
-#### Single app scope
+#### Single app and data scope
 
 ```cs
-altinn:apps/skd/mva.read
-altinn:apps/skd/mva.write
+altinn:instances/{appId}/metadata.read
+altinn:instances/{appId}/metadata.write
+
+altinn:instances/{appId}/data.read
+altinn:instances/{appId}/data.write
+
+altinn:instances/{appId}/events.read
+altinn:instances/{appId}/events.write
 ```
 
-This is a more specific scope which gives clients access to data for a specific application.
-Clients can read/write data for a specific app.
+> appId = {org}/{app}
 
-#### Platform scope
+This is a more specific scope which gives clients access to data for a specific app, identified by `appId` restricted to specific data types, that is metadata, data and events.
 
-```cs
-altinn:platform/storage.read
-altinn:platform/storage/instances.read
-altinn:platform/storage/instances/data.read
-altinn:platform/storage/instances/events.read
-altinn:platform/storage/applications.read
-altinn:platform/storage/applications/events.read
-altinn:platform/profile.read
-altinn:platform/authentication.read
-altinn:platform/authorisation.read
-altinn:platform/register.read
-```
+* metadata - allow clients to read/write instance metadata about a specific app. Clients with write access can update process state and selected attributes of the instance metadata. Clients can use the following apis:
+  * `{appPath}/org/app/instances` (read/write)
+  * `{storagePath}/instances` (read)
+* data - allow clients to read/write the data elements (formdata or attachement) associated with the instance metadata for a given app. Both app-backen and storage apis are awailable:
+  * `{appPath}/org/app/instances/{instanceOwnerId}/{instanceGuid}/data` (read/write)
+  * `{storagePath}/instances/{instanceOwnerId}/{instanceGuid}/data` (read)
+* events - allow clients to read events for a specific app. Events are found at the platform api:
+  * `{storagePath}/instances/{instanceOwnerId}/{instanceGuid}/events` (read)
+  * `{storagePath}/applications/{org}/{app}/events` (read)
 
-Gives a client access to a specific platform api-endpoint that is restricted to only return data for a given organisation. 
-If client has single app scope this will restrict the data returned further.
+Clients with read scope are allowed to query for data using GET. Clients with write scope are allowed to update data: POST, PUT and DELETE.
 
 ## Exchange of JWT token
 
@@ -105,7 +102,7 @@ A client is authenticated by *Maskinporten* and are given a *Maskinporten JWT ac
 
 This token has to be validated and replaced with an *Altinn JWT access token*.
 
-Maksinporten provides the legal consumer of the token:
+Maksinporten provides the legal consumer of the token in the following format:
 
 ```json
 {
@@ -114,19 +111,15 @@ Maksinporten provides the legal consumer of the token:
         "Authority": "iso6523-actorid-upis",
         "ID": "9908:910075918"
     },
-    "consumer_org": "910075918",
-    "client_org": "910075918"
 }
 ```
-
-> Which one to select, which one comes from Maskinporten?
 
 The exchange calls:
 
 Client provides a self-contained access-token.
 
 ```http
-Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJnbG9iYWxcL2tvbnRha3RpbmZvcm1hc2pvbi5yZWFkIGdsb2JhbFwvcG9zdGFkcmVzc2UucmVhZCBnbG9iYWxcL3NlcnRpZmlrYXQucmVhZCBnbG9iYWxcL3ZhcnNsaW5nc3N0YXR1cy5yZWFkIGdsb2JhbFwvbmF2bi5yZWFkIiwiaXNzIjoiaHR0cHM6XC9cL29pZGMtdGVzdDEuZGlmaS5lb24ubm9cL2lkcG9ydGVuLW9pZGMtcHJvdmlkZXJcLyIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJleHAiO ...
+Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
 GET /authentication/api/v1/convert
 ```
 
@@ -146,13 +139,19 @@ GET /authentication/api/v1/convert
   "exp": 1520590409,
   "iat": 1520589809,
   "client_orgno": "991825827",
+  "consumer": {
+    "Identifier": {
+      "Authority": "iso6523-actorid-upis",
+      "ID": "9908:910075918"
+    }
+  },
   "jti": "wTBYC7E2zF6vmflhQm8OYF9WQyYRAi2EuJenQsIo9kk="
 }
 .
 <<signature>>
 ```
 
-The convert operation validates the incomming token and generates a new JWT token with the same scope as the token.
+The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.
 
 ```json
 {
@@ -163,26 +162,14 @@ The convert operation validates the incomming token and generates a new JWT toke
 }
 .
 {
-  "consumer": "{\"Identifier\":{\"Authority\":\"iso6523-actorid-upis\",\"ID\":\"9908:974760223\"}}",
-  "client_orgno": "974760223",
-  "scopes": "altinn:apps altinn:apps/dibk/testapp.write altinn:platform/storage.read",
-  "iss": "https://platform.at21.altinn.cloud/altinn-oidc-provider/",
+  "scopes": "altinn:instances.read",
   "nbf": 1571739892,
   "exp": 1571741692,
   "iat": 1571739892,
-  "organsiationNumber": "974760223",
+  "organsationNumber": "974760223",
   "org": "dibk",
   "name": "Direktoratet for byggkvalitet"
 }
 .
 <<signature>>
-```
-
-## End user systems
-
-Area under construction!
-
-```uri
-altinn:apps.read
-altinn:apps.write
 ```
