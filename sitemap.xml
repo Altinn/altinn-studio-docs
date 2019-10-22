@@ -335,6 +335,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/architecture/application/altinn-platform/pdf/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pdp/</loc>
   </url>
   
@@ -548,6 +552,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/solutions/altinn-apps/app/frontend/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/solutions/altinn-platform/pdf/</loc>
   </url>
   
   <url>
@@ -979,6 +987,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/nuget/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/pdf/</loc>
     <priority>0</priority>
   </url>
   

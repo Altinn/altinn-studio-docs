@@ -581,6 +581,13 @@
 	"content": "The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.\nDelegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organisation new rights.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/architecture/application/altinn-platform/pdf/",
+	"title": "Application architecture pdf component - Altinn Platform",
+	"tags": ["architecture", "solution", "pdf"],
+	"description": "Description of pdf component",
+	"content": "The PDF component is an Spring Boot java application exposing an api for triggering pdf generation.\nThe pdf api is exposed at http://platform.altinn.cloud/pdf/api/v1.\nThe available endpoints can be seen in the swagger definition.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/security/authorization/altinn-platform/pdp/",
 	"title": "Policy Decision Point",
 	"tags": ["architecture", "security"],
@@ -914,7 +921,7 @@
 	"title": "Altinn Platform",
 	"tags": ["altinn-apps"],
 	"description": "Altinn Platform is the solution where the supporting platform functionality resides.",
-	"content": "The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\nSee below for details about each component.\n\rAuthentication\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.\n\r\rAuthorization\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.\n\r\rProfile\rThe Profile component gives profile information for users in Altinn.\n\r\rReceipt\rThe Receipt component in Altinn Platform presents a receipt for apps\n\r\rRegister\rThe Register micro service gives register information to Apps.\n\r\rStorage\rThe Storage component gives storage capabilities to the apps.\n\r\r"
+	"content": "The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\nSee below for details about each component.\n\rAuthentication\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.\n\r\rAuthorization\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.\n\r\rPDF\rThe PDF component generates pdf receipts for apps.\n\r\rProfile\rThe Profile component gives profile information for users in Altinn.\n\r\rReceipt\rThe Receipt component in Altinn Platform presents a receipt for apps\n\r\rRegister\rThe Register micro service gives register information to Apps.\n\r\rStorage\rThe Storage component gives storage capabilities to the apps.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/",
@@ -957,6 +964,13 @@
 	"tags": ["altinn-apps"],
 	"description": "Description of the optional app frontend created in Altinn Studio and that is deployed to Altinn Apps.",
 	"content": " A App created in Altinn Studio can have a optional frontend to allow end user use API from web browser.\nThis frontend is a React based SPA (Singe Page Application) that uses configuration to render based settings for a given application.\nUI rendering The UI-Render functionality in App Frontend render the UI based on configuration set in Altinn Studio.\nUI-Components The supported UI-components can be seen here\nTheming In the future Altinn Apps will support theming making it possible to have different style on the App.\nSee epic for this issue on Github.\nUI Layout In the future Altinn Apps will support different types of layout. Now the support is limited to one page UI that is mobile friendly.\nSee epic for this issue on Github\nUI logic As part of designing UI, there can be defined UI-logic that do stuff dynamic rendering (hide or show parts of ui based on input or other parameters) or update data.\nCustom Navigation In the future the App will support different types of navigation to See epic for this issue on Github\nTranslation In the future the App will support having multiple languages in a App See issue for this on Github\nPages In the future the App will support having ui over multiple pages See issue for this on Github\nOn Github you can find all issues related to App-Frontend.\nCustom Frontend In the future it is possible that Altinn Studio will support having a frontend that is costum application created by the developer. This could be a frontend based on any javascript based frameworks like Angular,\nSee Github for issue\n"
+},
+{
+	"uri": "https://docs.altinn.studio/solutions/altinn-platform/pdf/",
+	"title": "PDF",
+	"tags": ["platform", "pdf"],
+	"description": "The PDF component generates pdf receipts for apps.",
+	"content": "The PDF component is responsible for generating PDF printouts for submitted instances of an app.\nThe endpoints available in the pdf component is documented here.\nSee all open issues for pdf on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/",
@@ -1640,6 +1654,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/nuget/",
 	"title": "nuget",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/pdf/",
+	"title": "pdf",
 	"tags": [],
 	"description": "",
 	"content": ""

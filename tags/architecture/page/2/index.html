@@ -1700,6 +1700,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/solutions/altinn-platform/pdf/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/pdf/">
+        <span>PDF</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/solutions/altinn-platform/profile/" class="dd-item 
         
         
@@ -2588,6 +2617,35 @@ if(host != "localhost")
         ">
       <a href="/architecture/application/altinn-platform/intermediary/">
         <span>Intermediary</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/pdf/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-platform/pdf/">
+        <span>PDF</span>
 
         
 
@@ -6441,6 +6499,36 @@ if(host != "localhost")
 	
 	   <article class="post architecture">
     <header class="post-header">
+        <h2 class="post-title"><a href="/architecture/application/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.
+The receipt frontend view is available at http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}, example https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b The receipt component also exposes an api which is available at http://at21.platform.altinn.cloud/receipt/api/v1, where available resources are defined below. This api is intended for use by the receipt frontend, if you need information about the user you should use the profile component. <a class="read-more" href="/architecture/application/altinn-platform/receipt/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post architecture">
+    <header class="post-header">
         <h2 class="post-title"><a href="/architecture/application/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
@@ -6683,36 +6771,6 @@ API for SBL Authentication cookie This API creates a JWT Cookie (A cookie with a
 This is needed when resources requiring authentication and authorization is requested.
 This will typical be API&rsquo;s that expose, or updates data own by an end user/party.
 Overall Authentication architecture There are several requirements to an authentication architecture for Altinn Apps / Altinn Platform. The most important is <a class="read-more" href="/architecture/security/authentication/altinn-platform/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post architecture">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/security/authentication/altinn-studio/">Authentication Architecture Altinn Studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Users of Altinn Studio needs to be authenticated.
-Developer authentication The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea.
-The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea.
-GIT Repo authentication When users tries to update the Git repo where source files for the app is stored it needs to authenticate agains the GIT repo. <a class="read-more" href="/architecture/security/authentication/altinn-studio/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -7624,27 +7682,6 @@ GIT Repo authentication When users tries to update the Git repo where source fil
                       
                   
                               
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
                                   
                       
                       
@@ -7660,51 +7697,6 @@ GIT Repo authentication When users tries to update the Git repo where source fil
                               
                       
                   
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   
@@ -7759,84 +7751,6 @@ GIT Repo authentication When users tries to update the Git repo where source fil
                       
                   
                               
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
                                   
                       
                       
@@ -7866,22 +7780,6 @@ GIT Repo authentication When users tries to update the Git repo where source fil
                               
           
                               
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
                       
                   
                               
@@ -7898,14 +7796,10 @@ GIT Repo authentication When users tries to update the Git repo where source fil
           
                               
                               
+                                  
+                              
                               
           
-                              
-                      
-                  
-                              
-                      
-                  
                               
                                   
                       
@@ -7956,6 +7850,202 @@ GIT Repo authentication When users tries to update the Git repo where source fil
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

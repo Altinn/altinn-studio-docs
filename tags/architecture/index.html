@@ -1700,6 +1700,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/solutions/altinn-platform/pdf/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/solutions/altinn-platform/pdf/">
+        <span>PDF</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/solutions/altinn-platform/profile/" class="dd-item 
         
         
@@ -2588,6 +2617,35 @@ if(host != "localhost")
         ">
       <a href="/architecture/application/altinn-platform/intermediary/">
         <span>Intermediary</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/architecture/application/altinn-platform/pdf/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/architecture/application/altinn-platform/pdf/">
+        <span>PDF</span>
 
         
 
@@ -6701,11 +6759,12 @@ The application architecture for each component is described below. <a class="re
 	
 	   <article class="post architecture">
     <header class="post-header">
-        <h2 class="post-title"><a href="/architecture/application/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
+        <h2 class="post-title"><a href="/architecture/application/altinn-platform/pdf/">Application architecture pdf component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.
-The receipt frontend view is available at http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}, example https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b The receipt component also exposes an api which is available at http://at21.platform.altinn.cloud/receipt/api/v1, where available resources are defined below. This api is intended for use by the receipt frontend, if you need information about the user you should use the profile component. <a class="read-more" href="/architecture/application/altinn-platform/receipt/">&raquo;</a></p>
+        <p>The PDF component is an Spring Boot java application exposing an api for triggering pdf generation.
+The pdf api is exposed at http://platform.altinn.cloud/pdf/api/v1.
+The available endpoints can be seen in the swagger definition. <a class="read-more" href="/architecture/application/altinn-platform/pdf/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6718,7 +6777,7 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/pdf/">pdf</a>
             
         
 
@@ -7617,27 +7676,6 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                       
                   
                               
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
                                   
                       
                       
@@ -7653,51 +7691,6 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                               
                       
                   
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   
@@ -7752,84 +7745,6 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                       
                   
                               
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
                                   
                       
                       
@@ -7859,22 +7774,6 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                               
           
                               
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
                       
                   
                               
@@ -7891,14 +7790,10 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
           
                               
                               
+                                  
+                              
                               
           
-                              
-                      
-                  
-                              
-                      
-                  
                               
                                   
                       
@@ -7949,6 +7844,202 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
