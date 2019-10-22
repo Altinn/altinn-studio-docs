@@ -6499,10 +6499,14 @@ if(host != "localhost")
 <li><a href="#scopes">Scopes</a>
 <ul>
 <li><a href="#all-instances-scope">All instances scope</a></li>
-<li><a href="#single-app-and-data-scope">Single app and data scope</a></li>
+<li><a href="#single-app-scope">Single app scope</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#exchange-of-jwt-token">Exchange of JWT token</a></li>
+<li><a href="#exchange-of-jwt-token">Exchange of JWT token</a>
+<ul>
+<li><a href="#maskinporten-jwt-access-token-input">Maskinporten JWT access token (input)</a></li>
+<li><a href="#the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -6527,19 +6531,19 @@ if(host != "localhost")
 <p>To provide an API in maskinporten Altinn has to do two operations.</p>
 
 <blockquote>
-<p>As Api-provider Altinn registres scopes in <em>Maskinporten</em>:</p>
+<p>As Api-provider Altinn registres a scope in <em>Maskinporten</em>:</p>
 </blockquote>
 
 <pre><code class="language-json">POST /scopes
 {
     &quot;prefix&quot;: &quot;altinn&quot;,
     &quot;subscope&quot;: &quot;instances/metadata.read&quot;,
-    &quot;description&quot;: &quot;Clients can access metadata for all instances for all apps in the organisation&quot;
+    &quot;description&quot;: &quot;Clients can access metadata for all instances for all apps of the organisation&quot;
 }
 </code></pre>
 
 <blockquote>
-<p>As Api-provider Altinn has to provide access to its scope for a given organisation:</p>
+<p>As Api-provider Altinn has to give access to its scope for a given organisation:</p>
 </blockquote>
 
 <pre><code class="language-json">PUT /scopes/access/889640782?scope=altinn:apps.read
@@ -6576,7 +6580,7 @@ altinn:instances.write
 
 <p>This is the most general scope which can be given to an organisation by Altinn. It means that the application owner can create a client that can access all instances of apps issued by that application owner. Clients with <em>write</em> scope will be able to instantiate applications through direct access to the app&rsquo;s api, update metadata, update process state, upload data, validate data, and change process of an instance. Clients with <em>read</em> token will only be allowed to read metadata, data and events information.</p>
 
-<h4 id="single-app-and-data-scope">Single app and data scope</h4>
+<h4 id="single-app-scope">Single app scope</h4>
 
 <pre><code class="language-cs">altinn:instances/{appId}/metadata.read
 altinn:instances/{appId}/metadata.write
@@ -6585,17 +6589,16 @@ altinn:instances/{appId}/data.read
 altinn:instances/{appId}/data.write
 
 altinn:instances/{appId}/events.read
-altinn:instances/{appId}/events.write
 </code></pre>
 
 <blockquote>
 <p>appId = {org}/{app}</p>
 </blockquote>
 
-<p>This is a more specific scope which gives clients access to data for a specific app, identified by <code>appId</code> restricted to specific data types, that is metadata, data and events.</p>
+<p>This is a more specific scope which gives clients access to data for a specific app, identified by <code>appId</code> restricted to specific data types:  metadata, data and events.</p>
 
 <ul>
-<li>metadata - allow clients to read/write instance metadata about a specific app. Clients with write access can update process state and selected attributes of the instance metadata. Clients can use the following apis:
+<li>metadata - allow clients to read/write instance metadata for instances of a specific app. Clients with write access can update process state and some selected attributes of the instance metadata. Clients can use the following apis:
 
 <ul>
 <li><code>{appPath}/org/app/instances</code> (read/write)</li>
@@ -6623,20 +6626,9 @@ altinn:instances/{appId}/events.write
 
 <p>A client is authenticated by <em>Maskinporten</em> and are given a <em>Maskinporten JWT access token</em>.</p>
 
-<p>This token has to be validated and replaced with an <em>Altinn JWT access token</em>.</p>
+<p>This token has to be validated and replaced with an <em>Altinn JWT access token</em> which should be used to access the apis.</p>
 
-<p>Maksinporten provides the legal consumer of the token in the following format:</p>
-
-<pre><code class="language-json">{
-    &quot;consumer&quot;: {
-        &quot;Identifier&quot;: {
-        &quot;Authority&quot;: &quot;iso6523-actorid-upis&quot;,
-        &quot;ID&quot;: &quot;9908:910075918&quot;
-    },
-}
-</code></pre>
-
-<p>The exchange calls:</p>
+<h3 id="maskinporten-jwt-access-token-input">Maskinporten JWT access token (input)</h3>
 
 <p>Client provides a self-contained access-token.</p>
 
@@ -6671,6 +6663,10 @@ GET /authentication/api/v1/convert
 &lt;&lt;signature&gt;&gt;
 </code></pre>
 
+<p>Maksinporten provides the legal <code>consumer</code> (the client) in ISO 6523 format.</p>
+
+<h3 id="the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</h3>
+
 <p>The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.</p>
 
 <pre><code class="language-json">{
@@ -6681,13 +6677,13 @@ GET /authentication/api/v1/convert
 }
 .
 {
-  &quot;scopes&quot;: &quot;altinn:instances.read&quot;,
   &quot;nbf&quot;: 1571739892,
   &quot;exp&quot;: 1571741692,
   &quot;iat&quot;: 1571739892,
-  &quot;organsationNumber&quot;: &quot;974760223&quot;,
   &quot;org&quot;: &quot;dibk&quot;,
-  &quot;name&quot;: &quot;Direktoratet for byggkvalitet&quot;
+  &quot;orgNumber&quot;: &quot;974760223&quot;,
+  &quot;orgName&quot;: &quot;Direktoratet for byggkvalitet&quot;,
+  &quot;scope&quot;: &quot;altinn:instances.read&quot;,  
 }
 .
 &lt;&lt;signature&gt;&gt;
