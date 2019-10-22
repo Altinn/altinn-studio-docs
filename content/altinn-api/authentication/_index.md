@@ -19,7 +19,7 @@ To provide an API in maskinporten Altinn has to do two operations.
 
  1. As Api-provider Altinn registres scopes in *Maskinporten*:
 
-```uri
+```json
 POST /scopes
 {
     "prefix": "altinn",
@@ -28,9 +28,9 @@ POST /scopes
 }
 ```
 
- 2. As Api-provider Altinn has to provide access to its scope for a given organisation:
+ 1. As Api-provider Altinn has to provide access to its scope for a given organisation:
 
-```uri
+```json
 PUT /scopes/access/889640782?scope=altinn:apps.read
 ```
 
@@ -43,7 +43,7 @@ To access the Altinn api an organisation must create a client
 
  1. As Api-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn.
 
-```uri
+```json
 POST /clients/
 {
     "client_name": "altinnRead",
@@ -113,9 +113,13 @@ Maksinporten provides the legal consumer of the token:
         "Identifier": {
         "Authority": "iso6523-actorid-upis",
         "ID": "9908:910075918"
-    }
+    },
+    "consumer_org": "910075918",
+    "client_org": "910075918"
 }
 ```
+
+> Which one to select, which one comes from Maskinporten?
 
 The exchange calls:
 
@@ -167,13 +171,12 @@ The convert operation validates the incomming token and generates a new JWT toke
   "exp": 1571741692,
   "iat": 1571739892,
   "organsiationNumber": "974760223",
-  "org": "dibk"
+  "org": "dibk",
+  "name": "Direktoratet for byggkvalitet"
 }
 .
 <<signature>>
 ```
-
-
 
 ## End user systems
 
