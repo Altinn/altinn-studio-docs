@@ -6532,7 +6532,7 @@ if(host != "localhost")
 <li>As Api-provider Altinn registres scopes in <em>Maskinporten</em>:</li>
 </ol>
 
-<pre><code class="language-uri">POST /scopes
+<pre><code class="language-json">POST /scopes
 {
     &quot;prefix&quot;: &quot;altinn&quot;,
     &quot;subscope&quot;: &quot;apps.read&quot;,
@@ -6544,7 +6544,7 @@ if(host != "localhost")
 <li>As Api-provider Altinn has to provide access to its scope for a given organisation:</li>
 </ol>
 
-<pre><code class="language-uri">PUT /scopes/access/889640782?scope=altinn:apps.read
+<pre><code class="language-json">PUT /scopes/access/889640782?scope=altinn:apps.read
 </code></pre>
 
 <p>Here we have given organisation 889640782 access to the scope <code>altinn:apps.read</code>
@@ -6558,7 +6558,7 @@ The organisation must then create a client that uses the scope.</p>
 <li>As Api-consumer the organisation must create a client in <em>Maskinporten</em> with scopes provided by Altinn.</li>
 </ol>
 
-<pre><code class="language-uri">POST /clients/
+<pre><code class="language-json">POST /clients/
 {
     &quot;client_name&quot;: &quot;altinnRead&quot;,
     &quot;client_type&quot;: &quot;CONFIDENTIAL&quot;,
@@ -6623,9 +6623,15 @@ If client has single app scope this will restrict the data returned further.</p>
         &quot;Identifier&quot;: {
         &quot;Authority&quot;: &quot;iso6523-actorid-upis&quot;,
         &quot;ID&quot;: &quot;9908:910075918&quot;
-    }
+    },
+    &quot;consumer_org&quot;: &quot;910075918&quot;,
+    &quot;client_org&quot;: &quot;910075918&quot;
 }
 </code></pre>
+
+<blockquote>
+<p>Which one to select, which one comes from Maskinporten?</p>
+</blockquote>
 
 <p>The exchange calls:</p>
 
@@ -6674,7 +6680,8 @@ GET /authentication/api/v1/convert
   &quot;exp&quot;: 1571741692,
   &quot;iat&quot;: 1571739892,
   &quot;organsiationNumber&quot;: &quot;974760223&quot;,
-  &quot;org&quot;: &quot;dibk&quot;
+  &quot;org&quot;: &quot;dibk&quot;,
+  &quot;name&quot;: &quot;Direktoratet for byggkvalitet&quot;
 }
 .
 &lt;&lt;signature&gt;&gt;
