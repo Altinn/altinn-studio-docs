@@ -6503,8 +6503,8 @@ if(host != "localhost")
 <li><a href="#platform-scope">Platform scope</a></li>
 </ul></li>
 </ul></li>
-<li><a href="#end-user-systems">End user systems</a></li>
 <li><a href="#exchange-of-jwt-token">Exchange of JWT token</a></li>
+<li><a href="#end-user-systems">End user systems</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -6572,7 +6572,7 @@ The organisation must then create a client that uses the scope.</p>
 
 <h4 id="apps-scope">Apps scope</h4>
 
-<pre><code class="language-uri">altinn:apps.read
+<pre><code class="language-cs">altinn:apps.read
 altinn:apps.write
 </code></pre>
 
@@ -6608,20 +6608,85 @@ altinn:platform/register.read
 <p>Gives a client access to a specific platform api-endpoint that is restricted to only return data for a given organisation.
 If client has single app scope this will restrict the data returned further.</p>
 
-<h2 id="end-user-systems">End user systems</h2>
-
-<pre><code class="language-uri">altinn:apps.read
-altinn:apps.write
-</code></pre>
-
 <h2 id="exchange-of-jwt-token">Exchange of JWT token</h2>
 
 <p>Application owners register clients in Maskinporten and selects the scope they need.</p>
 
 <p>A client is authenticated by <em>Maskinporten</em> and are given a <em>Maskinporten JWT access token</em>.</p>
 
-<p>This token has to be validated and replaced with an <em>Altinn JWT access token</em>.
-The scope</p>
+<p>This token has to be validated and replaced with an <em>Altinn JWT access token</em>.</p>
+
+<p>Maksinporten provides the legal consumer of the token:</p>
+
+<pre><code class="language-json">{
+    &quot;consumer&quot;: {
+        &quot;Identifier&quot;: {
+        &quot;Authority&quot;: &quot;iso6523-actorid-upis&quot;,
+        &quot;ID&quot;: &quot;9908:910075918&quot;
+    }
+}
+</code></pre>
+
+<p>The exchange calls:</p>
+
+<p>Client provides a self-contained access-token.</p>
+
+<pre><code class="language-http">Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJnbG9iYWxcL2tvbnRha3RpbmZvcm1hc2pvbi5yZWFkIGdsb2JhbFwvcG9zdGFkcmVzc2UucmVhZCBnbG9iYWxcL3NlcnRpZmlrYXQucmVhZCBnbG9iYWxcL3ZhcnNsaW5nc3N0YXR1cy5yZWFkIGdsb2JhbFwvbmF2bi5yZWFkIiwiaXNzIjoiaHR0cHM6XC9cL29pZGMtdGVzdDEuZGlmaS5lb24ubm9cL2lkcG9ydGVuLW9pZGMtcHJvdmlkZXJcLyIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJleHAiO ...
+GET /authentication/api/v1/convert
+</code></pre>
+
+<p>The token looks something like this (after decoding):</p>
+
+<pre><code class="language-json">{
+  &quot;kid&quot;: &quot;HtYZ1MTlVWPcBWBPUewNlYwTBFIbqMGoO58RxnczMbM&quot;,
+  &quot;alg&quot;: &quot;RS256&quot;
+}
+.
+{
+  &quot;aud&quot;: &quot;test_rp&quot;,
+  &quot;scope&quot;: &quot;altinn:apps.read altinn.apps/difi/testapp.write altinn:platform/storage.read&quot;,
+  &quot;iss&quot;: &quot;https://oidc-test1.difi.eon.no/idporten-oidc-provider/&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;,
+  &quot;exp&quot;: 1520590409,
+  &quot;iat&quot;: 1520589809,
+  &quot;client_orgno&quot;: &quot;991825827&quot;,
+  &quot;jti&quot;: &quot;wTBYC7E2zF6vmflhQm8OYF9WQyYRAi2EuJenQsIo9kk=&quot;
+}
+.
+&lt;&lt;signature&gt;&gt;
+</code></pre>
+
+<p>The convert operation validates the incomming token and generates a new JWT token with the same scope as the token.</p>
+
+<pre><code class="language-json">{
+  &quot;alg&quot;: &quot;RS256&quot;,
+  &quot;kid&quot;: &quot;00A12D92E4C4C1A29DFB956A03340460D6059C09&quot;,
+  &quot;x5t&quot;: &quot;AKEtkuTEwaKd-5VqAzQEYNYFnAk&quot;,
+  &quot;typ&quot;: &quot;JWT&quot;
+}
+.
+{
+  &quot;consumer&quot;: &quot;{\&quot;Identifier\&quot;:{\&quot;Authority\&quot;:\&quot;iso6523-actorid-upis\&quot;,\&quot;ID\&quot;:\&quot;9908:974760223\&quot;}}&quot;,
+  &quot;client_orgno&quot;: &quot;974760223&quot;,
+  &quot;scopes&quot;: &quot;altinn:apps altinn:apps/dibk/testapp.write altinn:platform/storage.read&quot;,
+  &quot;iss&quot;: &quot;https://platform.at21.altinn.cloud/altinn-oidc-provider/&quot;,
+  &quot;nbf&quot;: 1571739892,
+  &quot;exp&quot;: 1571741692,
+  &quot;iat&quot;: 1571739892,
+  &quot;organsiationNumber&quot;: &quot;974760223&quot;,
+  &quot;org&quot;: &quot;dibk&quot;
+}
+.
+&lt;&lt;signature&gt;&gt;
+</code></pre>
+
+<h2 id="end-user-systems">End user systems</h2>
+
+<p>Area under construction!</p>
+
+<pre><code class="language-uri">altinn:apps.read
+altinn:apps.write
+</code></pre>
 
 
 <footer class=" footline" >
