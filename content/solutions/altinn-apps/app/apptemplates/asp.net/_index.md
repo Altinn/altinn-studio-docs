@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Web Application Template
-description: Description of ASP.NET based App template 
+description: Description of ASP.NET Web based App template for Altinn Apps
 linktitle: ASP.NET Web
 tags: [altinn-apps]
 weight: 200
@@ -16,9 +16,9 @@ For web applications that need a web based UI, it has a [React](https://reactjs.
 [ASP.Net Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0) is a cross-platform, high performance,
 open-source framework for building modern cloud-based, Internet-connected application.
 
-Together with the added Altinn functionality in the template, it is a effective platform to build application powered by Altinn Platform.
+Together with the added Altinn functionality in the template, it is a effective platform to build applications powered by Altinn Platform.
 
-The application based on this templates are buildt as Docker Containers and hosted in Kubernetes.
+Applications based on this templates are buildt as Docker Containers and hosted in Kubernetes.
 
 ## Template Content
 The template contains lots of features to support functionality needed by Apps running in Altinn Apps.
@@ -45,6 +45,9 @@ The App can be breated with multiple langauges at the same time. The different t
 
 #### Prefill 
 Prefill.json defines the prefill for a app
+
+#### Dockerfile
+Defines the docker image
 
 ### App libraries
 The Asp.Net Template uses some libraries created by Altinn.
