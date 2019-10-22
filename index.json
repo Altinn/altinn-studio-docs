@@ -921,7 +921,7 @@
 	"title": "Altinn Platform",
 	"tags": ["altinn-apps"],
 	"description": "Altinn Platform is the solution where the supporting platform functionality resides.",
-	"content": "The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\nSee below for details about each component.\n\rAuthentication\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.\n\r\rAuthorization\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.\n\r\rPDF\rThe PDF component generates pdf receipts for apps.\n\r\rProfile\rThe Profile component gives profile information for users in Altinn.\n\r\rReceipt\rThe Receipt component in Altinn Platform presents a receipt for apps\n\r\rRegister\rThe Register micro service gives register information to Apps.\n\r\rStorage\rThe Storage component gives storage capabilities to the apps.\n\r\r"
+	"content": "The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\nSee below for details about each component.\n\rAuthentication\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.\n\r\rAuthorization\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.\n\r\rPDF\rThe PDF component is responsible for generating PDF printouts for submitted instances of an app.\n\r\rProfile\rThe Profile component gives profile information for users in Altinn.\n\r\rReceipt\rThe Receipt component in Altinn Platform presents a receipt for apps\n\r\rRegister\rThe Register micro service gives register information to Apps.\n\r\rStorage\rThe Storage component gives storage capabilities to the apps.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/",
@@ -969,8 +969,8 @@
 	"uri": "https://docs.altinn.studio/solutions/altinn-platform/pdf/",
 	"title": "PDF",
 	"tags": ["platform", "pdf"],
-	"description": "The PDF component generates pdf receipts for apps.",
-	"content": "The PDF component is responsible for generating PDF printouts for submitted instances of an app.\nThe endpoints available in the pdf component is documented here.\nSee all open issues for pdf on Github\n"
+	"description": "The PDF component is responsible for generating PDF printouts for submitted instances of an app.",
+	"content": "The endpoints available in the pdf component is documented here.\nSee all open issues for pdf on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/solutions/altinn-apps/app/processhandling/",
