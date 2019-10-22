@@ -58,7 +58,7 @@ POST /clients/
 
 #### Apps scope
 
-```uri
+```cs
 altinn:apps.read
 altinn:apps.write
 ```
@@ -97,13 +97,6 @@ altinn:platform/register.read
 Gives a client access to a specific platform api-endpoint that is restricted to only return data for a given organisation. 
 If client has single app scope this will restrict the data returned further.
 
-## End user systems
-
-```uri
-altinn:apps.read
-altinn:apps.write
-```
-
 ## Exchange of JWT token
 
 Application owners register clients in Maskinporten and selects the scope they need.
@@ -111,4 +104,82 @@ Application owners register clients in Maskinporten and selects the scope they n
 A client is authenticated by *Maskinporten* and are given a *Maskinporten JWT access token*.
 
 This token has to be validated and replaced with an *Altinn JWT access token*.
-The scope 
+
+Maksinporten provides the legal consumer of the token:
+
+```json
+{
+    "consumer": {
+        "Identifier": {
+        "Authority": "iso6523-actorid-upis",
+        "ID": "9908:910075918"
+    }
+}
+```
+
+The exchange calls:
+
+Client provides a self-contained access-token.
+
+```http
+Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJnbG9iYWxcL2tvbnRha3RpbmZvcm1hc2pvbi5yZWFkIGdsb2JhbFwvcG9zdGFkcmVzc2UucmVhZCBnbG9iYWxcL3NlcnRpZmlrYXQucmVhZCBnbG9iYWxcL3ZhcnNsaW5nc3N0YXR1cy5yZWFkIGdsb2JhbFwvbmF2bi5yZWFkIiwiaXNzIjoiaHR0cHM6XC9cL29pZGMtdGVzdDEuZGlmaS5lb24ubm9cL2lkcG9ydGVuLW9pZGMtcHJvdmlkZXJcLyIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJleHAiO ...
+GET /authentication/api/v1/convert
+```
+
+ The token looks something like this (after decoding):
+
+```json
+{
+  "kid": "HtYZ1MTlVWPcBWBPUewNlYwTBFIbqMGoO58RxnczMbM",
+  "alg": "RS256"
+}
+.
+{
+  "aud": "test_rp",
+  "scope": "altinn:apps.read altinn.apps/difi/testapp.write altinn:platform/storage.read",
+  "iss": "https://oidc-test1.difi.eon.no/idporten-oidc-provider/",
+  "token_type": "Bearer",
+  "exp": 1520590409,
+  "iat": 1520589809,
+  "client_orgno": "991825827",
+  "jti": "wTBYC7E2zF6vmflhQm8OYF9WQyYRAi2EuJenQsIo9kk="
+}
+.
+<<signature>>
+```
+
+The convert operation validates the incomming token and generates a new JWT token with the same scope as the token.
+
+```json
+{
+  "alg": "RS256",
+  "kid": "00A12D92E4C4C1A29DFB956A03340460D6059C09",
+  "x5t": "AKEtkuTEwaKd-5VqAzQEYNYFnAk",
+  "typ": "JWT"
+}
+.
+{
+  "consumer": "{\"Identifier\":{\"Authority\":\"iso6523-actorid-upis\",\"ID\":\"9908:974760223\"}}",
+  "client_orgno": "974760223",
+  "scopes": "altinn:apps altinn:apps/dibk/testapp.write altinn:platform/storage.read",
+  "iss": "https://platform.at21.altinn.cloud/altinn-oidc-provider/",
+  "nbf": 1571739892,
+  "exp": 1571741692,
+  "iat": 1571739892,
+  "organsiationNumber": "974760223",
+  "org": "dibk"
+}
+.
+<<signature>>
+```
+
+
+
+## End user systems
+
+Area under construction!
+
+```uri
+altinn:apps.read
+altinn:apps.write
+```
