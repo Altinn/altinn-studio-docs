@@ -6572,6 +6572,9 @@ The organisation must then create a client that uses the scope.</p>
 
 <h3 id="scopes">Scopes</h3>
 
+<p>scope names must follow the following regexp: <code>^([a-z0-9]+\/?)+[a-z0-9]+(\.[a-z0-9]+)?$?</code>.
+It means that we cannot have - or _ in scope names.</p>
+
 <h4 id="all-instances-scope">All instances scope</h4>
 
 <pre><code class="language-cs">altinn:instances.read
@@ -6644,46 +6647,47 @@ GET /authentication/api/v1/convert
 }
 .
 {
-  &quot;aud&quot;: &quot;test_rp&quot;,
-  &quot;scope&quot;: &quot;altinn:apps.read altinn.apps/difi/testapp.write altinn:platform/storage.read&quot;,
-  &quot;iss&quot;: &quot;https://oidc-test1.difi.eon.no/idporten-oidc-provider/&quot;,
+  &quot;aud&quot;: &quot;https://tt02.altinn.no/maskinporten-api/&quot;,
+  &quot;scope&quot;: &quot;altinn:instances.write&quot;,
+  &quot;iss&quot;: &quot;https://oidc-ver2.difi.no/idporten-oidc-provider/&quot;,
+  &quot;client_amr&quot;: &quot;virksomhetssertifikat&quot;,
   &quot;token_type&quot;: &quot;Bearer&quot;,
-  &quot;exp&quot;: 1520590409,
-  &quot;iat&quot;: 1520589809,
-  &quot;client_orgno&quot;: &quot;991825827&quot;,
+  &quot;exp&quot;: 1571935870,
+  &quot;iat&quot;: 1571923870,
+  &quot;client_id&quot;: &quot;0de19f7a-f5fa-45d1-874c-3d2e88ce97d9&quot;,
+  &quot;client_orgno&quot;: &quot;974760673&quot;,
+  &quot;jti&quot;: &quot;U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac&quot;,
   &quot;consumer&quot;: {
-    &quot;Identifier&quot;: {
-      &quot;Authority&quot;: &quot;iso6523-actorid-upis&quot;,
-      &quot;ID&quot;: &quot;9908:910075918&quot;
-    }
-  },
-  &quot;jti&quot;: &quot;wTBYC7E2zF6vmflhQm8OYF9WQyYRAi2EuJenQsIo9kk=&quot;
+    &quot;authority&quot;: &quot;iso6523-actorid-upis&quot;,
+    &quot;ID&quot;: &quot;0192:974760673&quot;
+  }
 }
 .
 &lt;&lt;signature&gt;&gt;
 </code></pre>
 
-<p>Maksinporten provides the legal <code>consumer</code> (the client) in ISO 6523 format.</p>
+<p>Maksinporten provides the legal <code>consumer</code> (the client) in ISO 6523 format. The client_orgno claim is deprecated.</p>
 
 <h3 id="the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</h3>
 
 <p>The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.</p>
 
 <pre><code class="language-json">{
-  &quot;alg&quot;: &quot;RS256&quot;,
-  &quot;kid&quot;: &quot;00A12D92E4C4C1A29DFB956A03340460D6059C09&quot;,
-  &quot;x5t&quot;: &quot;AKEtkuTEwaKd-5VqAzQEYNYFnAk&quot;,
-  &quot;typ&quot;: &quot;JWT&quot;
-}
-.
-{
-  &quot;nbf&quot;: 1571739892,
-  &quot;exp&quot;: 1571741692,
-  &quot;iat&quot;: 1571739892,
-  &quot;org&quot;: &quot;dibk&quot;,
-  &quot;orgNumber&quot;: &quot;974760223&quot;,
-  &quot;orgName&quot;: &quot;Direktoratet for byggkvalitet&quot;,
-  &quot;scope&quot;: &quot;altinn:instances.read&quot;,  
+  &quot;scope&quot;: &quot;altinn:instances.write&quot;,
+  &quot;token_type&quot;: &quot;Bearer&quot;,
+  &quot;exp&quot;: 1571925721,
+  &quot;iat&quot;: 1571923921,
+  &quot;client_id&quot;: &quot;0de19f7a-f5fa-45d1-874c-3d2e88ce97d9&quot;,
+  &quot;client_orgno&quot;: &quot;974760673&quot;,
+  &quot;jti&quot;: &quot;U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac&quot;,
+  &quot;consumer&quot;: {
+    &quot;authority&quot;: &quot;iso6523-actorid-upis&quot;,
+    &quot;ID&quot;: &quot;0192:974760673&quot;
+  },
+  &quot;org&quot;: &quot;brg&quot;,
+  &quot;orgNumber&quot;: &quot;974760673&quot;,
+  &quot;iss&quot;: &quot;https://platform.altinn.cloud/&quot;,
+  &quot;nbf&quot;: 1571923921
 }
 .
 &lt;&lt;signature&gt;&gt;
