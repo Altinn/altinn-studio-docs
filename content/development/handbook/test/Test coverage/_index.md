@@ -51,6 +51,7 @@ Sl.No. |    Testcase name   |   Area of Solution
 40. | Receipt page test | Receipt
 
 ### Postman tests
+#### Platform
 Sl.No. |    Testcase name   |   Area of Solution   
 :--- | :--- | :---: 
 1. | GET Organization | Platform-Register
@@ -69,4 +70,17 @@ Sl.No. |    Testcase name   |   Area of Solution
 14. | Soft and Hard delete app instances | Storage
 15. | Restore soft deleted app instance | Storage
 16. | Restore hard deleted app instance - negative | Storage
-17. | Create app instance with multipart data | Storage
+17. | Get instances, by id and instance events | Storage-SBL
+18. | Soft/hard delete and restore instances | Storage-SBL
+
+#### Runtime
+Sl.No. |    Testcase name   |   Area of Solution   
+:--- | :--- | :---: 
+1. | Create, Get, Edit app instance | Runtime
+2. | Start, get, get next, change next, complete Process | Runtime
+3. | Negative tests in process | Runtime
+4. | Add, Get, Edit Form data xml | Runtime
+5. | Delete a form data xml - negative | Runtime
+6. | Add an attachment to an instance | Runtime
+7. | Create app instance with multipart data | Runtime
+8. | Verify instance created with multipart | Runtime
