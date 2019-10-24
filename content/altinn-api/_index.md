@@ -13,6 +13,7 @@ This is work-in-progress. This is a proposed API which most likely is going to c
 {{% /notice%}}
 
 ## Introduction
+
 There are primarily two types of consumers of the Altinn APIs. 
 The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called *Application Owners*.
 The second group consists of organisations and people using the applications through a client system, the group is called *Application Users*. 
@@ -234,8 +235,9 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        ...
+        "elementType": "default",
         "fileName": "default.xml",
+        "contentType": "application/xml",
         "lastChangedDateTime": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
         "fileSize": 34059,
@@ -248,24 +250,63 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 }
 ```
 
+## Receipt data element[^1]
+
+[^1]: Not implemented yet!
+
+All applications has an element type called `receipt`. This is the place to store various receipts and generated filespdfs.
+
+### Upload a pdf and associate the pdf with an existing data element
+
+```http
+POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?elementType=receipt&ref=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+```
+
+Results in a new data element with reference to the first.
+
+```json
+{
+...
+"data": [
+    {
+        "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        "elementType": "default",
+        "fileName": "default.xml",
+        "contentType": "application/xml",
+        "lastChangedDateTime": "2019-03-06T15:00:23Z",
+        "lastChangedBy": "org24",
+        "fileSize": 34059,
+        "isLocked": false,
+        "applicationOwner": {
+            "downloaded": ["2019-05-15T08:23:01Z"]
+        }
+    },
+    {
+        "id": "c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d",
+        "elementType": "receipt",
+        "fileName": "autogen.pdf",
+        "contentType": "application/pdf",
+        "lastChangedDateTime": "2019-10-10T15:00:23Z",
+        "lastChangedBy": "org24",
+        "fileSize": 34059,
+        "isLocked": false,
+        "ref": ["692ee7df-82a9-4bba-b2f2-c8c4dac69aff"]
+    }
+]
+}
+```
+
 ### Download the PDF of a data element
 
-Data elements with schemas will have a corresponding pdf file, this pdf file is generated when the element type's associate process task is closed.
+Select the data PDF you want to download.
 
 ```http
-Accept=application/pdf
-GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d
 ```
 
-### Download both data and PDF
+## Application owner download[^1]
 
-```http
-GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/download
-```
-
-Will return a multipart http response which consists of two parts:
-- the data
-- the generated PDF
+### Downloads is logged on the data element
 
 ### Confirm successful download (as application owner)
 
@@ -301,13 +342,10 @@ Will return a multipart http response with the following content:
 
 1. instance metadata (application/json)
 2. the first data element (application/xml)
-3. the first data element's pdf (application/pdf)
-4. second data element (e.g. attachement)
-5. third data element (e.g. image)
+3. second data element (e.g. attachement)
+4. third data element (e.g. image)
+5. fourth data element (e.g. pdf)
 6. ...
-
-<!-- OLD http://altinn3.no/runtime/api/attachment/3/RtlOrg/apitracing/32dacdff-1f99-4958-9790-b0a0aeccfaa5/GetFormAttachments -->
-
 
 ## Query instances
 
@@ -344,8 +382,6 @@ The query returns a result object (page) which includes a collection of instance
 The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
 
 The endpoint supports plain *application/json* and *application/hal+json*. Use the Accept parameter in the http request to specify your preferred format.
-
-
 ```json
 Accept: application/json
 {
@@ -411,7 +447,7 @@ Example of event data.
 }
 ```
 
-### Application events (for application owners)
+### Application events (for application owners)[^1]
 
 > **WARNING**: This section will be redesigned
 
@@ -455,7 +491,7 @@ Query result:
 ]
 ```
 
-## Validate data
+## Validate data[^1]
 
 The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
 
@@ -465,7 +501,7 @@ The application will provide a method to validate the datamodel without creating
 PUT {appPath}/validate?elementType=modelA
 ```
 
-## Calculate / check business rules
+## Calculate / check business rules[^1]
 
 The app will provide a method to perform calculation / perform business rules for a datamodell to an app.
 The calculate method takes a data file and performs calculations and returns the possibly altered data file with updated fields.
@@ -521,7 +557,7 @@ A process is represented by an process modell in BPMN/XML notation. Each task ha
   </bpmn2:process>
 ```
 
-#### Altinn specific task types
+### Altinn specific task types
 
 Application developers can in their BPMN Definition specify some altinn specific task types, see ```altinn:tasktype```, which signify the behaviour of the task. So far we have defined the following:
 
@@ -648,7 +684,7 @@ The system will generate a number of process related events, which can be found 
 }
 ```
 
-#### Get process history of a specific instance
+#### Get process history of a specific instance[^1]
 
 Based on the process events the history of the instance's process is generated. The following illustrates an ended process:
 
@@ -685,10 +721,6 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 }]
 ```
 
-<!-- OLD Get Current process state
-Is it in signing? Is it form filling +++ Used by react to decide what to show.
-http://altinn3.no/runtime/api/workflow/3/RtlOrg/apitracing/GetCurrentState?instanceId=32dacdff-1f99-4958-9790-b0a0aeccfaa5 -->
-
 ### Start Process
 
 To start a process one can post start to the process endpoint.
@@ -708,9 +740,6 @@ The process logic attempts to finish the current task and then moves the process
 ```http
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next[?id=Task_2]
 ```
-
-<!--OLD  //Complete
-http://altinn3.no/runtime/api/3/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/Complete -->
 
 ### Complete the process
 
@@ -804,12 +833,20 @@ GET {appPath}
             "maxSize": -1,
             "minCount": 1,
             "maxCount": 1,
+        },
+        {
+            "id": "receipt",
+            "appLogic": false,
+            "allowedContentType": ["application/pdf"],
+            "maxSize": -1,
+            "minCount": 0,
+            "maxCount": -1,
         }
     ]
 }
 ```
 
-### Process model
+### Process model[^1]
 
 Get the application's process model.
 
@@ -819,28 +856,28 @@ GET {appPath}/process
 
 Returns the bpmn file defining the process.
 
-### Get text resources for the application for a specific language
+### Get text resources for the application for a specific language[^1]
 
 ```http
 GET {appPath}/texts?lang=nb
 ```
 <!-- OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb -->
 
-### Get text resources for a given element type
+### Get text resources for a given element type[^1]
 
 ```http
 GET {appPath}/elementTypes/{typeName}/texts?lang=nb
 ```
 <!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
 
-### Get the schema for a given element type
+### Get the schema for a given element type[^1]
 
 ```http
 Accept=application/schema+json
 GET {appPath}/elementTypes/{typeName}/schema
 ```
 
-### Get the model config for a given element type
+### Get the model config for a given element type[^1]
 
 ```http
 GET {appPath}/elementTypes/{typeName}/modelConfig
@@ -848,7 +885,7 @@ GET {appPath}/elementTypes/{typeName}/modelConfig
 (ServiceMetadata.json)
 <!-- OLD http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData -->
 
-### Get the layout for a given element type
+### Get the layout for a given element type[^1]
 
 ```http
 GET {appPath}/elementTypes/{typeName}/layout
@@ -856,7 +893,7 @@ GET {appPath}/elementTypes/{typeName}/layout
 (FormLayout.json)
 <!-- OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json-->
 
-### Gets the rules for a given element type
+### Gets the rules for a given element type[^1]
 
 ```http
 GET {appPath}/elementTypes/{typeName}/rules
@@ -865,7 +902,7 @@ GET {appPath}/elementTypes/{typeName}/rules
 (RuleHandler.js)
 <!-- OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/RuleHandler.js -->
 
-### Get the API service configuration for how the app calls external APIs
+### Get the API service configuration for how the app calls external APIs[^1]
 
 ```http
 GET {appPath}/elementTypes/{typeName}/externalApis
