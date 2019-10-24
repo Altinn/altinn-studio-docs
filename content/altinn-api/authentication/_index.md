@@ -56,6 +56,9 @@ POST /clients/
 
 ### Scopes
 
+scope names must follow the following regexp: `^([a-z0-9]+\/?)+[a-z0-9]+(\.[a-z0-9]+)?$?`.
+It means that we cannot have - or _ in scope names.
+
 #### All instances scope
 
 ```cs
@@ -119,26 +122,26 @@ The token looks something like this (after decoding):
 }
 .
 {
-  "aud": "test_rp",
-  "scope": "altinn:apps.read altinn.apps/difi/testapp.write altinn:platform/storage.read",
-  "iss": "https://oidc-test1.difi.eon.no/idporten-oidc-provider/",
+  "aud": "https://tt02.altinn.no/maskinporten-api/",
+  "scope": "altinn:instances.write",
+  "iss": "https://oidc-ver2.difi.no/idporten-oidc-provider/",
+  "client_amr": "virksomhetssertifikat",
   "token_type": "Bearer",
-  "exp": 1520590409,
-  "iat": 1520589809,
-  "client_orgno": "991825827",
+  "exp": 1571935870,
+  "iat": 1571923870,
+  "client_id": "0de19f7a-f5fa-45d1-874c-3d2e88ce97d9",
+  "client_orgno": "974760673",
+  "jti": "U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac",
   "consumer": {
-    "Identifier": {
-      "Authority": "iso6523-actorid-upis",
-      "ID": "9908:910075918"
-    }
-  },
-  "jti": "wTBYC7E2zF6vmflhQm8OYF9WQyYRAi2EuJenQsIo9kk="
+    "authority": "iso6523-actorid-upis",
+    "ID": "0192:974760673"
+  }
 }
 .
 <<signature>>
 ```
 
-Maksinporten provides the legal `consumer` (the client) in ISO 6523 format.
+Maksinporten provides the legal `consumer` (the client) in ISO 6523 format. The client_orgno claim is deprecated.
 
 ### The Altinn JWT Access token (output)
 
@@ -146,20 +149,21 @@ The convert operation validates the incomming token and generates a new JWT toke
 
 ```json
 {
-  "alg": "RS256",
-  "kid": "00A12D92E4C4C1A29DFB956A03340460D6059C09",
-  "x5t": "AKEtkuTEwaKd-5VqAzQEYNYFnAk",
-  "typ": "JWT"
-}
-.
-{
-  "nbf": 1571739892,
-  "exp": 1571741692,
-  "iat": 1571739892,
-  "org": "dibk",
-  "orgNumber": "974760223",
-  "orgName": "Direktoratet for byggkvalitet",
-  "scope": "altinn:instances.read",  
+  "scope": "altinn:instances.write",
+  "token_type": "Bearer",
+  "exp": 1571925721,
+  "iat": 1571923921,
+  "client_id": "0de19f7a-f5fa-45d1-874c-3d2e88ce97d9",
+  "client_orgno": "974760673",
+  "jti": "U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac",
+  "consumer": {
+    "authority": "iso6523-actorid-upis",
+    "ID": "0192:974760673"
+  },
+  "org": "brg",
+  "orgNumber": "974760673",
+  "iss": "https://platform.altinn.cloud/",
+  "nbf": 1571923921
 }
 .
 <<signature>>
