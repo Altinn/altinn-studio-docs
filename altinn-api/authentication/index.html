@@ -6673,21 +6673,23 @@ GET /authentication/api/v1/convert
 <p>The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.</p>
 
 <pre><code class="language-json">{
-  &quot;scope&quot;: &quot;altinn:instances.write&quot;,
+  &quot;scope&quot;: &quot;altinn:instances.read altinn:instances.write&quot;,
   &quot;token_type&quot;: &quot;Bearer&quot;,
-  &quot;exp&quot;: 1571925721,
-  &quot;iat&quot;: 1571923921,
+  &quot;exp&quot;: 1571996946,
+  &quot;iat&quot;: 1571995146,
   &quot;client_id&quot;: &quot;0de19f7a-f5fa-45d1-874c-3d2e88ce97d9&quot;,
   &quot;client_orgno&quot;: &quot;974760673&quot;,
-  &quot;jti&quot;: &quot;U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac&quot;,
+  &quot;jti&quot;: &quot;BcNIAuZKXdjpECmmwalAm-pcBp0iNc56T6eXhlxNBZE&quot;,
   &quot;consumer&quot;: {
     &quot;authority&quot;: &quot;iso6523-actorid-upis&quot;,
     &quot;ID&quot;: &quot;0192:974760673&quot;
   },
   &quot;org&quot;: &quot;brg&quot;,
-  &quot;orgNumber&quot;: &quot;974760673&quot;,
+  &quot;orgNumber&quot;: 974760673,
   &quot;iss&quot;: &quot;https://platform.altinn.cloud/&quot;,
-  &quot;nbf&quot;: 1571923921
+  &quot;AuthenticateMethod&quot;: &quot;maskinporten&quot;,
+  &quot;AuthenticationLevel&quot;: 3,
+  &quot;nbf&quot;: 1571995146
 }
 .
 &lt;&lt;signature&gt;&gt;
