@@ -15,5 +15,5 @@ En ukjent faktor er den kommende "API-katalogen", og hvilke egenskaper den vil t
 Dette er et område som ikke ble sett på i PoC.
 
 
- [See all issues related to API-Usage on Github](https://github.com/Altinn/altinn-studio/labels/api-use)
+ [See all issues related to API-Usage on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fapi-use)
 

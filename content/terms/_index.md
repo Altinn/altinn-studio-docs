@@ -170,7 +170,7 @@ The current Altinn end user solution (SluttBrukerLøsning). See [Solution Archit
 ## SBL Bridge
 
 Applicaton that exposes SBL components as REST interface to Altinn Platform components. 
-[See Git Issues](https://github.com/Altinn/altinn-studio/labels/sbl-bridge)
+[See all issues on GitHub related to SBL Bridge](https://github.com/Altinn/altinn-studio/labels/solution%2Fsbl-bridge).
 
 
 ## Statefull App

@@ -17,6 +17,6 @@ Some requirements for Altinn Studio is:
 - Built in replacment for SERES (current tool).
 - Need to support more formats. 
 
-[See all issues related to Altinn Studio and data modeling on Github](https://github.com/Altinn/altinn-studio/labels/data-modeling).
+[See all issues related to Altinn Studio and data modeling on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fdata-modeling).
 
 ![Editor for enkel datamodellering](data-modelling.png "Editor for enkel datamodellering")

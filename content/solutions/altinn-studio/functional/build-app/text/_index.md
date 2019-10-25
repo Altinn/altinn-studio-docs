@@ -157,4 +157,4 @@ Sections are used to categorize keys (properties) that belong together. It may b
 
 
 
-[See all issues related to text and language on Github](https://github.com/Altinn/altinn-studio/labels/language)
+[See all issues related to text and language on Github](https://github.com/Altinn/altinn-studio/labels/area%2Flanguage).

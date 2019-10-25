@@ -10,5 +10,5 @@ have documentation that is target for the specific app.
 For more details, see https://docs.altinn.studio/altinn-api.
 
 
-[See all issues for API-Expose on Github](https://github.com/Altinn/altinn-studio/labels/api-expose)
+[See all issues for API-Expose on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fapi-expose)
 

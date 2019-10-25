@@ -14,7 +14,7 @@ tags: [process]
 
 
 
-[See all issues related to App-Parameters on Github](https://github.com/Altinn/altinn-studio/labels/app-parameters)
+[See all issues related to App-Parameters on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fapp-parameters)
 
 
 
