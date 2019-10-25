@@ -149,21 +149,23 @@ The convert operation validates the incomming token and generates a new JWT toke
 
 ```json
 {
-  "scope": "altinn:instances.write",
+  "scope": "altinn:instances.read altinn:instances.write",
   "token_type": "Bearer",
-  "exp": 1571925721,
-  "iat": 1571923921,
+  "exp": 1571996946,
+  "iat": 1571995146,
   "client_id": "0de19f7a-f5fa-45d1-874c-3d2e88ce97d9",
   "client_orgno": "974760673",
-  "jti": "U3HMLIY8b_X454CADQzfttSuWpCADPQhc57iZXVF_Ac",
+  "jti": "BcNIAuZKXdjpECmmwalAm-pcBp0iNc56T6eXhlxNBZE",
   "consumer": {
     "authority": "iso6523-actorid-upis",
     "ID": "0192:974760673"
   },
   "org": "brg",
-  "orgNumber": "974760673",
+  "orgNumber": 974760673,
   "iss": "https://platform.altinn.cloud/",
-  "nbf": 1571923921
+  "AuthenticateMethod": "maskinporten",
+  "AuthenticationLevel": 3,
+  "nbf": 1571995146
 }
 .
 <<signature>>
