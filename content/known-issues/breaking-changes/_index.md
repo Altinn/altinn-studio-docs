@@ -5,12 +5,12 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 weight: 100
 ---
-## Breaking change: App backend upgraded to ASP.NET Core 3.0 
+## Breaking change: Deploy fails with error "The current .NET SDK does not support targeting .NET Core 3.0"
 Introduced with issue: [#2762](https://github.com/Altinn/altinn-studio/issues/2762)
 
 When an application is deployed the latest Runtime image is copied from Azure Container Registery. As this image will be based
 on ASP.NET Core 3.0 the application must also specify that it should run on the same version. For all applications created before 
-21.10.2019 the specified version in .ASP.NET Core 2.2, and this must be changed. 
+21.10.2019 the specified version in .ASP.NET Core 2.2, and this must be changed.
 
 ## How to fix
 Log onto altinn.studio and access the Dockerfile using this url: https://altinn.studio/repos/{org}/{app}/src/branch/master/Dockerfile
