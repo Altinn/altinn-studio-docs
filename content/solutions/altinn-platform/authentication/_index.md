@@ -15,4 +15,4 @@ To allow for a user accessing a App in Altinn Apps or a component in Altinn Plat
 cookie and return user information to the Authentication component in Altinn Platform. 
 
 
-[See all open issues for Authentication on Github](https://github.com/Altinn/altinn-studio/labels/authentication)
+[See all open issues for Authentication on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fauthentication)

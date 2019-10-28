@@ -16,10 +16,7 @@ The UI-designer has the following functionality:
 - Define/configure connections to **external API**
 - Define/configure rules for [validation](#validation), [calculation](#calculation) and [dynamics](#dynamics)
 
-See all issues related to Altinn Studio and UI-designer on [Github](https://github.com/Altinn/altinn-studio/labels/ui-editor)
-
 ![Drag'n drop of web components](ux-editor-dnd.gif "Drag'n drop of web components")
-
 
 ## Form components
 
@@ -33,4 +30,4 @@ It is also possible to define custom components and use this in the app.
 In the future Altinn Studio will support creating different UI for seperate datamodels for sub forms or forms in seperate form filling task in a process.
 
 
-[See all Github issues for UI-Designer](https://github.com/Altinn/altinn-studio/labels/ui-editor)
+[See all Github issues for UI-editor](https://github.com/Altinn/altinn-studio/labels/area%2Fui-editor).

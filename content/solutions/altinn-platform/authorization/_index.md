@@ -9,5 +9,5 @@ The authorization component consist of a Policy Decision Point (PDP), Policy Ret
 integrated with other external Policy Information Points. 
 
 
-[See all open issues for Authorization on Github](https://github.com/Altinn/altinn-studio/labels/authorization)
+[See all open issues for Authorization on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fauthorization)
 

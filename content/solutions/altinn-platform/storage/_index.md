@@ -16,4 +16,4 @@ Since data is hosted in public cloud, Storage component will support encryption 
 
 
 
-[For all issues related to Storage see Github](https://github.com/Altinn/altinn-studio/issues?q=is%3Aissue+is%3Aopen+label%3Adata-storage)
+[For all issues related to Storage see Github](https://github.com/Altinn/altinn-studio/labels/area%2Fdata-storage)

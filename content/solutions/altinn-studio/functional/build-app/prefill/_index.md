@@ -53,4 +53,4 @@ Below is an example of a prefill where two fields are connected to the name from
 }
 ```
 
-[See issues related to prefill on Github](https://github.com/Altinn/altinn-studio/labels/prefill)
+[See issues related to prefill on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fprefill)

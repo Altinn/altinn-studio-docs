@@ -44,7 +44,7 @@ In the future the App will support having multiple languages in a App
 In the future the App will support having ui over multiple pages
 [See issue for this on Github](https://github.com/Altinn/altinn-studio/issues/1265)
 
-[On Github you can find all issues related to App-Frontend](https://github.com/Altinn/altinn-studio/labels/app-frontend).
+[On Github you can find all issues related to App-Frontend](https://github.com/Altinn/altinn-studio/labels/solution%2Fapp-frontend).
 
 ## Custom Frontend
 In the future it is possible that Altinn Studio will support having a frontend that is costum application created by 

@@ -13,4 +13,4 @@ tags: [todo]
 ## Handle Merge conflict
 
 
-[See all issues on Github for Version Control](https://github.com/Altinn/altinn-studio/issues?q=merge+conflict+label%3Aversion-control)
+[See all issues on Github for Version Control](https://github.com/Altinn/altinn-studio/labels/area%2Fversion-control)

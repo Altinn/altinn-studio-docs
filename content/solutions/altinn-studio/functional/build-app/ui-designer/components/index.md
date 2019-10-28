@@ -239,4 +239,4 @@ NOTE: Editing properties for custom components in the UI editor is currently not
 {{% /notice %}}
 
 
-[See all Github issues for UI-Designer](https://github.com/Altinn/altinn-studio/labels/ui-editor)
+[See all Github issues for UI-editor](https://github.com/Altinn/altinn-studio/labels/area%2Fui-editor).
