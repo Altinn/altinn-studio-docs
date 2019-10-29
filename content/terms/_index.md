@@ -47,14 +47,18 @@ The platform is based on microservices architecture and is highly scalable.
 See Altinn Platform [solution architecture](https://docs.altinn.studio/architecture/solution/altinn-platform/), [application architecture](https://docs.altinn.studio/architecture/application/altinn-platform/)
 and [deployment architecture]
 
-## Altinn Studio
-
-The web based development tool for creating end user application.
-Lets the application developer create apps that are deployed like a seperate application environment called Altinn Apps. 
-
 ## Altinn Apps environment
 
 A Altinn Apps environment is a isolated setup of an Altinn Studio Apps solution. There will be 3 environments created in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment.
+
+## Altinn Studio
+
+The development environment for creating end user application. Consists of Altinn Studio Repos, Altinn Studio Designer and possibly Visual Studio Code.
+Lets the application developer create apps that are deployed like a seperate application environment called Altinn Apps.
+
+## Altinn Studio Designer
+
+The GUI-tool do develop apps by configuring and composing reusable solutions.
 
 ## Altinn Studio Repos
 
