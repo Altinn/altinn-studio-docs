@@ -30,39 +30,61 @@ deprecated term: ~~Reportee Type Requirement~~
 ## Altinn
 
 Norways E-Governement plattform. Launched december 4. 2003. 
-[Read more on Altinn.no](https://www.altinn.no/en/about-altinn/what-is-altinn/)
+[Read more on altinn.no](https://www.altinn.no/en/about-altinn/what-is-altinn/) 
 
 ## Altinn Apps
 
-Altinn Apps is the solution where the developed apps is deployed.
-It consist of isolated organisation Kubernetes clusters and supporting functionality and infrastructure.
+Altinn Apps is the infrastructures for running apps developed in Altinn Studio.
+Each organisation that is using Altinn Studio will have their own Altinn Apps Kubernetes cluster, isolated from other organisations.
+
 See Altinn Apps [application architecture](/architecture/application/altinn-apps/) or [deployment architecture](/architecture/deployment/altinn-apps/).
+
+## Altinn CLI
+
+The command-line interface for the new APIs in Altinn.  
+Is used by service owners for retrieving data submitted by users, for instantiating and for updating status.
+
+https://github.com/altinn/alinn-cli/
 
 ## Altinn Platform
 
-Altinn Platform consist of supporting components to Altinn Apps.
-Example services are Authorization, Authentication, Profile, Register, Storage, Intermediary.
-The platform is based on microservices architecture and is highly scalable. 
+Altinn Platform contains reusable microservices with functionality that can be used by apps.
+Platform can also be used directly by service owner systems using Altinn CLI and Maskinporten.
+
+Currently these microservices are part of Platform: Authorization, Authentication, PDF, Profile, Register, and Storage.
+
+Altinn Platform is running in its own Kubernetes cluster.
 
 See Altinn Platform [solution architecture](https://docs.altinn.studio/architecture/solution/altinn-platform/), [application architecture](https://docs.altinn.studio/architecture/application/altinn-platform/)
 and [deployment architecture]
 
-## Altinn Apps environment
+## Altinn environment
 
-A Altinn Apps environment is a isolated setup of an Altinn Studio Apps solution. There will be 3 environments created in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment.
+An Altinn environment is a isolated group of several Altinn solutions functioning together.
+
+- AT - Acceptance testing of Altinn Studio, Altinn Apps, Altinn Platform and SBL.
+- TT02 - App/service test environment used by the app and service owners.
+- Production - The production environment.
 
 ## Altinn Studio
 
-The development environment for creating end user application. Consists of Altinn Studio Repos, Altinn Studio Designer and possibly Visual Studio Code.
-Lets the application developer create apps that are deployed like a seperate application environment called Altinn Apps.
+Altinn Studio are our tools for app development.  
+Consists of Altinn Studio Designer, Altinn Studio Repos and Visual Studio Code.
+
+Lets the developers create, edit, test and deploy applications.
+The apps are deployed as containers to a seperate infrastructure called Altinn Apps.
+
+https://altinn.studio
 
 ## Altinn Studio Designer
 
-The GUI-tool do develop apps by configuring and composing reusable solutions.
+Altinn Studio Designer is a web-based tool for creating, editing and deploying apps.  
+In Designer, it should be easy to create apps by re-using and configuring pre-made components.
 
 ## Altinn Studio Repos
 
-Altinn Studio Repos is the Git source control solution for Altinn Studio. All apps developed in Altinn Studio is stored i repos.
+Altinn Studio Repos is the solution where each app is stored and versioned as a Git repository.  
+No matter which tool is used for development (Designer, Code, or something else), the app is stored in Repos.
 
 ## Api
 
@@ -76,12 +98,13 @@ Deprecated terms: ~~AppName~~ ~~Service~~
 
 ## AppId
 
-A AppId identifies a given application. It is has the following pattern [org]/[app].
+A AppId identifies a given application. It is has the following pattern [org]/[app-name].
+The app-name is the same as the name of the name of the app repo.
 
 ## Application
 
-An end user application created in Altinn Studio is called an app, short for application.
-The app is deployed to a Altinn Studio Apps environment.
+An applications created in Altinn Studio is called an app, short for application.
+Apps are deployed to a Altinn Apps environment.
 The app provides two things:
 
 - an interactive user interface for users wishing to submit data to an organisation, e.g. to fill out a form manually, to read information or to sign an agreement;
