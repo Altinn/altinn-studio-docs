@@ -6511,39 +6511,63 @@ This right is given through roles or rights delegations.</p>
 <h2 id="altinn">Altinn</h2>
 
 <p>Norways E-Governement plattform. Launched december 4. 2003.
-<a href="https://www.altinn.no/en/about-altinn/what-is-altinn/">Read more on Altinn.no</a></p>
+<a href="https://www.altinn.no/en/about-altinn/what-is-altinn/">Read more on altinn.no</a></p>
 
 <h2 id="altinn-apps">Altinn Apps</h2>
 
-<p>Altinn Apps is the solution where the developed apps is deployed.
-It consist of isolated organisation Kubernetes clusters and supporting functionality and infrastructure.
-See Altinn Apps <a href="/architecture/application/altinn-apps/">application architecture</a> or <a href="/architecture/deployment/altinn-apps/">deployment architecture</a>.</p>
+<p>Altinn Apps is the infrastructures for running apps developed in Altinn Studio.
+Each organisation that is using Altinn Studio will have their own Altinn Apps Kubernetes cluster, isolated from other organisations.</p>
+
+<p>See Altinn Apps <a href="/architecture/application/altinn-apps/">application architecture</a> or <a href="/architecture/deployment/altinn-apps/">deployment architecture</a>.</p>
+
+<h2 id="altinn-cli">Altinn CLI</h2>
+
+<p>The command-line interface for the new APIs in Altinn.<br />
+Is used by service owners for retrieving data submitted by users, for instantiating and for updating status.</p>
+
+<p><a href="https://github.com/altinn/alinn-cli/">https://github.com/altinn/alinn-cli/</a></p>
 
 <h2 id="altinn-platform">Altinn Platform</h2>
 
-<p>Altinn Platform consist of supporting components to Altinn Apps.
-Example services are Authorization, Authentication, Profile, Register, Storage, Intermediary.
-The platform is based on microservices architecture and is highly scalable.</p>
+<p>Altinn Platform contains reusable microservices with functionality that can be used by apps.
+Platform can also be used directly by service owner systems using Altinn CLI and Maskinporten.</p>
+
+<p>Currently these microservices are part of Platform: Authorization, Authentication, PDF, Profile, Register, and Storage.</p>
+
+<p>Altinn Platform is running in its own Kubernetes cluster.</p>
 
 <p>See Altinn Platform <a href="https://docs.altinn.studio/architecture/solution/altinn-platform/">solution architecture</a>, <a href="https://docs.altinn.studio/architecture/application/altinn-platform/">application architecture</a>
 and [deployment architecture]</p>
 
-<h2 id="altinn-apps-environment">Altinn Apps environment</h2>
+<h2 id="altinn-environment">Altinn environment</h2>
 
-<p>A Altinn Apps environment is a isolated setup of an Altinn Studio Apps solution. There will be 3 environments created in 2019 for Tjenester 3.0 project.  AT: Testing of the platform, TT: Testing of apps created for the platform, Production: The production environment.</p>
+<p>An Altinn environment is a isolated group of several Altinn solutions functioning together.</p>
+
+<ul>
+<li>AT - Acceptance testing of Altinn Studio, Altinn Apps, Altinn Platform and SBL.</li>
+<li>TT02 - App/service test environment used by the app and service owners.</li>
+<li>Production - The production environment.</li>
+</ul>
 
 <h2 id="altinn-studio">Altinn Studio</h2>
 
-<p>The development environment for creating end user application. Consists of Altinn Studio Repos, Altinn Studio Designer and possibly Visual Studio Code.
-Lets the application developer create apps that are deployed like a seperate application environment called Altinn Apps.</p>
+<p>Altinn Studio are our tools for app development.<br />
+Consists of Altinn Studio Designer, Altinn Studio Repos and Visual Studio Code.</p>
+
+<p>Lets the developers create, edit, test and deploy applications.
+The apps are deployed as containers to a seperate infrastructure called Altinn Apps.</p>
+
+<p><a href="https://altinn.studio">https://altinn.studio</a></p>
 
 <h2 id="altinn-studio-designer">Altinn Studio Designer</h2>
 
-<p>The GUI-tool do develop apps by configuring and composing reusable solutions.</p>
+<p>Altinn Studio Designer is a web-based tool for creating, editing and deploying apps.<br />
+In Designer, it should be easy to create apps by re-using and configuring pre-made components.</p>
 
 <h2 id="altinn-studio-repos">Altinn Studio Repos</h2>
 
-<p>Altinn Studio Repos is the Git source control solution for Altinn Studio. All apps developed in Altinn Studio is stored i repos.</p>
+<p>Altinn Studio Repos is the solution where each app is stored and versioned as a Git repository.<br />
+No matter which tool is used for development (Designer, Code, or something else), the app is stored in Repos.</p>
 
 <h2 id="api">Api</h2>
 
@@ -6557,12 +6581,13 @@ Lets the application developer create apps that are deployed like a seperate app
 
 <h2 id="appid">AppId</h2>
 
-<p>A AppId identifies a given application. It is has the following pattern [org]/[app].</p>
+<p>A AppId identifies a given application. It is has the following pattern [org]/[app-name].
+The app-name is the same as the name of the name of the app repo.</p>
 
 <h2 id="application">Application</h2>
 
-<p>An end user application created in Altinn Studio is called an app, short for application.
-The app is deployed to a Altinn Studio Apps environment.
+<p>An applications created in Altinn Studio is called an app, short for application.
+Apps are deployed to a Altinn Apps environment.
 The app provides two things:</p>
 
 <ul>
