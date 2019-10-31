@@ -6804,14 +6804,14 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <h2 id="receipt-data-element-1">Receipt data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h2>
 
-<p>All applications has an element type called <code>receipt</code>. This is the place to store various receipts and generated filespdfs.</p>
+<p>All applications has an element type called <code>ref-data-as-pdf</code>. This is the place to store generated pdf receipt data.</p>
 
 <h3 id="upload-a-pdf-and-associate-the-pdf-with-an-existing-data-element">Upload a pdf and associate the pdf with an existing data element</h3>
 
-<pre><code class="language-http">POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?elementType=receipt&amp;ref=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+<pre><code class="language-http">POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?elementType=receipt&amp;refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
-<p>Results in a new data element with reference to the first.</p>
+<p>Results in a new data element with reference to the first. It is also possible to reference multiple data elements.</p>
 
 <pre><code class="language-json">{
 ...
@@ -6838,7 +6838,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
         &quot;fileSize&quot;: 34059,
         &quot;isLocked&quot;: false,
-        &quot;ref&quot;: [&quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;]
+        &quot;refs&quot;: [&quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;]
     }
 ]
 }
