@@ -254,15 +254,15 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 
 [^1]: Not implemented yet!
 
-All applications has an element type called `receipt`. This is the place to store various receipts and generated filespdfs.
+All applications has an element type called `ref-data-as-pdf`. This is the place to store generated pdf receipt data.
 
 ### Upload a pdf and associate the pdf with an existing data element
 
 ```http
-POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?elementType=receipt&ref=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?elementType=receipt&refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
-Results in a new data element with reference to the first.
+Results in a new data element with reference to the first. It is also possible to reference multiple data elements.
 
 ```json
 {
@@ -290,7 +290,7 @@ Results in a new data element with reference to the first.
         "lastChangedBy": "org24",
         "fileSize": 34059,
         "isLocked": false,
-        "ref": ["692ee7df-82a9-4bba-b2f2-c8c4dac69aff"]
+        "refs": ["692ee7df-82a9-4bba-b2f2-c8c4dac69aff"]
     }
 ]
 }
