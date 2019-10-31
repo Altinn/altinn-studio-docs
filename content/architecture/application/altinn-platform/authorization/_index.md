@@ -47,7 +47,7 @@ GET /authorization/api/v1/roles
 A set of polices contains authorization rules. 
 
 ### Operations
-Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the [policy format](../../../security/authorization/altinn-platform/index) here.
+Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the [policy format](../../../security/authorization/altinn-platform/prp) here.
 
 ```http
 POST /authorization/api/v1/policies?org=org&app=app
