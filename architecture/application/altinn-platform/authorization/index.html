@@ -6542,6 +6542,17 @@ if(host != "localhost")
 <pre><code class="language-http">GET /authorization/api/v1/roles
 </code></pre>
 
+<h2 id="policies">Policies</h2>
+
+<p>A set of polices contains authorization rules.</p>
+
+<h3 id="operations-2">Operations</h3>
+
+<p>Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the <a href="../../../security/authorization/altinn-platform/prp">policy format</a> here.</p>
+
+<pre><code class="language-http">POST /authorization/api/v1/policies?org=org&amp;app=app
+</code></pre>
+
 
 <footer class=" footline" >
 	
