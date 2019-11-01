@@ -42,3 +42,13 @@ Get a list of roles that the user can perform for the selected party
 ```http
 GET /authorization/api/v1/roles
 ```
+
+## Policies
+A set of polices contains authorization rules. 
+
+### Operations
+Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the [policy format](../../../security/authorization/altinn-platform/prp) here.
+
+```http
+POST /authorization/api/v1/policies?org=org&app=app
+```
