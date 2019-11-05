@@ -6632,26 +6632,33 @@ The Platform Storage API will provide access to information stored by the applic
 
 <h2 id="create-an-application-instance">Create an application instance</h2>
 
-<p>Altinn assigns an unique identifier to all users that wishes to report data. We call this id <em>instanceOwnerId</em>.
-If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.</p>
+<p>Altinn assigns an unique identifier to all users that wishes to report data. We call this id <em>instanceOwner.partyId</em>.
+If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwner.PartyId. The official identity number will be stored in the instance metadata.</p>
 
 <p>Data elements can be provided as part of the creation request, but can also be uploaded at a later time.</p>
 
-<p>The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form.</p>
+<p>The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form:</p>
 
 <pre><code class="language-json">{
-    &quot;instanceOwnerLookup&quot;: { &quot;personNumber&quot;: &quot;12247918309&quot; | &quot;organisationNumber&quot;: &quot;123456789&quot; },
-    &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ],
     &quot;appId&quot; : &quot;org/app&quot;,
-    &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
-    &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
-    &quot;presentationField&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding&quot; }
+    &quot;instanceOwner&quot;: {
+        &quot;personNumber&quot;: &quot;12247918309&quot;,
+        &quot;organisationNumber&quot;: null
+    },
+    &quot;appOwner&quot;: {
+        &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ]
+    },
+    &quot;dueBefore&quot;: &quot;2019-06-01T12:00:00Z&quot;,
+    &quot;inbox&quot;: {
+        &quot;title&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding for Ola Nordmann&quot; },
+        &quot;visibleAfter&quot;: &quot;2019-05-20T00:00:00Z&quot;,
+    }
 }
 </code></pre>
 
 <p>Notice that all dates must be expressed in <strong>Utc (Zulu)</strong> time zone and represented according to ISO 8601!</p>
 
-<p>Data elements (files) can be attached to the initial request as a <em>multipart/form-data</em>. The name of the parts must correspond to element types defined in the application metadata.</p>
+<p>Data elements (files) can be attached to the initial request as a <em>multipart/form-data</em> or as <em>attachments</em>. The name of the parts must correspond to element types defined in the application metadata.</p>
 
 <pre><code class="language-http">POST {appPath}/instances
 </code></pre>
@@ -6684,13 +6691,13 @@ Content-Disposition: form-data; name=&quot;default&quot;
         &quot;platform&quot;: &quot;{platformPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;
     },
     &quot;appId&quot;: &quot;org/app&quot;,
-    &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
-    &quot;instanceOwnerId&quot;: &quot;347829&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148Z&quot;,
+    &quot;instanceOwner&quot;: {
+        &quot;partyId&quot;: &quot;347829&quot;,
+        &quot;personNumber&quot;: &quot;12247918309&quot;
+    },
+    &quot;created&quot;: &quot;2019-03-06T13:46:48.6882148Z&quot;,
     &quot;createdBy&quot;: &quot;org23&quot;,
-    &quot;dueDateTime&quot;: &quot;2019-06-01T12:00:00Z&quot;,
-    &quot;visibleDateTime&quot;: &quot;2019-05-20T00:00:00Z&quot;,
-    &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
+    &quot;dueBefore&quot;: &quot;2019-06-01T12:00:00Z&quot;,
     &quot;process&quot;: {
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
         &quot;currentTask&quot;: {
@@ -6704,26 +6711,29 @@ Content-Disposition: form-data; name=&quot;default&quot;
             }
         }
     },
-    &quot;instanceStatus&quot;: {
-        &quot;isArchived&quot;: false,
-        &quot;isSoftDeleted&quot;: false,
-        &quot;isMarkedForHardDelete&quot;: false
+    &quot;inbox&quot;: {
+        &quot;visibleAfter&quot;: &quot;2019-05-20T00:00:00Z&quot;,
+        &quot;title&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding for Ola Nordmann&quot;},
+        &quot;archived&quot;: null,
+        &quot;softDeleted&quot;: null,
+        &quot;hardDelete&quot;: null
     },
-    &quot;appOwnerStatus&quot;: {
-        &quot;message&quot;: {&quot;nb&quot;: &quot;felt 23 er feil&quot;}
+    &quot;appOwner&quot;: {
+         &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
+         &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
     },
     &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;elementType&quot;: &quot;default&quot;,
+        &quot;dataType&quot;: &quot;default&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
-        &quot;storageUrl&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;dataLink&quot;: {
+        &quot;blobStoragePath&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+        &quot;selfLinks&quot;: {
             &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
         },
         &quot;fileName&quot;: &quot;prefill.xml&quot;,
-        &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23Z&quot;,
+        &quot;created&quot;: &quot;2019-03-06T15:00:23Z&quot;,
         &quot;createdBy&quot;: &quot;org23&quot;,
         &quot;fileSize&quot;: 20001,
         &quot;isLocked&quot;: false,
@@ -6734,35 +6744,29 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <h3 id="create-a-data-element">Create a data element</h3>
 
-<p>Post data file (xml-document) as body of request. Must specify elementType as defined in the application metadata.</p>
+<p>Post data file (xml-document) as body of request. Must specify dataType as defined in the application metadata.</p>
 
-<pre><code class="language-http">POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=default
+<pre><code class="language-http">POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?dataType=default
 </code></pre>
 
-<p>This call updates and returns instance metadata where each data element are given a guid.</p>
+<p>This call updates the instance metadata and returns the data element that were created.</p>
 
 <pre><code class="language-json">{
-    &quot;id&quot;: &quot;347829/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
-    ...
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;elementType&quot;: &quot;default&quot;,
-            &quot;contentType&quot;: &quot;application/xml&quot;,
-            &quot;storageUrl&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;dataLinks&quot;: {
-                &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-                &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
-            },
-            &quot;fileName&quot;: &quot;default.xml&quot;,
-            &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23Z&quot;,
-            &quot;createdBy&quot;: &quot;org23&quot;,
-            &quot;lastChangedDateTime&quot;: &quot;2019-03-07T15:00:23Z&quot;,
-            &quot;lastChangedBy&quot;: &quot;org23&quot;,
-            &quot;fileSize&quot;: 20001,
-            &quot;isLocked&quot;: false
-        }
-    ]
+    &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+    &quot;dataType&quot;: &quot;default&quot;,
+    &quot;contentType&quot;: &quot;application/xml&quot;,
+    &quot;blobStoragePath&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+    &quot;selfLinks&quot;: {
+        &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+        &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
+    },
+    &quot;fileName&quot;: &quot;default.xml&quot;,
+    &quot;created&quot;: &quot;2019-03-06T15:00:23Z&quot;,
+    &quot;createdBy&quot;: &quot;org23&quot;,
+    &quot;lastChanged&quot;: &quot;2019-03-07T15:00:23Z&quot;,
+    &quot;lastChangedBy&quot;: &quot;org23&quot;,
+    &quot;fileSize&quot;: 20001,
+    &quot;isLocked&quot;: false
 }
 </code></pre>
 
@@ -6772,7 +6776,10 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <figure><a href="save-data.png"><img src="save-data.png" alt="Flow chart for saving data" title="Save data" /></a><figcaption><h4>Save data</h4></figcaption></figure>
 
-<pre><code class="language-http">PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+<pre><code class="language-http">Content-Type = &quot;image/png&quot;
+Content-Disposition = attachment; filename=myfile.png
+
+PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
 <h3 id="get-a-specific-data-element">Get a specific data element</h3>
@@ -6787,10 +6794,10 @@ Content-Disposition: form-data; name=&quot;default&quot;
 &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;elementType&quot;: &quot;default&quot;,
+        &quot;dataType&quot;: &quot;default&quot;,
         &quot;fileName&quot;: &quot;default.xml&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
-        &quot;lastChangedDateTime&quot;: &quot;2019-03-06T15:00:23Z&quot;,
+        &quot;lastChange&quot;: &quot;2019-03-06T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
         &quot;fileSize&quot;: 34059,
         &quot;isLocked&quot;: false,
@@ -6808,7 +6815,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <h3 id="upload-a-pdf-and-associate-the-pdf-with-an-existing-data-element">Upload a pdf and associate the pdf with an existing data element</h3>
 
-<pre><code class="language-http">POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?elementType=receipt&amp;refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+<pre><code class="language-http">POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?dataType=receipt&amp;refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
 <p>Results in a new data element with reference to the first. It is also possible to reference multiple data elements.</p>
@@ -6818,10 +6825,10 @@ Content-Disposition: form-data; name=&quot;default&quot;
 &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;elementType&quot;: &quot;default&quot;,
+        &quot;dataType&quot;: &quot;default&quot;,
         &quot;fileName&quot;: &quot;default.xml&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
-        &quot;lastChangedDateTime&quot;: &quot;2019-03-06T15:00:23Z&quot;,
+        &quot;lastChanged&quot;: &quot;2019-03-06T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
         &quot;fileSize&quot;: 34059,
         &quot;isLocked&quot;: false,
@@ -6831,10 +6838,10 @@ Content-Disposition: form-data; name=&quot;default&quot;
     },
     {
         &quot;id&quot;: &quot;c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d&quot;,
-        &quot;elementType&quot;: &quot;receipt&quot;,
+        &quot;dataType&quot;: &quot;ref-data-as-pdf&quot;,
         &quot;fileName&quot;: &quot;autogen.pdf&quot;,
         &quot;contentType&quot;: &quot;application/pdf&quot;,
-        &quot;lastChangedDateTime&quot;: &quot;2019-10-10T15:00:23Z&quot;,
+        &quot;lastChanged&quot;: &quot;2019-10-10T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
         &quot;fileSize&quot;: 34059,
         &quot;isLocked&quot;: false,
@@ -6846,7 +6853,14 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <h3 id="download-the-pdf-of-a-data-element">Download the PDF of a data element</h3>
 
-<p>Select the data PDF you want to download.</p>
+<p>Select the data PDF you want to download from the list of the instances&rsquo; list of data elements.</p>
+
+<p>Get list</p>
+
+<pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data
+</code></pre>
+
+<p>Get one data element</p>
 
 <pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d
 </code></pre>
@@ -6899,7 +6913,7 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <p>For example: To get all instances of appId <em>org/app</em>, that is in at task with id <em>Task_2</em> (which is Submit, see process definition), has last changed date greater than <em>2019-05-01</em> and that has label <em>gruppe3</em>.</p>
 
-<pre><code class="language-http">GET {storagePath}/instances?appId=org/app&amp;process.currentTask=Task_2&amp;lastChangedDateTime=gt:2019-05-01&amp;label=gruppe3
+<pre><code class="language-http">GET {storagePath}/instances?appId=org/app&amp;process.currentTask=Task_2&amp;lastChanged=gt:2019-05-01&amp;appOwner.label=gruppe3
 </code></pre>
 
 <p>Another example is get all instances of all apps of an organisation <em>org</em> that has completed their process.</p>
@@ -6919,14 +6933,14 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <p>They can be combined to define a range:</p>
 
-<pre><code class="language-http">dueDateTime=gt:2019-02&amp;dueDateTime=lt:2019-03-01
+<pre><code class="language-http">dueBefore=gt:2019-02&amp;dueBefore=lt:2019-03-01
 </code></pre>
 
 <p>The query returns a result object (page) which includes a collection of instance that matched the query. 100 instances is returned by default. Use <em>size</em> to get more or less instances per page. To get to the next page you have to use the <em>continuationToken</em> present in the <em>next</em> link.</p>
 
 <p>The instances endpoint returns a query result object with information about how many total hits <em>totalHits</em> that the query matched and how many objects returned <em>count</em>.</p>
 
-<p>The endpoint supports plain <em>application/json</em> and <em>application/hal+json</em>. Use the Accept parameter in the http request to specify your preferred format.</p>
+<p>The endpoint supports plain <em>application/json</em>.</p>
 
 <pre><code class="language-json">Accept: application/json
 {
@@ -6935,28 +6949,6 @@ Content-Disposition: form-data; name=&quot;default&quot;
     &quot;self&quot;: &quot;{storagePath}/instances?appId=org/app&amp;size=50&quot;,
     &quot;next&quot;: &quot;{storagePath}/instances?appId=org/app&amp;size=50&amp;continuationToken=%257b%2522token%2522%253a%2522%252bRID%...&quot;
     &quot;instances&quot;: [
-            {...},
-            {...},
-            ...
-      ]
-    }
-}
-</code></pre>
-
-<pre><code class="language-json">Accept: application/hal+json
-{
-    &quot;totalHits&quot;: 234,
-    &quot;count&quot;: 50,
-    &quot;_links&quot;: {
-        &quot;self&quot;: {
-            &quot;href&quot;: &quot;{storagePath}/instances?appId=org/app&amp;size=50&quot;
-        },
-        &quot;next&quot;: {
-            &quot;href&quot;: &quot;{storagePath}/instances?appId=org/app&amp;size=50&amp;continuationToken=%257b%2522token%2522%253a%2522%252bRID%...&quot;
-        }
-    },
-    &quot;_embedded&quot;: {
-        &quot;instances&quot;: [
             {...},
             {...},
             ...
@@ -6980,12 +6972,20 @@ Content-Disposition: form-data; name=&quot;default&quot;
     &quot;id&quot;:&quot;6dff32bc-0928-4ae8-937c-b362d6941c89&quot;,
     &quot;instanceId&quot;: &quot;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&quot;,
     &quot;eventType&quot;: &quot;deleted&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-05-02T13:08:21.981476Z&quot;,
-    &quot;instanceOwnerId&quot;: &quot;60238&quot;,
-    &quot;userId&quot;: 338829,
-    &quot;authenticationLevel&quot;: 1,
-    &quot;currentTask&quot;: &quot;Task_2&quot;,
-    &quot;enduserSystemId&quot;: 2
+    &quot;created&quot;: &quot;2019-05-02T13:08:21.981476Z&quot;,
+    &quot;instanceOwnerPartyId&quot;: &quot;60238&quot;,
+    &quot;user&quot;: {
+        &quot;userId&quot;: 338829,
+        &quot;authenticationLevel&quot;: 1,
+        &quot;enduserSystemId&quot;: 2
+    },
+    &quot;process&quot;: {
+        &quot;started&quot;: &quot;2019-05-01T12:45:01.3233Z&quot;,
+        &quot;startEvent&quot;: &quot;Start_22&quot;,
+        &quot;currentTask&quot;: {
+            &quot;elementId&quot;: &quot;Task_2&quot;
+        }
+    }
 }
 </code></pre>
 
@@ -6999,47 +6999,16 @@ Content-Disposition: form-data; name=&quot;default&quot;
 
 <p>Events can be queried. May be piped.</p>
 
-<pre><code class="language-http">GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&amp;process.currentTask=Task_2
-</code></pre>
-
-<p>Query result:</p>
-
-<pre><code class="language-json">[
-    {
-        &quot;id&quot;: &quot;112453234523423344&quot;,
-        &quot;at&quot;: &quot;2019-06-01T12:12:22Z&quot;,
-        &quot;appId&quot;: &quot;org/app&quot;,
-        &quot;instanceOwnerId&quot;: &quot;347829&quot;,
-        &quot;instanceLink&quot;: &quot;{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&quot;,
-        &quot;dataLinks&quot;: [
-            {
-                &quot;elementType&quot;: &quot;default&quot;,
-                &quot;dataLink&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
-            },
-            {
-                &quot;elementType&quot;: &quot;attachement&quot;,
-                &quot;dataLink&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf&quot;
-            },
-            {
-                &quot;elementType&quot;: &quot;prefill&quot;,
-                &quot;dataLink&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj&quot;
-            }
-        ],
-        &quot;eventType&quot;: &quot;ProcessStateChange&quot;,
-        &quot;previousTask&quot;: &quot;Task_1&quot;,
-        &quot;currentTask&quot;: &quot;Task_2&quot;,
-        &quot;userId&quot;: &quot;userX&quot;
-    }
-]
+<pre><code class="language-http">GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&amp;process.currentTask=Task_2
 </code></pre>
 
 <h2 id="validate-data-1">Validate data<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h2>
 
-<p>The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.</p>
+<p>The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an dataType and performs validation on that file. It returns a validation report.</p>
 
 <figure><a href="data-validate.png"><img src="data-validate.png" alt="Flowchart for data validation" title="Validate data" /></a><figcaption><h4>Validate data</h4></figcaption></figure>
 
-<pre><code class="language-http">PUT {appPath}/validate?elementType=modelA
+<pre><code class="language-http">PUT {appPath}/validate?dataType=modelA
 </code></pre>
 
 <h2 id="calculate-check-business-rules-1">Calculate / check business rules<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h2>
@@ -7049,7 +7018,7 @@ The calculate method takes a data file and performs calculations and returns the
 
 <figure><a href="data-calculate.png"><img src="data-calculate.png" alt="Flowchart for data calculation" title="Calculate data" /></a><figcaption><h4>Calculate data</h4></figcaption></figure>
 
-<pre><code class="language-http">PUT {appPath}/calculate?elementType=modelB
+<pre><code class="language-http">PUT {appPath}/calculate?dataType=modelB
 </code></pre>
 
 <h2 id="instantiation-details">Instantiation details</h2>
@@ -7284,9 +7253,6 @@ Process is set to first task. The task specifies if the data can be updated or n
 <pre><code class="language-http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 </code></pre>
 
-<!-- OLD // CompleteAndSendIn
-http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn -->
-
 <h3 id="get-the-next-tasks-in-a-process">Get the next tasks in a process</h3>
 
 <p>Returns an list of the next tasks/events that can be reached from the current task.</p>
@@ -7317,45 +7283,45 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
     &quot;versionId&quot;: &quot;v32.23-xyp&quot;,
     &quot;org&quot;: &quot;test&quot;,
     &quot;app&quot;: &quot;sailor&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148Z&quot;,
+    &quot;created&quot;: &quot;2019-03-06T13:46:48.6882148Z&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
     &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; },
     &quot;processId&quot;: &quot;twoTasksDataAndSubmit&quot;,
     &quot;validFrom&quot;: &quot;2019-04-01T12:14:22Z&quot;,
     &quot;validTo&quot;: null,
     &quot;maxSize&quot;: -1,
-    &quot;elementTypes&quot;: [
+    &quot;dataTypes&quot;: [
         {
             &quot;id&quot;: &quot;default&quot;,
-            &quot;appLogic&quot;: true,
-            &quot;description&quot;: {&quot;nb&quot;: &quot;Båtdata&quot;, &quot;en&quot;: &quot;Boat data&quot;},
-            &quot;allowedContentType&quot;: [&quot;application/json&quot;],
-            &quot;schema&quot;: {
-                &quot;fileName&quot;: &quot;boat.json-schema&quot;,
-                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
+            &quot;appLogic&quot;: {
+                &quot;autoCreate&quot;: true,
+                &quot;classRef&quot;: &quot;Skjema22&quot;,
+                &quot;schemaRef&quot;: &quot;schemas/boatdata&quot;
             },
-            &quot;task&quot;: &quot;Task_1&quot;,
+            &quot;description&quot;: {&quot;nb&quot;: &quot;Båtdata&quot;, &quot;en&quot;: &quot;Boat data&quot;},
+            &quot;allowedContentTypes&quot;: [&quot;application/json&quot;],
+            &quot;taskId&quot;: &quot;Task_1&quot;,
             &quot;maxSize&quot;: 200000,
             &quot;minCount&quot;: 1,
             &quot;maxCount&quot;: 1,
         },
         {
             &quot;id&quot;: &quot;crewlist&quot;,
-            &quot;appLogic&quot;: true,
-            &quot;allowedContentType&quot;: [&quot;application/xml&quot;],
-            &quot;schema&quot;: {
-                &quot;fileName&quot;: &quot;crew.xsd&quot;,
-                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
+            &quot;appLogic&quot;: {
+                &quot;autoCreate&quot;: false,
+                &quot;classRef&quot;: &quot;CrewList&quot;,
+                &quot;schemaRef&quot;: &quot;schemas/crewlist&quot;
             },
-            &quot;task&quot;: &quot;Data_2&quot;,
+            &quot;allowedContentTypes&quot;: [&quot;application/xml&quot;],
+            &quot;taskId&quot;: &quot;Data_2&quot;,
             &quot;maxSize&quot;: -1,
             &quot;minCount&quot;: 1,
             &quot;maxCount&quot;: 3,
         },
         {
             &quot;id&quot;: &quot;certificate&quot;,
-            &quot;appLogic&quot;: false,
-            &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
+            &quot;appLogic&quot;: null,
+            &quot;allowedContentTypes&quot;: [&quot;application/pdf&quot;],
             &quot;task&quot;: &quot;Task_1&quot;,
             &quot;maxSize&quot;: -1,
             &quot;minCount&quot;: 1,
@@ -7363,8 +7329,8 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
         },
         {
             &quot;id&quot;: &quot;receipt&quot;,
-            &quot;appLogic&quot;: false,
-            &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
+            &quot;appLogic&quot;: null,
+            &quot;allowedContentTypes&quot;: [&quot;application/pdf&quot;],
             &quot;maxSize&quot;: -1,
             &quot;minCount&quot;: 0,
             &quot;maxCount&quot;: -1,
@@ -7391,7 +7357,7 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
 
 <h3 id="get-text-resources-for-a-given-element-type-1">Get text resources for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/texts?lang=nb
+<pre><code class="language-http">GET {appPath}/metadata/{typeName}/texts?lang=nb
 </code></pre>
 
 <!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
@@ -7399,12 +7365,12 @@ http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0
 <h3 id="get-the-schema-for-a-given-element-type-1">Get the schema for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
 <pre><code class="language-http">Accept=application/schema+json
-GET {appPath}/elementTypes/{typeName}/schema
+GET {appPath}/metadata/{typeName}/schema
 </code></pre>
 
 <h3 id="get-the-model-config-for-a-given-element-type-1">Get the model config for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/modelConfig
+<pre><code class="language-http">GET {appPath}/metadata/{typeName}/modelConfig
 </code></pre>
 
 <p>(ServiceMetadata.json)
@@ -7412,7 +7378,7 @@ GET {appPath}/elementTypes/{typeName}/schema
 
 <h3 id="get-the-layout-for-a-given-element-type-1">Get the layout for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/layout
+<pre><code class="language-http">GET {appPath}/metadata/{typeName}/layout
 </code></pre>
 
 <p>(FormLayout.json)
@@ -7420,7 +7386,7 @@ GET {appPath}/elementTypes/{typeName}/schema
 
 <h3 id="gets-the-rules-for-a-given-element-type-1">Gets the rules for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/rules
+<pre><code class="language-http">GET {appPath}/metadata/{typeName}/rules
 </code></pre>
 
 <p>(RuleHandler.js)
@@ -7428,7 +7394,7 @@ GET {appPath}/elementTypes/{typeName}/schema
 
 <h3 id="get-the-api-service-configuration-for-how-the-app-calls-external-apis-1">Get the API service configuration for how the app calls external APIs<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
-<pre><code class="language-http">GET {appPath}/elementTypes/{typeName}/externalApis
+<pre><code class="language-http">GET {appPath}/metadata/{typeName}/externalApis
 </code></pre>
 
 <p>(ServiceConfiguration.json)

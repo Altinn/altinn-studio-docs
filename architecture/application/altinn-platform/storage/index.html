@@ -6509,7 +6509,7 @@ if(host != "localhost")
 
 <p>The Storage component exposes a REST-API to Altinn Apps.</p>
 
-<p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, element types and events. It is also intended to be used by organisations and other clients to read data.</p>
+<p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, data types and events. It is also intended to be used by organisations and other clients to read data.</p>
 
 <p>Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxInstance</p>
 
@@ -6529,18 +6529,14 @@ An appId refers to the application information element which defines the metadat
     &quot;id&quot;: &quot;60238/762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
     &quot;appId&quot;: &quot;test/sailor&quot;,
     &quot;org&quot;: &quot;test&quot;,
-    &quot;instanceOwnerId&quot;: &quot;60238&quot;,
-    &quot;labels&quot;: [&quot;xyz&quot;, &quot;importantUser&quot;],
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
-    &quot;createdBy&quot;: &quot;user32&quot;,
-    &quot;lastChangedDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
-    &quot;lastChangedBy&quot;: &quot;user34&quot;,
-    &quot;dueDateTime&quot;: null,
-    &quot;visibleDateTime&quot;: null,
-    &quot;presentationField&quot;: { 
-        &quot;nb&quot;: &quot;Færder påmelding 2019&quot;,
-        &quot;en&quot;: &quot;Fearder Race Registration 2019&quot;
+    &quot;instanceOwner&quot;: {
+        &quot;partyId&quot;: &quot;60238&quot;
     },
+    &quot;created&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;createdBy&quot;: &quot;user32&quot;,
+    &quot;lastChanged&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+    &quot;lastChangedBy&quot;: &quot;user34&quot;,
+    &quot;dueBefore&quot;: &quot;2019-06-10T00:00:00.00Z&quot;,
     &quot;process&quot;:  &quot;process&quot;: {
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
         &quot;currentTask&quot;: {
@@ -6554,41 +6550,41 @@ An appId refers to the application information element which defines the metadat
             }
         }
     },
-    &quot;userStatus&quot;: {
-        &quot;isSoftDeleted&quot;: false,
-        &quot;isArchived&quot;: true,
-        &quot;archivedDateTime&quot;: &quot;2019-12-20T20:30:33.233Z&quot;,
-        &quot;isMarkedForHardDelete&quot;: false,
+    &quot;inbox&quot;: {
+        &quot;visibleAfter&quot;: null,
+        &quot;title&quot;: { 
+            &quot;nb&quot;: &quot;Færder påmelding 2019&quot;,
+            &quot;en&quot;: &quot;Fearder Race Registration 2019&quot;
+        },
+        &quot;softDeleted&quot;: null,
+        &quot;archived&quot;: &quot;2019-12-20T20:30:33.233Z&quot;,
+        &quot;hardDelete&quot;: null,
     },
-    &quot;appOwnerStatus&quot;: {
+    &quot;appOwner&quot;: {
+        &quot;labels&quot;: [&quot;xyz&quot;, &quot;importantUser&quot;],
         &quot;message&quot;: { &quot;nb&quot;: &quot;field 32 is incorrect&quot;, &quot;at&quot;: &quot;2018-12-22&quot;}
     },
     &quot;data&quot;: [
         {
             &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-            &quot;elementType&quot;: &quot;boatdata&quot;,
+            &quot;dataType&quot;: &quot;boatdata&quot;,
             &quot;contentType&quot;: &quot;application/json&quot;,
-            &quot;storageUrl&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&quot;,
+            &quot;blobStoragePath&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&quot;,
             &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
-            &quot;createdDateTime&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
+            &quot;created&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
-            &quot;signature&quot;: &quot;oajviojoi2j3l23889yv8js909u293840zz092u3&quot;,
             &quot;fileSize&quot;: 2003,
-            &quot;isLocked&quot;: true,
-            &quot;pdf&quot;: {
-                &quot;storageUrl&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf&quot;,
-                &quot;generated&quot;: &quot;2019-05-30T14:38:22+01:00&quot;
-            }
+            &quot;isLocked&quot;: true
         },
         {
             &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
-            &quot;elementType&quot;: &quot;crewlist&quot;,
+            &quot;dataType&quot;: &quot;crewlist&quot;,
             &quot;contentType&quot;: &quot;text/xml&quot;,
             &quot;storageUrl&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
-            &quot;createdDateTime&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
+            &quot;created&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
-            &quot;lastChangedDateTime&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
+            &quot;lastChanged&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
             &quot;lastChangedBy&quot;: &quot;XXX&quot;
         }
     ]
@@ -6632,7 +6628,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>instanceOwnerId</td>
+<td>instanceOwner.partyId</td>
 <td>integer</td>
 <td>id of instance owner</td>
 <td>C</td>
@@ -6642,7 +6638,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>labels</td>
+<td>appOwner.labels</td>
 <td>string[]</td>
 <td>array of string labels</td>
 <td></td>
@@ -6652,7 +6648,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>createDateTime</td>
+<td>create</td>
 <td>dateTime</td>
 <td>creation time</td>
 <td></td>
@@ -6672,7 +6668,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>lastChangedDateTime</td>
+<td>lastChanged</td>
 <td>dateTime?</td>
 <td>last changed time</td>
 <td></td>
@@ -6692,7 +6688,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>dueDateTime</td>
+<td>dueBefore</td>
 <td>dateTime?</td>
 <td>deadline for submit</td>
 <td></td>
@@ -6702,7 +6698,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>visibleDateTime</td>
+<td>inbox.visibleAfter</td>
 <td>dateTime?</td>
 <td>when visible for user</td>
 <td></td>
@@ -6712,7 +6708,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>presentationField</td>
+<td>inbox.title</td>
 <td>string</td>
 <td>text shown in inbox</td>
 <td></td>
@@ -6723,7 +6719,7 @@ An appId refers to the application information element which defines the metadat
 
 <tr>
 <td>process</td>
-<td>WorkflowState</td>
+<td>ProcessState</td>
 <td>process state info</td>
 <td></td>
 <td></td>
@@ -6742,7 +6738,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs">instanceState</a></td>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs">instance</a></td>
 <td>InstanceState</td>
 <td>data on delete and archive state of the instance</td>
 <td></td>
@@ -6752,7 +6748,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs">appOwnerState</a></td>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs">appOwner</a></td>
 <td>AppOwnerState</td>
 <td>status from app owner</td>
 <td></td>
@@ -6781,7 +6777,8 @@ An appId refers to the application information element which defines the metadat
 Post with query params that identifies the appId and the instance owner.
 An instance object can be sent as json data to set certian values.</p>
 
-<pre><code class="language-http">POST /instances?appId=test/sailor&amp;instanceOwnerId=60238
+<pre><code class="language-http">POST /instances?appId=test/sailor
+{ &quot;instanceOwner&quot;: { &quot;partyId&quot;: &quot;60238&quot; }}
 </code></pre>
 
 <p>Get information about one instance.</p>
@@ -6789,9 +6786,9 @@ An instance object can be sent as json data to set certian values.</p>
 <pre><code class="language-http">GET /instances/{instanceId}
 </code></pre>
 
-<p>Get (query) all instances that is instance owner has</p>
+<p>Get (query) all instances that an instance owner has</p>
 
-<pre><code class="language-http">GET /instances/{instanceOwnerId}
+<pre><code class="language-http">GET /instances/{instanceOwnerPartyId}
 </code></pre>
 
 <p>Query all instances of a particular application that is completed</p>
@@ -6799,7 +6796,7 @@ An instance object can be sent as json data to set certian values.</p>
 <pre><code class="language-http">GET /instances?appId={appId}&amp;process.isCompleted=true
 </code></pre>
 
-<p>Query all instances of an applicatio owner&rsquo;s organisation</p>
+<p>Query all instances of an application owner&rsquo;s organisation</p>
 
 <pre><code class="language-http">GET /instances?org={org}
 </code></pre>
@@ -6813,7 +6810,7 @@ An instance object can be sent as json data to set certian values.</p>
 
 <p>A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {elementType}.</p>
+The application metadata restricts the types of form elements that are allowed {dataType}.</p>
 
 <p>Get a specific data element</p>
 
@@ -6824,7 +6821,7 @@ The application metadata restricts the types of form elements that are allowed {
 After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
 that is used to identify the specific data element</p>
 
-<pre><code class="language-http">POST /instances/{instanceId}/data?elementType={elementType}
+<pre><code class="language-http">POST /instances/{instanceId}/data?dataType={dataType}
 </code></pre>
 
 <p>Put to replace a specific data element. Delete to remove data element.</p>
@@ -6832,17 +6829,7 @@ that is used to identify the specific data element</p>
 <pre><code class="language-http">PUT /instances/{instanceId}/data/{dataId}
 </code></pre>
 
-<p>Get a predefined PDF of a data element, if it exists.</p>
-
-<pre><code class="language-http">Accept: application/pdf
-GET /instances/{instanceId}/data/{dataId}
-</code></pre>
-
-<p>Update a predefined PDF for a given data element</p>
-
-<pre><code class="language-http">ContentType: application/pdf
-PUT /instances/{instanceId}/data/{dataId}
-</code></pre>
+<p>Notice that PDFs, such as receipts or simmilar, is handled the same way as data elements.</p>
 
 <h2 id="application">Application</h2>
 
@@ -6855,51 +6842,46 @@ PUT /instances/{instanceId}/data/{dataId}
     &quot;versionId&quot;: &quot;v32.23-xyp&quot;,
     &quot;org&quot;: &quot;test&quot;,
     &quot;app&quot;: &quot;sailor&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
+    &quot;created&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
     &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; }, 
     &quot;processId&quot;: &quot;standard&quot;,
     &quot;validFrom&quot;: &quot;2019-04-01T12:14:22+01:00&quot;,
     &quot;validTo&quot;: null,
     &quot;maxSize&quot;: null,
-    &quot;elementTypes&quot;: [
+    &quot;dataTypes&quot;: [
         {
             &quot;id&quot;: &quot;boatdata&quot;,
             &quot;description&quot;: {&quot;nb&quot;: &quot;Båtdata&quot;, &quot;en&quot;: &quot;Boat data&quot;},
-            &quot;allowedContentType&quot;: [&quot;application/json&quot;],
-            &quot;appLogic&quot;: true,
-            &quot;schema&quot;: {
-                &quot;fileName&quot;: &quot;boat.json-schema&quot;,
-                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/boatdata&quot;
+            &quot;allowedContentTypes&quot;: [&quot;application/json&quot;],
+            &quot;taskId&quot;: &quot;Task_1&quot;,
+            &quot;appLogic&quot;: {
+                &quot;autoCreate&quot;: true,
+                &quot;classRef&quot;: &quot;Skjema&quot;,
+                &quot;schemaRef&quot;: &quot;schemas/boatname&quot;
             },
-            &quot;canRegisterPdf&quot;: true,
             &quot;maxSize&quot;: 200000,
-            &quot;maxCount&quot;: 1,
-            &quot;shouldSign&quot;: true,
-            &quot;shouldEncrypt&quot;: true
+            &quot;maxCount&quot;: 1
         },
         {
             &quot;id&quot;: &quot;crewlist&quot;,
-            &quot;allowedContentType&quot;: [&quot;application/xml&quot;],
-            &quot;appLogic&quot;: true,
-            &quot;schema&quot;: {
-                &quot;fileName&quot;: &quot;crew.xsd&quot;,
-                &quot;schemaUrl&quot;: &quot;/applications/test/sailor/schemas/crewlist&quot;,
+            &quot;allowedContentTypes&quot;: [&quot;application/xml&quot;],
+            &quot;taskId&quot;: &quot;Task_2&quot;,
+            &quot;appLogic&quot;: {
+                &quot;autoCreate&quot;: false,
+                &quot;classRef&quot;: &quot;CrewList&quot;,
+                &quot;schemaRef&quot;: &quot;schemas/crewlist&quot;
             },
-            &quot;canRegisterPdf&quot;: true,
             &quot;maxSize&quot;: null,
-            &quot;maxCount&quot;: 3,
-            &quot;shouldSign&quot;: false,
-            &quot;shouldEncrypt&quot;: false
+            &quot;minCount&quot;: 1,
+            &quot;maxCount&quot;: 3
         },
         {
             &quot;id&quot;: &quot;certificate&quot;,
             &quot;allowedContentType&quot;: [&quot;application/pdf&quot;],
-            &quot;appLogic&quot;: false,
+            &quot;appLogic&quot;: null,
             &quot;maxSize&quot;: null,
-            &quot;maxCount&quot;: 1,
-            &quot;shouldSign&quot;: false,
-            &quot;shouldEncrypt&quot;: false
+            &quot;maxCount&quot;: 1
         }
     ]
 }
@@ -6954,7 +6936,7 @@ PUT /instances/{instanceId}/data/{dataId}
 </tr>
 
 <tr>
-<td>elementTypes</td>
+<td>dataTypes</td>
 <td>ElementType[]</td>
 <td>the elements that are part of an applciation instance</td>
 </tr>
@@ -6995,11 +6977,13 @@ The events are associated with an instance, a user and an instance owner and gen
     &quot;id&quot;:&quot;6dff32bc-0928-4ae8-937c-b362d6941c89&quot;,
     &quot;instanceId&quot;: &quot;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&quot;,
     &quot;eventType&quot;: &quot;deleted&quot;,
-    &quot;createdDateTime&quot;: &quot;2019-05-02T13:08:21.981476Z&quot;,
-    &quot;instanceOwnerId&quot;: &quot;60238&quot;,
-    &quot;userId&quot;: 3,
-    &quot;authenticationLevel&quot;: 1,
-    &quot;enduserSystemId&quot;: 2
+    &quot;created&quot;: &quot;2019-05-02T13:08:21.981476Z&quot;,
+    &quot;instanceOwnerPartyId&quot;: &quot;60238&quot;,
+    &quot;user&quot;: {
+        &quot;userId&quot;: 3,
+        &quot;authenticationLevel&quot;: 1,
+        &quot;enduserSystemId&quot;: 2
+    }
 }
 </code></pre>
 
@@ -7016,62 +7000,62 @@ The events are associated with an instance, a user and an instance owner and gen
 
 <tbody>
 <tr>
-<td>Id</td>
+<td>id</td>
 <td>Guid?</td>
 <td>Id set by CosmosDB when the instance event is stored</td>
 </tr>
 
 <tr>
-<td>InstanceId</td>
+<td>instanceId</td>
 <td>string</td>
-<td>{instanceOwnerId}/{instanceGuid}</td>
+<td>{instanceOwnerPartyId}/{instanceGuid}</td>
 </tr>
 
 <tr>
-<td>DataId</td>
+<td>dataId</td>
 <td>string</td>
 <td>Id of data element if event is related to a data element.</td>
 </tr>
 
 <tr>
-<td>CreationDateTime</td>
+<td>created</td>
 <td>DateTime?</td>
 <td>DateTime set by CosmosDB when the event is stored</td>
 </tr>
 
 <tr>
-<td>EventType</td>
+<td>eventType</td>
 <td>string</td>
 <td>the event type. Available instance event types are listed <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs">here</a></td>
 </tr>
 
 <tr>
-<td>InstanceOwnerId</td>
+<td>instanceOwnerPartyId</td>
 <td>string</td>
 <td>the instance owner id</td>
 </tr>
 
 <tr>
-<td>UserId</td>
+<td>user.userId</td>
 <td>int?</td>
 <td>the user who triggered the event</td>
 </tr>
 
 <tr>
-<td>AuthenticationLevel</td>
+<td>user.authenticationLevel</td>
 <td>int</td>
 <td>the authentication level for the user or system that triggered the event</td>
 </tr>
 
 <tr>
-<td>EndUserSystemId</td>
+<td>user.endUserSystemId</td>
 <td>int?</td>
 <td>the end user system that triggered the event</td>
 </tr>
 
 <tr>
-<td>WorkflowStep</td>
-<td>string</td>
+<td>process</td>
+<td>ProcessState</td>
 <td>the process step during which the event occured</td>
 </tr>
 </tbody>
@@ -7144,25 +7128,25 @@ archivedDateTime | dateTime? | date the instance was archived |</p>
 <p>Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
 Available language specifications: en, nb, nn-NO.</p>
 
-<pre><code class="language-http">GET /sbl/instances/{instanceOwnerId}/{instanceId}?language={languageId}
+<pre><code class="language-http">GET /sbl/instances/{instanceOwnerPartyId}/{instanceId}?language={languageId}
 </code></pre>
 
 <p>Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
 Available states: active, deleted, archived.
 Available language specifications: en, nb, nn-NO.</p>
 
-<pre><code class="language-http">GET /sbl/instances/{instanceOwnerId}?state={instanceState}&amp;language={languageId}
+<pre><code class="language-http">GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&amp;language={languageId}
 </code></pre>
 
 <p>Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
 Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted.</p>
 
-<pre><code class="language-http">DELETE /sbl/instances/{instanceOwnerId}/{instanceId}?hard={true/false}
+<pre><code class="language-http">DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
 </code></pre>
 
 <p>Restore a soft deleted instance.</p>
 
-<pre><code class="language-http">PUT /sbl/instances/{instanceOwnerId}/{instanceId}/undelete
+<pre><code class="language-http">PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
 </code></pre>
 
 
