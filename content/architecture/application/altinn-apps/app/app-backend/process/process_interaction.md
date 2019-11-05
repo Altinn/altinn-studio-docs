@@ -17,6 +17,8 @@ This page show examples
 {{% /excerpt%}}
 
 
+[Full Screen](/architecture/application/altinn-apps/app/app-backend/process/process_interaction.svg)
+
 The above example show the following
 
 - User clicks link to a App from service catalog
