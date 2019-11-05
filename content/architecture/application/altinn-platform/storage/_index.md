@@ -8,7 +8,7 @@ weight: 100
 
 The Storage component exposes a REST-API to Altinn Apps.
 
-Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, element types and events. It is also intended to be used by organisations and other clients to read data.
+Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, data types and events. It is also intended to be used by organisations and other clients to read data.
 
 Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxInstance
 
@@ -28,18 +28,14 @@ An appId refers to the application information element which defines the metadat
     "id": "60238/762011d1-d341-4c0a-8641-d8a104e83d30",
     "appId": "test/sailor",
     "org": "test",
-    "instanceOwnerId": "60238",
-    "labels": ["xyz", "importantUser"],
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
-    "createdBy": "user32",
-    "lastChangedDateTime": "2019-03-07T23:59:49+01:00",
-    "lastChangedBy": "user34",
-    "dueDateTime": null,
-    "visibleDateTime": null,
-    "presentationField": { 
-        "nb": "Færder påmelding 2019",
-        "en": "Fearder Race Registration 2019"
+    "instanceOwner": {
+        "partyId": "60238"
     },
+    "created": "2019-03-06T13:46:48.6882148+01:00",
+    "createdBy": "user32",
+    "lastChanged": "2019-03-07T23:59:49+01:00",
+    "lastChangedBy": "user34",
+    "dueBefore": "2019-06-10T00:00:00.00Z",
     "process":  "process": {
         "started": "2019-09-25T09:32:44.20Z",
         "currentTask": {
@@ -53,41 +49,41 @@ An appId refers to the application information element which defines the metadat
             }
         }
     },
-    "userStatus": {
-        "isSoftDeleted": false,
-        "isArchived": true,
-        "archivedDateTime": "2019-12-20T20:30:33.233Z",
-        "isMarkedForHardDelete": false,
+    "inbox": {
+        "visibleAfter": null,
+        "title": { 
+            "nb": "Færder påmelding 2019",
+            "en": "Fearder Race Registration 2019"
+        },
+        "softDeleted": null,
+        "archived": "2019-12-20T20:30:33.233Z",
+        "hardDelete": null,
     },
-    "appOwnerStatus": {
+    "appOwner": {
+        "labels": ["xyz", "importantUser"],
         "message": { "nb": "field 32 is incorrect", "at": "2018-12-22"}
     },
     "data": [
         {
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "elementType": "boatdata",
+            "dataType": "boatdata",
             "contentType": "application/json",
-            "storageUrl": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json",
+            "blobStoragePath": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json",
             "fileName": "davidsyacht.json",
-            "createdDateTime": "2019-03-06T15:00:23+01:00",
+            "created": "2019-03-06T15:00:23+01:00",
             "createdBy": "XXX",
-            "signature": "oajviojoi2j3l23889yv8js909u293840zz092u3",
             "fileSize": 2003,
-            "isLocked": true,
-            "pdf": {
-                "storageUrl": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.pdf",
-                "generated": "2019-05-30T14:38:22+01:00"
-            }
+            "isLocked": true
         },
         {
             "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
-            "elementType": "crewlist",
+            "dataType": "crewlist",
             "contentType": "text/xml",
             "storageUrl": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
             "fileName": "crewLIst.xml",
-            "createdDateTime": "2019-03-07T23:59:49+01:00",
+            "created": "2019-03-07T23:59:49+01:00",
             "createdBy": "XXX",
-            "lastChangedDateTime": "2019-03-10T23:59:49+01:00",
+            "lastChanged": "2019-03-10T23:59:49+01:00",
             "lastChangedBy": "XXX"
         }
     ]
@@ -100,21 +96,20 @@ An appId refers to the application information element which defines the metadat
 | --- | --- |---| ---| ---|---| --- |
 id | string | unique id | | | | C 
 appId | string | application id |  | | | C
-instanceOwnerId | integer | id of instance owner | C | C | |
-labels | string[] | array of string labels | | C |
-createDateTime | dateTime | creation time | | | | C
+instanceOwner.partyId | integer | id of instance owner | C | C | |
+appOwner.labels | string[] | array of string labels | | C |
+create | dateTime | creation time | | | | C
 createdBy | string | user id | | | | C
-lastChangedDateTime | dateTime? | last changed time | | | | C
+lastChanged| dateTime? | last changed time | | | | C
 lastChangedBy | string | user id | | | | C
-dueDateTime | dateTime? | deadline for submit| | CU
-visibleDateTime | dateTime? | when visible for user | | CU |
-presentationField | string | text shown in inbox | | CU | U
-process  | WorkflowState | process state info | | | U | (U)
+dueBefore | dateTime? | deadline for submit| | CU
+inbox.visibleAfter | dateTime? | when visible for user | | CU |
+inbox.title | string | text shown in inbox | | CU | U
+process  | ProcessState | process state info | | | U | (U)
 userStatus | InboxStatus | statuses that the user can change  | U
-[instanceState](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs) | InstanceState | data on delete and archive state of the instance | | |U|C|
-[appOwnerState](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs) | AppOwnerState  | status from app owner | | CU | |
+[instance](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs) | InstanceState | data on delete and archive state of the instance | | |U|C|
+[appOwner](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs) | AppOwnerState  | status from app owner | | CU | |
 data | List<DataElement> | data elements | | | CU
-
 
 C - creation time, U - can be updated
 
@@ -125,7 +120,8 @@ Post with query params that identifies the appId and the instance owner.
 An instance object can be sent as json data to set certian values.
 
 ```http
-POST /instances?appId=test/sailor&instanceOwnerId=60238
+POST /instances?appId=test/sailor
+{ "instanceOwner": { "partyId": "60238" }}
 ```
 
 Get information about one instance.
@@ -134,10 +130,10 @@ Get information about one instance.
 GET /instances/{instanceId}
 ```
 
-Get (query) all instances that is instance owner has
+Get (query) all instances that an instance owner has
 
 ```http
-GET /instances/{instanceOwnerId}
+GET /instances/{instanceOwnerPartyId}
 ```
 
 Query all instances of a particular application that is completed
@@ -146,7 +142,8 @@ Query all instances of a particular application that is completed
 GET /instances?appId={appId}&process.isCompleted=true
 ```
 
-Query all instances of an applicatio owner's organisation
+Query all instances of an application owner's organisation
+
 ```http
 GET /instances?org={org}
 ```
@@ -161,7 +158,7 @@ DELETE /instances/{instanceId}
 
 A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
-The application metadata restricts the types of form elements that are allowed {elementType}.
+The application metadata restricts the types of form elements that are allowed {dataType}.
 
 Get a specific data element
 
@@ -174,7 +171,7 @@ After success the instance's data section is updated, with the appropriate dataI
 that is used to identify the specific data element
 
 ```http
-POST /instances/{instanceId}/data?elementType={elementType}
+POST /instances/{instanceId}/data?dataType={dataType}
 ```
 
 Put to replace a specific data element. Delete to remove data element.
@@ -183,19 +180,7 @@ Put to replace a specific data element. Delete to remove data element.
 PUT /instances/{instanceId}/data/{dataId}
 ```
 
-Get a predefined PDF of a data element, if it exists.
-
-```http
-Accept: application/pdf
-GET /instances/{instanceId}/data/{dataId}
-```
-
-Update a predefined PDF for a given data element
-
-```http
-ContentType: application/pdf
-PUT /instances/{instanceId}/data/{dataId}
-```
+Notice that PDFs, such as receipts or simmilar, is handled the same way as data elements.
 
 ## Application
 
@@ -209,51 +194,46 @@ Resource: /applications/test/sailor
     "versionId": "v32.23-xyp",
     "org": "test",
     "app": "sailor",
-    "createdDateTime": "2019-03-06T13:46:48.6882148+01:00",
+    "created": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" }, 
     "processId": "standard",
     "validFrom": "2019-04-01T12:14:22+01:00",
     "validTo": null,
     "maxSize": null,
-    "elementTypes": [
+    "dataTypes": [
         {
             "id": "boatdata",
             "description": {"nb": "Båtdata", "en": "Boat data"},
-            "allowedContentType": ["application/json"],
-            "appLogic": true,
-            "schema": {
-                "fileName": "boat.json-schema",
-                "schemaUrl": "/applications/test/sailor/schemas/boatdata"
+            "allowedContentTypes": ["application/json"],
+            "taskId": "Task_1",
+            "appLogic": {
+                "autoCreate": true,
+                "classRef": "Skjema",
+                "schemaRef": "schemas/boatname"
             },
-            "canRegisterPdf": true,
             "maxSize": 200000,
-            "maxCount": 1,
-            "shouldSign": true,
-            "shouldEncrypt": true
+            "maxCount": 1
         },
         {
             "id": "crewlist",
-            "allowedContentType": ["application/xml"],
-            "appLogic": true,
-            "schema": {
-                "fileName": "crew.xsd",
-                "schemaUrl": "/applications/test/sailor/schemas/crewlist",
+            "allowedContentTypes": ["application/xml"],
+            "taskId": "Task_2",
+            "appLogic": {
+                "autoCreate": false,
+                "classRef": "CrewList",
+                "schemaRef": "schemas/crewlist"
             },
-            "canRegisterPdf": true,
             "maxSize": null,
-            "maxCount": 3,
-            "shouldSign": false,
-            "shouldEncrypt": false
+            "minCount": 1,
+            "maxCount": 3
         },
         {
             "id": "certificate",
             "allowedContentType": ["application/pdf"],
-            "appLogic": false,
+            "appLogic": null,
             "maxSize": null,
-            "maxCount": 1,
-            "shouldSign": false,
-            "shouldEncrypt": false
+            "maxCount": 1
         }
     ]
 }
@@ -269,7 +249,7 @@ processId | string | application process id
 title | LanguageString[] | application title in different languages
 validFrom | dateTime | when the application is valid from
 validTo | dateTime? | when the application is valid to 
-elementTypes | ElementType[] | the elements that are part of an applciation instance
+dataTypes | ElementType[] | the elements that are part of an applciation instance
 maxSize | integer | the maximum number of bytes that the data elements can have
 
 ### Operations
@@ -304,27 +284,29 @@ Format of the JSON object stored in the database.
     "id":"6dff32bc-0928-4ae8-937c-b362d6941c89",
     "instanceId": "60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb",
     "eventType": "deleted",
-    "createdDateTime": "2019-05-02T13:08:21.981476Z",
-    "instanceOwnerId": "60238",
-    "userId": 3,
-    "authenticationLevel": 1,
-    "enduserSystemId": 2
+    "created": "2019-05-02T13:08:21.981476Z",
+    "instanceOwnerPartyId": "60238",
+    "user": {
+        "userId": 3,
+        "authenticationLevel": 1,
+        "enduserSystemId": 2
+    }
 }
 ```
 
 ### Instance Event type
 | Attribute | Type | Description |
 | --------- | ---- | ----------- |
-| Id | Guid?  | Id set by CosmosDB when the instance event is stored |  
-| InstanceId | string | {instanceOwnerId}/{instanceGuid} |  
-| DataId | string | Id of data element if event is related to a data element. |  
-| CreationDateTime  | DateTime? | DateTime set by CosmosDB when the event is stored |  
-| EventType | string | the event type. Available instance event types are listed [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs)|
-| InstanceOwnerId  | string | the instance owner id |  
-| UserId | int? | the user who triggered the event |  
-| AuthenticationLevel | int | the authentication level for the user or system that triggered the event |  
-| EndUserSystemId | int? | the end user system that triggered the event |  
-| WorkflowStep | string | the process step during which the event occured |  
+| id | Guid?  | Id set by CosmosDB when the instance event is stored |  
+| instanceId | string | {instanceOwnerPartyId}/{instanceGuid} |  
+| dataId | string | Id of data element if event is related to a data element. |  
+| created  | DateTime? | DateTime set by CosmosDB when the event is stored |  
+| eventType | string | the event type. Available instance event types are listed [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs)|
+| instanceOwnerPartyId  | string | the instance owner id |  
+| user.userId | int? | the user who triggered the event |  
+| user.authenticationLevel | int | the authentication level for the user or system that triggered the event |  
+| user.endUserSystemId | int? | the end user system that triggered the event |  
+| process | ProcessState | the process step during which the event occured |  
 
 ### Operations
 
@@ -400,7 +382,7 @@ Get a single instance in message box instance format in (optional) preffered lan
 Available language specifications: en, nb, nn-NO.
 
 ```http
-GET /sbl/instances/{instanceOwnerId}/{instanceId}?language={languageId}
+GET /sbl/instances/{instanceOwnerPartyId}/{instanceId}?language={languageId}
 ```
 
 Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
@@ -408,18 +390,18 @@ Available states: active, deleted, archived.
 Available language specifications: en, nb, nn-NO.
 
 ```http
-GET /sbl/instances/{instanceOwnerId}?state={instanceState}&language={languageId}
+GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&language={languageId}
 ```
 
 Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
 Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted. 
 
 ```http
-DELETE /sbl/instances/{instanceOwnerId}/{instanceId}?hard={true/false}
+DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
 ```
 
 Restore a soft deleted instance.
 
 ```http
-PUT /sbl/instances/{instanceOwnerId}/{instanceId}/undelete
+PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
 ```

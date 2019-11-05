@@ -71,27 +71,34 @@ Should be used by application owners to download data elements. Downloads will b
 
 ## Create an application instance
 
-Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwnerId*. 
-If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwnerId. The official identity number will not be stored in the instance metadata.
+Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwner.partyId*. 
+If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwner.PartyId. The official identity number will be stored in the instance metadata.
 
 Data elements can be provided as part of the creation request, but can also be uploaded at a later time.
 
-The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form.
+The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form:
 
 ```json
 {
-    "instanceOwnerLookup": { "personNumber": "12247918309" | "organisationNumber": "123456789" },
-    "labels" : [ "gr", "x2" ],
     "appId" : "org/app",
-    "dueDateTime": "2019-06-01T12:00:00Z",
-    "visibleDateTime": "2019-05-20T00:00:00Z",
-    "presentationField": { "nb": "Arbeidsmelding" }
+    "instanceOwner": {
+        "personNumber": "12247918309",
+        "organisationNumber": null
+    },
+    "appOwner": {
+        "labels" : [ "gr", "x2" ]
+    },
+    "dueBefore": "2019-06-01T12:00:00Z",
+    "inbox": {
+        "title": { "nb": "Arbeidsmelding for Ola Nordmann" },
+        "visibleAfter": "2019-05-20T00:00:00Z",
+    }
 }
 ```
 
 Notice that all dates must be expressed in **Utc (Zulu)** time zone and represented according to ISO 8601!
 
-Data elements (files) can be attached to the initial request as a *multipart/form-data*. The name of the parts must correspond to element types defined in the application metadata. 
+Data elements (files) can be attached to the initial request as a *multipart/form-data* or as *attachments*. The name of the parts must correspond to element types defined in the application metadata. 
 
 ```http
 POST {appPath}/instances
@@ -127,13 +134,13 @@ This call will return the instance metadata record that was created. A unique id
         "platform": "{platformPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc"
     },
     "appId": "org/app",
-    "labels": [ "gr", "x2" ],
-    "instanceOwnerId": "347829",
-    "createdDateTime": "2019-03-06T13:46:48.6882148Z",
+    "instanceOwner": {
+        "partyId": "347829",
+        "personNumber": "12247918309"
+    },
+    "created": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "org23",
-    "dueDateTime": "2019-06-01T12:00:00Z",
-    "visibleDateTime": "2019-05-20T00:00:00Z",
-    "presentationField": "Arbeidsmelding",
+    "dueBefore": "2019-06-01T12:00:00Z",
     "process": {
         "started": "2019-09-25T09:32:44.20Z",
         "currentTask": {
@@ -147,26 +154,29 @@ This call will return the instance metadata record that was created. A unique id
             }
         }
     },
-    "instanceStatus": {
-        "isArchived": false,
-        "isSoftDeleted": false,
-        "isMarkedForHardDelete": false
+    "inbox": {
+        "visibleAfter": "2019-05-20T00:00:00Z",
+        "title": { "nb": "Arbeidsmelding for Ola Nordmann"},
+        "archived": null,
+        "softDeleted": null,
+        "hardDelete": null
     },
-    "appOwnerStatus": {
-        "message": {"nb": "felt 23 er feil"}
+    "appOwner": {
+         "presentationField": "Arbeidsmelding",
+         "labels": [ "gr", "x2" ],
     },
     "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "elementType": "default",
+        "dataType": "default",
         "contentType": "application/xml",
-        "storageUrl": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "dataLink": {
+        "blobStoragePath": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        "selfLinks": {
             "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
         },
         "fileName": "prefill.xml",
-        "createdDateTime": "2019-03-06T15:00:23Z",
+        "created": "2019-03-06T15:00:23Z",
         "createdBy": "org23",
         "fileSize": 20001,
         "isLocked": false,
@@ -177,47 +187,46 @@ This call will return the instance metadata record that was created. A unique id
 
 ### Create a data element
 
-Post data file (xml-document) as body of request. Must specify elementType as defined in the application metadata.
+Post data file (xml-document) as body of request. Must specify dataType as defined in the application metadata.
 
 ```http
-POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?elementType=default
+POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?dataType=default
 ```
 
-This call updates and returns instance metadata where each data element are given a guid.
+This call updates the instance metadata and returns the data element that were created.
 
 ```json
 {
-    "id": "347829/762011d1-d341-4c0a-8641-d8a104e83d30",
-    ...
-    "data": [
-        {
-            "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "elementType": "default",
-            "contentType": "application/xml",
-            "storageUrl": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-            "dataLinks": {
-                "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-                "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
-            },
-            "fileName": "default.xml",
-            "createdDateTime": "2019-03-06T15:00:23Z",
-            "createdBy": "org23",
-            "lastChangedDateTime": "2019-03-07T15:00:23Z",
-            "lastChangedBy": "org23",
-            "fileSize": 20001,
-            "isLocked": false
-        }
-    ]
+    "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+    "dataType": "default",
+    "contentType": "application/xml",
+    "blobStoragePath": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+    "selfLinks": {
+        "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
+    },
+    "fileName": "default.xml",
+    "created": "2019-03-06T15:00:23Z",
+    "createdBy": "org23",
+    "lastChanged": "2019-03-07T15:00:23Z",
+    "lastChangedBy": "org23",
+    "fileSize": 20001,
+    "isLocked": false
 }
 ```
 
 ### Update a data element
 
-Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client. 
+Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client.
+
+
 
 ![Flow chart for saving data](save-data.png "Save data")
 
 ```http
+Content-Type = "image/png"
+Content-Disposition = attachment; filename=myfile.png
+
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
@@ -235,10 +244,10 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "elementType": "default",
+        "dataType": "default",
         "fileName": "default.xml",
         "contentType": "application/xml",
-        "lastChangedDateTime": "2019-03-06T15:00:23Z",
+        "lastChange": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
         "fileSize": 34059,
         "isLocked": false,
@@ -259,7 +268,7 @@ All applications has an element type called `ref-data-as-pdf`. This is the place
 ### Upload a pdf and associate the pdf with an existing data element
 
 ```http
-POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?elementType=receipt&refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?dataType=receipt&refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
 Results in a new data element with reference to the first. It is also possible to reference multiple data elements.
@@ -270,10 +279,10 @@ Results in a new data element with reference to the first. It is also possible t
 "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "elementType": "default",
+        "dataType": "default",
         "fileName": "default.xml",
         "contentType": "application/xml",
-        "lastChangedDateTime": "2019-03-06T15:00:23Z",
+        "lastChanged": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
         "fileSize": 34059,
         "isLocked": false,
@@ -283,10 +292,10 @@ Results in a new data element with reference to the first. It is also possible t
     },
     {
         "id": "c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d",
-        "elementType": "receipt",
+        "dataType": "ref-data-as-pdf",
         "fileName": "autogen.pdf",
         "contentType": "application/pdf",
-        "lastChangedDateTime": "2019-10-10T15:00:23Z",
+        "lastChanged": "2019-10-10T15:00:23Z",
         "lastChangedBy": "org24",
         "fileSize": 34059,
         "isLocked": false,
@@ -298,7 +307,15 @@ Results in a new data element with reference to the first. It is also possible t
 
 ### Download the PDF of a data element
 
-Select the data PDF you want to download.
+Select the data PDF you want to download from the list of the instances' list of data elements.
+
+Get list
+
+```http
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data
+```
+
+Get one data element
 
 ```http
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d
@@ -354,7 +371,7 @@ Application owners can search for application instances with a simple GET reques
 For example: To get all instances of appId *org/app*, that is in at task with id *Task_2* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
 
 ```http
-GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChangedDateTime=gt:2019-05-01&label=gruppe3
+GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChanged=gt:2019-05-01&appOwner.label=gruppe3
 ```
 
 Another example is get all instances of all apps of an organisation *org* that has completed their process.
@@ -374,14 +391,15 @@ On query parameters specifying date time you can use the following operators:
 They can be combined to define a range:
 
 ```http
-dueDateTime=gt:2019-02&dueDateTime=lt:2019-03-01
+dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
 ```
 
-The query returns a result object (page) which includes a collection of instance that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link. 
+The query returns a result object (page) which includes a collection of instance that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link.
 
 The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
 
-The endpoint supports plain *application/json* and *application/hal+json*. Use the Accept parameter in the http request to specify your preferred format.
+The endpoint supports plain *application/json*.
+
 ```json
 Accept: application/json
 {
@@ -390,29 +408,6 @@ Accept: application/json
     "self": "{storagePath}/instances?appId=org/app&size=50",
     "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
     "instances": [
-            {...},
-            {...},
-            ...
-      ]
-    }
-}
-```
-
-```json
-Accept: application/hal+json
-{
-    "totalHits": 234,
-    "count": 50,
-    "_links": {
-        "self": {
-            "href": "{storagePath}/instances?appId=org/app&size=50"
-        },
-        "next": {
-            "href": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
-        }
-    },
-    "_embedded": {
-        "instances": [
             {...},
             {...},
             ...
@@ -438,12 +433,20 @@ Example of event data.
     "id":"6dff32bc-0928-4ae8-937c-b362d6941c89",
     "instanceId": "60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb",
     "eventType": "deleted",
-    "createdDateTime": "2019-05-02T13:08:21.981476Z",
-    "instanceOwnerId": "60238",
-    "userId": 338829,
-    "authenticationLevel": 1,
-    "currentTask": "Task_2",
-    "enduserSystemId": 2
+    "created": "2019-05-02T13:08:21.981476Z",
+    "instanceOwnerPartyId": "60238",
+    "user": {
+        "userId": 338829,
+        "authenticationLevel": 1,
+        "enduserSystemId": 2
+    },
+    "process": {
+        "started": "2019-05-01T12:45:01.3233Z",
+        "startEvent": "Start_22",
+        "currentTask": {
+            "elementId": "Task_2"
+        }
+    }
 }
 ```
 
@@ -456,49 +459,17 @@ Selected instance events. Created, first read, change process state. Optinally s
 Events can be queried. May be piped.
 
 ```http
-GET {storagePath}/applications/org/app/events?createdDateTime=gte:2019-03-30&process.currentTask=Task_2
-```
-
-Query result: 
-
-```json
-[
-    {
-        "id": "112453234523423344",
-        "at": "2019-06-01T12:12:22Z",
-        "appId": "org/app",
-        "instanceOwnerId": "347829",
-        "instanceLink": "{storagePath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
-        "dataLinks": [
-            {
-                "elementType": "default",
-                "dataLink": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
-            },
-            {
-                "elementType": "attachement",
-                "dataLink": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/89fsxx7a-82a9-4bba-z2f2-c8c4dac69agf"
-            },
-            {
-                "elementType": "prefill",
-                "dataLink": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/72xx238f-83b9-4bba-x2f2-c8c4dac69alj"
-            }
-        ],
-        "eventType": "ProcessStateChange",
-        "previousTask": "Task_1",
-        "currentTask": "Task_2",
-        "userId": "userX"
-    }
-]
+GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&process.currentTask=Task_2
 ```
 
 ## Validate data[^1]
 
-The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an elementType and performs validation on that file. It returns a validation report.
+The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an dataType and performs validation on that file. It returns a validation report.
 
 ![Flowchart for data validation](data-validate.png "Validate data")
 
 ```http
-PUT {appPath}/validate?elementType=modelA
+PUT {appPath}/validate?dataType=modelA
 ```
 
 ## Calculate / check business rules[^1]
@@ -509,7 +480,7 @@ The calculate method takes a data file and performs calculations and returns the
 ![Flowchart for data calculation](data-calculate.png "Calculate data")
 
 ```http
-PUT {appPath}/calculate?elementType=modelB
+PUT {appPath}/calculate?dataType=modelB
 ```
 
 ## Instantiation details
@@ -753,8 +724,6 @@ If a task's exit condition is not met, the process will be stopped in the last v
 PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 ```
 
-<!-- OLD // CompleteAndSendIn
-http://altinn3.no/runtime/RtlOrg/apitracing/7f32a720-a1e9-4565-a351-b3f66f9641b0/CompleteAndSendIn -->
 
 ### Get the next tasks in a process
 
@@ -790,45 +759,45 @@ GET {appPath}
     "versionId": "v32.23-xyp",
     "org": "test",
     "app": "sailor",
-    "createdDateTime": "2019-03-06T13:46:48.6882148Z",
+    "created": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "XXX",
     "title": { "nb": "Testapplikasjon", "en": "Test Application" },
     "processId": "twoTasksDataAndSubmit",
     "validFrom": "2019-04-01T12:14:22Z",
     "validTo": null,
     "maxSize": -1,
-    "elementTypes": [
+    "dataTypes": [
         {
             "id": "default",
-            "appLogic": true,
-            "description": {"nb": "Båtdata", "en": "Boat data"},
-            "allowedContentType": ["application/json"],
-            "schema": {
-                "fileName": "boat.json-schema",
-                "schemaUrl": "/applications/test/sailor/schemas/boatdata"
+            "appLogic": {
+                "autoCreate": true,
+                "classRef": "Skjema22",
+                "schemaRef": "schemas/boatdata"
             },
-            "task": "Task_1",
+            "description": {"nb": "Båtdata", "en": "Boat data"},
+            "allowedContentTypes": ["application/json"],
+            "taskId": "Task_1",
             "maxSize": 200000,
             "minCount": 1,
             "maxCount": 1,
         },
         {
             "id": "crewlist",
-            "appLogic": true,
-            "allowedContentType": ["application/xml"],
-            "schema": {
-                "fileName": "crew.xsd",
-                "schemaUrl": "/applications/test/sailor/schemas/crewlist",
+            "appLogic": {
+                "autoCreate": false,
+                "classRef": "CrewList",
+                "schemaRef": "schemas/crewlist"
             },
-            "task": "Data_2",
+            "allowedContentTypes": ["application/xml"],
+            "taskId": "Data_2",
             "maxSize": -1,
             "minCount": 1,
             "maxCount": 3,
         },
         {
             "id": "certificate",
-            "appLogic": false,
-            "allowedContentType": ["application/pdf"],
+            "appLogic": null,
+            "allowedContentTypes": ["application/pdf"],
             "task": "Task_1",
             "maxSize": -1,
             "minCount": 1,
@@ -836,8 +805,8 @@ GET {appPath}
         },
         {
             "id": "receipt",
-            "appLogic": false,
-            "allowedContentType": ["application/pdf"],
+            "appLogic": null,
+            "allowedContentTypes": ["application/pdf"],
             "maxSize": -1,
             "minCount": 0,
             "maxCount": -1,
@@ -866,7 +835,7 @@ GET {appPath}/texts?lang=nb
 ### Get text resources for a given element type[^1]
 
 ```http
-GET {appPath}/elementTypes/{typeName}/texts?lang=nb
+GET {appPath}/metadata/{typeName}/texts?lang=nb
 ```
 <!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
 
@@ -874,13 +843,13 @@ GET {appPath}/elementTypes/{typeName}/texts?lang=nb
 
 ```http
 Accept=application/schema+json
-GET {appPath}/elementTypes/{typeName}/schema
+GET {appPath}/metadata/{typeName}/schema
 ```
 
 ### Get the model config for a given element type[^1]
 
 ```http
-GET {appPath}/elementTypes/{typeName}/modelConfig
+GET {appPath}/metadata/{typeName}/modelConfig
 ```
 (ServiceMetadata.json)
 <!-- OLD http://altinn3.no/runtime/api/metadata/RtlOrg/apitracing/ServiceMetaData -->
@@ -888,7 +857,7 @@ GET {appPath}/elementTypes/{typeName}/modelConfig
 ### Get the layout for a given element type[^1]
 
 ```http
-GET {appPath}/elementTypes/{typeName}/layout
+GET {appPath}/metadata/{typeName}/layout
 ```
 (FormLayout.json)
 <!-- OLD http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/FormLayout.json-->
@@ -896,7 +865,7 @@ GET {appPath}/elementTypes/{typeName}/layout
 ### Gets the rules for a given element type[^1]
 
 ```http
-GET {appPath}/elementTypes/{typeName}/rules
+GET {appPath}/metadata/{typeName}/rules
 ```
 
 (RuleHandler.js)
@@ -905,7 +874,7 @@ GET {appPath}/elementTypes/{typeName}/rules
 ### Get the API service configuration for how the app calls external APIs[^1]
 
 ```http
-GET {appPath}/elementTypes/{typeName}/externalApis
+GET {appPath}/metadata/{typeName}/externalApis
 ```
 (ServiceConfiguration.json)
 <!-- OLD (Service configuration) http://altinn3.no/runtime/api/resource/RtlOrg/apitracing/ServiceConfigurations.json -->
