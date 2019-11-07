@@ -36,7 +36,12 @@ An appId refers to the application information element which defines the metadat
     "lastChanged": "2019-03-07T23:59:49+01:00",
     "lastChangedBy": "user34",
     "dueBefore": "2019-06-10T00:00:00.00Z",
-    "process":  "process": {
+    "visibleAfter": null,
+    "title": {
+        "nb": "Færder påmelding 2019",
+        "en": "Fearder Race Registration 2019"
+    },
+    "process": {
         "started": "2019-09-25T09:32:44.20Z",
         "currentTask": {
             "started": "2019-10-10T32:22.00Z",
@@ -49,12 +54,7 @@ An appId refers to the application information element which defines the metadat
             }
         }
     },
-    "inbox": {
-        "visibleAfter": null,
-        "title": { 
-            "nb": "Færder påmelding 2019",
-            "en": "Fearder Race Registration 2019"
-        },
+    "status": {
         "softDeleted": null,
         "archived": "2019-12-20T20:30:33.233Z",
         "hardDelete": null,
@@ -79,7 +79,7 @@ An appId refers to the application information element which defines the metadat
             "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
             "dataType": "crewlist",
             "contentType": "text/xml",
-            "storageUrl": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
+            "blobStoragePath": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
             "fileName": "crewLIst.xml",
             "created": "2019-03-07T23:59:49+01:00",
             "createdBy": "XXX",
@@ -103,8 +103,8 @@ createdBy | string | user id | | | | C
 lastChanged| dateTime? | last changed time | | | | C
 lastChangedBy | string | user id | | | | C
 dueBefore | dateTime? | deadline for submit| | CU
-inbox.visibleAfter | dateTime? | when visible for user | | CU |
-inbox.title | string | text shown in inbox | | CU | U
+visibleAfter | dateTime? | when visible for user | | CU |
+title | string | text shown in inbox | | CU | U
 process  | ProcessState | process state info | | | U | (U)
 userStatus | InboxStatus | statuses that the user can change  | U
 [instance](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs) | InstanceState | data on delete and archive state of the instance | | |U|C|

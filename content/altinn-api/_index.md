@@ -89,10 +89,9 @@ The client specify the instance owner and can set a number of the metadata field
         "labels" : [ "gr", "x2" ]
     },
     "dueBefore": "2019-06-01T12:00:00Z",
-    "inbox": {
-        "title": { "nb": "Arbeidsmelding for Ola Nordmann" },
-        "visibleAfter": "2019-05-20T00:00:00Z",
-    }
+    "title": { "nb": "Arbeidsmelding for Ola Nordmann" },
+    "visibleAfter": "2019-05-20T00:00:00Z",
+    "status": {}
 }
 ```
 
@@ -106,7 +105,7 @@ POST {appPath}/instances
 
 ![Flow chart for instantiation](instantiate-for-an-instance-owner.png "Instantiate for instance owner")
 
-A multipart formdata should contain the instance json document and the data element files of the instance. The first part should be the instance. The subsequent parts must have a name that correspond to the element types defined in application metadata. Hence the *default* name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.
+A multipart formdata should contain the instance json document and the data element files of the instance. The first part should be *instance* which contains the json template to create an instance from. The subsequent parts must have a name that correspond to the element types defined in application metadata. They may have a filename. Hence the *model1* and *certificate* names correspond to data types defined in the application metadata. If more data elements are needed they must be defined in the application metadata.
 
 ```http
 Content-Type: multipart/form-data; boundary="abcdefg"
@@ -118,8 +117,16 @@ Content-Disposition: form-data; name="instance"
 
 --abcdefg
 Content-Type: application/xml
-Content-Disposition: form-data; name="default"
+Content-Disposition: form-data; name="model1"
 <xml> ... </xml>
+
+--abcdefg
+Content-Type: application/pdf
+Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
+%PDF-1.4
+%Óëéá
+1 0 obj
+...
 
 --abcdefg--
 ```
@@ -141,6 +148,8 @@ This call will return the instance metadata record that was created. A unique id
     "created": "2019-03-06T13:46:48.6882148Z",
     "createdBy": "org23",
     "dueBefore": "2019-06-01T12:00:00Z",
+    "visibleAfter": "2019-05-20T00:00:00Z",
+    "title": { "nb": "Arbeidsmelding for Ola Nordmann"},
     "process": {
         "started": "2019-09-25T09:32:44.20Z",
         "currentTask": {
@@ -154,21 +163,18 @@ This call will return the instance metadata record that was created. A unique id
             }
         }
     },
-    "inbox": {
-        "visibleAfter": "2019-05-20T00:00:00Z",
-        "title": { "nb": "Arbeidsmelding for Ola Nordmann"},
+    "status": {
         "archived": null,
         "softDeleted": null,
-        "hardDelete": null
+        "hardDeleted": null
     },
     "appOwner": {
-         "presentationField": "Arbeidsmelding",
          "labels": [ "gr", "x2" ],
     },
     "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "dataType": "default",
+        "dataType": "model1",
         "contentType": "application/xml",
         "blobStoragePath": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "selfLinks": {
@@ -181,13 +187,14 @@ This call will return the instance metadata record that was created. A unique id
         "fileSize": 20001,
         "isLocked": false,
     },
+    ...
     ]
 }
 ```
 
 ### Create a data element
 
-Post data file (xml-document) as body of request. Must specify dataType as defined in the application metadata.
+Post a data file (e.g. an xml-document) as body of request with matching headers. Must specify dataType as defined in the application metadata.
 
 ```http
 POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?dataType=default
@@ -218,7 +225,6 @@ This call updates the instance metadata and returns the data element that were c
 ### Update a data element
 
 Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client.
-
 
 
 ![Flow chart for saving data](save-data.png "Save data")
@@ -259,16 +265,14 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 }
 ```
 
-## Receipt data element[^1]
-
-[^1]: Not implemented yet!
+## Receipt data element
 
 All applications has an element type called `ref-data-as-pdf`. This is the place to store generated pdf receipt data.
 
 ### Upload a pdf and associate the pdf with an existing data element
 
 ```http
-POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?dataType=receipt&refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?dataType=ref-data-as-pdf&refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
 Results in a new data element with reference to the first. It is also possible to reference multiple data elements.
@@ -279,13 +283,13 @@ Results in a new data element with reference to the first. It is also possible t
 "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "dataType": "default",
+        "dataType": "model1",
         "fileName": "default.xml",
         "contentType": "application/xml",
         "lastChanged": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
         "fileSize": 34059,
-        "isLocked": false,
+        "isLocked": true,
         "applicationOwner": {
             "downloaded": ["2019-05-15T08:23:01Z"]
         }
@@ -293,7 +297,7 @@ Results in a new data element with reference to the first. It is also possible t
     {
         "id": "c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d",
         "dataType": "ref-data-as-pdf",
-        "fileName": "autogen.pdf",
+        "fileName": "model1-view.pdf",
         "contentType": "application/pdf",
         "lastChanged": "2019-10-10T15:00:23Z",
         "lastChangedBy": "org24",
@@ -322,6 +326,8 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15
 ```
 
 ## Application owner download[^1]
+
+[^1]: Not implemented yet!
 
 ### Downloads is logged on the data element
 
@@ -768,7 +774,7 @@ GET {appPath}
     "maxSize": -1,
     "dataTypes": [
         {
-            "id": "default",
+            "id": "model1",
             "appLogic": {
                 "autoCreate": true,
                 "classRef": "Skjema22",
