@@ -6570,18 +6570,18 @@ An appId refers to the application information element which defines the metadat
             &quot;dataType&quot;: &quot;boatdata&quot;,
             &quot;contentType&quot;: &quot;application/json&quot;,
             &quot;blobStoragePath&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json&quot;,
-            &quot;fileName&quot;: &quot;davidsyacht.json&quot;,
+            &quot;filename&quot;: &quot;davidsyacht.json&quot;,
             &quot;created&quot;: &quot;2019-03-06T15:00:23+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
-            &quot;fileSize&quot;: 2003,
-            &quot;isLocked&quot;: true
+            &quot;size&quot;: 2003,
+            &quot;locked&quot;: true
         },
         {
             &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;dataType&quot;: &quot;crewlist&quot;,
             &quot;contentType&quot;: &quot;text/xml&quot;,
             &quot;blobStoragePath&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
-            &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
+            &quot;filename&quot;: &quot;crewLIst.xml&quot;,
             &quot;created&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
             &quot;lastChanged&quot;: &quot;2019-03-10T23:59:49+01:00&quot;,
@@ -6791,9 +6791,9 @@ An instance object can be sent as json data to set certian values.</p>
 <pre><code class="language-http">GET /instances/{instanceOwnerPartyId}
 </code></pre>
 
-<p>Query all instances of a particular application that is completed</p>
+<p>Query all instances of a particular application that has endState equal to &lsquo;EndState_1&rsquo;</p>
 
-<pre><code class="language-http">GET /instances?appId={appId}&amp;process.isCompleted=true
+<pre><code class="language-http">GET /instances?appId={appId}&amp;process.endState=EndState_1
 </code></pre>
 
 <p>Query all instances of an application owner&rsquo;s organisation</p>

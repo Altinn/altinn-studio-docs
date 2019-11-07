@@ -6738,11 +6738,11 @@ Content-Disposition: form-data; name=&quot;certificate&quot;; filename=certifica
             &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
             &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
         },
-        &quot;fileName&quot;: &quot;prefill.xml&quot;,
+        &quot;filename&quot;: &quot;prefill.xml&quot;,
         &quot;created&quot;: &quot;2019-03-06T15:00:23Z&quot;,
         &quot;createdBy&quot;: &quot;org23&quot;,
-        &quot;fileSize&quot;: 20001,
-        &quot;isLocked&quot;: false,
+        &quot;size&quot;: 20001,
+        &quot;locked&quot;: false,
     },
     ...
     ]
@@ -6767,13 +6767,13 @@ Content-Disposition: form-data; name=&quot;certificate&quot;; filename=certifica
         &quot;apps&quot;:   &quot;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;platform&quot;: &quot;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;
     },
-    &quot;fileName&quot;: &quot;default.xml&quot;,
+    &quot;filename&quot;: &quot;default.xml&quot;,
     &quot;created&quot;: &quot;2019-03-06T15:00:23Z&quot;,
     &quot;createdBy&quot;: &quot;org23&quot;,
     &quot;lastChanged&quot;: &quot;2019-03-07T15:00:23Z&quot;,
     &quot;lastChangedBy&quot;: &quot;org23&quot;,
-    &quot;fileSize&quot;: 20001,
-    &quot;isLocked&quot;: false
+    &quot;size&quot;: 20001,
+    &quot;locked&quot;: false
 }
 </code></pre>
 
@@ -6802,12 +6802,12 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;dataType&quot;: &quot;default&quot;,
-        &quot;fileName&quot;: &quot;default.xml&quot;,
+        &quot;filename&quot;: &quot;default.xml&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
         &quot;lastChange&quot;: &quot;2019-03-06T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
-        &quot;fileSize&quot;: 34059,
-        &quot;isLocked&quot;: false,
+        &quot;size&quot;: 34059,
+        &quot;locked&quot;: false,
         &quot;applicationOwner&quot;: {
             &quot;downloaded&quot;: [&quot;2019-05-15T08:23:01Z&quot;]
         }
@@ -6833,12 +6833,12 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;dataType&quot;: &quot;model1&quot;,
-        &quot;fileName&quot;: &quot;default.xml&quot;,
+        &quot;filename&quot;: &quot;default.xml&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
         &quot;lastChanged&quot;: &quot;2019-03-06T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
-        &quot;fileSize&quot;: 34059,
-        &quot;isLocked&quot;: true,
+        &quot;size&quot;: 34059,
+        &quot;locked&quot;: true,
         &quot;applicationOwner&quot;: {
             &quot;downloaded&quot;: [&quot;2019-05-15T08:23:01Z&quot;]
         }
@@ -6846,12 +6846,12 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
     {
         &quot;id&quot;: &quot;c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d&quot;,
         &quot;dataType&quot;: &quot;ref-data-as-pdf&quot;,
-        &quot;fileName&quot;: &quot;model1-view.pdf&quot;,
+        &quot;filename&quot;: &quot;model1-view.pdf&quot;,
         &quot;contentType&quot;: &quot;application/pdf&quot;,
         &quot;lastChanged&quot;: &quot;2019-10-10T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
-        &quot;fileSize&quot;: 34059,
-        &quot;isLocked&quot;: false,
+        &quot;size&quot;: 34059,
+        &quot;locked&quot;: false,
         &quot;refs&quot;: [&quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;]
     }
 ]
@@ -6923,9 +6923,9 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 <pre><code class="language-http">GET {storagePath}/instances?appId=org/app&amp;process.currentTask=Task_2&amp;lastChanged=gt:2019-05-01&amp;appOwner.label=gruppe3
 </code></pre>
 
-<p>Another example is get all instances of all apps of an organisation <em>org</em> that has completed their process.</p>
+<p>Another example is get all instances of all apps of an organisation <em>org</em> that has ended date greater than 2020-03-10.</p>
 
-<pre><code class="language-http">GET {storagePath}/instances?org=org&amp;process.isComplete=true
+<pre><code class="language-http">GET {storagePath}/instances?org=org&amp;process.ended=gt:2020-03-10
 </code></pre>
 
 <p>On query parameters specifying date time you can use the following operators:</p>
@@ -9087,84 +9087,6 @@ GET {appPath}/metadata/{typeName}/schema
                               
           
                               
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
                                   
                       
                       
@@ -9199,40 +9121,6 @@ GET {appPath}/metadata/{typeName}/schema
                               
                       
                   
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
                               
                                   
                       
@@ -9292,124 +9180,6 @@ GET {appPath}/metadata/{typeName}/schema
                               
                               
           
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                                   
                       
@@ -9491,41 +9261,6 @@ GET {appPath}/metadata/{typeName}/schema
           
                               
                               
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                                   
                               
                               
@@ -9541,14 +9276,10 @@ GET {appPath}/metadata/{typeName}/schema
           
                               
                               
+                                  
+                              
                               
           
-                              
-                      
-                  
-                              
-                      
-                  
                               
                                   
                       
@@ -9629,6 +9360,307 @@ GET {appPath}/metadata/{typeName}/schema
           
                               
                               
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -9690,6 +9722,38 @@ GET {appPath}/metadata/{typeName}/schema
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   
