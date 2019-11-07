@@ -181,11 +181,11 @@ This call will return the instance metadata record that was created. A unique id
             "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
             "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
         },
-        "fileName": "prefill.xml",
+        "filename": "prefill.xml",
         "created": "2019-03-06T15:00:23Z",
         "createdBy": "org23",
-        "fileSize": 20001,
-        "isLocked": false,
+        "size": 20001,
+        "locked": false,
     },
     ...
     ]
@@ -212,13 +212,13 @@ This call updates the instance metadata and returns the data element that were c
         "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
     },
-    "fileName": "default.xml",
+    "filename": "default.xml",
     "created": "2019-03-06T15:00:23Z",
     "createdBy": "org23",
     "lastChanged": "2019-03-07T15:00:23Z",
     "lastChangedBy": "org23",
-    "fileSize": 20001,
-    "isLocked": false
+    "size": 20001,
+    "locked": false
 }
 ```
 
@@ -251,12 +251,12 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "dataType": "default",
-        "fileName": "default.xml",
+        "filename": "default.xml",
         "contentType": "application/xml",
         "lastChange": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
-        "fileSize": 34059,
-        "isLocked": false,
+        "size": 34059,
+        "locked": false,
         "applicationOwner": {
             "downloaded": ["2019-05-15T08:23:01Z"]
         }
@@ -284,12 +284,12 @@ Results in a new data element with reference to the first. It is also possible t
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "dataType": "model1",
-        "fileName": "default.xml",
+        "filename": "default.xml",
         "contentType": "application/xml",
         "lastChanged": "2019-03-06T15:00:23Z",
         "lastChangedBy": "org24",
-        "fileSize": 34059,
-        "isLocked": true,
+        "size": 34059,
+        "locked": true,
         "applicationOwner": {
             "downloaded": ["2019-05-15T08:23:01Z"]
         }
@@ -297,12 +297,12 @@ Results in a new data element with reference to the first. It is also possible t
     {
         "id": "c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d",
         "dataType": "ref-data-as-pdf",
-        "fileName": "model1-view.pdf",
+        "filename": "model1-view.pdf",
         "contentType": "application/pdf",
         "lastChanged": "2019-10-10T15:00:23Z",
         "lastChangedBy": "org24",
-        "fileSize": 34059,
-        "isLocked": false,
+        "size": 34059,
+        "locked": false,
         "refs": ["692ee7df-82a9-4bba-b2f2-c8c4dac69aff"]
     }
 ]
@@ -380,10 +380,10 @@ For example: To get all instances of appId *org/app*, that is in at task with id
 GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChanged=gt:2019-05-01&appOwner.label=gruppe3
 ```
 
-Another example is get all instances of all apps of an organisation *org* that has completed their process.
+Another example is get all instances of all apps of an organisation *org* that has ended date greater than 2020-03-10.
 
 ```http
-GET {storagePath}/instances?org=org&process.isComplete=true
+GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
 On query parameters specifying date time you can use the following operators:

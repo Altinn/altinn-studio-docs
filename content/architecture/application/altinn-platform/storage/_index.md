@@ -69,18 +69,18 @@ An appId refers to the application information element which defines the metadat
             "dataType": "boatdata",
             "contentType": "application/json",
             "blobStoragePath": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff.json",
-            "fileName": "davidsyacht.json",
+            "filename": "davidsyacht.json",
             "created": "2019-03-06T15:00:23+01:00",
             "createdBy": "XXX",
-            "fileSize": 2003,
-            "isLocked": true
+            "size": 2003,
+            "locked": true
         },
         {
             "id": "999911d1-d341-4c0a-8641-d8a104e83d30",
             "dataType": "crewlist",
             "contentType": "text/xml",
             "blobStoragePath": "test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30",
-            "fileName": "crewLIst.xml",
+            "filename": "crewLIst.xml",
             "created": "2019-03-07T23:59:49+01:00",
             "createdBy": "XXX",
             "lastChanged": "2019-03-10T23:59:49+01:00",
@@ -136,10 +136,10 @@ Get (query) all instances that an instance owner has
 GET /instances/{instanceOwnerPartyId}
 ```
 
-Query all instances of a particular application that is completed
+Query all instances of a particular application that has endState equal to 'EndState_1'
 
 ```http
-GET /instances?appId={appId}&process.isCompleted=true
+GET /instances?appId={appId}&process.endState=EndState_1
 ```
 
 Query all instances of an application owner's organisation
