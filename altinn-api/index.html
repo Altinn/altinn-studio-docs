@@ -6500,7 +6500,7 @@ if(host != "localhost")
 <li><a href="#update-a-data-element">Update a data element</a></li>
 <li><a href="#get-a-specific-data-element">Get a specific data element</a></li>
 </ul></li>
-<li><a href="#receipt-data-element-1">Receipt data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a>
+<li><a href="#receipt-data-element">Receipt data element</a>
 <ul>
 <li><a href="#upload-a-pdf-and-associate-the-pdf-with-an-existing-data-element">Upload a pdf and associate the pdf with an existing data element</a></li>
 <li><a href="#download-the-pdf-of-a-data-element">Download the PDF of a data element</a></li>
@@ -6649,10 +6649,9 @@ If you do not know this, you should provide the official identity number, e.g na
         &quot;labels&quot; : [ &quot;gr&quot;, &quot;x2&quot; ]
     },
     &quot;dueBefore&quot;: &quot;2019-06-01T12:00:00Z&quot;,
-    &quot;inbox&quot;: {
-        &quot;title&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding for Ola Nordmann&quot; },
-        &quot;visibleAfter&quot;: &quot;2019-05-20T00:00:00Z&quot;,
-    }
+    &quot;title&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding for Ola Nordmann&quot; },
+    &quot;visibleAfter&quot;: &quot;2019-05-20T00:00:00Z&quot;,
+    &quot;status&quot;: {}
 }
 </code></pre>
 
@@ -6665,7 +6664,7 @@ If you do not know this, you should provide the official identity number, e.g na
 
 <figure><a href="instantiate-for-an-instance-owner.png"><img src="instantiate-for-an-instance-owner.png" alt="Flow chart for instantiation" title="Instantiate for instance owner" /></a><figcaption><h4>Instantiate for instance owner</h4></figcaption></figure>
 
-<p>A multipart formdata should contain the instance json document and the data element files of the instance. The first part should be the instance. The subsequent parts must have a name that correspond to the element types defined in application metadata. Hence the <em>default</em> name corresponds to the default element type (data model) of the application. If more data elements are needed they must be defined in the application metadata.</p>
+<p>A multipart formdata should contain the instance json document and the data element files of the instance. The first part should be <em>instance</em> which contains the json template to create an instance from. The subsequent parts must have a name that correspond to the element types defined in application metadata. They may have a filename. Hence the <em>model1</em> and <em>certificate</em> names correspond to data types defined in the application metadata. If more data elements are needed they must be defined in the application metadata.</p>
 
 <pre><code class="language-http">Content-Type: multipart/form-data; boundary=&quot;abcdefg&quot;
 
@@ -6676,8 +6675,16 @@ Content-Disposition: form-data; name=&quot;instance&quot;
 
 --abcdefg
 Content-Type: application/xml
-Content-Disposition: form-data; name=&quot;default&quot;
+Content-Disposition: form-data; name=&quot;model1&quot;
 &lt;xml&gt; ... &lt;/xml&gt;
+
+--abcdefg
+Content-Type: application/pdf
+Content-Disposition: form-data; name=&quot;certificate&quot;; filename=certificate.pdf
+%PDF-1.4
+%Óëéá
+1 0 obj
+...
 
 --abcdefg--
 </code></pre>
@@ -6698,6 +6705,8 @@ Content-Disposition: form-data; name=&quot;default&quot;
     &quot;created&quot;: &quot;2019-03-06T13:46:48.6882148Z&quot;,
     &quot;createdBy&quot;: &quot;org23&quot;,
     &quot;dueBefore&quot;: &quot;2019-06-01T12:00:00Z&quot;,
+    &quot;visibleAfter&quot;: &quot;2019-05-20T00:00:00Z&quot;,
+    &quot;title&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding for Ola Nordmann&quot;},
     &quot;process&quot;: {
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
         &quot;currentTask&quot;: {
@@ -6711,21 +6720,18 @@ Content-Disposition: form-data; name=&quot;default&quot;
             }
         }
     },
-    &quot;inbox&quot;: {
-        &quot;visibleAfter&quot;: &quot;2019-05-20T00:00:00Z&quot;,
-        &quot;title&quot;: { &quot;nb&quot;: &quot;Arbeidsmelding for Ola Nordmann&quot;},
+    &quot;status&quot;: {
         &quot;archived&quot;: null,
         &quot;softDeleted&quot;: null,
-        &quot;hardDelete&quot;: null
+        &quot;hardDeleted&quot;: null
     },
     &quot;appOwner&quot;: {
-         &quot;presentationField&quot;: &quot;Arbeidsmelding&quot;,
          &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
     },
     &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;dataType&quot;: &quot;default&quot;,
+        &quot;dataType&quot;: &quot;model1&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
         &quot;blobStoragePath&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
         &quot;selfLinks&quot;: {
@@ -6738,13 +6744,14 @@ Content-Disposition: form-data; name=&quot;default&quot;
         &quot;fileSize&quot;: 20001,
         &quot;isLocked&quot;: false,
     },
+    ...
     ]
 }
 </code></pre>
 
 <h3 id="create-a-data-element">Create a data element</h3>
 
-<p>Post data file (xml-document) as body of request. Must specify dataType as defined in the application metadata.</p>
+<p>Post a data file (e.g. an xml-document) as body of request with matching headers. Must specify dataType as defined in the application metadata.</p>
 
 <pre><code class="language-http">POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?dataType=default
 </code></pre>
@@ -6809,13 +6816,13 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 }
 </code></pre>
 
-<h2 id="receipt-data-element-1">Receipt data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h2>
+<h2 id="receipt-data-element">Receipt data element</h2>
 
 <p>All applications has an element type called <code>ref-data-as-pdf</code>. This is the place to store generated pdf receipt data.</p>
 
 <h3 id="upload-a-pdf-and-associate-the-pdf-with-an-existing-data-element">Upload a pdf and associate the pdf with an existing data element</h3>
 
-<pre><code class="language-http">POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?dataType=receipt&amp;refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+<pre><code class="language-http">POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?dataType=ref-data-as-pdf&amp;refs=692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
 <p>Results in a new data element with reference to the first. It is also possible to reference multiple data elements.</p>
@@ -6825,13 +6832,13 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
-        &quot;dataType&quot;: &quot;default&quot;,
+        &quot;dataType&quot;: &quot;model1&quot;,
         &quot;fileName&quot;: &quot;default.xml&quot;,
         &quot;contentType&quot;: &quot;application/xml&quot;,
         &quot;lastChanged&quot;: &quot;2019-03-06T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
         &quot;fileSize&quot;: 34059,
-        &quot;isLocked&quot;: false,
+        &quot;isLocked&quot;: true,
         &quot;applicationOwner&quot;: {
             &quot;downloaded&quot;: [&quot;2019-05-15T08:23:01Z&quot;]
         }
@@ -6839,7 +6846,7 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
     {
         &quot;id&quot;: &quot;c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d&quot;,
         &quot;dataType&quot;: &quot;ref-data-as-pdf&quot;,
-        &quot;fileName&quot;: &quot;autogen.pdf&quot;,
+        &quot;fileName&quot;: &quot;model1-view.pdf&quot;,
         &quot;contentType&quot;: &quot;application/pdf&quot;,
         &quot;lastChanged&quot;: &quot;2019-10-10T15:00:23Z&quot;,
         &quot;lastChangedBy&quot;: &quot;org24&quot;,
@@ -7292,7 +7299,7 @@ Process is set to first task. The task specifies if the data can be updated or n
     &quot;maxSize&quot;: -1,
     &quot;dataTypes&quot;: [
         {
-            &quot;id&quot;: &quot;default&quot;,
+            &quot;id&quot;: &quot;model1&quot;,
             &quot;appLogic&quot;: {
                 &quot;autoCreate&quot;: true,
                 &quot;classRef&quot;: &quot;Skjema22&quot;,

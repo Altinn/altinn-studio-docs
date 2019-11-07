@@ -6537,7 +6537,12 @@ An appId refers to the application information element which defines the metadat
     &quot;lastChanged&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
     &quot;lastChangedBy&quot;: &quot;user34&quot;,
     &quot;dueBefore&quot;: &quot;2019-06-10T00:00:00.00Z&quot;,
-    &quot;process&quot;:  &quot;process&quot;: {
+    &quot;visibleAfter&quot;: null,
+    &quot;title&quot;: {
+        &quot;nb&quot;: &quot;Færder påmelding 2019&quot;,
+        &quot;en&quot;: &quot;Fearder Race Registration 2019&quot;
+    },
+    &quot;process&quot;: {
         &quot;started&quot;: &quot;2019-09-25T09:32:44.20Z&quot;,
         &quot;currentTask&quot;: {
             &quot;started&quot;: &quot;2019-10-10T32:22.00Z&quot;,
@@ -6550,12 +6555,7 @@ An appId refers to the application information element which defines the metadat
             }
         }
     },
-    &quot;inbox&quot;: {
-        &quot;visibleAfter&quot;: null,
-        &quot;title&quot;: { 
-            &quot;nb&quot;: &quot;Færder påmelding 2019&quot;,
-            &quot;en&quot;: &quot;Fearder Race Registration 2019&quot;
-        },
+    &quot;status&quot;: {
         &quot;softDeleted&quot;: null,
         &quot;archived&quot;: &quot;2019-12-20T20:30:33.233Z&quot;,
         &quot;hardDelete&quot;: null,
@@ -6580,7 +6580,7 @@ An appId refers to the application information element which defines the metadat
             &quot;id&quot;: &quot;999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;dataType&quot;: &quot;crewlist&quot;,
             &quot;contentType&quot;: &quot;text/xml&quot;,
-            &quot;storageUrl&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
+            &quot;blobStoragePath&quot;: &quot;test/sailor/60238/762011d1-d341-4c0a-8641-d8a104e83d30/data/999911d1-d341-4c0a-8641-d8a104e83d30&quot;,
             &quot;fileName&quot;: &quot;crewLIst.xml&quot;,
             &quot;created&quot;: &quot;2019-03-07T23:59:49+01:00&quot;,
             &quot;createdBy&quot;: &quot;XXX&quot;,
@@ -6698,7 +6698,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>inbox.visibleAfter</td>
+<td>visibleAfter</td>
 <td>dateTime?</td>
 <td>when visible for user</td>
 <td></td>
@@ -6708,7 +6708,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>inbox.title</td>
+<td>title</td>
 <td>string</td>
 <td>text shown in inbox</td>
 <td></td>
