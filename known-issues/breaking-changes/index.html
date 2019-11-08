@@ -6534,8 +6534,8 @@ if(host != "localhost")
 
 <p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/2457">#2457</a></p>
 
-<p>Old apps created in Altinn Studio had no connection between the current process and the date element it was allowed to change data on.
-This caused an <code>System.NullReferenceException: Object reference not set to an instance of an object</code> error at the <code>AltinnCore.Runtime.RestControllers.ValidateController.ValidateData</code> endpoint when running validtions against the data element.</p>
+<p>Old apps created in Altinn Studio had no connection between the current process task and the date element it was allowed to change data on.
+This caused a <code>System.NullReferenceException</code> error in the  AltinnCore.Runtime.RestControllers.ValidateController.ValidateData endpoint when running validtions against the data element.</p>
 
 <h2 id="how-to-fix">How to fix</h2>
 
