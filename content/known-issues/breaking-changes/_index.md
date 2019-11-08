@@ -9,8 +9,8 @@ weight: 100
 
 Introduced with issue: [#2457](https://github.com/Altinn/altinn-studio/issues/2457)
 
-Old apps created in Altinn Studio had no connection between the current process and the date element it was allowed to change data on.
-This caused an ```System.NullReferenceException: Object reference not set to an instance of an object``` error at the ```AltinnCore.Runtime.RestControllers.ValidateController.ValidateData``` endpoint when running validtions against the data element.
+Old apps created in Altinn Studio had no connection between the current process task and the date element it was allowed to change data on.
+This caused a `System.NullReferenceException` error in the  AltinnCore.Runtime.RestControllers.ValidateController.ValidateData endpoint when running validtions against the data element.
 
 ## How to fix
 Log onto the altinn.studio and access the application metadata file: https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json
