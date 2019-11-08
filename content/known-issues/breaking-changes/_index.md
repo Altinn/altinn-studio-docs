@@ -5,6 +5,41 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 weight: 100
 ---
+## Breaking change: data element validation returns an internal server error to app frontend
+
+Introduced with issue: [#2457](https://github.com/Altinn/altinn-studio/issues/2457)
+
+Old apps created in Altinn Studio had no connection between the current process and the date element it was allowed to change data on.
+This caused an ```System.NullReferenceException: Object reference not set to an instance of an object``` error at the ```AltinnCore.Runtime.RestControllers.ValidateController.ValidateData``` endpoint when running validtions against the data element.
+
+## How to fix
+Log onto the altinn.studio and access the application metadata file: https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json
+
+In the `elementTypes` object, locate the object with the id `default`. This looks something like this:
+
+```json
+{
+    "id":"default",
+    "allowedContentType":["application/xml"],
+    "appLogic":true,
+    "maxCount":0,
+    "minCount":0
+}
+```
+
+This object should be extended with the following property `"task":"FormFilling_1",`. After this is added, the object should look like this
+
+```json
+{
+    "id":"default",
+    "allowedContentType":["application/xml"],
+    "appLogic":true,
+    "task": "FormFilling_1",
+    "maxCount":0,
+    "minCount":0
+}
+```
+
 ## Breaking change: Deploy fails with error "The current .NET SDK does not support targeting .NET Core 3.0"
 Introduced with issue: [#2762](https://github.com/Altinn/altinn-studio/issues/2762)
 
