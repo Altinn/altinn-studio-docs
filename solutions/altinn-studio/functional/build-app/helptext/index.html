@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Help developer configure help texts for components">
 
 
     
-    <title>test :: Altinn digitalisering - Utvikling</title>
+    <title>Configure helptext :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -49,7 +49,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/tags/test/">
+  <body class="a-page" data-url="/solutions/altinn-studio/functional/build-app/helptext/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -122,7 +122,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -135,7 +135,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -160,7 +160,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -173,7 +173,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -198,7 +198,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/functional/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -211,7 +211,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -236,7 +236,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/functional/build-app/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -249,7 +249,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -361,8 +361,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/solutions/altinn-studio/functional/build-app/helptext/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/solutions/altinn-studio/functional/build-app/helptext/">
@@ -4003,7 +4003,7 @@ if(host != "localhost")
     
     <li data-nav-id="/architecture/development/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/architecture/development/">
@@ -6475,11 +6475,34 @@ if(host != "localhost")
                 </span>
                 <span class="links">
                   
-                    <a href="/docs/tags/">Tags</a> /
-                  
                   
 
- test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-studio/functional/'>Functionality</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/solutions/altinn-studio/functional/build-app/'>Building and configuring app</a> <span class='adocs-breadcrumb-divider'> / </span> Configure helptext
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
 
                 </span>
@@ -6490,7 +6513,11 @@ if(host != "localhost")
         <div id="body-inner">
           
             
-              <h1 class="a-fontBold">Tag: test</h1>
+              <h1 class="a-fontBold">
+                Configure helptext
+                
+              </h1>
+              <p class="a-leadText" id="leadText">Help developer configure help texts for components</p>
             
           
 
@@ -6502,65 +6529,144 @@ if(host != "localhost")
 
 
 
+<p>Help texts are small text snippets that provide a brief explaination of what the users are supposed to fill in to the fields that they describe.</p>
+
+<p>The language-keys that point to the help text is defined in the form layout json file.</p>
+
+<p>In your repo under the folder <code>Resources</code> there is a <code>FormLayout.json</code>-file. The contents might be:</p>
+
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;layout&quot;: [
+      {
+        &quot;id&quot;: &quot;616071dc-90b1-4ce5-8d18-492844828a41&quot;,
+        &quot;type&quot;: &quot;Header&quot;,
+        &quot;componentType&quot;: 0,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;ServiceName&quot;
+        },
+        &quot;dataModelBindings&quot;: {}
+      },
+      {
+        &quot;id&quot;: &quot;fac3c047-efe1-49da-8189-da7c536a4edd&quot;,
+        &quot;type&quot;: &quot;Input&quot;,
+        &quot;componentType&quot;: 2,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;21771.RapporteringsenhetNavndatadef21771.Label&quot;,
+          &quot;description&quot;: &quot;21771.RapporteringsenhetNavndatadef21771.Label&quot;
+        },
+        &quot;dataModelBindings&quot;: {
+          &quot;simpleBinding&quot;: &quot;generellInformasjongrp2581.avgiftspliktiggrp50.rapporteringsenhetNavndatadef21771.value&quot;
+        },
+        &quot;required&quot;: true,
+        &quot;readOnly&quot;: false
+      },
+      {
+        &quot;id&quot;: &quot;08d707a9-2475-4d23-bf76-f209fb434ec2&quot;,
+        &quot;type&quot;: &quot;TextArea&quot;,
+        &quot;componentType&quot;: 7,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;19684.OmsetningsoppgaverTilleggsopplysningerdatadef19684.Label&quot;,
+          &quot;description&quot;: &quot;19684.OmsetningsoppgaverTilleggsopplysningerdatadef19684.Label&quot;,
+        },
+        &quot;dataModelBindings&quot;: {
+          &quot;simpleBinding&quot;: &quot;avgiftspostergrp2577.posteneIOppgavengrp5639.tilleggsopplysningergrp197.omsetningsoppgaverTilleggsopplysningerdatadef19684.value&quot;
+        },
+        &quot;required&quot;: false,
+        &quot;readOnly&quot;: false
+      },
+      {
+        &quot;id&quot;: &quot;bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de&quot;,
+        &quot;type&quot;: &quot;Button&quot;,
+        &quot;componentType&quot;: 9,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;Send inn&quot;
+        },
+        &quot;dataModelBindings&quot;: {},
+        &quot;textResourceId&quot;: &quot;Standard.Button.Button&quot;,
+        &quot;customType&quot;: &quot;Standard&quot;
+      }
+    ]
+  }
+}
+</code></pre>
+
+<p>If you would like one of these components to have a help text you will need to</p>
+
+<ol>
+<li>Insert a key into text resources, under the tab &ldquo;Language&rdquo;
+
+<ul>
+<li>Remember to fill out all the fields, it will not let you save if you have fields that are empty.</li>
+</ul></li>
+<li>Open the <code>FormLayout.json</code>-file</li>
+<li>Insert a new text resource binding with the key &ldquo;help&rdquo; and the value to be the name of the Language resource.</li>
+</ol>
+
+<p>Example of how it looks after adding help text:</p>
+
+<pre><code class="language-json">{
+  &quot;data&quot;: {
+    &quot;layout&quot;: [
+      {
+        &quot;id&quot;: &quot;616071dc-90b1-4ce5-8d18-492844828a41&quot;,
+        &quot;type&quot;: &quot;Header&quot;,
+        &quot;componentType&quot;: 0,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;ServiceName&quot;
+        },
+        &quot;dataModelBindings&quot;: {}
+      },
+      {
+        &quot;id&quot;: &quot;fac3c047-efe1-49da-8189-da7c536a4edd&quot;,
+        &quot;type&quot;: &quot;Input&quot;,
+        &quot;componentType&quot;: 2,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;21771.RapporteringsenhetNavndatadef21771.Label&quot;,
+          &quot;description&quot;: &quot;21771.RapporteringsenhetNavndatadef21771.Label&quot;
+        },
+        &quot;dataModelBindings&quot;: {
+          &quot;simpleBinding&quot;: &quot;generellInformasjongrp2581.avgiftspliktiggrp50.rapporteringsenhetNavndatadef21771.value&quot;
+        },
+        &quot;required&quot;: true,
+        &quot;readOnly&quot;: false
+      },
+      {
+        &quot;id&quot;: &quot;08d707a9-2475-4d23-bf76-f209fb434ec2&quot;,
+        &quot;type&quot;: &quot;TextArea&quot;,
+        &quot;componentType&quot;: 7,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;19684.OmsetningsoppgaverTilleggsopplysningerdatadef19684.Label&quot;,
+          &quot;description&quot;: &quot;19684.OmsetningsoppgaverTilleggsopplysningerdatadef19684.Label&quot;,
+          &quot;help&quot;: &quot;Skjema.TilleggsOpplysninger.Hjelpetext&quot;
+        },
+        &quot;dataModelBindings&quot;: {
+          &quot;simpleBinding&quot;: &quot;avgiftspostergrp2577.posteneIOppgavengrp5639.tilleggsopplysningergrp197.omsetningsoppgaverTilleggsopplysningerdatadef19684.value&quot;
+        },
+        &quot;required&quot;: false,
+        &quot;readOnly&quot;: false
+      },
+      {
+        &quot;id&quot;: &quot;bd6589b6-e2ab-49ba-b39a-dd3f8b63e5de&quot;,
+        &quot;type&quot;: &quot;Button&quot;,
+        &quot;componentType&quot;: 9,
+        &quot;textResourceBindings&quot;: {
+          &quot;title&quot;: &quot;Send inn&quot;
+        },
+        &quot;dataModelBindings&quot;: {},
+        &quot;textResourceId&quot;: &quot;Standard.Button.Button&quot;,
+        &quot;customType&quot;: &quot;Standard&quot;
+      }
+    ]
+  }
+}
+</code></pre>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post technology">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/technology/jest/">Jest</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>&ldquo;Jest is a delightful JavaScript Testing Framework with a focus on simplicity.&rdquo; - https://jestjs.io/
-Jest testing framework is used for front-end testing in Altinn Studio.
-You can read more about how to test with Jest here <a class="read-more" href="/technology/jest/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/frontend/">frontend</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/test/">test</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
 
 
 
@@ -6593,8 +6699,6 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                       
                           
                               
-                                  
-                                  
                               
                           
                           
@@ -6610,6 +6714,7 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                       
                       
                           
+                              
                               
                           
                           
@@ -6626,6 +6731,7 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                       
                           
                               
+                              
                           
                           
           
@@ -6641,6 +6747,7 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                       
                           
                               
+                              
                           
                           
           
@@ -6655,6 +6762,9 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -6703,6 +6813,7 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                       
                       
                           
+                              
                               
                           
                           
@@ -6720,6 +6831,9 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                       
                           
                               
+                                  
+                                  
+                              
                           
                           
           
@@ -9829,15 +9943,28 @@ You can read more about how to test with Jest here <a class="read-more" href="/t
                   
           
           
+                  
+                      <a class="nav nav-prev" href="/solutions/altinn-studio/functional/build-app/prefill/" title="Configure Prefill"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/solutions/" title="Solutions" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/solutions/altinn-studio/functional/build-app/code-editor/" title="Create Logic with code" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
 
             </div>
 
+            
+              
+              
+              
+                <div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/solutions/altinn-studio/functional/build-app/helptext/_index.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page
+                  </a>
+                </div>
+              
             
 
         </section>
