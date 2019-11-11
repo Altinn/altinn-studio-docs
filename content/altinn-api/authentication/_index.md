@@ -170,3 +170,17 @@ The convert operation validates the incomming token and generates a new JWT toke
 .
 <<signature>>
 ```
+
+## Open ID Connect configuration
+
+{{%notice warning%}}
+This is work-in-progress. The response is still missing required information and might be inconsistent with actual authentication mechanisms. 
+{{% /notice%}}
+
+Metadata about Altinn as an Open ID provider is exposed as a .well-known endpoint as defined by [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
+
+The primary porpose of this endpoint is to make available the Altinn signing certificate for the JSON Web Tokens being generated. It is recommended that clients of Altinn use this discovery endpoint to automatically have their systems updated when Altinn changes their signing certificate.
+
+| Environment | URL
+| ----------- | ---
+| AT21        | https://platform.at21.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration
