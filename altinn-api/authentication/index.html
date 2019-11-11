@@ -6507,6 +6507,7 @@ if(host != "localhost")
 <li><a href="#maskinporten-jwt-access-token-input">Maskinporten JWT access token (input)</a></li>
 <li><a href="#the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</a></li>
 </ul></li>
+<li><a href="#open-id-connect-configuration">Open ID Connect configuration</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -6694,6 +6695,32 @@ GET /authentication/api/v1/convert
 .
 &lt;&lt;signature&gt;&gt;
 </code></pre>
+
+<h2 id="open-id-connect-configuration">Open ID Connect configuration</h2>
+
+<div class="notices warning" ><p>This is work-in-progress. The response is still missing required information and might be inconsistent with actual authentication mechanisms.</p>
+</div>
+
+
+<p>Metadata about Altinn as an Open ID provider is exposed as a .well-known endpoint as defined by <a href="https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig">OpenID Connect Discovery</a>.</p>
+
+<p>The primary porpose of this endpoint is to make available the Altinn signing certificate for the JSON Web Tokens being generated. It is recommended that clients of Altinn use this discovery endpoint to automatically have their systems updated when Altinn changes their signing certificate.</p>
+
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>URL</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>AT21</td>
+<td><a href="https://platform.at21.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration">https://platform.at21.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration</a></td>
+</tr>
+</tbody>
+</table>
 
 
 <footer class=" footline" >
