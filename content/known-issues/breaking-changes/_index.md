@@ -12,7 +12,7 @@ Introduced with issue: [#2457](https://github.com/Altinn/altinn-studio/issues/24
 Old apps created in Altinn Studio had no connection between the current process task and the date element it was allowed to change data on.
 This caused a `System.NullReferenceException` error in the  AltinnCore.Runtime.RestControllers.ValidateController.ValidateData endpoint when running validtions against the data element.
 
-## How to fix
+### How to fix
 Log onto the altinn.studio and access the application metadata file: https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json
 
 In the `elementTypes` object, locate the object with the id `default`. This looks something like this:
@@ -47,7 +47,7 @@ When an application is deployed the latest Runtime image is copied from Azure Co
 on ASP.NET Core 3.0 the application must also specify that it should run on the same version. For all applications created before 
 21.10.2019 the specified version in .ASP.NET Core 2.2, and this must be changed.
 
-## How to fix
+### How to fix
 Log onto altinn.studio and access the Dockerfile using this url: https://altinn.studio/repos/{org}/{app}/src/branch/master/Dockerfile
 Edit line 9 from ```FROM microsoft/dotnet:2.2-aspnetcore-runtime AS final``` to ``` FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS final```
 
@@ -87,7 +87,7 @@ and in application metadata there is a boolean to indicate that elements of thio
 This will cause POST requests to https://{{appOwner}}.apps.{{platformUrl}}/{{appOwner}}/{{appName}}/instances/{{instanceOwnerId}}/{{instanceId}}/data?elementType=default
 to fail if application metadata has not been updated.
 
-## How to fix
+### How to fix
 Set appLogic equal to true for element type with id 'default'.
 Log onto altinn.studio and access the metadata file using this url: https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json
 Edit the default element type in the metadata to match the example below
