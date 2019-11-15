@@ -5,6 +5,21 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 weight: 100
 ---
+## Error when trying to deploy an app to any environment (AT21, AT23)
+Introduced with issue: [#1158](https://github.com/Altinn/altinn-studio/issues/1158) which was implemented in relation with issue [#2757](https://github.com/Altinn/altinn-studio/issues/2757)
+
+### Errors
+When deploying your app to an environment (AT21, AT23) and you get an error box appearing from the "Deploy new version"-button with a 404 statuscode, it could mean that the server can't find the Authorization folder and policy.xml residing within.
+
+### How to fix
+Make sure the Gitea repository connected to the relevant app contains (on the root level) a folder named Authorization and the folder contains a file named policy.xml.
+
+If there is no folder named Authorization, add the folder and within the folder, add policy.xml. Inside the policy.xml file, you need to change {org} to the relevant organisation and {app} to the relevant application name.
+
+Here is the [policy.xml](policy.xml).
+
+If you have a folder named Authorization but there is no policy.xml file within it, add the file with the procedure described above.
+
 ## Breaking change: data element validation returns an internal server error to app frontend
 
 Introduced with issue: [#2457](https://github.com/Altinn/altinn-studio/issues/2457)
@@ -205,18 +220,3 @@ When opening an archived instance instanciated before the 24.06.2019, the follow
 
 ### How to fix
 There is no fix for this breaking change. New instances of the app must be instanciated. 
-
-## Error when trying to deploy an app to any environment (AT21, AT23)
-Introduced with issue: [#1158](https://github.com/Altinn/altinn-studio/issues/1158) which was implemented in relation with issue [#2757](https://github.com/Altinn/altinn-studio/issues/2757)
-
-### Errors
-When deploying your app to an environment (AT21, AT23) and you get an error box appearing from the "Deploy new version"-button with a 404 statuscode, it could mean that the server can't find the Authorization folder and policy.xml residing within.
-
-### How to fix
-Make sure the Gitea repository connected to the relevant app contains (on the root level) a folder named Authorization and the folder contains a file named policy.xml.
-
-If there is no folder named Authorization, add the folder and within the folder, add policy.xml. Inside the policy.xml file, you need to change {org} to the relevant organisation and {app} to the relevant application name.
-
-Here is the [policy.xml](policy.xml).
-
-If you have a folder named Authorization but there is no policy.xml file within it, add the file with the procedure described above.
