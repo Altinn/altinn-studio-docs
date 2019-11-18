@@ -5,7 +5,7 @@ tags: [development, routing, traefik, ingress routes, ingress]
 weight: 100
 ---
 
-Before traefik 2.0 the only supported way of routing in kubernetes was throught he Kubernetes Ingress prodvider, which limited the functionality traefik could offer.
+Before traefik 2.0 the only supported way of routing in kubernetes was through the Kubernetes Ingress prodvider, which limited the functionality traefik could offer.
 
 As a result of introducing the custom resource IngressRoutes in traefik 2.0 we don't need to write many annotations on the ingress. And it is easier to configure access to a kubernetes cluster.
 
