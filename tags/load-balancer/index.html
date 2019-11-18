@@ -5091,35 +5091,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/loadbalancer/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/development/handbook/loadbalancer/">
-        <span>Loadbalancer</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/development/handbook/naming/" class="dd-item 
         
         
@@ -5164,6 +5135,245 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/">
+        <span>Routing</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/nginx/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/nginx/">
+        <span>Nginx routing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/">
+        <span>Traefik routing</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/installation/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/installation/">
+        <span>Installation of Traefik 2.0</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/tls-configuration/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/tls-configuration/">
+        <span>TLS in Traefik 2.0</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/custom-resources/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/custom-resources/">
+        <span>Traefik custom resources</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/ingress-routes/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/ingress-routes/">
+        <span>Traefik ingress routes</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6520,36 +6730,6 @@ if(host != "localhost")
 </nav>
 
 	</div>
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/loadbalancer/">Loadbalancer</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Loadbalancer The loadbalancer config is stored as a configmap in our kubernetes cluster. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
-Apply the changes, and restart the pod:
-Option 1: kill the pod and let the deployment spinn up a new pod.
-Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/development/handbook/loadbalancer/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/load-balancer/">load-balancer</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
 
 	
 	   <article class="post technology">
@@ -9218,8 +9398,108 @@ Links  https://traefik.io https://github.com/containous/traefik   <a class="read
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
                               
                       
                   

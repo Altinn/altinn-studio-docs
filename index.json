@@ -490,6 +490,13 @@
 	"content": "Altinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rDeployment\rDescription of the Altinn Studio solution\n\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/routing/traefik/installation/",
+	"title": "Installation of Traefik 2.0",
+	"tags": ["development", "routing", "traefik", "installation"],
+	"description": "How to install traefik",
+	"content": "Installation of traefik is done through helm, and we have a traefik helm chart for Altinn Tjenester 3.0.\nIf there is a fresh installation of traefik 2.0 with helm 3.0, make sure that there is a folder called crds in that helm chart folder. After that it is just to install with helm, and wait for the traefik service to have a public IP before updating the Azure DNS zone with a A record.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/",
 	"title": "InstansiationHandler.cs",
 	"tags": ["app-structure"],
@@ -539,13 +546,6 @@
 	"content": "The Kubernetes Wrapper is a application that exposes information about the Altinn Apps Kubernetes Cluster it is deployed to.\nThis is used by Altinn Studio for information about the apps deployed to a given Altinn Apps cluster.\nThe Kubernetes Wrapper is a ASP.NET core MVC application exposing REST\u0026rsquo;API\u0026rsquo;s\n"
 },
 {
-	"uri": "https://docs.altinn.studio/development/handbook/loadbalancer/",
-	"title": "Loadbalancer",
-	"tags": ["development", "load-balancer"],
-	"description": "Information about loadbalancer",
-	"content": " Loadbalancer The loadbalancer config is stored as a configmap in our kubernetes cluster. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).\nApply the changes, and restart the pod:\nOption 1: kill the pod and let the deployment spinn up a new pod.\nOption 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload\n"
-},
-{
 	"uri": "https://docs.altinn.studio/architecture/security/log/",
 	"title": "Log and log managament",
 	"tags": ["architecture", "security", "encryption"],
@@ -558,6 +558,13 @@
 	"tags": ["development"],
 	"description": "Naming guidelines for Altinn Studio development",
 	"content": " C# The Altinn project will use Microsoft’s coding conventions as a general guideline when no other guidelines are given.\nExceptions/additions to the general guideline:\nImplicit typing (var) should only be used when a variable is initialized with an anonymous type, which is a common scenario in LINQ query expressions. In general implicit typing makes the code more difficult to read and understand,and should be avoided. Altinn specific coding guidelines:\nMethods should not be more than 50 lines long When dealing with XML you should prefer XDocument to XmlDocument (especially in new methods) If/for/while/using and other structures should normally not be more than 2-3 levels deep All disposeable objects (proxies, DbCommand and so on) should be disposed by using a using block. Altinn specific naming guidelines:\nNames for classes, methods and variables should be describing, but not too long WCF-Artifact Naming TUL Naming Standard Namespace \u0026amp; Solution Structure\nReact Names of react-components should be descriptive and in pascal case\nActions Names of actions should be descriptive and in camel case.\nAn action should have the initial action, for instance fetchFormLayout, and an action if it succeeds and if it fails. For instance fetchFormLayoutFulfilled(succeed) and fetchFormLayoutRejected(failed).\nSagas Names of sagas should have the name of the action it listens to, and the word Saga appended to the end. For instance fetchFormLayoutSaga.\nAnd for saga-watchers, should have the watch-word appended to the start, and the saga name it watches. For instance watchFetchFormLayoutSaga.\nReducers Names of reducers should have a descriptive name of that it is responsible for updating in the redux-store, and the word Reducer appended to the end. For instace formLayoutReducer.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/routing/nginx/",
+	"title": "Nginx routing",
+	"tags": ["development", "nginx", "routing"],
+	"description": "Information about routing with nginx",
+	"content": " Nginx routing The router config is stored as a configmap in our kubernetes cluster, and mounted to the pod as a .conf file. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).\nApply the changes, and restart the pod:\nOption 1: kill the pod and let the deployment spinn up a new pod.\nOption 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload\n"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/back-end/nuget-package/",
@@ -728,6 +735,13 @@
 	"content": " Routing in Altinn Apps are done by Traefik. See Traefik documentation for detailed architecture information\nConfiguration "
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/routing/",
+	"title": "Routing",
+	"tags": ["development", "routing"],
+	"description": "Information about routing",
+	"content": " Routing \rNginx routing\rInformation about routing with nginx\n\r\rTraefik routing\r\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/architecture/security/",
 	"title": "Security Architecture",
 	"tags": ["architecture", "security"],
@@ -798,6 +812,13 @@
 	"content": " Summary Styling in React is done per component using a combination of Material-UI and compatible JSS.\n Components shall not be styled with CSS classes in .CSS files.\n Different component types should use different styling methods, or a combination.\nProposed order of styling methods The following order is proposed when considering styling methods:\n Styled Components (Accepts props, logic, theming) Material-UI\u0026rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. Not directly compatible with Material-UI)  Shared Components Shared components should utilize \u0026ldquo;Styled Components\u0026rdquo; which can write Props directly in the CSS styling. The alternative way is handling styling via props is leveraging \u0026ldquo;inline styling\u0026rdquo; combined with Material-UI\u0026rsquo;s JSS. When using inline styling, the component\u0026rsquo;s styling will be configured in two different places. Inline style example\n\u0026lt;FormControl fullWidth={true} style={{ width: this.props.width ? this.props.width : null, }} \u0026gt;  Styled Components example\nconst theme = createMuiTheme(altinnTheme); const StyledPopper = styled(({ ...otherProps }) =\u0026gt; ( \u0026lt;Popper {...otherProps} /\u0026gt; ))` color: ${theme.altinnPalette.primary.black}; background: ${theme.altinnPalette.primary.redLight}; border-radius: 0; box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25); font-size: 16px; padding: 24px; max-width: 550px; margin-top: 10px; z-index: ${(props) =\u0026gt; props.zIndex || 1} `; class AltinnPopper extends React.Component\u0026lt;IAltinnPopperComponentProvidedProps, IAltinnPopperComponentState\u0026gt; { public render() { const open = Boolean(this.props.anchorEl); return ( \u0026lt;StyledPopper open={open} anchorEl={this.props.anchorEl} placement={'bottom-start'} \u0026gt; {this.props.message} \u0026lt;/StyledPopper\u0026gt; ); } } export default AltinnPopper;  Exception There will be examples where \u0026ldquo;Styled Components\u0026rdquo; are hard to configure using some of Material-UI\u0026rsquo;s components where \u0026ldquo;Props\u0026rdquo; with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.\nStyled object example\nconst styles = { searchBoxInput: { fontSize: '16px', color: '#000000', padding: '6px', }, searchBoxIcon: { color: '#000000', fontSize: '30px', marginRight: '10px', }, };  React component, with Styled Component AND \u0026lsquo;classes.searchBoxInput\u0026rsquo; from Styled Object example above.\nclass AltinnSearchInput extends React.Component\u0026lt;IAltinnSearchInputComponentProvidedProps, IAltinnSearchInputComponentState\u0026gt; { public render() { const { classes } = this.props; return ( \u0026lt;StyledFormControl id='StyledForm' fullWidth={true} \u0026gt; \u0026lt;TextField id={this.props.id} placeholder={this.props.placeholder} onChange={this.props.onChangeFunction} InputProps={{ disableUnderline: true, startAdornment: \u0026lt;InputAdornment position={'end'} classes={{ root: classNames(classes.searchBoxIcon) }} \u0026gt; \u0026lt;i className={'ai ai-search'} /\u0026gt; \u0026lt;/InputAdornment\u0026gt;, classes: { root: classNames(classes.searchBoxInput) }, }} /\u0026gt; \u0026lt;/StyledFormControl\u0026gt; ); } } export default withStyles(styles)(AltinnSearchInput);  Contained Components Contained components are React components which are not shared in other parts of the React application. It\u0026rsquo;s encouraged to consider the styling order above.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/development/handbook/routing/traefik/tls-configuration/",
+	"title": "TLS in Traefik 2.0",
+	"tags": ["development", "routing", "traefik", "tls"],
+	"description": "How to set up TLS",
+	"content": " TLS sertificates stored as secrets on the cluster apiVersion: v1 kind: Secret metadata: name: altinn-tls-secret data: tls.crt: [[BASE 64 ENCODED CERTIFICATE]] tls.key: [[BASE 64 ENCODED PRIVATE KEY]]  TLS Options To set up TLS options we need to use the custom resource TLSOption. A basic set up of this is:\napiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-tls-options namespace: default spec: minVersion: VersionTLS12  Adding TLS to an Ingress Route Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally a options-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the default namespace).\napiVersion: traefik.containo.us/v1alpha1 kind: IngressRoute metadata: name: altinn-runtime spec: entryPoints: - web - websecure routes: - match: Host(`dev.altinn.studio`) # priority: 25 kind: Rule services: - name: altinn-runtime port: 5005 tls: secretName: altinn-tls-secret options: #Optional name: altinn-tls-options namespace: default  "
+},
+{
 	"uri": "https://docs.altinn.studio/terms/",
 	"title": "Terms",
 	"tags": [],
@@ -838,6 +859,27 @@
 	"tags": ["development", "testing"],
 	"description": "How to write and maintain testcafe tests",
 	"content": " This document describes how one can start writing tests on a test cafe project , and debug of the tests.\nProcedure to write a testcafe test  Find a test case and area that has to be automated. Find the \u0026lsquo;-tests.js\u0026rsquo; file that the test case has to be added or create a new folder and new .js file for the test under src/test/Testcafe. Identify and add the page objects with the selectors information under respective file under src/test/Testcafe/page-objects. Identify the need for methods that can be reused by other tests and add it under the page object file. Each \u0026lsquo;-tests.js\u0026rsquo; file has headers that import the necessary page objects. Fixtures innholds URL, before and aftereach test procedures. Test cafe tests has a basic format as below.   Debug Tests  Use \u0026rsquo;t.debug()\u0026rsquo; in a testcafe test to start debugging of the test. Use breakpoints for the steps to be debugged. Use \u0026lsquo;console.log(variable_name)\u0026rsquo; to find the runtime value of an variable - which will be logged in VS Code Terminal.  Rename the test to “test.only” - this will only run the specific test case. in testRunner.js, Set “chrome” as browser, Reduce the speed to 0.8 (percentage), debugOnFail : True, stopOnFirstFail: True Use \u0026lsquo;\u0026ndash;inspect \u0026ndash;debug-brk\u0026rsquo; in the command line when starting the tests. Check for the logs in junit.xml. Testcafe continues to work towards implementing a method to debug an application interactively. Refer: https://github.com/DevExpress/testcafe/issues/3244  Basics on POM and Selectors 1. config.json has the URLs 2. Use of objects from POM i. Import page – 'import page_name from path_to_the_file ii. Declare an object for the page - let object_name = new page_name(); 4. Selectors a. Id – starts with ‘#’ b. Class – starts with ‘.’ c. Html -\u0026gt; “ul \u0026gt; li” 5. test.skip – to skip a test in a test run (The results for the tests goes to Others)  More about Selectors\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/routing/traefik/custom-resources/",
+	"title": "Traefik custom resources",
+	"tags": ["development", "routing", "traefik", "custom resources", "crds"],
+	"description": "Definitions for traefik 2.0 custom resources in kubernetes",
+	"content": "IMPORTANT These resources have to be installed before creating any of the resources they describe. They are most likely installed with helm when installing traefik 2.0.\nTo support new features in routing and middlewares with IngressRoutes and dynamic tls options, traefik supplies it\u0026rsquo;s own kubernetes custom resources defined in the traefik docs. These are:\napiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: ingressroutes.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: IngressRoute plural: ingressroutes singular: ingressroute scope: Namespaced --- apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: middlewares.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: Middleware plural: middlewares singular: middleware scope: Namespaced --- apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: tlsoptions.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: TLSOption plural: tlsoptions singular: tlsoption scope: Namespaced --- apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: ingressroutetcps.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: IngressRouteTCP plural: ingressroutetcps singular: ingressroutetcp scope: Namespaced  They will extend the types of resources you can have on your cluster.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/routing/traefik/ingress-routes/",
+	"title": "Traefik ingress routes",
+	"tags": ["development", "routing", "traefik", "ingress routes", "ingress"],
+	"description": "How to set up an ingress route and route trafic based on rules and middlewares",
+	"content": " Before traefik 2.0 the only supported way of routing in kubernetes was through the Kubernetes Ingress prodvider, which limited the functionality traefik could offer.\nAs a result of introducing the custom resource IngressRoutes in traefik 2.0 we don\u0026rsquo;t need to write many annotations on the ingress. And it is easier to configure access to a kubernetes cluster.\nResource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRoute metadata: name: altinn-runtime spec: entryPoints: - web - websecure routes: - match: Host(`dev.altinn.studio`) # priority: 25 kind: Rule services: - name: altinn-runtime port: 5005  This is the simplest service to port over to traefik 2.0 within Altinn Studio. Since it is the \u0026ldquo;default\u0026rdquo; route if nothing else matches (routes for /repos or /designer).\nPay close attencion to the priority-field. If nothing is specified it will be the length of the string in the match-field. So longer rules are higher prioritized.\nRouting Middlewares In the earlier example we can hook up middlewares. You can define middlewares in this format:\napiVersion: traefik.containo.us/v1alpha1 kind: Middleware metadata: name: fetch-cookie-and-redirect spec: replacePath: path: /Redirect/FetchCookieAndRedirectHome/  This example is for when the designer fetches cookies and redirects to \u0026ldquo;/home\u0026rdquo;.\nThe different specs can be found in the traefik docs.\nSo first create a middleware resource in kubernetes and then you can use it in the ingressRoute like this\nname: altinn-designer-root namespace: default entrypoints: - web routes: - match: local: Host(`altinn3.no`) \u0026amp;\u0026amp; Path(`/`) dev: Host(`dev.altinn.studio`) \u0026amp;\u0026amp; Path(`/`) staging: Host(`staging.altinn.studio`) \u0026amp;\u0026amp; Path(`/`) prod: Host(`altinn.studio`) \u0026amp;\u0026amp; Path(`/`) kind: Rule strategy: RoundRobin middlewares: [] - name: altinn-designer-home namespace: default entrypoints: - web routes: - match: local: Host(`altinn3.no`) \u0026amp;\u0026amp; PathPrefix(`/Home`) dev: Host(`dev.altinn.studio`) \u0026amp;\u0026amp; PathPrefix(`/Home`) staging: Host(`staging.altinn.studio`) \u0026amp;\u0026amp; PathPrefix(`/Home`) prod: Host(`altinn.studio`) \u0026amp;\u0026amp; PathPrefix(`/Home`) kind: Rule strategy: RoundRobin middlewares: [] - name: altinn-designer-designer namespace: default entrypoints: - web routes: - match: local: Host(`altinn3.no`) \u0026amp;\u0026amp; PathPrefix(`/designer`) dev: Host(`dev.altinn.studio`) \u0026amp;\u0026amp; PathPrefix(`/designer`) staging: Host(`staging.altinn.studio`) \u0026amp;\u0026amp; PathPrefix(`/designer`) prod: Host(`altinn.studio`) \u0026amp;\u0026amp; PathPrefix(`/designer`) kind: Rule strategy: RoundRobin middlewares: [] - name: altinn-designer-repos namespace: default entrypoints: - web routes: - match: local: Host(`altinn3.no`) \u0026amp;\u0026amp; (Path(`/repos/`) || Path(`/repos`)) dev: Host(`dev.altinn.studio`) \u0026amp;\u0026amp; (Path(`/repos/`) || Path(`/repos`)) staging: Host(`staging.altinn.studio`) \u0026amp;\u0026amp; (Path(`/repos/`) || Path(`/repos`)) prod: Host(`altinn.studio`) \u0026amp;\u0026amp; (Path(`/repos/`) || Path(`/repos`)) kind: Rule strategy: RoundRobin middlewares: - name: fetch-cookie-and-redirect  At the last entry in the routes element uses the middleware. It references the middleware by name.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/development/handbook/routing/traefik/",
+	"title": "Traefik routing",
+	"tags": ["development", "traefik", "routing"],
+	"description": "",
+	"content": "In Altinn Tjenester 3.0 we are migrating from nginx to traefik for routing.\n\rInstallation of Traefik 2.0\rHow to install traefik\n\r\rTLS in Traefik 2.0\rHow to set up TLS\n\r\rTraefik custom resources\rDefinitions for traefik 2.0 custom resources in kubernetes\n\r\rTraefik ingress routes\rHow to set up an ingress route and route trafic based on rules and middlewares\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/development/handbook/troubleshooting/",
@@ -1222,7 +1264,7 @@
 	"title": "Handbook",
 	"tags": ["development"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rAzure Dev Spaces\rGuidelines for deploying storage\n\r\r\r\rBack-end\rCoding guidelines for back-end\n\r\r\rError handling and Error logging\rGuidelines for error handling and error logging in backend\n\r\rNuget Package\rOverview of nuget package usage in altinn studio\n\r\r\rDeployment\rGuidelines for deploying\n\r\r\r\rFront-end\rCoding guidelines for front-end\n\r\r\rBest practices\rBest practices for altinn.studio frontend\n\r\rBuild\rBuild documentation for altinn.studio frontend\n\r\rComponent Library\rComponent documentation for altinn.studio\n\r\rDebug\rDebug documentation for altinn.studio frontend\n\r\rError handling\rGuidelines for error handling front-end\n\r\rPost Message\rGuidelines for using post message functionality in Altinn Studio\n\r\rReact\rGuidelines for using React in Altinn Studio\n\r\rRedux\rGuidelines for using Redux in Altinn Studio\n\r\rStyling (css)\rGuidelines for styling components in Altinn Studio\n\r\r\rGeneral\rGeneral coding guidelines\n\r\r\r\rGetting started\rInformation about how to get started\n\r\r\r\rGit\rInformation about version control with Git\n\r\r\r\rGitea\rGitea documentation for altinn.studio\n\r\r\r\rLoadbalancer\rInformation about loadbalancer\n\r\r\r\rNaming Conventions\rNaming guidelines for Altinn Studio development\n\r\r\r\rRESTful APIs (Representation State Transfer)\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\r\rSecurity Checklist\rChecklist for security OWASP.\n\r\r\r\rTest\rCoding guidelines for tests\n\r\r\rAutomated test app\rAn app used solely for automated testing in the browser\n\r\rPostman\rAPI Testing with postman\n\r\rTest Coverage\rAutomation testcases by area\n\r\rTest Strategy\rTest Strategy\n\r\rTestcafe\rTestcafe\n\r\rUnit testing\rHow to write jest test in altinn studio, what we know so far\n\r\rXunit Testing\rXunit Testing\n\r\r\rTroubleshooting\rTroubleshooting for altinn.studio\n\r\r\r\rTheming and styling\rSolution for theming and styling conventions.\n\r\r\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\r\r\r"
+	"content": "WARNING: The development handbook is currently being written, and is as such not complete or final.\n\rThe development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way. The development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rAzure Dev Spaces\rGuidelines for deploying storage\n\r\r\r\rBack-end\rCoding guidelines for back-end\n\r\r\rError handling and Error logging\rGuidelines for error handling and error logging in backend\n\r\rNuget Package\rOverview of nuget package usage in altinn studio\n\r\r\rDeployment\rGuidelines for deploying\n\r\r\r\rFront-end\rCoding guidelines for front-end\n\r\r\rBest practices\rBest practices for altinn.studio frontend\n\r\rBuild\rBuild documentation for altinn.studio frontend\n\r\rComponent Library\rComponent documentation for altinn.studio\n\r\rDebug\rDebug documentation for altinn.studio frontend\n\r\rError handling\rGuidelines for error handling front-end\n\r\rPost Message\rGuidelines for using post message functionality in Altinn Studio\n\r\rReact\rGuidelines for using React in Altinn Studio\n\r\rRedux\rGuidelines for using Redux in Altinn Studio\n\r\rStyling (css)\rGuidelines for styling components in Altinn Studio\n\r\r\rGeneral\rGeneral coding guidelines\n\r\r\r\rGetting started\rInformation about how to get started\n\r\r\r\rGit\rInformation about version control with Git\n\r\r\r\rGitea\rGitea documentation for altinn.studio\n\r\r\r\rNaming Conventions\rNaming guidelines for Altinn Studio development\n\r\r\r\rRESTful APIs (Representation State Transfer)\rGuidelines for designing REST apis for microservices in Altinn\n\r\r\r\rRouting\rInformation about routing\n\r\r\rNginx routing\rInformation about routing with nginx\n\r\rTraefik routing\r\n\r\r\rSecurity Checklist\rChecklist for security OWASP.\n\r\r\r\rTest\rCoding guidelines for tests\n\r\r\rAutomated test app\rAn app used solely for automated testing in the browser\n\r\rPostman\rAPI Testing with postman\n\r\rTest Coverage\rAutomation testcases by area\n\r\rTest Strategy\rTest Strategy\n\r\rTestcafe\rTestcafe\n\r\rUnit testing\rHow to write jest test in altinn studio, what we know so far\n\r\rXunit Testing\rXunit Testing\n\r\r\rTroubleshooting\rTroubleshooting for altinn.studio\n\r\r\r\rTheming and styling\rSolution for theming and styling conventions.\n\r\r\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/technology/helm/",
@@ -1540,6 +1582,20 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/crds/",
+	"title": "crds",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/custom-resources/",
+	"title": "custom resources",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/data-modeling/",
 	"title": "data-modeling",
 	"tags": [],
@@ -1631,6 +1687,27 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/ingress/",
+	"title": "ingress",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/ingress-routes/",
+	"title": "ingress routes",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/installation/",
+	"title": "installation",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/issues/",
 	"title": "issues",
 	"tags": [],
@@ -1654,6 +1731,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/monitoring/",
 	"title": "monitoring",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/nginx/",
+	"title": "nginx",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1729,6 +1813,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/routing/",
+	"title": "routing",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/security/",
 	"title": "security",
 	"tags": [],
@@ -1778,8 +1869,22 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/tls/",
+	"title": "tls",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/tags/todo/",
 	"title": "todo",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/traefik/",
+	"title": "traefik",
 	"tags": [],
 	"description": "",
 	"content": ""

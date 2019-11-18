@@ -5091,35 +5091,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/loadbalancer/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/development/handbook/loadbalancer/">
-        <span>Loadbalancer</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/development/handbook/naming/" class="dd-item 
         
         
@@ -5164,6 +5135,245 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/">
+        <span>Routing</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/nginx/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/nginx/">
+        <span>Nginx routing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/">
+        <span>Traefik routing</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/installation/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/installation/">
+        <span>Installation of Traefik 2.0</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/tls-configuration/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/tls-configuration/">
+        <span>TLS in Traefik 2.0</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/custom-resources/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/custom-resources/">
+        <span>Traefik custom resources</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/ingress-routes/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/ingress-routes/">
+        <span>Traefik ingress routes</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6517,11 +6727,112 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/development/page/3/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 4 on 4</span>
+	<span class="page-number">Page 4 on 5</span>
+	
+	    <a class="older-posts" href="/tags/development/page/5/">Next Pages &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/front-end/styling/">Styling (css)</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Summary Styling in React is done per component using a combination of Material-UI and compatible JSS.
+ Components shall not be styled with CSS classes in .CSS files.
+ Different component types should use different styling methods, or a combination.
+Proposed order of styling methods The following order is proposed when considering styling methods:
+ Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/development/handbook/front-end/styling/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/styling/">styling</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/routing/traefik/tls-configuration/">TLS in Traefik 2.0</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>TLS sertificates stored as secrets on the cluster apiVersion: v1 kind: Secret metadata: name: altinn-tls-secret data: tls.crt: [[BASE 64 ENCODED CERTIFICATE]] tls.key: [[BASE 64 ENCODED PRIVATE KEY]]  TLS Options To set up TLS options we need to use the custom resource TLSOption. A basic set up of this is:
+apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-tls-options namespace: default spec: minVersion: VersionTLS12  Adding TLS to an Ingress Route Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally a options-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the default namespace). <a class="read-more" href="/development/handbook/routing/traefik/tls-configuration/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/test/">Test</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> Coding guidelines for tests Automated test appAn app used solely for automated testing in the browser
+PostmanAPI Testing with postman
+Test CoverageAutomation testcases by area
+Test StrategyTest Strategy
+TestcafeTestcafe
+Unit testingHow to write jest test in altinn studio, what we know so far
+Xunit TestingXunit Testing
+ <a class="read-more" href="/development/handbook/test/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post development">
@@ -6637,11 +6948,12 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/troubleshooting/">Troubleshooting</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/routing/traefik/custom-resources/">Traefik custom resources</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> Troubleshooting Altinn.studio is under heavy development and errors are most likely to come with it. If the error is not covered here, please submit a bug.
- Check out Flight Rules for Altinn.studio. Check out Known Issues.   <a class="read-more" href="/development/handbook/troubleshooting/">&raquo;</a></p>
+        <p>IMPORTANT These resources have to be installed before creating any of the resources they describe. They are most likely installed with helm when installing traefik 2.0.
+To support new features in routing and middlewares with IngressRoutes and dynamic tls options, traefik supplies it&rsquo;s own kubernetes custom resources defined in the traefik docs. These are:
+apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: ingressroutes.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: IngressRoute plural: ingressroutes singular: ingressroute scope: Namespaced --- apiVersion: apiextensions. <a class="read-more" href="/development/handbook/routing/traefik/custom-resources/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6651,6 +6963,14 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/custom-resources/">custom resources</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/crds/">crds</a>
             
         
 
@@ -6663,11 +6983,12 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/test/unit-testing/">Unit testing</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/routing/traefik/ingress-routes/">Traefik ingress routes</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Introduction to unit testing with Jest This page summarizes how UI testing is performed with Jest and related libraries for Altinn Studio.
- Introduction to unit testing with Jest  When should you write tests? Exporting and importing your component Methods in your component User Interface and Methods Networked functions (get, post, put) Rejecting Promises / Error testing / Negative tests Using Router Example #1, positive test Example #2, negative test (Error handling)    When should you write tests? <a class="read-more" href="/development/handbook/test/unit-testing/">&raquo;</a></p>
+        <p>Before traefik 2.0 the only supported way of routing in kubernetes was through the Kubernetes Ingress prodvider, which limited the functionality traefik could offer.
+As a result of introducing the custom resource IngressRoutes in traefik 2.0 we don&rsquo;t need to write many annotations on the ingress. And it is easier to configure access to a kubernetes cluster.
+Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRoute metadata: name: altinn-runtime spec: entryPoints: - web - websecure routes: - match: Host(`dev. <a class="read-more" href="/development/handbook/routing/traefik/ingress-routes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6678,9 +6999,13 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/ingress-routes/">ingress routes</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/ingress/">ingress</a>
             
         
 
@@ -6693,10 +7018,15 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/test/xunit-testing/">Xunit Testing</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/routing/traefik/">Traefik routing</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Find code on xunit tests here <a class="read-more" href="/development/handbook/test/xunit-testing/">&raquo;</a></p>
+        <p>In Altinn Tjenester 3.0 we are migrating from nginx to traefik for routing.
+Installation of Traefik 2.0How to install traefik
+TLS in Traefik 2.0How to set up TLS
+Traefik custom resourcesDefinitions for traefik 2.0 custom resources in kubernetes
+Traefik ingress routesHow to set up an ingress route and route trafic based on rules and middlewares
+ <a class="read-more" href="/development/handbook/routing/traefik/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6707,7 +7037,9 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
 
@@ -6725,7 +7057,9 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
 	
 	    <a class="newer-posts" href="/tags/development/page/3/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 4 on 4</span>
+	<span class="page-number">Page 4 on 5</span>
+	
+	    <a class="older-posts" href="/tags/development/page/5/">Next Pages &rarr;</a>
 	
 </nav>
 
@@ -9328,8 +9662,108 @@ Procedure to write a testcafe test  Find a test case and area that has to be aut
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
                               
                       
                   

@@ -283,6 +283,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/routing/traefik/installation/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/</loc>
   </url>
   
@@ -311,15 +315,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/development/handbook/loadbalancer/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/architecture/security/log/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/naming/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/routing/nginx/</loc>
   </url>
   
   <url>
@@ -419,6 +423,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/routing/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/architecture/security/</loc>
   </url>
   
@@ -459,6 +467,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/development/handbook/routing/traefik/tls-configuration/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/terms/</loc>
   </url>
   
@@ -480,6 +492,18 @@
   
   <url>
     <loc>https://docs.altinn.studio/development/handbook/test/testcafe/testcafe-howto/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/routing/traefik/custom-resources/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/routing/traefik/ingress-routes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/development/handbook/routing/traefik/</loc>
   </url>
   
   <url>
@@ -905,6 +929,16 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/crds/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/custom-resources/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/data-modeling/</loc>
     <priority>0</priority>
   </url>
@@ -970,6 +1004,21 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/ingress/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/ingress-routes/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/installation/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/issues/</loc>
     <priority>0</priority>
   </url>
@@ -986,6 +1035,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/monitoring/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/nginx/</loc>
     <priority>0</priority>
   </url>
   
@@ -1040,6 +1094,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/routing/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/security/</loc>
     <priority>0</priority>
   </url>
@@ -1075,7 +1134,17 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/tls/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/todo/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/traefik/</loc>
     <priority>0</priority>
   </url>
   

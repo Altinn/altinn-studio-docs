@@ -5091,35 +5091,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/loadbalancer/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/development/handbook/loadbalancer/">
-        <span>Loadbalancer</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/development/handbook/naming/" class="dd-item 
         
         
@@ -5164,6 +5135,245 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/">
+        <span>Routing</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/nginx/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/nginx/">
+        <span>Nginx routing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/">
+        <span>Traefik routing</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/installation/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/installation/">
+        <span>Installation of Traefik 2.0</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/tls-configuration/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/tls-configuration/">
+        <span>TLS in Traefik 2.0</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/custom-resources/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/custom-resources/">
+        <span>Traefik custom resources</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/development/handbook/routing/traefik/ingress-routes/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/development/handbook/routing/traefik/ingress-routes/">
+        <span>Traefik ingress routes</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -6517,7 +6727,7 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/development/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 4</span>
+	<span class="page-number">Page 3 on 5</span>
 	
 	    <a class="older-posts" href="/tags/development/page/4/">Next Pages &rarr;</a>
 	
@@ -6554,13 +6764,11 @@ if(host != "localhost")
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/loadbalancer/">Loadbalancer</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/routing/traefik/installation/">Installation of Traefik 2.0</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Loadbalancer The loadbalancer config is stored as a configmap in our kubernetes cluster. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
-Apply the changes, and restart the pod:
-Option 1: kill the pod and let the deployment spinn up a new pod.
-Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/development/handbook/loadbalancer/">&raquo;</a></p>
+        <p>Installation of traefik is done through helm, and we have a traefik helm chart for Altinn Tjenester 3.0.
+If there is a fresh installation of traefik 2.0 with helm 3.0, make sure that there is a folder called crds in that helm chart folder. After that it is just to install with helm, and wait for the traefik service to have a public IP before updating the Azure DNS zone with a A record. <a class="read-more" href="/development/handbook/routing/traefik/installation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6571,7 +6779,11 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/load-balancer/">load-balancer</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/installation/">installation</a>
             
         
 
@@ -6599,6 +6811,38 @@ Implicit typing (var) should only be used when a variable is initialized with an
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post development">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/development/handbook/routing/nginx/">Nginx routing</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Nginx routing The router config is stored as a configmap in our kubernetes cluster, and mounted to the pod as a .conf file. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
+Apply the changes, and restart the pod:
+Option 1: kill the pod and let the deployment spinn up a new pod.
+Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/development/handbook/routing/nginx/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
 
@@ -6760,14 +7004,12 @@ export interface IUpdateFormDataAction extends Action { formData: any; component
 	
 	   <article class="post development">
     <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/front-end/styling/">Styling (css)</a></h2>
+        <h2 class="post-title"><a href="/development/handbook/routing/">Routing</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Summary Styling in React is done per component using a combination of Material-UI and compatible JSS.
- Components shall not be styled with CSS classes in .CSS files.
- Different component types should use different styling methods, or a combination.
-Proposed order of styling methods The following order is proposed when considering styling methods:
- Styled Components (Accepts props, logic, theming) Material-UI&rsquo;s JSS (Accepts theming) Inline Styling, the React way (Accepts props, logic, theming. <a class="read-more" href="/development/handbook/front-end/styling/">&raquo;</a></p>
+        <p> Routing Nginx routingInformation about routing with nginx
+Traefik routing
+ <a class="read-more" href="/development/handbook/routing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6778,43 +7020,7 @@ Proposed order of styling methods The following order is proposed when consideri
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/styling/">styling</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post development">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/development/handbook/test/">Test</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> Coding guidelines for tests Automated test appAn app used solely for automated testing in the browser
-PostmanAPI Testing with postman
-Test CoverageAutomation testcases by area
-Test StrategyTest Strategy
-TestcafeTestcafe
-Unit testingHow to write jest test in altinn studio, what we know so far
-Xunit TestingXunit Testing
- <a class="read-more" href="/development/handbook/test/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
             
         
 
@@ -6832,7 +7038,7 @@ Proposed order of styling methods The following order is proposed when consideri
 	
 	    <a class="newer-posts" href="/tags/development/page/2/">&larr; Previous Pages</a>
 	
-	<span class="page-number">Page 3 on 4</span>
+	<span class="page-number">Page 3 on 5</span>
 	
 	    <a class="older-posts" href="/tags/development/page/4/">Next Pages &rarr;</a>
 	
@@ -9437,8 +9643,108 @@ Proposed order of styling methods The following order is proposed when consideri
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
                               
                       
                   
