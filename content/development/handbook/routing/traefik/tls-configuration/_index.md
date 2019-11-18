@@ -1,7 +1,7 @@
 ---
 title: TLS in Traefik 2.0
 description: How to set up TLS
-tags: [development, routing, traefik, installation]
+tags: [development, routing, traefik, tls]
 weight: 100
 ---
 
