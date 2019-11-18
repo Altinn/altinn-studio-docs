@@ -6727,12 +6727,18 @@ if(host != "localhost")
 <li><a href="#errors">Errors</a></li>
 <li><a href="#how-to-fix">How to fix</a></li>
 </ul></li>
-<li><a href="#breaking-change-data-element-validation-returns-an-internal-server-error-to-app-frontend">Breaking change: data element validation returns an internal server error to app frontend</a></li>
+<li><a href="#breaking-change-data-element-validation-returns-an-internal-server-error-to-app-frontend">Breaking change: data element validation returns an internal server error to app frontend</a>
+<ul>
 <li><a href="#how-to-fix-1">How to fix</a></li>
-<li><a href="#breaking-change-deploy-fails-with-error-the-current-net-sdk-does-not-support-targeting-net-core-3-0">Breaking change: Deploy fails with error &ldquo;The current .NET SDK does not support targeting .NET Core 3.0&rdquo;</a></li>
+</ul></li>
+<li><a href="#breaking-change-deploy-fails-with-error-the-current-net-sdk-does-not-support-targeting-net-core-3-0">Breaking change: Deploy fails with error &ldquo;The current .NET SDK does not support targeting .NET Core 3.0&rdquo;</a>
+<ul>
 <li><a href="#how-to-fix-2">How to fix</a></li>
-<li><a href="#breaking-change-added-parameter-to-identify-form-data-in-applicationmetadata-file">Breaking change: Added parameter to identify form data in applicationMetadata file</a></li>
+</ul></li>
+<li><a href="#breaking-change-added-parameter-to-identify-form-data-in-applicationmetadata-file">Breaking change: Added parameter to identify form data in applicationMetadata file</a>
+<ul>
 <li><a href="#how-to-fix-3">How to fix</a></li>
+</ul></li>
 <li><a href="#breaking-change-url-for-application-repository-is-updated">Breaking change: Url for application repository is updated.</a>
 <ul>
 <li><a href="#how-to-fix-4">How to fix</a></li>
@@ -6799,7 +6805,7 @@ if(host != "localhost")
 <p>Old apps created in Altinn Studio had no connection between the current process task and the date element it was allowed to change data on.
 This caused a <code>System.NullReferenceException</code> error in the  AltinnCore.Runtime.RestControllers.ValidateController.ValidateData endpoint when running validtions against the data element.</p>
 
-<h2 id="how-to-fix-1">How to fix</h2>
+<h3 id="how-to-fix-1">How to fix</h3>
 
 <p>Log onto the altinn.studio and access the application metadata file: <a href="https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json">https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json</a></p>
 
@@ -6834,7 +6840,7 @@ This caused a <code>System.NullReferenceException</code> error in the  AltinnCor
 on ASP.NET Core 3.0 the application must also specify that it should run on the same version. For all applications created before
 21.10.2019 the specified version in .ASP.NET Core 2.2, and this must be changed.</p>
 
-<h2 id="how-to-fix-2">How to fix</h2>
+<h3 id="how-to-fix-2">How to fix</h3>
 
 <p>Log onto altinn.studio and access the Dockerfile using this url: <a href="https://altinn.studio/repos/{org}/{app}/src/branch/master/Dockerfile">https://altinn.studio/repos/{org}/{app}/src/branch/master/Dockerfile</a>
 Edit line 9 from <code>FROM microsoft/dotnet:2.2-aspnetcore-runtime AS final</code> to <code>FROM mcr.microsoft.com/dotnet/core/aspnet:3.0-alpine AS final</code></p>
@@ -6875,7 +6881,7 @@ and in application metadata there is a boolean to indicate that elements of thio
 This will cause POST requests to https://{{appOwner}}.apps.{{platformUrl}}/{{appOwner}}/{{appName}}/instances/{{instanceOwnerId}}/{{instanceId}}/data?elementType=default
 to fail if application metadata has not been updated.</p>
 
-<h2 id="how-to-fix-3">How to fix</h2>
+<h3 id="how-to-fix-3">How to fix</h3>
 
 <p>Set appLogic equal to true for element type with id &lsquo;default&rsquo;.
 Log onto altinn.studio and access the metadata file using this url: <a href="https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json">https://altinn.studio/repos/{org}/{app}/src/branch/master/Metadata/applicationmetadata.json</a>
