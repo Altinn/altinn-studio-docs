@@ -42,14 +42,14 @@ In the `elementTypes` object, locate the object with the id `default`. This look
 }
 ```
 
-This object should be extended with the following property `"task":"FormFilling_1",`. After this is added, the object should look like this
+This object should be extended with the following property `"task":"Task_1",`. After this is added, the object should look like this
 
 ```json
 {
     "id":"default",
     "allowedContentType":["application/xml"],
     "appLogic":true,
-    "task": "FormFilling_1",
+    "task": "Task_1",
     "maxCount":0,
     "minCount":0
 }
