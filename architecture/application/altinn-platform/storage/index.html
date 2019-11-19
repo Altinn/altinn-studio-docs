@@ -6750,7 +6750,7 @@ if(host != "localhost")
 
 <p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, data types and events. It is also intended to be used by organisations and other clients to read data.</p>
 
-<p>Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxInstance</p>
+<p>Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, ApplicationEvent, MessageBoxInstance</p>
 
 
 	<p><object data="/architecture/application/altinn-platform/storage/datamodel.png" type="image/png" style="width: 50%;";></object></p>
@@ -7131,7 +7131,7 @@ that is used to identify the specific data element</p>
 <table>
 <thead>
 <tr>
-<th>Attribute</th>
+<th>Property</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -7176,14 +7176,127 @@ that is used to identify the specific data element</p>
 
 <tr>
 <td>dataTypes</td>
-<td>ElementType[]</td>
-<td>the elements that are part of an applciation instance</td>
+<td>DataType[]</td>
+<td>Metadata about data requirements in the application. See <a href="#datatype">DataType</a>.</td>
 </tr>
 
 <tr>
 <td>maxSize</td>
 <td>integer</td>
 <td>the maximum number of bytes that the data elements can have</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="datatype">DataType</h3>
+
+<p>The DataType model represents data requirements for an application for different process tasks.</p>
+
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Required. Id of the data type.</td>
+</tr>
+
+<tr>
+<td>description</td>
+<td>LanguageString[]</td>
+<td>A short description of the data type. Language support.</td>
+</tr>
+
+<tr>
+<td>allowedContentTypes</td>
+<td>string[]</td>
+<td>A list of allowed content types.</td>
+</tr>
+
+<tr>
+<td>taskId</td>
+<td>string</td>
+<td>Required. Associated task from the process definition. Defines that the data is required to progress to next task in a process.</td>
+</tr>
+
+<tr>
+<td>appLogic</td>
+<td>ApplicationLogic</td>
+<td>Data object that connect data to application models. This should be null for data types describing attachments. See <a href="#applicationlogic">ApplicationLogic</a>.</td>
+</tr>
+
+<tr>
+<td>maxSize</td>
+<td>int</td>
+<td>Maximum allowed size of a data item of this type. Undefined means that the limit is unbounded.</td>
+</tr>
+
+<tr>
+<td>maxCount</td>
+<td>int</td>
+<td>Maximum allowed data item count of this type. Zero or below indicate unbounded.</td>
+</tr>
+
+<tr>
+<td>minCount</td>
+<td>int</td>
+<td>Minimum number of data items of this type. Zero or below indicate that the data type is optional.</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="example">Example</h4>
+
+<pre><code class="language-json">{
+    &quot;id&quot;: &quot;receipt&quot;,
+    &quot;allowedContentTypes&quot;: [&quot;image/jpeg&quot;, &quot;image/png&quot;],
+    &quot;taskId&quot;: &quot;Task_1&quot;,
+    &quot;appLogic&quot;: null,
+    &quot;maxSize&quot;: 20,
+    &quot;minCount&quot;: 1,
+    &quot;maxCount&quot;: 3
+}
+</code></pre>
+
+<p>In order to complete process task <strong>Task_1</strong> the user must upload at least one image. It can be either a jpg or png below 20 MB. The user is allowed to upload additional 2 images. The application does not have any business logic associated with the data type.</p>
+
+<h3 id="applicationlogic">ApplicationLogic</h3>
+
+<p>The ApplicationLogic model describes the connection between a data type and a corresponding data model in the application. This is required for all data types associated with an XSD or JSON Schema. In most cases it also implies that there is a UI with a form the user can fill in.</p>
+
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>autoCreate</td>
+<td>bool</td>
+<td>Indicate that the application should automatically create a data item of this type with every new application instance.</td>
+</tr>
+
+<tr>
+<td>classRef</td>
+<td>string</td>
+<td>Reference to the class definition representing the data model.</td>
+</tr>
+
+<tr>
+<td>schemaRef</td>
+<td>string</td>
+<td>Reference to the XSD or JSON schema.</td>
 </tr>
 </tbody>
 </table>
@@ -7345,22 +7458,101 @@ metadata such as application title are included in the object.</p>
 
 <h3 id="messageboxinstance-type">MessageBoxInstance type</h3>
 
-<p>| Attribute | Type | Description |
-| &mdash; | &mdash; |&mdash;| &mdash;|
-id | string | unique id (corrresponds to instance guid) |
-instanceOwnerId | integer | id of instance owner |
-org | string | Application owner for the app |
-appName | string | name of the application |
-title | string | title of the application in language defined in the request |
-processCurrentTask | string | current task in the process state
-createDateTime | dateTime | creation time |
-lastChangedBy| string | user id of the user who last changed the instance |
-lastChangedBy | string | user id | |
-dueDateTime | dateTime? | deadline for submit|
-bool | allowDelete | is current user allowed to delete instance|
-bool | authorizedForWrite  | is current user allowed to write to edit the instance|
-deletedDateTime | dateTime? | date the instance was deleted |
-archivedDateTime | dateTime? | date the instance was archived |</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>unique id (corrresponds to instance guid)</td>
+</tr>
+
+<tr>
+<td>instanceOwnerId</td>
+<td>integer</td>
+<td>id of instance owner</td>
+</tr>
+
+<tr>
+<td>org</td>
+<td>string</td>
+<td>Application owner for the app</td>
+</tr>
+
+<tr>
+<td>appName</td>
+<td>string</td>
+<td>name of the application</td>
+</tr>
+
+<tr>
+<td>title</td>
+<td>string</td>
+<td>title of the application in language defined in the request</td>
+</tr>
+
+<tr>
+<td>processCurrentTask</td>
+<td>string</td>
+<td>current task in the process state</td>
+</tr>
+
+<tr>
+<td>createDateTime</td>
+<td>dateTime</td>
+<td>creation time</td>
+</tr>
+
+<tr>
+<td>lastChangedBy</td>
+<td>string</td>
+<td>user id of the user who last changed the instance</td>
+</tr>
+
+<tr>
+<td>lastChangedBy</td>
+<td>string</td>
+<td>user id</td>
+</tr>
+
+<tr>
+<td>dueDateTime</td>
+<td>dateTime?</td>
+<td>deadline for submit</td>
+</tr>
+
+<tr>
+<td>bool</td>
+<td>allowDelete</td>
+<td>is current user allowed to delete instance</td>
+</tr>
+
+<tr>
+<td>bool</td>
+<td>authorizedForWrite</td>
+<td>is current user allowed to write to edit the instance</td>
+</tr>
+
+<tr>
+<td>deletedDateTime</td>
+<td>dateTime?</td>
+<td>date the instance was deleted</td>
+</tr>
+
+<tr>
+<td>archivedDateTime</td>
+<td>dateTime?</td>
+<td>date the instance was archived</td>
+</tr>
+</tbody>
+</table>
 
 <h3 id="operations-3">Operations</h3>
 
