@@ -10,7 +10,7 @@ The Storage component exposes a REST-API to Altinn Apps.
 
 Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, data types and events. It is also intended to be used by organisations and other clients to read data.
 
-Resources: Instance, Application, InstanceEvent, ApplicationEvent, MessageBoxInstance
+Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, ApplicationEvent, MessageBoxInstance
 
 {{%excerpt%}}
 <object data="/architecture/application/altinn-platform/storage/datamodel.png" type="image/png" style="width: 50%;";></object>
@@ -92,24 +92,24 @@ An appId refers to the application information element which defines the metadat
 
 ### Instance type
 
-| Attribute | Type | Description | User | Owner | App | Storage |
-| --- | --- |---| ---| ---|---| --- |
-id | string | unique id | | | | C 
-appId | string | application id |  | | | C
-instanceOwner.partyId | integer | id of instance owner | C | C | |
-appOwner.labels | string[] | array of string labels | | C |
-create | dateTime | creation time | | | | C
-createdBy | string | user id | | | | C
-lastChanged| dateTime? | last changed time | | | | C
-lastChangedBy | string | user id | | | | C
-dueBefore | dateTime? | deadline for submit| | CU
-visibleAfter | dateTime? | when visible for user | | CU |
-title | string | text shown in inbox | | CU | U
-process  | ProcessState | process state info | | | U | (U)
-userStatus | InboxStatus | statuses that the user can change  | U
-[instance](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs) | InstanceState | data on delete and archive state of the instance | | |U|C|
-[appOwner](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs) | AppOwnerState  | status from app owner | | CU | |
-data | List<DataElement> | data elements | | | CU
+Attribute                                                                                                                                                     | Type              | Description                                      | User | Owner | App | Storage
+--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|--------------------------------------------------|------|-------|-----|--------
+id                                                                                                                                                            | string            | unique id                                        |      |       |     | C
+appId                                                                                                                                                         | string            | application id                                   |      |       |     | C
+instanceOwner.partyId                                                                                                                                         | integer           | id of instance owner                             | C    | C     |     |
+appOwner.labels                                                                                                                                               | string[]          | array of string labels                           |      | C     |     |
+create                                                                                                                                                        | dateTime          | creation time                                    |      |       |     | C
+createdBy                                                                                                                                                     | string            | user id                                          |      |       |     | C
+lastChanged                                                                                                                                                   | dateTime?         | last changed time                                |      |       |     | C
+lastChangedBy                                                                                                                                                 | string            | user id                                          |      |       |     | C
+dueBefore                                                                                                                                                     | dateTime?         | deadline for submit                              |      | CU    |     |
+visibleAfter                                                                                                                                                  | dateTime?         | when visible for user                            |      | CU    |     |
+title                                                                                                                                                         | string            | text shown in inbox                              |      | CU    | U   |
+process                                                                                                                                                       | ProcessState      | process state info                               |      |       | U   | (U)
+userStatus                                                                                                                                                    | InboxStatus       | statuses that the user can change                | U    |       |     |
+[instance](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs)         | InstanceState     | data on delete and archive state of the instance |      |       | U   | C
+[appOwner](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs) | AppOwnerState     | status from app owner                            |      | CU    |     |
+data                                                                                                                                                          | List<DataElement> | data elements                                    |      |       | CU  |
 
 C - creation time, U - can be updated
 
@@ -241,16 +241,54 @@ Resource: /applications/test/sailor
 
 ### Application type
 
-| Attribute | Type | Description |
-| --------- | ---- | ----------- |
-id | string | application id 
-versionId | string | release or commit id 
-processId | string | application process id
-title | LanguageString[] | application title in different languages
-validFrom | dateTime | when the application is valid from
-validTo | dateTime? | when the application is valid to 
-dataTypes | ElementType[] | the elements that are part of an applciation instance
-maxSize | integer | the maximum number of bytes that the data elements can have
+Property  | Type             | Description
+----------|------------------|------------------------------------------------------------------
+id        | string           | application id
+versionId | string           | release or commit id
+processId | string           | application process id
+title     | LanguageString[] | application title in different languages
+validFrom | dateTime         | when the application is valid from
+validTo   | dateTime?        | when the application is valid to
+dataTypes | DataType[]       | Metadata about data requirements in the application. See [DataType](#datatype).
+maxSize   | integer          | the maximum number of bytes that the data elements can have
+
+### DataType
+The DataType model represents data requirements for an application for different process tasks. 
+
+Property            | Type             | Description
+--------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------
+id                  | string           | Required. Id of the data type.
+description         | LanguageString[] | A short description of the data type. Language support.
+allowedContentTypes | string[]         | A list of allowed content types.
+taskId              | string           | Required. Associated task from the process definition. Defines that the data is required to progress to next task in a process.
+appLogic            | ApplicationLogic | Data object that connect data to application models. This should be null for data types describing attachments. See [ApplicationLogic](#applicationlogic).
+maxSize             | int              | Maximum allowed size of a data item of this type. Undefined means that the limit is unbounded.
+maxCount            | int              | Maximum allowed data item count of this type. Zero or below indicate unbounded.
+minCount            | int              | Minimum number of data items of this type. Zero or below indicate that the data type is optional.
+
+#### Example
+
+```json
+{
+    "id": "receipt",
+    "allowedContentTypes": ["image/jpeg", "image/png"],
+    "taskId": "Task_1",
+    "appLogic": null,
+    "maxSize": 20,
+    "minCount": 1,
+    "maxCount": 3
+}
+```
+In order to complete process task **Task_1** the user must upload at least one image. It can be either a jpg or png below 20 MB. The user is allowed to upload additional 2 images. The application does not have any business logic associated with the data type. 
+
+### ApplicationLogic
+The ApplicationLogic model describes the connection between a data type and a corresponding data model in the application. This is required for all data types associated with an XSD or JSON Schema. In most cases it also implies that there is a UI with a form the user can fill in. 
+
+Property   | Type   | Description
+-----------|--------|------------------------------------------------------------------------------------------------------------------------
+autoCreate | bool   | Indicate that the application should automatically create a data item of this type with every new application instance.
+classRef   | string | Reference to the class definition representing the data model.
+schemaRef  | string | Reference to the XSD or JSON schema.
 
 ### Operations
 
@@ -295,18 +333,18 @@ Format of the JSON object stored in the database.
 ```
 
 ### Instance Event type
-| Attribute | Type | Description |
-| --------- | ---- | ----------- |
-| id | Guid?  | Id set by CosmosDB when the instance event is stored |  
-| instanceId | string | {instanceOwnerPartyId}/{instanceGuid} |  
-| dataId | string | Id of data element if event is related to a data element. |  
-| created  | DateTime? | DateTime set by CosmosDB when the event is stored |  
-| eventType | string | the event type. Available instance event types are listed [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs)|
-| instanceOwnerPartyId  | string | the instance owner id |  
-| user.userId | int? | the user who triggered the event |  
-| user.authenticationLevel | int | the authentication level for the user or system that triggered the event |  
-| user.endUserSystemId | int? | the end user system that triggered the event |  
-| process | ProcessState | the process step during which the event occured |  
+| Attribute                | Type         | Description                                                                                                                                                                                                    |
+|--------------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| id                       | Guid?        | Id set by CosmosDB when the instance event is stored                                                                                                                                                           |
+| instanceId               | string       | {instanceOwnerPartyId}/{instanceGuid}                                                                                                                                                                          |
+| dataId                   | string       | Id of data element if event is related to a data element.                                                                                                                                                      |
+| created                  | DateTime?    | DateTime set by CosmosDB when the event is stored                                                                                                                                                              |
+| eventType                | string       | the event type. Available instance event types are listed [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs) |
+| instanceOwnerPartyId     | string       | the instance owner id                                                                                                                                                                                          |
+| user.userId              | int?         | the user who triggered the event                                                                                                                                                                               |
+| user.authenticationLevel | int          | the authentication level for the user or system that triggered the event                                                                                                                                       |
+| user.endUserSystemId     | int?         | the end user system that triggered the event                                                                                                                                                                   |
+| process                  | ProcessState | the process step during which the event occured                                                                                                                                                                |
 
 ### Operations
 
@@ -360,22 +398,22 @@ metadata such as application title are included in the object.
 
 ### MessageBoxInstance type
 
-| Attribute | Type | Description |
-| --- | --- |---| ---|
-id | string | unique id (corrresponds to instance guid) |
-instanceOwnerId | integer | id of instance owner |
-org | string | Application owner for the app |
-appName | string | name of the application |
-title | string | title of the application in language defined in the request |
-processCurrentTask | string | current task in the process state
-createDateTime | dateTime | creation time |
-lastChangedBy| string | user id of the user who last changed the instance |
-lastChangedBy | string | user id | |
-dueDateTime | dateTime? | deadline for submit|
-bool | allowDelete | is current user allowed to delete instance|
-bool | authorizedForWrite  | is current user allowed to write to edit the instance|
-deletedDateTime | dateTime? | date the instance was deleted |
-archivedDateTime | dateTime? | date the instance was archived |
+Attribute          | Type               | Description
+-------------------|--------------------|------------------------------------------------------------
+id                 | string             | unique id (corrresponds to instance guid)
+instanceOwnerId    | integer            | id of instance owner
+org                | string             | Application owner for the app
+appName            | string             | name of the application
+title              | string             | title of the application in language defined in the request
+processCurrentTask | string             | current task in the process state
+createDateTime     | dateTime           | creation time
+lastChangedBy      | string             | user id of the user who last changed the instance
+lastChangedBy      | string             | user id
+dueDateTime        | dateTime?          | deadline for submit
+bool               | allowDelete        | is current user allowed to delete instance
+bool               | authorizedForWrite | is current user allowed to write to edit the instance
+deletedDateTime    | dateTime?          | date the instance was deleted
+archivedDateTime   | dateTime?          | date the instance was archived
 
 ### Operations
 Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
