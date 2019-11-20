@@ -19,7 +19,7 @@ The following diagram shows the deployment architecture for Altinn Studio togeth
 
 ## Container Orchestration by Kubernetes
 
-Each ["App"]({{< ref "/terms" >}}) created in Altinn Studio is deployed
+Each ["App"]({{< ref "/teknologi/altinnstudio/terms" >}}) created in Altinn Studio is deployed
 to Altinn Apps as separate applications running in Docker Containers.
 The containers will be orchestrated by Kubernetes.
 

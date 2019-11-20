@@ -29,6 +29,10 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
 
 /* Header */
 
+.a-header {
+    background: #022F51;
+}
+
 .a-globalNav .a-globalNav-logo {
     margin-left: 3px;
 }
@@ -49,6 +53,52 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
     .a-globalNav .a-globalNav-logo {
         margin-left: 0;
     }
+}
+
+.a-globalNav-logo {
+    margin-top: -3px; 
+}
+
+.adocs-logo {
+    margin-top: -11px;
+}
+
+.adocs-logo-text {
+    display: inline-flex;
+    max-width: 120px;
+    white-space: nowrap;
+}
+
+@media (min-width: 576px) {
+    .adocs-logo-text {
+        display: inline-flex;
+        max-width: 220px;
+        white-space: nowrap; 
+    }
+}
+
+.adocs-logo-text span {
+    font-size: 24px;
+    overflow: hidden !important;
+    color: white;
+    text-overflow: ellipsis;
+    text-transform: lowercase;
+}
+
+.a-globalNav-main li:last-child > a {
+    border-bottom: none;
+}
+
+body.adocs-design .a-globalNav-main li a[href*='/design/'] {
+    border-bottom: solid white 3px;
+}
+
+body.adocs-teknologi .a-globalNav-main li a[href*='/teknologi/'] {
+    border-bottom: solid white 3px;
+}
+
+body.adocs-innhold .a-globalNav-main li a[href*='/innhold/'] {
+    border-bottom: solid white 3px;
 }
 
 /* Jumbotron */
@@ -89,7 +139,7 @@ li > label {
 .adocs-footer {
     margin-top:36px;
     padding: 36px;
-    background: #6a6a6a;
+    background: #022F51;
 }
 
 .adocs-footer ul {

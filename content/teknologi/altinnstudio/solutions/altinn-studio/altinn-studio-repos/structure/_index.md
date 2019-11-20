@@ -35,7 +35,7 @@ Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 │  │  └── {{<icon name="fa-code">}} ...  
 │  │  
 │  ├── {{<icon name="fa-git-square">}} tjeneste-1  
-│  │  ├──  {{<icon name="fa-folder-open">}} Deployment ([helm]({{< ref "/technology/helm">}}))  
+│  │  ├──  {{<icon name="fa-folder-open">}} Deployment ([helm]({{< ref "/teknologi/altinnstudio/toolsandframeworks/helm">}}))  
 │  │  │      ├── {{<icon name="fa-folder-open">}} templates  
 │  │  │      │     ├── {{<icon name="fa-code">}} _helpers.tpl  
 │  │  │      │     ├── {{<icon name="fa-code">}} deployment.yaml  
@@ -79,7 +79,7 @@ Under arbeid... Her må det gjøres en større opprydding i filstrukturen.
 │  │  │        │     │     │    │      ├──{{<icon name="fa-code">}} data-id1.xml  
 │  │  │        │     │     │    ├──{{<icon name="fa-folder-open">}} data-id...   
 │  │  ├──  {{<icon name="fa-folder-open">}} Workflow  
-│  │  │      └── {{<icon name="fa-code">}} workflow.bpmn ([BPMN]({{< ref "/technology/bpmn">}}))  
+│  │  │      └── {{<icon name="fa-code">}} workflow.bpmn ([BPMN]({{< ref "/teknologi/altinnstudio/toolsandframeworks/bpmn">}}))  
 │  │  ├──  {{<icon name="fa-code">}} [AltinnService.csproj](altinnservice-projectfile)    
 │  │  ├──  {{<icon name="fa-code">}} config.json        
 │  │  ├──  .gitignore  
