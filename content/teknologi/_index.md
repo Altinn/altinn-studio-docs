@@ -1,19 +1,15 @@
 ---
 title: Slik utvikler vi
 linkTitle: Teknologi
-url: Teknologi
-slug: Teknologi
 description: Finn ut mer om våre tekniske løsninger, arkitekturen bak, og hvordan vi utvikler.
 weight: 20
 ---
-
-På disse sidene finner du informasjon om hvordan vi har bygget altinn.no og det nye tjenesteutviklingsverktøyet Altinn Studio. 
 
 Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid, finner du utviklingsguider for dette på [altinndigital.no/utvikling](http://altinndigital.no/utvikling)
 
 
 <div class="a-card a-cardImage mt-3 mb-3">
-  <img src="/images/github.svg" alt="Illustrasjon tilganger">
+  <img src="/images/altinnstudio_ikon.svg" alt="Illustrasjon tilganger">
   <div class="a-cardImage-text">
     <a href="/teknologi/altinnstudio/" class="a-linkFeatured ">
       Slik utvikler vi Altinn Studio
@@ -24,13 +20,13 @@ Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid
 </div>
 
 <div class="a-card a-cardImage mt-3 mb-3">
-  <img src="/images/architecture.svg" alt="Illustrasjon utviklingsguider">
+  <img src="/images/designsystem_ikon.svg" alt="Illustrasjon utviklingsguider">
   <div class="a-cardImage-text">
-    <a href="/teknologi/altinn.no/" class="a-linkFeatured">
-      Slik utvikler vi altinn.no
+    <a href="/teknologi/designsystem/" class="a-linkFeatured">
+      Designsystem for front-end kode
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>
-    <p class="pt-1">Beskrivelse av hvordan altinn.no er bygget opp, samt hva du trenger for å jobbe med front-end og back-end i løsningen.</p>
+    <p class="pt-1">Altinns designsystem, som er bygget med Pattern Lab, fungerer som et hjem for våre UI-komponenter og deres tilhørende front-end kode. </p>
   </div>
 </div>
 

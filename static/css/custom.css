@@ -27,6 +27,14 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
     display: none;
 }
 
+.a-illustration-icon {
+    background: #022F51;
+}
+
+.a-illustrationLink {
+    margin-bottom: 0;
+}
+
 /* Header */
 
 .a-header {
@@ -136,6 +144,8 @@ li > label {
     font-weight: normal;
 }
 
+/* Footer */ 
+
 .adocs-footer {
     margin-top:36px;
     padding: 36px;
@@ -159,4 +169,29 @@ li > label {
 
 .adocs-footer ul li a:after {
     content: none !important;
+}
+
+/* Case block */
+
+
+.adocs-caseBlock a{
+    color: white;
+    border-color: white;
+}
+
+.adocs-caseBlock a:after {
+    filter: brightness(0) invert(1);
+    -webkit-filter: brightness(0) invert(1);
+}
+
+/* Featured blocks */ 
+
+.adocs-featuredBlocks .a-list-container {
+    max-width: 300px;
+}
+
+.adocs-featuredBlocks .a-illustrationLink {
+    margin-bottom: 0;
+    max-width: 350px;
+    margin: auto;
 }
