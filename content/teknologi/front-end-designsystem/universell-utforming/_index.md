@@ -1,6 +1,7 @@
 ---
 title: Universell utforming
 description: God tilgjengelighet kan hjelpe mennesker med funksjonshemninger å oppfatte innholdet vårt på en meningsfull måte. Det er flere ting vi kan gjøre, men det første og viktigste er å skrive semantisk god HTML.
+weight: 7
 ---
 
 Forskrift om universell utforming av IKT-løsninger stiller krav om at nettsider må oppfylle 35 av 61 suksesskriterier i standarden [Retningslinjer for tilgjengelig webinnhold (WCAG) 2.0](https://www.w3.org/Translations/WCAG20-no/). Sjekk ut [minimumskravene](https://uu.difi.no/krav-og-regelverk/wcag-20-standarden/) på difi som er omfattet av forskriften.

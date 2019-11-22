@@ -37,3 +37,5 @@ Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid
 <img class="float-right" src="/images/github.svg" alt="github logo">
 Vi ønsker at det skal være enklest mulig for deg å bidra - flere av prosjektene våre ligger derfor åpent på github. Vi setter stor pris på dine inspill! 
 {{% /panel %}}
+
+{{% children description="true" depth="1" %}}

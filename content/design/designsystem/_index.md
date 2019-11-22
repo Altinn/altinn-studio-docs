@@ -1,16 +1,19 @@
 ---
 title: Designsystem
 description: Vi har erfart at det å lage konsistente webløsninger ikke er så lett. Derfor har vi laget et designsystem som skal gjøre samarbeidet mellom designere, utviklere og andre folk lettere, og få webløsningene våre til å fremstå mer helhetlige.
+weight: 2
 ---
 
-Designsystemet baserer seg på såkalt atomisk designmetodikk hvor man i stedet for å designe sider designer komponenter som kan settes sammen og gjenbrukes i ulike webløsninger. Vi trenger derfor ikke starte helt på nytt hver gang vi skal lage en ny løsning. Arbeidet vil fokuseres rundt å lage gode interaksjoner for brukerne.
+**Designsystemet består av to deler:**
 
-Redesignet av Altinn har vært pådriveren for designsystemet og vi har planer om å følge etter med flere nye løsninger som bruker designsystemet fremover.
+- Et [komponentbibliotek](https://altinn.github.io/designsystem-styleguide/komponenter/) for front-end. Komponentbiblioteket er bygget på Patternlab, du finner dokumentasjon av dette på [teknologisidene](/teknologi/front-end-designsystem/).
+- Et [Figma-bibliotek](/design/designsystem/figma/) med UI-komponenter som kan brukes av designere for å prototype nye maler. 
+
+Designsystemet baserer seg på såkalt atomisk designmetodikk hvor man i stedet for å designe sider designer komponenter som kan settes sammen og gjenbrukes i ulike webløsninger. 
 
 ## Dette ønsker vi å oppnå
 - Helhetlige og konsistente brukeropplevelser ved å bruke gjenkjennbare og godt testede komponenter
 - Forenkle arbeidsflyten for designere, utviklere, produkteiere og andre
-
 
 ## Kom i gang
 Det er viktig å ha dedikerte designere i prosjektet som kjenner brukernes behov og kan lage gode offentlige digitale løsninger ved å gjenbruke komponentene på riktig måte.

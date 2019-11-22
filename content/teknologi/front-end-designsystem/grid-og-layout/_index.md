@@ -2,6 +2,7 @@
 title: Grid og layout
 description: Altinn’s responsive brukergrensesnitt er basert på en 12-kolonners grid layout, samt et sett definerte avstander som tar utgangspunkt i 12px som base.
 toc: true
+weight: 5
 ---
 
 ## Bootstrap grid

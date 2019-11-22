@@ -1,7 +1,10 @@
 ---
-title: Figma
-description: For å kunne jobbe effektivt med interaksjonsdesign og nye konsepter, har vi satt opp et design-kit for Figma som inneholder alle komponentene i et såkalt "Team-library". For å få tilgang til Altinns Figma-konto ta kontakt med [Alise Kjelling](mailto:alise.kjelling@brreg.no).
+linkTitle: Figma
+title: Kom i gang med Figma
+description: For å kunne jobbe effektivt med interaksjonsdesign og nye konsepter, har vi satt opp et design-kit for Figma som inneholder alle komponentene i et såkalt "Team-library". 
 ---
+
+For å få tilgang til Altinns Figma-konto ta kontakt med [Alise Kjelling](mailto:alise.kjelling@brreg.no).
 
 <img class="py-2" src="Figma-movie-1.gif" alt="Figma, eksempel på komponentbibliotek">
 

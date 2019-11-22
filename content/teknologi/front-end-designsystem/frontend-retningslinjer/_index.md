@@ -2,6 +2,7 @@
 title: Frontend retningslinjer
 description: For å få en felles forståelse av "best practice" for frontend-utvikling i Altinn har vi samlet noen regler for Javascript og CSS, samt utilities-klassene vi opererer med
 toc: true
+weight: 2
 ---
 
 ## CSS-regler
@@ -51,33 +52,6 @@ For å linte sass fra kommandolinjen kjør ```npm run sass``` eller ```./node_mo
 For å linte en spesifikk sass fil, bruk kommandoen ```./node_modules/.bin/sass-lint –v –q source/css/scss/<mappenavn>/<filnavn>```
 
 Sortering av element properties er satt til å ta utgangspunktet i bootstrap sin PropertySortOrder [https://github.com/twbs/bootstrap/blob/v4-dev/scss/.scss-lint.yml](https://github.com/twbs/bootstrap/blob/v4-dev/scss/.scss-lint.yml).
-
-## CSS-utilities
-Se Bootstraps sider for [utilities](https://v4-alpha.getbootstrap.com/utilities/borders/). Vi har i tillegg noen egne utilities:
-
-- Fontweight: ```.a-fontLight``` ```.a-fontReg```  ```.a-fontMedium```  ```.a-fontBold```
-
-- Overskrifter: ```.a-h1``` ```.a-h2```  ```.a-h3```  ```.a-h4```
-
-- Bakgrunn: ```.a-bgWhite``` ```.a-bgGreen``` ```.a-bgGreenLight``` ```.a-bgGreenLighter``` ```.a-bgBlue``` ```.a-bgBlueLight``` ```.a-bgBlueLighter``` ```.a-bgPurple``` ```.a-bgPurpleLight``` ```.a-bgYellow``` ```.a-bgYellowLight```  ```.a-bgRed```   ```.a-bgRedLight```
-
-- Deaktivert bakgrunn: ```.a-disabled```
-
-- Tekstfarger: ```.a-textWhite``` ```.a-textBlue```
-
-- Stiplet linje i lister: ```.a-dotted``` ```.a-dotted-line-top```
-
-- Lenker uten understrek: ```.a-noUnderline```
-
-- Maks tre linjer tekst: ```.a-maxThreeLines2```
-
-- Position: ```.a-p-relative``` ```.a-p-static ```
-
-- Display: ```a-displayBlock```
-
-<div id="alert-no-arrow" class="a-message a-message-error a-message--arrow-off a-message--fullwidth mb-2 a-py-minus-1">
-  NB: Denne listen er ikke fullstendig per 21.nov 2019.
-</div>
 
 ## JavaScript
 For linting av javascript bruker vi airbnb sine regler, med noen custom overrides som finnes i ```.eslintrc.js```.
