@@ -22,7 +22,7 @@ Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid
 <div class="a-card a-cardImage mt-3 mb-3">
   <img src="/images/designsystem_ikon.svg" alt="Illustrasjon utviklingsguider">
   <div class="a-cardImage-text">
-    <a href="/teknologi/designsystem/" class="a-linkFeatured">
+    <a href="/teknologi/front-end-designsystem/" class="a-linkFeatured">
       Designsystem for front-end kode
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>
