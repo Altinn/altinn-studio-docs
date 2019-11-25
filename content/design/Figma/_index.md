@@ -42,7 +42,7 @@ Når sidemaler befinner seg i samme fil, er det mulig å lenke mellom dem. På d
 <img class="py-2" src="Figma-movie-7.gif" alt="Figma, eksempel på lenking mellom sidemaler">
 
 <div class="d-none d-lg-block">
-<h3>Eksempel på Altinns Figma-filer</h3>
+<h2>Eksempel på Altinns Figma-filer</h2>
 De navigerbare rammene under viser eksempler på filer vi har i komponentbiblioteket vårt. For å få tilgang til biblioteket, ta kontakt med <a href="mailto:alise.kjelling@brreg.no">Alise Kjelling</a>.<br><br>
 
 <iframe style="border: none;" width="690" height="450" src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/file/CXfqqhADO3NqUy8UAyZbgtP1/Lister-%F0%9F%9A%80-public" allowfullscreen></iframe>
