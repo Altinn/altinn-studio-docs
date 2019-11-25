@@ -6736,6 +6736,9 @@ if(host != "localhost")
 
 <p><img src="kubernetes.png?width=200" alt="Kubernetes logo" /></p>
 
+<p>Kubernetes is described as container orchitrastion. That means how containers are run,
+exposed and all other operations that might be done on a container.</p>
+
 <p>Both Altinn Studio and Altinn Studio Apps consists of many different applications
 running in docker containers. For the Altinn Studio Apps solution this could possible
 over time be many thousands containers running different end user apps.</p>
@@ -6744,10 +6747,17 @@ over time be many thousands containers running different end user apps.</p>
 
 <h3 id="kubernetes-definitions">Kubernetes definitions</h3>
 
+<p>Kubernetes contains definitions for most of the usecases for containers
+and can easily be extended with custom resource definitions.</p>
+
 <h4 id="pods-https-kubernetes-io-docs-concepts-workloads-pods-pod-overview"><a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/">Pods</a></h4>
 
 <p>Pods are the building blocks of kubernetes. They will crash, be deleted and started up again.
 But they will never be restored. After they either crash or get deleted, they will ble replaced with a new pod, with it&rsquo;s own configuration of IP adresses.</p>
+
+<h4 id="replicaset-https-kubernetes-io-docs-concepts-workloads-controllers-replicaset"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/">ReplicaSet</a></h4>
+
+<p>A replicaset defines how many copies of a pod is desired to run at any time.</p>
 
 <h4 id="deployments-https-kubernetes-io-docs-concepts-workloads-controllers-deployment"><a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/">Deployments</a></h4>
 
@@ -6761,11 +6771,6 @@ Properties a pod can have is:</p>
 <li>Volume mounts, if they are from secrets or persistent volume claims</li>
 </ul>
 
-<h4 id="secrets-https-kubernetes-io-docs-concepts-configuration-secret"><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></h4>
-
-<p>A secret is one or more key-value pairs that is stored on in the cluster and can be access from within the cluster.<br />
-Secrets are base64 encrypted so it is possible to store binary files as secrets aswell.</p>
-
 <h4 id="services-https-kubernetes-io-docs-concepts-services-networking-service"><a href="https://kubernetes.io/docs/concepts/services-networking/service/">Services</a></h4>
 
 <p>Services are an abstraction of a set of pods and how to access them. There are various methods of exposing a pod, here are the different types of services:</p>
@@ -6776,6 +6781,20 @@ Secrets are base64 encrypted so it is possible to store binary files as secrets 
 <li>LoadBalancer (External) - Exposes the service through a cloud-providers loadbalancer ip</li>
 <li>ExternalName (External) - Exposes the service through a cloud-providers loadbalancer ip with a CNAME entry</li>
 </ul>
+
+<h4 id="ingress-https-kubernetes-io-docs-concepts-services-networking-ingress"><a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">Ingress</a></h4>
+
+<p>An ingress almost like a service, but not. A ingress exposes an entrypoint to your
+cluster through domains. Imagine it as a layer between external traffic coming
+in and services routing trafic to services and down the line to the pods. An ingress
+needs an ingress controller (i.e. traefik) which extends functionality such as rules
+for routing, middlewares and authorization. More on this in the documentation
+about traefik and how we use it in altinn tjenester 3.0.</p>
+
+<h4 id="secrets-https-kubernetes-io-docs-concepts-configuration-secret"><a href="https://kubernetes.io/docs/concepts/configuration/secret/">Secrets</a></h4>
+
+<p>A secret is one or more key-value pairs that is stored on in the cluster and can be access from within the cluster.<br />
+Secrets are base64 encrypted so it is possible to store binary files as secrets aswell.</p>
 
 <h4 id="persistent-volumes-https-kubernetes-io-docs-concepts-storage-persistent-volumes"><a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/">Persistent Volumes</a></h4>
 
