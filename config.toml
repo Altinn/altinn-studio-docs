@@ -1,6 +1,6 @@
 baseURL = "https://docs.altinn.studio/"
 languageCode = "en"
-defaultContentLanguage = "en"
+defaultContentLanguage = "nb"
 
 contentDir = "content"
 staticDir = "static"
@@ -23,28 +23,8 @@ editURL = "https://github.com/altinn/altinn-studio-docs/blob/master/content/"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
-themeVariant = "gray" # Blue is used for "Altinn digital - Utvikling". Gray is used for system documentation. 
 
 
 [outputs]
 home = ["HTML", "JSON"] # JSON generates index.json file used by search
 
-
-[[menu.shortcuts]]
-pre = "<h3>Links</h3>"
-name = "Altinn Studio"
-identifier = "altinn-studio"
-url = "https://altinn.studio"
-weight = 10
-
-[[menu.shortcuts]]
-name = "<i class='fa fa-fw fa-slack'></i> Slack"
-identifier = "altinn-studio-slack"
-url = "https://altinnstudio.slack.com"
-weight = 20
-
-[[menu.shortcuts]]
-name = "<i class='fa fa-fw fa-github'></i> GitHub"
-identifier = "altinn-studio-repo"
-url = "https://github.com/altinn/altinn-studio"
-weight = 30
