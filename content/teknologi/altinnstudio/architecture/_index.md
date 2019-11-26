@@ -4,7 +4,8 @@ description: Description of the Altinn Studio architecture.
 tags: [architecture]
 weight: 100
 alwaysopen: false
-alias: /architecture/
+aliases:
+ - /architecture/
 ---
 Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. 
 

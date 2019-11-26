@@ -4,7 +4,8 @@ description: Description of errors and weaknesses in Altinn Studio that develope
 tags: [issues]
 weight: 110
 alwaysopen: false
-alias: /known-issues/
+aliases:
+ - /known-issues/
 ---
 
 <div id="knownIssuesContent"></div>

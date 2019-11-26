@@ -6,7 +6,7 @@ weight: 2
 
 **Designsystemet består av to deler:**
 
-- Et [komponentbibliotek](https://altinn.github.io/designsystem-styleguide/komponenter/) for front-end. Komponentbiblioteket er bygget på Patternlab, du finner dokumentasjon av dette på [teknologisidene](/teknologi/front-end-designsystem/).
+- Et [komponentbibliotek](https://altinn.github.io/designsystem-styleguide/) for front-end. Komponentbiblioteket er bygget på Patternlab, du finner dokumentasjon av dette på [teknologisidene](/teknologi/front-end-designsystem/).
 - Et [Figma-bibliotek](/design/figma/) med UI-komponenter som kan brukes av designere for å prototype nye maler. 
 
 Designsystemet baserer seg på såkalt atomisk designmetodikk hvor man i stedet for å designe sider designer komponenter som kan settes sammen og gjenbrukes i ulike webløsninger. 

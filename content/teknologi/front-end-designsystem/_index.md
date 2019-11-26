@@ -14,8 +14,8 @@ For å bygge designsystemet har vi brukt «Pattern Lab», som er et verktøy for
 
 <b>Pattern Lab brukes i hovedsak til to formål:</b>
 
-- Pattern Lab skal være et hjem for alle UI-komponenter med deres styling og retningslinjer. CSS og javascript for komponentene skal **kun** eksistere og vedlikeholdes her.
-- Pattern Lab skal fungere som prototypeverktøy. Alle maler skal i de fleste tilfeller prototypes og brukertestes før implementering.
+- Pattern Lab skal være et hjem for alle [UI-komponenter](https://altinn.github.io/designsystem-styleguide/) med deres styling og retningslinjer. CSS og javascript for komponentene skal **kun** eksistere og vedlikeholdes her.
+- Pattern Lab skal fungere som prototypeverktøy. Alle maler skal i de fleste tilfeller [prototypes](https://altinn.github.io/designsystem-styleguide/prototyper.html) og brukertestes før implementering.
 
 
 {{% children description="true" depth="1" %}}

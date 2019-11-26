@@ -5,7 +5,7 @@ description: Når du lager innhold har du en rekke ansvarsområder når det komm
 weight: 30
 ---
 
-På Difis nettsidesider kan du sortere UU-krav etter [ansvarsområde innhold](https://uu.difi.no/krav-og-regelverk/wcag-20-standarden). Her får du en god oversikt på hva du må passe på når det kommer til tekst, bilder og video.
+På Difis nettsider kan du sortere UU-krav etter [ansvarsområde innhold](https://uu.difi.no/krav-og-regelverk/wcag-20-standarden). Her får du en god oversikt på hva du må passe på når det kommer til tekst, bilder og video.
 
 ## Hjelpemiddel 
 For å oppdage feil i innholdstrukturen kan det være nyttig å benytte “Wave” som er et utvidelsesverktøy til chrome.

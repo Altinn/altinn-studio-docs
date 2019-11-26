@@ -5,7 +5,8 @@ description: Description of the Altinn Studio, Altinn Apps and Altinn Platform s
 toc: true
 weight: 100
 alwaysopen: false
-alias: /about/
+aliases:
+ - /about/
 ---
 
 ## What is Altinn Studio?

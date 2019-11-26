@@ -5,7 +5,8 @@ toc: true
 tags: [api]
 weight: 100
 alwaysopen: false
-alias: /altinn-api/
+aliases:
+ - /altinn-api/
 ---
 
 {{%notice warning%}}
