@@ -208,35 +208,4 @@ NOTE: The address component is a proof of concept. The content/design of this co
   </tbody>
 </table>
 
-### Custom / third party components
-If there is a need for specialized/custom components, it is possible to use components that are not part of the Altinn Studio component library. These components need to be written in React, and imported to the app. See [here]() for instructions on how to create a custom component using React.
-
-#### Adding a custom component to an app
-The custom component needs to be defined in a _index.js_-file. This file can then be included in the app repository. To make the component available to the app, create a file called `ThirdPartyComponents.json` in the app repository, under the `Resources` folder.
-
-{{% notice info %}}
-NOTE: It is important that the name and location of the file _ThirdPartyComponents.json_ is correct, otherwise the component will not be available for the app.
-{{% /notice %}}
-
-The content of this file should be as follows:
-
-```
-{
-  "packages": [{
-    "packageName": "[name of the component]",
-    "location": "[Link to raw format of index.js in app repository]"
-  }]
-}
-```
-
-- `[name of the component]` should be replaced with the name that will be shown in the Altinn Studio UI editor.
-- `[Link to raw format of index.js in app repository]` should be replaced with the full url to the file in the git repo (can be found by navigating to the file in the [Repositories] solution and copying the url).
-
-Once this is done, the UI editor in Altinn Studio should be re-loaded, and the custom component will appear in the component menu on the left.
-
-{{% notice info %}}
-NOTE: Editing properties for custom components in the UI editor is currently not supported. As such, and properties for the component should be set directly in the code for the component. The documentation will be updated once this functionality is made available through the UI editor.
-{{% /notice %}}
-
-
 [See all Github issues for UI-editor](https://github.com/Altinn/altinn-studio/labels/area%2Fui-editor).
