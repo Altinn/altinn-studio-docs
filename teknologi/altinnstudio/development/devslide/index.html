@@ -1,0 +1,100 @@
+
+	<link rel="stylesheet" href="/revealjs/css/reveal.css">
+	<link rel="stylesheet" href="/revealjs/css/theme/beige.css" id="theme">
+	<link rel="stylesheet" href="/revealjs/lib/css/zenburn.css">
+
+	<div class="reveal">
+	<div class="slides">
+	<section data-markdown
+	         data-separator="^---"
+		 data-separator-vertical="^___"
+		 data-separator-notes="^Note:"
+		data-charset="utf8">
+	# Altinn Studio
+Aka. &#34;Tjenester 3.0&#34;
+--- 
+## What are we creating
+- A app development solution
+- Altinn Studio: The development tool
+- Altinn Platform: The supporting platform
+- Altinn Apps: The solution to host the Apps
+
+---
+## What technologies are we using
+- .Net Core : Backend / API
+- REACT : Frontend Altinn Studio &amp; App
+- Docker: Apps are created as Docker Containers
+- Kubernetes: The containers are hosted in Kubernetes
+- Azure: We use Azure for Kubernetes hosting
+
+---
+## Altinn Studio
+- Design frontend
+- Define frontend logic
+- Define datamodel for app
+- Define app logic for backend
+- Build &amp; deploy app container
+- Source Control for App files 
+___
+![](/about/feature_git.png)
+___
+![](/about/feature_externaleditor.png)
+___
+![](/about/feature_opensource.png)
+___
+![](/about/products_logos.png)
+---
+## Altinn Apps
+- Kubernetes Cluster where apps are hosted
+- One cluster per Organisation
+---
+## Altinn Platform
+- Supporting functionality
+- Authentication
+- Authorization
+- Storage
+- Register
+- Profile
+---
+## Documentation
+- The different solutions are described in detail
+on docs
+[Terms](/terms)
+[Architecture](/architecture/)
+ 
+---
+## The End
+
+[Tilbake](../)
+	</section>
+	</div>
+	</div>
+	<script src="/revealjs/lib/js/head.min.js"></script>
+	<script src="/revealjs/js/reveal.js"></script>
+	<script>
+		Reveal.initialize({
+		      	embedded : true,
+
+		        
+		        "center": true ,
+		        
+		        "controls": true ,
+		        
+		        "history": true ,
+		        
+		        "progress": true ,
+		        
+		        "transition":"convex",
+		        
+		        
+		        
+		        dependencies: [
+		          { src: '\/revealjs\/lib\/js\/classList.js"', condition: function() { return !document.body.classList; } },
+		          { src: '\/revealjs\/plugin\/markdown\/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		          { src: '\/revealjs\/plugin\/markdown\/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		          { src: '\/revealjs\/plugin\/highlight\/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		          { src: '\/revealjs\/plugin\/zoom-js\/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		          { src: '\/revealjs\/plugin\/notes\/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		        ]
+		      });
+	</script>

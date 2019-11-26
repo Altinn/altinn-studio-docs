@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="js csstransforms3d">
+<html lang="nb" class="js csstransforms3d">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +19,6 @@
     
     <link href="/css/theme.css" rel="stylesheet">
     
-    
-      <link href="/css/theme-gray.css" rel="stylesheet">
     
     
     <script src="/js/jquery-2.x.min.js"></script>
@@ -66,9 +64,37 @@ if(host != "localhost")
         
         <nav class="a-globalNav " id="primary-nav">
           <a href="/" class="a-globalNav-logo">
-            <span style="font-size: 1.6em"><b>altinn.studio</b>/</span><span style="font-size: 1.4em;">docs</span>
-            <span class="sr-only">To the front page</span>
+            <img src="/images/altinn-logo-white.svg" alt="Altinn logo"
+              class="an-logo adocs-logo">
+
+            <span class="adocs-logo-text">
+              <span>/håndbok</span>
+              <span class="sr-only">Til forsiden</span>
+            </span>
           </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+             
+              <li>
+                <a class="a-hvr-underline" href="/design/">
+                  design
+                </a>
+              </li>
+              <li>
+                <a class="a-hvr-underline " href="/teknologi/">
+                  teknologi
+                </a>
+              </li>
+              <li>
+                <a class="a-hvr-underline" href="/innhold/">
+                  innhold
+                </a>
+              </li>
+            </ul>
+          </div>
+
         </nav> 
         
       </div>
@@ -97,7 +123,7 @@ if(host != "localhost")
     
         <div class="searchbox">
     <label for="search-by"><i class="fa fa-search"></i></label>
-    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 <script src="/js/lunr.min.js"></script>
@@ -121,13 +147,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/" class="dd-item 
+    <li data-nav-id="/design/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/">
-        <span>Solutions</span>
+      <a href="/design/">
+        <span>Design</span>
 
         
 
@@ -159,12 +185,280 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/" class="dd-item 
+    <li data-nav-id="/design/designprinsipper/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/">
+      <a href="/design/designprinsipper/">
+        <span>Designprinsipper</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design/designsystem/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/design/designsystem/">
+        <span>Designsystem</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design/figma/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/design/figma/">
+        <span>Figma</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design/logo/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/design/logo/">
+        <span>Logo</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design/ikonbruk/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/design/ikonbruk/">
+        <span>Ikonbruk</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/design/farger/" class="dd-item
+     
+      ">
+        <a href="/design/farger/">
+        <span>Farger</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/design/illustrasjoner/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/design/illustrasjoner/">
+        <span>Illustrasjoner</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/">
+        <span>Teknologi</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/generell-systemdokumentasjon/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/generell-systemdokumentasjon/">
+        <span>Arkitektur og infrastruktur</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/">
         <span>Altinn Studio</span>
 
         
@@ -197,12 +491,88 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/">
+      <a href="/teknologi/altinnstudio/solutions/">
+        <span>Solutions</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/">
+        <span>Altinn Studio</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/">
         <span>Functionality</span>
 
         
@@ -235,12 +605,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/">
         <span>Building and configuring app</span>
 
         
@@ -273,12 +643,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/app-parameters/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/app-parameters/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/app-parameters/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/app-parameters/">
         <span>App Parameters</span>
 
         
@@ -302,12 +672,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/api-use/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/api-use/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/api-use/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/api-use/">
         <span>Configure API use</span>
 
         
@@ -331,12 +701,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/prefill/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/prefill/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/prefill/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/prefill/">
         <span>Configure Prefill</span>
 
         
@@ -360,12 +730,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/helptext/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/helptext/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/helptext/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/helptext/">
         <span>Configure helptext</span>
 
         
@@ -389,12 +759,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/code-editor/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/code-editor/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/code-editor/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/code-editor/">
         <span>Create Logic with code</span>
 
         
@@ -418,12 +788,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/data-modeling/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/data-modeling/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/data-modeling/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/data-modeling/">
         <span>Data modeling</span>
 
         
@@ -447,12 +817,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/define-process/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/define-process/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/define-process/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/define-process/">
         <span>Define process</span>
 
         
@@ -476,12 +846,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/api-expose/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/api-expose/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/api-expose/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/api-expose/">
         <span>Exposing API</span>
 
         
@@ -505,12 +875,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/authorization-rules/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/authorization-rules/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/authorization-rules/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/authorization-rules/">
         <span>Set Authorization Rules</span>
 
         
@@ -534,12 +904,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/text/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/text/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/text/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/text/">
         <span>Text and translations</span>
 
         
@@ -563,12 +933,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/build-app/ui-designer/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/ui-designer/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/build-app/ui-designer/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/ui-designer/">
         <span>UI Design</span>
 
         
@@ -599,10 +969,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/solutions/altinn-studio/functional/build-app/ui-designer/components/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/ui-designer/components/" class="dd-item
      
       ">
-        <a href="/solutions/altinn-studio/functional/build-app/ui-designer/components/">
+        <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/ui-designer/components/">
         <span>Components</span> 
         
         </a></li>
@@ -637,12 +1007,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/deployment/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/deployment/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/deployment/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/deployment/">
         <span>App Deployment</span>
 
         
@@ -666,12 +1036,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/dashboard/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/dashboard/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/dashboard/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/dashboard/">
         <span>Dashboard</span>
 
         
@@ -695,12 +1065,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/test/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/test/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/test/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/test/">
         <span>Testing</span>
 
         
@@ -724,12 +1094,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/functional/version-control/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/functional/version-control/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/functional/version-control/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/functional/version-control/">
         <span>Version Control</span>
 
         
@@ -762,12 +1132,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/">
         <span>Altinn Studio Repos</span>
 
         
@@ -800,12 +1170,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/functional/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/functional/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/functional/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/functional/">
         <span>Functionality</span>
 
         
@@ -829,12 +1199,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/">
         <span>Structure</span>
 
         
@@ -867,12 +1237,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/">
         <span>ServiceConfigurations.json</span>
 
         
@@ -896,12 +1266,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/">
         <span>RuleHandler.js</span>
 
         
@@ -925,12 +1295,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/">
         <span>AltinnService.csproj</span>
 
         
@@ -954,12 +1324,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/">
         <span>CalculationHandler.cs</span>
 
         
@@ -983,12 +1353,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">
         <span>FormLayout.json</span>
 
         
@@ -1012,12 +1382,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/">
         <span>InstansiationHandler.cs</span>
 
         
@@ -1041,12 +1411,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/serviceimplementation/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/serviceimplementation/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/serviceimplementation/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/serviceimplementation/">
         <span>ServiceImplementation.cs</span>
 
         
@@ -1070,12 +1440,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/servicemetadata/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/servicemetadata/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/servicemetadata/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/servicemetadata/">
         <span>ServiceMetadata.json</span>
 
         
@@ -1099,12 +1469,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodel/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/servicemodel/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodel/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/servicemodel/">
         <span>ServiceModel.cs</span>
 
         
@@ -1128,12 +1498,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodelxsd/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/servicemodelxsd/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/servicemodelxsd/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/servicemodelxsd/">
         <span>ServiceModel.xsd</span>
 
         
@@ -1157,12 +1527,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/validationhandler/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/validationhandler/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/validationhandler/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/validationhandler/">
         <span>ValidationHandler.cs</span>
 
         
@@ -1186,12 +1556,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/application-metadata/">
         <span>applicationmetadata.json</span>
 
         
@@ -1215,12 +1585,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/reactapp/">
         <span>react-app.js</span>
 
         
@@ -1271,12 +1641,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/">
         <span>Altinn Apps</span>
 
         
@@ -1309,12 +1679,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/">
         <span>App</span>
 
         
@@ -1347,12 +1717,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/apptemplates/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/apptemplates/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/">
         <span>App templates</span>
 
         
@@ -1385,12 +1755,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/apptemplates/asp.net/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/apptemplates/asp.net/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/">
         <span>ASP.NET Web</span>
 
         
@@ -1423,12 +1793,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/app-api/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/app-api/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/">
         <span>App API</span>
 
         
@@ -1461,12 +1831,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/app-api/eus-rest/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/eus-rest/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/app-api/eus-rest/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/eus-rest/">
         <span>REST-API for End User Systems</span>
 
         
@@ -1490,12 +1860,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/app-api/org-rest/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/org-rest/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/app-api/org-rest/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/org-rest/">
         <span>REST-API for orgs</span>
 
         
@@ -1528,12 +1898,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/features/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/features/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/features/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/features/">
         <span>Features</span>
 
         
@@ -1557,12 +1927,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/frontend/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/frontend/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/frontend/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/frontend/">
         <span>Frontend</span>
 
         
@@ -1586,12 +1956,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-apps/app/processhandling/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/processhandling/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-apps/app/processhandling/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/processhandling/">
         <span>Process handling</span>
 
         
@@ -1633,12 +2003,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/">
         <span>Altinn Platform</span>
 
         
@@ -1671,12 +2041,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/authentication/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/authentication/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/authentication/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/authentication/">
         <span>Authentication</span>
 
         
@@ -1700,12 +2070,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/authorization/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/authorization/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/authorization/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/authorization/">
         <span>Authorization</span>
 
         
@@ -1729,12 +2099,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/pdf/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/pdf/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/pdf/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/pdf/">
         <span>PDF</span>
 
         
@@ -1758,12 +2128,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/profile/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/profile/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/profile/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/profile/">
         <span>Profile</span>
 
         
@@ -1787,12 +2157,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/receipt/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/receipt/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/receipt/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/receipt/">
         <span>Receipt</span>
 
         
@@ -1816,12 +2186,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/register/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/register/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/register/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/register/">
         <span>Register</span>
 
         
@@ -1845,12 +2215,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/solutions/altinn-platform/storage/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/storage/" class="dd-item 
         
         
         
         ">
-      <a href="/solutions/altinn-platform/storage/">
+      <a href="/teknologi/altinnstudio/solutions/altinn-platform/storage/">
         <span>Storage</span>
 
         
@@ -1883,19 +2253,21 @@ if(host != "localhost")
   
  
 
+            
           
-          
+            
+            
 
 
  
   
     
-    <li data-nav-id="/about/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/about/" class="dd-item 
         
         
         
         ">
-      <a href="/about/">
+      <a href="/teknologi/altinnstudio/about/">
         <span>About</span>
 
         
@@ -1928,12 +2300,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/about/goals/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/about/goals/" class="dd-item 
         
         
         
         ">
-      <a href="/about/goals/">
+      <a href="/teknologi/altinnstudio/about/goals/">
         <span>Goals</span>
 
         
@@ -1957,12 +2329,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/about/status/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/about/status/" class="dd-item 
         
         
         
         ">
-      <a href="/about/status/">
+      <a href="/teknologi/altinnstudio/about/status/">
         <span>Project Status</span>
 
         
@@ -1986,10 +2358,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/about/slide/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/about/slide/" class="dd-item
      
       ">
-        <a href="/about/slide/">
+        <a href="/teknologi/altinnstudio/about/slide/">
         <span>Slides</span> 
         
         </a></li>
@@ -2006,12 +2378,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/about/work-in-progress/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/about/work-in-progress/" class="dd-item 
         
         
         
         ">
-      <a href="/about/work-in-progress/">
+      <a href="/teknologi/altinnstudio/about/work-in-progress/">
         <span>Work in progress</span>
 
         
@@ -2035,19 +2407,21 @@ if(host != "localhost")
   
  
 
+            
           
-          
+            
+            
 
 
  
   
     
-    <li data-nav-id="/altinn-api/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/altinn-api/" class="dd-item 
         
         
         
         ">
-      <a href="/altinn-api/">
+      <a href="/teknologi/altinnstudio/altinn-api/">
         <span>Altinn API</span>
 
         
@@ -2080,12 +2454,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/altinn-api/authentication/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/altinn-api/authentication/" class="dd-item 
         
         
         
         ">
-      <a href="/altinn-api/authentication/">
+      <a href="/teknologi/altinnstudio/altinn-api/authentication/">
         <span>Altinn API - Authentication</span>
 
         
@@ -2109,12 +2483,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/altinn-api/clients/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/altinn-api/clients/" class="dd-item 
         
         
         
         ">
-      <a href="/altinn-api/clients/">
+      <a href="/teknologi/altinnstudio/altinn-api/clients/">
         <span>Prefill Client Example</span>
 
         
@@ -2138,19 +2512,21 @@ if(host != "localhost")
   
  
 
+            
           
-          
+            
+            
 
 
  
   
     
-    <li data-nav-id="/architecture/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/">
+      <a href="/teknologi/altinnstudio/architecture/">
         <span>Architecture</span>
 
         
@@ -2183,12 +2559,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/">
+      <a href="/teknologi/altinnstudio/architecture/application/">
         <span>Application</span>
 
         
@@ -2221,12 +2597,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/">
         <span>Altinn Apps</span>
 
         
@@ -2259,12 +2635,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/app/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/app/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/app/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/app/">
         <span>App (Asp.Net Web)</span>
 
         
@@ -2297,12 +2673,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/app/app-backend/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/">
         <span>App Backend</span>
 
         
@@ -2335,12 +2711,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/app-events/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/app/app-backend/app-events/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/">
         <span>Application Events</span>
 
         
@@ -2364,12 +2740,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/process/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/process/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/app/app-backend/process/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/process/">
         <span>Process</span>
 
         
@@ -2400,10 +2776,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/application/altinn-apps/app/app-backend/process/process_interaction/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/process/process_interaction/" class="dd-item
      
       ">
-        <a href="/architecture/application/altinn-apps/app/app-backend/process/process_interaction/">
+        <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/process/process_interaction/">
         <span>Process Interaction</span> 
         
         </a></li>
@@ -2438,12 +2814,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/app/app-frontend/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-frontend/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/app/app-frontend/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-frontend/">
         <span>App Frontend</span>
 
         
@@ -2476,12 +2852,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/kuberneteswrapper/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/kuberneteswrapper/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/kuberneteswrapper/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/kuberneteswrapper/">
         <span>Kubernetes Wrapper</span>
 
         
@@ -2505,12 +2881,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-apps/routing/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-apps/routing/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-apps/routing/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-apps/routing/">
         <span>Routing</span>
 
         
@@ -2543,12 +2919,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/">
         <span>Altinn Platform</span>
 
         
@@ -2581,12 +2957,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/authentication/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/authentication/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/authentication/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/authentication/">
         <span>Authentication</span>
 
         
@@ -2610,12 +2986,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/authorization/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/authorization/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/authorization/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/authorization/">
         <span>Authorization</span>
 
         
@@ -2639,12 +3015,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/intermediary/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/intermediary/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/intermediary/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/intermediary/">
         <span>Intermediary</span>
 
         
@@ -2668,12 +3044,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/pdf/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/pdf/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/pdf/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/pdf/">
         <span>PDF</span>
 
         
@@ -2697,12 +3073,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/profile/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/profile/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/profile/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/profile/">
         <span>Profile</span>
 
         
@@ -2726,12 +3102,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/receipt/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/receipt/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/receipt/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/receipt/">
         <span>Receipt</span>
 
         
@@ -2755,12 +3131,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/register/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/register/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/register/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/register/">
         <span>Register</span>
 
         
@@ -2784,12 +3160,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-platform/storage/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-platform/storage/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-platform/storage/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-platform/storage/">
         <span>Storage</span>
 
         
@@ -2822,12 +3198,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-studio/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-studio/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-studio/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-studio/">
         <span>Altinn Studio</span>
 
         
@@ -2860,10 +3236,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/application/altinn-studio/api/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-studio/api/" class="dd-item
      
       ">
-        <a href="/architecture/application/altinn-studio/api/">
+        <a href="/teknologi/altinnstudio/architecture/application/altinn-studio/api/">
         <span>API Catalogue</span> 
         
         </a></li>
@@ -2880,12 +3256,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/application/altinn-studio/react-app/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/application/altinn-studio/react-app/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/application/altinn-studio/react-app/">
+      <a href="/teknologi/altinnstudio/architecture/application/altinn-studio/react-app/">
         <span>Front-end</span>
 
         
@@ -2927,12 +3303,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/information/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/information/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/information/">
+      <a href="/teknologi/altinnstudio/architecture/information/">
         <span>Information</span>
 
         
@@ -2956,12 +3332,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/infrastructure/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/infrastructure/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/infrastructure/">
+      <a href="/teknologi/altinnstudio/architecture/infrastructure/">
         <span>Infrastructure</span>
 
         
@@ -2994,12 +3370,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/infrastructure/deployment/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/infrastructure/deployment/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/infrastructure/deployment/">
+      <a href="/teknologi/altinnstudio/architecture/infrastructure/deployment/">
         <span>Deployment</span>
 
         
@@ -3032,12 +3408,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/infrastructure/deployment/altinn-apps/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/infrastructure/deployment/altinn-apps/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/infrastructure/deployment/altinn-apps/">
+      <a href="/teknologi/altinnstudio/architecture/infrastructure/deployment/altinn-apps/">
         <span>Altinn Apps</span>
 
         
@@ -3061,12 +3437,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/infrastructure/deployment/altinn-studio/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/infrastructure/deployment/altinn-studio/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/infrastructure/deployment/altinn-studio/">
+      <a href="/teknologi/altinnstudio/architecture/infrastructure/deployment/altinn-studio/">
         <span>Altinn Studio</span>
 
         
@@ -3099,12 +3475,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/infrastructure/altinn-cdn/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/infrastructure/altinn-cdn/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/infrastructure/altinn-cdn/">
+      <a href="/teknologi/altinnstudio/architecture/infrastructure/altinn-cdn/">
         <span>Altinn CDN</span>
 
         
@@ -3137,12 +3513,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/integration/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/integration/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/integration/">
+      <a href="/teknologi/altinnstudio/architecture/integration/">
         <span>Integration</span>
 
         
@@ -3175,12 +3551,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/integration/application-owners-interface/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/integration/application-owners-interface/" class="dd-item 
         
         
         parent
         ">
-      <a href="/architecture/integration/application-owners-interface/">
+      <a href="/teknologi/altinnstudio/architecture/integration/application-owners-interface/">
         <span>Platform Api for Application Owners</span>
 
         
@@ -3213,12 +3589,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/operations/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/operations/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/operations/">
+      <a href="/teknologi/altinnstudio/architecture/operations/">
         <span>Operations</span>
 
         
@@ -3242,12 +3618,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/">
+      <a href="/teknologi/altinnstudio/architecture/security/">
         <span>Security</span>
 
         
@@ -3280,12 +3656,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authentication/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authentication/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authentication/">
+      <a href="/teknologi/altinnstudio/architecture/security/authentication/">
         <span>Authentication</span>
 
         
@@ -3318,12 +3694,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authentication/altinn-apps/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authentication/altinn-apps/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authentication/altinn-apps/">
+      <a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-apps/">
         <span>Altinn Apps</span>
 
         
@@ -3347,12 +3723,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authentication/altinn-platform/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authentication/altinn-platform/">
+      <a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/">
         <span>Altinn Platform</span>
 
         
@@ -3383,10 +3759,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/authentication-api/" class="dd-item
      
       ">
-        <a href="/architecture/security/authentication/altinn-platform/authentication-api/">
+        <a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/authentication-api/">
         <span>Authentication API</span> 
         
         </a></li>
@@ -3403,10 +3779,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwt-format/" class="dd-item
      
       ">
-        <a href="/architecture/security/authentication/altinn-platform/jwt-format/">
+        <a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwt-format/">
         <span>JWT Format</span> 
         
         </a></li>
@@ -3423,10 +3799,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwtcookieauthentication/" class="dd-item
      
       ">
-        <a href="/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
+        <a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">
         <span>JWTCookieAuthentication</span> 
         
         </a></li>
@@ -3452,12 +3828,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authentication/altinn-studio/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authentication/altinn-studio/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authentication/altinn-studio/">
+      <a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-studio/">
         <span>Altinn Studio</span>
 
         
@@ -3490,12 +3866,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/">
+      <a href="/teknologi/altinnstudio/architecture/security/authorization/">
         <span>Authorization</span>
 
         
@@ -3528,12 +3904,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/altinn-apps/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/altinn-apps/">
+      <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/">
         <span>Altinn Apps</span>
 
         
@@ -3566,12 +3942,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/altinn-apps/app/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/altinn-apps/app/">
+      <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/">
         <span>App (asp.net)</span>
 
         
@@ -3604,10 +3980,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/app/model/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/model/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-apps/app/model/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/model/">
         <span>Authorization model</span> 
         
         </a></li>
@@ -3624,10 +4000,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-apps/app/pep/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/pep/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-apps/app/pep/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/pep/">
         <span>PEP</span> 
         
         </a></li>
@@ -3644,12 +4020,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/xacmlpolicy/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">
+      <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/xacmlpolicy/">
         <span>Policy</span>
 
         
@@ -3691,12 +4067,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/altinn-platform/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/altinn-platform/">
+      <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/">
         <span>Altinn Platform</span>
 
         
@@ -3727,10 +4103,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/model/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/model/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/model/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/model/">
         <span>Authorization model</span> 
         
         </a></li>
@@ -3747,10 +4123,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/contexthandler/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/contexthandler/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/contexthandler/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/contexthandler/">
         <span>Context Handler</span> 
         
         </a></li>
@@ -3767,10 +4143,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/pap/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pap/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/pap/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pap/">
         <span>PAP</span> 
         
         </a></li>
@@ -3787,10 +4163,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/pdp/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pdp/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/pdp/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pdp/">
         <span>PDP</span> 
         
         </a></li>
@@ -3807,10 +4183,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/pep/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pep/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/pep/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pep/">
         <span>PEP</span> 
         
         </a></li>
@@ -3827,10 +4203,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/pip/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pip/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/pip/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pip/">
         <span>PIP</span> 
         
         </a></li>
@@ -3847,10 +4223,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/prp/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/prp/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/prp/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/prp/">
         <span>PRP</span> 
         
         </a></li>
@@ -3867,10 +4243,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/architecture/security/authorization/altinn-platform/xacml/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/xacml/" class="dd-item
      
       ">
-        <a href="/architecture/security/authorization/altinn-platform/xacml/">
+        <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/xacml/">
         <span>XACML</span> 
         
         </a></li>
@@ -3896,12 +4272,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/authorization/altinn-studio/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/authorization/altinn-studio/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/authorization/altinn-studio/">
+      <a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-studio/">
         <span>Altinn Studio</span>
 
         
@@ -3934,12 +4310,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/encryption/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/encryption/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/encryption/">
+      <a href="/teknologi/altinnstudio/architecture/security/encryption/">
         <span>Encryption</span>
 
         
@@ -3963,12 +4339,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/security/log/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/security/log/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/security/log/">
+      <a href="/teknologi/altinnstudio/architecture/security/log/">
         <span>Log and log managament</span>
 
         
@@ -4001,12 +4377,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/development/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/development/" class="dd-item 
         
         active
         
         ">
-      <a href="/architecture/development/">
+      <a href="/teknologi/altinnstudio/architecture/development/">
         <span>Development</span>
 
         
@@ -4039,12 +4415,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/development/build/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/development/build/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/development/build/">
+      <a href="/teknologi/altinnstudio/architecture/development/build/">
         <span>Build process</span>
 
         
@@ -4077,12 +4453,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/solution/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/solution/" class="dd-item 
         
         
         
         ">
-      <a href="/architecture/solution/">
+      <a href="/teknologi/altinnstudio/architecture/solution/">
         <span>Solution</span>
 
         
@@ -4115,12 +4491,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/solution/altinn-apps/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/solution/altinn-apps/" class="dd-item 
         
         
         parent
         ">
-      <a href="/architecture/solution/altinn-apps/">
+      <a href="/teknologi/altinnstudio/architecture/solution/altinn-apps/">
         <span>Altinn Apps</span>
 
         
@@ -4144,12 +4520,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/solution/altinn-platform/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/solution/altinn-platform/" class="dd-item 
         
         
         parent
         ">
-      <a href="/architecture/solution/altinn-platform/">
+      <a href="/teknologi/altinnstudio/architecture/solution/altinn-platform/">
         <span>Altinn Platform</span>
 
         
@@ -4173,12 +4549,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/architecture/solution/altinn-studio/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/solution/altinn-studio/" class="dd-item 
         
         
         parent
         ">
-      <a href="/architecture/solution/altinn-studio/">
+      <a href="/teknologi/altinnstudio/architecture/solution/altinn-studio/">
         <span>Altinn Studio</span>
 
         
@@ -4211,19 +4587,21 @@ if(host != "localhost")
   
  
 
+            
           
-          
+            
+            
 
 
  
   
     
-    <li data-nav-id="/development/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/" class="dd-item 
         
         
         
         ">
-      <a href="/development/">
+      <a href="/teknologi/altinnstudio/development/">
         <span>Development</span>
 
         
@@ -4256,10 +4634,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/development/devslide/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/development/devslide/" class="dd-item
      
       ">
-        <a href="/development/devslide/">
+        <a href="/teknologi/altinnstudio/development/devslide/">
         <span>Intro for Developers</span> 
         
         </a></li>
@@ -4276,12 +4654,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/analysis/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/analysis/" class="dd-item 
         
         
         
         ">
-      <a href="/development/analysis/">
+      <a href="/teknologi/altinnstudio/development/analysis/">
         <span>Analysis</span>
 
         
@@ -4314,12 +4692,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/analysis/api/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/analysis/api/" class="dd-item 
         
         
         
         ">
-      <a href="/development/analysis/api/">
+      <a href="/teknologi/altinnstudio/development/analysis/api/">
         <span>API</span>
 
         
@@ -4350,10 +4728,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/development/analysis/api/agency/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/development/analysis/api/agency/" class="dd-item
      
       ">
-        <a href="/development/analysis/api/agency/">
+        <a href="/teknologi/altinnstudio/development/analysis/api/agency/">
         <span>Agency API</span> 
         
         </a></li>
@@ -4370,10 +4748,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/development/analysis/api/external/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/development/analysis/api/external/" class="dd-item
      
       ">
-        <a href="/development/analysis/api/external/">
+        <a href="/teknologi/altinnstudio/development/analysis/api/external/">
         <span>External APIs</span> 
         
         </a></li>
@@ -4408,12 +4786,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/branching/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/branching/" class="dd-item 
         
         
         
         ">
-      <a href="/development/branching/">
+      <a href="/teknologi/altinnstudio/development/branching/">
         <span>Branching</span>
 
         
@@ -4437,12 +4815,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/flight-rules/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/flight-rules/" class="dd-item 
         
         
         
         ">
-      <a href="/development/flight-rules/">
+      <a href="/teknologi/altinnstudio/development/flight-rules/">
         <span>Flight Rules</span>
 
         
@@ -4466,12 +4844,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/">
+      <a href="/teknologi/altinnstudio/development/handbook/">
         <span>Handbook</span>
 
         
@@ -4504,12 +4882,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/azure-dev-spaces/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/azure-dev-spaces/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/azure-dev-spaces/">
+      <a href="/teknologi/altinnstudio/development/handbook/azure-dev-spaces/">
         <span>Azure Dev Spaces</span>
 
         
@@ -4533,12 +4911,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/back-end/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/back-end/">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/">
         <span>Back-end</span>
 
         
@@ -4571,12 +4949,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/back-end/error-handling/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/error-handling/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/back-end/error-handling/">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/error-handling/">
         <span>Error handling and Error logging</span>
 
         
@@ -4600,12 +4978,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/back-end/nuget-package/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/nuget-package/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/back-end/nuget-package/">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/nuget-package/">
         <span>Nuget Package</span>
 
         
@@ -4638,12 +5016,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/deployment/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/deployment/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/deployment/">
+      <a href="/teknologi/altinnstudio/development/handbook/deployment/">
         <span>Deployment</span>
 
         
@@ -4667,12 +5045,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/">
         <span>Front-end</span>
 
         
@@ -4705,12 +5083,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/best-practices/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/best-practices/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/best-practices/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">
         <span>Best practices</span>
 
         
@@ -4734,12 +5112,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/build/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/build/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/build/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/build/">
         <span>Build</span>
 
         
@@ -4763,12 +5141,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/component-library/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/component-library/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/component-library/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/component-library/">
         <span>Component Library</span>
 
         
@@ -4792,12 +5170,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/debug/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/debug/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
         <span>Debug</span>
 
         
@@ -4821,12 +5199,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/error-handling/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/error-handling/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/error-handling/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/error-handling/">
         <span>Error handling</span>
 
         
@@ -4850,12 +5228,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/postmessage/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/postmessage/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/postmessage/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">
         <span>Post Message</span>
 
         
@@ -4879,12 +5257,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/react/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/react/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
         <span>React</span>
 
         
@@ -4908,12 +5286,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/redux/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/redux/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
         <span>Redux</span>
 
         
@@ -4937,12 +5315,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/front-end/styling/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/styling/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/front-end/styling/">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/styling/">
         <span>Styling (css)</span>
 
         
@@ -4975,12 +5353,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/general/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/general/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/general/">
+      <a href="/teknologi/altinnstudio/development/handbook/general/">
         <span>General</span>
 
         
@@ -5004,12 +5382,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/getting-started/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/getting-started/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/getting-started/">
+      <a href="/teknologi/altinnstudio/development/handbook/getting-started/">
         <span>Getting started</span>
 
         
@@ -5033,12 +5411,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/git/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/git/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/git/">
+      <a href="/teknologi/altinnstudio/development/handbook/git/">
         <span>Git</span>
 
         
@@ -5062,12 +5440,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/gitea/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/gitea/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/gitea/">
+      <a href="/teknologi/altinnstudio/development/handbook/gitea/">
         <span>Gitea</span>
 
         
@@ -5091,12 +5469,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/naming/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/naming/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/naming/">
+      <a href="/teknologi/altinnstudio/development/handbook/naming/">
         <span>Naming Conventions</span>
 
         
@@ -5120,12 +5498,41 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/rest/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/loadbalancer/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/rest/">
+      <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">
+        <span>Nginx routing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/rest/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/rest/">
         <span>RESTful APIs (Representation State Transfer)</span>
 
         
@@ -5149,12 +5556,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/routing/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/routing/">
+      <a href="/teknologi/altinnstudio/development/handbook/routing/">
         <span>Routing</span>
 
         
@@ -5187,12 +5594,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/routing/nginx/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/nginx/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/routing/nginx/">
+      <a href="/teknologi/altinnstudio/development/handbook/routing/nginx/">
         <span>Nginx routing</span>
 
         
@@ -5216,12 +5623,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/routing/traefik/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/traefik/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/routing/traefik/">
+      <a href="/teknologi/altinnstudio/development/handbook/routing/traefik/">
         <span>Traefik routing</span>
 
         
@@ -5254,12 +5661,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/routing/traefik/installation/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/traefik/installation/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/routing/traefik/installation/">
+      <a href="/teknologi/altinnstudio/development/handbook/routing/traefik/installation/">
         <span>Installation of Traefik 2.0</span>
 
         
@@ -5283,12 +5690,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/routing/traefik/tls-configuration/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/routing/traefik/tls-configuration/">
+      <a href="/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/">
         <span>TLS in Traefik 2.0</span>
 
         
@@ -5312,12 +5719,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/routing/traefik/custom-resources/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/routing/traefik/custom-resources/">
+      <a href="/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/">
         <span>Traefik custom resources</span>
 
         
@@ -5341,12 +5748,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/routing/traefik/ingress-routes/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/routing/traefik/ingress-routes/">
+      <a href="/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/">
         <span>Traefik ingress routes</span>
 
         
@@ -5388,10 +5795,10 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/development/handbook/securecoding/checklist/" class="dd-item
+      <li data-nav-id="/teknologi/altinnstudio/development/handbook/securecoding/checklist/" class="dd-item
      
       ">
-        <a href="/development/handbook/securecoding/checklist/">
+        <a href="/teknologi/altinnstudio/development/handbook/securecoding/checklist/">
         <span>Security Checklist</span> 
         
         </a></li>
@@ -5408,12 +5815,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/">
         <span>Test</span>
 
         
@@ -5446,12 +5853,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/automated-test-app/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/automated-test-app/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/automated-test-app/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/automated-test-app/">
         <span>Automated test app</span>
 
         
@@ -5475,12 +5882,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/postman/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/postman/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/postman/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/postman/">
         <span>Postman</span>
 
         
@@ -5504,12 +5911,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/test-coverage/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/test-coverage/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/test-coverage/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/test-coverage/">
         <span>Test Coverage</span>
 
         
@@ -5533,12 +5940,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/test-strategy/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/test-strategy/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/test-strategy/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/test-strategy/">
         <span>Test Strategy</span>
 
         
@@ -5562,12 +5969,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/testcafe/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/testcafe/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/testcafe/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/testcafe/">
         <span>Testcafe</span>
 
         
@@ -5600,12 +6007,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/testcafe/testcafe-howto/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/testcafe/testcafe-howto/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/testcafe/testcafe-howto/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/testcafe/testcafe-howto/">
         <span>Testcafe - Tests</span>
 
         
@@ -5638,12 +6045,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/unit-testing/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/unit-testing/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/unit-testing/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/unit-testing/">
         <span>Unit testing</span>
 
         
@@ -5667,12 +6074,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/test/xunit-testing/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/xunit-testing/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/test/xunit-testing/">
+      <a href="/teknologi/altinnstudio/development/handbook/test/xunit-testing/">
         <span>Xunit Testing</span>
 
         
@@ -5705,12 +6112,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/troubleshooting/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/troubleshooting/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/troubleshooting/">
+      <a href="/teknologi/altinnstudio/development/handbook/troubleshooting/">
         <span>Troubleshooting</span>
 
         
@@ -5734,12 +6141,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/theming/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/theming/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/theming/">
+      <a href="/teknologi/altinnstudio/development/handbook/theming/">
         <span>Theming and styling</span>
 
         
@@ -5763,12 +6170,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/development/handbook/reusable-resources/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/reusable-resources/" class="dd-item 
         
         
         
         ">
-      <a href="/development/handbook/reusable-resources/">
+      <a href="/teknologi/altinnstudio/development/handbook/reusable-resources/">
         <span>Reusable resources</span>
 
         
@@ -5801,19 +6208,21 @@ if(host != "localhost")
   
  
 
+            
           
-          
+            
+            
 
 
  
   
     
-    <li data-nav-id="/terms/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/terms/" class="dd-item 
         
         
         
         ">
-      <a href="/terms/">
+      <a href="/teknologi/altinnstudio/terms/">
         <span>Terms</span>
 
         
@@ -5828,19 +6237,21 @@ if(host != "localhost")
   
  
 
+            
           
-          
+            
+            
 
 
  
   
     
-    <li data-nav-id="/known-issues/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/known-issues/" class="dd-item 
         
         
         
         ">
-      <a href="/known-issues/">
+      <a href="/teknologi/altinnstudio/known-issues/">
         <span>Known issues</span>
 
         
@@ -5873,12 +6284,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/known-issues/breaking-changes/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/known-issues/breaking-changes/" class="dd-item 
         
         
         
         ">
-      <a href="/known-issues/breaking-changes/">
+      <a href="/teknologi/altinnstudio/known-issues/breaking-changes/">
         <span>Breaking changes</span>
 
         
@@ -5902,20 +6313,22 @@ if(host != "localhost")
   
  
 
+            
           
-          
+            
+            
 
 
  
   
     
-    <li data-nav-id="/technology/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/">
-        <span>Technology</span>
+      <a href="/teknologi/altinnstudio/toolsandframeworks/">
+        <span>Tools and frameworks</span>
 
         
 
@@ -5947,12 +6360,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/bpmn/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/bpmn/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/bpmn/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/bpmn/">
         <span>BPMN 2.0</span>
 
         
@@ -5976,12 +6389,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/dotnet-core/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/dotnet-core/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/dotnet-core/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/dotnet-core/">
         <span>.NET Core</span>
 
         
@@ -6005,12 +6418,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/c-sharp/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/c-sharp/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/c-sharp/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/c-sharp/">
         <span>C#</span>
 
         
@@ -6034,12 +6447,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/docker/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/docker/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/docker/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/docker/">
         <span>Docker</span>
 
         
@@ -6063,12 +6476,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/gitea/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/gitea/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/gitea/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/gitea/">
         <span>Gitea</span>
 
         
@@ -6092,12 +6505,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/go/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/go/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/go/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/go/">
         <span>Go</span>
 
         
@@ -6121,12 +6534,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/grafana/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/grafana/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/grafana/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/grafana/">
         <span>Grafana</span>
 
         
@@ -6150,12 +6563,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/helm/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/helm/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/helm/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/helm/">
         <span>Helm</span>
 
         
@@ -6179,12 +6592,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/hugo/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/hugo/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/hugo/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/hugo/">
         <span>Hugo</span>
 
         
@@ -6208,12 +6621,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/jest/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/jest/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/jest/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/jest/">
         <span>Jest</span>
 
         
@@ -6237,12 +6650,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/kubernetes/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/kubernetes/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/kubernetes/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/kubernetes/">
         <span>Kubernetes</span>
 
         
@@ -6266,12 +6679,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/material-ui/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/material-ui/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/material-ui/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/material-ui/">
         <span>Material UI</span>
 
         
@@ -6295,12 +6708,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/nginx/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/nginx/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/nginx/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/nginx/">
         <span>Nginx</span>
 
         
@@ -6324,12 +6737,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/prometheus/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/prometheus/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/prometheus/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/prometheus/">
         <span>Prometheus</span>
 
         
@@ -6353,12 +6766,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/react/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/react/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/react/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/react/">
         <span>React</span>
 
         
@@ -6391,12 +6804,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/react/architecture/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/react/architecture/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/react/architecture/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/react/architecture/">
         <span>Kodearkitektur</span>
 
         
@@ -6420,12 +6833,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/react/redux/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/react/redux/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/react/redux/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/react/redux/">
         <span>Redux</span>
 
         
@@ -6449,12 +6862,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/react/third-party-components/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/react/third-party-components/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/react/third-party-components/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/react/third-party-components/">
         <span>Tredjeparts komponenter</span>
 
         
@@ -6487,12 +6900,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/stylecop/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/stylecop/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/stylecop/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/stylecop/">
         <span>StyleCop</span>
 
         
@@ -6516,12 +6929,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/custom-components/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/custom-components/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/custom-components/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/custom-components/">
         <span>Third party components</span>
 
         
@@ -6545,12 +6958,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/traefik/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/traefik/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/traefik/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/traefik/">
         <span>Traefik</span>
 
         
@@ -6574,12 +6987,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/typescript/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/typescript/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/typescript/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/typescript/">
         <span>TypeScript</span>
 
         
@@ -6603,12 +7016,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/technology/vs-code/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/vs-code/" class="dd-item 
         
         
         
         ">
-      <a href="/technology/vs-code/">
+      <a href="/teknologi/altinnstudio/toolsandframeworks/vs-code/">
         <span>Visual Studio Code</span>
 
         
@@ -6632,32 +7045,436 @@ if(host != "localhost")
   
  
 
+            
           
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/">
+        <span>Front-end designsystem</span>
+
         
 
         
         
-            
-                <li>
-                    <h3>Links</h3>
-                    <a href="https://altinn.studio">Altinn Studio</a>
-                    
-                </li>
-            
-                <li>
-                    
-                    <a href="https://altinnstudio.slack.com"><i class='fa fa-fw fa-slack'></i> Slack</a>
-                    
-                </li>
-            
-                <li>
-                    
-                    <a href="https://github.com/altinn/altinn-studio"><i class='fa fa-fw fa-github'></i> GitHub</a>
-                    
-                </li>
-            
-           
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
         
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/kom-i-gang/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/kom-i-gang/">
+        <span>Kom i gang</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/frontend-retningslinjer/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/frontend-retningslinjer/">
+        <span>Frontend retningslinjer</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/css-utilities/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/css-utilities/">
+        <span>CSS Utilities</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/font/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/font/">
+        <span>Font og tekststørrelser</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/grid-og-layout/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/grid-og-layout/">
+        <span>Grid og layout</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/ikonbruk/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/ikonbruk/">
+        <span>Ikonbruk</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/universell-utforming/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/universell-utforming/">
+        <span>Universell utforming</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/front-end-designsystem/nettleserstotte/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/front-end-designsystem/nettleserstotte/">
+        <span>Nettleserstøtte</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/innhold/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/innhold/">
+        <span>Innhold</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/innhold/m%C3%A5lform/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/innhold/m%C3%A5lform/">
+        <span>Målform</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/innhold/skriver%C3%A5d/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/innhold/skriver%C3%A5d/">
+        <span>Skriveråd</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/innhold/universell-utforming-for-innhold/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/innhold/universell-utforming-for-innhold/">
+        <span>Universell utforming</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
         
 
         
@@ -6725,20 +7542,20 @@ if(host != "localhost")
 	<div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 1</span>
+	<span class="page-number">Side 1 av 1</span>
 	
 </nav>
 
 	</div>
 
 	
-	   <article class="post technology">
+	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/technology/hugo/">Hugo</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/toolsandframeworks/hugo/">Hugo</a></h2>
     </header>
     <section class="post-excerpt">
         <p> Hugo is a static site generator that we use for generating https://docs.altinn.studio.
-Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/altinn/altinn-studio-docs   <a class="read-more" href="/technology/hugo/">&raquo;</a></p>
+Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/altinn/altinn-studio-docs   <a class="read-more" href="/teknologi/altinnstudio/toolsandframeworks/hugo/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -6767,7 +7584,7 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
 
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 1</span>
+	<span class="page-number">Side 1 av 1</span>
 	
 </nav>
 
@@ -6825,7 +7642,183 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
                                   
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
                               
                               
           
@@ -9257,10 +10250,26 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                               
           
+                              
+                      
+                  
                               
                       
                   
                               
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
                       
                   
                               
@@ -9601,7 +10610,23 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
                               
+                              
+          
+                              
                       
                   
                               
@@ -9617,6 +10642,9 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                               
           
+                              
+                      
+                  
                               
                       
                   
@@ -9636,6 +10664,19 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   
@@ -9652,6 +10693,12 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                               
           
+                              
+                      
+                  
+                              
+                      
+                  
                               
                       
                   
@@ -9682,7 +10729,22 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
           
                               
                               
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
                               
+                              
+                              
           
                               
                       
@@ -9690,7 +10752,35 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                               
+          
+                              
                       
                   
                               
@@ -9717,14 +10807,31 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                           
                           
+          
+                              
+                              
+                              
           
                               
+                      
+                  
                               
                                   
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
                               
                               
           
                               
+                      
+                  
+                              
                                   
                       
                       
@@ -9740,7 +10847,20 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
                               
+                              
+          
+                              
                       
                   
                               
@@ -9751,13 +10871,30 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                           
                           
+          
+                              
+                              
+                              
           
                               
+                      
+                  
                               
                                   
+                      
+                      
+                          
+                              
+                          
+                          
+          
                               
                               
+                              
           
+                              
+                      
+                  
                               
                                   
                       
@@ -9854,7 +10991,22 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
                               
+                              
+          
+                              
                                   
                       
                       
@@ -9899,6 +11051,9 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                               
           
+                              
+                      
+                  
                               
                       
                   
@@ -9982,6 +11137,27 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                       
                   
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
                               
                                   
                       
@@ -9990,13 +11166,30 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                           
                           
+          
+                              
+                              
+                              
           
                               
+                      
+                  
                               
                                   
+                      
+                      
+                          
+                              
+                          
+                          
+          
                               
                               
+                              
           
+                              
+                      
+                  
                               
                                   
                       
@@ -10045,7 +11238,20 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                               
+          
+                              
                       
                   
                               
@@ -10077,9 +11283,30 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
                               
                               
           
+                              
+                      
+                  
+                              
+                      
+                  
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
                               
                                   
                       
@@ -10140,7 +11367,7 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
           
                   
                   
-                      <a class="nav nav-next" href="/solutions/" title="Solutions" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/design/" title="Slik designer vi" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -10163,7 +11390,7 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
             <div class="col-12">
                 <ul>
                     <li>
-                        <a href="https://altinn.no/en/about-altinn/">About Altinn</a>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
                     </li>
                     <li>
                         <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
@@ -10212,7 +11439,7 @@ Links  https://gohugo.io/ https://github.com/gohugoio/hugo https://github.com/al
     <script>mermaid.initialize({startOnLoad:true});</script>
 
     
-
+<script src="/js/custom.js"></script>
 
   </body>
 </html>
