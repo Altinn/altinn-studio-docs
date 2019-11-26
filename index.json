@@ -158,7 +158,7 @@
 	"title": "Universell utforming for innhold",
 	"tags": [],
 	"description": "Når du lager innhold har du en rekke ansvarsområder når det kommer til universell utforming.",
-	"content": " På Difis nettsidesider kan du sortere UU-krav etter ansvarsområde innhold. Her får du en god oversikt på hva du må passe på når det kommer til tekst, bilder og video.\nHjelpemiddel For å oppdage feil i innholdstrukturen kan det være nyttig å benytte “Wave” som er et utvidelsesverktøy til chrome.\nLast ned Wave til chrome, installer og ikonet vil dukke opp øverst til høyre i nettleseren.\nI eksempelet under ser vi hjelp av Wave at det uheldigvis er blitt lagt inn en tom overskrift i episerver som egentlig ikke skulle vært der. For å fjerne den igjen må vi markere den tomme linjen i epi, og fjerne “Mindre kapittel Heading” som style.\n"
+	"content": " På Difis nettsider kan du sortere UU-krav etter ansvarsområde innhold. Her får du en god oversikt på hva du må passe på når det kommer til tekst, bilder og video.\nHjelpemiddel For å oppdage feil i innholdstrukturen kan det være nyttig å benytte “Wave” som er et utvidelsesverktøy til chrome.\nLast ned Wave til chrome, installer og ikonet vil dukke opp øverst til høyre i nettleseren.\nI eksempelet under ser vi hjelp av Wave at det uheldigvis er blitt lagt inn en tom overskrift i episerver som egentlig ikke skulle vært der. For å fjerne den igjen må vi markere den tomme linjen i epi, og fjerne “Mindre kapittel Heading” som style.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/",
