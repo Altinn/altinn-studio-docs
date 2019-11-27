@@ -8172,20 +8172,15 @@ Process is set to first task. The task specifies if the data can be updated or n
     &lt;bpmn2:startEvent id=&quot;StartEvent_1&quot;&gt;
       &lt;bpmn2:outgoing&gt;SequenceFlow_1&lt;/bpmn2:outgoing&gt;
     &lt;/bpmn2:startEvent&gt;
-    &lt;bpmn2:task id=&quot;Task_1&quot; name=&quot;Fyll ut&quot; altinn:tasktype=&quot;data&quot;&gt;
+    &lt;bpmn2:task id=&quot;Task_1&quot; name=&quot;Utfylling&quot; altinn:tasktype=&quot;data&quot;&gt;
       &lt;bpmn2:incoming&gt;SequenceFlow_1&lt;/bpmn2:incoming&gt;
       &lt;bpmn2:outgoing&gt;SequenceFlow_2&lt;/bpmn2:outgoing&gt;
     &lt;/bpmn2:task&gt;
-    &lt;bpmn2:task id=&quot;Task_2&quot; name=&quot;Send inn&quot; altinn:tasktype=&quot;submit&quot;&gt;
-      &lt;bpmn2:incoming&gt;SequenceFlow_2&lt;/bpmn2:incoming&gt;
-      &lt;bpmn2:outgoing&gt;SequenceFlow_3&lt;/bpmn2:outgoing&gt;
-    &lt;/bpmn2:task&gt;
     &lt;bpmn2:endEvent id=&quot;EndEvent_1&quot;&gt;
-      &lt;bpmn2:incoming&gt;SequenceFlow_3&lt;/bpmn2:incoming&gt;
+      &lt;bpmn2:incoming&gt;SequenceFlow_2&lt;/bpmn2:incoming&gt;
     &lt;/bpmn2:endEvent&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_1&quot; sourceRef=&quot;StartEvent_1&quot; targetRef=&quot;data_1&quot; /&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_2&quot; sourceRef=&quot;Task_1&quot; targetRef=&quot;Task_2&quot; /&gt;
-    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_3&quot; sourceRef=&quot;Task_2&quot; targetRef=&quot;EndEvent_1&quot; /&gt;
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_1&quot; sourceRef=&quot;StartEvent_1&quot; targetRef=&quot;data_1&quot; /&gt;    
+    &lt;bpmn2:sequenceFlow id=&quot;SequenceFlow_2&quot; sourceRef=&quot;Task_1&quot; targetRef=&quot;EndEvent_1&quot; /&gt;
   &lt;/bpmn2:process&gt;
 </code></pre>
 
@@ -8715,38 +8710,6 @@ GET {appPath}/metadata/{typeName}/schema
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                       
                   
