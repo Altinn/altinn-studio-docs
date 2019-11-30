@@ -16,8 +16,8 @@ Functionality in Altinn is distributed between five different solutions
 
 The diagram below shows where functionality is located in the five different solutions:
 
-[Full screen](/architecture/solution/Altinn_SolutionArchitecture.svg) | [Visio](/architecture/solution/Altinn_SolutionArchitecture.vsdx)
+[Full screen](/teknologi/altinnstudio/architecture/solution/Altinn_SolutionArchitecture.svg) | [Visio](/teknologi/altinnstudio/architecture/solution/Altinn_SolutionArchitecture.vsdx)
 
 {{%excerpt%}}
-<object data="/architecture/solution/Altinn_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/teknologi/altinnstudio/architecture/solution/Altinn_SolutionArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
