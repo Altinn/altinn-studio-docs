@@ -9,7 +9,7 @@ weight: 100
 In this app template the App Backend is based on [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/) and is 
 a [Web Api application](https://docs.microsoft.com/en-us/aspnet/core/web-api/).
 
-This App Backend exposes REST-Api's consumed by a optinal App Frontend and/or external systems / mobile apps.
+This App Backend exposes REST-Api's consumed by a optional App Frontend and/or external systems / mobile apps.
 The structure of the API's is documentet [here](/altinn-api/)
 
 The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct
@@ -24,7 +24,7 @@ The below diagram show how the App Backend is build around 3 main packages.
 - ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app-backend/app-backend-lib-dependencies-classdiagram.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
+<object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app-backend/app_backend_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
 {{% /excerpt%}}
 
 
@@ -49,7 +49,7 @@ with frontend/external systems.
 
 All logic in the app will typical be related to the datamodel.
 
-[download as visio]: /architecture/application/altinn-apps/altinnapps_application_architecture.vsdx
-[See fullscreen]: /architecture/application/altinn-apps/altinnapps_application_architecture.svg
+[download as visio]: /teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.vsdx
+[See fullscreen]: /teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.svg
 
 
