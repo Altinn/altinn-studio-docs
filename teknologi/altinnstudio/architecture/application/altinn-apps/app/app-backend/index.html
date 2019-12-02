@@ -7663,7 +7663,7 @@ if(host != "localhost")
 a <a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/">Web Api application</a>.</p>
 
 <p>This App Backend exposes REST-Api&rsquo;s consumed by a optional App Frontend and/or external systems / mobile apps.
-The structure of the API&rsquo;s is documentet <a href="/altinn-api/">here</a></p>
+The structure of the API&rsquo;s is documented <a href="/altinn-api/">here</a></p>
 
 <p>The diagram below show how the code is structured in different parts.</p>
 
@@ -7672,45 +7672,24 @@ The structure of the API&rsquo;s is documentet <a href="/altinn-api/">here</a></
 
 
 
-<p>** Standard API&rsquo;s
-The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct
+<h2 id="altinn-app-api-standard-api-s">Altinn.App.Api - Standard API&rsquo;s</h2>
+
+<p>The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct
 operation. The API controllers are implemented in a library called <a href="https://www.nuget.org/packages/Altinn.App.Api">Altinn.App.Api</a> and is published to Nuget.</p>
 
 <p>The app template is configured to use this.</p>
 
-<p>** Platform services
-Platform services are services that are configured in startup on the app and with help of dependendency injection is available to
-the API controllers and other code in the</p>
+<h2 id="altinn-app-platformservices-platform-services">Altinn.App.PlatformServices - Platform services</h2>
 
-<p>** Custom App logic</p>
+<p>Platform services are services that are configured in startup on the app and with help of dependendency injection is available to
+the API controllers and other code in the app.</p>
 
-<p>The API-controllers uses defined interfaces to communicate with the app logic defined by the developer.</p>
+<h2 id="altinn-app-common-common-functionality">Altinn.App.Common - Common functionality</h2>
 
-<p>The below diagram show how the App Backend is build around 3 main packages.</p>
+<h2 id="app-logic">App logic</h2>
 
-<ul>
-<li>AltinnCore Runtime - MVC Application with predefined API&rsquo;s and functionality for Apps created in Altinn Studio</li>
-<li>ServiceLogic - Class library that contains business logic defined by the org/app developer</li>
-<li>ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic</li>
-</ul>
-
-
-	<p><object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app_backend_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object></p>
-
-
-
-<h4 id="app-logic">App logic</h4>
-
-<p>The app logic is C# code generated/created as part of the app development process in Altinn Studio.</p>
-
-<p>The service implementation class implement a defined interface that backend uses to be able to interact
-with the service implementation.</p>
-
-<p>This is done through reflection. The App container contains a dll of the app logic.</p>
-
-<p>The service implementation contains all backend code for logic and rules.</p>
-
-<p>The different controllers calls the app logic</p>
+<p>The app logic contains the custom application code that a app developer has generated/created in Altinn Studio or
+in third party development tools like Visual Studio Code.</p>
 
 <h4 id="datamodel">Datamodel</h4>
 
@@ -11112,54 +11091,6 @@ with frontend/external systems.</p>
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
                               
                       
                   
