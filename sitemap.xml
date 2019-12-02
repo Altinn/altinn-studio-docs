@@ -655,11 +655,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/features/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/features/</loc>
   </url>
   
   <url>

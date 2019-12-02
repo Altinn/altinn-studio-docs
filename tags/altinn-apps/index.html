@@ -1791,11 +1791,31 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">
+        <span>Customizing</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/" class="dd-item
      
       ">
         <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">
-        <span>Filestructure</span> 
+        <span>Customizing</span> 
         
         </a></li>
      
@@ -7720,11 +7740,13 @@ In addition mobile apps and external governmental portal consumes Altinn Apis to
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/features/">Features</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">Customzing Application</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Prefill A application can prefill data in the datamodels for the app based on standard configuration for profile and register data, but can also prefill data based on data from organisation or prefill based on logic define in the custom app logic defined by the application developer.
-Data validation The application can validate the datamodel based on the datamodel itself and based on custom app logic defined by the application developer. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/features/">&raquo;</a></p>
+        <p> Configuring Process The App process is controlled by a BPMN 2.0 process file located in the app repository.
+See architecture for supported types of steps.
+Configuration of Authorization Policy The authorization policy is defined as a XACML 3.0 policy file.
+Configuration of allowed data elements  <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -7746,13 +7768,39 @@ Data validation The application can validate the datamodel based on the datamode
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">Filestructure in template</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">Customzing Application</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This template is based on a ASP.NET Core Web application with Rest APIs
-It is integrated with Altinn Platform making it easy to utilize the functionality provided in Altinn Platform like storage, authentication, authorization and other components.
-For web applications that need a web based UI, it has a React based frontend that can be configured in Altinn Studio.
-ASP.Net Core is a cross-platform, high performance, open-source framework for building modern cloud-based, Internet-connected application. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">&raquo;</a></p>
+        <p>Adding custom API&rsquo;s It is possible to add custom API&rsquo;s to the app. The need to be added as web-api controllers in the app project.
+See development handbook for a step to step guideline for adding custom API&rsquo;s to the application.
+Consuming custom API&rsquo;s A app can consume any REST-API avaiable on the Internet.
+See development handbook for a step to step guideline for consuming external API&rsquo;s. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/features/">Features</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Prefill A application can prefill data in the datamodels for the app based on standard configuration for profile and register data, but can also prefill data based on data from organisation or prefill based on logic define in the custom app logic defined by the application developer.
+Data validation The application can validate the datamodel based on the datamodel itself and based on custom app logic defined by the application developer. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/features/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -7837,35 +7885,6 @@ Theming In the future Altinn Apps will support theming making it possible to hav
         <p> A app have a defined business process. The business process can consist of serveral type of task in different orders.
 If you want details about the business process architechture see Business Process Architecture
 Tasks Formfilling Signing Payment Events  <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/processhandling/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps/">altinn-apps</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/eus-rest/">REST-API for End User Systems</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>NOTE: Work in progress. Stuff will change
-The main API&rsquo;channel for data in the platform is REST for apps created in Altinn Studio.
-The end user system needs to call different APIS based on the need. The below figure show the different components relevant for an end user System calling Altinn through REST.
-
-API to authenticate end user systems For new API&rsquo;s the goal is to use JWT Tokens to authenticate against the API. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/eus-rest/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8743,6 +8762,22 @@ API to authenticate end user systems For new API&rsquo;s the goal is to use JWT 
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

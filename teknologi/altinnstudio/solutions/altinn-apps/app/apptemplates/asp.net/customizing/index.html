@@ -7,7 +7,7 @@
 
 
     
-    <title>Filestructure in template :: Altinn digitalisering - Utvikling</title>
+    <title>Customzing Application :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -1791,11 +1791,31 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">
+        <span>Customizing</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/" class="dd-item
      active
       ">
         <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">
-        <span>Filestructure</span> 
+        <span>Customizing</span> 
         
         </a></li>
      
@@ -7584,7 +7604,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/app/'>App</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/'>App templates</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/'>ASP.NET Web</a> <span class='adocs-breadcrumb-divider'> / </span> Filestructure
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/app/'>App</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/'>App templates</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/'>ASP.NET Web</a> <span class='adocs-breadcrumb-divider'> / </span> Customizing
 
  
 
@@ -7618,7 +7638,7 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Filestructure in template
+                Customzing Application
                 
               </h1>
               <p class="a-leadText" id="leadText">Description of the files in the ASP.Net template</p>
@@ -7635,109 +7655,17 @@ if(host != "localhost")
 
 
 
-<p>This template is based on a <a href="https://dotnet.microsoft.com/apps/aspnet/web-apps">ASP.NET Core Web application</a> with <a href="https://dotnet.microsoft.com/apps/aspnet/apis">Rest APIs</a></p>
+<h2 id="adding-custom-api-s">Adding custom API&rsquo;s</h2>
 
-<p>It is integrated with Altinn Platform making it easy to utilize the functionality provided in <a href="/solutions/altinn-platform/">Altinn Platform</a> like <a href="/solutions/altinn-platform/storage/">storage</a>, <a href="/solutions/altinn-platform/authentication/">authentication</a>,
-<a href="/solutions/altinn-platform/authorization/">authorization</a> and other components.</p>
+<p>It is possible to add custom API&rsquo;s to the app. The need to be added as web-api controllers in the app project.</p>
 
-<p>For web applications that need a web based UI, it has a <a href="https://reactjs.org/">React</a> based frontend that can be <a href="https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/">configured in Altinn Studio</a>.</p>
+<p>See development handbook for a step to step guideline for adding custom API&rsquo;s to the application.</p>
 
-<p><a href="https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-3.0">ASP.Net Core</a> is a cross-platform, high performance,
-open-source framework for building modern cloud-based, Internet-connected application.</p>
+<h2 id="consuming-custom-api-s">Consuming custom API&rsquo;s</h2>
 
-<p>Together with the added Altinn functionality in the template, it is a effective platform to build applications powered by Altinn Platform.</p>
+<p>A app can consume any REST-API avaiable on the Internet.</p>
 
-<p>Applications based on this templates are buildt as Docker Containers and hosted in Kubernetes.</p>
-
-<h2 id="template-content">Template Content</h2>
-
-<p>The template contains lots of features to support functionality needed by Apps running in Altinn Apps.</p>
-
-<p>The below describes the different features and possibilities.</p>
-
-<h3 id="app-configuration">App Configuration</h3>
-
-<p>The App template based on Asp.Net Core contains different types of standard configuration files.</p>
-
-<h4 id="process">Process</h4>
-
-<p>The Process.xml defines the business process of the app and is based om <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0.</a>
-The app supports differen types of processes.</p>
-
-<h4 id="xacml">XACML</h4>
-
-<p>The Polixy.xml defines the authorization policy with rules. Is based on <a href="http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML 3.0.</a></p>
-
-<p>The XACML is imported in to authorization component.</p>
-
-<h4 id="ui">UI</h4>
-
-<p>The Formlayout.json defines the rendering of the UI based on Altinn Studio UI designer.</p>
-
-<h4 id="text-resources">Text Resources</h4>
-
-<p>The App can be breated with multiple langauges at the same time. The different texts are put in language files for each language.</p>
-
-<h4 id="prefill">Prefill</h4>
-
-<p>Prefill.json defines the prefill for a app</p>
-
-<h4 id="dockerfile">Dockerfile</h4>
-
-<p>Defines the docker image</p>
-
-<h3 id="app-libraries">App libraries</h3>
-
-<p>The Asp.Net Template uses some libraries created by Altinn.</p>
-
-<h4 id="altinn-app-api">Altinn.App.Api</h4>
-
-<p>This library contains controllers for the standard App APIS in a App. The app uses this API to expose all the API&rsquo;s typical needed by Apps.
-The API&rsquo;s are in detailed explained <a href="https://docs.altinn.studio/altinn-api/">here</a>, the below summaries the most important ones.</p>
-
-<h5 id="instance-api">Instance API</h5>
-
-<p>API for instances</p>
-
-<h5 id="data-api">Data Api</h5>
-
-<p>API for data</p>
-
-<h5 id="process-api">Process Api</h5>
-
-<p>API for process management of Apps.</p>
-
-<h5 id="validation-api">Validation API</h5>
-
-<p>API to validate state of the App</p>
-
-<h5 id="profile-api">Profile Api</h5>
-
-<h4 id="altinn-app-services">Altinn.App.Services</h4>
-
-<p>The Service Library contains client functionality for platform and other functionality that a App can choose to need.</p>
-
-<h5 id="storage">Storage</h5>
-
-<h5 id="register">Register</h5>
-
-<h5 id="profile">Profile</h5>
-
-<h4 id="altinn-app-common">Altinn.App.Common</h4>
-
-<p>Contains common functionality needed.</p>
-
-<h2 id="extensibility">Extensibility</h2>
-
-<h3 id="apis">Apis</h3>
-
-<h3 id="custom-frontend">Custom frontend</h3>
-
-<p>If the configurable React based UI is to limited for a application need, it is possible to build your own SPA based frontend that uses the</p>
-
-<h2 id="testing">Testing</h2>
-
-<p>The template contains a test project making it easy to extend with own tests.</p>
+<p>See development handbook for a step to step guideline for consuming external API&rsquo;s.</p>
 
 
 <footer class=" footline" >
@@ -8608,6 +8536,25 @@ The API&rsquo;s are in detailed explained <a href="https://docs.altinn.studio/al
                       
                           
                               
+                                  
+                                  
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
                               
                           
                           
@@ -11569,7 +11516,7 @@ The API&rsquo;s are in detailed explained <a href="https://docs.altinn.studio/al
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/" title="ASP.NET Web Application Template"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/" title="Customzing Application"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
                       <a class="nav nav-next" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/files/" title="Filestructure in template" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
