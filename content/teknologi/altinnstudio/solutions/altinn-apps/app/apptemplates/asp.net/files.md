@@ -49,57 +49,11 @@ Prefill.json defines the prefill for a app
 #### Dockerfile
 Defines the docker image
 
-### App libraries
-The Asp.Net Template uses some libraries created by Altinn.
-
-#### Altinn.App.Api 
-This library contains controllers for the standard App APIS in a App. The app uses this API to expose all the API's typical needed by Apps.
-The API's are in detailed explained [here](https://docs.altinn.studio/altinn-api/), the below summaries the most important ones.
-
-##### Instance API
-API for instances
-
-##### Data Api
-API for data
-
-##### Process Api
-API for process management of Apps.
-
-##### Validation API
-API to validate state of the App
-
-##### Profile Api
 
 
-#### Altinn.App.Services
-The Service Library contains client functionality for platform and other functionality that a App can choose to need.
-
-##### Storage
 
 
-##### Register
 
-
-##### Profile
-
-
-###### 
-
-
-#### Altinn.App.Common
-Contains common functionality needed.
-
-
-## Extensibility
-
-### Apis
-
-### Custom frontend
-If the configurable React based UI is to limited for a application need, it is possible to build your own SPA based frontend that uses the 
-
-
-## Testing
-The template contains a test project making it easy to extend with own tests.
 
 
 
