@@ -10,56 +10,30 @@ In this app template the App Backend is based on [ASP.NET Core](https://docs.mic
 a [Web Api application](https://docs.microsoft.com/en-us/aspnet/core/web-api/).
 
 This App Backend exposes REST-Api's consumed by a optional App Frontend and/or external systems / mobile apps.
-The structure of the API's is documentet [here](/altinn-api/)
+The structure of the API's is documented [here](/altinn-api/)
 
 The diagram below show how the code is structured in different parts. 
-
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app_backend_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
 {{% /excerpt%}}
 
-
-** Standard API's
+## Altinn.App.Api - Standard API's
 The REST-APIS are implemented in different API-controllers and uses attribute based routing to identify the correct
 operation. The API controllers are implemented in a library called [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) and is published to Nuget. 
 
 The app template is configured to use this. 
 
-
-** Platform services 
+## Altinn.App.PlatformServices - Platform services 
 Platform services are services that are configured in startup on the app and with help of dependendency injection is available to 
-the API controllers and other code in the 
+the API controllers and other code in the app. 
 
-** Custom App logic
+## Altinn.App.Common - Common functionality
 
+## App logic
+The app logic contains the custom application code that a app developer has generated/created in Altinn Studio or
+in third party development tools like Visual Studio Code. 
 
-
-
-The API-controllers uses defined interfaces to communicate with the app logic defined by the developer.
-
-The below diagram show how the App Backend is build around 3 main packages.
-
-- AltinnCore Runtime - MVC Application with predefined API's and functionality for Apps created in Altinn Studio
-- ServiceLogic - Class library that contains business logic defined by the org/app developer
-- ServiceLibrary - Common utils and interfaces making it possible for the Runtime to use ServiceLogic
-
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app_backend_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
-{{% /excerpt%}}
-
-
-#### App logic
-The app logic is C# code generated/created as part of the app development process in Altinn Studio.
-
-The service implementation class implement a defined interface that backend uses to be able to interact
-with the service implementation.
-
-This is done through reflection. The App container contains a dll of the app logic. 
-
-The service implementation contains all backend code for logic and rules.  
-
-The different controllers calls the app logic
 
 #### Datamodel
 The data model in an app is defined as an XSD. From the XSD it is generated

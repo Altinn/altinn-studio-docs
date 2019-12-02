@@ -21,7 +21,7 @@ In the future Altinn Studio will support apps based on different templates. Curr
 App-Backend exposes api to frontend and contains functionality to handle the typical functional scenarious 
 needed like process handling, data storage, business logic ++.
 
-[Read more about the application architecture for App Frontend](app-backend)
+[Read more about the application architecture for App Backend](app-backend)
 
 ### App Frontend
 Apps based on this template can be configured to have a frontend. Apps created for beeing only a backend for mobile apps other systems will not have a
@@ -29,3 +29,7 @@ App Frontend.
 
 [Read more about the application architecture for App Frontend](app-frontend)
 
+
+{{%excerpt%}}
+<object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
+{{% /excerpt%}}
