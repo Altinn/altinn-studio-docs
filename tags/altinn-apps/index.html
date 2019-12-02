@@ -1795,7 +1795,7 @@ if(host != "localhost")
      
       ">
         <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">
-        <span>Customizing</span> 
+        <span>Configuration</span> 
         
         </a></li>
      
@@ -7740,7 +7740,7 @@ In addition mobile apps and external governmental portal consumes Altinn Apis to
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">Customzing Application</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">Configuration of Application</a></h2>
     </header>
     <section class="post-excerpt">
         <p> Configuring Process The App process is controlled by a BPMN 2.0 process file located in the app repository.
@@ -7774,7 +7774,8 @@ Configuration of allowed data elements  <a class="read-more" href="/teknologi/al
         <p>Adding custom API&rsquo;s It is possible to add custom API&rsquo;s to the app. The need to be added as web-api controllers in the app project.
 See development handbook for a step to step guideline for adding custom API&rsquo;s to the application.
 Consuming custom API&rsquo;s A app can consume any REST-API avaiable on the Internet.
-See development handbook for a step to step guideline for consuming external API&rsquo;s. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">&raquo;</a></p>
+See development handbook for a step to step guideline for consuming external API&rsquo;s.
+Custom frontend If the standard UI-editor is to limited it is possible to build a custom frontend with the single page application (SPA) framework of your choice. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -7825,10 +7826,12 @@ Data validation The application can validate the datamodel based on the datamode
         <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/files/">Filestructure in template</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This template is based on a ASP.NET Core Web application with Rest APIs
-It is integrated with Altinn Platform making it easy to utilize the functionality provided in Altinn Platform like storage, authentication, authorization and other components.
-For web applications that need a web based UI, it has a React based frontend that can be configured in Altinn Studio.
-ASP.Net Core is a cross-platform, high performance, open-source framework for building modern cloud-based, Internet-connected application. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/files/">&raquo;</a></p>
+        <p>The template contains serveral standard files that is added to the repository when app is created.
+Process The Process.xml defines the business process of the app and is based om BPMN 2.0. The app supports differen types of processes.
+See standard BPMN file in template
+XACML The Polixy.xml defines the authorization policy with rules. Is based on XACML 3.0.
+The XACML is imported in to authorization component.
+See standard XACML file in template <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/files/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
