@@ -1,7 +1,7 @@
 ---
-title: Customzing Application
-description: Description of the files in the ASP.Net template
-linktitle: Customizing
+title: Configuration of Application
+description: Description of the different configuration of the 
+linktitle: Configuration
 tags: [altinn-apps]
 weight: 200
 ---
@@ -16,12 +16,3 @@ The authorization policy is defined as a XACML 3.0 policy file.
 
 
 ## Configuration of allowed data elements
-
-
-
-
-
-
-
-
-
