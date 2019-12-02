@@ -6,12 +6,12 @@ tags: [architecture]
 weight: 100
 ---
 
-The App developed in Altinn Studio is based on a application template that contains
-backend and frontend components. The app developer modifies and enhances the template
-with changing code and configuration in Altinn Studio or external devlopment tools.
+The App developed in Altinn Studio is currently based on a [asp.net application template](/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/) that contains
+backend and frontend components. The app developer modifies and enhances the app
+with changing code and configuration in Altinn Studio or external devlopment tools like [Visual Studio Code](https://code.visualstudio.com/). 
 
-The application is built and deployed as a Docker container in a Kubernetes Pod. 
-See [deployment architecture](/architecture/infrastructure/deployement/altinn-apps) for deployment details. 
+The application is built and deployed as a Docker container in a Kubernetes Pod to a Kubernetes cluster.
+See [deployment architecture](/teknologi/altinnstudio/architecture/infrastructure/deployement/altinn-apps) for deployment details. 
 
 In the future Altinn Studio will support apps based on different templates. Currently we support the below template(s).
 
