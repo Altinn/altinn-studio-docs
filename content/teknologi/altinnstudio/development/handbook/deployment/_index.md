@@ -76,3 +76,7 @@ The “light” image only contains Git and Docker and is created for only runni
 Packer creates Resource Groups in Azure keeping the image build for history and debuggind purposes. To remove this Resource Group run AZ Cli:
 
 az group delete -n PackerResourceGroup
+
+### Deleting build queue
+If there is the need to delete builds in the Azure Devops pipelines queue, you can use the DELETE rest API found [here](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/delete?view=azure-devops-rest-5.1).
+You can use PostMan. Rememember to copy the cookies from an authenticated browser.
