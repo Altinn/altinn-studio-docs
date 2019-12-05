@@ -7628,7 +7628,7 @@ if(host != "localhost")
 <ul>
 <li><a href="#introduction">Introduction</a>
 <ul>
-<li><a href="#application-owner">Application Owner</a></li>
+<li><a href="#application-owners">Application Owners</a></li>
 <li><a href="#application-users">Application Users</a></li>
 </ul></li>
 <li><a href="#two-different-apis">Two different APIs</a>
@@ -7636,22 +7636,23 @@ if(host != "localhost")
 <li><a href="#application-api">Application API</a></li>
 <li><a href="#platform-storage-api">Platform Storage API</a></li>
 </ul></li>
-<li><a href="#create-an-application-instance">Create an application instance</a>
+<li><a href="#create-an-application-instance">Create an application instance</a></li>
+<li><a href="#data">Data</a>
 <ul>
-<li><a href="#create-a-data-element">Create a data element</a></li>
-<li><a href="#update-a-data-element">Update a data element</a></li>
-<li><a href="#get-a-specific-data-element">Get a specific data element</a></li>
+<li><a href="#create-and-upload-data">Create and upload data</a></li>
+<li><a href="#update-data-file">Update data file</a></li>
+<li><a href="#download-a-specific-data-file">Download a specific data file</a></li>
 </ul></li>
 <li><a href="#receipt-data-element">Receipt data element</a>
 <ul>
 <li><a href="#upload-a-pdf-and-associate-the-pdf-with-an-existing-data-element">Upload a pdf and associate the pdf with an existing data element</a></li>
 <li><a href="#download-the-pdf-of-a-data-element">Download the PDF of a data element</a></li>
 </ul></li>
-<li><a href="#application-owner-download-1">Application owner download<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a>
+<li><a href="#application-owner-download">Application owner download</a>
 <ul>
-<li><a href="#downloads-is-logged-on-the-data-element">Downloads is logged on the data element</a></li>
+<li><a href="#downloads-is-logged-on-the-data-element-1">Downloads is logged on the data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
 <li><a href="#confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</a></li>
-<li><a href="#download-a-complete-instance-with-data-elements-and-corresponding-pdfs">Download a complete instance with data elements and corresponding pdfs</a></li>
+<li><a href="#download-a-complete-instance-with-data-elements-and-corresponding-pdfs-1">Download a complete instance with data elements and corresponding pdfs<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
 </ul></li>
 <li><a href="#query-instances">Query instances</a></li>
 <li><a href="#events">Events</a>
@@ -7727,7 +7728,7 @@ The two groups have many similar needs, but there are also differences in what t
 Traditionally the two groups have had access to completely separated API endpoints in Altinn.
 The new API will be available to both parties, but with some functions that will normally be used only by one of the groups.</p>
 
-<h3 id="application-owner">Application Owner</h3>
+<h3 id="application-owners">Application Owners</h3>
 
 <p>A list of common tasks for an application owner.</p>
 
@@ -7896,17 +7897,35 @@ Content-Disposition: form-data; name=&quot;certificate&quot;; filename=certifica
 }
 </code></pre>
 
-<h3 id="create-a-data-element">Create a data element</h3>
+<h2 id="data">Data</h2>
 
-<p>Post a data file (e.g. an xml-document) as body of request with matching headers. Must specify dataType as defined in the application metadata.</p>
+<p>An instance holds metadata objects that describe the data files that can be uploaded and downloaded from storage. These metadata objects are called data elments. A data element is identified with a guid.</p>
+
+<ul>
+<li>to stream a data file you must talks to the <code>/data</code> endpoint of the instance.</li>
+<li>to get or update the data element metadata elements you must talk to the <code>/datelements</code> endpoint of the instance.</li>
+</ul>
+
+<h3 id="create-and-upload-data">Create and upload data</h3>
+
+<p>Post a data file (e.g. an xml-document) as body (stream content) of request with matching headers. Must specify dataType as defined in the application metadata.</p>
 
 <pre><code class="language-http">POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?dataType=default
 </code></pre>
 
-<p>This call updates the instance metadata and returns the data element that were created.</p>
+<p>The request should have a content type and a content disposition which holds the data file&rsquo;s filename. You may also use a multipart, but  only the first part will be read.</p>
+
+<pre><code class="language-http">Content-Type = &quot;image/png&quot;
+Content-Disposition = attachment; filename=myfile.png
+
+PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+</code></pre>
+
+<p>This call returns the data element metadata object that were created.</p>
 
 <pre><code class="language-json">{
     &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
+    &quot;instanceGuid&quot;: &quot;762011d1-d341-4c0a-8641-d8a104e83d30&quot;,
     &quot;dataType&quot;: &quot;default&quot;,
     &quot;contentType&quot;: &quot;application/xml&quot;,
     &quot;blobStoragePath&quot;: &quot;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
@@ -7924,7 +7943,7 @@ Content-Disposition: form-data; name=&quot;certificate&quot;; filename=certifica
 }
 </code></pre>
 
-<h3 id="update-a-data-element">Update a data element</h3>
+<h3 id="update-data-file">Update data file</h3>
 
 <p>Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client.</p>
 
@@ -7936,9 +7955,9 @@ Content-Disposition = attachment; filename=myfile.png
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
 
-<h3 id="get-a-specific-data-element">Get a specific data element</h3>
+<h3 id="download-a-specific-data-file">Download a specific data file</h3>
 
-<p>Clients can download the data element by a get request. Notice that application owner&rsquo;s get of an instance owners data will update metadata for on data element.</p>
+<p>Clients can download the data by a get request. Notice that application owner&rsquo;s get of an instance owners data will update metadata for on data element.</p>
 
 <pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 </code></pre>
@@ -8019,15 +8038,22 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 <pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d
 </code></pre>
 
-<h2 id="application-owner-download-1">Application owner download<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h2>
+<h2 id="application-owner-download">Application owner download</h2>
 
-<h3 id="downloads-is-logged-on-the-data-element">Downloads is logged on the data element</h3>
+<h3 id="downloads-is-logged-on-the-data-element-1">Downloads is logged on the data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
 <h3 id="confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</h3>
 
-<p>Application owner must confirm that the data element file was downloaded sucessful.</p>
+<p>Application owner must confirm that the data file that the data element represent was downloaded. This can be done for one data element or for all data elements fo the instance.</p>
 
-<pre><code class="language-http">PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
+<p>For one data element:</p>
+
+<pre><code class="language-http">PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/dataelements/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
+</code></pre>
+
+<p>For <em>all</em> data elements:</p>
+
+<pre><code class="language-http">PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/dataelements/confirmDownload
 </code></pre>
 
 <pre><code class="language-json">{
@@ -8045,7 +8071,7 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 }
 </code></pre>
 
-<h3 id="download-a-complete-instance-with-data-elements-and-corresponding-pdfs">Download a complete instance with data elements and corresponding pdfs</h3>
+<h3 id="download-a-complete-instance-with-data-elements-and-corresponding-pdfs-1">Download a complete instance with data elements and corresponding pdfs<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
 <pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
 </code></pre>
