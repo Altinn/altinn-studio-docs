@@ -199,7 +199,7 @@ This call will return the instance metadata record that was created. A unique id
 An instance holds metadata objects that describe the data files that can be uploaded and downloaded from storage. These metadata objects are called data elments. A data element is identified with a guid. 
 
 - to stream a data file you must talks to the ```/data``` endpoint of the instance.
-- to get or update the data element metadata elements you must talk to the ```/datelements``` endpoint of the instance.
+- to get or update the data element metadata elements you must talk to the ```/dataelements``` endpoint of the instance.
 
 
 ### Create and upload data
