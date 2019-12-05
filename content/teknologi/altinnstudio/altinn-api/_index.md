@@ -23,7 +23,7 @@ The two groups have many similar needs, but there are also differences in what t
 Traditionally the two groups have had access to completely separated API endpoints in Altinn. 
 The new API will be available to both parties, but with some functions that will normally be used only by one of the groups. 
 
-### Application Owner
+### Application Owners
 
 A list of common tasks for an application owner.
 
@@ -194,19 +194,37 @@ This call will return the instance metadata record that was created. A unique id
 }
 ```
 
-### Create a data element
+## Data
 
-Post a data file (e.g. an xml-document) as body of request with matching headers. Must specify dataType as defined in the application metadata.
+An instance holds metadata objects that describe the data files that can be uploaded and downloaded from storage. These metadata objects are called data elments. A data element is identified with a guid. 
+
+- to stream a data file you must talks to the ```/data``` endpoint of the instance.
+- to get or update the data element metadata elements you must talk to the ```/datelements``` endpoint of the instance.
+
+
+### Create and upload data
+
+Post a data file (e.g. an xml-document) as body (stream content) of request with matching headers. Must specify dataType as defined in the application metadata.
 
 ```http
 POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/data?dataType=default
 ```
 
-This call updates the instance metadata and returns the data element that were created.
+The request should have a content type and a content disposition which holds the data file's filename. You may also use a multipart, but  only the first part will be read.
+
+```http
+Content-Type = "image/png"
+Content-Disposition = attachment; filename=myfile.png
+
+PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
+```
+
+This call returns the data element metadata object that were created.
 
 ```json
 {
     "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+    "instanceGuid": "762011d1-d341-4c0a-8641-d8a104e83d30",
     "dataType": "default",
     "contentType": "application/xml",
     "blobStoragePath": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
@@ -224,7 +242,7 @@ This call updates the instance metadata and returns the data element that were c
 }
 ```
 
-### Update a data element
+### Update data file
 
 Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client.
 
@@ -238,9 +256,9 @@ Content-Disposition = attachment; filename=myfile.png
 PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
 ```
 
-### Get a specific data element
+### Download a specific data file
 
-Clients can download the data element by a get request. Notice that application owner's get of an instance owners data will update metadata for on data element.
+Clients can download the data by a get request. Notice that application owner's get of an instance owners data will update metadata for on data element.
 
 ```http
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff
@@ -327,18 +345,26 @@ Get one data element
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d
 ```
 
-## Application owner download[^1]
+## Application owner download
+
+### Downloads is logged on the data element[^1]
 
 [^1]: Not implemented yet!
 
-### Downloads is logged on the data element
-
 ### Confirm successful download (as application owner)
 
-Application owner must confirm that the data element file was downloaded sucessful.
+Application owner must confirm that the data file that the data element represent was downloaded. This can be done for one data element or for all data elements fo the instance.
+
+For one data element:
 
 ```http
-PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
+PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/dataelements/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
+```
+
+For *all* data elements:
+
+```http
+PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/dataelements/confirmDownload
 ```
 
 ```json
@@ -357,7 +383,7 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 }
 ```
 
-### Download a complete instance with data elements and corresponding pdfs
+### Download a complete instance with data elements and corresponding pdfs[^1]
 
 ```http
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
