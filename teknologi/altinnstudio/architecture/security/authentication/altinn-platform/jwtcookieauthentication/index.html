@@ -7623,13 +7623,17 @@ if(host != "localhost")
 
 
 
-<p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens
-in Cookies. It is based on <a href="https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer">JWTBearer</a></p>
+<p>JWTCookieAuthentication is a <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authentication/">asp.net core authentication service</a>
+created for supporting <a href="https://jwt.io/">Json Web Tokens</a> (JWT) as <a href="https://oauth.net/2/bearer-tokens/">bearer tokens</a> and JWT in Cookies. It is based
+on <a href="https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer">JWTBearer</a></p>
 
 <p>This is created for scenarios where you have need for APIs that will be accessed from system with help of bearer tokens and from
-Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks)</p>
+Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks). When JWT is put in a
+<a href="https://www.owasp.org/index.php/HttpOnly">http only cookie</a> it is not accessible from the SPA and can&rsquo;t be stolen by malicous javascript
+running in the browser.</p>
 
-<p>This is created as a seperate C# Project and published as a Nuget Package <a href="https://www.nuget.org/packages/JWTCookieAuthentication/">here</a></p>
+<p>This is created as a <a href="https://github.com/Altinn/altinn-studio/tree/master/src/AltinnCore/Authentication">seperate C# Project</a> and published as a
+Nuget Package <a href="https://www.nuget.org/packages/JWTCookieAuthentication/">here</a></p>
 
 <h2 id="features-consumer">Features Consumer</h2>
 
@@ -7638,8 +7642,8 @@ Single Page Applications (SPA) where you want to protect the JWT from this SPA. 
 <li>Support Verification of JWT Tokens from cookie</li>
 <li>Configureble name of cookie used</li>
 <li>Automatic detection if request contains Authorization bearer token or JWT in cookie</li>
-<li>Uses standard JWT Library for verification and generation.</li>
-<li>Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the <a href="https://auth0.com/docs/jwks">JSON Web Key Set</a></li>
+<li>Uses <a href="https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet">Microsoft.IdentityModel.Tokens</a> for verification and generation.</li>
+<li>Uses <a href="https://openid.net/connect/">OpenID connect</a> well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the <a href="https://auth0.com/docs/jwks">JSON Web Key Set</a></li>
 <li>Support rotating of JWK (TODO)</li>
 </ul>
 
