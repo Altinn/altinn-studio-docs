@@ -7,24 +7,32 @@ linktitle: JWTCookieAuthentication
 alwaysopen: false
 ---
 
+JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens
+in Cookies. It is based on [JWTBearer](https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer) 
 
-JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens.
-
-This is created for scenarios where you have need for API that will be accessed from system with 
+This is created for scenarios where you have need for APIs that will be accessed from system with help of bearer tokens and from
+Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks)
 
 This is created as a seperate C# Project and published as a Nuget Package [here](https://www.nuget.org/packages/JWTCookieAuthentication/)
 
-## Features
+## Features Consumer
 
+- Support Verification of JWT Tokens as bearer tokens
+- Support Verification of JWT Tokens from cookie
+- Configureble name of cookie used
+- Automatic detection if request contains Authorization bearer token or JWT in cookie
+- Uses standard JWT Library for verification and generation. 
+- Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
+- Support rotating of JWK (TODO)
+
+## Features IP Provider 
 - Support Generation of JWT Tokens as bearer tokens
 - Support Generation of JWT Tokens inside Cookies
-- Support Verification of JWT Tokens as bearer tokens
-- Support Verification of 
 - Configureble name of cookie used
 - Configurable Signing Ceritcate
-- Configurale Verification certificate
-- Automatic detection if request contains 
 - Uses standard JWT Library for verification and generation. 
+- Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
+- Support rotating of JWK (TODO)
 
 
 ## How To Configure JWTCookieAuthentication
@@ -33,32 +41,29 @@ This is created as a seperate C# Project and published as a Nuget Package [here]
 ### Configuration for consumers
 
 ```C#
-
-            // Configure Authentication
-            // Use [Authorize] to require login on MVC Controller Actions
-            X509Certificate2 cert = new X509Certificate2("JWTValidationCert.cer");
-            SecurityKey key = new X509SecurityKey(cert);
-
-            services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
-                .AddJwtCookie(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = key,
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                        RequireExpirationTime = true,
-                        ValidateLifetime = true
-                    };
-                    options.ExpireTimeSpan = new TimeSpan(0, 30, 0);
-                    options.Cookie.Name = Common.Constants.General.RuntimeCookieName;
-                });
-
+    // Configure Authentication
+    // Use [Authorize] to require login on MVC Controller Actions
+    services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
+        .AddJwtCookie(options =>
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                RequireExpirationTime = true,
+                ValidateLifetime = true
+            };
+            options.Cookie.Domain = Configuration["GeneralSettings:HostName"];
+            options.Cookie.Name = Services.Constants.General.RuntimeCookieName;
+            options.MetadataAddress = Configuration["AppSettings:OpenIdWellKnownEndpoint"];
+            if (_env.IsDevelopment())
+            {
+                options.RequireHttpsMetadata = false;
+            }
+        });
 
 ```
-
-
 
 
 ### Configuration for the identity provider
