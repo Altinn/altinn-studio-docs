@@ -7776,10 +7776,9 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">JWTCookieAuthentication</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens.
-This is created for scenarios where you have need for API that will be accessed from system with
-This is created as a seperate C# Project and published as a Nuget Package here
-Features  Support Generation of JWT Tokens as bearer tokens Support Generation of JWT Tokens inside Cookies Support Verification of JWT Tokens as bearer tokens Support Verification of Configureble name of cookie used Configurable Signing Ceritcate Configurale Verification certificate Automatic detection if request contains Uses standard JWT Library for verification and generation. <a class="read-more" href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">&raquo;</a></p>
+        <p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens in Cookies. It is based on JWTBearer
+This is created for scenarios where you have need for APIs that will be accessed from system with help of bearer tokens and from Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks)
+This is created as a seperate C# Project and published as a Nuget Package here <a class="read-more" href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwtcookieauthentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

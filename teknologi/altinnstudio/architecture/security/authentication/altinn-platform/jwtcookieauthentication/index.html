@@ -7623,52 +7623,63 @@ if(host != "localhost")
 
 
 
-<p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens.</p>
+<p>JWTCookieAuthentication is a asp.net core authentication mechanismen created for supporting JWTTokens as bearer tokens and JWTTokens
+in Cookies. It is based on <a href="https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer">JWTBearer</a></p>
 
-<p>This is created for scenarios where you have need for API that will be accessed from system with</p>
+<p>This is created for scenarios where you have need for APIs that will be accessed from system with help of bearer tokens and from
+Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks)</p>
 
 <p>This is created as a seperate C# Project and published as a Nuget Package <a href="https://www.nuget.org/packages/JWTCookieAuthentication/">here</a></p>
 
-<h2 id="features">Features</h2>
+<h2 id="features-consumer">Features Consumer</h2>
+
+<ul>
+<li>Support Verification of JWT Tokens as bearer tokens</li>
+<li>Support Verification of JWT Tokens from cookie</li>
+<li>Configureble name of cookie used</li>
+<li>Automatic detection if request contains Authorization bearer token or JWT in cookie</li>
+<li>Uses standard JWT Library for verification and generation.</li>
+<li>Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the <a href="https://auth0.com/docs/jwks">JSON Web Key Set</a></li>
+<li>Support rotating of JWK (TODO)</li>
+</ul>
+
+<h2 id="features-ip-provider">Features IP Provider</h2>
 
 <ul>
 <li>Support Generation of JWT Tokens as bearer tokens</li>
 <li>Support Generation of JWT Tokens inside Cookies</li>
-<li>Support Verification of JWT Tokens as bearer tokens</li>
-<li>Support Verification of</li>
 <li>Configureble name of cookie used</li>
 <li>Configurable Signing Ceritcate</li>
-<li>Configurale Verification certificate</li>
-<li>Automatic detection if request contains</li>
 <li>Uses standard JWT Library for verification and generation.</li>
+<li>Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the <a href="https://auth0.com/docs/jwks">JSON Web Key Set</a></li>
+<li>Support rotating of JWK (TODO)</li>
 </ul>
 
 <h2 id="how-to-configure-jwtcookieauthentication">How To Configure JWTCookieAuthentication</h2>
 
 <h3 id="configuration-for-consumers">Configuration for consumers</h3>
 
-<pre><code class="language-C#">
-            // Configure Authentication
-            // Use [Authorize] to require login on MVC Controller Actions
-            X509Certificate2 cert = new X509Certificate2(&quot;JWTValidationCert.cer&quot;);
-            SecurityKey key = new X509SecurityKey(cert);
-
-            services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
-                .AddJwtCookie(options =&gt;
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = key,
-                        ValidateIssuer = false,
-                        ValidateAudience = false,
-                        RequireExpirationTime = true,
-                        ValidateLifetime = true
-                    };
-                    options.ExpireTimeSpan = new TimeSpan(0, 30, 0);
-                    options.Cookie.Name = Common.Constants.General.RuntimeCookieName;
-                });
-
+<pre><code class="language-C#">    // Configure Authentication
+    // Use [Authorize] to require login on MVC Controller Actions
+    services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
+        .AddJwtCookie(options =&gt;
+        {
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateIssuerSigningKey = true,
+                ValidateIssuer = false,
+                ValidateAudience = false,
+                RequireExpirationTime = true,
+                ValidateLifetime = true
+            };
+            options.Cookie.Domain = Configuration[&quot;GeneralSettings:HostName&quot;];
+            options.Cookie.Name = Services.Constants.General.RuntimeCookieName;
+            options.MetadataAddress = Configuration[&quot;AppSettings:OpenIdWellKnownEndpoint&quot;];
+            if (_env.IsDevelopment())
+            {
+                options.RequireHttpsMetadata = false;
+            }
+        });
 
 </code></pre>
 
