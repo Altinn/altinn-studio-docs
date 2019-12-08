@@ -10,13 +10,13 @@ In Altinn Platform and Altinn Apps there is deployed applications and components
 
 This is needed when resources requiring authentication and authorization is requested.
 
-This will typical be API's that expose, or updates data own by an end user/party.
+This will typical be API's that expose, or updates data owned by an end user/party.
 
 ## Overall Authentication architecture
 There are several requirements to an authentication architecture for Altinn Apps / Altinn Platform. 
 The most important is
 
-- Needs to be supported by different types of application frameworks
+- Needs to be supported by different types of [application frameworks](https://en.wikipedia.org/wiki/Application_framework)
 - Needs to support end users accessing Altinn Apps / Altinn Platform through a web browser running the REACT application
 - Needs to be safe against XSS attacks. 
 - Needs to support scenarios where users are accessing through external systems or mobile apps
@@ -24,13 +24,14 @@ The most important is
 - Apps should not have access to secret so they can create their own token. 
 - Needs to support passing the identity to api's that are consumed by Altinn Apps. 
 
-Since Altinn Platform will in the future support that different types of applications created by different frameworks (Java/.Net/Node ++++) it is important that the
-authentication mechanisms are supported by different types of platforms.
+Since Altinn Platform will in the future support applications created by different frameworks (Java/.Net/Node ++++) it is 
+important that the authentication mechanisms are supported by different types of platforms.
 
-[JSON Web Token](https://jwt.io/) are an open, industry standard [RFC 7519](https://tools.ietf.org/html/rfc7519) method for representing claims securely between two parties and are chosen
-as the bearer of information about users and systems.
+[JSON Web Token](https://jwt.io/) are an open, industry standard [RFC 7519](https://tools.ietf.org/html/rfc7519) method for 
+representing claims securely between two parties and are chosen as the bearer of information about users and systems.
 
-The JWTToken is created in an asymmetric process where the Authentication component will use a private key from a certificate to sign the token, and the different apps and components that needs
+The JWTToken is created in an asymmetric process where the Authentication component will use a private key from a 
+certificate to sign the token, and the different apps and components that needs
 to verify it will use the public key. See [JWT Format](jwt-format) for details on the algorithm used.
 
 The application architecture below show how JWT flows between the different parts of the solutions.

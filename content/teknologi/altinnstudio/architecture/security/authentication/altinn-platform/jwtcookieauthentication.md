@@ -11,8 +11,8 @@ JWTCookieAuthentication is a [asp.net core authentication service](https://docs.
 created for supporting [Json Web Tokens](https://jwt.io/) (JWT) as [bearer tokens](https://oauth.net/2/bearer-tokens/) and JWT in Cookies. It is based 
 on [JWTBearer](https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer) 
 
-This is created for scenarios where you have need for APIs that will be accessed from system with help of bearer tokens and from
-Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks). When JWT is put in a 
+This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from
+Single Page Applications (SPA) where you want to protect the JWT from this SPA. ([Xss attacks](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS))). When JWT is put in a 
 [http only cookie](https://www.owasp.org/index.php/HttpOnly) it is not accessible from the SPA and can't be stolen by malicous javascript 
 running in the browser. 
 
@@ -28,11 +28,11 @@ Nuget Package [here](https://www.nuget.org/packages/JWTCookieAuthentication/)
 - Uses [OpenID connect](https://openid.net/connect/) well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
 - Support rotating of JWK (TODO)
 
-## Features IP Provider 
+## Features ID Provider 
 - Support Generation of JWT Tokens as bearer tokens
 - Support Generation of JWT Tokens inside Cookies
 - Configureble name of cookie used
-- Configurable Signing Ceritcate
+- Configurable Signing Certitcate
 - Uses standard JWT Library for verification and generation. 
 - Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
 - Support rotating of JWK (TODO)
