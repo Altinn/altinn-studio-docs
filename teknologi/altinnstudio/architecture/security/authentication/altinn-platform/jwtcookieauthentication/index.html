@@ -7627,8 +7627,8 @@ if(host != "localhost")
 created for supporting <a href="https://jwt.io/">Json Web Tokens</a> (JWT) as <a href="https://oauth.net/2/bearer-tokens/">bearer tokens</a> and JWT in Cookies. It is based
 on <a href="https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer">JWTBearer</a></p>
 
-<p>This is created for scenarios where you have need for APIs that will be accessed from system with help of bearer tokens and from
-Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks). When JWT is put in a
+<p>This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from
+Single Page Applications (SPA) where you want to protect the JWT from this SPA. (<a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">Xss attacks</a>). When JWT is put in a
 <a href="https://www.owasp.org/index.php/HttpOnly">http only cookie</a> it is not accessible from the SPA and can&rsquo;t be stolen by malicous javascript
 running in the browser.</p>
 
@@ -7647,13 +7647,13 @@ Nuget Package <a href="https://www.nuget.org/packages/JWTCookieAuthentication/">
 <li>Support rotating of JWK (TODO)</li>
 </ul>
 
-<h2 id="features-ip-provider">Features IP Provider</h2>
+<h2 id="features-id-provider">Features ID Provider</h2>
 
 <ul>
 <li>Support Generation of JWT Tokens as bearer tokens</li>
 <li>Support Generation of JWT Tokens inside Cookies</li>
 <li>Configureble name of cookie used</li>
-<li>Configurable Signing Ceritcate</li>
+<li>Configurable Signing Certitcate</li>
 <li>Uses standard JWT Library for verification and generation.</li>
 <li>Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the <a href="https://auth0.com/docs/jwks">JSON Web Key Set</a></li>
 <li>Support rotating of JWK (TODO)</li>
