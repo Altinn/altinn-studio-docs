@@ -10,7 +10,7 @@ In Altinn Platform and Altinn Apps there is deployed applications and components
 
 This is needed when resources requiring authentication and authorization is requested.
 
-This will typical be API's that expose, or updates data owned by an end user/party.
+This will typical be API's that expose, or updates data owned by a specific party (person or organization)
 
 ## Overall Authentication architecture
 There are several requirements to an authentication architecture for Altinn Apps / Altinn Platform. 
@@ -37,52 +37,40 @@ to verify it will use the public key. See [JWT Format](jwt-format) for details o
 The application architecture below show how JWT flows between the different parts of the solutions.
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
-[See fullscreen](/architecture/application/altinn-apps/altinnapps_application_architecture.svg) or [download as visio](/architecture/application/altinn-apps/altinnapps_application_architecture.vsdx).
+[See fullscreen](/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.svg) or [download as visio](/teknologi/altinnstudio//architecture/application/altinn-apps/altinnapps_application_architecture.vsdx).
 
-
-### End user using web frontend
-For end user accessing the app through a web frontend, the authentication mechanism is based on using a 
+### End user using app frontend 
+For end user accessing the app through browser that loads app frontend, the authentication mechanism is based on using a 
 protected cookie containing a JWT Token. ( [HttpOnly](https://www.owasp.org/index.php/HttpOnly) and Secure)
 
 The reason for putting the JWT token in the cookie for this scenarious is to protect 
 against [XSS attacks](https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)). 
+
 If the REACT application stored the JWT token as part of browser memory (REDUX), XSS attacks could potential expose those tokens. 
-When storing the tokens in secure cookies
-those tokens are not available to any [JavaScript](https://en.wikipedia.org/wiki/JavaScript) code running in the browser.
+When storing the tokens in secure cookies those tokens are not available to any [JavaScript](https://en.wikipedia.org/wiki/JavaScript) code running in the browser.
 
 The cookie with the JWT token is created by Authentication component in the Altinn Platform solution. 
 
 The React application would need to refresh the token at given interval or the token will expire. 
 To refresh a cookie token, the token API in Platform needs to be called
 
-### End user systems accessing app api's
-End user systems is identified with an end user system ID and a password. 
-An end user system can be authenticated by them self or together with a end user and pin code. 
-
-In both cases the end user system calls a API on the Platform to generate a JWT token containing 
-information about the system and possible user and pin.
-
-The API generates a JWT token containing claims for the system and user.
-
-See [Authentication API](authentication-api) for details.
-
-### Enterprise users
-Enterprise users is users that is authenticated with use of a enterprise certificate together with a password and username. 
-The authentication component in Altinn Platform will have a API
-that generates a JWT token based on the certificate and the username password
-
-See [Authentication API](authentication-api) for details.
-
-### org systems accessing app api's
+### org systems accessing app and platform  api's
 org (the entity owning the application) will have seperate API's in a spp to perform operations on. They are authenticated with 
 help of agency system id + password. A API in the authentication component
 in Altinn creates a JWT token that can be used to authenticate the agency system when 
 calling api's on apps running in Altinn Apps.
 
 See [Authentication API](authentication-api) for details.
+
+### End user systems accessing app api's
+This solutions is yet to be finalized. The assumption is that the either the organization that own
+the system is authenticated and have a jwt token containing the organization number for that given 
+organization or that the user using the system is authenticated and the systems send user token with request. 
+
+This is analyzed in [#3291](https://github.com/Altinn/altinn-studio/issues/3291) and [#237](https://github.com/Altinn/altinn-studio/issues/237)
 
 ### Authentication of Altinn Apps against Altinn Platform
 Applications hosted in a Altinn Apps solution would in many cases need to authenticate the end user against the different Altinn Platform components.
