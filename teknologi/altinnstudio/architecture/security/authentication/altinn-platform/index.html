@@ -7622,7 +7622,7 @@ if(host != "localhost")
 
 <p>This is needed when resources requiring authentication and authorization is requested.</p>
 
-<p>This will typical be API&rsquo;s that expose, or updates data owned by an end user/party.</p>
+<p>This will typical be API&rsquo;s that expose, or updates data owned by a specific party (person or organization)</p>
 
 <h2 id="overall-authentication-architecture">Overall Authentication architecture</h2>
 
@@ -7652,49 +7652,29 @@ to verify it will use the public key. See <a href="jwt-format">JWT Format</a> fo
 <p>The application architecture below show how JWT flows between the different parts of the solutions.</p>
 
 
-	<p><object data="/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object></p>
 
 
 
-<p><a href="/architecture/application/altinn-apps/altinnapps_application_architecture.svg">See fullscreen</a> or <a href="/architecture/application/altinn-apps/altinnapps_application_architecture.vsdx">download as visio</a>.</p>
+<p><a href="/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.svg">See fullscreen</a> or <a href="/teknologi/altinnstudio//architecture/application/altinn-apps/altinnapps_application_architecture.vsdx">download as visio</a>.</p>
 
-<h3 id="end-user-using-web-frontend">End user using web frontend</h3>
+<h3 id="end-user-using-app-frontend">End user using app frontend</h3>
 
-<p>For end user accessing the app through a web frontend, the authentication mechanism is based on using a
+<p>For end user accessing the app through browser that loads app frontend, the authentication mechanism is based on using a
 protected cookie containing a JWT Token. ( <a href="https://www.owasp.org/index.php/HttpOnly">HttpOnly</a> and Secure)</p>
 
 <p>The reason for putting the JWT token in the cookie for this scenarious is to protect
-against <a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">XSS attacks</a>.
-If the REACT application stored the JWT token as part of browser memory (REDUX), XSS attacks could potential expose those tokens.
-When storing the tokens in secure cookies
-those tokens are not available to any <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> code running in the browser.</p>
+against <a href="https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)">XSS attacks</a>.</p>
+
+<p>If the REACT application stored the JWT token as part of browser memory (REDUX), XSS attacks could potential expose those tokens.
+When storing the tokens in secure cookies those tokens are not available to any <a href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> code running in the browser.</p>
 
 <p>The cookie with the JWT token is created by Authentication component in the Altinn Platform solution.</p>
 
 <p>The React application would need to refresh the token at given interval or the token will expire.
 To refresh a cookie token, the token API in Platform needs to be called</p>
 
-<h3 id="end-user-systems-accessing-app-api-s">End user systems accessing app api&rsquo;s</h3>
-
-<p>End user systems is identified with an end user system ID and a password.
-An end user system can be authenticated by them self or together with a end user and pin code.</p>
-
-<p>In both cases the end user system calls a API on the Platform to generate a JWT token containing
-information about the system and possible user and pin.</p>
-
-<p>The API generates a JWT token containing claims for the system and user.</p>
-
-<p>See <a href="authentication-api">Authentication API</a> for details.</p>
-
-<h3 id="enterprise-users">Enterprise users</h3>
-
-<p>Enterprise users is users that is authenticated with use of a enterprise certificate together with a password and username.
-The authentication component in Altinn Platform will have a API
-that generates a JWT token based on the certificate and the username password</p>
-
-<p>See <a href="authentication-api">Authentication API</a> for details.</p>
-
-<h3 id="org-systems-accessing-app-api-s">org systems accessing app api&rsquo;s</h3>
+<h3 id="org-systems-accessing-app-and-platform-api-s">org systems accessing app and platform  api&rsquo;s</h3>
 
 <p>org (the entity owning the application) will have seperate API&rsquo;s in a spp to perform operations on. They are authenticated with
 help of agency system id + password. A API in the authentication component
@@ -7702,6 +7682,14 @@ in Altinn creates a JWT token that can be used to authenticate the agency system
 calling api&rsquo;s on apps running in Altinn Apps.</p>
 
 <p>See <a href="authentication-api">Authentication API</a> for details.</p>
+
+<h3 id="end-user-systems-accessing-app-api-s">End user systems accessing app api&rsquo;s</h3>
+
+<p>This solutions is yet to be finalized. The assumption is that the either the organization that own
+the system is authenticated and have a jwt token containing the organization number for that given
+organization or that the user using the system is authenticated and the systems send user token with request.</p>
+
+<p>This is analyzed in <a href="https://github.com/Altinn/altinn-studio/issues/3291">#3291</a> and <a href="https://github.com/Altinn/altinn-studio/issues/237">#237</a></p>
 
 <h3 id="authentication-of-altinn-apps-against-altinn-platform">Authentication of Altinn Apps against Altinn Platform</h3>
 
