@@ -5580,7 +5580,45 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">
-        <span>Nginx routing</span>
+        <span>Nginx loadbalancing in studio</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">
+        <span>Nginx SSL/TLS certificate</span>
 
         
 
@@ -5589,6 +5627,15 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -7687,7 +7734,43 @@ Implicit typing (var) should only be used when a variable is initialized with an
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">Nginx routing</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">Nginx SSL/TLS certificate</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Generate SSL/TLS certificates from .PFX file In altinn studio we are using nginx as a proxy for internal routing. After issues with creating SSL/TLS certificates for nginx we we have written a guide for future developers to follow when creating SSL/TLS certificate secrets in kubernetes and mounting them to the nginx pods.
+Download .pfx file At the moment of writing this guide, we store our *.altinn.studio certificate in azure keyvault and you will need access to download it from that vault. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/ssl/">ssl</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/certificate/">certificate</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">Nginx loadbalancing in studio</a></h2>
     </header>
     <section class="post-excerpt">
         <p>Nginx routing The router config is stored as a configmap in our kubernetes cluster, and mounted to the pod as a .conf file. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
@@ -7855,37 +7938,6 @@ Mounting  constructor() static getDerivedStateFromProps() render() componentDidM
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">Redux</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Redux is used to manage the states of the ux-editor.
-Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:
-export interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/redux/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
             
@@ -10718,8 +10770,26 @@ export interface IUpdateFormDataAction extends Action { formData: any; component
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

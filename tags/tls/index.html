@@ -5580,7 +5580,45 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">
-        <span>Nginx routing</span>
+        <span>Nginx loadbalancing in studio</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">
+        <span>Nginx SSL/TLS certificate</span>
 
         
 
@@ -5589,6 +5627,15 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -7594,6 +7641,42 @@ if(host != "localhost")
 </nav>
 
 	</div>
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">Nginx SSL/TLS certificate</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Generate SSL/TLS certificates from .PFX file In altinn studio we are using nginx as a proxy for internal routing. After issues with creating SSL/TLS certificates for nginx we we have written a guide for future developers to follow when creating SSL/TLS certificate secrets in kubernetes and mounting them to the nginx pods.
+Download .pfx file At the moment of writing this guide, we store our *.altinn.studio certificate in azure keyvault and you will need access to download it from that vault. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/ssl/">ssl</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/certificate/">certificate</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post teknologi">
@@ -10444,8 +10527,26 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

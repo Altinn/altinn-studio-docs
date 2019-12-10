@@ -5580,7 +5580,45 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">
-        <span>Nginx routing</span>
+        <span>Nginx loadbalancing in studio</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">
+        <span>Nginx SSL/TLS certificate</span>
 
         
 
@@ -5589,6 +5627,15 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -7596,6 +7643,41 @@ if(host != "localhost")
 </nav>
 
 	</div>
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/">Traefik ingress routes</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Before traefik 2.0 the only supported way of routing in kubernetes was through the Kubernetes Ingress prodvider, which limited the functionality traefik could offer.
+As a result of introducing the custom resource IngressRoutes in traefik 2.0 we don&rsquo;t need to write many annotations on the ingress. And it is easier to configure access to a kubernetes cluster.
+Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRoute metadata: name: altinn-runtime spec: entryPoints: - web - websecure routes: - match: Host(`dev. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/ingress-routes/">ingress routes</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/ingress/">ingress</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post teknologi">
@@ -10533,8 +10615,26 @@ if(host != "localhost")
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

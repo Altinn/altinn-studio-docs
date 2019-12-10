@@ -5580,7 +5580,45 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">
-        <span>Nginx routing</span>
+        <span>Nginx loadbalancing in studio</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">
+        <span>Nginx SSL/TLS certificate</span>
 
         
 
@@ -5589,6 +5627,15 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -7602,6 +7649,37 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">Redux</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Redux is used to manage the states of the ux-editor.
+Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:
+export interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/redux/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/">Routing</a></h2>
     </header>
     <section class="post-excerpt">
@@ -7864,41 +7942,6 @@ apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata
                 <a class="label label-default" href="https://docs.altinn.studio/tags/custom-resources/">custom resources</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/crds/">crds</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/">Traefik ingress routes</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Before traefik 2.0 the only supported way of routing in kubernetes was through the Kubernetes Ingress prodvider, which limited the functionality traefik could offer.
-As a result of introducing the custom resource IngressRoutes in traefik 2.0 we don&rsquo;t need to write many annotations on the ingress. And it is easier to configure access to a kubernetes cluster.
-Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRoute metadata: name: altinn-runtime spec: entryPoints: - web - websecure routes: - match: Host(`dev. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/ingress-routes/">ingress routes</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/ingress/">ingress</a>
             
         
 
@@ -10729,8 +10772,26 @@ Resource configuration apiVersion: traefik.containo.us/v1alpha1 kind: IngressRou
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   
