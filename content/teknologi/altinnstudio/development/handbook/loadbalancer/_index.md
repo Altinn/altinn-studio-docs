@@ -1,5 +1,5 @@
 ---
-title: Nginx routing
+title: Nginx loadbalancing in studio
 description: Information about routing with nginx
 tags: [development, nginx, routing]
 weight: 100
