@@ -25,7 +25,7 @@ or validate if the user or system is allowed to instansiate that app.
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
-[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.sv)
+[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.svg)
 
 The below sequence diagram shows how the app events are combined with other logic for a requesting to start an app in the app catalogue.
 
