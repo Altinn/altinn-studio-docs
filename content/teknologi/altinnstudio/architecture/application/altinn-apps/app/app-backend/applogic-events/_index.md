@@ -13,6 +13,21 @@ from App Frontend or other systems/applications using the API's in App Backend.
 
 Some AppLogic Events happens in more than one functional event. 
 
+## Over AppLogic Events
+AppLogic events are defined in the [IAltinnApp interface](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Interface/IAltinnApp.cs)
+
+The following AppLogic Events are currently defined
+
+- InstantiateValidation - Event where app developer can add custom code to validate instantiation. 
+- DataCreation - Event where app develoepr can add custom code to prefill data
+- Calculation - Event where app developer can add custom calculation code
+- Validation - Event where app developer can add custom code to validate the instance/data
+- OnStartProcess
+- OnStartProcessTask
+- CanEndProcessTask
+- OnEndProcessTask
+- OnEndProcess
+
 ## Functional event and their Applogic Events
 Below different functional events are listed. For each functional event there is described which AppLogic events that is triggered.
 
