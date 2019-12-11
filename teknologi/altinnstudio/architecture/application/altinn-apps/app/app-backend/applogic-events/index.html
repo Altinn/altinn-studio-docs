@@ -7628,6 +7628,24 @@ from App Frontend or other systems/applications using the API&rsquo;s in App Bac
 
 <p>Some AppLogic Events happens in more than one functional event.</p>
 
+<h2 id="over-applogic-events">Over AppLogic Events</h2>
+
+<p>AppLogic events are defined in the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Interface/IAltinnApp.cs">IAltinnApp interface</a></p>
+
+<p>The following AppLogic Events are currently defined</p>
+
+<ul>
+<li>InstantiateValidation - Event where app developer can add custom code to validate instantiation.</li>
+<li>DataCreation - Event where app develoepr can add custom code to prefill data</li>
+<li>Calculation - Event where app developer can add custom calculation code</li>
+<li>Validation - Event where app developer can add custom code to validate the instance/data</li>
+<li>OnStartProcess</li>
+<li>OnStartProcessTask</li>
+<li>CanEndProcessTask</li>
+<li>OnEndProcessTask</li>
+<li>OnEndProcess</li>
+</ul>
+
 <h2 id="functional-event-and-their-applogic-events">Functional event and their Applogic Events</h2>
 
 <p>Below different functional events are listed. For each functional event there is described which AppLogic events that is triggered.</p>
