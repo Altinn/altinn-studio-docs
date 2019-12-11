@@ -7667,8 +7667,8 @@ if(host != "localhost")
 
 
 
-<p>The App Backend has a defined event model that can be used by the app developer
-to controll when logic in the service implementation will run.</p>
+<p>The application backend has a defined event model that can be used by the app developer
+to controll when logic in the app will run.</p>
 
 <p>These events are mapped to functional events triggered by end users or systems. This functional events are typical trigged by a API-call
 from App Frontend or other systems/applications using the API&rsquo;s in App Backend.</p>
@@ -7677,7 +7677,7 @@ from App Frontend or other systems/applications using the API&rsquo;s in App Bac
 
 <h2 id="functional-event-and-their-application-events">Functional event and their Application Events</h2>
 
-<p>Below different functional events are listed. For each functional even there is described which Application Events that is triggered.</p>
+<p>Below different functional events are listed. For each functional event there is described which Application Events that is triggered.</p>
 
 <h3 id="instansiation">Instansiation</h3>
 
@@ -7686,14 +7686,14 @@ Events connected to instansiation can contain logic that can prefill the datamod
 or validate if the user or system is allowed to instansiate that app.</p>
 
 
-	<p><object data="/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
 
 
 
 <p>The below sequence diagram shows how the app events are combined with other logic for a requesting to start an app in the app catalogue.</p>
 
 
-	<p><object data="/architecture/application/altinn-apps/app/app-backend/app-events/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
 
 
 
@@ -7705,7 +7705,7 @@ the latest updated form data.</p>
 <p>The following events will be performed</p>
 
 
-	<p><object data="/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_getformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_getformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
 
 
 
@@ -7729,7 +7729,7 @@ logic related to this event that could perform calculation, validation, API call
 <p>The order of events are</p>
 
 
-	<p><object data="/architecture/application/altinn-apps/app/app-backend/app-events/events_post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/events_post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object></p>
 
 
 
@@ -7741,9 +7741,11 @@ want to update a existing form connected to an app instance</p>
 <p>The following events happens:</p>
 
 
-	<p><object data="/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_updateformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_updateformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object></p>
 
 
+
+<h3 id="submit-data">Submit data</h3>
 
 
 <footer class=" footline" >
