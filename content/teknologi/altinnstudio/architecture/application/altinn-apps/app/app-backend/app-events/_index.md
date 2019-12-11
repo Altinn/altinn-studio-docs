@@ -72,4 +72,13 @@ The following events happens:
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_updateformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
-### Submit data
+### Validation
+Validation is triggered from App Frontend or from end user system. 
+
+The below sequence diagram shows the application events 
+
+{{%excerpt%}}
+<object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/validation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
+{{% /excerpt%}}
+
+## Process: Next
