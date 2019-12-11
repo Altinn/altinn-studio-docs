@@ -27,4 +27,6 @@ Altinn Platform offers REST Apis for the following user groups:
 * Organisations
 * External Systems
 
+[More information on the apis can be found here](/content/teknologi/altinnstudio/altinn-api)
+
 {{% children description="true" depth="1" %}}
