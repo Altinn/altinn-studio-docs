@@ -25,12 +25,15 @@ or validate if the user or system is allowed to instansiate that app.
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
+[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_instansiation.sv)
+
 The below sequence diagram shows how the app events are combined with other logic for a requesting to start an app in the app catalogue.
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
+[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/instansiation_sequence.svg)
 
 ### Load form data (GET)
 Loading of form data can be performed by the App Frontend or an end user system that needs to get
@@ -41,6 +44,8 @@ The following events will be performed
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_getformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
+
+[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_getformdata.svg)
 
 ### Storing of form data (POST)
 Update of form data can happen when frontend (REACT app) sends data to backend
@@ -62,6 +67,9 @@ The order of events are
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/events_post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
+
+[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/events_post.svg)
+
 ### Update form data (PUT)
 Update of form data happens when the frontend or external end user systems/applications 
 want to update a existing form connected to an app instance
@@ -72,6 +80,8 @@ The following events happens:
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_updateformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
+[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/swimlane_updateformdata.svg)
+
 ### Validation
 Validation is triggered from App Frontend or from end user system. 
 
@@ -81,4 +91,7 @@ The below sequence diagram shows the application events
 <object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/validation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
+
+[Full screen](/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/app-events/validation_sequence.svg)
 ## Process: Next
+git
