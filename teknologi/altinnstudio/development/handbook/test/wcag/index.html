@@ -7655,11 +7655,11 @@ if(host != "localhost")
 
 <p>The Altinn studio wcag tests are run automatically each night in azure devops. Link to the build can be found <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=54">here</a>, the wcag tests are run as a task in the build definition <strong>altinn-studio-test-testcafe</strong>. To inspect a run of the wcag tests, open the build definition:</p>
 
-<p><img src="wcagazure.png" alt="testcafe tasks" /></p>
+<figure><a href="wcagazure.PNG"><img src="wcagazure.PNG" alt="testcafe tasks" title="testcafe azure devops tasks" /></a><figcaption><h4>testcafe azure devops tasks</h4></figcaption></figure>
 
 <p>The &ldquo;Tests&rdquo; tab contains the the general UI test report. WCAG tests use a seperate reporter (called &ldquo;spec&rdquo;) to allow the user see which elements break with accesibility rules. Open the <em>npm wcag</em> task to inspect the wcag test results:</p>
 
-<p><img src="wcagtask.png" alt="wcag task" /></p>
+<figure><a href="wcagtask.PNG"><img src="wcagtask.PNG" alt="wcag task" title="wcag azure devop task" /></a><figcaption><h4>wcag azure devop task</h4></figcaption></figure>
 
 <p>Line 40 describes the title of the test. In this case, the testcase for the deployment page. Line 43 displays the number of A and AA rules violated on the specific page. The list under this line describes which specific rules were violated, a list of wcag rules can be found <a href="https://dequeuniversity.com/rules/axe/3.2">here</a>, as well as which element on the page caused the violation.</p>
 
@@ -7706,7 +7706,7 @@ To debug the new test, append <code>test</code> with the only keyword: <code>tes
 
 <p>The test report is then generated displayed in the console:</p>
 
-<p><img src="wcagconsole.png" alt="console output" /></p>
+<figure><a href="wcagconsole.PNG"><img src="wcagconsole.PNG" alt="console output" title="Console output" /></a><figcaption><h4>Console output</h4></figcaption></figure>
 
 
 <footer class=" footline" >
