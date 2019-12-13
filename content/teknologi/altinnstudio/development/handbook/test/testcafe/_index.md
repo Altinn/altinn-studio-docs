@@ -43,7 +43,8 @@ Code for [Testcafe tests](https://github.com/Altinn/altinn-studio/tree/master/sr
 5. ‘.only’ can be used to run a specific fixture or a test case
 6. Save the project
 7. Open PowerShell and navigate to C:\Altinn Studio\altinn-studio\src\test\Testcafe
-8. Run the command – ‘node .\testRunner.js --env=dev’
+8. Run the command – ‘node .\testRunner.js --env=dev’ to run general tests
+9. Run the command - 'node .\WCAGRunner.js --env=dev' to run wcag tests
 
 ### Branching
 1. Create a new branch with addition or changing of a new test from master.

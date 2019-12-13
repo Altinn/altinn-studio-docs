@@ -6,7 +6,7 @@ weight: 100
 ---
 This document describes how one can start writing tests on a test cafe project , and debug of the tests.
 
-### Procedure to write a testcafe test
+### Procedure to write general testcafe test
 1. Find a test case and area that has to be automated.
 2. Find the '-tests.js' file that the test case has to be added or create a new folder and new .js file for the test under src/test/Testcafe.
 3. Identify and add the page objects with the selectors information under respective file under src/test/Testcafe/page-objects.
