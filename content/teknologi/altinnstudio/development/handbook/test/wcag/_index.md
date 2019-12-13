@@ -12,11 +12,11 @@ WCAG tests run in Altinn Studio using the testcafe UI test project, with some ad
 
 The Altinn studio wcag tests are run automatically each night in azure devops. Link to the build can be found [here](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=54), the wcag tests are run as a task in the build definition **altinn-studio-test-testcafe**. To inspect a run of the wcag tests, open the build definition:
 
-![testcafe tasks](wcagazure.png)
+![testcafe tasks](wcagazure.png "testcafe azure devops tasks")
 
 The "Tests" tab contains the the general UI test report. WCAG tests use a seperate reporter (called "spec") to allow the user see which elements break with accesibility rules. Open the *npm wcag* task to inspect the wcag test results:
 
-![wcag task](wcagtask.png)
+![wcag task](wcagtask.png "wcag azure devop task")
 
 Line 40 describes the title of the test. In this case, the testcase for the deployment page. Line 43 displays the number of A and AA rules violated on the specific page. The list under this line describes which specific rules were violated, a list of wcag rules can be found [here](https://dequeuniversity.com/rules/axe/3.2), as well as which element on the page caused the violation.
 
@@ -66,4 +66,4 @@ The new test can now be run from the command line using the package.json wcag sc
 
 The test report is then generated displayed in the console:
 
-![console output](wcagconsole.png)
+![console output](wcagconsole.png "Console output")
