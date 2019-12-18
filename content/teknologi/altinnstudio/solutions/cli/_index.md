@@ -1,8 +1,8 @@
 ---
-title: ALtinn Cli
-description: ALtinn CLIis is a command line application that can be used by service owneres to access ALtinn Api's. The application has as standard implemented functions for creating Altinn Applications and insatnces, functions for fetch and store application data. ALtinn CLI can be found on the GIT repo https://github.com/Altinn/altinn-cli. The application can be used as standrad or extended with custom function devloped by the service owners themselves. 
+title: ALtinn CLI
+description: ALtinn CLI is a command line application that can be used by service owneres to access Altinn Api's. The application has as standard implemented functions for creating Altinn Applications and insatnces, functions for fetch and store application data. ALtinn CLI can be found on the GIT repo https://github.com/Altinn/altinn-cli. The application can be used as standrad or extended with custom function devloped by the service owners themselves. 
 
-weight: 5
+weight: 400
 aliases:
 - /guides/altinn-cli/
 ---
