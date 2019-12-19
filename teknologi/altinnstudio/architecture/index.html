@@ -3580,6 +3580,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/infrastructure/kubernetes/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/infrastructure/kubernetes/">
+        <span>Kubernetes</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/infrastructure/altinn-cdn/" class="dd-item 
         
         
@@ -7669,17 +7698,18 @@ if(host != "localhost")
 
 <h3 id="free-and-open-source-software">Free and open-source software</h3>
 
-<p><strong>Principle</strong>
-The project is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
+<p><strong>Principle</strong></p>
 
-<p><strong>Rationale</strong>
-Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.</p>
+<p>The project is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>Possibility to share the platform as Open Source. The possibility to create an Open Source community around the platform.</p>
 
 <p><strong>Implications</strong></p>
 
 <ul>
 <li>Can&rsquo;t use closed source products in the platform</li>
-<li>Can&rsquo;t use licenced products in the platform</li>
 <li>Can&rsquo;t use products with licensing limiting use and modifications</li>
 <li>Code developed is <a href="https://github.com/Altinn/altinn-studio">shared on GitHub</a></li>
 </ul>
@@ -7694,16 +7724,21 @@ Possibility to share the platform as Open Source. The possibility to create a Op
 
 <p>Can use standard tools and developers does not need to have special skills.</p>
 
-<p><strong>Implications</strong>
-- Formats and frameworks used need to follow standards</p>
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Formats and frameworks used need to follow standards</li>
+</ul>
 
 <h3 id="design-for-automation">Design for automation</h3>
 
-<p><strong>Principle</strong>
-The component should be created in a way that they support automation in development, deployment and operations.</p>
+<p><strong>Principle</strong></p>
 
-<p><strong>Rational</strong>
-Reduce the required effort to develop and operate the platform.</p>
+<p>The component should be created in a way that they support automation in development, deployment and operations.</p>
+
+<p><strong>Rational</strong></p>
+
+<p>Reduce the required effort to develop and operate the platform.</p>
 
 <p><strong>Implications</strong></p>
 
@@ -7715,7 +7750,25 @@ Reduce the required effort to develop and operate the platform.</p>
 <li>We monitor and do automatic recovery of components</li>
 </ul>
 
-<h3 id="favore-managed-services">Favore managed services</h3>
+<h3 id="public-cloud">Public cloud</h3>
+
+<p><strong>Principle</strong></p>
+
+<p>The solutions should be deployed to a public cloud solution</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
+and the solotions</p>
+
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Additional security measures</li>
+<li>Need to build knowledge about cloud solutions</li>
+</ul>
+
+<h3 id="favor-managed-services">Favor managed services</h3>
 
 <p><strong>Principle</strong></p>
 
@@ -7725,9 +7778,12 @@ Reduce the required effort to develop and operate the platform.</p>
 
 <p>Reduce effort needed to host the platform.</p>
 
-<p><strong>Implications</strong>
-- Use managed data services
-- Use managed Kubernetes like Azure Kubernetes Services</p>
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Use managed data services</li>
+<li>Use managed Kubernetes like Azure Kubernetes Services</li>
+</ul>
 
 <h3 id="security-in-depth">Security in depth</h3>
 
@@ -7762,21 +7818,18 @@ Reduce the required effort to develop and operate the platform.</p>
 <li>We use .Net Core or Java to build components</li>
 </ul>
 
-<h3 id="use-container-technology">Use container technology</h3>
+<h3 id="container-technology">Container technology</h3>
 
-<h3 id="cloud-native">Cloud Native</h3>
+<p><strong>Principle</strong></p>
 
-<p>Principle:
-The architecture should follow cloud native principles</p>
+<p>Applications should be deployed as containers</p>
 
-<p>Result</p>
+<p><strong>Rationale</strong>
+The rationale to use containers is that we get a consistent runtime environment
+Isolate runtime environment. Consistency.</p>
 
-<ul>
-<li>Containers - Isolation (resources, framework)</li>
-<li>Microservice architecture - Upgrade components seperate.</li>
-<li>APIs - Reuse</li>
-<li>Independent of operating system - Can develop and run on any platform</li>
-</ul>
+<p><strong>Implications</strong>
+- Deploy applications/components in docker containers.</p>
 
 <h2 id="architectural-overview">Architectural overview</h2>
 
@@ -9746,6 +9799,22 @@ The architecture should follow cloud native principles</p>
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   
