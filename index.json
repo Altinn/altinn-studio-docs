@@ -473,7 +473,7 @@
 	"title": "Building and configuring app",
 	"tags": [],
 	"description": "Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.",
-	"content": "To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app.\n\rApp Parameters\rIn Altinn Studio the developer can set various parameters for the app\n\r\rConfigure API use\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rConfigure Prefill\rAltinn Studio will let the developer define prefill for datamodel from register and profile\n\r\rConfigure helptext\rHelp developer configure help texts for components\n\r\rCreate Logic with code\rIn Altinn Studio there is a web based code editor for editing front-end and back-end logic\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rSet Authorization Rules\rAltinn Studio let the developer set the authorization requirements for a App\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Design\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\r"
+	"content": "To support building apps Altinn Studio have different functionality to building and configuring different aspects of the app.\n\rApp Parameters\rThe application contain different parameters that controlls the behaviour.\n\r\rConfigure API use\rTo be able to support \u0026#34;once-only\u0026#34; it is essensial that it is easy to do API-call from an app to other systems APIs.\n\r\rConfigure Prefill\rAltinn Studio will let the developer define prefill for datamodel from register and profile\n\r\rConfigure helptext\rHelp developer configure help texts for components\n\r\rCreate AppLogic with code\rApp behavoir can be controlled by code\n\r\rData modeling\rDefining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.\n\r\rDefine process\rAs part of the development one must define a process for the app that end user needs to follow.\n\r\rExposing API\rApps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.\n\r\rSet Authorization Rules\rAltinn Studio let the developer set the authorization requirements for a App\n\r\rText and translations\rUsing texts when designing UI, defining workflow, other settings, deploy, and more.\n\r\rUI Design\rThe UI-designer is the part of Altinn Studio where the developer can create UI for the app.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/",
@@ -1312,8 +1312,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/app-parameters/",
 	"title": "App Parameters",
 	"tags": ["process"],
-	"description": "In Altinn Studio the developer can set various parameters for the app",
-	"content": " App Parameters Presentation Field See all issues related to App-Parameters on Github\n"
+	"description": "The application contain different parameters that controlls the behaviour.",
+	"content": " The different parameters can be configured either in Altinn Studio UI or through modifying the configuration files in the application repository.\nSupported App Parameters  party type requirements  Not (yet) supported App parameters  Valid to Valid from  See all issues related to App-Parameters on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/branching/",
@@ -1359,9 +1359,9 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/code-editor/",
-	"title": "Create Logic with code",
+	"title": "Create AppLogic with code",
 	"tags": ["process"],
-	"description": "In Altinn Studio there is a web based code editor for editing front-end and back-end logic",
+	"description": "App behavoir can be controlled by code",
 	"content": " Code Editor for back-end logic A developer can edit logic that will be part of app-backend when application is running in Altinn Apps.\nSee Getting started to se how to do that.\nCode Editor for front-end logic A developer can edit logic that will run in the browser for a given app.\nSee Getting started to se how to do that.\nSee github issues related to logic \u0026amp; rules.\n"
 },
 {
@@ -1565,7 +1565,7 @@
 	"title": "Set Authorization Rules",
 	"tags": [],
 	"description": "Altinn Studio let the developer set the authorization requirements for a App",
-	"content": "In Altinn the developer can set the Authorization Requirments for a app\nSee issues related to authorization on Github\n"
+	"content": "The authorization rules are controlled by a XACML 3.0 Policy that is part of the repository.\nThe rules in policy can be configured with a regulard text editor.\nSee issues related to authorization on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/solution/",
