@@ -7661,25 +7661,66 @@ if(host != "localhost")
 
 <p>Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.</p>
 
-<h2 id="architecture-goals-guidelines">Architecture Goals &amp; Guidelines</h2>
+<h2 id="architecture-principles">Architecture Principles</h2>
 
-<p>The following guidlines and goals have been important to define the architecture.</p>
+<p>The following architecture principles has been defined</p>
 
 <h3 id="free-and-open-source-software">Free and open-source software</h3>
 
-<p>Guideline: Frameworks and applications used in Altinn Studio will need to be <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Open Source</a>.</p>
+<p>Principle:
+The project needs to be <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
 
-<p>Result: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.</p>
+<p>Rationale:
+Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.</p>
+
+<p>Implications:
+- Can&rsquo;t use closed source products in the platform
+- Can&rsquo;t use licenced products in the platform
+- Can&rsquo;t use products with licensing limiting use and modifications
+- Code developed is <a href="https://github.com/Altinn/altinn-studio">shared on GitHub</a></p>
 
 <h3 id="web-standards-modern-frameworks">Web Standards &amp; Modern frameworks</h3>
 
-<p>Guideline: Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks</p>
+<p>Principle:
+Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks</p>
 
-<p>Result: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.</p>
+<p>Rationale:
+Can use standard tools and developers does not need to have special skills.</p>
+
+<p>Implications:
+- Formats and frameworks used need to follow standards</p>
+
+<h3 id="design-for-automation">Design for automation</h3>
+
+<p>Principle:
+The component should be created in a way that they support automation in development, deployment and operations.</p>
+
+<p>Rationale:
+Reduce the required effort to develop and operate the platform.</p>
+
+<p>Implications
+- We use <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration</a>
+- We use <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous deployment</a>
+- We build <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a>
+- We use <a href="https://en.wikipedia.org/wiki/Autoscaling">Automatic scaling</a>
+- We monitor and do automatic recovery of components</p>
+
+<h3 id="favore-managed-services">Favore managed services</h3>
+
+<p>Principle:
+We should use manages cloud services when possbile</p>
+
+<p>Rationale:
+Reduce effort needed to host the platform.</p>
+
+<p>Implications:
+- Use hosted data services
+- Use hosted Kubernetes clusters</p>
 
 <h3 id="cloud-native">Cloud Native</h3>
 
-<p>Guideline: The architecture should follow cloud native principles</p>
+<p>Principle:
+The architecture should follow cloud native principles</p>
 
 <p>Result</p>
 
