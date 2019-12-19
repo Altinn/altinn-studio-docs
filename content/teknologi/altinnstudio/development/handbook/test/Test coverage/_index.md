@@ -73,14 +73,14 @@ Sl.No. |    Testcase name   |   Area of Solution
 17. | Get instances, by id and instance events | Storage-SBL
 18. | Soft/hard delete and restore instances | Storage-SBL
 
-#### Runtime
+#### App
 Sl.No. |    Testcase name   |   Area of Solution   
 :--- | :--- | :---: 
-1. | Create, Get, Edit app instance | Runtime
-2. | Start, get, get next, change next, complete Process | Runtime
-3. | Negative tests in process | Runtime
-4. | Add, Get, Edit Form data xml | Runtime
-5. | Delete a form data xml - negative | Runtime
-6. | Add an attachment to an instance | Runtime
-7. | Create app instance with multipart data | Runtime
-8. | Verify instance created with multipart | Runtime
+1. | Create, Get, Edit app instance | App
+2. | Start, get, get next, change next, complete Process | App
+3. | Negative tests in process | App
+4. | Add, Get, Edit Form data xml | App
+5. | Delete a form data xml - negative | App
+6. | Add an attachment to an instance | App
+7. | Create app instance with multipart data | App
+8. | Verify instance created with multipart | App

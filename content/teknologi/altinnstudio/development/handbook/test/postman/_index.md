@@ -15,7 +15,7 @@ Several of the exposed APIs requires various cookies, for instance authenticatio
 - Notice that the cookies AltinnStudioDesigner, AltinnStudioRuntime and i_like_gitea (among others) has been saved for the domain name you have logged in to.
   - For Chrome cookies can be found under settings -> advanced -> cookies -> see all.
 
-The two cookies AltinnStudioDesigner and AltinnStudioRuntime works as auth against the Designer and Runtime API, so if you are targeting a Designer API you should include the AltinnStudioDesigner cookie, along with the i_like_gitea cookie, and if you are targeting a runtime API the AltinnStudioRuntime cookie should be included.
+The two cookies AltinnStudioDesigner and AltinnStudioRuntime works as auth against the Designer and APP API respectively, so if you are targeting a Designer API you should include the AltinnStudioDesigner cookie, along with the i_like_gitea cookie, and if you are targeting a runtime API the AltinnStudioRuntime cookie should be included.
 Cookies are easily added to the postman requests under the slightly hidden cookies setting, see:
 
 ![Postman Cookies](postman-cookies.PNG?width=800)
@@ -36,3 +36,10 @@ Cookies are easily added to the postman requests under the slightly hidden cooki
 
 ### Postman test pipeline in Azure Devops
 [Azure Devops Pipeline](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=54)
+
+### Information about the postman collections
+1. Collections folder include postman collections for Platform API, Storage API, APP API.
+2. Platform API uses Platform.postman_environment as an environment file.
+3. Storage and App API uses App.postman_environment as an environment file.
+4. One has to fill in the values (testdata) in the environment file based on the environment under test.
+5. The collections has steps that would authenticate an user and set appropriate cookies.
