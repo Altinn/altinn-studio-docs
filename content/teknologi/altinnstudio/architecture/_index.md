@@ -49,18 +49,26 @@ Implications
 - We use [Automatic scaling](https://en.wikipedia.org/wiki/Autoscaling)
 - We monitor and do automatic recovery of components
 
-
 ### Favore managed services
-
 Principle:
-We should use manages cloud services when possbile
+We should use manages cloud services when possible
 
 Rationale:
 Reduce effort needed to host the platform. 
 
 Implications:
-- Use hosted data services
-- Use hosted Kubernetes clusters
+- Use managed data services
+- Use managed Kubernetes like Azure Kubernetes Services 
+
+### Security in depth
+Principle: 
+All components should authenticate and authorize requests.
+
+Rationale:
+We can't trust other components. 
+
+Implications
+- 
 
 ### Cloud Native
 Principle: 
