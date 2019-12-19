@@ -22,16 +22,20 @@ The project is [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_ope
 Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.
 
 **Implications** 
+
 - Can't use closed source products in the platform
 - Can't use licenced products in the platform
 - Can't use products with licensing limiting use and modifications
 - Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio)
 
 ### Web Standards & Modern frameworks
+
 **Principle** 
+
 Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) and modern frameworks
 
 **Rationale**
+
 Can use standard tools and developers does not need to have special skills.
 
 **Implications** 
@@ -45,45 +49,55 @@ The component should be created in a way that they support automation in develop
 Reduce the required effort to develop and operate the platform. 
 
 **Implications**
-* We use [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration)
-* We use [Continuous deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
-* We build [Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)
-* We use [Automatic scaling](https://en.wikipedia.org/wiki/Autoscaling)
-* We monitor and do automatic recovery of components
+
+- We use [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- We use [Continuous deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+- We build [Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)
+- We use [Automatic scaling](https://en.wikipedia.org/wiki/Autoscaling)
+- We monitor and do automatic recovery of components
 
 ### Favore managed services
+
 **Principle**
+
 We should use manages cloud services when possible
 
 **Rationale**
+
 Reduce effort needed to host the platform. 
 
 **Implications**
-* Use managed data services
-* Use managed Kubernetes like Azure Kubernetes Services 
+- Use managed data services
+- Use managed Kubernetes like Azure Kubernetes Services 
 
 ### Security in depth
+
 **Principle** 
+
 All components should authenticate and authorize requests.
 
 **Rationale**
+
 We can't trust other components. 
 
 **Implications**
+
 - Components in Altinn Platform authenticates and authorize end user even if the request comes throug a application that also require the same
 - We use API management to controll traffic between Altinn Apps and Altinn Platform. 
 
 ### Cross platform
+
 **Principle**
+
 The components in the platform should be cross platform and can run on [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows), [Linux](https://en.wikipedia.org/wiki/Linux) and [MacOs](https://en.wikipedia.org/wiki/MacOS)
 
 **Rationale**
+
 Developers should be able to create applications on any platform. 
 
 **Implications**
-* We use .Net Core or Java to build components
 
-
+- We use .Net Core or Java to build components
 
 ### Use container technology
 
