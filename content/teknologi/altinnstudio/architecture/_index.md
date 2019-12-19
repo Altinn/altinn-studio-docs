@@ -15,16 +15,18 @@ It is built to be cloud native and run in cloud-based infrastructure.
 The following architecture principles has been defined
 
 ### Free and open-source software
+
 **Principle** 
+
 The project is [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software).  
 
 **Rationale**
-Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.
+
+Possibility to share the platform as Open Source. The possibility to create an Open Source community around the platform.
 
 **Implications** 
 
 - Can't use closed source products in the platform
-- Can't use licenced products in the platform
 - Can't use products with licensing limiting use and modifications
 - Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio)
 
@@ -39,13 +41,17 @@ Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) and modern fram
 Can use standard tools and developers does not need to have special skills.
 
 **Implications** 
+
 - Formats and frameworks used need to follow standards
 
 ### Design for automation
+
 **Principle**
+
 The component should be created in a way that they support automation in development, deployment and operations.
 
 **Rational**
+
 Reduce the required effort to develop and operate the platform. 
 
 **Implications**
@@ -56,7 +62,23 @@ Reduce the required effort to develop and operate the platform.
 - We use [Automatic scaling](https://en.wikipedia.org/wiki/Autoscaling)
 - We monitor and do automatic recovery of components
 
-### Favore managed services
+### Public cloud
+
+**Principle**
+
+The solutions should be deployed to a public cloud solution
+
+**Rationale**
+
+Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
+and the solotions 
+
+**Implications**
+
+- Additional security measures
+- Need to build knowledge about cloud solutions
+
+### Favor managed services
 
 **Principle**
 
@@ -67,6 +89,7 @@ We should use manages cloud services when possible
 Reduce effort needed to host the platform. 
 
 **Implications**
+
 - Use managed data services
 - Use managed Kubernetes like Azure Kubernetes Services 
 
@@ -99,19 +122,19 @@ Developers should be able to create applications on any platform.
 
 - We use .Net Core or Java to build components
 
-### Use container technology
+### Container technology
 
+**Principle**
 
-### Cloud Native
-Principle: 
-The architecture should follow cloud native principles
+Applications should be deployed as containers
 
-Result 
+**Rationale**
+The rationale to use containers is that we get a consistent runtime environment
+Isolate runtime environment. Consistency. 
 
-* Containers - Isolation (resources, framework)
-* Microservice architecture - Upgrade components seperate. 
-* APIs - Reuse
-* Independent of operating system - Can develop and run on any platform
+**Implications**
+- Deploy applications/components in docker containers.
+
 
 ## Architectural overview
 The figure below shows the relation between the different types of architecture defined.
