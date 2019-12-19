@@ -7675,19 +7675,24 @@ The project is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_softw
 <p><strong>Rationale</strong>
 Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.</p>
 
-<p><strong>Implications</strong>
-- Can&rsquo;t use closed source products in the platform
-- Can&rsquo;t use licenced products in the platform
-- Can&rsquo;t use products with licensing limiting use and modifications
-- Code developed is <a href="https://github.com/Altinn/altinn-studio">shared on GitHub</a></p>
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Can&rsquo;t use closed source products in the platform</li>
+<li>Can&rsquo;t use licenced products in the platform</li>
+<li>Can&rsquo;t use products with licensing limiting use and modifications</li>
+<li>Code developed is <a href="https://github.com/Altinn/altinn-studio">shared on GitHub</a></li>
+</ul>
 
 <h3 id="web-standards-modern-frameworks">Web Standards &amp; Modern frameworks</h3>
 
-<p><strong>Principle</strong>
-Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks</p>
+<p><strong>Principle</strong></p>
 
-<p><strong>Rationale</strong>
-Can use standard tools and developers does not need to have special skills.</p>
+<p>Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>Can use standard tools and developers does not need to have special skills.</p>
 
 <p><strong>Implications</strong>
 - Formats and frameworks used need to follow standards</p>
@@ -7700,47 +7705,62 @@ The component should be created in a way that they support automation in develop
 <p><strong>Rational</strong>
 Reduce the required effort to develop and operate the platform.</p>
 
-<p><strong>Implications</strong>
-* We use <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration</a>
-* We use <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous deployment</a>
-* We build <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a>
-* We use <a href="https://en.wikipedia.org/wiki/Autoscaling">Automatic scaling</a>
-* We monitor and do automatic recovery of components</p>
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>We use <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration</a></li>
+<li>We use <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous deployment</a></li>
+<li>We build <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a></li>
+<li>We use <a href="https://en.wikipedia.org/wiki/Autoscaling">Automatic scaling</a></li>
+<li>We monitor and do automatic recovery of components</li>
+</ul>
 
 <h3 id="favore-managed-services">Favore managed services</h3>
 
-<p><strong>Principle</strong>
-We should use manages cloud services when possible</p>
+<p><strong>Principle</strong></p>
 
-<p><strong>Rationale</strong>
-Reduce effort needed to host the platform.</p>
+<p>We should use manages cloud services when possible</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>Reduce effort needed to host the platform.</p>
 
 <p><strong>Implications</strong>
-* Use managed data services
-* Use managed Kubernetes like Azure Kubernetes Services</p>
+- Use managed data services
+- Use managed Kubernetes like Azure Kubernetes Services</p>
 
 <h3 id="security-in-depth">Security in depth</h3>
 
-<p><strong>Principle</strong>
-All components should authenticate and authorize requests.</p>
+<p><strong>Principle</strong></p>
 
-<p><strong>Rationale</strong>
-We can&rsquo;t trust other components.</p>
+<p>All components should authenticate and authorize requests.</p>
 
-<p><strong>Implications</strong>
-- Components in Altinn Platform authenticates and authorize end user even if the request comes throug a application that also require the same
-- We use API management to controll traffic between Altinn Apps and Altinn Platform.</p>
+<p><strong>Rationale</strong></p>
+
+<p>We can&rsquo;t trust other components.</p>
+
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Components in Altinn Platform authenticates and authorize end user even if the request comes throug a application that also require the same</li>
+<li>We use API management to controll traffic between Altinn Apps and Altinn Platform.</li>
+</ul>
 
 <h3 id="cross-platform">Cross platform</h3>
 
-<p><strong>Principle</strong>
-The components in the platform should be cross platform and can run on <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a>, <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> and <a href="https://en.wikipedia.org/wiki/MacOS">MacOs</a></p>
+<p><strong>Principle</strong></p>
 
-<p><strong>Rationale</strong>
-Developers should be able to create applications on any platform.</p>
+<p>The components in the platform should be cross platform and can run on <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a>, <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> and <a href="https://en.wikipedia.org/wiki/MacOS">MacOs</a></p>
 
-<p><strong>Implications</strong>
-* We use .Net Core or Java to build components</p>
+<p><strong>Rationale</strong></p>
+
+<p>Developers should be able to create applications on any platform.</p>
+
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>We use .Net Core or Java to build components</li>
+</ul>
 
 <h3 id="use-container-technology">Use container technology</h3>
 
