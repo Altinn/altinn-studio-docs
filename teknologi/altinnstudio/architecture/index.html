@@ -7661,19 +7661,21 @@ if(host != "localhost")
 
 <p>Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.</p>
 
+<p>It is built to be cloud native and run in cloud-based infrastructure.</p>
+
 <h2 id="architecture-principles">Architecture Principles</h2>
 
 <p>The following architecture principles has been defined</p>
 
 <h3 id="free-and-open-source-software">Free and open-source software</h3>
 
-<p>Principle:
-The project needs to be <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
+<p><strong>Principle</strong>
+The project is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
 
-<p>Rationale:
+<p><strong>Rationale</strong>
 Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.</p>
 
-<p>Implications:
+<p><strong>Implications</strong>
 - Can&rsquo;t use closed source products in the platform
 - Can&rsquo;t use licenced products in the platform
 - Can&rsquo;t use products with licensing limiting use and modifications
@@ -7681,51 +7683,66 @@ Possibility to share the platform as Open Source. The possibility to create a Op
 
 <h3 id="web-standards-modern-frameworks">Web Standards &amp; Modern frameworks</h3>
 
-<p>Principle:
+<p><strong>Principle</strong>
 Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks</p>
 
-<p>Rationale:
+<p><strong>Rationale</strong>
 Can use standard tools and developers does not need to have special skills.</p>
 
-<p>Implications:
+<p><strong>Implications</strong>
 - Formats and frameworks used need to follow standards</p>
 
 <h3 id="design-for-automation">Design for automation</h3>
 
-<p>Principle:
+<p><strong>Principle</strong>
 The component should be created in a way that they support automation in development, deployment and operations.</p>
 
-<p>Rationale:
+<p><strong>Rational</strong>
 Reduce the required effort to develop and operate the platform.</p>
 
-<p>Implications
-- We use <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration</a>
-- We use <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous deployment</a>
-- We build <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a>
-- We use <a href="https://en.wikipedia.org/wiki/Autoscaling">Automatic scaling</a>
-- We monitor and do automatic recovery of components</p>
+<p><strong>Implications</strong>
+* We use <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration</a>
+* We use <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous deployment</a>
+* We build <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a>
+* We use <a href="https://en.wikipedia.org/wiki/Autoscaling">Automatic scaling</a>
+* We monitor and do automatic recovery of components</p>
 
 <h3 id="favore-managed-services">Favore managed services</h3>
 
-<p>Principle:
+<p><strong>Principle</strong>
 We should use manages cloud services when possible</p>
 
-<p>Rationale:
+<p><strong>Rationale</strong>
 Reduce effort needed to host the platform.</p>
 
-<p>Implications:
-- Use managed data services
-- Use managed Kubernetes like Azure Kubernetes Services</p>
+<p><strong>Implications</strong>
+* Use managed data services
+* Use managed Kubernetes like Azure Kubernetes Services</p>
 
 <h3 id="security-in-depth">Security in depth</h3>
 
-<p>Principle:
+<p><strong>Principle</strong>
 All components should authenticate and authorize requests.</p>
 
-<p>Rationale:
+<p><strong>Rationale</strong>
 We can&rsquo;t trust other components.</p>
 
-<h2 id="implications">Implications</h2>
+<p><strong>Implications</strong>
+- Components in Altinn Platform authenticates and authorize end user even if the request comes throug a application that also require the same
+- We use API management to controll traffic between Altinn Apps and Altinn Platform.</p>
+
+<h3 id="cross-platform">Cross platform</h3>
+
+<p><strong>Principle</strong>
+The components in the platform should be cross platform and can run on <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a>, <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> and <a href="https://en.wikipedia.org/wiki/MacOS">MacOs</a></p>
+
+<p><strong>Rationale</strong>
+Developers should be able to create applications on any platform.</p>
+
+<p><strong>Implications</strong>
+* We use .Net Core or Java to build components</p>
+
+<h3 id="use-container-technology">Use container technology</h3>
 
 <h3 id="cloud-native">Cloud Native</h3>
 
