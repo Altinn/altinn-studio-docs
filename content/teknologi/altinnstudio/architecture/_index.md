@@ -9,21 +9,62 @@ aliases:
 ---
 Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. 
 
-## Architecture Goals & Guidelines
-The following guidlines and goals have been important to define the architecture. 
+## Architecture Principles
+The following architecture principles has been defined
 
 ### Free and open-source software
-Guideline: Frameworks and applications used in Altinn Studio will need to be [Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software).  
+Principle: 
+The project needs to be [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software).  
 
-Result: Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.
+Rationale: 
+Possibility to share the platform as Open Source. The possibility to create a Open Source community around the platform.
+
+Implications: 
+- Can't use closed source products in the platform
+- Can't use licenced products in the platform
+- Can't use products with licensing limiting use and modifications
+- Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio)
 
 ### Web Standards & Modern frameworks
-Guideline: Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) and modern frameworks
+Principle: 
+Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) and modern frameworks
 
-Result: Non proprietary standards will be used. Can use standard tools and developers does not need to have special skills.
+Rationale:
+Can use standard tools and developers does not need to have special skills.
+
+Implications: 
+- Formats and frameworks used need to follow standards
+
+### Design for automation
+Principle:
+The component should be created in a way that they support automation in development, deployment and operations.
+
+Rationale:
+Reduce the required effort to develop and operate the platform. 
+
+Implications
+- We use [Continuous integration](https://en.wikipedia.org/wiki/Continuous_integration)
+- We use [Continuous deployment](https://en.wikipedia.org/wiki/Continuous_deployment)
+- We build [Infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code)
+- We use [Automatic scaling](https://en.wikipedia.org/wiki/Autoscaling)
+- We monitor and do automatic recovery of components
+
+
+### Favore managed services
+
+Principle:
+We should use manages cloud services when possbile
+
+Rationale:
+Reduce effort needed to host the platform. 
+
+Implications:
+- Use hosted data services
+- Use hosted Kubernetes clusters
 
 ### Cloud Native
-Guideline: The architecture should follow cloud native principles
+Principle: 
+The architecture should follow cloud native principles
 
 Result 
 
