@@ -1,8 +1,9 @@
 ---
-title: Architecture
-description: Description of the Altinn Studio architecture.
+title: Architecture Principles
+description: Description of the Architecture principles
 tags: [architecture]
-weight: 100
+linktitle: Principles
+weight: 5
 alwaysopen: false
 aliases:
  - /architecture/

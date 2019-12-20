@@ -8,7 +8,7 @@ aliases:
  - /architecture/
 ---
 
-Kubernetes is choosen to orcestrate the containers in the different solutions. There are serveral Kubernetes Clusters involved.
+[Kubernetes](https://kubernetes.io/) is choosen to orcestrate the containers in the different solutions. There are serveral Kubernetes Clusters involved.
 
 The solution uses managed Kubernetes Clusters. Azure Kubernetes Services 
 
