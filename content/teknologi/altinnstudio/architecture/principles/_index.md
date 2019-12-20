@@ -71,6 +71,7 @@ The different components can be scaled differently, it can be deployed independe
 Different teams can be responsible for different microservices/apps. 
 
 **Implications**
+
 - Functionality in Altinn Platform is seperated in Authentication, Authorization, Profile, Storage, Pdf and Register component
 - Applications created in Altinn Studio is deployed as microapps to Altinn Apps
 
