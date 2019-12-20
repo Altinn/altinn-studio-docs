@@ -7807,6 +7807,18 @@ to run on the platform.</p>
 <li>We use <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> as general format.</li>
 </ul>
 
+<h3 id="build-components-as-microservices">Build components as microservices</h3>
+
+<p><strong>Principle</strong>
+The platform is built as microservices. Related functionality is grouped in to seperate applications and deployed as containers.</p>
+
+<p><strong>Rationale</strong>
+The different components can be scaled differently, it can be deployed independently. Reduced deploy time.
+Different teams can be responsible for different microservices.</p>
+
+<p><strong>Implications</strong>
+- Functionality in Altinn Platform is seperated in Authentication, Authorization, Profile, Storage, Pdf and Register component</p>
+
 <h3 id="design-for-automation">Design for automation</h3>
 
 <p><strong>Principle</strong></p>
