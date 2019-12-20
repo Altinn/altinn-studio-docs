@@ -13,7 +13,7 @@ aliases:
 
 **Principle** 
 
-The project is [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software).  
+The components and solutions are [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software).  
 
 **Rationale**
 
@@ -24,6 +24,7 @@ Possibility to share the platform as Open Source. The possibility to create an O
 - Can't use closed source products in the platform
 - Can't use products with licensing limiting use and modifications
 - Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio)
+- Others can reuse our components and solutions
 
 ### Web Standards & Modern frameworks
 
@@ -32,10 +33,12 @@ Possibility to share the platform as Open Source. The possibility to create an O
 Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) and modern frameworks to build the solutions.
 
 **Rationale**
+
 Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
 to run on the platform.
 
 **Implications** 
+
 - We favor [React](https://reactjs.org/) over [Razor](https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c)
 - Formats and frameworks used need to follow standards
 - We use [JWT](http://jwt.io/) in authentication cookies
@@ -51,6 +54,7 @@ Whenever we need to store information we favor standard formats for that informa
 Standard formats are documented and is some cases it exists 3. party tools to edit information
 
 **Implications**
+
 - We use [BPMN 2.0 to](https://www.omg.org/spec/BPMN/2.0/) define the process for applications
 - We use XACML 3.0 to define authorization policies for applications
 
@@ -139,9 +143,11 @@ Developers should be able to create applications on any platform.
 Applications should be deployed as containers
 
 **Rationale**
+
 The rationale to use containers is that we get a consistent runtime environment
 Isolate runtime environment. Consistency. 
 
 **Implications**
+
 - Deploy applications/components in docker containers.
 
