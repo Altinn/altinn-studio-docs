@@ -71,7 +71,7 @@ An Altinn environment is a isolated group of several Altinn solutions functionin
 ## Altinn Studio
 
 Altinn Studio are our tools for app development.  
-Consists of Altinn Studio Designer, Altinn Studio Repos and Visual Studio Code.
+Consists of Altinn Studio Designer, Altinn Studio Repos and a local code editor / development tool (e.g. Visual Studio Code).
 
 Lets the developers create, edit, test and deploy applications.
 The apps are deployed as containers to a seperate infrastructure called Altinn Apps.
@@ -157,44 +157,39 @@ deprecated term: ~~Reportee~~
 
 The user which is logged in in Altinn and performs actions for on behalf of an instance owner. A user and an instance owner can be the same entity.
 
-## dot.net 
 
 ## Kubernetes
 
+A system for managing docker containers. See also: [Relevant definitions within Kubernetes](/teknologi/altinnstudio/toolsandframeworks/kubernetes/)
+
 ## React
 
-## Kubernetes Service
-
-## Kubernetes POD
-
-## Kubernetes Deployment
-
-## Kubernetes ReplicaSet
+Teh framework used for developing UI components.
 
 ## PAP
 
-Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
 
 ## PDP 
 
-Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
 
 ## PEP
 
-Policy Administration Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
 
 ## PIP
 
-Policy Information Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+Policy Information Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
 
 ## PRP
 
-Policy Retrieval Point. See [Authorization Architecture](/architecture/security/authorization/altinn-studio-apps/)
+Policy Retrieval Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
 
 
 ## SBL
 
-The current Altinn end user solution (SluttBrukerLøsning). See [Solution Architecture](https://docs.altinn.studio/architecture/solution/) 
+The current Altinn end user solution (SluttBrukerLøsning). See [Solution Architecture](/teknologi/altinnstudio/architecture/solution/) 
 
 ## SBL Bridge
 
@@ -211,7 +206,11 @@ A stateless app is a application where no data is store in in the platform. This
 State could potensial be stored in the external API, so term statless is limited to how the App not use any state in Altinn Platform.
 
 
-## Workflow
+## Process
+
+The set of tasks a certain app is made of, i.e. data, signing, payment etc. In Altinn Studio we use a *.bpmn file for the process.
+
+deprecated term: ~~Workflow~~
 
 ## XACML
 
