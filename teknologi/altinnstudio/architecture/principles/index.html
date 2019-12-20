@@ -7755,7 +7755,7 @@ if(host != "localhost")
 
 <p><strong>Principle</strong></p>
 
-<p>The project is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
+<p>The components and solutions are <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
 
 <p><strong>Rationale</strong></p>
 
@@ -7767,6 +7767,7 @@ if(host != "localhost")
 <li>Can&rsquo;t use closed source products in the platform</li>
 <li>Can&rsquo;t use products with licensing limiting use and modifications</li>
 <li>Code developed is <a href="https://github.com/Altinn/altinn-studio">shared on GitHub</a></li>
+<li>Others can reuse our components and solutions</li>
 </ul>
 
 <h3 id="web-standards-modern-frameworks">Web Standards &amp; Modern frameworks</h3>
@@ -7775,14 +7776,18 @@ if(host != "localhost")
 
 <p>Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks to build the solutions.</p>
 
-<p><strong>Rationale</strong>
-Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
+<p><strong>Rationale</strong></p>
+
+<p>Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
 to run on the platform.</p>
 
-<p><strong>Implications</strong>
-- We favor <a href="https://reactjs.org/">React</a> over <a href="https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c">Razor</a>
-- Formats and frameworks used need to follow standards
-- We use <a href="http://jwt.io/">JWT</a> in authentication cookies</p>
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>We favor <a href="https://reactjs.org/">React</a> over <a href="https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c">Razor</a></li>
+<li>Formats and frameworks used need to follow standards</li>
+<li>We use <a href="http://jwt.io/">JWT</a> in authentication cookies</li>
+</ul>
 
 <h2 id="favor-standards-over-custom">Favor standards over custom</h2>
 
@@ -7794,9 +7799,12 @@ to run on the platform.</p>
 
 <p>Standard formats are documented and is some cases it exists 3. party tools to edit information</p>
 
-<p><strong>Implications</strong>
-- We use <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 to</a> define the process for applications
-- We use XACML 3.0 to define authorization policies for applications</p>
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>We use <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 to</a> define the process for applications</li>
+<li>We use XACML 3.0 to define authorization policies for applications</li>
+</ul>
 
 <h3 id="design-for-automation">Design for automation</h3>
 
@@ -7892,12 +7900,16 @@ and the solotions</p>
 
 <p>Applications should be deployed as containers</p>
 
-<p><strong>Rationale</strong>
-The rationale to use containers is that we get a consistent runtime environment
+<p><strong>Rationale</strong></p>
+
+<p>The rationale to use containers is that we get a consistent runtime environment
 Isolate runtime environment. Consistency.</p>
 
-<p><strong>Implications</strong>
-- Deploy applications/components in docker containers.</p>
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Deploy applications/components in docker containers.</li>
+</ul>
 
 
 <footer class=" footline" >
