@@ -168,23 +168,23 @@ Teh framework used for developing UI components.
 
 ## PAP
 
-Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
+Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/)
 
 ## PDP 
 
-Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
+Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/)
 
 ## PEP
 
-Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
+Policy Administration Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/)
 
 ## PIP
 
-Policy Information Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
+Policy Information Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/)
 
 ## PRP
 
-Policy Retrieval Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/altinn-studio-apps/)
+Policy Retrieval Point. See [Authorization Architecture](/teknologi/altinnstudio/architecture/security/authorization/)
 
 
 ## SBL
