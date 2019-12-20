@@ -1,6 +1,6 @@
 ---
 title: Architecture Principles
-description: Description of the Architecture principles
+description: The following architecture principles has been defined for the solutions
 tags: [architecture]
 linktitle: Principles
 weight: 5
@@ -8,12 +8,6 @@ alwaysopen: false
 aliases:
  - /architecture/
 ---
-Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. 
-
-It is built to be cloud native and run in cloud-based infrastructure. 
-
-## Architecture Principles
-The following architecture principles has been defined
 
 ### Free and open-source software
 
@@ -151,12 +145,3 @@ Isolate runtime environment. Consistency.
 **Implications**
 - Deploy applications/components in docker containers.
 
-
-## Architectural overview
-The figure below shows the relation between the different types of architecture defined.
-
-{{%excerpt%}}
-<object data="/architecture/architectureoverview.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
-{{% /excerpt%}}
-
-{{% children description="true" depth="1" %}}
