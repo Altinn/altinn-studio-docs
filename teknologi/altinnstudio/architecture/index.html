@@ -7750,157 +7750,8 @@ if(host != "localhost")
 
 <p>It is built to be cloud native and run in cloud-based infrastructure.</p>
 
-<h2 id="architecture-principles">Architecture Principles</h2>
-
-<p>The following architecture principles has been defined</p>
-
-<h3 id="free-and-open-source-software">Free and open-source software</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>The project is <a href="https://en.wikipedia.org/wiki/Free_and_open-source_software">Free and Open Source</a>.</p>
-
-<p><strong>Rationale</strong></p>
-
-<p>Possibility to share the platform as Open Source. The possibility to create an Open Source community around the platform.</p>
-
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>Can&rsquo;t use closed source products in the platform</li>
-<li>Can&rsquo;t use products with licensing limiting use and modifications</li>
-<li>Code developed is <a href="https://github.com/Altinn/altinn-studio">shared on GitHub</a></li>
-</ul>
-
-<h3 id="web-standards-modern-frameworks">Web Standards &amp; Modern frameworks</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks to build the solutions.</p>
-
-<p><strong>Rationale</strong>
-Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
-to run on the platform.</p>
-
-<p><strong>Implications</strong>
-- We favor <a href="https://reactjs.org/">React</a> over <a href="https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c">Razor</a>
-- Formats and frameworks used need to follow standards
-- We use <a href="http://jwt.io/">JWT</a> in authentication cookies</p>
-
-<h2 id="favor-standards-over-custom">Favor standards over custom</h2>
-
-<p><strong>Principle</strong></p>
-
-<p>Whenever we need to store information we favor standard formats for that information over creating a custom format for that</p>
-
-<p><strong>Rationale</strong></p>
-
-<p>Standard formats are documented and is some cases it exists 3. party tools to edit information</p>
-
-<p><strong>Implications</strong>
-- We use <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 to</a> define the process for applications
-- We use XACML 3.0 to define authorization policies for applications</p>
-
-<h3 id="design-for-automation">Design for automation</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>The component should be created in a way that they support automation in development, deployment and operations.</p>
-
-<p><strong>Rational</strong></p>
-
-<p>Reduce the required effort to develop and operate the platform.</p>
-
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>We use <a href="https://en.wikipedia.org/wiki/Continuous_integration">Continuous integration</a></li>
-<li>We use <a href="https://en.wikipedia.org/wiki/Continuous_deployment">Continuous deployment</a></li>
-<li>We build <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a></li>
-<li>We use <a href="https://en.wikipedia.org/wiki/Autoscaling">Automatic scaling</a></li>
-<li>We monitor and do automatic recovery of components</li>
-</ul>
-
-<h3 id="public-cloud">Public cloud</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>The solutions should be deployed to a public cloud solution</p>
-
-<p><strong>Rationale</strong></p>
-
-<p>Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
-and the solotions</p>
-
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>Additional security measures</li>
-<li>Need to build knowledge about cloud solutions</li>
-</ul>
-
-<h3 id="favor-managed-services">Favor managed services</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>We should use manages cloud services when possible</p>
-
-<p><strong>Rationale</strong></p>
-
-<p>Reduce effort needed to host the platform.</p>
-
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>Use managed data services</li>
-<li>Use managed Kubernetes like Azure Kubernetes Services</li>
-</ul>
-
-<h3 id="security-in-depth">Security in depth</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>All components should authenticate and authorize requests.</p>
-
-<p><strong>Rationale</strong></p>
-
-<p>We can&rsquo;t trust other components.</p>
-
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>Components in Altinn Platform authenticates and authorize end user even if the request comes throug a application that also require the same</li>
-<li>We use API management to controll traffic between Altinn Apps and Altinn Platform.</li>
-</ul>
-
-<h3 id="cross-platform">Cross platform</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>The components in the platform should be cross platform and can run on <a href="https://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a>, <a href="https://en.wikipedia.org/wiki/Linux">Linux</a> and <a href="https://en.wikipedia.org/wiki/MacOS">MacOs</a></p>
-
-<p><strong>Rationale</strong></p>
-
-<p>Developers should be able to create applications on any platform.</p>
-
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>We use .Net Core or Java to build components</li>
-</ul>
-
-<h3 id="container-technology">Container technology</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>Applications should be deployed as containers</p>
-
-<p><strong>Rationale</strong>
-The rationale to use containers is that we get a consistent runtime environment
-Isolate runtime environment. Consistency.</p>
-
-<p><strong>Implications</strong>
-- Deploy applications/components in docker containers.</p>
+<p>A good starting point to learn about our architecture is to read our <a href="/teknologi/altinnstudio/architecture/principles/">Architecture Principles</a> and
+about our <a href="/teknologi/altinnstudio/architecture/concerns/">Architecture Concerns</a></p>
 
 <h2 id="architectural-overview">Architectural overview</h2>
 
@@ -7939,7 +7790,7 @@ Isolate runtime environment. Consistency.</p>
 
 <li>
 <a href="/teknologi/altinnstudio/architecture/principles/" >Architecture Principles</a>
-<p>Description of the Architecture principles</p>
+<p>The following architecture principles has been defined for the solutions</p>
 </li>
 
 
