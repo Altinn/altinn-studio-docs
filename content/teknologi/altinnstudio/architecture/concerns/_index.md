@@ -22,13 +22,16 @@ The solution need to have a performance to support a user friendly experience.
 ## Recoverability
 Based on the important of the solution the plattform needs to be recovorable also disaster events. 
 
+**Requirement:** It should be possible to setup the solutions from scratch in xx hours (will be specificed)
+
 ## Security
 Building a platform to host applications for different governmental agencies will involve sensitive data for citizens and businesses in the country. 
 
 This makes security one of the most important architecture concern in the solutions. 
 
 ## Maintainability
-The solutions will be open source and involve a large amount of developers. It is important that the different components are highly maintanable 
+The solutions will be open source and involve a large amount of developers. It is important that the different components are highly maintainable 
+to support effective development
 
 ## Operability
 The solutions will de operated by a small devops team and need to be highly operable. 
@@ -37,4 +40,4 @@ It needs to support automatic monitoring.
 ## Availability
 The solutions need to be available 24/7.
 
-**Requirement:** The solution should be build to support 99%  availablity  (will be increased a)
+**Requirement:** The solution should be build to support 99% availablity in the pilot period and higher when pilot period is over (will be further specificed in 2020)
