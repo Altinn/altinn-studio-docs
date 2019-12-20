@@ -62,6 +62,7 @@ Standard formats are documented and is some cases it exists 3. party tools to ed
 ### Build as microservices
 
 **Principle**
+
 The platform is built as microservices. Related functionality is grouped in to seperate applications and deployed as containers.
 Apps created in Altinn Studio will be deployed as microservices/apps
 
@@ -81,7 +82,7 @@ Different teams can be responsible for different microservices/apps.
 
 The component should be created in a way that they support automation in development, deployment and operations.
 
-**Rational**
+**Rationale**
 
 Reduce the required effort to develop and operate the platform. 
 
@@ -102,7 +103,7 @@ The solutions should be deployed to a public cloud solution
 **Rationale**
 
 Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
-and the solotions 
+and the solutions can take ad
 
 **Implications**
 
