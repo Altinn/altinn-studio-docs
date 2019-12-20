@@ -2664,6 +2664,64 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/principles/">
+        <span>Principles</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/concerns/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/concerns/">
+        <span>Concerns</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/application/" class="dd-item 
         
         
@@ -7718,17 +7776,30 @@ if(host != "localhost")
 
 <p><strong>Principle</strong></p>
 
-<p>Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks</p>
+<p>Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks to build the solutions.</p>
+
+<p><strong>Rationale</strong>
+Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
+to run on the platform.</p>
+
+<p><strong>Implications</strong>
+- We favor <a href="https://reactjs.org/">React</a> over <a href="https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c">Razor</a>
+- Formats and frameworks used need to follow standards
+- We use <a href="http://jwt.io/">JWT</a> in authentication cookies</p>
+
+<h2 id="favor-standards-over-custom">Favor standards over custom</h2>
+
+<p><strong>Principle</strong></p>
+
+<p>Whenever we need to store information we favor standard formats for that information over creating a custom format for that</p>
 
 <p><strong>Rationale</strong></p>
 
-<p>Can use standard tools and developers does not need to have special skills.</p>
+<p>Standard formats are documented and is some cases it exists 3. party tools to edit information</p>
 
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>Formats and frameworks used need to follow standards</li>
-</ul>
+<p><strong>Implications</strong>
+- We use <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 to</a> define the process for applications
+- We use XACML 3.0 to define authorization policies for applications</p>
 
 <h3 id="design-for-automation">Design for automation</h3>
 
@@ -7860,6 +7931,48 @@ Isolate runtime environment. Consistency.</p>
     
 
 	
+		
+	
+		
+  
+
+
+<li>
+<a href="/teknologi/altinnstudio/architecture/principles/" >Architecture Principles</a>
+<p>Description of the Architecture principles</p>
+</li>
+
+
+
+
+
+
+		
+
+		
+			
+
+		
+	
+		
+  
+
+
+<li>
+<a href="/teknologi/altinnstudio/architecture/concerns/" >Architecture Concerns</a>
+<p>Description of the Altinn Studio architecture.</p>
+</li>
+
+
+
+
+
+
+		
+
+		
+			
+
 		
 	
 		
@@ -9362,6 +9475,38 @@ Isolate runtime environment. Consistency.</p>
                               
                                   
                                   
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
                               
                           
                           
@@ -11917,7 +12062,7 @@ Isolate runtime environment. Consistency.</p>
                       <a class="nav nav-prev" href="/teknologi/altinnstudio/altinn-api/clients/" title="Prefill Client Example"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/application/" title="Application Architecture" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/principles/" title="Architecture Principles" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
