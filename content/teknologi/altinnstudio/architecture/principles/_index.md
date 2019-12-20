@@ -59,17 +59,20 @@ Standard formats are documented and is some cases it exists 3. party tools to ed
 - We use [XACML 3.0](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) to define authorization policies for applications
 - We use [JSON](https://en.wikipedia.org/wiki/JSON) as general format.
 
-### Build components as microservices
+### Build as microservices
 
 **Principle**
 The platform is built as microservices. Related functionality is grouped in to seperate applications and deployed as containers.
+Apps created in Altinn Studio will be deployed as microservices/apps
 
 **Rationale**
+
 The different components can be scaled differently, it can be deployed independently. Reduced deploy time. 
-Different teams can be responsible for different microservices. 
+Different teams can be responsible for different microservices/apps. 
 
 **Implications**
 - Functionality in Altinn Platform is seperated in Authentication, Authorization, Profile, Storage, Pdf and Register component
+- Applications created in Altinn Studio is deployed as microapps to Altinn Apps
 
 ### Design for automation
 
