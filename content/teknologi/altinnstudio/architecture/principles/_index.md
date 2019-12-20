@@ -24,7 +24,7 @@ Possibility to share the platform as Open Source. The possibility to create an O
 - Can't use closed source products in the platform
 - Can't use products with licensing limiting use and modifications
 - Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio)
-- Others can reuse our components and solutions
+- Others can reuse and modify our components and solutions
 
 ### Web Standards & Modern frameworks
 
@@ -122,8 +122,11 @@ Reduce effort needed to host the platform.
 
 **Implications**
 
-- Use managed data services
-- Use managed Kubernetes like Azure Kubernetes Services 
+- Use [managed PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/) in Azure for Gitea
+- Use [managed CosmosDB](https://azure.microsoft.com/en-us/services/cosmos-db/) as document database
+- Use [Azure blob storage](https://azure.microsoft.com/en-us/services/storage/blobs/) for storing data
+- Use [Azure Kubernets Services](https://azure.microsoft.com/en-us/free/kubernetes-service/search/) to manage the Kubernetes Clusters
+- Use [Azure Api Management](https://azure.microsoft.com/en-us/services/api-management/) as API-management platform
 
 ### Security in depth
 
