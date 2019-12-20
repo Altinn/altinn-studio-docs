@@ -43,7 +43,7 @@ to run on the platform.
 - Formats and frameworks used need to follow standards
 - We use [JWT](http://jwt.io/) in authentication cookies
 
-## Favor standards over custom
+### Favor standards over custom
 
 **Principle**
 
@@ -56,7 +56,8 @@ Standard formats are documented and is some cases it exists 3. party tools to ed
 **Implications**
 
 - We use [BPMN 2.0 to](https://www.omg.org/spec/BPMN/2.0/) define the process for applications
-- We use XACML 3.0 to define authorization policies for applications
+- We use [XACML 3.0](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) to define authorization policies for applications
+- We use [JSON](https://en.wikipedia.org/wiki/JSON) as general format.
 
 ### Design for automation
 

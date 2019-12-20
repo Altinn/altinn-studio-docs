@@ -17,6 +17,8 @@ The platform need to be highly scalable. The traffic in this types of solutions 
 ## Performance
 The solution need to have a performance to support a user friendly experience.
 
+**Requirement:** Page load should be less than 1 second
+
 ## Recoverability
 Based on the important of the solution the plattform needs to be recovorable also disaster events. 
 
@@ -34,3 +36,5 @@ It needs to support automatic monitoring.
 
 ## Availability
 The solutions need to be available 24/7.
+
+**Requirement:** The solution should be build to support 99%  availablity  (will be increased a)
