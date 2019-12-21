@@ -25,13 +25,13 @@ Possibility to share the platform as Open Source. The possibility to create an O
 - Can't use products with licensing limiting use and modifications
 - Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio)
 - Others can reuse and modify our components and solutions
+- We have our [backlog](https://github.com/Altinn/altinn-studio/issues) on Github.
 
-### Web Standards & Modern frameworks
+### Web Standards
 
 **Principle** 
 
-Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) and modern frameworks to build the solutions.
-
+Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) 
 **Rationale**
 
 Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
@@ -39,9 +39,26 @@ to run on the platform.
 
 **Implications** 
 
-- We favor [React](https://reactjs.org/) over [Razor](https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c)
 - Formats and frameworks used need to follow standards
 - We use [JWT](http://jwt.io/) in authentication cookies
+
+### Build with modern and popular frameworks
+
+**Principle**
+
+When needing to choose between different framework with similar capabilites select the most modern and popular framework
+
+**Rationale**
+The project is open source and it is a big advantage to build the solution on frameworks that developers love to use.
+This gives better access to resources with the needed competency. 
+
+**Implications** 
+
+- We build the frontend using React. The [most loved web framework](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks)
+- We use .Net core that developers [love the most](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-other-frameworks-libraries-and-tools)
+- We use Linux Docker containers in Kubernetes. [The 3 most loved platforms](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-platforms)
+- We use Visual Studio Code and Visual Studio.  The [two most loved development environments](https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments)
+
 
 ### Favor standards over custom
 
@@ -58,6 +75,41 @@ Standard formats are documented and is some cases it exists 3. party tools to ed
 - We use [BPMN 2.0 to](https://www.omg.org/spec/BPMN/2.0/) define the process for applications
 - We use [XACML 3.0](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) to define authorization policies for applications
 - We use [JSON](https://en.wikipedia.org/wiki/JSON) as general format.
+
+### Design and build for Public cloud
+
+**Principle**
+
+The solutions should be deployed to a public cloud solution. The architecture need to support that.
+
+**Rationale**
+
+Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
+and the solutions can take ad
+
+**Implications**
+
+- Additional security measures
+- Need to build knowledge about cloud solutions
+
+### Limit cloud lock-in when possible 
+
+**Principle**
+
+The architecture should try to avoid technology that locks the platform to a specific public cloud vendor.
+But not for all costs. In many cases it would still make sense to choose a managed service only available
+in a given public cloud.
+
+**Rationale**
+
+The goal with this principle is that it should be possible to move the solution to a different cloud provider
+without needing to build everything from scratch.
+
+
+**Implications**
+
+- Docker and Kubernetes is used for containers and orhecstration of containers. 
+
 
 ### Build as microservices
 
@@ -94,21 +146,7 @@ Reduce the required effort to develop and operate the platform.
 - We use [Automatic scaling](https://en.wikipedia.org/wiki/Autoscaling)
 - We monitor and do automatic recovery of components
 
-### Public cloud
 
-**Principle**
-
-The solutions should be deployed to a public cloud solution
-
-**Rationale**
-
-Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
-and the solutions can take ad
-
-**Implications**
-
-- Additional security measures
-- Need to build knowledge about cloud solutions
 
 ### Favor managed services
 
