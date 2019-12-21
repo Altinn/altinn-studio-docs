@@ -9,7 +9,17 @@ aliases:
 ---
 Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. 
 
-It is built to be cloud native and run in cloud-based infrastructure. 
+## Cloud Native
+The solutions are designed and built using the ["Cloud Native"](https://github.com/cncf/toc/blob/master/DEFINITION.md) principles, meaning
+it is built be scalable applications in hosted in public cloud. 
+
+The Cloud Native blueprint below show the important aspect of a Cloud Native solution.
+
+{{%excerpt%}}
+<object data="/teknologi/altinnstudio/architecture/cloudnative.svg" type="image/svg+xml" style="width: 100%;";></object>
+{{% /excerpt%}}
+
+## Architecture Principles & Concerns
 
 A good starting point to learn about our architecture is to read our [Architecture Principles](/teknologi/altinnstudio/architecture/principles/) and 
 about our [Architecture Concerns](/teknologi/altinnstudio/architecture/concerns/)

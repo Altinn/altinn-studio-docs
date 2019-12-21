@@ -9,6 +9,8 @@ aliases:
  - /architecture/
 ---
 
+The [architecture principles](https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html) below is described like TOGAF recomends.
+
 ### Free and open-source software
 
 **Principle** 
