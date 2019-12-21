@@ -7751,6 +7751,8 @@ if(host != "localhost")
 
 
 
+<p>The <a href="https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html">architecture principles</a> below is described like TOGAF recomends.</p>
+
 <h3 id="free-and-open-source-software">Free and open-source software</h3>
 
 <p><strong>Principle</strong></p>
@@ -7768,15 +7770,15 @@ if(host != "localhost")
 <li>Can&rsquo;t use products with licensing limiting use and modifications</li>
 <li>Code developed is <a href="https://github.com/Altinn/altinn-studio">shared on GitHub</a></li>
 <li>Others can reuse and modify our components and solutions</li>
+<li>We have our <a href="https://github.com/Altinn/altinn-studio/issues">backlog</a> on Github.</li>
 </ul>
 
-<h3 id="web-standards-modern-frameworks">Web Standards &amp; Modern frameworks</h3>
+<h3 id="web-standards">Web Standards</h3>
 
 <p><strong>Principle</strong></p>
 
-<p>Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a> and modern frameworks to build the solutions.</p>
-
-<p><strong>Rationale</strong></p>
+<p>Use <a href="https://en.wikipedia.org/wiki/Web_standards">Web Standards</a>
+<strong>Rationale</strong></p>
 
 <p>Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
 to run on the platform.</p>
@@ -7784,9 +7786,27 @@ to run on the platform.</p>
 <p><strong>Implications</strong></p>
 
 <ul>
-<li>We favor <a href="https://reactjs.org/">React</a> over <a href="https://docs.microsoft.com/en-us/aspnet/web-pages/overview/getting-started/introducing-razor-syntax-c">Razor</a></li>
 <li>Formats and frameworks used need to follow standards</li>
 <li>We use <a href="http://jwt.io/">JWT</a> in authentication cookies</li>
+</ul>
+
+<h3 id="build-with-modern-and-popular-frameworks">Build with modern and popular frameworks</h3>
+
+<p><strong>Principle</strong></p>
+
+<p>When needing to choose between different framework with similar capabilites select the most modern and popular framework</p>
+
+<p><strong>Rationale</strong>
+The project is open source and it is a big advantage to build the solution on frameworks that developers love to use.
+This gives better access to resources with the needed competency.</p>
+
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>We build the frontend using React. The <a href="https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks">most loved web framework</a></li>
+<li>We use .Net core that developers <a href="https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-other-frameworks-libraries-and-tools">love the most</a></li>
+<li>We use Linux Docker containers in Kubernetes. <a href="https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-platforms">The 3 most loved platforms</a></li>
+<li>We use Visual Studio Code and Visual Studio.  The <a href="https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments">two most loved development environments</a></li>
 </ul>
 
 <h3 id="favor-standards-over-custom">Favor standards over custom</h3>
@@ -7805,6 +7825,43 @@ to run on the platform.</p>
 <li>We use <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 to</a> define the process for applications</li>
 <li>We use <a href="http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML 3.0</a> to define authorization policies for applications</li>
 <li>We use <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> as general format.</li>
+</ul>
+
+<h3 id="design-and-build-for-public-cloud">Design and build for Public cloud</h3>
+
+<p><strong>Principle</strong></p>
+
+<p>The solutions should be deployed to a public cloud solution. The architecture need to support that.</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
+and the solutions can take ad</p>
+
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Additional security measures</li>
+<li>Need to build knowledge about cloud solutions</li>
+</ul>
+
+<h3 id="limit-cloud-lock-in-when-possible">Limit cloud lock-in when possible</h3>
+
+<p><strong>Principle</strong></p>
+
+<p>The architecture should try to avoid technology that locks the platform to a specific public cloud vendor.
+But not for all costs. In many cases it would still make sense to choose a managed service only available
+in a given public cloud.</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>The goal with this principle is that it should be possible to move the solution to a different cloud provider
+without needing to build everything from scratch.</p>
+
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Docker and Kubernetes is used for containers and orhecstration of containers.</li>
 </ul>
 
 <h3 id="build-as-microservices">Build as microservices</h3>
@@ -7844,24 +7901,6 @@ Different teams can be responsible for different microservices/apps.</p>
 <li>We build <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">Infrastructure as code</a></li>
 <li>We use <a href="https://en.wikipedia.org/wiki/Autoscaling">Automatic scaling</a></li>
 <li>We monitor and do automatic recovery of components</li>
-</ul>
-
-<h3 id="public-cloud">Public cloud</h3>
-
-<p><strong>Principle</strong></p>
-
-<p>The solutions should be deployed to a public cloud solution</p>
-
-<p><strong>Rationale</strong></p>
-
-<p>Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
-and the solutions can take ad</p>
-
-<p><strong>Implications</strong></p>
-
-<ul>
-<li>Additional security measures</li>
-<li>Need to build knowledge about cloud solutions</li>
 </ul>
 
 <h3 id="favor-managed-services">Favor managed services</h3>
