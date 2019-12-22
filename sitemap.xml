@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-studio/api/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-studio/api/</loc>
   </url>
   
   <url>
@@ -135,7 +135,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/altinn-apps/</loc>
   </url>
   
   <url>
@@ -151,11 +155,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/solution/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/altinn-platform/</loc>
   </url>
   
   <url>
@@ -167,11 +171,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/solution/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/altinn-studio/</loc>
   </url>
   
   <url>
@@ -187,10 +191,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/solution/altinn-studio/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/</loc>
   </url>
   
@@ -199,7 +199,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/app/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/</loc>
   </url>
   
   <url>
@@ -207,15 +207,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-frontend/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-frontend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/applogic-events/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/</loc>
   </url>
   
   <url>
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/authentication/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/authentication/</loc>
   </url>
   
   <url>
@@ -239,7 +239,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/authorization/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/authorization/</loc>
   </url>
   
   <url>
@@ -339,7 +339,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-studio/react-app/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-studio/react-app/</loc>
   </url>
   
   <url>
@@ -391,7 +391,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/intermediary/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/intermediary/</loc>
   </url>
   
   <url>
@@ -411,7 +411,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/kuberneteswrapper/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/kuberneteswrapper/</loc>
   </url>
   
   <url>
@@ -447,7 +447,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/pdf/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/pdf/</loc>
   </url>
   
   <url>
@@ -487,15 +487,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/process/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/process/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/app/app-backend/process/process_interaction/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/process/process_interaction/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/profile/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/profile/</loc>
   </url>
   
   <url>
@@ -511,7 +511,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/receipt/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/receipt/</loc>
   </url>
   
   <url>
@@ -519,11 +519,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/register/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/register/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-apps/routing/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/routing/</loc>
   </url>
   
   <url>
@@ -559,7 +559,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/storage/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/storage/</loc>
   </url>
   
   <url>
@@ -800,6 +800,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/code-editor/</loc>
   </url>
   
@@ -922,7 +927,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/solution/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/</loc>
   </url>
   
   <url>
