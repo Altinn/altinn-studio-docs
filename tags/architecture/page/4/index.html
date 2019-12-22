@@ -2664,6 +2664,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/concerns/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/concerns/">
+        <span>Concerns</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
         
         
@@ -2693,13 +2722,13 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/concerns/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
         
         
         
         ">
-      <a href="/teknologi/altinnstudio/architecture/concerns/">
-        <span>Concerns</span>
+      <a href="/teknologi/altinnstudio/architecture/patterns/">
+        <span>Principles</span>
 
         
 
@@ -7747,6 +7776,35 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/contexthandler/">Context Handler</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The responsibility for the Context Handler is to enrich a decision request from a PEP to PDP.
+As an example a decision request could only contain instanceID and userId togheter with the action requested
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;Request xsi:schemaLocation=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&quot; ReturnPolicyIdList=&quot;false&quot; CombinedDecision=&quot;false&quot; xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt; &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt; &lt;Attribute IncludeInResult=&quot;false&quot; AttributeId=&quot;urn:altinn:user-id&quot;&gt; &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;1&lt;/AttributeValue&gt; &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot;&gt; &lt;Attribute IncludeInResult=&quot;false&quot; AttributeId=&quot;urn:altinn:instance-id&quot;&gt; &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;cbdc7b44-9442-4fe0-854b-da278bf0b0e&lt;/AttributeValue&gt; &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt; &lt;Attribute IncludeInResult=&quot;false&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;&gt; &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Read&lt;/AttributeValue&gt; &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3. <a class="read-more" href="/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/contexthandler/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/">Development</a></h2>
     </header>
     <section class="post-excerpt">
@@ -8001,32 +8059,6 @@ I <a class="read-more" href="/teknologi/altinnstudio/architecture/infrastructu
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/encryption/">encryption</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/operations/">Operations</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Operations Architecture describes the architecture that support operations of the platform.
- <a class="read-more" href="/teknologi/altinnstudio/architecture/operations/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
 
@@ -9351,6 +9383,22 @@ I <a class="read-more" href="/teknologi/altinnstudio/architecture/infrastructu
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

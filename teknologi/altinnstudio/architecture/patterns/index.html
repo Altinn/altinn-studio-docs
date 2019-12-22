@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The Kubernetes Package Manager.">
+    <meta name="description" content="The following architecture patterns has been defined for the solutions">
 
 
     
-    <title>Helm :: Altinn digitalisering - Utvikling</title>
+    <title>Architecture Patterns :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/teknologi/altinnstudio/toolsandframeworks/helm/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/patterns/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -2627,7 +2627,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2640,7 +2640,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2723,8 +2723,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/teknologi/altinnstudio/architecture/patterns/">
@@ -6573,7 +6573,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -6586,7 +6586,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -6814,8 +6814,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/toolsandframeworks/helm/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/teknologi/altinnstudio/toolsandframeworks/helm/">
@@ -7737,7 +7737,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/toolsandframeworks/'>Tools and frameworks</a> <span class='adocs-breadcrumb-divider'> / </span> Helm
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> Principles
 
  
 
@@ -7755,9 +7755,7 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/tech">tech</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/containers">containers</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
             
           </div>
         
@@ -7765,10 +7763,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Helm
+                Architecture Patterns
                 
               </h1>
-              <p class="a-leadText" id="leadText">The Kubernetes Package Manager.</p>
+              <p class="a-leadText" id="leadText">The following architecture patterns has been defined for the solutions</p>
             
           
 
@@ -7782,48 +7780,17 @@ if(host != "localhost")
 
 
 
-<p><img src="helm.png?width=200" alt="Helm logo" /></p>
+<p>The <a href="https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html">architecture principles</a> below is described like TOGAF recomends.</p>
 
-<p>The Kubernetes Package Manager.</p>
+<h3 id="microservice-pattern">Microservice Pattern</h3>
 
-<h2 id="what-is-helm">What is helm?</h2>
+<p>The <a href="https://en.wikipedia.org/wiki/Microservices">Microservice Pattern</a> is one of the more defining patterns in the platform.</p>
 
-<p>Helm is a kubernetes resource templating tool. Where all the defined kubernetes resources are deployed with combinations of templates and values. Therefore it is called the kubernetes package manager.</p>
+<h3 id="layered-pattern">Layered Pattern</h3>
 
-<p>A helm-package, or a helm-chart is a folder with a set file-structure.</p>
+<h3 id="event-driven-pattern">Event driven pattern</h3>
 
-<p>.
-+&ndash; altinn-designer
-|   +&ndash; templates
-|   |   +&ndash; tests
-|   |   |   +&ndash; test-connection.yaml
-|   |   +&ndash; NOTES.txt
-|   |   +&ndash; _helpers.tpl
-|   |   +&ndash; deployment.yaml
-|   |   +&ndash; service.yaml
-|   |   +&ndash; ingress.yaml (deleted in altinn studio, since we don&rsquo;t use ingress. But an ingress template is included in a default helm-chart)
-|   +&ndash; .helmignore
-|   +&ndash; Chart.yaml
-|   +&ndash; values.yaml</p>
-
-<p>The <code>Chart.yaml</code>-file contains information about the chart, like the name, version and maintainers.
-The <code>values.yaml</code>-file contains different values. These values are accessable in the templates. So different environment variables can be defined in the values. Values can also be overwritten when running a upgrade or install of the chart.</p>
-
-<p>The files in the <code>templates</code>-folder becomes populated with the values, and sent to the kubernetes clusters as the name of the files. So <code>deployment.yaml</code> should create a deployment in kubernetes. The same fore <code>service.yaml</code> and <code>ingress.yaml</code>.</p>
-
-<p><code>_helpers.tpl</code> can be used to define functions to get release names, concatinated with other info.
-<code>NOTES.txt</code> is the info printed in the cli after an install or upgrade of an release, usually used to give usefull commands the user can run to access the pods.</p>
-
-<h2 id="helm-usage-in-altinn-studio">Helm usage in altinn studio</h2>
-
-<p>We use helm to deploy our builds to the kubernetes cluster, both in development-, production- and SBL-cluster. Azure Dev Ops pipelines have support for helm, so this makes deploying to development trigger everytime we merge some code into master.</p>
-
-<h2 id="links">Links</h2>
-
-<ul>
-<li><a href="https://helm.sh">https://helm.sh</a></li>
-<li><a href="https://github.com/helm/helm">https://github.com/helm/helm</a></li>
-</ul>
+<p>The <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">Event Driven pattern</a></p>
 
 
 <footer class=" footline" >
@@ -9131,6 +9098,7 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                           
                               
+                              
                           
                           
           
@@ -9145,6 +9113,9 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -9178,6 +9149,7 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                           
                               
+                              
                           
                           
           
@@ -9193,6 +9165,9 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -11153,7 +11128,6 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                           
                               
-                              
                           
                           
           
@@ -11168,9 +11142,6 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -11284,7 +11255,6 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                           
                               
-                              
                           
                           
           
@@ -11300,9 +11270,6 @@ The <code>values.yaml</code>-file contains different values. These values are ac
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -11753,10 +11720,10 @@ The <code>values.yaml</code>-file contains different values. These values are ac
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/toolsandframeworks/grafana/" title="Grafana"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/principles/" title="Architecture Principles"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/toolsandframeworks/hugo/" title="Hugo" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/application/" title="Application Architecture" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -11768,7 +11735,7 @@ The <code>values.yaml</code>-file contains different values. These values are ac
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/toolsandframeworks/helm/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/patterns/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>
