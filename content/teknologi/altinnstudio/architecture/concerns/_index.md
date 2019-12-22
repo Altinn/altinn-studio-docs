@@ -2,14 +2,15 @@
 title: Architecture Concerns
 description: Description of the Altinn Studio architecture.
 tags: [architecture]
-weight: 10
+weight: 5
 linktitle: Concerns
 alwaysopen: false
 aliases:
  - /architecture/
 ---
 
-Architecture Concerns are categories of Non-Functional Requirements (NFRs) that has been identified in the solution. 
+Architecture Concerns are categories of Non-Functional Requirements (NFRs) that has been identified in the solution. They are important
+input to deciding the Architecture Principles and Architecture Patterns. 
 
 ## Scalability
 The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.
@@ -40,4 +41,5 @@ It needs to support automatic monitoring.
 ## Availability
 The solutions need to be available 24/7.
 
-**Requirement:** The solution should be build to support 99% availablity in the pilot period and higher when pilot period is over (will be further specificed in 2020)
+**Requirement:** The architecture itself needs to be able to support high availability. It can't require reqular downtime
+or other maintainence that makes it not available. 

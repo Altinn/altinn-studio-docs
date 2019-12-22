@@ -3,7 +3,7 @@ title: Architecture Principles
 description: The following architecture principles has been defined for the solutions
 tags: [architecture]
 linktitle: Principles
-weight: 5
+weight: 6
 alwaysopen: false
 aliases:
  - /architecture/
@@ -34,6 +34,7 @@ Possibility to share the platform as Open Source. The possibility to create an O
 **Principle** 
 
 Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) 
+
 **Rationale**
 
 Can use standard tools and developers does not need to have special skills to develop components in the platform or applications
@@ -51,6 +52,7 @@ to run on the platform.
 When needing to choose between different framework with similar capabilites select the most modern and popular framework
 
 **Rationale**
+
 The project is open source and it is a big advantage to build the solution on frameworks that developers love to use.
 This gives better access to resources with the needed competency. 
 
