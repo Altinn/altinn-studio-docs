@@ -87,7 +87,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/</loc>
   </url>
   
   <url>
@@ -115,7 +115,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/</loc>
   </url>
   
   <url>
@@ -123,7 +123,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-studio/api/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/api/</loc>
   </url>
   
   <url>
@@ -139,55 +139,55 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/infrastructure/deployment/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authentication/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/deployment/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/infrastructure/deployment/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authentication/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/deployment/altinn-studio/</loc>
   </url>
   
   <url>
@@ -199,27 +199,27 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-frontend/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/</loc>
   </url>
   
   <url>
@@ -227,31 +227,31 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/authentication/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authentication/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/authentication-api/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/authentication-api/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/authorization/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/model/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/model/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/model/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/model/</loc>
   </url>
   
   <url>
@@ -283,7 +283,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/development/build/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/development/build/</loc>
   </url>
   
   <url>
@@ -303,11 +303,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/contexthandler/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/contexthandler/</loc>
   </url>
   
   <url>
@@ -315,7 +315,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/infrastructure/deployment/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/deployment/</loc>
   </url>
   
   <url>
@@ -327,7 +327,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/encryption/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/encryption/</loc>
   </url>
   
   <url>
@@ -343,7 +343,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-studio/react-app/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/react-app/</loc>
   </url>
   
   <url>
@@ -375,11 +375,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/information/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/information/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/infrastructure/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/</loc>
   </url>
   
   <url>
@@ -391,11 +391,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/integration/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/integration/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/intermediary/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/intermediary/</loc>
   </url>
   
   <url>
@@ -403,23 +403,23 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwt-format/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/jwt-format/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/jwtcookieauthentication/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/jwtcookieauthentication/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/infrastructure/kubernetes/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/kubernetes/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/kuberneteswrapper/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/log/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/log/</loc>
   </url>
   
   <url>
@@ -443,39 +443,39 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/operations/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/operations/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pap/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pap/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/pdf/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pdp/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pdp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/pep/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/pep/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pep/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pep/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/pip/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pip/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/prp/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/prp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-apps/app/xacmlpolicy/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/xacmlpolicy/</loc>
   </url>
   
   <url>
@@ -491,15 +491,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/process/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/process/process_interaction/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/process_interaction/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/profile/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/profile/</loc>
   </url>
   
   <url>
@@ -515,7 +515,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/receipt/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/</loc>
   </url>
   
   <url>
@@ -523,11 +523,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/register/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/register/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-apps/routing/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/routing/</loc>
   </url>
   
   <url>
@@ -535,7 +535,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/</loc>
   </url>
   
   <url>
@@ -563,7 +563,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/altinn-platform/storage/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/storage/</loc>
   </url>
   
   <url>
@@ -631,7 +631,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/xacml/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/xacml/</loc>
   </url>
   
   <url>
@@ -759,7 +759,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/infrastructure/altinn-cdn/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/altinn-cdn/</loc>
   </url>
   
   <url>
@@ -787,7 +787,17 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/</loc>
     <priority>0</priority>
   </url>
   
@@ -812,6 +822,11 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/data-modeling/</loc>
   </url>
   
@@ -820,12 +835,17 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/development/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/development/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/docker/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -926,7 +946,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/solution/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/</loc>
   </url>
   
   <url>
