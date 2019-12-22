@@ -382,7 +382,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nCloud Native The solutions are designed and built using the \u0026ldquo;Cloud Native\u0026rdquo; principles, meaning it is built be scalable applications hosted in public cloud.\nContainers, microservices and declarative APIs exemplify this approach.\nThese techniques enable loosely coupled components that are resilient, manageable, and observable.\nCombined with robust automation, they allow the devops team to make changes frequently.\nThe Cloud Native blueprint below show the important aspect of a Cloud Native solution.\n\nArchitecture Principles \u0026amp; Concerns A good starting point to learn about our architecture is to read our Architecture Principles and about our Architecture Concerns\nArchitectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rArchitecture Concerns\rDescription of the Altinn Studio architecture.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rApplication Architecture\rThe Application Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\rInformation\rDescription of the Information Architecture\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\rIntegration\rDescription of the Integration Architecture\n\r\rOperations\rDescription of the Operations Architecture\n\r\rSecurity Architecture\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.\n\r\rDevelopment\r\n\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nCloud Native The solutions are designed and built using the \u0026ldquo;Cloud Native\u0026rdquo; principles, meaning it is built be scalable applications hosted in public cloud.\nContainers, microservices and declarative APIs exemplify this approach.\nThese techniques enable loosely coupled components that are resilient, manageable, and observable.\nCombined with robust automation, they allow the devops team to make changes frequently.\nThe Cloud Native blueprint below show the important aspect of a Cloud Native solution.\n\nArchitecture Principles \u0026amp; Concerns A good starting point to learn about our architecture is to read our Architecture Principles and about our Architecture Concerns\nArchitectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rArchitecture Concerns\rDescription of the Altinn Studio architecture.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rApplication Architecture\rThe Application Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\rDevops\rDescription of the architecture supporting devops\n\r\rInformation\rDescription of the Information Architecture\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\rIntegration\rDescription of the Integration Architecture\n\r\rSecurity Architecture\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.\n\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/authentication/",
@@ -483,7 +483,7 @@
 	"content": " Building of react apps in altinn.studio The building of react apps are done in dockerfiles which then again are used in the build of altinn-core docker-image.\nApps are compiled and copied.\nAdding new packages to react-applications Adding of a new package in an app is done with lerna in the lerna-folder (/src/react-apps/). Command syntax for this will be:\nlerna add [package-name] --scope=[app-name] --exact\nIf you are going to add react to a new app called Foo:\nlerna add react --scope=Foo --exact\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/development/build/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/development/build/",
 	"title": "Build process",
 	"tags": ["build", "ci"],
 	"description": "Altinn Studio Build Processes",
@@ -551,6 +551,13 @@
 	"tags": ["development", "architecture"],
 	"description": "Information about developing the open source Altinn Studio solution.",
 	"content": "See the projects Github page.\n\rIntro for Developers\rIntroduction\n\r\rAnalysis\rAnalysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.\n\r\rBranching\rBranching information for Altinn Studio\n\r\rFlight Rules\rFlight rules for Altinn Studio\n\r\rHandbook\rDevelopment handbook for Altinn Studio\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/",
+	"title": "Devops",
+	"tags": ["architecture"],
+	"description": "Description of the architecture  supporting devops",
+	"content": "Running the devlopment and operations from one integrated team is a important part of the strategy for the platform.\n\rOperations\rDescription of the Operations Architecture\n\r\rDevelopment\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/encryption/",
@@ -756,7 +763,7 @@
 	"content": " This page is constantly updated on the use of nuget package in altinn studio.\n\rNuget Package Altinn Studio publishes nuget package to share common libraries between different solutions. You can read more about nuget here.\nFollowing nuget packages are published and are available for download here\n Altinn.Platform.Storage.Interface AltinnCore.ServiceLibrary JWTCookieAuthentication  Procedure for Nuget Packages  Implement all changes necessary in the Nuget Package project e.g. Storage.Interface.csproj. Submit PR on these changes only. No implementation on other projects should be included. Once PR approved and changes are merged into master; create and deploy new Nuget Package based on master branch.\n Continue with implementation, referencing the updated Nuget wherever it is needed. Remember to update all outdated references to the Nuget and check that all tests run successfully before submitting a final PR.  Create Nuget Package Detailed documentation on how to create a nuget package, guidelines etc can be found here.\nAn example of nuget package creation in altinn studio Example : Create Altinn.Platform.Storage.Interface nuget package\nSet Project Properties  Open Altinn.Platform.Storage solution Right click on Storage.Interface project and select properties. You will see the screen below  Choose Package, add the package details such as id, version, description, author, company and tags.\n Save the changes\n Choose release mode\n Right click on Storage.Interface and select \u0026ldquo;Pack\u0026rdquo;\n The package will now be created in \u0026ldquo;C:\\Repos\\altinn-studio\\src\\Altinn.Platform\\Altinn.Platform.Storage\\Storage.Interface\\bin\\Release\u0026rdquo;\n Go to commandline, navigate to the release path\n run \u0026ldquo;dotnet nuget push Altinn.Platform.Storage.Interface.1.0.1-alpha.nupkg -k [nuget api key] -s https://api.nuget.org/v3/index.json\u0026quot;\n Your package will now be published to nuget.org\n  "
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/operations/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/operations/",
 	"title": "Operations",
 	"tags": ["architecture"],
 	"description": "Description of the Operations Architecture",
@@ -1414,7 +1421,7 @@
 	"content": " A app will typical have a process that a end user / or system needs to follow. It could be anything from a single task process where the app is used to retrieve data from some external api, to long living processes with many tasks involving.\nIn Altinn Studio the developer will need to define the process for the app.\nIn current version of Altinn Studio the only support for process definition is to upload a BPMN process file and the only task type we support are FormFilling\n[See Process Architecture for more details how process is defined)(https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/process/)\nSee all issues related to Altinn Studio and workflow on Github.\nInstansiations hooks Instansiation is the event that triggers a new instance of a App and starts the process for that instance.\nRelated to this event a developer can set instansiations hooks that are triggered when a new process is started.\nSee Github for issues related to instansiation\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/development/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/development/",
 	"title": "Development",
 	"tags": [],
 	"description": "",
