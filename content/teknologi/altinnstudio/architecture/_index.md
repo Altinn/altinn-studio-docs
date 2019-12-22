@@ -1,13 +1,13 @@
 ---
 title: Architecture
-description: Description of the Altinn Studio architecture.
+description: Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. 
 tags: [architecture]
 weight: 100
 alwaysopen: false
 aliases:
  - /architecture/
 ---
-Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. 
+This documentation describes everything from the requirements affecting the architecture to the defined architecture. 
 
 ## Cloud Native
 The solutions are designed and built using the ["Cloud Native"](https://github.com/cncf/toc/blob/master/DEFINITION.md) principles, meaning
@@ -34,7 +34,7 @@ about our [Architecture Concerns](/teknologi/altinnstudio/architecture/concerns/
 The figure below shows the relation between the different types of architecture defined.
 
 {{%excerpt%}}
-<object data="/architecture/architectureoverview.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
+<object data="/teknologi/altinnstudio/architecture/architectureoverview.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
 {{% children description="true" depth="1" %}}
