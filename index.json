@@ -59,8 +59,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/concerns/",
 	"title": "Architecture Concerns",
 	"tags": ["architecture"],
-	"description": "Description of the Altinn Studio architecture.",
-	"content": " Architecture Concerns are categories of Non-Functional Requirements (NFRs) that has been identified in the solution. They are important input to deciding the Architecture Principles and Architecture Patterns.\nScalability The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.\nPerformance The solution need to have a performance to support a user friendly experience.\nRequirement: Page load should be less than 1 second\nRecoverability Based on the important of the solution the plattform needs to be recovorable also disaster events.\nRequirement: It should be possible to setup the solutions from scratch in xx hours (will be specificed)\nSecurity Building a platform to host applications for different governmental agencies will involve sensitive data for citizens and businesses in the country.\nThis makes security one of the most important architecture concern in the solutions.\nMaintainability The solutions will be open source and involve a large amount of developers. It is important that the different components are highly maintainable to support effective development\nOperability The solutions will de operated by a small devops team and need to be highly operable. It needs to support automatic monitoring.\nAvailability The solutions need to be available 24/7.\nRequirement: The architecture itself needs to be able to support high availability. It can\u0026rsquo;t require reqular downtime or other maintainence that makes it not available.\n"
+	"description": "Architecture Concerns are categories of Non-Functional Requirements (NFRs) that has been identified in the solution.",
+	"content": " They are important input to deciding the Architecture Principles and Architecture Patterns.\nScalability The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.\nPerformance The solution need to have a performance to support a user friendly experience.\nRequirement: Page load should be less than 1 second\nRecoverability Based on the important of the solution the plattform needs to be recovorable also disaster events.\nRequirement: It should be possible to setup the solutions from scratch in xx hours (will be specificed)\nSecurity Building a platform to host applications for different governmental agencies will involve sensitive data for citizens and businesses in the country.\nThis makes security one of the most important architecture concern in the solutions.\nMaintainability The solutions will be open source and involve a large amount of developers. It is important that the different components are highly maintainable to support effective development\nOperability The solutions will de operated by a small devops team and need to be highly operable. It needs to support automatic monitoring.\nAvailability The solutions need to be available 24/7.\nRequirement: The architecture itself needs to be able to support high availability. It can\u0026rsquo;t require reqular downtime or other maintainence that makes it not available.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/front-end-designsystem/grid-og-layout/",
@@ -145,6 +145,13 @@
 	"tags": [],
 	"description": "Beskrivelse av Altinns arkitekturområder, prinsipper og domenestruktur.",
 	"content": "Foreløpig finner du informasjon om arkitektur og infrastruktur på altinnpedia (krever innlogging).\n\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/",
+	"title": "Devops",
+	"tags": ["architecture"],
+	"description": "Description of the architecture  supporting devops",
+	"content": "Running the devlopment and operations from one integrated team is a important part of the strategy for the platform.\n\rOperations\rDescription of the Operations Architecture\n\r\rDevelopment\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/",
@@ -382,7 +389,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Description of the Altinn Studio architecture.",
-	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nCloud Native The solutions are designed and built using the \u0026ldquo;Cloud Native\u0026rdquo; principles, meaning it is built be scalable applications hosted in public cloud.\nContainers, microservices and declarative APIs exemplify this approach.\nThese techniques enable loosely coupled components that are resilient, manageable, and observable.\nCombined with robust automation, they allow the devops team to make changes frequently.\nThe Cloud Native blueprint below show the important aspect of a Cloud Native solution.\n\nArchitecture Principles \u0026amp; Concerns A good starting point to learn about our architecture is to read our Architecture Principles and about our Architecture Concerns\nArchitectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rArchitecture Concerns\rDescription of the Altinn Studio architecture.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rApplication Architecture\rThe Application Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\rDevops\rDescription of the architecture supporting devops\n\r\rInformation\rDescription of the Information Architecture\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\rIntegration\rDescription of the Integration Architecture\n\r\rSecurity Architecture\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.\n\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": " Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture.\nCloud Native The solutions are designed and built using the \u0026ldquo;Cloud Native\u0026rdquo; principles, meaning it is built be scalable applications hosted in public cloud.\nContainers, microservices and declarative APIs exemplify this approach.\nThese techniques enable loosely coupled components that are resilient, manageable, and observable.\nCombined with robust automation, they allow the devops team to make changes frequently.\nThe Cloud Native blueprint below show the important aspect of a Cloud Native solution.\n\nArchitecture Principles \u0026amp; Concerns A good starting point to learn about our architecture is to read our Architecture Principles and about our Architecture Concerns\nArchitectural overview The figure below shows the relation between the different types of architecture defined.\n\n\rArchitecture Concerns\rArchitecture Concerns are categories of Non-Functional Requirements (NFRs) that has been identified in the solution.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rDevops\rDescription of the architecture supporting devops\n\r\rApplication Architecture\rThe Application Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\rInformation\rDescription of the Information Architecture\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\rIntegration\rDescription of the Integration Architecture\n\r\rSecurity Architecture\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.\n\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/altinn-platform/authentication/",
@@ -551,13 +558,6 @@
 	"tags": ["development", "architecture"],
 	"description": "Information about developing the open source Altinn Studio solution.",
 	"content": "See the projects Github page.\n\rIntro for Developers\rIntroduction\n\r\rAnalysis\rAnalysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.\n\r\rBranching\rBranching information for Altinn Studio\n\r\rFlight Rules\rFlight rules for Altinn Studio\n\r\rHandbook\rDevelopment handbook for Altinn Studio\n\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/devops/",
-	"title": "Devops",
-	"tags": ["architecture"],
-	"description": "Description of the architecture  supporting devops",
-	"content": "Running the devlopment and operations from one integrated team is a important part of the strategy for the platform.\n\rOperations\rDescription of the Operations Architecture\n\r\rDevelopment\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/encryption/",

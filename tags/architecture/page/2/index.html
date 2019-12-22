@@ -2728,7 +2728,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/patterns/">
-        <span>Principles</span>
+        <span>Patterns</span>
 
         
 
@@ -2737,6 +2737,158 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/devops/">
+        <span>Devops</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/operations/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/devops/operations/">
+        <span>Operations</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/development/" class="dd-item 
+        
+        active
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/devops/development/">
+        <span>Development</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/development/build/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/devops/development/build/">
+        <span>Build process</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -3455,158 +3607,6 @@ if(host != "localhost")
         ">
       <a href="/teknologi/altinnstudio/architecture/application/altinn-studio/react-app/">
         <span>Front-end</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/devops/">
-        <span>Devops</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/operations/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/devops/operations/">
-        <span>Operations</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/development/" class="dd-item 
-        
-        active
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/devops/development/">
-        <span>Development</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/devops/development/build/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/devops/development/build/">
-        <span>Build process</span>
 
         
 
@@ -7976,9 +7976,11 @@ The Cloud Native blueprint below show the important aspect of a Cloud Native sol
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/concerns/">Architecture Concerns</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Architecture Concerns are categories of Non-Functional Requirements (NFRs) that has been identified in the solution. They are important input to deciding the Architecture Principles and Architecture Patterns.
+        <p>They are important input to deciding the Architecture Principles and Architecture Patterns.
 Scalability The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.
-Performance The solution need to have a performance to support a user friendly experience. <a class="read-more" href="/teknologi/altinnstudio/architecture/concerns/">&raquo;</a></p>
+Performance The solution need to have a performance to support a user friendly experience.
+Requirement: Page load should be less than 1 second
+Recoverability Based on the important of the solution the plattform needs to be recovorable also disaster events. <a class="read-more" href="/teknologi/altinnstudio/architecture/concerns/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -9503,6 +9505,74 @@ API for SBL Authentication cookie This API creates a JWT Cookie (A cookie with a
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -9819,74 +9889,6 @@ API for SBL Authentication cookie This API creates a JWT Cookie (A cookie with a
                               
                       
                   
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
                               
                                   
                       
