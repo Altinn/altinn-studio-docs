@@ -12,10 +12,10 @@ The diagram below shows the different components in Altinn Apps and below you fi
 components/parts of Altinn Apps.
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/altinnapps_application_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
-[See fullscreen](/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.svg) or [download as visio](/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.vsdx).
+[See fullscreen](/teknologi/altinnstudio/architecture/application/construction/altinn-apps/altinnapps_application_architecture.svg) or [download as visio](/teknologi/altinnstudio/architecture/application/altinn-apps/altinnapps_application_architecture.vsdx).
 
 ## App routing
 In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod
