@@ -2,7 +2,7 @@
 title: Architecture Patterns
 description: The following architecture patterns has been defined for the solutions
 tags: [architecture]
-linktitle: Principles
+linktitle: Patterns
 weight: 7
 alwaysopen: false
 aliases:

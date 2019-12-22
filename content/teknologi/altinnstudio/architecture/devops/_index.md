@@ -2,7 +2,7 @@
 title: Devops
 description: Description of the architecture  supporting devops
 tags: [architecture]
-weight: 100
+weight: 20
 alwaysopen: false
 ---
 
