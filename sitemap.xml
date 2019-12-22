@@ -139,11 +139,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/</loc>
   </url>
   
   <url>
@@ -159,11 +159,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/</loc>
   </url>
   
   <url>
@@ -175,11 +175,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-studio/</loc>
   </url>
   
   <url>
@@ -203,7 +203,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/</loc>
   </url>
   
   <url>
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/</loc>
   </url>
   
   <url>
@@ -235,11 +235,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/authentication-api/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/authentication-api/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/</loc>
   </url>
   
   <url>
@@ -247,11 +247,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/model/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/model/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/model/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/model/</loc>
   </url>
   
   <url>
@@ -307,7 +307,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/contexthandler/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/contexthandler/</loc>
   </url>
   
   <url>
@@ -327,7 +327,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/encryption/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/encryption/</loc>
   </url>
   
   <url>
@@ -391,7 +391,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/integration/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/</loc>
   </url>
   
   <url>
@@ -403,11 +403,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/jwt-format/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/jwt-format/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authentication/altinn-platform/jwtcookieauthentication/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/jwtcookieauthentication/</loc>
   </url>
   
   <url>
@@ -419,7 +419,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/log/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/log/</loc>
   </url>
   
   <url>
@@ -447,7 +447,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pap/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/pap/</loc>
   </url>
   
   <url>
@@ -455,27 +455,27 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pdp/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/pdp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/pep/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/pep/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pep/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/pep/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/pip/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/pip/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/prp/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/prp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-apps/app/xacmlpolicy/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/xacmlpolicy/</loc>
   </url>
   
   <url>
@@ -535,7 +535,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/</loc>
   </url>
   
   <url>
@@ -631,7 +631,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/security/authorization/altinn-platform/xacml/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/xacml/</loc>
   </url>
   
   <url>
@@ -844,11 +844,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/execution/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/api-expose/</loc>
   </url>
   
@@ -939,6 +934,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/reusable-resources/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
