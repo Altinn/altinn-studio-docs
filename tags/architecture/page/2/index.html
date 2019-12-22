@@ -2943,7 +2943,7 @@ if(host != "localhost")
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/application/construction/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/application/construction/">
@@ -7870,6 +7870,36 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.
+The receipt frontend view is available at http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}, example https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b The receipt component also exposes an api which is available at http://at21.platform.altinn.cloud/receipt/api/v1, where available resources are defined below. This api is intended for use by the receipt frontend, if you need information about the user you should use the profile component. <a class="read-more" href="/teknologi/altinnstudio/architecture/application/construction/altinn-platform/receipt/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/application/construction/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
@@ -8115,34 +8145,6 @@ In Altinn Studio developers is authenticated for building and testing apps.
 In Altinn Apps and Altinn Platform end users and system needs to be authenticated for accessing apps in Altinn Apps and components in Altinn Platform.
 Authentication Architecture Altinn AppsDescription of the Authentication architecture apps hosted in Altinn Apps
 Authentication Architecture Altinn PlatformDescription of the Authentication architecture Altinn Platform <a class="read-more" href="/teknologi/altinnstudio/architecture/security/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/authentication-api/">Authentication APIs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>As part of the authentication component there will be some API&rsquo;s that support authentication of different types of users and systems.
-API for SBL Authentication cookie This API creates a JWT Cookie (A cookie with a JWT Token) based on the SBL Cookie created during login in the Legacy SBL solution. This API uses API in the SBL Bridge to verify the cookie and get information about the logged in user. <a class="read-more" href="/teknologi/altinnstudio/architecture/security/authentication/altinn-platform/authentication-api/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

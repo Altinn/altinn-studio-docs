@@ -303,6 +303,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/security/authorization/altinn-platform/contexthandler/</loc>
   </url>
   
@@ -797,11 +801,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/helptext/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/application/construction/</loc>
-    <priority>0</priority>
   </url>
   
   <url>
