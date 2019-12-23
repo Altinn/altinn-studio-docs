@@ -7,7 +7,7 @@
 
 
     
-    <title>Requirements :: Altinn digitalisering - Utvikling</title>
+    <title>Non Functional Requirements :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -2708,7 +2708,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/requirements/functional/">
-        <span>Requirements</span>
+        <span>Functional</span>
 
         
 
@@ -2737,7 +2737,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/requirements/non_functional/">
-        <span>Requirements</span>
+        <span>Non Functional</span>
 
         
 
@@ -3400,6 +3400,122 @@ if(host != "localhost")
           
           
         
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/">
+        <span>App (asp.net)</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/model/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/model/">
+        <span>Authorization model</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/pep/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/pep/">
+        <span>PEP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/xacmlpolicy/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/xacmlpolicy/">
+        <span>Policy</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
           
         
         </ul>
@@ -7982,7 +8098,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/requirements/'>Requirements</a> <span class='adocs-breadcrumb-divider'> / </span> Requirements
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/requirements/'>Requirements</a> <span class='adocs-breadcrumb-divider'> / </span> Non Functional
 
  
 
@@ -8010,7 +8126,7 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Requirements
+                Non Functional Requirements
                 
               </h1>
               <p class="a-leadText" id="leadText">Functional and non functional requirements for the solutions have affected the architecture decisions.</p>
@@ -8029,70 +8145,83 @@ if(host != "localhost")
 
 <p>They are important input to deciding the Architecture Principles and Architecture Patterns.</p>
 
-<h2 id="performance">Performance</h2>
+<h2 id="architectural-concerns">Architectural Concerns</h2>
 
-<h3 id="scalability">Scalability</h3>
+<p>Architecture Concerns are categories of Non-Functional Requirements (NFRs) of a system that
+has been important defining this architecture. These are sometimes referred to as
+cross-cutting concerns or &ldquo;the -ilities&rdquo; because most of the words end with &ldquo;-ility.&rdquo;</p>
+
+<h3 id="performance">Performance</h3>
+
+<h4 id="scalability">Scalability</h4>
 
 <p>The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.</p>
 
-<h3 id="response-time">Response Time</h3>
+<h4 id="response-time">Response Time</h4>
 
 <p>The solution need to have a performance to support a user friendly experience.</p>
 
 <p><strong>Requirement:</strong> Page load should be less than 1 second</p>
 
-<h3 id="capacity">Capacity</h3>
+<h4 id="capacity">Capacity</h4>
 
-<h2 id="reliability">Reliability</h2>
+<h3 id="reliability">Reliability</h3>
 
-<h2 id="availability">Availability</h2>
+<h4 id="availability">Availability</h4>
 
 <p>The solutions need to be available 24/7.</p>
 
 <p><strong>Requirement:</strong> The architecture itself needs to be able to support high availability. It can&rsquo;t require reqular downtime
 or other maintainence that makes it not available.</p>
 
-<h3 id="recoverability">Recoverability</h3>
+<h4 id="recoverability">Recoverability</h4>
 
 <p>Based on the important of the solution the plattform needs to be recovorable also disaster events.</p>
 
 <p><strong>Requirement:</strong> It should be possible to setup the solutions from scratch in xx hours (will be specificed)</p>
 
-<h2 id="security">Security</h2>
+<h3 id="security">Security</h3>
 
 <p>Building a platform to host applications for different governmental agencies will involve sensitive data for citizens and businesses in the country.</p>
 
 <p>This makes security one of the most important architecture concern in the solutions.</p>
 
-<h3 id="authentication">Authentication</h3>
+<h4 id="authentication">Authentication</h4>
 
-<h3 id="authorization">Authorization</h3>
+<h4 id="authorization">Authorization</h4>
 
-<h3 id="single-sign-on">Single sign on</h3>
+<h4 id="single-sign-on">Single sign on</h4>
 
-<h3 id="isolation">Isolation</h3>
+<h4 id="isolation">Isolation</h4>
 
-<h3 id="personel-security">Personel security</h3>
+<h4 id="personel-security">Personel security</h4>
 
-<h2 id="maintainability">Maintainability</h2>
+<h3 id="maintainability">Maintainability</h3>
 
 <p>The solutions will be open source and involve a large amount of developers. It is important that the different components are highly maintainable
 to support effective development</p>
 
-<h2 id="operability">Operability</h2>
+<h3 id="operability">Operability</h3>
 
 <p>The solutions will de operated by a small devops team and need to be highly operable.
 It needs to support automatic monitoring.</p>
 
-<h2 id="usability">Usability</h2>
+<h3 id="usability">Usability</h3>
 
-<h3 id="accessibility">Accessibility</h3>
+<h4 id="accessibility">Accessibility</h4>
 
 <p>The applications running in the solutions will be accessed by all types of users and need to be following WCAG</p>
 
-<h3 id="localisation">Localisation</h3>
+<h4 id="localisation">Localisation</h4>
 
-<h2 id="portability">Portability</h2>
+<h3 id="portability">Portability</h3>
+
+<h2 id="other-non-functional-requirements">Other Non Functional requirements</h2>
+
+<h3 id="system-location">System location</h3>
+
+<p>The Altinn solution needs to be located inside Norways borders. This requires that we only can choose amongst the cloud providers providing
+cloud services inside Norway.</p>
 
 
 <footer class=" footline" >
