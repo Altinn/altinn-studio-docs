@@ -8059,28 +8059,17 @@ if(host != "localhost")
 
 <p>This documentation describes everything from the requirements affecting the architecture to the defined architecture.</p>
 
-<h2 id="cloud-native">Cloud Native</h2>
+<h2 id="architecture-decision-tree">Architecture decision tree</h2>
 
-<p>The solutions are designed and built using the <a href="https://github.com/cncf/toc/blob/master/DEFINITION.md">&ldquo;Cloud Native&rdquo;</a> principles, meaning
-it is built be scalable applications hosted in public cloud.</p>
-
-<p>Containers, microservices and declarative APIs exemplify this approach.</p>
-
-<p>These techniques enable loosely coupled components that are resilient, manageable, and observable.</p>
-
-<p>Combined with robust automation, they allow the devops team to make changes frequently.</p>
-
-<p>The Cloud Native blueprint below show the important aspect of a Cloud Native solution.</p>
+<p>The <a href="/teknologi/altinnstudio/architecture/concerns/">Architecture Concerns</a> like the non functional requirements and the functional requirements gives input to which capabilties
+for both devops and runtime that is needed in the solutions. It also gives input what type of components that is needed.
+The <a href="/teknologi/altinnstudio/architecture/principles/">Architecture Principles</a> and <a href="/teknologi/altinnstudio/architecture/patterns/">Architecture Patterns</a>is affected by the
+architectural concerns and gives input on how the capabilties and components should be built.</p>
 
 
-	<p><object data="/teknologi/altinnstudio/architecture/cloudnative.svg" type="image/svg+xml" style="width: 100%;";></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/architecture_decision_relationship.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object></p>
 
 
-
-<h2 id="architecture-principles-concerns">Architecture Principles &amp; Concerns</h2>
-
-<p>A good starting point to learn about our architecture is to read our <a href="/teknologi/altinnstudio/architecture/principles/">Architecture Principles</a> and
-about our <a href="/teknologi/altinnstudio/architecture/concerns/">Architecture Concerns</a></p>
 
 <h2 id="architectural-overview">Architectural overview</h2>
 
