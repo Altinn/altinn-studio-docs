@@ -15,7 +15,7 @@ The structure of the API's is documented [here](/altinn-api/)
 The diagram below show how the code is structured in different parts. 
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/app_backend_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/app_backend_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
 {{% /excerpt%}}
 
 ## Altinn.App.Api - Standard API's
