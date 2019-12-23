@@ -2753,7 +2753,7 @@ if(host != "localhost")
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/capabilities/">
@@ -3787,7 +3787,7 @@ if(host != "localhost")
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/">
@@ -8058,6 +8058,62 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/jwt-format/">JWT Format</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JSON Web Token are an open, industry standard RFC 7519 method for representing claims securely between two parties and are choosen as the bearer of information about users and systems.
+The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/jwt-format/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/jwtcookieauthentication/">JWTCookieAuthentication</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>JWTCookieAuthentication is a asp.net core authentication service created for supporting Json Web Tokens (JWT) as bearer tokens and JWT in Cookies. It is based on JWTBearer
+This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks). When JWT is put in a http only cookie it is not accessible from the SPA and can&rsquo;t be stolen by malicous javascript running in the browser. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/altinn-platform/jwtcookieauthentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/infrastructure/kubernetes/">Kubernetes</a></h2>
     </header>
     <section class="post-excerpt">
@@ -8266,71 +8322,6 @@ Policy Enforcment Point in Storage will identify the instanceId/dataid/appid tha
         <p>A Policy Information Point is a component that is used by the Context Handler to enrich the decision request with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.
 For the Altinn Platform there is serveral Policy Information Points
  Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request Register PIP - Possible information about the party (is he still alive? <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/pip/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/prp/">Policy Retrieval Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.
-During deployment of a app the rules for the app is added to the Altinn Storage.
-The rules are defined as a XACML 3.0 Policy document.
-See XACML for detailed description of Policy format
-For delegated rights Altinn II will provide the delegated policy. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-platform/prp/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/">Security Architecture</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.
-The security architecture is based on the following reference model
-
-Identity &amp; Access managment This area covers the following sub areas
-Authentication How users and systems are authenticated for access to Apps and platforms API&rsquo;s
-See authentication architecture
-Authorization How authenticated user and systems are authorized to perform requested actions in
-See authorization architecture <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
