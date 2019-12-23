@@ -22,7 +22,7 @@ In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We u
 
 ## Application (App)
 The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. 
-See [deployment architecture](/teknologi/altinnstudio/architecture/infrastructure/deployement/altinn-apps) for deployment details. 
+See [deployment architecture](/teknologi/altinnstudio/architecture/components/infrastructure/deployement/altinn-apps) for deployment details. 
 
 The App itself consist of two applications with different Application Architecture
 

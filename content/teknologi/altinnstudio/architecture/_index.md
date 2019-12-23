@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. This documentation describes everything from the requirements affecting the architecture to the defined architecture. 
+description: Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that support them.
 tags: [architecture]
 weight: 100
 alwaysopen: false
@@ -9,8 +9,8 @@ aliases:
 ---
 
 ## Architecture decision tree
-The [Architecture Concerns](/teknologi/altinnstudio/architecture/concerns/) like the non functional requirements and the functional requirements 
-gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties.
+The [non functional and functional requirements](/teknologi/altinnstudio/architecture/requirements/) gives input to which capabilities 
+for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties.
 The [Architecture Principles](/teknologi/altinnstudio/architecture/principles/) and [Architecture Patterns](/teknologi/altinnstudio/architecture/patterns/) is affected by the 
 architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities.
 

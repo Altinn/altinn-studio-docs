@@ -1,9 +1,9 @@
 ---
-title: Architecture Concerns
-description: Architecture Concerns are categories of Non-Functional Requirements (NFRs) that has been identified in the solution.
+title: Requirements
+description: Functional and non functional requirements for the solutions have affected the architecture decisions.
 tags: [architecture]
 weight: 5
-linktitle: Concerns
+linktitle: Requirements
 alwaysopen: false
 aliases:
  - /architecture/
