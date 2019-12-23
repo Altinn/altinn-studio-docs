@@ -9,26 +9,15 @@ aliases:
 ---
 This documentation describes everything from the requirements affecting the architecture to the defined architecture. 
 
-## Cloud Native
-The solutions are designed and built using the ["Cloud Native"](https://github.com/cncf/toc/blob/master/DEFINITION.md) principles, meaning
-it is built be scalable applications hosted in public cloud. 
-
-Containers, microservices and declarative APIs exemplify this approach.
-
-These techniques enable loosely coupled components that are resilient, manageable, and observable. 
-
-Combined with robust automation, they allow the devops team to make changes frequently.
-
-The Cloud Native blueprint below show the important aspect of a Cloud Native solution.
+## Architecture decision tree
+The [Architecture Concerns](/teknologi/altinnstudio/architecture/concerns/) like the non functional requirements and the functional requirements gives input to which capabilties
+for both devops and runtime that is needed in the solutions. It also gives input what type of components that is needed.
+The [Architecture Principles](/teknologi/altinnstudio/architecture/principles/) and [Architecture Patterns](/teknologi/altinnstudio/architecture/patterns/)is affected by the 
+architectural concerns and gives input on how the capabilties and components should be built.
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/cloudnative.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/architecture_decision_relationship.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
-
-## Architecture Principles & Concerns
-
-A good starting point to learn about our architecture is to read our [Architecture Principles](/teknologi/altinnstudio/architecture/principles/) and 
-about our [Architecture Concerns](/teknologi/altinnstudio/architecture/concerns/)
 
 ## Architectural overview
 The figure below shows the relation between the different types of architecture defined.
