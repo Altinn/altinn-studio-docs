@@ -2664,13 +2664,51 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/concerns/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/requirements/" class="dd-item 
         
         
         
         ">
-      <a href="/teknologi/altinnstudio/architecture/concerns/">
-        <span>Concerns</span>
+      <a href="/teknologi/altinnstudio/architecture/requirements/">
+        <span>Requirements</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/requirements/functional/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/requirements/functional/">
+        <span>Requirements</span>
 
         
 
@@ -2679,6 +2717,44 @@ if(host != "localhost")
 
         
       </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/requirements/non_functional/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/requirements/non_functional/">
+        <span>Requirements</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -8211,7 +8287,7 @@ Organization type    Attribute Type Description     OrgNumber string the organis
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/">Architecture</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Architecture decision tree The Architecture Concerns like the non functional requirements and the functional requirements gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties. The Architecture Principles and Architecture Patterns is affected by the architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities. <a class="read-more" href="/teknologi/altinnstudio/architecture/">&raquo;</a></p>
+        <p>Architecture decision tree The non functional and functional requirements gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties. The Architecture Principles and Architecture Patterns is affected by the architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities. <a class="read-more" href="/teknologi/altinnstudio/architecture/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8288,13 +8364,15 @@ Organization type    Attribute Type Description     OrgNumber string the organis
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/concerns/">Architecture Concerns</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/patterns/">Architecture Patterns</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>They are important input to deciding the Architecture Principles and Architecture Patterns.
-Performance Scalability The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.
-Response Time The solution need to have a performance to support a user friendly experience.
-Requirement: Page load should be less than 1 second <a class="read-more" href="/teknologi/altinnstudio/architecture/concerns/">&raquo;</a></p>
+        <p>The architecture principles below is described like TOGAF recomends.
+Cloud Native The solutions are designed and built using the &ldquo;Cloud Native&rdquo; principles, meaning it is built be scalable applications hosted in public cloud.
+Containers, microservices and declarative APIs exemplify this approach.
+These techniques enable loosely coupled components that are resilient, manageable, and observable.
+Combined with robust automation, they allow the devops team to make changes frequently.
+The Cloud Native blueprint below show the important aspect of a Cloud Native solution. <a class="read-more" href="/teknologi/altinnstudio/architecture/patterns/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8316,15 +8394,16 @@ Requirement: Page load should be less than 1 second <a class="read-more" href="/
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/patterns/">Architecture Patterns</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/principles/">Architecture Principles</a></h2>
     </header>
     <section class="post-excerpt">
         <p>The architecture principles below is described like TOGAF recomends.
-Cloud Native The solutions are designed and built using the &ldquo;Cloud Native&rdquo; principles, meaning it is built be scalable applications hosted in public cloud.
-Containers, microservices and declarative APIs exemplify this approach.
-These techniques enable loosely coupled components that are resilient, manageable, and observable.
-Combined with robust automation, they allow the devops team to make changes frequently.
-The Cloud Native blueprint below show the important aspect of a Cloud Native solution. <a class="read-more" href="/teknologi/altinnstudio/architecture/patterns/">&raquo;</a></p>
+Free and open-source software Principle
+The components and solutions are Free and Open Source.
+Rationale
+Possibility to share the platform as Open Source. The possibility to create an Open Source community around the platform.
+Implications
+ Can&rsquo;t use closed source products in the platform Can&rsquo;t use products with licensing limiting use and modifications Code developed is shared on GitHub Others can reuse and modify our components and solutions We have our backlog on Github. <a class="read-more" href="/teknologi/altinnstudio/architecture/principles/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -9669,8 +9748,42 @@ The Cloud Native blueprint below show the important aspect of a Cloud Native sol
           
                               
                               
+                                  
+                              
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   
