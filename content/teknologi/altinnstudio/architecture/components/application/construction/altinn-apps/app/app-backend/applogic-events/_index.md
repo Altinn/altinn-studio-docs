@@ -37,18 +37,18 @@ Events connected to instansiation can contain logic that can prefill the datamod
 or validate if the user or system is allowed to instansiate that app.
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_instansiation.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
-[Full screen](/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_instansiation.svg)
+[Full screen](/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_instansiation.svg)
 
 The below sequence diagram shows how the app-logic events are combined with other logic for a requesting to start an app in the app catalogue.
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/instansiation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
-[Full screen](/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/instansiation_sequence.svg)
+[Full screen](/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/instansiation_sequence.svg)
 
 ### Load form data (GET)
 Loading of form data can be performed by the App Frontend or an end user system that needs to get
@@ -57,10 +57,10 @@ the latest updated form data.
 The following events will be performed
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_getformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_getformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
-[Full screen](/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_getformdata.svg)
+[Full screen](/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_getformdata.svg)
 
 ### Storing of form data (POST)
 Update of form data can happen when frontend (REACT app) sends data to backend
@@ -79,11 +79,11 @@ The API for updating form data support different modes
 The order of events are
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/events_post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/events_post.svg" type="image/svg+xml" style="width: 100%;  max-width: 300px;"></object>
 {{% /excerpt%}}
 
 
-[Full screen](/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/events_post.svg)
+[Full screen](/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/events_post.svg)
 
 ### Update form data (PUT)
 Update of form data happens when the frontend or external end user systems/applications 
@@ -92,10 +92,10 @@ want to update a existing form connected to an app instance
 The following events happens:
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_updateformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_updateformdata.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
-[Full screen](/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_updateformdata.svg)
+[Full screen](/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/swimlane_updateformdata.svg)
 
 ### Validation
 Validation is triggered from App Frontend or from end user system. 
@@ -103,10 +103,10 @@ Validation is triggered from App Frontend or from end user system.
 The below sequence diagram shows the application events 
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/validation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/validation_sequence.svg" type="image/svg+xml" style="width: 100%;  max-width: 1300px;"></object>
 {{% /excerpt%}}
 
 
-[Full screen](/teknologi/altinnstudio/architecture/application/construction/altinn-apps/app/app-backend/applogic-events/validation_sequence.svg)
+[Full screen](/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/validation_sequence.svg)
 ## Process: Next
 git

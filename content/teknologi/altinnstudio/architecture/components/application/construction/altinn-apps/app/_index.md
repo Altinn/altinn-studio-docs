@@ -31,5 +31,5 @@ App Frontend.
 
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/application/altinn-apps/app/app_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
 {{% /excerpt%}}

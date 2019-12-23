@@ -42,7 +42,7 @@ The below diagram show some example processes that a App possible will support i
 ### Process: Formfilling
 
 {{%excerpt%}}
-<object data="/architecture/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example1.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example1.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
 This is the a common process. In this scenario a user will typical fill out formdata and when formfilling task is completed the data will be marked as locked and the final data can be read from
@@ -51,7 +51,7 @@ the org. The org will be able to read data before the formfilling task is comple
 
 ### Process: Formfilling - Signing
 {{%excerpt%}}
-<object data="/architecture/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example2.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example2.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
 
@@ -62,7 +62,7 @@ The data will not be allowed to be changed while the instance is in signing task
 
 ### Process: Formfilling - Confirmation - Payment
 {{%excerpt%}}
-<object data="/architecture/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example3.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example3.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
 In this scenario a user will typical fill out formdata and when formfilling task is completed, the process is moved to a confirm task where the user
@@ -71,7 +71,7 @@ The payment functionality will be handled by external payment providers. The app
 
 ### Process: Formfilling - Confirmation - External validation
 {{%excerpt%}}
-<object data="/architecture/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
 {{% /excerpt%}}
 
 In this scenario a user or system will typical fill out formdata and when formfilling task is completed, the process is moved to a confirm task where the user

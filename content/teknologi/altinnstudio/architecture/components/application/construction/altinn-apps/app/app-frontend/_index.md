@@ -22,7 +22,7 @@ The React architecture tries to follow best practice React architecture.
 The diagram below show the architecture 
 
 {{%excerpt%}}
-<object data="/architecture/application/altinn-apps/app/app-frontend/app-frontend-application-architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/altinn-apps/app/app-frontend/app-frontend-application-architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 ### Store
