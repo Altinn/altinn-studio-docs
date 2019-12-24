@@ -1,6 +1,6 @@
 ---
 title: Architecture Capabilities
-description: Architecture Capabilities defines the devops and runtime capabilities in the overall solution
+description: Architecture Capabilities describes the development, operations and the runtime (executions) capabilities supported by the technology architecture
 tags: [architecture]
 weight: 8
 linktitle: Capabilities
@@ -9,12 +9,8 @@ aliases:
  - /architecture/
 ---
 
+Functional capabilities is described in the functional description of the [solutions](/teknologi/altinnstudio/solutions/). 
 
-[Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/runtime_capabilities.svg") | [Visio](/teknologi/altinnstudio/architecture/capabilities/runtime/runtime_capabilities.vsdx)
-
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/capabilities/runtime/runtime_capabilities.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
 
 {{% children description="true" depth="1" %}}
 
