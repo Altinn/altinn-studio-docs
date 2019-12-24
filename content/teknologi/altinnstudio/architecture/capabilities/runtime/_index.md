@@ -1,13 +1,15 @@
 ---
-title: Runtime  
+title: Runtime Capabilities
 description: The runtime (execution) capabilities desribes the provided capabilites by the architecture components.
 tags: [architecture]
 weight: 8
-linktitle: Capabilities
+linktitle: Runtime
 alwaysopen: false
 aliases:
  - /architecture/
 ---
+
+The below diagram shows the different runtime capabilities grouped by different areas. 
 
 [Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/runtime_capabilities.svg") | [Visio](/teknologi/altinnstudio/architecture/capabilities/runtime/runtime_capabilities.vsdx)
 
