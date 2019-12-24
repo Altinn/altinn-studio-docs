@@ -1,7 +1,8 @@
 ---
-title: Devops
+title: Development & Operations Capabilties
 description: Description of the architecture  supporting devops
 tags: [architecture]
+linktitle: Devops 
 weight: 20
 alwaysopen: false
 ---
