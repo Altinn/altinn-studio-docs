@@ -75,11 +75,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/</loc>
+    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/</loc>
   </url>
   
   <url>
@@ -1276,6 +1276,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/routing/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/runtime-capabilities/</loc>
     <priority>0</priority>
   </url>
   

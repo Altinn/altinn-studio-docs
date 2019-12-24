@@ -123,14 +123,7 @@
 	"title": "Architecture Capabilities",
 	"tags": ["architecture"],
 	"description": "Architecture Capabilities describes the development, operations and the runtime (executions) capabilities supported by the technology architecture",
-	"content": "Functional capabilities is described in the functional description of the solutions.\n\rRuntime\rThe runtime (execution) capabilities desribes the provided capabilites by the architecture components.\n\r\rDevelopment \u0026amp; Operations Capabilties\rDescription of the architecture supporting devops\n\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/",
-	"title": "Runtime",
-	"tags": ["architecture"],
-	"description": "The runtime (execution) capabilities desribes the provided capabilites by the architecture components.",
-	"content": "Full screen | Visio\n\n\rIntegration\rDescription of the Integration Architecture\n\r\rSecurity Architecture\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.\n\r\r"
+	"content": "Functional capabilities is described in the functional description of the solutions.\n\rRuntime Capabilities\rThe runtime (execution) capabilities desribes the provided capabilites by the architecture components.\n\r\rDevelopment \u0026amp; Operations Capabilties\rDescription of the architecture supporting devops\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/",
@@ -138,6 +131,13 @@
 	"tags": [],
 	"description": "Altinn støtter de nettleserne og operativsystemene som er mest anvendt av våre brukere. Vi tester ikke utdaterte eller ikke-supporterte versjoner av nettlesere.",
 	"content": " Altinn fungerer med de fleste vanlige operativsystemer og nettlesere. Ettersom ulike nettlesere tolker kildekode forskjellig, kan besøkende på altinn.no få ulike brukeropplevelser basert på hvilken nettleser de benytter.\nNettlesere vi tester  Chrome Edge Firefox Internet Explorer 11 Opera Safari  Javascript Nettleseren må ha støtte for javascript.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/",
+	"title": "Runtime Capabilities",
+	"tags": ["architecture"],
+	"description": "The runtime (execution) capabilities desribes the provided capabilites by the architecture components.",
+	"content": "The below diagram shows the different runtime capabilities grouped by different areas.\nFull screen | Visio\n\n\rIntegration\rDescription of the Integration Architecture\n\r\rSecurity Enforcement Capabilities\rDescription of the Altinn Studio, Altinn Apps, Altinn Platform security architecture providing runtime capabilities for the solutions.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/",
@@ -974,10 +974,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/",
-	"title": "Security Architecture",
-	"tags": ["architecture", "security"],
-	"description": "Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.",
-	"content": " For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.\nThe security architecture is based on the following reference model\n\nIdentity \u0026amp; Access managment This area covers the following sub areas\nAuthentication How users and systems are authenticated for access to Apps and platforms API\u0026rsquo;s\nSee authentication architecture\nAuthorization How authenticated user and systems are authorized to perform requested actions in\nSee authorization architecture\nIdentity management How the different identies are managed\nConfidentiality and Integrity This area covers the following sub areas\nEncryption The ability to encrypt data\nSee encryption architecture\nDigital Signatures The ability to sign data to make sure it has not been modified\nLogging, tracking and log management This area covers the following sub areas\nEvent logging How the platform logs events performed by the user or systems\nSecurity infrastructure This area covers the following sub areas\nFirewalls The firewall products and architure\nKey vaults How the different keys in the system are handled\nAvailability This area covers the following sub areas\nScalability and robustness How the architecture ensure a scalable and robust solutions\nDisaster recovery How the architecture supports disaster recovery\n"
+	"title": "Security Enforcement Capabilities",
+	"tags": ["architecture", "security", "runtime capabilities"],
+	"description": "Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture providing runtime capabilities for the solutions.",
+	"content": "For a solutions like Altinn Studio, Altinn Apps and Altinn Platform security is a important aspect.\nThe security architecture is based on the following reference model\n\rAuthentication\rDescription of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform\n\r\rAuthorization\rDescribes Authorization architecture used for Altinn Studio, Altinn Apps and Altinn Platform\n\r\rEncryption\rDescription of the encryption architecture\n\r\rLog and log managament\rDescription of the log management\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/securecoding/checklist/",
@@ -2130,6 +2130,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/routing/",
 	"title": "routing",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/runtime-capabilities/",
+	"title": "runtime capabilities",
 	"tags": [],
 	"description": "",
 	"content": ""

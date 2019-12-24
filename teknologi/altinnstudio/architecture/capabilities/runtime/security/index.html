@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.">
+    <meta name="description" content="Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture providing runtime capabilities for the solutions.">
 
 
     
-    <title>Security Architecture :: Altinn digitalisering - Utvikling</title>
+    <title>Security Enforcement Capabilities :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -2871,7 +2871,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/">
-        <span>Capabilities</span>
+        <span>Runtime</span>
 
         
 
@@ -8188,7 +8188,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> Security
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> Security
 
  
 
@@ -8214,22 +8214,22 @@ if(host != "localhost")
             
               <a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a>
             
+              <a class="label label-default" href="https://docs.altinn.studio/tags/runtime-capabilities">runtime capabilities</a>
+            
           </div>
         
         <div id="body-inner">
           
             
               <h1 class="a-fontBold">
-                Security Architecture
+                Security Enforcement Capabilities
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture.</p>
+              <p class="a-leadText" id="leadText">Description of the Altinn Studio, Altinn Apps, Altinn Platform security architecture providing runtime capabilities for the solutions.</p>
             
           
 
           
-
-
 
 
 
@@ -8242,75 +8242,118 @@ if(host != "localhost")
 <p>The security architecture is based on the following reference model</p>
 
 
-	<p><object data="/architecture/security/securityarchitecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object></p>
 
 
 
-<h2 id="identity-access-managment">Identity &amp; Access managment</h2>
 
-<p>This area covers the following sub areas</p>
 
-<h3 id="authentication">Authentication</h3>
 
-<p>How users and systems are authenticated for access to Apps and platforms API&rsquo;s</p>
 
-<p><a href="authentication">See authentication architecture</a></p>
 
-<h3 id="authorization">Authorization</h3>
 
-<p>How authenticated user and systems are authorized to perform requested actions in</p>
 
-<p><a href="authorization">See authorization architecture</a></p>
 
-<h3 id="identity-management">Identity management</h3>
+<ul class="children children-li js-moveChildrenFrom">
+	
+    
+	    
+    
+    
 
-<p>How the different identies are managed</p>
+	
+		
+	
+		
+  
 
-<h2 id="confidentiality-and-integrity">Confidentiality and Integrity</h2>
 
-<p>This area covers the following sub areas</p>
+<li>
+<a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/" >Authentication</a>
+<p>Description of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform</p>
+</li>
 
-<h3 id="encryption">Encryption</h3>
 
-<p>The ability to encrypt data</p>
 
-<p><a href="encryption">See encryption architecture</a></p>
 
-<h3 id="digital-signatures">Digital Signatures</h3>
 
-<p>The ability to sign data to make sure it has not been modified</p>
 
-<h2 id="logging-tracking-and-log-management">Logging, tracking and log management</h2>
+		
 
-<p>This area covers the following sub areas</p>
+		
+			
 
-<h3 id="event-logging">Event logging</h3>
+		
+	
+		
+  
 
-<p>How the platform logs events performed by the user or systems</p>
 
-<h2 id="security-infrastructure">Security infrastructure</h2>
+<li>
+<a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/" >Authorization</a>
+<p>Describes Authorization architecture used for Altinn Studio, Altinn Apps and Altinn Platform</p>
+</li>
 
-<p>This area covers the following sub areas</p>
 
-<h3 id="firewalls">Firewalls</h3>
 
-<p>The firewall products and architure</p>
 
-<h3 id="key-vaults">Key vaults</h3>
 
-<p>How the different keys in the system are handled</p>
 
-<h2 id="availability">Availability</h2>
+		
 
-<p>This area covers the following sub areas</p>
+		
+			
 
-<h3 id="scalability-and-robustness">Scalability and robustness</h3>
+		
+	
+		
+  
 
-<p>How the architecture ensure a scalable and robust solutions</p>
 
-<h3 id="disaster-recovery">Disaster recovery</h3>
+<li>
+<a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/encryption/" >Encryption</a>
+<p>Description of the encryption architecture</p>
+</li>
 
-<p>How the architecture supports disaster recovery</p>
+
+
+
+
+
+		
+
+		
+			
+
+		
+	
+		
+  
+
+
+<li>
+<a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/log/" >Log and log managament</a>
+<p>Description of the log management</p>
+</li>
+
+
+
+
+
+
+		
+
+		
+			
+
+		
+	
+
+	
+</ul>
+
+
+
+
 
 
 <footer class=" footline" >
