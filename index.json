@@ -122,8 +122,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/",
 	"title": "Architecture Capabilities",
 	"tags": ["architecture"],
-	"description": "Architecture Capabilities defines the devops and runtime capabilties in the overall solution",
-	"content": "\r\rDevops\rDescription of the architecture supporting devops\n\r\rRuntime\r\n\r\r"
+	"description": "Architecture Capabilities defines the devops and runtime capabilities in the overall solution",
+	"content": "Full screen | Visio\n\n\rDevelopment \u0026amp; Operations Capabilties\rDescription of the architecture supporting devops\n\r\rRuntime\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/",
@@ -183,7 +183,7 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/",
-	"title": "Devops",
+	"title": "Development &amp; Operations Capabilties",
 	"tags": ["architecture"],
 	"description": "Description of the architecture  supporting devops",
 	"content": "Running the devlopment and operations from one integrated team is a important part of the strategy for the platform.\n\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rDevelopment\r\n\r\r"
@@ -431,7 +431,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that support them.",
-	"content": " Architecture decision tree The non functional and functional requirements gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties. The Architecture Principles and Architecture Patterns is affected by the architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities.\n\nCapabilities and Components relationship The figure below shows the relationship between the different capabilities and componentes in the techincal architecture.\n\n\rRequirements\rFunctional and non functional requirements for the solutions have affect the architecture decisions.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rArchitecture Capabilities\rArchitecture Capabilities defines the devops and runtime capabilties in the overall solution\n\r\rArchitecture Components\rArchitecture Components defines the needed application, data, platform and infrastructure components\n\r\r"
+	"content": " Architecture decision tree The non functional and functional requirements gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties. The Architecture Principles and Architecture Patterns is affected by the architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities.\n\nCapabilities and Components relationship The figure below shows the relationship between the different capabilities and componentes in the techincal architecture.\n\n\rRequirements\rFunctional and non functional requirements for the solutions have affect the architecture decisions.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rArchitecture Capabilities\rArchitecture Capabilities defines the devops and runtime capabilities in the overall solution\n\r\rArchitecture Components\rArchitecture Components defines the needed application, data, platform and infrastructure components\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/",
