@@ -2,7 +2,7 @@
 title: Infrastructure
 description: Description of the Altinn Studio infrastructure
 tags: [architecture, infrastructure]
-weight: 100
+weight: 103
 alwaysopen: false
 ---
 

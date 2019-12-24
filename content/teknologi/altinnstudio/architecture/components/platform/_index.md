@@ -3,7 +3,7 @@ title: Platform Components
 description: Platform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.
 tags: [architecture, infrastructure]
 linktitle: Platform
-weight: 100
+weight: 102
 alwaysopen: false
 ---
 
