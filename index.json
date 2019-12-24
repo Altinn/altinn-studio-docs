@@ -175,11 +175,25 @@
 	"content": "Foreløpig finner du informasjon om arkitektur og infrastruktur på altinnpedia (krever innlogging).\n\r"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/",
+	"title": "Build &amp; Test Capabilities",
+	"tags": ["architecture"],
+	"description": "Build &amp; Test Capabilties involves everthing from the capability to write code to the different types of testing",
+	"content": " Code \u0026amp; Config Writing enablement The project uses Visual Studio Code and Visual Studio as IDE.\nSoftware Compilation \u0026amp; Validation The project uses .Net, Java or Typescript compilers\nBuild Orchestration Azure Pipelines are used for build orchestration\nContinuous Integration Enablment Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/",
 	"title": "Devops",
 	"tags": ["architecture"],
 	"description": "Description of the architecture  supporting devops",
-	"content": "Running the devlopment and operations from one integrated team is a important part of the strategy for the platform.\n\rOperations\rDescription of the Operations Architecture\n\r\rDevelopment\r\n\r\r"
+	"content": "Running the devlopment and operations from one integrated team is a important part of the strategy for the platform.\n\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rDevelopment\r\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
+	"title": "Environments",
+	"tags": ["architecture"],
+	"description": "Description of the architecture  supporting devops",
+	"content": " Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage.\nDevelopment Environments This is a dedicated devlopment environent\nTest environment Pre Production Environemnt Production Environment "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/",
