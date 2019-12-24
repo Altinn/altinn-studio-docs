@@ -137,7 +137,7 @@
 	"title": "Architecture Components",
 	"tags": ["architecture"],
 	"description": "Architecture Components defines the needed application, data, platform and infrastructure components",
-	"content": "\r\rApplication Architecture\rThe Application Architecture is split in Application Solution Architecture and Application Construction Architecture\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rData\r\n\r\r"
+	"content": "\r\rApplication Architecture\rThe Application Architecture is split in Application Solution Architecture and Application Construction Architecture\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/",
@@ -693,18 +693,11 @@
 	"content": " Gitea Gitea is used in altinn.studio as version control of the services developed in altinn.studio.\nLinks  Gitea docs  "
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/information/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/conceptual/",
 	"title": "Information",
 	"tags": ["architecture"],
 	"description": "Description of the Information Architecture",
-	"content": " Conceptual information model Below you find the conceptual information model containg the most important aspecst of the solution\n\nSee fullscreen\n\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",
-	"title": "Infrastructure",
-	"tags": ["architecture", "infrastructure"],
-	"description": "Description of the Altinn Studio infrastructure",
-	"content": "Altinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rDeployment\rDescription of the Altinn Studio solution\n\r\rKubernetes\rKubernetes is an important part of the infrastructure\n\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r"
+	"content": " Conceptual information model Below you find the conceptual information model containg the most important aspecst of the solution\n\nSee fullscreen / Visio\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/installation/",
@@ -866,13 +859,6 @@
 	"tags": ["architecture", "security"],
 	"description": "Description of Policy Information Point for Altinn Platform",
 	"content": "The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.\nDuring deployment of a app the rules for the app is added to the Altinn Storage.\nThe rules are defined as a XACML 3.0 Policy document.\nSee XACML for detailed description of Policy format\nFor delegated rights Altinn II will provide the delegated policy.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/",
-	"title": "Platform Components",
-	"tags": ["architecture", "infrastructure"],
-	"description": "Platform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.",
-	"content": "The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.\nFull screen | Visio\n\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/xacmlpolicy/",
@@ -1176,6 +1162,27 @@
 	"content": " Overordnet \u0026lsquo;React-App.js\u0026rsquo; er selve React applikasjonen som blir generert av Altinn Studio som del av tjenestutviklingen. Den inneholder all logikk for å rendre GUI samt å gjøre nødvendige kall mot API i Altinn Tjenester 3.0\nFor øyeblikket er den statisk og lik for alle tjenester. Målet er at den blir tilpasset de komponentene som er i bruk. Dette slik at javascript koden ikke i inneholder referanser til komponenter ikke brukt i tjenesten.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/",
+	"title": "Data Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Data is the most important part of the solutions in Altinn.",
+	"content": "Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.\n\rInformation\rDescription of the Information Architecture\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/",
+	"title": "Platform Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Platform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.",
+	"content": "The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.\nFull screen | Visio\n\n\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",
+	"title": "Infrastructure",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Description of the Altinn Studio infrastructure",
+	"content": "Altinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rDeployment\rDescription of the Altinn Studio solution\n\r\rKubernetes\rKubernetes is an important part of the infrastructure\n\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/",
 	"title": "Theming and styling",
 	"tags": [],
@@ -1461,13 +1468,6 @@
 	"tags": [],
 	"description": "The Dashboard in Altinn Studio gives the developer full overview over apps",
 	"content": "The dasboard lets the developer search for apps, create new apps, list all orgs and apps that developer have access to.\nSee Getting started for more info on how to use dashboard.\nSee all issues for dashboard on Github.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/",
-	"title": "Data",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/data-modeling/",
