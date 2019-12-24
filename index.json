@@ -137,7 +137,7 @@
 	"title": "Architecture Components",
 	"tags": ["architecture"],
 	"description": "Architecture Components defines the needed application, data, platform and infrastructure components",
-	"content": "\r\rApplication Architecture\rThe Application Architecture is split in Application Solution Architecture and Application Construction Architecture\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\rData\r\n\r\r"
+	"content": "\r\rApplication Architecture\rThe Application Architecture is split in Application Solution Architecture and Application Construction Architecture\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rData\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/",
@@ -866,6 +866,13 @@
 	"tags": ["architecture", "security"],
 	"description": "Description of Policy Information Point for Altinn Platform",
 	"content": "The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.\nDuring deployment of a app the rules for the app is added to the Altinn Storage.\nThe rules are defined as a XACML 3.0 Policy document.\nSee XACML for detailed description of Policy format\nFor delegated rights Altinn II will provide the delegated policy.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/",
+	"title": "Platform Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Platform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.",
+	"content": "The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.\nFull screen | Visio\n\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/altinn-apps/app/xacmlpolicy/",
