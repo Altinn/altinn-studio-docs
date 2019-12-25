@@ -122,7 +122,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/",
 	"title": "Architecture Capabilities",
 	"tags": ["architecture"],
-	"description": "Architecture Capabilities describes the development, operations and the runtime (executions) capabilities supported by the technology architecture",
+	"description": "The Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development &amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.",
 	"content": "Functional capabilities is described in the functional description of the solutions.\n\rRuntime Capabilities\rThe runtime (execution) capabilities desribes the provided capabilites by the architecture components.\n\r\rDevelopment \u0026amp; Operations Capabilties\rDescription of the architecture supporting devops\n\r\r"
 },
 {
@@ -438,7 +438,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that support them.",
-	"content": " Architecture decision tree The non functional and functional requirements gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties. The Architecture Principles and Architecture Patterns is affected by the architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities.\n\nCapabilities and Components relationship The figure below shows the relationship between the different capabilities and componentes in the techincal architecture.\n\n\rRequirements\rFunctional and non functional requirements for the solutions have affect the architecture decisions.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rArchitecture Capabilities\rArchitecture Capabilities describes the development, operations and the runtime (executions) capabilities supported by the technology architecture\n\r\rArchitecture Components\rArchitecture Components defines the needed application, data, platform and infrastructure components\n\r\r"
+	"content": " Architecture decision tree The non functional and functional requirements gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties. The Architecture Principles and Architecture Patterns is affected by the architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities.\n\nCapabilities and Components relationship The figure below shows the relationship between the different capabilities and componentes in the techincal architecture.\n\n\rRequirements\rFunctional and non functional requirements for the solutions have affect the architecture decisions.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rArchitecture Capabilities\rThe Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development \u0026amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.\n\r\rArchitecture Components\rArchitecture Components defines the needed application, data, platform and infrastructure components\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/",
@@ -1376,7 +1376,7 @@
 	"title": "API",
 	"tags": ["analysis"],
 	"description": "Analysis of the API area in Altinn Studio.",
-	"content": "\r\rAgency APIs - analysis\rAn analysis of the agency API compatibility with Altinn Studio Apps.\n\r\r\r\rExternal APIs - analysis\rAn analysis of the SBL external API forward compatibility with Altinn Studio Apps.\n\r\r\r\r"
+	"content": "\r\rAgency APIs - analysis\rAn analysis of the agency API compatibility with Altinn Studio Apps.\n\r\r\rAutomated test app\rAn app used solely for automated testing in the browser\n\r\rPostman\rAPI Testing with postman\n\r\rTest Coverage\rAutomation testcases by area\n\r\rTest Strategy\rTest Strategy\n\r\rTestcafe\rTestcafe\n\r\rUnit testing\rHow to write jest test in altinn studio, what we know so far\n\r\rWCAG testing in Altinn Studio\rCoding guidelines for tests\n\r\rXunit Testing\rXunit Testing\n\r\r\rExternal APIs - analysis\rAn analysis of the SBL external API forward compatibility with Altinn Studio Apps.\n\r\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/analysis/api/agency/",
