@@ -343,6 +343,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/debug/</loc>
   </url>
   
@@ -412,10 +416,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/</loc>
   </url>
   
   <url>
@@ -519,6 +519,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/</loc>
   </url>
   
@@ -563,15 +567,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/securecoding/checklist/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/</loc>
   </url>
   
   <url>
