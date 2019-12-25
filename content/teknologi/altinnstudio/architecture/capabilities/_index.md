@@ -1,6 +1,6 @@
 ---
 title: Architecture Capabilities
-description: Architecture Capabilities describes the development, operations and the runtime (executions) capabilities supported by the technology architecture
+description: The Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development & Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.
 tags: [architecture]
 weight: 8
 linktitle: Capabilities
