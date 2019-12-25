@@ -1,8 +1,9 @@
 ---
-title: Integration 
+title: Data Management & Integration Capabilities
 description: Description of the Integration Architecture
 tags: [architecture]
 weight: 100
+linktitle: Data & Integration
 alwaysopen: false
 ---
 

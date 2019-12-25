@@ -3,6 +3,7 @@ title: Presentation (User Interface) Capabilities
 description: Presentation Capabilities enable an application to manage the human-computer interface. 
 tags: [architecture]
 weight: 100
+linktitle: Presentation
 alwaysopen: false
 ---
 
@@ -61,6 +62,7 @@ TODO: Link to relevant archiecture component(s) providing this capability.
 TODO: Link to relevant archiecture component(s) providing this capability.
 
 ### Accessibility
+The presentation both in Altinn Studio for the App Developer and the presentation created in Altinn Studio and presented in the App is created to fullfill WCAG 2.0
 
 TODO: Link to relevant archiecture component(s) providing this capability.
 

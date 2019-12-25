@@ -70,7 +70,10 @@ It needs to support automatic monitoring.
 ### Usability
 
 #### Accessibility
-The applications running in the solutions will be accessed by all types of users and need to be following WCAG 
+Both Altinn Studio and Application created in Altinn Studio and deployed to Altinn Apps need to follow 
+WCAG 2.1 requirements by law.
+
+See details about the WCAG 2.1 requirements that applies [here](https://uu.difi.no/krav-og-regelverk/webdirektivet-og-wcag-21/wcag-21-standarden). 
 
 
 #### Localisation

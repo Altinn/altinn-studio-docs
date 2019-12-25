@@ -3,6 +3,7 @@ title: Security Enforcement Capabilities
 description: Security Enforcement Capabilities are capabilities typical provided by common architecture components 
 tags: [architecture]
 weight: 100
+linktitle: Security
 alwaysopen: false
 ---
 
