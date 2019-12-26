@@ -144,7 +144,7 @@
 	"title": "Architecture Components",
 	"tags": ["architecture"],
 	"description": "Architecture Components defines the needed application, data, platform and infrastructure components",
-	"content": "\r\rApplication Architecture\rThe Application Architecture is split in Application Solution Architecture and Application Construction Architecture\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r"
+	"content": " Components relationship The figure below shows the relationship between the different componentes in the techincal architecture.\n\n\rApplication Architecture\rThe Application Architecture is split in Application Solution Architecture and Application Construction Architecture\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/",
