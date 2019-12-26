@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Functional and non functional requirements for the solutions have affect the architecture decisions.">
+    <meta name="description" content="Data management capabilities range from handling data to defining data models for applications in Altinn Studio">
 
 
     
-    <title>Requirements :: Altinn digitalisering - Utvikling</title>
+    <title>Data management Capabilities :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/requirements/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/capabilities/runtime/data/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -2665,8 +2665,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/requirements/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/requirements/">
@@ -2678,7 +2678,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -2828,7 +2828,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2841,7 +2841,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2866,7 +2866,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2879,7 +2879,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2904,8 +2904,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/data/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/data/">
@@ -8345,7 +8345,17 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> Requirements
+
+
+
+
+
+
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> Data
+
+ 
+
+ 
 
  
 
@@ -8371,10 +8381,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Requirements
+                Data management Capabilities
                 
               </h1>
-              <p class="a-leadText" id="leadText">Functional and non functional requirements for the solutions have affect the architecture decisions.</p>
+              <p class="a-leadText" id="leadText">Data management capabilities range from handling data to defining data models for applications in Altinn Studio</p>
             
           
 
@@ -8386,79 +8396,25 @@ if(host != "localhost")
 
 
 
-<p>They are important input to deciding the Architecture Principles and Architecture Patterns.</p>
 
 
+<h2 id="data-processing-capabilities">Data Processing Capabilities</h2>
 
+<h3 id="data-access">Data Access</h3>
 
+<h3 id="data-validation">Data Validation</h3>
 
+<h3 id="report-generation">Report generation</h3>
 
+<h3 id="data-enrichment-aggregation">Data Enrichment &amp; Aggregation</h3>
 
+<h2 id="data-storage-capabilities">Data Storage capabilities</h2>
 
+<h3 id="data-caching">Data Caching</h3>
 
+<h3 id="data-persistency">Data persistency</h3>
 
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/requirements/functional/" >Functional</a>
-<p>Functional requirements can be important to the architecture decisions</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/requirements/non_functional/" >Non Functional Requirements</a>
-<p>Functional and non functional requirements for the solutions have affected the architecture decisions.</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-
-	
-</ul>
-
-
-
-
+<h3 id="data-partitioning-segregation">Data partitioning &amp; Segregation</h3>
 
 
 <footer class=" footline" >
@@ -9782,6 +9738,8 @@ if(host != "localhost")
                       
                           
                               
+                                  
+                                  
                               
                           
                           
@@ -9797,9 +9755,6 @@ if(host != "localhost")
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -9868,6 +9823,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -9883,6 +9839,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -9897,6 +9854,7 @@ if(host != "localhost")
                       
                       
                           
+                              
                               
                           
                           
@@ -9913,6 +9871,9 @@ if(host != "localhost")
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -12657,10 +12618,10 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/" title="Architecture"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/capabilities/runtime/" title="Runtime Capabilities"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/requirements/functional/" title="Functional" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/" title="Integration Capabilties" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -12672,7 +12633,7 @@ if(host != "localhost")
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/requirements/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/capabilities/runtime/data/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>

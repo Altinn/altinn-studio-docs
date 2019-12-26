@@ -343,7 +343,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/data/</loc>
   </url>
   
   <url>
@@ -416,6 +416,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/instantiationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/</loc>
   </url>
   
   <url>
@@ -519,15 +523,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/process_interaction/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/</loc>
   </url>
   
   <url>
