@@ -1,9 +1,9 @@
 ---
 title: Processing & Execution Capabilities
-description: Processing & Execution Capabilities includes everthing from processing defined application processes to loadbalancing and failover
+description: Processing & Execution Capabilities includes everthing from processing a defined business processes to loadbalancing and failover
 tags: [architecture]
 weight: 100
-linktitle: Presentation
+linktitle: Processing & Execution
 alwaysopen: false
 ---
 ##	Processing Capabilities
