@@ -18,11 +18,4 @@ architectural concerns and gives guidlines to which capabilities that is needed 
 <object data="/teknologi/altinnstudio/architecture/architecture_decision_relationship.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
-## Capabilities and Components relationship
-The figure below shows the relationship between the different capabilities and componentes in the techincal architecture.
-
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/architectureoverview.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
-{{% /excerpt%}}
-
 {{% children description="true" depth="1" %}}
