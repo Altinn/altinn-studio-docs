@@ -45,16 +45,16 @@
 			<v:textRect cx="120.472" cy="381.901" width="240.95" height="277.514"/>
 			<rect x="0" y="243.144" width="240.945" height="277.514" class="st3"/>
 			<text x="45.73" y="254.34" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data &#38; Reporting Components</text>		</g>
-		<g id="shape3-7" v:mID="3" v:groupContext="shape" transform="translate(790.124,-346.077)">
+		<g id="shape3-7" v:mID="3" v:groupContext="shape" transform="translate(790.849,-402.77)">
 			<title>Rectangle.3</title>
 			<desc>Reporting Sofware</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="106.299" cy="463.965" width="212.6" height="113.386"/>
-			<rect x="0" y="407.272" width="212.598" height="113.386" class="st5"/>
-			<text x="60.94" y="418.47" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Reporting Sofware</text>		</g>
+			<v:textRect cx="106.299" cy="485.224" width="212.6" height="70.8661"/>
+			<rect x="0" y="449.791" width="212.598" height="70.8661" class="st5"/>
+			<text x="60.94" y="460.99" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Reporting Sofware</text>		</g>
 		<g id="shape4-10" v:mID="4" v:groupContext="shape" transform="translate(520.833,-217.382)">
 			<title>Rectangle.4</title>
 			<desc>Integration Components</desc>
@@ -201,27 +201,17 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="20.99" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Gateway<v:lf/><tspan
 						x="34.42" dy="0.8em" class="st6">SW</tspan></text>		</g>
-		<g id="shape27-60" v:mID="27" v:groupContext="shape" transform="translate(535.731,-289.384)">
+		<g id="shape27-60" v:mID="27" v:groupContext="shape" transform="translate(535.731,-331.904)">
 			<title>Rectangle.27</title>
 			<desc>Integration Frameworks &#38; Libraries</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="106.299" cy="463.965" width="212.6" height="113.386"/>
-			<rect x="0" y="407.272" width="212.598" height="113.386" class="st5"/>
-			<text x="20.05" y="418.47" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Integration Frameworks &#38; Libraries</text>		</g>
-		<g id="shape28-63" v:mID="28" v:groupContext="shape" transform="translate(549.905,-341.825)">
-			<title>Rectangle.28</title>
-			<desc>Adapters</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
-			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
-			<text x="20.44" y="506.05" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Adapters</text>		</g>
-		<g id="shape29-66" v:mID="29" v:groupContext="shape" transform="translate(649.843,-299.305)">
+			<v:textRect cx="106.299" cy="485.224" width="212.6" height="70.8661"/>
+			<rect x="0" y="449.791" width="212.598" height="70.8661" class="st5"/>
+			<text x="20.05" y="460.99" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Integration Frameworks &#38; Libraries</text>		</g>
+		<g id="shape29-63" v:mID="29" v:groupContext="shape" transform="translate(649.117,-346.077)">
 			<title>Rectangle.29</title>
 			<desc>Integration Libraries</desc>
 			<v:userDefs>
@@ -232,7 +222,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="15.37" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Integration <tspan
 						x="21.7" dy="0.8em" class="st6">Libraries</tspan></text>		</g>
-		<g id="shape32-70" v:mID="32" v:groupContext="shape" transform="translate(805.023,-404.187)">
+		<g id="shape32-67" v:mID="32" v:groupContext="shape" transform="translate(805.748,-418.36)">
 			<title>Rectangle.32</title>
 			<desc>Dashboard &#38; Reporting SW</desc>
 			<v:userDefs>
@@ -243,17 +233,17 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="10.57" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Dashboard &#38; <tspan
 						x="18.5" dy="0.8em" class="st6">Reporting<v:lf/></tspan><tspan x="33.07" dy="0.8em" class="st6"> </tspan>SW</text>		</g>
-		<g id="shape37-75" v:mID="37" v:groupContext="shape" transform="translate(790.124,-237.792)">
+		<g id="shape37-72" v:mID="37" v:groupContext="shape" transform="translate(790.849,-232.691)">
 			<title>Rectangle.37</title>
 			<desc>Data Stores</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="106.299" cy="469.35" width="212.6" height="102.616"/>
-			<rect x="0" y="418.042" width="212.598" height="102.616" class="st5"/>
-			<text x="78.14" y="429.24" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data Stores</text>		</g>
-		<g id="shape39-78" v:mID="39" v:groupContext="shape" transform="translate(904.235,-289.384)">
+			<v:textRect cx="106.299" cy="442.705" width="212.6" height="155.906"/>
+			<rect x="0" y="364.752" width="212.598" height="155.906" class="st5"/>
+			<text x="78.14" y="375.95" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data Stores</text>		</g>
+		<g id="shape39-75" v:mID="39" v:groupContext="shape" transform="translate(904.961,-337.573)">
 			<title>Rectangle.39</title>
 			<desc>Relational DBMSs</desc>
 			<v:userDefs>
@@ -264,7 +254,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="18.07" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Relational <tspan
 						x="25.33" dy="0.8em" class="st6">DBMSs</tspan></text>		</g>
-		<g id="shape40-82" v:mID="40" v:groupContext="shape" transform="translate(797.31,-289.384)">
+		<g id="shape40-79" v:mID="40" v:groupContext="shape" transform="translate(798.035,-337.573)">
 			<title>Rectangle.40</title>
 			<desc>No-SQL Server SW</desc>
 			<v:userDefs>
@@ -275,7 +265,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="24.33" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>No-SQL<v:lf/><tspan
 						x="17.45" dy="0.8em" class="st6">Server SW</tspan></text>		</g>
-		<g id="shape42-86" v:mID="42" v:groupContext="shape" transform="translate(904.235,-246.864)">
+		<g id="shape42-83" v:mID="42" v:groupContext="shape" transform="translate(904.961,-295.053)">
 			<title>Rectangle.42</title>
 			<desc>Directory Server SW (e.g. LDAP)</desc>
 			<v:userDefs>
@@ -286,7 +276,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="19.86" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Directory<v:lf/><tspan
 						x="17.45" dy="0.8em" class="st6">Server SW<v:lf/></tspan><tspan x="24.77" dy="1.2em" class="st8">(e.g. LDAP)</tspan></text>		</g>
-		<g id="shape46-91" v:mID="46" v:groupContext="shape" transform="translate(24.7697,-402.77)">
+		<g id="shape46-88" v:mID="46" v:groupContext="shape" transform="translate(24.7697,-402.77)">
 			<title>Rectangle.46</title>
 			<desc>Web Intermediation Software</desc>
 			<v:userDefs>
@@ -296,7 +286,7 @@
 			<v:textRect cx="106.299" cy="485.224" width="212.6" height="70.8661"/>
 			<rect x="0" y="449.791" width="212.598" height="70.8661" class="st5"/>
 			<text x="33.47" y="460.99" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Web Intermediation Software</text>		</g>
-		<g id="shape48-94" v:mID="48" v:groupContext="shape" transform="translate(138.155,-416.943)">
+		<g id="shape48-91" v:mID="48" v:groupContext="shape" transform="translate(138.155,-416.943)">
 			<title>Rectangle.48</title>
 			<desc>CDN</desc>
 			<v:userDefs>
@@ -306,7 +296,7 @@
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="31.76" y="506.05" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>CDN</text>		</g>
-		<g id="shape49-97" v:mID="49" v:groupContext="shape" transform="translate(39.6684,-416.943)">
+		<g id="shape49-94" v:mID="49" v:groupContext="shape" transform="translate(39.6684,-416.943)">
 			<title>Rectangle.49</title>
 			<desc>Proxy Server SW</desc>
 			<v:userDefs>
@@ -317,7 +307,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="28.85" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Proxy<v:lf/><tspan
 						x="17.45" dy="0.8em" class="st6">Server SW</tspan></text>		</g>
-		<g id="shape50-101" v:mID="50" v:groupContext="shape" transform="translate(797.31,-246.864)">
+		<g id="shape50-98" v:mID="50" v:groupContext="shape" transform="translate(798.035,-295.053)">
 			<title>Rectangle.50</title>
 			<desc>File Server SW</desc>
 			<v:userDefs>
@@ -327,7 +317,7 @@
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="7.59" y="506.05" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>File Server SW</text>		</g>
-		<g id="shape52-104" v:mID="52" v:groupContext="shape" transform="translate(805.023,-360.25)">
+		<g id="shape52-101" v:mID="52" v:groupContext="shape" transform="translate(909.203,-418.36)">
 			<title>Rectangle.52</title>
 			<desc>Data Visualisation SW</desc>
 			<v:userDefs>
@@ -338,18 +328,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="31.07" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data <tspan
 						x="11.69" dy="0.8em" class="st6">Visualisation<v:lf/></tspan><tspan x="34.42" dy="0.8em" class="st6">SW</tspan></text>		</g>
-		<g id="shape55-109" v:mID="55" v:groupContext="shape" transform="translate(904.235,-360.25)">
-			<title>Rectangle.55</title>
-			<desc>BI &#38; Analytics SW</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
-			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
-			<text x="9.08" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>BI &#38; Analytics <tspan
-						x="34.42" dy="0.8em" class="st6">SW</tspan></text>		</g>
-		<g id="shape56-113" v:mID="56" v:groupContext="shape" transform="translate(393.999,-346.077)">
+		<g id="shape56-106" v:mID="56" v:groupContext="shape" transform="translate(393.999,-346.077)">
 			<title>Rectangle.56</title>
 			<desc>Utility &#38; Security Libraries</desc>
 			<v:userDefs>
@@ -361,7 +340,7 @@
 			<text x="27.8" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Utility<v:lf/><tspan
 						x="17.44" dy="0.8em" class="st6" v:langID="1033">&#38; Security </tspan><tspan x="21.7" dy="0.8em"
 						class="st6">Libraries</tspan></text>		</g>
-		<g id="shape58-118" v:mID="58" v:groupContext="shape" transform="translate(649.843,-421.76)">
+		<g id="shape58-111" v:mID="58" v:groupContext="shape" transform="translate(649.843,-421.76)">
 			<title>Rectangle.58</title>
 			<desc>API Management &#38; Gateway SW</desc>
 			<v:userDefs>
@@ -373,7 +352,7 @@
 			<text x="0.3" y="501.25" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>API Management <tspan
 						x="6.09" dy="0.8em" class="st6">&#38; Gateway</tspan><tspan class="st6" v:langID="2057"> </tspan><tspan
 						class="st6" v:langID="2057">SW</tspan></text>		</g>
-		<g id="shape59-124" v:mID="59" v:groupContext="shape" transform="translate(294.786,-346.077)">
+		<g id="shape59-117" v:mID="59" v:groupContext="shape" transform="translate(294.786,-346.077)">
 			<title>Rectangle.59</title>
 			<desc>E2E Run-time Frameworks</desc>
 			<v:userDefs>
@@ -384,7 +363,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="9.7" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>E2E Run-time <tspan
 						x="12.4" dy="0.8em" class="st6">Frameworks</tspan></text>		</g>
-		<g id="shape87-128" v:mID="87" v:groupContext="shape" transform="translate(10.5965,-95.1864)">
+		<g id="shape87-121" v:mID="87" v:groupContext="shape" transform="translate(10.5965,-95.1864)">
 			<title>Rectangle.87</title>
 			<desc>Operating Systems &#38; Cloud Enablement Software</desc>
 			<v:userDefs>
@@ -394,7 +373,7 @@
 			<v:textRect cx="503.15" cy="463.965" width="1006.3" height="113.386"/>
 			<rect x="0" y="407.272" width="1006.3" height="113.386" class="st3"/>
 			<text x="382.42" y="418.47" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Operating Systems &#38; Cloud Enablement Software</text>		</g>
-		<g id="shape88-131" v:mID="88" v:groupContext="shape" transform="translate(24.7697,-109.36)">
+		<g id="shape88-124" v:mID="88" v:groupContext="shape" transform="translate(24.7697,-109.36)">
 			<title>Rectangle.88</title>
 			<desc>Operating Systems</desc>
 			<v:userDefs>
@@ -404,7 +383,7 @@
 			<v:textRect cx="255.118" cy="485.224" width="510.24" height="70.8661"/>
 			<rect x="0" y="449.791" width="510.236" height="70.8661" class="st5"/>
 			<text x="209.37" y="460.99" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Operating Systems</text>		</g>
-		<g id="shape92-134" v:mID="92" v:groupContext="shape" transform="translate(552.722,-109.36)">
+		<g id="shape92-127" v:mID="92" v:groupContext="shape" transform="translate(552.722,-109.36)">
 			<title>Rectangle.92</title>
 			<desc>Cloud Enablement Software (incl. the container and the contro...</desc>
 			<v:userDefs>
@@ -416,19 +395,18 @@
 			<text x="153.29" y="460.99" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Cloud Enablement Software<v:lf/><tspan
 						x="122.1" dy="0.867em" class="st9">(incl. the container and the control &#38; auto</tspan><tspan
 						class="st9">-</tspan><tspan class="st9">scaling SW)</tspan></text>		</g>
-		<g id="shape93-140" v:mID="93" v:groupContext="shape" transform="translate(564.078,-120.698)">
+		<g id="shape93-133" v:mID="93" v:groupContext="shape" transform="translate(564.078,-120.698)">
 			<title>Rectangle.93</title>
-			<desc>Orchestration &#38; Scheduling (inc. Serverless, kubernetes)</desc>
+			<desc>Orchestration &#38; Scheduling</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
-			<text x="3.31" y="492.85" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Orchestration &#38; <tspan
-						x="16.05" dy="0.8em" class="st6">Scheduling <v:lf/></tspan><tspan x="14.07" dy="0.867em" class="st9">(inc. Serverless, </tspan><tspan
-						x="20.46" dy="1em" class="st9">kubernetes)</tspan></text>		</g>
-		<g id="shape94-146" v:mID="94" v:groupContext="shape" transform="translate(657.069,-120.698)">
+			<text x="3.31" y="501.25" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Orchestration &#38; <tspan
+						x="16.05" dy="0.8em" class="st6">Scheduling </tspan> </text>		</g>
+		<g id="shape94-137" v:mID="94" v:groupContext="shape" transform="translate(657.069,-120.698)">
 			<title>Rectangle.94</title>
 			<desc>Service Mesh &#38; Proxy</desc>
 			<v:userDefs>
@@ -439,18 +417,18 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="4.66" y="501.25" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Service Mesh &#38; <tspan
 						x="28.85" dy="0.8em" class="st6">Proxy</tspan></text>		</g>
-		<g id="shape97-150" v:mID="97" v:groupContext="shape" transform="translate(39.6684,-127.785)">
+		<g id="shape97-141" v:mID="97" v:groupContext="shape" transform="translate(39.6684,-127.785)">
 			<title>Rectangle.157</title>
-			<desc>Container Oss (inc. Docker)</desc>
+			<desc>Container OS</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
-			<text x="8.49" y="501.25" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Container Oss<v:lf/><tspan
-						x="19.44" dy="1.067em" class="st9">(inc. Docker)</tspan></text>		</g>
-		<g id="shape100-154" v:mID="100" v:groupContext="shape" transform="translate(550.63,-299.305)">
+			<text x="10.43" y="506.05" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Container O<tspan
+						class="st6" v:langID="1044">S</tspan></text>		</g>
+		<g id="shape100-145" v:mID="100" v:groupContext="shape" transform="translate(549.905,-346.077)">
 			<title>Rectangle.163</title>
 			<desc>Data Access Libraries</desc>
 			<v:userDefs>
@@ -461,7 +439,7 @@
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="13.49" y="501.25" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data Access <tspan
 						x="21.7" dy="0.8em" class="st6">Libraries</tspan></text>		</g>
-		<g id="shape101-158" v:mID="101" v:groupContext="shape" transform="translate(0.25,-0.25)">
+		<g id="shape101-149" v:mID="101" v:groupContext="shape" transform="translate(0.25,-0.25)">
 			<title>Rectangle.101</title>
 			<desc>Managed Service</desc>
 			<v:userDefs>

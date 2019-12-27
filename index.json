@@ -1236,7 +1236,7 @@
 	"title": "Integration Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Integration components are in charge of enabling communications between systems",
-	"content": "\r\r"
+	"content": " Integration Software Gateway Software The gateway used is Azure Application Gateway. This is responsible for forwarding traffic to Api management or direct to the different Kubernetes Clusters\nRead more about Azure Application Gateway.\nApi Management \u0026amp; Gateway Sw Azure API managmenet is used as API management. This is a managed service.\nRead more about Azure API Management\nIntegration Frameworks \u0026amp; Libraries Data Access Libraries We use various libraries to interact with different data stores\nIntegration Libraries We use integration libraries to interact with different external and internal components.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/",
@@ -1250,7 +1250,7 @@
 	"title": "Data &amp; Reporting Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
-	"content": "\r\r"
+	"content": " Reporting Software Dashboard and reporting server software Application Insights is used for dashboard and reporting services for the platform solutions.\nData visualization software Application Insights is used for visualization\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",
@@ -1264,7 +1264,7 @@
 	"title": "Operating Systems &amp; Cloud Enablement",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
-	"content": "\r\rKubernetes\rKubernetes is an important part of the infrastructure\n\r\r"
+	"content": " Operating systems Container Operation Systems The containers is the following Operating Systems\n Alpine Linux for Altinn Platform components based on .Net Core, Altinn Studio components based on .Net Core and apps created in Altinn Studio ??? for PDF components in Altinn Platform ??? for Gitea in Altinn Studio  Cloud Enablement Sofware Orchestrating \u0026amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.\nWe use Azure Kubernetes Services that is a managed Kubernetes.\nService Mesh \u0026amp; Proxy We use Traefik as Proxy in the Kubernetes.\nCurrently we dont use Service Mest technolgies\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/",
