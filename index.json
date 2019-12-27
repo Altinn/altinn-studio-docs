@@ -1250,7 +1250,7 @@
 	"title": "Data &amp; Reporting Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
-	"content": " Reporting Software Dashboard and reporting server software Application Insights is used for dashboard and reporting services for the platform solutions.\nData visualization software Application Insights is used for visualization\n"
+	"content": " Reporting Software Dashboard and reporting server software Application Insights is used for dashboard and reporting services for the platform solutions.\nData visualization software Application Insights is used for visualization\nData Stores Multi model database service Altinn Platform uses Azure Cosmos as a Multi model database service.\nRead more about Azure Cosmos DB\nRelational DBMs We use Azure Database for PostgreSQL as a relational database for Gitea.\nRead more about Azure Database for PostgreSQL\nDirectory Services We use Azure Directory Services\nFile Storage We use Azure File Storage\nBlob Storage We use Azure Blob Storage to store both structured and unstructured data for applications in Altinn Platform\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",
