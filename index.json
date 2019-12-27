@@ -917,6 +917,13 @@
 	"content": " This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing\nThese capabilities is both targeting App developers creating applications in Altinn Studio and the application created in Altinn Studio and Deployed to Altinn Apps for end users.\nRendering \u0026amp; Interaction Capabilities Composition \u0026amp; Rendering The UI in Altinn Studio and the UI designed in Altinn Studio and beeing presented in a App to end users support composition of UI components and rendering of them,\nTODO: Link to relevant archiecture component(s) providing this capability.\nSession \u0026amp; State Management Input Validation The UI in Altinn Studio and the UI designed in Altinn Studio and beeing presented in a App to end users support input validation of data inputed by App Developers or users using Apps developed in Altinn Studio,\nTODO: Link to relevant archiecture component(s) providing this capability.\nPDF Generation Apps created in Altinn Studio have the possibility to have created a PDF of the UI designed in Altinn Studio.\nTODO: Link to relevant archiecture component(s) providing this capability.\nHelp TODO: Link to relevant archiecture component(s) providing this capability.\nNotification Management TODO: Link to relevant archiecture component(s) providing this capability.\nPresentation Adaptation Capabilities TODO: Link to relevant archiecture component(s) providing this capability.\nMulti-channel Presentation TODO: Link to relevant archiecture component(s) providing this capability.\nResponsive Presentation TODO: Link to relevant archiecture component(s) providing this capability.\nPersonalisation \u0026amp; Targeting TODO: Link to relevant archiecture component(s) providing this capability.\nLocalization TODO: Link to relevant archiecture component(s) providing this capability.\nAccessibility The presentation both in Altinn Studio for the App Developer and the presentation created in Altinn Studio and presented in the App is created to fullfill WCAG 2.0\nTODO: Link to relevant archiecture component(s) providing this capability.\nUI Design This is typical a part of the development capabilities, but since the Altinn Studio Solutions lets App developers design the UI we need this as a runtime capabilitiy also.\nUI Component Library As a App developer you have a UI component library available in Altinn Studio to select UI components from.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/",
+	"title": "Presentation Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Presentation Components are in charge of processing information and making it accessible to users.",
+	"content": " Web interemediation software Proxy Servers In Altinn Studio we use NGINX as a proxy server.\nIn Altinn Apps TRAEFIK is used as a proxy server\nCDN For Altinn apps we have create a CDN for storing common files used by browsers.\nA example is App Frontend.\nRead all about Altinn CDN\nPresentation Software Webserver For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. Read more about Kestrel at Microsoft\nFor J2EE Applications we use xxx.\nPresentation frameworks \u0026amp; Libraries SPA Frameworks Altinn Studio, Altinn Apps and Altinn Platform uses REACT.JS as Single Page Application framework.\nRead more about coding in our development handbook.\nDynamic webpage frameworks Some views in Altinnn Studio is currently created with asp.net pages coded with Razor syntax.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/",
 	"title": "App Process",
 	"tags": ["app-backend"],
@@ -1218,18 +1225,11 @@
 	"content": "Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.\n\rConceptual\rThe conceptual data model describes the data entities in the solutions and their relatiohip.\n\r\r"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/",
-	"title": "Data &amp; Reporting Components",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/logicexecution/",
+	"title": "Logic Executions Components",
 	"tags": ["architecture", "infrastructure"],
-	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
-	"content": "\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/",
-	"title": "Operating Systems &amp; Cloud Enablement",
-	"tags": ["architecture", "infrastructure"],
-	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
-	"content": "\r\rKubernetes\rKubernetes is an important part of the infrastructure\n\r\r"
+	"description": "Logic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications",
+	"content": " Code Execution Server Software Application Servers For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. Read more about Kestrel at Microsoft\nFor J2EE Applications we use xxx.\nLanguage Virtual Machines \u0026amp; Code Containers Applicatons in Altinn Studio, Altinn Apps and Altinn Platform that is based on .Net Core uses Common Language Runetime as a virual machine\nApplications in Altinn Apps and Altinn Platform that is based on J2EE runs on Java Virtual Machine.\nRun-time Frameworks \u0026amp; Libraries E2E Run-time Frameworks Most of the applications created in Altinn Studio, Altinn Apps and Altinn Platform is based on ASP.Net Core / .Net Core programmed with C# programming language\nThis is open source, multi platform and popular.\nFor PDF component we use J2EE. This is because the lack of open source PDF frameworks on .Net.\nUtility \u0026amp; Security Libraries We use serveral utility libraries in Altinn Studio, Altinn Platform and Altinn Apps.\nTypical this is configured in each of the application projects. For .Net applications we use NUGET to manage the libraries we use and you find a list over them in each project configuration files.\nExamples are\n Newtonsoft.Json StyleCop.Analyzers Microsoft.Azure.DocumentDB.Core  "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/integration/",
@@ -1239,25 +1239,18 @@
 	"content": "\r\r"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/logicexecution/",
-	"title": "Logic Executions Components",
-	"tags": ["architecture", "infrastructure"],
-	"description": "Logic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications",
-	"content": "\r\r"
-},
-{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/",
 	"title": "Platform Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Platform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.",
-	"content": "The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.\nFull screen | Visio\n\n\rData \u0026amp; Reporting Components\rData and Reporting Components hold the functionalities to manage data and create business reports.\n\r\rOperating Systems \u0026amp; Cloud Enablement\rData and Reporting Components hold the functionalities to manage data and create business reports.\n\r\rIntegration Components\rIntegration components are in charge of enabling communications between systems\n\r\rLogic Executions Components\rLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications\n\r\rPresentation Components\rPresentation Components are in charge of processing information and making it accessible to users.\n\r\r"
+	"content": "The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.\nFull screen | Visio\n\n\rPresentation Components\rPresentation Components are in charge of processing information and making it accessible to users.\n\r\rLogic Executions Components\rLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications\n\r\rIntegration Components\rIntegration components are in charge of enabling communications between systems\n\r\rData \u0026amp; Reporting Components\rData and Reporting Components hold the functionalities to manage data and create business reports.\n\r\rOperating Systems \u0026amp; Cloud Enablement\rData and Reporting Components hold the functionalities to manage data and create business reports.\n\r\r"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/",
-	"title": "Presentation Components",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/",
+	"title": "Data &amp; Reporting Components",
 	"tags": ["architecture", "infrastructure"],
-	"description": "Presentation Components are in charge of processing information and making it accessible to users.",
-	"content": " Web interemediation software Proxy Servers In Altinn Studio we use NGINX as a proxy server.\nIn Altinn Apps TRAEFIK is used as a proxy server\nCDN For Altinn apps we have create a CDN for storing common files used by browsers.\nA example is App Frontend.\nRead all about Altinn CDN\nPresentation Software Webserver For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server. Read more about Kestrel at Microsoft\nPresentation frameworks \u0026amp; Libraries SPA Frameworks Altinn Studio, Altinn Apps and Altinn Platform uses REACT.JS as Single Page Application framework.\nRead more about coding in our development handbook.\nDynamic webpage frameworks Some views in Altinnn Studio is currently created with asp.net pages coded with Razor syntax.\n"
+	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
+	"content": "\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",
@@ -1265,6 +1258,13 @@
 	"tags": ["architecture", "infrastructure"],
 	"description": "Description of the Altinn Studio infrastructure",
 	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rDeployment\rDescription of the Altinn Studio solution\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/",
+	"title": "Operating Systems &amp; Cloud Enablement",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
+	"content": "\r\rKubernetes\rKubernetes is an important part of the infrastructure\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/",
