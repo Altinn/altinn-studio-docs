@@ -5503,6 +5503,64 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/infrastructure/computing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">
+        <span>Data &amp; Reporting</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/infrastructure/network/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/infrastructure/network/">
+        <span>Data &amp; Reporting</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/infrastructure/deployment/" class="dd-item 
         
         
@@ -8641,6 +8699,33 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/kubernetes/">Kubernetes</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Kubernetes is choosen to orcestrate the containers in the different solutions. There are serveral Kubernetes Clusters involved.
+The solution uses managed Kubernetes Clusters. Azure Kubernetes Services
+I <a class="read-more" href="/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/kubernetes/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/log/">Log and log managament</a></h2>
     </header>
     <section class="post-excerpt">
@@ -8678,6 +8763,34 @@ if(host != "localhost")
 For J2EE Applications we use xxx.
 Language Virtual Machines &amp; Code Containers Applicatons in Altinn Studio, Altinn Apps and Altinn Platform that is based on .Net Core uses Common Language Runetime as a virual machine
 Applications in Altinn Apps and Altinn Platform that is based on J2EE runs on Java Virtual Machine. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/platform/logicexecution/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/infrastructure/network/">Network componentens</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Cloud Compute Container Orchestration Nodes As part of Azure Kubernetes Services setup you can change the number of nodes and the size. (CPU, RAM )
+Virtual Images We use Virtual Images hosted in Azure. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/infrastructure/network/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -8850,66 +8963,6 @@ The Policy Decision Point follow eXtensible Access Control Markup Language (XACM
 This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules.
 The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
 Policy Decision Point exposes a method that authorize the decision request. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-platform/pdp/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/pep/">Policy Enforcement Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Policy Enforcement points in apps based on the Asp.Net web application template for Altinn have configured PEP&rsquo;s on all API exposing user data.
-PEP for App backend See GitHub
-Attribute based authorization is best solved with Policy Based Authorization in asp.net core
-The Policy Enforcement Point in the ASP.Net Web application template is created as a Authorization Handler.
-In the App there is defined a set of AuthorizationRequirements and for each operation of the different API endpoints needs to be configured with the correct requirement. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/pep/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-platform/pep/">Policy Enforcment Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>There will be some different Policy Enforcement Points in Altinn Platform depending on the service in platform.
-PEP in Storage All data in storage will be related to instance data created for a specific App (service)
-Policy Enforcment Point in Storage will identify the instanceId/dataid/appid that data and call PDP to authorize Access. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-platform/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -11665,6 +11718,38 @@ Policy Enforcment Point in Storage will identify the instanceId/dataid/appid tha
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
