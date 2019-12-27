@@ -770,7 +770,7 @@
 	"content": " JWTCookieAuthentication is a asp.net core authentication service created for supporting Json Web Tokens (JWT) as bearer tokens and JWT in Cookies. It is based on JWTBearer\nThis is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from Single Page Applications (SPA) where you want to protect the JWT from this SPA. (Xss attacks). When JWT is put in a http only cookie it is not accessible from the SPA and can\u0026rsquo;t be stolen by malicous javascript running in the browser.\nThis is created as a seperate C# Project and published as a Nuget Package here\nFeatures Consumer  Support Verification of JWT Tokens as bearer tokens Support Verification of JWT Tokens from cookie Configureble name of cookie used Automatic detection if request contains Authorization bearer token or JWT in cookie Uses Microsoft.IdentityModel.Tokens for verification and generation. Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the JSON Web Key Set Support rotating of JWK (TODO)  Features ID Provider  Support Generation of JWT Tokens as bearer tokens Support Generation of JWT Tokens inside Cookies Configureble name of cookie used Configurable Signing Certitcate Uses standard JWT Library for verification and generation. Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the JSON Web Key Set Support rotating of JWK (TODO)  How To Configure JWTCookieAuthentication Configuration for consumers // Configure Authentication // Use [Authorize] to require login on MVC Controller Actions services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme) .AddJwtCookie(options =\u0026gt; { options.TokenValidationParameters = new TokenValidationParameters { ValidateIssuerSigningKey = true, ValidateIssuer = false, ValidateAudience = false, RequireExpirationTime = true, ValidateLifetime = true }; options.Cookie.Domain = Configuration[\u0026quot;GeneralSettings:HostName\u0026quot;]; options.Cookie.Name = Services.Constants.General.RuntimeCookieName; options.MetadataAddress = Configuration[\u0026quot;AppSettings:OpenIdWellKnownEndpoint\u0026quot;]; if (_env.IsDevelopment()) { options.RequireHttpsMetadata = false; } });  Configuration for the identity provider The below configuration is relevant for the Identity Provider application.\n// Use [Authorize] to require login on MVC Controller Actions services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) .AddJwtCookie(JwtCookieDefaults.AuthenticationScheme, options =\u0026gt; { options.ExpireTimeSpan = new TimeSpan(0, 30, 0); options.Cookie.Name = Common.Constants.General.RuntimeCookieName; })  How to get access to user information When a application is configured with JWTCookie authentication the information is available in httpContext about the user\npublic static int GetUserId(HttpContext context) { int userId = 0; if (context.User != null) { foreach (Claim claim in context.User.Claims) { if (claim.Type.Equals(AltinnCoreClaimTypes.UserId)) { userId = Convert.ToInt32(claim.Value); } } } return userId; }  Known Issues "
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/kubernetes/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/kubernetes/",
 	"title": "Kubernetes",
 	"tags": ["architecture"],
 	"description": "Kubernetes is an important part of the infrastructure",
@@ -1218,18 +1218,53 @@
 	"content": "Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.\n\rConceptual\rThe conceptual data model describes the data entities in the solutions and their relatiohip.\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/",
+	"title": "Data &amp; Reporting Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
+	"content": "\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/",
+	"title": "Operating Systems &amp; Cloud Enablement",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
+	"content": "\r\rKubernetes\rKubernetes is an important part of the infrastructure\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/integration/",
+	"title": "Integration Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Integration components are in charge of enabling communications between systems",
+	"content": "\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/logicexecution/",
+	"title": "Logic Executions Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Logic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications",
+	"content": "\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/",
 	"title": "Platform Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Platform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.",
-	"content": "The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.\nFull screen | Visio\n\n\r"
+	"content": "The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.\nFull screen | Visio\n\n\rData \u0026amp; Reporting Components\rData and Reporting Components hold the functionalities to manage data and create business reports.\n\r\rOperating Systems \u0026amp; Cloud Enablement\rData and Reporting Components hold the functionalities to manage data and create business reports.\n\r\rIntegration Components\rIntegration components are in charge of enabling communications between systems\n\r\rLogic Executions Components\rLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications\n\r\rPresentation Components\rPresentation Components are in charge of processing information and making it accessible to users.\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/",
+	"title": "Presentation Components",
+	"tags": ["architecture", "infrastructure"],
+	"description": "Presentation Components are in charge of processing information and making it accessible to users.",
+	"content": "\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",
 	"title": "Infrastructure",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Description of the Altinn Studio infrastructure",
-	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rDeployment\rDescription of the Altinn Studio solution\n\r\rKubernetes\rKubernetes is an important part of the infrastructure\n\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r"
+	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rDeployment\rDescription of the Altinn Studio solution\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/",
@@ -1428,7 +1463,7 @@
 	"content": "#957\nAn analysis of the agency API compatibility with Altinn Studio Apps.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/altinn-cdn/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/altinn-cdn/",
 	"title": "Altinn CDN",
 	"tags": [],
 	"description": "Description of Altinn Content Delivery Network",

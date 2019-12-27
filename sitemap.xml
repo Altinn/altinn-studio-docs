@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/kubernetes/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/kubernetes/</loc>
   </url>
   
   <url>
@@ -699,7 +699,27 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/integration/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/logicexecution/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/</loc>
   </url>
   
   <url>
@@ -819,7 +839,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/altinn-cdn/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/altinn-cdn/</loc>
   </url>
   
   <url>
