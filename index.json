@@ -1257,7 +1257,7 @@
 	"title": "Presentation Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Presentation Components are in charge of processing information and making it accessible to users.",
-	"content": "\r\rAltinn CDN\rDescription of Altinn Content Delivery Network\n\r\r"
+	"content": " Web interemediation software Proxy Servers In Altinn Studio we use NGINX as a proxy server.\nIn Altinn Apps TRAEFIK is used as a proxy server\nCDN For Altinn apps we have create a CDN for storing common files used by browsers.\nA example is App Frontend.\nRead all about Altinn CDN\nPresentation Software Webserver For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server. Read more about Kestrel at Microsoft\nPresentation frameworks \u0026amp; Libraries SPA Frameworks Altinn Studio, Altinn Apps and Altinn Platform uses REACT.JS as Single Page Application framework.\nRead more about coding in our development handbook.\nDynamic webpage frameworks Some views in Altinnn Studio is currently created with asp.net pages coded with Razor syntax.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",

@@ -14,8 +14,8 @@
 		.st4 {fill:#feffff;font-family:Calibri;font-size:1.00001em}
 		.st5 {fill:#919191;stroke:#000000;stroke-width:0.25}
 		.st6 {font-size:1em}
-		.st7 {font-size:0.666659em}
-		.st8 {fill:#f25022;stroke:#000000;stroke-width:0.25}
+		.st7 {fill:#f25022;stroke:#000000;stroke-width:0.25}
+		.st8 {font-size:0.666659em}
 		.st9 {font-size:0.749994em}
 		.st10 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
@@ -128,14 +128,14 @@
 			<text x="15.95" y="460.99" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Presentation Frameworks &#38; Libraries</text>		</g>
 		<g id="shape13-32" v:mID="13" v:groupContext="shape" transform="translate(39.6684,-246.864)">
 			<title>Rectangle.13</title>
-			<desc>Multi-channel Frameworks</desc>
+			<desc>SPA - Frameworks</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
-			<text x="8.41" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Multi-channel <tspan
+			<text x="30" y="501.25" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>SPA - <tspan
 						x="12.4" dy="0.8em" class="st6">Frameworks</tspan></text>		</g>
 		<g id="shape15-36" v:mID="15" v:groupContext="shape" transform="translate(294.786,-360.25)">
 			<title>Rectangle.15</title>
@@ -171,15 +171,15 @@
 			<text x="24.63" y="418.47" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Run-time Frameworks &#38; Libraries</text>		</g>
 		<g id="shape18-48" v:mID="18" v:groupContext="shape" transform="translate(138.881,-246.864)">
 			<title>Rectangle.18</title>
-			<desc>User Workflow Frameworks (e.g. MVC)</desc>
+			<desc>Dynamic Webpage frameworks</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
-			<text x="5.91" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>User Workflow <tspan
-						x="12.4" dy="0.8em" class="st6">Frameworks<v:lf/></tspan><tspan x="25.47" dy="1.2em" class="st7">(e.g. MVC)</tspan></text>		</g>
+			<text x="21.38" y="496.45" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Dynamic <tspan
+						x="19.21" dy="0.8em" class="st6">Webpage </tspan><tspan x="13.33" dy="0.8em" class="st6">frameworks</tspan></text>		</g>
 		<g id="shape20-53" v:mID="20" v:groupContext="shape" transform="translate(294.786,-289.384)">
 			<title>Rectangle.20</title>
 			<desc>Persistency Frameworks</desc>
@@ -209,7 +209,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="20.99" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Gateway<v:lf/><tspan
 						x="34.42" dy="0.8em" class="st6">SW</tspan></text>		</g>
 		<g id="shape27-64" v:mID="27" v:groupContext="shape" transform="translate(535.006,-236.943)">
@@ -251,7 +251,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="10.57" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Dashboard &#38; <tspan
 						x="18.5" dy="0.8em" class="st6">Reporting<v:lf/></tspan><tspan x="33.07" dy="0.8em" class="st6"> </tspan>SW</text>		</g>
 		<g id="shape37-79" v:mID="37" v:groupContext="shape" transform="translate(790.124,-237.792)">
@@ -272,7 +272,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="18.07" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Relational <tspan
 						x="25.33" dy="0.8em" class="st6">DBMSs</tspan></text>		</g>
 		<g id="shape40-86" v:mID="40" v:groupContext="shape" transform="translate(797.31,-289.384)">
@@ -283,7 +283,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="24.33" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>No-SQL<v:lf/><tspan
 						x="17.45" dy="0.8em" class="st6">Server SW</tspan></text>		</g>
 		<g id="shape42-90" v:mID="42" v:groupContext="shape" transform="translate(904.235,-246.864)">
@@ -294,9 +294,9 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="19.86" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Directory<v:lf/><tspan
-						x="17.45" dy="0.8em" class="st6">Server SW<v:lf/></tspan><tspan x="24.77" dy="1.2em" class="st7">(e.g. LDAP)</tspan></text>		</g>
+						x="17.45" dy="0.8em" class="st6">Server SW<v:lf/></tspan><tspan x="24.77" dy="1.2em" class="st8">(e.g. LDAP)</tspan></text>		</g>
 		<g id="shape46-95" v:mID="46" v:groupContext="shape" transform="translate(24.7697,-402.77)">
 			<title>Rectangle.46</title>
 			<desc>Web Intermediation Software</desc>
@@ -317,7 +317,7 @@
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="10.57" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Web Caching <tspan
-						x="17.45" dy="0.8em" class="st6">Server SW<v:lf/></tspan><tspan x="23.81" dy="1.2em" class="st7">(incl. CDNs)</tspan></text>		</g>
+						x="17.45" dy="0.8em" class="st6">Server SW<v:lf/></tspan><tspan x="23.81" dy="1.2em" class="st8">(incl. CDNs)</tspan></text>		</g>
 		<g id="shape49-103" v:mID="49" v:groupContext="shape" transform="translate(39.6684,-416.943)">
 			<title>Rectangle.49</title>
 			<desc>Proxy Server SW</desc>
@@ -337,7 +337,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="7.59" y="506.05" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>File Server SW</text>		</g>
 		<g id="shape52-110" v:mID="52" v:groupContext="shape" transform="translate(805.023,-360.25)">
 			<title>Rectangle.52</title>
@@ -347,7 +347,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="31.07" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data <tspan
 						x="11.69" dy="0.8em" class="st6">Visualisation<v:lf/></tspan><tspan x="34.42" dy="0.8em" class="st6">SW</tspan></text>		</g>
 		<g id="shape55-115" v:mID="55" v:groupContext="shape" transform="translate(904.235,-360.25)">
@@ -358,7 +358,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="9.08" y="501.25" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>BI &#38; Analytics <tspan
 						x="34.42" dy="0.8em" class="st6">SW</tspan></text>		</g>
 		<g id="shape56-119" v:mID="56" v:groupContext="shape" transform="translate(393.999,-289.384)">
@@ -381,7 +381,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="0.3" y="501.25" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>API Management <tspan
 						x="6.09" dy="0.8em" class="st6">&#38; Gateway</tspan><tspan class="st6" v:langID="2057"> </tspan><tspan
 						class="st6" v:langID="2057">SW</tspan></text>		</g>
@@ -395,7 +395,7 @@
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
 			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st1"/>
 			<text x="9.7" y="496.45" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>E2E Run-time <tspan
-						x="12.4" dy="0.8em" class="st6">Frameworks<v:lf/></tspan><tspan x="18.72" dy="1.2em" class="st7">(e.g. JEE, .NET)</tspan></text>		</g>
+						x="12.4" dy="0.8em" class="st6">Frameworks<v:lf/></tspan><tspan x="18.72" dy="1.2em" class="st8">(e.g. JEE, .NET)</tspan></text>		</g>
 		<g id="shape87-135" v:mID="87" v:groupContext="shape" transform="translate(10.5965,-95.1864)">
 			<title>Rectangle.87</title>
 			<desc>Operating Systems &#38; Cloud Enablement Software</desc>
@@ -436,7 +436,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="3.31" y="492.85" class="st4" v:langID="1033"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Orchestration &#38; <tspan
 						x="16.05" dy="0.8em" class="st6">Scheduling <v:lf/></tspan><tspan x="14.07" dy="0.867em" class="st9">(inc. Serverless, </tspan><tspan
 						x="20.46" dy="1em" class="st9">kubernetes)</tspan></text>		</g>
@@ -481,7 +481,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="503.65" width="85.04" height="34.0157"/>
-			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st8"/>
+			<rect x="0" y="486.642" width="85.0394" height="34.0157" class="st7"/>
 			<text x="0.73" y="506.05" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Managed Service</text>		</g>
 	</g>
 </svg>
