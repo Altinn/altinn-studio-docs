@@ -491,6 +491,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/pap/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/</loc>
   </url>
   
@@ -503,7 +507,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/common/pep/</loc>
   </url>
   
   <url>

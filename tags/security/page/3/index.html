@@ -4806,8 +4806,44 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/pap/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/pap/">
+        <span>PAP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -5005,26 +5041,6 @@ if(host != "localhost")
  
   
     
-      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/" class="dd-item
-     
-      ">
-        <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/">
-        <span>PEP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/" class="dd-item
      
       ">
@@ -5091,6 +5107,26 @@ if(host != "localhost")
         </ul>
               
     </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/common/pep/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/components/application/solution/common/pep/">
+        <span>PEP</span> 
+        
+        </a></li>
+     
   
  
 
@@ -8715,6 +8751,37 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Policy Decision Point is implemented in the authorization application that is deployed Altinn Platform.
+The Policy Decision Point follow eXtensible Access Control Markup Language (XACML) Version 3.0.
+This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules.
+The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
+Policy Decision Point exposes a method that authorize the decision request. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/pep/">Policy Enforcement Point</a></h2>
     </header>
     <section class="post-excerpt">
@@ -8746,12 +8813,12 @@ In the App there is defined a set of AuthorizationRequirements and for each oper
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/">Policy Enforcment Point</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/common/pep/">Policy Enforcment Point</a></h2>
     </header>
     <section class="post-excerpt">
         <p>There will be some different Policy Enforcement Points in Altinn Platform depending on the service in platform.
 PEP in Storage All data in storage will be related to instance data created for a specific App (service)
-Policy Enforcment Point in Storage will identify the instanceId/dataid/appid that data and call PDP to authorize Access. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/">&raquo;</a></p>
+Policy Enforcment Point in Storage will identify the instanceId/dataid/appid that data and call PDP to authorize Access. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/common/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -11292,6 +11359,22 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
                               
           
                               
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
                       
                   
                               
@@ -11338,54 +11421,6 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                                   
                       
@@ -11467,8 +11502,56 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
                       
                   
                               
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   
