@@ -50,7 +50,7 @@ it contains all attributes that PDP needs to take a decision.
 The policy administration point is where the policy rules are defined. 
 The policy for Apps is defined in Altinn Studio
 
-[Learn about Policy Administration Point in Altinn Studio](../.../altinn-studio/pap)
+[Learn about Policy Administration Point in Altinn Studio](../../altinn-studio/pap)
 
 ### Policy Enforcement Point (Common)
 The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation

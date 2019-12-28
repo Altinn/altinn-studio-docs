@@ -4,7 +4,7 @@ linktitle: Altinn Studio
 description: The Application Solution Architecture describes how the functionality is located in the different applications. 
 tags: [architecture, solution]
 weight: 90
-alwaysopen: true
+alwaysopen: false
 ---
 
 {{%excerpt%}}

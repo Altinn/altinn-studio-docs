@@ -4,7 +4,7 @@ linktitle: Altinn Apps
 description: Description of the Altinn Studio solution
 tags: [architecture, solution]
 weight: 100
-alwaysopen: true
+alwaysopen: false
 ---
 
 Functionality in Altinn Studio is distributed between different applications.  

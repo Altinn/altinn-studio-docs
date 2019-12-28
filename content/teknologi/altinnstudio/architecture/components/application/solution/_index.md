@@ -4,6 +4,7 @@ linktitle: Solution
 description: Description of the Altinn Studio solution architecture
 tags: [solution, architecture]
 alwaysopen: false
+weight: 99
 ---
 
 Functionality in Altinn is distributed between five different solutions

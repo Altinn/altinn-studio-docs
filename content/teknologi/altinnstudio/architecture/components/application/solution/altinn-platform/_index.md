@@ -4,7 +4,7 @@ linktitle: Altinn Platform
 description: Description of the Altinn Platform solution
 tags: [architecture, solution]
 weight: 100
-alwaysopen: true
+alwaysopen: false
 ---
 
 Functionality in Altinn Platform is distributed between different reusable components.  
