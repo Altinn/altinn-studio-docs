@@ -107,7 +107,7 @@
 				</v:userDefs>
 				<rect x="0" y="309.476" width="141.732" height="99.2126" class="st11"/>
 			</g>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/non_functional/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/non_functional/">
 				<g id="shape11-47" v:mID="11" v:groupContext="shape" transform="translate(19.3071,-47.7638)">
 					<title>Rectangle.11</title>
 					<desc>Non Functional</desc>
@@ -119,7 +119,7 @@
 					<rect x="0" y="383.177" width="113.386" height="25.5118" class="st12"/>
 					<text x="28.87" y="398.63" class="st13" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Non Functional</text>				</g>
 			</a>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/functional/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/functional/">
 				<g id="shape12-50" v:mID="12" v:groupContext="shape" transform="translate(19.3071,-12.3307)">
 					<title>Rectangle.12</title>
 					<desc>Functional</desc>
@@ -148,7 +148,7 @@
 				</v:userDefs>
 				<rect x="0" y="266.957" width="141.732" height="141.732" class="st16"/>
 			</g>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/">
 				<g id="shape16-59" v:mID="16" v:groupContext="shape" transform="translate(19.3071,-93.5433)">
 					<title>Rectangle.16</title>
 					<desc>Application</desc>
@@ -160,7 +160,7 @@
 					<rect x="0" y="383.177" width="113.386" height="25.5118" class="st12"/>
 					<text x="35.96" y="398.63" class="st13" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Application</text>				</g>
 			</a>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/">
 				<g id="shape17-62" v:mID="17" v:groupContext="shape" transform="translate(19.3071,-65.3543)">
 					<title>Rectangle.17</title>
 					<desc>Data</desc>
@@ -172,7 +172,7 @@
 					<rect x="0" y="383.177" width="113.386" height="25.5118" class="st12"/>
 					<text x="48.11" y="398.63" class="st13" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Data</text>				</g>
 			</a>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/">
 				<g id="shape18-65" v:mID="18" v:groupContext="shape" transform="translate(19.3071,-37.1653)">
 					<title>Rectangle.18</title>
 					<desc>Platform</desc>
@@ -191,7 +191,7 @@
 				<v:textRect cx="76" cy="398.689" width="152.01" height="20"/>
 				<rect x="0" y="388.689" width="152" height="20" class="st14"/>
 				<text x="44.88" y="402.29" class="st15" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Components</text>			</g>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/">
 				<g id="shape23-71" v:mID="23" v:groupContext="shape" transform="translate(19.3071,-8.50393)">
 					<title>Rectangle.23</title>
 					<desc>Infrastructure</desc>
@@ -213,7 +213,7 @@
 				</v:userDefs>
 				<rect x="0" y="320.815" width="141.732" height="87.874" class="st17"/>
 			</g>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/">
 				<g id="shape14-77" v:mID="14" v:groupContext="shape" transform="translate(24.4409,-42.5197)">
 					<title>Rectangle.14</title>
 					<desc>Devops</desc>
@@ -225,7 +225,7 @@
 					<rect x="0" y="383.177" width="113.386" height="25.5118" class="st12"/>
 					<text x="43.16" y="398.63" class="st13" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Devops</text>				</g>
 			</a>
-			<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/">
+			<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/">
 				<g id="shape15-80" v:mID="15" v:groupContext="shape" transform="translate(24.4409,-9.92126)">
 					<title>Rectangle.15</title>
 					<desc>Runtime</desc>
@@ -254,7 +254,7 @@
 			<rect v:rectContext="textBkgnd" x="4.00012" y="403.289" width="116.335" height="10.7998" class="st5"/>
 			<text x="4" y="411.39" class="st9" v:langID="1033"><v:paragraph v:spLine="-1.08" v:spAfter="8" v:bulletSize="0.166667"/><v:tabList/>What capabilities is needed<tspan
 						class="st10" v:langID="1044">?</tspan></text>		</g>
-		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/principles/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/principles/">
 			<g id="shape31-94" v:mID="31" v:groupContext="shape" transform="translate(402.234,-354.581)">
 				<title>Rectangle.11</title>
 				<desc>Principles</desc>
@@ -266,7 +266,7 @@
 				<rect x="0" y="383.177" width="113.386" height="25.5118" class="st12"/>
 				<text x="39.07" y="398.63" class="st13" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Principles</text>			</g>
 		</a>
-		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/patterns/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/patterns/">
 			<g id="shape32-97" v:mID="32" v:groupContext="shape" transform="translate(402.234,-323.4)">
 				<title>Rectangle.32</title>
 				<desc>Patterns</desc>
