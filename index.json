@@ -193,7 +193,7 @@
 	"title": "Development &amp; Operations Capabilties",
 	"tags": ["architecture"],
 	"description": "The development &amp; operations architecture capabilities list the capabilities used to implement and run Altinn Studio, Altinn Apps and Altinn Platform.",
-	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\n\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rDevelopment\r\n\r\r"
+	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\n\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rDevelopment\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
@@ -957,6 +957,13 @@
 	"tags": [],
 	"description": "Description of the current status of the project",
 	"content": " Building Altinn Studio is a large project with lots of complexity.\nThe solutions will be open source, we are having all our issues on Github and the below diagrams shows a visual status of the project. (Updated weekly)\nSolution status This diagram shows the status of the different areas based on the solutions where the areas are implemented. This digram let you understand where in the solution there are work left. \nFull screen | Visio\nFunctional status This diagram has purly functional focus. It does not care about where any issues are located and why things does not work. A area can be red even it is 100% complete if testing of a functionality is blocked by other non related issues.\n\nFull screen | Visio\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/quality/",
+	"title": "Quality Management Capabilities",
+	"tags": ["architecture"],
+	"description": "Quality Management Capabilities covers the different capabilities to mange the project.",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/rest/",
