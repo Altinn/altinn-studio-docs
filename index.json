@@ -445,7 +445,7 @@
 	"title": "Altinn Platform - Authorization",
 	"tags": ["architecture", "solution"],
 	"description": "Description of authorization component",
-	"content": " This page is a work-in-progress. Currently we haven\u0026rsquo;t defined all the resources and operations for the authorization component.\n\rThe Authorization component exposes a REST-API to Altinn Apps.\nAuthorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.\nResources: Actor, Roles\nParties A party is a person whom you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.\nOperations Get a list of parties that the user can represent. The userid is sent as parameter\nGET /authorization/api/v1/parties?userid={userid}  Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters\nGET /authorization/api/v1/parties/{partyId}/validate?userid={userid}  Roles A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.\nOperations Get a list of roles that the user can perform for the selected party\nGET /authorization/api/v1/roles  Policies A set of polices contains authorization rules.\nOperations Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the policy format here.\nPOST /authorization/api/v1/policies?org=org\u0026amp;app=app  "
+	"content": "The Authorization Component is a ASP.Net core /.Net Core application running in a docker container.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/",
@@ -456,6 +456,13 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/",
+	"title": "Altinn Platform - Authorization",
+	"tags": ["architecture", "solution"],
+	"description": "Description of authorization component",
+	"content": " This page is a work-in-progress. Currently we haven\u0026rsquo;t defined all the resources and operations for the authorization component.\n\rThe Authorization component exposes a REST-API to Altinn Apps.\nAuthorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.\nResources: Actor, Roles\nParties A party is a person whom you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.\nOperations Get a list of parties that the user can represent. The userid is sent as parameter\nGET /authorization/api/v1/parties?userid={userid}  Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters\nGET /authorization/api/v1/parties/{partyId}/validate?userid={userid}  Roles A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.\nOperations Get a list of roles that the user can perform for the selected party\nGET /authorization/api/v1/roles  Policies A set of polices contains authorization rules.\nOperations Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the policy format here.\nPOST /authorization/api/v1/policies?org=org\u0026amp;app=app  "
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/",
 	"title": "Authorization Component - Altinn Platform",
 	"tags": ["architecture", "security", "authorization", "Altinn Platform"],
 	"description": "Description of the Authorization Architecture for Altinn Platform",

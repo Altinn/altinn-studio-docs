@@ -3674,6 +3674,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">
+        <span>Authorization</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
       <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/model/" class="dd-item
      
       ">
@@ -8625,55 +8645,7 @@ if(host != "localhost")
 
 
 
-
-
-<div class="notices warning" ><p>This page is a work-in-progress. Currently we haven&rsquo;t defined all the resources and operations for the authorization component.</p>
-</div>
-
-
-<p>The Authorization component exposes a REST-API to Altinn Apps.</p>
-
-<p>Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.</p>
-
-<p>Resources: Actor, Roles</p>
-
-<h2 id="parties">Parties</h2>
-
-<p>A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.</p>
-
-<h3 id="operations">Operations</h3>
-
-<p>Get a list of parties that the user can represent. The userid is sent as parameter</p>
-
-<pre><code class="language-http">GET /authorization/api/v1/parties?userid={userid}
-</code></pre>
-
-<p>Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters</p>
-
-<pre><code class="language-http">GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
-</code></pre>
-
-<h2 id="roles">Roles</h2>
-
-<p>A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.</p>
-
-<h3 id="operations-1">Operations</h3>
-
-<p>Get a list of roles that the user can perform for the selected party</p>
-
-<pre><code class="language-http">GET /authorization/api/v1/roles
-</code></pre>
-
-<h2 id="policies">Policies</h2>
-
-<p>A set of polices contains authorization rules.</p>
-
-<h3 id="operations-2">Operations</h3>
-
-<p>Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the <a href="../../../security/authorization/altinn-platform/prp">policy format</a> here.</p>
-
-<pre><code class="language-http">POST /authorization/api/v1/policies?org=org&amp;app=app
-</code></pre>
+<p>The Authorization Component is a ASP.Net core /.Net Core application running in a docker container.</p>
 
 
 <footer class=" footline" >
@@ -10470,6 +10442,22 @@ if(host != "localhost")
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

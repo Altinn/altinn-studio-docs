@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Tips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din. Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.">
+    <meta name="description" content="Description of the Authorization Architecture for Altinn Platform">
 
 
     
-    <title>Skriveråd :: Altinn digitalisering - Utvikling</title>
+    <title>Authorization Component - Altinn Platform :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/innhold/skriver%C3%A5d/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -387,7 +387,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -400,7 +400,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -454,7 +454,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -467,7 +467,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2627,7 +2627,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2640,7 +2640,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3335,7 +3335,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3348,7 +3348,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3373,7 +3373,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3386,7 +3386,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3411,7 +3411,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3424,7 +3424,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3601,7 +3601,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3614,7 +3614,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3639,7 +3639,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3652,7 +3652,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3675,7 +3675,7 @@ if(host != "localhost")
   
     
       <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/" class="dd-item
-     
+     active
       ">
         <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">
         <span>Authorization</span> 
@@ -8416,7 +8416,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/innhold/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -8429,7 +8429,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -8483,8 +8483,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/innhold/skriver%C3%A5d/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/innhold/skriver%C3%A5d/">
@@ -8576,7 +8576,42 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/innhold/'>Innhold</a> <span class='adocs-breadcrumb-divider'> / </span> Skriveråd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/solution/'>Solution</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> Authorization
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
  
 
@@ -8588,32 +8623,30 @@ if(host != "localhost")
           </div>
         
         
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/authorization">authorization</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-platform">Altinn Platform</a>
+            
+          </div>
+        
         <div id="body-inner">
           
             
               <h1 class="a-fontBold">
-                Skriveråd
+                Authorization Component - Altinn Platform
                 
               </h1>
-              <p class="a-leadText" id="leadText">Tips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din. Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.</p>
+              <p class="a-leadText" id="leadText">Description of the Authorization Architecture for Altinn Platform</p>
             
           
 
           
-            <h2>På denne siden:</h2>
-              <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#tall-nummer-og-tid">Tall, nummer og tid</a>
-<ul>
-<li><a href="#tid-og-dato">Tid og dato</a></li>
-<li><a href="#organisasjonsnummer-bankkonto-personnummer-og-telefonnummer">Organisasjonsnummer, bankkonto, personnummer og telefonnummer</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-          
 
 
 
@@ -8623,52 +8656,100 @@ if(host != "localhost")
 
 
 
-<p><br></p>
+<p>Altinn Platform has a <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
+In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
+what type of data element and so on.</p>
+
+<p>The Authorization Component contains a large part of the authorization architecture components.</p>
+
+<h2 id="authorization-architecture-components">Authorization Architecture Components</h2>
+
+<p>The authorization architecture for Altinn Platform are based on the
+<a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
+
+<p>This architecture defines the following components.</p>
+
+<h2 id="policy-decision-point-pdp">Policy Decision Point (PDP)</h2>
+
+<p>The Policy Decision Point is responsible for deciding if the requested operation is allowed.
+PDP looks at the rules defined for a given resource and based on roles or other claims it decides if
+user or system can perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution</p>
+
+<p><a href="pdp">Learn about Policy Decision Point in authorization component</a></p>
+
+<h3 id="policy-information-point">Policy Information Point</h3>
+
+<p>The Policy Information Point is used by PDP to gather information needed to perform the decision.
+Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.</p>
+
+<p><a href="pip">Learn about Policy Information Point in authorization component</a></p>
+
+<h3 id="policy-retrieval-point">Policy Retrieval Point</h3>
+
+<p>The policy retrieval point is where PDP can request the policies for a given
+resource. Altinn Apps uses PRP in Altinn Platform
+<a href="prp">Learn about Policy Retrieval Point in authorization component</a></p>
+
+<h3 id="context-handler">Context handler</h3>
+
+<p>The context handler is responsible for enriching the decision request, so
+it contains all attributes that PDP needs to take a decision.
+ Altinn Apps uses Context Handler in Altinn Platform</p>
+
+<p><a href="contexthandler">Learn about Context Handler in authorization component</a></p>
+
+<h3 id="policy-administration-point-altinn-studio">Policy Administration Point (Altinn Studio)</h3>
+
+<p>The policy administration point is where the policy rules are defined.
+The policy for Apps is defined in Altinn Studio</p>
+
+<p><a href="../../altinn-studio/pap">Learn about Policy Administration Point in Altinn Studio</a></p>
+
+<h3 id="policy-enforcement-point-common">Policy Enforcement Point (Common)</h3>
+
+<p>The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
+on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized</p>
+
+<p><a href="../../common/pep">Learn about Policy Enforcement Point in apps based on ASP.NET core template</a></p>
+
+<h2 id="the-overall-authorization-flow">The Overall Authorization flow</h2>
+
+<p>The sequence diagram below shows how request is authorized</p>
+
+
+	<p><object data="authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object></p>
 
 
 
-<div class="panel panel-primary">
-	
-	<div class="panel-body"><p><strong>NB: Innholdet og sidene er under utvikling</strong><br>
-Vi er ikke helt ferdige med disse ressursene enda</p>
-</div>
-	
-</div>
+<p><a href="authorization_flow_app_platform.svg">See fullscreen</a></p>
 
+<h3 id="example-process">Example process</h3>
 
-<h2 id="tall-nummer-og-tid">Tall, nummer og tid</h2>
+<p>The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data</p>
 
-<p>Så fremt ikke annet er oppgitt her bruker vi retningslinjene for skrivemåte fra Språkrådet. Det er viktig at disse reglene følges konsekvent. Særlig aktuelt for Altinn er følgende regler:</p>
-
-<h3 id="tid-og-dato">Tid og dato</h3>
-
-<p>Klokkeslett skal kun vises der det gir verdi for brukeren. I innboksen vil det for eksempel være naturlig å vise klokkeslett for meldinger mottatt samme dag men erstatte klokkeslett med dato for meldinger mottatt tidligere. Vi skriver som hovedregel dato med årstall når det er enkeltstående hendelser og kun dag og måned når det er snakk om gjentagende frister eller hendelser.</p>
-
-<ul>
-<li>Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45</li>
-<li>Dato skal som hovedregel skrives slik: 05.06.2017</li>
-<li>Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017</li>
-</ul>
-
-<h3 id="organisasjonsnummer-bankkonto-personnummer-og-telefonnummer">Organisasjonsnummer, bankkonto, personnummer og telefonnummer</h3>
-
-<p>Riktig og konsekvent oppdeling av tallene hjelper brukeren å lese og skille forskjellige typer nummer. Ingen av nummerne skal skilles med punktum, kun mellomrom. I felt hvor brukeren skal skrive inn lengre nummer er det hjelpsomt å indikere antall siffer.</p>
-
-<ul>
-<li>Organisasjonsnummer deles opp i tre og tre: 123 456 789</li>
-<li>Bankkonto deles opp i fire, to og fem: 1234 56 78901</li>
-<li>Personnummer deles opp i seks og fem: 123456 78901</li>
-<li>Mobilnummer deles opp i tre, to og tre: 987 65 432</li>
-<li>Fasttelefon og faks deles opp i to og to: 98 76 54 32</li>
-</ul>
+<ol>
+<li>User trigger save in the REACT application. REACT application makes a http post request against the
+<a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css">ServiceAPIController</a> in</li>
+<li>The configured Policy Enforcement Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,<br />
+triggers to verify that user is authorized</li>
+<li>The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request</li>
+<li>The PEP calls the PDP functionality in <a href="/solutions/altinn-platform/authorization/">Authorization Component</a> in Altinn Platform</li>
+<li>PDP calls context handler to enrich the decision request</li>
+<li>Context handler calls Storage PIP to get resource information</li>
+<li>Context handler calls authorization PIP to get roles user have for resource party</li>
+<li>Context handler enriches the decision request and return to PDP</li>
+<li>PDP calls PRP to get the policy for the resource</li>
+<li>PDP evaluates the decision request and returns a decision response</li>
+<li>If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough.
+If it is enough the request is let through</li>
+<li>If the authentication level is not high enough the PEP will throw a not authorized exception (403)</li>
+<li>If the result was &ldquo;Not Applicable&rdquo; the PEP will throw  a not authorized exception (403)</li>
+</ol>
 
 
 <footer class=" footline" >
 	
 </footer>
-
-
-
 
 
                 </div>
@@ -8832,6 +8913,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
+                              
                           
                           
           
@@ -8846,6 +8928,9 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -8863,6 +8948,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
+                              
                           
                           
           
@@ -8877,6 +8963,9 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -9960,6 +10049,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
+                              
                           
                           
           
@@ -9974,6 +10064,9 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -10305,6 +10398,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
+                              
                           
                           
           
@@ -10319,6 +10413,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
+                              
                               
                           
                           
@@ -10335,6 +10430,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
+                              
                           
                           
           
@@ -10349,6 +10445,9 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -10418,6 +10517,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
+                              
                           
                           
           
@@ -10432,6 +10532,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
+                              
                               
                           
                           
@@ -10446,6 +10547,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
+                              
                           
                           
           
@@ -10461,6 +10563,9 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -12880,7 +12985,6 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
-                              
                           
                           
           
@@ -12895,9 +12999,6 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -12915,7 +13016,6 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                           
                               
-                              
                           
                           
           
@@ -12931,9 +13031,6 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -12956,10 +13053,10 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
           
           
                   
-                      <a class="nav nav-prev" href="/innhold/m%C3%A5lform/" title="Målform"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/" title="Altinn Platform - Authorization"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/innhold/universell-utforming-for-innhold/" title="Universell utforming for innhold" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/model/" title="Authorization model" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -12971,7 +13068,7 @@ Vi er ikke helt ferdige med disse ressursene enda</p>
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/innhold/skriver%c3%a5d/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>

@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the Authorization Architecture for Altinn Platform">
+    <meta name="description" content="Description of authorization component">
 
 
     
-    <title>Authorization Component - Altinn Platform :: Altinn digitalisering - Utvikling</title>
+    <title>Altinn Platform - Authorization :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -3666,6 +3666,26 @@ if(host != "localhost")
           
           
         
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">
+        <span>Authorization</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
           
             
             
@@ -8602,11 +8622,7 @@ if(host != "localhost")
             
               <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/authorization">authorization</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-platform">Altinn Platform</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a>
             
           </div>
         
@@ -8614,10 +8630,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Authorization Component - Altinn Platform
+                Altinn Platform - Authorization
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the Authorization Architecture for Altinn Platform</p>
+              <p class="a-leadText" id="leadText">Description of authorization component</p>
             
           
 
@@ -8631,95 +8647,53 @@ if(host != "localhost")
 
 
 
-<p>Altinn Platform has a <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.
-In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
-what type of data element and so on.</p>
-
-<p>The Authorization Component contains a large part of the authorization architecture components.</p>
-
-<h2 id="authorization-architecture-components">Authorization Architecture Components</h2>
-
-<p>The authorization architecture for Altinn Platform are based on the
-<a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
-
-<p>This architecture defines the following components.</p>
-
-<h2 id="policy-decision-point-pdp">Policy Decision Point (PDP)</h2>
-
-<p>The Policy Decision Point is responsible for deciding if the requested operation is allowed.
-PDP looks at the rules defined for a given resource and based on roles or other claims it decides if
-user or system can perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution</p>
-
-<p><a href="pdp">Learn about Policy Decision Point in authorization component</a></p>
-
-<h3 id="policy-information-point">Policy Information Point</h3>
-
-<p>The Policy Information Point is used by PDP to gather information needed to perform the decision.
-Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.</p>
-
-<p><a href="pip">Learn about Policy Information Point in authorization component</a></p>
-
-<h3 id="policy-retrieval-point">Policy Retrieval Point</h3>
-
-<p>The policy retrieval point is where PDP can request the policies for a given
-resource. Altinn Apps uses PRP in Altinn Platform
-<a href="prp">Learn about Policy Retrieval Point in authorization component</a></p>
-
-<h3 id="context-handler">Context handler</h3>
-
-<p>The context handler is responsible for enriching the decision request, so
-it contains all attributes that PDP needs to take a decision.
- Altinn Apps uses Context Handler in Altinn Platform</p>
-
-<p><a href="contexthandler">Learn about Context Handler in authorization component</a></p>
-
-<h3 id="policy-administration-point-altinn-studio">Policy Administration Point (Altinn Studio)</h3>
-
-<p>The policy administration point is where the policy rules are defined.
-The policy for Apps is defined in Altinn Studio</p>
-
-<p><a href="../../altinn-studio/pap">Learn about Policy Administration Point in Altinn Studio</a></p>
-
-<h3 id="policy-enforcement-point-common">Policy Enforcement Point (Common)</h3>
-
-<p>The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
-on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized</p>
-
-<p><a href="../../common/pep">Learn about Policy Enforcement Point in apps based on ASP.NET core template</a></p>
-
-<h2 id="the-overall-authorization-flow">The Overall Authorization flow</h2>
-
-<p>The sequence diagram below shows how request is authorized</p>
+<div class="notices warning" ><p>This page is a work-in-progress. Currently we haven&rsquo;t defined all the resources and operations for the authorization component.</p>
+</div>
 
 
-	<p><object data="authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object></p>
+<p>The Authorization component exposes a REST-API to Altinn Apps.</p>
 
+<p>Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.</p>
 
+<p>Resources: Actor, Roles</p>
 
-<p><a href="authorization_flow_app_platform.svg">See fullscreen</a></p>
+<h2 id="parties">Parties</h2>
 
-<h3 id="example-process">Example process</h3>
+<p>A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.</p>
 
-<p>The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data</p>
+<h3 id="operations">Operations</h3>
 
-<ol>
-<li>User trigger save in the REACT application. REACT application makes a http post request against the
-<a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css">ServiceAPIController</a> in</li>
-<li>The configured Policy Enforcement Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,<br />
-triggers to verify that user is authorized</li>
-<li>The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request</li>
-<li>The PEP calls the PDP functionality in <a href="/solutions/altinn-platform/authorization/">Authorization Component</a> in Altinn Platform</li>
-<li>PDP calls context handler to enrich the decision request</li>
-<li>Context handler calls Storage PIP to get resource information</li>
-<li>Context handler calls authorization PIP to get roles user have for resource party</li>
-<li>Context handler enriches the decision request and return to PDP</li>
-<li>PDP calls PRP to get the policy for the resource</li>
-<li>PDP evaluates the decision request and returns a decision response</li>
-<li>If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough.
-If it is enough the request is let through</li>
-<li>If the authentication level is not high enough the PEP will throw a not authorized exception (403)</li>
-<li>If the result was &ldquo;Not Applicable&rdquo; the PEP will throw  a not authorized exception (403)</li>
-</ol>
+<p>Get a list of parties that the user can represent. The userid is sent as parameter</p>
+
+<pre><code class="language-http">GET /authorization/api/v1/parties?userid={userid}
+</code></pre>
+
+<p>Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters</p>
+
+<pre><code class="language-http">GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
+</code></pre>
+
+<h2 id="roles">Roles</h2>
+
+<p>A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.</p>
+
+<h3 id="operations-1">Operations</h3>
+
+<p>Get a list of roles that the user can perform for the selected party</p>
+
+<pre><code class="language-http">GET /authorization/api/v1/roles
+</code></pre>
+
+<h2 id="policies">Policies</h2>
+
+<p>A set of polices contains authorization rules.</p>
+
+<h3 id="operations-2">Operations</h3>
+
+<p>Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the <a href="../../../security/authorization/altinn-platform/prp">policy format</a> here.</p>
+
+<pre><code class="language-http">POST /authorization/api/v1/policies?org=org&amp;app=app
+</code></pre>
 
 
 <footer class=" footline" >
@@ -10527,6 +10501,22 @@ If it is enough the request is let through</li>
                               
                                   
                                   
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
                               
                           
                           
@@ -13017,7 +13007,7 @@ If it is enough the request is let through</li>
                       <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/" title="Solution Architecture Altinn Platform"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/model/" title="Authorization model" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/" title="Authorization Component - Altinn Platform" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
