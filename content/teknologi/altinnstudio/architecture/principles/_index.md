@@ -1,6 +1,6 @@
 ---
 title: Architecture Principles
-description: The following architecture principles has been defined for the solutions
+description: The Architecture Principles are guidelines for the construction of the architecture.
 tags: [architecture]
 linktitle: Principles
 weight: 6
@@ -8,8 +8,11 @@ alwaysopen: false
 aliases:
  - /architecture/
 ---
+The following architecture principles has been defined for the solutions. 
 
-The [architecture principles](https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html) below is described like TOGAF recomends.
+The principles are document as suggested by [TOGAF](https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html). 
+
+The [architecture principles]() below is described like TOGAF recomends.
 
 ### Free and open-source software
 
