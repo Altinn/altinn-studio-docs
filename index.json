@@ -260,9 +260,9 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/",
-	"title": "Solution Architecture",
+	"title": "Solution-Specific (Functional) Application Components",
 	"tags": ["solution", "architecture"],
-	"description": "Description of the Altinn Studio solution architecture",
+	"description": "Solution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.",
 	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n"
 },
 {
@@ -410,7 +410,7 @@
 	"title": "Application Architecture",
 	"tags": ["architecture"],
 	"description": "The Application Architecture is split in Application Solution Architecture and Application Construction Architecture",
-	"content": "\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\rApplication Construction Architecture\rThe Application Construction Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\r"
+	"content": "\r\rSolution-Specific (Functional) Application Components\rSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.\n\r\rApplication Construction Architecture\rThe Application Construction Architecture describes how the different applications are constructed with details about technology used.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/",
@@ -420,18 +420,18 @@
 	"content": " Architecture decision tree The non functional and functional requirements gives input to which capabilities for both devops and runtime that is needed in the solutions. It also gives input which type of components that is needed to implement the capabilties. The Architecture Principles and Architecture Patterns is affected by the architectural concerns and gives guidlines to which capabilities that is needed and how the components should implement the capabilities.\n\n\rRequirements\rFunctional and non functional requirements for the solutions have affect the architecture decisions.\n\r\rArchitecture Principles\rThe following architecture principles has been defined for the solutions\n\r\rArchitecture Patterns\rThe following architecture patterns has been defined for the solutions\n\r\rArchitecture Capabilities\rThe Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development \u0026amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.\n\r\rArchitecture Components\rArchitecture Components defines the needed application, data, platform and infrastructure components\n\r\r"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/",
-	"title": "Application arhicture authentication component - Altinn Platform",
-	"tags": ["architecture", "solution"],
-	"description": "Description of authentication component",
-	"content": " The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is currently available at http://platform.altinn.cloud/authentication/api/v1.\nResources: authentication\n/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.\nGET /authentication?goto={url}  Refresh a valid JwtToken:\nGET /refresh  "
-},
-{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/",
 	"title": "Authentication",
 	"tags": ["architecture", "security"],
 	"description": "Description of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform",
 	"content": "A important feature is to be able to authenticate the users and systems accessing the different solutions.\nIn Altinn Studio developers is authenticated for building and testing apps.\nIn Altinn Apps and Altinn Platform end users and system needs to be authenticated for accessing apps in Altinn Apps and components in Altinn Platform.\n\rAuthentication Architecture Altinn Apps\rDescription of the Authentication architecture apps hosted in Altinn Apps\n\r\r\r\rAuthentication Architecture Altinn Platform\rDescription of the Authentication architecture Altinn Platform\n\r\r\rAuthentication APIs\rDescription of the Authentications API in Authentication Component\n\r\rJWT Format\rDescription of the JWT Format used in Altinn Studio, Altinn Platform and Altinn Apps\n\r\rJWTCookieAuthentication\rDescription of the JWTCookieAuthentication created for Altinn\n\r\r\rAuthentication Architecture Altinn Studio\rDescription of the Authentication architecture Altinn Studio\n\r\r\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/",
+	"title": "Application arhicture authentication component - Altinn Platform",
+	"tags": ["architecture", "solution"],
+	"description": "Description of authentication component",
+	"content": " The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is currently available at http://platform.altinn.cloud/authentication/api/v1.\nResources: authentication\n/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.\nGET /authentication?goto={url}  Refresh a valid JwtToken:\nGET /refresh  "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-platform/authentication-api/",
@@ -570,7 +570,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/",
 	"title": "Application Construction Architecture",
 	"tags": ["architecture"],
-	"description": "The Application Construction Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.",
+	"description": "The Application Construction Architecture describes how the different applications are constructed with details about technology used.",
 	"content": "It also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication Architecture for Altinn Apps\rAltinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication Architecture Altinn Studio\rDescription of the application architecture for runtime applicationz\n\r\rShared\r\n\r\r"
 },
 {
@@ -740,13 +740,6 @@
 	"tags": ["architecture"],
 	"description": "Description of the Integration Capabilties in the technology architecture",
 	"content": " Integration \u0026amp; Data Transport Capabilties End-point enablement The different solutions in the platform has the capability to expose API endpoints.\nThis including exposing it with Open API documentation for a given endpoint.\nTransport \u0026amp; Delivery The different solutions of the platform support transport \u0026amp; delivery of the data\n"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/intermediary/",
-	"title": "Application arhicture intermediary component - Altinn Platform",
-	"tags": ["architecture", "solution"],
-	"description": "Description of intermediary component",
-	"content": "The Authentication component will be a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/devslide/",
@@ -945,7 +938,7 @@
 	"content": " Processing Capabilities BPMN Process Execution As part of the Application design and build in Altinn Studio the application developer will define a BPMN Process for the given App. The application framework used in the app template support reading and processing the process file.\nExecution Control \u0026amp; Failure Mgmt Capabilities Auditing, Logging \u0026amp; Tracing Altinn Studio, The applications created in Altinn Studio and Altinn Platform perform auditing, logging and tracing of events that happens.\nException Management Altinn Studio, applications created in Altinn Studio and deployed to Altinn Apps and Altinn Platform has exception management.\nExecution Profiling With help of tools the platform support execution profiling.\nProcess Timing Capabilities Synchronous Processing MOST API\u0026rsquo;s in the platform is synchronous.\nScheduled Processing (incl. Batch) The solutions has the capabilitiy for scheduled processing.\nTODO: Describe user scenario.\nQueued \u0026amp; Asynchronous Processing The solutions do support asynchronous processing.\nExecution Partitioning Capabilities Clustering The solutions has clustering capabilities.\nLoad-balancing The technical architecture has load balancing capabiltiies\nFail over The technical architecture has fail over capabilties.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/profile/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/",
 	"title": "Application arhicture profile component - Altinn Platform",
 	"tags": ["architecture", "solution"],
 	"description": "Description of profile component",
@@ -994,7 +987,7 @@
 	"content": " Redux is used to manage the states of the ux-editor.\nActions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:\nexport interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.\nAn example is asyncronous calls to backend APIs to get data, or submit data.\nEach saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.\n/** * Define the saga for the UPDATE_FORM_DATA event */ function* updateFormDataSaga(action: ActionType) { try { const relevantData = yield selectRelevantStateObjects(...); ... doRelevantLogic(relevantData); ... yield call(updateFormDataSagaFulfilled, ... ); } catch (err) { yield call(updateFormDataSagaRejected, err); } } /** * Define a listener for the UPDATE_FORM_DATA event */ export function* watchUpdateFormDataSaga(): SagaIterator { yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga); }  Reducers Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/register/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/",
 	"title": "Application arhicture register component - Altinn Platform",
 	"tags": ["architecture", "solution"],
 	"description": "Description of register component",
@@ -1071,7 +1064,7 @@
 	"content": " Altinn Studio Aka. \u0026ldquo;Tjenester 3.0\u0026rdquo; Dagens løsning  Produksjonsatt sommeren 2010 Basert på InfoPath og SharePoint 115.000.000 skjema fylt ut 404 aktive innsendingstjenester i 2018 Bakgrunn og mål Behov har vært kjent lenge\n POC utviklet i 2015 (men lagt på is grunnet manglende finansiering)\n Finansiering på Statsbudsjettet 2018\n Startet opp igjen våren 2018\n Hva er målet med prosjektet? En modern utviklingsplattform\n Et effektivt utviklingsverktøy\n En moderne infrastruktur\n En plattform for gjenbruk\n En platform for deling av data og erfaringer En moderne utviklingsplattform Altinn Studio er en åpen og modern utviklingsplattform\n Versjonering og samarbeid via Git\n Støtte for distribuert utvikling\n All programvare som benyttes er åpen kildekode. Også selve 3.0-plattformen.\n Funksjonalitet i Altinn tilgjengelig via API’er\n Moderne og populær teknologi, f.eks. React og Visual Studio Code\n Full selvbetjening Tekniske utviklere kan benytte best-of-breed utvikler-verktøy og teknologi, slik de er vant til.\n Et effektivt utviklingsverktøy Altinn Studio tilbyr enkel, effektiv og 100% selvbetjent utvikling og forvaltning av tjenester, også for ikke-teknologer.\n Brukergrensesnitt (GUI)\n API’er\n Arbeidsflyt\n Logikk og dynamikk\n Datamodellering\n Konfigurasjon og tilgangsstyring\n Automatisert testing\n… En moderne infrastruktur Altinn Studio (og tjenester som lages der) vil kjøre på en moderne infrastruktur.\n Docker containers for applikasjoner\n Kubernetes for orkestrering av containers\n  Dette gir isolering mellom applikasjoner (microservices), enklere skalering og understøtter “DevOps”.\n Hva kan jeg gjøre med MVP-01? Opprette bruker og logge inn i Altinn Studio Lage (og finne igjen) en tjeneste Finne tjenester fra andre organisasjoner Laste opp en datamodell som fungerer i tjenesten (Seres eller OR) Lage et skjemadesign med drag and drop av elementer (begrenset utvalg av komponenter) Legge inn tekster/tekstnøkler for tjeneste Gjøre manuell test av tjenesten i Altinn Studio for å teste design og forretningslogikk Legge inn regler for skjemalogikk (validering, kalkulering, dynamikk) Bruke API-oppslag i tjenesten (forutsetter Ajax kall kodet i GUI)\nEndre på standardfil for arbeidsflyt Endre på filer med versjonskontroll\n Hva kan man forvente av MVP på ulike tidspunkt? MVP-02: Runtime i test – April/Mai  Grunnleggende samhandling med SBL Autentisering Integrasjon med Profil Lagring og uthenting av tjenestedata Integrasjon med Register i SBL Integrasjon med Intermediary i SBL Integrasjon med innboks i SBL Deployment av tjeneste til Runtime-testmiljø Ikke sikret miljø, kun egnet for konstruerte testdata ___ Utvidet funksjonalitet i Designer og Runtime Utvidet støtte for tjenestedata Grunnleggende integrasjon med Autorisasjonsløsninger Utvidet støtte til API Sikkerhet mellom containere Shipment av brukerdata MVP-03: Klar for tjenesteproduksjon – Juni/Sept Fullverdig runtime med godkjent sikkerhet i sky\n Fullverdig vedleggshåndtering\n Fullverdig integrasjon med SBL\n Utvidet Designer GUI, Dashboard\n Utskriftsfunksjonalitet\n Analyseverktøy for brukeropptreden i Tjenester(?)\nMERK! Det er fortsatt en MVP – dvs. klare begrensninger på hva slags tjenester som kan realiseres Tjenster 3.0 vs Tjenester 2.0 Skjemaverktøy Egenutviklet vs InfoPath\n React vs SharPoint formserver\n Responsivt vs ikke responsivt\nArbeidsflyt BPMN vs Custom\nTjenester som API REST vs SOAP\n Individuell API vs Generelle\nRessurser Isolerte vs delte\n Raskt skalerbar vs lang leveringstid\nDataformat JSON/XML vs XML\nKontroll på logikk Full kontroll på når ting skjer i plattformen i motsetning til Infopath\nShipment Mest sannsynligvis færre muligheter i platform. (flatfil?, sftp?)\n  Videre arbeid i MVP  Fokus på infrastruktur Skyløsninger Sikkerhet Deploy av tjenester Integrasjon med tjenesteeier Understøtte piloter Detaljer løsning Tre nye løsninger\n Altinn Studio Altinn Apps Altinn Platform\nAltinn Studio   Altinn Apps Altinn Platform Status Du kan følge utviklingen på Github. Motivasjon Se Archimate arkitekturmodell. The End Tilbake\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/storage/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/storage/",
 	"title": "Altinn Platform - Storage",
 	"tags": ["architecture", "solution", "platform"],
 	"description": "Description of the application architecture for Storage component",
