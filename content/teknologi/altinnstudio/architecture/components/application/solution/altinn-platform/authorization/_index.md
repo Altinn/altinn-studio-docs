@@ -1,9 +1,9 @@
 ---
-title: Authorization - Altinn Platform
+title: Authorization Component - Altinn Platform
 description: Description of the Authorization Architecture for Altinn Platform
-tags: [architecture, security]
+tags: [architecture, security, authorization, Altinn Platform]
 weight: 100
-linktitle: Altinn Platform
+linktitle: Authorization
 alwaysopen: false
 ---
 
@@ -11,42 +11,31 @@ Altinn Platform has a [attribute based access control (ABAC)](https://en.wikiped
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
 what type of data element and so on.
 
-## Authorization Components
+The Authorization Component contains a large part of the authorization architecture components.
+
+## Authorization Architecture Components
 The authorization architecture for Altinn Platform are based on the 
 [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
 
 This architecture defines the following components.
 
-### Policy Decision Point (PDP)
+## Policy Decision Point (PDP)
 The Policy Decision Point is responsible for deciding if the requested operation is allowed.
 PDP looks at the rules defined for a given resource and based on roles or other claims it decides if
 user or system can perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution
 
-[Learn about Policy Decision Point in Altinn Platform](/../altinn-platform/pdp)
+[Learn about Policy Decision Point in Altinn Platform](pdp)
 
 ### Policy Information Point
 The Policy Information Point is used by PDP to gather information needed to perform the decision.
 Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.
 
-[Learn about Policy Information Point in Altinn Platform](../altinn-platform/pip)
-
-### Policy Administration Point
-The policy administration point is where the policy rules are defined. 
-The policy for Apps is defined in Altinn Studio
-
-[Learn about Policy Administration Point in Altinn Platform](../altinn-platform/pap)
-
-### Policy Enforcement Point
-The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
-on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized
-
-[Learn about Policy Enforcement Point in apps based on ASP.NET core template](pep)
-
+[Learn about Policy Information Point in Altinn Platform](pip)
 
 ### Policy Retrieval Point
 The policy retrieval point is where PDP can request the policies for a given
 resource. Altinn Apps uses PRP in Altinn Platform
-[Learn about Policy Retrieval Point in Altinn Platform](../altinn-platform/prp)
+[Learn about Policy Retrieval Point in Altinn Platform](prp)
 
 
 ### Context handler
@@ -54,16 +43,30 @@ The context handler is responsible for enriching the decision request, so
 it contains all attributes that PDP needs to take a decision.
  Altinn Apps uses Context Handler in Altinn Platform
 
-[Learn about Context Handler in Altinn Platform](../altinn-platform/contexthandler)
+[Learn about Context Handler in Altinn Platform](contexthandler)
+
+
+### Policy Administration Point (Altinn Studio)
+The policy administration point is where the policy rules are defined. 
+The policy for Apps is defined in Altinn Studio
+
+[Learn about Policy Administration Point in Altinn Platform](pap)
+
+### Policy Enforcement Point (Common)
+The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
+on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized
+
+[Learn about Policy Enforcement Point in apps based on ASP.NET core template](pep)
+
 
 ## The Overall Authorization flow
 The sequence diagram below shows how request is authorized
 
 {{%excerpt%}}
-<object data="/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
-[See fullscreen](/architecture/security/authorization/altinn-platform/authorization_flow_app_platform.svg)
+[See fullscreen](authorization_flow_app_platform.svg)
 ### Example process
 
 The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data
