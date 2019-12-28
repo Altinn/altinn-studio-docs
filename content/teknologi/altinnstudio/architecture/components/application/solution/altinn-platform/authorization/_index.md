@@ -1,89 +1,54 @@
 ---
-title: Authorization Component - Altinn Platform
-description: Description of the Authorization Architecture for Altinn Platform
-tags: [architecture, security, authorization, Altinn Platform]
-weight: 100
+title: Altinn Platform - Authorization
 linktitle: Authorization
-alwaysopen: false
+description: Description of authorization component
+tags: [architecture, solution]
+weight: 100
 ---
 
-Altinn Platform has a [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
-In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
-what type of data element and so on.
+{{%notice warning%}}
+This page is a work-in-progress. Currently we haven't defined all the resources and operations for the authorization component.
+{{% /notice%}}
 
-The Authorization Component contains a large part of the authorization architecture components.
+The Authorization component exposes a REST-API to Altinn Apps.
 
-## Authorization Architecture Components
-The authorization architecture for Altinn Platform are based on the 
-[XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
+Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.
 
-This architecture defines the following components.
+Resources: Actor, Roles
 
-## Policy Decision Point (PDP)
-The Policy Decision Point is responsible for deciding if the requested operation is allowed.
-PDP looks at the rules defined for a given resource and based on roles or other claims it decides if
-user or system can perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution
+## Parties
+A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.
 
-[Learn about Policy Decision Point in authorization component](pdp)
+### Operations
 
-### Policy Information Point
-The Policy Information Point is used by PDP to gather information needed to perform the decision.
-Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.
+Get a list of parties that the user can represent. The userid is sent as parameter
 
-[Learn about Policy Information Point in authorization component](pip)
+```http
+GET /authorization/api/v1/parties?userid={userid}
+```
 
-### Policy Retrieval Point
-The policy retrieval point is where PDP can request the policies for a given
-resource. Altinn Apps uses PRP in Altinn Platform
-[Learn about Policy Retrieval Point in authorization component](prp)
+Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters
 
+```http
+GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
+```
 
-### Context handler
-The context handler is responsible for enriching the decision request, so 
-it contains all attributes that PDP needs to take a decision.
- Altinn Apps uses Context Handler in Altinn Platform
+## Roles
+A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone. 
 
-[Learn about Context Handler in authorization component](contexthandler)
+### Operations
+Get a list of roles that the user can perform for the selected party
 
+```http
+GET /authorization/api/v1/roles
+```
 
-### Policy Administration Point (Altinn Studio)
-The policy administration point is where the policy rules are defined. 
-The policy for Apps is defined in Altinn Studio
+## Policies
+A set of polices contains authorization rules. 
 
-[Learn about Policy Administration Point in Altinn Studio](../../altinn-studio/pap)
+### Operations
+Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the [policy format](../../../security/authorization/altinn-platform/prp) here.
 
-### Policy Enforcement Point (Common)
-The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
-on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized
-
-[Learn about Policy Enforcement Point in apps based on ASP.NET core template](../../common/pep)
-
-
-## The Overall Authorization flow
-The sequence diagram below shows how request is authorized
-
-{{%excerpt%}}
-<object data="authorization_flow_app_platform.svg" type="image/svg+xml" style="width: 100%;";></object>
-{{% /excerpt%}}
-
-[See fullscreen](authorization_flow_app_platform.svg)
-### Example process
-
-The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data
-
-1. User trigger save in the REACT application. REACT application makes a http post request against the 
-[ServiceAPIController](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css) in 
-2. The configured Policy Enforcement Point for the API, the [Service Access Handler](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs),  
-triggers to verify that user is authorized
-3. The PEP identifies the authenticated user from authorizationhandler context and find the relevant resource ID from request
-4. The PEP calls the PDP functionality in [Authorization Component](/solutions/altinn-platform/authorization/) in Altinn Platform
-5. PDP calls context handler to enrich the decision request
-6. Context handler calls Storage PIP to get resource information
-7. Context handler calls authorization PIP to get roles user have for resource party
-8. Context handler enriches the decision request and return to PDP
-9. PDP calls PRP to get the policy for the resource
-10. PDP evaluates the decision request and returns a decision response
-11. If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough. 
-If it is enough the request is let through
-12. If the authentication level is not high enough the PEP will throw a not authorized exception (403)
-13. If the result was "Not Applicable" the PEP will throw  a not authorized exception (403)
+```http
+POST /authorization/api/v1/policies?org=org&app=app
+```
