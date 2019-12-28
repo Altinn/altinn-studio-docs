@@ -259,6 +259,13 @@
 	"content": " Overordnet Filen RuleHandler.js brukes til å lage metoder som skal benyttes for til kalkuleringer/regler på felter i datamodellen eller for å skape dynamikk i et skjema.\nFormat Filen består av 4 objekter, 2 av de benyttes for til kalkuleringer/regler i skjema og de 2 andre benyttes til dynamikk i skjema. ruleHandlerObject og conditionalRuleHandlerObject skal benyttes til å definere metoder som kan brukes til kalkuleringer/regler i skjema. Alle metodene har et objekt som input parameter og en output verdi, strukturen på input objektet er beskrevet i ruleHandlerHelper og conditionalRuleHandlerHelper. Filen har følgende struktur:\n var ruleHandlerObject = { ruleFunctionName: (obj) =\u0026gt; { return obj.inputParam1 + \u0026quot; \u0026quot; + obj.inputParam2; }, } var ruleHandlerHelper = { ruleFunctionName: () =\u0026gt; { return { inputParam1: \u0026quot;inputParam1\u0026quot;, inputParam2: \u0026quot;inputParam2\u0026quot; }; }, } var conditionalRuleHandlerObject = { conditionalFunctionName: (obj) =\u0026gt; { return obj.input1 \u0026gt; 10; }, } var conditionalRuleHandlerHelper = { conditionalFunctionName: () =\u0026gt; { return { input1: \u0026quot;input1\u0026quot; }; }, }  Ved innlasting i skjemadesigneren vil filen lastes inn i window elementet og kalles ved hjelp av window.conditionalRuleHandlerObject.conditionalFunctionName. Kalkuleringer/regler kjøres når skjema fylles ut. Så regler kan testes både i desinger, preview og i runtime. Kalkuleringer/regler input objekt sine parameter og output parameteret kobles til felter i datamodellen.\nDynamikk regler manipulerer skjema ved å skjule eller vise felter. Input objektet kobles til datamodelfelter. Deretter må brukeren spesifisere hva som skal skje hvis metoden returnerer true. Per nå er det kun mulig å velge å skjule eller vise felter. Deretter knytter man \u0026lsquo;action\u0026rsquo; til felter som er lagt inn i skjema. Man kan knytte så mange felter man vil til en dynamisk regler.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/",
+	"title": "Solution Architecture",
+	"tags": ["solution", "architecture"],
+	"description": "Description of the Altinn Studio solution architecture",
+	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/api/",
 	"title": "API Catalogue",
 	"tags": [],
@@ -424,7 +431,7 @@
 	"title": "Application Architecture",
 	"tags": ["architecture"],
 	"description": "The Application Architecture is split in Application Solution Architecture and Application Construction Architecture",
-	"content": "\r\rApplication Construction Architecture\rThe Application Construction Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\r"
+	"content": "\r\rSolution Architecture\rDescription of the Altinn Studio solution architecture\n\r\rApplication Construction Architecture\rThe Application Construction Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/",
@@ -903,7 +910,7 @@
 	"content": "The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.\nDuring deployment of a app the rules for the app is added to the Altinn Storage.\nThe rules are defined as a XACML 3.0 Policy document.\nSee XACML for detailed description of Policy format\nFor delegated rights Altinn II will provide the delegated policy.\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/xacmlpolicy/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/pap/xacmlpolicy/",
 	"title": "Authorization - Altinn Apps - Policy",
 	"tags": ["architecture", "security"],
 	"description": "Description of the XACML Policy defined for a app",
@@ -1783,13 +1790,6 @@
 	"tags": [],
 	"description": "",
 	"content": ""
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/",
-	"title": "Solution Architecture",
-	"tags": ["solution", "architecture"],
-	"description": "Description of the Altinn Studio solution architecture",
-	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/stylecop/",
