@@ -24,18 +24,18 @@ The Policy Decision Point is responsible for deciding if the requested operation
 PDP looks at the rules defined for a given resource and based on roles or other claims it decides if
 user or system can perform the request. Altinn Apps uses Policy Decision Point in Altinn Platform solution
 
-[Learn about Policy Decision Point in Altinn Platform](pdp)
+[Learn about Policy Decision Point in authorization component](pdp)
 
 ### Policy Information Point
 The Policy Information Point is used by PDP to gather information needed to perform the decision.
 Altinn Apps uses Policy Information Point in Altinn Platform to get information about resources and users/systems.
 
-[Learn about Policy Information Point in Altinn Platform](pip)
+[Learn about Policy Information Point in authorization component](pip)
 
 ### Policy Retrieval Point
 The policy retrieval point is where PDP can request the policies for a given
 resource. Altinn Apps uses PRP in Altinn Platform
-[Learn about Policy Retrieval Point in Altinn Platform](prp)
+[Learn about Policy Retrieval Point in authorization component](prp)
 
 
 ### Context handler
@@ -43,20 +43,20 @@ The context handler is responsible for enriching the decision request, so
 it contains all attributes that PDP needs to take a decision.
  Altinn Apps uses Context Handler in Altinn Platform
 
-[Learn about Context Handler in Altinn Platform](contexthandler)
+[Learn about Context Handler in authorization component](contexthandler)
 
 
 ### Policy Administration Point (Altinn Studio)
 The policy administration point is where the policy rules are defined. 
 The policy for Apps is defined in Altinn Studio
 
-[Learn about Policy Administration Point in Altinn Platform](pap)
+[Learn about Policy Administration Point in Altinn Studio](../.../altinn-studio/pap)
 
 ### Policy Enforcement Point (Common)
 The Policy Enforcement Point is where the user or system is actual stopped or allowed to perform a requested operation
 on a resource. Each App in Altinn Apps need to have a Policy Enforcement Points on all resources that needs to be authorized
 
-[Learn about Policy Enforcement Point in apps based on ASP.NET core template](pep)
+[Learn about Policy Enforcement Point in apps based on ASP.NET core template](../../common/pep)
 
 
 ## The Overall Authorization flow
