@@ -4895,187 +4895,8 @@ if(host != "localhost")
         
         
 
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
         
       </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/">
-        <span>Altinn Apps</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/">
-        <span>App (asp.net)</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/model/" class="dd-item
-     
-      ">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/model/">
-        <span>Authorization model</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/pep/" class="dd-item
-     
-      ">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/pep/">
-        <span>PEP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-studio/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-studio/">
-        <span>Altinn Studio</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
               
     </li>
   
@@ -8840,34 +8661,6 @@ Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, App
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/">App (asp.net web template)</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The general rule is that a app hosted in Altinn Apps has attribute based access control (ABAC). In short, request is authorized based on attributes for the request. E.g. what data element is the user accessing, who owns it, what type of data element and so on.
-The opposite is Role Based access control where all user in a given role is allowed to access an operation and access all data. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/altinn-apps/app/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/">App Backend Application Arcitecture</a></h2>
     </header>
     <section class="post-excerpt">
@@ -9056,6 +8849,36 @@ The available endpoints can be seen in the swagger definition. <a class="read-mo
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/pdf/">pdf</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.
+The receipt frontend view is available at http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}, example https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b The receipt component also exposes an api which is available at http://at21.platform.altinn.cloud/receipt/api/v1, where available resources are defined below. This api is intended for use by the receipt frontend, if you need information about the user you should use the profile component. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
             
         
 
@@ -11502,92 +11325,8 @@ The available endpoints can be seen in the swagger definition. <a class="read-mo
           
                               
                               
-                                  
-                              
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                       
                   
