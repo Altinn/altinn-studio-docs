@@ -1,7 +1,7 @@
 ---
-title: Solution Architecture
+title: Solution-Specific (Functional) Application Components
 linktitle: Solution
-description: Description of the Altinn Studio solution architecture
+description: Solution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.
 tags: [solution, architecture]
 alwaysopen: false
 weight: 99

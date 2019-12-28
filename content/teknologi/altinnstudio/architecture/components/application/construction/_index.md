@@ -1,7 +1,7 @@
 ---
 title: Application Construction Architecture
 linktitle: Construction 
-description: The Application Construction Architecture for Altinn Studio, Altinn Apps and Altinn Platform describes the different applications and how they interact with each other.
+description: The Application Construction Architecture describes how the different applications are constructed with details about technology used.
 tags: [architecture]
 weight: 100
 ---
