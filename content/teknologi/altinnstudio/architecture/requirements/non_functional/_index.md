@@ -1,6 +1,6 @@
 ---
 title: Non Functional Requirements
-description: Functional and non functional requirements for the solutions have affected the architecture decisions.
+description: Non functional requirements contains requirements that typical is important for deciding the architecture
 tags: [architecture]
 weight: 6
 linktitle: Non Functional
@@ -8,8 +8,6 @@ alwaysopen: false
 aliases:
  - /architecture/
 ---
-
-They are important input to deciding the Architecture Principles and Architecture Patterns. 
 
 ## Architectural Concerns
 Architecture Concerns are categories of Non-Functional Requirements (NFRs) of a system that 
@@ -27,8 +25,14 @@ The solution need to have a performance to support a user friendly experience.
 **Requirement:** Page load should be less than 1 second
 
 #### Capacity
+The different solutions have different capacity requirements. 
+
+The requirement 
 
 ### Reliability
+Reliablity requirements says something about how often users will experience system errors. 
+
+The requirement is that less than 1% of the users will experience errors. 
 
 #### Availability
 The solutions need to be available 24/7.
@@ -47,6 +51,10 @@ Building a platform to host applications for different governmental agencies wil
 This makes security one of the most important architecture concern in the solutions. 
 
 #### Authentication
+Only authenticated users or systems can access data in the platform. 
+
+**Requirements**
+- Use a standardized
 
 #### Authorization
 
@@ -77,9 +85,10 @@ See details about the WCAG 2.1 requirements that applies [here](https://uu.difi.
 
 
 #### Localisation
+The data needs to be stored inside the Norwegian boarder.
 
 ### Portability
-
+The technology architecture should not make it impossible to move to different cloud providers. 
 
 ## Other Non Functional requirements
 

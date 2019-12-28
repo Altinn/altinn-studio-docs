@@ -35,8 +35,22 @@ The Cloud Native blueprint below show the important aspect of a Cloud Native sol
 
 
 
-### Microservice Pattern
+## Microservice Pattern
+
+### Overview
 The [Microservice Pattern](https://en.wikipedia.org/wiki/Microservices) is one of the more defining patterns in the platform.
+
+In the new Altinn Solutions this mean that for Altinn Platform will be grouped in functional related components that will run as 
+separate applications in docker containers. 
+
+Example components are authorization
+
+Each application created in Altinn Studio will be a isolated microservice application with API's and frontend. 
+
+
+
+
+### 
 
 
 
