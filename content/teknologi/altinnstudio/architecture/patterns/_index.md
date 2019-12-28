@@ -11,9 +11,6 @@ aliases:
 
 The [architecture principles](https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html) below is described like TOGAF recomends.
 
-
-
-
 ## Cloud Native
 The solutions are designed and built to be ["Cloud Native"](https://github.com/cncf/toc/blob/master/DEFINITION.md), meaning
 it is built be scalable applications hosted in public cloud. 
@@ -67,7 +64,20 @@ Each application created in Altinn Studio will be a isolated microservice applic
 
 ## Layered Pattern
 
+### Overview
+Applications/Components are organized into horizontal layers, each layer performing a specific 
+role within the application. Typical the layers will typical be Presentation, API, Business and dataacess where dataccess could be access to database or 
+API calls to other components.
 
+### Conceptual view 
+{{%excerpt%}}
+<object data="/teknologi/altinnstudio/architecture/patterns/layered.svg" type="image/svg+xml" style="width: 100%;";></object>
+{{% /excerpt%}}
+
+### Benefits
+- Testability. Dependency injection. Possible to mock lower layers. 
+
+### Risk & Issues
 
 ## Event driven pattern
 The [Event Driven pattern](https://en.wikipedia.org/wiki/Event-driven_architecture)
