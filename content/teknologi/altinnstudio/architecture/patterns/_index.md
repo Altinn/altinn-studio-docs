@@ -15,8 +15,10 @@ The [architecture principles](https://pubs.opengroup.org/architecture/togaf8-doc
 
 
 ## Cloud Native
-The solutions are designed and built using the ["Cloud Native"](https://github.com/cncf/toc/blob/master/DEFINITION.md) principles, meaning
+The solutions are designed and built to be ["Cloud Native"](https://github.com/cncf/toc/blob/master/DEFINITION.md), meaning
 it is built be scalable applications hosted in public cloud. 
+
+There is serveral Architecture Patterns that Cloud Native applications are built on.
 
 Containers, microservices and declarative APIs exemplify this approach.
 
@@ -31,34 +33,43 @@ The Cloud Native blueprint below show the important aspect of a Cloud Native sol
 {{% /excerpt%}}
 
 
-
-
-
+The following listing describes the different Architecture Patterns selected for Altinn
 
 ## Microservice Pattern
 
 ### Overview
 The [Microservice Pattern](https://en.wikipedia.org/wiki/Microservices) is one of the more defining patterns in the platform.
 
-In the new Altinn Solutions this mean that for Altinn Platform will be grouped in functional related components that will run as 
+In the new Altinn Solutions this mean that Altinn Platform will be grouped in functional related components, that will run as 
 separate applications in docker containers. 
 
-Example components are authorization
+Example components are authorization and storage.
 
 Each application created in Altinn Studio will be a isolated microservice application with API's and frontend. 
 
+### Conceptual View 
+
+{{%excerpt%}}
+<object data="/teknologi/altinnstudio/architecture/patterns/microservices.svg" type="image/svg+xml" style="width: 100%;";></object>
+{{% /excerpt%}}
+
+### Benefits 
+
+- Strong Module Boundaries: Microservices reinforce modular structure, which is particularly important for larger teams. 
+- Independent Deployment: Simple services are easier to deploy, and since they are autonomous, are less likely to cause system failures when they go wrong. 
+- Technology Diversity: With microservices you can mix multiple languages, development frameworks and data-storage technologies.
+
+### Risk & Issues
+
+- Distribution: Distributed systems are harder to program, since remote calls are slow and are always at risk of failure. 
+- Eventual Consistency: Maintaining strong consistency is extremely difficult for a distributed system, which means everyone has to manage eventual consistency. 
+- Operational Complexity: You need a mature operations team to manage lots of services, which are being redeployed regularly. 
+
+## Layered Pattern
 
 
 
-### 
-
-
-
-### Layered Pattern
-
-
-
-### Event driven pattern
+## Event driven pattern
 The [Event Driven pattern](https://en.wikipedia.org/wiki/Event-driven_architecture)
 
 

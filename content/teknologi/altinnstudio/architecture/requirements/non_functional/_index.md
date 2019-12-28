@@ -17,7 +17,11 @@ cross-cutting concerns or "the -ilities" because most of the words end with "-il
 ### Performance
 
 #### Scalability
+![Scalability](scalable.png "Unique users 2018 per day Altinn platform")
+
 The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.
+
+The platform should be able to scale up and down to support this type of usage patterns.
 
 #### Response Time
 The solution need to have a performance to support a user friendly experience.
