@@ -8707,8 +8707,10 @@ if(host != "localhost")
 
 <h2 id="cloud-native">Cloud Native</h2>
 
-<p>The solutions are designed and built using the <a href="https://github.com/cncf/toc/blob/master/DEFINITION.md">&ldquo;Cloud Native&rdquo;</a> principles, meaning
+<p>The solutions are designed and built to be <a href="https://github.com/cncf/toc/blob/master/DEFINITION.md">&ldquo;Cloud Native&rdquo;</a>, meaning
 it is built be scalable applications hosted in public cloud.</p>
+
+<p>There is serveral Architecture Patterns that Cloud Native applications are built on.</p>
 
 <p>Containers, microservices and declarative APIs exemplify this approach.</p>
 
@@ -8723,22 +8725,47 @@ it is built be scalable applications hosted in public cloud.</p>
 
 
 
+<p>The following listing describes the different Architecture Patterns selected for Altinn</p>
+
 <h2 id="microservice-pattern">Microservice Pattern</h2>
 
 <h3 id="overview">Overview</h3>
 
 <p>The <a href="https://en.wikipedia.org/wiki/Microservices">Microservice Pattern</a> is one of the more defining patterns in the platform.</p>
 
-<p>In the new Altinn Solutions this mean that for Altinn Platform will be grouped in functional related components that will run as
+<p>In the new Altinn Solutions this mean that Altinn Platform will be grouped in functional related components, that will run as
 separate applications in docker containers.</p>
 
-<p>Example components are authorization</p>
+<p>Example components are authorization and storage.</p>
 
 <p>Each application created in Altinn Studio will be a isolated microservice application with API&rsquo;s and frontend.</p>
 
-<h3 id="layered-pattern">Layered Pattern</h3>
+<h3 id="conceptual-view">Conceptual View</h3>
 
-<h3 id="event-driven-pattern">Event driven pattern</h3>
+
+	<p><object data="/teknologi/altinnstudio/architecture/patterns/microservices.svg" type="image/svg+xml" style="width: 100%;";></object></p>
+
+
+
+<h3 id="benefits">Benefits</h3>
+
+<ul>
+<li>Strong Module Boundaries: Microservices reinforce modular structure, which is particularly important for larger teams.</li>
+<li>Independent Deployment: Simple services are easier to deploy, and since they are autonomous, are less likely to cause system failures when they go wrong.</li>
+<li>Technology Diversity: With microservices you can mix multiple languages, development frameworks and data-storage technologies.</li>
+</ul>
+
+<h3 id="risk-issues">Risk &amp; Issues</h3>
+
+<ul>
+<li>Distribution: Distributed systems are harder to program, since remote calls are slow and are always at risk of failure.</li>
+<li>Eventual Consistency: Maintaining strong consistency is extremely difficult for a distributed system, which means everyone has to manage eventual consistency.</li>
+<li>Operational Complexity: You need a mature operations team to manage lots of services, which are being redeployed regularly.</li>
+</ul>
+
+<h2 id="layered-pattern">Layered Pattern</h2>
+
+<h2 id="event-driven-pattern">Event driven pattern</h2>
 
 <p>The <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">Event Driven pattern</a></p>
 
