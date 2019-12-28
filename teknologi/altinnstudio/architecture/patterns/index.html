@@ -8658,6 +8658,27 @@ separate applications in docker containers.</p>
 
 <h2 id="layered-pattern">Layered Pattern</h2>
 
+<h3 id="overview-1">Overview</h3>
+
+<p>Applications/Components are organized into horizontal layers, each layer performing a specific
+role within the application. Typical the layers will typical be Presentation, API, Business and dataacess where dataccess could be access to database or
+API calls to other components.</p>
+
+<h3 id="conceptual-view-1">Conceptual view</h3>
+
+
+	<p><object data="/teknologi/altinnstudio/architecture/patterns/layered.svg" type="image/svg+xml" style="width: 100%;";></object></p>
+
+
+
+<h3 id="benefits-1">Benefits</h3>
+
+<ul>
+<li>Testability. Dependency injection. Possible to mock lower layers.</li>
+</ul>
+
+<h3 id="risk-issues-1">Risk &amp; Issues</h3>
+
 <h2 id="event-driven-pattern">Event driven pattern</h2>
 
 <p>The <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">Event Driven pattern</a></p>
