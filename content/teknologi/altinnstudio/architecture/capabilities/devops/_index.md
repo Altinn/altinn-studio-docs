@@ -13,4 +13,12 @@ Each capability consists of people, the procedures they follow and the software 
 
 This documentation currently focus on the capabilties that can be shared and reused of others.  
 
+[Full screen](/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.svg") | [Visio](/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.vsdx)
+
+{{%excerpt%}}
+<object data="/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
+
+
+
 {{% children description="true" depth="1" %}}
