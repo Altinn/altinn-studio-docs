@@ -2,6 +2,7 @@
 title: Build & Test Capabilities
 description: Build & Test Capabilties involves everthing from the capability to write code to the different types of testing
 tags: [architecture]
+linktitle: Build & Test
 weight: 20
 alwaysopen: false
 ---

@@ -2,6 +2,7 @@
 title: Project Management Capabilities
 description: Project Management Capabilities covers the different capabilities to mange the project.
 tags: [architecture]
+linktitle: Project Management
 weight: 100
 alwaysopen: false
 ---
