@@ -182,18 +182,11 @@
 	"content": "Foreløpig finner du informasjon om arkitektur og infrastruktur på altinnpedia (krever innlogging).\n\r"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/",
-	"title": "Build &amp; Test Capabilities",
-	"tags": ["architecture"],
-	"description": "Build &amp; Test Capabilties involves everthing from the capability to write code to the different types of testing",
-	"content": " Software Generation Capabilties Code \u0026amp; Config Writing enablement The project uses Visual Studio Code and Visual Studio as IDE.\nSoftware Compilation \u0026amp; Validation The project uses .Net, Java or Typescript compilers\nBuild \u0026amp; Integration Enablement Capabilities Sofware Compilation \u0026amp; Validation Sofware Linking \u0026amp; Packaging Build Orchestration Azure Pipelines are used for build orchestration\nContinuous Integration Enablement Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests\n\r"
-},
-{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/",
 	"title": "Development &amp; Operations Capabilties",
 	"tags": ["architecture"],
 	"description": "The development &amp; operations architecture capabilities list the capabilities used to implement and run Altinn Studio, Altinn Apps and Altinn Platform.",
-	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\nFull screen | Visio\n\n\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rAnalysis \u0026amp; Design Capabilities\rAnalysis \u0026amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.\n\r\rDevelopment\r\n\r\r"
+	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\nFull screen | Visio\n\n\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rAnalysis \u0026amp; Design Capabilities\rAnalysis \u0026amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.\n\r\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rDevelopment\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
@@ -1272,6 +1265,13 @@
 	"tags": ["architecture", "infrastructure"],
 	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
 	"content": " Operating systems Container Operation Systems The containers is the following Operating Systems\n Alpine Linux for Altinn Platform components based on .Net Core, Altinn Studio components based on .Net Core and apps created in Altinn Studio ??? for PDF components in Altinn Platform ??? for Gitea in Altinn Studio  Cloud Enablement Sofware Orchestrating \u0026amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.\nWe use Azure Kubernetes Services that is a managed Kubernetes.\nService Mesh \u0026amp; Proxy We use Traefik as Proxy in the Kubernetes.\nCurrently we dont use Service Mest technolgies\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/",
+	"title": "Build &amp; Test Capabilities",
+	"tags": ["architecture"],
+	"description": "Build &amp; Test Capabilties involves everthing from the capability to write code to the different types of testing",
+	"content": " Software Generation Capabilties Code \u0026amp; Config Writing enablement The project uses Visual Studio Code and Visual Studio as IDE.\nBuild \u0026amp; Integration Enablement Capabilities Software Compilation \u0026amp; Validation The project uses .Net, Java or Typescript compilers\nSofware Linking \u0026amp; Packaging Azure Pipeline package the applications in to Docker Containers.\nTODO: Add info about Docker Registry ++\nBuild Orchestration We use Auzure Pipelines to build the source code.\nSee our pipelines\nDevelopment Environment Integration Visual Studio and Visual Studio Code can integrate with both\nContinuous Integration Enablement Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests\n\rTest Management Capabilities Test Case \u0026amp; Script Creation \u0026amp; Management Test Execution Tracking \u0026amp; Reporting Test Data Creation \u0026amp; Management Test Execution \u0026amp; Automation Capabilities Functional Test Enablement Unit Test Enablement Service \u0026amp; API Test Enablement Performance Testing \u0026amp; Profile Enablement "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/",
