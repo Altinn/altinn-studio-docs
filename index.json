@@ -193,7 +193,7 @@
 	"title": "Development &amp; Operations Capabilties",
 	"tags": ["architecture"],
 	"description": "The development &amp; operations architecture capabilities list the capabilities used to implement and run Altinn Studio, Altinn Apps and Altinn Platform.",
-	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\nFull screen | Visio\n\n\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rDevelopment\r\n\r\r"
+	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\nFull screen | Visio\n\n\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rEnvironments\rDescription of the architecture supporting devops\n\r\rOperations\rDescription of the Operations Architecture\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rAnalysis \u0026amp; Design Capabilities\rAnalysis \u0026amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.\n\r\rDevelopment\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
@@ -959,13 +959,6 @@
 	"content": " Building Altinn Studio is a large project with lots of complexity.\nThe solutions will be open source, we are having all our issues on Github and the below diagrams shows a visual status of the project. (Updated weekly)\nSolution status This diagram shows the status of the different areas based on the solutions where the areas are implemented. This digram let you understand where in the solution there are work left. \nFull screen | Visio\nFunctional status This diagram has purly functional focus. It does not care about where any issues are located and why things does not work. A area can be red even it is 100% complete if testing of a functionality is blocked by other non related issues.\n\nFull screen | Visio\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/quality/",
-	"title": "Quality Management Capabilities",
-	"tags": ["architecture"],
-	"description": "Quality Management Capabilities covers the different capabilities to mange the project.",
-	"content": ""
-},
-{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/rest/",
 	"title": "RESTful APIs (Representation State Transfer)",
 	"tags": ["development", "api"],
@@ -1232,6 +1225,13 @@
 	"content": " Code Execution Server Software Application Servers For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. Read more about Kestrel at Microsoft\nFor J2EE Applications we use xxx.\nLanguage Virtual Machines \u0026amp; Code Containers Applicatons in Altinn Studio, Altinn Apps and Altinn Platform that is based on .Net Core uses Common Language Runetime as a virual machine\nApplications in Altinn Apps and Altinn Platform that is based on J2EE runs on Java Virtual Machine.\nRun-time Frameworks \u0026amp; Libraries E2E Run-time Frameworks Most of the applications created in Altinn Studio, Altinn Apps and Altinn Platform is based on ASP.Net Core / .Net Core programmed with C# programming language\nThis is open source, multi platform and popular.\nFor PDF component we use J2EE. This is because the lack of open source PDF frameworks on .Net.\nUtility \u0026amp; Security Libraries We use serveral utility libraries in Altinn Studio, Altinn Platform and Altinn Apps.\nTypical this is configured in each of the application projects. For .Net applications we use NUGET to manage the libraries we use and you find a list over them in each project configuration files.\nExamples are\n Newtonsoft.Json StyleCop.Analyzers Microsoft.Azure.DocumentDB.Core  "
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/quality/",
+	"title": "Quality Management Capabilities",
+	"tags": ["architecture"],
+	"description": "Quality Management Capabilities covers the different capabilities to mange the project.",
+	"content": " Quality Managmenet Quality Assurance \u0026amp; Reviews All pull request in GitHub requires approved reviews of the changes before it can be merged in to the master branch.\nSee current and earlier pull request.\nFor infrastructure changes the pull request is done in Azure Devops with the same type of reviews.\nDefect Tracking \u0026amp; Management Defects are tracked in Gitub as bugs. See active and closed bugs.\nStatic SW Analysis Enablement Every pull requsts needs to adhere to code quality standard verifyed with static code analysis.\nThe build pipline in Azure Devops runs LGTM for static code analysis with focus on security and SonarCloud for general static code analysis.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/integration/",
 	"title": "Integration Components",
 	"tags": ["architecture", "infrastructure"],
@@ -1258,6 +1258,13 @@
 	"tags": ["architecture", "infrastructure"],
 	"description": "Description of the Altinn Studio infrastructure",
 	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rComputing componentens\rComputing components gives processor power to applications and software\n\r\rNetwork componentens\rComputing components gives processor power to applications and software\n\r\rDeployment\rDescription of the Altinn Studio solution\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/",
+	"title": "Analysis &amp; Design Capabilities",
+	"tags": ["architecture"],
+	"description": "Analysis &amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.",
+	"content": " Analysis Enablement Capabilities Requirement Capture Requirements are gathered through input on Github, talkes with organization and\nUse Case/Story Definition Enablement Use cases are defined in Github. We have defined differen types of template to support creation of user stories\nRequirement Validation Productowners and architectus together with the teams are responsible for validation of requirements.\nRequirement Traceability Github keeps a full history on the different issues\nProtoypes, Mock-Ups \u0026amp; Storyboarding We use Figma for prototypes.\nSee our Figma Guidlines\nDesign Enablement Capabilities UI Design Enablement We use Figma to design the UI elements\nData Modeling \u0026amp; Design Enablement We use different tools to design the data elements.\n Visio Markdown  Architecture Design Enablement The architecture is designed on this site using Markdown and Visio.\nApplication Design Enablement The application is designed on this site using Markdown and Visio.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudenablement/",
