@@ -1,8 +1,8 @@
 ---
 title: Runtime (execution) arhictecture capabilities
-description: The runtime (execution) capabilities desribes the provided capabilites by the architecture components.
+description: The runtime (execution) capabilities desribes the provided capabilites by the architecture components at runtime.
 tags: [architecture]
-weight: 8
+weight: 21
 linktitle: Runtime
 alwaysopen: false
 aliases:
