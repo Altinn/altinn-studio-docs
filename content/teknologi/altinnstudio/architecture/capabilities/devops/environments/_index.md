@@ -1,8 +1,8 @@
 ---
 title: Environments
-description: Description of the architecture  supporting devops
+description: Description of the environments
 tags: [architecture]
-weight: 20
+weight: 110
 alwaysopen: false
 ---
 
