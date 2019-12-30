@@ -186,14 +186,7 @@
 	"title": "Development &amp; Operations Capabilties",
 	"tags": ["architecture"],
 	"description": "The development &amp; operations architecture capabilities list the capabilities used to implement and run Altinn Studio, Altinn Apps and Altinn Platform.",
-	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\nFull screen | Visio\n\n\rEnvironments\rDescription of the architecture supporting devops\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rPlatform Operations Management Capabilities\rPlatform Operations Management Capabilities\n\r\rAnalysis \u0026amp; Design Capabilities\rAnalysis \u0026amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.\n\r\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rSoftware Configuration \u0026amp; Release Management Capabilities\rSoftware Configuration \u0026amp; Release Management Capabilities process of tracking changes and handle new releases for a application\n\r\rDevelopment\r\n\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
-	"title": "Environments",
-	"tags": ["architecture"],
-	"description": "Description of the architecture  supporting devops",
-	"content": " Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage.\nDevelopment Environments This is a dedicated devlopment environent\nTest environment Pre Production Environemnt Production Environment "
+	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations and ending with operations it-self.\nEach capability consists of people, the procedures they follow and the software and hardware tools they use.\nThis documentation currently focus on the capabilties that can be shared and reused of others.\nFull screen | Visio\n\n\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rPlatform Operations Management Capabilities\rPlatform Operations Management Capabilities\n\r\rAnalysis \u0026amp; Design Capabilities\rAnalysis \u0026amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.\n\r\rBuild \u0026amp; Test Capabilities\rBuild \u0026amp; Test Capabilties involves everthing from the capability to write code to the different types of testing\n\r\rSoftware Configuration \u0026amp; Release Management Capabilities\rSoftware Configuration \u0026amp; Release Management Capabilities process of tracking changes and handle new releases for a application\n\r\rEnvironments\rDescription of the environments\n\r\rDevelopment\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/",
@@ -1236,7 +1229,7 @@
 	"title": "Platform Operations Management Capabilities",
 	"tags": ["architecture"],
 	"description": "Platform Operations Management Capabilities",
-	"content": " PaaS \u0026amp; IaaS Management Capabilities System \u0026amp; Service Monitoring Automation \u0026amp; Scheduling (batch, scripts) Paas \u0026amp; IaaS Configuration \u0026amp; Management Backup, Restore \u0026amp; Archival "
+	"content": " PaaS \u0026amp; IaaS Management Capabilities System \u0026amp; Service Monitoring Automation \u0026amp; Scheduling (batch, scripts) Paas \u0026amp; IaaS Configuration \u0026amp; Management Backup, Restore \u0026amp; Archival Performance \u0026amp; Availability Management Capabilities Performance Profiling Performance Tuning Availability and Performance Monitoring Cloud Capacity Management Security Operations Management Capabilities Patch Management Threat Detection \u0026amp; Management User Profile, Identity \u0026amp; Access Management System Hardening Management Security Monitoring "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/",
@@ -1286,6 +1279,13 @@
 	"tags": [],
 	"description": "Solution for theming and styling conventions.",
 	"content": " Altinn Studio is based on Material-UI, a UI components library that focus exclusively on the React library. At this point the SBL-forms are based on Bootstrap. This might change in the future in order to support more sophisticated forms and the possibilty to write forms in other languages than React + Bootstrap.\nBoth the forms that are produced and the editor will have the possibilty to change theme. By default Altinn Studio will use the Altinn theme. The theme will at this point only change colors and fonts in Altinn Studio. The colors are base on the altinn color palette.\nCSS Components are devided into two groups. Shared components that is used several times and should be accessible for several apps. And components that are specific for one app or view. CSS for a component is set in its representative tsx-file with paramethers linking to the theme.\nHow to change theme Changing the theme without having to do alot of changes to the code is post-MVP.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
+	"title": "Environments",
+	"tags": ["architecture"],
+	"description": "Description of the environments",
+	"content": " Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage.\nDevelopment Environments This is a dedicated devlopment environent\nTest environment Pre Production Environemnt Production Environment "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/known-issues/",

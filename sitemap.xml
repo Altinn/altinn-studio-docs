@@ -111,10 +111,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/</loc>
   </url>
   
@@ -736,6 +732,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/</loc>
   </url>
   
   <url>
