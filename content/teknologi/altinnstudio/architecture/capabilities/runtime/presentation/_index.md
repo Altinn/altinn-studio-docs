@@ -14,14 +14,28 @@ These capabilities is both targeting App developers creating applications in Alt
 ## Rendering & Interaction Capabilities
 
 ### Composition & Rendering
-The UI in Altinn Studio and the UI designed in Altinn Studio and beeing presented in a App to end users support composition of UI components and rendering of them,
+
+#### Composition
+The app developer may create the layout of the App UI using Altinn Studio. Standard UI components are available, in addition the app developer may create custom components and/or layouts.
+
+#### Rendering
+
+- The UI in Altinn Studio being presented to app developers, and
+- The UI designed in Altinn Studio being presented in an App to end users,
+
+use _client-side rendering_, and may be rendered by a web browser. 
 
 TODO: Link to relevant archiecture component(s) providing this capability.
 
 ### Session & State Management
 
+Cookies are used for client-side session management, both in Altinn Studio and Altinn Apps.
+
 ### Input Validation
-The UI in Altinn Studio and the UI designed in Altinn Studio and beeing presented in a App to end users support input validation of data inputed by App Developers or users using Apps developed in Altinn Studio,
+- The UI in Altinn Studio being presented to app developers, and
+- The UI designed in Altinn Studio being presented in an App to end users, 
+
+support input validation of data inputed by App Developers or end users using Apps developed in Altinn Studio.
 
 TODO: Link to relevant archiecture component(s) providing this capability.
 
@@ -36,29 +50,28 @@ TODO: Link to relevant archiecture component(s) providing this capability.
 
 ###	Notification Management
 
-
 TODO: Link to relevant archiecture component(s) providing this capability.
 
 ## Presentation Adaptation Capabilities
 
 TODO: Link to relevant archiecture component(s) providing this capability.
 
-
 ### Multi-channel Presentation
 
-
+App developers may use Altinn Studio in a web browser, or local development tools to create an app.
 TODO: Link to relevant archiecture component(s) providing this capability.
 
 ### Responsive Presentation
 
-TODO: Link to relevant archiecture component(s) providing this capability.
+- The UI in Altinn Studio being presented to app developers, and
+- The UI designed in Altinn Studio being presented in an App to end users, 
 
-### Personalisation & Targeting
-
+support support responsive presentation.
 TODO: Link to relevant archiecture component(s) providing this capability.
 
 ### Localization
 
+The UI designed in Altinn Studio, being presented in an App to end users support localization, as defined by app developers.
 TODO: Link to relevant archiecture component(s) providing this capability.
 
 ### Accessibility
@@ -67,7 +80,7 @@ The presentation both in Altinn Studio for the App Developer and the presentatio
 TODO: Link to relevant archiecture component(s) providing this capability.
 
 ### UI Design
-This is typical a part of the development capabilities, but since the Altinn Studio Solutions lets App developers design the UI we need this as a runtime capabilitiy also. 
+This is typical a part of the development capabilities, but since the Altinn Studio Solutions lets App developers design the UI we need this as a runtime capabilitiy also. App developers can customize the UI design in the App presented to end users.
 
 ### UI Component Library
-As a App developer you have a UI component library available in Altinn Studio to select UI components from. 
+App developers have a UI component library available in Altinn Studio to select UI components from. 
