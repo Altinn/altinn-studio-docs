@@ -38,7 +38,6 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 
 ## Test Management Capabilities
 
-
 ### Test Case & Script Creation & Management
 
 ### Test Execution Tracking & Reporting
@@ -47,11 +46,10 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 
 ## Test Execution & Automation Capabilities
 
-
 ### Functional Test Enablement
 
 ### Unit Test Enablement
 
-###  Service & API Test Enablement
+### Service & API Test Enablement
 
 ### Performance Testing & Profile Enablement
