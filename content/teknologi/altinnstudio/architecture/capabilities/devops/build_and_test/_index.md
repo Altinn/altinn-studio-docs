@@ -39,17 +39,26 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 ## Test Management Capabilities
 
 ### Test Case & Script Creation & Management
+- Test scripts are collected in [Github](https://github.com/Altinn/altinn-studio/tree/master/src/test).
 
 ### Test Execution Tracking & Reporting
+- Defects reported as issues in [Github](https://github.com/Altinn/altinn-studio/issues), using the _Bug_ template.
 
 ### Test Data Creation & Management
+- Test data for local testing and integration testing is kept in [Github](https://github.com/Altinn/altinn-studio).
 
 ## Test Execution & Automation Capabilities
 
 ### Functional Test Enablement
+- Automated browser testing and WCAG testing using [Testcafe](https://devexpress.github.io/testcafe/).
 
 ### Unit Test Enablement
+- [Jest](https://jestjs.io/) framework used for unit testing front-end. More details [here](../../../../development/handbook/test/unit-testing/).
+- [xunit](https://xunit.net/) used for unit testing back-end.
 
 ### Service & API Test Enablement
+
+- API testing is done using Postman. More details [here](../../../../development/handbook/test/postman/).
+- Integration testing of services done using [standard Microsoft frameworks](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1).
 
 ### Performance Testing & Profile Enablement
