@@ -104,6 +104,9 @@ Endre på standardfil for arbeidsflyt
 ___
 Endre på filer med versjonskontroll 
 ![](/about/feature_externaleditor.png)
+___
+Legge den ferdige tjenesten i test- og produksjonsmiljø
+![](/about/feature_deploy.png)
 ---
 
 ## Tjenster 3.0 vs Tjenester 2.0
