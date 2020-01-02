@@ -74,13 +74,13 @@ Dette gir isolering mellom applikasjoner (microservices), enklere skalering og u
 ___
 ![](/about/architecture_apps_deployment.png)
 ---
-## Hva kan jeg gjøre med MVP-01?
+## Hva kan jeg gjøre med MVP?
 ___
 Opprette bruker og logge inn i Altinn Studio
 ![](/about/feature_login.png)
 ___
 Lage (og finne igjen) en tjeneste
-![](/about/feature_newservice.png)
+![](/about/feature_newapp.png)
 ___
 Finne tjenester fra andre organisasjoner
 ![](/about/feature_dashboardsearch.png)
@@ -94,9 +94,6 @@ ___
 Legge inn tekster/tekstnøkler for tjeneste
 ![](/about/feature_texteditor.png)
 ___
-Gjøre manuell test av tjenesten i Altinn Studio for å teste design og forretningslogikk
-![](/about/feature_manueltest.png)
-___
 Legge inn regler for skjemalogikk (validering, kalkulering, dynamikk)
 ![](/about/feature_logiceditor.png)
 ___
@@ -108,35 +105,7 @@ ___
 Endre på filer med versjonskontroll 
 ![](/about/feature_externaleditor.png)
 ---
-## Hva kan man forvente av MVP på ulike tidspunkt?
----
-## MVP-02: Runtime i test – April/Mai
-- Grunnleggende samhandling med SBL
-- Autentisering
-- Integrasjon med Profil
-- Lagring og uthenting av tjenestedata
-- Integrasjon med Register i SBL
-- Integrasjon med Intermediary i SBL
-- Integrasjon med innboks i SBL
-- Deployment av tjeneste til Runtime-testmiljø
-- Ikke sikret miljø, kun egnet for konstruerte testdata
-___
-- Utvidet funksjonalitet i Designer og Runtime
-- Utvidet støtte for tjenestedata
-- Grunnleggende integrasjon med Autorisasjonsløsninger
-- Utvidet støtte til API
-- Sikkerhet mellom containere
-- Shipment av brukerdata
----
-## MVP-03: Klar for tjenesteproduksjon – Juni/Sept
-- Fullverdig runtime med godkjent sikkerhet i sky
-- Fullverdig vedleggshåndtering
-- Fullverdig integrasjon med SBL
-- Utvidet Designer GUI, Dashboard 
-- Utskriftsfunksjonalitet
-- Analyseverktøy for brukeropptreden i Tjenester(?)
-**MERK! Det er fortsatt en MVP – dvs. klare begrensninger på hva slags tjenester som kan realiseres**
----
+
 ## Tjenster 3.0 vs Tjenester 2.0
 ___
 ## Skjemaverktøy
@@ -162,7 +131,7 @@ ___
 - Full kontroll på når ting skjer i plattformen i motsetning til Infopath 
 ___
 ## Shipment
-- Mest sannsynligvis færre muligheter i platform. (flatfil?, sftp?)
+- Inntil videre kun pull-basert nedlasting av skjemadata.
 
 ---
 ## Videre arbeid i MVP
@@ -178,7 +147,8 @@ ___
  - Altinn Studio
  - Altinn Apps
  - Altinn Platform
- ___
+
+___
  ## Altinn Studio
 
 ___
