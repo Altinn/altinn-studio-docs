@@ -48,7 +48,7 @@ There are many reasons to use Altinn Studio instead of building everything from 
 - Open source
 
 ## When will it be released
-First version is planned to be launched 2019
+First version is planned to be launched early 2020.
 
 ## Presentations
 
