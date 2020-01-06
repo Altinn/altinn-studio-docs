@@ -42,7 +42,8 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 - Test scripts are collected in [Github](https://github.com/Altinn/altinn-studio/tree/master/src/test).
 
 ### Test Execution Tracking & Reporting
-- Defects reported as issues in [Github](https://github.com/Altinn/altinn-studio/issues), using the _Bug_ template.
+- [Azure Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/) in [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) is usted for execution tracking
+- Defects reported as issues in [Github](https://github.com/Altinn/altinn-studio/issues), using the _Bug_ template. 
 
 ### Test Data Creation & Management
 - Test data for local testing and integration testing is kept in [Github](https://github.com/Altinn/altinn-studio).
