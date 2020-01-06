@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The development &amp; operations architecture capabilities list the capabilities used to develop and operate Altinn Studio, Altinn Apps and Altinn Platform.">
+    <meta name="description" content="Altinn Studio Build Processes">
 
 
     
-    <title>Development &amp; Operations Capabilties :: Altinn digitalisering - Utvikling</title>
+    <title>Build process :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/capabilities/devops/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/build/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -2867,7 +2867,7 @@ if(host != "localhost")
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/" class="dd-item 
         parent
-        active
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/capabilities/devops/">
@@ -3020,7 +3020,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3033,7 +3033,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3058,8 +3058,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/build/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/build/">
@@ -8643,7 +8643,17 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> Devops
+
+
+
+
+
+
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/devops/'>Devops</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/'>Build & Test</a> <span class='adocs-breadcrumb-divider'> / </span> Build process
+
+ 
+
+ 
 
  
 
@@ -8663,7 +8673,9 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/build">build</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/ci">ci</a>
             
           </div>
         
@@ -8671,10 +8683,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Development &amp; Operations Capabilties
+                Build process
                 
               </h1>
-              <p class="a-leadText" id="leadText">The development &amp; operations architecture capabilities list the capabilities used to develop and operate Altinn Studio, Altinn Apps and Altinn Platform.</p>
+              <p class="a-leadText" id="leadText">Altinn Studio Build Processes</p>
             
           
 
@@ -8686,196 +8698,96 @@ if(host != "localhost")
 
 
 
-<p>It covers the full spectrum of capabilities starting from development, going through a transition to operations and
-ending with operations it-self.</p>
 
-<p>Each capability consists of people, the procedures they follow and the software and hardware tools they use.</p>
 
-<p>This documentation currently focus on the capabilties that can be shared and reused of others.</p>
+<blockquote>
+<p>For information regarding Altinn App build process, see Architecture/Infrastructure/Deployment.</p>
+</blockquote>
 
-<p><a href="/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.svg">Full screen</a> | <a href="/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.vsdx">Visio</a></p>
+<h2 id="build-pipelines">Build Pipelines</h2>
 
+<h3 id="quality-build">Quality Build</h3>
 
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+<p>When creating a Pull Request a pipeline is building the applications, running tests and style check/linting.
+TSLint, SonarCloud (for Typescript) and Stylecop (C#) is used for style check/linting.</p>
 
+<p>Triggered by:</p>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/projectmanagement/" >Project Management Capabilities</a>
-<p>Project Management Capabilities covers the different capabilities to mange the project.</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/quality/" >Quality Management Capabilities</a>
-<p>Quality Management Capabilities covers the different capabilities to mange the project.</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/" >Platform Operations Management Capabilities</a>
-<p>Platform Operations Management Capabilities describes the capabilities needed to operate the platform.</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/" >Analysis &amp; Design Capabilities</a>
-<p>Analysis &amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/" >Build &amp; Test Capabilities</a>
-<p>Build &amp; Test Capabilties involves everthing from the capability to write code to the different types of testing</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/" >Software Configuration &amp; Release Management Capabilities</a>
-<p>Software Configuration &amp; Release Management Capabilities process of tracking changes and handle new releases for a application</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/environments/" >Environments</a>
-<p>Description of the environments</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-
-	
+<ul>
+<li>Pull Request</li>
 </ul>
 
+<h3 id="altinn-studio-and-runtime-docker-images">Altinn Studio and Runtime Docker Images</h3>
 
+<p>Separate pipelines will build and deploy the Altinn Studio Docker Image and the Runtime Docker Image to Azure Container Registry.
+The different Altinn Studio applications (React Apps) is built in seperate Docker images to utilize Docker&rsquo;s cache technique and minimize unnecessary rebuilding.</p>
 
+<p><em>Docker-Compose is used when developing and running Altinn Studio locally, building several Docker images and using the same caching technique used in the Pipeline.</em></p>
 
+<p>Triggered by:</p>
+
+<ul>
+<li>Git Merge to Master</li>
+</ul>
+
+<h3 id="altinn-studio-release-build">Altinn Studio Release Build</h3>
+
+<p>When the build for either Altinn Studio or Runtime is successfully ran a release build will start.
+The Release Build will update the Kubernetes cluster with the images created in the Altinn Studio and the Runtime build pipelines.</p>
+
+<p>Triggered by:</p>
+
+<ul>
+<li>Successfull build of either/both Altinn Studio and Runtime.</li>
+</ul>
+
+<h2 id="generating-altinn-pipelines-images">Generating Altinn Pipelines Images</h2>
+
+<h3 id="summary">Summary</h3>
+
+<ul>
+<li>The Altinn Azure Pipelines Image (image) is built with Packer. The Packer JSON configuration is based on the same configuration used by Microsoft to build their own Hosted Agent images.</li>
+<li>The image is built in Azure Pipelines passing in &ldquo;secrets&rdquo; to the Packer configuration with Environment Variables not visibly available during the build process.</li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+
+<ul>
+<li>Create a Virtual Machine in Azure using the pre built image found under &ldquo;browse all images and disks&rdquo;.</li>
+<li>Create a username and password (should be stored in Azure Vault).</li>
+</ul>
+
+<h3 id="installing-agent-host">Installing Agent Host</h3>
+
+<p>The script for installing the Agent Host is found at: Maintenance/azure-pipelines-image/scripts/agent/agent-install.sh (Currently a manual job)</p>
+
+<p>A computer can have one or several Agent Hosts installed. Several Agents, on one or several servers, can connect to one Agent Pool.</p>
+
+<h3 id="creating-pipelines-image-with-packer-io">Creating Pipelines Image with Packer.io</h3>
+
+<p>The process of creating an Image with Packer is described here: <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer">https://docs.microsoft.com/en-us/azure/virtual-machines/linux/build-image-with-packer</a></p>
+
+<p>Some steps might already be performed in Azure.</p>
+
+<p>The repo for creating the Pipelines Image for Altinn is hosted in this branch: <a href="https://github.com/Altinn/altinn-studio/tree/Maintenance/azure-pipelines-image">https://github.com/Altinn/altinn-studio/tree/Maintenance/azure-pipelines-image</a> and is based on the Microsoft Packer scripts from this repo: <a href="https://github.com/Microsoft/azure-pipelines-image-generation">https://github.com/Microsoft/azure-pipelines-image-generation</a></p>
+
+<p>The variables used in the Packer JSON configuration file is passed in via hidden Pipelines environment variables.</p>
+
+<h4 id="ubuntu1604-full">Ubuntu1604-full</h4>
+
+<p>The &ldquo;full&rdquo; image contains components for building Dotnet and NodeJS applications, running JavaScript based headless tests and running Docker Images. See the JSON file for specifications.</p>
+
+<h4 id="ubuntu1604-light">Ubuntu1604-light</h4>
+
+<p>The &ldquo;light&rdquo; image only contains Git and Docker and is created for only running Docker images.</p>
+
+<h4 id="clean-up">Clean-up</h4>
+
+<p>Packer creates Resource Groups in Azure keeping the image build for history and debuggind purposes. To remove this Resource Group run AZ Cli:</p>
+
+<ul>
+<li>az group delete -n PackerResourceGroup</li>
+</ul>
 
 
 <footer class=" footline" >
@@ -10383,6 +10295,7 @@ ending with operations it-self.</p>
                       
                           
                               
+                              
                           
                           
           
@@ -10397,6 +10310,7 @@ ending with operations it-self.</p>
                       
                       
                           
+                              
                               
                           
                           
@@ -10416,6 +10330,9 @@ ending with operations it-self.</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -13212,10 +13129,10 @@ ending with operations it-self.</p>
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/capabilities/" title="Architecture Capabilities"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/" title="Build &amp; Test Capabilities"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/capabilities/devops/projectmanagement/" title="Project Management Capabilities" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/" title="Software Configuration &amp; Release Management Capabilities" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -13227,7 +13144,7 @@ ending with operations it-self.</p>
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/capabilities/devops/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/build/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>
