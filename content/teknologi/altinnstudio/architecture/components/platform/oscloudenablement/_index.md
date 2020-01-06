@@ -13,7 +13,7 @@ alwaysopen: false
 The containers is the following Operating Systems
 
 - [Alpine Linux](https://alpinelinux.org/) for Altinn Platform components based on .Net Core, Altinn Studio components based on .Net Core and apps created in Altinn Studio
-- Linux for PDF components in Altinn Platform
+- [Debian Linux](https://www.debian.org/) for PDF components in Altinn Platform
 - Linux for Gitea in Altinn Studio (we use standard docker file)
 
 ## Cloud Enablement Sofware
