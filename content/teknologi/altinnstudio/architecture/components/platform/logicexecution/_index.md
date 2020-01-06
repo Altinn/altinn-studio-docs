@@ -7,15 +7,13 @@ weight: 101
 alwaysopen: false
 ---
 
-
-
 ## Code Execution Server Software
 
 ### Application Servers
 For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. 
 [Read more about Kestrel at Microsoft](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/)
 
-For J2EE Applications we use xxx.
+For J2EE Applications we use [Spring Boot](https://spring.io/projects/spring-boot).
 
 
 ### Language Virtual Machines & Code Containers
