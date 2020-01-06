@@ -1229,7 +1229,7 @@
 	"title": "Platform Operations Management Capabilities",
 	"tags": ["architecture"],
 	"description": "Platform Operations Management Capabilities describes the capabilities needed to operate the platform.",
-	"content": " PaaS \u0026amp; IaaS Management Capabilities System \u0026amp; Service Monitoring Automation \u0026amp; Scheduling (batch, scripts) Paas \u0026amp; IaaS Configuration \u0026amp; Management Backup, Restore \u0026amp; Archival Performance \u0026amp; Availability Management Capabilities Performance Profiling Performance Tuning Availability and Performance Monitoring Cloud Capacity Management "
+	"content": " PaaS \u0026amp; IaaS Management Capabilities System \u0026amp; Service Monitoring Some monitoring is done from Azure Portal with help of Azure Monitor Appliation Insight and other tools avaiable.\nAutomation \u0026amp; Scheduling (batch, scripts) Paas \u0026amp; IaaS Configuration \u0026amp; Management There are serveral ways PasS and \u0026amp; IaaS resources are configured \u0026amp; managed\n Azure Portal Azure CLI Azure mobile app  Backup, Restore \u0026amp; Archival Performance \u0026amp; Availability Management Capabilities Performance Profiling Performance Tuning Availability and Performance Monitoring Cloud Capacity Management "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/",
@@ -1257,7 +1257,7 @@
 	"title": "Operating Systems &amp; Cloud Enablement",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Operating Systems &amp; Cloud Enablement defines the operating systems for containers and how the container are deployed to the cloud",
-	"content": " Operating systems Container Operation Systems The containers is the following Operating Systems\n Alpine Linux for Altinn Platform components based on .Net Core, Altinn Studio components based on .Net Core and apps created in Altinn Studio Linux for PDF components in Altinn Platform Linux for Gitea in Altinn Studio (we use standard docker file)  Cloud Enablement Sofware Orchestrating \u0026amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.\nWe use Azure Kubernetes Services that is a managed Kubernetes.\nService Mesh \u0026amp; Proxy We use Traefik as Proxy in the Kubernetes.\nCurrently we dont use Service Mest technolgies\n"
+	"content": " Operating systems Container Operation Systems The containers is the following Operating Systems\n Alpine Linux for Altinn Platform components based on .Net Core, Altinn Studio components based on .Net Core and apps created in Altinn Studio Debian Linux for PDF components in Altinn Platform Linux for Gitea in Altinn Studio (we use standard docker file)  Cloud Enablement Sofware Orchestrating \u0026amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.\nWe use Azure Kubernetes Services that is a managed Kubernetes.\nService Mesh \u0026amp; Proxy We use Traefik as Proxy in the Kubernetes.\nCurrently we dont use Service Mest technolgies\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/",
