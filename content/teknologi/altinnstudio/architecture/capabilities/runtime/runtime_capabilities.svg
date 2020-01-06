@@ -35,7 +35,7 @@
 			<v:textRect cx="721.417" cy="403.607" width="1442.84" height="623.622"/>
 			<rect x="0" y="91.7957" width="1442.83" height="623.622" class="st1"/>
 			<text x="616.22" y="103" class="st2" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Technical Run-time (Execution) Capabilities</text>		</g>
-		<atarget="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/">
 			<g id="shape113-4" v:mID="113" v:groupContext="shape" transform="translate(918.833,-7.33662)">
 				<title>Rectangle.113</title>
 				<desc>Integration Capabilities</desc>
@@ -47,7 +47,7 @@
 				<rect x="0" y="389.433" width="232.125" height="325.984" class="st3"/>
 				<text x="59.45" y="400.63" class="st2" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Integration Capabilities</text>			</g>
 		</a>
-		<atarget="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/">
 			<g id="shape2-7" v:mID="2" v:groupContext="shape" transform="translate(723.085,-346.077)">
 				<title>Rectangle.2</title>
 				<desc>Security Enforcement Capabilities</desc>
@@ -70,7 +70,7 @@
 			<rect x="0" y="516.993" width="113.386" height="198.425" class="st4"/>
 			<text x="14.75" y="528.19" class="st2" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Identity &#38; Access <tspan
 						x="11.82" dy="0.8em" class="st5">Management Cap.</tspan></text>		</g>
-		<atarget="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">
 			<g id="shape4-14" v:mID="4" v:groupContext="shape" transform="translate(9.06964,-346.077)">
 				<title>Rectangle.4</title>
 				<desc>Presentation (User Interface) Capabilities</desc>
@@ -92,7 +92,7 @@
 			<v:textRect cx="155.906" cy="616.205" width="311.82" height="198.425"/>
 			<rect x="0" y="516.993" width="311.811" height="198.425" class="st4"/>
 			<text x="67.8" y="528.19" class="st2" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Rendering &#38; Interaction Capabilities</text>		</g>
-		<atarget="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/data/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/data/">
 			<g id="shape6-20" v:mID="6" v:groupContext="shape" transform="translate(547.337,-6.50628)">
 				<title>Rectangle.6</title>
 				<desc>Data Management Capabilities</desc>
@@ -158,7 +158,7 @@
 			<v:textRect cx="106.299" cy="573.685" width="212.6" height="283.465"/>
 			<rect x="0" y="431.953" width="212.598" height="283.465" class="st4"/>
 			<text x="6.27" y="443.15" class="st2" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Integration &#38; Data Transport Capabilities</text>		</g>
-		<atarget="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/">
 			<g id="shape12-42" v:mID="12" v:groupContext="shape" transform="translate(9.06964,-6.50628)">
 				<title>Rectangle.12</title>
 				<desc>Processing &#38; Execution Capabilities</desc>
@@ -817,7 +817,7 @@
 			<text x="3.65" y="696.01" class="st2" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Dynamic Design<v:lf/><tspan
 						x="4.76" dy="1.2em" class="st8" v:langID="2057">(by the </tspan><tspan class="st8">App Developer</tspan><tspan
 						class="st8" v:langID="2057">)</tspan></text>		</g>
-		<atarget="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/">
+		<a target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/">
 			<g id="shape112-288" v:mID="112" v:groupContext="shape" transform="translate(1162.45,-7.33661)">
 				<title>Rectangle.112</title>
 				<desc>App Development Capabilites</desc>
