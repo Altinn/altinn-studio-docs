@@ -193,7 +193,7 @@
 	"title": "Runtime (execution) arhictecture capabilities",
 	"tags": ["architecture"],
 	"description": "The runtime (execution) capabilities desribes the provided capabilites by the architecture components at runtime.",
-	"content": "The Runtime (exceution) Architecture supports applications at run-time. It is a unified collection of run-time technology services, capabilities, control structures, and supporting infrastructure upon which application software runs.\nThe below diagram shows the different runtime capabilities grouped by different areas.\nFull screen | Visio\n\nBelow you find detailed description of the different areas with links to the different components that provides that capability.\n\rApplication build \u0026amp; deploy capabilties\rApplication developers using Altinn Studio to create Applications have access to build \u0026amp; deploy capabilties\n\r\rData management Capabilities\rData management capabilities range from handling data to defining data models for applications in Altinn Studio\n\r\rIntegration Capabilties\rDescription of the Integration Capabilties in the technology architecture\n\r\rPresentation (User Interface) Capabilities\rPresentation Capabilities enable an application to manage the human-computer interface.\n\r\rProcessing \u0026amp; Execution Capabilities\rProcessing \u0026amp; Execution Capabilities includes everthing from processing a defined business processes to loadbalancing and failover\n\r\rSecurity Enforcement Capabilities\rSecurity Enforcement Capabilities are capabilities typical provided by common architecture components\n\r\r"
+	"content": "The Runtime (exceution) Architecture supports applications at run-time. It is a unified collection of run-time technology services, capabilities, control structures, and supporting infrastructure upon which application software runs.\nThe below diagram shows the different runtime capabilities grouped by different areas.\nFull screen | Visio\n\nBelow you find detailed description of the different areas with links to the different components that provides that capability.\n\rApplication build \u0026amp; deploy capabilties\rApplication developers using Altinn Studio to create Applications have access to build \u0026amp; deploy capabilties\n\r\rApplication development capabilities\rApplication development capabilities are capabilites that is used for developing applications in Altinn Studio\n\r\rData management Capabilities\rData management capabilities range from handling data to defining data models for applications in Altinn Studio\n\r\rIntegration Capabilties\rDescription of the Integration Capabilties in the technology architecture\n\r\rPresentation (User Interface) Capabilities\rPresentation Capabilities enable an application to manage the human-computer interface.\n\r\rProcessing \u0026amp; Execution Capabilities\rProcessing \u0026amp; Execution Capabilities includes everthing from processing a defined business processes to loadbalancing and failover\n\r\rSecurity Enforcement Capabilities\rSecurity Enforcement Capabilities are capabilities typical provided by common architecture components\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/innhold/",
@@ -516,6 +516,13 @@
 	"tags": ["architecture"],
 	"description": "Application developers using Altinn Studio to create Applications have access to build &amp; deploy capabilties",
 	"content": " Code compilation Container build Service developers have access to container build capabilities using build pipelines.\nApp deployment Service developers have access to app deployment to all available environments using deploy pipeline.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/",
+	"title": "Application development capabilities",
+	"tags": ["architecture"],
+	"description": "Application development capabilities are capabilites that is used for developing applications in Altinn Studio",
+	"content": " Container build Service developers have access to container build capabilities using build pipelines.\nApp deployment Service developers have access to app deployment to all available environments using deploy pipeline.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/development/build/",
