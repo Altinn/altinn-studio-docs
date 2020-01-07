@@ -938,13 +938,6 @@
 	"content": " Most of the project capabilties is not listed. The once that is listed is the ones where we use technolgies and teqniques that can be shared/reused.\nAgile Project Management Capabilties Backlog managmenent and prioritazion The project has capability to manage the backlog and priorize it.\nThis is done in Github and Zenhub,\nBurn-down / Tracking The project has capability to manage see the burn-down and track issues in backlog\nThis is done in Github and Zenhub,\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/about/status/",
-	"title": "Project Status",
-	"tags": [],
-	"description": "Description of the current status of the project",
-	"content": " Building Altinn Studio is a large project with lots of complexity.\nThe solutions will be open source, we are having all our issues on Github and the below diagrams shows a visual status of the project. (Updated weekly)\nSolution status This diagram shows the status of the different areas based on the solutions where the areas are implemented. This digram let you understand where in the solution there are work left. \nFull screen | Visio\nFunctional status This diagram has purly functional focus. It does not care about where any issues are located and why things does not work. A area can be red even it is 100% complete if testing of a functionality is blocked by other non related issues.\n\nFull screen | Visio\n"
-},
-{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/rest/",
 	"title": "RESTful APIs (Representation State Transfer)",
 	"tags": ["development", "api"],
