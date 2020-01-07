@@ -10,7 +10,7 @@ alwaysopen: false
 ## Operating systems
 
 ### Container Operation Systems
-All containers is running on [Alpine Linux](https://alpinelinux.org/), which includes apps created in Altinn Studio and the Altinn Platform components.
+All containers are running on [Alpine Linux](https://alpinelinux.org/), which includes apps created in Altinn Studio and the Altinn Platform components.
 
 ## Cloud Enablement Sofware
 
