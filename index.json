@@ -683,7 +683,7 @@
 	"title": "Functionality in Altinn Studio",
 	"tags": [],
 	"description": "Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.",
-	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rBuilding and configuring app\rAltinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\r"
+	"content": "The output from Altinn Studio will be files that is version controlled in Altinn Studio Repos.\n\rBuilding and configuring app\rAltinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.\n\r\rApp Deployment\rAltinn Studio will let the developer deploy apps to test enviroments and production without any manuel steps.\n\r\rDashboard\rThe Dashboard in Altinn Studio gives the developer full overview over apps\n\r\rTesting\rIn Altinn Studio there will different ways for developers to test their apps.\n\r\rVersion Control\rIn Altinn Studio a developer can perform version control operation on the source code for the app\n\r\rWork in progress\rA work in progress information is displayed to users of Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/general/",
@@ -1848,7 +1848,7 @@
 	"content": " Visual Studio Code is a lightweight and extendable code editor which runs on your desktop and is available for Windows, macOS and Linux.\nWe use it when developing altinn-studio, and it can be used for editing files from Altinn Studio Repos locally using the built-in git support.\nVS Code comes with support for hundreds of languages and technologies, including all the ones that are relevant in Altinn Studio:\n C# CSS Docker Go HTML JavaScript JSON Kubernetes Markdown .NET Core Node.js React and JSX TypeScript  Links  https://code.visualstudio.com/docs https://github.com/Microsoft/vscode  "
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/about/work-in-progress/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/work-in-progress/",
 	"title": "Work in progress",
 	"tags": ["wip"],
 	"description": "A work in progress information is displayed to users of Altinn Studio.",
