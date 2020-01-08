@@ -1,6 +1,6 @@
 ---
 title: Build & Test Capabilities
-description: Build & Test Capabilties involves everthing from the capability to write code to the different types of testing
+description: Build & Test Capabilties involves everything from the capability to write and building code to the different types of testing of th ecode
 tags: [architecture]
 linktitle: Build & Test
 weight: 105
@@ -9,7 +9,7 @@ alwaysopen: false
 
 ## Software Generation Capabilties
 
-### Code & Config Writing enablement
+### Code & Config Writing Capability
 The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) as IDE.
 
 ## Build & Integration Enablement Capabilities
@@ -30,11 +30,10 @@ We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipe
 ### Development Environment Integration
 Visual Studio and Visual Studio Code can integrate with both 
 
-## Continuous Integration Enablement
+## Continuous Integration Capabilities
 Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests
 
 {{% children description="true" depth="1" %}}
-
 
 ## Test Management Capabilities
 
@@ -50,16 +49,17 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 
 ## Test Execution & Automation Capabilities
 
-### Functional Test Enablement
+### Functional Test
 - Automated browser testing and WCAG testing using [Testcafe](https://devexpress.github.io/testcafe/).
 
-### Unit Test Enablement
+### Unit Test
 - [Jest](https://jestjs.io/) framework used for unit testing front-end. More details [here](../../../../development/handbook/test/unit-testing/).
 - [xunit](https://xunit.net/) used for unit testing back-end.
 
-### Service & API Test Enablement
+### Service & API Test
 
 - API testing is done using Postman. More details [here](../../../../development/handbook/test/postman/).
 - Integration testing of services done using [standard Microsoft frameworks](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1).
 
-### Performance Testing & Profile Enablement
+### Performance Testing & Profiling
+We will use [K6](https://k6.io/) for performance testing.

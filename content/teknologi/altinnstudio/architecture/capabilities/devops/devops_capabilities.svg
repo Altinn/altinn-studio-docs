@@ -26,7 +26,7 @@
 		.st16 {fill:#cdcdcd;fill-opacity:0.5;stroke:#cdcdcd;stroke-dasharray:1.75,1.25;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.5}
 		.st17 {fill:url(#grad0-131);stroke:#404040;stroke-dasharray:1.75,1.25;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
 		.st18 {fill:#000000;font-family:Calibri;font-size:0.833336em;font-style:italic}
-		.st19 {fill:url(#grad0-495);stroke:#404040;stroke-dasharray:1.75,1.25;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
+		.st19 {fill:url(#grad0-487);stroke:#404040;stroke-dasharray:1.75,1.25;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
 		.st20 {fill:url(#grad0-147);stroke:#404040;stroke-dasharray:1.75,1.25;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.25}
 		.st21 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
@@ -65,7 +65,7 @@
 			<stop offset="0" stop-color="#aeffae" stop-opacity="1"/>
 			<stop offset="1" stop-color="#ccffcc" stop-opacity="1"/>
 		</linearGradient>
-		<linearGradient id="grad0-495" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(270 0.5 0.5)">
+		<linearGradient id="grad0-487" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(270 0.5 0.5)">
 			<stop offset="0" stop-color="#a899c1" stop-opacity="1"/>
 			<stop offset="1" stop-color="#b8accd" stop-opacity="1"/>
 		</linearGradient>
@@ -225,7 +225,7 @@
 			<text x="46.12" y="441.19" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Analysis &#38; Design Capabilities</text>		</g>
 		<g id="shape13-63" v:mID="13" v:groupContext="shape" transform="translate(28.4715,-370.069)">
 			<title>Rectangle.10</title>
-			<desc>Analysis Enablement Capabilities</desc>
+			<desc>Analysis Capabilities</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -238,7 +238,7 @@
 				<rect x="0" y="685.106" width="212.598" height="155.906" class="st2"/>
 			</g>
 			<rect x="0" y="685.106" width="212.598" height="155.906" class="st7"/>
-			<text x="54.53" y="696.31" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Analysis Enablement<v:lf/><tspan
+			<text x="85.91" y="696.31" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Analysis<v:lf/><tspan
 						x="77.37" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
 		<g id="shape15-70" v:mID="15" v:groupContext="shape" transform="translate(0.125,-1.56499)">
 			<title>Rectangle.15</title>
@@ -426,7 +426,7 @@
 						x="22.71" dy="0.8em" class="st8">Capture</tspan></text>		</g>
 		<g id="shape41-150" v:mID="41" v:groupContext="shape" transform="translate(28.4715,-157.471)">
 			<title>Rectangle.41</title>
-			<desc>Design Enablement Capabilities</desc>
+			<desc>Design Capabilities</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -439,7 +439,7 @@
 				<rect x="0" y="642.586" width="212.598" height="198.425" class="st2"/>
 			</g>
 			<rect x="0" y="642.586" width="212.598" height="198.425" class="st7"/>
-			<text x="58.18" y="653.79" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Design Enablement<v:lf/><tspan
+			<text x="89.56" y="653.79" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Design<v:lf/><tspan
 						x="77.37" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
 		<g id="shape42-157" v:mID="42" v:groupContext="shape" transform="translate(141.857,-421.093)">
 			<title>Rectangle.42</title>
@@ -477,7 +477,7 @@
 						x="77.37" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
 		<g id="shape44-172" v:mID="44" v:groupContext="shape" transform="translate(141.857,-463.612)">
 			<title>Rectangle.44</title>
-			<desc>Use Case/Story Definition Enablement</desc>
+			<desc>Use Case/Story Definition</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -490,9 +490,9 @@
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="4.59" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Use Case/Story <tspan
-						x="17.65" dy="0.8em" class="st8">Definition </tspan><tspan x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape48-180" v:mID="48" v:groupContext="shape" transform="translate(524.534,-421.093)">
+			<text x="4.59" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Use Case/Story <tspan
+						x="17.65" dy="0.8em" class="st8">Definition</tspan></text>		</g>
+		<g id="shape48-179" v:mID="48" v:groupContext="shape" transform="translate(524.534,-421.093)">
 			<title>Rectangle.48</title>
 			<desc>Continuous Integration Enablement</desc>
 			<v:userDefs>
@@ -502,16 +502,16 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow48-181" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow48-180" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="14.07" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Continuous <tspan
 						x="14.66" dy="0.8em" class="st8">Integration </tspan><tspan x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape49-188" v:mID="49" v:groupContext="shape" transform="translate(42.6447,-251.014)">
+		<g id="shape49-187" v:mID="49" v:groupContext="shape" transform="translate(42.6447,-251.014)">
 			<title>Rectangle.49</title>
-			<desc>UI Design Enablement</desc>
+			<desc>UI Design</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -519,16 +519,15 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow49-189" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow49-188" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="18.91" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>UI Design <tspan
-						x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape50-195" v:mID="50" v:groupContext="shape" transform="translate(141.857,-293.533)">
+			<text x="18.91" y="826.4" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>UI Design</text>		</g>
+		<g id="shape50-193" v:mID="50" v:groupContext="shape" transform="translate(141.857,-293.533)">
 			<title>Rectangle.50</title>
-			<desc>Architecture Design Enablement</desc>
+			<desc>Architecture Design</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -536,16 +535,16 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow50-196" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow50-194" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="11.48" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Architecture <tspan
-						x="25.78" dy="0.8em" class="st8">Design </tspan><tspan x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape51-203" v:mID="51" v:groupContext="shape" transform="translate(141.857,-251.014)">
+			<text x="11.48" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Architecture <tspan
+						x="25.78" dy="0.8em" class="st8">Design</tspan></text>		</g>
+		<g id="shape51-200" v:mID="51" v:groupContext="shape" transform="translate(141.857,-251.014)">
 			<title>Rectangle.51</title>
-			<desc>Application Design Enablement</desc>
+			<desc>Application Design</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -553,14 +552,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow51-204" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow51-201" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="14.02" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Application <tspan
-						x="25.78" dy="0.8em" class="st8">Design </tspan><tspan x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape52-211" v:mID="52" v:groupContext="shape" transform="translate(283.59,-157.471)">
+			<text x="14.02" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Application <tspan
+						x="25.78" dy="0.8em" class="st8">Design </tspan> </text>		</g>
+		<g id="shape52-207" v:mID="52" v:groupContext="shape" transform="translate(283.59,-157.471)">
 			<title>Rectangle.52</title>
 			<desc>Test Management Capabilities</desc>
 			<v:userDefs>
@@ -570,14 +569,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 			<v:textRect cx="56.6929" cy="741.798" width="113.39" height="198.425"/>
-			<g id="shadow52-212" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow52-208" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="642.586" width="113.386" height="198.425" class="st2"/>
 			</g>
 			<rect x="0" y="642.586" width="113.386" height="198.425" class="st7"/>
 			<text x="11.42" y="653.79" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Test Management<v:lf/><tspan
 						x="27.76" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape53-218" v:mID="53" v:groupContext="shape" transform="translate(297.763,-208.494)">
+		<g id="shape53-214" v:mID="53" v:groupContext="shape" transform="translate(297.763,-208.494)">
 			<title>Rectangle.53</title>
 			<desc>Test Data Creation &#38; Management</desc>
 			<v:userDefs>
@@ -587,14 +586,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow53-219" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow53-215" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="18.91" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Test Data <tspan
 						x="15.65" dy="0.8em" class="st8">Creation &#38; </tspan><tspan x="9.07" dy="0.8em" class="st8">Management</tspan></text>		</g>
-		<g id="shape54-226" v:mID="54" v:groupContext="shape" transform="translate(297.763,-293.533)">
+		<g id="shape54-222" v:mID="54" v:groupContext="shape" transform="translate(297.763,-293.533)">
 			<title>Rectangle.54</title>
 			<desc>Test Case &#38; Script Creation &#38; Management</desc>
 			<v:userDefs>
@@ -604,14 +603,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow54-227" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow54-223" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="13.56" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Test Case &#38; <tspan
 						x="0.04" dy="0.8em" class="st8">Script Creation &#38; </tspan><tspan x="9.07" dy="0.8em" class="st8">Management</tspan></text>		</g>
-		<g id="shape55-234" v:mID="55" v:groupContext="shape" transform="translate(297.763,-251.014)">
+		<g id="shape55-230" v:mID="55" v:groupContext="shape" transform="translate(297.763,-251.014)">
 			<title>Rectangle.55</title>
 			<desc>Test Execution Tracking &#38; Reporting</desc>
 			<v:userDefs>
@@ -621,16 +620,16 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow55-235" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow55-231" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="6.26" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Test Execution <tspan
 						x="15.94" dy="0.8em" class="st8">Tracking &#38; </tspan><tspan x="17.92" dy="0.8em" class="st8">Reporting</tspan></text>		</g>
-		<g id="shape56-242" v:mID="56" v:groupContext="shape" transform="translate(425.322,-293.533)">
+		<g id="shape56-238" v:mID="56" v:groupContext="shape" transform="translate(425.322,-293.533)">
 			<title>Rectangle.56</title>
-			<desc>Functional Test Enablement</desc>
+			<desc>Functional Test</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -638,16 +637,15 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow56-243" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow56-239" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="4.56" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Functional Test <tspan
-						x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape57-249" v:mID="57" v:groupContext="shape" transform="translate(425.322,-251.014)">
+			<text x="4.56" y="826.4" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Functional Test  </text>		</g>
+		<g id="shape57-244" v:mID="57" v:groupContext="shape" transform="translate(425.322,-251.014)">
 			<title>Rectangle.57</title>
-			<desc>Unit Test Enablement</desc>
+			<desc>Unit Test</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -655,14 +653,13 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow57-250" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow57-245" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="20.01" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Unit Test <tspan
-						x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape58-256" v:mID="58" v:groupContext="shape" transform="translate(666.267,-370.069)">
+			<text x="20.01" y="826.4" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Unit Test  </text>		</g>
+		<g id="shape58-250" v:mID="58" v:groupContext="shape" transform="translate(666.267,-370.069)">
 			<title>Rectangle.58</title>
 			<desc>Version, Release &#38; Artefact Management Capabilities</desc>
 			<v:userDefs>
@@ -672,14 +669,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 			<v:textRect cx="106.299" cy="763.058" width="212.6" height="155.906"/>
-			<g id="shadow58-257" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow58-251" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="685.106" width="212.598" height="155.906" class="st2"/>
 			</g>
 			<rect x="0" y="685.106" width="212.598" height="155.906" class="st9"/>
 			<text x="37.85" y="696.31" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Version, Release &#38; Artefact <tspan
 						x="42.56" dy="0.8em" class="st8">Management Capabilities</tspan></text>		</g>
-		<g id="shape59-263" v:mID="59" v:groupContext="shape" transform="translate(680.44,-463.612)">
+		<g id="shape59-257" v:mID="59" v:groupContext="shape" transform="translate(680.44,-463.612)">
 			<title>Rectangle.59</title>
 			<desc>Version Management (incl. branching)</desc>
 			<v:userDefs>
@@ -689,14 +686,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow59-264" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow59-258" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="23.51" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Version <tspan
 						x="9.07" dy="0.8em" class="st8">Management<v:lf/></tspan><tspan x="13.06" dy="1.067em" class="st14">(incl. branching)</tspan></text>		</g>
-		<g id="shape60-271" v:mID="60" v:groupContext="shape" transform="translate(680.44,-421.093)">
+		<g id="shape60-265" v:mID="60" v:groupContext="shape" transform="translate(680.44,-421.093)">
 			<title>Rectangle.60</title>
 			<desc>Artefact Management (incl. media)</desc>
 			<v:userDefs>
@@ -706,14 +703,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow60-272" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow60-266" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="22.2" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Artefact <tspan
 						x="9.07" dy="0.8em" class="st8">Management<v:lf/></tspan><tspan x="20.02" dy="1.067em" class="st14">(incl. media)</tspan></text>		</g>
-		<g id="shape63-279" v:mID="63" v:groupContext="shape" transform="translate(24.1093,-584.002)">
+		<g id="shape63-273" v:mID="63" v:groupContext="shape" transform="translate(24.1093,-584.002)">
 			<title>Rectangle.63</title>
 			<desc>Agile Project Management Cap.s</desc>
 			<v:userDefs>
@@ -723,14 +720,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 			<v:textRect cx="56.6929" cy="741.798" width="113.39" height="198.425"/>
-			<g id="shadow63-280" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow63-274" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="642.586" width="113.386" height="198.425" class="st2"/>
 			</g>
 			<rect x="0" y="642.586" width="113.386" height="198.425" class="st7"/>
 			<text x="25.19" y="653.79" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Agile Project <tspan
 						x="8.53" dy="0.8em" class="st8">Management Cap.s</tspan></text>		</g>
-		<g id="shape64-286" v:mID="64" v:groupContext="shape" transform="translate(38.2825,-720.065)">
+		<g id="shape64-280" v:mID="64" v:groupContext="shape" transform="translate(38.2825,-720.065)">
 			<title>Rectangle.64</title>
 			<desc>Backlog Management &#38; Prioritisation</desc>
 			<v:userDefs>
@@ -740,14 +737,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow64-287" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow64-281" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="23.26" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Backlog <tspan
 						x="3.48" dy="0.8em" class="st8">Management &#38; </tspan><tspan x="9.98" dy="0.8em" class="st8">Prioritisation</tspan></text>		</g>
-		<g id="shape65-294" v:mID="65" v:groupContext="shape" transform="translate(38.2825,-677.546)">
+		<g id="shape65-288" v:mID="65" v:groupContext="shape" transform="translate(38.2825,-677.546)">
 			<title>Rectangle.65</title>
 			<desc>Burn-down/-up Tracking</desc>
 			<v:userDefs>
@@ -757,14 +754,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow65-295" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow65-289" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="3.76" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Burn-down/-up <tspan
 						x="21.53" dy="0.8em" class="st8">Tracking</tspan></text>		</g>
-		<g id="shape68-301" v:mID="68" v:groupContext="shape" transform="translate(42.6447,-421.093)">
+		<g id="shape68-295" v:mID="68" v:groupContext="shape" transform="translate(42.6447,-421.093)">
 			<title>Rectangle.68</title>
 			<desc>Requirement Validation</desc>
 			<v:userDefs>
@@ -774,14 +771,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow68-302" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow68-296" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="9.85" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Requirement <tspan
 						x="16.88" dy="0.8em" class="st8">Validation</tspan></text>		</g>
-		<g id="shape69-308" v:mID="69" v:groupContext="shape" transform="translate(42.6447,-378.573)">
+		<g id="shape69-302" v:mID="69" v:groupContext="shape" transform="translate(42.6447,-378.573)">
 			<title>Rectangle.69</title>
 			<desc>Requirement Traceability</desc>
 			<v:userDefs>
@@ -791,14 +788,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow69-309" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow69-303" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="9.85" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Requirement <tspan
 						x="13.4" dy="0.8em" class="st8">Traceability</tspan></text>		</g>
-		<g id="shape76-315" v:mID="76" v:groupContext="shape" transform="translate(358.687,-626.522)">
+		<g id="shape76-309" v:mID="76" v:groupContext="shape" transform="translate(358.687,-626.522)">
 			<title>Rectangle.76</title>
 			<desc>PaaS &#38; IaaS Management Capabilities</desc>
 			<v:userDefs>
@@ -808,7 +805,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,0,4,0)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 			<v:textRect cx="111.205" cy="763.058" width="222.41" height="155.906"/>
-			<g id="shadow76-316" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow76-310" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="685.106" width="222.409" height="155.906" class="st2"/>
 			</g>
@@ -816,7 +813,7 @@
 			<text x="47.14" y="696.31" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>PaaS &#38;<tspan
 						class="st8" v:langID="2057"> </tspan><tspan class="st8" v:langID="2057">IaaS Management<v:lf/></tspan><tspan
 						x="82.28" dy="0.8em" class="st8" v:langID="2057">Capabilities</tspan></text>		</g>
-		<g id="shape77-324" v:mID="77" v:groupContext="shape" transform="translate(372.86,-635.026)">
+		<g id="shape77-318" v:mID="77" v:groupContext="shape" transform="translate(372.86,-635.026)">
 			<title>Rectangle.77</title>
 			<desc>Automation &#38; Scheduling (batch, scripts, etc.)</desc>
 			<v:userDefs>
@@ -826,14 +823,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow77-325" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow77-319" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="6.93" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Automation &#38; <tspan
 						x="15.48" dy="0.8em" class="st8">Scheduling<v:lf/></tspan><tspan x="6.75" dy="1.067em" class="st14">(batch, scripts, etc.)</tspan></text>		</g>
-		<g id="shape79-332" v:mID="79" v:groupContext="shape" transform="translate(472.073,-677.546)">
+		<g id="shape79-326" v:mID="79" v:groupContext="shape" transform="translate(472.073,-677.546)">
 			<title>Rectangle.79</title>
 			<desc>Backup, Restore &#38; Archival</desc>
 			<v:userDefs>
@@ -843,14 +840,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow79-333" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow79-327" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="2.21" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Backup, Restore <tspan
 						x="16.69" dy="0.8em" class="st8">&#38; Archival</tspan></text>		</g>
-		<g id="shape88-339" v:mID="88" v:groupContext="shape" transform="translate(425.322,-378.573)">
+		<g id="shape88-333" v:mID="88" v:groupContext="shape" transform="translate(425.322,-378.573)">
 			<title>Rectangle.88</title>
 			<desc>Development Environment Integration</desc>
 			<v:userDefs>
@@ -860,14 +857,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow88-340" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow88-334" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="8.74" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Development <tspan
 						x="10.28" dy="0.8em" class="st8">Environment </tspan><tspan x="14.66" dy="0.8em" class="st8">Integration</tspan></text>		</g>
-		<g id="shape89-347" v:mID="89" v:groupContext="shape" transform="translate(425.322,-421.093)">
+		<g id="shape89-341" v:mID="89" v:groupContext="shape" transform="translate(425.322,-421.093)">
 			<title>Rectangle.89</title>
 			<desc>Software Linking &#38; Packaging</desc>
 			<v:userDefs>
@@ -877,14 +874,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow89-348" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow89-342" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="0.89" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Software Linking <tspan
 						x="12.04" dy="0.8em" class="st8">&#38; Packaging</tspan></text>		</g>
-		<g id="shape90-354" v:mID="90" v:groupContext="shape" transform="translate(425.322,-463.612)">
+		<g id="shape90-348" v:mID="90" v:groupContext="shape" transform="translate(425.322,-463.612)">
 			<title>Rectangle.90</title>
 			<desc>Software Compilation &#38; Validation</desc>
 			<v:userDefs>
@@ -894,16 +891,16 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow90-355" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow90-349" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="19.89" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Software <tspan
 						x="6.53" dy="0.8em" class="st8">Compilation &#38; </tspan><tspan x="16.88" dy="0.8em" class="st8">Validation</tspan></text>		</g>
-		<g id="shape91-362" v:mID="91" v:groupContext="shape" transform="translate(425.322,-208.494)">
+		<g id="shape91-356" v:mID="91" v:groupContext="shape" transform="translate(425.322,-208.494)">
 			<title>Rectangle.91</title>
-			<desc>Service &#38; API Test Enablement</desc>
+			<desc>Service &#38; API Test</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -911,16 +908,16 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow91-363" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow91-357" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="9.32" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Service &#38; API <tspan
-						x="0.67" dy="0.8em" class="st8">Test Enablement</tspan></text>		</g>
-		<g id="shape92-369" v:mID="92" v:groupContext="shape" transform="translate(524.534,-251.014)">
+						x="32.05" dy="0.8em" class="st8">Test</tspan></text>		</g>
+		<g id="shape92-363" v:mID="92" v:groupContext="shape" transform="translate(524.534,-251.014)">
 			<title>Rectangle.92</title>
-			<desc>Multi-Channel Test Enablement (incl. multi-browser)</desc>
+			<desc>Multi-Channel Test (incl. multi-browser)</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -928,17 +925,17 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow92-370" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow92-364" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="6.9" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Multi-Channel <tspan
-						x="0.67" dy="0.8em" class="st8">Test Enablement<v:lf/></tspan><tspan x="5.74" dy="1.067em" class="st14">(incl. multi</tspan><tspan
+						x="32.05" dy="0.8em" class="st8">Test<v:lf/></tspan><tspan x="5.74" dy="1.067em" class="st14">(incl. multi</tspan><tspan
 						class="st14">-</tspan><tspan class="st14">browser)</tspan></text>		</g>
-		<g id="shape93-379" v:mID="93" v:groupContext="shape" transform="translate(524.534,-293.533)">
+		<g id="shape93-373" v:mID="93" v:groupContext="shape" transform="translate(524.534,-293.533)">
 			<title>Rectangle.93</title>
-			<desc>UI Test Enablement</desc>
+			<desc>UI Test</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -946,16 +943,15 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow93-380" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow93-374" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="25.18" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>UI Test <tspan
-						x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape94-386" v:mID="94" v:groupContext="shape" transform="translate(524.534,-208.494)">
+			<text x="25.18" y="826.4" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>UI Test</text>		</g>
+		<g id="shape94-379" v:mID="94" v:groupContext="shape" transform="translate(524.534,-208.494)">
 			<title>Rectangle.94</title>
-			<desc>Security Test Enablement</desc>
+			<desc>Security Test</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -963,14 +959,13 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow94-387" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow94-380" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="10.58" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Security Test <tspan
-						x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape95-393" v:mID="95" v:groupContext="shape" transform="translate(662.015,-17.0733)">
+			<text x="10.58" y="826.4" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Security Test  </text>		</g>
+		<g id="shape95-385" v:mID="95" v:groupContext="shape" transform="translate(662.015,-17.0733)">
 			<title>Rectangle.95</title>
 			<desc>Production Environments</desc>
 			<v:userDefs>
@@ -980,13 +975,13 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 			<v:textRect cx="84.9843" cy="805.578" width="169.97" height="70.8661"/>
-			<g id="shadow95-394" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow95-386" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="770.145" width="169.969" height="70.8661" class="st2"/>
 			</g>
 			<rect x="0" y="770.145" width="169.969" height="70.8661" class="st11"/>
 			<text x="21.49" y="781.35" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Production Environments</text>		</g>
-		<g id="shape97-399" v:mID="97" v:groupContext="shape" transform="translate(676.188,-25.5773)">
+		<g id="shape97-391" v:mID="97" v:groupContext="shape" transform="translate(676.188,-25.5773)">
 			<title>Rectangle.97</title>
 			<desc>Live Environment(s)</desc>
 			<v:userDefs>
@@ -996,14 +991,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow97-400" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow97-392" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st10"/>
 			<text x="32.65" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Live <tspan
 						x="4.15" dy="0.8em" class="st8">Environment(s)</tspan></text>		</g>
-		<g id="shape100-406" v:mID="100" v:groupContext="shape" transform="translate(255.243,-24.2422)">
+		<g id="shape100-398" v:mID="100" v:groupContext="shape" transform="translate(255.243,-24.2422)">
 			<title>Rectangle.100</title>
 			<desc>Prototype &#38; PoC Environment(s)</desc>
 			<v:userDefs>
@@ -1013,14 +1008,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow100-407" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow100-399" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st10"/>
 			<text x="0.96" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Prototype &#38; PoC <tspan
 						x="4.15" dy="0.8em" class="st8">Environment(s)</tspan></text>		</g>
-		<g id="shape108-413" v:mID="108" v:groupContext="shape" transform="translate(372.86,-720.065)">
+		<g id="shape108-405" v:mID="108" v:groupContext="shape" transform="translate(372.86,-720.065)">
 			<title>Rectangle.108</title>
 			<desc>System &#38; Service Monitoring</desc>
 			<v:userDefs>
@@ -1030,14 +1025,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow108-414" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow108-406" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="18.88" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>System &#38; <tspan
 						x="24.69" dy="0.8em" class="st8">Service </tspan><tspan x="14.38" dy="0.8em" class="st8">Monitoring</tspan></text>		</g>
-		<g id="shape113-421" v:mID="113" v:groupContext="shape" transform="translate(897.18,-187.152)">
+		<g id="shape113-413" v:mID="113" v:groupContext="shape" transform="translate(897.18,-187.152)">
 			<title>Rectangle.113</title>
 			<desc>Development &#38; Operations-relevant Capabilities</desc>
 			<v:userDefs>
@@ -1047,7 +1042,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow113-422" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow113-414" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<path d="M0 841.01 L85.04 841.01 L85.04 807 L0 807 L0 841.01 Z" class="st16"/>
 			</g>
@@ -1055,7 +1050,7 @@
 			<text x="11.03" y="814" class="st18" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Development &#38; <tspan
 						x="18.57" dy="0.8em" class="st8">Operations</tspan>-<tspan x="25.84" dy="0.8em" class="st8">relevant </tspan><tspan
 						x="19.03" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape115-430" v:mID="115" v:groupContext="shape" transform="translate(477.653,-720.065)">
+		<g id="shape115-422" v:mID="115" v:groupContext="shape" transform="translate(477.653,-720.065)">
 			<title>Rectangle.115</title>
 			<desc>PaaS &#38; IaaS Configuration &#38; Management</desc>
 			<v:userDefs>
@@ -1065,7 +1060,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow115-431" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow115-423" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
@@ -1073,7 +1068,7 @@
 			<text x="13.27" y="816.8" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>PaaS &#38; <tspan
 						class="st8" v:langID="2057">IaaS </tspan><tspan x="2.78" dy="0.8em" class="st8" v:langID="2057">Configuration &#38; </tspan><tspan
 						x="9.07" dy="0.8em" class="st8" v:langID="2057">Management</tspan></text>		</g>
-		<g id="shape116-439" v:mID="116" v:groupContext="shape" transform="translate(893.038,-370.069)">
+		<g id="shape116-431" v:mID="116" v:groupContext="shape" transform="translate(893.038,-370.069)">
 			<title>Rectangle.116</title>
 			<desc>Deployment Capabilities</desc>
 			<v:userDefs>
@@ -1083,14 +1078,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 			<v:textRect cx="56.6929" cy="763.058" width="113.39" height="155.906"/>
-			<g id="shadow116-440" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow116-432" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="685.106" width="113.386" height="155.906" class="st2"/>
 			</g>
 			<rect x="0" y="685.106" width="113.386" height="155.906" class="st9"/>
 			<text x="25.93" y="696.31" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Deployment<v:lf/><tspan
 						x="27.76" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape117-446" v:mID="117" v:groupContext="shape" transform="translate(779.653,-463.612)">
+		<g id="shape117-438" v:mID="117" v:groupContext="shape" transform="translate(779.653,-463.612)">
 			<title>Rectangle.117</title>
 			<desc>Continuous Del. Pipeline Management</desc>
 			<v:userDefs>
@@ -1100,14 +1095,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow117-447" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow117-439" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="2.83" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Continuous Del. <tspan
 						x="22.42" dy="0.8em" class="st8">Pipeline </tspan><tspan x="9.07" dy="0.8em" class="st8">Management</tspan></text>		</g>
-		<g id="shape120-454" v:mID="120" v:groupContext="shape" transform="translate(779.653,-421.093)">
+		<g id="shape120-446" v:mID="120" v:groupContext="shape" transform="translate(779.653,-421.093)">
 			<title>Rectangle.120</title>
 			<desc>Release Management</desc>
 			<v:userDefs>
@@ -1117,14 +1112,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow120-455" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow120-447" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="23.25" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Release <tspan
 						x="9.07" dy="0.8em" class="st8">Management</tspan></text>		</g>
-		<g id="shape121-461" v:mID="121" v:groupContext="shape" transform="translate(907.212,-463.612)">
+		<g id="shape121-453" v:mID="121" v:groupContext="shape" transform="translate(907.212,-463.612)">
 			<title>Rectangle.121</title>
 			<desc>Deployment Orchestration</desc>
 			<v:userDefs>
@@ -1134,14 +1129,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow121-462" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow121-454" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="11.75" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Deployment <tspan
 						x="8.01" dy="0.8em" class="st8">Orchestration</tspan></text>		</g>
-		<g id="shape123-468" v:mID="123" v:groupContext="shape" transform="translate(708.656,-721.401)">
+		<g id="shape123-460" v:mID="123" v:groupContext="shape" transform="translate(708.656,-721.401)">
 			<title>Rectangle.123</title>
 			<desc>Performance Tuning</desc>
 			<v:userDefs>
@@ -1151,16 +1146,16 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow123-469" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow123-461" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="10.32" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Performance <tspan
 						x="25.57" dy="0.8em" class="st8">Tuning</tspan></text>		</g>
-		<g id="shape124-475" v:mID="124" v:groupContext="shape" transform="translate(425.322,-165.974)">
+		<g id="shape124-467" v:mID="124" v:groupContext="shape" transform="translate(425.322,-165.974)">
 			<title>Rectangle.124</title>
-			<desc>Performance Test Enablement</desc>
+			<desc>Performance Test</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -1168,14 +1163,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow124-476" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow124-468" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="10.32" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Performance <tspan
-						x="0.67" dy="0.8em" class="st8">Test Enablement</tspan></text>		</g>
-		<g id="shape132-482" v:mID="132" v:groupContext="shape" transform="translate(610.881,-678.881)">
+						x="32.05" dy="0.8em" class="st8">Test</tspan></text>		</g>
+		<g id="shape132-474" v:mID="132" v:groupContext="shape" transform="translate(610.881,-678.881)">
 			<title>Rectangle.132</title>
 			<desc>Availability &#38; Performance Monitoring</desc>
 			<v:userDefs>
@@ -1185,14 +1180,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow132-483" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow132-475" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="9.03" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Availability &#38; <tspan
 						x="10.32" dy="0.8em" class="st8">Performance </tspan><tspan x="14.38" dy="0.8em" class="st8">Monitoring</tspan></text>		</g>
-		<g id="shape145-490" v:mID="145" v:groupContext="shape" transform="translate(897.18,-144.632)">
+		<g id="shape145-482" v:mID="145" v:groupContext="shape" transform="translate(897.18,-144.632)">
 			<title>Rectangle.145</title>
 			<desc>Operations-relevant Capabilities</desc>
 			<v:userDefs>
@@ -1202,14 +1197,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow145-491" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow145-483" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<path d="M0 841.01 L85.04 841.01 L85.04 807 L0 807 L0 841.01 Z" class="st16"/>
 			</g>
 			<path d="M0 841.01 L85.04 841.01 L85.04 807 L0 807 L0 841.01 Z" class="st19"/>
 			<text x="1.89" y="822" class="st18" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Operations-relevant <tspan
 						x="19.03" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape156-498" v:mID="156" v:groupContext="shape" transform="translate(897.18,-229.672)">
+		<g id="shape156-490" v:mID="156" v:groupContext="shape" transform="translate(897.18,-229.672)">
 			<title>Rectangle.156</title>
 			<desc>Development-relevant Capabilities</desc>
 			<v:userDefs>
@@ -1219,16 +1214,16 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow156-499" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow156-491" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<path d="M0 841.01 L85.04 841.01 L85.04 807 L0 807 L0 841.01 Z" class="st16"/>
 			</g>
 			<path d="M0 841.01 L85.04 841.01 L85.04 807 L0 807 L0 841.01 Z" class="st20"/>
 			<text x="14.04" y="822" class="st18" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Development-<tspan
 						x="1.21" dy="0.8em" class="st8">relevant Capabilities</tspan></text>		</g>
-		<g id="shape157-505" v:mID="157" v:groupContext="shape" transform="translate(41.1171,-293.533)">
+		<g id="shape157-497" v:mID="157" v:groupContext="shape" transform="translate(41.1171,-293.533)">
 			<title>Rectangle.157</title>
-			<desc>Data Modelling &#38; Design Enablement</desc>
+			<desc>Data Modelling &#38; Design</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -1236,14 +1231,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow157-506" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow157-498" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
-			<text x="4.18" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data Modelling <tspan
-						x="20.2" dy="0.8em" class="st8">&#38; Design </tspan><tspan x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape158-513" v:mID="158" v:groupContext="shape" transform="translate(680.44,-378.573)">
+			<text x="4.18" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Data Modelling <tspan
+						x="20.2" dy="0.8em" class="st8">&#38; Design</tspan></text>		</g>
+		<g id="shape158-504" v:mID="158" v:groupContext="shape" transform="translate(680.44,-378.573)">
 			<title>Rectangle.158</title>
 			<desc>Software Configuration Management</desc>
 			<v:userDefs>
@@ -1253,14 +1248,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow158-514" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow158-505" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="19.89" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Software <tspan
 						x="8.37" dy="0.8em" class="st8">Configuration </tspan><tspan x="9.07" dy="0.8em" class="st8">Management</tspan></text>		</g>
-		<g id="shape161-521" v:mID="161" v:groupContext="shape" transform="translate(610.881,-721.401)">
+		<g id="shape161-512" v:mID="161" v:groupContext="shape" transform="translate(610.881,-721.401)">
 			<title>Rectangle.173</title>
 			<desc>Performance Profiling</desc>
 			<v:userDefs>
@@ -1270,14 +1265,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow161-522" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow161-513" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="10.32" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Performance <tspan
 						x="21.58" dy="0.8em" class="st8">Profiling</tspan></text>		</g>
-		<g id="shape163-528" v:mID="163" v:groupContext="shape" transform="translate(210.907,-635.026)">
+		<g id="shape163-519" v:mID="163" v:groupContext="shape" transform="translate(210.907,-635.026)">
 			<title>Rectangle.163</title>
 			<desc>Static SW Analysis Enablement</desc>
 			<v:userDefs>
@@ -1287,14 +1282,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow163-529" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow163-520" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="18.95" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Static SW <tspan
 						x="22.13" dy="0.8em" class="st8">Analysis </tspan><tspan x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape164-536" v:mID="164" v:groupContext="shape" transform="translate(372.86,-677.546)">
+		<g id="shape164-527" v:mID="164" v:groupContext="shape" transform="translate(372.86,-677.546)">
 			<title>Rectangle.178</title>
 			<desc>Semantic Monitoring</desc>
 			<v:userDefs>
@@ -1304,14 +1299,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow164-537" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow164-528" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
 			<text x="19.54" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Semantic <tspan
 						x="14.38" dy="0.8em" class="st8">Monitoring</tspan></text>		</g>
-		<g id="shape165-543" v:mID="165" v:groupContext="shape" transform="translate(283.59,-370.069)">
+		<g id="shape165-534" v:mID="165" v:groupContext="shape" transform="translate(283.59,-370.069)">
 			<title>Rectangle.37</title>
 			<desc>Software Generation Capabilities</desc>
 			<v:userDefs>
@@ -1321,14 +1316,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
 			<v:textRect cx="56.6929" cy="763.058" width="113.39" height="155.906"/>
-			<g id="shadow165-544" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow165-535" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="685.106" width="113.386" height="155.906" class="st2"/>
 			</g>
 			<rect x="0" y="685.106" width="113.386" height="155.906" class="st7"/>
 			<text x="4.53" y="696.31" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Software Generation <tspan
 						x="27.76" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape167-550" v:mID="167" v:groupContext="shape" transform="translate(297.763,-463.612)">
+		<g id="shape167-541" v:mID="167" v:groupContext="shape" transform="translate(297.763,-463.612)">
 			<title>Rectangle.167</title>
 			<desc>Code &#38; Config. Writing Enablement</desc>
 			<v:userDefs>
@@ -1338,14 +1333,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow167-551" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow167-542" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="5.5" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Code &#38; Config. <tspan
 						x="23.86" dy="0.8em" class="st8">Writing </tspan><tspan x="12.5" dy="0.8em" class="st8">Enablement</tspan></text>		</g>
-		<g id="shape168-558" v:mID="168" v:groupContext="shape" transform="translate(297.763,-421.093)">
+		<g id="shape168-549" v:mID="168" v:groupContext="shape" transform="translate(297.763,-421.093)">
 			<title>Rectangle.168</title>
 			<desc>SW-Defined Infrastructure Definition En.’t</desc>
 			<v:userDefs>
@@ -1355,14 +1350,14 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow168-559" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow168-550" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st15"/>
 			<text x="12.77" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>SW-Defined <tspan
 						x="7.92" dy="0.8em" class="st8">Infrastructure </tspan><tspan x="4.92" dy="0.8em" class="st8">Definition En.</tspan>’t</text>		</g>
-		<g id="shape169-566" v:mID="169" v:groupContext="shape" transform="translate(524.534,-463.612)">
+		<g id="shape169-557" v:mID="169" v:groupContext="shape" transform="translate(524.534,-463.612)">
 			<title>Rectangle.169</title>
 			<desc>Build Orchestration</desc>
 			<v:userDefs>
@@ -1372,7 +1367,7 @@
 			</v:userDefs>
 			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
 			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow169-567" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+			<g id="shadow169-558" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
 					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
 				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
 			</g>
