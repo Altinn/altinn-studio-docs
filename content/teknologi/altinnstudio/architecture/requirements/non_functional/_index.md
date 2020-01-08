@@ -8,7 +8,6 @@ alwaysopen: false
 aliases:
  - /architecture/
 ---
-
 ## Architectural Concerns
 Architecture Concerns are categories of Non-Functional Requirements (NFRs) of a system that 
 has been important defining this architecture. These are sometimes referred to as 
@@ -17,11 +16,18 @@ cross-cutting concerns or "the -ilities" because most of the words end with "-il
 ### Performance
 
 #### Scalability
+The platform need to be highly scalable. 
+The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.
+
+The traffic also grows every year and the architecture should be able to 
+
 ![Scalability](scalable.png "Unique users 2019 per day Altinn platform")
 
-The platform need to be highly scalable. The traffic in this types of solutions involves a large part of the countries citizens and the traffic is often concentrated around a few dates.
+![Scalability](capacity2.png "Number of messages through Altinn per year.")
 
+**Requirement:**
 The platform should be able to scale up and down to support this type of usage patterns.
+
 
 #### Response Time
 The solution need to have a performance to support a user friendly experience.
@@ -36,6 +42,7 @@ The Altinn Platform would need to support the combined traffic from all applicat
 The usage of Altinn is growing each year. 
 
 ![Scalability](capacity2.png "Number of messages through Altinn per year.")
+
 
 
 ### Reliability
