@@ -8,7 +8,7 @@ aliases:
  - /architecture/
 ---
 
-## How is the Architecture created and documented?
+## How is the architecture created and documented?
 The [non functional and functional requirements](/teknologi/altinnstudio/architecture/requirements/) have given input to which [capabilities](capabilities) 
 for both devops and runtime that is needed in the solutions. It also have given input which type of [components](components) that is needed to implement the capabilities.
 The [Architecture Principles](/teknologi/altinnstudio/architecture/principles/) and [Architecture Patterns](/teknologi/altinnstudio/architecture/patterns/) has been
