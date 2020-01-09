@@ -82,19 +82,3 @@ more limited resource.
 ## Roles
 Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles. 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
