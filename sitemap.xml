@@ -167,6 +167,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-apps/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/</loc>
   </url>
   
@@ -176,10 +180,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/deployment/altinn-apps/</loc>
   </url>
   
   <url>
@@ -195,15 +195,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-studio/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/deployment/altinn-studio/</loc>
   </url>
   
   <url>
@@ -319,6 +319,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/computing/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/conceptual/</loc>
   </url>
   
@@ -331,19 +335,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/computing/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/network/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/debug/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/deployment/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/</loc>
   </url>
   
   <url>
@@ -679,6 +675,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/network/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/quality/</loc>
   </url>
   
@@ -700,6 +700,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/storage/</loc>
   </url>
   
   <url>
