@@ -17,7 +17,7 @@ the private key of Altinn Platform.
 The login process for a user that wants to access a app in Altinn Apps is described below.
 
 {{%excerpt%}}
-<object data="/architecture/security/authentication/altinn-platform/loginprocess.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/loginprocess.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 
@@ -34,13 +34,13 @@ This API validates the end user systm id together with the password for the syst
 The below diagram shows how
 
 {{%excerpt%}}
-<object data="/architecture/security/authentication/altinn-platform/loginprocess_eus.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/loginprocess_eus.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 ## API for enterprise users
 
 {{%excerpt%}}
-<object data="/architecture/security/authentication/altinn-platform/loginprocess_ec.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/loginprocess_ec.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 ## API for Org systems
@@ -53,15 +53,14 @@ This will be given by Altinn.
 
 The org system should be given the scope needed by the administrator of org. (done through Maskinporten API described under 4 [here](https://difi.github.io/idporten-oidc-dokumentasjon/oidc_guide_maskinporten.html#4-konfigurere-oauth2-klient))
 
-The org system would need to request a access token from Maskinporten with the correct scope. 
+The org system would need to request a access token from Maskinporten with the correct scope.
 This token will be used in the org API in Authentication component in the Altinn Platform
-to create a new JWT token that can be used for all org apis in Apps and platform. 
+to create a new JWT token that can be used for all org apis in Apps and platform.
 
-During the verification process of the Maskinporten JWT token the scope and org is verified. 
+During the verification process of the Maskinporten JWT token the scope and org is verified.
 
-The below sequence diagram show how this will happen. 
-
+The below sequence diagram show how this will happen.
 
 {{%excerpt%}}
-<object data="/architecture/security/authentication/altinn-platform/loginprocess_org.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/loginprocess_org.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
