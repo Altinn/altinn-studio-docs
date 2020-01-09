@@ -417,7 +417,7 @@
 	"title": "Authentication",
 	"tags": ["architecture", "security"],
 	"description": "Description of the Authentication architecture for Altinn Studio, Altinn Apps and Altinn platform",
-	"content": "A important feature is to be able to authenticate the users and systems accessing the different solutions.\nIn Altinn Studio developers is authenticated for building and testing apps.\nIn Altinn Apps and Altinn Platform end users and system needs to be authenticated for accessing apps in Altinn Apps and components in Altinn Platform.\n\rAuthentication Architecture Altinn Apps\rDescription of the Authentication architecture apps hosted in Altinn Apps\n\r\r\r\rAuthentication Architecture Altinn Studio\rDescription of the Authentication architecture Altinn Studio\n\r\r\r\rAuthentication APIs\rDescription of the Authentications API in Authentication Component\n\r\r\r\rJWT Format\rDescription of the JWT Format used in Altinn Studio, Altinn Platform and Altinn Apps\n\r\r\r\rJWTCookieAuthentication\rDescription of the JWTCookieAuthentication created for Altinn\n\r\r\r\r"
+	"content": "A important feature is to be able to authenticate the users and systems accessing the different solutions.\nIn Altinn Studio developers is authenticated for building and testing apps.\nIn Altinn Apps and Altinn Platform end users and system needs to be authenticated for accessing apps in Altinn Apps and components in Altinn Platform.\n\rAuthentication Architecture Altinn Apps\rDescription of the Authentication architecture apps hosted in Altinn Apps\n\r\r\r\rAuthentication Architecture Altinn Studio\rDescription of the Authentication architecture Altinn Studio\n\r\r\r\rJWTCookieAuthentication\rDescription of the JWTCookieAuthentication created for Altinn\n\r\r\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/",
@@ -427,7 +427,7 @@
 	"content": " The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.\nThe solution is currently available at http://platform.altinn.cloud/authentication/api/v1.\nResources: authentication\n/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.\nGET /authentication?goto={url}  Refresh a valid JwtToken:\nGET /refresh  "
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-platform/authentication-api/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/authentication-api/",
 	"title": "Authentication APIs",
 	"tags": ["architecture", "security"],
 	"description": "Description of the Authentications API in Authentication Component",
@@ -721,7 +721,7 @@
 	"content": " Altinn Studio Aka. \u0026ldquo;Tjenester 3.0\u0026rdquo; What are we creating  A app development solution Altinn Studio: The development tool Altinn Platform: The supporting platform Altinn Apps: The solution to host the Apps  What technologies are we using  .Net Core : Backend / API REACT : Frontend Altinn Studio \u0026amp; App Docker: Apps are created as Docker Containers Kubernetes: The containers are hosted in Kubernetes Azure: We use Azure for Kubernetes hosting  Altinn Studio  Design frontend Define frontend logic Define datamodel for app Define app logic for backend Build \u0026amp; deploy app container Source Control for App files\n Altinn Apps Kubernetes Cluster where apps are hosted\n One cluster per Organisation Altinn Platform Supporting functionality\n Authentication\n Authorization\n Storage\n Register\n Profile Documentation The different solutions are described in detail on docs Terms Architecture\n  The End Tilbake\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-platform/jwt-format/",
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/jwt-format/",
 	"title": "JWT Format",
 	"tags": ["architecture", "security"],
 	"description": "Description of the JWT Format used in Altinn Studio, Altinn Platform and Altinn Apps",

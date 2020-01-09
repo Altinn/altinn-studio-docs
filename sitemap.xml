@@ -247,7 +247,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-platform/authentication-api/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/authentication-api/</loc>
   </url>
   
   <url>
@@ -415,7 +415,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-platform/jwt-format/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/jwt-format/</loc>
   </url>
   
   <url>
