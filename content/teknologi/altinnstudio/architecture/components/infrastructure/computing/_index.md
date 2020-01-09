@@ -1,8 +1,8 @@
 ---
-title: Computing componentens
-description: Computing components gives processor power to applications and software
+title: Network componentens
+description: Network compoments
 tags: [architecture, infrastructure]
-linktitle: Data & Reporting
+linktitle: Computing
 weight: 100
 alwaysopen: false
 ---
