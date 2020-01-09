@@ -1,6 +1,6 @@
 ---
 title: Architecture Patterns
-description: The following architecture patterns has been defined for the solutions
+description: The architecture defines some architecture patterns that is reused accross the different solutions. 
 tags: [architecture]
 linktitle: Patterns
 weight: 7
@@ -9,7 +9,6 @@ aliases:
  - /architecture/
 ---
 
-The [architecture principles](https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html) below is described like TOGAF recomends.
 
 ## Cloud Native
 The solutions are designed and built to be ["Cloud Native"](https://github.com/cncf/toc/blob/master/DEFINITION.md), meaning

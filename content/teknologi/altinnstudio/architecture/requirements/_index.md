@@ -1,6 +1,6 @@
 ---
 title: Requirements
-description: Functional and non functional requirements for the solutions have affect the architecture decisions.
+description: Functional and non functional requirements for the different solutions.
 tags: [architecture]
 weight: 5
 linktitle: Requirements
@@ -9,6 +9,6 @@ aliases:
  - /architecture/
 ---
 
-They are important input to deciding the Architecture Principles and Architecture Patterns. 
+They are important input to deciding which cababilities required and they also is important input to the Architecture Principles and Architecture Patterns. 
 
 {{% children description="true" depth="1" %}}
