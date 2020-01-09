@@ -40,11 +40,11 @@ We use Azure Database for PostgreSQL as a relational database for Gitea.
 We use [Azure Directory Services](https://azure.microsoft.com/en-us/services/active-directory/)
 
 
-### File Storage
+### File Share
 
 We use [Azure File Storage](https://azure.microsoft.com/en-us/services/storage/files/)
 
-### Blob Storage
+### Object Storage
 
 We use [Azure Blob Storage](https://azure.microsoft.com/en-us/services/storage/blobs/) to store both structured and unstructured data for applications in Altinn Platform
 
