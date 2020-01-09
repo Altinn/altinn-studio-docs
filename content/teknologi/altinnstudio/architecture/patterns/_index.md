@@ -77,8 +77,3 @@ API calls to other components.
 - Testability. Dependency injection. Possible to mock lower layers. 
 
 ### Risk & Issues
-
-## Event driven pattern
-The [Event Driven pattern](https://en.wikipedia.org/wiki/Event-driven_architecture)
-
-

@@ -3,7 +3,7 @@ title: Authentication Architecture Altinn Platform
 description: Description of the Authentication architecture Altinn Platform
 tags: [architecture, security]
 weight: 100
-linktitle: Altinn Platform
+linktitle: Authentication
 alwaysopen: false
 ---
 In Altinn Platform and Altinn Apps there is deployed applications and components that need to be able to authenticate users and systems accessing them.
