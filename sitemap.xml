@@ -187,10 +187,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-platform/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/</loc>
   </url>
   
@@ -236,6 +232,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/</loc>
   </url>
   
   <url>
@@ -351,7 +351,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/encryption/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/encryption/</loc>
   </url>
   
   <url>
@@ -419,7 +419,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-platform/jwtcookieauthentication/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/jwtcookieauthentication/</loc>
   </url>
   
   <url>
