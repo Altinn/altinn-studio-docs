@@ -1,6 +1,6 @@
 ---
-title: Operating Systems & Cloud Enablement
-description: Operating Systems & Cloud Enablement defines the operating systems for containers and how the container are deployed to the cloud
+title: Operating Systems & Cloud Platform
+description: Operating Systems & Cloud Platform defines the operating systems for containers and how the container are deployed to the cloud
 tags: [architecture, infrastructure]
 linktitle: OS & Cloud Enablement
 weight: 104
@@ -12,7 +12,7 @@ alwaysopen: false
 ### Container Operation Systems
 All containers are running on [Alpine Linux](https://alpinelinux.org/), which includes apps created in Altinn Studio and the Altinn Platform components.
 
-## Cloud Enablement Sofware
+## Cloud Platform
 
 ### Orchestrating & Sceduling
 
