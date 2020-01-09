@@ -1228,8 +1228,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/storage/",
 	"title": "Storage componentens",
 	"tags": ["architecture", "infrastructure"],
-	"description": "Storage component",
-	"content": ""
+	"description": "Storage component provide the physical storage of data",
+	"content": " Storage SAN All data stores are based on Managed Services from Azure.\n Azure Cosmos DB Azure File Share Azure Blob Storage  We dont have control how the data is physical stored in Azure by this services.\nRead more about the data store components used\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/data/",
@@ -1243,14 +1243,14 @@
 	"title": "Data &amp; Reporting Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Data and Reporting Components hold the functionalities to manage data and create business reports.",
-	"content": " Reporting Software Dashboard and reporting server software Application Insights is used for dashboard and reporting services for the platform solutions.\nData visualization software Application Insights is used for visualization\nData Stores Multi model database service Altinn Platform uses Azure Cosmos as a Multi model database service.\nRead more about Azure Cosmos DB\nRelational DBMs We use Azure Database for PostgreSQL as a relational database for Gitea.\nRead more about Azure Database for PostgreSQL\nDirectory Services We use Azure Directory Services\nFile Storage We use Azure File Storage\nBlob Storage We use Azure Blob Storage to store both structured and unstructured data for applications in Altinn Platform\n"
+	"content": " Reporting Software Dashboard and reporting server software Application Insights is used for dashboard and reporting services for the platform solutions.\nData visualization software Application Insights is used for visualization\nData Stores Multi model database service Altinn Platform uses Azure Cosmos as a Multi model database service.\nRead more about Azure Cosmos DB\nRelational DBMs We use Azure Database for PostgreSQL as a relational database for Gitea.\nRead more about Azure Database for PostgreSQL\nDirectory Services We use Azure Directory Services\nFile Share We use Azure File Storage\nObject Storage We use Azure Blob Storage to store both structured and unstructured data for applications in Altinn Platform\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/",
 	"title": "Infrastructure",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Description of the Altinn Studio infrastructure",
-	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rNetwork componentens\rNetwork compoments\n\r\rNetwork componentens\rComputing components gives processor power to applications and software\n\r\rStorage componentens\rStorage component\n\r\r"
+	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rNetwork componentens\rNetwork compoments\n\r\rNetwork componentens\rComputing components gives processor power to applications and software\n\r\rStorage componentens\rStorage component provide the physical storage of data\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/",
