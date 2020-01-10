@@ -1,12 +1,12 @@
 ---
-title: Authorization model
-description: The authorization model 
+title: Authorization
+description: The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs. 
 tags: [architecture, security]
 weight: 100
-linktitle: Authorization model
+linktitle: Authorization
 alwaysopen: false
 ---
-The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs. 
+
 
 ## Rights
 In Altinn Apps/Platform a right is a permission to perform an action on a given resource. 
@@ -81,20 +81,4 @@ more limited resource.
 
 ## Roles
 Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

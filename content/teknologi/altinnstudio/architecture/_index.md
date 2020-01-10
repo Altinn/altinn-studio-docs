@@ -1,6 +1,6 @@
 ---
 title: Architecture
-description: Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that support them.
+description: Altinn Studio, Altinn Apps and Altinn Platform has a modern architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.
 tags: [architecture]
 weight: 100
 alwaysopen: false
