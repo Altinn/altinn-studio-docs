@@ -3142,35 +3142,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-apps/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-apps/">
-        <span>Altinn Apps</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/" class="dd-item 
         
         
@@ -3642,8 +3613,55 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/deployment/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/deployment/">
+        <span>Altinn Apps</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -4359,26 +4377,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/common/pep/" class="dd-item
-     
-      ">
-        <a href="/teknologi/altinnstudio/architecture/components/application/solution/common/pep/">
-        <span>PEP</span> 
-        
-        </a></li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -5003,6 +5001,26 @@ if(host != "localhost")
  
   
     
+      <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/pep/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/pep/">
+        <span>PEP</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/" class="dd-item 
         
         
@@ -5030,8 +5048,6 @@ if(host != "localhost")
           
           
           
-          
-          
         
           
             
@@ -5049,35 +5065,6 @@ if(host != "localhost")
         
         </a></li>
      
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/log/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/log/">
-        <span>Log and log managament</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
   
  
 
@@ -8682,9 +8669,21 @@ if(host != "localhost")
 
 <h3 id="deployment-orchestration">Deployment Orchestration</h3>
 
-<p>Deployment is scripted through Azure Pipelines.</p>
+<p>We use Azure Pipelenes for deployment orchestration of the different components in the different solutions.</p>
 
-<p>TODO: Describe how this is done in details.</p>
+<p>The deploy pipelines has typical support for deployment to different environments (Stages).</p>
+
+<h3 id="piplines">Piplines</h3>
+
+<p>The following pipelines is defined</p>
+
+<ul>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=18">Altinn Studio - Designer</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=5">Altinn Studio - Repositories</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=20">Altinn Platform - Authorization</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=20">Altinn Platform - Authentication</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=21">Altinn Platform - PDF</a></li>
+</ul>
 
 
 <footer class=" footline" >
@@ -10255,22 +10254,6 @@ if(host != "localhost")
                       
                   
                               
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
                       
                   
                               
@@ -10499,103 +10482,6 @@ if(host != "localhost")
           
                               
                               
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                                   
                               
                               
@@ -10623,22 +10509,6 @@ if(host != "localhost")
                       
                   
                               
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
                       
                   
                               
@@ -10652,11 +10522,70 @@ if(host != "localhost")
           
                               
                               
+                                  
+                              
                               
           
                               
+                                  
                       
-                  
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
                               
                                   
                       
@@ -10689,6 +10618,12 @@ if(host != "localhost")
                       
                   
                               
+                      
+                  
+                              
+                      
+                  
+                              
                                   
                       
                       
@@ -10698,6 +10633,43 @@ if(host != "localhost")
                           
           
                               
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
                               
                               
           
@@ -10730,9 +10702,6 @@ if(host != "localhost")
                               
                               
           
-                              
-                      
-                  
                               
                                   
                       
@@ -10814,6 +10783,38 @@ if(host != "localhost")
                       
                   
                               
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
                       
                   
                               
@@ -10864,22 +10865,6 @@ if(host != "localhost")
                               
                       
                   
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   
@@ -11177,26 +11162,24 @@ if(host != "localhost")
           
                               
                               
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                               
           
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                                   
                       

@@ -163,7 +163,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/deployment/</loc>
   </url>
   
   <url>
@@ -411,10 +411,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/security/log/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/naming/</loc>
   </url>
   
@@ -451,7 +447,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/common/pep/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/shared/pep/</loc>
   </url>
   
   <url>
