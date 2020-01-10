@@ -540,9 +540,9 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/computing/",
-	"title": "Network componentens",
+	"title": "Computing componentens",
 	"tags": ["architecture", "infrastructure"],
-	"description": "Network compoments",
+	"description": "Computing components gives processor power to applications and software",
 	"content": " Cloud Compute Container Orchestration Nodes As part of Azure Kubernetes Services setup you can change the number of nodes and the size. (CPU, RAM )\nVirtual Images We use Virtual Images hosted in Azure.\n"
 },
 {
@@ -1236,7 +1236,7 @@
 	"title": "Infrastructure",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Description of the Altinn Studio infrastructure",
-	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rNetwork componentens\rNetwork compoments\n\r\rNetwork componentens\rComputing components gives processor power to applications and software\n\r\rStorage componentens\rStorage component provide the physical storage of data\n\r\r"
+	"content": "Full screen | Visio\n\nAltinn Studio consists of three different technical solutions to make a complete application development platform.\nFull screen | Visio\n\n\rComputing componentens\rComputing components gives processor power to applications and software\n\r\rNetwork componentens\rComputing components gives processor power to applications and software\n\r\rStorage componentens\rStorage component provide the physical storage of data\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/",
