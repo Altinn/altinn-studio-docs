@@ -1,11 +1,27 @@
 ---
-title: Authentication Architecture Altinn Platform
-description: Description of the Authentication architecture Altinn Platform
+title: Authentication Capabilities
+description: The different solutions need different types of Authentication capabilties to support the different users and systems
 tags: [architecture, security]
 weight: 100
 linktitle: Authentication
 alwaysopen: false
 ---
+
+
+## Altinn Studio
+
+### Developer authentication
+The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea. 
+
+The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea. 
+
+### GIT Repo authentication
+When users tries to update the Git repo where source files for the app is stored it needs to authenticate agains the GIT repo.
+
+This can be done through using a App Key generated in Gitea or using the username/password for the  Gitea account. 
+
+## Altinn Apps / Altinn Platform
+
 In Altinn Platform and Altinn Apps there is deployed applications and components that need to be able to authenticate users and systems accessing them.
 
 This is needed when resources requiring authentication and authorization is requested.
