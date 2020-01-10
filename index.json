@@ -259,13 +259,6 @@
 	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n"
 },
 {
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/api/",
-	"title": "API Catalogue",
-	"tags": [],
-	"description": "Description of the API in Altinn Studio",
-	"content": " NOTE: Work in progress. Stuff will change\n\rThe Altinn Studio Designer and Altinn Studio Repository exposes API.\nDesigner API The designer API is implemented as Controllers in the MVC\nCodeList This exposes functionality related to code lists\nSee code\nMethods:\nCodeLists Returns a list over codelist in an app\nDelete Deletes a given codelist\nEdit Saves the codelist\nConfig This exposes functionality related to config\nSee code\nSaveConfig Saves configuration TODO: Need to verify use and c\nGetConfig GetServiceConfig SetServiceConfig DataSource TODO: Should be deleted\nDeploy Api responsible for deployment functionality See code\nStart deployment Starts a new deployment\nFetchDeploymentStatus Returns deployment status\nModel API responsible for data model\n"
-},
-{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/about/",
 	"title": "About Altinn Studio",
 	"tags": [],
