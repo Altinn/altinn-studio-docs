@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the Authentication architecture Altinn Platform">
+    <meta name="description" content="The different solutions need different types of Authentication capabilties to support the different users and systems">
 
 
     
-    <title>Authentication Architecture Altinn Platform :: Altinn digitalisering - Utvikling</title>
+    <title>Authentication Capabilities :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -5041,73 +5041,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/">
-        <span>Authentication</span>
-
-        
-
-        
-        
-
-          
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
-          
-
-        
-
-        
-      </a>
-      
-        <ul>
-          
-          
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-studio/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/altinn-studio/">
-        <span>Altinn Studio</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authentication/jwtcookieauthentication/" class="dd-item
      
       ">
@@ -5116,44 +5049,6 @@ if(host != "localhost")
         
         </a></li>
      
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/security/authorization/">
-        <span>Authorization</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
   
  
 
@@ -8755,10 +8650,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Authentication Architecture Altinn Platform
+                Authentication Capabilities
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the Authentication architecture Altinn Platform</p>
+              <p class="a-leadText" id="leadText">The different solutions need different types of Authentication capabilties to support the different users and systems</p>
             
           
 
@@ -8771,6 +8666,22 @@ if(host != "localhost")
 
 
 
+
+<h2 id="altinn-studio">Altinn Studio</h2>
+
+<h3 id="developer-authentication">Developer authentication</h3>
+
+<p>The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea.</p>
+
+<p>The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea.</p>
+
+<h3 id="git-repo-authentication">GIT Repo authentication</h3>
+
+<p>When users tries to update the Git repo where source files for the app is stored it needs to authenticate agains the GIT repo.</p>
+
+<p>This can be done through using a App Key generated in Gitea or using the username/password for the  Gitea account.</p>
+
+<h2 id="altinn-apps-altinn-platform">Altinn Apps / Altinn Platform</h2>
 
 <p>In Altinn Platform and Altinn Apps there is deployed applications and components that need to be able to authenticate users and systems accessing them.</p>
 
@@ -11002,9 +10913,6 @@ be forwarded as a bearer token in the Authorization header in the request agains
                               
           
                               
-                      
-                  
-                              
                                   
                       
                       
@@ -11017,155 +10925,6 @@ be forwarded as a bearer token in the Authorization header in the request agains
                               
                               
           
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
                               
                       
                   
@@ -11234,53 +10993,6 @@ be forwarded as a bearer token in the Authorization header in the request agains
           
                               
                               
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                               
           
                               
@@ -11304,25 +11016,6 @@ be forwarded as a bearer token in the Authorization header in the request agains
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
                               
                                   
                       
@@ -11398,11 +11091,211 @@ be forwarded as a bearer token in the Authorization header in the request agains
                               
           
                               
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
                       
                   
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
                               
                                   
                       
