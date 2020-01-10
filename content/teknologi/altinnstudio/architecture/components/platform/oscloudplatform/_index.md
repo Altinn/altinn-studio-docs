@@ -2,7 +2,7 @@
 title: Operating Systems & Cloud Platform
 description: Operating Systems & Cloud Platform defines the operating systems for containers and how the container are deployed to the cloud
 tags: [architecture, infrastructure]
-linktitle: OS & Cloud Enablement
+linktitle: OS & Cloud Platform
 weight: 104
 alwaysopen: false
 ---
