@@ -1,7 +1,7 @@
 ---
 title: Application Components
 linktitle: Application
-description: The Application Components is split it 3 different areas
+description: The Application Components is split in to Application Solution components, Application Construction Components and Non Solution Application components.
 tags: [architecture]
 weight: 100
 ---
