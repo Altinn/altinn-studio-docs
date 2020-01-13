@@ -1,7 +1,7 @@
 ---
-title: Application Architecture
+title: Application Components
 linktitle: Application
-description: The Application Architecture is split in Application Solution Architecture and Application Construction Architecture
+description: The Application Components is split it 3 different areas
 tags: [architecture]
 weight: 100
 ---
