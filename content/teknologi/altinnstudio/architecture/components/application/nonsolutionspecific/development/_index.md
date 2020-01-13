@@ -53,15 +53,16 @@ Github is uses for all Open Source code.
 
 [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) in Azure DevopsServices is used for other artefacts
 
-
-### Application Design
+### Architecture Design
+Application design is created using MarkDown and published on this site.
+Visio is used for application drawings
 
 
 ### IDE 
 The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) as IDE.
 
 ### Build Tools
-The project uses different build tools based
+The project uses different build tools based the framework.
 
 #### .Net packages & applications
 We use .Net build to build .Net packages and applications. 
@@ -111,6 +112,7 @@ There is a shared Altinn Container Registry for the different Environments for A
 
 Note as part of the runtime capabilityes we also use Azure Container Registry for apps created in Altinn Studio. See solution components
 
+
 ### Deployment Orchestration
 
 We use Azure Pipelenes for deployment orchestration of the different components in the different solutions. 
@@ -131,7 +133,3 @@ The following pipelines is defined
 - [Altinn Platform - Receipt](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=16)
 - [Altinn Platform - Register](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=19)
 - [Altinn Platform - Storage](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=mine&definitionId=22)
-
-
-
-
