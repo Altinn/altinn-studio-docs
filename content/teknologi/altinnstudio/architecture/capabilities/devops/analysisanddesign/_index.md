@@ -13,12 +13,13 @@ Requirements are gathered through:
 - input on Github
 - talks with organization
 
+See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
+
+
 ### Use Case/Story Definition 
 The devopsteam has the capability to define uses cases and user stories. 
 
-See development application components to see the tools we use for this
-
-
+See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ### Requirement Validation
 Product owners and architects together with the teams are responsible for validation of requirements.
@@ -37,9 +38,10 @@ See development application components for tools used.
 ### UI Design Enablement
 We use Figma to design the UI elements.
 
-### Data Modeling & Design Enablement
+### Data Modeling & Design Capability
+The devops team has the capability for data modelling and design.
 
-Data element design is presented on this side using Markdown and Visio.
+See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ### Architecture Design Enablement
 
