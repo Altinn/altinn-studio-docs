@@ -5526,6 +5526,35 @@ if(host != "localhost")
           
         
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/kubernetes/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/kubernetes/">
+        <span>Kubernetes</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -8723,13 +8752,15 @@ if(host != "localhost")
 
 
 
+<p>Below list the capabilities with a short description and possible link to the different components providing that capability.</p>
+
 <h2 id="software-generation-capabilties">Software Generation Capabilties</h2>
 
 <h3 id="code-config-writing-capability">Code &amp; Config Writing Capability</h3>
 
 <p>Most of our code is written manually.</p>
 
-<p>See application components to get a overview over tools and application we use.</p>
+<p>See <a href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/">development application components</a> to get a overview over tools and application we use.</p>
 
 <h2 id="build-integration-enablement-capabilities">Build &amp; Integration Enablement Capabilities</h2>
 
@@ -8739,97 +8770,19 @@ if(host != "localhost")
 
 <h3 id="sofware-linking-packaging">Sofware Linking &amp; Packaging</h3>
 
-<p>The different application projects generates different types of artefacts</p>
+<p>The project has the capability to build packages.</p>
 
-<h4 id="nuget-packages">Nuget packages</h4>
-
-<p>Som part of the codes are <a href="https://www.nuget.org/profiles/altinn">published as Nuget Packages</a>.
-This process is manual and performed by developer.</p>
-
-<p>With help of Nuget packages we can easyly re-use modules accross applicatons in the different solution.</p>
-
-<h4 id="npm-packages">NPM Packages</h4>
-
-<p>Som part of the fronted code is published as NPM packages. This to</p>
-
-<h4 id="docker-containers">Docker containers</h4>
-
-<p>All applications is built as Docker Containers using <a href="https://docs.docker.com/engine/reference/commandline/build/">Docker Build</a></p>
-
-<p>Se Docker files for Altinn Platform</p>
-
-<ul>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authentication/Authentication/Dockerfile">Authentication component</a></li>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Dockerfile">Authorization component</a></li>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.PDF/Dockerfile">PDF Component</a></li>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Profile/Profile/Dockerfile">Profile Component</a></li>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Receipt/Receipt/Dockerfile">Receipt Component</a></li>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Register/Register/Dockerfile">Register Component</a></li>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Dockerfile">Storage Component</a></li>
-</ul>
-
-<p>See docker files for Altinn Studio</p>
-
-<ul>
-<li>[Designer])(<a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Dockerfile">https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Dockerfile</a>)</li>
-</ul>
+<p>See development application components for details how we do this.</p>
 
 <h3 id="build-orchestration">Build Orchestration</h3>
 
 <p>We use <a href="https://azure.microsoft.com/en-us/services/devops/pipelines/">Auzure Pipelines</a> to build the source code.</p>
 
-<p>Read more about</p>
+<p>See <a href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/">development application components</a> to get a overview over tools and application we use.</p>
 
 <h2 id="continuous-integration-capabilities">Continuous Integration Capabilities</h2>
 
 <p>Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<ul class="children children-li js-moveChildrenFrom">
-	
-    
-	    
-    
-    
-
-	
-		
-	
-		
-  
-
-
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/build/" >Build process</a>
-<p>Altinn Studio Build Processes</p>
-</li>
-
-
-
-
-
-
-		
-
-		
-			
-
-		
-	
-
-	
-</ul>
 
 <h2 id="test-management-capabilities">Test Management Capabilities</h2>
 
@@ -8841,10 +8794,7 @@ This process is manual and performed by developer.</p>
 
 <h3 id="test-execution-tracking-reporting">Test Execution Tracking &amp; Reporting</h3>
 
-<ul>
-<li><a href="https://azure.microsoft.com/en-us/services/devops/test-plans/">Azure Test Plans</a> in <a href="https://azure.microsoft.com/en-us/services/devops/">Azure Devops</a> is usted for execution tracking</li>
-<li>Defects reported as issues in <a href="https://github.com/Altinn/altinn-studio/issues">Github</a>, using the <em>Bug</em> template.</li>
-</ul>
+<p>The team</p>
 
 <h3 id="test-data-creation-management">Test Data Creation &amp; Management</h3>
 
@@ -8856,30 +8806,15 @@ This process is manual and performed by developer.</p>
 
 <h3 id="functional-test">Functional Test</h3>
 
-<ul>
-<li>Automated browser testing and WCAG testing using <a href="https://devexpress.github.io/testcafe/">Testcafe</a>.</li>
-</ul>
+<p>The devopsteam has the capability to perform functional testing</p>
 
 <h3 id="unit-test">Unit Test</h3>
 
-<ul>
-<li><a href="https://jestjs.io/">Jest</a> framework used for unit testing front-end. More details <a href="../../../../development/handbook/test/unit-testing/">here</a>.</li>
-<li><a href="https://xunit.net/">xunit</a> used for unit testing back-end.</li>
-</ul>
+<p>As part of the development unit test are created. They are run for every pull request</p>
 
 <h3 id="service-api-test">Service &amp; API Test</h3>
 
-<ul>
-<li>API testing is done using Postman. More details <a href="../../../../development/handbook/test/postman/">here</a>.</li>
-<li>Integration testing of services done using <a href="https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1">standard Microsoft frameworks</a>.</li>
-</ul>
-
 <h3 id="performance-testing-profiling">Performance Testing &amp; Profiling</h3>
-
-<p>We will use <a href="https://k6.io/">K6</a> for performance testing.</p>
-
-
-
 
 
 <footer class=" footline" >

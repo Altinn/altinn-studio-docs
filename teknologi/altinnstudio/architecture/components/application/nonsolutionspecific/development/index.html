@@ -8761,19 +8761,61 @@ if(host != "localhost")
 
 <h2 id="application-lifecycle-management-applications">Application Lifecycle Management Applications</h2>
 
-<h3 id="release-management">Release Management</h3>
+<h3 id="requirement-release-management">Requirement &amp; Release Management</h3>
+
+<p>Use cases are <a href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fuser-story">defined in Github</a>. We have defined differen types of template to support creation of user stories.</p>
+
+<p>Releases are managed on Github.</p>
+
+<p><a href="https://github.com/Altinn/altinn-studio/releases">See releases here</a></p>
 
 <h3 id="manual-automated-test-tools">Manual &amp; Automated Test Tools</h3>
 
-<h3 id="test-data-management">Test Data Management</h3>
+<h4 id="functional-test">Functional Test</h4>
+
+<ul>
+<li>Automated browser testing and WCAG testing using <a href="https://devexpress.github.io/testcafe/">Testcafe</a>.</li>
+</ul>
+
+<h4 id="unit-test">Unit Test</h4>
+
+<ul>
+<li><a href="https://jestjs.io/">Jest</a> framework used for unit testing front-end. More details <a href="../../../../development/handbook/test/unit-testing/">here</a>.</li>
+<li><a href="https://xunit.net/">xunit</a> used for unit testing back-end.</li>
+</ul>
+
+<h4 id="service-api-test">Service &amp; API Test</h4>
+
+<ul>
+<li>API testing is done using Postman. More details <a href="../../../../development/handbook/test/postman/">here</a>.</li>
+<li>Integration testing of services done using <a href="https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1">standard Microsoft frameworks</a>.</li>
+</ul>
+
+<h4 id="performance-testing-profiling">Performance Testing &amp; Profiling</h4>
+
+<p>We will use <a href="https://k6.io/">K6</a> for performance testing.</p>
 
 <h3 id="testmanagement">Testmanagement</h3>
+
+<ul>
+<li><a href="https://azure.microsoft.com/en-us/services/devops/test-plans/">Azure Test Plans</a> in <a href="https://azure.microsoft.com/en-us/services/devops/">Azure Devops</a> is usted for execution tracking</li>
+<li>Defects reported as issues in <a href="https://github.com/Altinn/altinn-studio/issues">Github</a>, using the <em>Bug</em> template.</li>
+</ul>
 
 <h2 id="devsecops-applications">DevSecOps Applications</h2>
 
 <h3 id="ux-design">UX Design</h3>
 
+<p>We use Figma for prototypes.</p>
+
+<p><a href="https://docs.altinn.studio/design/figma/">See our Figma Guidlines</a></p>
+
 <h3 id="artefact-code-repository">Artefact &amp; Code Repository</h3>
+
+<p>Github is uses for all Open Source code.
+<a href="https://github.com/Altinn/altinn-studio">See our GitHub repository</a>.</p>
+
+<p><a href="https://azure.microsoft.com/en-us/services/devops/repos/">Azure Repos</a> in Azure DevopsServices is used for other artefacts</p>
 
 <h3 id="application-design">Application Design</h3>
 
@@ -8783,16 +8825,23 @@ if(host != "localhost")
 
 <h3 id="build-tools">Build Tools</h3>
 
-<h4 id="net-packages">.Net packages</h4>
+<p>The project uses different build tools based</p>
 
-<p>.Net pacakges Som part of the codes are <a href="https://www.nuget.org/profiles/altinn">published as Nuget Packages</a>.
-This process is manual and performed by developer.</p>
+<h4 id="net-packages-applications">.Net packages &amp; applications</h4>
+
+<p>We use .Net build to build .Net packages and applications.</p>
 
 <p>With help of Nuget packages we can easyly re-use modules accross applicatons in the different solution.</p>
 
-<h4 id="npm-packages">NPM Packages</h4>
+<h4 id="javascript-packages-applications">Javascript Packages &amp; applications</h4>
 
-<p>Som part of the fronted code is published as NPM packages. This to</p>
+<p>Node is the main tool to build our javascript pacakges and applications</p>
+
+<p>Lerna is used to &hellip;</p>
+
+<h4 id="java-packages-application">Java packages &amp; application</h4>
+
+<p>We use Maven to build our java applications.</p>
 
 <h4 id="docker-containers">Docker containers</h4>
 
@@ -8818,9 +8867,44 @@ This process is manual and performed by developer.</p>
 
 <h3 id="artecat-container-registry">Artecat &amp; Container Registry</h3>
 
-<h4 id="nuget-packag">Nuget Packag</h4>
+<h4 id="net-packages">.Net Packages</h4>
 
-<h3 id="continus-delivery">Continus Delivery</h3>
+<p>.Net pacakges som part of the codes are <a href="https://www.nuget.org/profiles/altinn">published as Nuget Packages</a>.
+This process is manual and performed by developer.</p>
+
+<h4 id="javascript-packages">Javascript packages</h4>
+
+<h4 id="docker-containers-1">Docker Containers</h4>
+
+<p>Dockers containers are published to <a href="https://azure.microsoft.com/en-us/services/container-registry/">Azure Container Registry</a></p>
+
+<p>There is a shared Altinn Container Registry for the different Environments for Altinn Studio and Altinn Platform.</p>
+
+<p>Note as part of the runtime capabilityes we also use Azure Container Registry for apps created in Altinn Studio. See solution components</p>
+
+<h3 id="deployment-orchestration">Deployment Orchestration</h3>
+
+<p>We use Azure Pipelenes for deployment orchestration of the different components in the different solutions.</p>
+
+<p>The deploy pipelines has typical support for deployment to different environments (Stages).</p>
+
+<p>Helm is used to set environments variables for the different environments.</p>
+
+<h3 id="piplines">Piplines</h3>
+
+<p>The following pipelines is defined</p>
+
+<ul>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=18">Altinn Studio - Designer</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=5">Altinn Studio - Repositories</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=20">Altinn Platform - Authorization</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=20">Altinn Platform - Authentication</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=21">Altinn Platform - PDF</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=17">Altinn Platform - Profile</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=16">Altinn Platform - Receipt</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=19">Altinn Platform - Register</a></li>
+<li><a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=mine&amp;definitionId=22">Altinn Platform - Storage</a></li>
+</ul>
 
 
 <footer class=" footline" >
