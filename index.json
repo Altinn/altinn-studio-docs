@@ -252,6 +252,27 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/",
+	"title": "Development Applications",
+	"tags": ["solution", "architecture"],
+	"description": "Development Applications are used by the devops team to support the different development capabilities required",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/",
+	"title": "Non-Solution",
+	"tags": ["solution", "architecture"],
+	"description": "Non-Solution-Specific Application Landscape Components refer to all components other than the core solution or Solution-specific Application.",
+	"content": "They are typical applications used by the devops team.\n\rDevelopment Applications\rDevelopment Applications are used by the devops team to support the different development capabilities required\n\r\rOperations Application\rOperations Applications are used by the devops team for supporting the different operation and management capabilities required\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/",
+	"title": "Operations Application",
+	"tags": ["solution", "architecture"],
+	"description": "Operations Applications are used by the devops team for supporting the different operation and management capabilities required",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/",
 	"title": "Solution-Specific (Functional) Application Components",
 	"tags": ["solution", "architecture"],
@@ -375,7 +396,7 @@
 	"title": "Application Architecture",
 	"tags": ["architecture"],
 	"description": "The Application Architecture is split in Application Solution Architecture and Application Construction Architecture",
-	"content": "\r\rSolution-Specific (Functional) Application Components\rSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.\n\r\rApplication Construction Architecture\rThe Application Construction Architecture describes how the different applications are constructed with details about technology used.\n\r\r"
+	"content": "\r\rNon-Solution\rNon-Solution-Specific Application Landscape Components refer to all components other than the core solution or Solution-specific Application.\n\r\rSolution-Specific (Functional) Application Components\rSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.\n\r\rApplication Construction Architecture\rThe Application Construction Architecture describes how the different applications are constructed with details about technology used.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/",
@@ -1243,14 +1264,14 @@
 	"title": "Build &amp; Test Capabilities",
 	"tags": ["architecture"],
 	"description": "Build &amp; Test Capabilties involves everything from the capability to write and building code to the different types of testing of th ecode",
-	"content": " Software Generation Capabilties Code \u0026amp; Config Writing Capability The project uses Visual Studio Code and Visual Studio as IDE.\nBuild \u0026amp; Integration Enablement Capabilities Software Compilation \u0026amp; Validation The project uses .Net, Java or Typescript compilers\nSofware Linking \u0026amp; Packaging Azure Pipeline package the applications in to Docker Containers.\nTODO: Add info about Docker Registry ++\nBuild Orchestration We use Auzure Pipelines to build the source code.\nSee our pipelines\nDevelopment Environment Integration Visual Studio and Visual Studio Code can integrate with both\nContinuous Integration Capabilities Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests\n\rBuild process\rAltinn Studio Build Processes\n\r\rTest Management Capabilities Test Case \u0026amp; Script Creation \u0026amp; Management  Test scripts are collected in Github.  Test Execution Tracking \u0026amp; Reporting  Azure Test Plans in Azure Devops is usted for execution tracking Defects reported as issues in Github, using the Bug template.  Test Data Creation \u0026amp; Management  Test data for local testing and integration testing is kept in Github.  Test Execution \u0026amp; Automation Capabilities Functional Test  Automated browser testing and WCAG testing using Testcafe.  Unit Test  Jest framework used for unit testing front-end. More details here. xunit used for unit testing back-end.  Service \u0026amp; API Test  API testing is done using Postman. More details here. Integration testing of services done using standard Microsoft frameworks.  Performance Testing \u0026amp; Profiling We will use K6 for performance testing.\n"
+	"content": " Software Generation Capabilties Code \u0026amp; Config Writing Capability The project uses Visual Studio Code and Visual Studio as IDE.\nBuild \u0026amp; Integration Enablement Capabilities Software Compilation \u0026amp; Validation The project uses .Net, Java or Typescript compilers\nSofware Linking \u0026amp; Packaging The different application projects generates different types of artefacts\nNuget packages Som part of the codes are published as Nuget Packages. This process is manual and performed by developer.\nWith help of Nuget packages we can easyly re-use modules accross applicatons in the different solution.\nNPM Packages Som part of the fronted code is published as NPM packages. This to\nDocker containers All applications is built as Docker Containers using Docker Build\nSe Docker files for Altinn Platform\n Authentication component Authorization component PDF Component Profile Component Receipt Component Register Component Storage Component  See docker files for Altinn Studio\n [Designer])(https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Dockerfile)  Build Orchestration We use Auzure Pipelines to build the source code.\nRead more about\nContinuous Integration Capabilities Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests\n\rBuild process\rAltinn Studio Build Processes\n\r\rTest Management Capabilities Test Case \u0026amp; Script Creation \u0026amp; Management  Test scripts are collected in Github.  Test Execution Tracking \u0026amp; Reporting  Azure Test Plans in Azure Devops is usted for execution tracking Defects reported as issues in Github, using the Bug template.  Test Data Creation \u0026amp; Management  Test data for local testing and integration testing is kept in Github.  Test Execution \u0026amp; Automation Capabilities Functional Test  Automated browser testing and WCAG testing using Testcafe.  Unit Test  Jest framework used for unit testing front-end. More details here. xunit used for unit testing back-end.  Service \u0026amp; API Test  API testing is done using Postman. More details here. Integration testing of services done using standard Microsoft frameworks.  Performance Testing \u0026amp; Profiling We will use K6 for performance testing.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/",
 	"title": "Software Configuration &amp; Release Management Capabilities",
 	"tags": ["architecture"],
 	"description": "Software Configuration &amp; Release Management Capabilities process of tracking changes and handle new releases for a application",
-	"content": " Version, Release \u0026amp; Artefact Management Capabilities Version Management Artefact Management Software Configuration Management Release Management Releases are created on Github.\nSee releases here\nContinuous Del. Pipeline Management The goal is to deliver continously.\nDeployment Capabilities Deployment Orchestration We use Azure Pipelenes for deployment orchestration of the different components in the different solutions.\nThe deploy pipelines has typical support for deployment to different environments (Stages).\nPiplines The following pipelines is defined\n Altinn Studio - Designer Altinn Studio - Repositories Altinn Platform - Authorization Altinn Platform - Authentication Altinn Platform - PDF  "
+	"content": " Version, Release \u0026amp; Artefact Management Capabilities Version Management Artefact Management Software Configuration Management Release Management Releases are created on Github.\nSee releases here\nContinuous Del. Pipeline Management The goal is to deliver continously.\nDeployment Capabilities Deployment Orchestration We use Azure Pipelenes for deployment orchestration of the different components in the different solutions.\nThe deploy pipelines has typical support for deployment to different environments (Stages).\nHelm is used to set environments variables for the different environments.\nPiplines The following pipelines is defined\n Altinn Studio - Designer Altinn Studio - Repositories Altinn Platform - Authorization Altinn Platform - Authentication Altinn Platform - PDF Altinn Platform - Profile Altinn Platform - Receipt Altinn Platform - Register Altinn Platform - Storage  "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/",

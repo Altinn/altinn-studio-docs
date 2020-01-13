@@ -3770,6 +3770,111 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/">
+        <span>Non-Solution-Specific</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/">
+        <span>Development</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/">
+        <span>Operations</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/" class="dd-item 
         
         
@@ -8633,6 +8738,93 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/">Policy Information Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>A Policy Information Point is a component that is used by the Context Handler to enrich the decision request with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.
+For the Altinn Platform there is serveral Policy Information Points
+ Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request Register PIP - Possible information about the party (is he still alive? <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/prp/">Policy Retrieval Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.
+During deployment of a app the rules for the app is added to the Altinn Storage.
+The rules are defined as a XACML 3.0 Policy document.
+See XACML for detailed description of Policy format
+For delegated rights Altinn II will provide the delegated policy. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/prp/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">Presentation (User Interface) Capabilities</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing
+These capabilities is both targeting App developers creating applications in Altinn Studio and the application created in Altinn Studio and Deployed to Altinn Apps for end users.
+Rendering &amp; Interaction Capabilities Composition &amp; Rendering Composition The app developer may create the layout of the App UI using Altinn Studio. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/platform/presentation/">Presentation Components</a></h2>
     </header>
     <section class="post-excerpt">
@@ -8826,92 +9018,6 @@ The security architecture is based on the following reference model
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/runtime-capabilities/">runtime capabilities</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/">Security Enforcement Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Identification &amp; Authentication Capabilities Authentication The solutions can authenticate different types of users and systems
-Single Sign-on A user signed in to one app is able to navigate freely to another app hosted in Altinn Apps or to Altinn Platform Components without needing to log in again.
-Identity &amp; Access Management Capabilities Authorization The solution can authorize access to data for users and systems
-Identity &amp; Access Management User can be created in Altinn Studio and it is possible to give them access to organizations <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/">Software Configuration &amp; Release Management Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Version, Release &amp; Artefact Management Capabilities Version Management Artefact Management Software Configuration Management Release Management Releases are created on Github.
-See releases here
-Continuous Del. Pipeline Management The goal is to deliver continously.
-Deployment Capabilities Deployment Orchestration We use Azure Pipelenes for deployment orchestration of the different components in the different solutions.
-The deploy pipelines has typical support for deployment to different environments (Stages).
-Piplines The following pipelines is defined <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/">Solution Architecture Altinn Apps</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Functionality in Altinn Studio is distributed between different applications.
-The diagram below shows where the different functionality i located in the different applications. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
 
@@ -10764,6 +10870,56 @@ The diagram below shows where the different functionality i located in the diffe
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
                               
                                   
                       
