@@ -137,7 +137,7 @@
 	"title": "Architecture Components",
 	"tags": ["architecture"],
 	"description": "Architecture Components defines the needed application, data, platform and infrastructure components",
-	"content": " Components relationship The figure below shows the relationship between the different componentes in the techincal architecture.\n\n\rApplication Architecture\rThe Application Architecture is split in Application Solution Architecture and Application Construction Architecture\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r"
+	"content": " Components relationship The figure below shows the relationship between the different componentes in the techincal architecture.\n\n\rApplication Components\rThe Application Components is split it 3 different areas\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/",
@@ -262,8 +262,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/",
 	"title": "Non-Solution",
 	"tags": ["solution", "architecture"],
-	"description": "Non-Solution-Specific Application Landscape Components refer to all components other than the core solution or Solution-specific Application.",
-	"content": "They are typical applications used by the devops team.\n\rDevelopment Applications\rDevelopment Applications are used by the devops team to support the different development capabilities required\n\r\rOperations Application\rOperations Applications are used by the devops team for supporting the different operation and management capabilities required\n\r\r"
+	"description": "Non-Solution-Specific Application Landscape Components refer to all components other than the core solution or Solution-specific Application typical used for devops",
+	"content": "\r\rDevelopment Applications\rDevelopment Applications are used by the devops team to support the different development capabilities required\n\r\rOperations Application\rOperations Applications are used by the devops team for supporting the different operation and management capabilities required\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/",
@@ -393,10 +393,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/",
-	"title": "Application Architecture",
+	"title": "Application Components",
 	"tags": ["architecture"],
-	"description": "The Application Architecture is split in Application Solution Architecture and Application Construction Architecture",
-	"content": "\r\rNon-Solution\rNon-Solution-Specific Application Landscape Components refer to all components other than the core solution or Solution-specific Application.\n\r\rSolution-Specific (Functional) Application Components\rSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.\n\r\rApplication Construction Architecture\rThe Application Construction Architecture describes how the different applications are constructed with details about technology used.\n\r\r"
+	"description": "The Application Components is split it 3 different areas",
+	"content": "\r\rNon-Solution\rNon-Solution-Specific Application Landscape Components refer to all components other than the core solution or Solution-specific Application typical used for devops\n\r\rSolution-Specific (Functional) Application Components\rSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.\n\r\rApplication Construction Architecture\rThe Application Construction Architecture describes how the different applications are constructed with details about technology used.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/",
