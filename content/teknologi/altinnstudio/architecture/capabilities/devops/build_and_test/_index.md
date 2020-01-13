@@ -18,17 +18,38 @@ The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visua
 The project uses .Net, Java or Typescript compilers
 
 ### Sofware Linking & Packaging
-Azure Pipeline package the applications in to Docker Containers. 
+The different application projects generates different types of artefacts
 
-TODO: Add info about Docker Registry ++
+#### Nuget packages
+Som part of the codes are [published as Nuget Packages](https://www.nuget.org/profiles/altinn). 
+This process is manual and performed by developer.
+
+With help of Nuget packages we can easyly re-use modules accross applicatons in the different solution.
+
+#### NPM Packages
+Som part of the fronted code is published as NPM packages. This to 
+
+#### Docker containers
+All applications is built as Docker Containers using [Docker Build](https://docs.docker.com/engine/reference/commandline/build/)
+
+Se Docker files for Altinn Platform
+
+- [Authentication component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authentication/Authentication/Dockerfile) 
+- [Authorization component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Dockerfile)
+- [PDF Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.PDF/Dockerfile)
+- [Profile Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Profile/Profile/Dockerfile)
+- [Receipt Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Receipt/Receipt/Dockerfile)
+- [Register Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Register/Register/Dockerfile)
+- [Storage Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Dockerfile)
+
+See docker files for Altinn Studio
+
+- [Designer])(https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Dockerfile)
 
 ### Build Orchestration
 We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) to build the source code.
 
-[See our pipelines](https://dev.azure.com/brreg/altinn-studio/_build)
-
-### Development Environment Integration
-Visual Studio and Visual Studio Code can integrate with both 
+Read more about 
 
 ## Continuous Integration Capabilities
 Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests
