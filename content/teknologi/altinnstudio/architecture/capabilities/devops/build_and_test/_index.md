@@ -7,12 +7,14 @@ weight: 105
 alwaysopen: false
 ---
 
+Below list the capabilities with a short description and possible link to the different components providing that capability. 
+
 ## Software Generation Capabilties
 
 ### Code & Config Writing Capability
 Most of our code is written manually.
 
-See application components to get a overview over tools and application we use. 
+See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ## Build & Integration Enablement Capabilities
 
@@ -20,43 +22,19 @@ See application components to get a overview over tools and application we use.
 The project uses .Net, Java or Typescript compilers
 
 ### Sofware Linking & Packaging
-The different application projects generates different types of artefacts
+The project has the capability to build packages. 
 
-#### Nuget packages
-Som part of the codes are [published as Nuget Packages](https://www.nuget.org/profiles/altinn). 
-This process is manual and performed by developer.
-
-With help of Nuget packages we can easyly re-use modules accross applicatons in the different solution.
-
-#### NPM Packages
-Som part of the fronted code is published as NPM packages. This to 
-
-#### Docker containers
-All applications is built as Docker Containers using [Docker Build](https://docs.docker.com/engine/reference/commandline/build/)
-
-Se Docker files for Altinn Platform
-
-- [Authentication component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authentication/Authentication/Dockerfile) 
-- [Authorization component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Dockerfile)
-- [PDF Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.PDF/Dockerfile)
-- [Profile Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Profile/Profile/Dockerfile)
-- [Receipt Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Receipt/Receipt/Dockerfile)
-- [Register Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Register/Register/Dockerfile)
-- [Storage Component](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Dockerfile)
-
-See docker files for Altinn Studio
-
-- [Designer])(https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Dockerfile)
+See development application components for details how we do this. 
 
 ### Build Orchestration
 We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) to build the source code.
 
-Read more about 
+See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
+
 
 ## Continuous Integration Capabilities
 Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests
 
-{{% children description="true" depth="1" %}}
 
 ## Test Management Capabilities
 
@@ -64,8 +42,7 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 - Test scripts are collected in [Github](https://github.com/Altinn/altinn-studio/tree/master/src/test).
 
 ### Test Execution Tracking & Reporting
-- [Azure Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/) in [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) is usted for execution tracking
-- Defects reported as issues in [Github](https://github.com/Altinn/altinn-studio/issues), using the _Bug_ template. 
+The team 
 
 ### Test Data Creation & Management
 - Test data for local testing and integration testing is kept in [Github](https://github.com/Altinn/altinn-studio).
@@ -73,16 +50,12 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 ## Test Execution & Automation Capabilities
 
 ### Functional Test
-- Automated browser testing and WCAG testing using [Testcafe](https://devexpress.github.io/testcafe/).
+The devopsteam has the capability to perform functional testing
 
 ### Unit Test
-- [Jest](https://jestjs.io/) framework used for unit testing front-end. More details [here](../../../../development/handbook/test/unit-testing/).
-- [xunit](https://xunit.net/) used for unit testing back-end.
+As part of the development unit test are created. They are run for every pull request
 
 ### Service & API Test
 
-- API testing is done using Postman. More details [here](../../../../development/handbook/test/postman/).
-- Integration testing of services done using [standard Microsoft frameworks](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1).
-
 ### Performance Testing & Profiling
-We will use [K6](https://k6.io/) for performance testing.
+
