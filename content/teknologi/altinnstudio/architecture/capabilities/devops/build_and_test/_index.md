@@ -7,10 +7,14 @@ weight: 105
 alwaysopen: false
 ---
 
+Below list the capabilities with a short description and possible link to the different components providing that capability. 
+
 ## Software Generation Capabilties
 
 ### Code & Config Writing Capability
-The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) as IDE.
+Most of our code is written manually.
+
+See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ## Build & Integration Enablement Capabilities
 
@@ -18,22 +22,19 @@ The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visua
 The project uses .Net, Java or Typescript compilers
 
 ### Sofware Linking & Packaging
-Azure Pipeline package the applications in to Docker Containers. 
+The project has the capability to build packages. 
 
-TODO: Add info about Docker Registry ++
+See development application components for details how we do this. 
 
 ### Build Orchestration
 We use [Auzure Pipelines](https://azure.microsoft.com/en-us/services/devops/pipelines/) to build the source code.
 
-[See our pipelines](https://dev.azure.com/brreg/altinn-studio/_build)
+See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
-### Development Environment Integration
-Visual Studio and Visual Studio Code can integrate with both 
 
 ## Continuous Integration Capabilities
 Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests
 
-{{% children description="true" depth="1" %}}
 
 ## Test Management Capabilities
 
@@ -41,8 +42,7 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 - Test scripts are collected in [Github](https://github.com/Altinn/altinn-studio/tree/master/src/test).
 
 ### Test Execution Tracking & Reporting
-- [Azure Test Plans](https://azure.microsoft.com/en-us/services/devops/test-plans/) in [Azure Devops](https://azure.microsoft.com/en-us/services/devops/) is usted for execution tracking
-- Defects reported as issues in [Github](https://github.com/Altinn/altinn-studio/issues), using the _Bug_ template. 
+The team 
 
 ### Test Data Creation & Management
 - Test data for local testing and integration testing is kept in [Github](https://github.com/Altinn/altinn-studio).
@@ -50,16 +50,12 @@ Azure Piplines are used for Continuous Integration. When a pull request is creat
 ## Test Execution & Automation Capabilities
 
 ### Functional Test
-- Automated browser testing and WCAG testing using [Testcafe](https://devexpress.github.io/testcafe/).
+The devopsteam has the capability to perform functional testing
 
 ### Unit Test
-- [Jest](https://jestjs.io/) framework used for unit testing front-end. More details [here](../../../../development/handbook/test/unit-testing/).
-- [xunit](https://xunit.net/) used for unit testing back-end.
+As part of the development unit test are created. They are run for every pull request
 
 ### Service & API Test
 
-- API testing is done using Postman. More details [here](../../../../development/handbook/test/postman/).
-- Integration testing of services done using [standard Microsoft frameworks](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-3.1).
-
 ### Performance Testing & Profiling
-We will use [K6](https://k6.io/) for performance testing.
+
