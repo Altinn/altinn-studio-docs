@@ -10,7 +10,9 @@ alwaysopen: false
 ## Software Generation Capabilties
 
 ### Code & Config Writing Capability
-The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) as IDE.
+Most of our code is written manually.
+
+See application components to get a overview over tools and application we use. 
 
 ## Build & Integration Enablement Capabilities
 
