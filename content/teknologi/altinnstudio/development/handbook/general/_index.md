@@ -1,8 +1,24 @@
 ---
-title: General
-description: General coding guidelines
+title: Cheat Sheet
+description: Qucik guide for different commands
 tags: [development, todo]
 weight: 100
 ---
 
-TODO
+## GIT
+
+git clone repourl
+
+git 
+
+
+## Docker
+
+
+## AKS
+
+
+## Markdown
+
+
+## Azure CLI

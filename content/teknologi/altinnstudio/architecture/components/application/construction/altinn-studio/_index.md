@@ -1,7 +1,7 @@
 ---
-title: Application Architecture Altinn Studio
+title: Application Construction Architecture Altinn Studio
 linktitle: Altinn Studio
-description: Description of the application architecture for runtime applicationz
+description: Description of the application construction architecture for altinn studio solution
 weight: 100
 ---
 {{% notice warning %}}
@@ -75,22 +75,3 @@ for backend.
 [download as visio]: /architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.vsdx
 [See fullscreen]: /architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.svg
 
-### Testing in Altinn Studio
-An application that is developed in altinn studio can be tested in studio evnvironment. It is a simulation of how the application will work when it is deployed in different environments. It will store data in disk instead of database.
-To test the application inside altinn studio
-
-* Click on "Test" menu
-* Choose an user (user list is preloaded for testing)
-* You will see an interface with a list of existing instance elements and an option to instantiate new instance
-
-When a new instance of the application is instantiated, it creates the following files and folder structure under "Testdataforparty" folder
-
-│  │  ├──  {{<icon name="fa-folder-open">}} Testdataforparty (used for runtime)         
-│  │  │        ├──{{<icon name="fa-folder-open">}}  user1                        
-│  │  │        │     ├──{{<icon name="fa-folder-open">}}  instance1     
-│  │  │        │     │     ├──{{<icon name="fa-code">}}  instance1.json          
-│  │  │        │     │    ├──{{<icon name="fa-code">}}  instance1.state.json                  
-│  │  │        │     │     ├──{{<icon name="fa-folder-open">}} data   
-│  │  │        │     │     │    ├──{{<icon name="fa-folder-open">}} data-id1    
-│  │  │        │     │     │    │     ├──{{<icon name="fa-code">}} data-id1.xml  
-│  │  │        │     │     │    ├──{{<icon name="fa-folder-open">}} data-id...  
