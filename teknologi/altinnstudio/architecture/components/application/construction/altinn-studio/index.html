@@ -8883,8 +8883,6 @@ if(host != "localhost")
 
 
 
-
-
 <div class="notices warning" ><p>NOTE: Work in progress. Stuff will change</p>
 </div>
 
@@ -8892,77 +8890,11 @@ if(host != "localhost")
 <p>The following diagram shows the application architecture for Altinn Studio solution</p>
 
 
-	<p><object data="/architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/altinnstudio_application_construction_architecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
 
 
 
-<p><a href="/architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.svg">See fullscreen</a> or <a href="/architecture/application/altinn-studio/AltinnStudio_ApplicationArchitecture.vsdx">download as visio</a></p>
-
-<h2 id="designer">Designer</h2>
-
-<h3 id="frontend-designer">Frontend  designer</h3>
-
-<p>The frontend for the designer application is based on REACT.
-It is split into different REACT applications and components for the different functional areas of the designer. Take a look at the <a href="react-app">front-end architecture</a> for more details.</p>
-
-<h3 id="backend-designer">Backend designer</h3>
-
-<p>Backend of designer is based on .Net Core and ASP.Net Core. It exposes API to the REACT applications</p>
-
-<h2 id="repository">Repository</h2>
-
-<p>The repository application is based on <a href="https://gitea.io/">GITEA</a>. This is a open source product created in <a href="https://golang.org/">GO</a>. Take a look at the [Customize Gitea]() for more details on how to customize gitea.</p>
-
-<h2 id="runtime">Runtime</h2>
-
-<p>Runtime is both part of the Altinn Studio and the Altinn Studio Apps solution.</p>
-
-<p>For Altinn Studio the Runtime is shared between all services and all</p>
-
-<h3 id="frontend-runtime">Frontend runtime</h3>
-
-<p>The runtime application will have two different types of frontend.</p>
-
-<ul>
-<li>Frontend developed by the app developer in Altinn Studio designer</li>
-<li>Frontend that is part of the plattform.</li>
-</ul>
-
-<h4 id="frontend-for-altinn-studio-app">Frontend for Altinn Studio App</h4>
-
-<p>The frontend developed as part of the app development in Altinn Studio is based on REACT.</p>
-
-<p>Altinn Studio Generates a REACT app based on the selected components in the app UI.</p>
-
-<p>This app uses the backend APIS for creating, updating, deleting data in the app datamodell.</p>
-
-<p>See details for <a href="react-app">REACT App architecture</a></p>
-
-<p>For apps with requirements that is not supported with the WYSIWYG REACT editor the app developer
-could build their own client based frontend on REACT or other frameworks hosted in runtime.</p>
-
-<p>It will also be possible to build a GUI hosted elsewhere and just use the app APIs to handle data updates</p>
-
-<h4 id="frontend-for-platform-views">Frontend for platform views</h4>
-
-<p>As part of the platform there is some standard pages presented during the workflow for an app
-that the app developer does not need to create GUI for.
-* Instansiation
-* Payment</p>
-
-<p>These are all using Razor as frontend framework.</p>
-
-<h3 id="backend">Backend</h3>
-
-<p>Backend is based on ASP.Net Core and is a MVC application that uses defined
-interfaces to run the specific app logic implemented in Altinn Studio.</p>
-
-<h4 id="altinn-studio-mode">Altinn Studio Mode</h4>
-
-<p>In Altinn Studio mode the runtime instances will be shared between different end user services.</p>
-
-<p>Based on the logged in app developer and URL parames the correct service implementation will be compiled and loaded in to memory
-for backend.</p>
+<p><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/altinnstudio_application_construction_architecture.svg">See fullscreen</a> or <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/altinnstudio_application_construction_architecture.vsdx">download as visio</a></p>
 
 
 <footer class=" footline" >
