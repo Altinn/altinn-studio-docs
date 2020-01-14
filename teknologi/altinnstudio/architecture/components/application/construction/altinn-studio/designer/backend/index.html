@@ -7,7 +7,7 @@
 
 
     
-    <title>Application Architecture Altinn Studio - Front-end :: Altinn digitalisering - Utvikling</title>
+    <title>Application Architecture Altinn Studio - Back-end :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -4925,35 +4925,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/">
-        <span>Repositories</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/" class="dd-item 
         parent
         
@@ -4998,7 +4969,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/">
-        <span>Front-end</span>
+        <span>Back-end</span>
 
         
 
@@ -5045,6 +5016,64 @@ if(host != "localhost")
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/">
+        <span>Loadbalancer</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/">
+        <span>Repositories</span>
+
+        
+
+        
+        
+
+        
+      </a>
               
     </li>
   
@@ -8848,7 +8877,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/'>Designer</a> <span class='adocs-breadcrumb-divider'> / </span> Front-end
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/'>Designer</a> <span class='adocs-breadcrumb-divider'> / </span> Back-end
 
  
 
@@ -8878,7 +8907,7 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Application Architecture Altinn Studio - Front-end
+                Application Architecture Altinn Studio - Back-end
                 
               </h1>
               <p class="a-leadText" id="leadText">Description of the application architecture for Altinn Studio Front-end</p>
@@ -8895,301 +8924,32 @@ if(host != "localhost")
 
 
 
-<h2 id="react-architecture">React architecture</h2>
-
-<div class="alert alert-info" role="alert">NOTE: Parts of the front-end is currently built in .NET Core. This will gradually be ported over to React as we work with the different functional areas.</div>
-
-
-<p>The front-end of Altinn Studio is build using React and Redux. Each functional area has its own React application, complete with Redux store/reducer when needed.</p>
-
-<p>Navigation/administration of the different applications is done from top-level applications, which import the applications for the different functional areas.</p>
-
-<p>The React front-end for Altinn Studio is split into two top level applications: <em>dashboard</em> and <em>service-developpent</em>. In addition to these top level application, each feature/functional area will have its own
-React application which will be imported to the relevant top level application as a <em>subapp</em> (see <a href="https://redux.js.org/recipes/isolatingsubapps">https://redux.js.org/recipes/isolatingsubapps</a> ).</p>
-
-<blockquote>
-<p><strong>Remember: New subapps must be configured in the top level application&rsquo;s Dockerfile and in the Designer&rsquo;s gulpfile</strong>.<br />
-This is not necessary for shared components.</p>
-</blockquote>
-
-<p>In addition to feature applications there is also a component library of shared components, that can be reused by all the applications. An example is navigation components.</p>
-
-<p>See below diagram for an overview of the different applications.</p>
-
-<div class="alert alert-info" role="alert">NOTE: Runtime applications are part of Altinn Studio Apps, and will not be described here.</div>
-
-
-
-	<p><object data="/architecture/application/altinn-studio/react-app/ReactAppArchitecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
-
-
-
-<h3 id="service-development">service-development</h3>
-
-<p>This is a top-level application, and will only handle simple operations like navigation to the different subapps. It will not have access to the store of any of the subapps.</p>
-
-<h4 id="header-and-navigation">Header and Navigation</h4>
-
-<p>Material UI (applicatiopn bar and drawer) components are customized with altinn studio styles for the header and navigation in Altinn Studio. A third party library <a href="(https://reacttraining.com/react-router/web/guides/quick-start)">&ldquo;React Routing&rdquo;</a> is used together with Material UI to handle navigation. When the user clicks on a header/side navigation link, the route changes and the subapp specific to the route is rendered.</p>
-
-<h4 id="header-menu-application-bar">Header Menu (Application bar)</h4>
-
-<p>Application bar component is the Altinn Studio&rsquo;s header menu(navigation links at the top). React router library is used to handle those navigations. Header menu has different user interface on desktop and tablet. The display text and the links for navigation are built as object in a configuration file <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/main-header/appBarConfig.tsx">appbarconfig</a>.
-The configuration object in the file is iterated and the application bar is rendered. The styles specific to the component are placed inside <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/main-header/appBar.tsx">the component file</a>. In addition to the navigation menu, a breadcrumb is also rendered in tablet view.</p>
-
-<h4 id="side-menu-drawer-menu">Side Menu (Drawer Menu)</h4>
-
-<p>Drawer menu component is the Altinn Studio&rsquo;s side menu which can be found on the left. It displays a list of Icons by default and on hover expands the menu and lists text by the side of the icon. It will render a list of navigation links based on the selected header menu.
-Side menu has different user interfaces in desktop and tablet. In tablet, only text is displayed and it slides in from left when &ldquo;Menu&rdquo; button is clicked.
-So 2 different components are created to acheive this (<a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/LeftDrawerMenu.tsx">LeftDrawerMenu</a>, <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/TabletDrawerMenu.tsx">TabletDrawerMenu</a>)</p>
-
-<p>The styles specific to the side menu is added in a separate <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/leftDrawerMenuStyles.ts">style file</a>.
-Similar to the header menu, the side menu is also rendered by looping over the menu settings object which is available in a separate <a href="https://github.com/Altinn/altinn-studio/blob/master/src/react-apps/applications/shared/src/navigation/drawer/drawerMenuSettings.ts">configuration file</a></p>
-
-<h3 id="service-overview">service-overview</h3>
-
-<p>Implementation not started. Details will be made available once this application is created.</p>
-
-<h3 id="ux-editor">ux-editor</h3>
-
-<p>The general concept is that there is a JSON file (<em>FormLayout.json</em>) where the components that are to be part of a form are specified. This includes the component types, texts, order, etc. This file is then parsed to display the form.</p>
-
-<p>The <em>ux-editor</em> application is used to create/change this file. The components specified in the file are rendered to visually display the result.</p>
-
-<h4 id="the-components">The components</h4>
-
-<p>All the components that can be added in the ux-editor are React components, and when they are added, the <em>FormLayout</em>-file is updated and the component is rendered. Currently, available components are:</p>
-
-<ul>
-<li>HeaderComponent</li>
-<li>InputComponent</li>
-<li>CheckboxContainerComponent</li>
-<li>TextAreaComponent</li>
-<li>RadioButtonContainerComponent</li>
-<li>DropdownComponent</li>
-<li>FileUploadComponent</li>
-<li>ThirdPartyComponent (imported from outside Altinn Studio)</li>
-</ul>
-
-<p>Each component has a defined set of props that it expects as input. It&rsquo;s up to the parent component to provide these. In addition, props can be mapped directly from the Redux store.</p>
-
-<p>When an end user makes changes in a form (for example type something in a text box), an event is triggered which triggers an action, handled by a <em>dispatcher</em>.</p>
-
-<pre><code class="language-typescript"> /**
-   * This is the event handler that triggers the Redux Actions
-   * that is sendt to the different Action dispatcher.
-   * This event handler is used for all form components rendered from this
-   */
-  public handleComponentDataUpdate = (callbackValue: any): void =&gt; {
-    if (!this.props.component.dataModelBinding) {
-      return;
-    }
-
-    FormFillerActionDispatchers.updateFormData(
-      this.props.id,
-      callbackValue,
-      this.props.dataModelElement,
-    );
-    ExternalApiActionDispatchers.checkIfApiShouldFetch(this.props.id, this.props.dataModelElement, callbackValue);
-    RuleConnectionActionDispatchers.checkIfRuleShouldRun(this.props.id, this.props.dataModelElement, callbackValue);
-  }
-
-</code></pre>
-
-<h4 id="containers">Containers</h4>
-
-<p>Components are rendered within containers. There is a base container which is always available, and unless otherwise specified, components are rendered within the base container. Any other containers that are defined in FormLayout.json are also rendered inside the base container.
-When an app developer first creates a form, the base container is automatically generated with the first component added.</p>
-
-<p>An app developer can add new containers to group together fields in a form. These groups may be <em>repeating</em> if the data model allows for this. If a group is defined as repeating, it must be connected to the relevant repeating group in the data model.</p>
-
-<h4 id="redux">Redux</h4>
-
-<p>Redux is used to manage the states of the ux-editor.</p>
-
-<p><strong>AppConfigState</strong></p>
-
-<p>Which mode is the application in.</p>
-
-<pre><code class="language-typescript">export interface IAppConfigState {
-  designMode: boolean;
-}
-</code></pre>
-
-<p><strong>DataModelState</strong></p>
-
-<p>Information about the data model elements. Based on JSON file generated from XSD data model.</p>
-
-<pre><code class="language-typescript">export interface IDataModelState {
-  model: IDataModelFieldElement[];
-  fetching: boolean;
-  fetched: boolean;
-  error: Error;
-}
-</code></pre>
-
-<p><strong>RuleModelState</strong></p>
-
-<p>Information about the rules defined for the app.</p>
-
-<pre><code class="language-typescript">export interface IRuleModelState {
-    model: IRuleModelFieldElement[];
-    fetching: boolean;
-    fetched: boolean;
-    error: Error;
-  }
-</code></pre>
-
-<p><strong>TextResourceState</strong></p>
-
-<p>All text resources for the ap.</p>
-
-<pre><code class="language-typescript">export interface ITextResourcesState {
-  resources: ITextResource[];
-  language: string;
-  fetching: boolean;
-  fetched: boolean;
-  error: Error;
-}
-</code></pre>
-
-<p><strong>FormFillerState</strong></p>
-
-<p>All form data and any validation errors on this form data.</p>
-
-<pre><code class="language-typescript">export interface IFormFillerState {
-  formData: any;
-  validationErrors: any;
-}
-</code></pre>
-
-<p><strong>Form data format</strong></p>
-
-<p>The form data is stored in the state as <em>key-value pairs</em> with data model element as the key. For example, a field connected to <code>melding.adresse.postnummer</code> in the data model will be stored as:</p>
-
-<pre><code class="language-typescript">formData: {
-    melding.adresse.postnummer : &quot;1234&quot;
-}
-</code></pre>
-
-<p>If a field is inside a repeating group, an index will be added in the key to specify which instance of the group the data belongs to. For example, if the group <code>melding.adresse</code> is defined as repeating and the end user has added 3 instances of this group, it would result in the following
-form data being stored.</p>
-
-<pre><code class="language-typescript">formData: {
-    melding.adresse[0].postnummer : &quot;1234&quot;,
-    melding.adresse[1].postnummer : &quot;2345&quot;,
-    melding.adresse[2].postnummer : &quot;4567&quot;
-}
-</code></pre>
-
-<h4 id="reducer">Reducer</h4>
-
-<p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made.</p>
-
-<h4 id="action-types">Action types</h4>
-
-<p>Action types are type definitions for events that trigger an update of the store. For example:</p>
-
-<pre><code class="language-typescript">// All update form data actions
-export const UPDATE_FORM_DATA: string = `${moduleName}.UPDATE_FORM_DATA`;
-export const UPDATE_FORM_DATA_FULFILLED: string = `${moduleName}.UPDATE_FORM_DATA_FULFILLED`;
-export const UPDATE_FORM_DATA_REJECTED: string = `${moduleName}.UPDATE_FORM_DATA_REJECTED`;
-
-</code></pre>
-
-<h4 id="actions">Actions</h4>
-
-<p>Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:</p>
-
-<pre><code class="language-typescript">export interface IUpdateFormDataAction extends Action {
-  formData: any;
-  componentID: string;
-  dataModelElement: IDataModelFieldElement;
-}
-</code></pre>
-
-<p>Action creators create the actions, based on the interfaces defined for the action. For example:</p>
-
-<pre><code class="language-typescript">export function updateFormDataAction(
-  componentID: string,
-  formData: any,
-  dataModelElement: IDataModelFieldElement,
-
-): IUpdateFormDataAction {
-  return {
-    type: ActionTypes.UPDATE_FORM_DATA,
-    formData,
-    componentID,
-    dataModelElement
-  };
-}
-</code></pre>
-
-<p>The actions are <em>dispatched</em> by an action dispatcher.</p>
-
-<h4 id="redux-saga">Redux saga</h4>
-
-<p>Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the <code>utils</code>-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.</p>
-
-<p>An example is asyncronous calls to backend APIs to get data, or submit data.</p>
-
-<p>Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.</p>
-
-<pre><code class="language-typescript">
-/**
- * Define the saga for the UPDATE_FORM_DATA event
- */
-function* updateFormDataSaga(action: ActionType) {
-  try {
-    const relevantData = yield selectRelevantStateObjects(...);
-    ...
-    doRelevantLogic(relevantData);
-    ...
-    yield call(updateFormDataSagaFulfilled, ... );
-  } catch (err) {
-    yield call(updateFormDataSagaRejected, err);
-  }
-}
-
-/**
- * Define a listener for the UPDATE_FORM_DATA event
- */
-export function* watchUpdateFormDataSaga(): SagaIterator {
-  yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
-}
-</code></pre>
-
-<h3 id="datamodel">datamodel</h3>
-
-<p>Implementation not started. Details will be made available once this application is created.</p>
-
-<h3 id="logic-rules">logic-rules</h3>
-
-<p>Implementation not started. Details will be made available once this application is created.</p>
-
-<h3 id="workflow">workflow</h3>
-
-<p>Implementation not started. Details will be made available once this application is created.</p>
-
-<h3 id="translations">translations</h3>
-
-<p>Implementation not started. Details will be made available once this application is created.</p>
-
-<h3 id="autosave">autosave</h3>
-
-<p>If you make changes to the form, the app should auto-save. This is done by triggering a new save-action after the addition, update or delete of:
-- components
-- containers
-- api-connections
-- dynamic rules
-- conditonal rendering rules
-The auto-save also triggers when you update the order of the components inside the form.</p>
-
-
 <footer class=" footline" >
 	
 </footer>
 
+
+
+	
+
+	<div class="extra-pagination inner">
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Side 1 av 0</span>
+	
+</nav>
+
+	</div>
+
+	
+
+	<div style="margin-bottom:2rem"></div>
+
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Side 1 av 0</span>
+	
+</nav>
 
 
 
@@ -11624,9 +11384,23 @@ The auto-save also triggers when you update the order of the components inside t
                       
                           
                               
+                              
+                          
+                          
+          
+                              
+                              
                                   
+                              
+                              
+          
+                              
                                   
+                      
+                      
+                          
                               
+                              
                           
                           
           
@@ -11643,22 +11417,27 @@ The auto-save also triggers when you update the order of the components inside t
                       
                           
                               
+                                  
+                                  
                               
                           
                           
           
-                              
                               
-                                  
                               
                               
           
+                              
+                      
+                  
+                              
+                      
+                  
                               
                                   
                       
                       
                           
-                              
                               
                           
                           
@@ -11675,9 +11454,6 @@ The auto-save also triggers when you update the order of the components inside t
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -11686,9 +11462,6 @@ The auto-save also triggers when you update the order of the components inside t
                               
                               
           
-                              
-                      
-                  
                               
                       
                   
@@ -13589,7 +13362,7 @@ The auto-save also triggers when you update the order of the components inside t
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/" title="Designer"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/" title="Application Construction Architecture Designer"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
                       <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/" title="Application Architecture Altinn Studio - Front-end" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>

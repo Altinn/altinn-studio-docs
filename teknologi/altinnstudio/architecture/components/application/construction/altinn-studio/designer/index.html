@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="This application architecture for designer application describes the frameworks used, the code structure and other information about how designer is constructed">
 
 
     
-    <title>Designer :: Altinn digitalisering - Utvikling</title>
+    <title>Application Construction Architecture Designer :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -4925,35 +4925,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/">
-        <span>Repositories</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/" class="dd-item 
         parent
         active
@@ -4998,7 +4969,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/">
-        <span>Front-end</span>
+        <span>Back-end</span>
 
         
 
@@ -5052,6 +5023,64 @@ if(host != "localhost")
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/">
+        <span>Loadbalancer</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/">
+        <span>Repositories</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -5070,7 +5099,7 @@ if(host != "localhost")
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/shared/" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/shared/">
@@ -8873,10 +8902,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Designer
+                Application Construction Architecture Designer
                 
               </h1>
-              <p class="a-leadText" id="leadText"></p>
+              <p class="a-leadText" id="leadText">This application architecture for designer application describes the frameworks used, the code structure and other information about how designer is constructed</p>
             
           
 
@@ -8888,34 +8917,85 @@ if(host != "localhost")
 
 
 
+<p>Designer is split in two applications. One frontend created in REACT that communicates with the back-end application through rest-API.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ul class="children children-li js-moveChildrenFrom">
+	
+    
+	    
+    
+    
+
+	
+		
+	
+		
+  
+
+
+<li>
+<a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/" >Application Architecture Altinn Studio - Back-end</a>
+<p>Description of the application architecture for Altinn Studio Front-end</p>
+</li>
+
+
+
+
+
+
+		
+
+		
+			
+
+		
+	
+		
+  
+
+
+<li>
+<a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/" >Application Architecture Altinn Studio - Front-end</a>
+<p>Description of the application architecture for Altinn Studio Front-end</p>
+</li>
+
+
+
+
+
+
+		
+
+		
+			
+
+		
+	
+
+	
+</ul>
+
+
+
+
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Side 1 av 0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Side 1 av 0</span>
-	
-</nav>
 
 
 
@@ -11350,6 +11430,22 @@ if(host != "localhost")
                       
                           
                               
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
                                   
                                   
                               
@@ -11368,25 +11464,25 @@ if(host != "localhost")
                       
                       
                           
-                              
                               
                           
                           
           
                               
-                              
-                                  
                               
                               
           
                               
-                                  
                       
+                  
+                              
                       
-                          
+                  
                               
-                                  
                                   
+                      
+                      
+                          
                               
                           
                           
@@ -11411,9 +11507,6 @@ if(host != "localhost")
                               
                               
           
-                              
-                      
-                  
                               
                       
                   
@@ -13314,10 +13407,10 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" title="Application Construction Architecture Repositories"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/" title="Application Construction Architecture Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/" title="Application Architecture Altinn Studio - Front-end" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/" title="Application Architecture Altinn Studio - Back-end" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -13327,6 +13420,13 @@ if(host != "localhost")
             
               
               
+              
+                <div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/_index.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i github
+                  </a>
+                </div>
               
             
 
