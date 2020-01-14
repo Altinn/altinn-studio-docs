@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the application architecture for runtime applicationz">
+    <meta name="description" content="Description of the application construction architecture for altinn studio solution">
 
 
     
-    <title>Application Architecture Altinn Studio :: Altinn digitalisering - Utvikling</title>
+    <title>Application Construction Architecture Altinn Studio :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -4925,6 +4925,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/">
+        <span>Repositories</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/" class="dd-item 
         
         
@@ -6228,6 +6257,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/general/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/general/">
+        <span>Cheat Sheet</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/deployment/" class="dd-item 
         
         
@@ -6565,12 +6623,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/general/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/cheatsheet/" class="dd-item 
         
         
         
         ">
-      <a href="/teknologi/altinnstudio/development/handbook/general/">
+      <a href="/teknologi/altinnstudio/development/handbook/cheatsheet/">
         <span>General</span>
 
         
@@ -8810,10 +8868,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Application Architecture Altinn Studio
+                Application Construction Architecture Altinn Studio
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the application architecture for runtime applicationz</p>
+              <p class="a-leadText" id="leadText">Description of the application construction architecture for altinn studio solution</p>
             
           
 
@@ -8905,65 +8963,6 @@ interfaces to run the specific app logic implemented in Altinn Studio.</p>
 
 <p>Based on the logged in app developer and URL parames the correct service implementation will be compiled and loaded in to memory
 for backend.</p>
-
-<h3 id="testing-in-altinn-studio">Testing in Altinn Studio</h3>
-
-<p>An application that is developed in altinn studio can be tested in studio evnvironment. It is a simulation of how the application will work when it is deployed in different environments. It will store data in disk instead of database.
-To test the application inside altinn studio</p>
-
-<ul>
-<li>Click on &ldquo;Test&rdquo; menu</li>
-<li>Choose an user (user list is preloaded for testing)</li>
-<li>You will see an interface with a list of existing instance elements and an option to instantiate new instance</li>
-</ul>
-
-<p>When a new instance of the application is instantiated, it creates the following files and folder structure under &ldquo;Testdataforparty&rdquo; folder</p>
-
-<p>│  │  ├──  
-
-<span class="fa fa-folder-open"   aria-hidden="true"></span>
-
- Testdataforparty (used for runtime)<br />
-│  │  │        ├──
-
-<span class="fa fa-folder-open"   aria-hidden="true"></span>
-
-  user1<br />
-│  │  │        │     ├──
-
-<span class="fa fa-folder-open"   aria-hidden="true"></span>
-
-  instance1<br />
-│  │  │        │     │     ├──
-
-<span class="fa fa-code"   aria-hidden="true"></span>
-
-  instance1.json<br />
-│  │  │        │     │    ├──
-
-<span class="fa fa-code"   aria-hidden="true"></span>
-
-  instance1.state.json<br />
-│  │  │        │     │     ├──
-
-<span class="fa fa-folder-open"   aria-hidden="true"></span>
-
- data<br />
-│  │  │        │     │     │    ├──
-
-<span class="fa fa-folder-open"   aria-hidden="true"></span>
-
- data-id1<br />
-│  │  │        │     │     │    │     ├──
-
-<span class="fa fa-code"   aria-hidden="true"></span>
-
- data-id1.xml<br />
-│  │  │        │     │     │    ├──
-
-<span class="fa fa-folder-open"   aria-hidden="true"></span>
-
- data-id&hellip;</p>
 
 
 <footer class=" footline" >
@@ -11412,6 +11411,22 @@ To test the application inside altinn studio</p>
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -12020,10 +12035,26 @@ To test the application inside altinn studio</p>
                               
                               
           
+                              
+                      
+                  
                               
                       
                   
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                               
+          
+                              
                       
                   
                               
@@ -12743,28 +12774,12 @@ To test the application inside altinn studio</p>
                           
                           
           
-                              
-                              
-                                  
                               
                               
-          
-                              
                                   
-                      
-                      
-                          
-                              
-                          
-                          
-          
                               
                               
-                              
           
-                              
-                      
-                  
                               
                                   
                       
@@ -12829,19 +12844,6 @@ To test the application inside altinn studio</p>
                               
                       
                   
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                                   
                       
@@ -12853,21 +12855,6 @@ To test the application inside altinn studio</p>
           
                               
                               
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                               
           
                               
@@ -12886,12 +12873,6 @@ To test the application inside altinn studio</p>
                               
                               
           
-                              
-                      
-                  
-                              
-                      
-                  
                               
                       
                   
@@ -13385,7 +13366,7 @@ To test the application inside altinn studio</p>
                       <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/" title="Application architecture receipt component - Altinn Platform"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/" title="Designer" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" title="Application Construction Architecture Repositories" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 

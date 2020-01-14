@@ -299,6 +299,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/general/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/component-library/</loc>
   </url>
   
@@ -375,7 +379,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/general/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/cheatsheet/</loc>
   </url>
   
   <url>
@@ -528,6 +532,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/</loc>
   </url>
   
   <url>
