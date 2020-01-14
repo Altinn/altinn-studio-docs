@@ -340,7 +340,7 @@
 	"title": "Application Construction Architecture Altinn Studio",
 	"tags": [],
 	"description": "The application construction architecture describes how the applications are constructed with information about frameworks, application modules and how applications interact.",
-	"content": "The following diagram shows the application construction architecture for the Altinn Studio solution\n\nSee fullscreen or download as visio\nBelow you find the architecture for the different applications in the solution\n\rApplication Construction Architecture Designer\rThis application architecture for designer application describes the frameworks used, the code structure and other information about how designer is constructed\n\r\rApplication Construction Architecture Loadbalancer\rDescription of the application architecture for runtime applicationz\n\r\rApplication Construction Architecture Repositories\rDescription of the application architecture for runtime applicationz\n\r\r"
+	"content": "The following diagram shows the application construction architecture for the Altinn Studio solution\n\nSee fullscreen or download as visio\nBelow you find the architecture for the different applications in the solution\n\rApplication Construction Architecture Designer\rThis application architecture for designer application describes the frameworks used, the code structure and other information about how designer is constructed\n\r\rApplication Construction Architecture Loadbalancer\rThe Construction Architecture for Loadbalancer describes how standard software is configured\n\r\rApplication Construction Architecture Repositories\rThe Construction Architecture for Repositories describes how standard software is configured\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/",
@@ -752,8 +752,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/",
 	"title": "Application Construction Architecture Loadbalancer",
 	"tags": [],
-	"description": "Description of the application architecture for runtime applicationz",
-	"content": ""
+	"description": "The Construction Architecture for Loadbalancer describes how standard software is configured",
+	"content": "To redirect traffic to designer and repositories we use NGINX as a reverse proxy.\nNGINX is a open source Reverse Proxy/ Loadbalancer\nSee Github repository.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/naming/",
@@ -948,8 +948,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/",
 	"title": "Application Construction Architecture Repositories",
 	"tags": [],
-	"description": "Description of the application architecture for runtime applicationz",
-	"content": ""
+	"description": "The Construction Architecture for Repositories describes how standard software is configured",
+	"content": "Each application created in Altinn Studio Designer gets a GIT repository where all code and configuration for that app is stored\nWe use GITEA as a GIT based code hostet solution in Altinn Studio. Gitea is a Open Source product.\nGitea host code on Github. See repository here.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/repositories/",
