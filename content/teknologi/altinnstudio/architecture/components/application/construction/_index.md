@@ -1,7 +1,7 @@
 ---
-title: Application Construction Architecture
+title: Application Construction Components
 linktitle: Construction 
-description: The Application Construction Architecture describes how the different applications are constructed with details about technology used.
+description: Application Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.
 tags: [architecture]
 weight: 100
 ---

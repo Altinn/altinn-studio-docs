@@ -1,7 +1,7 @@
 ---
-title: Application Architecture Altinn Studio - Front-end
+title: Application construction components - Designer Front-end
 linktitle: Front-end
-description: Description of the application architecture for Altinn Studio Front-end
+description: Description of the application construction components for Altinn Studio Designer Front-end
 weight: 100
 ---
 

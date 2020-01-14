@@ -1,10 +1,9 @@
 ---
-title: Application Construction Architecture Altinn Studio
+title: Application construction components  Altinn Studio
 linktitle: Altinn Studio
-description: The application construction architecture describes how the applications are constructed with information about frameworks, application modules and how applications interact.
+description: The application construction components describes how the applications are constructed with information about frameworks, application modules and how applications interact.
 weight: 100
 ---
-
 
 The following diagram shows the application construction architecture for the Altinn Studio solution
 
