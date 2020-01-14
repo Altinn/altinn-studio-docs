@@ -355,7 +355,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/react-app/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/</loc>
   </url>
   
   <url>
@@ -910,6 +914,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/functional/build-app/define-process/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
