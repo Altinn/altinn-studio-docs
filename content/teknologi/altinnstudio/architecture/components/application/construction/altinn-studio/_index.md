@@ -1,11 +1,11 @@
 ---
-title: Application construction components  Altinn Studio
+title: Application construction components Altinn Studio
 linktitle: Altinn Studio
-description: The application construction components describes how the applications are constructed with information about frameworks, application modules and how applications interact.
+description: The application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.
 weight: 100
 ---
 
-The following diagram shows the application construction architecture for the Altinn Studio solution
+The following diagram shows the application construction construction for the Altinn Studio solution with its applications
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/altinnstudio_application_construction_architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
@@ -15,6 +15,6 @@ The following diagram shows the application construction architecture for the Al
 [See fullscreen](/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/altinnstudio_application_construction_architecture.svg) or [download as visio](/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/altinnstudio_application_construction_architecture.vsdx)
 
 
-Below you find the architecture for the different applications in the solution
+Below you find the application components for the different applications in the solution
 
 {{% children description="true" depth="1" %}}
