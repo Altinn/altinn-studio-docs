@@ -137,7 +137,7 @@
 	"title": "Architecture Components",
 	"tags": ["architecture"],
 	"description": "Architecture Components defines the needed application, data, platform and infrastructure components",
-	"content": " Components relationship The figure below shows the relationship between the different componentes in the techincal architecture.\n\n\rApplication Components\rThe Application Components is split in to Application Solution components, Application Construction Components and Non Solution Application components.\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r"
+	"content": " Components relationship The figure below shows the relationship between the different componentes in the techincal architecture.\n\n\rApplication Components\rThe Application Components is split in to Solution-specici application components, Application Construction Components and Non Solution Application components.\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure\rDescription of the Altinn Studio infrastructure\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/",
@@ -232,7 +232,7 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/",
-	"title": "Solution Components Altinn Studio",
+	"title": "Solution-specific application components Altinn Studio",
 	"tags": ["architecture", "solution"],
 	"description": "Altinn Studio have many functional components that lets the app developer create, manage and deploy applications.",
 	"content": "\r\n\rAltinn Studio Designer\rAltinn Studio Designer is the custom appliaction where app developers manage and creates applications.\n\r\rSolution components Altinn Studio Repositories\rIn Altinn Studio Repositories you find the functional components related to source control and access management of the application developer\n\r\r"
@@ -270,7 +270,7 @@
 	"title": "Solution-Specific (Functional) Application Components",
 	"tags": ["solution", "architecture"],
 	"description": "Solution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.",
-	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n"
+	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n\rSolution-specific application components Altinn Studio\rAltinn Studio have many functional components that lets the app developer create, manage and deploy applications.\n\r\rSolution Architecture Altinn Apps\rDescription of the Altinn Studio solution\n\r\rSolution Architecture Altinn Platform\rDescription of the Altinn Platform solution\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/about/",
@@ -388,7 +388,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/",
 	"title": "Application Components",
 	"tags": ["architecture"],
-	"description": "The Application Components is split in to Application Solution components, Application Construction Components and Non Solution Application components.",
+	"description": "The Application Components is split in to Solution-specici application components, Application Construction Components and Non Solution Application components.",
 	"content": "\r\rSolution-Specific (Functional) Application Components\rSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.\n\r\rApplication Construction Components\rApplication Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.\n\r\rNon-Solution-Specific\rNon-Solution-Specific Application components refer to all components other than the core solution or solution-specific Application typical used for devops\n\r\r"
 },
 {
