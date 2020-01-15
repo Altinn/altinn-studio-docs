@@ -232,10 +232,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/",
-	"title": "Solution Architecture Altinn Studio",
+	"title": "Solution Components Altinn Studio",
 	"tags": ["architecture", "solution"],
-	"description": "The Application Solution Architecture describes how the functionality is located in the different applications.",
-	"content": "\r\n\rAltinn Studio Designer\rAltinn Studio Designer is the custom appliaction where app developers manage and creates applications.\n\r\rAltinn Repositories\rAltinn Repositories is the application that manage application source code and app developer login\n\r\r"
+	"description": "Altinn Studio have many functional components that lets the app developer create, manage and deploy applications.",
+	"content": "\r\n\rAltinn Studio Designer\rAltinn Studio Designer is the custom appliaction where app developers manage and creates applications.\n\r\rSolution components Altinn Studio Repositories\rIn Altinn Studio Repositories you find the functional components related to source control and access management of the application developer\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/",
@@ -473,7 +473,7 @@
 	"title": "Altinn Studio Designer - Back-end",
 	"tags": [],
 	"description": "Application construction components used in Altinn Studio Designer backend",
-	"content": " Altinn Studio Designer Back-end is a ASP.Net Core application that exposes web-API\u0026rsquo;s to be used by Altinn Studio Designer Frontend. It is built and deployed as a Docker container running in Kubernetes\nAPI Controllers The API controllers exposes the\nServices Factories Model Factory Model factory is the module that generates metadata and C# models basd on uploaded XSD.\n"
+	"content": " Altinn Studio Designer Back-end is a ASP.Net Core application that exposes web-API\u0026rsquo;s to be used by Altinn Studio Designer Frontend. It is built and deployed as a Docker container running in Kubernetes\nAPI Controllers The API controllers exposes the web-APIs.\nThey are structured in different controllers that is grouped by functional areas.\nThe controllers we have now is\n ApplicationMetadata controllers - responsible for functionality related to metadata Config Deployment Pipelines Releases Repository ServiceDevelopment UIEditor  Services Services in a asp.Net application is configured services that controllers and other components used. They are defined with a interface and a implementation and configured in startup.\nThis makes them easy to mock out when doing integration testing of the Altinn Studio Designer backend.\nThe services we have now is\n ApplicationInformation ApplicationMetaata AuthorizationPolicy Deployment Pipeline Release GiteaAPIWrapper Repository SourceControl  Model View Controllers The model view controllers are responsible for presenting razor views where we dont use React as frontend.\nWe are in process with moving functionality to react and api controllers.\nThe following MVC controllers\nFactories Model Factory Model factory is the module that generates metadata and C# models based on uploaded XSD.\nLibraries Altinn Studio Designer backend uses some libraries for different functionality\nLogging Application Insight GIT Client The details about all libraries used can be found in the project file.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/",
@@ -953,10 +953,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/repositories/",
-	"title": "Altinn Repositories",
+	"title": "Solution components Altinn Studio Repositories",
 	"tags": ["solution", "architecture"],
-	"description": "Altinn Repositories is the application that manage application source code and app developer login",
-	"content": " GIT Based source control User Profile "
+	"description": "In Altinn Studio Repositories you find the functional components related to source control and access management of the application developer",
+	"content": " GIT Based source control The app developer can use the source control to clone, comitt, pull and other GIT related functionality.\nThe app developer can view the application repository\nAuthentication The login functionality for Altinn Studio is located in repositories\nUser Profile User profile in Altinn Studio Repostories lets the app developer manage its user profile\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/routing/",

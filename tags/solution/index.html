@@ -9018,33 +9018,6 @@ Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, App
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/repositories/">Altinn Repositories</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p> GIT Based source control User Profile  <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/repositories/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/">Altinn Studio Designer</a></h2>
     </header>
     <section class="post-excerpt">
@@ -9173,6 +9146,37 @@ The solution is currently available at http://platform.altinn.cloud/authenticati
 Resources: authentication
 /authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
 GET /authentication?goto={url}  Refresh a valid JwtToken: <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">Application arhicture profile component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The profile solution is now available locally at http://platform.altinn.cloud/profile/api/v1 and all resources are avaiable through endpoints defined below.
+Resources: users
+/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.
+User type    Attribute Type Description     UserId int user ID   UserName string username set by the user   PhoneNumber string phone number   Email string email address   PartyId int party ID   Party Party party object that represents the user   UserType UserType user type   ProfileSettingPreference ProfileSettingPreference object containing the users profile setting preferences    Operations Get information about a user: <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
