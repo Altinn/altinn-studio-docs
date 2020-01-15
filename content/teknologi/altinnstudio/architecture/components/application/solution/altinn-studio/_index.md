@@ -10,3 +10,7 @@ alwaysopen: false
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/altinnstudio__solutionarchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
+
+
+
+{{% children description="true" depth="1" %}}

@@ -1,13 +1,13 @@
 ---
-title: Altinn Designer
+title: Altinn Studio Designer
 linktitle: Designer
-description: Altinn Designer is the custom appliaction where app developers mange their applications.
+description: Altinn Studio Designer is the custom appliaction where app developers manage and creates applications.
 tags: [solution, architecture]
 alwaysopen: false
 weight: 99
 ---
 
-Altinn Studio Designer contains serveral functional areas. This describes the 
+Altinn Studio Designer contains serveral functional components/modules.  
 
 ## Dashboard
 Dashboard let the app developer search and find application developed in Altinn Studio. It possible to search across all orgs 
@@ -64,3 +64,9 @@ The logic editor module lets the app developer create and modify app logic like 
 The recomendation is to clone the app repository and edit the code in a regular IDE like Visual Studio Code
 
 ![Logic Editor](logiceditor.png)
+
+
+## Policy Administration Point
+As part of the application development process the developer defines the authorization policies for the app.
+
+[Read more about pap and policies](pap)

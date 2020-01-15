@@ -5,11 +5,11 @@ description:  Application construction components used in Altinn Studio Designer
 weight: 100
 ---
 
-Designer Back is a ASP.Net Core application that exposes REST-API to be used by Designer Frontend.
-
+Altinn Studio Designer Back-end is a [ASP.Net Core](https://docs.microsoft.com/en-us/aspnet/core/) application that exposes web-API's to be used by Altinn Studio Designer Frontend.
+It is built and deployed as a Docker container running in Kubernetes
 
 ### API Controllers
-
+The API controllers exposes the 
 
 
 ### Services 
@@ -20,7 +20,7 @@ Designer Back is a ASP.Net Core application that exposes REST-API to be used by 
 
 
 #### Model Factory
-Model factory is the module that generetas metadata and C# models basd on uploaded XSD. 
+Model factory is the module that generates metadata and C# models basd on uploaded XSD. 
 
 
 
