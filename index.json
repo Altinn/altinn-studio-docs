@@ -249,7 +249,7 @@
 	"title": "Altinn Designer",
 	"tags": ["solution", "architecture"],
 	"description": "Altinn Designer is the custom appliaction where app developers mange their applications.",
-	"content": " Dashboard Dashboard let the app developer search and find application developed in Altinn Studio. It possible to search across all orgs\nApp Creation App creation functionaliy lets the app developer create applications\nUI Editor The UI-editor lets the app developer create a UI interface with WYSIWYG\nDatamodel The datamodel functionality lets the develope upload a XSD for datamodel creation in app.\nWhen datamodel is uploaded a C# classes is generated based on this and metadata about datamodel is created.\n"
+	"content": " Dashboard Dashboard let the app developer search and find application developed in Altinn Studio. It possible to search across all orgs\nApp Creation App creation functionaliy lets the app developer create applications\nUI Editor The UI-editor lets the app developer create a UI interface with WYSIWYG\nDatamodel The datamodel functionality lets the develope upload a XSD for datamodel creation in app.\nWhen datamodel is uploaded a C# classes is generated based on this and metadata about datamodel is created.\nBuild \u0026amp; Deploy Build \u0026amp; Deploy functionality includes functionality to - Build created app to a docker container - Upload docker container to a container registry - Register the build in to a database - Let the app developer select a previous build and deploy that container to a specific Altinn Apps environment (test, performance test, production ++)\nProcess Process functionality lets the app developer configure the given process that a user/system acessing the developed app should follow.\nApp configuration Configuration include\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/",
@@ -337,10 +337,10 @@
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/",
-	"title": "Application construction components  Altinn Studio",
+	"title": "Application construction components Altinn Studio",
 	"tags": [],
-	"description": "The application construction components describes how the applications are constructed with information about frameworks, application modules and how applications interact.",
-	"content": "The following diagram shows the application construction architecture for the Altinn Studio solution\n\nSee fullscreen or download as visio\nBelow you find the architecture for the different applications in the solution\n\rApplication Construction Components Designer\rThis application constructions components for designer application describes the frameworks used, the code structure and other information about how designer is constructed\n\r\rApplication Construction Architecture Loadbalancer\rThe Construction Architecture for Loadbalancer describes how standard software is configured\n\r\rApplication Construction Architecture Repositories\rThe Construction Architecture for Repositories describes how standard software is configured\n\r\r"
+	"description": "The application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.",
+	"content": "The following diagram shows the application construction construction for the Altinn Studio solution with its applications\n\nSee fullscreen or download as visio\nBelow you find the application components for the different applications in the solution\n\rApplication Construction Components Designer\rThis application constructions components for designer application describes the frameworks used, the code structure and other information about how designer is constructed\n\r\rApplication Construction Architecture Loadbalancer\rThe Construction Architecture for Loadbalancer describes how standard software is configured\n\r\rApplication Construction Architecture Repositories\rThe Construction Architecture for Repositories describes how standard software is configured\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/",
@@ -564,7 +564,7 @@
 	"title": "Application Construction Components",
 	"tags": ["architecture"],
 	"description": "Application Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.",
-	"content": "It also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication Architecture for Altinn Apps\rAltinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication construction components Altinn Studio\rThe application construction components describes how the applications are constructed with information about frameworks, application modules and how applications interact.\n\r\rShared\r\n\r\r"
+	"content": "It also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication Architecture for Altinn Apps\rAltinn Apps is the solution where all the developed applications from Altinn Studio are deployed.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication construction components Altinn Studio\rThe application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.\n\r\rShared\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/",
