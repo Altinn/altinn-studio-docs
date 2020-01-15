@@ -1,7 +1,7 @@
 ---
-title: Solution Architecture Altinn Studio
+title: Solution Components Altinn Studio
 linktitle: Altinn Studio
-description: The Application Solution Architecture describes how the functionality is located in the different applications. 
+description: Altinn Studio have many functional components that lets the app developer create, manage and deploy applications. 
 tags: [architecture, solution]
 weight: 90
 alwaysopen: false
