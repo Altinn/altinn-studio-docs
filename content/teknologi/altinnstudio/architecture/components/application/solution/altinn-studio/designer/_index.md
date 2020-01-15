@@ -10,6 +10,8 @@ weight: 99
 ## Dashboard
 Dashboard let the app developer search and find application developed in Altinn Studio. It possible to search across all orgs 
 
+![Dashboard](dashboard.png)
+
 ## App Creation
 App creation functionaliy lets the app developer create applications
 
