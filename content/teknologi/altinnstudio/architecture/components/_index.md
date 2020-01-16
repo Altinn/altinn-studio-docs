@@ -1,6 +1,6 @@
 ---
 title: Architecture Components
-description: Architecture Components defines the needed application, data, platform and infrastructure components
+description: Architecture Components describes the application, data, platform and infrastructure components that provides the capabilities.
 tags: [architecture]
 weight: 9
 linktitle: Components
