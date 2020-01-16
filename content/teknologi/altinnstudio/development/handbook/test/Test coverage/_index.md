@@ -73,3 +73,12 @@ Sl.No. |    Testcase name   |   Area of Solution
 11. | Move process to active task again - negative | App
 12. | Complete a compelted process - negative | App
 13. | End to End test from starting an instance to Archiving it | App
+
+#### Negative Tests
+Sl.No. |    Testcase name   |   Area of Solution   
+:--- | :--- | :---:
+1. | Access Storage API without authentication token | Storage
+2. | Access App API without authentication token | App
+3. | Create App instance with low level security login than required | App & Storage
+4. | Create App instance without allowed roles | App
+5. | Access App instance without allowed roles | Storage
