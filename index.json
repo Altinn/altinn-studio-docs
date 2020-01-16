@@ -304,7 +304,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/",
 	"title": "Application construction components for Altinn Apps",
 	"tags": [],
-	"description": "In Altinn Apps solution the different apps that is created in Altinn Studio is deployed. This documentation covers application construction components for the applications.",
+	"description": "Application created in Altinn Studio is deployed to Altinn Apps. This documentation covers application construction components for the applications and for monitoring applications for Altinn Apps.",
 	"content": " The diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different components/parts of Altinn Apps.\n\nSee fullscreen or download as visio.\nApp routing In Altinn Apps each app is hosted inn different containers/Kubernetes Pods. We use Traefik to route traffic to the correct app/container/Pod\nApplication (App) The App developed in Altinn Studio is deployed as a Docker container in a Kubernetes Pod. See deployment architecture for deployment details.\nThe App itself consist of two applications with different Application Architecture\nRead more about the application architecture for App Frontend\nKubernetes Proxy This is the application that gives Altinn Studio information about a Apps cluster\n"
 },
 {
@@ -564,7 +564,7 @@
 	"title": "Application Construction Components",
 	"tags": ["architecture"],
 	"description": "Application Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.",
-	"content": "It also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication construction components for Altinn Apps\rIn Altinn Apps solution the different apps that is created in Altinn Studio is deployed. This documentation covers application construction components for the applications.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication construction components Altinn Studio\rThe application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.\n\r\rShared\r\n\r\r"
+	"content": "It also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication construction components for Altinn Apps\rApplication created in Altinn Studio is deployed to Altinn Apps. This documentation covers application construction components for the applications and for monitoring applications for Altinn Apps.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication construction components Altinn Studio\rThe application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.\n\r\rShared\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/",
@@ -956,7 +956,7 @@
 	"title": "Solution components Altinn Studio Repositories",
 	"tags": ["solution", "architecture"],
 	"description": "In Altinn Studio Repositories you find the functional components related to source control and access management of the application developer",
-	"content": " GIT Based source control The app developer can use the source control to clone, comitt, pull and other GIT related functionality.\nThe app developer can view the application repository\nAuthentication The login functionality for Altinn Studio is located in repositories\nUser Profile User profile in Altinn Studio Repostories lets the app developer manage its user profile\n"
+	"content": " Application Repositories In Altinn Studio Repositories the developer find all repostiries for different organization and in every reporistory the source code for all apps are located\nGIT Based source control The app developer can use the source control to clone, comitt, pull and other GIT related functionality.\nThe app developer can view the application repository\nAuthentication The login functionality for Altinn Studio is located in repositories\nUser Profile User profile in Altinn Studio Repostories lets the app developer manage its user profile\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/routing/",
