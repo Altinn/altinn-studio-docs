@@ -1,5 +1,5 @@
 ---
-title: Altinn Studio Designer
+title: Solution-specific application components Altinn Studio Designer
 linktitle: Designer
 description: Altinn Studio Designer is the custom appliaction where app developers manage and creates applications.
 tags: [solution, architecture]

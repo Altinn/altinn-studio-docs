@@ -1,13 +1,13 @@
 ---
-title: Solution Architecture Altinn Platform
+title: Solution-specific application components Altinn Platform
 linktitle: Altinn Platform
-description: Description of the Altinn Platform solution
+description: Functionality in Altinn Platform is distributed between different reusable components.  
 tags: [architecture, solution]
 weight: 100
 alwaysopen: false
 ---
 
-Functionality in Altinn Platform is distributed between different reusable components.  
+
 The diagram below shows where the different functionality i located in the components.
 
 {{%excerpt%}}
