@@ -73,7 +73,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/",
 	"title": "Requirements",
 	"tags": ["architecture"],
-	"description": "Functional and non functional requirements for the different solutions.",
+	"description": "Functional and non functional requirements for the different solutions has been important for the defined architecture. This documentation describe them.",
 	"content": "They are important input to deciding which cababilities required and they also is important input to the Architecture Principles and Architecture Patterns.\n\rFunctional\rFunctional requirements can be important to the architecture decisions\n\r\rNon Functional Requirements\rNon functional requirements contains requirements that typical is important for deciding the architecture\n\r\r"
 },
 {
@@ -137,7 +137,7 @@
 	"title": "Architecture Components",
 	"tags": ["architecture"],
 	"description": "Architecture Components defines the needed application, data, platform and infrastructure components",
-	"content": " Components relationship The figure below shows the relationship between the different componentes in the techincal architecture.\n\n\rApplication Components\rThe Application Components is split in to Solution-specici application components, Application Construction Components and Non Solution Application components.\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure components\rThis documentation contains details about infrastructure components used in the different solutions.\n\r\r"
+	"content": " Components relationship The figure below shows the relationship between the different componentes in the techincal architecture and the capabilities they provide.\n\n\rApplication Components\rThe Application Components is split in to solution-specific application components, application construction components and non-solution application components.\n\r\rData Components\rData is the most important part of the solutions in Altinn.\n\r\rPlatform Components\rPlatform components are a mix of managed services and standard sofware/frameworks used to created the needed capabilties.\n\r\rInfrastructure components\rThis documentation contains details about infrastructure components used in the different solutions.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/",
@@ -388,7 +388,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/",
 	"title": "Application Components",
 	"tags": ["architecture"],
-	"description": "The Application Components is split in to Solution-specici application components, Application Construction Components and Non Solution Application components.",
+	"description": "The Application Components is split in to solution-specific application components, application construction components and non-solution application components.",
 	"content": "\r\rSolution-Specific (Functional) Application Components\rSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.\n\r\rApplication Construction Components\rApplication Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.\n\r\rNon-Solution-Specific\rNon-Solution-Specific Application components refer to all components other than the core solution or solution-specific Application typical used for devops\n\r\r"
 },
 {
@@ -396,7 +396,7 @@
 	"title": "Architecture",
 	"tags": ["architecture"],
 	"description": "Altinn Studio, Altinn Apps and Altinn Platform has a modern &#34;web native&#34; architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.",
-	"content": " How is the architecture documented? The non functional and functional requirements have given input to which devops and runtime capabilities that is needed in the solutions. It also have given input which type of components that is needed to implement the capabilities. The Architecture Principles and Architecture Patterns has been decided based on requirements and other goals with the new solutions. The Principles and patterns has been deciding factors how the components implements the capabilities needed.\nThe diagram below show the relationships and you can click the elements to read more about each architecture artifact or select in menu or section below diagram.\n\n\rRequirements\rFunctional and non functional requirements for the different solutions.\n\r\rArchitecture Principles\rThe Architecture Principles are guidelines for the construction of the architecture.\n\r\rArchitecture Patterns\rThe architecture defines some architecture patterns that is reused accross the different solutions.\n\r\rArchitecture Capabilities\rThe Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development \u0026amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.\n\r\rArchitecture Components\rArchitecture Components defines the needed application, data, platform and infrastructure components\n\r\r"
+	"content": " How is the architecture documented? The non functional and functional requirements have given input to which devops and runtime capabilities that is needed in the solutions. It also have given input which type of components that is needed to implement the capabilities. The Architecture Principles and Architecture Patterns has been decided based on requirements and other goals with the new solutions. The Principles and patterns has been deciding factors how the components implements the capabilities needed.\nThe diagram below show the relationships and you can click the elements to read more about each architecture artifact or select in menu or section below diagram.\n\n\rRequirements\rFunctional and non functional requirements for the different solutions has been important for the defined architecture. This documentation describe them.\n\r\rArchitecture Principles\rThe Architecture Principles are guidelines for the construction of the architecture.\n\r\rArchitecture Patterns\rThe architecture defines some architecture patterns that is reused accross the different solutions.\n\r\rArchitecture Capabilities\rThe Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development \u0026amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.\n\r\rArchitecture Components\rArchitecture Components defines the needed application, data, platform and infrastructure components\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/",
