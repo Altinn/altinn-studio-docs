@@ -9,8 +9,13 @@ weight: 99
 
 Altinn Studio Designer contains serveral functional components/modules.  
 
+## Welcome Screen
+The welcome screen gives information to the user.
+
+![Welcome](welcome.png)
+
 ## Dashboard
-Dashboard let the app developer search and find application developed in Altinn Studio. It possible to search across all orgs 
+Dashboard let the app developer search and find applications developed in Altinn Studio. It possible to search across all orgs the developer has access to.
 
 ![Dashboard](dashboard.png)
 
@@ -33,7 +38,7 @@ The UI-editor lets the app developer create a UI interface with WYSIWYG
 ![UI-editor](uieditor.png)
 
 ## Datamodel
-The datamodel functionality lets the develope upload a XSD for datamodel creation in app.
+The datamodel functionality lets the developer upload a XSD for datamodel creation in app.
 
 When datamodel is uploaded a C# classes is generated based on this and metadata about datamodel is created.
 
