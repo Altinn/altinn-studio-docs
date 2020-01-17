@@ -11,7 +11,7 @@ aliases:
 
 
 ## Components relationship
-The figure below shows the relationship between the different componentes in the techincal architecture and
+The figure below shows the relationship between the different componentes in the technical architecture and
 the capabilities they provide.
 
 {{%excerpt%}}
