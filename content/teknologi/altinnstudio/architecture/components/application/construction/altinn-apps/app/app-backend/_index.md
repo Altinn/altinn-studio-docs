@@ -1,7 +1,7 @@
 ---
-title: App Backend Application Arcitecture
+title: Application construction components App Backend
 linktitle: App Backend
-description: Description of the application architecture for App Backend 
+description: Description of the application construction components for App Backend 
 tags: [architecture, app-backend]
 weight: 100
 ---
@@ -45,5 +45,4 @@ with frontend/external systems.
 
 All logic in the app will typical be related to the datamodel.
 
-In the future we will support apps with multiple data models. 
-
+In the future we will support apps with multiple data models.

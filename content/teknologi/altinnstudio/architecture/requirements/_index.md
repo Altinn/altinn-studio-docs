@@ -1,6 +1,6 @@
 ---
 title: Requirements
-description: Functional and non functional requirements for the different solutions.
+description: Functional and non functional requirements for the different solutions has been important for the defined architecture. This documentation describe them.
 tags: [architecture]
 weight: 5
 linktitle: Requirements
