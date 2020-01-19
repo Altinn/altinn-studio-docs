@@ -315,6 +315,13 @@
 	"content": "Functionality in Altinn Apps are located in the Apps deployed to the Altinn Apps functionality.\nThis functionality depends on what kind of application template the app is based on and what the app developer have added in addition.\n\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/app/",
+	"title": "Solution-specific application components for App based on Asp.Net template",
+	"tags": ["architecture", "solution"],
+	"description": "Description of the Altinn Studio solution",
+	"content": "Functionality in Altinn Apps are located in the Apps deployed to the Altinn Apps functionality.\nThis functionality depends on what kind of application template the app is based on and what the app developer have added in addition.\n\n"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/",
 	"title": "Application architecture Altinn Platform",
 	"tags": ["architecture", "solution"],
