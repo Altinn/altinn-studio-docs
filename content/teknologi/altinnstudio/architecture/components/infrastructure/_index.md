@@ -1,6 +1,7 @@
 ---
-title: Infrastructure
-description: Description of the Altinn Studio infrastructure
+title: Infrastructure components
+description: This documentation contains details about infrastructure components used in the different solutions.
+linktitle: Infrastructure
 tags: [architecture, infrastructure]
 weight: 103
 alwaysopen: false

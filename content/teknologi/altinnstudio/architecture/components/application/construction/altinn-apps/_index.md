@@ -1,13 +1,10 @@
 ---
-title: Application Architecture for Altinn Apps
+title: Application construction components for Altinn Apps
 linktitle: Altinn Apps
-description: Altinn Apps is the solution where all the developed applications from Altinn Studio are deployed.
+description: Application created in Altinn Studio is deployed to Altinn Apps. This documentation covers application construction components for the applications and for monitoring applications for Altinn Apps.  
 toc: true
 weight: 100
 ---
-
-Apps for a given org is deployed to a Altinn Apps Cluster.
-
 The diagram below shows the different components in Altinn Apps and below you find links to the description of the Application Architecture for the different
 components/parts of Altinn Apps.
 

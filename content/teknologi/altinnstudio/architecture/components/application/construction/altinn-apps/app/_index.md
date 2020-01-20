@@ -1,7 +1,7 @@
 ---
-title: Application Architecture App
+title: Application construction components App
 linktitle: App (Asp.Net Web)
-description: Description of the application architecture for 
+description: Description of the application construction components for the app developed in altinn studio. 
 tags: [architecture]
 weight: 100
 ---
@@ -28,7 +28,6 @@ Apps based on this template can be configured to have a frontend. Apps created f
 App Frontend. 
 
 [Read more about the application architecture for App Frontend](app-frontend)
-
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app_application_architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px;"></object>
