@@ -9011,10 +9011,22 @@ Cookies are easily added to the postman requests under the slightly hidden cooki
 <ol>
 <li>Collections folder include postman collections for Platform API, Storage API, APP API.</li>
 <li>Platform API uses Platform.postman_environment as an environment file.</li>
-<li>Storage and App API uses App.postman_environment as an environment file.</li>
+<li>Storage, App API and Negative tests uses App.postman_environment as an environment file.</li>
 <li>One has to fill in the values (testdata) in the environment file based on the environment under test.</li>
 <li>The collections has steps that would authenticate an user and set appropriate cookies.</li>
 </ol>
+
+<h3 id="run-postman-tests-against-a-test-environment">Run Postman tests against a test environment.</h3>
+
+<ol>
+<li>Open Postman and Import the Postman collection file and the corresponding envrinonment file.</li>
+<li>Select the environment file and fill in the necesary information for the required collection.</li>
+<li>Required Test data for App / Storage / Negative Tests Collection are envUrl, org(appOwner, app(level2-app), testUserName(level2LoginUser), testUserPassword(use same password for two users), level3-app, level1-app, testUserName2(level1LoginUser)</li>
+<li>Required Test data for Platform are envUrl, org(appOwner), app(level2-app), partyID, SSN, OrgNr, userID</li>
+<li>Open the Postman runner -&gt; Select the collection and environment and click &lsquo;Start Run&rsquo;</li>
+</ol>
+
+<p>Note: newman can be used to a Postman collection from command line interface.</p>
 
 
 <footer class=" footline" >
