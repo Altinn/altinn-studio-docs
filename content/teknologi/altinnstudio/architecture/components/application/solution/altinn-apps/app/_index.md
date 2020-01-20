@@ -1,6 +1,6 @@
 ---
 title: Solution-specific application components for App based on Asp.Net template
-linktitle: Altinn Apps
+linktitle: App
 description: Description of the Altinn Studio solution
 tags: [architecture, solution]
 weight: 100
@@ -29,6 +29,9 @@ He can also add instansiation validation logic that can check anything.
 ## Formfilling
 
 Formfilling renders the UI designed in Altinn Studio and lets the user input data
+
+
+![Dashboard](formfilling.png "Form filling view")
 
 ## Process handling
 
