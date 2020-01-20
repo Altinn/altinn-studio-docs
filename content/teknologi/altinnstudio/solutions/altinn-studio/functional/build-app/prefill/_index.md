@@ -3,7 +3,7 @@ title: Configure Prefill
 description: Altinn Studio will let the developer define prefill for datamodel from register and profile
 ---
 
-The prefill configuration is handled by a json file where source values are linked to fields in the app data model.  In order to add prefill to your application this file needs to be added to the repository alongside the datamodel under the `Model` folder, with the same name as the data model it is connected to, and a prefill extension. So, if you have a data model named `ServiceModel.xsd`, the file should be named `ServiceModel.prefill.json` 
+The prefill configuration is handled by a json file where source values are linked to fields in the app data model.  In order to add prefill to your application this file needs to be added to the repository alongside the datamodel under the `models` folder, with the same name as the data model it is connected to, and a prefill extension. So, if you have a data model named `ServiceModel.xsd`, the file should be named `ServiceModel.prefill.json` 
 
 The prefill comes with a json-schema and which gives auto complete on the source fields. In order to use this auto-complete feature you need to use an IDE or text editor that supports json-schema (such as Visual Studio, Visual Studio Code, IntelliJ etc). As of now there is no auto complete on the target fields.
 
@@ -25,7 +25,7 @@ The easiest way to work on the configuration file is to clone your repository lo
 To do this open a terminal and run
 - `git clone https://altinn.studio/repos/[ORG]/[APP].git`
 
-Then you can create the prefill config file under the `Model` folder. 
+Then you can create the prefill config file under the `models` folder. 
 
 There are three sources you can prefill from as of now
 
