@@ -15,14 +15,14 @@ They are structured in different controllers that is grouped by functional areas
 
 The controllers we have now is
 
-- ApplicationMetadata controllers - responsible for functionality related to metadata
-- Config
-- Deployment
-- Pipelines
-- Releases
-- Repository
-- ServiceDevelopment
-- UIEditor
+- [ApplicationMetadata](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/ApplicationMetadataController.cs) - responsible for functionality related to metadata
+- [Config](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/ConfigController.cs)
+- [Deployment](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/DeploymentsController.cs)
+- [Pipelines](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/PipelinesController.cs)
+- [Releases](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/ReleasesController.cs)
+- [Repository](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/RepositoryController.cs)
+- [ServiceDevelopment](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/ServiceDevelopmentController.cs)
+- [UIEditor](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Controllers/UIEditorController.cs)
 
 ### Services 
 Services in a asp.Net application is configured services that controllers and other components used.

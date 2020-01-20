@@ -16,8 +16,6 @@ This functionality depends on what kind of application template the app is based
 <object data="/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/altinnapps__solutionarchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
-
-
 ## Instanstation
 
 The app has instansiation functionality that presents the user for a list over alternative parties that he can select to instansiate a app for.
@@ -25,7 +23,6 @@ The app has instansiation functionality that presents the user for a list over a
 The app developer can add instansiation controll that veriy the type of party selected.
 
 He can also add instansiation validation logic that can check anything.
-
 
 ## Formfilling
 
