@@ -1,7 +1,7 @@
 ---
-title: Application Construction Architecture Loadbalancer
+title: Application construction components Loadbalancer
 linktitle: Loadbalancer
-description: The Construction Architecture for Loadbalancer describes how standard software is configured
+description: The loadbalancer for Altinn Studio is based on standard open source softwarre.
 weight: 100
 ---
 

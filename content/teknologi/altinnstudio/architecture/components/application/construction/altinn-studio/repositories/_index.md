@@ -1,7 +1,7 @@
 ---
-title: Application Construction Architecture Repositories
+title: Application construction components Repositories
 linktitle: Repositories
-description: The Construction Architecture for Repositories describes how standard software is configured
+description: The application construction components for Repositories is based on standard open source software.
 weight: 100
 ---
 
