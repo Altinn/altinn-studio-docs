@@ -80,5 +80,6 @@ Sl.No. |    Testcase name   |   Area of Solution
 1. | Access Storage API without authentication token | Storage
 2. | Access App API without authentication token | App
 3. | Create App instance with low level security login than required | App & Storage
-4. | Create App instance without allowed roles | App
-5. | Access App instance without allowed roles | Storage
+4. | Create App instance without allowed roles | App & Storage
+5. | Access App instance without allowed roles | App & Storage
+6. | Access App instance with low level security login than required | Storage
