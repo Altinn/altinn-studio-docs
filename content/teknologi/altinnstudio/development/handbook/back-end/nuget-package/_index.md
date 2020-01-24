@@ -14,9 +14,13 @@ Altinn Studio publishes nuget package to share common libraries between differen
 
 Following nuget packages are published and are available for download [here] (https://www.nuget.org/profiles/altinn)
 
+- [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api)
+- [Altinn.App.Common](https://www.nuget.org/packages/Altinn.App.Common)
+- [Altinn.App.PlatformServices](https://www.nuget.org/packages/Altinn.App.PlatformServices)
+- [Altinn.Common.PEP](https://www.nuget.org/packages/Altinn.Common.PEP)
 - [Altinn.Platform.Storage.Interface](https://www.nuget.org/packages/Altinn.Platform.Storage.Interface/)
-- [AltinnCore.ServiceLibrary](https://www.nuget.org/packages/AltinnCore.ServiceLibrary/)
 - [JWTCookieAuthentication](https://www.nuget.org/packages/JWTCookieAuthentication/)
+
 
 
 ### Procedure for Nuget Packages
