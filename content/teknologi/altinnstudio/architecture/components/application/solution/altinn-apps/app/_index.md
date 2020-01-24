@@ -39,7 +39,10 @@ The app handles a defined process hand moves the app ahead in process depending 
 
 ## Receipt
 
-When process is completed the user is shown a receipt
+When process is completed the user is shown a receipt.
+
+![receipt](receipt.png "Receipt")
+
 
 ## Validation
 
