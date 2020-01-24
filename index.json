@@ -270,7 +270,7 @@
 	"title": "Solution-Specific (Functional) Application Components",
 	"tags": ["solution", "architecture"],
 	"description": "Solution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.",
-	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n\rSolution-specific application components Altinn Studio\rAltinn Studio have many functional components that lets the app developer create, manage and deploy applications.\n\r\rSolution-specific application components Altinn Apps\rDescription of the Altinn Studio solution\n\r\rSolution-specific application components Altinn Platform\rFunctionality in Altinn Platform is distributed between different reusable components.\n\r\r"
+	"content": "Functionality in Altinn is distributed between five different solutions\n Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:\nFull screen | Visio\n\n\rSolution-specific application components Altinn Studio\rAltinn Studio have many functional components that lets the app developer create, manage and deploy applications.\n\r\rSolution-specific application components Altinn Apps\rDescription of the Altinn Studio solution\n\r\rSolution-specific application components Altinn Platform\rFunctionality in Altinn Platform is distributed between different reusable components.\n\r\rSolution-specific application components local deveolopment\rAs part of the platform it is created a solution to develop and test applications\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/about/",
@@ -1335,6 +1335,13 @@
 	"tags": ["issues"],
 	"description": "Description of errors and weaknesses in Altinn Studio that developers should know about.",
 	"content": "   let content = document.getElementById('knownIssuesContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/KNOWNISSUES.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, \"text/html\"); content.innerHTML = doc.getElementById('readme').innerHTML; });  "
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/local-dev/",
+	"title": "Solution-specific application components local deveolopment",
+	"tags": [],
+	"description": "As part of the platform it is created a solution to develop and test applications",
+	"content": " Localtest loadbalancer We use NGINX as loadbalancer for local development. Based on rules it redirect traffic between localtest platform and the app.\nCall between apps and localtest goes directly.\nApp The app is of course same as it is in Altinn Apps. The difference is that it does not run as a container.\nSee Altinn Apps for details about the construction components on a App.\nLocaltest platform Localtest platform is a application that have the same webApis that are available to apps from Altinn.Platform in test and production environments\n\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/",
