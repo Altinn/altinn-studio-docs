@@ -8992,7 +8992,7 @@ if(host != "localhost")
 
 <p>The prefill comes with a json-schema and which gives auto complete on the source fields. In order to use this auto-complete feature you need to use an IDE or text editor that supports json-schema (such as Visual Studio, Visual Studio Code, IntelliJ etc). As of now there is no auto complete on the target fields.</p>
 
-<p>The field names you set as the target fields comes from the generated c# model, which can be found under <code>models</code> folder. If you have a data model named <code>ServiceModel.xsd</code>, the file should be named <code>ServiceModel.cs</code>.</p>
+<p>The target fields are case insensitve, so writing <code>Skattyterinforgrp5801.Infogrp5802.OppgavegiverNavnPreutfyltdatadef25795.value</code> is the same as <code>skattyterinforgrp5801.infogrp5802.oppgavegiverNavnPreutfyltdatadef25795.value</code>.</p>
 
 <p>To get started using prefill you can copy the following template into your repository:</p>
 
@@ -9021,6 +9021,8 @@ To do this open a terminal and run
 <li>DSF (det sentrale folkeregisteret)</li>
 <li>UserProfile</li>
 </ul>
+
+<p>All availiable source fields can bee seen <a href="https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json">here.</a></p>
 
 <p>The <code>allowOverwrite</code> field is a flag to determine if existing values in the app data model can be overwritten by prefill data.</p>
 
