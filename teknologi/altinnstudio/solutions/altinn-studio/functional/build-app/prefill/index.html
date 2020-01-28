@@ -8992,6 +8992,8 @@ if(host != "localhost")
 
 <p>The prefill comes with a json-schema and which gives auto complete on the source fields. In order to use this auto-complete feature you need to use an IDE or text editor that supports json-schema (such as Visual Studio, Visual Studio Code, IntelliJ etc). As of now there is no auto complete on the target fields.</p>
 
+<p>The field names you set as the target fields comes from the generated c# model, which can be found under <code>models</code> folder. If you have a data model named <code>ServiceModel.xsd</code>, the file should be named <code>ServiceModel.cs</code>.</p>
+
 <p>To get started using prefill you can copy the following template into your repository:</p>
 
 <pre><code>{
