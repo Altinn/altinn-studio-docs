@@ -7,6 +7,8 @@ The prefill configuration is handled by a json file where source values are link
 
 The prefill comes with a json-schema and which gives auto complete on the source fields. In order to use this auto-complete feature you need to use an IDE or text editor that supports json-schema (such as Visual Studio, Visual Studio Code, IntelliJ etc). As of now there is no auto complete on the target fields.
 
+The target fields are case insensitve, so writing `Skattyterinforgrp5801.Infogrp5802.OppgavegiverNavnPreutfyltdatadef25795.value` is the same as `skattyterinforgrp5801.infogrp5802.oppgavegiverNavnPreutfyltdatadef25795.value`.
+
 To get started using prefill you can copy the following template into your repository:
 
 ```
@@ -33,6 +35,7 @@ There are three sources you can prefill from as of now
 - DSF (det sentrale folkeregisteret)
 - UserProfile 
 
+All availiable source fields can bee seen [here.](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
 
 The `allowOverwrite ` field is a flag to determine if existing values in the app data model can be overwritten by prefill data. 
 
