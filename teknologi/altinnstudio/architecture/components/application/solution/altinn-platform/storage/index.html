@@ -9009,7 +9009,7 @@ if(host != "localhost")
 
 <p>Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about <em>instances</em> and their <em>data</em> elements. It provides a registry of all <em>applications</em> metadata, data types and events. It is also intended to be used by organisations and other clients to read data.</p>
 
-<p>Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, ApplicationEvent, MessageBoxInstance</p>
+<p>Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, ApplicationEvent, MessageBoxInstance, ProcessHistory</p>
 
 
 	<p><object data="/architecture/application/altinn-platform/storage/datamodel.png" type="image/png" style="width: 50%;";></object></p>
@@ -9342,7 +9342,7 @@ that is used to identify the specific data element</p>
     &quot;app&quot;: &quot;sailor&quot;,
     &quot;created&quot;: &quot;2019-03-06T13:46:48.6882148+01:00&quot;,
     &quot;createdBy&quot;: &quot;XXX&quot;,
-    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; }, 
+    &quot;title&quot;: { &quot;nb&quot;: &quot;Testapplikasjon&quot;, &quot;en&quot;: &quot;Test Application&quot; },
     &quot;processId&quot;: &quot;standard&quot;,
     &quot;validFrom&quot;: &quot;2019-04-01T12:14:22+01:00&quot;,
     &quot;validTo&quot;: null,
@@ -9837,6 +9837,61 @@ Calling this endpoint will not the delete the instance from Storage, simply mark
 <p>Restore a soft deleted instance.</p>
 
 <pre><code class="language-http">PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
+</code></pre>
+
+<h2 id="processhistory">ProcessHistory</h2>
+
+<p>The process history is a list comprised of process history events for a given instance.</p>
+
+<h3 id="processhistoryitem-type">ProcessHistoryItem type</h3>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>EventType</td>
+<td>string</td>
+<td>the event type. Available process event types are listed <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs">here</a> with the prefix _process__</td>
+</tr>
+
+<tr>
+<td>ElementId</td>
+<td>string</td>
+<td>element id for the process flow step</td>
+</tr>
+
+<tr>
+<td>Occured</td>
+<td>DateTime?</td>
+<td>event occurence time</td>
+</tr>
+
+<tr>
+<td>Started</td>
+<td>DateTime?</td>
+<td>task start time</td>
+</tr>
+
+<tr>
+<td>Ended</td>
+<td>DateTime?</td>
+<td>task end time</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="operations-4">Operations</h3>
+
+<p>Get process history for a given instance</p>
+
+<pre><code class="language-http">GET /instances/{instanceOwnerPartyId}/{instanceId}/process/history
 </code></pre>
 
 
