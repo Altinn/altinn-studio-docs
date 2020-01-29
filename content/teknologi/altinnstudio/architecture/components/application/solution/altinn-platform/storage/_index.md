@@ -10,7 +10,7 @@ The Storage component exposes a REST-API to Altinn Apps.
 
 Storage provides persistent storage service for applications in Altinn. It is mostly used by the app-backend to store information about *instances* and their *data* elements. It provides a registry of all *applications* metadata, data types and events. It is also intended to be used by organisations and other clients to read data.
 
-Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, ApplicationEvent, MessageBoxInstance
+Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, ApplicationEvent, MessageBoxInstance, ProcessHistory
 
 {{%excerpt%}}
 <object data="/architecture/application/altinn-platform/storage/datamodel.png" type="image/png" style="width: 50%;";></object>
@@ -196,7 +196,7 @@ Resource: /applications/test/sailor
     "app": "sailor",
     "created": "2019-03-06T13:46:48.6882148+01:00",
     "createdBy": "XXX",
-    "title": { "nb": "Testapplikasjon", "en": "Test Application" }, 
+    "title": { "nb": "Testapplikasjon", "en": "Test Application" },
     "processId": "standard",
     "validFrom": "2019-04-01T12:14:22+01:00",
     "validTo": null,
@@ -442,4 +442,26 @@ Restore a soft deleted instance.
 
 ```http
 PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
+```
+
+## ProcessHistory
+
+The process history is a list comprised of process history events for a given instance.
+
+### ProcessHistoryItem type
+
+Attribute          | Type               | Description
+-------------------|--------------------|------------------------------------------------------------
+EventType         | string              | the event type. Available process event types are listed [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs) with the prefix _process__ |
+ElementId         | string              | element id for the process flow step
+Occured           | DateTime?           | event occurence time
+Started           | DateTime?           | task start time
+Ended             | DateTime?           | task end time
+
+
+### Operations
+Get process history for a given instance
+
+```http
+GET /instances/{instanceOwnerPartyId}/{instanceId}/process/history
 ```

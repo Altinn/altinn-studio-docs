@@ -741,32 +741,25 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 ```
 
 ```json
-[{
-    "flow": 1,
-    "type": "process:startEvent",
-    "elementId": "StartEvent_1",
-    "occured": "2019-10-10T14:01:22.034Z",
-},
-{
-    "flow": 2,
-    "type": "process:task",
-    "elementId": "Task_1",
-    "started": "2019-10-01T13:22.01Z",
-    "ended": "2019-10-05T01:11.33Z",
-},
-{
-    "flow": 3,
-    "type": "process:task",
-    "elementId": "Task_2",
-    "started": "2019-10-05T08:14:33.232Z",
-    "ended": "2019-10-05T08:15:23.543Z"
-},
-{
-    "flow": 4,
-    "type": "process:endEvent",
-    "elementId": "EndEvent_1",
-    "occured": "2019-10-05T08:15:23.544Z"
-}]
+ "processHistory": [
+       {
+           "eventType": "process_StartEvent",
+           "elementId": "StartEvent_1",
+           "occured": "2020-01-21T13:49:09.3109169Z"
+       },
+       {
+           "eventType": "process_StartTask",
+           "elementId": "Task_1",
+           "started": "2020-01-21T13:49:09.4264322Z",
+           "ended": "2020-01-21T13:49:39.66609Z"
+       },
+       {
+           "eventType": "process_EndEvent",
+           "elementId": "EndEvent_1",
+           "occured": "2020-01-21T13:49:39.7681248Z"
+       }
+   ]
+}
 ```
 
 ### Start Process
