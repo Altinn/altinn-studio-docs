@@ -763,6 +763,13 @@
 	"content": "To redirect traffic to designer and repositories we use NGINX as a reverse proxy.\nNGINX is a open source Reverse Proxy/ Loadbalancer\nSee Github repository.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/logical/",
+	"title": "Logical",
+	"tags": ["architecture"],
+	"description": "The logcical datamodel describes the differen elements stored",
+	"content": "Data is stored in Cosmos DB as JSON documents. In addition we use object database to store the raw objects of business data that org has defined for the application.\nThe following diagram shows the different entities stored. Click on the entity for the physical model used.\n\nSee fullscreen / Visio\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/naming/",
 	"title": "Naming Conventions",
 	"tags": ["development"],
@@ -1180,7 +1187,7 @@
 	"title": "Data Components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Data is the most important part of the solutions in Altinn.",
-	"content": "Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.\n\rConceptual\rThe conceptual data model describes the data entities in the solutions and their relatiohip.\n\r\r"
+	"content": "Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.\n\rConceptual\rThe conceptual data model describes the data entities in the solutions and their relatiohip.\n\r\rLogical\rThe logcical datamodel describes the differen elements stored\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/logicexecution/",
