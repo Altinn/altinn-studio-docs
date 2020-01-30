@@ -9055,9 +9055,9 @@ if(host != "localhost")
 
 <figure><a href="cosmos_collections.png"><img src="cosmos_collections.png" alt="Collections" title="Cosmos Collections defined" /></a><figcaption><h4>Cosmos Collections defined</h4></figcaption></figure>
 
-<h2 id="altinn-platform">Altinn Platform</h2>
+<h3 id="data-entities-altinn-platform">Data Entities Altinn Platform</h3>
 
-<h3 id="instances">Instances</h3>
+<h4 id="instances">Instances</h4>
 
 <p>Example document from instance.</p>
 
@@ -9097,7 +9097,7 @@ if(host != "localhost")
 
 </code></pre>
 
-<h3 id="dataitem">DataItem</h3>
+<h4 id="dataitem">DataItem</h4>
 
 <p>Example document from data items</p>
 
@@ -9125,7 +9125,7 @@ if(host != "localhost")
 }
 </code></pre>
 
-<h3 id="instanceevent">InstanceEvent</h3>
+<h4 id="instanceevent">InstanceEvent</h4>
 
 <p>Example on instance event.</p>
 
@@ -9163,7 +9163,7 @@ if(host != "localhost")
 
 </code></pre>
 
-<h3 id="application">Application</h3>
+<h4 id="application">Application</h4>
 
 <p>Example document on appliation</p>
 
@@ -9214,6 +9214,72 @@ if(host != "localhost")
     &quot;_ts&quot;: 1579001940
 }
 </code></pre>
+
+<h3 id="data-entities-altinn-studio">Data entities Altinn Studio</h3>
+
+<h4 id="releases">releases</h4>
+
+<p>Exampl document</p>
+
+<pre><code class="language-json">{
+    &quot;tagName&quot;: &quot;1&quot;,
+    &quot;name&quot;: &quot;1&quot;,
+    &quot;body&quot;: &quot;ver 1&quot;,
+    &quot;targetCommitish&quot;: &quot;304e64a5b768a1a438f5682f05c81f1e3f4806e8&quot;,
+    &quot;build&quot;: {
+        &quot;id&quot;: &quot;25639&quot;,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;result&quot;: &quot;failed&quot;,
+        &quot;started&quot;: &quot;2020-01-28T14:26:38.776664Z&quot;,
+        &quot;finished&quot;: &quot;2020-01-28T14:27:50.8388306Z&quot;
+    },
+    &quot;id&quot;: &quot;a361d1c8-11a1-49fb-8775-59f231aadcd5&quot;,
+    &quot;created&quot;: &quot;2020-01-28T14:26:22.167018+00:00&quot;,
+    &quot;createdBy&quot;: &quot;jeeva&quot;,
+    &quot;app&quot;: &quot;apps-test&quot;,
+    &quot;org&quot;: &quot;ttd&quot;,
+    &quot;_rid&quot;: &quot;9g8wAPi8x1cLAAAAAAAAAA==&quot;,
+    &quot;_self&quot;: &quot;dbs/9g8wAA==/colls/9g8wAPi8x1c=/docs/9g8wAPi8x1cLAAAAAAAAAA==/&quot;,
+    &quot;_etag&quot;: &quot;\&quot;10008d1b-0000-0c00-0000-5e3044f90000\&quot;&quot;,
+    &quot;_attachments&quot;: &quot;attachments/&quot;,
+    &quot;_ts&quot;: 1580221689
+}
+
+</code></pre>
+
+<h4 id="deployments">Deployments</h4>
+
+<p>Example document for deploymens</p>
+
+<pre><code class="language-json">{
+    &quot;tagName&quot;: &quot;1&quot;,
+    &quot;envName&quot;: &quot;at22&quot;,
+    &quot;build&quot;: {
+        &quot;id&quot;: &quot;25637&quot;,
+        &quot;status&quot;: &quot;completed&quot;,
+        &quot;result&quot;: &quot;succeeded&quot;,
+        &quot;started&quot;: &quot;2020-01-28T14:17:53.0563266Z&quot;,
+        &quot;finished&quot;: &quot;2020-01-28T14:18:39.2312059Z&quot;
+    },
+    &quot;id&quot;: &quot;682e31ee-3aeb-4f28-b457-98db2f34ece6&quot;,
+    &quot;created&quot;: &quot;2020-01-28T14:17:37.2229801+00:00&quot;,
+    &quot;createdBy&quot;: &quot;steph&quot;,
+    &quot;app&quot;: &quot;process-history-app&quot;,
+    &quot;org&quot;: &quot;ttd&quot;,
+    &quot;_rid&quot;: &quot;9g8wAKEPFmYBAAAAAAAAAA==&quot;,
+    &quot;_self&quot;: &quot;dbs/9g8wAA==/colls/9g8wAKEPFmY=/docs/9g8wAKEPFmYBAAAAAAAAAA==/&quot;,
+    &quot;_etag&quot;: &quot;\&quot;04007c5a-0000-0c00-0000-5e3042ca0000\&quot;&quot;,
+    &quot;_attachments&quot;: &quot;attachments/&quot;,
+    &quot;_ts&quot;: 1580221130
+}
+
+</code></pre>
+
+<h3 id="altinn-studio-repositories">Altinn Studio Repositories</h3>
+
+<p>Altinn Studio Repositories uses Gitea that uses a PostgreSQL database.</p>
+
+<p>The logical datamodel is a black box for the project. <a href="https://github.com/go-gitea/gitea">See Gitea project</a></p>
 
 
 
