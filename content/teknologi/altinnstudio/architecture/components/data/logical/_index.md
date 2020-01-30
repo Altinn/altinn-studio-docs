@@ -28,10 +28,10 @@ Data is stored in Cosmos DB as JSON documents. In addition we use object databas
 
 
 
-## Altinn Platform
+### Data Entities Altinn Platform
 
 
-### Instances
+#### Instances
 
 Example document from instance.
 
@@ -74,7 +74,7 @@ AppId is the reference to APP.
 
 
 
-### DataItem
+#### DataItem
 
 Example document from data items
 
@@ -104,7 +104,7 @@ blobstoragePAth references to the storage location for the given data
 }
 ```
 
-### InstanceEvent
+#### InstanceEvent
 
 Example on instance event.
 
@@ -145,7 +145,7 @@ InstanceID references to the instance.
 ```
 
 
-### Application
+#### Application
 
 Example document on appliation
 
@@ -198,3 +198,77 @@ Example document on appliation
     "_ts": 1579001940
 }
 ```
+
+
+
+### Data entities Altinn Studio
+
+
+#### releases
+
+Exampl document
+
+```json
+{
+    "tagName": "1",
+    "name": "1",
+    "body": "ver 1",
+    "targetCommitish": "304e64a5b768a1a438f5682f05c81f1e3f4806e8",
+    "build": {
+        "id": "25639",
+        "status": "completed",
+        "result": "failed",
+        "started": "2020-01-28T14:26:38.776664Z",
+        "finished": "2020-01-28T14:27:50.8388306Z"
+    },
+    "id": "a361d1c8-11a1-49fb-8775-59f231aadcd5",
+    "created": "2020-01-28T14:26:22.167018+00:00",
+    "createdBy": "jeeva",
+    "app": "apps-test",
+    "org": "ttd",
+    "_rid": "9g8wAPi8x1cLAAAAAAAAAA==",
+    "_self": "dbs/9g8wAA==/colls/9g8wAPi8x1c=/docs/9g8wAPi8x1cLAAAAAAAAAA==/",
+    "_etag": "\"10008d1b-0000-0c00-0000-5e3044f90000\"",
+    "_attachments": "attachments/",
+    "_ts": 1580221689
+}
+
+```
+
+#### Deployments
+
+Example document for deploymens
+
+```json
+{
+    "tagName": "1",
+    "envName": "at22",
+    "build": {
+        "id": "25637",
+        "status": "completed",
+        "result": "succeeded",
+        "started": "2020-01-28T14:17:53.0563266Z",
+        "finished": "2020-01-28T14:18:39.2312059Z"
+    },
+    "id": "682e31ee-3aeb-4f28-b457-98db2f34ece6",
+    "created": "2020-01-28T14:17:37.2229801+00:00",
+    "createdBy": "steph",
+    "app": "process-history-app",
+    "org": "ttd",
+    "_rid": "9g8wAKEPFmYBAAAAAAAAAA==",
+    "_self": "dbs/9g8wAA==/colls/9g8wAKEPFmY=/docs/9g8wAKEPFmYBAAAAAAAAAA==/",
+    "_etag": "\"04007c5a-0000-0c00-0000-5e3042ca0000\"",
+    "_attachments": "attachments/",
+    "_ts": 1580221130
+}
+
+```
+
+
+
+
+### Altinn Studio Repositories
+Altinn Studio Repositories uses Gitea that uses a PostgreSQL database. 
+
+The logical datamodel is a black box for the project. [See Gitea project](https://github.com/go-gitea/gitea)
+
