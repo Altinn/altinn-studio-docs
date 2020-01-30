@@ -6,7 +6,7 @@ weight: 100
 alwaysopen: false
 ---
 
-Data is stored in Cosmos DB as JSON documents. In addition we use object database to store the raw objects of business data that org has defined for the application.
+
 
 The following diagram shows the different entities stored. Click on the entity for the physical model used.
 
@@ -21,14 +21,17 @@ The following diagram shows the different entities stored. Click on the entity f
 
 
 
+Data is stored in Cosmos DB as JSON documents. In addition we use object database to store the raw objects of business data that org has defined for the application.
 
+
+![Collections](cosmos_collections "Cosmos Collections defined")
 
 
 
 ## Altinn Platform
 
 
-### Instance
+### Instances
 
 Example document from instance.
 
