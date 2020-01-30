@@ -18,7 +18,9 @@ All containers are running on [Alpine Linux](https://alpinelinux.org/), which in
 
 We use Kubernetes to manage the application containers for the different solutions.
 
-We use Azure Kubernetes Services that is a managed Kubernetes.
+We use Azure Kubernetes Services that is a managed Kubernetes administration in Azure.
+
+Read more about our [Kubernetes Clusters](kubernetes)
 
 ### Service Mesh & Proxy
 
