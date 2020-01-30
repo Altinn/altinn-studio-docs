@@ -1299,7 +1299,7 @@
 	"title": "Operating Systems &amp; Cloud Platform",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Operating Systems &amp; Cloud Platform defines the operating systems for containers and how the container are deployed to the cloud",
-	"content": " Operating systems Container Operation Systems All containers are running on Alpine Linux, which includes apps created in Altinn Studio and the Altinn Platform components.\nCloud Platform Orchestrating \u0026amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.\nWe use Azure Kubernetes Services that is a managed Kubernetes.\nService Mesh \u0026amp; Proxy We use Traefik as Proxy in the Kubernetes.\nCurrently we dont use Service Mest technolgies\n"
+	"content": " Operating systems Container Operation Systems All containers are running on Alpine Linux, which includes apps created in Altinn Studio and the Altinn Platform components.\nCloud Platform Orchestrating \u0026amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.\nWe use Azure Kubernetes Services that is a managed Kubernetes administration in Azure.\nRead more about our Kubernetes Clusters\nService Mesh \u0026amp; Proxy We use Traefik as Proxy in the Kubernetes.\nCurrently we dont use Service Mest technolgies\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/",
