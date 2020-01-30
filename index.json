@@ -1257,7 +1257,7 @@
 	"title": "Storage componentens",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Storage component provide the physical storage of data",
-	"content": " Storage SAN All data stores are based on Managed Services from Azure.\n Azure Cosmos DB Azure File Share Azure Blob Storage  We dont have control how the data is physical stored in Azure by this services.\nRead a technical overview of Cosmos DB that talks some about how storage is handled.\nRead more about the data store components used\n"
+	"content": " Storage Disks The Kubernetes Cluster uses disks for volumes\nWe use Azure Disk for storage in Kubernetes Cluster\nSAN Other data stores are based on Managed Services from Azure.\n Azure Cosmos DB Azure File Share Azure Blob Storage  We dont have control how the data is physical stored in Azure by this services.\nRead a technical overview of Cosmos DB that talks some about how storage is handled.\nRead more about the data store components used\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/data/",
