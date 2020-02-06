@@ -83,3 +83,4 @@ Sl.No. |    Testcase name   |   Area of Solution
 4. | Create App instance without allowed roles | App & Storage
 5. | Access App instance without allowed roles | App & Storage
 6. | Access App instance with low level security login than required | Storage
+7. | Create App instance allowed only for AppOwner | App
