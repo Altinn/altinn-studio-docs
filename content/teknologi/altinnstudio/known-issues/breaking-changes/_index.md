@@ -6,6 +6,7 @@ toc: true
 weight: 100
 ---
 ## Breaking change: updated traefik in app clusters
+
 Introduced with issue: [#3325](https://github.com/Altinn/altinn-studio/issues/3325)
 
 Old apps were configured to work with traefik 1.x.x. We have now updated the traefik versjon to 2.1.4, and the app helm charts have therefore been updated. This means that old helm charts are no longer usable.
