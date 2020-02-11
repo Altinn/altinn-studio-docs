@@ -12,7 +12,7 @@ Introduced with issue: [#3325](https://github.com/Altinn/altinn-studio/issues/33
 Old apps were configured to work with traefik 1.x.x. We have now updated the traefik versjon to 2.1.4, and the app helm charts have therefore been updated. This means that old helm charts are no longer usable.
 
 ### Errors
-Deploy of app fails with error `Error: UPGRADE FAILED: template: deployment/templates/ingress.yaml:1:14: executing "deployment/templates/ingress.yaml" at <.Values.ingress.enabled>: nil pointer evaluating interface {}.enabled`. 
+Deploy of app fails with error: UPGRADE FAILED: template: deployment/templates/ingress.yaml:1:14: executing "deployment/templates/ingress.yaml" at <.Values.ingress.enabled>: nil pointer evaluating interface {}.enabled. 
 
 
 ### How to fix
