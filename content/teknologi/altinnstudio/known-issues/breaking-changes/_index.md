@@ -5,6 +5,19 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 weight: 100
 ---
+## Breaking change: updated traefik in app clusters
+Introduced with issue: [#3325](https://github.com/Altinn/altinn-studio/issues/3325)
+
+Old apps were configured to work with traefik 1.x.x. We have now updated the traefik versjon to 2.1.4, and the app helm charts have therefore been updated. This means that old helm charts are no longer usable.
+
+### Errors
+Deploy of app fails with error `Error: UPGRADE FAILED: template: deployment/templates/ingress.yaml:1:14: executing "deployment/templates/ingress.yaml" at <.Values.ingress.enabled>: nil pointer evaluating interface {}.enabled`. 
+
+
+### How to fix
+Replace all content in the `deployment` folder in the app repo with the content found in the `altinn-studio\src\Altinn.Apps\AppTemplates\AspNet\deployment` from the [altinn studio github repo](https://github.com/Altinn/altinn-studio)
+
+
 ## Error when trying to deploy an app to any environment (AT21, AT23)
 Introduced with issue: [#1158](https://github.com/Altinn/altinn-studio/issues/1158) which was implemented in relation with issue [#2757](https://github.com/Altinn/altinn-studio/issues/2757)
 
