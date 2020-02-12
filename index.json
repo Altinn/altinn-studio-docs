@@ -676,7 +676,7 @@
 	"title": "General",
 	"tags": ["development", "todo"],
 	"description": "General coding guidelines",
-	"content": "TODO\n"
+	"content": " TODO\nAzure CLI az login --use-device-code  Kubectl ```bash\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/getting-started/",
