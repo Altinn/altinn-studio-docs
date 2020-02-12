@@ -12,13 +12,16 @@ aliases:
 
 The solution uses managed Kubernetes Clusters. Azure Kubernetes Services 
 
+## Setup
+We use Azure CLI to setup the different Kubernetes Clusters. (Altinn Studio, Altinn Apps and Altinn Platform).
 
-## Kubernetes Cluster setup
+This include networking and node setup.
 
-The Kubenrnet
+## Management & monitoring
+From the Azure Portal we can manage and montitor the Kubernetes Clusters
 
+### Nodes
+We can scale up and down Nodes
 
-
-
-
-I{{% children description="true" depth="1" %}}
+### Containers
+We get monitor the number of containers and state of containers

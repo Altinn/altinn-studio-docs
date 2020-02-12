@@ -5,6 +5,41 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 weight: 100
 ---
+
+## Breaking change: re-arranging order for calls for app frontend
+
+Introduced with issue: [#3625](https://github.com/Altinn/altinn-studio/issues/3625)
+All applications retrieve the same javascript file for application frontend, however all applications are not updated with the latest nuget version of the three Altinn.App nuget packages.
+This results in an incompatability when rendering application frontend.
+
+### Error
+When instantiating an application either locally or in a test environment the page keeps loading.
+Checking the network calls will reveal that is a POST request with query parameter `partyId=undefined` that receives a 400 response.
+![re-arrange-calls-error](breaking-change-rearrange-calls.png "Rearrange calls error")
+
+### How to fix
+Update nuget versions for the Altinn.App packages in _App.csproj_. Version should be 1.0.48.  
+
+```c#
+ <PackageReference Include="Altinn.App.Api" Version="1.0.48-alpha" />
+ <PackageReference Include="Altinn.App.Common" Version="1.0.48-alpha" />
+ <PackageReference Include="Altinn.App.PlatformServices" Version="1.0.48-alpha" />
+```
+
+## Breaking change: updated traefik in app clusters
+
+Introduced with issue: [#3325](https://github.com/Altinn/altinn-studio/issues/3325)
+
+Old apps were configured to work with traefik 1.x.x. We have now updated the traefik versjon to 2.1.4, and the app helm charts have therefore been updated. This means that old helm charts are no longer usable.
+
+### Errors
+Deploy of app fails with error: UPGRADE FAILED: template: deployment/templates/ingress.yaml:1:14: executing "deployment/templates/ingress.yaml" at <.Values.ingress.enabled>: nil pointer evaluating interface {}.enabled. 
+
+
+### How to fix
+Replace all content in the `deployment` folder in the app repo with the content found in the `altinn-studio\src\Altinn.Apps\AppTemplates\AspNet\deployment` from the [altinn studio github repo](https://github.com/Altinn/altinn-studio)
+
+
 ## Error when trying to deploy an app to any environment (AT21, AT23)
 Introduced with issue: [#1158](https://github.com/Altinn/altinn-studio/issues/1158) which was implemented in relation with issue [#2757](https://github.com/Altinn/altinn-studio/issues/2757)
 
