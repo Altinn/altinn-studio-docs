@@ -13,4 +13,12 @@ aliases:
 The solution uses managed Kubernetes Clusters. Azure Kubernetes Services 
 
 
+## Kubernetes Cluster setup
+
+The Kubenrnet
+
+
+
+
+
 I{{% children description="true" depth="1" %}}
