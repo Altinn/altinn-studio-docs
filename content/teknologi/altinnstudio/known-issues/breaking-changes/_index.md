@@ -5,6 +5,27 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 weight: 100
 ---
+
+## Breaking change: re-arranging order for calls for app frontend
+
+Introduced with issue: [#3625](https://github.com/Altinn/altinn-studio/issues/3625)
+All applications retrieve the same javascript file for application frontend, however all applications are not updated with the latest nuget version of the three Altinn.App nuget packages.
+This results in an incompatability when rendering application frontend.
+
+### Error
+When instantiating an application either locally or in a test environment the page keeps loading.
+Checking the network calls will reveal that is a POST request with query parameter `partyId=undefined` that receives a 400 response.
+![re-arrange-calls-error](breaking-change-rearrange-calls.png "Rearrange calls error")
+
+### How to fix
+Update nuget versions for the Altinn.App packages in _App.csproj_. Version should be 1.0.48.  
+
+```c#
+ <PackageReference Include="Altinn.App.Api" Version="1.0.48-alpha" />
+ <PackageReference Include="Altinn.App.Common" Version="1.0.48-alpha" />
+ <PackageReference Include="Altinn.App.PlatformServices" Version="1.0.48-alpha" />
+```
+
 ## Breaking change: updated traefik in app clusters
 
 Introduced with issue: [#3325](https://github.com/Altinn/altinn-studio/issues/3325)
