@@ -9035,63 +9035,121 @@ if(host != "localhost")
 
 
 
-<p>App Frontend is a <a href="https://en.wikipedia.org/wiki/Single-page_application">Single Page Application</a> based on React.</p>
+<p>App Frontend is a <a href="https://en.wikipedia.org/wiki/Single-page_application">Single Page Application</a> built using React + Redux.</p>
 
-<p>This application is responsible to present a UI to the end user. The application consist of serveral different
-features that is responsible for handling the ui for different steps in the workflow.</p>
+<p>This application is responsible for presenting a UI to the end user. The application consists of several different features
+that are responsible for handling the UI for different steps in the workflow.</p>
 
-<p>Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during
-the build/deploy process to a Altinn Apps environment. This means that there can be different versions of App Frontend for two different deployed Apps</p>
+<p>The app frontend is automatically built and deployed to a CDN, and is versioned using <a href="https://semver.org/">semantic versioning</a>.
+Each App developed in Altinn Studio will reference the app frontend, which will be served by the CDN. By default,
+an app will reference the latest <em>major</em> version that was available when the app was created. Each app may reference a specific
+version, so that there can be different versions of the app frontend for two different deployed apps.</p>
 
 <h2 id="react-architecture">React Architecture</h2>
 
-<p>The React Architecture used for App Frontend is based on using different javascript frameworks together REACT to handle different responsibilties.</p>
+<p>The app frontend uses the React framework for presenting a UI to the end user. The application is structured using features
+The React Architecture used for App Frontend is based on using different javascript frameworks together REACT to handle different responsibilties.</p>
 
-<p>The React architecture tries to follow best practice React architecture.</p>
+<p>The React architecture tries to follow best practice React architecture:</p>
+
+<h4 id="small-function-specific-components">Small, function-specific components</h4>
+
+<ul>
+<li>UI components are &ldquo;dumb&rdquo;, this keeps the amount of logic to a minimum within the components.</li>
+</ul>
+
+<h4 id="reusability">Reusability</h4>
+
+<ul>
+<li>UI components are shared across apps.</li>
+<li>Shared components between app frontend and receipt frontend .</li>
+<li>Use Material UI components as much as possible instead of building our own components from scratch.</li>
+</ul>
+
+<h4 id="dry-code">DRY code</h4>
+
+<ul>
+<li>Use shared resources accross features to avoid duplication of code.</li>
+<li>Share resources/utils between app frontend and receipt frontend.</li>
+</ul>
+
+<h4 id="comments-only-where-necessary">Comments only where necessary</h4>
+
+<ul>
+<li>Function and component names should be self-explanatory.</li>
+<li>Avoid clutter and having to update comments when things change.</li>
+</ul>
+
+<h4 id="component-names-in-capital">Component names in capital</h4>
+
+<h4 id="keep-complex-data-loading-logic-separate-from-rendering-of-components">Keep complex data-loading logic separate from rendering of components</h4>
+
+<ul>
+<li>State is handled by redux as much as possible</li>
+<li>Data should be passed as props to UI components where possible</li>
+</ul>
+
+<h4 id="use-a-feature-based-code-structure">Use a feature-based code structure</h4>
+
+<ul>
+<li>Code related to a feature should be grouped together, rather than grouping code by function (actions/reducers etc).</li>
+</ul>
+
+<h4 id="follow-linting-rules">Follow linting rules</h4>
+
+<ul>
+<li>Use a code analyzer to make sure linting rules are followed, for clean readable code</li>
+</ul>
 
 <p>The diagram below show the architecture</p>
 
 
-	<p><object data="/teknologi/altinnstudio/architecture/components/application/altinn-apps/app/app-frontend/app-frontend-application-architecture.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react_architecture.svg" type="image/svg+xml" style="width: 100%;";></object></p>
 
 
 
 <h3 id="store">Store</h3>
 
-<p>A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action on it.</p>
+<p>A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action
+ on it.</p>
 
-<p><a href="https://redux.js.org/api/store#store">See details</a></p>
+<p><a href="https://redux.js.org/api/store#store">Read more</a></p>
 
 <h3 id="reducers">Reducers</h3>
 
-<p>Reducers specify how the application&rsquo;s state changes in response to actions sent to the store. Remember that actions only describe what happened, but don&rsquo;t describe how the application&rsquo;s state changes.</p>
+<p>Reducers specify how the application&rsquo;s state changes in response to actions sent to the store. Remember that actions only
+describe what happened, but don&rsquo;t describe how the application&rsquo;s state changes.</p>
 
-<p><a href="https://redux.js.org/basics/reducers#reducers">See details</a></p>
+<p><a href="https://redux.js.org/basics/reducers#reducers">Read more</a></p>
 
-<h3 id="action-creators">Action Creators</h3>
+<h3 id="redux-saga">Redux-Saga</h3>
 
-<p>An action creator is, quite simply, a function that creates an action. Do not confuse the two terms—again, an action is a payload of information, and an action creator is a factory that creates an action.</p>
+<p><code>redux-saga</code> is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure
+things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.</p>
 
-<p><a href="https://redux.js.org/glossary#action-creator">See details</a></p>
+<p><a href="https://redux-saga.js.org/">Read more</a></p>
 
 <h2 id="app-frontend-features">App Frontend Features</h2>
 
-<p>The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given functional
-area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.</p>
+<p>The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given
+functional area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.</p>
 
-<p>Support for new types of workflow steps are added</p>
+<p>Support for new types of workflow steps will be added as they become available in the backend.</p>
 
-<h3 id="instansiate">Instansiate</h3>
+<h3 id="instantiate">Instantiate</h3>
 
-<p>This feature is responsible for presenting the user</p>
+<p>This feature is responsible for creating a specific instance of the app for the end user. This feature validates the selected
+party by checking authorization, and gives the user the option to select a new party (if available) if the current party is
+invalid. Once a user/party is validated, the backend API to create an instance is called, and the user is sent to the first
+process step defined for the app.</p>
 
-<h3 id="ui-render-formfiller">UI Render (FormFiller)</h3>
+<h3 id="form">Form</h3>
 
-<p>The UI rendering component is the one that is responsible for rendering the UI designed in Altinn Studio.</p>
+<p>This feature is responsible for the form filling process step. This includes rendering the form UI designed in Altinn Studio,
+running any rules/dynamics, calling APIs to perform calulations, validations, save form data, submit/move process to next step.</p>
 
-<p>This feature uses the formlayout for an app together with other metdata about the datamodell.</p>
-
-<p>Based on the content of the formlayout file the UI Render, renders the correct components like textbox, fileupload ++</p>
+<p>To render the form UI, the <em>form layout</em> defined in Altinn Studio is used together with metadata about the data model. The form
+components are rendered based on the contents of the form layout.</p>
 
 <h3 id="receipt">Receipt</h3>
 
@@ -9099,19 +9157,18 @@ area for a App. Typical a feature is connected to a type of workflow step. Like 
 
 <h2 id="configuration-files">Configuration files</h2>
 
-<p>The App Frontend requires some configuration files to work correctly. These files are loaded through API</p>
+<p>The App Frontend requires some configuration files to work correctly. These files are loaded through APIs.</p>
 
-<h3 id="formlayout">FormLayout</h3>
+<h3 id="formlayout-json">FormLayout.json</h3>
 
-<p>The formlayot is used the UI-render feature.</p>
-
-<p>It decides the layout elements. App Frontend have access to form layout through API.</p>
+<p>The <em>form layout</em> is used to render the UI for the <em>form</em> feature. It defines which layout elements should be rendered,
+in what order, and contains details about how they should be rendered (ex. text keys, data model, etc.)</p>
 
 <p><a href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">See details about FormLayout.json</a></p>
 
 <h3 id="language">Language</h3>
 
-<p>Contains all text resources</p>
+<p>All text resources that are used in the app frontend.</p>
 
 <h3 id="servicemetadata">ServiceMetadata</h3>
 
