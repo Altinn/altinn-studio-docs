@@ -17,43 +17,14 @@ an app will reference the latest _major_ version that was available when the app
 version, so that there can be different versions of the app frontend for two different deployed apps.
 
 ## React Architecture
-The app frontend uses the React framework for presenting a UI to the end user. The application is structured using features
-The React Architecture used for App Frontend is based on using different javascript frameworks together REACT to handle different responsibilties.
+The app frontend uses the [React](https://reactjs.org/) and [Redux](https://redux.js.org/) frameworks for presenting a UI to the end user,
+together with [redux-saga](https://redux-saga.js.org/) to handle side effects. Components are based on [Material UI](https://material-ui.com/)
+components.
 
-The React architecture tries to follow best practice React architecture:
-
-#### Small, function-specific components
-- UI components are "dumb", this keeps the amount of logic to a minimum within the components.
-
-#### Reusability
-- UI components are shared across apps. 
-- Shared components between app frontend and receipt frontend .
-- Use Material UI components as much as possible instead of building our own components from scratch.
-
-#### DRY code
-- Use shared resources accross features to avoid duplication of code.
-- Share resources/utils between app frontend and receipt frontend.
-
-#### Comments only where necessary
-- Function and component names should be self-explanatory.
-- Avoid clutter and having to update comments when things change.
-
-#### Component names in capital
-
-#### Keep complex data-loading logic separate from rendering of components
-- State is handled by redux as much as possible
-- Data should be passed as props to UI components where possible
-
-#### Use a feature-based code structure
-- Code related to a feature should be grouped together, rather than grouping code by function (actions/reducers etc).
-
-#### Follow linting rules
-- Use a code analyzer to make sure linting rules are followed, for clean readable code
-
-The diagram below show the architecture 
+The diagram below show the architecture:
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 ### Store
@@ -73,6 +44,36 @@ describe what happened, but don't describe how the application's state changes.
 things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
 [Read more](https://redux-saga.js.org/)
+
+We try to follow some best-practices for React architecture:
+
+- _Small, function-specific components_
+  - UI components are "dumb", this keeps the amount of logic to a minimum within the components.
+
+- _Reusability_
+  - UI components are shared across apps. 
+  - Shared components between app frontend and receipt frontend .
+  - Use Material UI components as much as possible instead of building our own components from scratch.
+
+- _DRY code_
+  - Use shared resources accross features to avoid duplication of code.
+  - Share resources/utils between app frontend and receipt frontend.
+
+- _Comments only where necessary_
+  - Function and component names should be self-explanatory.
+  - Avoid clutter and having to update comments when things change.
+
+- _Component names in capital_
+
+- _Keep complex data-loading logic separate from rendering of components_
+  - State is handled by redux as much as possible
+  - Data should be passed as props to UI components where possible
+
+- _Use a feature-based code structure_
+  -  Code related to a feature should be grouped together, rather than grouping code by function (actions/reducers etc).
+
+- _Follow linting rules_
+  - Use a code analyzer to make sure linting rules are followed, for clean readable code
 
 
 ## App Frontend Features
