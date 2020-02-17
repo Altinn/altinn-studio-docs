@@ -6,79 +6,110 @@ tags: [architecture]
 weight: 100
 ---
 
-App Frontend is a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) based on React.
+App Frontend is a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) built using React + Redux.
 
-This application is responsible to present a UI to the end user. The application consist of serveral different
-features that is responsible for handling the ui for different steps in the workflow.
+This application is responsible for presenting a UI to the end user. The application consists of several different features
+that are responsible for handling the UI for different steps in the workflow.
 
-Each App developed in Altinn Studio will contain their own App Frontend as part of the Docker Container created during
-the build/deploy process to a Altinn Apps environment. This means that there can be different versions of App Frontend for two different deployed Apps
+The app frontend is automatically built and deployed to a CDN, and is versioned using [semantic versioning](https://semver.org/). 
+Each App developed in Altinn Studio will reference the app frontend, which will be served by the CDN. By default,
+an app will reference the latest _major_ version that was available when the app was created. Each app may reference a specific
+version, so that there can be different versions of the app frontend for two different deployed apps.
 
 ## React Architecture
+The app frontend uses the React framework for presenting a UI to the end user. The application is structured using features
 The React Architecture used for App Frontend is based on using different javascript frameworks together REACT to handle different responsibilties.
 
-The React architecture tries to follow best practice React architecture. 
+The React architecture tries to follow best practice React architecture:
+
+#### Small, function-specific components
+- UI components are "dumb", this keeps the amount of logic to a minimum within the components.
+
+#### Reusability
+- UI components are shared across apps. 
+- Shared components between app frontend and receipt frontend .
+- Use Material UI components as much as possible instead of building our own components from scratch.
+
+#### DRY code
+- Use shared resources accross features to avoid duplication of code.
+- Share resources/utils between app frontend and receipt frontend.
+
+#### Comments only where necessary
+- Function and component names should be self-explanatory.
+- Avoid clutter and having to update comments when things change.
+
+#### Component names in capital
+
+#### Keep complex data-loading logic separate from rendering of components
+- State is handled by redux as much as possible
+- Data should be passed as props to UI components where possible
+
+#### Use a feature-based code structure
+- Code related to a feature should be grouped together, rather than grouping code by function (actions/reducers etc).
+
+#### Follow linting rules
+- Use a code analyzer to make sure linting rules are followed, for clean readable code
 
 The diagram below show the architecture 
 
 {{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/application/altinn-apps/app/app-frontend/app-frontend-application-architecture.svg" type="image/svg+xml" style="width: 100%;"></object>
+<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react_architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
 {{% /excerpt%}}
 
 ### Store
- A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action on it.
+ A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action
+ on it.
 
- [See details](https://redux.js.org/api/store#store)
+ [Read more](https://redux.js.org/api/store#store)
 
 ### Reducers
-Reducers specify how the application's state changes in response to actions sent to the store. Remember that actions only describe what happened, but don't describe how the application's state changes.
+Reducers specify how the application's state changes in response to actions sent to the store. Remember that actions only
+describe what happened, but don't describe how the application's state changes.
 
- [See details](https://redux.js.org/basics/reducers#reducers)
+ [Read more](https://redux.js.org/basics/reducers#reducers)
 
+### Redux-Saga
+`redux-saga` is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure
+things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
-### Action Creators
-An action creator is, quite simply, a function that creates an action. Do not confuse the two terms—again, an action is a payload of information, and an action creator is a factory that creates an action.
-
-[See details](https://redux.js.org/glossary#action-creator)
+[Read more](https://redux-saga.js.org/)
 
 
 ## App Frontend Features
-The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given functional
-area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.
+The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given
+functional area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.
 
-Support for new types of workflow steps are added
+Support for new types of workflow steps will be added as they become available in the backend.
 
-### Instansiate
-This feature is responsible for presenting the user 
+### Instantiate
+This feature is responsible for creating a specific instance of the app for the end user. This feature validates the selected
+party by checking authorization, and gives the user the option to select a new party (if available) if the current party is 
+invalid. Once a user/party is validated, the backend API to create an instance is called, and the user is sent to the first
+process step defined for the app. 
 
-### UI Render (FormFiller)
-The UI rendering component is the one that is responsible for rendering the UI designed in Altinn Studio.
+### Form
+This feature is responsible for the form filling process step. This includes rendering the form UI designed in Altinn Studio,
+running any rules/dynamics, calling APIs to perform calulations, validations, save form data, submit/move process to next step.
 
-This feature uses the formlayout for an app together with other metdata about the datamodell.
-
-Based on the content of the formlayout file the UI Render, renders the correct components like textbox, fileupload ++
+To render the form UI, the _form layout_ defined in Altinn Studio is used together with metadata about the data model. The form
+components are rendered based on the contents of the form layout.
 
 ### Receipt
 This feature is responsible to show the summary of the instance when an app is sent to end state of the process flow.
 
-
 ## Configuration files
-The App Frontend requires some configuration files to work correctly. These files are loaded through API
+The App Frontend requires some configuration files to work correctly. These files are loaded through APIs.
 
-### FormLayout
-The formlayot is used the UI-render feature. 
-
-It decides the layout elements. App Frontend have access to form layout through API.
+### FormLayout.json
+The _form layout_ is used to render the UI for the _form_ feature. It defines which layout elements should be rendered,
+in what order, and contains details about how they should be rendered (ex. text keys, data model, etc.)
 
 [See details about FormLayout.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/)
 
 ### Language
-Contains all text resources 
+All text resources that are used in the app frontend.
 
 ### ServiceMetadata
 Contains information about the data model and is used by UI-render to map the fields to the data model. 
 
 [See details about ServiceMetadata.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/)
-
-
-### 
