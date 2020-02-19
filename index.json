@@ -1488,7 +1488,7 @@
 	"title": "Storage",
 	"tags": ["platform", "storage"],
 	"description": "The Storage component gives storage capabilities to the apps.",
-	"content": " Storage support storage of structured and unstructured data for apps. Apps that need the cabability to store data uses the storage service in Altinn platform to store structured data\nMetadata Stored in CosmosDB\nFormdata and attachments Stored in Azure BlobStorage.\nEncryption See analysis issue for this on Github\nFor all issues related to Storage see Github\n"
+	"content": " Storage support storage of structured and unstructured data for apps. Apps that need the cabability to store data uses the storage service in the Altinn platform to store both metadata and actual data.\nMetadata Stored in Azure Cosmos Db.\nFormdata and attachments Stored in Azure Blob Storage. One storage account for each application owner.\nEncryption See analysis issue for this on Github\nAdditional details For all issues related to Storage see Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/",
