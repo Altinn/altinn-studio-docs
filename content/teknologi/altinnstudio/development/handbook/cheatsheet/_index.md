@@ -8,6 +8,13 @@ weight: 100
 TODO
 
 
+## Git 
+git add .
+
+
+git commit -m
+"<message>"
+
 
 
 
