@@ -7,9 +7,11 @@ linktitle: App Development
 alwaysopen: false
 ---
 
+## Code Creation
+Altinn Studio lets the application developer create custom code in the Application. 
 
-
-
+With help of third party IDE like Visual Studio Code , the developer can create code from local 
+development machine.
 
 
 ## Process definition
@@ -19,4 +21,8 @@ To change the process the app developer need to modify the BPNM file manually.
 
 Later Altinn Studio will support creating and updating process through GUI.
 
-Later we
+
+## Source control
+In Altinn Repository the app developer can check in their source code for the different apps.
+
+
