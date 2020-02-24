@@ -9121,24 +9121,43 @@ to support different types of tasks in the process.</p>
 
 <p>This is the task where the user or system create and updates data for one more datamodelles defined for the App.</p>
 
-<h3 id="confirmation-post-mvp">Confirmation (POST MVP)</h3>
+<h3 id="confirmation-backlog">Confirmation (backlog)</h3>
 
 <p>This is a task where user can look at the data filled and then confirm it. Replaces send in it</p>
 
-<h3 id="confirmationandsigning-post-mvp">ConfirmationAndSigning  (POST MVP)</h3>
+<h3 id="confirmationandsigning-backlog">ConfirmationAndSigning (backlog)</h3>
 
 <p>This is a task where user can look at the data filled and then confirm and sign data. Replaces send in it</p>
 
-<h3 id="payment-post-mvp">Payment (POST MVP)</h3>
+<h3 id="payment-backlog">Payment (backlog)</h3>
 
 <p>This is a task where user is redirected to a external payment provider to pay related to the process. The payment can be related to data
 filled out in earliers task, or can be a fixed value connected to the app.</p>
 
-<h3 id="paralell-signing-post-mvp">Paralell signing (POST MVP)</h3>
+<h3 id="signing-backlog">Signing (backlog)</h3>
 
-<p>This is a task where serverel users need/can sign the data in paralell. The task is completed when the needed amount of signatures has been</p>
+<p>Signing is a task where one or more users sign the data submitted. In most uses cases this is a strictly functional operation but depending
+on the authentication level it can be a digital signature involved. The different types of signing relevant for this platform is.</p>
 
-<h3 id="lookup">Lookup</h3>
+<p><a href="https://github.com/Altinn/altinn-studio/issues/1322">There is a epic for signing on GitHub</a></p>
+
+<h4 id="regular-signing">Regular signing</h4>
+
+<p>Regular signing is when one user with a specific role is required to functional sign the data before submitting it.</p>
+
+<h4 id="paralell-signing">Paralell signing</h4>
+
+<p>This is a task where serverel users need/can sign the data in paralell. The task is completed when the needed amount of signatures has been added</p>
+
+<p><a href="https://github.com/Altinn/altinn-studio/issues/1325">See Github issue for details</a></p>
+
+<h4 id="user-controlled-signing">User controlled signing</h4>
+
+<p>User controlled signing is a task where the data inputed in earliers task in process defines which users that needs to sign.</p>
+
+<p><a href="https://github.com/Altinn/altinn-studio/issues/1324">See GitHub issue for details</a></p>
+
+<h3 id="lookup-backlog">Lookup  (backlog)</h3>
 
 <p>This is a task in a process where user/system can lookup external data with help of inputs from UI or API.</p>
 
@@ -9153,7 +9172,7 @@ filled out in earliers task, or can be a fixed value connected to the app.</p>
 <h3 id="process-formfilling">Process: Formfilling</h3>
 
 
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example1.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example1.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
 
 
 
@@ -9163,7 +9182,7 @@ the org. The org will be able to read data before the formfilling task is comple
 <h3 id="process-formfilling-signing">Process: Formfilling - Signing</h3>
 
 
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example2.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example2.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
 
 
 
@@ -9175,7 +9194,7 @@ The data will not be allowed to be changed while the instance is in signing task
 <h3 id="process-formfilling-confirmation-payment">Process: Formfilling - Confirmation - Payment</h3>
 
 
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example3.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example3.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
 
 
 
@@ -9186,7 +9205,7 @@ The payment functionality will be handled by external payment providers. The app
 <h3 id="process-formfilling-confirmation-external-validation">Process: Formfilling - Confirmation - External validation</h3>
 
 
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object></p>
+	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
 
 
 
