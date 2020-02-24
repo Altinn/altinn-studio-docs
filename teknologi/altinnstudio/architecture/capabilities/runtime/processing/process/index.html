@@ -9077,7 +9077,7 @@ if(host != "localhost")
 <p>Altinn Apps uses <a href="https://www.omg.org/spec/BPMN/2.0/">BPMN 2.0 standard</a> to describe the App Process and the App will have functionality
 to support different types of tasks in the process.</p>
 
-<p>The process is defined by the application developer in Altinn Studio. When a new app is created it a <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/config/process/process.bpmn">basic process</a> is created.</p>
+<p>The process is defined by the application developer in Altinn Studio. When a new app is created it a [basic process]() is created.</p>
 
 <h2 id="supported-tasks">Supported Tasks</h2>
 
@@ -9137,7 +9137,7 @@ on the authentication level it can be a digital signature involved. The differen
 
 <p>The below diagram show some example processes that a App possible will support in the future. Even it is possible to technical order the different types of task</p>
 
-<h3 id="process-formfilling">Process: Formfilling</h3>
+<h3 id="process-data">Process: Data</h3>
 
 
 	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example1.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
@@ -9147,7 +9147,7 @@ on the authentication level it can be a digital signature involved. The differen
 <p>This is the a common process. In this scenario a user will typical fill out formdata and when formfilling task is completed the data will be marked as locked and the final data can be read from
 the org. The org will be able to read data before the formfilling task is completed, but then the end user can still update the data.</p>
 
-<h3 id="process-formfilling-signing">Process: Formfilling - Signing</h3>
+<h3 id="process-data-signing">Process: Data - Signing</h3>
 
 
 	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example2.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
@@ -9159,7 +9159,7 @@ can verify the data and then confirm it with a signing of data.  Depending on th
 be a more functional confirmation from the user.  The org will be able to read data before the formfilling task is completed, but then the end user can still update the data.
 The data will not be allowed to be changed while the instance is in signing task.</p>
 
-<h3 id="process-formfilling-confirmation-payment">Process: Formfilling - Confirmation - Payment</h3>
+<h3 id="process-data-confirmation-payment">Process: Data - Confirmation - Payment</h3>
 
 
 	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example3.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
@@ -9170,7 +9170,7 @@ The data will not be allowed to be changed while the instance is in signing task
 can verify the data and then confirm, when the data is confirmed the process is moved to a payment task where the user needs to pay before the process is completed.
 The payment functionality will be handled by external payment providers. The app will integrate with API&rsquo;s for the payment provider. Altinn runtime will support different payment providers.</p>
 
-<h3 id="process-formfilling-confirmation-external-validation">Process: Formfilling - Confirmation - External validation</h3>
+<h3 id="process-data-confirmation-external-validation">Process: Data - Confirmation - External validation</h3>
 
 
 	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
@@ -13248,22 +13248,6 @@ org can chose to complete the task or send the instance back to a earlier task f
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                       
                   
