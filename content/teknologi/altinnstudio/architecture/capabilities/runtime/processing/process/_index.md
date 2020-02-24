@@ -1,13 +1,13 @@
 ---
-title: App Process
+title: Business Process Processing Capabilities
 linktitle: Process
-description: Description of the process handling of App Backend 
-tags: [app-backend]
+description: Description of the business process processing capabiltiies
+tags: [app-backend, BPMN]
 weight: 100
 ---
-A App deployed to Altinn Apps will typical have a process to follow. 
+A application deployed to Altinn Apps will typical have a business process that users and systems need to follow. 
 
-Altinn Apps uses [BPMN 2.0 standard](https://www.omg.org/spec/BPMN/2.0/) to describe the App Process and the App will have functionality
+Apps created in Altinn Studio uses [BPMN 2.0 standard](https://www.omg.org/spec/BPMN/2.0/) to describe the business process and the app will have functionality
 to support different types of tasks in the process.
 
 The process is defined by the application developer in Altinn Studio. When a new app is created it a [basic process]() is created. 
@@ -55,6 +55,9 @@ User controlled signing is a task where the data inputed in earliers task in pro
 ### Lookup  (backlog)
 This is a task in a process where user/system can lookup external data with help of inputs from UI or API.
 
+
+## State change
+The application is responsible to make sure that 
 
 
 ## Example process
@@ -104,13 +107,5 @@ can verify the data and then confirm it. The process is the moved to a external 
 org can chose to complete the task or send the instance back to a earlier task for correction of the data.
 
 
-## Process definition
-The process defintion is defined in a BPMN 2.0 file located in the app repository 
-
-To change the process the app developer need to modify the BPNM file manually.
-
-Later Altinn Studio will support creating and updating process through GUI.
-
-Later we
 
 
