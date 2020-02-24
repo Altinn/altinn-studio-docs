@@ -2,90 +2,32 @@
 title: App Process
 linktitle: Process
 description: Description of the process handling of App Backend 
-tags: [app-backend]
+tags: [process, BMPN]
 weight: 100
 ---
-A App deployed to Altinn Apps will typical have a process to follow. 
 
-Altinn Apps uses [BPMN 2.0 standard](https://www.omg.org/spec/BPMN/2.0/) to describe the App Process and the App will have functionality
-to support different types of tasks in the process.
+## Process API
+Apps created in Altinn Studio have a seperate Process API that exposes functionality to clients to controll the process.
 
-## Supported Tasks
-Altinn Studio / Altinn Apps / Altinn Platform will support different processes with different types of task as part of the process
-
-### Formfilling 
-This is the task where the user or system create and updates data for one more datamodelles defined for the App.
-
-### Confirmation (POST MVP)
-This is a task where user can look at the data filled and then confirm it. Replaces send in it 
-
-### ConfirmationAndSigning  (POST MVP)
-This is a task where user can look at the data filled and then confirm and sign data. Replaces send in it 
-
-### Payment (POST MVP)
-This is a task where user is redirected to a external payment provider to pay related to the process. The payment can be related to data
-filled out in earliers task, or can be a fixed value connected to the app. 
-
-### Paralell signing (POST MVP)
-This is a task where serverel users need/can sign the data in paralell. The task is completed when the needed amount of signatures has been 
-
-### Lookup  
-This is a task in a process where user/system can lookup external data with help of inputs from UI or API.
-
-## Example process
-There is some freedom of the order of task in the process, but not all combinations is functional valid.
-
-Each type of task will have som requirement to be fullfilled to be allowed to be completed. 
-
-The below diagram show some example processes that a App possible will support in the future. Even it is possible to technical order the different types of task 
-
-### Process: Formfilling
-
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example1.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
-{{% /excerpt%}}
-
-This is the a common process. In this scenario a user will typical fill out formdata and when formfilling task is completed the data will be marked as locked and the final data can be read from
-the org. The org will be able to read data before the formfilling task is completed, but then the end user can still update the data.
+[See github for source code](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/ProcessController.cs)
 
 
-### Process: Formfilling - Signing
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example2.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
-{{% /excerpt%}}
+## Process Service
+The process service is where the business logic for BPMN processing is located. It is responsible for verifying state, and changes of state
 
 
-This is the a common process. In this scenario a user will typical fill out formdata and when formfilling task is completed, the process is moved to a signing task where the user
-can verify the data and then confirm it with a signing of data.  Depending on the required security level for the application the signing will use PKI systems to digital sign the data or just
-be a more functional confirmation from the user.  The org will be able to read data before the formfilling task is completed, but then the end user can still update the data. 
-The data will not be allowed to be changed while the instance is in signing task.
+[See github for source code](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Implementation/ProcessAppSI.cs)
 
-### Process: Formfilling - Confirmation - Payment
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example3.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
-{{% /excerpt%}}
+## BPMN Reader
+BPMN reader is the component that parses BPMN process in apps.
 
-In this scenario a user will typical fill out formdata and when formfilling task is completed, the process is moved to a confirm task where the user
-can verify the data and then confirm, when the data is confirmed the process is moved to a payment task where the user needs to pay before the process is completed. 
-The payment functionality will be handled by external payment providers. The app will integrate with API's for the payment provider. Altinn runtime will support different payment providers.
+[See github for source code](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Common/Process/BpmnReader.cs)
 
-### Process: Formfilling - Confirmation - External validation
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 800px;"></object>
-{{% /excerpt%}}
+## Process Step App Frontend
+App frontends as a process step module that verifes current state for an app and present the correct view depending on task a app instance
 
-In this scenario a user or system will typical fill out formdata and when formfilling task is completed, the process is moved to a confirm task where the user
-can verify the data and then confirm it. The process is the moved to a external validation task where the org is doing validation. The
-org can chose to complete the task or send the instance back to a earlier task for correction of the data.
+[See github for source code](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppFrontend/react/altinn-app-frontend/src/components/process-step)
 
-
-## Process definition
-The process defintion is defined in a BPMN 2.0 file located in the app repository 
-
-To change the process the app developer need to modify the BPNM file manually.
-
-Later Altinn Studio will support creating and updating process through GUI.
-
-Later we
-
+## App Logic
+When app process changes state app logic is run making it possible for app developers to implements specific app logic.
 

@@ -1,7 +1,7 @@
 ---
 title: Business Process Processing Capabilities
 linktitle: Process
-description: Description of the business process processing capabiltiies
+description: Description of the business process processing capabilities
 tags: [app-backend, BPMN]
 weight: 100
 ---
@@ -50,6 +50,12 @@ This is a task where serverel users need/can sign the data in paralell. The task
 User controlled signing is a task where the data inputed in earliers task in process defines which users that needs to sign.
 
 [See GitHub issue for details](https://github.com/Altinn/altinn-studio/issues/1324)
+
+
+#### Digital Signing with BankId
+Digital signing with BankID creates a digital signature of the data for the instance.
+
+[See Github issue for details](https://github.com/Altinn/altinn-studio/issues/1326)
 
 
 ### Lookup  (backlog)
