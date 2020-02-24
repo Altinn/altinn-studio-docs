@@ -10,12 +10,13 @@ A App deployed to Altinn Apps will typical have a process to follow.
 Altinn Apps uses [BPMN 2.0 standard](https://www.omg.org/spec/BPMN/2.0/) to describe the App Process and the App will have functionality
 to support different types of tasks in the process.
 
+The process is defined by the application developer in Altinn Studio. When a new app is created it a [basic process](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/config/process/process.bpmn) is created. 
+
 ## Supported Tasks
 Altinn Studio / Altinn Apps / Altinn Platform will support different processes with different types of task as part of the process
 
-### Formfilling 
+### Data
 This is the task where the user or system create and updates data for one more datamodelles defined for the App.
-
 
 ### Confirmation (backlog)
 This is a task where user can look at the data filled and then confirm it. Replaces send in it 
@@ -26,6 +27,8 @@ This is a task where user can look at the data filled and then confirm and sign 
 ### Payment (backlog)
 This is a task where user is redirected to a external payment provider to pay related to the process. The payment can be related to data
 filled out in earliers task, or can be a fixed value connected to the app. 
+
+[See Github issue for details](https://github.com/Altinn/altinn-studio/issues/1321)
 
 ### Signing (backlog)
 Signing is a task where one or more users sign the data submitted. In most uses cases this is a strictly functional operation but depending
