@@ -9,8 +9,14 @@ alwaysopen: false
 ##	Processing Capabilities
 
 ### BPMN Process Execution
-As part of the Application design and build in Altinn Studio the application developer will define a BPMN Process for the given App. 
+As part of the Application design and build in Altinn Studio the application developer will [define a BPMN Process](/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/) for the given App. 
+
 The application framework used in the app template support reading and processing the process file. 
+
+[Read the details about BPMN processing capabilities](process).
+
+
+
 
 ## Execution Control & Failure Mgmt Capabilities
 
