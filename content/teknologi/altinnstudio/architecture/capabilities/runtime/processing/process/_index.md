@@ -10,7 +10,7 @@ A App deployed to Altinn Apps will typical have a process to follow.
 Altinn Apps uses [BPMN 2.0 standard](https://www.omg.org/spec/BPMN/2.0/) to describe the App Process and the App will have functionality
 to support different types of tasks in the process.
 
-The process is defined by the application developer in Altinn Studio. When a new app is created it a [basic process](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/config/process/process.bpmn) is created. 
+The process is defined by the application developer in Altinn Studio. When a new app is created it a [basic process]() is created. 
 
 ## Supported Tasks
 Altinn Studio / Altinn Apps / Altinn Platform will support different processes with different types of task as part of the process
@@ -64,7 +64,7 @@ Each type of task will have som requirement to be fullfilled to be allowed to be
 
 The below diagram show some example processes that a App possible will support in the future. Even it is possible to technical order the different types of task 
 
-### Process: Formfilling
+### Process: Data
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example1.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object>
@@ -74,7 +74,7 @@ This is the a common process. In this scenario a user will typical fill out form
 the org. The org will be able to read data before the formfilling task is completed, but then the end user can still update the data.
 
 
-### Process: Formfilling - Signing
+### Process: Data - Signing
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example2.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object>
 {{% /excerpt%}}
@@ -85,7 +85,7 @@ can verify the data and then confirm it with a signing of data.  Depending on th
 be a more functional confirmation from the user.  The org will be able to read data before the formfilling task is completed, but then the end user can still update the data. 
 The data will not be allowed to be changed while the instance is in signing task.
 
-### Process: Formfilling - Confirmation - Payment
+### Process: Data - Confirmation - Payment
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example3.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object>
 {{% /excerpt%}}
@@ -94,7 +94,7 @@ In this scenario a user will typical fill out formdata and when formfilling task
 can verify the data and then confirm, when the data is confirmed the process is moved to a payment task where the user needs to pay before the process is completed. 
 The payment functionality will be handled by external payment providers. The app will integrate with API's for the payment provider. Altinn runtime will support different payment providers.
 
-### Process: Formfilling - Confirmation - External validation
+### Process: Data - Confirmation - External validation
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/app-backend-process-example4.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object>
 {{% /excerpt%}}
