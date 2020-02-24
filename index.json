@@ -1299,7 +1299,7 @@
 	"title": "Application development capabilities",
 	"tags": ["architecture"],
 	"description": "Application development capabilities are capabilites that is used for developing applications in Altinn Studio",
-	"content": " Process definition The process defintion is defined in a BPMN 2.0 file located in the app repository\nTo change the process the app developer need to modify the BPNM file manually.\nLater Altinn Studio will support creating and updating process through GUI.\nLater we\n"
+	"content": " Code Creation Altinn Studio lets the application developer create custom code in the Application.\nWith help of third party IDE like Visual Studio Code , the developer can create code from local development machine.\nProcess definition The process defintion is defined in a BPMN 2.0 file located in the app repository\nTo change the process the app developer need to modify the BPNM file manually.\nLater Altinn Studio will support creating and updating process through GUI.\nSource control In Altinn Repository the app developer can check in their source code for the different apps.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/",
