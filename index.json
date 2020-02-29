@@ -164,8 +164,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/",
 	"title": "Solutions",
 	"tags": [],
-	"description": "Altinn Studio, together with Altinn Apps and Altinn Platform is the solutions that makes a complete application development and hosting platform.",
-	"content": "\r\n\rAltinn Studio\rThe design-time solution for developing, testing and maintaining applications.\n\r\rAltinn Apps\rAltinn Apps is the solution where all the apps created in Altinn Studio is hosted.\n\r\rAltinn Platform\rAltinn Platform is the solution where the supporting platform functionality resides.\n\r\rALtinn CLI\rALtinn CLI is a command line application that can be used by service owneres to access Altinn Api\u0026#39;s. The application has as standard implemented functions for creating Altinn Applications and insatnces, functions for fetch and store application data. ALtinn CLI can be found on the GIT repo https://github.com/Altinn/altinn-cli. The application can be used as standrad or extended with custom function devloped by the service owners themselves.\n\r\r"
+	"description": "The latest generation Altinn platform consist of 3 solutions.",
+	"content": "\r\n\rAltinn Studio\rAltinn Studio is the design-time solution for developing, testing and maintaining applications. Developers can create and modify applications, build and manage deploy of apps.\n\r\rAltinn Platform\rAltinn Platform contains reusable components with central functionality that can be reused by apps. This includes storage, authentication, authorization and serveral more.\n\r\rAltinn Apps\rAltinn Apps is the solution where all the apps created in Altinn Studio is hosted.\n\r\rALtinn CLI\rALtinn CLI is a command line application that can be used by service owneres to access Altinn Api\u0026#39;s. The application has as standard implemented functions for creating Altinn Applications and insatnces, functions for fetch and store application data. ALtinn CLI can be found on the GIT repo https://github.com/Altinn/altinn-cli. The application can be used as standrad or extended with custom function devloped by the service owners themselves.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/generell-systemdokumentasjon/",
@@ -346,7 +346,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/",
 	"title": "Altinn Studio",
 	"tags": [],
-	"description": "The design-time solution for developing, testing and maintaining applications.",
+	"description": "Altinn Studio is the design-time solution for developing, testing and maintaining applications. Developers can create and modify applications, build and manage deploy of apps.",
 	"content": "Altinn Studio is a user friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists and workflow steps.\nIn the background Altinn Studio uses Git to communicate with Altinn Studio Repos to store the files created as part of the app, the same way a technical app developer might use Visual Studio Code or other IDE to do the same.\n\rFunctionality in Altinn Studio\rAltinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.\n\r\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\r"
 },
 {
@@ -1309,6 +1309,13 @@
 	"content": " Operating systems Container Operation Systems All containers are running on Alpine Linux, which includes apps created in Altinn Studio and the Altinn Platform components.\nCloud Platform Orchestrating \u0026amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.\nWe use Azure Kubernetes Services that is a managed Kubernetes administration in Azure.\nRead more about our Kubernetes Clusters\nService Mesh \u0026amp; Proxy We use Traefik as Proxy in the Kubernetes.\nCurrently we dont use Service Mest technolgies\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/",
+	"title": "Altinn Platform",
+	"tags": ["altinn-apps"],
+	"description": "Altinn Platform contains reusable components with central functionality that can be reused by apps. This includes storage, authentication, authorization and serveral more.",
+	"content": "The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\nSee below for details about each component.\n\rAuthentication\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.\n\r\rAuthorization\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.\n\r\rPDF\rThe PDF component is responsible for generating PDF printouts for submitted instances of an app.\n\r\rProfile\rThe Profile component gives profile information for users in Altinn.\n\r\rReceipt\rThe Receipt component in Altinn Platform presents a receipt for apps\n\r\rRegister\rThe Register micro service gives register information to Apps.\n\r\rStorage\rThe Storage component gives storage capabilities to the apps.\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/",
 	"title": "Application build &amp; deploy capabilties",
 	"tags": ["architecture"],
@@ -1337,6 +1344,13 @@
 	"content": " Altinn Studio is based on Material-UI, a UI components library that focus exclusively on the React library. At this point the SBL-forms are based on Bootstrap. This might change in the future in order to support more sophisticated forms and the possibilty to write forms in other languages than React + Bootstrap.\nBoth the forms that are produced and the editor will have the possibilty to change theme. By default Altinn Studio will use the Altinn theme. The theme will at this point only change colors and fonts in Altinn Studio. The colors are base on the altinn color palette.\nCSS Components are devided into two groups. Shared components that is used several times and should be accessible for several apps. And components that are specific for one app or view. CSS for a component is set in its representative tsx-file with paramethers linking to the theme.\nHow to change theme Changing the theme without having to do alot of changes to the code is post-MVP.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/",
+	"title": "Altinn Apps",
+	"tags": ["solution", "apps"],
+	"description": "Altinn Apps is the solution where all the apps created in Altinn Studio is hosted.",
+	"content": "Altinn Apps is build around Kubernetes and Docker and every app hosted in Altinn Apps needs to be a deployed in a Docker Container.\nThe infrastructure is Public Cloud based and every org has a separate and isolated Kubernetes Cluster.\n\rApp\rDescription of the app created in Altinn Studio and that is deployed to Altinn Apps.\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
 	"title": "Environments",
 	"tags": ["architecture"],
@@ -1363,20 +1377,6 @@
 	"tags": ["altinn-apps"],
 	"description": "Description of ASP.NET Web based App template for Altinn Apps",
 	"content": "This template is based on a ASP.NET Core Web application with Rest APIs\nIt is integrated with Altinn Platform making it easy to utilize the functionality provided in Altinn Platform like storage, authentication, authorization and other components.\nFor web applications that need a web based UI, it has a React based frontend that can be configured in Altinn Studio.\nASP.Net Core is a cross-platform, high performance, open-source framework for building modern cloud-based, Internet-connected application.\nTogether with the added Altinn functionality in the template, it is a effective platform to build applications powered by Altinn Platform.\nApplications based on this templates are buildt as Docker Containers and hosted in Kubernetes.\n"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/",
-	"title": "Altinn Apps",
-	"tags": ["solution", "apps"],
-	"description": "Altinn Apps is the solution where all the apps created in Altinn Studio is hosted.",
-	"content": "Altinn Apps is build around Kubernetes and Docker and every app hosted in Altinn Apps needs to be a deployed in a Docker Container.\nThe infrastructure is Public Cloud based and every org has a separate and isolated Kubernetes Cluster.\n\rApp\rDescription of the app created in Altinn Studio and that is deployed to Altinn Apps.\n\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/",
-	"title": "Altinn Platform",
-	"tags": ["altinn-apps"],
-	"description": "Altinn Platform is the solution where the supporting platform functionality resides.",
-	"content": "The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps. The components are deployed as microservices.\nSee below for details about each component.\n\rAuthentication\rThe authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.\n\r\rAuthorization\rThe authorization component is used by Altinn Apps and Altinn Platform to authorize users and system.\n\r\rPDF\rThe PDF component is responsible for generating PDF printouts for submitted instances of an app.\n\r\rProfile\rThe Profile component gives profile information for users in Altinn.\n\r\rReceipt\rThe Receipt component in Altinn Platform presents a receipt for apps\n\r\rRegister\rThe Register micro service gives register information to Apps.\n\r\rStorage\rThe Storage component gives storage capabilities to the apps.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/",
