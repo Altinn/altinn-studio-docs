@@ -4,7 +4,7 @@ description: Altinn Apps is the solution where all the apps created in Altinn St
 tags: [solution, apps]
 aliases:
     - "/altinn-studio-apps"
-weight: 200
+weight: 110
 ---
 
 Altinn Apps is build around Kubernetes and Docker and every app hosted in Altinn Apps needs to be a deployed in a Docker Container. 

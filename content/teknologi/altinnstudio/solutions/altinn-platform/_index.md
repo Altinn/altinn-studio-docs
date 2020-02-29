@@ -1,8 +1,8 @@
 ---
 title: Altinn Platform
-description: Altinn Platform is the solution where the supporting platform functionality resides.
+description: Altinn Platform contains reusable components with central functionality that can be reused by apps. This includes storage, authentication, authorization and serveral more.
 tags: [altinn-apps]
-weight: 200
+weight: 105
 ---
 The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps.
 The components are deployed as microservices.

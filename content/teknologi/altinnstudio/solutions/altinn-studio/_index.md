@@ -1,6 +1,6 @@
 ---
 title: Altinn Studio
-description: The design-time solution for developing, testing and maintaining applications.
+description: Altinn Studio is the design-time solution for developing, testing and maintaining applications. Developers can create and modify applications, build and manage deploy of apps.  
 aliases:
     - "/altinn-studio"
 weight: 100
