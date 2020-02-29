@@ -1,6 +1,6 @@
 ---
 title: Solutions
-description: The latest generation Altinn platform consist of 3 solutions.
+description: The latest generation Altinn platform consist of serveral solutions.
 weight: 10
 alwaysopen: false
 aliases:

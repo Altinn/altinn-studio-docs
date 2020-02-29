@@ -4,7 +4,7 @@ description: Altinn Platform contains reusable components with central functiona
 tags: [altinn-apps]
 weight: 105
 ---
-The Altinn Platform consist of several reusable components that support apps deployed in Altinn Apps.
+
 The components are deployed as microservices.
 
 See below for details about each component.
