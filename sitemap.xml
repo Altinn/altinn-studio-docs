@@ -351,6 +351,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/</loc>
   </url>
   
@@ -956,11 +960,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/define-process/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/</loc>
-    <priority>0</priority>
   </url>
   
   <url>

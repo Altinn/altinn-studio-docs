@@ -347,7 +347,7 @@
 	"title": "Altinn Studio",
 	"tags": [],
 	"description": "Altinn Studio is the design-time solution for developing, maintaining, building and deploying applications. Applications created can target both simple and complex user scenarios and have a modern web native architecture.",
-	"content": "Altinn Studio is a user-friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists, and process tasks.\nAltinn Studio contains In the background, Altinn Studio uses Git to communicate with Altinn Studio Repos to store the files created as part of the app, the same way a technical app developer might use Visual Studio Code or other IDE to do the same.\n\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\rDesigner\r\n\r\r"
+	"content": "Altinn Studio is a user-friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists, and process tasks.\nAltinn Studio consist of serveral parts.\nThe designer part of Altinn Studio is the functionality that is provided for building and depoloying apps. In the background, designer uses Git to communicate with Altinn Studio Repos to store the files created as part of the app, the same way a technical app developer might use Visual Studio Code or other third party IDE to do the same.\n\rDesigner\rThe designer part of Altinn Studio is where developers create, modify, build and manage deployment of applications. In the background it uses GIT to store code and config for applications in Altinn Studio Repos.\n\r\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/",
@@ -607,6 +607,13 @@
 	"tags": [],
 	"description": "This application constructions components for designer application describes the frameworks used, the code structure and other information about how designer is constructed",
 	"content": "Designer is split in two applications. One frontend created in REACT that communicates with the back-end application through rest-API.\n\rAltinn Studio Designer - Back-end\rApplication construction components used in Altinn Studio Designer backend\n\r\rApplication construction components - Designer Front-end\rDescription of the application construction components for Altinn Studio Designer Front-end\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/",
+	"title": "Designer",
+	"tags": ["altinn-repos"],
+	"description": "The designer part of Altinn Studio is where developers create, modify, build and manage deployment of applications. In the background it uses GIT to store code and config for applications in Altinn Studio Repos.",
+	"content": "\r\rFunctionality in Altinn Studio\rAltinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/",
@@ -1664,13 +1671,6 @@
 	"tags": ["process"],
 	"description": "As part of the development one must define a process for the app that end user needs to follow.",
 	"content": " A app will typical have a process that a end user / or system needs to follow. It could be anything from a single task process where the app is used to retrieve data from some external api, to long living processes with many tasks involving.\nIn Altinn Studio the developer will need to define the process for the app.\nIn current version of Altinn Studio the only support for process definition is to upload a BPMN process file and the only task type we support are FormFilling\n[See Process Architecture for more details how process is defined)(https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/process/)\nSee all issues related to Altinn Studio and workflow on Github.\nInstansiations hooks Instansiation is the event that triggers a new instance of a App and starts the process for that instance.\nRelated to this event a developer can set instansiations hooks that are triggered when a new process is started.\nSee Github for issues related to instansiation\n"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/",
-	"title": "Designer",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/docker/",
