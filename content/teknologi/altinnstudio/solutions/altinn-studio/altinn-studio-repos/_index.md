@@ -4,7 +4,7 @@ description: The Git repository solution for storing and versioning apps develop
 tags: [altinn-repos]
 aliases:
     - "/altinn-studio-repos"
-weight: 300
+weight: 101
 --- 
 
 {{% children description="true" depth="1" %}}
