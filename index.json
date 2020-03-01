@@ -347,7 +347,7 @@
 	"title": "Altinn Studio",
 	"tags": [],
 	"description": "Altinn Studio is the design-time solution for developing, maintaining, building and deploying applications. Applications created can target both simple and complex user scenarios and have a modern web native architecture.",
-	"content": "Altinn Studio is a user-friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists, and process tasks.\nAltinn Studio consist of serveral parts.\nThe designer part of Altinn Studio is the functionality that is provided for building and depoloying apps. In the background, designer uses Git to communicate with Altinn Studio Repos to store the files created as part of the app, the same way a technical app developer might use Visual Studio Code or other third party IDE to do the same.\n\rDesigner\rThe designer part of Altinn Studio is where developers create, modify, build and manage deployment of applications. In the background it uses GIT to store code and config for applications in Altinn Studio Repos.\n\r\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\r"
+	"content": "Altinn Studio is a user-friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists, and process tasks.\nAltinn Studio consist of serveral parts.\n\rDesigner\rThe designer part of Altinn Studio is where developers create, modify, build and manage deployment of applications. In the background it uses GIT to store code and config for applications in Altinn Studio Repos.\n\r\rThird Party Tools\rOne important aspect of the Altinn Studio is that we encourage to use third party development tools to create and modify applications.\n\r\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/altinnservice-projectfile/",
@@ -1118,6 +1118,13 @@
 	"tags": ["development", "testing"],
 	"description": "How to write and maintain testcafe tests",
 	"content": " This document describes how one can start writing tests on a test cafe project , and debug of the tests.\nProcedure to write general testcafe test  Find a test case and area that has to be automated. Find the \u0026lsquo;-tests.js\u0026rsquo; file that the test case has to be added or create a new folder and new .js file for the test under src/test/Testcafe. Identify and add the page objects with the selectors information under respective file under src/test/Testcafe/page-objects. Identify the need for methods that can be reused by other tests and add it under the page object file. Each \u0026lsquo;-tests.js\u0026rsquo; file has headers that import the necessary page objects. Fixtures innholds URL, before and aftereach test procedures. Test cafe tests has a basic format as below.   Debug Tests  Use \u0026rsquo;t.debug()\u0026rsquo; in a testcafe test to start debugging of the test. Use breakpoints for the steps to be debugged. Use \u0026lsquo;console.log(variable_name)\u0026rsquo; to find the runtime value of an variable - which will be logged in VS Code Terminal.  Rename the test to “test.only” - this will only run the specific test case. in testRunner.js, Set “chrome” as browser, Reduce the speed to 0.8 (percentage), debugOnFail : True, stopOnFirstFail: True Use \u0026lsquo;\u0026ndash;inspect \u0026ndash;debug-brk\u0026rsquo; in the command line when starting the tests. Check for the logs in junit.xml. Testcafe continues to work towards implementing a method to debug an application interactively. Refer: https://github.com/DevExpress/testcafe/issues/3244  Basics on POM and Selectors 1. config.json has the URLs 2. Use of objects from POM i. Import page – 'import page_name from path_to_the_file ii. Declare an object for the page - let object_name = new page_name(); 4. Selectors a. Id – starts with ‘#’ b. Class – starts with ‘.’ c. Html -\u0026gt; “ul \u0026gt; li” 5. test.skip – to skip a test in a test run (The results for the tests goes to Others)  More about Selectors\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/",
+	"title": "Third Party Tools",
+	"tags": ["third party tools"],
+	"description": "One important aspect of the Altinn Studio is that we encourage to use third party development tools to create and modify applications.",
+	"content": "Since application code and config is versioned in Altinn Studio Repos and that is a GIT based source control any development tool with GIT support can clone application repository to local develoment machine.\nIn addition the application is based on a asp.net core web application that is supported in tools like Visual Studio Code.\n\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/",
@@ -2368,6 +2375,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/testing/",
 	"title": "testing",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/third-party-tools/",
+	"title": "third party tools",
 	"tags": [],
 	"description": "",
 	"content": ""
