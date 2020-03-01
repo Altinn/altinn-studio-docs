@@ -1,10 +1,10 @@
 ---
-title: Functionality in Altinn Studio
+title: Functionality
 linktitle: Functionality
-description: Altinn Studio can been seen as a collection of different editors or applications specialized to create and edit different aspects of an Altinn Studio app.
+description: The designer can been seen as a collection of different editors or applications specialized to create and edit different aspects of the created applications.
 weight: 100
 ---
 
-The output from Altinn Studio will be files that is version controlled in [Altinn Studio Repos](/altinn-studio-repos).
+This aspects are controlled by code and configurations that is stored in source control in [Altinn Studio Repos](/altinn-studio-repos).
 
 {{% children description="true" depth="1" %}}
