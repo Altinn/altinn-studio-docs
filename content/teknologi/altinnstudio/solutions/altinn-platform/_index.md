@@ -1,6 +1,6 @@
 ---
 title: Altinn Platform
-description: Altinn Platform contains reusable components with central functionality that can be reused by apps. This includes storage, authentication, authorization and serveral more.
+description: Altinn Platform contains components with central functionality that can be used by apps. This includes storage, authentication, authorization and serveral more.
 tags: [altinn-apps]
 weight: 105
 ---
