@@ -14,9 +14,4 @@ and process tasks.
 
 Altinn Studio consist of serveral parts.
 
-The designer part of Altinn Studio is the functionality that is provided for building and depoloying apps.
-In the background, designer uses Git to communicate with [Altinn Studio Repos](/altinn-studio-repos) to store
-the files created as part of the app, the same way a technical app developer
-might use Visual Studio Code or other third party IDE to do the same.
-
 {{% children description="true" depth="1" %}}
