@@ -48,6 +48,9 @@ to run on the platform.
 - Formats and frameworks used need to follow standards
 - We use [JWT](http://jwt.io/) in authentication cookies
 
+
+![Modern platform](modernplatform.png)
+
 ### Build with modern and popular frameworks
 
 **Principle**

@@ -13,7 +13,7 @@ ER registeret can be used to prefill information, retrieve information based on 
 
 Altinn Platform does not have a own copy of ER. It currently uses Altinn II plaform as source for register.
 
-See [Application architecture](/architecture/applicaion/altinn-platform/register) for details.
+See [Application architecture](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/) for details.
 
 
 [See all open issues for Register on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fregister)
