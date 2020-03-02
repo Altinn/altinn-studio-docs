@@ -165,7 +165,7 @@
 	"title": "Solutions",
 	"tags": [],
 	"description": "The latest generation Altinn platform consist of serveral solutions.",
-	"content": "\r\n\rAltinn Studio\rAltinn Studio is the design-time solution for developing, maintaining, building and deploying applications. Applications created can target both simple and complex user scenarios and have a modern web native architecture.\n\r\rAltinn Platform\rAltinn Platform contains components with central functionality that can be used by apps. This includes storage, authentication, authorization and serveral more.\n\r\rAltinn Apps\rAltinn Apps is a flexible, scalable and isolated hosting solution where apps created in Altinn Studio is deployed. Based on Kubernetes and docker.\n\r\rAltinn CLI\rALtinn CLI is a command line application that can be used by service owneres to access Altinn Api\u0026#39;s. The application has as standard implemented functions for creating Altinn Applications and insatnces, functions for fetch and store application data. ALtinn CLI can be found on the GIT repo https://github.com/Altinn/altinn-cli. The application can be used as standrad or extended with custom function devloped by the service owners themselves.\n\r\r"
+	"content": "\r\n\rAltinn Studio\rAltinn Studio is the design-time solution for developing, maintaining, building and deploying applications. Applications created can target both simple and complex user scenarios and have a modern web native architecture.\n\r\rAltinn Platform\rAltinn Platform contains components with central functionality that can be used by apps. This includes storage, authentication, authorization and serveral more.\n\r\rAltinn Apps\rAltinn Apps is a flexible, scalable and isolated hosting solution where apps created in Altinn Studio is deployed. The applications has a web native architecture and is deployed to Kubernetes Clusters as docker containers.\n\r\rAltinn CLI\rALtinn CLI is a command line application that can be used by service owneres to access Altinn Api\u0026#39;s. The application has as standard implemented functions for creating Altinn Applications and insatnces, functions for fetch and store application data. ALtinn CLI can be found on the GIT repo https://github.com/Altinn/altinn-cli. The application can be used as standrad or extended with custom function devloped by the service owners themselves.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/generell-systemdokumentasjon/",
@@ -1375,8 +1375,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/",
 	"title": "Altinn Apps",
 	"tags": ["solution", "apps"],
-	"description": "Altinn Apps is a flexible, scalable and isolated hosting solution where apps created in Altinn Studio is deployed. Based on Kubernetes and docker.",
-	"content": "The infrastructure is Public Cloud based and every org has a separate and isolated Kubernetes Cluster.\n\rApp\rDescription of the app created in Altinn Studio and that is deployed to Altinn Apps.\n\r\r"
+	"description": "Altinn Apps is a flexible, scalable and isolated hosting solution where apps created in Altinn Studio is deployed. The applications has a web native architecture and is deployed to Kubernetes Clusters as docker containers.",
+	"content": "The Kubernetes clusters are isolated between the different applications owners and hosted in a public cloud solution making it highly scalable.\n\rApp\rDescription of the app created in Altinn Studio and that is deployed to Altinn Apps.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
