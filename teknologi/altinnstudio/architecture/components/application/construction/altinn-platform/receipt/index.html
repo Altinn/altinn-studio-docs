@@ -643,6 +643,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/">
+        <span>Dashboard</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/" class="dd-item 
         
         
@@ -1074,64 +1103,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/">
-        <span>Dashboard</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/test/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/test/">
-        <span>Testing</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/version-control/" class="dd-item 
         
         
@@ -1154,35 +1125,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/work-in-progress/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/work-in-progress/">
-        <span>Work in progress</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1194,35 +1136,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/">
-        <span>Third Party Tools</span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -1723,6 +1636,35 @@ if(host != "localhost")
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/">
+        <span>Third Party Tools</span>
+
+        
+
+        
+        
+
+        
+      </a>
               
     </li>
   
@@ -9157,20 +9099,40 @@ if(host != "localhost")
 
 
 
-<p>The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.</p>
+<p>The receipt component is an .NET Core MVC Application exposing a react receipt application, and internal apis.</p>
 
-<p>The receipt frontend view is available at <code>http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}</code>,
-example <a href="https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b">https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b</a>
-The receipt component also exposes an api which is available at <code>http://at21.platform.altinn.cloud/receipt/api/v1</code>, where available resources are defined below. This api is intended for
-use by the receipt frontend, if you need information about the user you should <a href="/architecture/application/altinn-platform/profile">use the profile component.</a></p>
+<p>The receipt frontend view is available at <code>https://platform.at22.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}</code>.
+The receipt component also exposes apis that are intended for use by the receipt frontend. If you need information about the user, instance or party you should use <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/">their respective platform components.</a></p>
+
+<p>Receipt backend exposes two enitities through API endpoints prefixed with <code>https://platform.at22.altinn.cloud/receipt/api/v1/</code>; <em>user</em> and <em>extendedInstance</em></p>
 
 <h2 id="users">/users</h2>
 
 <p>A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.</p>
 
+<h3 id="operations">Operations</h3>
+
 <p>Get information about the currently logged in user</p>
 
 <pre><code class="language-http">/users/current
+</code></pre>
+
+<h2 id="extendedinstance">/extendedinstance</h2>
+
+<p>The extended instance object holds metadata about and instance and party data related to the instance owner.</p>
+
+<pre><code class="language-json">{
+    &quot;instance&quot;: {},
+    &quot;party&quot;: {}
+}
+</code></pre>
+
+<h2 id="operations-1">Operations</h2>
+
+<p>Get instance and party data for a given instance id.
+It is optional to include the party data, and this can be regulated using the query parameter <em>includeParty</em>.</p>
+
+<pre><code class="language-http">/instances/{instanceOwnerPartyId}/{instanceGuid}?includeParty={true/false}
 </code></pre>
 
 
@@ -9462,6 +9424,22 @@ use by the receipt frontend, if you need information about the user you should <
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -9694,72 +9672,8 @@ use by the receipt frontend, if you need information about the user you should <
                       
                   
                               
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
                       
                   
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   
@@ -10020,6 +9934,22 @@ use by the receipt frontend, if you need information about the user you should <
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   

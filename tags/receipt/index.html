@@ -643,6 +643,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/">
+        <span>Dashboard</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/" class="dd-item 
         
         
@@ -1074,64 +1103,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/">
-        <span>Dashboard</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/test/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/test/">
-        <span>Testing</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/version-control/" class="dd-item 
         
         
@@ -1154,35 +1125,6 @@ if(host != "localhost")
 
             
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/work-in-progress/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/work-in-progress/">
-        <span>Work in progress</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -1194,35 +1136,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/">
-        <span>Third Party Tools</span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -1723,6 +1636,35 @@ if(host != "localhost")
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/">
+        <span>Third Party Tools</span>
+
+        
+
+        
+        
+
+        
+      </a>
               
     </li>
   
@@ -9128,8 +9070,9 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The profile component is an .NET Core MVC Application exposing a react receipt application, and an internal api for getting the current user.
-The receipt frontend view is available at http://at21.platform.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}, example https://platform.at21.altinn.cloud/receipt/50002121/a78b3029-009b-4fbc-995d-d8d2abf6f74b The receipt component also exposes an api which is available at http://at21.platform.altinn.cloud/receipt/api/v1, where available resources are defined below. This api is intended for use by the receipt frontend, if you need information about the user you should use the profile component. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/">&raquo;</a></p>
+        <p>The receipt component is an .NET Core MVC Application exposing a react receipt application, and internal apis.
+The receipt frontend view is available at https://platform.at22.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}. The receipt component also exposes apis that are intended for use by the receipt frontend. If you need information about the user, instance or party you should use their respective platform components.
+Receipt backend exposes two enitities through API endpoints prefixed with https://platform.at22.altinn.cloud/receipt/api/v1/; user and extendedInstance <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -9437,6 +9380,22 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -9669,72 +9628,8 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                       
                   
                               
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
                       
                   
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   
@@ -9995,6 +9890,22 @@ The receipt frontend view is available at http://at21.platform.altinn.cloud/rece
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   

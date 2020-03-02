@@ -299,10 +299,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/calculationhandler/</loc>
   </url>
   
@@ -332,6 +328,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/</loc>
   </url>
   
   <url>
@@ -643,10 +643,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/</loc>
   </url>
   
@@ -691,6 +687,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/</loc>
   </url>
   
@@ -732,6 +736,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/storage/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/</loc>
   </url>
   
   <url>
@@ -867,10 +875,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/cli/</loc>
   </url>
   
@@ -952,10 +956,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/code-editor/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/</loc>
   </url>
   
   <url>
@@ -1082,10 +1082,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/test/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/text/</loc>
   </url>
   
@@ -1115,10 +1111,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/vs-code/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/work-in-progress/</loc>
   </url>
   
   <url>
@@ -1463,11 +1455,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/ui-designer/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/tags/wip/</loc>
     <priority>0</priority>
   </url>
   
