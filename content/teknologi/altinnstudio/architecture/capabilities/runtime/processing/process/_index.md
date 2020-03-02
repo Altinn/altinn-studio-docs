@@ -10,10 +10,11 @@ A application deployed to Altinn Apps will typical have a business process that 
 Apps created in Altinn Studio uses [BPMN 2.0 standard](https://www.omg.org/spec/BPMN/2.0/) to describe the business process and the app will have functionality
 to support different types of tasks in the process.
 
-The process is defined by the application developer in Altinn Studio. When a new app is created it a [basic process]() is created. 
+The process is defined by the application developer in Altinn Studio. When a new app is created it a [basic process](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/config/process/process.bpmn) is created. 
 
 ## Supported Tasks
-Altinn Studio / Altinn Apps / Altinn Platform will support different processes with different types of task as part of the process
+Applications will support different processes with different types of task as part of the process.
+The current types of tasks is implemented and planned to be implemented. This list is not final.
 
 ### Data
 This is the task where the user or system create and updates data for one more datamodelles defined for the App.
