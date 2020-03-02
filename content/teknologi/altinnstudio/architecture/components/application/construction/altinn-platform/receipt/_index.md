@@ -26,9 +26,17 @@ Get information about the currently logged in user
 ## /extendedinstance
 The extended instance object holds metadata about and instance and party data related to the instance owner.
 
+```json
+{
+    "instance": {},
+    "party": {}
+}
+```
 
 ## Operations
-Get instance and party data for a given instance. Including the party object is optional and regulated using the query parameter _includeParty_. 
+Get instance and party data for a given instance id.
+It is optional to include the party data, and this can be regulated using the query parameter _includeParty_.
+
 
 ```http
 /instances/{instanceOwnerPartyId}/{instanceGuid}?includeParty={true/false}
