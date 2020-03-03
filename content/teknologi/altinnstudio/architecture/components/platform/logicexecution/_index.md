@@ -13,7 +13,7 @@ alwaysopen: false
 For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. 
 [Read more about Kestrel at Microsoft](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/)
 
-For J2EE Applications we use [Spring Boot](https://spring.io/projects/spring-boot).
+For Java Applications we use [Tomcat](http://tomcat.apache.org/).
 
 
 ### Language Virtual Machines & Code Containers
@@ -21,7 +21,7 @@ For J2EE Applications we use [Spring Boot](https://spring.io/projects/spring-boo
 Applicatons in Altinn Studio, Altinn Apps and Altinn Platform that is based on .Net Core uses [Common Language Runetime](https://docs.microsoft.com/en-us/dotnet/standard/clr)
 as a virual machine
 
-Applications in Altinn Apps and Altinn Platform that is based on J2EE runs on [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_virtual_machine).
+Applications in Altinn Apps and Altinn Platform that is based on Java runs on [Java Virtual Machine](https://en.wikipedia.org/wiki/Java_virtual_machine).
 
 
 ## Run-time Frameworks & Libraries
@@ -34,7 +34,7 @@ programmed with [C# programming language](https://en.wikipedia.org/wiki/C_Sharp_
 
 This is open source, multi platform and popular. 
 
-For PDF component we use [J2EE](https://en.wikipedia.org/wiki/Java_Platform,_Enterprise_Edition). This is because the lack of open source PDF frameworks on .Net. 
+For PDF component we use [Spring Boot](https://spring.io/projects/spring-boot) /[Java Open JDK](https://openjdk.java.net/) This is because the lack of open source PDF frameworks on .Net. 
 
 ### Utility & Security Libraries
 
