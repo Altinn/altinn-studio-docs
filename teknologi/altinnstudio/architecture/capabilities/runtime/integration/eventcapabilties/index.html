@@ -9126,12 +9126,12 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" ><p>This is work-in-progress.</p>
+<div class="notices warning" ><p>This is work-in-progress. The event driven architecture is still in analysis.</p>
 </div>
 
 
 <p>The new generation Altinn is moving to an event driven architecture. This means that Altinn Platform and Altinn Apps will publish events that
-organizations and parties can subscribe to.</p>
+organizations and parties(citiezens and businesses) can subscribe to.</p>
 
 <h2 id="overall-concept">Overall Concept</h2>
 
@@ -9184,6 +9184,198 @@ skd/skattemelding/234234/GSFDSG3gesgsrgsdr Completed</p>
 <li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. This could be relevant to push to the event feed.</li>
 <li>Application logic events - This is events where app developers could implement logic to get a specific behavoiour. Calculation, validation ++ This types of event is probably not relevant to push to the event feed.</li>
 </ul>
+
+<h2 id="possible-solutions">Possible solutions</h2>
+
+<h3 id="rest-api-cosmos-db">REST API &amp; Cosmos DB</h3>
+
+<p>Currently there exist no API where orgs or end user can query events without knowing the instanceid where the event happened. For orgs this is impossbile to use directlyt since instanceid is not known</p>
+
+<p>There is create a issue for analyze and implement the needed API&rsquo;s  #3783</p>
+
+<h3 id="azure-event-hub">Azure Event Hub</h3>
+
+<p>Azure Event Hub is a Event ingestion service.  It can receive and process millions of events per second.</p>
+
+<p>Each Subscription can have 100 Event Hub Namespaces
+Each Namespace can have 10 Event Hubs</p>
+
+<p>Meaning for each Subscription we can have 1000 Event Hubs,</p>
+
+<p><img src="https://user-images.githubusercontent.com/13309071/75520779-a43d3600-5a06-11ea-94d7-c2b0fe856e8a.png" alt="image" /></p>
+
+<p>Subscribers to Hubs use <a href="https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol">AMQP 1.0</a>  protocol to read the event feed.</p>
+
+<h4 id="event-format-data">Event format data</h4>
+
+<p>The events can be any JSON format or text</p>
+
+<h4 id="event-filtering">Event filtering</h4>
+
+<p>There is no way to filter events before they are read at the subscriber.</p>
+
+<h4 id="subscribers">Subscribers</h4>
+
+<p>Subscribers need to have a SAS key for accessing the event hub.</p>
+
+<p>The client needs to use AMQB 1.0 standard.</p>
+
+<h4 id="to-be-analyzed">To be Analyzed</h4>
+
+<ul>
+<li>Is it a problem that one org knows about other orgs events? (Probably)</li>
+<li>How many hubs is needed?
+
+<ul>
+<li>One Hub for the whole solution</li>
+<li>One Hub per Org?</li>
+<li>One Hub per App/Org?</li>
+</ul></li>
+<li>Which subscription should be used? (probably one hub per org and put under the orgs subscription)</li>
+<li>What time of time retention is needed?</li>
+<li>Should we capture the events to storage? (org storage)</li>
+<li>Is event hub a solution to give parties their own feed? Probably not the number of event hubs would be limited, and we would not be able to share feeds between parties.</li>
+</ul>
+
+<h3 id="azure-event-grid">Azure Event Grid</h3>
+
+<p>Event Grid is an eventing backplane that enables event-driven, reactive programming. It uses a publish-subscribe model. Publishers emit events but have no expectation about which events are handled. Subscribers decide which events they want to handle.</p>
+
+<p>Azure Event Grid can listen to an event for Azure Services, but in our scenario, Altinn Apps and Altinn Platform would create custom events that they post to topics.</p>
+
+<p>Systems can subscribe to different topics.</p>
+
+<p><img src="https://user-images.githubusercontent.com/13309071/75542052-5254da00-5a1f-11ea-8685-47e4b51d683a.png" alt="image" /></p>
+
+<p>Event Grid supports dead-lettering for events that aren&rsquo;t delivered to an endpoint.</p>
+
+<h4 id="quotas">Quotas</h4>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Limit</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Custom topics per Azure subscription</td>
+<td>100</td>
+</tr>
+
+<tr>
+<td>Event subscriptions per topic</td>
+<td>500</td>
+</tr>
+
+<tr>
+<td>Publish rate for a custom topic (ingress)</td>
+<td>5,000 events per second per topic</td>
+</tr>
+
+<tr>
+<td>Publish requests</td>
+<td>250 per second</td>
+</tr>
+
+<tr>
+<td>Event size</td>
+<td>1 MB (charged in as multiple 64-KB events)</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="event-format-data-1">Event format data</h4>
+
+<p>The events needs to follo the <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</p>
+
+<pre><code class="language-json">[
+  {
+    &quot;topic&quot;: string,
+    &quot;subject&quot;: string,
+    &quot;id&quot;: string,
+    &quot;eventType&quot;: string,
+    &quot;eventTime&quot;: string,
+    &quot;data&quot;:{
+      object-unique-to-each-publisher
+    },
+    &quot;dataVersion&quot;: string,
+    &quot;metadataVersion&quot;: string
+  }
+]
+</code></pre>
+
+<pre><code class="language-json">[{
+  &quot;id&quot;: &quot;1807&quot;,
+  &quot;eventType&quot;: &quot;recordInserted&quot;,
+  &quot;subject&quot;: &quot;myapp/vehicles/motorcycles&quot;,
+  &quot;eventTime&quot;: &quot;2017-08-10T21:03:07+00:00&quot;,
+  &quot;data&quot;: {
+    &quot;make&quot;: &quot;Ducati&quot;,
+    &quot;model&quot;: &quot;Monster&quot;
+  },
+  &quot;dataVersion&quot;: &quot;1.0&quot;
+}]
+</code></pre>
+
+<h4 id="event-filtering-1">Event Filtering</h4>
+
+<p>A subscription can have a filter on subject or event type. Or Even the data. Meaning that subscribers could have on system handling just some specific events.</p>
+
+<h4 id="subscribers-1">Subscribers</h4>
+
+<p>The subscribers need to have a web hook endpoint.  Event Grid will then post the event to the given URL. If not available it will <a href="https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery">try up to 1400 minutes</a>.  (24 hours)</p>
+
+<h4 id="to-be-analyzed-1">To Be analyzed</h4>
+
+<ul>
+<li>Is it a problem that one org can subscribe to topics that contains events for other orgs</li>
+<li>Do we need to handle dead letters or should we ask org to check against db?</li>
+</ul>
+
+<h3 id="pro-cons">Pro &amp; Cons</h3>
+
+<ul>
+<li>High t</li>
+</ul>
+
+<h3 id="custom">Custom</h3>
+
+<p>To support scenarios where parties subscribe to events related to own or client parties we would need to build a custom solution.</p>
+
+<p>The reason for this is
+- Events can contain information that is sensitive. (Events needs to be isolated between parties, and also inside same party there might be different access rights to events)
+- Event Hub or Event Grid does not have the capacity to the amount of isolated feeds or topic to support the millions of parties</p>
+
+<h4 id="proposes-concept">Proposes Concept</h4>
+
+<p>As part of platform we would need to introduce an &ldquo;event component&rdquo; that does the following.
+The component could be Azure functions.</p>
+
+<ul>
+<li>Subscribe to Event Hub or topic in Event Grid</li>
+<li>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.
+
+<ul>
+<li>TODO: Why cant we just reuse the already existing instance events?</li>
+</ul></li>
+<li>Expose event API</li>
+<li>Filter API based on created profiles.
+
+<ul>
+<li>org or key role person have access to all events</li>
+<li>REGN or LEDE has a profile where the API filter on som predefined events.</li>
+</ul></li>
+</ul>
+
+
+	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
+
+
+
+<p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg">Full size</a></p>
 
 
 <footer class=" footline" >
