@@ -29,7 +29,7 @@ Read all about [Altinn CDN](altinn-cdn)
 For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. 
 [Read more about Kestrel at Microsoft](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/)
 
-For J2EE Applications we use xxx.
+For Java Applications we use [Tomcat](http://tomcat.apache.org/).
 
 ## Presentation frameworks & Libraries
 
