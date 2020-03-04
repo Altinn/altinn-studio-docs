@@ -31,9 +31,16 @@ Events would have some attributes
 [instanceid] - The instanceid 
 [eventtype] - The type of event. created, completed ++++ Probably something we want as free text.
 
-Example
-skd/skattemelding/234234/GSFDSG3gesgsrgsdr Created
-skd/skattemelding/234234/GSFDSG3gesgsrgsdr Completed
+**Example events**
+skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 InstanceCreated
+nav/sykemelding/56234234/2c1c5395-0f98-4054-8cbf-bbb1ece09a25 ProcessCompleted
+ssb/lakselus/63463336/9add6388-647e-434c-94d9-00d272e2a1e3 DataTaskCompleted
+skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 DataTaskCompleted
+hdir/corona/1523456/9add6388-647e-434c-94d9-00d272e2a1e3 InstanceDeleted
+skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 ProcessCompleted
+
+
+The event would contain limited set of information. To get the details the subscriber would need to get all details from instance / instance event api. 
 
 ### Event Producers
 Applications hosted in Altinn Apps would be able to create events. We probably need to add some way that app developers with little effort can create custom event that is logged to "event feed"
@@ -58,7 +65,7 @@ In many cases parties uses professionals to handle their data in Altinn. Those p
 ## Other event concepts in the platform
 Events are used in different scenarios in the platform.
 
-- Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. This could be relevant to push to the event feed.
+- Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events are higher than we would put on a event feed. 
 - Application logic events - This is events where app developers could implement logic to get a specific behavoiour. Calculation, validation ++ This types of event is probably not relevant to push to the event feed. 
 
 
@@ -91,6 +98,10 @@ There is no way to filter events before they are read at the subscriber.
 Subscribers need to have a SAS key for accessing the event hub. 
 
 The client needs to use AMQB 1.0 standard. 
+
+
+**Clarifications needed**
+
 
 #### To be Analyzed
 - Is it a problem that one org knows about other orgs events? (Probably)
@@ -180,13 +191,12 @@ The reason for this is
 - Events can contain information that is sensitive. (Events needs to be isolated between parties, and also inside same party there might be different access rights to events)
 - Event Hub or Event Grid does not have the capacity to the amount of isolated feeds or topic to support the millions of parties
 
-#### Proposes Concept
+#### Proposed Concept
 As part of platform we would need to introduce an "event component" that does the following.
-The component could be Azure functions. 
+The component could be Azure functions. This seems to be [supported](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp). 
 
 - Subscribe to Event Hub or topic in Event Grid
 - Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.
-  - TODO: Why cant we just reuse the already existing instance events? 
 - Expose event API 
 - Filter API based on created profiles. 
   - org or key role person have access to all events
@@ -198,3 +208,38 @@ The component could be Azure functions.
 {{% /excerpt%}}
 
 [Full size](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg)
+
+
+#### Clarifications needed
+- Do we need one Azure function for each Event Hub?
+- Do we need to support pushing events to event grid
+- Define datamodel for events. Assumption is to follow [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) event schema
+- How to we filter events for party. Should we support events that should not be sent to 
+
+### Apache Kafka in Azure HDInsight
+Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker 
+functionality similar to a message queue, where you can publish and subscribe to named data streams. 
+
+Apache Kafka kan be deployed in to a HDInsight cluster. [See details](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction)
+
+Producers would send events to Kafka Brokers. In a HD-insight cluster each worker nod is a Kafka broker.
+
+![image](../kafka.png)
+
+
+#### Quotas
+
+| Resource | Limit |
+| --- | --- |
+| Topics per kafka cluster  | 2000-3000 |
+| Retention time  | up to unlimited|
+
+
+#### Pro
+- Most popular event streaming platform.
+- Can store events indefently 
+
+
+#### Cons
+- Cost of HDInsight cluster
+- Requires more admin compared to 
