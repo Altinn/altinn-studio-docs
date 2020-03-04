@@ -9150,9 +9150,15 @@ organizations and parties(citiezens and businesses) can subscribe to.</p>
 [instanceid] - The instanceid
 [eventtype] - The type of event. created, completed ++++ Probably something we want as free text.</p>
 
-<p>Example
-skd/skattemelding/234234/GSFDSG3gesgsrgsdr Created
-skd/skattemelding/234234/GSFDSG3gesgsrgsdr Completed</p>
+<p><strong>Example events</strong>
+skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 InstanceCreated
+nav/sykemelding/56234234/2c1c5395-0f98-4054-8cbf-bbb1ece09a25 ProcessCompleted
+ssb/lakselus/63463336/9add6388-647e-434c-94d9-00d272e2a1e3 DataTaskCompleted
+skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 DataTaskCompleted
+hdir/corona/1523456/9add6388-647e-434c-94d9-00d272e2a1e3 InstanceDeleted
+skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 ProcessCompleted</p>
+
+<p>The event would contain limited set of information. To get the details the subscriber would need to get all details from instance / instance event api.</p>
 
 <h3 id="event-producers">Event Producers</h3>
 
@@ -9181,7 +9187,7 @@ skd/skattemelding/234234/GSFDSG3gesgsrgsdr Completed</p>
 <p>Events are used in different scenarios in the platform.</p>
 
 <ul>
-<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. This could be relevant to push to the event feed.</li>
+<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events are higher than we would put on a event feed.</li>
 <li>Application logic events - This is events where app developers could implement logic to get a specific behavoiour. Calculation, validation ++ This types of event is probably not relevant to push to the event feed.</li>
 </ul>
 
@@ -9219,6 +9225,8 @@ Each Namespace can have 10 Event Hubs</p>
 <p>Subscribers need to have a SAS key for accessing the event hub.</p>
 
 <p>The client needs to use AMQB 1.0 standard.</p>
+
+<p><strong>Clarifications needed</strong></p>
 
 <h4 id="to-be-analyzed">To be Analyzed</h4>
 
@@ -9349,18 +9357,14 @@ Each Namespace can have 10 Event Hubs</p>
 - Events can contain information that is sensitive. (Events needs to be isolated between parties, and also inside same party there might be different access rights to events)
 - Event Hub or Event Grid does not have the capacity to the amount of isolated feeds or topic to support the millions of parties</p>
 
-<h4 id="proposes-concept">Proposes Concept</h4>
+<h4 id="proposed-concept">Proposed Concept</h4>
 
 <p>As part of platform we would need to introduce an &ldquo;event component&rdquo; that does the following.
-The component could be Azure functions.</p>
+The component could be Azure functions. This seems to be <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp">supported</a>.</p>
 
 <ul>
 <li>Subscribe to Event Hub or topic in Event Grid</li>
-<li>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.
-
-<ul>
-<li>TODO: Why cant we just reuse the already existing instance events?</li>
-</ul></li>
+<li>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.</li>
 <li>Expose event API</li>
 <li>Filter API based on created profiles.
 
@@ -9376,6 +9380,63 @@ The component could be Azure functions.</p>
 
 
 <p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg">Full size</a></p>
+
+<h4 id="clarifications-needed">Clarifications needed</h4>
+
+<ul>
+<li>Do we need one Azure function for each Event Hub?</li>
+<li>Do we need to support pushing events to event grid</li>
+<li>Define datamodel for events. Assumption is to follow <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</li>
+<li>How to we filter events for party. Should we support events that should not be sent to</li>
+</ul>
+
+<h3 id="apache-kafka-in-azure-hdinsight">Apache Kafka in Azure HDInsight</h3>
+
+<p>Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker
+functionality similar to a message queue, where you can publish and subscribe to named data streams.</p>
+
+<p>Apache Kafka kan be deployed in to a HDInsight cluster. <a href="https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction">See details</a></p>
+
+<p>Producers would send events to Kafka Brokers. In a HD-insight cluster each worker nod is a Kafka broker.</p>
+
+<p><img src="../kafka.png" alt="image" /></p>
+
+<h4 id="quotas-1">Quotas</h4>
+
+<table>
+<thead>
+<tr>
+<th>Resource</th>
+<th>Limit</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Topics per kafka cluster</td>
+<td>2000-3000</td>
+</tr>
+
+<tr>
+<td>Retention time</td>
+<td>up to unlimited</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="pro">Pro</h4>
+
+<ul>
+<li>Most popular event streaming platform.</li>
+<li>Can store events indefently</li>
+</ul>
+
+<h4 id="cons">Cons</h4>
+
+<ul>
+<li>Cost of HDInsight cluster</li>
+<li>Requires more admin compared to</li>
+</ul>
 
 
 <footer class=" footline" >
