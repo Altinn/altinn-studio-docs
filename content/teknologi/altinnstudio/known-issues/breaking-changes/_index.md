@@ -24,7 +24,7 @@ Navigate to _App/config/authorization/policy.xml_ in your repository and add the
 
 ```xml
     <xacml:Rule RuleId="urn:altinn:example:ruleid:4" Effect="Permit">
-    <xacml:Description>Rule that defines that user with role REGNA or DAGL can delete [ORG]/[APP] when it is in EndEvent_1</xacml:Description>
+    <xacml:Description>Rule that defines that user with role REGNA or DAGL can delete instances of [ORG]/[APP]</xacml:Description>
     <xacml:Target>
       <xacml:AnyOf>
         <xacml:AllOf>
@@ -49,10 +49,6 @@ Navigate to _App/config/authorization/policy.xml_ in your repository and add the
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">EndEvent_1</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:end-event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
         </xacml:AllOf>
       </xacml:AnyOf>
