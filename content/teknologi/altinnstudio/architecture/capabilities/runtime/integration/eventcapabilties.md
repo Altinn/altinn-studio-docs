@@ -258,7 +258,7 @@ The component could be Azure functions. This seems to be [supported](https://doc
 ## To be analyzed and clarified
 Before the final solution can be defined the following needs to be clarified
 
-Functional 
+### Functional 
 
 - Do org want to pull or push events
 - Is 7 days retention time enough if they are given the ability to search on older events (with low throughput)
@@ -268,7 +268,8 @@ Functional
 - Is it a problem that one org knows about other orgs events? (Probably)
 
 
-Technical
+### Technical
+
 - How many hubs are needed?
   - One Hub for the whole solution
   - One Hub per Org?
