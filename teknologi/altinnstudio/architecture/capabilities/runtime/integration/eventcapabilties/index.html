@@ -9212,8 +9212,9 @@ will publish events that organizations and parties(citizens and businesses) can 
 
 <h4 id="altinn-platform">Altinn Platform</h4>
 
-<p>Storage is probably the one component that would create the most standard events.
-This could be events for the creation of instances when instances state is updated and so on. We would need to define what kind of standard events storage should create.</p>
+<p>Storage is probably the one component that would create the most standard events.</p>
+
+<p>This could be events for the creation of instances when instances state is updated and so on. We would need to define what kind of standard events storage should create.</p>
 
 <p>The assumption is that all process change events logged to instance events in storage would be published to the event architecture with limited information.</p>
 
@@ -9259,7 +9260,7 @@ For orgs this is impossible to use directly since instanceid is not known</p>
 
 <h3 id="azure-event-hub">Azure Event Hub</h3>
 
-<p>Azure Event Hub is a Event ingestion service.  It can receive and process millions of events per second.</p>
+<p>Azure Event Hub is an Event ingestion service.  It can receive and process millions of events per second.</p>
 
 <p>Each Subscription can have 100 Event Hub Namespaces
 Each Namespace can have 10 Event Hubs</p>
@@ -9282,26 +9283,8 @@ Each Namespace can have 10 Event Hubs</p>
 
 <p>Subscribers need to have a SAS key for accessing the event hub.</p>
 
-<p>The client needs to use AMQB 1.0 standard.</p>
-
-<p><strong>Clarifications needed</strong></p>
-
-<h4 id="to-be-analyzed">To be Analyzed</h4>
-
-<ul>
-<li>Is it a problem that one org knows about other orgs events? (Probably)</li>
-<li>How many hubs is needed?
-
-<ul>
-<li>One Hub for the whole solution</li>
-<li>One Hub per Org?</li>
-<li>One Hub per App/Org?</li>
-</ul></li>
-<li>Which subscription should be used? (probably one hub per org and put under the orgs subscription)</li>
-<li>What time of time retention is needed?</li>
-<li>Should we capture the events to storage? (org storage)</li>
-<li>Is event hub a solution to give parties their own feed? Probably not the number of event hubs would be limited, and we would not be able to share feeds between parties.</li>
-</ul>
+<p>The client needs to use AMQB 1.0 standard.
+There exist client library for <a href="https://github.com/Azure/azure-event-hubs-java">Java</a> and <a href="https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs">.Net</a></p>
 
 <h3 id="azure-event-grid">Azure Event Grid</h3>
 
@@ -9365,17 +9348,24 @@ Each Namespace can have 10 Event Hubs</p>
 
 <p>The subscribers need to have a web hook endpoint.  Event Grid will then post the event to the given URL. If not available it will <a href="https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery">try up to 1400 minutes</a>.  (24 hours)</p>
 
-<h4 id="to-be-analyzed-1">To Be analyzed</h4>
+<h4 id="to-be-analyzed">To Be analyzed</h4>
 
 <ul>
 <li>Is it a problem that one org can subscribe to topics that contains events for other orgs</li>
-<li>Do we need to handle dead letters or should we ask org to check against db?</li>
 </ul>
 
-<h3 id="pro-cons">Pro &amp; Cons</h3>
+<h4 id="pro">Pro</h4>
 
 <ul>
-<li>High t</li>
+<li>Subscribers can filter on topics</li>
+<li>Dead letter possiblities</li>
+</ul>
+
+<h4 id="cons">Cons</h4>
+
+<ul>
+<li>Need to have a active endpoint where events could be sent</li>
+<li>Not able to support topic per party.</li>
 </ul>
 
 <h3 id="apache-kafka-in-azure-hdinsight">Apache Kafka in Azure HDInsight</h3>
@@ -9412,18 +9402,19 @@ functionality similar to a message queue, where you can publish and subscribe to
 </tbody>
 </table>
 
-<h4 id="pro">Pro</h4>
+<h4 id="pro-1">Pro</h4>
 
 <ul>
 <li>Most popular event streaming platform.</li>
 <li>Can store events indefently</li>
 </ul>
 
-<h4 id="cons">Cons</h4>
+<h4 id="cons-1">Cons</h4>
 
 <ul>
 <li>Cost of HDInsight cluster</li>
-<li>Requires more admin compared to</li>
+<li>Requires more admin compared to other platforms in Azure</li>
+<li>Not able to support topic per party.</li>
 </ul>
 
 <h3 id="custom-event-hub-grid">Custom + Event Hub / Grid</h3>
@@ -9458,23 +9449,32 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 
 <p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg">Full size</a></p>
 
-<h4 id="clarifications-needed">Clarifications needed</h4>
+<h2 id="to-be-analyzed-and-clarified">To be analyzed and clarified</h2>
 
-<ul>
-<li>Do we need one Azure function for each Event Hub?</li>
-<li>Do we need to support pushing events to event grid</li>
-<li>Define datamodel for events. Assumption is to follow <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</li>
-<li>How to we filter events for party. Should we support events that should not be sent to</li>
-</ul>
+<p>Before the final solution can be defined the following needs to be clarified</p>
 
-<h2 id="clarification-needed">Clarification needed</h2>
+<p>Functional</p>
 
 <ul>
 <li>Do org want to pull or push events</li>
-<li>Is 7 days retention time enough if they are given the ability to search on older events (with low througput)</li>
-<li>What kind of automatic filtering can we do</li>
-<li></li>
+<li>Is 7 days retention time enough if they are given the ability to search on older events (with low throughput)</li>
+<li>Define data model for events. The assumption is to follow <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</li>
+<li>How to we filter events for party. Should we support events that should not be sent to end user, only org. Like &ldquo;fraud detection&rdquo;.</li>
+<li>Do we need to support pushing events to event grid</li>
+<li>Is it a problem that one org knows about other orgs events? (Probably)</li>
 </ul>
+
+<p>Technical
+- How many hubs are needed?
+  - One Hub for the whole solution
+  - One Hub per Org?
+  -  One Hub per App/Org?
+- Do we need one Azure function for each Event Hub?
+- What kind of automatic filtering can we do based on roles for a requester to event API.
+- Is there a standard for REST API to expose events we should follow.<br />
+-  Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)
+- Event Hub: Should we capture the events to storage? (org storage)
+- Event Grid: Do we need to handle dead letters or should we ask org to check against db?</p>
 
 
 <footer class=" footline" >
