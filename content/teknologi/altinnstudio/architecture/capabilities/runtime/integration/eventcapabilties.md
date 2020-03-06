@@ -20,9 +20,11 @@ will publish events that organizations and parties(citizens and businesses) can 
 Events in the new platform would be a combination of standard events defined by the platform and custom events added in an application by application developers. 
 
 Standard events could be
+
 - An instance is created
-- An instance changes state
+- An instance changes state (moving from one task to another, example: data -> signing)
 - An instance is completed
+
 
 Events would have some attributes
 
@@ -128,7 +130,7 @@ Events are used in different scenarios in the platform.
 
 ## Possible solutions
 
-### Customnm REST API & Cosmos DB
+### Custom REST API & Cosmos DB
 Currently, there exists no API where orgs or end users can query events without knowing the instanceid where the event happened. 
 For orgs this is impossible to use directly since instanceid is not known
 
@@ -266,7 +268,7 @@ Before the final solution can be defined the following needs to be clarified
 
 ### Technical
 
-- How many hubs are needed?
+- Event Hub: How many hubs are needed?
   - One Hub for the whole solution
   - One Hub per Org?
   -  One Hub per App/Org?
@@ -276,7 +278,15 @@ Before the final solution can be defined the following needs to be clarified
 -  Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)
 - Event Hub: Should we capture the events to storage? (org storage)
 - Event Grid: Do we need to handle dead letters or should we ask org to check against db?
+- 
 
 
 
+### Tasks
+The following task are identified (depending on choosen solution)
 
+- Infrastructure: Create scripts for event hub configuration
+- Infrastructure: Create scripts for event grid
+- Infrastructure: Create a way for org so get SAS keys
+- Platform: Build event component with needed api.
+- Storage: Create event collection in cosmos
