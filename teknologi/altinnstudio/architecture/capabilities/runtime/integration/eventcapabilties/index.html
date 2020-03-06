@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the event driven architecture">
+    <meta name="description" content="Description of the event driven architecture for Altinn Apps and Altinn Platform">
 
 
     
@@ -9112,7 +9112,7 @@ if(host != "localhost")
                 Event capabilites
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the event driven architecture</p>
+              <p class="a-leadText" id="leadText">Description of the event driven architecture for Altinn Apps and Altinn Platform</p>
             
           
 
@@ -9130,18 +9130,19 @@ if(host != "localhost")
 </div>
 
 
-<p>The new generation Altinn is moving to an event driven architecture. This means that Altinn Platform and Altinn Apps will publish events that
-organizations and parties(citiezens and businesses) can subscribe to.</p>
+<p>The new generation of Altinn is moving to an event-driven architecture. This means that Altinn Platform and Altinn Apps
+will publish events that organizations and parties(citizens and businesses) can subscribe to.</p>
 
 <h2 id="overall-concept">Overall Concept</h2>
 
 <h3 id="events">Events</h3>
 
-<p>Example events can be
-- A instance is created
-- A instance changes state
-- A instance is completed
-- A custom event happens in app. (can be anything a developer defines)</p>
+<p>Events in the new platform would be a combination of standard events defined by the platform and custom events added in an application by application developers.</p>
+
+<p>Standard events could be
+- An instance is created
+- An instance changes state
+- An instance is completed</p>
 
 <p>Events would have some attributes</p>
 
@@ -9150,54 +9151,111 @@ organizations and parties(citiezens and businesses) can subscribe to.</p>
 [instanceid] - The instanceid
 [eventtype] - The type of event. created, completed ++++ Probably something we want as free text.</p>
 
-<p><strong>Example events</strong>
-skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 InstanceCreated
-nav/sykemelding/56234234/2c1c5395-0f98-4054-8cbf-bbb1ece09a25 ProcessCompleted
-ssb/lakselus/63463336/9add6388-647e-434c-94d9-00d272e2a1e3 DataTaskCompleted
-skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 DataTaskCompleted
-hdir/corona/1523456/9add6388-647e-434c-94d9-00d272e2a1e3 InstanceDeleted
-skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 ProcessCompleted</p>
+<p>The event would contain limited set of information. To get the full details the subscriber would need to get all details from instance / instance event api.</p>
 
-<p>The event would contain limited set of information. To get the details the subscriber would need to get all details from instance / instance event api.</p>
+<p><strong>Example events</strong></p>
+
+<pre><code class="language-bash">2020-08-10T21:03:07+00:00 nav/kontonr/84356677/2c1c5395-0f98-4054-8cbf-bbb1ece09a25 ProcessCompleted
+
+2020-08-10T22:03:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 InstanceCreated
+
+2020-08-10T28:03:07+00:00 nav/sykemelding/56234234/2c1c5395-0f98-4054-8cbf-bbb1ece09a25 ProcessCompleted
+
+2020-08-10T45:03:07+00:00 ssb/lakselus/63463336/9add6388-647e-434c-94d9-00d272e2a1e3 DataTaskCompleted
+
+2020-08-11T21:03:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 DataTaskCompleted
+
+2020-08-12T23:03:07+00:00 hdir/corona/1523456/9add6388-647e-434c-94d9-00d272e2a1e3 InstanceDeleted
+
+2020-08-12T23:03:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 ProcessCompleted
+
+2020-08-12T24:02:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 FeedbackAdded
+
+2020-08-12T25:03:07+00:00 skd/amelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 FraudDetected
+</code></pre>
+
+<h4 id="event-schema">Event Schema</h4>
+
+<p>The event would be a JSON object. The event schema would need to be defined. One option is to use <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</p>
+
+<pre><code class="language-json">[
+  {
+    &quot;topic&quot;: string,
+    &quot;subject&quot;: string,
+    &quot;id&quot;: string,
+    &quot;eventType&quot;: string,
+    &quot;eventTime&quot;: string,
+    &quot;data&quot;:{
+      object-unique-to-each-publisher
+    },
+    &quot;dataVersion&quot;: string,
+    &quot;metadataVersion&quot;: string
+  }
+]
+</code></pre>
+
+<p>Example</p>
+
+<pre><code class="language-json">[{
+  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
+  &quot;eventType&quot;: &quot;InstanceCreated&quot;,
+  &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
+  &quot;subject&quot;: &quot;234234422&quot;,
+  &quot;eventTime&quot;: &quot;2017-08-10T21:03:07+00:00&quot;,
+  &quot;data&quot;: {
+     },
+  &quot;dataVersion&quot;: &quot;1.0&quot;
+}]
+</code></pre>
 
 <h3 id="event-producers">Event Producers</h3>
 
-<p>Applications hosted in Altinn Apps would be able to create events. We probably need to add some way that app developers with little effort can create custom event that is logged to &ldquo;event feed&rdquo;</p>
+<h4 id="altinn-platform">Altinn Platform</h4>
 
-<p>Platform components would create events. Storage is probably the one that would create most event. This could be events for creation of instances and so on.</p>
+<p>Storage is probably the one component that would create the most standard events.
+This could be events for the creation of instances when instances state is updated and so on. We would need to define what kind of standard events storage should create.</p>
 
-<p>The assumption is that all process change event logged to instance events in storage would be published to the event architecture.</p>
+<p>The assumption is that all process change events logged to instance events in storage would be published to the event architecture with limited information.</p>
+
+<h4 id="altinn-apps">Altinn Apps</h4>
+
+<p>Applications hosted in Altinn Apps would be able to create events.</p>
+
+<p>The application template will contain API so logic in event can publish events based on rules defined by the application developer.</p>
+
+<p>This events could be anything.</p>
 
 <h3 id="event-subscribers">Event subscribers</h3>
 
 <h4 id="orgs-application-owners">Orgs (Application owners)</h4>
 
-<p>Application will need to know about events happening for their applications running in Altinn Apps.</p>
+<p>Orgs will need to know about events happening for their applications running in Altinn Apps.</p>
 
-<p>For some orgs there is a need for subscribing to events for a specific apps, other might want to subsribe to all events, ore maybe a specific type of event.</p>
+<p>For some orgs there is a need for subscribing to events for a specific app, others might want to subscribe to all events, or maybe a specific type of event.</p>
 
-<h4 id="parties">Parties</h4>
+<h4 id="parties-persons-and-organizations">Parties (Persons and organizations)</h4>
 
-<p>Parties submitting and receiving data in Altinn would benefit from knowing about events. This could be a feedback has been added to a form, or a new message has been received.</p>
+<p>Parties submitting and receiving data in Altinn would benefit from knowing about events. This could be feedback has been added to a form, or a new message has been received.</p>
 
-<p>In many cases parties uses professionals to handle their data in Altinn. Those professionals typical have many hundred or thousands of clients.</p>
+<p>In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.</p>
 
 <h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
 
 <p>Events are used in different scenarios in the platform.</p>
 
 <ul>
-<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events are higher than we would put on a event feed.</li>
-<li>Application logic events - This is events where app developers could implement logic to get a specific behavoiour. Calculation, validation ++ This types of event is probably not relevant to push to the event feed.</li>
+<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
+<li>Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.<br /></li>
 </ul>
 
 <h2 id="possible-solutions">Possible solutions</h2>
 
-<h3 id="rest-api-cosmos-db">REST API &amp; Cosmos DB</h3>
+<h3 id="customnm-rest-api-cosmos-db">Customnm REST API &amp; Cosmos DB</h3>
 
-<p>Currently there exist no API where orgs or end user can query events without knowing the instanceid where the event happened. For orgs this is impossbile to use directlyt since instanceid is not known</p>
+<p>Currently, there exists no API where orgs or end users can query events without knowing the instanceid where the event happened.
+For orgs this is impossible to use directly since instanceid is not known</p>
 
-<p>There is create a issue for analyze and implement the needed API&rsquo;s  #3783</p>
+<p>There is create a issue for analyze and implement the needed API&rsquo;s  <a href="https://github.com/Altinn/altinn-studio/issues/3783">#3783</a></p>
 
 <h3 id="azure-event-hub">Azure Event Hub</h3>
 
@@ -9299,35 +9357,6 @@ Each Namespace can have 10 Event Hubs</p>
 
 <p>The events needs to follo the <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</p>
 
-<pre><code class="language-json">[
-  {
-    &quot;topic&quot;: string,
-    &quot;subject&quot;: string,
-    &quot;id&quot;: string,
-    &quot;eventType&quot;: string,
-    &quot;eventTime&quot;: string,
-    &quot;data&quot;:{
-      object-unique-to-each-publisher
-    },
-    &quot;dataVersion&quot;: string,
-    &quot;metadataVersion&quot;: string
-  }
-]
-</code></pre>
-
-<pre><code class="language-json">[{
-  &quot;id&quot;: &quot;1807&quot;,
-  &quot;eventType&quot;: &quot;recordInserted&quot;,
-  &quot;subject&quot;: &quot;myapp/vehicles/motorcycles&quot;,
-  &quot;eventTime&quot;: &quot;2017-08-10T21:03:07+00:00&quot;,
-  &quot;data&quot;: {
-    &quot;make&quot;: &quot;Ducati&quot;,
-    &quot;model&quot;: &quot;Monster&quot;
-  },
-  &quot;dataVersion&quot;: &quot;1.0&quot;
-}]
-</code></pre>
-
 <h4 id="event-filtering-1">Event Filtering</h4>
 
 <p>A subscription can have a filter on subject or event type. Or Even the data. Meaning that subscribers could have on system handling just some specific events.</p>
@@ -9347,47 +9376,6 @@ Each Namespace can have 10 Event Hubs</p>
 
 <ul>
 <li>High t</li>
-</ul>
-
-<h3 id="custom">Custom</h3>
-
-<p>To support scenarios where parties subscribe to events related to own or client parties we would need to build a custom solution.</p>
-
-<p>The reason for this is
-- Events can contain information that is sensitive. (Events needs to be isolated between parties, and also inside same party there might be different access rights to events)
-- Event Hub or Event Grid does not have the capacity to the amount of isolated feeds or topic to support the millions of parties</p>
-
-<h4 id="proposed-concept">Proposed Concept</h4>
-
-<p>As part of platform we would need to introduce an &ldquo;event component&rdquo; that does the following.
-The component could be Azure functions. This seems to be <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp">supported</a>.</p>
-
-<ul>
-<li>Subscribe to Event Hub or topic in Event Grid</li>
-<li>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.</li>
-<li>Expose event API</li>
-<li>Filter API based on created profiles.
-
-<ul>
-<li>org or key role person have access to all events</li>
-<li>REGN or LEDE has a profile where the API filter on som predefined events.</li>
-</ul></li>
-</ul>
-
-
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
-
-
-
-<p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg">Full size</a></p>
-
-<h4 id="clarifications-needed">Clarifications needed</h4>
-
-<ul>
-<li>Do we need one Azure function for each Event Hub?</li>
-<li>Do we need to support pushing events to event grid</li>
-<li>Define datamodel for events. Assumption is to follow <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</li>
-<li>How to we filter events for party. Should we support events that should not be sent to</li>
 </ul>
 
 <h3 id="apache-kafka-in-azure-hdinsight">Apache Kafka in Azure HDInsight</h3>
@@ -9436,6 +9424,56 @@ functionality similar to a message queue, where you can publish and subscribe to
 <ul>
 <li>Cost of HDInsight cluster</li>
 <li>Requires more admin compared to</li>
+</ul>
+
+<h3 id="custom-event-hub-grid">Custom + Event Hub / Grid</h3>
+
+<p>To support scenarios where parties subscribe to events related to own or client parties we would need to build a custom solution.</p>
+
+<p>The reason for this is
+- Events can contain information that is sensitive. (Events needs to be isolated between parties, and also inside same party there might be different access rights to events)
+- Event Hub or Event Grid does not have the capacity to the amount of isolated feeds or topic to support the millions of parties</p>
+
+<h4 id="proposed-concept">Proposed Concept</h4>
+
+<p>As part of platform we would need to introduce an &ldquo;event component&rdquo; that does the following.
+The component could be Azure functions. This seems to be <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp">supported</a>.</p>
+
+<ul>
+<li>Subscribe to Event Hub or topic in Event Grid</li>
+<li>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.</li>
+<li>Expose event API</li>
+<li>Filter API based on created profiles.
+
+<ul>
+<li>org or key role person have access to all events</li>
+<li>REGN or LEDE has a profile where the API filter on som predefined events.</li>
+</ul></li>
+</ul>
+
+
+	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
+
+
+
+<p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg">Full size</a></p>
+
+<h4 id="clarifications-needed">Clarifications needed</h4>
+
+<ul>
+<li>Do we need one Azure function for each Event Hub?</li>
+<li>Do we need to support pushing events to event grid</li>
+<li>Define datamodel for events. Assumption is to follow <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</li>
+<li>How to we filter events for party. Should we support events that should not be sent to</li>
+</ul>
+
+<h2 id="clarification-needed">Clarification needed</h2>
+
+<ul>
+<li>Do org want to pull or push events</li>
+<li>Is 7 days retention time enough if they are given the ability to search on older events (with low througput)</li>
+<li>What kind of automatic filtering can we do</li>
+<li></li>
 </ul>
 
 
