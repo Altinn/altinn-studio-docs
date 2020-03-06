@@ -9139,10 +9139,13 @@ will publish events that organizations and parties(citizens and businesses) can 
 
 <p>Events in the new platform would be a combination of standard events defined by the platform and custom events added in an application by application developers.</p>
 
-<p>Standard events could be
-- An instance is created
-- An instance changes state
-- An instance is completed</p>
+<p>Standard events could be</p>
+
+<ul>
+<li>An instance is created</li>
+<li>An instance changes state (moving from one task to another, example: data -&gt; signing)</li>
+<li>An instance is completed</li>
+</ul>
 
 <p>Events would have some attributes</p>
 
@@ -9253,7 +9256,7 @@ will publish events that organizations and parties(citizens and businesses) can 
 
 <h2 id="possible-solutions">Possible solutions</h2>
 
-<h3 id="customnm-rest-api-cosmos-db">Customnm REST API &amp; Cosmos DB</h3>
+<h3 id="custom-rest-api-cosmos-db">Custom REST API &amp; Cosmos DB</h3>
 
 <p>Currently, there exists no API where orgs or end users can query events without knowing the instanceid where the event happened.
 For orgs this is impossible to use directly since instanceid is not known</p>
@@ -9463,7 +9466,7 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 <h3 id="technical">Technical</h3>
 
 <ul>
-<li>How many hubs are needed?
+<li>Event Hub: How many hubs are needed?
 
 <ul>
 <li>One Hub for the whole solution</li>
@@ -9476,6 +9479,19 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 <li>Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)</li>
 <li>Event Hub: Should we capture the events to storage? (org storage)</li>
 <li>Event Grid: Do we need to handle dead letters or should we ask org to check against db?</li>
+<li></li>
+</ul>
+
+<h3 id="tasks">Tasks</h3>
+
+<p>The following task are identified (depending on choosen solution)</p>
+
+<ul>
+<li>Infrastructure: Create scripts for event hub configuration</li>
+<li>Infrastructure: Create scripts for event grid</li>
+<li>Infrastructure: Create a way for org so get SAS keys</li>
+<li>Platform: Build event component with needed api.</li>
+<li>Storage: Create event collection in cosmos</li>
 </ul>
 
 
