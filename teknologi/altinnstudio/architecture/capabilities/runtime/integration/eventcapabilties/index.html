@@ -9453,7 +9453,7 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 
 <p>Before the final solution can be defined the following needs to be clarified</p>
 
-<p>Functional</p>
+<h3 id="functional">Functional</h3>
 
 <ul>
 <li>Do org want to pull or push events</li>
@@ -9464,17 +9464,23 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 <li>Is it a problem that one org knows about other orgs events? (Probably)</li>
 </ul>
 
-<p>Technical
-- How many hubs are needed?
-  - One Hub for the whole solution
-  - One Hub per Org?
-  -  One Hub per App/Org?
-- Do we need one Azure function for each Event Hub?
-- What kind of automatic filtering can we do based on roles for a requester to event API.
-- Is there a standard for REST API to expose events we should follow.<br />
--  Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)
-- Event Hub: Should we capture the events to storage? (org storage)
-- Event Grid: Do we need to handle dead letters or should we ask org to check against db?</p>
+<h3 id="technical">Technical</h3>
+
+<ul>
+<li>How many hubs are needed?
+
+<ul>
+<li>One Hub for the whole solution</li>
+<li>One Hub per Org?</li>
+<li>One Hub per App/Org?</li>
+</ul></li>
+<li>Do we need one Azure function for each Event Hub?</li>
+<li>What kind of automatic filtering can we do based on roles for a requester to event API.</li>
+<li>Is there a standard for REST API to expose events we should follow.<br /></li>
+<li>Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)</li>
+<li>Event Hub: Should we capture the events to storage? (org storage)</li>
+<li>Event Grid: Do we need to handle dead letters or should we ask org to check against db?</li>
+</ul>
 
 
 <footer class=" footline" >
