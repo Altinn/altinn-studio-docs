@@ -26,10 +26,10 @@ Standard events could be
 
 Events would have some attributes
 
-[org] - The organization the event is created for
-[app] - The app the event is created for
-[instanceid] - The instanceid 
-[eventtype] - The type of event. created, completed ++++ Probably something we want as free text.
+- [org] - The organization the event is created for
+- [app] - The app the event is created for
+- [instanceid] - The instanceid 
+- [eventtype] - The type of event. created, completed ++++ Probably something we want as free text.
 
 The event would contain limited set of information. To get the full details the subscriber would need to get all details from instance / instance event api. 
 
