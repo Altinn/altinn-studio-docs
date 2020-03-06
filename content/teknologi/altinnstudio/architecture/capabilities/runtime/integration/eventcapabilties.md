@@ -189,10 +189,6 @@ A subscription can have a filter on subject or event type. Or Even the data. Mea
 #### Subscribers
 The subscribers need to have a web hook endpoint.  Event Grid will then post the event to the given URL. If not available it will [try up to 1400 minutes](https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery).  (24 hours) 
 
-#### To Be analyzed
-- Is it a problem that one org can subscribe to topics that contains events for other orgs
-
-
 #### Pro
 - Subscribers can filter on topics
 - Dead letter possiblities
