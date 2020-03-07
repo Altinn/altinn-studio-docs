@@ -283,7 +283,7 @@ Before the final solution can be defined the following needs to be clarified
 
 
 ### Tasks
-The following task are identified (depending on choosen solution)
+The following task are identified (depending on choosen solution )
 
 - Infrastructure: Create scripts for event hub configuration
 - Infrastructure: Create scripts for event grid
