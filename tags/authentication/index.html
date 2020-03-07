@@ -9106,7 +9106,9 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/teknologi/altinnstudio/solutions/altinn-platform/authentication/">Authentication</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>API to create JWT Token for user logged in to Altinn Portal When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged in user. This cookie is a propiaritary format for ASP.Net (Full Framework) and can only be understood with application based on .Net full framework having access to the symmetric encryption key. The Altinn Platform is based on . <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-platform/authentication/">&raquo;</a></p>
+        <p>The authentication component is not an ID-provider and only create authentication sessions based on external ID-providers.
+The authentication component creates JWT tokens with claims about user and system. The claims are based on the authentication information coming from the ID-providers.
+Token exchange for Altinn Portal When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged-in user. This cookie is a propiaritary format for ASP. <a class="read-more" href="/teknologi/altinnstudio/solutions/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

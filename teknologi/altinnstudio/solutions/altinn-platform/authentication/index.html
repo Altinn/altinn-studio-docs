@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.">
+    <meta name="description" content="The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.">
 
 
     
@@ -9104,7 +9104,7 @@ if(host != "localhost")
                 Authentication
                 
               </h1>
-              <p class="a-leadText" id="leadText">The authentication component is used by Altinn Apps and Altinn Platform to authenticate users and systems.</p>
+              <p class="a-leadText" id="leadText">The authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.</p>
             
           
 
@@ -9118,16 +9118,33 @@ if(host != "localhost")
 
 
 
-<h2 id="api-to-create-jwt-token-for-user-logged-in-to-altinn-portal">API to create JWT Token for user logged in to Altinn Portal</h2>
+<p>The authentication component is not an ID-provider and only create authentication sessions based on external ID-providers.</p>
 
-<p>When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged in user. This cookie is
-a propiaritary format for ASP.Net (Full Framework) and can only be understood with application based on .Net full framework having access to the
+<p>The authentication component creates JWT tokens with claims about user and system. The claims are based on the authentication information coming from the
+ID-providers.</p>
+
+<h2 id="token-exchange-for-altinn-portal">Token exchange for Altinn Portal</h2>
+
+<p>When a user logs in to the Altinn Portal (Legacy Solution) it gets a Cookie containing information about the logged-in user. This cookie is
+a <a href="https://support.microsoft.com/en-us/help/301240/how-to-implement-forms-based-authentication-in-your-asp-net-applicatio">propiaritary format for ASP.Net</a> (Full Framework) and can only be understood with application based on .Net full framework having access to the
 symmetric encryption key. The Altinn Platform is based on .ASP.Net core I cant understand the cookie.</p>
 
-<p>To allow for a user accessing a App in Altinn Apps or a component in Altinn Platform the current platform will expose a API that can decrypt a ASP.Net
-cookie and return user information to the Authentication component in Altinn Platform.</p>
+<p>To allow for a user accessing an App in Altinn Apps or a component in Altinn Platform the current platform will expose an API that can decrypt an ASP.Net cookie and return user information to the Authentication component in Altinn Platform.</p>
 
-<p><a href="https://github.com/Altinn/altinn-studio/labels/area%2Fauthentication">See all open issues for Authentication on Github</a></p>
+<h2 id="token-exchange-for-maskinporten">Token exchange for maskinporten</h2>
+
+<p>Organizations authenticated in maskinporten can exchange their JWT token to a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.</p>
+
+<h2 id="token-exchange-for-id-porten">Token exchange for ID-porten</h2>
+
+<p>The authentication component will support token exchange for system authenticated with ID-porten.
+This is work in progress</p>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>See the <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">application solution components</a> for details about the functional components in authentication.</p>
+
+<p>The <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">application construction components</a> for details how this component is constructued.</p>
 
 
 <footer class=" footline" >
