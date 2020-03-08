@@ -1,7 +1,7 @@
 ---
 title: Application construction components - Altinn Platform Authentication
 linktitle: Authentication
-description: The authentication component in Altinn platform is constructed as a asp.net core web API application deployed as a docker container to a Kubernetes cluster.
+description: The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
 tags: [architecture, solution]
 weight: 100
 ---
