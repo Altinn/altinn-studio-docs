@@ -4974,7 +4974,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">
-        <span>Authorization</span>
+        <span>Authentication</span>
 
         
 
@@ -9163,62 +9163,6 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">Altinn Platform - Authentication</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The application runs on port 5040. See full details in dockerfile
-Api Controllers  Authentication : Functionality to convert the different ID-tokens from ID providers OpenID : Contains well known endpoint Organization : TODO. is this needed  Dependencies Authentication component take use of libraries for OpenID connect to create and validate JWT tokens.
-See full list of dependencies in csproj configuration. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Authorization Component is a ASP.Net core /.Net Core application running in a docker container. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
     </header>
     <section class="post-excerpt">
@@ -9443,6 +9387,68 @@ The available endpoints can be seen in the swagger definition. <a class="read-mo
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/pdf/">pdf</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/">Application architecture receipt component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The receipt component is an .NET Core MVC Application exposing a react receipt application, and internal apis.
+The receipt frontend view is available at https://platform.at22.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}. The receipt component also exposes apis that are intended for use by the receipt frontend. If you need information about the user, instance or party you should use their respective platform components.
+Receipt backend exposes two enitities through API endpoints prefixed with https://platform.at22.altinn.cloud/receipt/api/v1/; user and extendedInstance <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/receipt/">receipt</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">Application arhicture authentication component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Authentication component is an a ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
+The solution is currently available at http://platform.altinn.cloud/authentication/api/v1.
+Resources: authentication
+/authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
+GET /authentication?goto={url}  Refresh a valid JwtToken: <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
             
         
 

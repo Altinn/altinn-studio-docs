@@ -4974,7 +4974,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">
-        <span>Authorization</span>
+        <span>Authentication</span>
 
         
 
@@ -9165,14 +9165,10 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/">Application arhicture register component - Altinn Platform</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The register component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-The solution is now available at https://platform.altinn.cloud/register/api/v1 and all resources are avaiable through endpoints defined below.
-Resource: Organizations, Parties, Persons
-/organizations Get information about an organisation:
-Organization type    Attribute Type Description     OrgNumber string the organisation number nine digits   Name string the registered name of the organisation   UnitType string    TelephoneNumber string the telephone number   MobileNumber string the mobile number   FaxNumber string the fax number   EMailAddress string the email adress   InternetAddress string the url for a web site   MailingAddress string the adress for sending mail to the organisation   MailingPostalCode string the postal code for sending mail to the organisation   MailingPostalCity string the city for sending mail to the organisation   BusinessAddress string the address of the daily business   BusinessPostalCode string the postal code for the daily business   BusinessPostalCity string the city for the daily business    Operations GET /organizations/{orgNr}  /persons Person type    Attribute Type Description     SSN string Social security number   Name string the person&rsquo;s full name   FirstName string the person&rsquo;s first name   MiddleName string the person&rsquo;s middle name   LastName string the person&rsquo;s last name   TelephoneNumber string telephone number   MobileNumber string mobile number   MailingAddress string mailing address   MailingPostalCode string mailing postal code   MailingPostalCity string mailing postal city   AddressMunicipalNumber string adress municipal number   AddressMunicipalName string adress municipal name   AddressHouseNumber string address house number   AddressHouseLetter string address house letter   AddressPostalCode string address postal code   AddressCity string adress city    Operations Get information about a person: Send a GET-request with the persons SSN contained in the request body to <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/">&raquo;</a></p>
+        <p> Api controllers  [Decision]() []  Dependencies  <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -9200,10 +9196,8 @@ Organization type    Attribute Type Description     OrgNumber string the organis
     </header>
     <section class="post-excerpt">
         <p>See below for application contruction components for the different components in Altinn Platform.
-Altinn Platform - AuthenticationThe authentication component in Altinn platform is constructed as a asp.net core application deployed as a docker container to a Kubernetes cluster.
-Altinn Platform - AuthorizationDescription of authorization component
-Application architecture pdf component - Altinn PlatformDescription of pdf component
-Application architecture receipt component - Altinn PlatformDescription of receipt component <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
+Application construction components - Altinn Platform AuthenticationThe authentication component in Altinn platform is constructed as a asp.net core web API application deployed as a docker container to a Kubernetes cluster.
+Application construction components - Altinn Platform AuthorizationThe authorization component in Altinn platform is constructed as a asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
