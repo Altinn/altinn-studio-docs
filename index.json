@@ -319,7 +319,7 @@
 	"title": "Application construction components for Altinn Platform",
 	"tags": ["architecture", "solution"],
 	"description": "Altinn Platform consist of serveral components that is constructed with help of different frameworks and components.",
-	"content": "See below for application contruction components for the different components in Altinn Platform.\n\rApplication construction components - Altinn Platform Authentication\rThe authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.\n\r\rApplication construction components - Altinn Platform Authorization\rThe authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.\n\r\rApplication architecture pdf component - Altinn Platform\rDescription of pdf component\n\r\rApplication architecture receipt component - Altinn Platform\rDescription of receipt component\n\r\rApplication Construction components - Storage\rThe storage component is a asp.net core application hosted in Kubernetes as a docker container.\n\r\r"
+	"content": "See below for application contruction components for the different components in Altinn Platform.\n\rApplication construction components - Altinn Platform Authentication\rThe authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.\n\r\rApplication construction components - Altinn Platform Authorization\rThe authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.\n\r\rApplication architecture pdf component - Altinn Platform\rThe PDF component is created as an Spring Boot (Java) web application hosted in Kubernetes as a docker container.\n\r\rApplication construction components - Altinn Platform Profile\rThe profile component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.\n\r\rApplication architecture receipt component - Altinn Platform\rDescription of receipt component\n\r\rApplication construction components - Altinn Platform Register\rThe register component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.\n\r\rApplication Construction components - Storage\rThe storage component is a asp.net core application hosted in Kubernetes as a docker container.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/",
@@ -836,7 +836,7 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/",
 	"title": "Application architecture pdf component - Altinn Platform",
 	"tags": ["architecture", "solution", "pdf"],
-	"description": "Description of pdf component",
+	"description": "The PDF component is created as an Spring Boot (Java) web application hosted in Kubernetes as a docker container.",
 	"content": "The PDF component is an Spring Boot java application exposing an api for triggering pdf generation.\nThe pdf api is exposed at http://platform.altinn.cloud/pdf/api/v1.\nThe available endpoints can be seen in the swagger definition.\n"
 },
 {
@@ -931,6 +931,13 @@
 	"content": " App backend exposes different APIS that is relevant during a app process.\nThis page show examples\nProcess Interaction App Frontend - App Backend - \nFull Screen\nThe above example show the following\n User clicks link to a App from service catalog The browser redirect to the start service page in the app. The react application renders the correct view User click on instantiate button. App Frontend calls instansiate API Instantiate create a new instance with data for the datamodell with prefill and returns instance information that user should be redirect to. User/browser open the instance App frontend calls app backed to get the instance state App Frontend render the correct component for the given state. User input data . App Frontend call Data API to update data. If calculation or dataretrieavel causes additional data updates on server side, the response indicates to app frontend to get the latest data App frontend gets the updated data 9 and 10 is repeated as long user has data to input\n User press complete/send inn button\n App frontend Saves data\n App frontend calls validation API and any possible errors are presented to the user. If\n If no errors are returned App Frontend call Process API to complete Task. Process Api trigger task validation to make sure it is allowed to move process forward. If validation fails, process API returns\n  Process Interaction End User System - App Backend - \nFull Screen\nProcess Interaction Sirius Use case \nFull Screen\n"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/profile/",
+	"title": "Application construction components - Altinn Platform Profile",
+	"tags": ["architecture", "solution"],
+	"description": "The profile component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/",
 	"title": "Application arhicture profile component - Altinn Platform",
 	"tags": ["architecture", "solution"],
@@ -978,6 +985,13 @@
 	"tags": ["development", "front-end", "react"],
 	"description": "Guidelines for using Redux in Altinn Studio",
 	"content": " Redux is used to manage the states of the ux-editor.\nActions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:\nexport interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.\nAn example is asyncronous calls to backend APIs to get data, or submit data.\nEach saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.\n/** * Define the saga for the UPDATE_FORM_DATA event */ function* updateFormDataSaga(action: ActionType) { try { const relevantData = yield selectRelevantStateObjects(...); ... doRelevantLogic(relevantData); ... yield call(updateFormDataSagaFulfilled, ... ); } catch (err) { yield call(updateFormDataSagaRejected, err); } } /** * Define a listener for the UPDATE_FORM_DATA event */ export function* watchUpdateFormDataSaga(): SagaIterator { yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga); }  Reducers Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/register/",
+	"title": "Application construction components - Altinn Platform Register",
+	"tags": ["architecture", "solution"],
+	"description": "The register component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/",
