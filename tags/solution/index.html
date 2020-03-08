@@ -4968,6 +4968,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">
+        <span>Authorization</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/" class="dd-item 
         
         
@@ -9163,6 +9192,35 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">Altinn Platform - Authentication</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The application runs on port 5040. See full details in dockerfile
+Api Controllers  Authentication : Functionality to convert the different ID-tokens from ID providers OpenID : Contains well known endpoint Organization : TODO. is this needed  Dependencies Authentication component take use of libraries for OpenID connect to create and validate JWT tokens.
+See full list of dependencies in csproj configuration. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
     </header>
     <section class="post-excerpt">
@@ -9383,37 +9441,6 @@ The solution is currently available at http://platform.altinn.cloud/authenticati
 Resources: authentication
 /authentication The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
 GET /authentication?goto={url}  Refresh a valid JwtToken: <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">Application arhicture profile component - Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.
-The profile solution is now available locally at http://platform.altinn.cloud/profile/api/v1 and all resources are avaiable through endpoints defined below.
-Resources: users
-/users A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.
-User type    Attribute Type Description     UserId int user ID   UserName string username set by the user   PhoneNumber string phone number   Email string email address   PartyId int party ID   Party Party party object that represents the user   UserType UserType user type   ProfileSettingPreference ProfileSettingPreference object containing the users profile setting preferences    Operations Get information about a user: <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -11855,6 +11882,22 @@ User type    Attribute Type Description     UserId int user ID   UserName string
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

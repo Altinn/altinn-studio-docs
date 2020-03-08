@@ -4968,6 +4968,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">
+        <span>Authorization</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/" class="dd-item 
         
         
@@ -9136,6 +9165,37 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/data/logical/">Logical datamodel</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The following diagram shows the different entities stored. Click on the entity for the physical model used.
+
+See fullscreen / Visio
+Data is stored in Cosmos DB as JSON documents. In addition we use object database to store the raw objects of business data that org has defined for the application.
+Data Entities Altinn Platform Instances Example document from instance.
+AppId is the reference to APP.
+{ &quot;id&quot;: &quot;3cc58033-128e-414d-86c2-d652af251b39&quot;, &quot;instanceOwner&quot;: { &quot;partyId&quot;: &quot;50002123&quot;, &quot;personNumber&quot;: &quot;01054210007&quot; }, &quot;appId&quot;: &quot;ttd/rip-livsgnist&quot;, &quot;org&quot;: &quot;ttd&quot;, &quot;title&quot;: { &quot;nb&quot;: &quot;rip-livsgnist&quot; }, &quot;process&quot;: { &quot;started&quot;: &quot;2020-01-16T10:54:04. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/data/logical/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/infrastructure/network/">Network componentens</a></h2>
     </header>
     <section class="post-excerpt">
@@ -9371,37 +9431,6 @@ Delegation of rights is performed in Altinn II platform. When delegation is done
     <section class="post-excerpt">
         <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
 Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organisation new rights. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The Policy Decision Point is implemented in the authorization application that is deployed Altinn Platform.
-The Policy Decision Point follow eXtensible Access Control Markup Language (XACML) Version 3.0.
-This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules.
-The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
-Policy Decision Point exposes a method that authorize the decision request. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -11845,6 +11874,22 @@ Policy Decision Point exposes a method that authorize the decision request. <a c
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
