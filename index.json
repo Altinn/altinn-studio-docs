@@ -318,8 +318,8 @@
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/",
 	"title": "Application architecture Altinn Platform",
 	"tags": ["architecture", "solution"],
-	"description": "Description of the Altinn Platform application architecture",
-	"content": "Altinn Platform consist of serveral reusable and isolated components.\nThe application architecture for each component is described below.\n"
+	"description": "Altinn Platform consist of serveral components that is constructed with help of different frameworks and components.",
+	"content": "See below for application contruction components for the different components in Altinn Platform.\n\rAltinn Platform - Authentication\rThe authentication component in Altinn platform is constructed as a asp.net core application deployed as a docker container to a Kubernetes cluster.\n\r\rAltinn Platform - Authorization\rDescription of authorization component\n\r\rApplication architecture pdf component - Altinn Platform\rDescription of pdf component\n\r\rApplication architecture receipt component - Altinn Platform\rDescription of receipt component\n\r\rApplication Construction components - Storage\rThe storage component is a asp.net core application hosted in Kubernetes as a docker container.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/",
@@ -571,7 +571,7 @@
 	"title": "Application Construction Components",
 	"tags": ["architecture"],
 	"description": "Application Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.",
-	"content": "It also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication construction components for Altinn Apps\rApplication created in Altinn Studio is deployed to Altinn Apps. This documentation covers application construction components for the applications and for monitoring applications for Altinn Apps.\n\r\rApplication architecture Altinn Platform\rDescription of the Altinn Platform application architecture\n\r\rApplication construction components Altinn Studio\rThe application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.\n\r\rShared\r\n\r\r"
+	"content": "It also describes the internal frameworks used in the different applications and how they consume and produce data.\n\rApplication construction components for Altinn Apps\rApplication created in Altinn Studio is deployed to Altinn Apps. This documentation covers application construction components for the applications and for monitoring applications for Altinn Apps.\n\r\rApplication architecture Altinn Platform\rAltinn Platform consist of serveral components that is constructed with help of different frameworks and components.\n\r\rApplication construction components Altinn Studio\rThe application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.\n\r\rShared\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/",
