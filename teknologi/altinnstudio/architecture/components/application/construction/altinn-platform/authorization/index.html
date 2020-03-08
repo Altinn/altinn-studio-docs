@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The authorization component in Altinn platform is constructed as a asp.net core web API application deployed as a docker container to a Kubernetes cluster.">
+    <meta name="description" content="The authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.">
 
 
     
@@ -9177,7 +9177,7 @@ if(host != "localhost")
                 Application construction components - Altinn Platform Authorization
                 
               </h1>
-              <p class="a-leadText" id="leadText">The authorization component in Altinn platform is constructed as a asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
+              <p class="a-leadText" id="leadText">The authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
             
           
 
@@ -9191,27 +9191,27 @@ if(host != "localhost")
 
 
 
-<p>The authorization component consist of serveral parts.</p>
+<p>The authorization component consists of several parts.
+For a functional description see details in <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">application solution components</a>.</p>
 
 <h2 id="policy-decision-point-pdp">Policy Decision Point - PDP</h2>
 
-<p>This is implemented as seperate class library.
-<a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC">Altinn.Authorization.Abac</a> <a href="https://www.nuget.org/packages/Altinn.Authorization.ABAC/">This is published to Nuget</a>.</p>
+<p>This is implemented as a separate class <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC">library</a> <a href="https://www.nuget.org/packages/Altinn.Authorization.ABAC/">This is published to Nuget</a>.</p>
 
 <h2 id="policy-retrieval-point-prp">Policy Retrieval Point - PRP</h2>
 
 <p>Policy Retrieval Point component that stores authorization policies for applications.</p>
 
-<p>The policies is stored as XACML (xml) documents in a blob storage.</p>
+<p>The policies are stored as XACML (xml) documents in a blob storage.</p>
 
-<p>When a authorization request is received to PDP, PRP identifies the correct policy document in the policy storage.</p>
+<p>When an authorization request is received to PDP, PRP identifies the correct policy document in the policy storage.</p>
 
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/PolicyRetrievalPoint.cs">See code</a></p>
 
 <h2 id="context-handler">Context Handler</h2>
 
-<p>Context handler enrich the authorization request with information about the user and the resource requsted.
-Roles are retrieved from SBL Brigde while resoure information is retrieved from Instances in storage.</p>
+<p>Context handler enriches the authorization request with information about the user and the resource requested.
+Roles are retrieved from SBL Brigde while resource information is retrieved from Instances in storage.</p>
 
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/ContextHandler.cs">See code</a></p>
 
