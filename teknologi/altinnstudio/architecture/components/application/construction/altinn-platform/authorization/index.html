@@ -9191,14 +9191,46 @@ if(host != "localhost")
 
 
 
+<p>The authorization component consist of serveral parts.</p>
+
+<h2 id="policy-decision-point-pdp">Policy Decision Point - PDP</h2>
+
+<p>This is implemented as seperate class library.
+<a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC">Altinn.Authorization.Abac</a> <a href="https://www.nuget.org/packages/Altinn.Authorization.ABAC/">This is published to Nuget</a>.</p>
+
+<h2 id="policy-retrieval-point-prp">Policy Retrieval Point - PRP</h2>
+
+<p>Policy Retrieval Point component that stores authorization policies for applications.</p>
+
+<p>The policies is stored as XACML (xml) documents in a blob storage.</p>
+
+<p>When a authorization request is received to PDP, PRP identifies the correct policy document in the policy storage.</p>
+
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/PolicyRetrievalPoint.cs">See code</a></p>
+
+<h2 id="context-handler">Context Handler</h2>
+
+<p>Context handler enrich the authorization request with information about the user and the resource requsted.
+Roles are retrieved from SBL Brigde while resoure information is retrieved from Instances in storage.</p>
+
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/ContextHandler.cs">See code</a></p>
+
+<h2 id="policy-information-point-roles">Policy Information Point - Roles</h2>
+
+<p>PIP for roles, calls SBL bridge to get the rules a user or system has for a resource party.</p>
+
 <h2 id="api-controllers">Api controllers</h2>
 
 <ul>
-<li>[Decision]()</li>
-<li>[]</li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/DecisionController.cs">Decision</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/PolicyController.cs">Policy</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/RolesController.cs">Roles</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/PartiesController.cs">Parties</a></li>
 </ul>
 
 <h2 id="dependencies">Dependencies</h2>
+
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Altinn.Platform.Authorization.csproj">csproj</a></p>
 
 
 <footer class=" footline" >

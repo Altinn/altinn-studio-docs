@@ -445,7 +445,7 @@
 	"title": "Application construction components - Altinn Platform Authorization",
 	"tags": ["architecture", "solution"],
 	"description": "The authorization component in Altinn platform is constructed as a asp.net core web API application deployed as a docker container to a Kubernetes cluster.",
-	"content": " Api controllers  [Decision]() []  Dependencies "
+	"content": " The authorization component consist of serveral parts.\nPolicy Decision Point - PDP This is implemented as seperate class library. Altinn.Authorization.Abac This is published to Nuget.\nPolicy Retrieval Point - PRP Policy Retrieval Point component that stores authorization policies for applications.\nThe policies is stored as XACML (xml) documents in a blob storage.\nWhen a authorization request is received to PDP, PRP identifies the correct policy document in the policy storage.\nSee code\nContext Handler Context handler enrich the authorization request with information about the user and the resource requsted. Roles are retrieved from SBL Brigde while resoure information is retrieved from Instances in storage.\nSee code\nPolicy Information Point - Roles PIP for roles, calls SBL bridge to get the rules a user or system has for a resource party.\nApi controllers  Decision Policy Roles Parties  Dependencies See csproj\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/",

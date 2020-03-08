@@ -9168,7 +9168,11 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> Api controllers  [Decision]() []  Dependencies  <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
+        <p>The authorization component consist of serveral parts.
+Policy Decision Point - PDP This is implemented as seperate class library. Altinn.Authorization.Abac This is published to Nuget.
+Policy Retrieval Point - PRP Policy Retrieval Point component that stores authorization policies for applications.
+The policies is stored as XACML (xml) documents in a blob storage.
+When a authorization request is received to PDP, PRP identifies the correct policy document in the policy storage. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
