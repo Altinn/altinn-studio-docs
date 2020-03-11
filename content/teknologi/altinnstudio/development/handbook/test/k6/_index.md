@@ -59,7 +59,7 @@ app/end2end.js | X | X | X | X | X |  |
 k6 by default outputs in stdout format while running a test. Below is described various methods to visualise results.
 
 - To get a junit.xml output from k6 tests, pipe the results to a k6-to-junit npm package with file name. (use `npm install -g k6-to-junit` to install the package globally).
-This comes in handly to view test results in CI/CD pipelines.
+This comes in handy to view test results in CI/CD pipelines.
 
 ```cmd
 docker run -i -v C:/Repos/altinn-studio/src/test/K6/src/:/src loadimpact/k6 run src/tests/platform/pdf/pdf.js -e env=value | k6-to-junit results.xml
