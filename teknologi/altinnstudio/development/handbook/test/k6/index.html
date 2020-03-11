@@ -9477,7 +9477,7 @@ See the table below for the required environment variables for the test files.</
 
 <ul>
 <li>To get a junit.xml output from k6 tests, pipe the results to a k6-to-junit npm package with file name. (use <code>npm install -g k6-to-junit</code> to install the package globally).
-This comes in handly to view test results in CI/CD pipelines.</li>
+This comes in handy to view test results in CI/CD pipelines.</li>
 </ul>
 
 <pre><code class="language-cmd">docker run -i -v C:/Repos/altinn-studio/src/test/K6/src/:/src loadimpact/k6 run src/tests/platform/pdf/pdf.js -e env=value | k6-to-junit results.xml
