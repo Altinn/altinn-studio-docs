@@ -8,7 +8,7 @@ aliases:
 ---
 
 {{%excerpt%}}
-<object data="/solutions/solutions.svg" type="image/svg+xml" style="width: 100% max-width: 1200px;"></object>   
+<object data="/teknologi/altinnstudio/solutions/altinn-3-solution.svg" type="image/svg+xml" style="width: 100% max-width: 700px;"></object>   
 {{% /excerpt%}}
 
 {{% children description="true" depth="1" %}}
