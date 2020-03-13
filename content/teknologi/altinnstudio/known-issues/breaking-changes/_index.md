@@ -6,6 +6,55 @@ toc: true
 weight: 100
 ---
 
+## Breaking change: Build fails after upgrading Altinn.App-nugets to version 1.0.62-alpha
+Introduced with issue: [#3820](https://github.com/Altinn/altinn-studio/issues/3820)
+The base class that every application inherits has been altered to allow for both data and task validation. 
+
+### Error
+When building App.cs errors simillar to those depicted in the picture below are logged.
+![build-errors](3820-errors.PNG "Build errors")
+
+### How to fix
+If you haven't made any changes to `App/logic/Validation/ValidationHandler.cs` and `App/logic/App.cs`
+the quickest way to fix the build errors are to copy these files from the template and paste them into your repository. 
+Find the template files [here.](https://github.com/Altinn/altinn-studio/tree/master/src/studio/AppTemplates/AspNet/App/logic) 
+
+If changes have been made to these files, follow the instructions below to fix the errors.
+
+#### App/logic/Validation/ValidationHandler.cs
+
+1. Add a reference to _Altinn.Platform.Storage.Interface.Models_ by including the snippet below amongst the using statements.
+
+    ```cs
+    using Altinn.Platform.Storage.Interface.Models;
+    ```
+
+2. Add the function below in the class.
+
+    ```cs
+    public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
+    {
+        await Task.CompletedTask;
+    }
+    ```
+
+#### App/logic/App.cs
+
+1. Rename function `RunValidation` to `RunDataValidation`
+2. Add the function below in the class
+
+```cs
+        /// <summary>
+        /// Run validation event to perform custom validations
+        /// </summary>
+        /// <param name="validationResults">Object to contain any validation errors/warnings</param>
+        /// <returns>Value indicating if the form is valid or not</returns>
+        public override async Task RunTaskValidation(Instance instance, string taskId, ModelStateDictionary validationResults)
+        {
+            await _validationHandler.ValidateTask(instance, taskId, validationResults);
+        }
+```
+
 ## Breaking change: Error message when deleting instance from messagebox
 
 Introduced with issue: [#2487](https://github.com/Altinn/altinn-studio/issues/2487)
