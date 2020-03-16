@@ -9274,6 +9274,7 @@ if(host != "localhost")
 <li><a href="#downloads-is-logged-on-the-data-element-1">Downloads is logged on the data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
 <li><a href="#confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</a></li>
 <li><a href="#download-a-complete-instance-with-data-elements-and-corresponding-pdfs-1">Download a complete instance with data elements and corresponding pdfs<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
+<li><a href="#confirm-instance-completed">Confirm instance completed</a></li>
 </ul></li>
 <li><a href="#query-instances">Query instances</a></li>
 <li><a href="#events">Events</a>
@@ -9358,7 +9359,11 @@ The new API will be available to both parties, but with some functions that will
 <li>Create an application instance</li>
 <li>Upload form data</li>
 <li>Download form data</li>
-<li>Confirm successful download</li>
+<li>Confirm successful download
+
+<ul>
+<li>Confirm complete</li>
+</ul></li>
 <li>Change process state (workflow)</li>
 </ul>
 
@@ -9497,6 +9502,12 @@ Content-Disposition: form-data; name=&quot;certificate&quot;; filename=certifica
     &quot;appOwner&quot;: {
          &quot;labels&quot;: [ &quot;gr&quot;, &quot;x2&quot; ],
     },
+    &quot;completeConfirmations&quot;: [
+        {
+            &quot;stakeholderId&quot;: &quot;org&quot;,
+            &quot;confirmedOn&quot;: &quot;2020-03-16T14:38:11&quot;
+        }
+    ],
     &quot;data&quot;: [
     {
         &quot;id&quot;: &quot;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&quot;,
@@ -9707,6 +9718,15 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 <li>fourth data element (e.g. pdf)</li>
 <li>&hellip;</li>
 </ol>
+
+<h3 id="confirm-instance-completed">Confirm instance completed</h3>
+
+<p>The last step for application owner in all processes is to confirm that they consider the case associated with an instance as finished. Its purpose is to tell Altinn that the application owner has downloaded all data, finished any internal processing, and if applicable, posted a response. The original instance is no longer needed. Only the first call to this operation will be registered. Consecutive calls are ignored.</p>
+
+<pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/complete
+</code></pre>
+
+<p>The operation returns an updated instance with the added <code>CompleteConfirmation</code>.</p>
 
 <h2 id="query-instances">Query instances</h2>
 
