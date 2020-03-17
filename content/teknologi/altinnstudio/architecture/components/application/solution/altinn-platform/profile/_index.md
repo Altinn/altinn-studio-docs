@@ -37,5 +37,5 @@ GET /users/{userId}
 Get information about a user from SSN. Send a POST request with the SSN contained in the request body.
 
 ```http
-POST /users/{userId}
+POST /users
 ```
