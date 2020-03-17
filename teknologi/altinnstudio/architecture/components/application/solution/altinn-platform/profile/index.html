@@ -9352,9 +9352,14 @@ if(host != "localhost")
 
 <h3 id="operations">Operations</h3>
 
-<p>Get information about a user:</p>
+<p>Get information about a user from user id:</p>
 
 <pre><code class="language-http">GET /users/{userId}
+</code></pre>
+
+<p>Get information about a user from SSN. Send a POST request with the SSN contained in the request body.</p>
+
+<pre><code class="language-http">POST /users/{userId}
 </code></pre>
 
 
