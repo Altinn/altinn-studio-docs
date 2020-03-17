@@ -15,6 +15,7 @@ When building App.cs errors simillar to those depicted in the picture below are 
 ![build-errors](3820-errors.PNG "Build errors")
 
 ### How to fix
+
 If you haven't made any changes to `App/logic/Validation/ValidationHandler.cs` and `App/logic/App.cs`
 the quickest way to fix the build errors are to copy these files from the template and paste them into your repository. 
 Find the template files [here.](https://github.com/Altinn/altinn-studio/tree/master/src/studio/AppTemplates/AspNet/App/logic) 
