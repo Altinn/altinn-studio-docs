@@ -69,8 +69,8 @@ docker run -i -v C:/Repos/altinn-studio/src/test/K6/src/:/src loadimpact/k6 run 
 
 
 ### Initial results from a sample tests against performance test environment.
-Test case: Login - Build test data - Create instance - Upload formdata - validate and archive instance
-Http-requests: 14
-Iteration: 1
-Iteration duration: ~27 seconds
-Average http_req_duration : 1.9s
+- Test case: Login - Build test data - Create instance - Upload formdata - validate and archive instance
+- Http-requests: 14
+- Iteration: 1
+- Iteration duration: ~27 seconds
+- Average http_req_duration : 1.9s
