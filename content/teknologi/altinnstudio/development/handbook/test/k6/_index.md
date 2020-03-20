@@ -66,3 +66,11 @@ docker run -i -v C:/Repos/altinn-studio/src/test/K6/src/:/src loadimpact/k6 run 
 ```
 - k6 performance test results can be visualised with the help of a influxdb and grafana instance that stores and reads the test results and displays as graph.
 [More about influxdb and grafana results](https://k6.io/docs/results-visualization/influxdb-+-grafana)
+
+
+### Initial results from a sample tests against performance test environment.
+Test case: Login - Build test data - Create instance - Upload formdata - validate and archive instance
+Http-requests: 14
+Iteration: 1
+Iteration duration: ~27 seconds
+Average http_req_duration : 1.9s
