@@ -1,19 +1,19 @@
 ---
-title: Altinn API - Authentication
-description: How to access the apis
+title: Authentication
+description: How to authenticate towards the apis
 toc: true
 tags: [api]
 weight: 100
 alwaysopen: false
 ---
 
-## Application owners
+### Authentication for application owners
 
-Should be authenticated with [maskinporten](https://difi.github.io/felleslosninger/oidc_guide_maskinporten.html).
+Application owners should be authenticated with [maskinporten](https://difi.github.io/felleslosninger/maskinporten_overordnet.html).
 
-### API provisioning in Maskinporten
+#### API provisioning in Maskinporten
 
-#### Api-provider
+##### Api-provider
 
 To provide an API in maskinporten Altinn has to do two operations.
 
@@ -37,11 +37,11 @@ PUT /scopes/access/889640782?scope=altinn:apps.read
 Here we have given organisation 889640782 access to the scope `altinn:instances/metadata.read`
 The organisation must then create a client that uses the scope.
 
-#### Api-consumer
+##### Api-consumer
 
 To access the Altinn api an organisation must create a client
 
-> As Api-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn:
+> As API-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn:
 
 ```json
 POST /clients/
@@ -54,49 +54,25 @@ POST /clients/
 }
 ```
 
-### Scopes
+#### Scopes
 
 scope names must follow the following regexp: `^([a-z0-9]+\/?)+[a-z0-9]+(\.[a-z0-9]+)?$?`.
 It means that we cannot have - or _ in scope names.
 
-#### All instances scope
+##### All instances scope
 
 ```cs
 altinn:instances.read
 altinn:instances.write
 ```
 
-This is the most general scope which can be given to an organisation by Altinn. It means that the application owner can create a client that can access all instances of apps issued by that application owner. Clients with *write* scope will be able to instantiate applications through direct access to the app's api, update metadata, update process state, upload data, validate data, and change process of an instance. Clients with *read* token will only be allowed to read metadata, data and events information.
+This is the most general scope which can be given to an organisation by Altinn.
+It means that the application owner can create a client that can access all instances of apps issued by that application owner.
+Clients with *write* scope will be able to instantiate applications through direct access to the app's api, update metadata,
+update process state, upload data, validate data, and change process of an instance.
+Clients with *read* token will only be allowed to read metadata, data and events information.
 
-#### Single app scope
-
-```cs
-altinn:instances/{appId}/metadata.read
-altinn:instances/{appId}/metadata.write
-
-altinn:instances/{appId}/data.read
-altinn:instances/{appId}/data.write
-
-altinn:instances/{appId}/events.read
-```
-
-> appId = {org}/{app}
-
-This is a more specific scope which gives clients access to data for a specific app, identified by `appId` restricted to specific data types:  metadata, data and events.
-
-* metadata - allow clients to read/write instance metadata for instances of a specific app. Clients with write access can update process state and some selected attributes of the instance metadata. Clients can use the following apis:
-  * `{appPath}/org/app/instances` (read/write)
-  * `{storagePath}/instances` (read)
-* data - allow clients to read/write the data elements (formdata or attachement) associated with the instance metadata for a given app. Both app-backen and storage apis are awailable:
-  * `{appPath}/org/app/instances/{instanceOwnerId}/{instanceGuid}/data` (read/write)
-  * `{storagePath}/instances/{instanceOwnerId}/{instanceGuid}/data` (read)
-* events - allow clients to read events for a specific app. Events are found at the platform api:
-  * `{storagePath}/instances/{instanceOwnerId}/{instanceGuid}/events` (read)
-  * `{storagePath}/applications/{org}/{app}/events` (read)
-
-Clients with read scope are allowed to query for data using GET. Clients with write scope are allowed to update data: POST, PUT and DELETE.
-
-## Exchange of JWT token
+#### Exchange of JWT token
 
 Application owners register clients in Maskinporten and selects the scope they need.
 
@@ -104,13 +80,13 @@ A client is authenticated by *Maskinporten* and are given a *Maskinporten JWT ac
 
 This token has to be validated and replaced with an *Altinn JWT access token* which should be used to access the apis.
 
-### Maskinporten JWT access token (input)
+##### Maskinporten JWT access token (input)
 
 Client provides a self-contained access-token.
 
 ```http
 Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
-GET /authentication/api/v1/convert
+GET /authentication/api/v1/exhange/maskinporten
 ```
 
 The token looks something like this (after decoding):
@@ -143,7 +119,7 @@ The token looks something like this (after decoding):
 
 Maksinporten provides the legal `consumer` (the client) in ISO 6523 format. The client_orgno claim is deprecated.
 
-### The Altinn JWT Access token (output)
+##### The Altinn JWT Access token (output)
 
 The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.
 
@@ -171,16 +147,96 @@ The convert operation validates the incomming token and generates a new JWT toke
 <<signature>>
 ```
 
-## Open ID Connect configuration
+### Authentication for end user system
+
+End user systems should be authentication with [ID-porten](https://difi.github.io/felleslosninger/idporten_overordnet.html).
+When authenticated the system may exchange a token provided by ID-porten with an Altinn token by instructions below.
+
+##### Exchange of JWT token
+
+This token has to be validated and replaced with an *Altinn JWT access token* which should be used to access the apis.
+
+###### ID-porten JWT access token (input)
+
+```http
+Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
+GET /authentication/api/v1/exhange/id-porten
+```
+
+The token looks something like this (after decoding):
+
+```json
+{
+  "kid": "cZk00Mkm5HC4g7vt6cpP5FHZLKJsw8fBAIuFbS4RTD4",
+  "alg": "RS256"
+}
+.
+{
+  "at_hash": "IF-jpSLtMjzoHdEhLq9pnw",
+  "sub": "PZcxQYOR_ylbrlj69pXn_HdTmrpDRpA3X0rTyOEyN5I=",
+  "amr": [
+    "Minid-PIN"
+  ],
+  "iss": "https://oidc-ver2.difi.no/idporten-oidc-provider/",
+  "pid": "191080XXXXX",
+  "locale": "nb",
+  "nonce": "1584978003167642",
+  "sid": "bQDBkJmjrX3bx2agu4q7BS5QW6TPf9CHnJX11vEthZg",
+  "aud": "38e634d9-5682-44ae-9b60-db636efe3156",
+  "acr": "Level3",
+  "auth_time": 1584978021,
+  "exp": 1584978141,
+  "iat": 1584978021,
+  "jti": "_Og8JT1zMKzzHFB4WoVCdvqzmEpoY1hPhLa47bieJ94"
+}
+.
+<<signature>>
+```
+
+###### The Altinn JWT Access token (output)
+
+The exchange operation validates the incomming token and generates a new JWT token that contains user data
+retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.
+pid is referred to as ssn (social security number) i Altinn Platform.
+
+```json
+{
+  "nameid": "20000011",
+  "urn:altinn:userid": "20000011",
+  "urn:altinn:username": "",
+  "urn:altinn:partyid": 50002119,
+  "urn:altinn:authenticatemethod": "Minid-PIN",
+  "urn:altinn:authlevel": 3,
+  "sub": "kBSMtI7PCrNRH9jlKtVNpj9upKf-S1w1M9zgCIxlz0A=",
+  "amr": "Minid-PIN",
+  "pid": "191080XXXXX",
+  "locale": "nb",
+  "nonce": "1585045781364132",
+  "sid": "BYSqEpVGRrh6rElmnzzTjcU0roC95rxNCC2kAsB2hmY",
+  "acr": "Level3",
+  "auth_time": 1585045793,
+  "exp": 1585047785,
+  "iat": 1585045985,
+  "nbf": 1585045985
+}
+.
+<<signature>>
+```
+
+### Open ID Connect configuration
 
 {{%notice warning%}}
-This is work-in-progress. The response is still missing required information and might be inconsistent with actual authentication mechanisms. 
+This is work-in-progress. The response is still missing required information and might be inconsistent with actual authentication mechanisms.
 {{% /notice%}}
 
-Metadata about Altinn as an Open ID provider is exposed as a .well-known endpoint as defined by [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
+Metadata about Altinn as an Open ID provider is exposed as a .well-known endpoint as defined
+by [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig).
 
-The primary porpose of this endpoint is to make available the Altinn signing certificate for the JSON Web Tokens being generated. It is recommended that clients of Altinn use this discovery endpoint to automatically have their systems updated when Altinn changes their signing certificate.
+The primary porpose of this endpoint is to make available the Altinn signing certificate for the JSON Web Tokens being generated.
+It is recommended that clients of Altinn use this discovery endpoint to automatically have their systems updated when Altinn changes their signing certificate.
 
 | Environment | URL
 | ----------- | ---
-| AT21        | https://platform.at21.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration
+| AT2x        | <https://platform.at2x.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration>
+| YT01        | <https://platform.yt01.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration>
+| TT02        | <https://platform.tt02.altinn.no/authentication/api/v1/openid/.well-known/openid-configuration>
