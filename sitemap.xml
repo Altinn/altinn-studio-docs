@@ -167,10 +167,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/authentication/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/deployment/</loc>
   </url>
   
@@ -232,6 +228,14 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/async-programming/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/authentication/</loc>
   </url>
   
   <url>
@@ -1184,6 +1188,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/arkitektur/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/asynchronous-programming/</loc>
     <priority>0</priority>
   </url>
   
