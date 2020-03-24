@@ -207,7 +207,6 @@ pid is referred to as ssn (social security number) i Altinn Platform.
   "urn:altinn:partyid": 50002119,
   "urn:altinn:authenticatemethod": "Minid-PIN",
   "urn:altinn:authlevel": 3,
-  "sub": "kBSMtI7PCrNRH9jlKtVNpj9upKf-S1w1M9zgCIxlz0A=",
   "amr": "Minid-PIN",
   "pid": "191080XXXXX",
   "locale": "nb",

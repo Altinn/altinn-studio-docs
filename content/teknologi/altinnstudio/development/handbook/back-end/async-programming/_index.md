@@ -9,15 +9,14 @@ The way our solution is built there is a large need for asynchrous functionality
 It is important for the development teams to be aware of best practices as well as 
 which antipatterns to avoid.
 
+## Best Practices
 
-# Best Practices
-
-
-# Async Antipatterns
+## Async Antipatterns
 
 Keep an eye out for anti-patterns and help the team to maintain a high quality in our code base.
 
-## Blocking on tasks with .Result
+### Blocking on tasks with .Result
+
 When an asynchronous call is needed in a synchronous method, the implementation below is quite common.
 This use of `.Result` ties up the thread that could be doing other useful work, but even more serious
 it might cause a deadlock.

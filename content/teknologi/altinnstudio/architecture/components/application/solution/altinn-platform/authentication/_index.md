@@ -34,6 +34,7 @@ Accepted providers include: `maskinporten` and `id-porten`.
 Request must include a bearer token in the authorization header.
 Set test equal to true if retrieving a token for Testdepartementet.
 (This ony works with maskinporten as the token provider.)
+
 ```http
 GET /exchange/{tokenProvider}?test={bool}
 ```
