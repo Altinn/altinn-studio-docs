@@ -228,7 +228,14 @@
 	"title": "altinndigital.no",
 	"tags": [],
 	"description": "Skriveråd og regler for sidemaler når du skal skrive på altinndigital.no og på altinndigital.no/utvikling.",
-	"content": "\r\r\r\n\r\r"
+	"content": "\r\rSkriveråd\rI arbeidet med Altinn digitalisering har vi gjort en grundig jobb med innhold og språk. Vi har ikke kopiert over innhold fra gammel løsning, men skrevet om alt og ryddet vekk kompliserte ord og uttrykk. Formålet med prinsippene for språk og kommunikasjon er å fortsette på denne stien. Hjelper du oss med å følge retningslinjene, får vi et ensrettet språk og form i løsningene våre. Og brukerne får en god opplevelse i dialogen med Altinn.\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/innhold/altinndigital.no/skriver%C3%A5d/",
+	"title": "Skriveråd",
+	"tags": [],
+	"description": "I arbeidet med Altinn digitalisering har vi gjort en grundig jobb med innhold og språk. Vi har ikke kopiert over innhold fra gammel løsning, men skrevet om alt og ryddet vekk kompliserte ord og uttrykk. Formålet med prinsippene for språk og kommunikasjon er å fortsette på denne stien. Hjelper du oss med å følge retningslinjene, får vi et ensrettet språk og form i løsningene våre. Og brukerne får en god opplevelse i dialogen med Altinn.",
+	"content": "\nNB: Innholdet og sidene er under utvikling\nVi er ikke helt ferdige med disse ressursene enda\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/service-configurations/",
@@ -1594,13 +1601,6 @@
 	"tags": [],
 	"description": "",
 	"content": "docs  "
-},
-{
-	"uri": "https://docs.altinn.studio/innhold/altinndigital.no/skriver%C3%A5d/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/",
