@@ -7,7 +7,7 @@ weight: 3
 toc: true
 ---
 
-For å få tilgang til Altinns Figma-konto ta kontakt med [Alise Kjelling](mailto:alise.kjelling@digdir.no).
+For å få tilgang til Altinns Figma-konto ta kontakt med [Alise Kjelling](mailto:alise.kjelling@digdir.no). Tjenesteeiere i Altinn kan bruke [Altinns åpne design kit for eksterne](https://www.figma.com/proto/wnBveAG2ikUspFsQwM3GNE/Altinn-design-kit?node-id=47%3A4068&viewport=326%2C2144%2C0.653957724571228&scaling=min-zoom).
 
 <img class="py-2" src="Figma-movie-1.gif" alt="Figma, eksempel på komponentbibliotek">
 
