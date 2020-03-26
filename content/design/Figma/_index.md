@@ -4,6 +4,7 @@ title: Kom i gang med Figma
 description: For å kunne jobbe effektivt med interaksjonsdesign og nye konsepter, har vi satt opp et design kit for Figma som inneholder alle komponentene i et såkalt "Team-library". Dette er tilgjengelig for konsulenter og interne som jobber med å videreutvikle Altinn. 
 
 Tjenesteeiere i Altinn kan bruke [Altinns åpne design kit for eksterne](https://www.figma.com/proto/wnBveAG2ikUspFsQwM3GNE/Altinn-design-kit?node-id=47%3A4068&viewport=326%2C2144%2C0.653957724571228&scaling=min-zoom).
+
 weight: 3
 toc: true
 ---
