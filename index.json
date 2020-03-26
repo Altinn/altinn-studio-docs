@@ -200,7 +200,7 @@
 	"title": "Slik skriver vi",
 	"tags": [],
 	"description": "Tips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din.",
-	"content": "Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\rMålform\rPå altinn.no har vi innhold på både bokmål, nynorsk og engelsk. Vi forholder oss til mållova, som sier at begge målformer skal være representert med minst 25 prosent.\n\r\rSkriveråd\rTips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din. Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\r\rUniversell utforming for innhold\rNår du lager innhold har du en rekke ansvarsområder når det kommer til universell utforming.\n\r\r"
+	"content": "Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\rMålform\rPå altinn.no har vi innhold på både bokmål, nynorsk og engelsk. Vi forholder oss til mållova, som sier at begge målformer skal være representert med minst 25 prosent.\n\r\rSkriveråd\rTips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din. Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\r\rUniversell utforming for innhold\rNår du lager innhold har du en rekke ansvarsområder når det kommer til universell utforming.\n\r\r\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/innhold/m%C3%A5lform/",
@@ -1587,6 +1587,13 @@
 	"tags": [],
 	"description": "",
 	"content": "docs  "
+},
+{
+	"uri": "https://docs.altinn.studio/innhold/altinndigital.no/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/",
