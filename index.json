@@ -200,7 +200,7 @@
 	"title": "Slik skriver vi",
 	"tags": [],
 	"description": "Tips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din.",
-	"content": "Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\rMålform\rPå altinn.no har vi innhold på både bokmål, nynorsk og engelsk. Vi forholder oss til mållova, som sier at begge målformer skal være representert med minst 25 prosent.\n\r\rSkriveråd\rTips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din. Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\r\rUniversell utforming for innhold\rNår du lager innhold har du en rekke ansvarsområder når det kommer til universell utforming.\n\r\raltinndigital.no\rHer finner du skriveråd og regler for sidemaler som er viktige å følge når du skal skrive på [altinndigital.no](https://www.altinndigital.no/) og på [altinndigital.no/utvikling](https://altinn.github.io/docs/).\n\r\r\r\n\r\r"
+	"content": "Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\rMålform\rPå altinn.no har vi innhold på både bokmål, nynorsk og engelsk. Vi forholder oss til mållova, som sier at begge målformer skal være representert med minst 25 prosent.\n\r\rSkriveråd\rTips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din. Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver.\n\r\rUniversell utforming for innhold\rNår du lager innhold har du en rekke ansvarsområder når det kommer til universell utforming.\n\r\raltinn.no\rHer finner du skriveråd og regler for sidemaler som er viktige å følge når du skal skrive på [altinn.no](https://www.altinn.no/).\n\r\raltinndigital.no\rHer finner du skriveråd og regler for sidemaler som er viktige å følge når du skal skrive på [altinndigital.no](https://www.altinndigital.no/) og på [altinndigital.no/utvikling](https://altinn.github.io/docs/).\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/innhold/m%C3%A5lform/",
@@ -222,6 +222,13 @@
 	"tags": [],
 	"description": "Når du lager innhold har du en rekke ansvarsområder når det kommer til universell utforming.",
 	"content": " På Difis nettsider kan du sortere UU-krav etter ansvarsområde innhold. Her får du en god oversikt på hva du må passe på når det kommer til tekst, bilder og video.\nHjelpemiddel For å oppdage feil i innholdstrukturen kan det være nyttig å benytte “Wave” som er et utvidelsesverktøy til chrome.\nLast ned Wave til chrome, installer og ikonet vil dukke opp øverst til høyre i nettleseren.\nI eksempelet under ser vi hjelp av Wave at det uheldigvis er blitt lagt inn en tom overskrift i episerver som egentlig ikke skulle vært der. For å fjerne den igjen må vi markere den tomme linjen i epi, og fjerne “Mindre kapittel Heading” som style.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/innhold/altinn.no/",
+	"title": "altinn.no",
+	"tags": [],
+	"description": "Her finner du skriveråd og regler for sidemaler som er viktige å følge når du skal skrive på [altinn.no](https://www.altinn.no/).",
+	"content": "\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/innhold/altinndigital.no/",
@@ -1615,13 +1622,6 @@
 	"tags": [],
 	"description": "",
 	"content": "docs  "
-},
-{
-	"uri": "https://docs.altinn.studio/innhold/altinn.no/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/",

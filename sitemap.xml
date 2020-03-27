@@ -131,6 +131,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/innhold/altinn.no/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/innhold/altinndigital.no/</loc>
   </url>
   
@@ -924,10 +928,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/_header/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/innhold/altinn.no/</loc>
   </url>
   
   <url>
