@@ -431,6 +431,13 @@ Another example is get all instances of all apps of an organisation *org* that h
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
+Yet another example is get all instances of an app that are in a specific task e.g. Task_1.
+
+```http
+GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
+```
+
+
 On query parameters specifying date time you can use the following operators:
 
 * gt: - greater than
