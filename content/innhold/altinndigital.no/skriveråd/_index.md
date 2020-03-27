@@ -8,7 +8,7 @@ toc: true
 
 {{% panel %}}
 **NB: Innholdet og sidene er under utvikling**<br>
-Vi er ikke helt ferdige med disse ressursene enda
+Vi er ikke helt ferdige med disse ressursene ennå
 {{% /panel %}}
 
 ## Overordnede prinsipper
