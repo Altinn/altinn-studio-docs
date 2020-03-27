@@ -1,5 +1,5 @@
 ---
-title: Kalender
+title: Kalender/arrangementer
 description: Arrangementene vi markedsfører i kalenderen skal ha relevans for etater og kommuner som jobber med digitalisering. Arrangementene kan være relevante for tjenesteeiere som allerede bruker Altinn og andre som ikke bruker Altinn ennå, men er interessert i å høre om muligheter. 
 weight: 35
 toc: true
@@ -12,22 +12,19 @@ Sekundær målgruppe vil være private aktører og andre i offentlig sektor som 
 Vi er ikke helt ferdige med disse ressursene ennå
 {{% /panel %}}
 
-## Brukeroppgaver
+## Brukeroppgaver for arrangementer
 
 ### Generelt:
 1. Har Altinn arrangementer som er relevante for meg i digitaliseringsjobben? 
-2. Hvordan bruker jeg Altinn studio? 
+2. Har Altinn kurs for å lære verktøyene? 
 3. Hva er siste nytt i prosjektene?  
 4. Hvordan har andre brukt Altinn? 
-5. Kan jeg møte folk fra Altinn på andre arrangementer? For eksempel digitaliseringskonferansen og arrangementer andre arrangerer 
+5. Kan jeg møte folk fra Altinn på andre arrangementer? For eksempel digitaliseringskonferansen og andrea arenaer
 6. Er det møteplasser hvor jeg kan møte andre etater jeg bør være med på? 
 7. Hvordan komme i kontakt med Altinn for å dele fra min organisasjon på Altinns arrangementer? 
+8. Er det møter jeg og min etat bør være delta på for å kunne være med på videreutviklingen av Altinn? 
 
-### Brukeroppgaver tjenesteeier (oversiktssiden, innlogget):  
-
-- Er det møter jeg og min etat bør være delta på for å kunne være med på videreutviklingen av Altinn? 
-
-### Brukeroppgaver arrangement-siden: 
+### Brukeroppgaver arrangementsiden: 
 - Hvor og når er det? Er det digitalt? 
 - Er det relevant for meg?  
 - Hva er programmet? 
