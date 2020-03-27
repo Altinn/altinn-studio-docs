@@ -86,7 +86,7 @@ Client provides a self-contained access-token.
 
 ```http
 Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
-GET /authentication/api/v1/exhange/maskinporten
+GET /authentication/api/v1/exchange/maskinporten
 ```
 
 The token looks something like this (after decoding):
@@ -160,7 +160,7 @@ This token has to be validated and replaced with an *Altinn JWT access token* wh
 
 ```http
 Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
-GET /authentication/api/v1/exhange/id-porten
+GET /authentication/api/v1/exchange/id-porten
 ```
 
 The token looks something like this (after decoding):
