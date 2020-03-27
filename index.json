@@ -228,7 +228,7 @@
 	"title": "altinndigital.no",
 	"tags": [],
 	"description": "Her finner du skriveråd og regler for sidemaler som er viktige å følge når du skal skrive på altinndigital.no og på altinndigital.no/utvikling.",
-	"content": "\r\rSkriveråd\rSkriverådene skal sørge for at vi får et ensrettet språk i løsningene våre slik at innholdet blir lettere å forstå.\n\r\r"
+	"content": "\r\rSkriveråd\rSkriverådene skal sørge for at vi får et ensrettet språk i løsningene våre slik at innholdet blir lettere å forstå.\n\r\r\r\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/innhold/altinndigital.no/skriver%C3%A5d/",
@@ -1601,6 +1601,13 @@
 	"tags": [],
 	"description": "",
 	"content": "docs  "
+},
+{
+	"uri": "https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/",
