@@ -114,7 +114,7 @@ Retningslinjer for bruk av bilder:
 ### Illustrasjoner 
 Illustrasjoner brukes på Altinn digitalisering der det gir en merverdi til det tekstlige innholdet. I hovedsak bruker vi illustrasjoner til å illustrere produktene våre – til å vise hva produktet er og hvordan produktet virker. Vi bruker også illustrasjon til å formidle samarbeid om tjenesteutvikling og verktøyet, Altinn studio.  
 
-Retningslinjer for bruk av illustrasjoner:  
+Retningslinjer for bruk av illustrasjoner:
 - Illustrasjoner skal kun brukes der de er informasjonsbærende, ikke som pynt 
 - Illustrasjonene skal følge illustrasjonsstilen til altinn.no 
 - Tekniske illustrasjoner og modeller (på Altinn dokumentasjon) skal følge illustrasjonsstil som altinn.no/Altinn digitalisering 
