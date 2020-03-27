@@ -67,6 +67,11 @@ Verbalsubstantiver gjør teksten unødvendig tung å lese. Et verbalsubstantiv e
 
 En tekst med mange verbalsubstantiver blir abstrakt fordi den fjerner seg fra de konkrete handlingene den egentlig beskriver. Teksten blir mer konkret når vi bruker verbene i stedet.  
 
+Eksempler: 
+Ved avtaleinngå**elsen** --> Da avtalen ble inngått
+Ny henvend**else** --> Kontakt oss
+Innmeld**ing** av feil --> Meld inn feil
+
 ### Skriv rett frem: 
 Formelt språk er ofte skrudd sammen slik at utsagnet (verbet) kommer sent i setningen. Det gjør at man må lese mange ord før man får verbet. Det krever mer av leseren som må huske hva som stod tidlig i setningen. Verbet bør stå så tidlig som mulig i setningen og bør stå så nært subjektet som mulig. 
 
