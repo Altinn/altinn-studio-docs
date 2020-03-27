@@ -75,8 +75,14 @@ Eksempler
 ### Skriv rett frem: 
 Formelt språk er ofte skrudd sammen slik at utsagnet (verbet) kommer sent i setningen. Det gjør at man må lese mange ord før man får verbet. Det krever mer av leseren som må huske hva som stod tidlig i setningen. Verbet bør stå så tidlig som mulig i setningen og bør stå så nært subjektet som mulig. 
 
+Eksempel
+**Tjenesteeier** har en del plikter som må **oppfylles** --> Tjenesteiere må oppfylle en del plikter
+
 ### Skriv aktivt, ikke passivt: 
-I lovspråk blir det ofte skrevet at noe skal gjøres og det er ikke ønskelig å si noe om hvem som skal gjøre det. I Altinn sine løsninger vil det gjerne være flere enn en person som skal gjøre noe, men vi kan skrive direkte til brukeren likevel.  
+I lovspråk blir det ofte skrevet at noe skal gjøres og det er ikke ønskelig å si noe om hvem som skal gjøre det. I Altinn sine løsninger vil det gjerne være flere enn en person som skal gjøre noe, men vi kan skrive direkte til brukeren likevel.
+
+Eksempel
+Forberedelser og planleggingsaktiviteter må gjennomføres før utviklingen av tjenesten(e) kan og bør starte --> Gjør forberedelser og planlegg godt før du utvikler tjenesten. 
 
 ### Unngå stammespråk: 
 Alle fagspråk har sitt stammespråk og i Altinn har vi både juss, byråkrati og tekniske fag hvor hvert språk har sin uttrykksform. Vi må passe på, at vi ikke bruker for mye fagspråk i løsningene våre. 
