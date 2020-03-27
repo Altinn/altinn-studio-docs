@@ -34,8 +34,8 @@ Vi ønsker å fremstå som:
 8. Vi forklarer alltid hva som er neste steg  
 9. Vi skriver på norsk der det er mulig 
 
-## Generelle anbefalinger
 
+## Generelle anbefalinger
 ### Huskeregler:
 - Tenk over hva som er informasjon, instruksjon og funksjon – og skriv det i forskjellige tekster/avsnitt etc. 
 - Unngå innledende tekst om teksten slik som «her kan du lese om...» - gå rett på sak! 
@@ -76,6 +76,7 @@ I lovspråk blir det ofte skrevet at noe skal gjøres og det er ikke ønskelig �
 ### Unngå stammespråk: 
 Alle fagspråk har sitt stammespråk og i Altinn har vi både juss, byråkrati og tekniske fag hvor hvert språk har sin uttrykksform. Vi må passe på, at vi ikke bruker for mye fagspråk i løsningene våre. 
 
+
 ## Hvilken form skal innholdet være i? 
 Skal vi lage en artikkel, video eller kanskje bruke illustrasjoner? For å velge form er det viktig å ha tenkt over hva som er formålet med innholdet (som beskrevet i avsnittet «Målgruppen»). Som regel vil svaret på hvilken form innholdet skal være i at du trenger flere virkemidler for å få frem budskapet. Start derfor alltid med hva budskapet skal være, og hvordan du ønsker brukerne skal handle.  
 
@@ -100,7 +101,6 @@ Retningslinjer for bruk av video:
  
 
 ### Bilder 
-
 Bilder brukes på Altinn digitalisering der det gir en merverdi til det tekstlige innholdet. For eksempel bruker vi bilder på case-artikler med eksempel på hvordan andre har brukt Altinn. Bildene viser hvem brukerne av tjenesten typisk er – vanlige folk i en bildestil som er naturlig og troverdig. Bildestilen passer med den visuelle profilen til Altinn og nye bilder skal følge samme bildestil. Bildene er tatt av Knut Åserud.  
 
 Vi bruker bilder av våre digitale veiledere (serviceledere) i «kontaktboksen» på produktsidene. Dette gjør vi får å få brukerne til å følge seg trygge – vi viser at det finnes folk på baksiden av produktet Altinn som kan hjelpe deg med digitalisering.  
