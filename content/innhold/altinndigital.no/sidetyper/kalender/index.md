@@ -33,7 +33,7 @@ Vi er ikke helt ferdige med disse ressursene ennå
 
 ## Regler for innhold 
 
-Dette er anbefalt rekkefølge på innhold og hva vi anbefaler å informere om. 
+Dette er hva vi anbefaler som et minimum av informajon og rekkefølge på innholdet. 
 
 ### Beskrivende tittel 
 - Ikke interne prosjektnavn slik som for eksempel “Tjenester 3.0”. Dette kan evt. beskrives i teksten med forklaring til hva det er. Husk at folk som ikke kjenner Altinn skal forstå hva arrangementet er. 
