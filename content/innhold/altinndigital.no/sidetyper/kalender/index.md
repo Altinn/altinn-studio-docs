@@ -6,7 +6,7 @@ toc: true
 ---
 <br>
 Sekundær målgruppe vil være private aktører og andre i offentlig sektor som er interesserte i hva Altinn jobber med. 
-
+<br>
 {{% panel %}}
 **NB: Innholdet og sidene er under utvikling**<br>
 Vi er ikke helt ferdige med disse ressursene ennå
