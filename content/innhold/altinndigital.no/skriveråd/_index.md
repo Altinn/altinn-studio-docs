@@ -1,6 +1,6 @@
 ---
 title: Skriveråd
-description: Skriverådene skal sørge for at vi får et ensrettet språk i løsningene våre slik at innholdet blir lettere å forstå. 
+description: Skriverådene skal sørge for at vi får et ensrettet språk i løsningene våre slik at innholdet blir lettere å forstå. Vi skal også gjøre bevisste valg på hvilken form innholdet presenteres i. Tekst, video, bilder og illustrasjoner skal velges ut fra formålet med innholdet.  
 weight: 35
 toc: true
 ---
@@ -12,9 +12,9 @@ Vi er ikke helt ferdige med disse ressursene ennå
 {{% /panel %}}
 
 ## Overordnede prinsipper
-Altinns visjon er «Sikkert samspill for et enkelt og effektivt samfunn». For målgruppen til Altinn digitalisering er sikkerhet spesielt viktig – at de kan stole på at informasjon utvekslet via Altinn beholder konfidensialitet og integritet. Det er også viktig at verktøyene for å lage tjenester er enkel å ta i bruk og effektive å forvalte. 
+Altinns visjon er «Sikkert samspill for et enkelt og effektivt samfunn». For målgruppen til altinndigital.no er sikkerhet spesielt viktig – at de kan stole på at informasjon utvekslet via Altinn beholder konfidensialitet og integritet. Det er også viktig at verktøyene for å lage tjenester er enkel å ta i bruk og effektive å forvalte. 
 
-Vi har spinnet videre på visjonen og laget et sett med overordnede prinsipper for Altinn digitalisering og sub-merkevarene. Ha prinsippene i bakhodet når du jobber med innhold til målgruppen. 
+Vi har spinnet videre på visjonen og laget et sett med overordnede prinsipper for altinndigital.no og sub-merkevarene. Ha prinsippene i bakhodet når du jobber med innhold til målgruppen. 
 
 #### Vi ønsker å fremstå som: 
 - Pålitelige: Vi er til å stole på og har sikkerhet i høysete 
@@ -24,15 +24,15 @@ Vi har spinnet videre på visjonen og laget et sett med overordnede prinsipper f
 - Inkluderende: Vi er ikke kun til for de store, men også for de små etatene og kommunene som ikke har store budsjetter. 
 
 ### Skriveprinsipper
-1. Vi bruker et muntlig og lett språk 
-2. Vi skriver direkte til brukeren (Bruk «du») 
-3. Vi er sympatiske og selger Altinn på en subtil måte 
-4. Vi skal engasjere og overtale 
-5. Vi skriver om tekniske termer til forståelig språk 
-6. Vi unngår interne begreper 
-7. Vi gir gode råd om digitalisering 
-8. Vi forklarer alltid hva som er neste steg  
-9. Vi skriver på norsk der det er mulig 
+1. Vi bruker et **muntlig og lett språk** 
+2. Vi skriver **direkte til brukeren** (bruk «du») 
+3. Vi er **sympatiske** og selger Altinn på en subtil måte 
+4. Vi skal **engasjere og overtale** 
+5. Vi skriver om tekniske termer til **forståelig språk** 
+6. Vi **unngår interne begreper** 
+7. Vi gir **gode råd om digitalisering** 
+8. Vi forklarer alltid hva som er **neste steg**  
+9. Vi skriver på **norsk** der det er mulig 
 
 
 ## Generelle anbefalinger
@@ -78,7 +78,7 @@ Alle fagspråk har sitt stammespråk og i Altinn har vi både juss, byråkrati o
 
 
 ## Hvilken form skal innholdet være i? 
-Skal vi lage en artikkel, video eller kanskje bruke illustrasjoner? For å velge form er det viktig å ha tenkt over hva som er formålet med innholdet (som beskrevet i avsnittet «Målgruppen»). Som regel vil svaret på hvilken form innholdet skal være i at du trenger flere virkemidler for å få frem budskapet. Start derfor alltid med hva budskapet skal være, og hvordan du ønsker brukerne skal handle.  
+Skal vi lage en artikkel, video eller kanskje bruke illustrasjoner? For å velge form er det viktig å ha tenkt over hva som er formålet med innholdet. Som regel vil svaret på hvilken form innholdet skal være i at du trenger flere virkemidler for å få frem budskapet. Start derfor alltid med hva budskapet skal være, og hvordan du ønsker brukerne skal handle.  
 
 ### Video 
 Som hovedregel skal en video aldri stå alene, men være et supplement til informasjon i tekstformat. Fordelen med videoer er at det kan fungere godt til å forklare kompleks informasjon. Ulempen er at det tvinger brukerne til å se hele sekvensen, for først da å finne ut av om det er noe som er relevant for dem. Det krever mer tid fra brukeren enn å lese tekst. De fleste brukere scanner innholdet på nettsteder og terskelen for å se en video er høyere enn å lese tekst.  
@@ -87,7 +87,7 @@ Fra et tilgjengelighetsperspektiv er ikke video alltid et godt format for folk m
 
 Video kan være bra til å vise hvordan et produkt fungerer eller hvordan verktøyene våre oppleves.  
 
-Retningslinjer for bruk av video: 
+#### Retningslinjer for bruk av video: 
 - Gjør videoen så kort og tydelig som mulig. Det anbefales ikke lengere introduksjoner til hva videoen handler om enn 5-10 sekunder. Brukerne faller av ved lange introduksjoner. 
 - Navnet eller tittelen på videoen skal være beskrivende og tydelig 
 - Beskriv hva som er temaet, hvem er med i videoen og lengden på videoen i en undertekst (kort og konsist) 
@@ -105,7 +105,7 @@ Bilder brukes på Altinn digitalisering der det gir en merverdi til det tekstlig
 
 Vi bruker bilder av våre digitale veiledere (serviceledere) i «kontaktboksen» på produktsidene. Dette gjør vi får å få brukerne til å følge seg trygge – vi viser at det finnes folk på baksiden av produktet Altinn som kan hjelpe deg med digitalisering.  
 
-Retningslinjer for bruk av bilder: 
+#### Retningslinjer for bruk av bilder: 
 - Bilder skal kun brukes der de er informasjonsbærende, ikke som pynt 
 - Stockfotos er ikke lov – undersøkelser viser at [brukere ignorerer stockfotos som ikke ser ekte ut](https://www.nngroup.com/articles/photos-as-web-content/) 
 - Bilder brukes i hovedsak på case/eksempler 
@@ -114,7 +114,7 @@ Retningslinjer for bruk av bilder:
 ### Illustrasjoner 
 Illustrasjoner brukes på Altinn digitalisering der det gir en merverdi til det tekstlige innholdet. I hovedsak bruker vi illustrasjoner til å illustrere produktene våre – til å vise hva produktet er og hvordan produktet virker. Vi bruker også illustrasjon til å formidle samarbeid om tjenesteutvikling og verktøyet, Altinn studio.  
 
-Retningslinjer for bruk av illustrasjoner:
+#### Retningslinjer for bruk av illustrasjoner:
 - Illustrasjoner skal kun brukes der de er informasjonsbærende, ikke som pynt 
 - Illustrasjonene skal følge illustrasjonsstilen til altinn.no 
 - Tekniske illustrasjoner og modeller (på Altinn dokumentasjon) skal følge illustrasjonsstil som altinn.no/Altinn digitalisering 
