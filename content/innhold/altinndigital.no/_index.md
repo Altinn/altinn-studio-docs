@@ -1,7 +1,7 @@
 ---
 linkTitle: altinndigital.no
 title: altinndigital.no
-description: Skriveråd og regler for sidemaler når du skal skrive på altinndigital.no og på altinndigital.no/utvikling.
+description: Her finner du skriveråd og regler for sidemaler som er viktige å følge når du skal skrive på altinndigital.no og på altinndigital.no/utvikling. 
 weight: 32
 ---
 
