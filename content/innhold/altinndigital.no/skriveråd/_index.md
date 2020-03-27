@@ -16,12 +16,12 @@ Altinns visjon er «Sikkert samspill for et enkelt og effektivt samfunn». For m
 
 Vi har spinnet videre på visjonen og laget et sett med overordnede prinsipper for Altinn digitalisering og sub-merkevarene. Ha prinsippene i bakhodet når du jobber med innhold til målgruppen. 
 
-Vi ønsker å fremstå som: 
-* Pålitelige: Vi er til å stole på og har sikkerhet i høysete 
-* Tydelige: Det er lett å forstå hvilken plass Altinn har i digitaliseringsarbeidet 
-* Åpne: Vi deler og legger til rette for fornuftig bruk av skattepengene 
-* Nyskapende: Vi fornyer oss hele tiden 
-* Inkluderende: Vi er ikke kun til for de store, men også for de små etatene og kommunene som ikke har store budsjetter. 
+#### Vi ønsker å fremstå som: 
+- Pålitelige: Vi er til å stole på og har sikkerhet i høysete 
+- Tydelige: Det er lett å forstå hvilken plass Altinn har i digitaliseringsarbeidet 
+- Åpne: Vi deler og legger til rette for fornuftig bruk av skattepengene 
+- Nyskapende: Vi fornyer oss hele tiden 
+- Inkluderende: Vi er ikke kun til for de store, men også for de små etatene og kommunene som ikke har store budsjetter. 
 
 ### Skriveprinsipper
 1. Vi bruker et muntlig og lett språk 
