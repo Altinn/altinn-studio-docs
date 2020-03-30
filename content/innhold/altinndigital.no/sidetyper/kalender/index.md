@@ -1,6 +1,6 @@
 ---
 title: Arrangementer
-description: Arrangementene vi markedsfører i kalenderen skal ha relevans for etater og kommuner som jobber med digitalisering. Arrangementene kan være relevante for tjenesteeiere som allerede bruker Altinn og andre som ikke bruker Altinn ennå, men er interessert i å høre om muligheter. 
+description: Arrangementene vi markedsfører i kalenderen skal være relevante for etater og kommuner som jobber med digitalisering. Dette kan være tjenesteeiere som allerede bruker Altinn og andre som ikke bruker Altinn ennå, men er interessert i å høre om muligheter. 
 weight: 35
 toc: true
 ---
