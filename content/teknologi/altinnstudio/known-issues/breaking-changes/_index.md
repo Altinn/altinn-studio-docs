@@ -6,6 +6,26 @@ toc: true
 weight: 100
 ---
 
+## Breaking change: Validation fails for attachments in some cases after 30.03.2020
+Introduced with issues: [#1925](https://github.com/Altinn/altinn-studio/issues/1925) and [#3915](https://github.com/Altinn/altinn-studio/issues/3915)
+In Altinn Studio, all data types that were created from a FileUpload component were set with `allowedContentTypes: [application/octet-stream]`
+as default. This was also set for all uploads from the app. This has now been changed, so that the 
+file types defined by the app developer are also set in `allowedContentTypes`, and the file upload is sent
+with the corresponding `Content-Type` of the file in the request header.
+
+### Error
+Apps that were created before the fix was implemented (30.03.2020) may experience that validation 
+fails for the attachment, even though it is of the correct format specified in Altinn Studio. This is 
+because the dataType for the attachment expects `application/octet-stream`, but instead receives the actual
+mime type for the uploaded file.
+
+### How to fix
+Update `allowedContentTypes` for the data type that fails. This can either be done manually in the applications 
+`applicationMetadata.json` for the affected data type(s) or by updating the FileUpload component in Altinn Studio
+so that the expected `allowedContentTypes` are saved. 
+
+After updating, the app must be re-deployed.
+
 ## Breaking change: Build fails after upgrading Altinn.App-nugets to version 1.0.62-alpha
 Introduced with issue: [#3820](https://github.com/Altinn/altinn-studio/issues/3820)
 The base class that every application inherits has been altered to allow for both data and task validation. 
