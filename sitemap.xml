@@ -119,15 +119,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/m%C3%A5lform/</loc>
+    <loc>https://docs.altinn.studio/innhold/altinn.no/m%C3%A5lform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/skriver%C3%A5d/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/innhold/universell-utforming-for-innhold/</loc>
+    <loc>https://docs.altinn.studio/innhold/altinn.no/skriver%C3%A5d/</loc>
   </url>
   
   <url>
@@ -136,6 +132,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/innhold/altinndigital.no/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/innhold/universell-utforming-for-innhold/</loc>
   </url>
   
   <url>
