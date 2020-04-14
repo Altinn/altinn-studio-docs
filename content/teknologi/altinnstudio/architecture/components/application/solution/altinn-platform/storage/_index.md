@@ -19,7 +19,7 @@ Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, App
 ## Instance
 
 An application instance is created when a instance owner (reportee) starts a process in an Altinn application.
-An instance replaces Altinn2 Message. 
+An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
 An appId refers to the application information element which defines the metadata about the application.
 
@@ -260,6 +260,7 @@ Property            | Type             | Description
 id                  | string           | Required. Id of the data type.
 description         | LanguageString[] | A short description of the data type. Language support.
 allowedContentTypes | string[]         | A list of allowed content types.
+allowedContributers | string[]         | A list of allowed contributers. On the format '{keyword}:{value}' Approved keywords are: _org_ and _orgno_.
 taskId              | string           | Required. Associated task from the process definition. Defines that the data is required to progress to next task in a process.
 appLogic            | ApplicationLogic | Data object that connect data to application models. This should be null for data types describing attachments. See [ApplicationLogic](#applicationlogic).
 maxSize             | int              | Maximum allowed size of a data item of this type. Undefined means that the limit is unbounded.

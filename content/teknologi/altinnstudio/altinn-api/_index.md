@@ -32,6 +32,7 @@ A list of common tasks for an application owner.
 - Upload form data
 - Download form data
 - Confirm successful download
+  - Confirm complete
 - Change process state (workflow)
 
 ### Application Users
@@ -173,6 +174,12 @@ This call will return the instance metadata record that was created. A unique id
     "appOwner": {
          "labels": [ "gr", "x2" ],
     },
+    "completeConfirmations": [
+        {
+            "stakeholderId": "org",
+            "confirmedOn": "2020-03-16T14:38:11"
+        }
+    ],
     "data": [
     {
         "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
@@ -398,6 +405,16 @@ Will return a multipart http response with the following content:
 5. fourth data element (e.g. pdf)
 6. ...
 
+### Confirm instance completed
+
+The last step for application owner in all processes is to confirm that they consider the case associated with an instance as finished. Its purpose is to tell Altinn that the application owner has downloaded all data, finished any internal processing, and if applicable, posted a response. The original instance is no longer needed. Only the first call to this operation will be registered. Consecutive calls are ignored.
+
+```http
+GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/complete
+```
+
+The operation returns an updated instance with the added `CompleteConfirmation`.
+
 ## Query instances
 
 Application owners can search for application instances with a simple GET request towards the *instances* endpoint.
@@ -413,6 +430,13 @@ Another example is get all instances of all apps of an organisation *org* that h
 ```http
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
+
+Yet another example is get all instances of an app that are in a specific task e.g. Task_1.
+
+```http
+GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
+```
+
 
 On query parameters specifying date time you can use the following operators:
 

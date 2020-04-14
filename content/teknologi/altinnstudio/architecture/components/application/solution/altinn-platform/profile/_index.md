@@ -28,8 +28,14 @@ A user is the entity which is logged in in Altinn and performs actions for on be
 | [ProfileSettingPreference](https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/ServiceLibrary/Models/ProfileSettingPreference.cs) |  ProfileSettingPreference |  object containing the users profile setting preferences |
 
 ### Operations
-Get information about a user:
+Get information about a user from user id:
 
 ```http
 GET /users/{userId}
+```
+
+Get information about a user from SSN. Send a POST request with the SSN contained in the request body.
+
+```http
+POST /users
 ```

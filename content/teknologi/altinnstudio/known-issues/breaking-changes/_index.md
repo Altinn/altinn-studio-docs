@@ -6,6 +6,76 @@ toc: true
 weight: 100
 ---
 
+## Breaking change: Validation fails for attachments in some cases after 30.03.2020
+Introduced with issues: [#1925](https://github.com/Altinn/altinn-studio/issues/1925) and [#3915](https://github.com/Altinn/altinn-studio/issues/3915)
+In Altinn Studio, all data types that were created from a FileUpload component were set with `allowedContentTypes: [application/octet-stream]`
+as default. This was also set for all uploads from the app. This has now been changed, so that the 
+file types defined by the app developer are also set in `allowedContentTypes`, and the file upload is sent
+with the corresponding `Content-Type` of the file in the request header.
+
+### Error
+Apps that were created before the fix was implemented (30.03.2020) may experience that validation 
+fails for the attachment, even though it is of the correct format specified in Altinn Studio. This is 
+because the dataType for the attachment expects `application/octet-stream`, but instead receives the actual
+mime type for the uploaded file.
+
+### How to fix
+Update `allowedContentTypes` for the data type that fails. This can either be done manually in the applications 
+`applicationMetadata.json` for the affected data type(s) or by updating the FileUpload component in Altinn Studio
+so that the expected `allowedContentTypes` are saved. 
+
+After updating, the app must be re-deployed.
+
+## Breaking change: Build fails after upgrading Altinn.App-nugets to version 1.0.62-alpha
+Introduced with issue: [#3820](https://github.com/Altinn/altinn-studio/issues/3820)
+The base class that every application inherits has been altered to allow for both data and task validation. 
+
+### Error
+When building App.cs errors simillar to those depicted in the picture below are logged.
+![build-errors](3820-errors.PNG "Build errors")
+
+### How to fix
+
+If you haven't made any changes to `App/logic/Validation/ValidationHandler.cs` and `App/logic/App.cs`
+the quickest way to fix the build errors are to copy these files from the template and paste them into your repository. 
+Find the template files [here.](https://github.com/Altinn/altinn-studio/tree/master/src/studio/AppTemplates/AspNet/App/logic) 
+
+If changes have been made to these files, follow the instructions below to fix the errors.
+
+#### App/logic/Validation/ValidationHandler.cs
+
+1. Add a reference to _Altinn.Platform.Storage.Interface.Models_ by including the snippet below amongst the using statements.
+
+    ```cs
+    using Altinn.Platform.Storage.Interface.Models;
+    ```
+
+2. Add the function below in the class.
+
+    ```cs
+    public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
+    {
+        await Task.CompletedTask;
+    }
+    ```
+
+#### App/logic/App.cs
+
+1. Rename function `RunValidation` to `RunDataValidation`
+2. Add the function below in the class
+
+```cs
+        /// <summary>
+        /// Run validation event to perform custom validations
+        /// </summary>
+        /// <param name="validationResults">Object to contain any validation errors/warnings</param>
+        /// <returns>Value indicating if the form is valid or not</returns>
+        public override async Task RunTaskValidation(Instance instance, string taskId, ModelStateDictionary validationResults)
+        {
+            await _validationHandler.ValidateTask(instance, taskId, validationResults);
+        }
+```
+
 ## Breaking change: Error message when deleting instance from messagebox
 
 Introduced with issue: [#2487](https://github.com/Altinn/altinn-studio/issues/2487)
@@ -24,7 +94,7 @@ Navigate to _App/config/authorization/policy.xml_ in your repository and add the
 
 ```xml
     <xacml:Rule RuleId="urn:altinn:example:ruleid:4" Effect="Permit">
-    <xacml:Description>Rule that defines that user with role REGNA or DAGL can delete [ORG]/[APP] when it is in EndEvent_1</xacml:Description>
+    <xacml:Description>Rule that defines that user with role REGNA or DAGL can delete instances of [ORG]/[APP]</xacml:Description>
     <xacml:Target>
       <xacml:AnyOf>
         <xacml:AllOf>
@@ -49,10 +119,6 @@ Navigate to _App/config/authorization/policy.xml_ in your repository and add the
           <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
             <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
             <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-          </xacml:Match>
-          <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-            <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">EndEvent_1</xacml:AttributeValue>
-            <xacml:AttributeDesignator AttributeId="urn:altinn:end-event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
           </xacml:Match>
         </xacml:AllOf>
       </xacml:AnyOf>
