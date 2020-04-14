@@ -711,6 +711,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/versioning/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/wcag/</loc>
   </url>
   
@@ -1508,6 +1512,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/ui-designer/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/versioning/</loc>
     <priority>0</priority>
   </url>
   
