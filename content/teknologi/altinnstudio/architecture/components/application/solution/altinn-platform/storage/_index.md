@@ -488,7 +488,7 @@ Example of an text element that should be sent during a POST:
     	"language": "nb",
         "resources:": [
             {"id": "some_id", "value": "some value"},
-            {"id": "some_id", "value": "some other value"}
+            {"id": "some_other_id", "value": "some other value"}
         ]
 }
 ````
@@ -502,7 +502,7 @@ value     | string           | the value
 
 ### Operations
 
-Create a new text resource.
+Create a new text resource for an application.
 
 ```http
 POST /applications/{appId}/texts
