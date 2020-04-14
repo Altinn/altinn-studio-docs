@@ -26,3 +26,9 @@ The packages use [semantic versioning](https://semver.org/):
  
 Each time a change is made to any frontend applications, the version in the corresponding `package.json` must be
 updated according to the rules above.
+
+{{%notice warning%}}
+The default is for a new app to refer to the latest MAJOR version of the app frontend. If 
+any changes are made that cause us to update the MAJOR version, remember to also update
+the app template, so that any new apps will refer to the newest MAJOR version.
+{{%/notice%}}
