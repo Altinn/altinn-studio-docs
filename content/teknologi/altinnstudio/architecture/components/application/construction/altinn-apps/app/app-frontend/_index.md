@@ -39,7 +39,7 @@ describe what happened, but don't describe how the application's state changes.
 
  [Read more](https://redux.js.org/basics/reducers#reducers)
 
-### Redux-Saga
+### Middleware
 `redux-saga` is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure
 things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
