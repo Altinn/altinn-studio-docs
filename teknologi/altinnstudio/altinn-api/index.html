@@ -10007,7 +10007,21 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 
 <h2 id="query-instances">Query instances</h2>
 
-<p>Application owners can search for application instances with a simple GET request towards the <em>instances</em> endpoint.</p>
+<p>Application owners can search for application instances with a simple GET request towards the <em>instances</em> endpoint.
+Avaliable query paramters include:</p>
+
+<ul>
+<li>process.currentTask (string)</li>
+<li>process.isComplete (bool)</li>
+<li>process.endEvent (string)</li>
+<li>process.ended (datetime)</li>
+<li>instanceOwner.partyId (int)</li>
+<li>appOwner.labels (comma separated list of strings)</li>
+<li>lastChanged (datetime)</li>
+<li>created (datetime)</li>
+<li>visibleAfter (datetime)</li>
+<li>dueBefore (datetime)</li>
+</ul>
 
 <p>For example: To get all instances of appId <em>org/app</em>, that is in at task with id <em>Task_2</em> (which is Submit, see process definition), has last changed date greater than <em>2019-05-01</em> and that has label <em>gruppe3</em>.</p>
 
