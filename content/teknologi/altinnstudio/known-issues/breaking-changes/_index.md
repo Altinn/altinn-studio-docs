@@ -6,7 +6,7 @@ toc: true
 weight: 100
 ---
 
-## Breaking change: Validation during send in fails with 'Ukjent feil'
+## Breaking change: Send-in / Validation fails with 'Ukjent feil'
 
 Introduced with issue: [#3927](https://github.com/Altinn/altinn-studio/issues/3927)
 There was a vulnerability in the solution allowing to update a whole instance object 
