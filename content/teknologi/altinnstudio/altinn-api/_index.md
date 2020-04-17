@@ -418,6 +418,18 @@ The operation returns an updated instance with the added `CompleteConfirmation`.
 ## Query instances
 
 Application owners can search for application instances with a simple GET request towards the *instances* endpoint.
+Avaliable query paramters include:
+
+- process.currentTask (string)
+- process.isComplete (bool)
+- process.endEvent (string)
+- process.ended (datetime)
+- instanceOwner.partyId (int)
+- appOwner.labels (comma separated list of strings)
+- lastChanged (datetime)
+- created (datetime)
+- visibleAfter (datetime)
+- dueBefore (datetime)
 
 For example: To get all instances of appId *org/app*, that is in at task with id *Task_2* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
 
@@ -436,7 +448,6 @@ Yet another example is get all instances of an app that are in a specific task e
 ```http
 GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
 ```
-
 
 On query parameters specifying date time you can use the following operators:
 

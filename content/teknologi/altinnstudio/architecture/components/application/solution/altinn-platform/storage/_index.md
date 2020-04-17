@@ -136,12 +136,6 @@ Get (query) all instances that an instance owner has
 GET /instances/{instanceOwnerPartyId}
 ```
 
-Query all instances of a particular application that has endState equal to 'EndState_1'
-
-```http
-GET /instances?appId={appId}&process.endState=EndState_1
-```
-
 Query all instances of an application owner's organisation
 
 ```http
