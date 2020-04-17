@@ -6,6 +6,31 @@ toc: true
 weight: 100
 ---
 
+## Breaking change: Validation during send in fails with 'Ukjent feil'
+
+Introduced with issue: [#3927](https://github.com/Altinn/altinn-studio/issues/3927)
+There was a vulnerability in the solution allowing to update a whole instance object 
+using an endpoint in app backend or storage. This has been solved by refactoring app backend
+and removing the endpoints.
+
+### Error
+
+When sending in an instance after completing form filling the error below i prompted.
+In network you can see that the 'validate'-request receives a 500 code in response.
+
+![send in-error](3927-illustration.PNG "send in-error")
+
+### How to fix
+
+Navigate to you application repository and fine App.csproj.
+Upgrade the three Altinn.App nugetpackages to version 1.0.78.
+
+```xml
+    <PackageReference Include="Altinn.App.Api" Version="1.0.78-alpha" />
+    <PackageReference Include="Altinn.App.Common" Version="1.0.78-alpha" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="1.0.78-alpha" />
+```
+
 ## Breaking change: Validation fails for attachments in some cases after 30.03.2020
 Introduced with issues: [#1925](https://github.com/Altinn/altinn-studio/issues/1925) and [#3915](https://github.com/Altinn/altinn-studio/issues/3915)
 In Altinn Studio, all data types that were created from a FileUpload component were set with `allowedContentTypes: [application/octet-stream]`
