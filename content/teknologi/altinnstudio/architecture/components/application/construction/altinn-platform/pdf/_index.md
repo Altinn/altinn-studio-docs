@@ -1,7 +1,7 @@
 ---
 title: Application architecture pdf component - Altinn Platform
 linktitle: PDF
-description: Description of pdf component
+description: The PDF component is created as an Spring Boot (Java) web application hosted in Kubernetes as a docker container. 
 tags: [architecture, solution, pdf]
 weight: 100
 ---

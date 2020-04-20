@@ -1,12 +1,11 @@
 ---
-title: Application architecture Altinn Platform
+title: Application construction components for Altinn Platform
 linktitle: Altinn Platform
-description: Description of the Altinn Platform application architecture
+description: Altinn Platform consist of serveral components that is constructed with help of different frameworks and components. 
 tags: [architecture, solution]
 weight: 100
 ---
 
-Altinn Platform consist of serveral reusable and isolated components. 
+See below for application contruction components for the different components in Altinn Platform.
 
-The application architecture for each component is described below.
-
+{{% children description="true" depth="1" %}}

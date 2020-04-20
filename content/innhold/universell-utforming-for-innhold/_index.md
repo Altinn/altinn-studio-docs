@@ -2,7 +2,7 @@
 linkTitle: Universell utforming
 title: Universell utforming for innhold
 description: Når du lager innhold har du en rekke ansvarsområder når det kommer til universell utforming. 
-weight: 30
+weight: 34
 ---
 
 På Difis nettsider kan du sortere UU-krav etter [ansvarsområde innhold](https://uu.difi.no/krav-og-regelverk/wcag-20-standarden). Her får du en god oversikt på hva du må passe på når det kommer til tekst, bilder og video.

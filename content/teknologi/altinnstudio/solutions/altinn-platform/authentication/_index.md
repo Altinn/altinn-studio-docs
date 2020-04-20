@@ -18,11 +18,10 @@ symmetric encryption key. The Altinn Platform is based on .ASP.Net core I cant u
 To allow for a user accessing an App in Altinn Apps or a component in Altinn Platform the current platform will expose an API that can decrypt an ASP.Net cookie and return user information to the Authentication component in Altinn Platform.
 
 ## Token exchange for maskinporten
-Organizations authenticated in maskinporten can exchange their JWT token to a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.
+Organizations authenticated in maskinporten can exchange their JWT token for a valid Altinn Platform JWT token to be used against Altinn Apps and Altinn Platform.
 
 ## Token exchange for ID-porten
-The authentication component will support token exchange for system authenticated with ID-porten.
-This is work in progress
+End users authenticated through ID-porten can exchange their JWT token for a valid Altinn Platform JWT token to be used agains Altinn Apps and Altinn Platform.
 
 ## Architecture
 See the [application solution components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/) for details about the functional components in authentication.
