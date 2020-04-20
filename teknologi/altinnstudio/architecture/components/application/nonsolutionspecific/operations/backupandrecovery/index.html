@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The application construction components for Repositories is based on standard open source software.">
+    <meta name="description" content="All data created in the different solutions are backed up so it is possible to restore it in case of data loss">
 
 
     
-    <title>Application construction components Repositories :: Altinn digitalisering - Utvikling</title>
+    <title>Backup and recovery :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -4607,7 +4607,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -4620,7 +4620,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -5181,7 +5181,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -5194,7 +5194,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -5353,8 +5353,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/">
@@ -5532,7 +5532,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -5545,7 +5545,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -5599,7 +5599,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -5612,7 +5612,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -5637,8 +5637,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">
@@ -9549,7 +9549,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> Repositories
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/'>Non-Solution</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/'>Operations</a> <span class='adocs-breadcrumb-divider'> / </span> Backup & Recovery
 
  
 
@@ -9573,14 +9573,22 @@ if(host != "localhost")
           </div>
         
         
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
+            
+          </div>
+        
         <div id="body-inner">
           
             
               <h1 class="a-fontBold">
-                Application construction components Repositories
+                Backup and recovery
                 
               </h1>
-              <p class="a-leadText" id="leadText">The application construction components for Repositories is based on standard open source software.</p>
+              <p class="a-leadText" id="leadText">All data created in the different solutions are backed up so it is possible to restore it in case of data loss</p>
             
           
 
@@ -9592,11 +9600,11 @@ if(host != "localhost")
 
 
 
-<p>Each application created in Altinn Studio Designer gets a GIT repository where all code and configuration for that app is stored</p>
 
-<p>We use GITEA as a GIT based code hostet solution in Altinn Studio. Gitea is a Open Source product.</p>
 
-<p>Gitea host code on Github. See repository <a href="https://github.com/go-gitea/gitea">here</a>.</p>
+<h2 id="altinn-platform">Altinn Platform</h2>
+
+<p>As described in the data section of the archiecture documentation Altinn Platform stores data both in Azure Cosmos DB and in Azure Blob Storage.</p>
 
 
 <footer class=" footline" >
@@ -11872,7 +11880,6 @@ if(host != "localhost")
                       
                           
                               
-                              
                           
                           
           
@@ -11887,9 +11894,6 @@ if(host != "localhost")
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -12154,7 +12158,6 @@ if(host != "localhost")
                       
                       
                           
-                              
                               
                           
                           
@@ -12171,9 +12174,6 @@ if(host != "localhost")
                       
                           
                               
-                                  
-                                  
-                              
                           
                           
           
@@ -12240,7 +12240,6 @@ if(host != "localhost")
                       
                           
                               
-                              
                           
                           
           
@@ -12259,9 +12258,6 @@ if(host != "localhost")
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -12332,6 +12328,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -12346,6 +12343,9 @@ if(host != "localhost")
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -12363,6 +12363,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -12377,6 +12378,7 @@ if(host != "localhost")
                       
                       
                           
+                              
                               
                           
                           
@@ -12402,6 +12404,9 @@ if(host != "localhost")
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -14335,10 +14340,10 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/" title="Application construction components Loadbalancer"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/" title="Operations Application"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/shared/" title="Shared" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/data/" title="Data Components" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -14350,7 +14355,7 @@ if(host != "localhost")
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>
