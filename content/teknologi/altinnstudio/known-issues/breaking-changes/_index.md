@@ -6,10 +6,46 @@ toc: true
 weight: 100
 ---
 
+## Breaking change: Deploy pipeline fails with error: UPGRADE FAILED
+
+Introduced with upgrade of AKS cluster.
+The api version (extensions/v1beta1) used to deploy apps
+to the AKS cluster is no longer supported.
+
+### Errors
+
+When triggering deploy from altinn.studio the deploy fails.
+On closer inspection of the pipeline (byggloggen)
+the error message below is shown at the end of the failed step.
+
+![helm-upgrade-error](helm-upgrade-error.PNG "helm-upgrade-error")
+
+### How to fix
+
+To fix this issue  the deployment to use a new api version.
+Navigate to you application repository and find *deployment.yaml*.
+It is placed in the folder *deployment/templates*.
+
+Make the changes spesified below to the file, and update the repository.
+Remember to pull the latest version in altinn.studio before attempting to re-deploy.
+
+![helm-upgrade-error-fix](helm-upgrade-error-fix.PNG "helm-upgrade-error-fix")
+
+1. Change apiVersion from extensions/v1beta1 to apps/v1.
+
+2. Add the following lines under _replicas_ in the _spec_ section.
+Be ware of indentation here. Two spaces are used as indent for sub sections. 
+
+```yaml
+selector:
+  matchLabels:
+    app: {{ template "name" . }}
+```
+
 ## Breaking change: Send-in / Validation fails with 'Ukjent feil'
 
 Introduced with issue: [#3927](https://github.com/Altinn/altinn-studio/issues/3927)
-There was a vulnerability in the solution allowing to update a whole instance object 
+There was a vulnerability in the solution allowing to update a whole instance object
 using an endpoint in app backend or storage. This has been solved by refactoring app backend
 and removing the endpoints.
 
@@ -22,7 +58,7 @@ In network you can see that the 'validate'-request receives a 500 code in respon
 
 ### How to fix
 
-Navigate to you application repository and fine App.csproj.
+Navigate to you application repository and find App.csproj.
 Upgrade the three Altinn.App nugetpackages to version 1.0.78.
 
 ```xml
