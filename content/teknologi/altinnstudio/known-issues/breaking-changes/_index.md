@@ -31,9 +31,9 @@ Remember to pull the latest version in altinn.studio before attempting to re-dep
 
 ![helm-upgrade-error-fix](helm-upgrade-error-fix.PNG "helm-upgrade-error-fix")
 
-1. Change apiVersion from extensions/v1beta1 to apps/v1.
+- Change apiVersion from extensions/v1beta1 to apps/v1.
 
-2. Add the following lines under _replicas_ in the _spec_ section.
+- Add the following lines under _replicas_ in the _spec_ section.
 Be ware of indentation here. Two spaces are used as indent for sub sections.
 
 ```yaml
