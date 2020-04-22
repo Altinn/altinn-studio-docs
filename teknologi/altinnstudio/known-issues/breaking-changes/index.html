@@ -9692,12 +9692,12 @@ Remember to pull the latest version in altinn.studio before attempting to re-dep
 
 <figure><a href="helm-upgrade-error-fix.PNG"><img src="helm-upgrade-error-fix.PNG" alt="helm-upgrade-error-fix" title="helm-upgrade-error-fix" /></a><figcaption><h4>helm-upgrade-error-fix</h4></figcaption></figure>
 
-<ol>
+<ul>
 <li><p>Change apiVersion from extensions/v1beta1 to apps/v1.</p></li>
 
 <li><p>Add the following lines under <em>replicas</em> in the <em>spec</em> section.
 Be ware of indentation here. Two spaces are used as indent for sub sections.</p></li>
-</ol>
+</ul>
 
 <pre><code class="language-yaml">selector:
   matchLabels:
