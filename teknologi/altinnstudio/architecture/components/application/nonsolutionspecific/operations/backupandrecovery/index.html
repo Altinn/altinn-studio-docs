@@ -9650,13 +9650,25 @@ more consumers for parallel processing.</p>
 and copies documents from Cosmos DB when they are created or modified to a blob storage.</p>
 
 <p>The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
-The blob storage should have enabled soft delete. All versions of a document in Cosmos should be written
+The blob storage have enabled <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal">soft delete</a>. All versions of a document in Cosmos should be written
 to the same blob. Soft delete will keep track of all versions.</p>
 
 <h4 id="blob-storage">Blob storage</h4>
 
 <p>Each org has their own separte storage account with a blob storage to store data for applications.
 In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps.</p>
+
+<p>To protect against unwanted deletion or changes we have enabled soft delete.</p>
+
+<p>When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted.
+This protection extends to blob data that is erased as the result of an overwrite.</p>
+
+<p>When data is deleted, it transitions to a soft deleted state instead of being permanently erased.
+When soft delete is on and you overwrite data, a soft deleted snapshot is generated to save the state of the overwritten data.</p>
+
+<p>For Altinn we have 90 days retention period. Inside that periode we can recover a blob to an earlier version.</p>
+
+<p><a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal">See more about soft delete on Azure Documentation</a>.</p>
 
 <h3 id="altinn-studio">Altinn Studio</h3>
 
