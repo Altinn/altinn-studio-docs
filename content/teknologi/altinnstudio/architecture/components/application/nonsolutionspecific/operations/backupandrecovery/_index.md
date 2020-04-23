@@ -7,11 +7,9 @@ alwaysopen: false
 weight: 99
 ---
 
+## Backup
 
-
-
-
-## Altinn Platform
+### Altinn Platform
 
 As described in the data section of the archiecture documentation Altinn Platform stores data both in 
 Azure Cosmos DB and in Azure Blob Storage. 
@@ -19,7 +17,7 @@ Azure Cosmos DB and in Azure Blob Storage.
 There is differen
 
 
-### Cosmos db
+#### Cosmos db
 According to Cosmos DB [documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore) Azure Cosmos DB 
 automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
  or availability of the database operations. All the backups are stored separately in a storage service, and those backups 
@@ -33,7 +31,7 @@ snapshots of a given container or database for 30 days.
 
 This functionality is out of the box when using Azure Cosmos DB. 
 
-#### Custom backup with help of Azure Function
+##### Custom backup with help of Azure Function
 Azure Cosmos DB exposes a change feed for containers in Azure Cosmos DB. 
 
 Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then 
@@ -49,3 +47,19 @@ and copies documents from Cosmos DB when they are created or modified to a blob 
 The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
 The blob storage should have enabled soft delete. All versions of a document in Cosmos should be written 
 to the same blob. Soft delete will keep track of all versions.
+
+#### Blob storage
+Each org has their own separte storage account with a blob storage to store data for applications. 
+In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps. 
+
+
+
+### Altinn Studio
+
+
+
+## Recovery
+
+We would need to create tools to be able to restore elements from blob storage to Cosmos DB and from Snapshots in blob storage.
+
+This is defined as issues in Github. [Issue for Cosmos DB](https://github.com/Altinn/altinn-studio/issues/4008) and [Issue for Blob storage](https://github.com/Altinn/altinn-studio/issues/4007)
