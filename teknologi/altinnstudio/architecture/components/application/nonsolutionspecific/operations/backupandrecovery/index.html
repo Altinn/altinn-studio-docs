@@ -9602,14 +9602,16 @@ if(host != "localhost")
 
 
 
-<h2 id="altinn-platform">Altinn Platform</h2>
+<h2 id="backup">Backup</h2>
+
+<h3 id="altinn-platform">Altinn Platform</h3>
 
 <p>As described in the data section of the archiecture documentation Altinn Platform stores data both in
 Azure Cosmos DB and in Azure Blob Storage.</p>
 
 <p>There is differen</p>
 
-<h3 id="cosmos-db">Cosmos db</h3>
+<h4 id="cosmos-db">Cosmos db</h4>
 
 <p>According to Cosmos DB <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore">documentation</a> Azure Cosmos DB
 automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
@@ -9624,7 +9626,7 @@ snapshots of a given container or database for 30 days.</p>
 
 <p>This functionality is out of the box when using Azure Cosmos DB.</p>
 
-<h4 id="custom-backup-with-help-of-azure-function">Custom backup with help of Azure Function</h4>
+<h5 id="custom-backup-with-help-of-azure-function">Custom backup with help of Azure Function</h5>
 
 <p>Azure Cosmos DB exposes a change feed for containers in Azure Cosmos DB.</p>
 
@@ -9641,6 +9643,19 @@ and copies documents from Cosmos DB when they are created or modified to a blob 
 <p>The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
 The blob storage should have enabled soft delete. All versions of a document in Cosmos should be written
 to the same blob. Soft delete will keep track of all versions.</p>
+
+<h4 id="blob-storage">Blob storage</h4>
+
+<p>Each org has their own separte storage account with a blob storage to store data for applications.
+In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps.</p>
+
+<h3 id="altinn-studio">Altinn Studio</h3>
+
+<h2 id="recovery">Recovery</h2>
+
+<p>We would need to create tools to be able to restore elements from blob storage to Cosmos DB and from Snapshots in blob storage.</p>
+
+<p>This is defined as issues in Github. <a href="https://github.com/Altinn/altinn-studio/issues/4008">Issue for Cosmos DB</a> and <a href="https://github.com/Altinn/altinn-studio/issues/4007">Issue for Blob storage</a></p>
 
 
 <footer class=" footline" >
