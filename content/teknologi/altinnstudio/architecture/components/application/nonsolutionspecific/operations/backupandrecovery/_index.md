@@ -7,20 +7,22 @@ alwaysopen: false
 weight: 99
 ---
 
-As described under the backup and recovery capabilities there are serveral scenarious where data is lost.
+As described under the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/) 
+there are serveral scenarious where data is lost.
 
 This page describes the application components that makes it possible to protect data loss.
 
 ## Backup
 
 ### Altinn Platform
-
 As described in the data section of the archiecture documentation Altinn Platform stores data both in 
 Azure Cosmos DB and in Azure Blob Storage. 
 
-There is differen
+There is different solutions for the different data stores.
 
 #### Cosmos db
+
+##### Built in backup functionality
 According to Cosmos DB [documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore) Azure Cosmos DB 
 automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
  or availability of the database operations. All the backups are stored separately in a storage service, and those backups 
@@ -33,6 +35,8 @@ snapshots of a given container or database for 30 days.
 ![image](https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png)
 
 This functionality is out of the box when using Azure Cosmos DB. 
+
+This backup would only be relevant to use if all data is lost from Cosmos DB. 
 
 ##### Custom backup with help of Azure Function
 Azure Cosmos DB exposes a change feed for containers in Azure Cosmos DB. 
