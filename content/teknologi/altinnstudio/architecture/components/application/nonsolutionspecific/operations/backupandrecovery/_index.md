@@ -15,6 +15,7 @@ This page describes the application components that makes it possible to protect
 ## Backup
 
 ### Altinn Platform
+
 As described in the data section of the archiecture documentation Altinn Platform stores data both in 
 Azure Cosmos DB and in Azure Blob Storage. 
 
@@ -23,6 +24,7 @@ There is different solutions for the different data stores.
 #### Cosmos db
 
 ##### Built in backup functionality
+
 According to Cosmos DB [documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore) Azure Cosmos DB 
 automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
  or availability of the database operations. All the backups are stored separately in a storage service, and those backups 
@@ -39,6 +41,7 @@ This functionality is out of the box when using Azure Cosmos DB.
 This backup would only be relevant to use if all data is lost from Cosmos DB. 
 
 ##### Custom backup with help of Azure Function
+
 Azure Cosmos DB exposes a change feed for containers in Azure Cosmos DB. 
 
 Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then 
@@ -52,18 +55,28 @@ The solution is to have a [Azure Function that listens to the change feed](https
 and copies documents from Cosmos DB when they are created or modified to a blob storage. 
 
 The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
-The blob storage should have enabled soft delete. All versions of a document in Cosmos should be written 
+The blob storage have enabled [soft delete](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal). All versions of a document in Cosmos should be written 
 to the same blob. Soft delete will keep track of all versions.
 
 #### Blob storage
+
 Each org has their own separte storage account with a blob storage to store data for applications. 
 In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps. 
 
+To protect against unwanted deletion or changes we have enabled soft delete. 
+
+When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted. 
+This protection extends to blob data that is erased as the result of an overwrite.
+
+When data is deleted, it transitions to a soft deleted state instead of being permanently erased. 
+When soft delete is on and you overwrite data, a soft deleted snapshot is generated to save the state of the overwritten data. 
+
+For Altinn we have 90 days retention period. Inside that periode we can recover a blob to an earlier version.
+
+[See more about soft delete on Azure Documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal).
 
 
 ### Altinn Studio
-
-
 
 ## Recovery
 
