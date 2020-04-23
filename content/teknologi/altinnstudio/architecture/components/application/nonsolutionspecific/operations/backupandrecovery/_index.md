@@ -7,6 +7,10 @@ alwaysopen: false
 weight: 99
 ---
 
+As described under the backup and recovery capabilities there are serveral scenarious where data is lost.
+
+This page describes the application components that makes it possible to protect data loss.
+
 ## Backup
 
 ### Altinn Platform
@@ -15,7 +19,6 @@ As described in the data section of the archiecture documentation Altinn Platfor
 Azure Cosmos DB and in Azure Blob Storage. 
 
 There is differen
-
 
 #### Cosmos db
 According to Cosmos DB [documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore) Azure Cosmos DB 
@@ -27,7 +30,7 @@ Azure Cosmos DB automatically takes a backup of your database every 4 hours and 
 latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing 
 snapshots of a given container or database for 30 days.
 
-![image](https://user-images.githubusercontent.com/13309071/77343494-0ea97380-6d32-11ea-9be9-9d573438ee56.png)
+![image](https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png)
 
 This functionality is out of the box when using Azure Cosmos DB. 
 
