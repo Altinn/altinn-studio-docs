@@ -9693,9 +9693,11 @@ When an authorization request is received to PDP, PRP identifies the correct pol
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">Backup and recovery</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Backup Altinn Platform As described in the data section of the archiecture documentation Altinn Platform stores data both in Azure Cosmos DB and in Azure Blob Storage.
-There is differen
-Cosmos db According to Cosmos DB documentation Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service, and those backups are globally replicated for resiliency against regional disasters. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">&raquo;</a></p>
+        <p>As described under the backup and recovery capabilities there are serveral scenarious where data is lost.
+This page describes the application components that makes it possible to protect data loss.
+Backup Altinn Platform As described in the data section of the archiecture documentation Altinn Platform stores data both in Azure Cosmos DB and in Azure Blob Storage.
+There is different solutions for the different data stores.
+Cosmos db Built in backup functionality According to Cosmos DB documentation Azure Cosmos DB automatically takes backups of your data at regular intervals. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

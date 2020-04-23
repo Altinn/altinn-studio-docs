@@ -9602,6 +9602,11 @@ if(host != "localhost")
 
 
 
+<p>As described under the <a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/">backup and recovery capabilities</a>
+there are serveral scenarious where data is lost.</p>
+
+<p>This page describes the application components that makes it possible to protect data loss.</p>
+
 <h2 id="backup">Backup</h2>
 
 <h3 id="altinn-platform">Altinn Platform</h3>
@@ -9609,9 +9614,11 @@ if(host != "localhost")
 <p>As described in the data section of the archiecture documentation Altinn Platform stores data both in
 Azure Cosmos DB and in Azure Blob Storage.</p>
 
-<p>There is differen</p>
+<p>There is different solutions for the different data stores.</p>
 
 <h4 id="cosmos-db">Cosmos db</h4>
+
+<h5 id="built-in-backup-functionality">Built in backup functionality</h5>
 
 <p>According to Cosmos DB <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore">documentation</a> Azure Cosmos DB
 automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
@@ -9622,9 +9629,11 @@ automatically takes backups of your data at regular intervals. The automatic bac
 latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing
 snapshots of a given container or database for 30 days.</p>
 
-<p><img src="https://user-images.githubusercontent.com/13309071/77343494-0ea97380-6d32-11ea-9be9-9d573438ee56.png" alt="image" /></p>
+<p><img src="https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png" alt="image" /></p>
 
 <p>This functionality is out of the box when using Azure Cosmos DB.</p>
+
+<p>This backup would only be relevant to use if all data is lost from Cosmos DB.</p>
 
 <h5 id="custom-backup-with-help-of-azure-function">Custom backup with help of Azure Function</h5>
 
