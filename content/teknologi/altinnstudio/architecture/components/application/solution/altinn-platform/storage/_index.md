@@ -479,11 +479,22 @@ Example of an text element that should be sent during a POST:
 
 ````json
 {
-    	"language": "nb",
-        "resources:": [
-            {"id": "some_id", "value": "some value"},
-            {"id": "some_other_id", "value": "some other value"}
-        ]
+    "language": "nb",
+    "resources:": [
+        {"id": "some_id", "value": "some value"},
+        {"id": "some_other_id", "value": "some other value"},
+        {"id": "yet_another_id", "value": "Text containing two variables: {0} and {1}.",
+         "variables":[
+            {
+            "key": "dataSouce.TextKey_1",
+            "dataSource": "dataModel.dataModelName"
+            },
+            {
+            "key": "dataSouce.TextKey_2",
+            "dataSource": "dataModel.dataModelName"
+            }]
+        }
+    ]
 }
 ````
 
@@ -493,6 +504,14 @@ Property  | Type             | Description
 ----------|------------------|------------------------------------------------------------------
 id        | string           | text resource id (for instance schema.postplace)
 value     | string           | the value
+variables | TextResourceVariable | list of text resource variables.
+
+### TextResourceVariable type
+Property  | Type             | Description
+----------|------------------|------------------------------------------------------------------
+key        | string           | the key for the text resource variable
+dataSource | string           | the datasource for the text resource variable. Allowed prefix: "dataModel"
+
 
 ### Operations
 
