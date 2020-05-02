@@ -10540,11 +10540,22 @@ Calling this endpoint will not the delete the instance from Storage, simply mark
 Example of an text element that should be sent during a POST:</p>
 
 <pre><code class="language-json">{
-        &quot;language&quot;: &quot;nb&quot;,
-        &quot;resources:&quot;: [
-            {&quot;id&quot;: &quot;some_id&quot;, &quot;value&quot;: &quot;some value&quot;},
-            {&quot;id&quot;: &quot;some_other_id&quot;, &quot;value&quot;: &quot;some other value&quot;}
-        ]
+    &quot;language&quot;: &quot;nb&quot;,
+    &quot;resources:&quot;: [
+        {&quot;id&quot;: &quot;some_id&quot;, &quot;value&quot;: &quot;some value&quot;},
+        {&quot;id&quot;: &quot;some_other_id&quot;, &quot;value&quot;: &quot;some other value&quot;},
+        {&quot;id&quot;: &quot;yet_another_id&quot;, &quot;value&quot;: &quot;Text containing two variables: {0} and {1}.&quot;,
+         &quot;variables&quot;:[
+            {
+            &quot;key&quot;: &quot;dataSouce.TextKey_1&quot;,
+            &quot;dataSource&quot;: &quot;dataModel.dataModelName&quot;
+            },
+            {
+            &quot;key&quot;: &quot;dataSouce.TextKey_2&quot;,
+            &quot;dataSource&quot;: &quot;dataModel.dataModelName&quot;
+            }]
+        }
+    ]
 }
 </code></pre>
 
@@ -10570,6 +10581,38 @@ Example of an text element that should be sent during a POST:</p>
 <td>value</td>
 <td>string</td>
 <td>the value</td>
+</tr>
+
+<tr>
+<td>variables</td>
+<td>TextResourceVariable</td>
+<td>list of text resource variables.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="textresourcevariable-type">TextResourceVariable type</h3>
+
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>key</td>
+<td>string</td>
+<td>the key for the text resource variable</td>
+</tr>
+
+<tr>
+<td>dataSource</td>
+<td>string</td>
+<td>the datasource for the text resource variable. Allowed prefix: &ldquo;dataModel&rdquo;</td>
 </tr>
 </tbody>
 </table>
