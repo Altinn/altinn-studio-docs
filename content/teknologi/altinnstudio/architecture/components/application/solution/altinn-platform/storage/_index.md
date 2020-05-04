@@ -502,9 +502,9 @@ Example of an text element that should be sent during a POST:
 
 Property  | Type             | Description
 ----------|------------------|------------------------------------------------------------------
-id        | string           | text resource id (for instance schema.postplace)
-value     | string           | the value
-variables | TextResourceVariable | list of text resource variables.
+id        | string                      | text resource id (for instance schema.postplace)
+value     | string                      | the value
+variables | list\<TextResourceVariable> | list of text resource variables.
 
 ### TextResourceVariable type
 Property  | Type             | Description
