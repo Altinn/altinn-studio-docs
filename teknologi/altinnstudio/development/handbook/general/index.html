@@ -9595,7 +9595,19 @@ if(host != "localhost")
 
 <h2 id="docker">Docker</h2>
 
+<p><code>docker ps</code> to list all running docker containers.</p>
+
 <h2 id="aks">AKS</h2>
+
+<p><code>kubectl get pods</code> list all pods in current cluster
+<code>kubectl -n default logs -f deployment/altinn-storage --all-containers=True</code> - get logs for all components of the same deployment
+<code>kubectl describe pod [pod name]</code> describes current state and lists environment variables for a given pod
+<code>kubectl delete pod [pod name]</code> deletes a pod and a new pod of the same deployment will start
+<code>kubectl set env [deployment] [key]=[value]</code> update or insert new enviornment variable for a deployment</p>
+
+<h2 id="helm">HELM</h2>
+
+<p><code>helm uninstall [deployment]</code> deletes a helm release. Running pods in AKS cluster will also be deleted.</p>
 
 <h2 id="markdown">Markdown</h2>
 
