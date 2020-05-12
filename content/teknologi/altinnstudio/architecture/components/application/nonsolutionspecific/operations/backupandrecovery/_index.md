@@ -73,7 +73,7 @@ In theese 90 days we are able to recover the document to an earlier version.
 
 ![The containers for the different cosmos DB collections](backup1.png "The containers for the different cosmos DB collections")
 
-![A list of blobs (documents from Cosmos) for a given party](backup2.png "A list of blobs (documents) for a given party")
+![A list of blobs (documents from Cosmos) for a given party](backup2.png "A list of blobs for a given party")
 
 ![Details for a document with information when the first document was created and when last changed](backup3.png "Details for a document with information when the first document was created and when last changed")
 
