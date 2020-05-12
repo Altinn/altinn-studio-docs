@@ -417,7 +417,15 @@ The operation returns an updated instance with the added `CompleteConfirmation`.
 
 ## Query instances
 
-Application owners can search for application instances with a simple GET request towards the *instances* endpoint.
+It is possible to query instances based on a number of query parameters. 
+
+Application owners can search for from a single application or across all applications that they have.
+Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
+
+Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
+Query parametr 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
+
+Search for instances with a simple GET request towards the *instances* endpoint.
 Avaliable query paramters include:
 
 - process.currentTask (string)
