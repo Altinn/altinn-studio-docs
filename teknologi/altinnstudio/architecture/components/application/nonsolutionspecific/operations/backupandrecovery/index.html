@@ -9637,7 +9637,9 @@ snapshots of a given container or database for 30 days.</p>
 
 <h5 id="custom-backup-with-help-of-azure-function">Custom backup with help of Azure Function</h5>
 
-<p>Azure Cosmos DB exposes a change feed for containers in Azure Cosmos DB.</p>
+<p>To support recovery of single or group of documents we needed to create a custom backup mechanismen.</p>
+
+<p>For this we use the change feed that Azure Cosmos DB expose.</p>
 
 <p>Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then
 outputs the sorted list of documents that were changed in the order in which they were modified. The changes are
@@ -9652,6 +9654,21 @@ and copies documents from Cosmos DB when they are created or modified to a blob 
 <p>The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
 The blob storage have enabled <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal">soft delete</a>. All versions of a document in Cosmos should be written
 to the same blob. Soft delete will keep track of all versions.</p>
+
+<p>The following collections has a Azure Function that takes backup. Click on name for code details about Azure Function</p>
+
+<ul>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Applications/Applications.cs">Applications</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/DataElements/DataElements.cs">DataElements</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/InstanceEvents/InstanceEvents.cs">InstanceEvents</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Instances">Instance</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Texts/Texts.cs">Texts</a></li>
+</ul>
+
+<p><img src="backup1.png" alt="Containers for collections" title="Containers for collections" />
+<img src="backup2.png" alt="Containers for collections" title="Containers for collections" />
+<img src="backup3.png" alt="Containers for collections" title="Containers for collections" />
+<img src="backup4.png" alt="Containers for collections" title="Containers for collections" /></p>
 
 <h4 id="blob-storage">Blob storage</h4>
 
