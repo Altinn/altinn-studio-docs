@@ -7,18 +7,23 @@ alwaysopen: false
 weight: 99
 ---
 
+As described under the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/) 
+there are serveral scenarious where data is lost.
 
+This page describes the application components that makes it possible to protect data loss.
 
+## Backup
 
-
-## Altinn Platform
+### Altinn Platform
 
 As described in the data section of the archiecture documentation Altinn Platform stores data both in 
 Azure Cosmos DB and in Azure Blob Storage. 
 
-There is differen
+There is different solutions for the different data stores.
 
-### Cosmos db
+#### Cosmos db
+
+##### Built in backup functionality
 
 According to Cosmos DB [documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore) Azure Cosmos DB 
 automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
@@ -29,11 +34,13 @@ Azure Cosmos DB automatically takes a backup of your database every 4 hours and 
 latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing
 snapshots of a given container or database for 30 days.
 
-![image](https://user-images.githubusercontent.com/13309071/77343494-0ea97380-6d32-11ea-9be9-9d573438ee56.png)
+![image](https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png)
 
 This functionality is out of the box when using Azure Cosmos DB. 
 
-#### Custom backup with help of Azure Function
+This backup would only be relevant to use if all data is lost from Cosmos DB. 
+
+##### Custom backup with help of Azure Function
 
 Azure Cosmos DB exposes a change feed for containers in Azure Cosmos DB. 
 
@@ -48,5 +55,31 @@ The solution is to have a [Azure Function that listens to the change feed](https
 and copies documents from Cosmos DB when they are created or modified to a blob storage. 
 
 The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
-The blob storage should have enabled soft delete. All versions of a document in Cosmos should be written 
+The blob storage have enabled [soft delete](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal). All versions of a document in Cosmos should be written 
 to the same blob. Soft delete will keep track of all versions.
+
+#### Blob storage
+
+Each org has their own separte storage account with a blob storage to store data for applications. 
+In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps. 
+
+To protect against unwanted deletion or changes we have enabled soft delete. 
+
+When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted. 
+This protection extends to blob data that is erased as the result of an overwrite.
+
+When data is deleted, it transitions to a soft deleted state instead of being permanently erased. 
+When soft delete is on and you overwrite data, a soft deleted snapshot is generated to save the state of the overwritten data. 
+
+For Altinn we have 90 days retention period. Inside that periode we can recover a blob to an earlier version.
+
+[See more about soft delete on Azure Documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal).
+
+
+### Altinn Studio
+
+## Recovery
+
+We would need to create tools to be able to restore elements from blob storage to Cosmos DB and from Snapshots in blob storage.
+
+This is defined as issues in Github. [Issue for Cosmos DB](https://github.com/Altinn/altinn-studio/issues/4008) and [Issue for Blob storage](https://github.com/Altinn/altinn-studio/issues/4007)
