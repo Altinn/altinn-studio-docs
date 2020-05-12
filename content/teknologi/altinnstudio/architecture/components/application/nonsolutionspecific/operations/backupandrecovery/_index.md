@@ -68,26 +68,16 @@ The following collections has a Azure Function that takes backup. Click on name 
 - [Instance](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Instances)
 - [Texts](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Texts/Texts.cs)
 
-
 The below images show how the documents are backed up in a blob storage and soft delete has created a snapshot that last for 90 days. 
 In theese 90 days we are able to recover the document to an earlier version.
 
+![The containers for the different cosmos DB collections](backup1.png "The containers for the different cosmos DB collections")
 
-##### The containers for the different cosmos DB collections
+![A list of blobs (documents from Cosmos) for a given party](backup2.png "A list of blobs (documents) for a given party")
 
-![Containers for collections](backup1.png "Containers for collections")
+![Details for a document with information when the first document was created and when last changed](backup3.png "Details for a document with information when the first document was created and when last changed")
 
-##### A list of blobs (documents) for a given party
-
-![Containers for collections](backup2.png "Containers for collections")
-
-##### Details for a document with information when the first document was created and when last changed
-
-![Containers for collections](backup3.png "Containers for collections")
-
-##### A list of snapshots that can be used to restore the document to an earlier version
-
-![Containers for collections](backup4.png "Containers for collections")
+![A list of snapshots that can be used to restore the document to an earlier version](backup4.png "A list of snapshots that can be used to restore the document to an earlier version")
 
 #### Blob storage
 
