@@ -42,11 +42,13 @@ This backup would only be relevant to use if all data is lost from Cosmos DB.
 
 ##### Custom backup with help of Azure Function
 
-Azure Cosmos DB exposes a change feed for containers in Azure Cosmos DB. 
+To support recovery of single or group of documents we needed to create a custom backup mechanismen.
 
-Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then 
-outputs the sorted list of documents that were changed in the order in which they were modified. The changes are 
-persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or 
+For this we use the change feed that Azure Cosmos DB expose.
+
+Change feed support in Azure Cosmos DB works by listening to an Azure Cosmos container for any changes. It then
+outputs the sorted list of documents that were changed in the order in which they were modified. The changes are
+persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or
 more consumers for parallel processing.
 
  ![image](https://user-images.githubusercontent.com/13309071/77245359-4b844600-6c1e-11ea-9960-b09dd9a05d92.png)
@@ -57,6 +59,20 @@ and copies documents from Cosmos DB when they are created or modified to a blob 
 The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
 The blob storage have enabled [soft delete](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal). All versions of a document in Cosmos should be written 
 to the same blob. Soft delete will keep track of all versions.
+
+The following collections has a Azure Function that takes backup. Click on name for code details about Azure Function
+
+- [Applications](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Applications/Applications.cs)
+- [DataElements](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/DataElements/DataElements.cs)
+- [InstanceEvents](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/InstanceEvents/InstanceEvents.cs)
+- [Instance](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Instances)
+- [Texts](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Texts/Texts.cs)
+
+
+![Containers for collections](backup1.png "Containers for collections")
+![Containers for collections](backup2.png "Containers for collections")
+![Containers for collections](backup3.png "Containers for collections")
+![Containers for collections](backup4.png "Containers for collections")
 
 #### Blob storage
 
