@@ -27,11 +27,11 @@ There is different solutions for the different data stores.
 
 According to Cosmos DB [documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore) Azure Cosmos DB 
 automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
- or availability of the database operations. All the backups are stored separately in a storage service, and those backups 
+ or availability of the database operations. All the backups are stored separately in a storage service, and those backups
  are globally replicated for resiliency against regional disasters.
 
-Azure Cosmos DB automatically takes a backup of your database every 4 hours and at any point of time, only the 
-latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing 
+Azure Cosmos DB automatically takes a backup of your database every 4 hours and at any point of time, only the
+latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing
 snapshots of a given container or database for 30 days.
 
 ![image](https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png)
