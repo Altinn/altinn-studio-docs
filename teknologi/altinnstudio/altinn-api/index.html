@@ -10054,7 +10054,15 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 
 <h2 id="query-instances">Query instances</h2>
 
-<p>Application owners can search for application instances with a simple GET request towards the <em>instances</em> endpoint.
+<p>It is possible to query instances based on a number of query parameters.</p>
+
+<p>Application owners can search for from a single application or across all applications that they have.
+Using this endpoint requires the scope &lsquo;altinn:instances.read&rsquo;. And query parameter &lsquo;org&rsquo; or &lsquo;appId&rsquo; must be included in the request.</p>
+
+<p>Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of.
+Query parametr &lsquo;instanceOwner.partyId&rsquo; must be included in the request if using this endpoint as an end user.</p>
+
+<p>Search for instances with a simple GET request towards the <em>instances</em> endpoint.
 Avaliable query paramters include:</p>
 
 <ul>
@@ -14004,6 +14012,38 @@ GET {appPath}/metadata/{typeName}/schema
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   
