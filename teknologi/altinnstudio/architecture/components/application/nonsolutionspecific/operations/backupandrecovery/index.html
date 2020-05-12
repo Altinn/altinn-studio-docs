@@ -9665,10 +9665,24 @@ to the same blob. Soft delete will keep track of all versions.</p>
 <li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup/Texts/Texts.cs">Texts</a></li>
 </ul>
 
-<p><img src="backup1.png" alt="Containers for collections" title="Containers for collections" />
-<img src="backup2.png" alt="Containers for collections" title="Containers for collections" />
-<img src="backup3.png" alt="Containers for collections" title="Containers for collections" />
-<img src="backup4.png" alt="Containers for collections" title="Containers for collections" /></p>
+<p>The below images show how the documents are backed up in a blob storage and soft delete has created a snapshot that last for 90 days.
+In theese 90 days we are able to recover the document to an earlier version.</p>
+
+<h5 id="the-containers-for-the-different-cosmos-db-collections">The containers for the different cosmos DB collections</h5>
+
+<figure><a href="backup1.png"><img src="backup1.png" alt="Containers for collections" title="Containers for collections" /></a><figcaption><h4>Containers for collections</h4></figcaption></figure>
+
+<h5 id="a-list-of-blobs-documents-for-a-given-party">A list of blobs (documents) for a given party</h5>
+
+<figure><a href="backup2.png"><img src="backup2.png" alt="Containers for collections" title="Containers for collections" /></a><figcaption><h4>Containers for collections</h4></figcaption></figure>
+
+<h5 id="details-for-a-document-with-information-when-the-first-document-was-created-and-when-last-changed">Details for a document with information when the first document was created and when last changed</h5>
+
+<figure><a href="backup3.png"><img src="backup3.png" alt="Containers for collections" title="Containers for collections" /></a><figcaption><h4>Containers for collections</h4></figcaption></figure>
+
+<h5 id="a-list-of-snapshots-that-can-be-used-to-restore-the-document-to-an-earlier-version">A list of snapshots that can be used to restore the document to an earlier version</h5>
+
+<figure><a href="backup4.png"><img src="backup4.png" alt="Containers for collections" title="Containers for collections" /></a><figcaption><h4>Containers for collections</h4></figcaption></figure>
 
 <h4 id="blob-storage">Blob storage</h4>
 
