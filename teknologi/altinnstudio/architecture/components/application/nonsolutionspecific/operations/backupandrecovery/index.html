@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="All data created in the different solutions are backed up so it is possible to restore it in case of data loss">
+    <meta name="description" content="All data created in the different solutions are backed up so it is possible to restore it in case of data loss.">
 
 
     
@@ -9588,7 +9588,7 @@ if(host != "localhost")
                 Backup and recovery
                 
               </h1>
-              <p class="a-leadText" id="leadText">All data created in the different solutions are backed up so it is possible to restore it in case of data loss</p>
+              <p class="a-leadText" id="leadText">All data created in the different solutions are backed up so it is possible to restore it in case of data loss.</p>
             
           
 
@@ -9603,15 +9603,15 @@ if(host != "localhost")
 
 
 <p>As described under the <a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/">backup and recovery capabilities</a>
-there are serveral scenarious where data is lost.</p>
+there are serveral scenarious where the different type of data is lost.</p>
 
-<p>This page describes the application components that makes it possible to protect data loss.</p>
+<p>This page describes the application components that makes it possible to protect against data loss.</p>
 
 <h2 id="backup">Backup</h2>
 
 <h3 id="altinn-platform">Altinn Platform</h3>
 
-<p>As described in the data section of the archiecture documentation Altinn Platform stores data both in
+<p>As described in the data section of the architecture documentation Altinn Platform stores data both in
 Azure Cosmos DB and in Azure Blob Storage.</p>
 
 <p>There is different solutions for the different data stores.</p>
@@ -9620,10 +9620,10 @@ Azure Cosmos DB and in Azure Blob Storage.</p>
 
 <h5 id="built-in-backup-functionality">Built in backup functionality</h5>
 
-<p>According to Cosmos DB <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore">documentation</a> Azure Cosmos DB
-automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
- or availability of the database operations. All the backups are stored separately in a storage service, and those backups
- are globally replicated for resiliency against regional disasters.</p>
+<p>Azure Cosmos DB <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore">automatically takes backups</a>
+of your data at regular intervals. The automatic backups are taken without affecting the performance
+or availability of the database operations. All the backups are stored separately in a storage service, and those backups
+are globally replicated for resiliency against regional disasters.</p>
 
 <p>Azure Cosmos DB automatically takes a backup of your database every 4 hours and at any point of time, only the
 latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing
