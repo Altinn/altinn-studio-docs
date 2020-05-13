@@ -1,23 +1,23 @@
 ---
 title: Backup and recovery
 linktitle: Backup & Recovery
-description: All data created in the different solutions are backed up so it is possible to restore it in case of data loss 
+description: All data created in the different solutions are backed up so it is possible to restore it in case of data loss.
 tags: [solution, architecture]
 alwaysopen: false
 weight: 99
 ---
 
-As described under the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/) 
-there are serveral scenarious where data is lost.
+As described under the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/)
+there are serveral scenarious where the different type of data is lost.
 
-This page describes the application components that makes it possible to protect data loss.
+This page describes the application components that makes it possible to protect against data loss.
 
 ## Backup
 
 ### Altinn Platform
 
-As described in the data section of the archiecture documentation Altinn Platform stores data both in 
-Azure Cosmos DB and in Azure Blob Storage. 
+As described in the data section of the architecture documentation Altinn Platform stores data both in
+Azure Cosmos DB and in Azure Blob Storage.
 
 There is different solutions for the different data stores.
 
@@ -25,10 +25,10 @@ There is different solutions for the different data stores.
 
 ##### Built in backup functionality
 
-According to Cosmos DB [documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore) Azure Cosmos DB 
-automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance
- or availability of the database operations. All the backups are stored separately in a storage service, and those backups
- are globally replicated for resiliency against regional disasters.
+Azure Cosmos DB [automatically takes backups](https://docs.microsoft.com/en-us/azure/cosmos-db/online-backup-and-restore)
+of your data at regular intervals. The automatic backups are taken without affecting the performance
+or availability of the database operations. All the backups are stored separately in a storage service, and those backups
+are globally replicated for resiliency against regional disasters.
 
 Azure Cosmos DB automatically takes a backup of your database every 4 hours and at any point of time, only the
 latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing
@@ -36,9 +36,9 @@ snapshots of a given container or database for 30 days.
 
 ![image](https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png)
 
-This functionality is out of the box when using Azure Cosmos DB. 
+This functionality is out of the box when using Azure Cosmos DB.
 
-This backup would only be relevant to use if all data is lost from Cosmos DB. 
+This backup would only be relevant to use if all data is lost from Cosmos DB.
 
 ##### Custom backup with help of Azure Function
 
