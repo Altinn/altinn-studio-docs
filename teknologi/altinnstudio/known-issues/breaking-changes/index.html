@@ -9654,6 +9654,11 @@ if(host != "localhost")
 <li><a href="#errors-6">Errors</a></li>
 <li><a href="#how-to-fix-16">How to fix</a></li>
 </ul></li>
+<li><a href="#breaking-change-error-when-attempting-to-create-an-instance-as-application-owner">Breaking change: Error when attempting to create an instance as Application Owner</a>
+<ul>
+<li><a href="#errors-7">Errors</a></li>
+<li><a href="#how-to-fix-17">How to fix</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -10147,6 +10152,31 @@ because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly&h
 <h3 id="how-to-fix-16">How to fix</h3>
 
 <p>There is no fix for this breaking change. New instances of the app must be instanciated.</p>
+
+<h2 id="breaking-change-error-when-attempting-to-create-an-instance-as-application-owner">Breaking change: Error when attempting to create an instance as Application Owner</h2>
+
+<p>The Register API had a few GET operations that took an input parameter through the body of an http request. Requests against these operations would work in AT environments, but would be broken by API Management in production like environments. The operations in question has now been removed and replaced with operations that require POST requests.</p>
+
+<h3 id="errors-7">Errors</h3>
+
+<p>The methods that have been removed were used by an app when an instantiation were done by the Application owner. More specifically if the instanceOwnerPartyId were unknown. The instantiation request would then have the Person number or organization number instead and the Register operation would be used to identify the correct party id.</p>
+
+<pre><code>POST https://{{org}}.apps.{{envUrl}}/{{org}}/{{app}}/instances/
+
+{
+  &quot;appId&quot; : &quot;org/app&quot;,
+  &quot;instanceOwner&quot;: {
+    &quot;personNumber&quot;: &quot;12247918309&quot;,
+    &quot;organisationNumber&quot;: null,
+    &quot;instanceOwnerPartyId: null
+  },
+  ...
+}
+</code></pre>
+
+<h3 id="how-to-fix-17">How to fix</h3>
+
+<p>Any issues related to this change can be fixed by upgrading to the latest version of <a href="https://www.nuget.org/packages/Altinn.App.PlatformServices/">Altinn.App.PlatformServices</a>. This means the App must be updated and a the new version deployed to all environments. Existing instances are not affected.</p>
 
 
 <footer class=" footline" >
