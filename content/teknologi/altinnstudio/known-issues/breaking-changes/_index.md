@@ -6,6 +6,31 @@ toc: true
 weight: 100
 ---
 
+## Breaking change: Error when attempting to create an instance as Application Owner
+Introduced with issue: [#3738](https://github.com/Altinn/altinn-studio/issues/3738)
+
+The Register API had a few GET operations that took an input parameter through the body of an http request. Requests against these operations would work in AT environments, but would be broken by API Management in production like environments. The operations in question has now been removed and replaced with operations that require POST requests.
+
+### Errors
+The methods that have been removed were used by an app when an instantiation were done by the Application owner. More specifically if the instanceOwnerPartyId were unknown. The instantiation request would then have the Person number or organization number instead and the Register operation would be used to identify the correct party id. 
+
+```
+POST https://{{org}}.apps.{{envUrl}}/{{org}}/{{app}}/instances/
+
+{
+  "appId" : "org/app",
+  "instanceOwner": {
+    "personNumber": "12247918309",
+    "organisationNumber": null,
+    "instanceOwnerPartyId": null
+  },
+  ...
+}
+```
+
+### How to fix
+Any issues related to this change can be fixed by upgrading to the latest version of [Altinn.App.PlatformServices](https://www.nuget.org/packages/Altinn.App.PlatformServices/). This means the App must be updated and a the new version deployed to all environments. Existing instances are not affected.
+
 ## Breaking change: Deploy pipeline fails with error: UPGRADE FAILED
 
 Introduced with upgrade of AKS cluster.
@@ -445,27 +470,3 @@ When opening an archived instance instanciated before the 24.06.2019, the follow
 
 ### How to fix
 There is no fix for this breaking change. New instances of the app must be instanciated. 
-
-
-## Breaking change: Error when attempting to create an instance as Application Owner
-The Register API had a few GET operations that took an input parameter through the body of an http request. Requests against these operations would work in AT environments, but would be broken by API Management in production like environments. The operations in question has now been removed and replaced with operations that require POST requests.
-
-### Errors
-The methods that have been removed were used by an app when an instantiation were done by the Application owner. More specifically if the instanceOwnerPartyId were unknown. The instantiation request would then have the Person number or organization number instead and the Register operation would be used to identify the correct party id. 
-
-```
-POST https://{{org}}.apps.{{envUrl}}/{{org}}/{{app}}/instances/
-
-{
-  "appId" : "org/app",
-  "instanceOwner": {
-    "personNumber": "12247918309",
-    "organisationNumber": null,
-    "instanceOwnerPartyId: null
-  },
-  ...
-}
-```
-
-### How to fix
-Any issues related to this change can be fixed by upgrading to the latest version of [Altinn.App.PlatformServices](https://www.nuget.org/packages/Altinn.App.PlatformServices/). This means the App must be updated and a the new version deployed to all environments. Existing instances are not affected.
