@@ -12,4 +12,4 @@ The development handbook should provide all basic information needed to get star
 
 The development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.
 
-{{% children description="true" depth="2" %}}
+{{% children description="true" depth="3" %}}
