@@ -6550,6 +6550,82 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/azure-devops/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/azure-devops/">
+        <span>Azure DevOps</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">
+        <span>Pipelines</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/" class="dd-item 
         
         
@@ -9565,13 +9641,72 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/development/page/3/">&larr; Forrige</a>
 	
-	<span class="page-number">Side 4 av 5</span>
+	<span class="page-number">Side 4 av 6</span>
 	
 	    <a class="older-posts" href="/tags/development/page/5/">Neste &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">Post Message</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Window.postMessage() is introduced to handle communication between components that has no connection other then the need to communicate/trigger events. Eg. its used to communicate with the syncBar to get it to perform a new status check. To read more see: Window.postMessage
+Usage Dispatching a message event is done the following way:
+// variables should be used for messages var SAVED_EVENT = 'SAVED' window.postMessage(SAVED_EVENT, window.location.href);  Catching the event is done by adding an event listener to the component one needs to communicate with: <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/postman/">Postman</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.
+Authentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way: - In your browser login to dev. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/postman/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post teknologi">
@@ -9818,62 +9953,6 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
 
 
 	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/test-strategy/">Test Strategy</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>What should be tested? In tjenester 3.0, there is a need for both testing Altinn Studio, the app designer, as well as testing apps that are developed by an app developer in Altinn Studio Runtime. Testing these two areas of Altinn Studio requires different approaches.
-Testing of Altinn Studio is to be tested automatically at the unit and integration levels of testing. Unit testing of the system involves, for example, the testing of individual javascript functions, and individual pieces of logic relating to react/UI components. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/test-strategy/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/testcafe/">Testcafe</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to run tests and pipeline information.
-Clone project in Visual Studio Code  Create account in github.com Get write access to AltinnStudio - https://github.com/Altinn/altinn-studio Use windows 10 image with docker. Create a folder - C:\Repos Open Visual Studio Code Ctrl + Shift + P -&gt; Create New Integrated Terminal Terminal opens down of Visual Studio Code. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/testcafe/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -9881,7 +9960,7 @@ Clone project in Visual Studio Code  Create account in github.com Get write acce
 	
 	    <a class="newer-posts" href="/tags/development/page/3/">&larr; Forrige</a>
 	
-	<span class="page-number">Side 4 av 5</span>
+	<span class="page-number">Side 4 av 6</span>
 	
 	    <a class="older-posts" href="/tags/development/page/5/">Neste &rarr;</a>
 	
@@ -13064,6 +13143,40 @@ Clone project in Visual Studio Code  Create account in github.com Get write acce
                               
                               
           
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

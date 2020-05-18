@@ -6550,6 +6550,82 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/azure-devops/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/azure-devops/">
+        <span>Azure DevOps</span>
+
+        
+
+        
+        
+
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
+        
+      </a>
+      
+        <ul>
+          
+          
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">
+        <span>Pipelines</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/" class="dd-item 
         
         
@@ -9565,13 +9641,39 @@ if(host != "localhost")
 	
 	    <a class="newer-posts" href="/tags/development/page/2/">&larr; Forrige</a>
 	
-	<span class="page-number">Side 3 av 5</span>
+	<span class="page-number">Side 3 av 6</span>
 	
 	    <a class="older-posts" href="/tags/development/page/4/">Neste &rarr;</a>
 	
 </nav>
 
 	</div>
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/getting-started/">Getting started</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p> .highlight-source-batchfile { color: #fff !important; }  
+  let content = document.getElementById('readmeContent'); if (content.innerHTML === '') { content.innerHTML = 'Loading from github...'; } axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/README.md`) .then((res) = { const doc = new DOMParser().parseFromString(res.data, "text/html"); content.innerHTML = doc.getElementById('readme').innerHTML; });   <a class="read-more" href="/teknologi/altinnstudio/development/handbook/getting-started/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
 
 	
 	   <article class="post teknologi">
@@ -9816,12 +9918,12 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">Post Message</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">Pipelines</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Window.postMessage() is introduced to handle communication between components that has no connection other then the need to communicate/trigger events. Eg. its used to communicate with the syncBar to get it to perform a new status check. To read more see: Window.postMessage
-Usage Dispatching a message event is done the following way:
-// variables should be used for messages var SAVED_EVENT = 'SAVED' window.postMessage(SAVED_EVENT, window.location.href);  Catching the event is done by adding an event listener to the component one needs to communicate with: <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">&raquo;</a></p>
+        <p>Quality checklist Build pipelines Release pipelines  Quality Checklist This page is a work-in-progress. Documentation planned in issue 4125.
+referencing other pipelines is done by definitionId.  Build Pipelines The build pipelines are grouped in folders based on either the part of the solution they are used for or the purpose of the pipeline.
+ altinn-apps altinn-platform altinn-studio code-analysis load-test test  altinn-apps There are pull request and master pipelines for app frontend and kubernetes wrapper. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -9831,38 +9933,6 @@ Usage Dispatching a message event is done the following way:
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/postman/">Postman</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.
-Authentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way: - In your browser login to dev. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/postman/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
         
 
@@ -9880,7 +9950,7 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
 	
 	    <a class="newer-posts" href="/tags/development/page/2/">&larr; Forrige</a>
 	
-	<span class="page-number">Side 3 av 5</span>
+	<span class="page-number">Side 3 av 6</span>
 	
 	    <a class="older-posts" href="/tags/development/page/4/">Neste &rarr;</a>
 	
@@ -13063,6 +13133,40 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
                               
                               
           
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

@@ -307,6 +307,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/azure-devops/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/bpmn/</loc>
   </url>
   
@@ -528,6 +532,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/prp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/</loc>
   </url>
   
   <url>
