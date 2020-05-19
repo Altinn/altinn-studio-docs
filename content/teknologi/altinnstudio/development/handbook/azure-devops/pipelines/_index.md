@@ -120,10 +120,12 @@ Others are triggered when a new release is deployed to an environment.
 ## Release Pipelines
 
 See all release pipelines [here](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&path=%5C).
+
 Our release pipelines are set up with multiple stages.
 This allows for different policies related to deploy and varying triggers.
 
 Common for all release pipelines is that they rely on an artifact
 containing the helm chart which is packed in Azure Studio Ops project.
 
-[To be continued...]
+Deploy to TT02 or production requires approval from a team member.
+Weekly releases are scheduled for these environments.
