@@ -24,6 +24,7 @@ __For apps that use an OR-type xsd (or have fields with `-`-character in xsd), t
 ### How to fix.
 - If using app frontend v2 or newer, make sure app is using nuget packages v1.0.82-alpha or newer. See [documentation on how to update dependencies.](https://altinn.github.io/docs/altinn-studio/app-creation/update).
 - Open the app in altinn.studio and upload datamodel again to generate a new version of the model files, with all the updated paths. 
+  - _Please note that this overwrites any texts in the text resource files, so make sure to save a copy or push the app to the app repo before doing this, to recover any texts that might disappear.
 - Update data model bindings in altinn.studio UI Editor, or update FormLayout.json with new data model bindings (see below for new format).
   - Each part of the path now corresponds to the xname of the field in the xsd. F.ex:
 
