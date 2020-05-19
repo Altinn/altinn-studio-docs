@@ -18,7 +18,7 @@ This page is a work-in-progress. Documentation planned in [issue 4125](https://g
 ## Build Pipelines
 
 The build pipelines are grouped in folders based on either the part of the solution they are used for
-or the purpose of the pipeline.
+or the purpose of the pipeline. See build pipelines [here](https://dev.azure.com/brreg/altinn-studio/_build?treeState=XGFsdGlubi1hcHBz&view=folders).
 
 - [altinn-apps](#altinn-apps)
 - [altinn-platform](#altinn-platform)
@@ -119,6 +119,7 @@ Others are triggered when a new release is deployed to an environment.
 
 ## Release Pipelines
 
+See all release pipelines [here](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&path=%5C).
 Our release pipelines are set up with multiple stages.
 This allows for different policies related to deploy and varying triggers.
 
