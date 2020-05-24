@@ -58,6 +58,10 @@ The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB
 The blob storage have enabled [soft delete](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal). All versions of a document in Cosmos should be written 
 to the same blob. Soft delete will keep track of all versions.
 
+The following Azure Functions are created
+
+
+
 #### Blob storage
 
 Each org has their own separte storage account with a blob storage to store data for applications. 

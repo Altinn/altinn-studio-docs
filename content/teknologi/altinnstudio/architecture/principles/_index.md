@@ -86,6 +86,23 @@ Standard formats are documented and is some cases it exists 3. party tools to ed
 - We use [XACML 3.0](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) to define authorization policies for applications
 - We use [JSON](https://en.wikipedia.org/wiki/JSON) as general format.
 
+### Isolation
+
+**Principle**
+We should try isolate application and data own by one organization from others
+
+**Rationale**
+
+Reduce risk for one organization affecting service for another organization
+
+
+**Implications**
+
+- Seperate Kubernetes Clusters for each organization
+- Seperate data store for each organization
+
+
+
 ### Design and build for Public cloud
 
 **Principle**
