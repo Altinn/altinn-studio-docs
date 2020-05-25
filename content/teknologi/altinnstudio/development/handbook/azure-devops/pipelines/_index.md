@@ -14,6 +14,7 @@ weight: 100
 - [ ] all sensitive information is marked as secret. Read more about setting variables as secret [here.](#setting-a-variable-as-secret)
 - [ ] verify that no sensitive information is available in the exported API JSON definition (https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId})
 - [ ] make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that  [here.](#disable-sharing-of-secrets-on-github-forks)
+- [ ] if it exists a [built in](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=azure-devops) task for the job the pipeline should do, this should be prefered over writing your own scripts. Both for maintainability and security reasons.
 - [ ] referencing other pipelines is done by definitionId.
 
 ## Build Pipelines
