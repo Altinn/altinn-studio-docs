@@ -9675,11 +9675,17 @@ if(host != "localhost")
 
 <h2 id="aks">AKS</h2>
 
-<p><code>kubectl get pods</code> list all pods in current cluster
-<code>kubectl -n default logs -f deployment/altinn-storage --all-containers=True</code> - get logs for all components of the same deployment
-<code>kubectl describe pod [pod name]</code> describes current state and lists environment variables for a given pod
-<code>kubectl delete pod [pod name]</code> deletes a pod and a new pod of the same deployment will start
-<code>kubectl set env [deployment] [key]=[value]</code> update or insert new enviornment variable for a deployment</p>
+<p><code>kubectl get pods</code> list all pods in current cluster</p>
+
+<p><code>kubectl -n default logs -f deployment/altinn-storage --all-containers=True</code> - get logs for all components of the same deployment</p>
+
+<p><code>kubectl describe pod [pod name]</code> describes current state and lists environment variables for a given pod</p>
+
+<p><code>kubectl delete pod [pod name]</code> deletes a pod and a new pod of the same deployment will start</p>
+
+<p><code>kubectl set env [deployment] [key]=[value]</code> update or insert new enviornment variable for a deployment</p>
+
+<p>More useful kubectl commands can be found in <a href="https://kubernetes.io/docs/reference/kubectl/cheatsheet/">Kubernetes own documentation</a>.</p>
 
 <h2 id="helm">HELM</h2>
 
