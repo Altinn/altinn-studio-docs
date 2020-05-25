@@ -9921,9 +9921,7 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">Pipelines</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Quality checklist Build pipelines Release pipelines  Quality Checklist This page is a work-in-progress. Documentation planned in issue 4125.
-referencing other pipelines is done by definitionId.  Build Pipelines The build pipelines are grouped in folders based on either the part of the solution they are used for or the purpose of the pipeline. See build pipelines here.
- altinn-apps altinn-platform altinn-studio code-analysis load-test test  altinn-apps There are pull request and master pipelines for app frontend and kubernetes wrapper. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">&raquo;</a></p>
+        <p>Quality checklist Build pipelines Release pipelines  Quality Checklist all sensitive information is marked as secret. Read more about setting variables as secret here. verify that no sensitive information is available in the exported API JSON definition (https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId}) make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that here. if it exists a built in task for the job the pipeline should do, this should be prefered over writing your own scripts. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

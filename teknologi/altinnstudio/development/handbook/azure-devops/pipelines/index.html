@@ -9674,9 +9674,11 @@ if(host != "localhost")
 
 <h2 id="quality-checklist">Quality Checklist</h2>
 
-<p>This page is a work-in-progress. Documentation planned in <a href="https://github.com/Altinn/altinn-studio/issues/4125">issue 4125</a>.</p>
-
 <ul class="task-list">
+<li><label><input type="checkbox" disabled class="task-list-item"> all sensitive information is marked as secret. Read more about setting variables as secret <a href="#setting-a-variable-as-secret">here.</a></label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> verify that no sensitive information is available in the exported API JSON definition (<a href="https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId}">https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId}</a>)</label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that  <a href="#disable-sharing-of-secrets-on-github-forks">here.</a></label></li>
+<li><label><input type="checkbox" disabled class="task-list-item"> if it exists a <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=azure-devops">built in</a> task for the job the pipeline should do, this should be prefered over writing your own scripts. Both for maintainability and security reasons.</label></li>
 <li><label><input type="checkbox" disabled class="task-list-item"> referencing other pipelines is done by definitionId.</label></li>
 </ul>
 
@@ -9810,6 +9812,24 @@ containing the helm chart which is packed in Azure Studio Ops project.</p>
 
 <p>Deploy to TT02 or production requires approval from a team member.
 Weekly releases are scheduled for these environments.</p>
+
+<h2 id="howto">HOWTO</h2>
+
+<h3 id="setting-a-variable-as-secret">Setting a variable as secret</h3>
+
+<p>Marking a variable is secret is straight forward. Navigate to the pipeline variables.</p>
+
+<figure><a href="secret_variable.PNG"><img src="secret_variable.PNG" alt="Pipeline variable" title="Pipeline variable" /></a><figcaption><h4>Pipeline variable</h4></figcaption></figure>
+
+<p>All that is needed in order for a variable to be secured in the pipeline is click on the lock icon at the right hand side.</p>
+
+<figure><a href="secret_variable_marked.PNG"><img src="secret_variable_marked.PNG" alt="Pipeline variable marked secret" title="Pipeline variable marked secret" /></a><figcaption><h4>Pipeline variable marked secret</h4></figcaption></figure>
+
+<h3 id="disable-sharing-of-secrets-on-github-forks">Disable sharing of secrets on github forks</h3>
+
+<p>Disabling of secret sharing on repo forks are done by navigating from the pipeline to <code>Triggers</code> and selecting the github integration under &ldquo;Pull Request Validation&rdquo;. Here you can disable secret sharing by disabling the build on forks.</p>
+
+<figure><a href="secret_forks.PNG"><img src="secret_forks.PNG" alt="Disable fork sercret sharing" title="Disable fork sercret sharing" /></a><figcaption><h4>Disable fork sercret sharing</h4></figcaption></figure>
 
 
 <footer class=" footline" >
