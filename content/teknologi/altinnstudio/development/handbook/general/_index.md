@@ -28,7 +28,7 @@ git
 
 ``` kubectl set env [deployment] [key]=[value] ``` update or insert new enviornment variable for a deployment
 
-More useful kubectl commands can be found in [Kubernetes own documentation](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
+More useful kubectl commands can be found in [Kubernetes' own documentation](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
 ## HELM
 
