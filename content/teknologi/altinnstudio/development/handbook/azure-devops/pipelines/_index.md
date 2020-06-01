@@ -11,8 +11,10 @@ weight: 100
 
 ## Quality Checklist
 
-This page is a work-in-progress. Documentation planned in [issue 4125](https://github.com/Altinn/altinn-studio/issues/4125).
-
+- [ ] all sensitive information is marked as secret. Read more about setting variables as secret [here.](#setting-a-variable-as-secret)
+- [ ] verify that no sensitive information is available in the exported API JSON definition (https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId})
+- [ ] make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that  [here.](#disable-sharing-of-secrets-on-github-forks)
+- [ ] if it exists a [built in](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/?view=azure-devops) task for the job the pipeline should do, this should be prefered over writing your own scripts. Both for maintainability and security reasons.
 - [ ] referencing other pipelines is done by definitionId.
 
 ## Build Pipelines
@@ -129,3 +131,21 @@ containing the helm chart which is packed in Azure Studio Ops project.
 
 Deploy to TT02 or production requires approval from a team member.
 Weekly releases are scheduled for these environments.
+
+## HOWTO
+
+### Setting a variable as secret
+
+Marking a variable is secret is straight forward. Navigate to the pipeline variables. 
+
+![Pipeline variable](secret_variable.PNG "Pipeline variable")
+
+All that is needed in order for a variable to be secured in the pipeline is click on the lock icon at the right hand side.
+
+![Pipeline variable marked secret](secret_variable_marked.PNG "Pipeline variable marked secret")
+
+### Disable sharing of secrets on github forks
+
+Disabling of secret sharing on repo forks are done by navigating from the pipeline to `Triggers` and selecting the github integration under "Pull Request Validation". Here you can disable secret sharing by disabling the build on forks.
+
+![Disable fork sercret sharing](secret_forks.PNG "Disable fork sercret sharing")
