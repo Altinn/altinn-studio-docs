@@ -30,7 +30,7 @@ There are three steps you must take in order to update your application to adher
     [this code](https://raw.githubusercontent.com/Altinn/altinn-studio/e6b43fb8c3e71c16ca4a3bb47a5ff6f208b71854/src/studio/AppTemplates/AspNet/deployment/values.yaml).
 
     The picture illustrates which changes are required in the file if you wish to do it manually,
-    or inspect your code.
+    or inspect your code. Be ware that indentation is important when working with .yaml files.
     ![add new volume to values](breaking_change_new-volume-in-values.PNG "add-new-volume-to-values")
 
 2. Update nuget dependencies in `App.csproj` to version 1.0.86-alpha.
