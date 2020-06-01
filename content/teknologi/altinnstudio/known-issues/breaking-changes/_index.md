@@ -6,22 +6,73 @@ toc: true
 weight: 100
 ---
 
+## Breakig change: Platform authorization introduced for Platform Register and Profile 
+
+Introduced with issue: [#4162](https://github.com/altinn/altinn-studio/issues/4162) and Release: v2020.23.
+**The change affects all application created in Altinn Studio before 03.06.2020.**
+
+### Errors
+
+Users will experience that instantiation, form filling and viewing receipt fails with the following error:
+![unknown error](breaking_change_ukjent_feil.PNG "unknown-error")
+
+When checking the network log one will find that the POST request to
+`https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances?instanceOwnerPartyId=` fails with status code 404.
+
+### How to fix
+
+There are three steps you must take in order to update your application to adhere to the breaking change.
+
+1. Update `values.yaml` in the `deployment` folder in your application repository.
+
+    If no custom changes have been made to this file since you created the application,
+    simply replace the content of the file with
+    [this code](https://raw.githubusercontent.com/Altinn/altinn-studio/e6b43fb8c3e71c16ca4a3bb47a5ff6f208b71854/src/studio/AppTemplates/AspNet/deployment/values.yaml).
+
+    The picture illustrates which changes are required in the file if you wish to do it manually,
+    or inspect your code.
+    ![add new volume to values](breaking_change_new-volume-in-values.PNG "add-new-volume-to-values")
+
+2. Update nuget dependencies in `App.csproj` to version 1.0.86-alpha.
+
+    Navigate to you application repository and find `App.csproj` in the `App` folder.
+    Upgrade the three Altinn.App nugetpackages to version 1.0.86.
+
+    ```xml
+        <PackageReference Include="Altinn.App.Api" Version="1.0.86-alpha" />
+        <PackageReference Include="Altinn.App.Common" Version="1.0.86-alpha" />
+        <PackageReference Include="Altinn.App.PlatformServices" Version="1.0.86-alpha" />
+    ```
+
+3. Update `Startup.cs` in the `App` folder in your application repository.
+    If no custom changes have been made to this file since you created the application,
+    simply replace the content of the file with
+    [this code](https://raw.githubusercontent.com/Altinn/altinn-studio/e6b43fb8c3e71c16ca4a3bb47a5ff6f208b71854/src/studio/AppTemplates/AspNet/App/Startup.cs).
+
+    The picture illustrates which changes are required in the file if you wish to do it manually,
+    or inspect your code.
+    ![update startup](breaking_change_startup_nuget_86.PNG "update-startup")
+
 ## Breaking change: Updated client-side validation - frontend v2 and Nuget v1.0.82-alpha
+
 Introduced with issue: [#3944](https://github.com/Altinn/altinn-studio/issues/3944), and applies to existing apps that upgrade to the new major version of
+
 app frontend (v2).
 
 The client-side validation of the app frontend has been replaced with a JSON-schema validation in order to provide a more complete client-side validation. As of v2 of app frontend, client-side validation has support for type-checking basic types, including enums. When upgrading the frontend version to v2, the app _must_ use nuget versions 1.0.82-alpha or newer. See details below.
 
-In order to implement this, we have made changes to how we bind the data model to fields in the forms. 
+In order to implement this, we have made changes to how we bind the data model to fields in the forms.
 
 {{%notice info%}}
 The change is only breaking for apps using OR-type xsd (or have fields with `-`-character in xsd). Most Seres-type data models will not be affected, and will work without needing to make changes, even after updating to v2 of app frontend. If you do experience any problems with submitting/validating form data even with a seres-type xsd, follow the steps below.
 {{%/notice%}}
 
 ### Errors
+
 For apps that use an OR-type xsd (or have fields with `-`-character in xsd), the app may crash during submission/validation because the data model binding used does not match the true path in the json schema (and xsd). This is because we have been using a simplified path previously, to match with the C# model. We have now changed that so that the data binding name corresponds to the true xpath for the field.
 
-### How to fix.
+### How to fix
+
 - If using app frontend v2 or newer, make sure app is using nuget packages v1.0.82-alpha or newer. See [documentation on how to update dependencies.](https://altinn.github.io/docs/altinn-studio/app-creation/update).
 - Open the app in altinn.studio and upload datamodel again to generate a new version of the model files, with all the updated paths. 
   - _Please note that this overwrites any texts in the text resource files, so make sure to save a copy or push the app to the app repo before doing this, to recover any texts that might disappear._
