@@ -1,0 +1,342 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn Platform Register",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/register/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/register/api/v1",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/organizations/{orgNr}": {
+      "get": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Gets the organization information for a given organization number.",
+        "parameters": [
+          {
+            "name": "orgNr",
+            "in": "path",
+            "description": "The organization number to retrieve information about.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "The organization number to retrieve information about.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Organization"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parties/{partyId}": {
+      "get": {
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Gets the party for a given party id.",
+        "parameters": [
+          {
+            "name": "partyId",
+            "in": "path",
+            "description": "The party id.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "The party id.",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Party"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parties/lookup": {
+      "post": {
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Perform a lookup/search for a specific party by using one of the provided ids.",
+        "requestBody": {
+          "description": "The lookup criteria. One and only one of the properties must be a valid value.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PartyLookup"
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Party"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Organization": {
+        "type": "object",
+        "properties": {
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "faxNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "internetAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCity": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PartyType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Person": {
+        "type": "object",
+        "properties": {
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressStreetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseLetter": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressCity": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Party": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partyTypeName": {
+            "$ref": "#/components/schemas/PartyType"
+          },
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "onlyHierarchyElementWithNoAccess": {
+            "type": "boolean"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          },
+          "childParties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Party"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PartyLookup": {
+        "type": "object",
+        "properties": {
+          "ssn": {
+            "pattern": "^[0-9]{11}$",
+            "type": "string",
+            "nullable": true
+          },
+          "orgNo": {
+            "pattern": "^[0-9]{9}$",
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

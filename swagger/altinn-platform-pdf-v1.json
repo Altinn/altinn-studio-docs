@@ -1,0 +1,31 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn Platform PDF",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/pdf/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/pdf/api/v1",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/generate": {
+      "post": {
+        "summary": "Generate PDF",
+        "operationId": "generate-pdf",
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

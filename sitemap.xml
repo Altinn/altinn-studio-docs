@@ -988,6 +988,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/authentication/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/authorization/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/bmpn/</loc>
     <priority>0</priority>
   </url>
@@ -1116,6 +1124,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/pdf/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/profile/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/prometheus/</loc>
   </url>
   
@@ -1125,6 +1141,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/react/redux/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/register/</loc>
   </url>
   
   <url>
@@ -1141,7 +1161,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/storage/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/studio/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/stylecop/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/</loc>
   </url>
   
   <url>
@@ -1478,6 +1510,11 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/styling/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/swagger/</loc>
     <priority>0</priority>
   </url>
   
