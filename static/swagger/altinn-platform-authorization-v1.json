@@ -1,0 +1,252 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn Platform Authorization",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/authorization/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/authorization/api/v1",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/Decision": {
+      "post": {
+        "tags": [
+          "Decision"
+        ],
+        "summary": "Decision Point endpoint to authorize Xacml Context Requests",
+        "requestBody": {
+          "description": "A Generic model",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlRequestApiModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlRequestApiModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlRequestApiModel"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlRequestApiModel"
+              }
+            },
+            "text/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlRequestApiModel"
+              }
+            },
+            "application/*+xml": {
+              "schema": {
+                "$ref": "#/components/schemas/XacmlRequestApiModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Decision"
+        ],
+        "summary": "Test method. Should be deleted?",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/parties": {
+      "get": {
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Gets the list of parties that the logged in user can represent",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "the user id",
+            "schema": {
+              "type": "integer",
+              "description": "the user id",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/parties/{partyId}/validate": {
+      "get": {
+        "tags": [
+          "Parties"
+        ],
+        "summary": "Verifies that the user can represent the given party",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "The user id\"",
+            "schema": {
+              "type": "integer",
+              "description": "The user id\"",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "partyId",
+            "in": "path",
+            "description": "The party id\"",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "The party id\"",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/policies": {
+      "post": {
+        "tags": [
+          "Policy"
+        ],
+        "summary": "Saves policy file to storage",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "query",
+            "description": "Unique identifier of the organisation responsible for the app.",
+            "schema": {
+              "type": "string",
+              "description": "Unique identifier of the organisation responsible for the app.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "app",
+            "in": "query",
+            "description": "Application identifier which is unique within an organisation.",
+            "schema": {
+              "type": "string",
+              "description": "Application identifier which is unique within an organisation.",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/roles": {
+      "get": {
+        "tags": [
+          "Roles"
+        ],
+        "summary": "Get the decision point roles for the loggedin user for a selected party",
+        "parameters": [
+          {
+            "name": "coveredByUserId",
+            "in": "query",
+            "description": "the logged in user id",
+            "schema": {
+              "type": "integer",
+              "description": "the logged in user id",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offeredByPartyId",
+            "in": "query",
+            "description": "the partyid of the person/org the logged in user is representing",
+            "schema": {
+              "type": "integer",
+              "description": "the partyid of the person/org the logged in user is representing",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "XacmlRequestApiModel": {
+        "type": "object",
+        "properties": {
+          "bodyContent": {
+            "type": "string",
+            "description": "Gets or sets the BodyContent coming from the request. Populated by the AltinnCoreApiModelBinder",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "This is an model special created to support both JSON and XML in the same endpoint.\r\nIt will be created by a custom Model binder created for this case"
+      }
+    }
+  }
+}
