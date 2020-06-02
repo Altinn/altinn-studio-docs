@@ -5,8 +5,6 @@ tags: [architecture]
 weight: 6
 linktitle: Non Functional
 alwaysopen: false
-aliases:
- - /architecture/
 ---
 ## Architectural Concerns
 Architecture Concerns are categories of Non-Functional Requirements (NFRs) of a system that 

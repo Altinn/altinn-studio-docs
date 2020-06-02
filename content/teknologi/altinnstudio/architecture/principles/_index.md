@@ -5,8 +5,6 @@ tags: [architecture]
 linktitle: Principles
 weight: 6
 alwaysopen: false
-aliases:
- - /architecture/
 ---
 The following architecture principles has been defined for the solutions. 
 

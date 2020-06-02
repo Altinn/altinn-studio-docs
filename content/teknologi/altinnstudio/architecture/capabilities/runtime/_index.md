@@ -5,8 +5,6 @@ tags: [architecture]
 weight: 21
 linktitle: Runtime
 alwaysopen: false
-aliases:
- - /architecture/
 ---
 
 The Runtime (exceution) Architecture supports applications at run-time. 

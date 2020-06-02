@@ -5,8 +5,6 @@ tags: [architecture]
 weight: 9
 linktitle: Components
 alwaysopen: false
-aliases:
- - /architecture/
 ---
 
 
