@@ -31,9 +31,21 @@ Options are often used as filter criterias that can be a part op the API call.
 
 ## Standard Commands
 
-### Login
+### Login 
 
-To use the CLI Application a successfull login is required. The Login operation requires a valid Service Owner Ceritificat. The command will use the ceritication to generate a jwt-token which is autenticated by **Maskinporten**. A successfull autentication gives a "converted" as response. The response token will then be used as a part of the header in all API calls. 
+The porpose of the Login command is to obtain a JSON Web token that can be used to authenticate and authorize the Altinn CLI when sending requests to App and Platform APIs. The only provider currently supported is Maskinporten.
+
+#### Login Maskinporten
+
+The Login operation requires a valid Enterprise certificate and a Client ID. 
+
+The certificate must be installed under the Certificate Store *My* for *Current User*. The Login command will use the certificate to authenticate with Maskinporten and a successful authentication will result in a JSON Web Token signed by Maskinporten. The login command will then use this JSON Web Token and exchange it for a new JSON Web Token created and signed by Altinn. This final JWT is what other commands will be including when sending requests to the Altinn APIs.
+
+The Client ID is something each Application Owner is required to administrate themselves. Each application owner should have a team of people with access to Maskinporten and the rights to administrate their clients.
+
+```cmd
+Altinn CLI > Login Maskinporten clientId=<clientId> thumbprint=<certificate thumbprint>
+```
 
 ### Help
 
