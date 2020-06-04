@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Analysis &amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.">
+    <meta name="description" content="A additional access token are used in the scenarious where we need to authenticate the application or component callin a component in Altinn Platform">
 
 
     
-    <title>Analysis &amp; Design Capabilities :: Altinn digitalisering - Utvikling</title>
+    <title>Access Token :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/accesstoken/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -3105,7 +3105,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -3118,7 +3118,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -3230,8 +3230,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/">
@@ -3496,7 +3496,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3509,7 +3509,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3628,7 +3628,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/security/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3641,7 +3641,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3666,7 +3666,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -3679,7 +3679,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -3702,7 +3702,7 @@ if(host != "localhost")
   
     
       <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/accesstoken/" class="dd-item
-     
+     active
       ">
         <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/accesstoken/">
         <span>Authentication</span> 
@@ -9889,7 +9889,17 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/devops/'>Devops</a> <span class='adocs-breadcrumb-divider'> / </span> Analysis & Design
+
+
+
+
+
+
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/security/'>Security</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/'>Authentication</a> <span class='adocs-breadcrumb-divider'> / </span> Authentication
+
+ 
+
+ 
 
  
 
@@ -9913,16 +9923,18 @@ if(host != "localhost")
             
               <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
             
+              <a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a>
+            
           </div>
         
         <div id="body-inner">
           
             
               <h1 class="a-fontBold">
-                Analysis &amp; Design Capabilities
+                Access Token
                 
               </h1>
-              <p class="a-leadText" id="leadText">Analysis &amp; Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.</p>
+              <p class="a-leadText" id="leadText">A additional access token are used in the scenarious where we need to authenticate the application or component callin a component in Altinn Platform</p>
             
           
 
@@ -9936,63 +9948,34 @@ if(host != "localhost")
 
 
 
-<h2 id="analysis-enablement-capabilities">Analysis Enablement Capabilities</h2>
+<h2 id="altinn-studio">Altinn Studio</h2>
 
-<h3 id="requirement-capture">Requirement Capture</h3>
+<p>The designer application creates a JWT based Access Token based on a certificate that designer has available when running
+in the Altinn Studio Kubernetes Cluster. The different Altinn Studio environments have their own certificate.</p>
 
-<p>Requirements are gathered through:
-- input on Github
-- talks with organization</p>
+<p>This makes it possible for each Altinn Platform environment to configure which Altinn Studio environment that is allowed to deploy
+and modify applications in that specific environment.</p>
 
-<p>See <a href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/">development application components</a> to get a overview over tools and application we use.</p>
+<p>The token is generated with help of the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.AccessToken/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs">Access Token generator</a>
+and this is generated for each call designer are doing aginst the platform solution for Storage and Authorization.</p>
 
-<h3 id="use-case-story-definition">Use Case/Story Definition</h3>
+<h2 id="apps">Apps</h2>
 
-<p>The devopsteam has the capability to define uses cases and user stories.</p>
+<p>To be able to limit the clients that can access some of the functionality in Altinn Platform, some components/functionality requires
+that a AccessToken is added to the request header in addition to the JWT that identifes the user triggering the request.</p>
 
-<p>See <a href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/">development application components</a> to get a overview over tools and application we use.</p>
+<p>The applications generes a token based on a org certificate available in the Kubernetes Cluster for the given org.</p>
 
-<h3 id="requirement-validation">Requirement Validation</h3>
+<p>The token is generated with help of the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.AccessToken/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs">Access Token generator</a>
+and is used when calling <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Implementation/RegisterAppSI.cs">Register as an example</a>.</p>
 
-<p>Product owners and architects together with the teams are responsible for validation of requirements.</p>
-
-<h3 id="requirement-traceability">Requirement Traceability</h3>
-
-<p>Github keeps a full history on the different issues.</p>
-
-<h3 id="protoypes-mock-ups-storyboarding">Protoypes, Mock-Ups &amp; Storyboarding</h3>
-
-<p>The devopsteam has the capability to create prototypes.</p>
-
-<p>See development application components for tools used.</p>
-
-<h2 id="design-enablement-capabilities">Design Enablement Capabilities</h2>
-
-<h3 id="ui-design-enablement">UI Design Enablement</h3>
-
-<p>We use Figma to design the UI elements.</p>
-
-<h3 id="data-modeling-design-capability">Data Modeling &amp; Design Capability</h3>
-
-<p>The devops team has the capability for data modelling and design.</p>
-
-<p>See <a href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/">development application components</a> to get a overview over tools and application we use.</p>
-
-<h3 id="architecture-design-enablement">Architecture Design Enablement</h3>
-
-<p>Architecture design is presented on this site using Markdown and Visio.</p>
-
-<h3 id="application-design-enablement">Application Design Enablement</h3>
-
-<p>Application design is presented on this site using Markdown and Visio.</p>
+<p>The required check is enabled in the platform components with enabling a AuthorizationRequirement on the controller.
+Example on Party controller <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Register/Register/Controllers/PartiesController.cs">here</a></p>
 
 
 <footer class=" footline" >
 	
 </footer>
-
-
-
 
 
                 </div>
@@ -11525,6 +11508,8 @@ if(host != "localhost")
                       
                           
                               
+                                  
+                                  
                               
                           
                           
@@ -11540,9 +11525,6 @@ if(host != "localhost")
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -11591,7 +11573,6 @@ if(host != "localhost")
                       
                       
                           
-                              
                               
                           
                           
@@ -11608,9 +11589,6 @@ if(host != "localhost")
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -11717,6 +11695,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -11731,6 +11710,9 @@ if(host != "localhost")
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -11779,6 +11761,7 @@ if(host != "localhost")
                       
                       
                           
+                              
                               
                           
                           
@@ -11795,6 +11778,7 @@ if(host != "localhost")
                       
                           
                               
+                              
                           
                           
           
@@ -11807,6 +11791,7 @@ if(host != "localhost")
                       
                       
                           
+                              
                               
                           
                           
@@ -11823,6 +11808,9 @@ if(host != "localhost")
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -14895,10 +14883,10 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/" title="Platform Operations Management Capabilities"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/" title="Authentication Capabilities"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/" title="Build &amp; Test Capabilities" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/authentication-api/" title="Authentication APIs" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -14910,7 +14898,7 @@ if(host != "localhost")
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/accesstoken.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>
