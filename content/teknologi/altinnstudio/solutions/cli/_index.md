@@ -33,7 +33,7 @@ Options are often used as filter criterias that can be a part op the API call.
 
 ### Login 
 
-The porpose of the Login command is to obtain a JSON Web token that can be used to authenticate and authorize the Altinn CLI when sending requests to App and Platform APIs. The only provider currently supported is Maskinporten.
+The purpose of the Login command is to obtain a JSON Web token that can be used to authenticate and authorize the Altinn CLI when sending requests to App and Platform APIs. The only provider currently supported is Maskinporten.
 
 #### Login Maskinporten
 
