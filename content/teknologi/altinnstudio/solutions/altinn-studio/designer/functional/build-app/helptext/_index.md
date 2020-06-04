@@ -7,7 +7,7 @@ Help texts are small text snippets that provide a brief explaination of what the
 
 The language-keys that point to the help text is defined in the form layout json file.
 
-In your repo under the folder `Resources` there is a `FormLayout.json`-file. The contents might be:
+In your repo under the folder `App/ui` there is a `FormLayout.json`-file. The contents might be:
 
 ```json
 {

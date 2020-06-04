@@ -5,8 +5,6 @@ tags: [architecture]
 weight: 5
 linktitle: Functional
 alwaysopen: false
-aliases:
- - /architecture/
 ---
 
 The functional requirements is extensive and is written as user stories. A good starting point is to look at 

@@ -1,0 +1,98 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn Platform Profile",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/profile/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/profile/api/v1",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/Users/{userID}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the user profile for a given user id",
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "The user id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "description": "The user id",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Users/current": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the current user based on the request context",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the user profile for a given SSN",
+        "requestBody": {
+          "description": "The user's social security number",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string",
+                "description": "The user's social security number",
+                "nullable": true
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string",
+                "description": "The user's social security number",
+                "nullable": true
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string",
+                "description": "The user's social security number",
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": { }
+}

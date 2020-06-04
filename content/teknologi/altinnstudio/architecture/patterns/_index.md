@@ -5,8 +5,6 @@ tags: [architecture]
 linktitle: Patterns
 weight: 7
 alwaysopen: false
-aliases:
- - /architecture/
 ---
 
 

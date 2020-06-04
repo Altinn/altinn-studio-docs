@@ -6,5 +6,6 @@ aliases:
  - /technology/
 ---
 
+![Tech map](tech-map.png "The technology used in Altinn 3")
 
 {{% children description="true" depth="1" %}}

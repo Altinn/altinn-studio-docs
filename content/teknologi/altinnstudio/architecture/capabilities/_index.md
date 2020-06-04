@@ -5,8 +5,6 @@ tags: [architecture]
 weight: 8
 linktitle: Capabilities
 alwaysopen: false
-aliases:
- - /architecture/
 ---
 
 Functional capabilities is described in the functional description of the [solutions](/teknologi/altinnstudio/solutions/). 
