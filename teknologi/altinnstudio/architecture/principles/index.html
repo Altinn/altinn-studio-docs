@@ -9990,6 +9990,22 @@ This gives better access to resources with the needed competency.</p>
 <li>We use <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> as general format.</li>
 </ul>
 
+<h3 id="isolation">Isolation</h3>
+
+<p><strong>Principle</strong>
+We should try isolate application and data own by one organization from others</p>
+
+<p><strong>Rationale</strong></p>
+
+<p>Reduce risk for one organization affecting service for another organization</p>
+
+<p><strong>Implications</strong></p>
+
+<ul>
+<li>Seperate Kubernetes Clusters for each organization</li>
+<li>Seperate data store for each organization</li>
+</ul>
+
 <h3 id="design-and-build-for-public-cloud">Design and build for Public cloud</h3>
 
 <p><strong>Principle</strong></p>
