@@ -52,5 +52,6 @@ First version is planned to be launched early 2020.
 
 ## Presentations
 
-[Presentation Mars 2019 Norwegian](https://docs.altinn.studio/files/AltinnStudio_Konsept_Funksjonell_Arkitektur.pptx)
+[Presentation June 11. 2020 NDC Conference](https://docs.altinn.studio/files/altinn_3_ndc_2020_06_11.pptx)
+
 
