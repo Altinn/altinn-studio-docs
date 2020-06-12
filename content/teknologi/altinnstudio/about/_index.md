@@ -52,6 +52,6 @@ First version is planned to be launched early 2020.
 
 ## Presentations
 
-[Presentation June 11. 2020 NDC Conference](https://docs.altinn.studio/teknologi/altinnstudio/about/files/altinn_3_ndc_2020_06_11.pptx)
+[Presentation June 11. 2020 NDC Conference](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinn_3_ndc_2020_06_11.pptx)
 
 
