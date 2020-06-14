@@ -3904,6 +3904,26 @@ if(host != "localhost")
           
         
           
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/process_interaction/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/process_interaction/">
+        <span>Process Interaction</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -9932,7 +9952,8 @@ will publish events that organizations and parties(citizens and businesses) can 
 
 <h3 id="events">Events</h3>
 
-<p>Events in the new platform would be a combination of standard events defined by the platform and custom events added in an application by application developers.</p>
+<p>Events in the new platform would be a combination of standard events defined by the platform and
+custom events added in an application by application developers.</p>
 
 <p>Standard events could be</p>
 
@@ -9952,27 +9973,6 @@ will publish events that organizations and parties(citizens and businesses) can 
 </ul>
 
 <p>The event would contain limited set of information. To get the full details the subscriber would need to get all details from instance / instance event api.</p>
-
-<p><strong>Example events</strong></p>
-
-<pre><code class="language-bash">2020-08-10T21:03:07+00:00 nav/kontonr/84356677/2c1c5395-0f98-4054-8cbf-bbb1ece09a25 ProcessCompleted
-
-2020-08-10T22:03:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 InstanceCreated
-
-2020-08-10T28:03:07+00:00 nav/sykemelding/56234234/2c1c5395-0f98-4054-8cbf-bbb1ece09a25 ProcessCompleted
-
-2020-08-10T45:03:07+00:00 ssb/lakselus/63463336/9add6388-647e-434c-94d9-00d272e2a1e3 DataTaskCompleted
-
-2020-08-11T21:03:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 DataTaskCompleted
-
-2020-08-12T23:03:07+00:00 hdir/corona/1523456/9add6388-647e-434c-94d9-00d272e2a1e3 InstanceDeleted
-
-2020-08-12T23:03:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 ProcessCompleted
-
-2020-08-12T24:02:07+00:00 skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 FeedbackAdded
-
-2020-08-12T25:03:07+00:00 skd/amelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8 FraudDetected
-</code></pre>
 
 <h4 id="event-schema">Event Schema</h4>
 
@@ -9994,13 +9994,13 @@ will publish events that organizations and parties(citizens and businesses) can 
 ]
 </code></pre>
 
-<p>Example</p>
+<h5 id="example-1">Example 1</h5>
 
 <pre><code class="language-json">[{
   &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
-  &quot;eventType&quot;: &quot;InstanceCreated&quot;,
+  &quot;eventType&quot;: &quot;Instance:Created&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
-  &quot;subject&quot;: &quot;234234422&quot;,
+  &quot;subject&quot;: &quot;party:234234422&quot;,
   &quot;eventTime&quot;: &quot;2017-08-10T21:03:07+00:00&quot;,
   &quot;data&quot;: {
      },
@@ -10049,177 +10049,66 @@ will publish events that organizations and parties(citizens and businesses) can 
 <li>Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.<br /></li>
 </ul>
 
-<h2 id="possible-solutions">Possible solutions</h2>
+<h2 id="proposed-event-architecture">Proposed Event Architecture</h2>
 
-<h3 id="custom-rest-api-cosmos-db">Custom REST API &amp; Cosmos DB</h3>
+<p>To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
+a event component in Altinn Platform.</p>
 
-<p>Currently, there exists no API where orgs or end users can query events without knowing the instanceid where the event happened.
-For orgs this is impossible to use directly since instanceid is not known</p>
+<p>The Event Component will expose REST-APIS.</p>
 
-<p>There is create a issue for analyze and implement the needed API&rsquo;s  <a href="https://github.com/Altinn/altinn-studio/issues/3783">#3783</a></p>
+<h3 id="api-structure">API Structure</h3>
 
-<h3 id="azure-event-hub">Azure Event Hub</h3>
+<p>The API&rsquo;s will be structured so the URLs are filtered quieries in to the events</p>
 
-<p>Azure Event Hub is an Event ingestion service.  It can receive and process millions of events per second.</p>
+<h4 id="instances-events-for-org">Instances events for Org</h4>
 
-<p>Each Subscription can have 100 Event Hub Namespaces
-Each Namespace can have 10 Event Hubs</p>
+<h5 id="endpoint">Endpoint</h5>
 
-<p>Meaning for each Subscription we can have 1000 Event Hubs,</p>
+<pre><code class="language-http">get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}
+</code></pre>
 
-<p><img src="https://user-images.githubusercontent.com/13309071/75520779-a43d3600-5a06-11ea-94d7-c2b0fe856e8a.png" alt="image" /></p>
+<h5 id="usage">Usage</h5>
 
-<p>Subscribers to Hubs use <a href="https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol">AMQP 1.0</a>  protocol to read the event feed.</p>
+<p>This will be used by applications owners to identify changes on instances for their applications.</p>
 
-<h4 id="event-format-data">Event format data</h4>
+<h5 id="authorization">Authorization</h5>
 
-<p>The events can be any JSON format or text</p>
+<p>We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to events for a given org/app.</p>
 
-<h4 id="event-filtering">Event filtering</h4>
+<p>TODO: Is it possible?</p>
 
-<p>There is no way to filter events before they are read at the subscriber.</p>
+<h4 id="party-events">Party events</h4>
 
-<h4 id="subscribers">Subscribers</h4>
+<p>This is used by end user to see events for a given party.
+This will list all changes for a given party.</p>
 
-<p>Subscribers need to have a SAS key for accessing the event hub.</p>
+<h5 id="endpoint-1">Endpoint</h5>
 
-<p>The client needs to use AMQB 1.0 standard.
-There exist client library for <a href="https://github.com/Azure/azure-event-hubs-java">Java</a> and <a href="https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs">.Net</a></p>
+<pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
+</code></pre>
 
-<h3 id="azure-event-grid">Azure Event Grid</h3>
+<p>This returns the events for a given party identified with a personnumber or organizationnumber.</p>
 
-<p>Event Grid is an eventing backplane that enables event-driven, reactive programming. It uses a publish-subscribe model. Publishers emit events but have no expectation about which events are handled. Subscribers decide which events they want to handle.</p>
+<pre><code class="language-json">{
+    &quot;appId&quot; : &quot;org/app&quot;,
+    &quot;party&quot;: {
+        &quot;personNumber&quot;: &quot;12247918309&quot;,
+        &quot;organisationNumber&quot;: null
+    },
+    &quot;storedAfter&quot;: &quot;2019-06-01T12:00:00Z&quot;,
+  
+</code></pre>
 
-<p>Azure Event Grid can listen to an event for Azure Services, but in our scenario, Altinn Apps and Altinn Platform would create custom events that they post to topics.</p>
+<h5 id="usage-1">Usage</h5>
 
-<p>Systems can subscribe to different topics.</p>
+<h5 id="authorization-1">Authorization</h5>
 
-<p><img src="https://user-images.githubusercontent.com/13309071/75542052-5254da00-5a1f-11ea-8685-47e4b51d683a.png" alt="image" /></p>
+<pre><code class="language-http">{platformurl}/events/instanceevents/{org}/{app}?from={lastchange}
+</code></pre>
 
-<p>Event Grid supports dead-lettering for events that aren&rsquo;t delivered to an endpoint.</p>
+<h3 id="querying">Querying</h3>
 
-<h4 id="quotas">Quotas</h4>
-
-<table>
-<thead>
-<tr>
-<th>Resource</th>
-<th>Limit</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Custom topics per Azure subscription</td>
-<td>100</td>
-</tr>
-
-<tr>
-<td>Event subscriptions per topic</td>
-<td>500</td>
-</tr>
-
-<tr>
-<td>Publish rate for a custom topic (ingress)</td>
-<td>5,000 events per second per topic</td>
-</tr>
-
-<tr>
-<td>Publish requests</td>
-<td>250 per second</td>
-</tr>
-
-<tr>
-<td>Event size</td>
-<td>1 MB (charged in as multiple 64-KB events)</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="event-format-data-1">Event format data</h4>
-
-<p>The events needs to follo the <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</p>
-
-<h4 id="event-filtering-1">Event Filtering</h4>
-
-<p>A subscription can have a filter on subject or event type. Or Even the data. Meaning that subscribers could have on system handling just some specific events.</p>
-
-<h4 id="subscribers-1">Subscribers</h4>
-
-<p>The subscribers need to have a web hook endpoint.  Event Grid will then post the event to the given URL. If not available it will <a href="https://docs.microsoft.com/en-us/azure/event-grid/manage-event-delivery">try up to 1400 minutes</a>.  (24 hours)</p>
-
-<h4 id="pro">Pro</h4>
-
-<ul>
-<li>Subscribers can filter on topics</li>
-<li>Dead letter possiblities</li>
-</ul>
-
-<h4 id="cons">Cons</h4>
-
-<ul>
-<li>Need to have a active endpoint where events could be sent</li>
-<li>Not able to support topic per party.</li>
-</ul>
-
-<h3 id="apache-kafka-in-azure-hdinsight">Apache Kafka in Azure HDInsight</h3>
-
-<p>Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications. Kafka also provides message broker
-functionality similar to a message queue, where you can publish and subscribe to named data streams.</p>
-
-<p>Apache Kafka kan be deployed in to a HDInsight cluster. <a href="https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction">See details</a></p>
-
-<p>Producers would send events to Kafka Brokers. In a HD-insight cluster each worker nod is a Kafka broker.</p>
-
-<p><img src="../kafka.png" alt="image" /></p>
-
-<h4 id="quotas-1">Quotas</h4>
-
-<table>
-<thead>
-<tr>
-<th>Resource</th>
-<th>Limit</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>Topics per kafka cluster</td>
-<td>2000-3000</td>
-</tr>
-
-<tr>
-<td>Retention time</td>
-<td>up to unlimited</td>
-</tr>
-</tbody>
-</table>
-
-<h4 id="pro-1">Pro</h4>
-
-<ul>
-<li>Most popular event streaming platform.</li>
-<li>Can store events indefently</li>
-</ul>
-
-<h4 id="cons-1">Cons</h4>
-
-<ul>
-<li>Cost of HDInsight cluster</li>
-<li>Requires more admin compared to other platforms in Azure</li>
-<li>Not able to support topic per party.</li>
-</ul>
-
-<h3 id="custom-event-hub-grid">Custom + Event Hub / Grid</h3>
-
-<p>To support scenarios where parties subscribe to events related to own or client parties we would need to build a custom solution.</p>
-
-<p>The reason for this is
-- Events can contain information that is sensitive. (Events needs to be isolated between parties, and also inside same party there might be different access rights to events)
-- Event Hub or Event Grid does not have the capacity to the amount of isolated feeds or topic to support the millions of parties</p>
-
-<h4 id="proposed-concept">Proposed Concept</h4>
+<p>###TODO How to get the correct order?</p>
 
 <p>As part of platform we would need to introduce an &ldquo;event component&rdquo; that does the following.
 The component could be Azure functions. This seems to be <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp">supported</a>.</p>
@@ -10274,7 +10163,6 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 <li>Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)</li>
 <li>Event Hub: Should we capture the events to storage? (org storage)</li>
 <li>Event Grid: Do we need to handle dead letters or should we ask org to check against db?</li>
-<li></li>
 </ul>
 
 <h3 id="tasks">Tasks</h3>
