@@ -142,9 +142,6 @@ TODO: Is it possible?
 
 #### Party events
 
-This is used by end user to see events for a given party.
-This will list all changes for a given party.
-
 ##### Endpoint
 
 ```http
@@ -166,9 +163,12 @@ This returns the events for a given party identified with a personnumber or orga
 
 ##### Usage
 
-
+This is used by end user to see events for a given party.
+This will list all changes for a given party.
 
 ##### Authorization
+
+Events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
 
 
 
@@ -178,21 +178,24 @@ This returns the events for a given party identified with a personnumber or orga
 ```
 
 
+### Storage of events
+
+The proposed solutions is to store events in a Cosmos DB collection as document according to the schema.
+
+The ordering will be used
 
 
 ### Querying
 
 
 
-###TODO How to get the correct order?
+### TODO How to get the correct order?
 
 
 
 
 
 
-As part of platform we would need to introduce an "event component" that does the following.
-The component could be Azure functions. This seems to be [supported](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp). 
 
 - Subscribe to Event Hub or topic in Event Grid
 - Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.
@@ -201,26 +204,16 @@ The component could be Azure functions. This seems to be [supported](https://doc
   - org or key role person have access to all events
   - REGN or LEDE has a profile where the API filter on som predefined events. 
 
-
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object>
-{{% /excerpt%}}
-
-[Full size](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg)
-
-
 ## To be analyzed and clarified
 Before the final solution can be defined the following needs to be clarified
 
 ### Functional 
 
 - Do org want to pull or push events
-- Is 7 days retention time enough if they are given the ability to search on older events (with low throughput)
 - Define data model for events. The assumption is to follow [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) event schema
 - How to we filter events for party. Should we support events that should not be sent to end user, only org. Like "fraud detection". 
 - Do we need to support pushing events to event grid
 - Is it a problem that one org knows about other orgs events? (Probably)
-
 
 ### Technical
 
