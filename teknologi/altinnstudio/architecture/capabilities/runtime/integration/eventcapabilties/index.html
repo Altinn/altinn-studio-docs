@@ -10079,9 +10079,6 @@ a event component in Altinn Platform.</p>
 
 <h4 id="party-events">Party events</h4>
 
-<p>This is used by end user to see events for a given party.
-This will list all changes for a given party.</p>
-
 <h5 id="endpoint-1">Endpoint</h5>
 
 <pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
@@ -10101,17 +10098,25 @@ This will list all changes for a given party.</p>
 
 <h5 id="usage-1">Usage</h5>
 
+<p>This is used by end user to see events for a given party.
+This will list all changes for a given party.</p>
+
 <h5 id="authorization-1">Authorization</h5>
+
+<p>Events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.</p>
 
 <pre><code class="language-http">{platformurl}/events/instanceevents/{org}/{app}?from={lastchange}
 </code></pre>
 
+<h3 id="storage-of-events">Storage of events</h3>
+
+<p>The proposed solutions is to store events in a Cosmos DB collection as document according to the schema.</p>
+
+<p>The ordering will be used</p>
+
 <h3 id="querying">Querying</h3>
 
-<p>###TODO How to get the correct order?</p>
-
-<p>As part of platform we would need to introduce an &ldquo;event component&rdquo; that does the following.
-The component could be Azure functions. This seems to be <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-hubs-trigger?tabs=csharp">supported</a>.</p>
+<h3 id="todo-how-to-get-the-correct-order">TODO How to get the correct order?</h3>
 
 <ul>
 <li>Subscribe to Event Hub or topic in Event Grid</li>
@@ -10125,13 +10130,6 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 </ul></li>
 </ul>
 
-
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg" type="image/svg+xml" style="width: 200%;  max-width: 700px;"></object></p>
-
-
-
-<p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_full.svg">Full size</a></p>
-
 <h2 id="to-be-analyzed-and-clarified">To be analyzed and clarified</h2>
 
 <p>Before the final solution can be defined the following needs to be clarified</p>
@@ -10140,7 +10138,6 @@ The component could be Azure functions. This seems to be <a href="https://docs.m
 
 <ul>
 <li>Do org want to pull or push events</li>
-<li>Is 7 days retention time enough if they are given the ability to search on older events (with low throughput)</li>
 <li>Define data model for events. The assumption is to follow <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</li>
 <li>How to we filter events for party. Should we support events that should not be sent to end user, only org. Like &ldquo;fraud detection&rdquo;.</li>
 <li>Do we need to support pushing events to event grid</li>
