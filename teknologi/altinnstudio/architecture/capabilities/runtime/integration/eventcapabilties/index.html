@@ -9963,6 +9963,13 @@ custom events added in an application by application developers.</p>
 <li>An instance is completed</li>
 </ul>
 
+<p>Customs event could be</p>
+
+<ul>
+<li>A user have asked for a deduction in a form</li>
+<li></li>
+</ul>
+
 <p>Events would have some attributes</p>
 
 <ul>
@@ -9996,12 +10003,44 @@ custom events added in an application by application developers.</p>
 
 <h5 id="example-1">Example 1</h5>
 
+<p>A form has been created for a given party. It is not possible from the event itself to know who did it</p>
+
 <pre><code class="language-json">[{
   &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
   &quot;eventType&quot;: &quot;Instance:Created&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
   &quot;subject&quot;: &quot;party:234234422&quot;,
   &quot;eventTime&quot;: &quot;2017-08-10T21:03:07+00:00&quot;,
+  &quot;data&quot;: {
+     },
+  &quot;dataVersion&quot;: &quot;1.0&quot;
+}]
+</code></pre>
+
+<h5 id="example-2">Example 2</h5>
+
+<p>A user has completed the confirmation task in the process.</p>
+
+<pre><code class="language-json">[{
+  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
+  &quot;eventType&quot;: &quot;Instance:ConfirmationCompleted&quot;,
+  &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
+  &quot;subject&quot;: &quot;party:234234422&quot;,
+  &quot;eventTime&quot;: &quot;2020-09-14T32:03:07+00:00&quot;,
+  &quot;data&quot;: {
+     },
+  &quot;dataVersion&quot;: &quot;1.0&quot;
+}]
+</code></pre>
+
+<h5 id="example-3">Example 3</h5>
+
+<pre><code class="language-json">[{
+  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
+  &quot;eventType&quot;: &quot;Instance:ProcessCompleted&quot;,
+  &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
+  &quot;subject&quot;: &quot;party:234234422&quot;,
+  &quot;eventTime&quot;: &quot;2020-03-19T55:03:07+00:00&quot;,
   &quot;data&quot;: {
      },
   &quot;dataVersion&quot;: &quot;1.0&quot;
@@ -10117,6 +10156,13 @@ This will list all changes for a given party.</p>
 <h3 id="querying">Querying</h3>
 
 <h3 id="todo-how-to-get-the-correct-order">TODO How to get the correct order?</h3>
+
+
+	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object></p>
+
+
+
+<p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg">Full screen</a></p>
 
 <ul>
 <li>Subscribe to Event Hub or topic in Event Grid</li>
