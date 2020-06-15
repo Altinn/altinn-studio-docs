@@ -10191,7 +10191,9 @@ This way there would be no need to verify the current state of a element.</p>
 
 <p>Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.</p>
 
-<h4 id="to-be-clarified">To be clarified</h4>
+<h4 id="container-configuration">Container configuration</h4>
+
+<p>If we gonna usa Cosmos DB we need to decide if we gonna use one contaiiner</p>
 
 <h4 id="ordering">Ordering</h4>
 
@@ -10264,9 +10266,13 @@ event component is storing the event to cosmos db.</p>
 
 <p>In this option we need to be able to add a global counter to the documents in the order they are inserted.</p>
 
-<p>This could theoretical be done in a function reading the change log.</p>
+<p>This could theoretical be done in a azure function reading the change log.</p>
 
-<p>This will cause scalability issues.</p>
+<p>This will cause limit scalability when having a global counter like this.</p>
+
+<p>We would need to only have one publisher.</p>
+
+<h3 id="delegating-access-to-events">Delegating access to events</h3>
 
 <h3 id="tasks">Tasks</h3>
 
