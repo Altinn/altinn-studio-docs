@@ -27,6 +27,11 @@ Standard events could be
 - An instance changes state (moving from one task to another, example: data -> signing)
 - An instance is completed
 
+Customs event could be
+
+- A user have asked for a deduction in a form
+- 
+
 Events would have some attributes
 
 - [org] - The organization the event is created for
@@ -59,6 +64,8 @@ The event would be a JSON object. The event schema would need to be defined. One
 
 ##### Example 1
 
+A form has been created for a given party. It is not possible from the event itself to know who did it
+
 ```json
 [{
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
@@ -71,6 +78,42 @@ The event would be a JSON object. The event schema would need to be defined. One
   "dataVersion": "1.0"
 }]
 ```
+
+##### Example 2
+
+A user has completed the confirmation task in the process. 
+
+```json
+[{
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+  "eventType": "Instance:ConfirmationCompleted",
+  "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party:234234422",
+  "eventTime": "2020-09-14T32:03:07+00:00",
+  "data": {
+     },
+  "dataVersion": "1.0"
+}]
+```
+
+##### Example 3
+
+
+
+```json
+[{
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+  "eventType": "Instance:ProcessCompleted",
+  "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party:234234422",
+  "eventTime": "2020-03-19T55:03:07+00:00",
+  "data": {
+     },
+  "dataVersion": "1.0"
+}]
+```
+
+
 
 ### Event Producers
 
@@ -193,8 +236,13 @@ The ordering will be used
 
 
 
+{{%excerpt%}}
+<object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object>
+{{% /excerpt%}}
 
 
+
+[Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg) 
 
 
 - Subscribe to Event Hub or topic in Event Grid
