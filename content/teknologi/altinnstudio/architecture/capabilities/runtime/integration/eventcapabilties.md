@@ -255,7 +255,9 @@ Using cosmos DB gives the possiblity to have "endless" number of topics/feeds ba
 
 Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
 
-#### To be clarified
+#### Container configuration
+
+If we gonna usa Cosmos DB we need to decide if we gonna use one contaiiner
 
 #### Ordering
 
@@ -316,14 +318,23 @@ But because of a theoretical delay the following event could been inserted after
 
 - 2020-02-19T13:59:27.8353554Z - Event L
 
-
 ##### Order by a event counter in document
 
-In this option we need to be able to add a global counter to the documents in the order they are inserted. 
+In this option we need to be able to add a global counter to the documents in the order they are inserted.
 
-This could theoretical be done in a function reading the change log.
+This could theoretical be done in a azure function reading the change log.
 
-This will cause scalability issues.
+This will cause limit scalability when having a global counter like this.
+
+We would need to only have one publisher.
+
+### Delegating access to events
+
+
+
+
+
+
 
 
 ### Tasks
