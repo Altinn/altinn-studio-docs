@@ -52,9 +52,9 @@ First version is planned to be launched early 2020.
 
 ## Presentations
 
-Below you find a presentation done at NDC Conferences Oslo June 11. 2020
+Below you find a presentation done at NDC Conferences Oslo June 11. 2020!
 
-{{< youtube id="XCzxzJL4Wak" autoplay="true" t="17923"  >}}
+{{< youtube id="XCzxzJL4Wak?start=17923" autoplay="false" >}}
 
 
 [Presentation June 11. 2020 NDC Conference](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinn_3_ndc_2020_06_11.pptx)
