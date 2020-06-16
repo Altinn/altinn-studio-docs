@@ -30,9 +30,9 @@ Standard events could be
 Customs event could be
 
 - A user have asked for a deduction in a form
-- 
+- A specific validation of data failed
 
-Events would have some attributes
+Events would typical have some attributes
 
 - [org] - The organization the event is created for
 - [app] - The app the event is created for
@@ -62,6 +62,20 @@ The event would be a JSON object. The event schema would need to be defined. One
 ]
 ```
 
+- Topic: This describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}. This would be used for the subscribers to look up a given instance.
+- Subject: The party the event is related to. PartyID is used
+- id: unique Id for a given event
+- eventType: This is the event type. Examples: Instance:Instansiated, Instance:PaymentCompleted, Instance:ProcessCompleted
+- eventTime: The time of the event. Set by the publisher
+- data can contain a structure of data
+- dataVersion
+- metdataversion
+
+##### To be discussed
+
+- Is partyID ok for the subscribers ok to be returned?
+- Should eventTime be set by event component or publisher
+
 ##### Example 1
 
 A form has been created for a given party. It is not possible from the event itself to know who did it
@@ -81,7 +95,7 @@ A form has been created for a given party. It is not possible from the event its
 
 ##### Example 2
 
-A user has completed the confirmation task in the process. 
+A user has completed the confirmation task in the process.
 
 ```json
 [{
@@ -98,7 +112,7 @@ A user has completed the confirmation task in the process.
 
 ##### Example 3
 
-
+A user/system has completed the process for an instance
 
 ```json
 [{
@@ -112,8 +126,6 @@ A user has completed the confirmation task in the process.
   "dataVersion": "1.0"
 }]
 ```
-
-
 
 ### Event Producers
 
@@ -147,13 +159,6 @@ Parties submitting and receiving data in Altinn would benefit from knowing about
 
 In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.
 
-## Other event concepts in the platform
-
-Events are used in different scenarios in the platform.
-
-- Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
-- Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
-
 ## Proposed Event Architecture
 
 To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
@@ -185,7 +190,7 @@ TODO: Is it possible?
 
 #### Party events
 
-##### Endpoint
+#### Endpoint
 
 ```http
 post {platformurl}/events/instanceeventsforparty/
@@ -213,36 +218,48 @@ This will list all changes for a given party.
 
 Events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
 
+The topic and subject would be used to identify the correct XACML Policy to use. 
 
+Operation would be read and process task will be set to null.
+This way there would be no need to verify the current state of a element.
 
+### Event components
 
-```http
-{platformurl}/events/instanceevents/{org}/{app}?from={lastchange}
-```
-
-
-### Storage of events
-
-The proposed solutions is to store events in a Cosmos DB collection as document according to the schema.
-
-The ordering will be used
-
-
-### Querying
-
-
-
-### TODO How to get the correct order?
-
+The below diagram shows the different components.
 
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
-
-
 [Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg) 
+
+
+#### Publishers
+
+Both different applications and components will publish events to the Event component in Altinn Platform.
+
+They will use a REST API call to post a new event to the add event API.
+
+#### Event Component
+
+The event components exposes REST-APIS for publishing and subscribing to events.
+
+When a publish request is received it will push the event document to the event storage.
+
+When a request is received it will query the documents.
+
+### Event Storage
+
+Using cosmos DB gives the possiblity to have "endless" number of topics/feeds based on queriries.
+
+Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
+
+
+
+#### To be clarified
+
+- Would it be enough 
 
 
 - Subscribe to Event Hub or topic in Event Grid
@@ -285,3 +302,11 @@ The following task are identified (depending on choosen solution )
 - Infrastructure: Create a way for org so get SAS keys
 - Platform: Build event component with needed api.
 - Storage: Create event collection in cosmos
+
+
+## Other event concepts in the platform
+
+Events are used in different scenarios in the platform.
+
+- Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
+- Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
