@@ -10193,54 +10193,80 @@ This way there would be no need to verify the current state of a element.</p>
 
 <h4 id="to-be-clarified">To be clarified</h4>
 
+<h4 id="ordering">Ordering</h4>
+
+<p>When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.</p>
+
+<p>This is stored as a epoch time. (Seconds since January 1. 1970)</p>
+
+<h5 id="order-by-cosmos-db-timestamp">Order by Cosmos DB Timestamp</h5>
+
+<p>If we decide to order the feed based on TS we will not know inside a second which event that comes first.</p>
+
+<p>We would also need to prevent that the feed is not complete for the latest second when retrieved.</p>
+
+<p>As example lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.</p>
+
 <ul>
-<li><p>Would it be enough</p></li>
-
-<li><p>Subscribe to Event Hub or topic in Event Grid</p></li>
-
-<li><p>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.</p></li>
-
-<li><p>Expose event API</p></li>
-
-<li><p>Filter API based on created profiles.</p>
-
-<ul>
-<li>org or key role person have access to all events</li>
-<li>REGN or LEDE has a profile where the API filter on som predefined events.</li>
-</ul></li>
+<li>1582113500 - Event A</li>
+<li>1582113500 - Event B</li>
+<li>1582113500 - Event C</li>
+<li>1582113501 - Event D</li>
+<li>1582113503 - Event E</li>
+<li>1582113504 - Event F</li>
+<li>1582113504 - Event G</li>
+<li>1582113505 - Event H</li>
+<li>1582113505 - Event I</li>
+<li>1582113506 - Event J</li>
+<li>1582113506 - Event K</li>
+<li>1582113506 - Event L</li>
 </ul>
 
-<h2 id="to-be-analyzed-and-clarified">To be analyzed and clarified</h2>
-
-<p>Before the final solution can be defined the following needs to be clarified</p>
-
-<h3 id="functional">Functional</h3>
+<p>If we returns this elements the subscribers could think that all ements inside 1582113506 is included. But the truth may be that just milliseconds later the</p>
 
 <ul>
-<li>Do org want to pull or push events</li>
-<li>Define data model for events. The assumption is to follow <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</li>
-<li>How to we filter events for party. Should we support events that should not be sent to end user, only org. Like &ldquo;fraud detection&rdquo;.</li>
-<li>Do we need to support pushing events to event grid</li>
-<li>Is it a problem that one org knows about other orgs events? (Probably)</li>
+<li>1582113506 - Event M<br /></li>
+<li>1582113506 - Event N<br /></li>
 </ul>
 
-<h3 id="technical">Technical</h3>
+<p>Was added.  Requesting events with _ts &gt; 1582113506 would cause loosing M and N</p>
+
+<p>To prevent this we could always remove events connected to the newest second stored. The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included</p>
+
+<h5 id="order-by-createddatetime-set-by-event-component">Order by CreatedDateTime set by event component</h5>
+
+<p>If we assume that pods in the same cluster have the same time, we could have a strategy that set at createdData time for the event when the
+event component is storing the event to cosmos db.</p>
+
+<p>As example lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.</p>
 
 <ul>
-<li>Event Hub: How many hubs are needed?
-
-<ul>
-<li>One Hub for the whole solution</li>
-<li>One Hub per Org?</li>
-<li>One Hub per App/Org?</li>
-</ul></li>
-<li>Do we need one Azure function for each Event Hub?</li>
-<li>What kind of automatic filtering can we do based on roles for a requester to event API.</li>
-<li>Is there a standard for REST API to expose events we should follow.<br /></li>
-<li>Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)</li>
-<li>Event Hub: Should we capture the events to storage? (org storage)</li>
-<li>Event Grid: Do we need to handle dead letters or should we ask org to check against db?</li>
+<li>2020-02-19T13:59:21.9777054Z - Event A</li>
+<li>2020-02-19T13:59:21.5777054Z - Event B</li>
+<li>2020-02-19T13:59:21.3757054Z - Event C</li>
+<li>2020-02-19T13:59:22.9777054Z - Event D</li>
+<li>2020-02-19T13:59:24.9777054Z - Event E</li>
+<li>2020-02-19T13:59:25.9777054Z - Event F</li>
+<li>2020-02-19T13:59:25.9777054Z - Event G</li>
+<li>2020-02-19T13:59:26.9777054Z - Event H</li>
+<li>2020-02-19T13:59:27.2345054Z - Event I</li>
+<li>2020-02-19T13:59:27.4563454Z - Event K</li>
+<li>2020-02-19T13:59:27.8453554Z - Event K</li>
 </ul>
+
+<p>But because of a theoretical delay the following event could been inserted after.</p>
+
+<ul>
+<li>2020-02-19T13:59:27.8353554Z - Event L</li>
+</ul>
+
+<h5 id="order-by-a-event-counter-in-document">Order by a event counter in document</h5>
+
+<p>In this option we need to be able to add a global counter to the documents in the order they are inserted.</p>
+
+<p>This could theoretical be done in a function reading the change log.</p>
+
+<p>This will cause scalability issues.</p>
 
 <h3 id="tasks">Tasks</h3>
 
