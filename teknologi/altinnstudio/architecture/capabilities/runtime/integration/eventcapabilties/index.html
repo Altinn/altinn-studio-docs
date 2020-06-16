@@ -9967,10 +9967,10 @@ custom events added in an application by application developers.</p>
 
 <ul>
 <li>A user have asked for a deduction in a form</li>
-<li></li>
+<li>A specific validation of data failed</li>
 </ul>
 
-<p>Events would have some attributes</p>
+<p>Events would typical have some attributes</p>
 
 <ul>
 <li>[org] - The organization the event is created for</li>
@@ -10000,6 +10000,24 @@ custom events added in an application by application developers.</p>
   }
 ]
 </code></pre>
+
+<ul>
+<li>Topic: This describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}. This would be used for the subscribers to look up a given instance.</li>
+<li>Subject: The party the event is related to. PartyID is used</li>
+<li>id: unique Id for a given event</li>
+<li>eventType: This is the event type. Examples: Instance:Instansiated, Instance:PaymentCompleted, Instance:ProcessCompleted</li>
+<li>eventTime: The time of the event. Set by the publisher</li>
+<li>data can contain a structure of data</li>
+<li>dataVersion</li>
+<li>metdataversion</li>
+</ul>
+
+<h5 id="to-be-discussed">To be discussed</h5>
+
+<ul>
+<li>Is partyID ok for the subscribers ok to be returned?</li>
+<li>Should eventTime be set by event component or publisher</li>
+</ul>
 
 <h5 id="example-1">Example 1</h5>
 
@@ -10034,6 +10052,8 @@ custom events added in an application by application developers.</p>
 </code></pre>
 
 <h5 id="example-3">Example 3</h5>
+
+<p>A user/system has completed the process for an instance</p>
 
 <pre><code class="language-json">[{
   &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
@@ -10079,15 +10099,6 @@ custom events added in an application by application developers.</p>
 
 <p>In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.</p>
 
-<h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
-
-<p>Events are used in different scenarios in the platform.</p>
-
-<ul>
-<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
-<li>Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.<br /></li>
-</ul>
-
 <h2 id="proposed-event-architecture">Proposed Event Architecture</h2>
 
 <p>To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
@@ -10118,7 +10129,7 @@ a event component in Altinn Platform.</p>
 
 <h4 id="party-events">Party events</h4>
 
-<h5 id="endpoint-1">Endpoint</h5>
+<h4 id="endpoint-1">Endpoint</h4>
 
 <pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
 </code></pre>
@@ -10144,18 +10155,14 @@ This will list all changes for a given party.</p>
 
 <p>Events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.</p>
 
-<pre><code class="language-http">{platformurl}/events/instanceevents/{org}/{app}?from={lastchange}
-</code></pre>
+<p>The topic and subject would be used to identify the correct XACML Policy to use.</p>
 
-<h3 id="storage-of-events">Storage of events</h3>
+<p>Operation would be read and process task will be set to null.
+This way there would be no need to verify the current state of a element.</p>
 
-<p>The proposed solutions is to store events in a Cosmos DB collection as document according to the schema.</p>
+<h3 id="event-components">Event components</h3>
 
-<p>The ordering will be used</p>
-
-<h3 id="querying">Querying</h3>
-
-<h3 id="todo-how-to-get-the-correct-order">TODO How to get the correct order?</h3>
+<p>The below diagram shows the different components.</p>
 
 
 	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object></p>
@@ -10164,11 +10171,38 @@ This will list all changes for a given party.</p>
 
 <p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg">Full screen</a></p>
 
+<h4 id="publishers">Publishers</h4>
+
+<p>Both different applications and components will publish events to the Event component in Altinn Platform.</p>
+
+<p>They will use a REST API call to post a new event to the add event API.</p>
+
+<h4 id="event-component">Event Component</h4>
+
+<p>The event components exposes REST-APIS for publishing and subscribing to events.</p>
+
+<p>When a publish request is received it will push the event document to the event storage.</p>
+
+<p>When a request is received it will query the documents.</p>
+
+<h3 id="event-storage">Event Storage</h3>
+
+<p>Using cosmos DB gives the possiblity to have &ldquo;endless&rdquo; number of topics/feeds based on queriries.</p>
+
+<p>Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.</p>
+
+<h4 id="to-be-clarified">To be clarified</h4>
+
 <ul>
-<li>Subscribe to Event Hub or topic in Event Grid</li>
-<li>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.</li>
-<li>Expose event API</li>
-<li>Filter API based on created profiles.
+<li><p>Would it be enough</p></li>
+
+<li><p>Subscribe to Event Hub or topic in Event Grid</p></li>
+
+<li><p>Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.</p></li>
+
+<li><p>Expose event API</p></li>
+
+<li><p>Filter API based on created profiles.</p>
 
 <ul>
 <li>org or key role person have access to all events</li>
@@ -10218,6 +10252,15 @@ This will list all changes for a given party.</p>
 <li>Infrastructure: Create a way for org so get SAS keys</li>
 <li>Platform: Build event component with needed api.</li>
 <li>Storage: Create event collection in cosmos</li>
+</ul>
+
+<h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
+
+<p>Events are used in different scenarios in the platform.</p>
+
+<ul>
+<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
+<li>Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.<br /></li>
 </ul>
 
 
