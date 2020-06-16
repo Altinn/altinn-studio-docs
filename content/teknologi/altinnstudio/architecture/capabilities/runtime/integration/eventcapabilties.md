@@ -255,43 +255,75 @@ Using cosmos DB gives the possiblity to have "endless" number of topics/feeds ba
 
 Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
 
-
-
 #### To be clarified
 
-- Would it be enough 
+#### Ordering
+
+When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.
+
+This is stored as a epoch time. (Seconds since January 1. 1970)
+
+##### Order by Cosmos DB Timestamp
+
+If we decide to order the feed based on TS we will not know inside a second which event that comes first.
+
+We would also need to prevent that the feed is not complete for the latest second when retrieved.
+
+As example lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.
+
+- 1582113500 - Event A
+- 1582113500 - Event B
+- 1582113500 - Event C
+- 1582113501 - Event D
+- 1582113503 - Event E
+- 1582113504 - Event F
+- 1582113504 - Event G
+- 1582113505 - Event H
+- 1582113505 - Event I
+- 1582113506 - Event J
+- 1582113506 - Event K
+- 1582113506 - Event L
+
+If we returns this elements the subscribers could think that all ements inside 1582113506 is included. But the truth may be that just milliseconds later the
+
+- 1582113506 - Event M  
+- 1582113506 - Event N  
+
+Was added.  Requesting events with _ts > 1582113506 would cause loosing M and N
+
+To prevent this we could always remove events connected to the newest second stored. The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included
+
+##### Order by CreatedDateTime set by event component
+
+If we assume that pods in the same cluster have the same time, we could have a strategy that set at createdData time for the event when the 
+event component is storing the event to cosmos db.
+
+As example lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.
+
+- 2020-02-19T13:59:21.9777054Z - Event A
+- 2020-02-19T13:59:21.5777054Z - Event B
+- 2020-02-19T13:59:21.3757054Z - Event C
+- 2020-02-19T13:59:22.9777054Z - Event D
+- 2020-02-19T13:59:24.9777054Z - Event E
+- 2020-02-19T13:59:25.9777054Z - Event F
+- 2020-02-19T13:59:25.9777054Z - Event G
+- 2020-02-19T13:59:26.9777054Z - Event H
+- 2020-02-19T13:59:27.2345054Z - Event I
+- 2020-02-19T13:59:27.4563454Z - Event K
+- 2020-02-19T13:59:27.8453554Z - Event K
+
+But because of a theoretical delay the following event could been inserted after.
+
+- 2020-02-19T13:59:27.8353554Z - Event L
 
 
-- Subscribe to Event Hub or topic in Event Grid
-- Analyze events and store events with partyID as a partition key to Cosmos DB collection. org/app/instanceid need to be part of the event.
-- Expose event API 
-- Filter API based on created profiles. 
-  - org or key role person have access to all events
-  - REGN or LEDE has a profile where the API filter on som predefined events. 
+##### Order by a event counter in document
 
-## To be analyzed and clarified
-Before the final solution can be defined the following needs to be clarified
+In this option we need to be able to add a global counter to the documents in the order they are inserted. 
 
-### Functional 
+This could theoretical be done in a function reading the change log.
 
-- Do org want to pull or push events
-- Define data model for events. The assumption is to follow [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) event schema
-- How to we filter events for party. Should we support events that should not be sent to end user, only org. Like "fraud detection". 
-- Do we need to support pushing events to event grid
-- Is it a problem that one org knows about other orgs events? (Probably)
-
-### Technical
-
-- Event Hub: How many hubs are needed?
-  - One Hub for the whole solution
-  - One Hub per Org?
-  -  One Hub per App/Org?
-- Do we need one Azure function for each Event Hub?
-- What kind of automatic filtering can we do based on roles for a requester to event API.
-- Is there a standard for REST API to expose events we should follow.  
--  Event Hub:  Which subscription should be used? (probably one hub per org and put under the orgs subscription)
-- Event Hub: Should we capture the events to storage? (org storage)
-- Event Grid: Do we need to handle dead letters or should we ask org to check against db?
+This will cause scalability issues.
 
 
 ### Tasks
