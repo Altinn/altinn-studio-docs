@@ -47,12 +47,14 @@ There are many reasons to use Altinn Studio instead of building everything from 
 - Highly scalable and secure infrastructure
 - Open source
 
-## When will it be released
-First version is planned to be launched early 2020.
+## When was it launced
+The first version was launced in june 2020.
 
 ## Presentations
 
 Below you find a presentation done at NDC Conferences Oslo June 11. 2020!
+
+The presentation starts at 4:58:43. 
 
 {{< youtube id="XCzxzJL4Wak?start=17923" autoplay="false" >}}
 
