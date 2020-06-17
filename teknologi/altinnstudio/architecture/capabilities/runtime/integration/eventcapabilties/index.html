@@ -7,7 +7,7 @@
 
 
     
-    <title>Event capabilites :: Altinn digitalisering - Utvikling</title>
+    <title>Event capabilities :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -3573,7 +3573,7 @@ if(host != "localhost")
      active
       ">
         <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/eventcapabilties/">
-        <span>Event capabilites</span> 
+        <span>Event capabilities</span> 
         
         </a></li>
      
@@ -9892,7 +9892,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/integration/'>Integration</a> <span class='adocs-breadcrumb-divider'> / </span> Event capabilites
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/integration/'>Integration</a> <span class='adocs-breadcrumb-divider'> / </span> Event capabilities
 
  
 
@@ -9924,7 +9924,7 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Event capabilites
+                Event capabilities
                 
               </h1>
               <p class="a-leadText" id="leadText">Description of the event-driven architecture for Altinn Apps and Altinn Platform</p>
@@ -9946,7 +9946,7 @@ if(host != "localhost")
 
 
 <p>The new generation of Altinn is moving to an <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">event-driven architecture</a>.
-This means that Altinn Platform and Altinn Apps will publish events that
+This means that the Altinn Platform solution and Applications running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.</p>
 
 <h2 id="overall-concept">Overall Concept</h2>
@@ -10096,30 +10096,32 @@ instance / instance event api.</p>
 
 <h2 id="requirments">Requirments</h2>
 
-<p>The following requirements is identified for the new event architecture in</p>
+<p>The following requirements is identified for the new event architecture in Altinn 3.</p>
 
 <ul>
-<li>It should be possible to subscribe to a specific type of events. (Example alls ProcessComplete events for a given app)</li>
+<li>It should be possible to subscribe to a specific type of event. (Example alls ProcessComplete events for a given app)</li>
 <li>It should be possible to go at least one year back.</li>
 <li>The consumer will keep track of which events the consumer has processed</li>
 <li>It should be possible to check</li>
 <li>The architecture should be able to list feed for 5.000.000 users and 1.000.000 businesses</li>
-<li>The architecture should support more than 1000 subscribers</li>
-<li>The architecture should support all</li>
+<li>The architecture should support more than 1000 publishers</li>
+<li>The architecture should support more than 250.000.000 events a year.</li>
 </ul>
+
+<p>TODO: Verify requirements</p>
 
 <p>See also <a href="https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering">Referansearkitektur for datautveksling</a></p>
 
 <h2 id="proposed-event-architecture">Proposed Event Architecture</h2>
 
-<p>To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
-a event component in Altinn Platform.</p>
+<p>To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions are to build
+an event component in Altinn Platform and not use products like Kafka or Azure Event Hub.</p>
 
 <p>The Event Component will expose REST-APIS.</p>
 
 <h3 id="api-structure">API Structure</h3>
 
-<p>The API&rsquo;s will be structured so the URLs are filtered quieries in to the events</p>
+<p>The API&rsquo;s will be structured so the URLs are filtered queries into the events storage</p>
 
 <h4 id="instances-events-for-org">Instances events for Org</h4>
 
@@ -10130,11 +10132,11 @@ a event component in Altinn Platform.</p>
 
 <h5 id="usage">Usage</h5>
 
-<p>This will be used by applications owners to identify changes on instances for their applications.</p>
+<p>This will be used by application owners to identify changes on instances for their applications.</p>
 
 <h5 id="authorization">Authorization</h5>
 
-<p>We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to
+<p>We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
 events for a given org/app.</p>
 
 <h4 id="party-events">Party events</h4>
@@ -10233,7 +10235,7 @@ because many of them have many more elements.</p>
 
 <p>When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.</p>
 
-<p>This is stored as a epoch time. (Seconds since January 1. 1970)</p>
+<p>This is stored as epoch time. (Seconds since January 1. 1970)</p>
 
 <p>If we decide to order the feed based on TS we will not know inside a second which event comes first.</p>
 
@@ -10256,23 +10258,25 @@ because many of them have many more elements.</p>
 <li>1582113506 - Event L</li>
 </ul>
 
-<p>If we return this elements the subscribers could think that all elements inside 1582113506 is included. But the truth may be that just milliseconds later the</p>
+<p>If we return these elements the subscribers could think that all elements inside 1582113506 are included.
+But the truth may be that just milliseconds later the</p>
 
 <ul>
 <li>1582113506 - Event M<br /></li>
 <li>1582113506 - Event N<br /></li>
 </ul>
 
-<p>Was added.  Requesting events with _ts &gt; 1582113506 would cause loosing M and N</p>
+<p>Was added.  Requesting events with _ts &gt; 1582113506 would cause losing M and N</p>
 
-<p>To prevent this we could always remove events connected to the newest second stored. The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included</p>
+<p>To prevent this we could always remove events connected to the newest second stored.
+The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included</p>
 
 <h5 id="order-by-createddatetime-set-by-event-component">Order by CreatedDateTime set by event component</h5>
 
 <p>If we assume that pods in the same cluster have the same time, we could have a strategy that set at createdData time for the event when the
 event component is storing the event to cosmos db.</p>
 
-<p>As example lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.</p>
+<p>As example, lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.</p>
 
 <ul>
 <li>2020-02-19T13:59:21.9777054Z - Event A</li>
@@ -10296,13 +10300,13 @@ event component is storing the event to cosmos db.</p>
 
 <p>The risk could be reduced if the response does not return events newer than some seconds.</p>
 
-<h5 id="order-by-a-event-counter-in-document">Order by a event counter in document</h5>
+<h5 id="order-by-an-event-counter-in-document">Order by an event counter in document</h5>
 
 <p>In this option we need to be able to add a global counter to the documents in the order they are inserted.</p>
 
 <p>This could theoretically be done in an azure function reading the change log.</p>
 
-<p>This will cause limitation to scalability since we would need to have one bottleneck to produce this.</p>
+<p>This will cause limitations to scalability since we would need to have one bottleneck to produce this.</p>
 
 <p>This is the reason Cosmos DB does not support this.</p>
 
@@ -10339,11 +10343,11 @@ This allows you to get high query performance without having to think about inde
 <p>In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.</p>
 
-<h2 id="detailed-scenerious">Detailed Scenerious</h2>
+<h2 id="detailed-scenarios">Detailed Scenarios</h2>
 
 <h3 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h3>
 
-<p>In this scenario an org is waiting on end users to complete one given app</p>
+<p>In this scenario, an org is waiting on end users to complete one given app</p>
 
 <ol>
 <li>System (consumer) authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}</li>
@@ -10363,7 +10367,7 @@ have for the subject of the event.</p>
 
 <h3 id="user-needing-to-know-if-there-are-anything-new-for-a-party">User needing to know if there are anything new for a party</h3>
 
-<p>In this scenario a user wants to see if there are any changes for a client or the user itself</p>
+<p>In this scenario, a user wants to see if there are any changes for a client or the user itself</p>
 
 <ol>
 <li>System authenticates end user with ID-porten</li>
@@ -10424,14 +10428,22 @@ the instance without the user needing to log in.</p>
 
 <h2 id="push-events">Push Events</h2>
 
-<p>In future we can add push of events to weebhooks or mobile phone number as sms</p>
+<p>In future we can add push of events to weebhooks or mobile phone number as sms.</p>
+
+<p>This has not been detailed yet but the solution could contain:</p>
+
+<ul>
+<li>User can set up URL webhook that would receive all or a filtered list of events</li>
+<li>User can set up a notification SMS number to get a notification about events.</li>
+<li>There can be a mobile app that can listen to push notifcations.</li>
+</ul>
 
 <h2 id="open-clarification">Open Clarification</h2>
 
 <ul>
 <li>Is partyID ok for the subscribers ok to be returned?</li>
 <li>Should eventTime be set by event component or publisher</li>
-<li></li>
+<li>Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events?</li>
 </ul>
 
 <h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
