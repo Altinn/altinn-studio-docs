@@ -222,7 +222,7 @@ The topic and subject would be used to identify the correct XACML Policy to use.
 Operation would be read and process task will be set to null.
 This way there would be no need to verify the current state of a element.
 
-### Event components
+## Event components
 
 The below diagram shows the different components.
 
@@ -234,13 +234,13 @@ The below diagram shows the different components.
 [Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg) 
 
 
-#### Publishers
+### Publishers
 
 Both different applications and components will publish events to the Event component in Altinn Platform.
 
 They will use a REST API call to post a new event to the add event API.
 
-#### Event Component
+### Event Component
 
 The event components exposes REST-APIS for publishing and subscribing to events.
 
@@ -352,10 +352,13 @@ We would need to only have one publisher.
 
 ### Indexing
 
-All fields in a cosmos DB is indexed. 
+The default indexing policy for newly created containers indexes every property of every item, 
+enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. 
+This allows you to get high query performance without having to think about indexing and index management upfront.
 
+For the topic and createdDatetime/ts a composite index should be investigated to se if that performs better.
 
-
+[See Cosmod DB indexing for details](https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview).
 
 ## Delegating access to events
 
