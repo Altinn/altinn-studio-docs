@@ -164,7 +164,9 @@ The following requirements is identified for the new event architecture in
 - It should be possible to go at least one year back.
 - The consumer will keep track of which events the consumer has processed
 - It should be possible to check
-- The architecture should be able to list feed for 5.000.000 users and 1,.
+- The architecture should be able to list feed for 5.000.000 users and 1.000.000 businesses
+- The architecture should support more than 1000 subscribers
+- The architecture should support all 
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
