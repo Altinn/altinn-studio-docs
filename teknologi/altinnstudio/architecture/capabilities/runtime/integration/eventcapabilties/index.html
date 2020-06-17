@@ -10262,6 +10262,8 @@ event component is storing the event to cosmos db.</p>
 <li>2020-02-19T13:59:27.8353554Z - Event L</li>
 </ul>
 
+<p>The risk could be reduced if the response does not return events newer than some seconds.</p>
+
 <h5 id="order-by-a-event-counter-in-document">Order by a event counter in document</h5>
 
 <p>In this option we need to be able to add a global counter to the documents in the order they are inserted.</p>
@@ -10272,7 +10274,47 @@ event component is storing the event to cosmos db.</p>
 
 <p>We would need to only have one publisher.</p>
 
+<h6 id="to-be-investigated">To be investigated</h6>
+
+<ul>
+<li>How to generate number</li>
+<li>How to be able to restart numbering</li>
+<li>How to be able to scale this?</li>
+</ul>
+
 <h3 id="delegating-access-to-events">Delegating access to events</h3>
+
+<p>There are serveral user scenaroius when there is a need to delegate access to the events.</p>
+
+<h4 id="delegating-org-access">Delegating Org access</h4>
+
+<p>For orgs (application owners) there might be some scenarious where they want to give access to events for a given applications.</p>
+
+<p>This delegation is done through Maskinporten</p>
+
+<h4 id="delegating-party-event-access">Delegating party event access</h4>
+
+<p>In general, access to events for a given party will be authorized based on roles the requesting organization.</p>
+
+<h3 id="detailed-scenerious">Detailed Scenerious</h3>
+
+<h4 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h4>
+
+<p>In this scenario an org is waiting on end users to complete one given app</p>
+
+<ol>
+<li>System authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}</li>
+<li>System exchanges maskinporten token to a altinn token. Scopes is included in new token</li>
+<li>System calls</li>
+</ol>
+
+<pre><code class="language-http">get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&amp;eventType=Instance:EventComplete
+</code></pre>
+
+<ol>
+<li>Event component verifies that scope matches request</li>
+<li>Event components searches Cosmos DB for events that</li>
+</ol>
 
 <h3 id="tasks">Tasks</h3>
 
