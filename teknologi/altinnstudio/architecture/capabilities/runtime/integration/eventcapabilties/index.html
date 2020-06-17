@@ -10185,17 +10185,30 @@ This way there would be no need to verify the current state of a element.</p>
 
 <p>When a request is received it will query the documents.</p>
 
-<h3 id="event-storage">Event Storage</h3>
+<h2 id="storage-technology">Storage technology</h2>
+
+<p>Choosing the technology to physical store the events will affect what kind of capabilities the
+event component can expose and what kind of scalability and performance the event architecture will</p>
+
+<h3 id="cosmos-db">Cosmos db</h3>
 
 <p>Using cosmos DB gives the possiblity to have &ldquo;endless&rdquo; number of topics/feeds based on queriries.</p>
 
 <p>Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.</p>
 
-<h4 id="container-configuration">Container configuration</h4>
+<h4 id="partion-key">Partion key</h4>
 
-<p>If we gonna usa Cosmos DB we need to decide if we gonna use one contaiiner</p>
+<p>If we gonna usa Cosmos DB we need to decide if we gonna use one container or multiple one and which partition key to use</p>
 
-<h4 id="ordering">Ordering</h4>
+<p>Currently the limitations on Cosmos DB is that one logical partion can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
+
+<p>If we assume events in average on 350 Bytes (the example ones are around 300). This would hold 57.000.000 events inside a logical
+partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances. Looking at the biggest
+applications in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible.</p>
+
+<p>Suggestions is to use the subject as partion key.</p>
+
+<h4 id="event-sequensing">Event sequensing</h4>
 
 <p>When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.</p>
 
@@ -10282,17 +10295,21 @@ event component is storing the event to cosmos db.</p>
 <li>How to be able to scale this?</li>
 </ul>
 
-<h3 id="delegating-access-to-events">Delegating access to events</h3>
+<h3 id="indexing">Indexing</h3>
+
+<p>All fields in a cosmos DB is indexed.</p>
+
+<h2 id="delegating-access-to-events">Delegating access to events</h2>
 
 <p>There are serveral user scenaroius when there is a need to delegate access to the events.</p>
 
-<h4 id="delegating-org-access">Delegating Org access</h4>
+<h3 id="delegating-org-access">Delegating Org access</h3>
 
 <p>For orgs (application owners) there might be some scenarious where they want to give access to events for a given applications.</p>
 
 <p>This delegation is done through Maskinporten</p>
 
-<h4 id="delegating-party-event-access">Delegating party event access</h4>
+<h3 id="delegating-party-event-access">Delegating party event access</h3>
 
 <p>In general, access to events for a given party will be authorized based on roles the requesting organization.</p>
 
@@ -10303,7 +10320,7 @@ event component is storing the event to cosmos db.</p>
 <p>In this scenario an org is waiting on end users to complete one given app</p>
 
 <ol>
-<li>System authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}</li>
+<li>System (consumer) authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}</li>
 <li>System exchanges maskinporten token to a altinn token. Scopes is included in new token</li>
 <li>System calls</li>
 </ol>
@@ -10313,7 +10330,25 @@ event component is storing the event to cosmos db.</p>
 
 <ol>
 <li>Event component verifies that scope matches request</li>
-<li>Event components searches Cosmos DB for events that</li>
+<li>Event components searches Cosmos DB for events that matches search criteria</li>
+<li>Event component returns the filtered and possible capped response ordered eon sequence</li>
+<li>Consumer process the received events and call other API to download related data (instances, files +++)</li>
+</ol>
+
+<h4 id="party-needing-to-know-if-there-are-anything-new-for-a-element">Party needing to know if there are anything new for a element</h4>
+
+<ol>
+<li>System authenticates end user with ID-porten</li>
+<li>System exchanges token with Altinn</li>
+<li>System calls event api</li>
+</ol>
+
+<pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
+</code></pre>
+
+<ol>
+<li>Event component query events in database</li>
+<li></li>
 </ol>
 
 <h3 id="tasks">Tasks</h3>
