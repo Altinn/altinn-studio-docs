@@ -47,8 +47,8 @@ There are many reasons to use Altinn Studio instead of building everything from 
 - Highly scalable and secure infrastructure
 - Open source
 
-## When was it launced
-The first version was launced in june 2020.
+## When was it launched?
+The first version was launched in June 2020.
 
 ## Presentations
 
