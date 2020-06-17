@@ -10131,11 +10131,12 @@ a event component in Altinn Platform.</p>
 
 <h5 id="authorization">Authorization</h5>
 
-<p>We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to events for a given org/app.</p>
+<p>We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to
+events for a given org/app.</p>
 
 <h4 id="party-events">Party events</h4>
 
-<h4 id="endpoint-1">Endpoint</h4>
+<h5 id="endpoint-1">Endpoint</h5>
 
 <pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
 </code></pre>
@@ -10165,6 +10166,13 @@ This will list all changes for a given party.</p>
 
 <p>Operation would be read and process task will be set to null.
 This way there would be no need to verify the current state of a element.</p>
+
+<h3 id="adding-events">Adding events</h3>
+
+<h4 id="endpoint-2">Endpoint</h4>
+
+<pre><code class="language-http">post {platformurl}/events/
+</code></pre>
 
 <h3 id="event-components">Event components</h3>
 
@@ -10352,6 +10360,8 @@ have for the subject of the event.</p>
 
 <h3 id="user-needing-to-know-if-there-are-anything-new-for-a-party">User needing to know if there are anything new for a party</h3>
 
+<p>In this scenario a user wants to see if there are any changes for a client or the user itself</p>
+
 <ol>
 <li>System authenticates end user with ID-porten</li>
 <li>System exchanges token with Altinn</li>
@@ -10370,6 +10380,8 @@ have for the subject of the event.</p>
 </ol>
 
 <h3 id="organization-needing-to-know-if-there-are-anything-new-for-a-party">Organization needing to know if there are anything new for a party</h3>
+
+<p>In this scenario a professional organization wants to see if there are any changes for a client or the organization itself.</p>
 
 <ol>
 <li>System authenticates end user with Maskinporten</li>
@@ -10390,6 +10402,9 @@ have for the subject of the event.</p>
 
 <h3 id="anonym-access-to-a-given-instances-events">Anonym access to a given instances events.</h3>
 
+<p>In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
+the instance without the user needing to log in.</p>
+
 <ol>
 <li>System calls event api</li>
 </ol>
@@ -10404,14 +10419,9 @@ have for the subject of the event.</p>
 <li>Subscriber gets relevant data</li>
 </ol>
 
-<h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
+<h2 id="push-events">Push Events</h2>
 
-<p>Events are used in different scenarios in the platform.</p>
-
-<ul>
-<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
-<li>Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.<br /></li>
-</ul>
+<p>In future there</p>
 
 <h2 id="open-clarification">Open Clarification</h2>
 
@@ -10419,6 +10429,15 @@ have for the subject of the event.</p>
 <li>Is partyID ok for the subscribers ok to be returned?</li>
 <li>Should eventTime be set by event component or publisher</li>
 <li></li>
+</ul>
+
+<h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
+
+<p>Events are used in different scenarios in the platform.</p>
+
+<ul>
+<li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
+<li>Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.<br /></li>
 </ul>
 
 
