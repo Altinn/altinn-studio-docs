@@ -10160,7 +10160,7 @@ This will list all changes for a given party.</p>
 <p>Operation would be read and process task will be set to null.
 This way there would be no need to verify the current state of a element.</p>
 
-<h3 id="event-components">Event components</h3>
+<h2 id="event-components">Event components</h2>
 
 <p>The below diagram shows the different components.</p>
 
@@ -10171,13 +10171,13 @@ This way there would be no need to verify the current state of a element.</p>
 
 <p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg">Full screen</a></p>
 
-<h4 id="publishers">Publishers</h4>
+<h3 id="publishers">Publishers</h3>
 
 <p>Both different applications and components will publish events to the Event component in Altinn Platform.</p>
 
 <p>They will use a REST API call to post a new event to the add event API.</p>
 
-<h4 id="event-component">Event Component</h4>
+<h3 id="event-component">Event Component</h3>
 
 <p>The event components exposes REST-APIS for publishing and subscribing to events.</p>
 
@@ -10297,11 +10297,17 @@ event component is storing the event to cosmos db.</p>
 
 <h3 id="indexing">Indexing</h3>
 
-<p>All fields in a cosmos DB is indexed.</p>
+<p>The default indexing policy for newly created containers indexes every property of every item,
+enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point.
+This allows you to get high query performance without having to think about indexing and index management upfront.</p>
+
+<p>For the topic and createdDatetime/ts a composite index should be investigated to se if that performs better.</p>
+
+<p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview">See Cosmod DB indexing for details</a>.</p>
 
 <h2 id="delegating-access-to-events">Delegating access to events</h2>
 
-<p>There are serveral user scenaroius when there is a need to delegate access to the events.</p>
+<p>There are serveral user scenaroius when there is a need to delegate access to the events for a given party to another user/organization.</p>
 
 <h3 id="delegating-org-access">Delegating Org access</h3>
 
@@ -10311,11 +10317,12 @@ event component is storing the event to cosmos db.</p>
 
 <h3 id="delegating-party-event-access">Delegating party event access</h3>
 
-<p>In general, access to events for a given party will be authorized based on roles the requesting organization.</p>
+<p>In general, access to events for a given party will be authorized based on roles the requesting organization/user
+have for the subject of the event.</p>
 
-<h3 id="detailed-scenerious">Detailed Scenerious</h3>
+<h2 id="detailed-scenerious">Detailed Scenerious</h2>
 
-<h4 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h4>
+<h3 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h3>
 
 <p>In this scenario an org is waiting on end users to complete one given app</p>
 
@@ -10335,7 +10342,7 @@ event component is storing the event to cosmos db.</p>
 <li>Consumer process the received events and call other API to download related data (instances, files +++)</li>
 </ol>
 
-<h4 id="party-needing-to-know-if-there-are-anything-new-for-a-element">Party needing to know if there are anything new for a element</h4>
+<h3 id="party-needing-to-know-if-there-are-anything-new-for-a-element">Party needing to know if there are anything new for a element</h3>
 
 <ol>
 <li>System authenticates end user with ID-porten</li>
@@ -10348,20 +10355,10 @@ event component is storing the event to cosmos db.</p>
 
 <ol>
 <li>Event component query events in database</li>
-<li></li>
+<li>Event components authorized the event and filter away events where user is not authorized</li>
+<li>Events are returned</li>
+<li>Subscriber process events</li>
 </ol>
-
-<h3 id="tasks">Tasks</h3>
-
-<p>The following task are identified (depending on choosen solution )</p>
-
-<ul>
-<li>Infrastructure: Create scripts for event hub configuration</li>
-<li>Infrastructure: Create scripts for event grid</li>
-<li>Infrastructure: Create a way for org so get SAS keys</li>
-<li>Platform: Build event component with needed api.</li>
-<li>Storage: Create event collection in cosmos</li>
-</ul>
 
 <h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
 
