@@ -167,18 +167,12 @@ The following requirements is identified for the new event architecture in
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
-
 ## Proposed Event Architecture
-
-
 
 To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
 a event component in Altinn Platform.
 
 The Event Component will expose REST-APIS.
-
-
-
 
 ### API Structure
 
@@ -198,11 +192,12 @@ This will be used by applications owners to identify changes on instances for th
 
 ##### Authorization
 
-We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to events for a given org/app.
+We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to
+events for a given org/app.
 
 #### Party events
 
-#### Endpoint
+##### Endpoint
 
 ```http
 post {platformurl}/events/instanceeventsforparty/
@@ -234,7 +229,13 @@ The topic and subject would be used to identify the correct XACML Policy to use.
 Operation would be read and process task will be set to null.
 This way there would be no need to verify the current state of a element.
 
+### Adding events
 
+#### Endpoint
+
+```http
+post {platformurl}/events/
+```
 
 
 ### Event components
@@ -411,6 +412,8 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&even
 
 ### User needing to know if there are anything new for a party
 
+In this scenario a user wants to see if there are any changes for a client or the user itself
+
 1. System authenticates end user with ID-porten
 2. System exchanges token with Altinn
 3. System calls event api 
@@ -428,13 +431,16 @@ post {platformurl}/events/instanceeventsforparty/
 
 ### Organization needing to know if there are anything new for a party
 
+In this scenario a professional organization wants to see if there are any changes for a client or the organization itself.
+
 1. System authenticates end user with Maskinporten
 2. System exchanges token with Altinn
-3. System calls event api 
+3. System calls event api
 
 ```http
 post {platformurl}/events/instanceeventsforparty/
 ```
+
 4. Event component query events in database 
 5. Event components authorized the event and filter away events where user is not authorized
 6. Events are returned
@@ -444,11 +450,15 @@ post {platformurl}/events/instanceeventsforparty/
 
 ### Anonym access to a given instances events.
 
-1. System calls event api 
+In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
+the instance without the user needing to log in.
+
+1. System calls event api
 
 ```http
 post {platformurl}/events/instanceeventsforinstance/{instanceId}
 ```
+
 2. Event component query events in database 
 3. Events are returned
 7. Subscriber process events
@@ -456,6 +466,17 @@ post {platformurl}/events/instanceeventsforinstance/{instanceId}
 
 
 
+## Push Events
+
+In future there
+
+
+
+## Open Clarification
+
+- Is partyID ok for the subscribers ok to be returned?
+- Should eventTime be set by event component or publisher
+- 
 
 
 
@@ -465,13 +486,3 @@ Events are used in different scenarios in the platform.
 
 - Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
 - Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
-
-
-
-
-
-## Open Clarification
-
-- Is partyID ok for the subscribers ok to be returned?
-- Should eventTime be set by event component or publisher
-- 
