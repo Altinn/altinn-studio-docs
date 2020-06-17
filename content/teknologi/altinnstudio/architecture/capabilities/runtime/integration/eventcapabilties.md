@@ -3,7 +3,7 @@ title: Event capabilites
 description: Description of the event driven architecture for Altinn Apps and Altinn Platform
 tags: [architecture]
 weight: 100
-linktitle: Publish & Subscribe
+linktitle: Event capabilites
 alwaysopen: false
 ---
 
@@ -11,15 +11,16 @@ alwaysopen: false
 This is work-in-progress. The event driven architecture is still in analysis.
 {{% /notice%}}
 
-The new generation of Altinn is moving to an event-driven architecture. This means that Altinn Platform and Altinn Apps
-will publish events that organizations and parties(citizens and businesses) can subscribe to.
+The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
+This means that Altinn Platform and Altinn Apps will publish events that
+organizations and parties(citizens and businesses) can subscribe and react to.
 
 ## Overall Concept
 
 ### Events
 
-Events in the new platform would be a combination of standard events defined by the platform and 
-custom events added in an application by application developers. 
+Events in the new platform would be a combination of standard events defined by the platform and
+custom events added in an application by application developers.
 
 Standard events could be
 
@@ -167,6 +168,8 @@ The following requirements is identified for the new event architecture in
 - It should be possible to go at least one year back. 
 - The consumer will keep track on which events the consumer has processed
 - It should be possible to check 
+
+See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
 
 ## Proposed Event Architecture
