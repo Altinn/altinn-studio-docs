@@ -159,12 +159,27 @@ Parties submitting and receiving data in Altinn would benefit from knowing about
 
 In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.
 
+## Requirments
+
+The following requirements is identified for the new event architecture in 
+
+- It should be possible to subscribe to specific type of events. (Example alls ProcessComplete events for a given app)
+- It should be possible to go at least one year back. 
+- The consumer will keep track on which events the consumer has processed
+- It should be possible to check 
+
+
 ## Proposed Event Architecture
+
+
 
 To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
 a event component in Altinn Platform.
 
 The Event Component will expose REST-APIS.
+
+
+
 
 ### API Structure
 
@@ -185,8 +200,6 @@ This will be used by applications owners to identify changes on instances for th
 ##### Authorization
 
 We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to events for a given org/app.
-
-TODO: Is it possible?
 
 #### Party events
 
@@ -222,10 +235,12 @@ The topic and subject would be used to identify the correct XACML Policy to use.
 Operation would be read and process task will be set to null.
 This way there would be no need to verify the current state of a element.
 
-## Event components
 
-The below diagram shows the different components.
 
+
+### Event components
+
+The below diagram shows the different components in the proposes Event Architecture for Altinn 3.
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object>
@@ -234,26 +249,25 @@ The below diagram shows the different components.
 [Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg) 
 
 
-### Publishers
+#### Publishers
 
 Both different applications and components will publish events to the Event component in Altinn Platform.
 
 They will use a REST API call to post a new event to the add event API.
 
-### Event Component
+#### Event Component
 
 The event components exposes REST-APIS for publishing and subscribing to events.
 
 When a publish request is received it will push the event document to the event storage.
 
-When a request is received it will query the documents.
+When a request is received it will query the events stored in the event storage.
 
 
-
-## Storage technology
+### Storage technology
 
 Choosing the technology to physical store the events will affect what kind of capabilities the
-event component can expose and what kind of scalability and performance the event architecture will 
+event component can expose and what kind of scalability and performance the event architecture will have
 
 ### Cosmos db
 Using cosmos DB gives the possiblity to have "endless" number of topics/feeds based on queriries.
@@ -261,24 +275,24 @@ Using cosmos DB gives the possiblity to have "endless" number of topics/feeds ba
 Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
 
 #### Partion key
-
-If we gonna usa Cosmos DB we need to decide if we gonna use one container or multiple one and which partition key to use
-
 Currently the limitations on Cosmos DB is that one logical partion can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
 
-If we assume events in average on 350 Bytes (the example ones are around 300). This would hold 57.000.000 events inside a logical
-partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances. Looking at the biggest
-applications in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible. 
+If we assume events in average on 350 Bytes (the example aboves are around 300 Bytes). This would hold approx 57.000.000 events inside a logical
+partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances per partion key. 
+Looking at the biggest digital services in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible
+because many of them have many more elements.  
 
-Suggestions is to use the subject as partion key. 
+Suggestions is to use the subject as partion key. 57.000.000 on a given subject should be more than enough. And when that limit is reached the limitations probably has increased.
+(it was in may 2020 raised from 10GB to 20GB)
 
 #### Event sequensing
 
+The way we do sequencing could affect the correctnes of the event feed.
+
+##### Order by Cosmos DB Timestamp
 When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.
 
 This is stored as a epoch time. (Seconds since January 1. 1970)
-
-##### Order by Cosmos DB Timestamp
 
 If we decide to order the feed based on TS we will not know inside a second which event that comes first.
 
@@ -339,9 +353,10 @@ In this option we need to be able to add a global counter to the documents in th
 
 This could theoretical be done in a azure function reading the change log.
 
-This will cause limit scalability when having a global counter like this.
+This will cause limitation to scalability since we would need to have one bottle neck to produce this.
 
-We would need to only have one publisher.
+This is the reason Cosmos DB does not support this.
+
 
 ###### To be investigated
 
@@ -395,7 +410,7 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&even
 
 
 
-### Party needing to know if there are anything new for a element
+### User needing to know if there are anything new for a party
 
 1. System authenticates end user with ID-porten
 2. System exchanges token with Altinn
@@ -409,6 +424,38 @@ post {platformurl}/events/instanceeventsforparty/
 5. Event components authorized the event and filter away events where user is not authorized
 6. Events are returned
 7. Subscriber process events
+8. Subscriber gets relevant data
+
+
+### Organization needing to know if there are anything new for a party
+
+1. System authenticates end user with Maskinporten
+2. System exchanges token with Altinn
+3. System calls event api 
+
+```http
+post {platformurl}/events/instanceeventsforparty/
+```
+4. Event component query events in database 
+5. Event components authorized the event and filter away events where user is not authorized
+6. Events are returned
+7. Subscriber process events
+8. Subscriber gets relevant data
+
+
+### Anonym access to a given instances events.
+
+1. System calls event api 
+
+```http
+post {platformurl}/events/instanceeventsforinstance/{instanceId}
+```
+2. Event component query events in database 
+3. Events are returned
+7. Subscriber process events
+8. Subscriber gets relevant data
+
+
 
 
 
