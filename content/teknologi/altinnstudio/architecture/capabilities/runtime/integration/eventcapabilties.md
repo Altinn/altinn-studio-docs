@@ -318,6 +318,8 @@ But because of a theoretical delay the following event could been inserted after
 
 - 2020-02-19T13:59:27.8353554Z - Event L
 
+The risk could be reduced if the response does not return events newer than some seconds.
+
 ##### Order by a event counter in document
 
 In this option we need to be able to add a global counter to the documents in the order they are inserted.
@@ -328,8 +330,47 @@ This will cause limit scalability when having a global counter like this.
 
 We would need to only have one publisher.
 
+###### To be investigated
+
+- How to generate number
+- How to be able to restart numbering
+- How to be able to scale this?
+
 ### Delegating access to events
 
+There are serveral user scenaroius when there is a need to delegate access to the events.
+
+#### Delegating Org access
+
+For orgs (application owners) there might be some scenarious where they want to give access to events for a given applications.
+
+This delegation is done through Maskinporten
+
+#### Delegating party event access
+
+In general, access to events for a given party will be authorized based on roles the requesting organization.
+
+
+
+
+
+
+### Detailed Scenerious
+
+
+#### Org waiting on ProcessComplete for a given app
+
+In this scenario an org is waiting on end users to complete one given app 
+
+1. System authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}
+2. System exchanges maskinporten token to a altinn token. Scopes is included in new token
+3. System calls 
+
+```http
+get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&eventType=Instance:EventComplete
+```
+4. Event component verifies that scope matches request
+5. Event components searches Cosmos DB for events that 
 
 
 
