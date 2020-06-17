@@ -10099,6 +10099,17 @@ custom events added in an application by application developers.</p>
 
 <p>In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.</p>
 
+<h2 id="requirments">Requirments</h2>
+
+<p>The following requirements is identified for the new event architecture in</p>
+
+<ul>
+<li>It should be possible to subscribe to specific type of events. (Example alls ProcessComplete events for a given app)</li>
+<li>It should be possible to go at least one year back.</li>
+<li>The consumer will keep track on which events the consumer has processed</li>
+<li>It should be possible to check</li>
+</ul>
+
 <h2 id="proposed-event-architecture">Proposed Event Architecture</h2>
 
 <p>To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
@@ -10124,8 +10135,6 @@ a event component in Altinn Platform.</p>
 <h5 id="authorization">Authorization</h5>
 
 <p>We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to events for a given org/app.</p>
-
-<p>TODO: Is it possible?</p>
 
 <h4 id="party-events">Party events</h4>
 
@@ -10160,9 +10169,9 @@ This will list all changes for a given party.</p>
 <p>Operation would be read and process task will be set to null.
 This way there would be no need to verify the current state of a element.</p>
 
-<h2 id="event-components">Event components</h2>
+<h3 id="event-components">Event components</h3>
 
-<p>The below diagram shows the different components.</p>
+<p>The below diagram shows the different components in the proposes Event Architecture for Altinn 3.</p>
 
 
 	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object></p>
@@ -10171,24 +10180,24 @@ This way there would be no need to verify the current state of a element.</p>
 
 <p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg">Full screen</a></p>
 
-<h3 id="publishers">Publishers</h3>
+<h4 id="publishers">Publishers</h4>
 
 <p>Both different applications and components will publish events to the Event component in Altinn Platform.</p>
 
 <p>They will use a REST API call to post a new event to the add event API.</p>
 
-<h3 id="event-component">Event Component</h3>
+<h4 id="event-component">Event Component</h4>
 
 <p>The event components exposes REST-APIS for publishing and subscribing to events.</p>
 
 <p>When a publish request is received it will push the event document to the event storage.</p>
 
-<p>When a request is received it will query the documents.</p>
+<p>When a request is received it will query the events stored in the event storage.</p>
 
-<h2 id="storage-technology">Storage technology</h2>
+<h3 id="storage-technology">Storage technology</h3>
 
 <p>Choosing the technology to physical store the events will affect what kind of capabilities the
-event component can expose and what kind of scalability and performance the event architecture will</p>
+event component can expose and what kind of scalability and performance the event architecture will have</p>
 
 <h3 id="cosmos-db">Cosmos db</h3>
 
@@ -10198,23 +10207,25 @@ event component can expose and what kind of scalability and performance the even
 
 <h4 id="partion-key">Partion key</h4>
 
-<p>If we gonna usa Cosmos DB we need to decide if we gonna use one container or multiple one and which partition key to use</p>
-
 <p>Currently the limitations on Cosmos DB is that one logical partion can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
 
-<p>If we assume events in average on 350 Bytes (the example ones are around 300). This would hold 57.000.000 events inside a logical
-partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances. Looking at the biggest
-applications in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible.</p>
+<p>If we assume events in average on 350 Bytes (the example aboves are around 300 Bytes). This would hold approx 57.000.000 events inside a logical
+partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances per partion key.
+Looking at the biggest digital services in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible
+because many of them have many more elements.</p>
 
-<p>Suggestions is to use the subject as partion key.</p>
+<p>Suggestions is to use the subject as partion key. 57.000.000 on a given subject should be more than enough. And when that limit is reached the limitations probably has increased.
+(it was in may 2020 raised from 10GB to 20GB)</p>
 
 <h4 id="event-sequensing">Event sequensing</h4>
+
+<p>The way we do sequencing could affect the correctnes of the event feed.</p>
+
+<h5 id="order-by-cosmos-db-timestamp">Order by Cosmos DB Timestamp</h5>
 
 <p>When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.</p>
 
 <p>This is stored as a epoch time. (Seconds since January 1. 1970)</p>
-
-<h5 id="order-by-cosmos-db-timestamp">Order by Cosmos DB Timestamp</h5>
 
 <p>If we decide to order the feed based on TS we will not know inside a second which event that comes first.</p>
 
@@ -10283,9 +10294,9 @@ event component is storing the event to cosmos db.</p>
 
 <p>This could theoretical be done in a azure function reading the change log.</p>
 
-<p>This will cause limit scalability when having a global counter like this.</p>
+<p>This will cause limitation to scalability since we would need to have one bottle neck to produce this.</p>
 
-<p>We would need to only have one publisher.</p>
+<p>This is the reason Cosmos DB does not support this.</p>
 
 <h6 id="to-be-investigated">To be investigated</h6>
 
@@ -10342,7 +10353,7 @@ have for the subject of the event.</p>
 <li>Consumer process the received events and call other API to download related data (instances, files +++)</li>
 </ol>
 
-<h3 id="party-needing-to-know-if-there-are-anything-new-for-a-element">Party needing to know if there are anything new for a element</h3>
+<h3 id="user-needing-to-know-if-there-are-anything-new-for-a-party">User needing to know if there are anything new for a party</h3>
 
 <ol>
 <li>System authenticates end user with ID-porten</li>
@@ -10358,6 +10369,42 @@ have for the subject of the event.</p>
 <li>Event components authorized the event and filter away events where user is not authorized</li>
 <li>Events are returned</li>
 <li>Subscriber process events</li>
+<li>Subscriber gets relevant data</li>
+</ol>
+
+<h3 id="organization-needing-to-know-if-there-are-anything-new-for-a-party">Organization needing to know if there are anything new for a party</h3>
+
+<ol>
+<li>System authenticates end user with Maskinporten</li>
+<li>System exchanges token with Altinn</li>
+<li>System calls event api</li>
+</ol>
+
+<pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
+</code></pre>
+
+<ol>
+<li>Event component query events in database</li>
+<li>Event components authorized the event and filter away events where user is not authorized</li>
+<li>Events are returned</li>
+<li>Subscriber process events</li>
+<li>Subscriber gets relevant data</li>
+</ol>
+
+<h3 id="anonym-access-to-a-given-instances-events">Anonym access to a given instances events.</h3>
+
+<ol>
+<li>System calls event api</li>
+</ol>
+
+<pre><code class="language-http">post {platformurl}/events/instanceeventsforinstance/{instanceId}
+</code></pre>
+
+<ol>
+<li>Event component query events in database</li>
+<li>Events are returned</li>
+<li>Subscriber process events</li>
+<li>Subscriber gets relevant data</li>
 </ol>
 
 <h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
