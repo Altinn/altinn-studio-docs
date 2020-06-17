@@ -473,17 +473,19 @@ post {platformurl}/events/instanceeventsforinstance/{instanceId}
 
 ## Push Events
 
-In future we can add push of events to weebhooks or mobile phone number as sms
+In future we can add push of events to weebhooks or mobile phone number as sms.
 
+This has not been detailed yet but the solution could contain:
 
+- User can set up URL webhook that would receive all or a filtered list of events
+- User can set up a notification SMS number to get a notification about events.
+- There can be a mobile app that can listen to push notifcations.
 
 ## Open Clarification
 
 - Is partyID ok for the subscribers ok to be returned?
 - Should eventTime be set by event component or publisher
-- 
-
-
+- Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events?
 
 ## Other event concepts in the platform
 
