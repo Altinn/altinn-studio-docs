@@ -208,7 +208,6 @@ This returns the events for a given party identified with a personnumber or orga
     "storedAfter": "2019-06-01T12:00:00Z",
   
 ```
-
 ##### Usage
 
 This is used by end user to see events for a given party.
@@ -249,17 +248,31 @@ When a publish request is received it will push the event document to the event 
 
 When a request is received it will query the documents.
 
-### Event Storage
 
+
+## Storage technology
+
+Choosing the technology to physical store the events will affect what kind of capabilities the
+event component can expose and what kind of scalability and performance the event architecture will 
+
+### Cosmos db
 Using cosmos DB gives the possiblity to have "endless" number of topics/feeds based on queriries.
 
 Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
 
-#### Container configuration
+#### Partion key
 
-If we gonna usa Cosmos DB we need to decide if we gonna use one contaiiner
+If we gonna usa Cosmos DB we need to decide if we gonna use one container or multiple one and which partition key to use
 
-#### Ordering
+Currently the limitations on Cosmos DB is that one logical partion can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
+
+If we assume events in average on 350 Bytes (the example ones are around 300). This would hold 57.000.000 events inside a logical
+partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances. Looking at the biggest
+applications in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible. 
+
+Suggestions is to use the subject as partion key. 
+
+#### Event sequensing
 
 When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.
 
@@ -336,17 +349,25 @@ We would need to only have one publisher.
 - How to be able to restart numbering
 - How to be able to scale this?
 
-### Delegating access to events
+
+### Indexing
+
+All fields in a cosmos DB is indexed. 
+
+
+
+
+## Delegating access to events
 
 There are serveral user scenaroius when there is a need to delegate access to the events.
 
-#### Delegating Org access
+### Delegating Org access
 
 For orgs (application owners) there might be some scenarious where they want to give access to events for a given applications.
 
 This delegation is done through Maskinporten
 
-#### Delegating party event access
+### Delegating party event access
 
 In general, access to events for a given party will be authorized based on roles the requesting organization.
 
@@ -362,7 +383,7 @@ In general, access to events for a given party will be authorized based on roles
 
 In this scenario an org is waiting on end users to complete one given app 
 
-1. System authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}
+1. System (consumer) authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}
 2. System exchanges maskinporten token to a altinn token. Scopes is included in new token
 3. System calls 
 
@@ -370,10 +391,24 @@ In this scenario an org is waiting on end users to complete one given app
 get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&eventType=Instance:EventComplete
 ```
 4. Event component verifies that scope matches request
-5. Event components searches Cosmos DB for events that 
+5. Event components searches Cosmos DB for events that matches search criteria
+6. Event component returns the filtered and possible capped response ordered eon sequence
+7. Consumer process the received events and call other API to download related data (instances, files +++)
 
 
 
+#### Party needing to know if there are anything new for a element
+
+1. System authenticates end user with ID-porten
+2. System exchanges token with Altinn
+3. System calls event api 
+
+
+```http
+post {platformurl}/events/instanceeventsforparty/
+```
+4. Event component query events in database 
+5. 
 
 
 
