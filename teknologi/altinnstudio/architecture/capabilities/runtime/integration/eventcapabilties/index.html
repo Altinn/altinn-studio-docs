@@ -10096,7 +10096,7 @@ instance / instance event api.</p>
 
 <h2 id="requirments">Requirments</h2>
 
-<p>The following requirements is identified for the new event architecture in Altinn 3.</p>
+<p>The following requirements are identified for the new event architecture in Altinn 3.</p>
 
 <ul>
 <li>It should be possible to subscribe to a specific type of event. (Example alls ProcessComplete events for a given app)</li>
@@ -10160,17 +10160,17 @@ events for a given org/app.</p>
 
 <h5 id="usage-1">Usage</h5>
 
-<p>This is used by end user to see events for a given party.
+<p>This is used by end users to see events for a given party.
 This will list all changes for a given party.</p>
 
 <h5 id="authorization-1">Authorization</h5>
 
-<p>Events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.</p>
+<p>Access to events need to be authorized. To be able to read events, you need to have the read right for the given app for the given party.</p>
 
 <p>The topic and subject would be used to identify the correct XACML Policy to use.</p>
 
-<p>Operation would be read and process task will be set to null.
-This way there would be no need to verify the current state of a element.</p>
+<p>The operation would be read and proccess task will be set to null.
+This way there would be no need to verify the current state of an instance.</p>
 
 <h3 id="adding-events">Adding events</h3>
 
@@ -10181,7 +10181,7 @@ This way there would be no need to verify the current state of a element.</p>
 
 <h3 id="event-components">Event components</h3>
 
-<p>The below diagram shows the different components in the proposes Event Architecture for Altinn 3.</p>
+<p>The below diagram shows the different components in the proposed Event Architecture for Altinn 3.</p>
 
 
 	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object></p>
@@ -10198,7 +10198,7 @@ This way there would be no need to verify the current state of a element.</p>
 
 <h4 id="event-component">Event Component</h4>
 
-<p>The event components exposes REST-APIS for publishing and subscribing to events.</p>
+<p>The event components expose REST-APIS for publishing and subscribing to events.</p>
 
 <p>When a publish request is received it will push the event document to the event storage.</p>
 
@@ -10217,19 +10217,22 @@ event component can expose and what kind of scalability and performance the even
 
 <h4 id="partition-key">Partition key</h4>
 
-<p>Currently the limitations on Cosmos DB is that one logical partion can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
+<p>Currently the limitations on Cosmos DB is that one logical partition can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
 
-<p>If we assume events in average on 350 Bytes (the example aboves are around 300 Bytes). This would hold approx 57.000.000 events inside a logical
-partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key.
-Looking at the biggest digital services in the current platform this would indicating that using a partition key bases on {org}/{app} is not possible
+<p>If we assume events in average on 350 Bytes (the examples above are around 300 Bytes). This would hold approx 57.000.000 events
+inside a logiical partition.</p>
+
+<p>If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key.
+Looking at the biggest digital services in the current platform (Altinn 2) this would indicating that using a partition key bases on {org}/{app} is not possible
 because many of them have many more elements.</p>
 
-<p>Suggestions is to use the subject as partion key. 57.000.000 on a given subject should be more than enough. And when that limit is reached the limitations probably has increased.
+<p>The suggestion is to use the subject as partition key. 57.000.000 on a given subject should be more than enough.
+And when that limit is reached the limitations probably have increased.
 (it was in may 2020 raised from 10GB to 20GB)</p>
 
 <h4 id="event-sequencing">Event sequencing</h4>
 
-<p>The way we do sequencing could affect the correctnes of the event feed.</p>
+<p>The way we do sequencing could affect the correctness of the event feed.</p>
 
 <h5 id="order-by-cosmos-db-timestamp">Order by Cosmos DB Timestamp</h5>
 
