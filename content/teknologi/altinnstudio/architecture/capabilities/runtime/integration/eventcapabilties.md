@@ -362,7 +362,7 @@ For the topic and createdDatetime/ts a composite index should be investigated to
 
 ## Delegating access to events
 
-There are serveral user scenaroius when there is a need to delegate access to the events.
+There are serveral user scenaroius when there is a need to delegate access to the events for a given party to another user/organization.
 
 ### Delegating Org access
 
@@ -372,17 +372,12 @@ This delegation is done through Maskinporten
 
 ### Delegating party event access
 
-In general, access to events for a given party will be authorized based on roles the requesting organization.
+In general, access to events for a given party will be authorized based on roles the requesting organization/user
+have for the subject of the event.
 
+## Detailed Scenerious
 
-
-
-
-
-### Detailed Scenerious
-
-
-#### Org waiting on ProcessComplete for a given app
+### Org waiting on ProcessComplete for a given app
 
 In this scenario an org is waiting on end users to complete one given app 
 
@@ -400,7 +395,7 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&even
 
 
 
-#### Party needing to know if there are anything new for a element
+### Party needing to know if there are anything new for a element
 
 1. System authenticates end user with ID-porten
 2. System exchanges token with Altinn
@@ -411,19 +406,11 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&even
 post {platformurl}/events/instanceeventsforparty/
 ```
 4. Event component query events in database 
-5. 
+5. Event components authorized the event and filter away events where user is not authorized
+6. Events are returned
+7. Subscriber process events
 
 
-
-
-### Tasks
-The following task are identified (depending on choosen solution )
-
-- Infrastructure: Create scripts for event hub configuration
-- Infrastructure: Create scripts for event grid
-- Infrastructure: Create a way for org so get SAS keys
-- Platform: Build event component with needed api.
-- Storage: Create event collection in cosmos
 
 
 ## Other event concepts in the platform
