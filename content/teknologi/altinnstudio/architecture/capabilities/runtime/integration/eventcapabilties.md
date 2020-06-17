@@ -1,6 +1,6 @@
 ---
 title: Event capabilites
-description: Description of the event driven architecture for Altinn Apps and Altinn Platform
+description: Description of the event-driven architecture for Altinn Apps and Altinn Platform
 tags: [architecture]
 weight: 100
 linktitle: Event capabilites
@@ -8,12 +8,12 @@ alwaysopen: false
 ---
 
 {{%notice warning%}}
-This is work-in-progress. The event driven architecture is still in analysis.
+This is work-in-progress. The event-driven architecture is still in analysis.
 {{% /notice%}}
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
 This means that Altinn Platform and Altinn Apps will publish events that
-application owners (agencies) and parties(citizens and businesses) can subscribe and react to.
+application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
 ## Overall Concept
 
@@ -30,18 +30,18 @@ Standard events could be
 
 Customs event could be
 
-- A user have asked for a deduction in a form
+- A user has asked for a deduction in a form
 - A specific validation of data failed
 
-Events would typical have some attributes
+Events would typically have some attributes
 
 - [org] - The organization the event is created for
 - [app] - The app the event is created for
 - [instanceid] - The instanceid
 - [eventtype] - The type of event. created, completed ++++ Probably something we want as free text.
 
-The event would contain limited set of information. To get the full details the subscriber would need to get all details from 
-instance / instance event api. 
+The event would contain a limited set of information. To get the full details the subscriber would need to get all details from
+instance / instance event api.
 
 #### Event Schema
 
@@ -138,9 +138,9 @@ The assumption is that all process change events logged to instance events in st
 
 Applications hosted in Altinn Apps would be able to create events.
 
-The application template will contain API so logic in event can publish events based on rules defined by the application developer. 
+The application template will contain API so logic in applications can publish events based on rules defined by the application developer.
 
-This events could be anything.
+These events could be anything.
 
 ### Event subscribers
 
@@ -160,16 +160,17 @@ In many cases, parties use professionals to handle their data in Altinn. These p
 
 The following requirements is identified for the new event architecture in 
 
-- It should be possible to subscribe to specific type of events. (Example alls ProcessComplete events for a given app)
-- It should be possible to go at least one year back. 
-- The consumer will keep track on which events the consumer has processed
-- It should be possible to check 
+- It should be possible to subscribe to a specific type of events. (Example alls ProcessComplete events for a given app)
+- It should be possible to go at least one year back.
+- The consumer will keep track of which events the consumer has processed
+- It should be possible to check
+- The architecture should be able to list feed for 5.000.000 users and 1,.
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
 ## Proposed Event Architecture
 
-To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
+To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
 a event component in Altinn Platform.
 
 The Event Component will expose REST-APIS.
@@ -274,18 +275,18 @@ Using cosmos DB gives the possiblity to have "endless" number of topics/feeds ba
 
 Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
 
-#### Partion key
+#### Partition key
 Currently the limitations on Cosmos DB is that one logical partion can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
 
 If we assume events in average on 350 Bytes (the example aboves are around 300 Bytes). This would hold approx 57.000.000 events inside a logical
-partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances per partion key. 
-Looking at the biggest digital services in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible
+partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key. 
+Looking at the biggest digital services in the current platform this would indicating that using a partition key bases on {org}/{app} is not possible
 because many of them have many more elements.  
 
 Suggestions is to use the subject as partion key. 57.000.000 on a given subject should be more than enough. And when that limit is reached the limitations probably has increased.
 (it was in may 2020 raised from 10GB to 20GB)
 
-#### Event sequensing
+#### Event sequencing
 
 The way we do sequencing could affect the correctnes of the event feed.
 
@@ -294,11 +295,11 @@ When a document is stored to Cosmos DB it has a _ts property created. This conta
 
 This is stored as a epoch time. (Seconds since January 1. 1970)
 
-If we decide to order the feed based on TS we will not know inside a second which event that comes first.
+If we decide to order the feed based on TS we will not know inside a second which event comes first.
 
 We would also need to prevent that the feed is not complete for the latest second when retrieved.
 
-As example lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.
+As example, lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.
 
 - 1582113500 - Event A
 - 1582113500 - Event B
@@ -313,7 +314,7 @@ As example lets say that at time a 1582113506 subscriber request the feeds. At t
 - 1582113506 - Event K
 - 1582113506 - Event L
 
-If we returns this elements the subscribers could think that all ements inside 1582113506 is included. But the truth may be that just milliseconds later the
+If we return this elements the subscribers could think that all elements inside 1582113506 is included. But the truth may be that just milliseconds later the
 
 - 1582113506 - Event M  
 - 1582113506 - Event N  
@@ -341,7 +342,7 @@ As example lets say that at time a 2020-02-19T13:59:27.8453654 subscriber reques
 - 2020-02-19T13:59:27.4563454Z - Event K
 - 2020-02-19T13:59:27.8453554Z - Event K
 
-But because of a theoretical delay the following event could been inserted after.
+But because of a theoretical delay, the following event could been inserted after.
 
 - 2020-02-19T13:59:27.8353554Z - Event L
 
@@ -351,19 +352,17 @@ The risk could be reduced if the response does not return events newer than some
 
 In this option we need to be able to add a global counter to the documents in the order they are inserted.
 
-This could theoretical be done in a azure function reading the change log.
+This could theoretically be done in an azure function reading the change log.
 
-This will cause limitation to scalability since we would need to have one bottle neck to produce this.
+This will cause limitation to scalability since we would need to have one bottleneck to produce this.
 
 This is the reason Cosmos DB does not support this.
 
-
 ###### To be investigated
 
-- How to generate number
+- How to generate a number for sequencing of events
 - How to be able to restart numbering
 - How to be able to scale this?
-
 
 ### Indexing
 
@@ -459,16 +458,15 @@ the instance without the user needing to log in.
 post {platformurl}/events/instanceeventsforinstance/{instanceId}
 ```
 
-2. Event component query events in database 
+2. Event component query events in database
 3. Events are returned
-7. Subscriber process events
-8. Subscriber gets relevant data
-
+4. The Subscriber process events
+5. The Subscriber gets relevant data
 
 
 ## Push Events
 
-In future there
+In future we can add push of events to weebhooks or mobile phone number as sms
 
 
 
