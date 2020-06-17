@@ -9947,7 +9947,7 @@ if(host != "localhost")
 
 <p>The new generation of Altinn is moving to an <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">event-driven architecture</a>.
 This means that Altinn Platform and Altinn Apps will publish events that
-organizations and parties(citizens and businesses) can subscribe and react to.</p>
+application owners (agencies) and parties(citizens and businesses) can subscribe and react to.</p>
 
 <h2 id="overall-concept">Overall Concept</h2>
 
@@ -9980,7 +9980,8 @@ custom events added in an application by application developers.</p>
 <li>[eventtype] - The type of event. created, completed ++++ Probably something we want as free text.</li>
 </ul>
 
-<p>The event would contain limited set of information. To get the full details the subscriber would need to get all details from instance / instance event api.</p>
+<p>The event would contain limited set of information. To get the full details the subscriber would need to get all details from
+instance / instance event api.</p>
 
 <h4 id="event-schema">Event Schema</h4>
 
@@ -10011,13 +10012,6 @@ custom events added in an application by application developers.</p>
 <li>data can contain a structure of data</li>
 <li>dataVersion</li>
 <li>metdataversion</li>
-</ul>
-
-<h5 id="to-be-discussed">To be discussed</h5>
-
-<ul>
-<li>Is partyID ok for the subscribers ok to be returned?</li>
-<li>Should eventTime be set by event component or publisher</li>
 </ul>
 
 <h5 id="example-1">Example 1</h5>
@@ -10417,6 +10411,14 @@ have for the subject of the event.</p>
 <ul>
 <li>Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
 <li>Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.<br /></li>
+</ul>
+
+<h2 id="open-clarification">Open Clarification</h2>
+
+<ul>
+<li>Is partyID ok for the subscribers ok to be returned?</li>
+<li>Should eventTime be set by event component or publisher</li>
+<li></li>
 </ul>
 
 
