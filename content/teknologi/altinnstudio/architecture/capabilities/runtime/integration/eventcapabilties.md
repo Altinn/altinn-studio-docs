@@ -158,7 +158,7 @@ In many cases, parties use professionals to handle their data in Altinn. These p
 
 ## Requirments
 
-The following requirements is identified for the new event architecture in Altinn 3.
+The following requirements are identified for the new event architecture in Altinn 3.
 
 - It should be possible to subscribe to a specific type of event. (Example alls ProcessComplete events for a given app)
 - It should be possible to go at least one year back.
@@ -223,17 +223,17 @@ This returns the events for a given party identified with a personnumber or orga
 
 ##### Usage
 
-This is used by end user to see events for a given party.
+This is used by end users to see events for a given party.
 This will list all changes for a given party.
 
 ##### Authorization
 
-Events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
+Access to events need to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
 
 The topic and subject would be used to identify the correct XACML Policy to use. 
 
-Operation would be read and process task will be set to null.
-This way there would be no need to verify the current state of a element.
+The operation would be read and proccess task will be set to null.
+This way there would be no need to verify the current state of an instance.
 
 ### Adding events
 
@@ -243,17 +243,15 @@ This way there would be no need to verify the current state of a element.
 post {platformurl}/events/
 ```
 
-
 ### Event components
 
-The below diagram shows the different components in the proposes Event Architecture for Altinn 3.
+The below diagram shows the different components in the proposed Event Architecture for Altinn 3.
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 [Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg) 
-
 
 #### Publishers
 
@@ -263,12 +261,11 @@ They will use a REST API call to post a new event to the add event API.
 
 #### Event Component
 
-The event components exposes REST-APIS for publishing and subscribing to events.
+The event components expose REST-APIS for publishing and subscribing to events.
 
 When a publish request is received it will push the event document to the event storage.
 
 When a request is received it will query the events stored in the event storage.
-
 
 ### Storage technology
 
@@ -276,26 +273,32 @@ Choosing the technology to physical store the events will affect what kind of ca
 event component can expose and what kind of scalability and performance the event architecture will have
 
 ### Cosmos db
+
 Using cosmos DB gives the possiblity to have "endless" number of topics/feeds based on queriries.
 
 Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
 
 #### Partition key
-Currently the limitations on Cosmos DB is that one logical partion can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
 
-If we assume events in average on 350 Bytes (the example aboves are around 300 Bytes). This would hold approx 57.000.000 events inside a logical
-partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key. 
-Looking at the biggest digital services in the current platform this would indicating that using a partition key bases on {org}/{app} is not possible
+Currently the limitations on Cosmos DB is that one logical partition can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
+
+If we assume events in average on 350 Bytes (the examples above are around 300 Bytes). This would hold approx 57.000.000 events
+inside a logiical partition.
+
+If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key.
+Looking at the biggest digital services in the current platform (Altinn 2) this would indicating that using a partition key bases on {org}/{app} is not possible
 because many of them have many more elements.  
 
-Suggestions is to use the subject as partion key. 57.000.000 on a given subject should be more than enough. And when that limit is reached the limitations probably has increased.
+The suggestion is to use the subject as partition key. 57.000.000 on a given subject should be more than enough.
+And when that limit is reached the limitations probably have increased.
 (it was in may 2020 raised from 10GB to 20GB)
 
 #### Event sequencing
 
-The way we do sequencing could affect the correctnes of the event feed.
+The way we do sequencing could affect the correctness of the event feed.
 
 ##### Order by Cosmos DB Timestamp
+
 When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.
 
 This is stored as epoch time. (Seconds since January 1. 1970)
