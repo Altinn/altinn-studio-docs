@@ -1,9 +1,9 @@
 ---
-title: Event capabilites
+title: Event capabilities
 description: Description of the event-driven architecture for Altinn Apps and Altinn Platform
 tags: [architecture]
 weight: 100
-linktitle: Event capabilites
+linktitle: Event capabilities
 alwaysopen: false
 ---
 
@@ -12,7 +12,7 @@ This is work-in-progress. The event-driven architecture is still in analysis.
 {{% /notice%}}
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
-This means that Altinn Platform and Altinn Apps will publish events that
+This means that the Altinn Platform solution and Applications running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
 ## Overall Concept
@@ -158,28 +158,30 @@ In many cases, parties use professionals to handle their data in Altinn. These p
 
 ## Requirments
 
-The following requirements is identified for the new event architecture in 
+The following requirements is identified for the new event architecture in Altinn 3.
 
-- It should be possible to subscribe to a specific type of events. (Example alls ProcessComplete events for a given app)
+- It should be possible to subscribe to a specific type of event. (Example alls ProcessComplete events for a given app)
 - It should be possible to go at least one year back.
 - The consumer will keep track of which events the consumer has processed
 - It should be possible to check
 - The architecture should be able to list feed for 5.000.000 users and 1.000.000 businesses
-- The architecture should support more than 1000 subscribers
-- The architecture should support all 
+- The architecture should support more than 1000 publishers
+- The architecture should support more than 250.000.000 events a year.
+
+TODO: Verify requirements
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
 ## Proposed Event Architecture
 
-To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
-a event component in Altinn Platform.
+To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions are to build
+an event component in Altinn Platform and not use products like Kafka or Azure Event Hub.
 
 The Event Component will expose REST-APIS.
 
 ### API Structure
 
-The API's will be structured so the URLs are filtered quieries in to the events
+The API's will be structured so the URLs are filtered queries into the events storage
 
 #### Instances events for Org
 
@@ -191,11 +193,11 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}
 
 ##### Usage
 
-This will be used by applications owners to identify changes on instances for their applications.
+This will be used by application owners to identify changes on instances for their applications.
 
 ##### Authorization
 
-We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to
+We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
 events for a given org/app.
 
 #### Party events
@@ -218,6 +220,7 @@ This returns the events for a given party identified with a personnumber or orga
     "storedAfter": "2019-06-01T12:00:00Z",
   
 ```
+
 ##### Usage
 
 This is used by end user to see events for a given party.
@@ -295,7 +298,7 @@ The way we do sequencing could affect the correctnes of the event feed.
 ##### Order by Cosmos DB Timestamp
 When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.
 
-This is stored as a epoch time. (Seconds since January 1. 1970)
+This is stored as epoch time. (Seconds since January 1. 1970)
 
 If we decide to order the feed based on TS we will not know inside a second which event comes first.
 
@@ -316,21 +319,23 @@ As example, lets say that at time a 1582113506 subscriber request the feeds. At 
 - 1582113506 - Event K
 - 1582113506 - Event L
 
-If we return this elements the subscribers could think that all elements inside 1582113506 is included. But the truth may be that just milliseconds later the
+If we return these elements the subscribers could think that all elements inside 1582113506 are included.
+But the truth may be that just milliseconds later the
 
 - 1582113506 - Event M  
 - 1582113506 - Event N  
 
-Was added.  Requesting events with _ts > 1582113506 would cause loosing M and N
+Was added.  Requesting events with _ts > 1582113506 would cause losing M and N
 
-To prevent this we could always remove events connected to the newest second stored. The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included
+To prevent this we could always remove events connected to the newest second stored.
+The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included
 
 ##### Order by CreatedDateTime set by event component
 
 If we assume that pods in the same cluster have the same time, we could have a strategy that set at createdData time for the event when the 
 event component is storing the event to cosmos db.
 
-As example lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.
+As example, lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.
 
 - 2020-02-19T13:59:21.9777054Z - Event A
 - 2020-02-19T13:59:21.5777054Z - Event B
@@ -350,13 +355,13 @@ But because of a theoretical delay, the following event could been inserted afte
 
 The risk could be reduced if the response does not return events newer than some seconds.
 
-##### Order by a event counter in document
+##### Order by an event counter in document
 
 In this option we need to be able to add a global counter to the documents in the order they are inserted.
 
 This could theoretically be done in an azure function reading the change log.
 
-This will cause limitation to scalability since we would need to have one bottleneck to produce this.
+This will cause limitations to scalability since we would need to have one bottleneck to produce this.
 
 This is the reason Cosmos DB does not support this.
 
@@ -391,11 +396,11 @@ This delegation is done through Maskinporten
 In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.
 
-## Detailed Scenerious
+## Detailed Scenarios
 
 ### Org waiting on ProcessComplete for a given app
 
-In this scenario an org is waiting on end users to complete one given app 
+In this scenario, an org is waiting on end users to complete one given app 
 
 1. System (consumer) authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}
 2. System exchanges maskinporten token to a altinn token. Scopes is included in new token
@@ -413,7 +418,7 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&even
 
 ### User needing to know if there are anything new for a party
 
-In this scenario a user wants to see if there are any changes for a client or the user itself
+In this scenario, a user wants to see if there are any changes for a client or the user itself
 
 1. System authenticates end user with ID-porten
 2. System exchanges token with Altinn
