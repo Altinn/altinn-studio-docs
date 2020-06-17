@@ -13,7 +13,7 @@ This is work-in-progress. The event driven architecture is still in analysis.
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
 This means that Altinn Platform and Altinn Apps will publish events that
-organizations and parties(citizens and businesses) can subscribe and react to.
+application owners (agencies) and parties(citizens and businesses) can subscribe and react to.
 
 ## Overall Concept
 
@@ -40,7 +40,8 @@ Events would typical have some attributes
 - [instanceid] - The instanceid
 - [eventtype] - The type of event. created, completed ++++ Probably something we want as free text.
 
-The event would contain limited set of information. To get the full details the subscriber would need to get all details from instance / instance event api. 
+The event would contain limited set of information. To get the full details the subscriber would need to get all details from 
+instance / instance event api. 
 
 #### Event Schema
 
@@ -71,11 +72,6 @@ The event would be a JSON object. The event schema would need to be defined. One
 - data can contain a structure of data
 - dataVersion
 - metdataversion
-
-##### To be discussed
-
-- Is partyID ok for the subscribers ok to be returned?
-- Should eventTime be set by event component or publisher
 
 ##### Example 1
 
@@ -132,7 +128,7 @@ A user/system has completed the process for an instance
 
 #### Altinn Platform
 
-Storage is probably the one component that would create the most standard events. 
+Storage is probably the one component that would create the most standard events.
 
 This could be events for the creation of instances when instances state is updated and so on. We would need to define what kind of standard events storage should create. 
 
@@ -469,3 +465,13 @@ Events are used in different scenarios in the platform.
 
 - Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
 - Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
+
+
+
+
+
+## Open Clarification
+
+- Is partyID ok for the subscribers ok to be returned?
+- Should eventTime be set by event component or publisher
+- 
