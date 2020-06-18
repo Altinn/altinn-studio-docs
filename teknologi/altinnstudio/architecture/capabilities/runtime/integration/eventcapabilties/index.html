@@ -10023,7 +10023,7 @@ instance / instance event api.</p>
   &quot;eventType&quot;: &quot;Instance:Created&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
   &quot;subject&quot;: &quot;party:234234422&quot;,
-  &quot;eventTime&quot;: &quot;2017-08-10T21:03:07+00:00&quot;,
+  &quot;eventTime&quot;: &quot;2020-02-20T08:00:06.4014168Z&quot;,
   &quot;data&quot;: {
      },
   &quot;dataVersion&quot;: &quot;1.0&quot;
@@ -10039,7 +10039,7 @@ instance / instance event api.</p>
   &quot;eventType&quot;: &quot;Instance:ConfirmationCompleted&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
   &quot;subject&quot;: &quot;party:234234422&quot;,
-  &quot;eventTime&quot;: &quot;2020-09-14T32:03:07+00:00&quot;,
+  &quot;eventTime&quot;: &quot;2020-03-16T10:23:46.6443563Z&quot;,
   &quot;data&quot;: {
      },
   &quot;dataVersion&quot;: &quot;1.0&quot;
@@ -10055,7 +10055,7 @@ instance / instance event api.</p>
   &quot;eventType&quot;: &quot;Instance:ProcessCompleted&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
   &quot;subject&quot;: &quot;party:234234422&quot;,
-  &quot;eventTime&quot;: &quot;2020-03-19T55:03:07+00:00&quot;,
+  &quot;eventTime&quot;:  &quot;2020-02-20T09:06:50.3736712Z&quot;,
   &quot;data&quot;: {
      },
   &quot;dataVersion&quot;: &quot;1.0&quot;
@@ -10232,94 +10232,11 @@ And when that limit is reached the limitations probably have increased.
 
 <h4 id="event-sequencing">Event sequencing</h4>
 
-<p>The way we do sequencing could affect the correctness of the event feed.</p>
+<p>Events will be sequnced by eventTime. This is a datetime where precision is 7 digits, with an accuracy of 100 nanoseconds.</p>
 
-<h5 id="order-by-cosmos-db-timestamp">Order by Cosmos DB Timestamp</h5>
+<p>The eventTime would be set by a <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-write-stored-procedures-triggers-udfs">stored procedure</a> when inserting document.</p>
 
-<p>When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.</p>
-
-<p>This is stored as epoch time. (Seconds since January 1. 1970)</p>
-
-<p>If we decide to order the feed based on TS we will not know inside a second which event comes first.</p>
-
-<p>We would also need to prevent that the feed is not complete for the latest second when retrieved.</p>
-
-<p>As example, lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.</p>
-
-<ul>
-<li>1582113500 - Event A</li>
-<li>1582113500 - Event B</li>
-<li>1582113500 - Event C</li>
-<li>1582113501 - Event D</li>
-<li>1582113503 - Event E</li>
-<li>1582113504 - Event F</li>
-<li>1582113504 - Event G</li>
-<li>1582113505 - Event H</li>
-<li>1582113505 - Event I</li>
-<li>1582113506 - Event J</li>
-<li>1582113506 - Event K</li>
-<li>1582113506 - Event L</li>
-</ul>
-
-<p>If we return these elements the subscribers could think that all elements inside 1582113506 are included.
-But the truth may be that just milliseconds later the</p>
-
-<ul>
-<li>1582113506 - Event M<br /></li>
-<li>1582113506 - Event N<br /></li>
-</ul>
-
-<p>Was added.  Requesting events with _ts &gt; 1582113506 would cause losing M and N</p>
-
-<p>To prevent this we could always remove events connected to the newest second stored.
-The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included</p>
-
-<h5 id="order-by-createddatetime-set-by-event-component">Order by CreatedDateTime set by event component</h5>
-
-<p>If we assume that pods in the same cluster have the same time, we could have a strategy that set at createdData time for the event when the
-event component is storing the event to cosmos db.</p>
-
-<p>As example, lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.</p>
-
-<ul>
-<li>2020-02-19T13:59:21.9777054Z - Event A</li>
-<li>2020-02-19T13:59:21.5777054Z - Event B</li>
-<li>2020-02-19T13:59:21.3757054Z - Event C</li>
-<li>2020-02-19T13:59:22.9777054Z - Event D</li>
-<li>2020-02-19T13:59:24.9777054Z - Event E</li>
-<li>2020-02-19T13:59:25.9777054Z - Event F</li>
-<li>2020-02-19T13:59:25.9777054Z - Event G</li>
-<li>2020-02-19T13:59:26.9777054Z - Event H</li>
-<li>2020-02-19T13:59:27.2345054Z - Event I</li>
-<li>2020-02-19T13:59:27.4563454Z - Event K</li>
-<li>2020-02-19T13:59:27.8453554Z - Event K</li>
-</ul>
-
-<p>But because of a theoretical delay, the following event could been inserted after.</p>
-
-<ul>
-<li>2020-02-19T13:59:27.8353554Z - Event L</li>
-</ul>
-
-<p>The risk could be reduced if the response does not return events newer than some seconds.</p>
-
-<h5 id="order-by-an-event-counter-in-document">Order by an event counter in document</h5>
-
-<p>In this option we need to be able to add a global counter to the documents in the order they are inserted.</p>
-
-<p>This could theoretically be done in an azure function reading the change log.</p>
-
-<p>This will cause limitations to scalability since we would need to have one bottleneck to produce this.</p>
-
-<p>This is the reason Cosmos DB does not support this.</p>
-
-<h6 id="to-be-investigated">To be investigated</h6>
-
-<ul>
-<li>How to generate a number for sequencing of events</li>
-<li>How to be able to restart numbering</li>
-<li>How to be able to scale this?</li>
-</ul>
+<p>It will overwrite any eventTime set by the publisher.</p>
 
 <h3 id="indexing">Indexing</h3>
 
@@ -10327,7 +10244,7 @@ event component is storing the event to cosmos db.</p>
 enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point.
 This allows you to get high query performance without having to think about indexing and index management upfront.</p>
 
-<p>For the topic and createdDatetime/ts a composite index should be investigated to se if that performs better.</p>
+<p>For the topic and eventTime a composite index should be investigated to se if that performs better.</p>
 
 <p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview">See Cosmod DB indexing for details</a>.</p>
 
@@ -10431,7 +10348,7 @@ the instance without the user needing to log in.</p>
 
 <h2 id="push-events">Push Events</h2>
 
-<p>In future we can add push of events to weebhooks or mobile phone number as sms.</p>
+<p>To reduce the amount of request from subscribers we should look in to supporting push of events.</p>
 
 <p>This has not been detailed yet but the solution could contain:</p>
 
@@ -10445,8 +10362,8 @@ the instance without the user needing to log in.</p>
 
 <ul>
 <li>Is partyID ok for the subscribers ok to be returned?</li>
-<li>Should eventTime be set by event component or publisher</li>
-<li>Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events?</li>
+<li>Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
+timing an paralell events.</li>
 </ul>
 
 <h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
