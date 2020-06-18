@@ -401,10 +401,9 @@ post {platformurl}/events/instanceeventsforinstance/{instanceId}
 4. The Subscriber process events
 5. The Subscriber gets relevant data
 
-
 ## Push Events
 
-In future we can add push of events to weebhooks or mobile phone number as sms.
+To reduce the amount of request from subscribers we should look in to supporting push of events.
 
 This has not been detailed yet but the solution could contain:
 
@@ -415,8 +414,8 @@ This has not been detailed yet but the solution could contain:
 ## Open Clarification
 
 - Is partyID ok for the subscribers ok to be returned?
-- Should eventTime be set by event component or publisher
-- Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events?
+- Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
+timing an paralell events.
 
 ## Other event concepts in the platform
 
