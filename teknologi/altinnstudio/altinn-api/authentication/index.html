@@ -9922,8 +9922,6 @@ if(host != "localhost")
 <ul>
 <li>
 <ul>
-<li>
-<ul>
 <li><a href="#authentication-for-application-owners">Authentication for application owners</a>
 <ul>
 <li><a href="#api-provisioning-in-maskinporten">API provisioning in Maskinporten</a>
@@ -9954,7 +9952,6 @@ if(host != "localhost")
 </ul></li>
 <li><a href="#open-id-connect-configuration">Open ID Connect configuration</a></li>
 </ul></li>
-</ul></li>
 </ul>
 </nav>
           
@@ -9967,13 +9964,13 @@ if(host != "localhost")
 
 
 
-<h3 id="authentication-for-application-owners">Authentication for application owners</h3>
+<h2 id="authentication-for-application-owners">Authentication for application owners</h2>
 
 <p>Application owners should be authenticated with <a href="https://difi.github.io/felleslosninger/maskinporten_overordnet.html">maskinporten</a>.</p>
 
-<h4 id="api-provisioning-in-maskinporten">API provisioning in Maskinporten</h4>
+<h3 id="api-provisioning-in-maskinporten">API provisioning in Maskinporten</h3>
 
-<h5 id="api-provider">Api-provider</h5>
+<h4 id="api-provider">Api-provider</h4>
 
 <p>To provide an API in maskinporten Altinn has to do two operations.</p>
 
@@ -9999,7 +9996,7 @@ if(host != "localhost")
 <p>Here we have given organisation 889640782 access to the scope <code>altinn:instances/metadata.read</code>
 The organisation must then create a client that uses the scope.</p>
 
-<h5 id="api-consumer">Api-consumer</h5>
+<h4 id="api-consumer">Api-consumer</h4>
 
 <p>To access the Altinn api an organisation must create a client</p>
 
@@ -10017,12 +10014,12 @@ The organisation must then create a client that uses the scope.</p>
 }
 </code></pre>
 
-<h4 id="scopes">Scopes</h4>
+<h3 id="scopes">Scopes</h3>
 
 <p>scope names must follow the following regexp: <code>^([a-z0-9]+\/?)+[a-z0-9]+(\.[a-z0-9]+)?$?</code>.
 It means that we cannot have - or _ in scope names.</p>
 
-<h5 id="all-instances-scope">All instances scope</h5>
+<h4 id="all-instances-scope">All instances scope</h4>
 
 <pre><code class="language-cs">altinn:instances.read
 altinn:instances.write
@@ -10034,7 +10031,7 @@ Clients with <em>write</em> scope will be able to instantiate applications throu
 update process state, upload data, validate data, and change process of an instance.
 Clients with <em>read</em> token will only be allowed to read metadata, data and events information.</p>
 
-<h4 id="exchange-of-jwt-token">Exchange of JWT token</h4>
+<h3 id="exchange-of-jwt-token">Exchange of JWT token</h3>
 
 <p>Application owners register clients in Maskinporten and selects the scope they need.</p>
 
@@ -10042,7 +10039,7 @@ Clients with <em>read</em> token will only be allowed to read metadata, data and
 
 <p>This token has to be validated and replaced with an <em>Altinn JWT access token</em> which should be used to access the apis.</p>
 
-<h5 id="maskinporten-jwt-access-token-input">Maskinporten JWT access token (input)</h5>
+<h4 id="maskinporten-jwt-access-token-input">Maskinporten JWT access token (input)</h4>
 
 <p>Client provides a self-contained access-token.</p>
 
@@ -10079,7 +10076,7 @@ GET /authentication/api/v1/exchange/maskinporten
 
 <p>Maksinporten provides the legal <code>consumer</code> (the client) in ISO 6523 format. The client_orgno claim is deprecated.</p>
 
-<h5 id="the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</h5>
+<h4 id="the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</h4>
 
 <p>The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.</p>
 
@@ -10106,16 +10103,16 @@ GET /authentication/api/v1/exchange/maskinporten
 &lt;&lt;signature&gt;&gt;
 </code></pre>
 
-<h3 id="authentication-for-end-user-system">Authentication for end user system</h3>
+<h2 id="authentication-for-end-user-system">Authentication for end user system</h2>
 
 <p>End user systems should be authentication with <a href="https://difi.github.io/felleslosninger/idporten_overordnet.html">ID-porten</a>.
 When authenticated the system may exchange a token provided by ID-porten with an Altinn token by instructions below.</p>
 
-<h5 id="exchange-of-jwt-token-1">Exchange of JWT token</h5>
+<h4 id="exchange-of-jwt-token-1">Exchange of JWT token</h4>
 
 <p>This token has to be validated and replaced with an <em>Altinn JWT access token</em> which should be used to access the apis.</p>
 
-<h6 id="id-porten-jwt-access-token-input">ID-porten JWT access token (input)</h6>
+<h5 id="id-porten-jwt-access-token-input">ID-porten JWT access token (input)</h5>
 
 <pre><code class="language-http">Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
 GET /authentication/api/v1/exchange/id-porten
@@ -10150,7 +10147,7 @@ GET /authentication/api/v1/exchange/id-porten
 &lt;&lt;signature&gt;&gt;
 </code></pre>
 
-<h6 id="the-altinn-jwt-access-token-output-1">The Altinn JWT Access token (output)</h6>
+<h5 id="the-altinn-jwt-access-token-output-1">The Altinn JWT Access token (output)</h5>
 
 <p>The exchange operation validates the incomming token and generates a new JWT token that contains user data
 retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.
@@ -10178,7 +10175,7 @@ pid is referred to as ssn (social security number) i Altinn Platform.</p>
 &lt;&lt;signature&gt;&gt;
 </code></pre>
 
-<h3 id="open-id-connect-configuration">Open ID Connect configuration</h3>
+<h2 id="open-id-connect-configuration">Open ID Connect configuration</h2>
 
 <div class="notices warning" ><p>This is work-in-progress. The response is still missing required information and might be inconsistent with actual authentication mechanisms.</p>
 </div>
