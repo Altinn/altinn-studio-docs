@@ -83,7 +83,7 @@ A form has been created for a given party. It is not possible from the event its
   "eventType": "Instance:Created",
   "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party:234234422",
-  "eventTime": "2017-08-10T21:03:07+00:00",
+  "eventTime": "2020-02-20T08:00:06.4014168Z",
   "data": {
      },
   "dataVersion": "1.0"
@@ -100,7 +100,7 @@ A user has completed the confirmation task in the process.
   "eventType": "Instance:ConfirmationCompleted",
   "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party:234234422",
-  "eventTime": "2020-09-14T32:03:07+00:00",
+  "eventTime": "2020-03-16T10:23:46.6443563Z",
   "data": {
      },
   "dataVersion": "1.0"
@@ -117,7 +117,7 @@ A user/system has completed the process for an instance
   "eventType": "Instance:ProcessCompleted",
   "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party:234234422",
-  "eventTime": "2020-03-19T55:03:07+00:00",
+  "eventTime":  "2020-02-20T09:06:50.3736712Z",
   "data": {
      },
   "dataVersion": "1.0"
@@ -295,84 +295,12 @@ And when that limit is reached the limitations probably have increased.
 
 #### Event sequencing
 
-The way we do sequencing could affect the correctness of the event feed.
+Events will be sequnced by eventTime. This is a datetime where precision is 7 digits, with an accuracy of 100 nanoseconds.
 
-##### Order by Cosmos DB Timestamp
+The eventTime would be set by a [stored procedure](https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-write-stored-procedures-triggers-udfs) when inserting document. 
 
-When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.
+It will overwrite any eventTime set by the publisher. 
 
-This is stored as epoch time. (Seconds since January 1. 1970)
-
-If we decide to order the feed based on TS we will not know inside a second which event comes first.
-
-We would also need to prevent that the feed is not complete for the latest second when retrieved.
-
-As example, lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.
-
-- 1582113500 - Event A
-- 1582113500 - Event B
-- 1582113500 - Event C
-- 1582113501 - Event D
-- 1582113503 - Event E
-- 1582113504 - Event F
-- 1582113504 - Event G
-- 1582113505 - Event H
-- 1582113505 - Event I
-- 1582113506 - Event J
-- 1582113506 - Event K
-- 1582113506 - Event L
-
-If we return these elements the subscribers could think that all elements inside 1582113506 are included.
-But the truth may be that just milliseconds later the
-
-- 1582113506 - Event M  
-- 1582113506 - Event N  
-
-Was added.  Requesting events with _ts > 1582113506 would cause losing M and N
-
-To prevent this we could always remove events connected to the newest second stored.
-The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included
-
-##### Order by CreatedDateTime set by event component
-
-If we assume that pods in the same cluster have the same time, we could have a strategy that set at createdData time for the event when the 
-event component is storing the event to cosmos db.
-
-As example, lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.
-
-- 2020-02-19T13:59:21.9777054Z - Event A
-- 2020-02-19T13:59:21.5777054Z - Event B
-- 2020-02-19T13:59:21.3757054Z - Event C
-- 2020-02-19T13:59:22.9777054Z - Event D
-- 2020-02-19T13:59:24.9777054Z - Event E
-- 2020-02-19T13:59:25.9777054Z - Event F
-- 2020-02-19T13:59:25.9777054Z - Event G
-- 2020-02-19T13:59:26.9777054Z - Event H
-- 2020-02-19T13:59:27.2345054Z - Event I
-- 2020-02-19T13:59:27.4563454Z - Event K
-- 2020-02-19T13:59:27.8453554Z - Event K
-
-But because of a theoretical delay, the following event could been inserted after.
-
-- 2020-02-19T13:59:27.8353554Z - Event L
-
-The risk could be reduced if the response does not return events newer than some seconds.
-
-##### Order by an event counter in document
-
-In this option we need to be able to add a global counter to the documents in the order they are inserted.
-
-This could theoretically be done in an azure function reading the change log.
-
-This will cause limitations to scalability since we would need to have one bottleneck to produce this.
-
-This is the reason Cosmos DB does not support this.
-
-###### To be investigated
-
-- How to generate a number for sequencing of events
-- How to be able to restart numbering
-- How to be able to scale this?
 
 ### Indexing
 
@@ -380,7 +308,7 @@ The default indexing policy for newly created containers indexes every property 
 enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. 
 This allows you to get high query performance without having to think about indexing and index management upfront.
 
-For the topic and createdDatetime/ts a composite index should be investigated to se if that performs better.
+For the topic and eventTime a composite index should be investigated to se if that performs better.
 
 [See Cosmod DB indexing for details](https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview).
 
