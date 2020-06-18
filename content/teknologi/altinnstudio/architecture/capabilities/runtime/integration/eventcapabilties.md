@@ -1,25 +1,26 @@
 ---
-title: Event capabilites
-description: Description of the event driven architecture for Altinn Apps and Altinn Platform
+title: Event capabilities
+description: Description of the event-driven architecture for Altinn Apps and Altinn Platform
 tags: [architecture]
 weight: 100
-linktitle: Publish & Subscribe
+linktitle: Event capabilities
 alwaysopen: false
 ---
 
 {{%notice warning%}}
-This is work-in-progress. The event driven architecture is still in analysis.
+This is work-in-progress. The event-driven architecture is still in analysis.
 {{% /notice%}}
 
-The new generation of Altinn is moving to an event-driven architecture. This means that Altinn Platform and Altinn Apps
-will publish events that organizations and parties(citizens and businesses) can subscribe to.
+The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
+This means that the Altinn Platform solution and Applications running in Altinn Apps will publish events that
+application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
 ## Overall Concept
 
 ### Events
 
-Events in the new platform would be a combination of standard events defined by the platform and 
-custom events added in an application by application developers. 
+Events in the new platform would be a combination of standard events defined by the platform and
+custom events added in an application by application developers.
 
 Standard events could be
 
@@ -29,17 +30,18 @@ Standard events could be
 
 Customs event could be
 
-- A user have asked for a deduction in a form
+- A user has asked for a deduction in a form
 - A specific validation of data failed
 
-Events would typical have some attributes
+Events would typically have some attributes
 
 - [org] - The organization the event is created for
 - [app] - The app the event is created for
 - [instanceid] - The instanceid
 - [eventtype] - The type of event. created, completed ++++ Probably something we want as free text.
 
-The event would contain limited set of information. To get the full details the subscriber would need to get all details from instance / instance event api. 
+The event would contain a limited set of information. To get the full details the subscriber would need to get all details from
+instance / instance event api.
 
 #### Event Schema
 
@@ -70,11 +72,6 @@ The event would be a JSON object. The event schema would need to be defined. One
 - data can contain a structure of data
 - dataVersion
 - metdataversion
-
-##### To be discussed
-
-- Is partyID ok for the subscribers ok to be returned?
-- Should eventTime be set by event component or publisher
 
 ##### Example 1
 
@@ -131,7 +128,7 @@ A user/system has completed the process for an instance
 
 #### Altinn Platform
 
-Storage is probably the one component that would create the most standard events. 
+Storage is probably the one component that would create the most standard events.
 
 This could be events for the creation of instances when instances state is updated and so on. We would need to define what kind of standard events storage should create. 
 
@@ -141,9 +138,9 @@ The assumption is that all process change events logged to instance events in st
 
 Applications hosted in Altinn Apps would be able to create events.
 
-The application template will contain API so logic in event can publish events based on rules defined by the application developer. 
+The application template will contain API so logic in applications can publish events based on rules defined by the application developer.
 
-This events could be anything.
+These events could be anything.
 
 ### Event subscribers
 
@@ -161,29 +158,30 @@ In many cases, parties use professionals to handle their data in Altinn. These p
 
 ## Requirments
 
-The following requirements is identified for the new event architecture in 
+The following requirements are identified for the new event architecture in Altinn 3.
 
-- It should be possible to subscribe to specific type of events. (Example alls ProcessComplete events for a given app)
-- It should be possible to go at least one year back. 
-- The consumer will keep track on which events the consumer has processed
-- It should be possible to check 
+- It should be possible to subscribe to a specific type of event. (Example alls ProcessComplete events for a given app)
+- It should be possible to go at least one year back.
+- The consumer will keep track of which events the consumer has processed
+- It should be possible to check
+- The architecture should be able to list feed for 5.000.000 users and 1.000.000 businesses
+- The architecture should support more than 1000 publishers
+- The architecture should support more than 250.000.000 events a year.
 
+TODO: Verify requirements
+
+See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
 ## Proposed Event Architecture
 
-
-
-To reduce complexity for clients and reduce lock in to a specific product the proposed solutions is to build
-a event component in Altinn Platform.
+To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions are to build
+an event component in Altinn Platform and not use products like Kafka or Azure Event Hub.
 
 The Event Component will expose REST-APIS.
 
-
-
-
 ### API Structure
 
-The API's will be structured so the URLs are filtered quieries in to the events
+The API's will be structured so the URLs are filtered queries into the events storage
 
 #### Instances events for Org
 
@@ -195,15 +193,16 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}
 
 ##### Usage
 
-This will be used by applications owners to identify changes on instances for their applications.
+This will be used by application owners to identify changes on instances for their applications.
 
 ##### Authorization
 
-We will use scopes from Maskinporten to authorize access. In this way it should also be possbile for a org to delegate access to events for a given org/app.
+We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
+events for a given org/app.
 
 #### Party events
 
-#### Endpoint
+##### Endpoint
 
 ```http
 post {platformurl}/events/instanceeventsforparty/
@@ -221,33 +220,38 @@ This returns the events for a given party identified with a personnumber or orga
     "storedAfter": "2019-06-01T12:00:00Z",
   
 ```
+
 ##### Usage
 
-This is used by end user to see events for a given party.
+This is used by end users to see events for a given party.
 This will list all changes for a given party.
 
 ##### Authorization
 
-Events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
+Access to events need to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
 
 The topic and subject would be used to identify the correct XACML Policy to use. 
 
-Operation would be read and process task will be set to null.
-This way there would be no need to verify the current state of a element.
+The operation would be read and proccess task will be set to null.
+This way there would be no need to verify the current state of an instance.
 
+### Adding events
 
+#### Endpoint
 
+```http
+post {platformurl}/events/
+```
 
 ### Event components
 
-The below diagram shows the different components in the proposes Event Architecture for Altinn 3.
+The below diagram shows the different components in the proposed Event Architecture for Altinn 3.
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object>
 {{% /excerpt%}}
 
 [Full screen](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg) 
-
 
 #### Publishers
 
@@ -257,12 +261,11 @@ They will use a REST API call to post a new event to the add event API.
 
 #### Event Component
 
-The event components exposes REST-APIS for publishing and subscribing to events.
+The event components expose REST-APIS for publishing and subscribing to events.
 
 When a publish request is received it will push the event document to the event storage.
 
 When a request is received it will query the events stored in the event storage.
-
 
 ### Storage technology
 
@@ -270,35 +273,41 @@ Choosing the technology to physical store the events will affect what kind of ca
 event component can expose and what kind of scalability and performance the event architecture will have
 
 ### Cosmos db
+
 Using cosmos DB gives the possiblity to have "endless" number of topics/feeds based on queriries.
 
 Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
 
-#### Partion key
-Currently the limitations on Cosmos DB is that one logical partion can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
+#### Partition key
 
-If we assume events in average on 350 Bytes (the example aboves are around 300 Bytes). This would hold approx 57.000.000 events inside a logical
-partion. If we assume 5 events on average on each instance that would be around 11.000.000 instances per partion key. 
-Looking at the biggest digital services in the current platform this would indicating that using a partion key bases on {org}/{app} is not possible
+Currently the limitations on Cosmos DB is that one logical partition can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
+
+If we assume events in average on 350 Bytes (the examples above are around 300 Bytes). This would hold approx 57.000.000 events
+inside a logiical partition.
+
+If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key.
+Looking at the biggest digital services in the current platform (Altinn 2) this would indicating that using a partition key bases on {org}/{app} is not possible
 because many of them have many more elements.  
 
-Suggestions is to use the subject as partion key. 57.000.000 on a given subject should be more than enough. And when that limit is reached the limitations probably has increased.
+The suggestion is to use the subject as partition key. 57.000.000 on a given subject should be more than enough.
+And when that limit is reached the limitations probably have increased.
 (it was in may 2020 raised from 10GB to 20GB)
 
-#### Event sequensing
+#### Event sequencing
 
-The way we do sequencing could affect the correctnes of the event feed.
+The way we do sequencing could affect the correctness of the event feed.
 
 ##### Order by Cosmos DB Timestamp
+
 When a document is stored to Cosmos DB it has a _ts property created. This contains information about when it was last changed.
 
-This is stored as a epoch time. (Seconds since January 1. 1970)
+This is stored as epoch time. (Seconds since January 1. 1970)
 
-If we decide to order the feed based on TS we will not know inside a second which event that comes first.
+If we decide to order the feed based on TS we will not know inside a second which event comes first.
 
 We would also need to prevent that the feed is not complete for the latest second when retrieved.
 
-As example lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.
+As example, lets say that at time a 1582113506 subscriber request the feeds. At that time the following is stored and can be returned.
 
 - 1582113500 - Event A
 - 1582113500 - Event B
@@ -313,21 +322,23 @@ As example lets say that at time a 1582113506 subscriber request the feeds. At t
 - 1582113506 - Event K
 - 1582113506 - Event L
 
-If we returns this elements the subscribers could think that all ements inside 1582113506 is included. But the truth may be that just milliseconds later the
+If we return these elements the subscribers could think that all elements inside 1582113506 are included.
+But the truth may be that just milliseconds later the
 
 - 1582113506 - Event M  
 - 1582113506 - Event N  
 
-Was added.  Requesting events with _ts > 1582113506 would cause loosing M and N
+Was added.  Requesting events with _ts > 1582113506 would cause losing M and N
 
-To prevent this we could always remove events connected to the newest second stored. The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included
+To prevent this we could always remove events connected to the newest second stored.
+The problem is when filtering is used and all events are old. How to decide if filtering is set so that all events can be included
 
 ##### Order by CreatedDateTime set by event component
 
 If we assume that pods in the same cluster have the same time, we could have a strategy that set at createdData time for the event when the 
 event component is storing the event to cosmos db.
 
-As example lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.
+As example, lets say that at time a 2020-02-19T13:59:27.8453654 subscriber request the feeds. At that time the following is stored and can be returned.
 
 - 2020-02-19T13:59:21.9777054Z - Event A
 - 2020-02-19T13:59:21.5777054Z - Event B
@@ -341,29 +352,27 @@ As example lets say that at time a 2020-02-19T13:59:27.8453654 subscriber reques
 - 2020-02-19T13:59:27.4563454Z - Event K
 - 2020-02-19T13:59:27.8453554Z - Event K
 
-But because of a theoretical delay the following event could been inserted after.
+But because of a theoretical delay, the following event could been inserted after.
 
 - 2020-02-19T13:59:27.8353554Z - Event L
 
 The risk could be reduced if the response does not return events newer than some seconds.
 
-##### Order by a event counter in document
+##### Order by an event counter in document
 
 In this option we need to be able to add a global counter to the documents in the order they are inserted.
 
-This could theoretical be done in a azure function reading the change log.
+This could theoretically be done in an azure function reading the change log.
 
-This will cause limitation to scalability since we would need to have one bottle neck to produce this.
+This will cause limitations to scalability since we would need to have one bottleneck to produce this.
 
 This is the reason Cosmos DB does not support this.
 
-
 ###### To be investigated
 
-- How to generate number
+- How to generate a number for sequencing of events
 - How to be able to restart numbering
 - How to be able to scale this?
-
 
 ### Indexing
 
@@ -390,11 +399,11 @@ This delegation is done through Maskinporten
 In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.
 
-## Detailed Scenerious
+## Detailed Scenarios
 
 ### Org waiting on ProcessComplete for a given app
 
-In this scenario an org is waiting on end users to complete one given app 
+In this scenario, an org is waiting on end users to complete one given app 
 
 1. System (consumer) authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}
 2. System exchanges maskinporten token to a altinn token. Scopes is included in new token
@@ -411,6 +420,8 @@ get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&even
 
 
 ### User needing to know if there are anything new for a party
+
+In this scenario, a user wants to see if there are any changes for a client or the user itself
 
 1. System authenticates end user with ID-porten
 2. System exchanges token with Altinn
@@ -429,13 +440,16 @@ post {platformurl}/events/instanceeventsforparty/
 
 ### Organization needing to know if there are anything new for a party
 
+In this scenario a professional organization wants to see if there are any changes for a client or the organization itself.
+
 1. System authenticates end user with Maskinporten
 2. System exchanges token with Altinn
-3. System calls event api 
+3. System calls event api
 
 ```http
 post {platformurl}/events/instanceeventsforparty/
 ```
+
 4. Event component query events in database 
 5. Event components authorized the event and filter away events where user is not authorized
 6. Events are returned
@@ -445,20 +459,36 @@ post {platformurl}/events/instanceeventsforparty/
 
 ### Anonym access to a given instances events.
 
-1. System calls event api 
+In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
+the instance without the user needing to log in.
+
+1. System calls event api
 
 ```http
 post {platformurl}/events/instanceeventsforinstance/{instanceId}
 ```
-2. Event component query events in database 
+
+2. Event component query events in database
 3. Events are returned
-7. Subscriber process events
-8. Subscriber gets relevant data
+4. The Subscriber process events
+5. The Subscriber gets relevant data
 
 
+## Push Events
 
+In future we can add push of events to weebhooks or mobile phone number as sms.
 
+This has not been detailed yet but the solution could contain:
 
+- User can set up URL webhook that would receive all or a filtered list of events
+- User can set up a notification SMS number to get a notification about events.
+- There can be a mobile app that can listen to push notifcations.
+
+## Open Clarification
+
+- Is partyID ok for the subscribers ok to be returned?
+- Should eventTime be set by event component or publisher
+- Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events?
 
 ## Other event concepts in the platform
 
