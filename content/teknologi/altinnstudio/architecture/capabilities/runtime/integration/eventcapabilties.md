@@ -228,11 +228,11 @@ This will list all changes for a given party.
 
 ##### Authorization
 
-Access to events need to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
+Access to events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
 
 The topic and subject would be used to identify the correct XACML Policy to use. 
 
-The operation would be read and proccess task will be set to null.
+The operation would be read and the proccess task will be set to null.
 This way there would be no need to verify the current state of an instance.
 
 ### Adding events
@@ -274,20 +274,20 @@ event component can expose and what kind of scalability and performance the even
 
 ### Cosmos db
 
-Using cosmos DB gives the possiblity to have "endless" number of topics/feeds based on queriries.
+Using CosmosDB gives the possibility to have "endless" number of topics/feeds based on queries.
 
-Based on filters on the db query you could get a endles amount of feeds containg events with specific criteria.
+Based on filters on the db query you could get an endless amount of feeds containg events with specific criteria.
 
 #### Partition key
 
-Currently the limitations on Cosmos DB is that one logical partition can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
+Currently, the limitations on Cosmos DB are that one logical partition can [maximum be 20GB](https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits).
 
 If we assume events in average on 350 Bytes (the examples above are around 300 Bytes). This would hold approx 57.000.000 events
 inside a logiical partition.
 
 If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key.
-Looking at the biggest digital services in the current platform (Altinn 2) this would indicating that using a partition key bases on {org}/{app} is not possible
-because many of them have many more elements.  
+Looking at the biggest digital services in the current platform (Altinn 2) this indicates that using a partition key 
+based on {org}/{app} is not possible because many of them have many more elements.  
 
 The suggestion is to use the subject as partition key. 57.000.000 on a given subject should be more than enough.
 And when that limit is reached the limitations probably have increased.
@@ -413,7 +413,7 @@ This has not been detailed yet but the solution could contain:
 
 ## Open Clarification
 
-- Is partyID ok for the subscribers ok to be returned?
+- Is partyID ok for the subscribers to be returned? (need to call service to map to orgnr/ssn)
 - Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
 timing an paralell events.
 
@@ -422,4 +422,4 @@ timing an paralell events.
 Events are used in different scenarios in the platform.
 
 - Instance Events - Events that happen on a given instance. It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
-- Application logic events - This is events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
+- Application logic events - These are events where app developers could implement logic to get a specific behavior. Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
