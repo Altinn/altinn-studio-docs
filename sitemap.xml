@@ -155,6 +155,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/</loc>
   </url>
   
@@ -163,7 +167,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/</loc>
   </url>
   
   <url>
@@ -656,10 +660,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/slide/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/</loc>
   </url>
   
   <url>
