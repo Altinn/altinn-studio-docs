@@ -3,6 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/design/designprinsipper/</loc>
   </url>
   
@@ -16,6 +20,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/frontend-retningslinjer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/</loc>
   </url>
   
   <url>
@@ -155,19 +163,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/altinn-studio-repos/structure/rule-handler/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/</loc>
   </url>
   
   <url>
