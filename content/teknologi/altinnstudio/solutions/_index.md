@@ -1,7 +1,7 @@
 ---
 title: Solutions
 description: The latest generation Altinn platform consist of serveral solutions.
-weight: 100
+weight: 91
 alwaysopen: false
 aliases:
  - /solutions/

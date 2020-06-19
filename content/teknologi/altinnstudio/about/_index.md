@@ -2,7 +2,7 @@
 title: About Altinn 3
 linktitle: About
 description: Altinn 3 is the third generation platform for developing and hosting digital services. The concept is that agencies can develop digital services and deploy them as containers to a higly scalable cloud infrastructure.
-weight: 99
+weight: 90
 alwaysopen: false
 aliases:
  - /about/
