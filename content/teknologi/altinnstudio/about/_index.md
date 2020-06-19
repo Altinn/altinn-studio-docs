@@ -1,18 +1,12 @@
 ---
-title: About Altinn
+title: About Altinn 3
 linktitle: About
-description: Description of Altinn 3 and the Altinn Studio, Altinn Apps and Altinn Platform solutions
-toc: true
+description: Altinn 3 is the third generation platform for developing and hosting digital services. The concept is that agencies can develop digital services and deploy them as containers to a higly scalable cloud infrastructure.
 weight: 99
 alwaysopen: false
 aliases:
  - /about/
 ---
-
-## What is Altinn 3?
-
-Altinn 3 is the third generation platform for developing and hosting digital services. The concept is that agencies can
-develop digital services and deploy them as containers to a higly scalable cloud infrastructure.
 
 The platform is is owned by the Norwegian Digitalization Agency and developed as an open source platform.
 
