@@ -9998,32 +9998,336 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 
 <h3 id="environment-variables-required-for-different-test-files">Environment variables required for different test files</h3>
 
-<p>| Tests/env variables                               |  env  | username | userpwd |  org  | level2app | testapp | level1user | level1app | level3app |
- | :&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash; | :&mdash;: | :&mdash;&mdash;: | :&mdash;&ndash;: | :&mdash;: | :&mdash;&mdash;-: | :&mdash;&ndash;: | :&mdash;&mdash;&ndash;: | :&mdash;&mdash;-: | :&mdash;&mdash;-: |
- | platform/pdf/pdf.js                               |   X   |          |         |       |           |         |            |           |           |
- | platform/authorization/authorization.js           |   X   |    X     |    X    |   X   |     X     |    X    |            |           |           |
- | platform/register/register.js                     |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/profile/profile.js                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/receipt/receipt.js                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/storage/instances.js                     |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/storage/data.js                          |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/storage/events.js                        |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/storage/messageboxinstances.js           |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/storage/process.js                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/storage/applications.js                  |   X   |    X     |    X    |   X   |     X     |    X    |            |           |           |
- | platform/storage/texts.js                         |   X   |    X     |    X    |   X   |     X     |    X    |            |           |           |
- | platform/negativetests/withoutauthentication.js   |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | platform/negativetests/lowersecuritylevellogin.js |   X   |    X     |    X    |   X   |           |         |            |           |     X     |
- | platform/negativetests/withoutallowedroles.js     |   X   |    X     |    X    |   X   |           |         |     X      |     X     |           |
- | app/instances.js                                  |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | app/data.js                                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | app/process.js                                    |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | app/end2end.js                                    |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | app/e2erf0002.js                                  |   X   |          |         |   X   |     X     |         |            |           |           |
- | app/rf0002withattachment.js                       |   X   |          |         |   X   |     X     |         |            |           |           |
- | app/negativetests/withoutauthentication.js        |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
- | app/negativetests/lowersecuritylevellogin.js      |   X   |    X     |    X    |   X   |           |         |            |           |     X     |
- | app/negativetests/withoutallowedroles.js          |   X   |    X     |    X    |   X   |           |         |     X      |     X     |           |</p>
+<table>
+<thead>
+<tr>
+<th align="left">Tests/env variables</th>
+<th align="center">env</th>
+<th align="center">username</th>
+<th align="center">userpwd</th>
+<th align="center">org</th>
+<th align="center">level2app</th>
+<th align="center">testapp</th>
+<th align="center">level1user</th>
+<th align="center">level1app</th>
+<th align="center">level3app</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">platform/pdf/pdf.js</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/authorization/authorization.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/register/register.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/profile/profile.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/receipt/receipt.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/storage/instances.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/storage/data.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/storage/events.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/storage/messageboxinstances.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/storage/process.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/storage/applications.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/storage/texts.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/negativetests/withoutauthentication.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">platform/negativetests/lowersecuritylevellogin.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+
+<tr>
+<td align="left">platform/negativetests/withoutallowedroles.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/instances.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/data.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/process.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/end2end.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/e2erf0002.js</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/rf0002withattachment.js</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/negativetests/withoutauthentication.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+
+<tr>
+<td align="left">app/negativetests/lowersecuritylevellogin.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+
+<tr>
+<td align="left">app/negativetests/withoutallowedroles.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
 
 <h3 id="k6-test-pipeline-in-azure-devops">k6 test pipeline in Azure Devops</h3>
 
