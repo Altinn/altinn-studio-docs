@@ -82,3 +82,18 @@ more limited resource.
 ## Roles
 Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles. 
 
+
+## Scopes
+API Scopes are used in the solutions in some uses cases where organizations are authenticated through the external ID-Provider "MaskinPorten"
+
+The organization need to have been delegated scopes in MaskinPorten to do some specific operations.
+
+Scopes is always used together with the authorization rules.
+
+### Scopes
+
+- altinn:instances.read : Give system the right to access API for reading instances
+- altinn:instances.write : Give system the right to access API for writing to instances
+
+
+

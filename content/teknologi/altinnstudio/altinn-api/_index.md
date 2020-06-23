@@ -424,8 +424,9 @@ Will return a multipart http response with the following content:
 The last step for application owner in all processes is to confirm that they consider the case associated with an instance as finished. Its purpose is to tell Altinn that the application owner has downloaded all data, finished any internal processing, and if applicable, posted a response. The original instance is no longer needed. Only the first call to this operation will be registered. Consecutive calls are ignored.
 
 ```http
-GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/complete
+POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/complete
 ```
+The body of the request is currently not used by the endpoint and should preferably be nothing more than an empty string.
 
 The operation returns an updated instance with the added `CompleteConfirmation`.
 

@@ -12,13 +12,21 @@ TODO
 git add .
 
 
+
+
 git commit -m
 "<message>"
 
 
 
+### Revert local commit
 
 
+```bash
+
+git reset --soft HEAD~1
+
+```
 
 
 ## Azure CLI

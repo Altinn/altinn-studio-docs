@@ -7,13 +7,13 @@ weight: 100
 alwaysopen: false
 ---
 
-### Authentication for application owners
+## Authentication for application owners
 
 Application owners should be authenticated with [maskinporten](https://difi.github.io/felleslosninger/maskinporten_overordnet.html).
 
-#### API provisioning in Maskinporten
+### API provisioning in Maskinporten
 
-##### Api-provider
+#### Api-provider
 
 To provide an API in maskinporten Altinn has to do two operations.
 
@@ -37,7 +37,7 @@ PUT /scopes/access/889640782?scope=altinn:apps.read
 Here we have given organisation 889640782 access to the scope `altinn:instances/metadata.read`
 The organisation must then create a client that uses the scope.
 
-##### Api-consumer
+#### Api-consumer
 
 To access the Altinn api an organisation must create a client
 
@@ -54,12 +54,12 @@ POST /clients/
 }
 ```
 
-#### Scopes
+### Scopes
 
 scope names must follow the following regexp: `^([a-z0-9]+\/?)+[a-z0-9]+(\.[a-z0-9]+)?$?`.
 It means that we cannot have - or _ in scope names.
 
-##### All instances scope
+#### All instances scope
 
 ```cs
 altinn:instances.read
@@ -72,7 +72,7 @@ Clients with *write* scope will be able to instantiate applications through dire
 update process state, upload data, validate data, and change process of an instance.
 Clients with *read* token will only be allowed to read metadata, data and events information.
 
-#### Exchange of JWT token
+### Exchange of JWT token
 
 Application owners register clients in Maskinporten and selects the scope they need.
 
@@ -80,7 +80,7 @@ A client is authenticated by *Maskinporten* and are given a *Maskinporten JWT ac
 
 This token has to be validated and replaced with an *Altinn JWT access token* which should be used to access the apis.
 
-##### Maskinporten JWT access token (input)
+#### Maskinporten JWT access token (input)
 
 Client provides a self-contained access-token.
 
@@ -119,7 +119,7 @@ The token looks something like this (after decoding):
 
 Maksinporten provides the legal `consumer` (the client) in ISO 6523 format. The client_orgno claim is deprecated.
 
-##### The Altinn JWT Access token (output)
+#### The Altinn JWT Access token (output)
 
 The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.
 
@@ -147,16 +147,16 @@ The convert operation validates the incomming token and generates a new JWT toke
 <<signature>>
 ```
 
-### Authentication for end user system
+## Authentication for end user system
 
 End user systems should be authentication with [ID-porten](https://difi.github.io/felleslosninger/idporten_overordnet.html).
 When authenticated the system may exchange a token provided by ID-porten with an Altinn token by instructions below.
 
-##### Exchange of JWT token
+#### Exchange of JWT token
 
 This token has to be validated and replaced with an *Altinn JWT access token* which should be used to access the apis.
 
-###### ID-porten JWT access token (input)
+##### ID-porten JWT access token (input)
 
 ```http
 Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
@@ -193,7 +193,7 @@ The token looks something like this (after decoding):
 <<signature>>
 ```
 
-###### The Altinn JWT Access token (output)
+##### The Altinn JWT Access token (output)
 
 The exchange operation validates the incomming token and generates a new JWT token that contains user data
 retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.
@@ -222,7 +222,7 @@ pid is referred to as ssn (social security number) i Altinn Platform.
 <<signature>>
 ```
 
-### Open ID Connect configuration
+## Open ID Connect configuration
 
 {{%notice warning%}}
 This is work-in-progress. The response is still missing required information and might be inconsistent with actual authentication mechanisms.
