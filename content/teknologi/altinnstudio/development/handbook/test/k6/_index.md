@@ -46,6 +46,7 @@ docker-compose run k6 run --vus=20 --stage 10s:5,40s:20,10s:5 /src/tests/platfor
 ![Grafana darsboard](grafana.PNG "Grafana darsboard")
 
 ### Environment variables required for different test files
+
  | Tests/env variables                               |  env  | username | userpwd |  org  | level2app | testapp | level1user | level1app | level3app |
  | :------------------------------------------------ | :---: | :------: | :-----: | :---: | :-------: | :-----: | :--------: | :-------: | :-------: |
  | platform/pdf/pdf.js                               |   X   |          |         |       |           |         |            |           |           |
@@ -75,6 +76,7 @@ docker-compose run k6 run --vus=20 --stage 10s:5,40s:20,10s:5 /src/tests/platfor
  
 ### k6 test pipeline in Azure Devops
 [Azure Devops Pipeline for Platform](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=96)
+
 [Azure Devops Pipeline for App](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=118)
 
 ### Visualizing k6 results
