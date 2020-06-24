@@ -9922,7 +9922,7 @@ if(host != "localhost")
 <li><a href="#application-owners">Application Owners</a></li>
 <li><a href="#application-users">Application Users</a></li>
 </ul></li>
-<li><a href="#two-different-apis">Two different APIs</a>
+<li><a href="#the-apis">The APIs</a>
 <ul>
 <li><a href="#application-api">Application API</a></li>
 <li><a href="#platform-storage-api">Platform Storage API</a></li>
@@ -9941,9 +9941,7 @@ if(host != "localhost")
 </ul></li>
 <li><a href="#application-owner-download">Application owner download</a>
 <ul>
-<li><a href="#downloads-is-logged-on-the-data-element-1">Downloads is logged on the data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
 <li><a href="#confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</a></li>
-<li><a href="#download-a-complete-instance-with-data-elements-and-corresponding-pdfs-1">Download a complete instance with data elements and corresponding pdfs<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
 <li><a href="#confirm-instance-completed">Confirm instance completed</a></li>
 </ul></li>
 <li><a href="#query-instances">Query instances</a></li>
@@ -10049,30 +10047,31 @@ The new API will be available to both parties, but with some functions that will
 <li>View status of an instance</li>
 </ul>
 
-<h2 id="two-different-apis">Two different APIs</h2>
+<h2 id="the-apis">The APIs</h2>
 
-<p>The new solution will have multiple APIs. There are two APIs available for Application Owners and Users.
-There will be one API for each application cluster, called the <em>Application API</em>, and one for the Platform Storage cluster, called <em>Platform Storage API</em>.
-Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change process state of the application instance.
-The Platform Storage API will provide access to information stored by the application. <a href="/architecture/application/altinn-platform">More information on the Platform apis can be found here</a></p>
+<p>The new solution will have multiple APIs, but they can be divided in two groups. The App APIs and the Platform API.</p>
 
 <h3 id="application-api">Application API</h3>
 
-<p>An api that provides access to all instances of a specific app.</p>
+<p>An API that provides access to all instances of a specific app. Every App will expose almost identical endpoints and functionality. External parties should need only one client implementation across all App APIs. Technically there is nothing preventing an app owner from adding or making changes, but in those cases it is probably not a normal App and clients would require special handling for it anyway.</p>
+
+<p>The application API gives access to App specific instances. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.</p>
 
 <pre><code class="language-http">appPath = https://org.apps.altinn.no/org/app
 </code></pre>
 
-<p>Identifies the organisation cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.</p>
+<p>Identifies the organisation cluster and the application.</p>
 
 <h3 id="platform-storage-api">Platform Storage API</h3>
 
 <p>An api that provides access to all instances of all apps, it should be used to access metadata about instances and to download data elements.</p>
 
+<p>Should be used by application owners to download data elements. Downloads will be logged.</p>
+
 <pre><code class="language-http">storagePath = https://platform.altinn.no/storage
 </code></pre>
 
-<p>Should be used by application owners to download data elements. Downloads will be logged.</p>
+<p>The Platform Storage API will provide access to information stored by the application. <a href="/architecture/application/altinn-platform">More information on the Platform apis can be found here</a></p>
 
 <h2 id="create-an-application-instance">Create an application instance</h2>
 
@@ -10342,9 +10341,15 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 
 <h2 id="application-owner-download">Application owner download</h2>
 
-<h3 id="downloads-is-logged-on-the-data-element-1">Downloads is logged on the data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
+<p>Application Owner can download instances and data elements using the same endpoints as the end user. When done they need to register that the data has been downloaded.</p>
+
+<p>Downloads is logged on the data element<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></p>
 
 <h3 id="confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</h3>
+
+<div class="notices warning" ><p>These endpoints are currently not available. They must be moved to be a part of the App API instead.</p>
+</div>
+
 
 <p>Application owner must confirm that the data file that the data element represent was downloaded. This can be done for one data element or for all data elements fo the instance.</p>
 
@@ -10372,22 +10377,6 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 ]
 }
 </code></pre>
-
-<h3 id="download-a-complete-instance-with-data-elements-and-corresponding-pdfs-1">Download a complete instance with data elements and corresponding pdfs<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
-
-<pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
-</code></pre>
-
-<p>Will return a multipart http response with the following content:</p>
-
-<ol>
-<li>instance metadata (application/json)</li>
-<li>the first data element (application/xml)</li>
-<li>second data element (e.g. attachement)</li>
-<li>third data element (e.g. image)</li>
-<li>fourth data element (e.g. pdf)</li>
-<li>&hellip;</li>
-</ol>
 
 <h3 id="confirm-instance-completed">Confirm instance completed</h3>
 
