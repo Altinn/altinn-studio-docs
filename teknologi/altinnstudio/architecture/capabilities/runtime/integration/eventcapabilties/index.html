@@ -10067,23 +10067,21 @@ custom events added in an application by application developers.</p>
 
 <h4 id="event-schema">Event Schema</h4>
 
-<p>The event would be a JSON object.
-One option is to use the <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema.</p>
+<p>The Altinn 3 will use the defined <a href="https://cloudevents.io/">CloudEvents</a> specification to describe events in Altinn Apps and Altinn Platform.</p>
 
-<pre><code class="language-json">[
-  {
-    &quot;topic&quot;: string,
-    &quot;subject&quot;: string,
-    &quot;id&quot;: string,
-    &quot;eventType&quot;: string,
-    &quot;eventTime&quot;: string,
-    &quot;data&quot;:{
-      object-unique-to-each-publisher
-    },
-    &quot;dataVersion&quot;: string,
-    &quot;metadataVersion&quot;: string
-  }
-]
+<pre><code class="language-json">{
+    &quot;specversion&quot; : &quot;1.0&quot;,
+    &quot;type&quot; : &quot;com.github.pull.create&quot;,
+    &quot;source&quot; : &quot;https://github.com/cloudevents/spec/pull&quot;,
+    &quot;subject&quot; : &quot;123&quot;,
+    &quot;id&quot; : &quot;A234-1234-1234&quot;,
+    &quot;time&quot; : &quot;2018-04-05T17:31:00Z&quot;,
+    &quot;comexampleextension1&quot; : &quot;value&quot;,
+    &quot;comexampleothervalue&quot; : 5,
+    &quot;datacontenttype&quot; : &quot;text/xml&quot;,
+    &quot;data&quot; : &quot;&lt;much wow=\&quot;xml\&quot;/&gt;&quot;
+}
+
 </code></pre>
 
 <ul>
