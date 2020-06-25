@@ -14,7 +14,7 @@ where we are going to talk about-
 
 4
 00:00:11,400 --> 00:00:15,760
-We three members of the team that's
+We are three members of the team that's
 building the Altinn 3 platform-
 
 5
@@ -96,11 +96,11 @@ mostly front-end these days.
 21
 00:01:08,560 --> 00:01:10,880
 Outside of work,
-I have a one year old-
+I have a one-year-old-
 
 22
 00:01:10,960 --> 00:01:13,880
--who keeps my busy most of the time.
+-who keeps me busy most of the time.
 
 23
 00:01:13,960 --> 00:01:17,520
@@ -169,11 +169,11 @@ talk about the Altinn 3 project.
 36
 00:02:07,680 --> 00:02:11,360
 How that started
-and our technical principles.
+and the technical principles
 
 37
 00:02:11,440 --> 00:02:13,280
-We are building a new platform.
+we are using when building the new platform.
 
 38
 00:02:13,360 --> 00:02:16,400
@@ -405,7 +405,7 @@ So back again to the agency-
 86
 00:04:49,200 --> 00:04:51,680
 -and the need for having data
- from the government.
+ from the citizens.
 
 87
 00:04:51,760 --> 00:04:56,360
@@ -553,7 +553,7 @@ using .NET Core.
 
 117
 00:06:38,200 --> 00:06:42,800
-We wanted to use React a front-end,
+We wanted to use React as front-end,
 and Docker and Kubernetes.
 
 118
@@ -896,7 +896,7 @@ the Altinn Studio Solution.
 
 189
 00:10:58,120 --> 00:11:00,520
-This is our design time solution-
+This is our design-time solution-
 
 190
 00:11:00,600 --> 00:11:04,400
@@ -929,7 +929,7 @@ the Altinn Platform Solution,-
 196
 00:11:21,880 --> 00:11:26,880
 -which provides the common
- back-end functionality for the app.
+ back-end functionality for the apps.
 
 197
 00:11:28,880 --> 00:11:32,960
@@ -1022,11 +1022,11 @@ for all of the apps.
 216
 00:12:43,720 --> 00:12:49,640
 The app template is
-a .NET Core MVC Application.
+a .NET Core MVC Application,-
 
 217
 00:12:49,720 --> 00:12:51,280
-Completely standard.
+-completely standard.
 
 218
 00:12:51,360 --> 00:12:55,680
@@ -1060,7 +1060,7 @@ contain-
 224
 00:13:13,880 --> 00:13:17,360
 We've also added
-placeholders for Custom Logic-
+placeholders for custom logic-
 
 225
 00:13:17,440 --> 00:13:19,880
@@ -1157,7 +1157,7 @@ might have to fill in a form.
 
 245
 00:14:29,080 --> 00:14:31,760
-This would be a Data Type Task.
+This would be a Data type task.
 
 246
 00:14:31,840 --> 00:14:35,360
@@ -1166,7 +1166,7 @@ that their data is correct.
 
 247
 00:14:35,440 --> 00:14:38,720
-So this would be a Confirmation Task.
+So this would be a Confirmation task.
 
 248
 00:14:38,800 --> 00:14:42,480
@@ -1180,7 +1180,7 @@ wait for some response-
 
 250
 00:14:45,480 --> 00:14:47,680
-This would be the Feedback Type Task.
+This would be the Feedback type task.
 
 251
 00:14:47,760 --> 00:14:50,640
@@ -1190,7 +1190,7 @@ that we support.
 252
 00:14:50,720 --> 00:14:55,600
 And they can be combined in any way
-to create process.
+to create a process.
 
 253
 00:14:55,680 --> 00:15:00,880
@@ -1204,7 +1204,7 @@ our configuration files,-
 
 255
 00:15:03,240 --> 00:15:09,120
--we tried were possible to use
+-we tried where possible to use
  existing standards for the format.
 
 256
@@ -1254,7 +1254,7 @@ customize the apps through code.
 265
 00:15:53,920 --> 00:15:58,120
 As I mentioned, we set up
-some placeholders for Custom Logic.
+some placeholders for custom logic.
 
 266
 00:15:58,200 --> 00:16:03,360
@@ -1320,7 +1320,8 @@ front-end to do what you want.
 
 279
 00:16:49,000 --> 00:16:52,360
-Replace it with something different.
+Allright - replace it with something
+different.
 
 280
 00:16:52,440 --> 00:16:56,080
@@ -1361,7 +1362,7 @@ replace it with something different.
 
 288
 00:17:25,120 --> 00:17:27,720
-Maybe even a Java application.
+Maybe even a Java application...
 
 289
 00:17:29,840 --> 00:17:33,920
@@ -1370,7 +1371,7 @@ I would not choose to replace-
 
 290
 00:17:34,000 --> 00:17:39,640
--our beautiful .NET app template
+-our beautiful, amazing .NET app template
  with a Java application.
 
 291
@@ -1443,21 +1444,21 @@ So we decided to build our own tool-
 305
 00:18:38,640 --> 00:18:42,440
 -instead of using
- existing tool to do this.
+ existing tools to do this.
 
 306
 00:18:42,520 --> 00:18:47,680
-So we built a drag and drop
+So we built a drag-and-drop
 Forms Editor using React.
 
 307
 00:18:48,720 --> 00:18:53,320
 And this Forms Editor has
-a library of available components.
+a library of available components,-
 
 308
 00:18:54,560 --> 00:18:58,720
-That can be dragged into
+-that can be dragged into
 the form layout and then configured.
 
 309
@@ -1492,7 +1493,7 @@ it defines how the form should look.
 315
 00:19:27,680 --> 00:19:34,240
 At runtime, the app front-end
-then parcels this layout file-
+then parses this layout file-
 
 316
 00:19:34,320 --> 00:19:36,440
@@ -1501,7 +1502,7 @@ then parcels this layout file-
 317
 00:19:38,760 --> 00:19:43,280
 This configuration
-is for the Data Type Tasks,-
+is for the Data type tasks,-
 
 318
 00:19:43,360 --> 00:19:45,800
@@ -1532,7 +1533,7 @@ So far I've talked about the apps.
 
 324
 00:20:05,640 --> 00:20:10,880
-But how do we develop apps
+But how do we actually develop apps
 into complete digital services?
 
 325
@@ -1575,11 +1576,11 @@ texts for language support.
 333
 00:20:40,600 --> 00:20:45,040
 We have some support
-for simple code editing.
+for simple code editing,-
 
 334
 00:20:45,120 --> 00:20:49,360
-Using an embedded code editor
+-using an embedded code editor, 
 and of course deploy.
 
 335
@@ -1645,11 +1646,11 @@ for multiple developers-
 347
 00:21:36,240 --> 00:21:41,240
 And all of the files are version
-controlled, like normal source code.
+controlled, just like normal source code.
 
 348
 00:21:42,400 --> 00:21:45,720
-We have set up load balancer to root-
+We have set up load balancer to route-
 
 349
 00:21:45,800 --> 00:21:49,360
@@ -1662,7 +1663,7 @@ We have set up load balancer to root-
 
 351
 00:21:55,320 --> 00:21:59,520
-Building an application through
+Building applications through
 a graphical user interface,-
 
 352
@@ -1718,7 +1719,7 @@ back up to the App Repository-
 
 363
 00:22:36,400 --> 00:22:38,320
--for deploying.
+-for deploy.
 
 364
 00:22:39,960 --> 00:22:46,680
@@ -1770,8 +1771,8 @@ in parallel with the apps-
 
 374
 00:23:23,320 --> 00:23:29,520
--in order to test the apps locally
- on the fly while developing.
+-in order to test the apps locally,
+ on the fly, while developing.
 
 375
 00:23:29,600 --> 00:23:32,880
@@ -1781,7 +1782,7 @@ by the development team-
 376
 00:23:32,960 --> 00:23:36,840
 -when we're developing
- new features for the app.
+ new features for the apps.
 
 377
 00:23:41,000 --> 00:23:42,920
@@ -1790,7 +1791,7 @@ Let's look at Deploy.
 378
 00:23:43,000 --> 00:23:46,400
 Apps are deployed
-from the Altinn Studio Solution-
+from the Altinn Studio solution-
 
 379
 00:23:46,480 --> 00:23:50,720
@@ -3706,7 +3707,7 @@ an open backlog on GitHub-
 
 780
 00:48:05,600 --> 00:48:09,800
--"plane" GitHub as a tool-
+-"plain" GitHub as a tool-
 
 781
 00:48:09,880 --> 00:48:13,800
@@ -4082,7 +4083,7 @@ a PDF team, and etc.?
 
 859
 00:53:23,040 --> 00:53:26,880
-So are the different teams available?
+So are there different teams available?
 
 860
 00:53:26,960 --> 00:53:31,240
@@ -4100,7 +4101,7 @@ so we are covering more components.
 
 863
 00:53:41,840 --> 00:53:45,360
-But there are special members
+But there are special members of the team
 that focus on different components.
 
 864
@@ -4200,8 +4201,8 @@ several Kubernetes clusters-
 
 884
 00:55:00,680 --> 00:55:06,320
--and Application Insights and Cosmos DB,
- how are we hosting the costs?
+-and Application Insights, and Cosmos DB,
+how are we hosting the costs?
 
 885
 00:55:06,400 --> 00:55:11,560
@@ -4328,7 +4329,7 @@ barely mentioned at the end,-
 
 911
 00:56:38,200 --> 00:56:44,280
-In the existing application we do...
+In the existing platform we do...
 
 912
 00:56:44,360 --> 00:56:47,200
@@ -4377,7 +4378,7 @@ during the development time-
 921
 00:57:18,440 --> 00:57:24,320
 I don't believe we want to go 100 %
-user-friendly like you talked about.
+user-friendly like we talked about.
 
 922
 00:57:24,400 --> 00:57:25,760
