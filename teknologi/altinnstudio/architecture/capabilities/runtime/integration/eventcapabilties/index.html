@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the event-driven architecture for Altinn Apps and Altinn Platform">
+    <meta name="description" content="Description of the event-driven architecture for Altinn Apps and Altinn Platform.">
 
 
     
@@ -9918,6 +9918,8 @@ if(host != "localhost")
             
               <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
             
+              <a class="label label-default" href="https://docs.altinn.studio/tags/events">events</a>
+            
           </div>
         
         <div id="body-inner">
@@ -9927,10 +9929,91 @@ if(host != "localhost")
                 Event capabilities
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the event-driven architecture for Altinn Apps and Altinn Platform</p>
+              <p class="a-leadText" id="leadText">Description of the event-driven architecture for Altinn Apps and Altinn Platform.</p>
             
           
 
+          
+            <h2>På denne siden:</h2>
+              <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#overall-concept">Overall Concept</a>
+<ul>
+<li><a href="#events">Events</a>
+<ul>
+<li><a href="#event-schema">Event Schema</a>
+<ul>
+<li><a href="#example-1">Example 1</a></li>
+<li><a href="#example-2">Example 2</a></li>
+<li><a href="#example-3">Example 3</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#event-producers">Event Producers</a>
+<ul>
+<li><a href="#altinn-platform">Altinn Platform</a></li>
+<li><a href="#applications">Applications</a></li>
+</ul></li>
+<li><a href="#event-subscribers">Event subscribers</a>
+<ul>
+<li><a href="#orgs-application-owners">Orgs (application owners)</a></li>
+<li><a href="#parties-persons-and-organizations">Parties (persons and organizations)</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#requirments">Requirments</a></li>
+<li><a href="#proposed-event-architecture">Proposed Event Architecture</a>
+<ul>
+<li><a href="#api-structure">API Structure</a>
+<ul>
+<li><a href="#instances-events-for-org">Instances events for Org</a>
+<ul>
+<li><a href="#endpoint">Endpoint</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#authorization">Authorization</a></li>
+</ul></li>
+<li><a href="#party-events">Party events</a>
+<ul>
+<li><a href="#endpoint-1">Endpoint</a></li>
+<li><a href="#usage-1">Usage</a></li>
+<li><a href="#authorization-1">Authorization</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#adding-events">Adding events</a>
+<ul>
+<li><a href="#endpoint-2">Endpoint</a></li>
+</ul></li>
+<li><a href="#event-components">Event components</a>
+<ul>
+<li><a href="#publishers">Publishers</a></li>
+<li><a href="#event-component">Event Component</a></li>
+</ul></li>
+<li><a href="#storage-technology">Storage technology</a></li>
+<li><a href="#cosmos-db">Cosmos DB</a>
+<ul>
+<li><a href="#partition-key">Partition key</a></li>
+<li><a href="#event-sequencing">Event sequencing</a></li>
+</ul></li>
+<li><a href="#indexing">Indexing</a></li>
+</ul></li>
+<li><a href="#delegating-access-to-events">Delegating access to events</a>
+<ul>
+<li><a href="#delegating-org-access">Delegating Org access</a></li>
+<li><a href="#delegating-party-event-access">Delegating party event access</a></li>
+</ul></li>
+<li><a href="#detailed-scenarios">Detailed Scenarios</a>
+<ul>
+<li><a href="#org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</a></li>
+<li><a href="#user-needing-to-know-if-there-is-anything-new-for-a-party">User needing to know if there is anything new for a party</a></li>
+<li><a href="#organization-needing-to-know-if-there-are-anything-new-for-a-party">Organization needing to know if there are anything new for a party</a></li>
+<li><a href="#anonym-access-to-a-given-instances-events">Anonym access to a given instances events.</a></li>
+</ul></li>
+<li><a href="#push-events">Push Events</a></li>
+<li><a href="#open-clarification">Open Clarification</a></li>
+<li><a href="#other-event-concepts-in-the-platform">Other event concepts in the platform</a></li>
+</ul></li>
+</ul>
+</nav>
           
 
 
@@ -9946,25 +10029,25 @@ if(host != "localhost")
 
 
 <p>The new generation of Altinn is moving to an <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">event-driven architecture</a>.
-This means that the Altinn Platform solution and Applications running in Altinn Apps will publish events that
+This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.</p>
 
 <h2 id="overall-concept">Overall Concept</h2>
 
 <h3 id="events">Events</h3>
 
-<p>Events in the new platform would be a combination of standard events defined by the platform and
+<p>Events would be a combination of standard events defined by the platform and
 custom events added in an application by application developers.</p>
 
-<p>Standard events could be</p>
+<p><strong>Standard events could be</strong></p>
 
 <ul>
 <li>An instance is created</li>
-<li>An instance changes state (moving from one task to another, example: data -&gt; signing)</li>
+<li>An instance changes state (from one process task to another, example: data -&gt; signing)</li>
 <li>An instance is completed</li>
 </ul>
 
-<p>Customs event could be</p>
+<p><strong>Custom events could be</strong></p>
 
 <ul>
 <li>A user has asked for a deduction in a form</li>
@@ -9974,18 +10057,18 @@ custom events added in an application by application developers.</p>
 <p>Events would typically have some attributes</p>
 
 <ul>
-<li>[org] - The organization the event is created for</li>
+<li>[org] - The organisation the event is created for</li>
 <li>[app] - The app the event is created for</li>
 <li>[instanceid] - The instanceid</li>
-<li>[eventtype] - The type of event. created, completed ++++ Probably something we want as free text.</li>
+<li>[eventtype] - The type of event. Created, completed ++. Free text not locked to a schema.</li>
 </ul>
 
-<p>The event would contain a limited set of information. To get the full details the subscriber would need to get all details from
-instance / instance event api.</p>
+<p>An event will contain a limited set of information. To get the full details for an event the subscribers would need to get all details using APIs.</p>
 
 <h4 id="event-schema">Event Schema</h4>
 
-<p>The event would be a JSON object. The event schema would need to be defined. One option is to use <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema</p>
+<p>The event would be a JSON object.
+One option is to use the <a href="https://docs.microsoft.com/en-us/azure/event-grid/event-schema">Azure Event Grid</a> event schema.</p>
 
 <pre><code class="language-json">[
   {
@@ -10004,29 +10087,26 @@ instance / instance event api.</p>
 </code></pre>
 
 <ul>
-<li>Topic: This describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}. This would be used for the subscribers to look up a given instance.</li>
-<li>Subject: The party the event is related to. PartyID is used</li>
-<li>id: unique Id for a given event</li>
-<li>eventType: This is the event type. Examples: Instance:Instansiated, Instance:PaymentCompleted, Instance:ProcessCompleted</li>
-<li>eventTime: The time of the event. Set by the publisher</li>
-<li>data can contain a structure of data</li>
-<li>dataVersion</li>
-<li>metdataversion</li>
+<li><code>topic</code>: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}. This would be used for the subscribers to look up a given instance.</li>
+<li><code>subject</code>: The party the event is related to. PartyID is used.</li>
+<li><code>id</code>: Unique id for a given event.</li>
+<li><code>eventType</code>: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed</li>
+<li><code>eventTime</code>: The time the event was triggered. Set by the publisher.</li>
+<li><code>data</code>: Optional. Can contain a structure of data specific for an event type.</li>
+<li><code>dataVersion</code>: Optional.</li>
+<li><code>metdataversion</code>: Optional.</li>
 </ul>
 
 <h5 id="example-1">Example 1</h5>
 
-<p>A form has been created for a given party. It is not possible from the event itself to know who did it</p>
+<p>A form has been created for a given party. It is not possible from the event itself to know who did it.</p>
 
 <pre><code class="language-json">[{
-  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
-  &quot;eventType&quot;: &quot;Instance:Created&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
-  &quot;subject&quot;: &quot;party:234234422&quot;,
+  &quot;subject&quot;: &quot;party/234234422&quot;,
+  &quot;eventType&quot;: &quot;instance.created&quot;,
   &quot;eventTime&quot;: &quot;2020-02-20T08:00:06.4014168Z&quot;,
-  &quot;data&quot;: {
-     },
-  &quot;dataVersion&quot;: &quot;1.0&quot;
+  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;
 }]
 </code></pre>
 
@@ -10035,62 +10115,59 @@ instance / instance event api.</p>
 <p>A user has completed the confirmation task in the process.</p>
 
 <pre><code class="language-json">[{
-  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
-  &quot;eventType&quot;: &quot;Instance:ConfirmationCompleted&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
-  &quot;subject&quot;: &quot;party:234234422&quot;,
+  &quot;subject&quot;: &quot;party/234234422&quot;,
+  &quot;eventType&quot;: &quot;instance.process.confirmationcompleted&quot;,
   &quot;eventTime&quot;: &quot;2020-03-16T10:23:46.6443563Z&quot;,
-  &quot;data&quot;: {
-     },
-  &quot;dataVersion&quot;: &quot;1.0&quot;
+  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;
 }]
 </code></pre>
 
 <h5 id="example-3">Example 3</h5>
 
-<p>A user/system has completed the process for an instance</p>
+<p>A user/system has completed the process for an instance.</p>
 
 <pre><code class="language-json">[{
-  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;,
-  &quot;eventType&quot;: &quot;Instance:ProcessCompleted&quot;,
   &quot;topic&quot;:  &quot;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&quot;,
-  &quot;subject&quot;: &quot;party:234234422&quot;,
+  &quot;subject&quot;: &quot;party/234234422&quot;,
+  &quot;eventType&quot;: &quot;instance.process.completed&quot;,
   &quot;eventTime&quot;:  &quot;2020-02-20T09:06:50.3736712Z&quot;,
-  &quot;data&quot;: {
-     },
-  &quot;dataVersion&quot;: &quot;1.0&quot;
+  &quot;id&quot;: &quot;91f2388f-bd8c-4647-8684-fd9f68af5b14&quot;
 }]
 </code></pre>
 
 <h3 id="event-producers">Event Producers</h3>
 
+<p>This is a start. Going forward other event sources can be added, for example from Altinn 2.</p>
+
 <h4 id="altinn-platform">Altinn Platform</h4>
 
 <p>Storage is probably the one component that would create the most standard events.</p>
 
-<p>This could be events for the creation of instances when instances state is updated and so on. We would need to define what kind of standard events storage should create.</p>
+<p>This could be events for the creation of instances when instances state is updated and so on.
+We would need to define what kind of standard events storage should create.</p>
 
 <p>The assumption is that all process change events logged to instance events in storage would be published to the event architecture with limited information.</p>
 
-<h4 id="altinn-apps">Altinn Apps</h4>
+<h4 id="applications">Applications</h4>
 
-<p>Applications hosted in Altinn Apps would be able to create events.</p>
+<p>Applications hosted in the Altinn Apps infrastructure would be able to create events.</p>
 
-<p>The application template will contain API so logic in applications can publish events based on rules defined by the application developer.</p>
+<p>The application template will contain API so logic in applications can publish events based on rules defined by the developer.</p>
 
-<p>These events could be anything.</p>
+<p>These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.</p>
 
 <h3 id="event-subscribers">Event subscribers</h3>
 
-<h4 id="orgs-application-owners">Orgs (Application owners)</h4>
+<h4 id="orgs-application-owners">Orgs (application owners)</h4>
 
-<p>Orgs will need to know about events happening for their applications running in Altinn Apps.</p>
+<p>Orgs will need to know about events happening in their apps in Altinn.</p>
 
 <p>For some orgs there is a need for subscribing to events for a specific app, others might want to subscribe to all events, or maybe a specific type of event.</p>
 
-<h4 id="parties-persons-and-organizations">Parties (Persons and organizations)</h4>
+<h4 id="parties-persons-and-organizations">Parties (persons and organizations)</h4>
 
-<p>Parties submitting and receiving data in Altinn would benefit from knowing about events. This could be feedback has been added to a form, or a new message has been received.</p>
+<p>Parties submitting and receiving data in Altinn would benefit from knowing about events. This could be feedback has been added to a form, or that a new message has been received.</p>
 
 <p>In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.</p>
 
@@ -10098,36 +10175,42 @@ instance / instance event api.</p>
 
 <p>The following requirements are identified for the new event architecture in Altinn 3.</p>
 
-<ul>
-<li>It should be possible to subscribe to a specific type of event. (Example alls ProcessComplete events for a given app)</li>
-<li>It should be possible to go at least one year back.</li>
-<li>The consumer will keep track of which events the consumer has processed</li>
-<li>It should be possible to check</li>
-<li>The architecture should be able to list feed for 5.000.000 users and 1.000.000 businesses</li>
-<li>The architecture should support more than 1000 publishers</li>
-<li>The architecture should support more than 250.000.000 events a year.</li>
-</ul>
+<div class="notices warning" ><p>TODO: Verify requirements</p>
+</div>
 
-<p>TODO: Verify requirements</p>
+
+<ul>
+<li>It should be possible to subscribe to a specific type of event. (Example alls <code>instance.process.completed</code> events for a given app)</li>
+<li>It should be possible to go at least 3 months back in history.</li>
+<li>The consumer will keep track of which events the consumer has processed.</li>
+<li>The architecture should be able to list feeds for 5 000 000 users and 1 000 000 businesses.</li>
+<li>The architecture should support more than 10 000 publishers.</li>
+<li>The architecture should support more than 1 000 000 consumers.</li>
+<li>The architecture should support more than 500 000 000 events a year.</li>
+</ul>
 
 <p>See also <a href="https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering">Referansearkitektur for datautveksling</a></p>
 
 <h2 id="proposed-event-architecture">Proposed Event Architecture</h2>
 
-<p>To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions are to build
-an event component in Altinn Platform and not use products like Kafka or Azure Event Hub.</p>
+<p>To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
+a new Events component in Altinn Platform and not expose products like Kafka or Azure Event Hub directly to external systems.</p>
 
-<p>The Event Component will expose REST-APIS.</p>
+<p>The Events component will expose clean and simple REST APIs.</p>
 
 <h3 id="api-structure">API Structure</h3>
 
-<p>The API&rsquo;s will be structured so the URLs are filtered queries into the events storage</p>
+<p>The API&rsquo;s will be structured so the URLs are filtered queries into the events storage.</p>
+
+<div class="notices warning" ><p>TODO: Verify proposed API structure</p>
+</div>
+
 
 <h4 id="instances-events-for-org">Instances events for Org</h4>
 
 <h5 id="endpoint">Endpoint</h5>
 
-<pre><code class="language-http">get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}
+<pre><code class="language-http">GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}
 </code></pre>
 
 <h5 id="usage">Usage</h5>
@@ -10143,13 +10226,13 @@ events for a given org/app.</p>
 
 <h5 id="endpoint-1">Endpoint</h5>
 
-<pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
+<pre><code class="language-http">POST {platformurl}/events/instanceeventsforparty/
 </code></pre>
 
-<p>This returns the events for a given party identified with a personnumber or organizationnumber.</p>
+<p>This returns the events for a given party identified with a person number or organisation number.</p>
 
 <pre><code class="language-json">{
-    &quot;appId&quot; : &quot;org/app&quot;,
+    &quot;appId&quot; : &quot;{org}/{app}&quot;,
     &quot;party&quot;: {
         &quot;personNumber&quot;: &quot;12247918309&quot;,
         &quot;organisationNumber&quot;: null
@@ -10167,49 +10250,46 @@ This will list all changes for a given party.</p>
 
 <p>Access to events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.</p>
 
-<p>The topic and subject would be used to identify the correct XACML Policy to use.</p>
+<p>The topic and subject would be used to identify the correct XACML-policy to use.</p>
 
-<p>The operation would be read and the proccess task will be set to null.
+<p>The operation would be read and the proccess task will be set to <code>null</code>.
 This way there would be no need to verify the current state of an instance.</p>
 
 <h3 id="adding-events">Adding events</h3>
 
 <h4 id="endpoint-2">Endpoint</h4>
 
-<pre><code class="language-http">post {platformurl}/events/
+<pre><code class="language-http">POST {platformurl}/events/
 </code></pre>
 
 <h3 id="event-components">Event components</h3>
 
 <p>The below diagram shows the different components in the proposed Event Architecture for Altinn 3.</p>
 
-
-	<p><object data="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" type="image/svg+xml" style="width: 100%;"></object></p>
-
-
-
-<p><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg">Full screen</a></p>
+<figure><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg"><img src="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/event_architecture_custom.svg" alt="Event architecture diagram" title="Altinn Event Architecture" /></a><figcaption><h4>Altinn Event Architecture</h4></figcaption></figure>
 
 <h4 id="publishers">Publishers</h4>
 
-<p>Both different applications and components will publish events to the Event component in Altinn Platform.</p>
-
-<p>They will use a REST API call to post a new event to the add event API.</p>
+<p>Both different applications and components will publish events to the Event component in Altinn Platform.<br />
+Publishers will use a REST API to post new events to the event API.</p>
 
 <h4 id="event-component">Event Component</h4>
 
-<p>The event components expose REST-APIS for publishing and subscribing to events.</p>
+<p>The event components expose REST-APIs for publishing and subscribing to events.</p>
 
-<p>When a publish request is received it will push the event document to the event storage.</p>
-
-<p>When a request is received it will query the events stored in the event storage.</p>
+<p>When a publish request is received it will push the event document to the event storage.
+When a request is received it will query the events stored in the event storage.</p>
 
 <h3 id="storage-technology">Storage technology</h3>
 
 <p>Choosing the technology to physical store the events will affect what kind of capabilities the
-event component can expose and what kind of scalability and performance the event architecture will have</p>
+event component can expose and what kind of scalability and performance the event architecture will have.</p>
 
-<h3 id="cosmos-db">Cosmos db</h3>
+<div class="notices warning" ><p>TODO: Verify proposed storage technology.</p>
+</div>
+
+
+<h3 id="cosmos-db">Cosmos DB</h3>
 
 <p>Using CosmosDB gives the possibility to have &ldquo;endless&rdquo; number of topics/feeds based on queries.</p>
 
@@ -10219,22 +10299,20 @@ event component can expose and what kind of scalability and performance the even
 
 <p>Currently, the limitations on Cosmos DB are that one logical partition can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
 
-<p>If we assume events in average on 350 Bytes (the examples above are around 300 Bytes). This would hold approx 57.000.000 events
-inside a logiical partition.</p>
+<p>If we assume events in average on 350 Bytes (the examples above are around 300 Bytes).
+This would hold approx 57 million events inside a logiical partition.</p>
 
-<p>If we assume 5 events on average on each instance that would be around 11.000.000 instances per partition key.
+<p>If we assume 5 events on average on each instance that would be around 11 million instances per partition key.
 Looking at the biggest digital services in the current platform (Altinn 2) this indicates that using a partition key
 based on {org}/{app} is not possible because many of them have many more elements.</p>
 
-<p>The suggestion is to use the subject as partition key. 57.000.000 on a given subject should be more than enough.
-And when that limit is reached the limitations probably have increased.
-(it was in may 2020 raised from 10GB to 20GB)</p>
+<p>The suggestion is to use the subject as partition key. 57 million on a given subject should be more than enough.
+And if that limit is reached the limitations probably have increased (it was raised from 10GB to 20GB in may 2020).</p>
 
 <h4 id="event-sequencing">Event sequencing</h4>
 
-<p>Events will be sequnced by eventTime. This is a datetime where precision is 7 digits, with an accuracy of 100 nanoseconds.</p>
-
-<p>The eventTime would be set by a <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-write-stored-procedures-triggers-udfs">stored procedure</a> when inserting document.</p>
+<p>Events will be sequnced by eventTime. This is a datetime where precision is 7 digits, with an accuracy of 100 nanoseconds.
+The eventTime would be set by a <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-write-stored-procedures-triggers-udfs">stored procedure</a> when inserting document.</p>
 
 <p>It will overwrite any eventTime set by the publisher.</p>
 
@@ -10244,19 +10322,18 @@ And when that limit is reached the limitations probably have increased.
 enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point.
 This allows you to get high query performance without having to think about indexing and index management upfront.</p>
 
-<p>For the topic and eventTime a composite index should be investigated to se if that performs better.</p>
+<p>For the topic and eventTime a composite index should be investigated to see if that performs better.</p>
 
-<p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview">See Cosmod DB indexing for details</a>.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview">See Cosmos DB indexing for details</a>.</p>
 
 <h2 id="delegating-access-to-events">Delegating access to events</h2>
 
-<p>There are serveral user scenaroius when there is a need to delegate access to the events for a given party to another user/organization.</p>
+<p>There are serveral user scenarios when there is a need to delegate access to the events for a given party to another user/organisation.</p>
 
 <h3 id="delegating-org-access">Delegating Org access</h3>
 
-<p>For orgs (application owners) there might be some scenarious where they want to give access to events for a given applications.</p>
-
-<p>This delegation is done through Maskinporten</p>
+<p>For orgs (application owners) there might be some scenarios where they want to give access to events for a given applications.
+This delegation is done through Maskinporten.</p>
 
 <h3 id="delegating-party-event-access">Delegating party event access</h3>
 
@@ -10267,35 +10344,35 @@ have for the subject of the event.</p>
 
 <h3 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h3>
 
-<p>In this scenario, an org is waiting on end users to complete one given app</p>
+<p>In this scenario, an org is waiting on end users to complete one given app.</p>
 
 <ol>
-<li>System (consumer) authenticates using Maskinporten and requests scope /altinn/avents/{org}/{app}</li>
-<li>System exchanges maskinporten token to a altinn token. Scopes is included in new token</li>
+<li>System (consumer) authenticates using Maskinporten and requests scope <code>altinn:events/{org}/{app}</code></li>
+<li>System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.</li>
 <li>System calls</li>
 </ol>
 
-<pre><code class="language-http">get {platformurl}/events/instanceevents/{org}/{app}?storedfrom={lastchange}&amp;eventType=Instance:EventComplete
+<pre><code class="language-http">GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed
 </code></pre>
 
 <ol>
 <li>Event component verifies that scope matches request</li>
 <li>Event components searches Cosmos DB for events that matches search criteria</li>
-<li>Event component returns the filtered and possible capped response ordered eon sequence</li>
-<li>Consumer process the received events and call other API to download related data (instances, files +++)</li>
+<li>Event component returns the filtered and possible capped response ordered by sequence</li>
+<li>Consumer process the received events and call other API to download related data (instances, files, etc)</li>
 </ol>
 
-<h3 id="user-needing-to-know-if-there-are-anything-new-for-a-party">User needing to know if there are anything new for a party</h3>
+<h3 id="user-needing-to-know-if-there-is-anything-new-for-a-party">User needing to know if there is anything new for a party</h3>
 
-<p>In this scenario, a user wants to see if there are any changes for a client or the user itself</p>
+<p>In this scenario, a user wants to see if there are any changes for a client or the user itself.</p>
 
 <ol>
 <li>System authenticates end user with ID-porten</li>
 <li>System exchanges token with Altinn</li>
-<li>System calls event api</li>
+<li>System calls event API</li>
 </ol>
 
-<pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
+<pre><code class="language-http">POST {platformurl}/events/instanceeventsforparty/
 </code></pre>
 
 <ol>
@@ -10316,7 +10393,7 @@ have for the subject of the event.</p>
 <li>System calls event api</li>
 </ol>
 
-<pre><code class="language-http">post {platformurl}/events/instanceeventsforparty/
+<pre><code class="language-http">POST {platformurl}/events/instanceeventsforparty/
 </code></pre>
 
 <ol>
@@ -10336,7 +10413,7 @@ the instance without the user needing to log in.</p>
 <li>System calls event api</li>
 </ol>
 
-<pre><code class="language-http">post {platformurl}/events/instanceeventsforinstance/{instanceId}
+<pre><code class="language-http">POST {platformurl}/events/instanceeventsforinstance/{instanceId}
 </code></pre>
 
 <ol>
@@ -10353,7 +10430,7 @@ the instance without the user needing to log in.</p>
 <p>This has not been detailed yet but the solution could contain:</p>
 
 <ul>
-<li>User can set up URL webhook that would receive all or a filtered list of events</li>
+<li>User can set up URL webhook that would receive all or a filtered list of events.</li>
 <li>User can set up a notification SMS number to get a notification about events.</li>
 <li>There can be a mobile app that can listen to push notifcations.</li>
 </ul>
