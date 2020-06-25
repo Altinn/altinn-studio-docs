@@ -14,7 +14,7 @@ where we are going to talk about-
 
 4
 00:00:11,400 --> 00:00:15,760
-We three members of the team that's
+We are three members of the team that's
 building the Altinn 3 platform-
 
 5
@@ -169,11 +169,11 @@ talk about the Altinn 3 project.
 36
 00:02:07,680 --> 00:02:11,360
 How that started
-and our technical principles.
+and the technical principles
 
 37
 00:02:11,440 --> 00:02:13,280
-We are building a new platform.
+we are using when building the new platform.
 
 38
 00:02:13,360 --> 00:02:16,400
@@ -405,7 +405,7 @@ So back again to the agency-
 86
 00:04:49,200 --> 00:04:51,680
 -and the need for having data
- from the government.
+ from the citizens.
 
 87
 00:04:51,760 --> 00:04:56,360
@@ -553,7 +553,7 @@ using .NET Core.
 
 117
 00:06:38,200 --> 00:06:42,800
-We wanted to use React a front-end,
+We wanted to use React as front-end,
 and Docker and Kubernetes.
 
 118
