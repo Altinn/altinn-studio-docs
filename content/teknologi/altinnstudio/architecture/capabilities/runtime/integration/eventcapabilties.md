@@ -41,25 +41,25 @@ Events would typically have some attributes
 An event will contain a limited set of information. To get the full details for an event the subscribers would need to get all details using APIs.
 
 #### Event Schema
+The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specification to describe events in Altinn Apps and Altinn Platform.
 
-The event would be a JSON object.
-One option is to use the [Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) event schema.
+
+
 
 ```json
-[
-  {
-    "topic": string,
-    "subject": string,
-    "id": string,
-    "eventType": string,
-    "eventTime": string,
-    "data":{
-      object-unique-to-each-publisher
-    },
-    "dataVersion": string,
-    "metadataVersion": string
-  }
-]
+{
+    "specversion" : "1.0",
+    "type" : "com.github.pull.create",
+    "source" : "https://github.com/cloudevents/spec/pull",
+    "subject" : "123",
+    "id" : "A234-1234-1234",
+    "time" : "2018-04-05T17:31:00Z",
+    "comexampleextension1" : "value",
+    "comexampleothervalue" : 5,
+    "datacontenttype" : "text/xml",
+    "data" : "<much wow=\"xml\"/>"
+}
+
 ```
 
 - `topic`: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}. This would be used for the subscribers to look up a given instance.
