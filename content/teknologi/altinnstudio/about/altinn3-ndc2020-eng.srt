@@ -2335,7 +2335,7 @@ the Isolation Principle.
 492
 00:30:32,720 --> 00:30:37,720
 This is why we have a container
-registry for each application owner-
+registry for each of our application owners-
 
 493
 00:30:37,800 --> 00:30:41,760
@@ -2382,7 +2382,7 @@ Meaning that we set restrictions on-
 
 502
 00:31:10,400 --> 00:31:14,000
-Nest step, once we have the Docker
+Next step, once we have the Docker
 image in Container Registry-
 
 503
@@ -2424,7 +2424,8 @@ an open source project,-
 
 511
 00:31:35,280 --> 00:31:39,000
--and we really like that fact,-
+-and we really like mentioning it
+because we really like that fact,-
 
 512
 00:31:39,080 --> 00:31:42,720
@@ -2597,11 +2598,11 @@ is that the pipeline-
 548
 00:33:42,760 --> 00:33:47,680
 -depending on if the microservice
- has been deployed previously.
+ has been deployed previously or not.
 
 549
 00:33:47,760 --> 00:33:51,280
-The result of this test,
+The result of this task,
 is that a new pod will spin up-
 
 550
@@ -2630,7 +2631,7 @@ in the Kubernetes cluster,-
 555
 00:34:08,480 --> 00:34:12,440
 And it's always ensured that
-the microservice is up and running-
+the microservice is fully up and running-
 
 556
 00:34:12,520 --> 00:34:17,040
@@ -2663,7 +2664,7 @@ it's the exact same process-
 
 562
 00:34:34,160 --> 00:34:38,960
--or a platform component
+-so a platform component
  or the applications of our users.
 
 563
@@ -2706,7 +2707,7 @@ Designer and Altinn Repositories.
 571
 00:35:12,760 --> 00:35:16,720
 Within Altinn Studio,
-you'll also find the virtual network.
+you'll also find a virtual network.
 
 572
 00:35:16,800 --> 00:35:19,840
@@ -2777,7 +2778,7 @@ to the build and release pipelines-
 586
 00:36:05,640 --> 00:36:08,640
 So the next component
-is Altinn Studio.
+is Altinn Apps.
 
 587
 00:36:08,720 --> 00:36:13,480
@@ -2805,7 +2806,7 @@ decides to join our solution,-
 
 592
 00:36:27,480 --> 00:36:30,320
--they're given to
+-they're given two
  Azure Subscriptions.
 
 593
@@ -2820,7 +2821,7 @@ you'll find the Kubernetes cluster-
 
 595
 00:36:39,840 --> 00:36:43,400
--with a host of microservices
+-where they host their microservices
  or their apps.
 
 596
@@ -2986,7 +2987,7 @@ a high-speed communication-
 
 630
 00:38:40,000 --> 00:38:43,920
--between our mainframe
+-between our on-prem
  and cloud solution.
 
 631
@@ -3261,11 +3262,11 @@ to swap out a component-
 687
 00:42:12,680 --> 00:42:16,000
 -or to upgrade the existing ones
- that we hub.
+ that we have.
 
 688
 00:42:16,080 --> 00:42:20,960
-Terraform is a great tool
+Terraform, as I mentioned, is a great tool
 for doing exactly that.
 
 689
@@ -4201,7 +4202,7 @@ several Kubernetes clusters-
 884
 00:55:00,680 --> 00:55:06,320
 -and Application Insights, and Cosmos DB,
- how are we hosting the costs?
+how are we hosting the costs?
 
 885
 00:55:06,400 --> 00:55:11,560
@@ -4272,7 +4273,7 @@ paying for storing those attachments?
 
 899
 00:55:56,520 --> 00:55:58,120
-With our separate source accounts-
+With our separate storage accounts-
 
 900
 00:55:58,200 --> 00:56:02,640
@@ -4400,7 +4401,7 @@ regarding the costs.
 926
 00:57:37,520 --> 00:57:40,640
 He's saying:
-"Oil money. Say no more."
+"ah, oil money. Say no more."
 
 927
 00:57:40,720 --> 00:57:42,640
