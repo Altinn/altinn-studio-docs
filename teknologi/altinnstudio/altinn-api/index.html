@@ -9939,6 +9939,10 @@ if(host != "localhost")
 <li><a href="#upload-a-pdf-and-associate-the-pdf-with-an-existing-data-element">Upload a pdf and associate the pdf with an existing data element</a></li>
 <li><a href="#download-the-pdf-of-a-data-element">Download the PDF of a data element</a></li>
 </ul></li>
+<li><a href="#instance-read-status">Instance read status</a>
+<ul>
+<li><a href="#update-read-status">Update read status</a></li>
+</ul></li>
 <li><a href="#application-owner-download">Application owner download</a>
 <ul>
 <li><a href="#confirm-successful-download-as-application-owner">Confirm successful download (as application owner)</a></li>
@@ -10337,6 +10341,19 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 <p>Get one data element</p>
 
 <pre><code class="language-http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d
+</code></pre>
+
+<h2 id="instance-read-status">Instance read status</h2>
+
+<p>The instance read status determines how the instance is rendered in a user&rsquo;s innbox. As an unread or read element.</p>
+
+<h3 id="update-read-status">Update read status</h3>
+
+<p>It is possible to update the read status of an instance to indicate that data related to the instance has been updated.
+Permited states are defined in the
+<a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs">ReadStatus enum</a>.</p>
+
+<pre><code class="language-http">PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
 </code></pre>
 
 <h2 id="application-owner-download">Application owner download</h2>

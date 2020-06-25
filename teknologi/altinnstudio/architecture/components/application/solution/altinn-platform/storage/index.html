@@ -10002,6 +10002,7 @@ An appId refers to the application information element which defines the metadat
         &quot;softDeleted&quot;: null,
         &quot;archived&quot;: &quot;2019-12-20T20:30:33.233Z&quot;,
         &quot;hardDelete&quot;: null,
+        &quot;readStatus&quot;: &quot;Read&quot;
     },
     &quot;appOwner&quot;: {
         &quot;labels&quot;: [&quot;xyz&quot;, &quot;importantUser&quot;],
@@ -10151,16 +10152,6 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>title</td>
-<td>string</td>
-<td>text shown in inbox</td>
-<td></td>
-<td>CU</td>
-<td>U</td>
-<td></td>
-</tr>
-
-<tr>
 <td>process</td>
 <td>ProcessState</td>
 <td>process state info</td>
@@ -10171,19 +10162,9 @@ An appId refers to the application information element which defines the metadat
 </tr>
 
 <tr>
-<td>userStatus</td>
-<td>InboxStatus</td>
-<td>statuses that the user can change</td>
-<td>U</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-
-<tr>
-<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs">instance</a></td>
+<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs">status</a></td>
 <td>InstanceState</td>
-<td>data on delete and archive state of the instance</td>
+<td>data on delete, archive and read state of the instance</td>
 <td></td>
 <td></td>
 <td>U</td>
@@ -10242,6 +10223,11 @@ An instance object can be sent as json data to set certian values.</p>
 <p>Delete a specific instance (also deletes its data).</p>
 
 <pre><code class="language-http">DELETE /instances/{instanceId}
+</code></pre>
+
+<p>Update read status of an instance. UpdatedState can hold values: &ldquo;read&rdquo;, &ldquo;unread&rdquo;, &ldquo;updatedSinceLastReview&rdquo;</p>
+
+<pre><code class="language-http">PUT /instances/{instanceId}/readstatus?status={updatedState}
 </code></pre>
 
 <h3 id="data-service">Data service</h3>
