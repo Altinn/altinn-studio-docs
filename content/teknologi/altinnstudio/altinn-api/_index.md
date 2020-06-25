@@ -45,32 +45,33 @@ A list of common tasks for an end user.
 - Change process state (workflow)
 - View status of an instance
 
-## Two different APIs
+## The APIs
 
-The new solution will have multiple APIs. There are two APIs available for Application Owners and Users.
-There will be one API for each application cluster, called the *Application API*, and one for the Platform Storage cluster, called *Platform Storage API*. 
-Both apis will provide similar operations. The Application API has business rules and must be used for validation of schema data, to change process state of the application instance. 
-The Platform Storage API will provide access to information stored by the application. [More information on the Platform apis can be found here](/architecture/application/altinn-platform)
+The new solution will have multiple APIs, but they can be divided in two groups. The App APIs and the Platform API.
 
 ### Application API
 
-An api that provides access to all instances of a specific app.
+An API that provides access to all instances of a specific app. Every App will expose almost identical endpoints and functionality. External parties should need only one client implementation across all App APIs. Technically there is nothing preventing an app owner from adding or making changes, but in those cases it is probably not a normal App and clients would require special handling for it anyway.
+
+The application API gives access to App specific instances. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
 
 ```http
 appPath = https://org.apps.altinn.no/org/app
 ```
 
-Identifies the organisation cluster and the application. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
+Identifies the organisation cluster and the application. 
 
 ### Platform Storage API
 
 An api that provides access to all instances of all apps, it should be used to access metadata about instances and to download data elements.
 
+Should be used by application owners to download data elements. Downloads will be logged. 
+
 ```http
 storagePath = https://platform.altinn.no/storage
 ```
 
-Should be used by application owners to download data elements. Downloads will be logged. 
+The Platform Storage API will provide access to information stored by the application. [More information on the Platform apis can be found here](/architecture/application/altinn-platform)
 
 ## Create an application instance
 
@@ -368,11 +369,17 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstat
 
 ## Application owner download
 
-### Downloads is logged on the data element[^1]
+Application Owner can download instances and data elements using the same endpoints as the end user. When done they need to register that the data has been downloaded.
+
+Downloads is logged on the data element[^1]
 
 [^1]: Not implemented yet!
 
 ### Confirm successful download (as application owner)
+
+{{%notice warning%}}
+These endpoints are currently not available. They must be moved to be a part of the App API instead. 
+{{% /notice%}}
 
 Application owner must confirm that the data file that the data element represent was downloaded. This can be done for one data element or for all data elements fo the instance.
 
@@ -404,20 +411,6 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/dataelem
 }
 ```
 
-### Download a complete instance with data elements and corresponding pdfs[^1]
-
-```http
-GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/downloadAll
-```
-
-Will return a multipart http response with the following content:
-
-1. instance metadata (application/json)
-2. the first data element (application/xml)
-3. second data element (e.g. attachement)
-4. third data element (e.g. image)
-5. fourth data element (e.g. pdf)
-6. ...
 
 ### Confirm instance completed
 
