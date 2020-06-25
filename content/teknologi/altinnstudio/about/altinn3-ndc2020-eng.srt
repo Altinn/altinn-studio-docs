@@ -169,11 +169,11 @@ talk about the Altinn 3 project.
 36
 00:02:07,680 --> 00:02:11,360
 How that started
-and our technical principles
+and the technical principles
 
 37
 00:02:11,440 --> 00:02:13,280
-we are using building the new platform.
+we are using when building the new platform.
 
 38
 00:02:13,360 --> 00:02:16,400
