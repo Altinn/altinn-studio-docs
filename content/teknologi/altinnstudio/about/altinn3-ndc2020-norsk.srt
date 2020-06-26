@@ -52,7 +52,7 @@ Jeg er utvikler og teknisk arkitekt,-
 12
 00:00:39,800 --> 00:00:42,640
 -og jeg gjør
- mesteparten av kodingen i .Net.
+ mesteparten av kodingen i .NET.
 
 13
 00:00:45,160 --> 00:00:47,880
@@ -467,7 +467,7 @@ Så vi foretok en liten konsepttest.
 99
 00:06:20,200 --> 00:06:25,040
 For å se om vi kunne bygge
-en plattform med ASP.Net Core?
+en plattform med ASP.NET Core?
 
 100
 00:06:25,120 --> 00:06:27,560
@@ -481,7 +481,7 @@ for å foreta en full konsepttest.
 102
 00:06:34,480 --> 00:06:38,120
 Vi ønsket å bygge en ny plattform
-ved hjelp av .Net Core.
+ved hjelp av .NET Core.
 
 103
 00:06:38,200 --> 00:06:42,800
@@ -611,7 +611,7 @@ front-end-rammeverket,-
 129
 00:08:34,320 --> 00:08:39,480
 Vi bruker det mest populære
-back-end-rammeverket, .Net Core.
+back-end-rammeverket, .NET Core.
 
 130
 00:08:39,560 --> 00:08:45,480
@@ -678,8 +678,8 @@ Og den er vi ikke i stand til
 
 143
 00:09:43,200 --> 00:09:47,400
-Så vi bruker støttede tjenester
-som er tilgjengelige i Azure.
+Så vi bruker tjenester som er
+administrert av Azure.
 
 144
 00:09:47,480 --> 00:09:49,920
@@ -867,7 +867,7 @@ for alle appene.
 183
 00:12:43,720 --> 00:12:49,640
 Applikasjonsmalen er
-en .Net Core MVC-applikasjon.
+en .NET Core MVC-applikasjon.
 
 184
 00:12:49,720 --> 00:12:51,280
@@ -885,7 +885,7 @@ som vi publiserer som NuGet-pakker.
 
 187
 00:12:59,560 --> 00:13:02,960
-NuGet er .Nets pakkemanager.
+NuGet er .NETs pakkemanager.
 
 188
 00:13:03,040 --> 00:13:05,600
@@ -904,7 +904,7 @@ Disse støttebibliotekene inneholder-
 191
 00:13:13,880 --> 00:13:17,360
 Vi har også lagt til
-plassholdere for Custom Logic-
+plassholdere for logikk-
 
 192
 00:13:17,440 --> 00:13:19,880
@@ -1070,7 +1070,7 @@ tilpasse appene ved hjelp av kode.
 226
 00:15:53,920 --> 00:15:58,120
 Som jeg nevnte, har vi
-noen plassholdere for Custom Logic.
+noen plassholdere for logikk.
 
 227
 00:15:58,200 --> 00:16:03,360
@@ -1170,7 +1170,7 @@ Jeg hadde ikke valgt å bytte ut-
 
 248
 00:17:34,000 --> 00:17:39,640
--vår vakre, fantastiske .Net-mal
+-vår vakre, fantastiske .NET-mal
  med en Java-applikasjon.
 
 249
@@ -1262,7 +1262,7 @@ støtter vi bare enkle former-
 
 267
 00:19:01,600 --> 00:19:06,480
--med enkle kolonner,
+-med enkle kolonner,  
  men dette ønsker vi å utvide.
 
 268
@@ -1287,7 +1287,7 @@ hvordan skjemaet skal se ut.
 272
 00:19:27,680 --> 00:19:36,440
 Ved kjøretid henter appen opp
-denne layoutfilen og åpner skjemaet.
+denne layoutfilen og viser skjemaet.
 
 273
 00:19:38,760 --> 00:19:43,280
@@ -1301,7 +1301,7 @@ er for utfyllingssteget,-
 275
 00:19:45,880 --> 00:19:48,920
 Men vi har også muligheten
-til å endre utsnitt-
+til å endre visning-
 
 276
 00:19:49,000 --> 00:19:51,960
@@ -1309,7 +1309,7 @@ til å endre utsnitt-
 
 277
 00:19:52,040 --> 00:19:55,520
-Vi har utsnitt for
+Vi har visning for
 bekreftelse og tilbakemelding også.
 
 278
@@ -1390,8 +1390,8 @@ er bygd på Gitea.
 
 294
 00:21:01,760 --> 00:21:06,600
-Dette er en kodelagringsløsning
-med åpen kildekode som bruker GIT.
+Dette er en åpen kildekode
+lagringsløsning basert på Git.
 
 295
 00:21:07,640 --> 00:21:11,320
@@ -1400,7 +1400,7 @@ Den ser slik ut, nesten som GitHub.
 296
 00:21:11,400 --> 00:21:15,640
 Alle apper i Altinn Studio
-er lagret i et GIT-repository.
+er lagret i hvert sitt Git-repository.
 
 297
 00:21:15,720 --> 00:21:21,000
@@ -1430,15 +1430,16 @@ som vanlig kildekode.
 302
 00:21:42,400 --> 00:21:45,720
 Vi har satt opp
-en belastningsfordeler-
+en lastfordeler-
 
 303
 00:21:45,800 --> 00:21:49,360
--mellom repository-applikasjonen
+-foran repository-applikasjonen
  og designer-applikasjonen,-
 
 304
 00:21:49,440 --> 00:21:53,200
+som fordeler trafikken
 -basert på URL-en som kommer inn.
 
 305
@@ -1586,7 +1587,7 @@ ikke påvirker appene til en annen.
 
 335
 00:24:11,640 --> 00:24:18,320
-Så vi kan selvbetjent deployering
+Så vi kan støtte selvbetjent deploy
 helt til produksjonsmiljøet.
 
 336
@@ -1600,7 +1601,7 @@ Først må vi bygge applikasjonen.
 338
 00:24:28,480 --> 00:24:32,720
 Dette lager
-et Docker-bilde for appen,-
+et Docker-image av appen,-
 
 339
 00:24:32,800 --> 00:24:36,480
@@ -1627,7 +1628,7 @@ Så fort den er bygget,-
 
 344
 00:24:47,560 --> 00:24:52,360
-Det henter opp Docker-bildet
+Det henter opp Docker-imaget
 og deployer det til ønsket miljø.
 
 345
@@ -1663,11 +1664,11 @@ gjennom API-ene.
 351
 00:25:26,520 --> 00:25:29,680
 Den første komponenten
-er autentifiseringskomponenten.
+er autentiseringskomponenten.
 
 352
 00:25:29,760 --> 00:25:32,760
-Den skal autentifisere
+Den skal autentisere
 brukeren og systemet-
 
 353
@@ -1766,8 +1767,8 @@ er faktisk en Java-applikasjon.
 
 373
 00:26:47,080 --> 00:26:53,160
-Vi fant ikke et godt nok PDF-verktøy
-med åpen kildekode for .Net
+Vi fant ikke et godt nok PDF-verktøy,
+som er åpen kildekode, for .NET
 
 374
 00:26:53,240 --> 00:26:57,800
@@ -1789,13 +1790,13 @@ appenes lagringsfunksjoner.
 
 378
 00:27:08,880 --> 00:27:12,120
-Det er her brukeren
-skal lagre dataene sine.
+Det er her brukerene
+lagre dataene sine.
 
 379
 00:27:12,200 --> 00:27:16,240
 Det er også her etaten
-skal hente sine data gjennom API-er.
+vil hente sine data via API-er.
 
 380
 00:27:16,320 --> 00:27:19,680
@@ -1851,7 +1852,7 @@ og ett på Vestlandet.
 
 391
 00:28:02,280 --> 00:28:07,840
-Den eneste store skyleverandøren
+Den eneste offentlige skyleverandøren
 med datasentre i Norge.
 
 392
@@ -1876,7 +1877,7 @@ med å bruke norske datasentre-
 
 396
 00:28:27,200 --> 00:28:30,240
--er at vi har kortere ventetid
+-er at vi har mindre treghet
  i kommunikasjonen-
 
 397
@@ -1952,8 +1953,8 @@ til sikkerhetsanalyse-
 
 412
 00:29:28,120 --> 00:29:31,760
--og SonarCloud for å sikre
- at vi har en holdbar kildekodebase.
+-og SonarCloud for å sikre at
+vi har en vedlikeholdbar kildekode.
 
 413
 00:29:31,840 --> 00:29:35,120
@@ -1992,22 +1993,22 @@ Pipelinen bruker to steg.
 420
 00:29:59,400 --> 00:30:02,480
 Det første steget er
-å lage et Docker-bilde,-
+å bygge et Docker-image,-
 
 421
 00:30:02,560 --> 00:30:07,440
 -og det andre steget er å sende
- bildet til containerregisteret.
+ imaget til containerregisteret.
 
 422
 00:30:08,680 --> 00:30:11,360
 Containerregisteret
-er støttet av Azure,-
+kjører i Azure,-
 
 423
 00:30:11,440 --> 00:30:13,880
 -og det er her
- vi lagrer alle bildene våre-
+ vi lagrer alle våre images-
 
 424
 00:30:13,960 --> 00:30:16,760
@@ -2040,12 +2041,12 @@ for hver enkelt applikasjonseier-
 
 430
 00:30:37,800 --> 00:30:41,760
--der bare deres egne Docker-bilder
+-der bare deres egne Docker-images
  er lagret.
 
 431
 00:30:41,840 --> 00:30:46,600
-I tillegg kan ett Docker-bilde
+I tillegg kan ett Docker-image
 deployes til flere ulike miljøer.
 
 432
@@ -2059,7 +2060,7 @@ vårt containerregister-
 
 434
 00:30:52,480 --> 00:30:56,840
--og alle Docker-bildene
+-og alle Docker-images
  som produksjonsressurser.
 
 435
@@ -2079,8 +2080,8 @@ hvem som har tilgang til ressursen,-
 
 438
 00:31:10,400 --> 00:31:14,000
-Neste steg: Så fort vi har
-Docker-bildet i containerregisteret-
+Neste steg: Så fort vi har et
+Docker-image i containerregisteret-
 
 439
 00:31:14,080 --> 00:31:16,520
@@ -2093,7 +2094,7 @@ Docker-bildet i containerregisteret-
 
 441
 00:31:19,240 --> 00:31:22,360
-Denne ligger også hos Azure DevOps.
+Denne kjører også i Azure DevOps.
 
 442
 00:31:22,440 --> 00:31:24,640
@@ -2164,7 +2165,7 @@ er inkludert i pipelinen.
 456
 00:32:16,280 --> 00:32:21,240
 Første artefakt identifiserer hvilket
-Docker-bilde vi ønsker å deploye.
+Docker-image vi ønsker å deploye.
 
 457
 00:32:21,320 --> 00:32:27,160
@@ -2188,7 +2189,7 @@ over alle miljøene våre.
 461
 00:32:40,000 --> 00:32:45,560
 Først kommer miljøene for
-akseptanse- og belastningstesting.
+akseptanse- og ytelsestesting.
 
 462
 00:32:45,640 --> 00:32:51,640
@@ -2220,7 +2221,7 @@ På en plattformkomponent-
 
 468
 00:33:09,800 --> 00:33:12,640
-Eller et Docker-bilde
+Eller et Docker-image
 er tilgjengelig.
 
 469
@@ -2264,7 +2265,7 @@ er at pipelinen-
 477
 00:33:42,760 --> 00:33:47,680
 -avhengig av om
- mikrotjenesten er deployet.
+ mikrotjenesten allerede er deployet.
 
 478
 00:33:47,760 --> 00:33:51,280
@@ -2286,7 +2287,7 @@ i Kubernetes-klyngen,-
 
 482
 00:34:01,760 --> 00:34:05,480
--og referansen til Docker-bildet
+-og referansen til Docker-image
  dras til poden-
 
 483
@@ -2369,7 +2370,7 @@ for hemmeligheter og sertifikater-
 499
 00:35:19,920 --> 00:35:23,120
 -som er tilgjengelige
- gjennom mikrotjenestene.
+ for mikrotjenestene.
 
 500
 00:35:23,200 --> 00:35:26,160
@@ -2378,12 +2379,12 @@ for å styre trafikken-
 
 501
 00:35:26,240 --> 00:35:29,520
--til det rette knutepunktet
+-til den rette noden
  som styrer podene.
 
 502
 00:35:29,600 --> 00:35:32,440
-Så har vi en belastningsfordeler-
+Så har vi en lastfordeler-
 
 503
 00:35:32,520 --> 00:35:37,400
@@ -2396,13 +2397,13 @@ Beklager, det er motsatt.
 
 505
 00:35:39,400 --> 00:35:43,200
-Belastningsfordeleren
+Lastfordeleren
 tar imot nettverkstrafikken-
 
 506
 00:35:43,280 --> 00:35:46,560
 -og dirigerer oss
- til det rette knutepunktet.
+ til den rette noden.
 
 507
 00:35:46,640 --> 00:35:51,440
@@ -2412,7 +2413,7 @@ til den rette mikrotjenesten.
 508
 00:35:51,520 --> 00:35:56,680
 Vi kan også se forbindelsen
-til build- og release-pipelinene-
+til bygg- og release-pipelinene-
 
 509
 00:35:56,760 --> 00:35:58,440
@@ -2420,13 +2421,13 @@ til build- og release-pipelinene-
 
 510
 00:35:58,520 --> 00:36:04,120
--når de lager og deployer appene sine
- gjennom Altinn Studio.
+-når de utvikler og deployer
+ appene sine med Altinn Studio.
 
 511
 00:36:05,640 --> 00:36:08,640
 Den neste komponenten
-er Altinn Studio.
+er Altinn Apps.
 
 512
 00:36:08,720 --> 00:36:13,480
@@ -2483,7 +2484,7 @@ Du finner det virtuelle nettverket,-
 523
 00:36:52,080 --> 00:36:55,520
 -containerregisteret
- der vi lagrer Docker-bildene.
+ der vi lagrer Docker-imagene.
 
 524
 00:36:55,600 --> 00:36:58,240
@@ -2502,7 +2503,7 @@ så har vi en IngressRoute-
 527
 00:37:06,880 --> 00:37:11,560
 -som styrer nettverkstrafikken
- og belastningsbehandleren.
+ og lastfordeleren.
 
 528
 00:37:11,640 --> 00:37:17,960
@@ -2512,11 +2513,11 @@ at mange krever en felles plattform.
 529
 00:37:19,600 --> 00:37:24,120
 Så kommunikasjonen
-for å gå fra appene til plattformen-
+mellom appene og Platform-
 
 530
 00:37:24,200 --> 00:37:26,960
--må gå via en applikasjonsportal-
+-må gå via en Application Gateway-
 
 531
 00:37:27,040 --> 00:37:31,560
@@ -2526,7 +2527,7 @@ for å gå fra appene til plattformen-
 532
 00:37:31,640 --> 00:37:37,440
 Her ser dere en liste over
-de ulike tjenestene og plattformen.
+de ulike tjenestene i plattformen.
 
 533
 00:37:37,520 --> 00:37:42,920
@@ -2570,7 +2571,7 @@ komponenten, Platform Storage.
 
 541
 00:38:15,000 --> 00:38:20,240
-Denne komponenten kobler seg til
+Denne komponenten er koblet til
 Cosmos DB eller en lagringskonto,-
 
 542
@@ -2591,7 +2592,7 @@ med en ExpressRoute.
 545
 00:38:37,520 --> 00:38:43,920
 Dette gir oss en rask kommunikasjon
-mellom on-prem- og skyløsningen vår.
+mellom on-prem og skyløsningen vår.
 
 546
 00:38:45,760 --> 00:38:48,520
@@ -2627,17 +2628,17 @@ Vi har selvsagt standardjobbene,-
 553
 00:39:07,680 --> 00:39:11,080
 -som å oppgradere
- Kubernetes Services-klyngen vår,-
+ Kubernetes-klyngen vår,-
 
 554
 00:39:11,160 --> 00:39:14,720
 -eller vår versjon
- av applikasjonsportalen, f.eks.
+ av Application Gateway, f.eks.
 
 555
 00:39:16,600 --> 00:39:21,640
 Vi har slitt med å finne en god måte
-å opprettholde infrastrukturen vår.
+å vedlikeholde infrastrukturen vår.
 
 556
 00:39:21,720 --> 00:39:24,920
@@ -2651,13 +2652,13 @@ som gjør at vi-
 
 558
 00:39:28,000 --> 00:39:31,640
--kan både styrke
+-kan både opprette
  og utvikle infrastrukturen vår.
 
 559
 00:39:31,720 --> 00:39:35,040
 Det beste er
-at alt er skrevet i kildekode.
+at alt er beskrevet som kode.
 
 560
 00:39:35,120 --> 00:39:38,520
@@ -2667,11 +2668,11 @@ i større grad-
 561
 00:39:38,600 --> 00:39:42,400
 -kan både sette opp
- og opprettholde infrastrukturen vår.
+ og vedlikeholde infrastrukturen vår.
 
 562
 00:39:42,480 --> 00:39:47,520
-Fordi vi kan lese kildekoden
+Fordi vi kan lese koden
 og modifisere den etter vårt behov.
 
 563
@@ -2756,13 +2757,13 @@ I noen tilfeller betyr det også
 
 580
 00:41:07,920 --> 00:41:14,360
-Her ser dere de viktigste
+Her ser dere de mest sentrale
 skykomponentene vi bruker nå.
 
 581
 00:41:18,760 --> 00:41:24,200
 Heldigvis er mange av
-disse komponentene støttet av Azure.
+disse komponentene administrert av Azure.
 
 582
 00:41:24,280 --> 00:41:27,120
@@ -2772,7 +2773,7 @@ antallet variabler vi må tilpasse-
 583
 00:41:27,200 --> 00:41:30,960
 -og tiden vi må bruke på
- å opprettholde disse ressursene.
+ å vedlikeholde disse ressursene.
 
 584
 00:41:31,040 --> 00:41:33,520
@@ -2862,7 +2863,7 @@ Så vi har vært nødt til
 602
 00:42:41,040 --> 00:42:43,960
 Trenger vi en sporingslogg
-til backup-funksjonen vår?
+for backup-funksjonen vår?
 
 603
 00:42:44,040 --> 00:42:46,440
@@ -2916,7 +2917,7 @@ har vi mange Kubernetes-klynger.
 613
 00:43:29,120 --> 00:43:34,840
 Som nevnt, dette er en flott ressurs
-fordi den er fullt støttet.
+fordi den er administrert av Azure.
 
 614
 00:43:34,920 --> 00:43:37,560
@@ -2973,7 +2974,7 @@ som vi bruker til å lagre metadata-
 625
 00:44:20,840 --> 00:44:24,560
 -om applikasjonene
- og hendelsene deres.
+ og instansene deres.
 
 626
 00:44:24,640 --> 00:44:27,840
@@ -3071,23 +3072,23 @@ som Application Insights tilbyr,-
 
 645
 00:45:53,040 --> 00:45:59,000
--og se hvilke jobber som brukes mest
+-og se hva som brukes mest ressurser
  og gjennomsnittlig responstid.
 
 646
 00:45:59,080 --> 00:46:03,360
 En annen flott funksjon
-er å gå inn på en spesiell jobb.
+er å gå inn på en web request.
 
 647
 00:46:03,440 --> 00:46:08,560
-Slik kan vi se hvordan jobben
-glir mellom alle tjenestene våre.
+Slik kan vi se hvordan requesten
+flyter mellom alle tjenestene våre.
 
 648
 00:46:08,640 --> 00:46:14,120
 Disse to funksjonene har blitt brukt
-mye under belastningstestingen vår.
+mye under ytelsestestingen vår.
 
 649
 00:46:14,200 --> 00:46:16,840
@@ -3096,7 +3097,7 @@ Vi har klart å finne flaskehalser-
 650
 00:46:16,920 --> 00:46:21,160
 -i tillegg til unødvendige
- henvendelser og duplikater.
+ og duplikate requests.
 
 651
 00:46:21,240 --> 00:46:23,440
@@ -3133,7 +3134,7 @@ Det første jeg vil nevne,-
 
 658
 00:47:03,520 --> 00:47:06,880
-Loggen vår ligger ute på GitHub.
+Backloggen vår ligger ute på GitHub.
 
 659
 00:47:06,960 --> 00:47:13,160
@@ -3142,7 +3143,7 @@ fra bare noen dager siden.
 
 660
 00:47:13,240 --> 00:47:18,480
-Å ha loggen åpen på GitHub,
+Å ha backloggen åpen på GitHub,
 i tillegg til kildekoden, så klart,-
 
 661
@@ -3188,17 +3189,17 @@ når nye funksjoner-
 669
 00:47:54,600 --> 00:48:00,000
 -blir tilgjengelige
- i verktøyene og malene vi bruker.
+ i verktøyene og rammeverkene vi bruker.
 
 670
 00:48:00,080 --> 00:48:05,520
 Selv om det har vært bra
-å ha en åpen logg på GitHub,-
+å ha en åpen backlog på GitHub,-
 
 671
 00:48:05,600 --> 00:48:13,800
--har "vanlig" GitHub som verktøy
- for å drive prosjektet og loggen,-
+-har "plain" GitHub som verktøy
+ for å håndtere prosjektet og backloggen,-
 
 672
 00:48:13,880 --> 00:48:17,320
@@ -3212,11 +3213,11 @@ og det gjør det ganske oversiktlig.
 674
 00:48:22,720 --> 00:48:28,400
 Men som du kan se øverst
-på dette skjermbildet av loggen vår,-
+på dette skjermbildet av backloggen vår,-
 
 675
 00:48:28,480 --> 00:48:33,800
--har vi fortsatt 600 åpne problemer,
+-har vi fortsatt 600 åpne saker,
  og det har vært mange flere
 
 676
@@ -3306,7 +3307,7 @@ på Altinn Studio-løsningen-
 
 694
 00:50:06,800 --> 00:50:10,600
--nå som appene våre er mer utviklete.
+-nå som appene våre er mer modne.
 
 695
 00:50:13,960 --> 00:50:17,360
@@ -3330,7 +3331,7 @@ siden Altinn 2 ble satt i produksjon.
 699
 00:50:36,440 --> 00:50:39,800
 Og det er over to år siden vi startet
-på vårt minste brukbare produkt.
+på vår MVP for Altinn 3.
 
 700
 00:50:39,880 --> 00:50:44,000
@@ -3363,7 +3364,7 @@ Vi hjelper dem med de første appene.
 706
 00:51:06,240 --> 00:51:10,000
 Vi har som nevnt
-omtrent 600 åpne problemer.
+omtrent 600 åpne saker.
 
 707
 00:51:10,080 --> 00:51:14,400
@@ -3398,7 +3399,7 @@ skjemaer og komponenter, osv.
 713
 00:51:34,600 --> 00:51:39,160
 Vi skal utvide
-antallet steg vi kan støtte.
+antallet prosesssteg vi kan støtte.
 
 714
 00:51:39,240 --> 00:51:43,800
@@ -3442,7 +3443,7 @@ er også åpen kildekode.
 722
 00:52:09,640 --> 00:52:15,680
 På GitHub finner dere en link
-til all dokumentasjonen vi har hatt.
+til all dokumentasjonen vi har.
 
 723
 00:52:15,760 --> 00:52:19,880
@@ -3456,7 +3457,7 @@ alle kravspesifikasjonene,-
 725
 00:52:23,040 --> 00:52:28,440
 Prinsippene våre, mønstrene
-vi følger, hvilke egenskaper,-
+vi følger, egenskaper,-
 
 726
 00:52:28,520 --> 00:52:32,600
@@ -3466,7 +3467,7 @@ vi følger, hvilke egenskaper,-
 727
 00:52:32,680 --> 00:52:36,200
 Og alle komponentene
-og kodestrukturen vi lager.
+og koden som vi utvikler.
 
 728
 00:52:36,280 --> 00:52:38,800
@@ -3570,8 +3571,8 @@ hva de offentlige etatene trenger,-
 
 749
 00:54:22,320 --> 00:54:26,560
--og noen trenger infrastruktur
- som er atskilt fra andre.
+-og noen har behov for infrastruktur
+ som er isolert fra andre.
 
 750
 00:54:26,640 --> 00:54:29,960
@@ -3581,7 +3582,7 @@ så mange etater som mulig.
 751
 00:54:30,040 --> 00:54:34,000
 Basert på erfaringer fra dagens
-plattform som ikke er atskilt,-
+plattform som ikke er isolert,-
 
 752
 00:54:34,080 --> 00:54:37,000
@@ -3589,13 +3590,13 @@ plattform som ikke er atskilt,-
 
 753
 00:54:37,080 --> 00:54:42,480
--at dårlig kildekode
- påvirker andre pga. stor belastning.
+-at dårlig kode kan påvirke
+ andre negativt ved stor trafikk.
 
 754
 00:54:42,560 --> 00:54:46,520
 Så det er både
-en naturlig utvikling og et krav.
+en naturlig utvikling og basert på krav.
 
 755
 00:54:47,960 --> 00:54:50,480
@@ -3642,7 +3643,7 @@ og det vil den fortsette å være,-
 764
 00:55:25,360 --> 00:55:31,520
 Med den nye arkitekturen
-er det lettere å dele opp kostnadene-
+er det enklere å dele opp kostnadene-
 
 765
 00:55:31,600 --> 00:55:34,040
@@ -3908,7 +3909,7 @@ funksjonene i API Management,-
 
 821
 00:59:29,160 --> 00:59:31,280
--det er bare en API-portal,-
+-det er bare en gateway for API-er,-
 
 822
 00:59:31,360 --> 00:59:36,320
@@ -3918,7 +3919,7 @@ funksjonene i API Management,-
 823
 00:59:36,400 --> 00:59:41,080
 Det har vært et viktig krav
-for Digitaliseringsdirektoratet-
+fra Digitaliseringsdirektoratet-
 
 824
 00:59:41,160 --> 00:59:43,160
@@ -3955,4 +3956,4 @@ Og se kildekoden vår på GitHub.
 831
 01:00:08,720 --> 01:00:12,520
 -Linken er her. 
--Med en pull-request, takk.
+-Lag en pull-request, please :)
