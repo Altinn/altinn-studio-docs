@@ -41,14 +41,15 @@ Events would typically have some attributes
 An event will contain a limited set of information. To get the full details for an event the subscribers would need to get all details using APIs.
 
 #### Event Schema
+
 The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specification to describe events in Altinn Apps and Altinn Platform.
 
-
+Below you find a offical example. [See full Json SCHEMA](https://raw.githubusercontent.com/cloudevents/spec/master/spec.json)
 
 
 ```json
 {
-    "specversion" : "1.0",
+    "specversion" : "1.x-wip",
     "type" : "com.github.pull.create",
     "source" : "https://github.com/cloudevents/spec/pull",
     "subject" : "123",
@@ -62,14 +63,15 @@ The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specifi
 
 ```
 
-- `topic`: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}. This would be used for the subscribers to look up a given instance.
+- `specversion`: The version of the CloudEvents specification which the event uses. This enables the interpretation of the context. Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.
+- `type`: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed
+- `source`: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}. This would be used for the subscribers to look up a given instance.
 - `subject`: The party the event is related to. PartyID is used.
 - `id`: Unique id for a given event.
-- `eventType`: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed
-- `eventTime`: The time the event was triggered. Set by the publisher.
+- `time`: The time the event was triggered. Set by the publisher.
+- `datacontenttype`: Optional. Content type of data value. This attribute enables data to carry any type of content, whereby format and encoding might differ from that of the chosen event format
 - `data`: Optional. Can contain a structure of data specific for an event type.
-- `dataVersion`: Optional.
-- `metdataversion`: Optional.
+
 
 ##### Example 1
 
@@ -77,10 +79,10 @@ A form has been created for a given party. It is not possible from the event its
 
 ```json
 [{
-  "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
-  "eventType": "instance.created",
-  "eventTime": "2020-02-20T08:00:06.4014168Z",
+  "type": "instance.created",
+  "time": "2020-02-20T08:00:06.4014168Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
 }]
 ```
@@ -91,10 +93,10 @@ A user has completed the confirmation task in the process.
 
 ```json
 [{
-  "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
-  "eventType": "instance.process.confirmationcompleted",
-  "eventTime": "2020-03-16T10:23:46.6443563Z",
+  "type": "instance.process.confirmationcompleted",
+  "time": "2020-03-16T10:23:46.6443563Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
 }]
 ```
@@ -105,10 +107,10 @@ A user/system has completed the process for an instance.
 
 ```json
 [{
-  "topic":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
-  "eventType": "instance.process.completed",
-  "eventTime":  "2020-02-20T09:06:50.3736712Z",
+  "type": "instance.process.completed",
+  "time":  "2020-02-20T09:06:50.3736712Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
 }]
 ```
@@ -122,7 +124,7 @@ This is a start. Going forward other event sources can be added, for example fro
 Storage is probably the one component that would create the most standard events.
 
 This could be events for the creation of instances when instances state is updated and so on.
-We would need to define what kind of standard events storage should create. 
+We would need to define what kind of standard events storage should create.
 
 The assumption is that all process change events logged to instance events in storage would be published to the event architecture with limited information.
 
@@ -133,7 +135,6 @@ Applications hosted in the Altinn Apps infrastructure would be able to create ev
 The application template will contain API so logic in applications can publish events based on rules defined by the developer.
 
 These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.
-
 
 ### Event subscribers
 
@@ -148,7 +149,6 @@ For some orgs there is a need for subscribing to events for a specific app, othe
 Parties submitting and receiving data in Altinn would benefit from knowing about events. This could be feedback has been added to a form, or that a new message has been received.
 
 In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.
-
 
 ## Requirments
 
@@ -297,7 +297,6 @@ The eventTime would be set by a [stored procedure](https://docs.microsoft.com/en
 
 It will overwrite any eventTime set by the publisher.
 
-
 ### Indexing
 
 The default indexing policy for newly created containers indexes every property of every item, 
@@ -353,6 +352,7 @@ In this scenario, a user wants to see if there are any changes for a client or t
 ```http
 POST {platformurl}/events/instanceeventsforparty/
 ```
+
 4. Event component query events in database 
 5. Event components authorized the event and filter away events where user is not authorized
 6. Events are returned
@@ -404,6 +404,66 @@ This has not been detailed yet but the solution could contain:
 - User can set up URL webhook that would receive all or a filtered list of events.
 - User can set up a notification SMS number to get a notification about events.
 - There can be a mobile app that can listen to push notifcations.
+
+## Other technologies considered
+
+### Azure Event Hub
+
+Azure Event Hub is an Event ingestion service.  It can receive and process millions of events per second.
+
+Each Subscription can have 100 Event Hub Namespaces
+Each Namespace can have 10 Event Hubs
+
+Meaning for each Subscription we can have 1000 Event Hubs,
+
+![image](https://user-images.githubusercontent.com/13309071/75520779-a43d3600-5a06-11ea-94d7-c2b0fe856e8a.png)
+
+Subscribers to Hubs use [AMQP 1.0](https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)  protocol to read the event feed.
+
+#### Event format data
+
+The events can be any JSON format or text
+
+#### Event filtering
+
+There is no way to filter events before they are read at the subscriber.
+
+#### Subscribers
+
+Subscribers need to have a SAS key for accessing the event hub.
+
+The client needs to use AMQB 1.0 standard. 
+There exist client library for [Java](https://github.com/Azure/azure-event-hubs-java) and [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs)
+
+### Apache Kafka in Azure HDInsight
+
+Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications.
+Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams.
+
+Apache Kafka kan be deployed in to a HDInsight cluster. [See details](https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction)
+
+Producers would send events to Kafka Brokers. In a HD-insight cluster each worker nod is a Kafka broker.
+
+![image](../kafka.png)
+
+#### Quotas
+
+| Resource | Limit |
+| --- | --- |
+| Topics per kafka cluster  | 2000-3000 |
+| Retention time  | up to unlimited|
+
+#### Pro
+
+- Most popular event streaming platform.
+- Can store events indefently
+
+#### Cons
+
+- Cost of HDInsight cluster
+- Requires more admin compared to other platforms in Azure
+- Not able to support topic per party.
+- Need to build a custom REST-API as a proxy to Kafka.
 
 ## Open Clarification
 
