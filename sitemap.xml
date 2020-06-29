@@ -99,11 +99,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/getting-started/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/goals/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/generell-systemdokumentasjon/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/developing/</loc>
   </url>
   
   <url>
@@ -124,6 +132,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/innhold/altinn.no/m%C3%A5lform/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/react/</loc>
   </url>
   
   <url>
@@ -156,6 +168,14 @@
   
   <url>
     <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/redux/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/debug/</loc>
   </url>
   
   <url>
@@ -379,10 +399,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/debug/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/</loc>
   </url>
   
@@ -595,15 +611,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/react/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/redux/</loc>
   </url>
   
   <url>

@@ -7126,6 +7126,151 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/getting-started/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/">
+        <span>Getting started</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/developing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/">
+        <span>Developing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
+        <span>React</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
+        <span>Redux</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
+        <span>Debug</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/best-practices/" class="dd-item 
         
         
@@ -7213,35 +7358,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
-        <span>Debug</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/error-handling/" class="dd-item 
         
         
@@ -7278,64 +7394,6 @@ if(host != "localhost")
         ">
       <a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">
         <span>Post Message</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
-        <span>React</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
-        <span>Redux</span>
 
         
 
@@ -9922,6 +9980,63 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/nginx/">Nginx routing</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Nginx routing The router config is stored as a configmap in our kubernetes cluster, and mounted to the pod as a .conf file. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
+Apply the changes, and restart the pod:
+Option 1: kill the pod and let the deployment spinn up a new pod.
+Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/teknologi/altinnstudio/development/handbook/routing/nginx/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">Pipelines</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Quality checklist Build pipelines Release pipelines  Quality Checklist all sensitive information is marked as secret. Read more about setting variables as secret here. verify that no sensitive information is available in the exported API JSON definition (https://dev.azure.com/brreg/d0be3bbb-9145-4490-8d76-fd8024277467/_apis/pipelines/{definitionId}) make sure that no secrets are shared with forks of github repos if you are using a github integrated pipeline. Read more about that here. if it exists a built in task for the job the pipeline should do, this should be prefered over writing your own scripts. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">Post Message</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10015,8 +10130,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
     </header>
     <section class="post-excerpt">
         <p>React React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.
-React Components lifecycle There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:
-Mounting  constructor() static getDerivedStateFromProps() render() componentDidMount()  Updating  static getDerivedStateFromProps() shouldComponentUpdate() render() getSnapshotBeforeUpdate() componentDidUpdate()  Unmounting  componentWillUnmount()  Error handling  static getDerivedStateFromError() componentDidCatch()  Other React component APIs and properties APIs  setState() forceUpdate()  Class Properties  defaultProps displayName  Instance Properties  props state  Adding a new react-app to altinn. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/react/">&raquo;</a></p>
+Get started by looking at the Getting started docs or trying the tutorial.
+Important concepts The 2 most important concepts when working with React components are state and props.
+State is a collection of properties, controlled by the component, that say what the current state of the component is - this can be used to determine how the component should be rendered. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10043,9 +10159,9 @@ Mounting  constructor() static getDerivedStateFromProps() render() componentDidM
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">Redux</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Redux is used to manage the states of the ux-editor.
-Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:
-export interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/redux/">&raquo;</a></p>
+        <p>Redux is used to manage the states of the applications. The components update the states in the Redux store, instead of keeping state only within the component. This allows components to easily react to state changes from other components.
+Store This is where the overall states are stored. Each state is stored here as an object.
+Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10153,66 +10269,6 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                 <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/">Test</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Coding guidelines for tests Automated test appAn app used solely for automated testing in the browser
-PostmanAPI Testing with postman
-Test CoverageAutomation testcases by area
-Test StrategyTest Strategy
-TestcafeTestcafe
-Unit testingHow to write jest test in altinn studio, what we know so far
-WCAG testing in Altinn StudioCoding guidelines for tests <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/testcoverage/">Test Coverage</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Testcafe tests    Sl.No. Testcase name Area of Solution     1. Login to altinn studio All areas   2. Cannot create new app, as app name already exists Dashboard   3. Happy case; deploy an app to a test environment after a change Deploy to test   4. App cannot deploy due to compilation error Deploy to test   5. App cannot be deployed due to uncomitted local changes Deploy to test   6. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/testcoverage/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
         
 
@@ -13709,6 +13765,38 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

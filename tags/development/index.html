@@ -7126,6 +7126,151 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/getting-started/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/">
+        <span>Getting started</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/developing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/">
+        <span>Developing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
+        <span>React</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
+        <span>Redux</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
+        <span>Debug</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/best-practices/" class="dd-item 
         
         
@@ -7213,35 +7358,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
-        <span>Debug</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/error-handling/" class="dd-item 
         
         
@@ -7278,64 +7394,6 @@ if(host != "localhost")
         ">
       <a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">
         <span>Post Message</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
-        <span>React</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
-        <span>Redux</span>
 
         
 
@@ -10094,8 +10152,8 @@ Rules In the input field with the label Kort svar komponent (dynamics) for autom
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">Best practices</a></h2>
     </header>
     <section class="post-excerpt">
-        <p> Altinn.studio best practices will be updated with more and better practices ;)
-Best practices  Simple lists should be sorted alphabetically   <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">&raquo;</a></p>
+        <p>Altinn.studio best practices will be updated with more and better practices ;)
+Best practices  Simple lists should be sorted alphabetically  Sagas All logic used in a saga should be an exported function in the utils-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10151,11 +10209,10 @@ Rules In the input field with the label Kort svar komponent (dynamics) for autom
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/build/">Build</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Building of react apps in altinn.studio The building of react apps are done in dockerfiles which then again are used in the build of altinn-core docker-image.
-Apps are compiled and copied.
-Adding new packages to react-applications Adding of a new package in an app is done with lerna in the lerna-folder (/src/react-apps/). Command syntax for this will be:
-lerna add [package-name] --scope=[app-name] --exact
-If you are going to add react to a new app called Foo: <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/build/">&raquo;</a></p>
+        <p>Local build Building an app locally is done by running
+npm run build  from the apps root folder.
+Some of the react projects also have various other predefined npm tasks, which can be viewed in the package.json file which is located in the root folder of each react project, example src/Altinn.Apps/AppFrontend/react/altinn-app-frontend/package.json
+Adding new packages to react-applications Adding of a new package in an app is done with lerna in the lerna-folder (/src/react-apps/). <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/build/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -13696,6 +13753,38 @@ kubectl delete pod [pod name] deletes a pod and a new pod of the same deployment
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

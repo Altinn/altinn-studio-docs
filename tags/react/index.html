@@ -7126,6 +7126,151 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/getting-started/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/">
+        <span>Getting started</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/developing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/">
+        <span>Developing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
+        <span>React</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
+        <span>Redux</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
+        <span>Debug</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/best-practices/" class="dd-item 
         
         
@@ -7213,35 +7358,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
-        <span>Debug</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/error-handling/" class="dd-item 
         
         
@@ -7278,64 +7394,6 @@ if(host != "localhost")
         ">
       <a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">
         <span>Post Message</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
-        <span>React</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
-        <span>Redux</span>
 
         
 
@@ -9983,8 +10041,9 @@ Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props. 
     </header>
     <section class="post-excerpt">
         <p>React React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.
-React Components lifecycle There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:
-Mounting  constructor() static getDerivedStateFromProps() render() componentDidMount()  Updating  static getDerivedStateFromProps() shouldComponentUpdate() render() getSnapshotBeforeUpdate() componentDidUpdate()  Unmounting  componentWillUnmount()  Error handling  static getDerivedStateFromError() componentDidCatch()  Other React component APIs and properties APIs  setState() forceUpdate()  Class Properties  defaultProps displayName  Instance Properties  props state  Adding a new react-app to altinn. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/react/">&raquo;</a></p>
+Get started by looking at the Getting started docs or trying the tutorial.
+Important concepts The 2 most important concepts when working with React components are state and props.
+State is a collection of properties, controlled by the component, that say what the current state of the component is - this can be used to determine how the component should be rendered. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/react/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10040,9 +10099,9 @@ Mounting  constructor() static getDerivedStateFromProps() render() componentDidM
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">Redux</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Redux is used to manage the states of the ux-editor.
-Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:
-export interface IUpdateFormDataAction extends Action { formData: any; componentID: string; dataModelElement: IDataModelFieldElement; }  Sagas Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/redux/">&raquo;</a></p>
+        <p>Redux is used to manage the states of the applications. The components update the states in the Redux store, instead of keeping state only within the component. This allows components to easily react to state changes from other components.
+Store This is where the overall states are stored. Each state is stored here as an object.
+Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/redux/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -13609,6 +13668,38 @@ import React from 'react'; export class BalloonCounter extends React. <a class="
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

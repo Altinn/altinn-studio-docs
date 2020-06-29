@@ -7126,6 +7126,151 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/getting-started/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/">
+        <span>Getting started</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/developing/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/">
+        <span>Developing</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
+        <span>React</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
+        <span>Redux</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
+        <span>Debug</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/best-practices/" class="dd-item 
         
         
@@ -7213,35 +7358,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/debug/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/debug/">
-        <span>Debug</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/error-handling/" class="dd-item 
         
         
@@ -7278,64 +7394,6 @@ if(host != "localhost")
         ">
       <a href="/teknologi/altinnstudio/development/handbook/front-end/postmessage/">
         <span>Post Message</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/react/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/react/">
-        <span>React</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/front-end/redux/" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">
-        <span>Redux</span>
 
         
 
@@ -9940,38 +9998,55 @@ if(host != "localhost")
 
 
 
-<p>Redux is used to manage the states of the ux-editor.</p>
+<p>Redux is used to manage the states of the applications. The components update the states in the <em>Redux store</em>, instead of keeping state only within the component. This allows components to easily react to state changes from other components.</p>
+
+<h3 id="store">Store</h3>
+
+<p>This is where the overall states are stored. Each state is stored here as an object.</p>
 
 <h3 id="actions">Actions</h3>
 
 <p>Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:</p>
 
-<pre><code class="language-typescript">export interface IUpdateFormDataAction extends Action {
-  formData: any;
-  componentID: string;
-  dataModelElement: IDataModelFieldElement;
+<pre><code class="language-typescript">export interface IUpdateFormData extends Action {
+  field: string;
+  data: any;
+  componentId: string;
+}
+
+export function updateFormData(field: string, data: any, componentId: string): IUpdateFormData {
+  return {
+    type: actionTypes.UPDATE_FORM_DATA,
+    field,
+    data,
+    componentId,
+  };
 }
 </code></pre>
 
+<p>In this example, a change in form data can trigger the <code>updateFormData</code> action, which contains an object with the action type, as well as the data/metadata.</p>
+
 <h3 id="sagas">Sagas</h3>
 
-<p>Redux saga is the middleware used to process information before the store is updated. All logic used in a saga should be an exported function in the <code>utils</code>-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.</p>
+<p>Redux saga is the middleware used to process information before the store is updated (i.e. before the reducer does its work).</p>
 
 <p>An example is asyncronous calls to backend APIs to get data, or submit data.</p>
 
 <p>Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.</p>
 
-<pre><code class="language-typescript">
-/**
+<pre><code class="language-typescript">/**
  * Define the saga for the UPDATE_FORM_DATA event
  */
 function* updateFormDataSaga(action: ActionType) {
   try {
+    // fetch some data
     const relevantData = yield selectRelevantStateObjects(...);
     ...
-    doRelevantLogic(relevantData);
+    // process the data
+    const processedData = doRelevantLogic(relevantData);
     ...
-    yield call(updateFormDataSagaFulfilled, ... );
+    // trigger a new action to update the store
+    yield call(updateFormDataSagaFulfilled, processedData, ... );
   } catch (err) {
     yield call(updateFormDataSagaRejected, err);
   }
@@ -9987,7 +10062,53 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
 
 <h3 id="reducers">Reducers</h3>
 
-<p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made</p>
+<p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made, and update the state accordingly.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-typescript">const initialState: IFormDataState = {
+  formData: {},
+  error: null,
+};
+
+const FormDataReducer: Reducer&lt;IFormDataState&gt; = (
+  state: IFormDataState = initialState,
+  action?: Action,
+): IFormDataState =&gt; {
+  if (!action) {
+    return state;
+  }
+
+  switch (action.type) {
+    case actionTypes.UPDATE_FORM_DATA_FULFILLED: {
+      const { field, data } = action as IUpdateFormDataFulfilled;
+      return Immutable&lt;IFormDataState&gt;(state, {
+        formData: {
+          $setField: {
+            field,
+            data,
+          },
+        },
+      });
+    }
+
+    case actionTypes.UPDATE_FORM_DATA_REJECTED: {
+      const { error } = action as IUpdateFormDataRejected;
+      return Immutable&lt;IFormDataState&gt;(state, {
+        error: {
+          $set: error,
+        },
+      });
+    }
+
+    default: {
+      return state;
+    }
+  }
+};
+
+export default FormDataReducer;
+</code></pre>
 
 
 <footer class=" footline" >
@@ -13542,6 +13663,26 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
                       
                           
                               
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                                  
+                                  
+                              
                           
                           
           
@@ -13606,7 +13747,6 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
                       
                           
                               
-                              
                           
                           
           
@@ -13623,8 +13763,21 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
                       
                           
                               
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
                                   
-                                  
+                      
+                      
+                          
                               
                           
                           
@@ -14904,7 +15057,7 @@ export function* watchUpdateFormDataSaga(): SagaIterator {
                       <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/front-end/react/" title="React"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/front-end/styling/" title="Styling (css)" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/front-end/debug/" title="Debug" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
