@@ -46,32 +46,43 @@ docker-compose run k6 run --vus=20 --stage 10s:5,40s:20,10s:5 /src/tests/platfor
 ![Grafana darsboard](grafana.PNG "Grafana darsboard")
 
 ### Environment variables required for different test files
- Tests/env variables | env | username | userpwd | org | level2app | testapp
-:--- | :---: | :---: | :---: |:---: | :---: | :---: 
-platform/pdf/pdf.js | X | | | | | |
-platform/authorization/authorization.js | X | X | X | X | X | X |
-platform/register/register.js | X | X | X | X | X |  |
-platform/profile/profile.js | X | X | X | X | X |  |
-platform/storage/instances.js | X | X | X | X | X |  |
-platform/storage/data.js | X | X | X | X | X |  |
-platform/storage/events.js | X | X | X | X | X |  |
-platform/storage/messageboxinstances.js | X | X | X | X | X |  |
-platform/storage/process.js | X | X | X | X | X |  |
-platform/storage/applications.js | X | X | X | X | X | X |
-app/instances.js | X | X | X | X | X |  |
-app/data.js | X | X | X | X | X |  |
-app/process.js | X | X | X | X | X |  |
-app/end2end.js | X | X | X | X | X |  |
-app/e2erf0002.js | X |  |  | X | X |  |
-app/rf0002withattachment.js | X |  |  | X | X |  |
 
+ Tests/env variables                               |  env  | username | userpwd |  org  | level2app | testapp | level1user | level1app | level3app
+ :------------------------------------------------ | :---: | :------: | :-----: | :---: | :-------: | :-----: | :--------: | :-------: | :-------: 
+ platform/pdf/pdf.js                               |   X   |          |         |       |           |         |            |           |           |
+ platform/authorization/authorization.js           |   X   |    X     |    X    |   X   |     X     |    X    |            |           |           |
+ platform/register/register.js                     |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/profile/profile.js                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/receipt/receipt.js                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/storage/instances.js                     |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/storage/data.js                          |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/storage/events.js                        |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/storage/messageboxinstances.js           |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/storage/process.js                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/storage/applications.js                  |   X   |    X     |    X    |   X   |     X     |    X    |            |           |           |
+ platform/storage/texts.js                         |   X   |    X     |    X    |   X   |     X     |    X    |            |           |           |
+ platform/negativetests/withoutauthentication.js   |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ platform/negativetests/lowersecuritylevellogin.js |   X   |    X     |    X    |   X   |           |         |            |           |     X     |
+ platform/negativetests/withoutallowedroles.js     |   X   |    X     |    X    |   X   |           |         |     X      |     X     |           |
+ app/instances.js                                  |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ app/data.js                                       |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ app/process.js                                    |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ app/end2end.js                                    |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ app/e2erf0002.js                                  |   X   |          |         |   X   |     X     |         |            |           |           |
+ app/rf0002withattachment.js                       |   X   |          |         |   X   |     X     |         |            |           |           |
+ app/negativetests/withoutauthentication.js        |   X   |    X     |    X    |   X   |     X     |         |            |           |           |
+ app/negativetests/lowersecuritylevellogin.js      |   X   |    X     |    X    |   X   |           |         |            |           |     X     |
+ app/negativetests/withoutallowedroles.js          |   X   |    X     |    X    |   X   |           |         |     X      |     X     |           |
+ 
 ### k6 test pipeline in Azure Devops
-[Azure Devops Pipeline](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=96)
+[Azure Devops Pipeline for Platform](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=96)
+
+[Azure Devops Pipeline for App](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=118)
 
 ### Visualizing k6 results
 k6 by default outputs in stdout format while running a test. Below is described various methods to visualise results.
 
-- To get a junit.xml output from k6 tests, pipe the results to a k6-to-junit npm package with file name. (use `npm install -g k6-to-junit` to install the package globally).
+- To get a junit.xml output from k6 tests, pipe the results to a k6-to-junit npm package with file name. (use `npm install -g k6-to-junit@1.0.2` to install the package globally).
 This comes in handy to view test results in CI/CD pipelines.
 
 ```cmd
