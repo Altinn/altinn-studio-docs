@@ -5,10 +5,17 @@ tags: [development, front-end, build]
 weight: 100
 ---
 
-### Building of react apps in altinn.studio
+### Local build
+Building an app locally is done by running 
 
-The building of react apps are done in dockerfiles which then again are used in the build of altinn-core docker-image.  
-Apps are compiled and copied.
+```
+npm run build
+```
+
+from the apps root folder.
+
+Some of the react projects also have various other predefined npm tasks, which can be viewed in the `package.json` file which is located in the root folder of each react project, example `src/Altinn.Apps/AppFrontend/react/altinn-app-frontend/package.json`
+
 
 ### Adding new packages to react-applications
 

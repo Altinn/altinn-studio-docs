@@ -2,7 +2,7 @@
 title: Debug
 description: Debug documentation for altinn.studio frontend
 tags: [development, debug]
-weight: 100
+weight: 50
 ---
 
 ### Debugging
