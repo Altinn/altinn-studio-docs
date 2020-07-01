@@ -6,7 +6,30 @@ toc: true
 weight: 100
 ---
 
-## Breakig change: Platform authorization introduced for Platform Register and Profile 
+## Breaking change: New endpoint introduced in Altinn.Apps.Api exposing application text resources
+
+Introduced with issue: [#4451](https://github.com/Altinn/altinn-studio/issues/4451) and nuget 1.1.0.-alpha
+**The change affects all application created in Altinn Studio before 8.07.2020 using nuget versions 1.1.0-alpha**
+
+### Errors
+
+### How to fix
+
+Once the [nuget references are updated] to version 1.1.0-alpha (https://altinn.github.io/docs/altinn-studio/app-creation/update/#oppgradere-til-nyeste-versjon), modify the function _ConfigureServices()_ in  _App/Startup.cs_.
+
+Include the lines below in the function.
+Anywhere would do, but we suggest referencing the memory cache after _ services.AddControllersWithViews()_ 
+and the HttpClient in the same section as the other AppSI services.
+
+```cs
+services.AddMemoryCache();
+services.AddHttpClient<IText, TextAppSI>();
+```
+
+Your code changes should match the image below.
+![diff in code](breaking-change-4451.PNG "diff in code")
+
+## Breakig change: Platform authorization introduced for Platform Register and Profile
 
 Introduced with issue: [#4162](https://github.com/altinn/altinn-studio/issues/4162) and Release: v2020.23.
 **The change affects all application created in Altinn Studio before 03.06.2020.**

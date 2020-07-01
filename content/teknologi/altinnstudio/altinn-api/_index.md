@@ -936,7 +936,7 @@ GET {appPath}
 }
 ```
 
-### Process model[^1]
+### Process model
 
 Get the application's process model.
 
@@ -946,19 +946,27 @@ GET {appPath}/process
 
 Returns the bpmn file defining the process.
 
-### Get text resources for the application for a specific language[^1]
+### Application texts
+
+Get text resources for the application for a specific language code.
+If the requested language isn't available norsk bokmål (nb) will be returned as default.
+langaugeCode should follow the [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ```http
+GET {appPath}/api/v1/texts/{languageCode}
+```
+
+
+```http
+[Obsolete]
 GET {appPath}/texts?lang=nb
 ```
-<!-- OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb -->
 
 ### Get text resources for a given element type[^1]
 
 ```http
 GET {appPath}/metadata/{typeName}/texts?lang=nb
 ```
-<!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
 
 ### Get the schema for a given element type[^1]
 
