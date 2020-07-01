@@ -10045,8 +10045,8 @@ if(host != "localhost")
 <li><a href="#application-resources">Application resources</a>
 <ul>
 <li><a href="#application-metadata">Application metadata</a></li>
-<li><a href="#process-model-1">Process model<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
-<li><a href="#get-text-resources-for-the-application-for-a-specific-language-1">Get text resources for the application for a specific language<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
+<li><a href="#process-model">Process model</a></li>
+<li><a href="#application-texts">Application texts</a></li>
 <li><a href="#get-text-resources-for-a-given-element-type-1">Get text resources for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
 <li><a href="#get-the-schema-for-a-given-element-type-1">Get the schema for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
 <li><a href="#get-the-model-config-for-a-given-element-type-1">Get the model config for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></a></li>
@@ -10957,7 +10957,7 @@ Process is set to first task. The task specifies if the data can be updated or n
 }
 </code></pre>
 
-<h3 id="process-model-1">Process model<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
+<h3 id="process-model">Process model</h3>
 
 <p>Get the application&rsquo;s process model.</p>
 
@@ -10966,19 +10966,23 @@ Process is set to first task. The task specifies if the data can be updated or n
 
 <p>Returns the bpmn file defining the process.</p>
 
-<h3 id="get-text-resources-for-the-application-for-a-specific-language-1">Get text resources for the application for a specific language<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
+<h3 id="application-texts">Application texts</h3>
 
-<pre><code class="language-http">GET {appPath}/texts?lang=nb
+<p>Get text resources for the application for a specific language code.
+If the requested language isn&rsquo;t available norsk bokmål (nb) will be returned as default.
+langaugeCode should follow the <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 standard</a></p>
+
+<pre><code class="language-http">GET {appPath}/api/v1/texts/{languageCode}
 </code></pre>
 
-<!-- OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb -->
+<pre><code class="language-http">[Obsolete]
+GET {appPath}/texts?lang=nb
+</code></pre>
 
 <h3 id="get-text-resources-for-a-given-element-type-1">Get text resources for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
 <pre><code class="language-http">GET {appPath}/metadata/{typeName}/texts?lang=nb
 </code></pre>
-
-<!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
 
 <h3 id="get-the-schema-for-a-given-element-type-1">Get the schema for a given element type<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup></h3>
 
@@ -12831,6 +12835,168 @@ GET {appPath}/metadata/{typeName}/schema
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                      
+                  
                               
                       
                   
