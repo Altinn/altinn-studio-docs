@@ -6,6 +6,41 @@ toc: true
 weight: 100
 ---
 
+## Breaking change: Property type changed for UserProfile.ProfileSettingPreference 
+
+Introduced with issue: [#4466](https://github.com/Altinn/altinn-studio/issues/4466) and release v2020.28
+**The change affects all applications in TT02 and PR with nugetversion 1.0.98 and lower.**
+
+### Errors
+App doesn't load only the blue background is visible. 
+
+### How to fix
+
+1.Update nuget dependencies in `App.csproj` to version 1.1.0-alpha.
+
+    Navigate to you application repository and find `App.csproj` in the `App` folder.
+    Upgrade the three Altinn.App nugetpackages to version 1.0.86.
+
+    ```xml
+        <PackageReference Include="Altinn.App.Api" Version="1.0.86-alpha" />
+        <PackageReference Include="Altinn.App.Common" Version="1.0.86-alpha" />
+        <PackageReference Include="Altinn.App.PlatformServices" Version="1.0.86-alpha" />
+    ```
+
+2. Modify the function _ConfigureServices()_ in  _App/Startup.cs_.
+
+Include the lines below in the function.
+Anywhere would do, but we suggest referencing the memory cache after _ services.AddControllersWithViews()_ 
+and the HttpClient in the same section as the other AppSI services.
+
+```cs
+services.AddMemoryCache();
+services.AddHttpClient<IText, TextAppSI>();
+```
+
+Your code changes should match the image below.
+![diff in code](breaking-change-4451.PNG "diff in code")
+
 ## Breaking change: New endpoint introduced in Altinn.Apps.Api exposing application text resources
 
 Introduced with issue: [#4451](https://github.com/Altinn/altinn-studio/issues/4451) and nuget 1.1.0.-alpha
