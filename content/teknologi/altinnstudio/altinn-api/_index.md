@@ -357,47 +357,6 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15
 
 Application Owner can download instances and data elements using the same endpoints as the end user. When done they need to register that the data has been downloaded.
 
-Downloads is logged on the data element[^1]
-
-[^1]: Not implemented yet!
-
-### Confirm successful download (as application owner)
-
-{{%notice warning%}}
-These endpoints are currently not available. They must be moved to be a part of the App API instead. 
-{{% /notice%}}
-
-Application owner must confirm that the data file that the data element represent was downloaded. This can be done for one data element or for all data elements fo the instance.
-
-For one data element:
-
-```http
-PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/dataelements/692ee7df-82a9-4bba-b2f2-c8c4dac69aff/confirmDownload
-```
-
-For *all* data elements:
-
-```http
-PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/dataelements/confirmDownload
-```
-
-```json
-{
-...
-"data": [
-    {
-        "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        ...
-        "applicationOwner": {
-            "downloaded": ["2019-05-15T08:23:01Z"],
-            "downloadConfirmed": ["2019-05-16T10:23:00Z"]
-        }
-    }
-]
-}
-```
-
-
 ### Confirm instance completed
 
 The last step for application owner in all processes is to confirm that they consider the case associated with an instance as finished. Its purpose is to tell Altinn that the application owner has downloaded all data, finished any internal processing, and if applicable, posted a response. The original instance is no longer needed. Only the first call to this operation will be registered. Consecutive calls are ignored.
@@ -427,7 +386,6 @@ Avaliable query paramters include:
 - process.endEvent (string)
 - process.ended (datetime)
 - instanceOwner.partyId (int)
-- appOwner.labels (comma separated list of strings)
 - lastChanged (datetime)
 - created (datetime)
 - visibleAfter (datetime)
