@@ -1,13 +1,11 @@
 {
     // See https://code.visualstudio.com/docs/editor/tasks for documentation about the tasks.json format
     "version": "2.0.0",
-    "command": "cmd",
-    "args": [],
     "tasks": [
         {
-            "taskName": "Hugo",
-            "command": "${workspaceRoot}/hugo.exe serve --navigateToChanged",
+            "label": "Hugo",
             "type" :"shell",
+            "command": "${workspaceRoot}/hugo serve --navigateToChanged",
             "isBackground": true,
             "presentation": {
                 "echo": true,
@@ -17,9 +15,9 @@
             }
         },
         {
-            "taskName": "Publish",
-            "command": "${workspaceRoot}/hugo.exe",
+            "label": "Publish",
             "type" :"shell",
+            "command": "${workspaceRoot}/hugo",
             "isBackground": false,
             "presentation": {
                 "echo": true,
