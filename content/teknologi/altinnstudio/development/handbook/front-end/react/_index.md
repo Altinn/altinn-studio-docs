@@ -2,165 +2,96 @@
 title: React
 description: Guidelines for using React in Altinn Studio
 tags: [development, react]
-weight: 100
+weight: 30
 ---
 
 ## React
 
 React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.
 
-### React Components lifecycle
+Get started by looking at the [Getting started docs](https://reactjs.org/docs/getting-started.html) or trying the [tutorial](https://reactjs.org/tutorial/tutorial.html).
 
-There are sequences that are called when mounting, updated, unmounted and error-catching for every component in React. This is the order they are called:
+### Important concepts
+The 2 most important concepts when working with React components are _state_ and _props_. 
 
-#### Mounting
+**State** is a collection of properties, controlled by the component, that say what the current state of the component is - this can be used to determine how the component should be rendered. 
 
-1. `constructor()`
-2. `static getDerivedStateFromProps()`
-3. `render()`
-4. `componentDidMount()`
+**Props** is a collection of properties that are _passed_ to the component as input. They can also be used to determine how the component should render. 
 
-#### Updating
+Any time the state or props of a component is updated, the component re-renders.
 
-1. `static getDerivedStateFromProps()`
-2. `shouldComponentUpdate()`
-3. `render()`
-4. `getSnapshotBeforeUpdate()`
-5. `componentDidUpdate()`
+### Class components
+Class components are React components defined as classes. We used class components when we started building Altinn Studio, and most of the components for the Altinn Studio applications are still class components.
 
-#### Unmounting
+```jsx
+// Example component
+import * as React from React
 
-1. `componentWillUnmount()`
+export interface IExampleComponentProps {
+  id: string;
+  title: string;
+}
 
-#### Error handling
+export interface IExampleComponentState {
+  value: string;
+}
 
-1. `static getDerivedStateFromError()`
-2. `componentDidCatch()`
+export class ExampleComponent extends 
+React.Component<IExampleComponentProps, IExampleComponentState> {
+  public onChange = (event: any) => {
+    setState(event.target.value);
+  }
 
-### Other React component APIs and properties
-
-#### APIs
-
-1. `setState()`
-2. `forceUpdate()`
-
-#### Class Properties
-
-1. `defaultProps`
-2. `displayName`
-
-#### Instance Properties
-
-1. `props`
-2. `state`
-
-## Adding a new react-app to altinn.studio
-
-When adding a new react-app, use the template folder that is in the github repo. Create a new folder in the `src/react-apps/applications`-folder and copy the contents from the `src/react-apps/templates/template-app`-folder of that newly created folder.  
-Then change the names in the `package.json`-file and start developing the new application.  
-In the templates folder, in the `src/index.tsx`-file, a function called `run` is commented out, if your application needs to have sagas, uncomment the `run`-function which should initialize the sagas.
-
-### React Folder Structure
-
-This is the best practice for folder structure in applications.
-
+  public render(
+    <div id={this.props.id}>
+      <label htmlFor={`input-${this.props.id}`}>{this.props.title}</label>
+      <input
+        id={`input-${this.props.id}`}
+        value={this.state.value}
+        onChange={this.onChange}
+      />
+    </div>
+  );
+}
 ```
-- src /
-  - config /
-    - config.json
-    - exportedConfig.ts
-  - features / # routes,pages,features
-    - [featureName] /
-      - components /
-      - containers /
-      - resources /
-        - featureSpecificData /
-          - delete /
-            - deleteFeatureSpecificDataActions.ts
-            - deleteFeatureSpecificDataSagas.ts
-          - fetch /
-            - ...
-          - upload /
-            - ...
-          - featureSpecificDataActions.ts
-          - featureSpecificDataActionTypes.ts
-          - featureSpecificDataReducers.ts
-          - featureSpecificDataSagas.ts
-      - selectors /
-        - getSomeResourceSelector.ts
-      - reducers /
-        - featureNameReducer.ts
-      - utils / # Feature specific utils
-    - formFiller / # Example feature
-      - components /
-      - containers /
-      - resources
-        - attachments / # FileUpload example
-          - delete /
-            - deleteAttachmentsActions.ts
-            - deleteAttachmentsSagas.ts
-          - fetch /
-            - fetchAttachmentsActions.ts
-            - ...
-          - upload /
-            - ...
-          - attachmentsActions.ts
-          - attachmentsActionTypes.ts
-          - attachmentsReducers.ts
-          - attachmentsSagas.ts
-        - validations /
-          - componentValidation
-            - componentValidationActions.ts
-            - ...
-          - singleFieldValidation /
-            - singleFieldValidationActions.ts
-            - ...
-          - validationsActions.ts
-          - validationsActionTypes.ts
-          - validationsReducers.ts
-          - validationsSagas.ts
-      - selectors / 
-        - getSomeResouceSelector.ts
-      - reducers /
-        - formfillerReducer.ts
-      - utils /
-    - instantiate /
-      - components /
-      - containers /
-      - resources /
-      - selectors /
-      - reducers / 
-  - reducers /
-    - index.ts
-  - shared /
-    - components / # Shared components
-      - altinnAppHeader.tsx
-    - resources / # Shared resources
-      - language /
-          - fetch /
-            - fetchLanguageActions.ts
-            - fetchLanguageSagas.ts
-          - someAction /
-            - someActionOnLanguageActions.ts
-            - someActionOnLanguageSagas.ts
-          - languageActions.ts
-          - languageActionTypes.ts
-          - languageReducer.ts
-          - languageSagas.ts
-        - repoStatus /
-          - fetch /
-            - fetchRepoStatusActions.ts
-            - fetchRepoStatusSagas.ts
-          - repoStatusActions.ts
-          - repoStatusActionTypes.ts
-          - repoStatusReducer.ts
-          - repoStatusSagas.ts
-  - types /
-  - utils /
-- store
-- types
-- utils
+
+Read more about class components [here](https://reactjs.org/docs/react-component.html).
+
+When writing a new component, or refactoring an existing class component, use hooks where possible.
+
+### Functional components - React hooks
+Hooks are new in React 16.8, and allow us to use state directly in functional components - components that are defined as functions. Using functional components with hooks results in cleaner, shorter code. Most of the components for the Altinn Apps applications are functional components using hooks. 
+
+```jsx
+// Example component
+import * as React from React
+
+export interface IExampleComponentProps {
+  id: string;
+  title: string;
+}
+
+export function ExampleComponent(props: IExampleComponentProps) : JSX.Element {
+  const [value, setValue] = React.useState<string>('');
+  
+  const onChange = (event: any) => {
+    setValue(event.target.value);
+  }
+
+  return(
+    <div id={props.id}>
+      <label htmlFor={`input-${props.id}`}>{props.title}</label>
+      <input
+        id={`input-${props.id}`}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
+}
 ```
+
+Read more about React hooks [here](https://reactjs.org/docs/hooks-intro.html)
 
 ## Links
 

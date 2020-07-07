@@ -353,6 +353,20 @@ Get one data element
 GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d
 ```
 
+## Instance read status
+
+The instance read status determines how the instance is rendered in a user's innbox. As an unread or read element.
+
+### Update read status
+
+It is possible to update the read status of an instance to indicate that data related to the instance has been updated.
+Permited states are defined in the
+[ReadStatus enum](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs).
+
+```http
+PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
+```
+
 ## Application owner download
 
 Application Owner can download instances and data elements using the same endpoints as the end user. When done they need to register that the data has been downloaded.
@@ -880,7 +894,7 @@ GET {appPath}
 }
 ```
 
-### Process model[^1]
+### Process model
 
 Get the application's process model.
 
@@ -890,19 +904,27 @@ GET {appPath}/process
 
 Returns the bpmn file defining the process.
 
-### Get text resources for the application for a specific language[^1]
+### Application texts
+
+Get text resources for the application for a specific language code.
+If the requested language isn't available norsk bokmål (nb) will be returned as default.
+langaugeCode should follow the [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ```http
+GET {appPath}/api/v1/texts/{languageCode}
+```
+
+
+```http
+[Obsolete]
 GET {appPath}/texts?lang=nb
 ```
-<!-- OLD http://altinn3.no/runtime/api/Language/GetLanguageAsJSON?languageCode=nb -->
 
 ### Get text resources for a given element type[^1]
 
 ```http
 GET {appPath}/metadata/{typeName}/texts?lang=nb
 ```
-<!-- OLD http://altinn3.no/runtime/api/textresources/RtlOrg/apitracing -->
 
 ### Get the schema for a given element type[^1]
 
