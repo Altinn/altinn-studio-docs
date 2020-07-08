@@ -1572,7 +1572,7 @@
 	"title": "Go",
 	"tags": ["tech", "programming"],
 	"description": "Server side programming language.",
-	"content": "![Gopher](go.png \u0026ldquo;Go logo (\u0026ldquo;the larger the cuter!\u0026quot;)\u0026quot;)\nGo is the programming language that has been used for developing many of the products we use in Altinn Studio, such as Gitea, Kubernetes, Docker, Traefik, Helm, Grafana, Prometheus, Terraform and Hugo.\nLinks  https://golang.org https://github.com/golang/go https://hub.docker.com/_/golang https://code.visualstudio.com/docs/languages/go  "
+	"content": "Go is the programming language that has been used for developing many of the products we use in Altinn Studio, such as Gitea, Kubernetes, Docker, Traefik, Helm, Grafana, Prometheus, Terraform and Hugo.\nLinks  https://golang.org https://github.com/golang/go https://hub.docker.com/_/golang https://code.visualstudio.com/docs/languages/go  "
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/grafana/",
