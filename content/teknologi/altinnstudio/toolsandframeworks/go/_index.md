@@ -4,7 +4,7 @@ description: Server side programming language.
 tags: [tech, programming]
 ---
 
-![Gopher](go.png "Go logo ("the larger the cuter!")")
+![Gopher](go.png "The Go Gopher (\"the larger the cuter!!\")")
 
 Go is the programming language that has been used for developing many of the products we use in Altinn Studio,
 such as [Gitea](../gitea), [Kubernetes](../kubernetes), [Docker](../docker), [Traefik](../traefik), [Helm](../helm),
