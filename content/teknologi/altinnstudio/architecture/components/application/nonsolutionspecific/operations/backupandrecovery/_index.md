@@ -3,8 +3,7 @@ title: Backup and recovery
 linktitle: Backup & Recovery
 description: All data created in the different solutions are backed up so it is possible to restore it in case of data loss.
 tags: [solution, architecture]
-alwaysopen: false
-weight: 99
+toc: true
 ---
 
 As described under the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/)
@@ -21,7 +20,7 @@ Azure Cosmos DB and in Azure Blob Storage.
 
 There is different solutions for the different data stores.
 
-#### Cosmos db
+#### Cosmos DB
 
 ##### Built in backup functionality
 
@@ -34,7 +33,7 @@ Azure Cosmos DB automatically takes a backup of your database every 4 hours and 
 latest 2 backups are stored. However, if the container or database is deleted, Azure Cosmos DB retains the existing
 snapshots of a given container or database for 30 days.
 
-![image](https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png)
+![Cosmos DB](https://user-images.githubusercontent.com/13309071/77288403-0ae90300-6cd8-11ea-8be0-73bbda082fab.png "Cosmos DB")
 
 This functionality is out of the box when using Azure Cosmos DB.
 
@@ -51,14 +50,14 @@ outputs the sorted list of documents that were changed in the order in which the
 persisted, can be processed asynchronously and incrementally, and the output can be distributed across one or
 more consumers for parallel processing.
 
- ![image](https://user-images.githubusercontent.com/13309071/77245359-4b844600-6c1e-11ea-9960-b09dd9a05d92.png)
+ ![Change feed](https://user-images.githubusercontent.com/13309071/77245359-4b844600-6c1e-11ea-9960-b09dd9a05d92.png "Change feed")
 
 The solution is to have a [Azure Function that listens to the change feed](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed-functions)  
 and copies documents from Cosmos DB when they are created or modified to a blob storage. 
 
 The blob storage is a shared blob storage for all orgs.  (The same way Cosmos DB is shared)
-The blob storage have enabled [soft delete](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal). All versions of a document in Cosmos should be written 
-to the same blob. Soft delete will keep track of all versions.
+The blob storage have enabled [soft delete](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal).
+All versions of a document in Cosmos should be written to the same blob. Soft delete will keep track of all versions.
 
 The following collections has a Azure Function that takes backup. Click on name for code details about Azure Function
 
@@ -71,13 +70,14 @@ The following collections has a Azure Function that takes backup. Click on name 
 The below images show how the documents are backed up in a blob storage and soft delete has created a snapshot that last for 90 days. 
 In theese 90 days we are able to recover the document to an earlier version.
 
-![The containers for the different cosmos DB collections](backup1.png "The containers for the different cosmos DB collections")
+![DB collections](containers.png "The containers for the different cosmos DB collections")
 
-![A list of blobs (documents from Cosmos) for a given party](backup2.png "A list of blobs for a given party")
+![A list of blobs](blobs.png "A list of blobs for a given party")
 
-![Details for a document with information when the first document was created and when last changed](backup3.png "Details for a document with information when the first document was created and when last changed")
+![Details for a document](document-details.png "Details for a document, like when it was created and when last changed")
 
-![A list of snapshots that can be used to restore the document to an earlier version](backup4.png "A list of snapshots that can be used to restore the document to an earlier version")
+![A list of snapshots](snapshots.png "A list of snapshots that can be used to restore the document to an earlier version")
+
 
 #### Blob storage
 
@@ -97,10 +97,9 @@ For Altinn we have 90 days retention period. Inside that periode we can recover 
 [See more about soft delete on Azure Documentation](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal).
 
 
-### Altinn Studio
-
 ## Recovery
 
 We would need to create tools to be able to restore elements from blob storage to Cosmos DB and from Snapshots in blob storage.
 
-This is defined as issues in Github. [Issue for Cosmos DB](https://github.com/Altinn/altinn-studio/issues/4008) and [Issue for Blob storage](https://github.com/Altinn/altinn-studio/issues/4007)
+This is defined as issues in Github. [Issue for Cosmos DB](https://github.com/Altinn/altinn-studio/issues/4008)
+and [Issue for Blob storage](https://github.com/Altinn/altinn-studio/issues/4007)

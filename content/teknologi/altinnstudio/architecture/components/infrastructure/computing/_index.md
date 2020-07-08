@@ -1,10 +1,8 @@
 ---
 title: Computing componentens
+linktitle: Computing
 description: Computing components gives processor power to applications and software
 tags: [architecture, infrastructure]
-linktitle: Computing
-weight: 100
-alwaysopen: false
 ---
 
 
@@ -15,4 +13,4 @@ As part of Azure Kubernetes Services setup you can change the number of nodes an
 
 
 ### Virtual Images
-We use Virtual Images hosted in Azure. 
+We use Virtual Images hosted in Azure.

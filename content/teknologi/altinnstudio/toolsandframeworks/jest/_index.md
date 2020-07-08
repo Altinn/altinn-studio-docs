@@ -1,14 +1,18 @@
 ---
 title: Jest
-description:
+description: JavaScript Testing Framework.
 tags: [tech, frontend, test]
 ---
 
-![Jest logo](jest-logo.png)
+![Jest logo](jest-logo.png "Jest logo")
 
-"Jest is a delightful JavaScript Testing Framework with a focus on simplicity."
-- [https://jestjs.io/](https://jestjs.io/)
+"_Jest is a delightful JavaScript Testing Framework with a focus on simplicity._"
 
-Jest testing framework is used for front-end testing in Altinn Studio.
+Jest testing framework is used for front-end testing.
+You can read more about how to test with Jest [here](/teknologi/altinnstudio/development/handbook/test/unit-testing).
 
-[You can read more about how to test with Jest here]({{< ref "/teknologi/altinnstudio/development/handbook/test/unit-testing" >}})
+
+## Links
+
+- https://jestjs.io
+- https://github.com/facebook/jest

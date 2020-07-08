@@ -1,7 +1,8 @@
 ---
 title: Branching
-description: Branching information for Altinn Studio
+description: Branching information for Altinn Studio.
 tags: [development, git, branching]
+toc: true
 ---
 
 ## Principles

@@ -1,5 +1,6 @@
 ---
-title: Configure helptext
+title: Configure help texts
+linktitle: Help texts
 description: Help developer configure help texts for components
 ---
 
@@ -75,7 +76,7 @@ If you would like one of these components to have a help text you will need to
 
 Example of how it looks after adding help text:
 
-```json
+```json {linenos=false,hl_lines=[34]}
 {
   "data": {
     "layout": [

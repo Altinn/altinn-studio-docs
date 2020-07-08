@@ -1,43 +1,32 @@
 ---
 title: Logical datamodel
 linktitle: Logical
-description: The logcical datamodel describes the different data entities that is stored
+description: The logcical datamodel describes the data entities that is stored.
 tags: [architecture]
-weight: 100
-alwaysopen: false
+toc: true
 ---
 
 
 The following diagram shows the different entities stored. Click on the entity for the physical model used.
 
+![Logical datamodel](logical_data_model.svg "Logcal datamodel")
 
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/data/logical/logical_data_model.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
-
-[See fullscreen](/teknologi/altinnstudio/architecture/components/data/logical/logical_data_model.svg) / [Visio](/teknologi/altinnstudio/architecture/components/data/logical/logical_data_model.vsdx)
-
-{{% children description="true" depth="2" %}}
+Data is stored in Cosmos DB as JSON documents.
+In addition we use object database to store the raw objects of business data that org has defined for the application.
 
 
-
-Data is stored in Cosmos DB as JSON documents. In addition we use object database to store the raw objects of business data that org has defined for the application.
-
-
-![Collections](cosmos_collections.png "Cosmos Collections defined")
+![Cosmos collections](cosmos_collections.png "Cosmos collections")
 
 
+## Data Entities - Altinn Platform
 
-### Data Entities Altinn Platform
-
-
-#### Instances
+### Instances
 
 Example document from instance.
 
-AppId is the reference to APP.
+`appId` is the reference to the app.
 
-```json
+```json {hl_lines=[7]}
 {
     "id": "3cc58033-128e-414d-86c2-d652af251b39",
     "instanceOwner": {
@@ -73,17 +62,14 @@ AppId is the reference to APP.
 ```
 
 
+### DataItem
 
-#### DataItem
+Example document from data items.
 
-Example document from data items
+- `instanceGuid` references to instance
+- `blobstoragePath` references to the storage location for the given data
 
-instanceGuid references to iinstance
-
-blobstoragePAth references to the storage location for the given data
-
-
-```json
+```json {hl_lines=[2,6]}
 {
     "instanceGuid": "7eae6eec-f686-40b6-bc57-6fafc8c94f13",
     "id": "94f277a5-7d37-48e1-973c-92fb1f84f83a",
@@ -104,14 +90,13 @@ blobstoragePAth references to the storage location for the given data
 }
 ```
 
-#### InstanceEvent
+### InstanceEvent
 
 Example on instance event.
 
-InstanceID references to the instance.
+`instanceId` references to the instance.
 
-
-```json
+```json {hl_lines=[8]}
 {
     "user": {
         "userId": 20000015,
@@ -145,10 +130,9 @@ InstanceID references to the instance.
 ```
 
 
-#### Application
+### Application
 
-Example document on appliation
-
+Example document on application:
 
 ```json
 {
@@ -201,12 +185,12 @@ Example document on appliation
 
 
 
-### Data entities Altinn Studio
+## Data entities - Altinn Studio
 
 
-#### releases
+### Releases
 
-Exampl document
+Example document for releases:
 
 ```json
 {
@@ -235,9 +219,9 @@ Exampl document
 
 ```
 
-#### Deployments
+### Deployments
 
-Example document for deploymens
+Example document for deployments:
 
 ```json
 {
@@ -264,11 +248,8 @@ Example document for deploymens
 
 ```
 
+## Altinn Studio Repositories
+Altinn Studio Repositories uses Gitea, that uses a PostgreSQL database. 
 
-
-
-### Altinn Studio Repositories
-Altinn Studio Repositories uses Gitea that uses a PostgreSQL database. 
-
-The logical datamodel is a black box for the project. [See Gitea project](https://github.com/go-gitea/gitea)
-
+[See Gitea project](https://github.com/go-gitea/gitea)
+and [models/models.go](https://github.com/go-gitea/gitea/blob/dc812f8ba5bf1c123fa948afed15c4309da8fb45/models/models.go#L67).

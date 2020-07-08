@@ -4,9 +4,9 @@ description: På altinn.no har vi innhold på både bokmål, nynorsk og engelsk.
 weight: 30
 ---
 
-Informasjonsportal har mer variasjon i sidene som er tilgjengelig på hvilket språk, mens innlogget skal alt være oversatt. Tjenester 3.0 støtter i første utgave kun ett språk.
+Informasjonsportal har mer variasjon i sidene som er tilgjengelig på hvilket språk, mens innlogget skal alt være oversatt.
 
 {{% panel %}}
-**NB: Innholdet og sidene er under utvikling**<br>
+**NB: Innholdet og sidene er under utvikling**  
 Vi er ikke helt ferdige med disse ressursene enda
 {{% /panel %}}

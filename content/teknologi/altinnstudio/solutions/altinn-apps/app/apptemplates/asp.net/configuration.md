@@ -1,9 +1,8 @@
 ---
 title: Configuration of Application
-description: Description of the different configuration of the 
 linktitle: Configuration
-tags: [altinn-apps]
-weight: 200
+description: Description of the different configurations of an app. 
+tags: [altinn-apps, todo]
 ---
 
 ## Configuring Process
@@ -16,3 +15,5 @@ The authorization policy is defined as a XACML 3.0 policy file.
 
 
 ## Configuration of allowed data elements
+
+TODO

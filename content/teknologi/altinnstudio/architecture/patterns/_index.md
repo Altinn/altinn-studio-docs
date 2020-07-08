@@ -1,10 +1,9 @@
 ---
 title: Architecture Patterns
-description: The architecture defines some architecture patterns that is reused accross the different solutions. 
-tags: [architecture]
 linktitle: Patterns
-weight: 7
-alwaysopen: false
+description: The architecture defines some patterns that is reused accross the different solutions.
+toc: true
+tags: [architecture]
 ---
 
 
@@ -22,12 +21,9 @@ Combined with robust automation, they allow the devops team to make changes freq
 
 The Cloud Native blueprint below show the important aspect of a Cloud Native solution.
 
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/patterns/cloudnative.svg" type="image/svg+xml" style="width: 100%;";></object>
-{{% /excerpt%}}
+![Cloud Native blueprint](/teknologi/altinnstudio/architecture/patterns/cloudnative.svg "Cloud Native")
 
-
-The following listing describes the different Architecture Patterns selected for Altinn
+The following listing describes the different Architecture Patterns selected for Altinn.
 
 ## Microservice Pattern
 
@@ -39,13 +35,9 @@ separate applications in docker containers.
 
 Example components are authorization and storage.
 
-Each application created in Altinn Studio will be a isolated microservice application with API's and frontend. 
+Each application created in Altinn Studio will be a isolated microservice application with API's and front-end. 
 
-### Conceptual View 
-
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/patterns/microservices.svg" type="image/svg+xml" style="width: 100%;";></object>
-{{% /excerpt%}}
+![Conceptual View](/teknologi/altinnstudio/architecture/patterns/microservices.svg "Microservice Pattern Conceptual View")
 
 ### Benefits 
 
@@ -59,6 +51,7 @@ Each application created in Altinn Studio will be a isolated microservice applic
 - Eventual Consistency: Maintaining strong consistency is extremely difficult for a distributed system, which means everyone has to manage eventual consistency. 
 - Operational Complexity: You need a mature operations team to manage lots of services, which are being redeployed regularly. 
 
+
 ## Layered Pattern
 
 ### Overview
@@ -66,12 +59,9 @@ Applications/Components are organized into horizontal layers, each layer perform
 role within the application. Typical the layers will typical be Presentation, API, Business and dataacess where dataccess could be access to database or 
 API calls to other components.
 
-### Conceptual view 
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/patterns/layered.svg" type="image/svg+xml" style="width: 100%;";></object>
-{{% /excerpt%}}
+![Conceptual View](/teknologi/altinnstudio/architecture/patterns/layered.svg "Layered Pattern Conceptual View")
+
 
 ### Benefits
 - Testability. Dependency injection. Possible to mock lower layers. 
 
-### Risk & Issues

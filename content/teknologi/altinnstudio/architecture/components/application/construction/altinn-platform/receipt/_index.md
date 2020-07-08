@@ -1,17 +1,19 @@
 ---
 title: Application architecture receipt component - Altinn Platform
 linktitle: Receipt
-description: Description of receipt component
+description: The receipt component is an application exposing a React receipt application, and internal APIs.
 tags: [architecture, solution, receipt]
-weight: 100
+toc: true
 ---
 
-The receipt component is an .NET Core MVC Application exposing a react receipt application, and internal apis.
 
-The receipt frontend view is available at `https://platform.at22.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}`.
-The receipt component also exposes apis that are intended for use by the receipt frontend. If you need information about the user, instance or party you should use [their respective platform components.](/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/)
+The receipt frontend view is available at <https://platform.at22.altinn.cloud/receipt/{instanceOwnerId}/{instanceId}>.
 
-Receipt backend exposes two enitities through API endpoints prefixed with `https://platform.at22.altinn.cloud/receipt/api/v1/`; _user_ and _extendedInstance_
+The receipt component also exposes apis that are intended for use by the receipt frontend.
+If you need information about the user, instance or party you should use
+[their respective platform components](/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/).
+
+Receipt backend exposes two enitities through API endpoints prefixed with <https://platform.at22.altinn.cloud/receipt/api/v1/>; _user_ and _extendedInstance_
 
 ## /users
 A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.

@@ -1,6 +1,6 @@
 ---
-linkTitle: Design
 title: Slik designer vi
+linktitle: Design
 description: Her finner du våre designprinsipper, visuelle profil, merkevare og personlighet.
 weight: 10
 ---

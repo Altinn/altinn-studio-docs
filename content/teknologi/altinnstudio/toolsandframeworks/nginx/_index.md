@@ -4,12 +4,13 @@ description: Load balancer currently used for routing traffic between Repos and 
 tags: [tech, load-balancer]
 ---
 
-![nginx logo](nginx.png?width=150)
+![nginx logo](nginx.png "nginx logo")
 
-Nginx is used as the load balancer in the Altinn Studio solution. It routes traffic between Repos and Designer.
-Running in a docker container. You find details on routing on [Gitub](https://github.com/Altinn/altinn-studio/tree/master/deploy/kubernetes)
+Nginx is used as the load balancer in the Altinn Studio solution.
+It routes traffic between Repos and Designer, itself running in a docker container.
 
 ## Links
 
 - https://www.nginx.org
 - https://github.com/nginx/nginx
+- https://hub.docker.com/_/nginx

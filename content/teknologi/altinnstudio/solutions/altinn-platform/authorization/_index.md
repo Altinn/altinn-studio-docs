@@ -1,8 +1,7 @@
 ---
 title: Authorization
 description: The authorization component contains a highly flexible policy decision point and policy retrieval point to authorize access to applications and Altinn platform components. 
-tags: [platform, authorization]
-weight: 200
+tags: [platform, authorization, todo]
 ---
 
 The authorization component as based on XACML 3.0 and support both simple and complex policies defined for applications.
@@ -21,4 +20,3 @@ integrated with other external Policy Information Points.
 Apps integrated with PDP to authorize access to applications.
 
 It also provides list for possible parties that a user or organization could represent.
-

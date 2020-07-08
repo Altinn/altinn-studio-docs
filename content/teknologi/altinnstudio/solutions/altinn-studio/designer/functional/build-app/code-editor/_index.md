@@ -1,7 +1,7 @@
 ---
 title: Create AppLogic with code
-description: App behavoir can be controlled by code
-tags: [process]
+linktitle: App logic
+description: App behavior can be controlled by code.
 ---
 
 
@@ -15,15 +15,4 @@ A developer can edit logic that will run in the browser for a given app.
 
 [See Getting started to se how to do that](https://altinn.github.io/docs/altinn-studio/app-creation/logic/).
 
-
 [See github issues related to logic & rules](https://altinn.github.io/docs/altinn-studio/app-creation/logic/).
-
-
-
-
-
-
-
-
-
-

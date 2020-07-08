@@ -2,7 +2,6 @@
 title: Register
 description: The Register micro service gives register information to Apps.
 tags: [platform, register]
-weight: 200
 ---
 
 - ER - Enhetsregisteret - Information about organisations in Norway
@@ -16,4 +15,4 @@ Altinn Platform does not have a own copy of ER. It currently uses Altinn II plaf
 See [Application architecture](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/) for details.
 
 
-[See all open issues for Register on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fregister)
+[See all open issues for Register on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fregister).

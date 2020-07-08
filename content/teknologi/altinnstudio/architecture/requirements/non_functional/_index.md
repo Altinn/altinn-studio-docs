@@ -1,11 +1,11 @@
 ---
-title: Non Functional Requirements
-description: Non functional requirements contains requirements that typical is important for deciding the architecture
+title: Non-Functional Requirements
+linktitle: Non-Functional
+description: Non functional requirements contains requirements that typically is important for deciding the architecture.
+toc: true
 tags: [architecture]
-weight: 6
-linktitle: Non Functional
-alwaysopen: false
 ---
+
 ## Architectural Concerns
 Architecture Concerns are categories of Non-Functional Requirements (NFRs) of a system that 
 has been important defining this architecture. These are sometimes referred to as 
@@ -108,8 +108,8 @@ The data needs to be stored inside the Norwegian boarder.
 ### Portability
 The technology architecture should not make it impossible to move to different cloud providers. 
 
-## Other Non Functional requirements
+## Other Non-Functional requirements
 
 ### System location
-The Altinn solution needs to be located inside Norways borders. This requires that we only can choose amongst the cloud providers providing
-cloud services inside Norway. 
+The Altinn solution needs to be located inside Norwegian borders.
+This requires that we only can choose amongst the cloud providers providing cloud services inside Norway. 

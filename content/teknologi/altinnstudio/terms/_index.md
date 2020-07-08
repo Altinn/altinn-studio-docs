@@ -1,8 +1,6 @@
 ---
 title: Terms
 description: Description of the most common terms used in the documentation for Altinn Studio.
-weight: 100
-alwaysopen: false
 aliases:
  - /terms/
 ---

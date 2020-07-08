@@ -2,33 +2,41 @@
 
 Documentation for Altinn Studio: https://docs.altinn.studio/
 
-### Running Altinn Studio docs locally 
+## Running Altinn Studio docs locally 
 
-#### Command line
-Navigate to C:\Repos\altinn-studio-docs and run
+1. Clone the repo (assumes you've installed [Git](https://git-scm.com/downloads)):
 
-```cmd
-hugo.exe server
+```shell
+cd C:/repos
+git clone https://github.com/altinn/altinn-studio-docs
+```
+2. [Download Hugo](https://github.com/gohugoio/hugo/releases) (v0.73.0 or newer), and copy the executable into the new altinn-studio-docs folder.
+   
+3. Navigate to folder and run Hugo:
+
+```shell
+cd altinn-studio-docs
+./hugo serve --navigateToChanged
 ```
 
 Which will result in output similar to:
 
 ```cmd
 Building sites …
-                   | EN
-+------------------+-----+
-  Pages            | 263
-  Paginator pages  |  28
-  Non-page files   | 197
-  Static files     | 184
-  Processed images |   0
-  Aliases          | 104
-  Sitemaps         |   1
-  Cleaned          |   0
+                   | NB   
+-------------------+------
+  Pages            | 376  
+  Paginator pages  |  31  
+  Non-page files   | 333  
+  Static files     | 228  
+  Processed images |   0  
+  Aliases          |  96  
+  Sitemaps         |   1  
+  Cleaned          |   0  
 
-Total in 4217 ms
-Watching for changes in C:\Repos\altinn-studio-docs\{content,layouts,static,themes}
-Watching for config changes in C:\Repos\altinn-studio-docs\config.toml
+Built in 8390 ms
+Watching for changes in C:\repos\altinn-studio-docs\{content,layouts,static,themes}
+Watching for config changes in C:\repos\altinn-studio-docs\config.toml
 Environment: "development"
 Serving pages from memory
 Running in Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender
@@ -36,4 +44,4 @@ Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
 Press Ctrl+C to stop
 ```
 
-The solution is now available at http://localhost:1313
+The solution is now running locally at http://localhost:1313

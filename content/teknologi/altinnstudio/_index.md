@@ -5,8 +5,9 @@ jumbotron: true
 ---
 
 {{% panel %}}
-**Develop digital applications using our tools and APIs**<br>
-Looking for technical guidance on how to build your own apps with our products? See [the Altinn Studio user guide](https://altinn.github.io/docs/altinn-studio/). (Partially in Norwegian.)
+**Develop digital applications using our tools and APIs**  
+Looking for technical guidance on how to build your own apps with our products?
+See [the Altinn Studio user guide](https://altinn.github.io/docs/altinn-studio/). (Partially in Norwegian.)
 {{% /panel %}}
 
 Altinn Studio is the next generation Altinn application development solution.

@@ -9,11 +9,11 @@ homepage = "https://github.com/Altinn/hugo-theme-altinn"
 repo = "https://github.com/Altinn/hugo-theme-altinn"
 tags = ["documentation", "menu","slide","search"]
 features = ["documentation","menu","nested sections","search","slide", "attachments"]
-min_version = 0.25
+min_version = 0.73
 
 [author]
   name = "Altinn"
-  homepage = "https://altinn.no"
+  homepage = "https://www.altinn.no"
 
 [original]
   name = "Docdock"
