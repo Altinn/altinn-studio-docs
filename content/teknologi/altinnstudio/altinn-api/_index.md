@@ -9,36 +9,30 @@ aliases:
  - /altinn-api/
 ---
 
-{{%notice warning%}}
-This is work-in-progress. This is a proposed API which most likely is going to change. 
-
-{{% /notice%}}
-
 ## Introduction
 
-There are primarily two types of consumers of the Altinn APIs. 
-The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. The group is called *Application Owners*.
-The second group consists of organisations and people using the applications through a client system, the group is called *Application Users*. 
+There are primarily two user groups the Altinn APIs. 
+The first group consists of applications and systems used by the owners of the applications hosted on the Altinn platform. This group is called *Application Owners*.
+The second group consists of organisations and people using the applications through a client system This group is called *Application Users*. 
 The two groups have many similar needs, but there are also differences in what type of tasks they need to be able to perform. 
-Traditionally the two groups have had access to completely separated API endpoints in Altinn. 
-The new API will be available to both parties, but with some functions that will normally be used only by one of the groups. 
+All new APIs will be available to both groups, but some endpoints that will normally be used only by one of the groups. 
 
 ### Application Owners
 
-A list of common tasks for an application owner.
+A list of common tasks for an application owner:
 
-- Query instances for a given application according to status
+- Query instances for a given application according to status or instance owners
 - Create an application instance
 - Upload form data
 - Download form data
-- Confirm successful download
-  - Confirm complete
 - Change process state (workflow)
+- Confirm instance as complete
 
 ### Application Users
 
-A list of common tasks for an end user.
+A list of common tasks for an application user:
 
+- Query instances for themselves or a party they can represent (instance owner)
 - Create an application instance
 - Upload form data
 - Download form data
@@ -51,9 +45,9 @@ The new solution will have multiple APIs, but they can be divided in two groups.
 
 ### Application API
 
-An API that provides access to all instances of a specific app. Every App will expose almost identical endpoints and functionality. External parties should need only one client implementation across all App APIs. Technically there is nothing preventing an app owner from adding or making changes, but in those cases it is probably not a normal App and clients would require special handling for it anyway.
+The application API is an API that provides access to all instances of a specific app. Every App will expose almost identical endpoints and functionality. External parties should need only one client implementation across all App APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. Applications like that would in most cases require some special handling. Please refer to documentation for the specific app provided by the application owner.
 
-The application API gives access to App specific instances. Should be used to instantiate an application, to validate data, to change process and to save/update data elements.
+The application API gives access to App specific instances. Should be used to instantiate an application, to validate data, to change process step and to save/update data elements.
 
 ```http
 appPath = https://org.apps.altinn.no/org/app
@@ -63,15 +57,92 @@ Identifies the organisation cluster and the application.
 
 ### Platform Storage API
 
-An api that provides access to all instances of all apps, it should be used to access metadata about instances and to download data elements.
+The Platform Storage API are primarily made to support the applications hosted on the platform, but all GET methods can be used directly by both application owners and users.
 
-Should be used by application owners to download data elements. Downloads will be logged. 
+The API provides access to all instances across all applications. It can be used to access metadata about applications, instances, data elements and events. It can also be used to download the content of data elements. This API should be the preferred method for application owners to download data associated with instances created based on their applications.
 
 ```http
 storagePath = https://platform.altinn.no/storage
 ```
 
 The Platform Storage API will provide access to information stored by the application. [More information on the Platform apis can be found here](/architecture/application/altinn-platform)
+
+## Query instances
+
+It is possible to query instances based on a number of query parameters. 
+
+Application owners can search for from a single application or across all applications that they have.
+Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
+
+Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
+Query parametr 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
+
+Search for instances with a simple GET request towards the *instances* endpoint.
+Avaliable query paramters include:
+
+- process.currentTask (string)
+- process.isComplete (bool)
+- process.endEvent (string)
+- process.ended (datetime)
+- instanceOwner.partyId (int)
+- lastChanged (datetime)
+- created (datetime)
+- visibleAfter (datetime)
+- dueBefore (datetime)
+
+For example: To get all instances of application *org/app*, that is at process task with id *Task_2* (which is Submit, see process definition), and has last changed date greater than *2019-05-01*.
+
+```http
+GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChanged=gt:2019-05-01
+```
+
+Another example is to get all instances of all applications of a given application owner *org* that has ended date greater than 2020-03-10.
+
+```http
+GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
+```
+
+Yet another example is get all instances of an application that are at a specific process task e.g. *Task_1*.
+
+```http
+GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
+```
+
+On query parameters specifying date time you can use the following operators:
+
+* gt: - greater than
+* gte: - greater than or equal to
+* lt: - less than
+* lte: - less than or equal to
+* eq: - equal (can also be blank)
+
+They can be combined to define a range:
+
+```http
+dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
+```
+
+The query returns a result object (page) which includes a collection of instances that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link.
+
+The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
+
+The endpoint supports *application/json*.
+
+```json
+Accept: application/json
+{
+    "totalHits": 234,
+    "count": 50,
+    "self": "{storagePath}/instances?appId=org/app&size=50",
+    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
+    "instances": [
+            {...},
+            {...},
+            ...
+      ]
+    }
+}
+```
 
 ## Create an application instance
 
@@ -369,9 +440,9 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstat
 
 ## Application owner download
 
-Application Owner can download instances and data elements using the same endpoints as the end user. When done they need to register that the data has been downloaded.
+Application Owner can download instances and data elements using the same endpoints as the end user.
 
-### Confirm instance completed
+## Confirm instance completed
 
 The last step for application owner in all processes is to confirm that they consider the case associated with an instance as finished. Its purpose is to tell Altinn that the application owner has downloaded all data, finished any internal processing, and if applicable, posted a response. The original instance is no longer needed. Only the first call to this operation will be registered. Consecutive calls are ignored.
 
@@ -381,83 +452,6 @@ POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/complete
 The body of the request is currently not used by the endpoint and should preferably be nothing more than an empty string.
 
 The operation returns an updated instance with the added `CompleteConfirmation`.
-
-## Query instances
-
-It is possible to query instances based on a number of query parameters. 
-
-Application owners can search for from a single application or across all applications that they have.
-Using this endpoint requires the scope 'altinn:instances.read'. And query parameter 'org' or 'appId' must be included in the request.
-
-Users can search for instances linked to either themselves or an instanceOwner they are authorized to read the instances of. 
-Query parametr 'instanceOwner.partyId' must be included in the request if using this endpoint as an end user.
-
-Search for instances with a simple GET request towards the *instances* endpoint.
-Avaliable query paramters include:
-
-- process.currentTask (string)
-- process.isComplete (bool)
-- process.endEvent (string)
-- process.ended (datetime)
-- instanceOwner.partyId (int)
-- lastChanged (datetime)
-- created (datetime)
-- visibleAfter (datetime)
-- dueBefore (datetime)
-
-For example: To get all instances of appId *org/app*, that is in at task with id *Task_2* (which is Submit, see process definition), has last changed date greater than *2019-05-01* and that has label *gruppe3*.
-
-```http
-GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChanged=gt:2019-05-01&appOwner.label=gruppe3
-```
-
-Another example is get all instances of all apps of an organisation *org* that has ended date greater than 2020-03-10.
-
-```http
-GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
-```
-
-Yet another example is get all instances of an app that are in a specific task e.g. Task_1.
-
-```http
-GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
-```
-
-On query parameters specifying date time you can use the following operators:
-
-* gt: - greater than
-* gte: - greater than or equal to
-* lt: - less than
-* lte: - less than or equal to
-* eq: - equal (can also be blank)
-
-They can be combined to define a range:
-
-```http
-dueBefore=gt:2019-02&dueBefore=lt:2019-03-01
-```
-
-The query returns a result object (page) which includes a collection of instance that matched the query. 100 instances is returned by default. Use *size* to get more or less instances per page. To get to the next page you have to use the *continuationToken* present in the *next* link.
-
-The instances endpoint returns a query result object with information about how many total hits *totalHits* that the query matched and how many objects returned *count*. 
-
-The endpoint supports plain *application/json*.
-
-```json
-Accept: application/json
-{
-    "totalHits": 234,
-    "count": 50,
-    "self": "{storagePath}/instances?appId=org/app&size=50",
-    "next": "{storagePath}/instances?appId=org/app&size=50&continuationToken=%257b%2522token%2522%253a%2522%252bRID%..."
-    "instances": [
-            {...},
-            {...},
-            ...
-      ]
-    }
-}
-```
 
 ## Events
 
