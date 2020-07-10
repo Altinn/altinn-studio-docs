@@ -48,7 +48,7 @@ The idea is to send the logs to the console and collect them using Application I
 It is also possible to log to different log providers by configuring it in the config file. F.ex It is possible log only error and warning message to appinsights and information logs to console.
 
 ### Third Party Logging Frameworks
-There are a bunch of third party logging frameworks available for .net core. Serilog is one of them and Altinn studio will use it to log.
+There are a bunch of third party logging frameworks available for .net core. Serilog is one of them and Altinn Studio will use it to log.
 There are many advantages of using serilog
 
 - It's open source

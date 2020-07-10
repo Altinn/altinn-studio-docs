@@ -34,9 +34,8 @@ App Developers can use locally installed IDE and other tools and communicate dir
 with the repository. This is targeted for the more experienced developers.
 
 ## Local Developer with Altinn Studio
-For developers that is required to develop custom widgets (REACT) they can install 
-Altinn Studio App Development solution locally on their computer. (Altinn studio
-support both Windows, Linxu and MacOS)
+For developers that is required to develop custom widgets (React) they can install 
+Altinn Studio locally on their computer. (Altinn Studio support both Windows, Linux and macOS)
 
 
 

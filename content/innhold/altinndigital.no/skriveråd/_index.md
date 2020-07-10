@@ -147,7 +147,7 @@ Dette gjør vi får å få brukerne til å følge seg trygge – vi viser at det
 ### Illustrasjoner 
 Illustrasjoner brukes på Altinn digitalisering der det gir en merverdi til det tekstlige innholdet.
 I hovedsak bruker vi illustrasjoner til å illustrere produktene våre – til å vise hva produktet er og hvordan produktet virker.
-Vi bruker også illustrasjon til å formidle samarbeid om tjenesteutvikling og verktøyet, Altinn studio.  
+Vi bruker også illustrasjon til å formidle samarbeid om tjenesteutvikling og verktøyet, Altinn Studio.  
 
 #### Retningslinjer for bruk av illustrasjoner:
 - Illustrasjoner skal kun brukes der de er informasjonsbærende, ikke som pynt 
