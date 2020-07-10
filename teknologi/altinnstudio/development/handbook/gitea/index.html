@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Gitea documentation for altinn.studio">
+    <meta name="description" content="How to customize and configure Gitea.">
 
 
     
@@ -5535,35 +5535,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/gitea/" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/gitea/">
-        <span>Gitea</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/naming/" class="dd-item 
         
         
@@ -6251,7 +6222,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/test/wcag/">
-        <span>WCAG testing in Altinn Studio</span>
+        <span>WCAG testing</span>
 
         
 
@@ -6298,6 +6269,35 @@ if(host != "localhost")
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/gitea/" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/gitea/">
+        <span>Gitea</span>
+
+        
+
+        
+        
+
+        
+      </a>
               
     </li>
   
@@ -10010,7 +10010,7 @@ if(host != "localhost")
                 Gitea
                 
               </h1>
-              <p class="a-leadText" id="leadText">Gitea documentation for altinn.studio</p>
+              <p class="a-leadText" id="leadText">How to customize and configure Gitea.</p>
             
           
 
@@ -10022,12 +10022,24 @@ if(host != "localhost")
 
 
 
-<h3 id="gitea">Gitea</h3>
-<p>Gitea is used in altinn.studio as version control of the services developed in altinn.studio.</p>
-<h3 id="links">Links</h3>
-<ul>
-<li><a href="https://docs.gitea.io/en-us/">Gitea docs</a></li>
-</ul>
+<p>Gitea is used for version control of the apps developed in Altinn Studio.</p>
+<h2 id="customize">Customize</h2>
+<p>The documentation on how to customize Gitea can be found <a href="https://docs.gitea.io/en-us/customizing-gitea/">here</a>.</p>
+<h2 id="templates">Templates</h2>
+<p>The user interface of Gitea can be customized to match your application needs.
+You can copy the templates from <a href="https://github.com/go-gitea/gitea/tree/master/templates">Gitea&rsquo;s GitHub</a>.</p>
+<p>For example the default login page looks like this</p>
+<figure><a href="default-login.png"><img src="default-login.png" alt="Gitea default login" title="Default login" /></a><figcaption><h4>Default login</h4></figcaption></figure>
+<p>It&rsquo;s customized to look like this</p>
+<figure><a href="customized-login.png"><img src="customized-login.png" alt="Customized Gitea login" title="Customized login" /></a><figcaption><h4>Customized login</h4></figcaption></figure>
+<p>Follow these steps to change any user interface of Gitea. Here example is given for login:</p>
+<ol>
+<li>Copy the login template from Gitea&rsquo;s GitHub</li>
+<li>Paste it in your application in the same folder structure as Gitea.</li>
+<li>Edit the file. You can change the html tags and introduce new CSS or add new text or image without affecting the logic.</li>
+<li>Update the Docker image to use these templates.</li>
+</ol>
+<p>Now, the new login template will be taken in use.</p>
 
 
 <footer class=" footline" >
@@ -12709,26 +12721,6 @@ if(host != "localhost")
                       
                           
                               
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                                  
-                                  
-                              
                           
                           
           
@@ -13106,6 +13098,26 @@ if(host != "localhost")
                       
                       
                           
+                              
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                                  
+                                  
                               
                           
                           
@@ -14953,10 +14965,10 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/git/" title="Git"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/test/xunit-testing/" title="Xunit Testing"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/naming/" title="Naming Conventions" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/reusable-resources/" title="Reusable resources" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 

@@ -5535,35 +5535,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/gitea/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/gitea/">
-        <span>Gitea</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/naming/" class="dd-item 
         
         
@@ -6251,7 +6222,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/test/wcag/">
-        <span>WCAG testing in Altinn Studio</span>
+        <span>WCAG testing</span>
 
         
 
@@ -6298,6 +6269,35 @@ if(host != "localhost")
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/gitea/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/gitea/">
+        <span>Gitea</span>
+
+        
+
+        
+        
+
+        
+      </a>
               
     </li>
   
@@ -10025,37 +10025,6 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/postman/">Postman</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.
-Authentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way:
- In your browser login to dev. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/postman/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/rest/">RESTful APIs (Representation State Transfer)</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10311,6 +10280,41 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                 <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/">Traefik custom resources</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>IMPORTANT These resources have to be installed before creating any of the resources they describe. They are most likely installed with helm when installing traefik 2.0.
+To support new features in routing and middlewares with IngressRoutes and dynamic tls options, traefik supplies it&rsquo;s own kubernetes custom resources defined in the traefik docs. These are:
+apiVersion: apiextensions.k8s.io/v1beta1 kind: CustomResourceDefinition metadata: name: ingressroutes.traefik.containo.us spec: group: traefik.containo.us version: v1alpha1 names: kind: IngressRoute plural: ingressroutes singular: ingressroute scope: Namespaced --- apiVersion: apiextensions. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/custom-resources/">custom resources</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/crds/">crds</a>
             
         
 
@@ -13013,22 +13017,6 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
           
                               
                               
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                                   
                               
                               
@@ -13377,6 +13365,22 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   

@@ -207,10 +207,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/gitea/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/installation/</loc>
   </url>
   
@@ -888,6 +884,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/git/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/gitea/</loc>
   </url>
   
   <url>
