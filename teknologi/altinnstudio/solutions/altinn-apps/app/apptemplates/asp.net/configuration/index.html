@@ -10044,6 +10044,9 @@ if(host != "localhost")
 <p>The authorization policy is defined as a XACML 3.0 policy file.</p>
 <h2 id="configuration-of-allowed-data-elements">Configuration of allowed data elements</h2>
 <p>TODO</p>
+<h2 id="configuration-of-linkerd">Configuration of Linkerd</h2>
+<p>Every app cluster has <a href="https://linkerd.io">linkerd</a> installed as a service mesh. The app can be configured to use linkerd to encrypt the traffic between the ingress controller and the app. Configuration is done through the deployment files in the app repo. Older app templates are missing this configuration, but the deployment files can be copied from a new app template without modification.</p>
+<p>Enabling/disabling linkerd is configured through linkerd.enabled property in the deployment/values.yaml file.</p>
 
 
 <footer class=" footline" >

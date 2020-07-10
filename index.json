@@ -1215,7 +1215,7 @@
 	"title": "Configuration of Application",
 	"tags": ["altinn-apps", "todo"],
 	"description": "Description of the different configurations of an app.",
-	"content": "Configuring Process The App process is controlled by a BPMN 2.0 process file located in the app repository.\nSee architecture for supported types of steps.\nConfiguration of Authorization Policy The authorization policy is defined as a XACML 3.0 policy file.\nConfiguration of allowed data elements TODO\n"
+	"content": "Configuring Process The App process is controlled by a BPMN 2.0 process file located in the app repository.\nSee architecture for supported types of steps.\nConfiguration of Authorization Policy The authorization policy is defined as a XACML 3.0 policy file.\nConfiguration of allowed data elements TODO\nConfiguration of Linkerd Every app cluster has linkerd installed as a service mesh. The app can be configured to use linkerd to encrypt the traffic between the ingress controller and the app. Configuration is done through the deployment files in the app repo. Older app templates are missing this configuration, but the deployment files can be copied from a new app template without modification.\nEnabling/disabling linkerd is configured through linkerd.enabled property in the deployment/values.yaml file.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/",
