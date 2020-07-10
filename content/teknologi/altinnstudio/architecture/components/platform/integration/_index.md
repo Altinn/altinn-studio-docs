@@ -1,29 +1,24 @@
 ---
 title: Integration Components
-description: Integration components are in charge of enabling communications between systems
-tags: [architecture, infrastructure]
-linktitle: Integration Components
-weight: 102
-alwaysopen: false
+linktitle: Integration
+description: Integration components are in charge of enabling communications between systems.
+tags: [architecture]
 ---
 
-## Integration Software
 
-### Gateway Software
-The gateway used is Azure Application Gateway. This is responsible for forwarding traffic to Api management or direct to the different Kubernetes Clusters
+## Gateway Software
+The gateway used is Azure Application Gateway. This is responsible for forwarding traffic to Api management or direct to the different Kubernetes Clusters.
 
 Read more about [Azure Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/overview).
 
-### Api Management & Gateway Sw
+## Api Management & Gateway Sw
 Azure API managmenet is used as API management. This is a managed service.
 
-Read more about [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts)
+Read more about [Azure API Management](https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts).
 
-## Integration Frameworks & Libraries
+## Data Access Libraries
+We use various libraries to interact with different data stores.
 
-### Data Access Libraries
-We use various libraries to interact with different data stores
-
-### Integration Libraries
+## Integration Libraries
 We use integration libraries to interact with different external and internal components.
 

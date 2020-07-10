@@ -1,10 +1,8 @@
 ---
 title: Operating Systems & Cloud Platform
-description: Operating Systems & Cloud Platform defines the operating systems for containers and how the container are deployed to the cloud
-tags: [architecture, infrastructure]
 linktitle: OS & Cloud Platform
-weight: 104
-alwaysopen: false
+description: Operating Systems & Cloud Platform defines the operating systems for containers and how the container are deployed to the cloud.
+tags: [architecture]
 ---
 
 ## Operating systems
@@ -20,10 +18,8 @@ We use Kubernetes to manage the application containers for the different solutio
 
 We use Azure Kubernetes Services that is a managed Kubernetes administration in Azure.
 
-Read more about our [Kubernetes Clusters](kubernetes)
+Read more about our [Kubernetes Clusters](kubernetes).
 
 ### Service Mesh & Proxy
 
-We use Traefik as Proxy in the Kubernetes.
-
-Currently we dont use Service Mest technolgies
+We use [Traefik](https://traefik.io) as proxy in Kubernetes and [Linkerd](https://linkerd.io/) as service mesh.

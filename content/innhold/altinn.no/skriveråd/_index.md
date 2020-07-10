@@ -2,12 +2,11 @@
 title: Skriveråd
 description: Tips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din. Ressursene handler om ordene vi bruker, måten vi bruker dem på og hvordan vi ønsker å fremstå når vi skriver. 
 weight: 30
-toc: true
+toc: false
 ---
-<br>
 
 {{% panel %}}
-**NB: Innholdet og sidene er under utvikling**<br>
+**NB: Innholdet og sidene er under utvikling**  
 Vi er ikke helt ferdige med disse ressursene enda
 {{% /panel %}}
 

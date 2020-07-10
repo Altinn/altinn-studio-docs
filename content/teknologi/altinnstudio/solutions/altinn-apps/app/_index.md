@@ -2,7 +2,6 @@
 title: App
 description: Description of the app created in Altinn Studio and that is deployed to Altinn Apps.
 tags: [altinn-apps]
-weight: 200
 ---
 
 The App is created, designed and build in Altinn Studio and deployed to Altinn Apps. 
@@ -16,7 +15,3 @@ the developers to create a Apps to support different types of functional needs.
 The current version contains support for simple user needs, but the platform and the app templates will get more functionality in the future.
 
 {{% children description="true" depth="1" %}}
-
-
-
-

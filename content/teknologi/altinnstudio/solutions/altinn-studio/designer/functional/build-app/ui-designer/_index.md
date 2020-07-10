@@ -1,6 +1,7 @@
 ---
 title: UI Design
 description: The UI-designer is the part of Altinn Studio where the developer can create UI for the app.
+toc: true
 ---
 
 The possibility to effectly build a user friendly user interface for an app, is an essential feature for Altinn Studio.

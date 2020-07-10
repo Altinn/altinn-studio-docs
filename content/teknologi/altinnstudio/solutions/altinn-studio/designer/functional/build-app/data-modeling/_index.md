@@ -1,7 +1,7 @@
 ---
 title: Data modeling
 description: Defining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.
-tags: [data-modeling]
+tags: [data-modeling, todo]
 ---
 
 The data model for an app typical defines the format of the data either sent to the app owner or presented in the app

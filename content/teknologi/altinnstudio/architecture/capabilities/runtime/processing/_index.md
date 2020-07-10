@@ -1,10 +1,8 @@
 ---
 title: Processing & Execution Capabilities
-description: Processing & Execution Capabilities includes everthing from processing a defined business processes to loadbalancing and failover
-tags: [architecture]
-weight: 102
 linktitle: Processing & Execution
-alwaysopen: false
+description: Processing & Execution Capabilities includes everything from processing a defined business processes to load balancing and failover.
+tags: [architecture]
 ---
 ##	Processing Capabilities
 
@@ -14,9 +12,6 @@ As part of the Application design and build in Altinn Studio the application dev
 The application framework used in the app template support reading and processing the process file. 
 
 [Read the details about BPMN processing capabilities](process).
-
-
-
 
 ## Execution Control & Failure Mgmt Capabilities
 
@@ -53,3 +48,6 @@ The technical architecture has load balancing capabiltiies
 
 ### Fail over
 The technical architecture has fail over capabilties. 
+
+
+{{% children description="true" depth="1" %}}

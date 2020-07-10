@@ -2,7 +2,7 @@
 title: Features
 description: Description of features in App
 tags: [altinn-apps]
-weight: 200
+toc: true
 ---
 
 
@@ -33,7 +33,3 @@ In the future the App will support multiple datamodels.
 
 ## PDF of data
 The App will be able to present at PDF of the data. 
-
-
-
-{{% children description="true" depth="1" %}}

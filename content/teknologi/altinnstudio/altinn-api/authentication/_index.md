@@ -1,75 +1,76 @@
 ---
 title: Authentication
-description: How to authenticate towards the apis
+description: How to authenticate using the APIs.
 toc: true
 tags: [api]
 weight: 100
-alwaysopen: false
 ---
 
 ## Authentication for application owners
 
-Application owners should be authenticated with [maskinporten](https://difi.github.io/felleslosninger/maskinporten_overordnet.html).
+Application owners should be authenticated with [Maskinporten](https://difi.github.io/felleslosninger/maskinporten_overordnet.html).
 
 ### API provisioning in Maskinporten
 
-#### Api-provider
+#### API-provider
 
 To provide an API in maskinporten Altinn has to do two operations.
 
-> As Api-provider Altinn registres a scope in *Maskinporten*:
+1. As API-provider Altinn registres a scope in *Maskinporten*
+    ```json
+    POST /scopes
+    {
+        "prefix": "altinn",
+        "subscope": "instances/metadata.read",
+        "description": "Clients can access metadata for all instances for all apps of the organisation"
+    }
+    ```
+2. As API-provider Altinn has to give access to its scope for a given organisation
+    ```http
+    PUT /scopes/access/889640782?scope=altinn:apps.read
+    ```
+    Here we have given organisation 889640782 access to the scope `altinn:instances/metadata.read`.
+    The organisation must then create a client that uses the scope.
 
-```json
-POST /scopes
-{
-    "prefix": "altinn",
-    "subscope": "instances/metadata.read",
-    "description": "Clients can access metadata for all instances for all apps of the organisation"
-}
-```
+#### API-consumer
 
-> As Api-provider Altinn has to give access to its scope for a given organisation:
+To access the Altinn API an organisation must create a client.
 
-```json
-PUT /scopes/access/889640782?scope=altinn:apps.read
-```
-
-Here we have given organisation 889640782 access to the scope `altinn:instances/metadata.read`
-The organisation must then create a client that uses the scope.
-
-#### Api-consumer
-
-To access the Altinn api an organisation must create a client
-
-> As API-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn:
-
-```json
-POST /clients/
-{
-    "client_name": "altinnOrgRead",
-    "client_type": "CONFIDENTIAL",
-    "description": "Client for accessing the my orgs app data",
-    "scopes": [ "altinn:instances/metadata.read" ],
-    "token_reference": "SELF_CONTAINED"
-}
-```
+1. As API-consumer the organisation must create a client in *Maskinporten* with scopes provided by Altinn:
+    ```json {linenos=false,hl_lines=[6]}
+    POST /clients
+    {
+        "client_name": "altinnOrgRead",
+        "client_type": "CONFIDENTIAL",
+        "description": "Client for accessing the my orgs app data",
+        "scopes": [ "altinn:instances/metadata.read" ],
+        "token_reference": "SELF_CONTAINED"
+    }
+    ```
 
 ### Scopes
 
-scope names must follow the following regexp: `^([a-z0-9]+\/?)+[a-z0-9]+(\.[a-z0-9]+)?$?`.
-It means that we cannot have - or _ in scope names.
+scope names must follow the following regexp:
+
+```perl
+^([a-z0-9]+\/?)+[a-z0-9]+(\.[a-z0-9]+)?$?
+```
+
+It means that we cannot have `-` or `_` in scope names.
 
 #### All instances scope
 
-```cs
+```js
 altinn:instances.read
 altinn:instances.write
 ```
 
 This is the most general scope which can be given to an organisation by Altinn.
 It means that the application owner can create a client that can access all instances of apps issued by that application owner.
+
 Clients with *write* scope will be able to instantiate applications through direct access to the app's api, update metadata,
 update process state, upload data, validate data, and change process of an instance.
+
 Clients with *read* token will only be allowed to read metadata, data and events information.
 
 ### Exchange of JWT token
@@ -91,7 +92,7 @@ GET /authentication/api/v1/exchange/maskinporten
 
 The token looks something like this (after decoding):
 
-```json
+```json {linenos=false,hl_lines=[15,"17-20"]}
 {
   "kid": "HtYZ1MTlVWPcBWBPUewNlYwTBFIbqMGoO58RxnczMbM",
   "alg": "RS256"
@@ -117,13 +118,14 @@ The token looks something like this (after decoding):
 <<signature>>
 ```
 
-Maksinporten provides the legal `consumer` (the client) in ISO 6523 format. The client_orgno claim is deprecated.
+Maksinporten provides the legal `consumer` (the client) in ISO 6523 format. The `client_orgno` claim is deprecated.
 
 #### The Altinn JWT Access token (output)
 
-The convert operation validates the incomming token and generates a new JWT token with the same scope as the token. The scopes is copied. The organisationNumber, org and orgName is added by the token converter.
+The convert operation validates the incoming token and generates a new JWT token with the same scope as the token.
+The scopes is copied. The `orgNumber` and `org` is added by the token converter.
 
-```json
+```json {linenos=false,hl_lines=[13,14]}
 {
   "scope": "altinn:instances.read altinn:instances.write",
   "token_type": "Bearer",
@@ -197,9 +199,10 @@ The token looks something like this (after decoding):
 
 The exchange operation validates the incomming token and generates a new JWT token that contains user data
 retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.
-pid is referred to as ssn (social security number) i Altinn Platform.
 
-```json
+`pid` is referred to as ssn (social security number) i Altinn Platform.
+
+```json {linenos=false,hl_lines=[9]}
 {
   "nameid": "20000011",
   "urn:altinn:userid": "20000011",
@@ -234,8 +237,8 @@ by [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-
 The primary porpose of this endpoint is to make available the Altinn signing certificate for the JSON Web Tokens being generated.
 It is recommended that clients of Altinn use this discovery endpoint to automatically have their systems updated when Altinn changes their signing certificate.
 
-| Environment | URL
-| ----------- | ---
-| AT2x        | <https://platform.at2x.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration>
-| YT01        | <https://platform.yt01.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration>
-| TT02        | <https://platform.tt02.altinn.no/authentication/api/v1/openid/.well-known/openid-configuration>
+| Environment | URL                                                                                                |
+| ----------- | -------------------------------------------------------------------------------------------------- |
+| AT2x        | <https://platform.at2x.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration> |
+| YT01        | <https://platform.yt01.altinn.cloud/authentication/api/v1/openid/.well-known/openid-configuration> |
+| TT02        | <https://platform.tt02.altinn.no/authentication/api/v1/openid/.well-known/openid-configuration>    |

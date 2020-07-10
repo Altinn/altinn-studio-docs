@@ -1,10 +1,8 @@
 ---
 title: Development & Operations Capabilties
+linktitle: DevOps 
 description: The development & operations architecture capabilities list the capabilities used to develop and operate Altinn Studio, Altinn Apps and Altinn Platform.
 tags: [architecture]
-linktitle: Devops 
-weight: 20
-alwaysopen: false
 ---
 
 It covers the full spectrum of capabilities starting from development, going through a transition to operations and 
@@ -14,12 +12,9 @@ Each capability consists of people, the procedures they follow and the software 
 
 This documentation currently focus on the capabilties that can be shared and reused of others.  
 
-[Full screen](/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.svg") | [Visio](/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.vsdx)
+![DevOps Capabilities](devops_capabilities.svg "DevOps Capabilities")
 
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/capabilities/devops/devops_capabilities.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
-
+[Download as Visio](devops_capabilities.vsdx).
 
 
 {{% children description="true" depth="1" %}}

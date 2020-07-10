@@ -1,18 +1,17 @@
 ---
 title: Architecture Principles
-description: The Architecture Principles are guidelines for the construction of the architecture.
-tags: [architecture]
 linktitle: Principles
-weight: 6
-alwaysopen: false
+description: The Architecture Principles are guidelines for the construction of the architecture.
+toc: true
+tags: [architecture]
 ---
-The following architecture principles has been defined for the solutions. 
 
+The following architecture principles has been defined for the solutions. 
 The principles are document as suggested by [TOGAF](https://pubs.opengroup.org/architecture/togaf8-doc/arch/chap29.html). 
 
-The [architecture principles]() below is described like TOGAF recomends.
+The [architecture principles]() below is described like TOGAF recommends.
 
-### Free and open-source software
+## Free and open-source software
 
 **Principle** 
 
@@ -24,17 +23,17 @@ Possibility to share the platform as Open Source. The possibility to create an O
 
 **Implications** 
 
-- Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio). [See License](https://github.com/Altinn/altinn-studio/blob/master/LICENSE.md)
+- Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio). [See License](https://github.com/Altinn/altinn-studio/blob/master/LICENSE.md).
 - We have our [backlog](https://github.com/Altinn/altinn-studio/issues) on Github.
 - Can't use closed source products in the platform
 - Can't use products with licensing limiting use and modifications
 - Others can reuse and modify our components and solutions
 
-### Web Standards
+## Web Standards
 
 **Principle** 
 
-Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards) 
+Use [Web Standards](https://en.wikipedia.org/wiki/Web_standards).
 
 **Rationale**
 
@@ -47,13 +46,13 @@ to run on the platform.
 - We use [JWT](http://jwt.io/) in authentication cookies
 
 
-![Modern platform](modernplatform.png)
+## Build with modern and popular frameworks
 
-### Build with modern and popular frameworks
+![Modern platform](modernplatform.png "Popular tech")
 
 **Principle**
 
-When needing to choose between different framework with similar capabilites select the most modern and popular framework
+When needing to choose between different framework with similar capabilites select the most modern and popular framework.
 
 **Rationale**
 
@@ -68,15 +67,15 @@ This gives better access to resources with the needed competency.
 - We use Visual Studio Code and Visual Studio.  The [two most loved development environments](https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments)
 
 
-### Favor standards over custom
+## Favor standards over custom
 
 **Principle**
 
-Whenever we need to store information we favor standard formats for that information over creating a custom format for that
+Whenever we need to store information we favor standard formats for that information over creating a custom format.
 
 **Rationale**
 
-Standard formats are documented and is some cases it exists 3. party tools to edit information
+Standard formats are documented and is some cases it exists 3. party tools to edit information.
 
 **Implications**
 
@@ -84,15 +83,14 @@ Standard formats are documented and is some cases it exists 3. party tools to ed
 - We use [XACML 3.0](http://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html) to define authorization policies for applications
 - We use [JSON](https://en.wikipedia.org/wiki/JSON) as general format.
 
-### Isolation
+## Isolation
 
 **Principle**
-We should try isolate application and data own by one organization from others
+We should try isolate application and data own by one organization from others.
 
 **Rationale**
 
-Reduce risk for one organization affecting service for another organization
-
+Reduce risk for one organization affecting service for another organization.
 
 **Implications**
 
@@ -100,8 +98,7 @@ Reduce risk for one organization affecting service for another organization
 - Seperate data store for each organization
 
 
-
-### Design and build for Public cloud
+## Design and build for Public Cloud
 
 **Principle**
 
@@ -109,15 +106,16 @@ The solutions should be deployed to a public cloud solution. The architecture ne
 
 **Rationale**
 
-Using public cloud infrastructure for one of the big vendors gives cost savings, the team can be more agile
-and the solutions can take ad
+Using public cloud infrastructure from one of the big vendors gives cost savings, the team can be more agile
+and the solutions can take scale.
 
 **Implications**
 
 - Additional security measures
 - Need to build knowledge about cloud solutions
 
-### Limit cloud lock-in when possible 
+
+## Limit cloud lock-in 
 
 **Principle**
 
@@ -133,15 +131,17 @@ without needing to build everything from scratch.
 
 **Implications**
 
-- Docker and Kubernetes is used for containers and orhecstration of containers. 
+- Docker and Kubernetes is used for containers and orhecstration of containers.
+- We use document databases and BLOBS for storing data.
+- Everything talks through APIs.
 
 
-### Build as microservices
+## Build as microservices
 
 **Principle**
 
 The platform is built as microservices. Related functionality is grouped in to seperate applications and deployed as containers.
-Apps created in Altinn Studio will be deployed as microservices/apps
+Apps created in Altinn Studio will be deployed as microservices/apps.
 
 **Rationale**
 
@@ -150,10 +150,11 @@ Different teams can be responsible for different microservices/apps.
 
 **Implications**
 
-- Functionality in Altinn Platform is seperated in Authentication, Authorization, Profile, Storage, Pdf and Register component
+- Functionality in Altinn Platform is seperated in Authentication, Authorization, Profile, Storage, Pdf and Register components
 - Applications created in Altinn Studio is deployed as microapps to Altinn Apps
 
-### Design for automation
+
+## Design for automation
 
 **Principle**
 
@@ -172,16 +173,15 @@ Reduce the required effort to develop and operate the platform.
 - We monitor and do automatic recovery of components
 
 
-
-### Favor managed services
+## Favor managed services
 
 **Principle**
 
-We should use manages cloud services when possible
+We should use manages cloud services when possible.
 
 **Rationale**
 
-Reduce effort needed to host the platform. 
+Reduce effort needed to host and scale the platform. 
 
 **Implications**
 
@@ -191,7 +191,8 @@ Reduce effort needed to host the platform.
 - Use [Azure Kubernets Services](https://azure.microsoft.com/en-us/free/kubernetes-service/search/) to manage the Kubernetes Clusters
 - Use [Azure Api Management](https://azure.microsoft.com/en-us/services/api-management/) as API-management platform
 
-### Security in depth
+
+## Security in depth
 
 **Principle** 
 
@@ -204,34 +205,36 @@ We can't trust other components.
 **Implications**
 
 - Components in Altinn Platform authenticates and authorize end user even if the request comes throug a application that also require the same
-- We use API management to controll traffic between Altinn Apps and Altinn Platform. 
+- We use API management to control traffic between Altinn Apps and Altinn Platform. 
 
-### Cross platform
+
+## Cross-platform
 
 **Principle**
 
-The components in the platform should be cross platform and can run on [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows), [Linux](https://en.wikipedia.org/wiki/Linux) and [MacOs](https://en.wikipedia.org/wiki/MacOS)
+The components in the platform should be cross platform and can run on [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows),
+[Linux](https://en.wikipedia.org/wiki/Linux) and [MacOs](https://en.wikipedia.org/wiki/MacOS).
 
 **Rationale**
 
-Developers should be able to create applications on any platform. 
+Developers should be able to create applications on any platform, and our platform should never be locked to a single operating system or processor-architecture.
 
 **Implications**
 
-- We use .Net Core or Java to build components
+- We use .NET Core or Java to build components.
 
-### Container technology
+
+## Container technology
 
 **Principle**
 
-Applications should be deployed as containers
+Applications should be deployed as containers.
 
 **Rationale**
 
-The rationale to use containers is that we get a consistent runtime environment
+The rationale to use containers is that we get a consistent runtime environment that can run anywhere.
 Isolate runtime environment. Consistency. 
 
 **Implications**
 
-- Deploy applications/components in docker containers.
-
+- Deploy and run applications/components in docker containers.

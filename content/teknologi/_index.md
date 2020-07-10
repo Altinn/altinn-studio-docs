@@ -5,7 +5,8 @@ description: Finn ut mer om våre tekniske løsninger, arkitekturen bak, og hvor
 weight: 20
 ---
 
-Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid, finner du utviklingsguider for dette på [altinndigital.no/utvikling](http://altinndigital.no/utvikling)
+Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid,
+finner du utviklingsguider for dette på [altinndigital.no/utvikling](https://altinndigital.no/utvikling).
 
 
 <div class="a-card a-cardImage mt-3 mb-3">
@@ -15,7 +16,7 @@ Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid
       Slik utvikler vi Altinn Studio
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>
-    <p class="pt-1">Finn ut hvordan Altinn Studio er bygget opp og hvordan du  skal jobbe med utvikling i løsningen. 
+    <p class="pt-1">Finn ut hvordan Altinn Studio er bygget opp og hvordan du skal jobbe med utvikling i løsningen. 
 </p></div>
 </div>
 

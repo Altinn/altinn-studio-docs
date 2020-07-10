@@ -1,27 +1,24 @@
 ---
 title: Presentation (User Interface) Capabilities
-description: Presentation Capabilities enable an application to manage the human-computer interface. 
-tags: [architecture]
-weight: 100
 linktitle: Presentation
-alwaysopen: false
+description: Presentation Capabilities enable an application to manage the human-computer interface. 
+tags: [architecture, todo]
+toc: true
 ---
 
-This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing
+This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing.
 
 These capabilities is both targeting App developers creating applications in Altinn Studio and the application created in Altinn Studio and Deployed to Altinn Apps for end users.
 
 ## Rendering & Interaction Capabilities
 
-### Composition & Rendering
-
-#### Composition
+### Composition
 The app developer may create the layout of the App UI using Altinn Studio. Standard UI components are available, in addition the app developer may create custom components and/or layouts.
 
-#### Rendering
+### Rendering
 
 - The UI in Altinn Studio being presented to app developers, and
-- The UI designed in Altinn Studio being presented in an App to end users,
+- The UI designed in Altinn Studio being presented in an app to end users,
 
 use _client-side rendering_, and may be rendered by a web browser. 
 

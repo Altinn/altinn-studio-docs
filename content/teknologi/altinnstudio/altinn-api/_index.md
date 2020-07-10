@@ -3,11 +3,10 @@ title: Altinn API
 description: Description of the Altinn API for end users and application owners.
 toc: true
 tags: [api]
-weight: 100
-alwaysopen: false
 aliases:
  - /altinn-api/
 ---
+
 
 ## Introduction
 
@@ -45,9 +44,15 @@ The new solution will have multiple APIs, but they can be divided in two groups.
 
 ### Application API
 
-The application API is an API that provides access to all instances of a specific app. Every App will expose almost identical endpoints and functionality. External parties should need only one client implementation across all App APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. Applications like that would in most cases require some special handling. Please refer to documentation for the specific app provided by the application owner.
+The application API is an API that provides access to all instances of a specific app. Every App will expose almost identical endpoints and functionality.
+External parties should need only one client implementation across all App APIs.
 
-The application API gives access to App specific instances. Should be used to instantiate an application, to validate data, to change process step and to save/update data elements.
+Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different "non-standard" process flow.
+Applications like that would in most cases require some special handling.  
+For those cases, please refer to documentation for the specific app provided by the application owner.
+
+The application API gives access to App specific instances.
+Should be used to instantiate an application, to validate data, to change process step and to save/update data elements.
 
 ```http
 appPath = https://org.apps.altinn.no/org/app
@@ -65,7 +70,8 @@ The API provides access to all instances across all applications. It can be used
 storagePath = https://platform.altinn.no/storage
 ```
 
-The Platform Storage API will provide access to information stored by the application. [More information on the Platform apis can be found here](/architecture/application/altinn-platform)
+The Platform Storage API will provide access to information stored by the application.
+[More information on the Platform APIs can be found here](/architecture/application/altinn-platform).
 
 ## Query instances
 
@@ -147,7 +153,9 @@ Accept: application/json
 ## Create an application instance
 
 Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwner.partyId*. 
-If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations, and in some case user name. This should be provided as part of the payload to the creation request. Altinn will look up this identifier and replace it with the instanceOwner.PartyId. The official identity number will be stored in the instance metadata.
+If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations,
+and in some case user name. This should be provided as part of the payload to the creation request.
+Altinn will look up this identifier and replace it with the instanceOwner.PartyId. The official identity number will be stored in the instance metadata.
 
 Data elements can be provided as part of the creation request, but can also be uploaded at a later time.
 
@@ -172,7 +180,8 @@ The client specify the instance owner and can set a number of the metadata field
 
 Notice that all dates must be expressed in **Utc (Zulu)** time zone and represented according to ISO 8601!
 
-Data elements (files) can be attached to the initial request as a *multipart/form-data* or as *attachments*. The name of the parts must correspond to element types defined in the application metadata. 
+Data elements (files) can be attached to the initial request as a *multipart/form-data* or as *attachments*.
+The name of the parts must correspond to element types defined in the application metadata. 
 
 ```http
 POST {appPath}/instances
@@ -180,9 +189,14 @@ POST {appPath}/instances
 
 ![Flow chart for instantiation](instantiate-for-an-instance-owner.png "Instantiate for instance owner")
 
-A multipart formdata should contain the instance json document and the data element files of the instance. The first part should be *instance* which contains the json template to create an instance from. The subsequent parts must have a name that correspond to the element types defined in application metadata. They may have a filename. Hence the *model1* and *certificate* names correspond to data types defined in the application metadata. If more data elements are needed they must be defined in the application metadata.
+A multipart formdata should contain the instance json document and the data element files of the instance.
+The first part should be *instance* which contains the json template to create an instance from.
 
-```http
+The subsequent parts must have a name that correspond to the element types defined in application metadata.
+They may have a filename. Hence the *model1* and *certificate* names correspond to data types defined in the application metadata.
+If more data elements are needed they must be defined in the application metadata.
+
+```http {linenos=false,hl_lines=[5,10,15]}
 Content-Type: multipart/form-data; boundary="abcdefg"
 
 --abcdefg
@@ -206,9 +220,10 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 --abcdefg--
 ```
 
-This call will return the instance metadata record that was created. A unique identifier, which consist of the instance owner id and an guid, will be generated and should be used for later reference.
+This call will return the instance metadata record that was created.
+A unique identifier, which consist of the instance owner id and an GUID, will be generated and should be used for later reference.
 
-```json
+```json {linenos=false,hl_lines=[2]}
 {
     "id": "347829/762011d1-d341-4c0a-8641-d8a104e83d30",
     "selfLinks": {
@@ -275,10 +290,11 @@ This call will return the instance metadata record that was created. A unique id
 
 ## Data
 
-An instance holds metadata objects that describe the data files that can be uploaded and downloaded from storage. These metadata objects are called data elments. A data element is identified with a guid. 
+An instance holds metadata objects that describe the data files that can be uploaded and downloaded from storage. These metadata objects are called data elments.
+A data element is identified with a GUID. 
 
-- to stream a data file you must talks to the ```/data``` endpoint of the instance.
-- to get or update the data element metadata elements you must talk to the ```/dataelements``` endpoint of the instance.
+- to stream a data file you must talks to the `/data` endpoint of the instance.
+- to get or update the data element metadata elements you must talk to the `/dataelements` endpoint of the instance.
 
 
 ### Create and upload data
@@ -323,7 +339,8 @@ This call returns the data element metadata object that were created.
 
 ### Update data file
 
-Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App. It first calculates the data and replaces the existing data element. It returns the instance metadata to the client.
+Update (replace) a data element with a new one (payload). Data as multipart or as single body. Client does a PUT request to the App.
+It first calculates the data and replaces the existing data element. It returns the instance metadata to the client.
 
 
 ![Flow chart for saving data](save-data.png "Save data")
@@ -345,22 +362,21 @@ GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692
 
 ```json
 {
-...
-"data": [
-    {
-        "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "dataType": "default",
-        "filename": "default.xml",
-        "contentType": "application/xml",
-        "lastChange": "2019-03-06T15:00:23Z",
-        "lastChangedBy": "org24",
-        "size": 34059,
-        "locked": false,
-        "applicationOwner": {
-            "downloaded": ["2019-05-15T08:23:01Z"]
+    "data": [
+        {
+            "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "dataType": "default",
+            "filename": "default.xml",
+            "contentType": "application/xml",
+            "lastChange": "2019-03-06T15:00:23Z",
+            "lastChangedBy": "org24",
+            "size": 34059,
+            "locked": false,
+            "applicationOwner": {
+                "downloaded": ["2019-05-15T08:23:01Z"]
+            }
         }
-    }
-]
+    ]
 }
 ```
 
@@ -376,35 +392,34 @@ POST {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data?da
 
 Results in a new data element with reference to the first. It is also possible to reference multiple data elements.
 
-```json
+```json {linenos=false,hl_lines=[4,25]}
 {
-...
-"data": [
-    {
-        "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
-        "dataType": "model1",
-        "filename": "default.xml",
-        "contentType": "application/xml",
-        "lastChanged": "2019-03-06T15:00:23Z",
-        "lastChangedBy": "org24",
-        "size": 34059,
-        "locked": true,
-        "applicationOwner": {
-            "downloaded": ["2019-05-15T08:23:01Z"]
+    "data": [
+        {
+            "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+            "dataType": "model1",
+            "filename": "default.xml",
+            "contentType": "application/xml",
+            "lastChanged": "2019-03-06T15:00:23Z",
+            "lastChangedBy": "org24",
+            "size": 34059,
+            "locked": true,
+            "applicationOwner": {
+                "downloaded": ["2019-05-15T08:23:01Z"]
+            }
+        },
+        {
+            "id": "c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d",
+            "dataType": "ref-data-as-pdf",
+            "filename": "model1-view.pdf",
+            "contentType": "application/pdf",
+            "lastChanged": "2019-10-10T15:00:23Z",
+            "lastChangedBy": "org24",
+            "size": 34059,
+            "locked": false,
+            "refs": ["692ee7df-82a9-4bba-b2f2-c8c4dac69aff"]
         }
-    },
-    {
-        "id": "c15f0401-e19d-4f1d-8ad1-1ce8cc96eb5d",
-        "dataType": "ref-data-as-pdf",
-        "filename": "model1-view.pdf",
-        "contentType": "application/pdf",
-        "lastChanged": "2019-10-10T15:00:23Z",
-        "lastChangedBy": "org24",
-        "size": 34059,
-        "locked": false,
-        "refs": ["692ee7df-82a9-4bba-b2f2-c8c4dac69aff"]
-    }
-]
+    ]
 }
 ```
 
@@ -442,9 +457,12 @@ PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstat
 
 Application Owner can download instances and data elements using the same endpoints as the end user.
 
+
 ## Confirm instance completed
 
-The last step for application owner in all processes is to confirm that they consider the case associated with an instance as finished. Its purpose is to tell Altinn that the application owner has downloaded all data, finished any internal processing, and if applicable, posted a response. The original instance is no longer needed. Only the first call to this operation will be registered. Consecutive calls are ignored.
+The last step for application owner in all processes is to confirm that they consider the case associated with an instance as finished.
+Its purpose is to tell Altinn that the application owner has downloaded all data, finished any internal processing, and if applicable, posted a response.
+The original instance is no longer needed. Only the first call to this operation will be registered. Consecutive calls are ignored.
 
 ```http
 POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/complete
@@ -452,6 +470,7 @@ POST {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/complete
 The body of the request is currently not used by the endpoint and should preferably be nothing more than an empty string.
 
 The operation returns an updated instance with the added `CompleteConfirmation`.
+
 
 ## Events
 
@@ -501,17 +520,24 @@ GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&process.cur
 
 ## Validation
 
-There are multiple endpoints that can trigger validation and provide feedback regarding the state of an instance and its data. Some of them validates data already uploaded and stored in Altinn while others can validate input.
+There are multiple endpoints that can trigger validation and provide feedback regarding the state of an instance and its data.
+Some of them validates data already uploaded and stored in Altinn while others can validate input.
 
 ### Validate stored instance
 
-This action will validate an entire instance including the all data elements already uploaded and stored in Altinn. Validation will be performed based on current task in the process. Validation will ensure that all required data elements, as defined by the application metadata, have been uploaded and are valid. If the result of the validation is that nothing is missing or wrong, the action will update the instance with information indicating that the instance is valid. The response will be an empty array. In the case of validation issues the response will provide an array of the identified issues. Validation of a full instance use validation of data as described in the chapter below.
+This action will validate an entire instance including the all data elements already uploaded and stored in Altinn.
+Validation will be performed based on current task in the process. Validation will ensure that all required data elements, as defined by the application metadata,
+have been uploaded and are valid.
+If the result of the validation is that nothing is missing or wrong, the action will update the instance with information indicating that the instance is valid.
+The response will be an empty array. In the case of validation issues the response will provide an array of the identified issues.
+Validation of a full instance use validation of data as described in the chapter below.
 
 ```http
 GET https://{org}.apps.at21.altinn.cloud/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceId}/validate
 ```
 
 Example response:
+
 ```json
 [
     {
@@ -527,13 +553,19 @@ Example response:
 
 ### Validate stored data
 
-This action will validate a specific data element already uploaded and stored in Altinn. The logic validates that the data element has the correct Content-Type, that it isn't too large and so on. Data elements with a model bound to them will be validated against the model (Schema). Validation will also check that the data element being validated is required for the current task in the process. If the data is validated during a task different from what is intended, the validator will give a warning.
+This action will validate a specific data element already uploaded and stored in Altinn.
+The logic validates that the data element has the correct Content-Type, that it isn't too large and so on. Data elements with
+a model bound to them will be validated against the model (Schema).
+
+Validation will also check that the data element being validated is required for the current task in the process.
+If the data is validated during a task different from what is intended, the validator will give a warning.
 
 ```http
 GET https://{org}.apps.at21.altinn.cloud/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceId}/data/{dataid}/validate
 ```
 
 Example response:
+
 ```json
 [
     {
@@ -549,7 +581,8 @@ Example response:
 
 ### Validate data[^1]
 
-The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata. The validate method takes a data file of an dataType and performs validation on that file. It returns a validation report.
+The application will provide a method to validate the datamodel without creating a instance of the data. Data must be provided as formdata.
+The validate method takes a data file of an dataType and performs validation on that file. It returns a validation report.
 
 ![Flowchart for data validation](data-validate.png "Validate data")
 
@@ -572,45 +605,50 @@ PUT {appPath}/calculate?dataType=modelB
 
 ### Instantiate an app
 
-Client instantiates an app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata, with links to the data element is returned which allow the Client to download the data.
+Client instantiates an app. The app create an initial data element (file) according to the app's prefill rules. Instance metadata,
+with links to the data element is returned which allow the Client to download the data.
 Process is set to first task. The task specifies if the data can be updated or not.
 
 ![Flowchart for instantiation an app](app-instantiate.png "Instantiate an app")
 
 ### Instantiate an app and complete process
 
-Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element. The app attempts to complete the process. If the process is completed successfully, the data can no longer be updated.
+Instantiate an app with data as multipart content (stream). The app creates an instance and stores the attached data element.
+The app attempts to complete the process. If the process is completed successfully, the data can no longer be updated.
 
 ![Flowchart for instantiating and completing the process](process-instantiate-and-complete.png "Instantiate and complete a process")
 
 ## Process
 
-Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these. A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and creates a current task object to holde the process state.
+Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these.
+A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and
+creates a current task object to holde the process state.
 
-![Flowchart for MVP process](mvp-process.png "MVP Process")
+![Flowchart for process](mvp-process.png "Process")
 
 A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.
 
-```xml
- <bpmn2:process id="Process_1" isExecutable="false">
+```xml {linenos=false,hl_lines=[5]}
+<bpmn2:process id="Process_1" isExecutable="false">
     <bpmn2:startEvent id="StartEvent_1">
-      <bpmn2:outgoing>SequenceFlow_1</bpmn2:outgoing>
+        <bpmn2:outgoing>Flow_1</bpmn2:outgoing>
     </bpmn2:startEvent>
     <bpmn2:task id="Task_1" name="Utfylling" altinn:tasktype="data">
-      <bpmn2:incoming>SequenceFlow_1</bpmn2:incoming>
-      <bpmn2:outgoing>SequenceFlow_2</bpmn2:outgoing>
+        <bpmn2:incoming>Flow_1</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_2</bpmn2:outgoing>
     </bpmn2:task>
     <bpmn2:endEvent id="EndEvent_1">
-      <bpmn2:incoming>SequenceFlow_2</bpmn2:incoming>
+        <bpmn2:incoming>Flow_2</bpmn2:incoming>
     </bpmn2:endEvent>
-    <bpmn2:sequenceFlow id="SequenceFlow_1" sourceRef="StartEvent_1" targetRef="data_1" />    
-    <bpmn2:sequenceFlow id="SequenceFlow_2" sourceRef="Task_1" targetRef="EndEvent_1" />
-  </bpmn2:process>
+    <bpmn2:sequenceFlow id="Flow_1" sourceRef="StartEvent_1" targetRef="data_1" />    
+    <bpmn2:sequenceFlow id="Flow_2" sourceRef="Task_1" targetRef="EndEvent_1" />
+</bpmn2:process>
 ```
 
 ### Altinn specific task types
 
-Application developers can in their BPMN Definition specify some altinn specific task types, see ```altinn:tasktype```, which signify the behaviour of the task. So far we have defined the following:
+Application developers can in their BPMN Definition specify some altinn specific task types, see `altinn:tasktype`,
+which signify the behaviour of the task. So far we have defined the following:
 
 - *data* - user is asked to fill inn one or more data elements, e.g. upload data or fill in forms
 - *submit* - user is asked if he should submit the information which has been filled in on previous tasks
@@ -624,23 +662,24 @@ Application developers can in their BPMN Definition specify some altinn specific
 GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 ```
 
-For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *Task_1*. The flow number indicates the sequence of process events/tasks that occurs during the execution of the process. Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.
+For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it's current task is *Task_1*.
+The flow number indicates the sequence of process events/tasks that occurs during the execution of the process.
+Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.
 
 ```json
 {
-        "started": "2019-09-25T09:32:44.20Z",
-        "currentTask": {
-            "flow": 2,
-            "started": "2019-10-10T32:22.00Z",
-            "elementId": "Task_1",
-            "name": "Fyll ut",
-            "altinnTaskType": "data",
-            "validated": {
-                "timestamp": "2019-10-04T12:00.00Z",
-                "canCompleteTask": true
-            }
+    "started": "2019-09-25T09:32:44.20Z",
+    "currentTask": {
+        "flow": 2,
+        "started": "2019-10-10T32:22.00Z",
+        "elementId": "Task_1",
+        "name": "Fyll ut",
+        "altinnTaskType": "data",
+        "validated": {
+            "timestamp": "2019-10-04T12:00.00Z",
+            "canCompleteTask": true
         }
-    },
+    }
 ```
 
 For an ended process the following will be returned:
@@ -665,7 +704,7 @@ The system will generate a number of process related events, which can be found 
 
 #### Start Event
 
-```json
+```json 
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:Start",
@@ -679,7 +718,7 @@ The system will generate a number of process related events, which can be found 
 
 #### StartTask Event
 
-```json
+```json {linenos=false,hl_lines=[3]}
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:StartTask",
@@ -700,7 +739,7 @@ The system will generate a number of process related events, which can be found 
 
 #### EndTask Event
 
-```json
+```json {linenos=false,hl_lines=[3]}
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndTask",
@@ -721,7 +760,7 @@ The system will generate a number of process related events, which can be found 
 
 #### End Event
 
-```json
+```json {linenos=false,hl_lines=[3]}
 {
     "instanceId": "347829/41e57962-dfb7-4502-a4dd-8da28b0885fc",
     "eventType": "process:EndEvent",
@@ -744,24 +783,24 @@ GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/hist
 ```
 
 ```json
- "processHistory": [
-       {
-           "eventType": "process_StartEvent",
-           "elementId": "StartEvent_1",
-           "occured": "2020-01-21T13:49:09.3109169Z"
-       },
-       {
-           "eventType": "process_StartTask",
-           "elementId": "Task_1",
-           "started": "2020-01-21T13:49:09.4264322Z",
-           "ended": "2020-01-21T13:49:39.66609Z"
-       },
-       {
-           "eventType": "process_EndEvent",
-           "elementId": "EndEvent_1",
-           "occured": "2020-01-21T13:49:39.7681248Z"
-       }
-   ]
+"processHistory": [
+        {
+            "eventType": "process_StartEvent",
+            "elementId": "StartEvent_1",
+            "occured": "2020-01-21T13:49:09.3109169Z"
+        },
+        {
+            "eventType": "process_StartTask",
+            "elementId": "Task_1",
+            "started": "2020-01-21T13:49:09.4264322Z",
+            "ended": "2020-01-21T13:49:39.66609Z"
+        },
+        {
+            "eventType": "process_EndEvent",
+            "elementId": "EndEvent_1",
+            "occured": "2020-01-21T13:49:39.7681248Z"
+        }
+    ]
 }
 ```
 

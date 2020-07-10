@@ -1,11 +1,8 @@
 ---
 title: Troubleshooting
-description: Troubleshooting for altinn.studio
+description: Troubleshooting of Altinn Studio.
 tags: [development]
-weight: 100
 ---
-
-### Troubleshooting
 
 {{< notice info >}}
 Altinn.studio is under heavy development and errors are most likely to come with it.  

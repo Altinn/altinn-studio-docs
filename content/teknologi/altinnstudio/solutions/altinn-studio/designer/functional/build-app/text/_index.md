@@ -1,6 +1,8 @@
 ---
 title: Text and translations
+linktitle: Text
 description: Using texts when designing UI, defining workflow, other settings, deploy, and more.
+tags: [todo]
 toc: true
 ---
 
@@ -17,30 +19,31 @@ Meaning that Altinn Studio supports any language that is added, not just languag
 - Reusable texts, internal across different pages and on the levels above the solution
 - Possibility to add other languages
 
-**Using lanuage keys in the solution**
+### Using lanuage keys in the solution
 Lanuage keys are references in the react-code with the help of a the language method getLanguageFromKey found in src/react-apps/applications/shared/src/utils/lanauge.ts. 
 This method is called in the following way: 
 
-```
+```javascript
 getLanguageFromKey('universal_key.lanuage_key', this.props.language)
 ```
 Where the first param is the language key and the second is the language element. If you call this.props.language.universal_key.lanuage_key you should get the key value
 
-**How to add a new language:**
+### How to add a new language
 
 - Make a new ini-file and place it in AltinnCore > Common > Languages > ini
 - Change the parameter "languageCode" in the  API call to whatever name your ini file is called. <br/>
     Example for Norweigan bokmål (nb): <br/>
     http://altinn3.no/designer/y/types/Language/getLanguageAsJSON?languageCode=nb
 
-**Guides for language files:**
+### Guides for language files
 
 - Keys are sorted by which app they belong to
 - Universal keys ([general]) are placed at the top of the file
 - Keys are sorted alphabetically
 - Keys are written in lowercase with underscores (example_key)
 
-![Editor for oversetting av tekster](oversetting.png?width=1000 "Editor for oversetting av tekster")
+![Editor for oversetting av tekster](oversetting.png "Editor for oversetting av tekster")
+
 
 ## Language best practice
 
@@ -74,8 +77,6 @@ changes_made_by_others_in_your_organisation_is_not_visible_in_altinn_studio = Te
 #### Text parts
 
 If your text has several parts, suffix with "part1", "part2", "partN".
-
-> It is currently not possible to use variables or HTML code in text.
 
 Example:
 
@@ -145,7 +146,9 @@ Sections are used to categorize keys (properties) that belong together. It may b
 
 #### Examples
 
-``[general] [dashboard] [sync_header]``
+```ini
+[general] [dashboard] [sync_header]
+```
 
 ```ini
 [general]
@@ -153,8 +156,7 @@ Sections are used to categorize keys (properties) that belong together. It may b
 [sync_header]
 ```
 
-> Try to not use application wide sections that might need container or component reference in the key name.
-
+Try to not use application wide sections that might need container or component reference in the key name.
 
 
 [See all issues related to text and language on Github](https://github.com/Altinn/altinn-studio/labels/area%2Flanguage).

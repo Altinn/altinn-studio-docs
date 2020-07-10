@@ -1,21 +1,21 @@
 ---
 title: Development Applications
 linktitle: Development 
-description: Development Applications are used by the devops team to support the different development capabilities required
+description: Development Applications are used by the devops team to support the different development capabilities required.
 tags: [solution, architecture]
-alwaysopen: false
-weight: 99
+toc: true
 ---
 
 ## Application Lifecycle Management Applications
 
 ### Requirement & Release Management
 
-Use cases are [defined in Github](https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fuser-story). We have defined differen types of template to support creation of user stories.
+Use cases are [defined in Github](https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fuser-story).
+We have defined differen types of template to support creation of user stories.
 
 Releases are managed on Github. 
 
-[See releases here](https://github.com/Altinn/altinn-studio/releases)
+[See releases here](https://github.com/Altinn/altinn-studio/releases).
 
 ### Manual & Automated Test Tools
 
@@ -44,7 +44,7 @@ We will use [K6](https://k6.io/) for performance testing.
 ### UX Design
 We use Figma for prototypes. 
 
-[See our Figma Guidlines](https://docs.altinn.studio/design/figma/)
+[See our Figma Guidlines](https://docs.altinn.studio/design/figma/).
 
 
 ### Artefact & Code Repository
@@ -54,9 +54,7 @@ Github is uses for all Open Source code.
 [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) in Azure DevopsServices is used for other artefacts
 
 ### Architecture Design
-Application design is created using MarkDown and published on this site.
-Visio is used for application drawings
-
+Application design is created using MarkDown and published on this site. Visio is used for application drawings.
 
 ### IDE 
 The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visual Studio](https://visualstudio.microsoft.com/) as IDE.
@@ -64,7 +62,7 @@ The project uses [Visual Studio Code](https://code.visualstudio.com/) and [Visua
 ### Build Tools
 The project uses different build tools based the framework.
 
-#### .Net packages & applications
+#### .NET packages & applications
 We use .Net build to build .Net packages and applications. 
 
 With help of Nuget packages we can easyly re-use modules accross applicatons in the different solution.
@@ -98,8 +96,8 @@ See docker files for Altinn Studio
 
 ### Artecat & Container Registry
 
-#### .Net Packages
-.Net pacakges som part of the codes are [published as Nuget Packages](https://www.nuget.org/profiles/altinn). 
+#### .NET Packages
+.NET packages som part of the codes are [published as Nuget Packages](https://www.nuget.org/profiles/altinn). 
 This process is manual and performed by developer.
 
 #### Javascript packages

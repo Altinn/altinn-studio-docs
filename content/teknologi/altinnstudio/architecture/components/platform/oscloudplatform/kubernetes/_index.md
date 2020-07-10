@@ -1,14 +1,13 @@
 ---
 title: Kubernetes
-description: Kubernetes is an important part of the infrastructure
+description: Kubernetes is a central part of the infrastructure in Altinn 3.
 tags: [architecture]
-weight: 100
-alwaysopen: false
 ---
 
-[Kubernetes](https://kubernetes.io/) is choosen to orcestrate the containers in the different solutions. There are serveral Kubernetes Clusters involved.
+[Kubernetes](https://kubernetes.io/) is choosen to orchestrate the containers in the different solutions.
+There are serveral Kubernetes Clusters involved.
 
-The solution uses managed Kubernetes Clusters. Azure Kubernetes Services 
+The solution uses managed Kubernetes Clusters, Azure Kubernetes Services.
 
 ## Setup
 We use Azure CLI to setup the different Kubernetes Clusters. (Altinn Studio, Altinn Apps and Altinn Platform).
@@ -16,10 +15,10 @@ We use Azure CLI to setup the different Kubernetes Clusters. (Altinn Studio, Alt
 This include networking and node setup.
 
 ## Management & monitoring
-From the Azure Portal we can manage and montitor the Kubernetes Clusters
+From the Azure Portal we can manage and montitor the Kubernetes Clusters.
 
 ### Nodes
-We can scale up and down Nodes
+We can scale up and down Nodes.
 
 ### Containers
-We get monitor the number of containers and state of containers
+We get monitor the number of containers and state of containers.

@@ -1,10 +1,8 @@
 ---
-title: Solution-Specific (Functional) Application Components
+title: Solution-Specific (functional) Application Components
 linktitle: Solution
 description: Solution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.
 tags: [solution, architecture]
-alwaysopen: false
-weight: 99
 ---
 
 Functionality in Altinn is distributed between five different solutions
@@ -19,9 +17,6 @@ The diagram below shows where functionality is located in the five different sol
 
 [Full screen](/teknologi/altinnstudio/architecture/components/application/solution/altinnstudio_solutionarchitecture.svg) | [Visio](/teknologi/altinnstudio/architecture/components/application/solution/altinnstudio_solutionarchitecture.vsdx)
 
-{{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/components/application/solution/altinnstudio_solutionarchitecture.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
-
 
 {{% children description="true" depth="1" %}}
