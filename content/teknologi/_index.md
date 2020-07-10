@@ -1,6 +1,6 @@
 ---
 title: Slik utvikler vi
-linkTitle: Teknologi
+linktitle: Teknologi
 description: Finn ut mer om våre tekniske løsninger, arkitekturen bak, og hvordan vi utvikler.
 weight: 20
 ---
@@ -33,10 +33,10 @@ finner du utviklingsguider for dette på [altinndigital.no/utvikling](https://al
 
 {{% panel %}}
 <a href="https://github.com/altinn" class="a-linkFeatured">
-    Altinn på github
+    Altinn på GitHub
 </a><br>
-<img class="float-right" src="/images/github.svg" alt="github logo">
-Vi ønsker at det skal være enklest mulig for deg å bidra - flere av prosjektene våre ligger derfor åpent på github. Vi setter stor pris på dine inspill! 
+<img class="float-right" src="/images/github.svg" alt="GitHub logo">
+Vi ønsker at det skal være enklest mulig for deg å bidra - flere av prosjektene våre ligger derfor åpent på GitHub. Vi setter stor pris på dine innspill! 
 {{% /panel %}}
 
 {{% children description="true" depth="1" %}}
