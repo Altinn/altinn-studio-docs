@@ -168,9 +168,6 @@ The client specify the instance owner and can set a number of the metadata field
         "personNumber": "12247918309",
         "organisationNumber": null
     },
-    "appOwner": {
-        "labels" : [ "gr", "x2" ]
-    },
     "dueBefore": "2019-06-01T12:00:00Z",
     "title": { "nb": "Arbeidsmelding for Ola Nordmann" },
     "visibleAfter": "2019-05-20T00:00:00Z",
@@ -257,9 +254,6 @@ A unique identifier, which consist of the instance owner id and an GUID, will be
         "archived": null,
         "softDeleted": null,
         "hardDeleted": null
-    },
-    "appOwner": {
-         "labels": [ "gr", "x2" ],
     },
     "completeConfirmations": [
         {
