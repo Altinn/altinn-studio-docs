@@ -5,7 +5,7 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
-## Breaking change: Property type changed for UserProfile.ProfileSettingPreference 
+## Property type changed for UserProfile.ProfileSettingPreference 
 
 Introduced with issue: [#4466](https://github.com/Altinn/altinn-studio/issues/4466) and release v2020.28.  
 **The change affects all applications in TT02 and PR with nuget version 1.0.98 and lower.**
@@ -38,7 +38,7 @@ Your code changes should match the image below.
 ![Diff in code](breaking-change-4451.PNG "Diff in code")
 
 
-## Breaking change: New endpoint introduced in Altinn.Apps.Api exposing application text resources
+## New endpoint introduced in Altinn.Apps.Api exposing application text resources
 
 Introduced with issue: [#4451](https://github.com/Altinn/altinn-studio/issues/4451) and nuget 1.1.0.-alpha.  
 **The change affects all application created in Altinn Studio before 8.07.2020 using nuget versions 1.1.0-alpha**
@@ -64,7 +64,7 @@ Your code changes should match the image below.
 ![Diff in code](breaking-change-4451.PNG "Diff in code")
 
 
-## Breakig change: Platform authorization introduced for Platform Register and Profile
+## Platform authorization introduced for Platform Register and Profile
 
 Introduced with issue: [#4162](https://github.com/altinn/altinn-studio/issues/4162) and Release: v2020.23.  
 **The change affects all application created in Altinn Studio before 03.06.2020.**
@@ -105,7 +105,7 @@ There are three steps you must take in order to update your application to adher
 ![Update startup](breaking_change_startup_nuget_86.PNG "Update Startup.cs")
 
 
-## Breaking change: Updated client-side validation - frontend v2 and Nuget v1.0.82-alpha
+## Updated client-side validation - frontend v2 and Nuget v1.0.82-alpha
 
 Introduced with issue: [#3944](https://github.com/Altinn/altinn-studio/issues/3944), and applies to existing apps that upgrade to the new major version of app frontend (v2).
 
@@ -176,7 +176,7 @@ For apps that use an OR-type xsd (or have fields with `-`-character in xsd), the
 _Once the data model and bindings are updated, build and deploy app for the changes to take effect._
 
 
-## Breaking change: Error when attempting to create an instance as Application Owner
+## Error when attempting to create an instance as Application Owner
 
 Introduced with issue: [#3738](https://github.com/Altinn/altinn-studio/issues/3738).
 
@@ -208,7 +208,7 @@ Any issues related to this change can be fixed by upgrading to the latest versio
 This means the App must be updated and a the new version deployed to all environments. Existing instances are not affected.
 
 
-## Breaking change: Deploy pipeline fails with error: UPGRADE FAILED
+## Deploy pipeline fails with error: UPGRADE FAILED
 
 Introduced with upgrade of AKS cluster.
 The api version (extensions/v1beta1) used to deploy apps
@@ -244,7 +244,7 @@ selector:
     app: {{ template "name" . }}
 ```
 
-## Breaking change: Send-in / Validation fails with 'Ukjent feil'
+## Send-in / Validation fails with 'Ukjent feil'
 
 Introduced with issue: [#3927](https://github.com/Altinn/altinn-studio/issues/3927).
 
@@ -271,7 +271,7 @@ Upgrade the three Altinn.App nugetpackages to version 1.0.78.
 ```
 
 
-## Breaking change: Validation fails for attachments in some cases after 30.03.2020
+## Validation fails for attachments in some cases after 30.03.2020
 
 Introduced with issues: [#1925](https://github.com/Altinn/altinn-studio/issues/1925) and [#3915](https://github.com/Altinn/altinn-studio/issues/3915).
 
@@ -295,7 +295,7 @@ so that the expected `allowedContentTypes` are saved.
 After updating, the app must be re-deployed.
 
 
-## Breaking change: Build fails after upgrading Altinn.App-nugets to version 1.0.62-alpha
+## Build fails after upgrading Altinn.App-nugets to version 1.0.62-alpha
 Introduced with issue: [#3820](https://github.com/Altinn/altinn-studio/issues/3820).
 
 The base class that every application inherits has been altered to allow for both data and task validation. 
