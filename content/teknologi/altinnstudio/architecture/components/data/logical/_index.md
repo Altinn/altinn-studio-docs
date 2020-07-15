@@ -47,7 +47,6 @@ Example document from instance.
     "status": {
         "archived": "2020-01-16T11:11:16.6358823Z"
     },
-    "appOwner": {},
     "created": "2020-01-16T10:54:05.0591613Z",
     "createdBy": "20000015",
     "lastChanged": "2020-01-16T11:11:21.4678343Z",

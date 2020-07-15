@@ -60,10 +60,6 @@ An appId refers to the application information element which defines the metadat
         "hardDelete": null,
         "readStatus": "Read"
     },
-    "appOwner": {
-        "labels": ["xyz", "importantUser"],
-        "message": { "nb": "field 32 is incorrect", "at": "2018-12-22"}
-    },
     "data": [
         {
             "id": "692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
@@ -93,22 +89,21 @@ An appId refers to the application information element which defines the metadat
 
 ### Instance type
 
-| Attribute                                                                                                                                                     | Type              | Description                                            | User | Owner | App | Storage |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ------------------------------------------------------ | ---- | ----- | --- | ------- |
-| id                                                                                                                                                            | string            | unique id                                              |      |       |     | C       |
-| appId                                                                                                                                                         | string            | application id                                         |      |       |     | C       |
-| instanceOwner.partyId                                                                                                                                         | integer           | id of instance owner                                   | C    | C     |     |
-| appOwner.labels                                                                                                                                               | string[]          | array of string labels                                 |      | C     |     |
-| create                                                                                                                                                        | dateTime          | creation time                                          |      |       |     | C       |
-| createdBy                                                                                                                                                     | string            | user id                                                |      |       |     | C       |
-| lastChanged                                                                                                                                                   | dateTime?         | last changed time                                      |      |       |     | C       |
-| lastChangedBy                                                                                                                                                 | string            | user id                                                |      |       |     | C       |
-| dueBefore                                                                                                                                                     | dateTime?         | deadline for submit                                    |      | CU    |     |
-| visibleAfter                                                                                                                                                  | dateTime?         | when visible for user                                  |      | CU    |     |
-| process                                                                                                                                                       | ProcessState      | process state info                                     |      |       | U   | (U)     |
-| [status](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs)           | InstanceState     | data on delete, archive and read state of the instance |      |       | U   | C       |
-| [appOwner](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs) | AppOwnerState     | status from app owner                                  |      | CU    |     |
-| data                                                                                                                                                          | List<DataElement> | data elements                                          |      |       | CU  |
+| Attribute                 | Type                       | Description                                                             | User | Owner | App | Storage |
+| --------------------------| ---------------------------| ------------------------------------------------------------------------| ---- | ----- | --- | ------- |
+| id                        | string                     | unique id                                                               |      |       |     | C       |
+| appId                     | string                     | application id                                                          |      |       |     | C       |
+| instanceOwner.partyId     | integer                    | id of instance owner                                                    | C    | C     |     |         |
+| create                    | dateTime                   | creation time                                                           |      |       |     | C       |
+| createdBy                 | string                     | user id                                                                 |      |       |     | C       |
+| lastChanged               | dateTime?                  | last changed time                                                       |      |       |     | C       |
+| lastChangedBy             | string                     | user id                                                                 |      |       |     | C       |
+| dueBefore                 | dateTime?                  | deadline for submit                                                     |      | CU    |     |         |
+| visibleAfter              | dateTime?                  | when visible for user                                                   |      | CU    |     |         |
+| process                   | ProcessState               | process state info                                                      |      |       | U   |         |
+| status                    | InstanceState              | data on delete, archive and read state of the instance                  |      |       | U   | C       |
+| data                      | List<DataElement>          | data elements                                                           |      |       | CU  |         |
+| completeConfirmations     | List<CompleteConfirmation> | List of stakeholders that are done with their processing the instance   |      |       | C   |         |
 
 C - creation time, U - can be updated
 
