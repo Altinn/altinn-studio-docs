@@ -2172,31 +2172,6 @@
         },
         "additionalProperties": false
       },
-      "PresentationField": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "textResource": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          },
-          "taskIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Application": {
         "type": "object",
         "properties": {
@@ -2242,13 +2217,6 @@
           },
           "partyTypesAllowed": {
             "$ref": "#/components/schemas/PartyTypesAllowed"
-          },
-          "presentationFields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PresentationField"
-            },
-            "nullable": true
           },
           "created": {
             "type": "string",
@@ -2320,28 +2288,6 @@
         },
         "additionalProperties": false
       },
-      "ApplicationOwnerDataState": {
-        "type": "object",
-        "properties": {
-          "downloaded": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "nullable": true
-          },
-          "downloadConfirmed": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "date-time"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "ResourceLinks": {
         "type": "object",
         "properties": {
@@ -2359,9 +2305,6 @@
       "DataElement": {
         "type": "object",
         "properties": {
-          "appOwner": {
-            "$ref": "#/components/schemas/ApplicationOwnerDataState"
-          },
           "id": {
             "type": "string",
             "nullable": true
@@ -2641,34 +2584,6 @@
         },
         "additionalProperties": false
       },
-      "ApplicationOwnerState": {
-        "type": "object",
-        "properties": {
-          "labels": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            },
-            "nullable": true
-          },
-          "canBeDeletedAfter": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CompleteConfirmation": {
         "type": "object",
         "properties": {
@@ -2719,9 +2634,6 @@
           },
           "status": {
             "$ref": "#/components/schemas/InstanceStatus"
-          },
-          "appOwner": {
-            "$ref": "#/components/schemas/ApplicationOwnerState"
           },
           "completeConfirmations": {
             "type": "array",

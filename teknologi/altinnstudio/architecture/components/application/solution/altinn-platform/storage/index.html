@@ -10097,10 +10097,6 @@ An appId refers to the application information element which defines the metadat
         <span style="color:#ff79c6">&#34;hardDelete&#34;</span>: <span style="color:#ff79c6">null</span>,
         <span style="color:#ff79c6">&#34;readStatus&#34;</span>: <span style="color:#f1fa8c">&#34;Read&#34;</span>
     },
-    <span style="color:#ff79c6">&#34;appOwner&#34;</span>: {
-        <span style="color:#ff79c6">&#34;labels&#34;</span>: [<span style="color:#f1fa8c">&#34;xyz&#34;</span>, <span style="color:#f1fa8c">&#34;importantUser&#34;</span>],
-        <span style="color:#ff79c6">&#34;message&#34;</span>: { <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;field 32 is incorrect&#34;</span>, <span style="color:#ff79c6">&#34;at&#34;</span>: <span style="color:#f1fa8c">&#34;2018-12-22&#34;</span>}
-    },
     <span style="color:#ff79c6">&#34;data&#34;</span>: [
         {
             <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
@@ -10168,15 +10164,6 @@ An appId refers to the application information element which defines the metadat
 <td></td>
 </tr>
 <tr>
-<td>appOwner.labels</td>
-<td>string[]</td>
-<td>array of string labels</td>
-<td></td>
-<td>C</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td>create</td>
 <td>dateTime</td>
 <td>creation time</td>
@@ -10237,10 +10224,10 @@ An appId refers to the application information element which defines the metadat
 <td></td>
 <td></td>
 <td>U</td>
-<td>(U)</td>
+<td></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceState.cs">status</a></td>
+<td>status</td>
 <td>InstanceState</td>
 <td>data on delete, archive and read state of the instance</td>
 <td></td>
@@ -10249,21 +10236,21 @@ An appId refers to the application information element which defines the metadat
 <td>C</td>
 </tr>
 <tr>
-<td><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/ApplicationOwnerState.cs">appOwner</a></td>
-<td>AppOwnerState</td>
-<td>status from app owner</td>
-<td></td>
-<td>CU</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
 <td>data</td>
 <td>List<DataElement></td>
 <td>data elements</td>
 <td></td>
 <td></td>
 <td>CU</td>
+<td></td>
+</tr>
+<tr>
+<td>completeConfirmations</td>
+<td>List<CompleteConfirmation></td>
+<td>List of stakeholders that are done with their processing the instance</td>
+<td></td>
+<td></td>
+<td>C</td>
 <td></td>
 </tr>
 </tbody>
