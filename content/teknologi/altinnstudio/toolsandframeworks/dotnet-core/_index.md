@@ -15,7 +15,8 @@ Altinn ❤️ dotnet.
 
 ## Links
 
-- [dot.net](https://dot.net)
+- [Documentation](https://docs.microsoft.com/dotnet/core/)
+- [Download](https://dot.net)
 - [License](https://github.com/dotnet/runtime/blob/master/LICENSE.TXT)
 - [Roadmap](https://github.com/dotnet/core/blob/master/roadmap.md)
 - [Docker Hub](https://hub.docker.com/_/microsoft-dotnet-core)
