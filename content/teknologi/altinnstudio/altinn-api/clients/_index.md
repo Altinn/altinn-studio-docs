@@ -65,10 +65,6 @@ The next code block show the content of a newly created JSON file (**01036800298
   "org": "tdd",
   "createdDateTime": "2019-09-03T11:52:49.9684927Z",
   "lastChangedDateTime": "2019-09-03T11:52:49.9684927Z",
-  "presentationField": {
-    "nb": "Testapplikasjon",
-    "en": "Test Application"
-  },
   "process": {
     "currentTask": "FormFilling_1",
     "isComplete": false
