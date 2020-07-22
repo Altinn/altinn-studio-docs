@@ -31,6 +31,9 @@ custom events added in an application by application developers.
 - A user has asked for a deduction in a form
 - A specific validation of data failed
 
+
+**Event attributes**
+
 Events would typically have some attributes
 
 - [org] - The organisation the event is created for
@@ -165,6 +168,7 @@ TODO: Verify requirements
 - The architecture should support more than 10 000 publishers.
 - The architecture should support more than 1 000 000 consumers.
 - The architecture should support more than 500 000 000 events a year.
+- Access to events should be authorized. Accessing a event for a party requires that the subscriber has the correct role 
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
