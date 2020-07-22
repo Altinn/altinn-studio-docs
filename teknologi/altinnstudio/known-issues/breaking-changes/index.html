@@ -10005,6 +10005,7 @@ if(host != "localhost")
             <h2>På denne siden:</h2>
               <nav id="TableOfContents">
   <ul>
+    <li><a href="#deploy-pipeline-failed-to-set-subscription-key">Deploy pipeline failed to set subscription key</a></li>
     <li><a href="#property-type-changed-for-userprofileprofilesettingpreference">Property type changed for UserProfile.ProfileSettingPreference</a></li>
     <li><a href="#new-endpoint-introduced-in-altinnappsapi-exposing-application-text-resources">New endpoint introduced in Altinn.Apps.Api exposing application text resources</a></li>
     <li><a href="#platform-authorization-introduced-for-platform-register-and-profile">Platform authorization introduced for Platform Register and Profile</a></li>
@@ -10024,12 +10025,23 @@ if(host != "localhost")
 
 
 
+<h2 id="deploy-pipeline-failed-to-set-subscription-key">Deploy pipeline failed to set subscription key</h2>
+<p>Introduced in the newest version of Azure Powershell, which is used during deploy of apps. The change results in the 
+subscription key for the app not being set. The subscription key is needed for the apps to have access to the platform APIs.</p>
+<p>This only affects apps that were deployed some time within the period July 7th - July 22nd. Apps deployed
+for the <em>first time</em> to a specific environment are not affected.</p>
+<h3 id="errors">Errors</h3>
+<p>Users will experience that instantiation fails, and only a blue screen is shown. If looking
+at the network traffic during instantiation, users will see that the call to <code>user</code> fails with code <code>404</code>.</p>
+<h3 id="how-to-fix">How to fix</h3>
+<p>The deployment pipeline has been updated. Re-deploying the app to the same environment will solve the problem 
+(no need to trigger another build).</p>
 <h2 id="property-type-changed-for-userprofileprofilesettingpreference">Property type changed for UserProfile.ProfileSettingPreference</h2>
 <p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/4466">#4466</a> and release v2020.28.<br>
 <strong>The change affects all applications in TT02 and PR with nuget version 1.0.98 and lower.</strong></p>
-<h3 id="errors">Errors</h3>
+<h3 id="errors-1">Errors</h3>
 <p>App doesn&rsquo;t load only the blue background is visible.</p>
-<h3 id="how-to-fix">How to fix</h3>
+<h3 id="how-to-fix-1">How to fix</h3>
 <ol>
 <li>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder. 
 Update nuget dependencies in <code>App.csproj</code> from 1.0.86. to version 1.1.0-alpha.
@@ -10049,8 +10061,8 @@ services.AddHttpClient&lt;IText, TextAppSI&gt;();
 <h2 id="new-endpoint-introduced-in-altinnappsapi-exposing-application-text-resources">New endpoint introduced in Altinn.Apps.Api exposing application text resources</h2>
 <p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/4451">#4451</a> and nuget 1.1.0.-alpha.<br>
 <strong>The change affects all application created in Altinn Studio before 8.07.2020 using nuget versions 1.1.0-alpha</strong></p>
-<h3 id="errors-1">Errors</h3>
-<h3 id="how-to-fix-1">How to fix</h3>
+<h3 id="errors-2">Errors</h3>
+<h3 id="how-to-fix-2">How to fix</h3>
 <p>Once the <a href="https://altinn.github.io/docs/altinn-studio/app-creation/update/#oppgradere-til-nyeste-versjon">nuget references are updated</a> to version 1.1.0-alpha,
 modify the function <em>ConfigureServices()</em> in  <em>App/Startup.cs</em>.</p>
 <p>Include the lines below in the function.
@@ -10063,12 +10075,12 @@ services.AddHttpClient&lt;IText, TextAppSI&gt;();
 <h2 id="platform-authorization-introduced-for-platform-register-and-profile">Platform authorization introduced for Platform Register and Profile</h2>
 <p>Introduced with issue: <a href="https://github.com/altinn/altinn-studio/issues/4162">#4162</a> and Release: v2020.23.<br>
 <strong>The change affects all application created in Altinn Studio before 03.06.2020.</strong></p>
-<h3 id="errors-2">Errors</h3>
+<h3 id="errors-3">Errors</h3>
 <p>Users will experience that instantiation, form filling and viewing receipt fails with the following error:</p>
 <figure><a href="breaking_change_ukjent_feil.PNG"><img src="breaking_change_ukjent_feil.PNG" alt="Unknown error page" title="Unknown-error" /></a><figcaption><h4>Unknown-error</h4></figcaption></figure>
 <p>When checking the network log one will find that the POST request to
 <a href="https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances?instanceOwnerPartyId=">https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances?instanceOwnerPartyId=</a> fails with status code 404.</p>
-<h3 id="how-to-fix-2">How to fix</h3>
+<h3 id="how-to-fix-3">How to fix</h3>
 <p>There are three steps you must take in order to update your application to adhere to the breaking change.</p>
 <ol>
 <li>Update <code>values.yaml</code> in the <code>deployment</code> folder in your application repository.
@@ -10102,9 +10114,9 @@ The change is only breaking for apps using OR-type xsd (or have fields with `-`-
 Most Seres-type data models will not be affected, and will work without needing to make changes, even after updating to v2 of app frontend.
 If you do experience any problems with submitting/validating form data even with a seres-type xsd, follow the steps below.
 </div>
-<h3 id="errors-3">Errors</h3>
+<h3 id="errors-4">Errors</h3>
 <p>For apps that use an OR-type xsd (or have fields with <code>-</code>-character in xsd), the app may crash during submission/validation because the data model binding used does not match the true path in the json schema (and xsd). This is because we have been using a simplified path previously, to match with the C# model. We have now changed that so that the data binding name corresponds to the true xpath for the field.</p>
-<h3 id="how-to-fix-3">How to fix</h3>
+<h3 id="how-to-fix-4">How to fix</h3>
 <ul>
 <li>
 <p>If using app frontend v2 or newer, make sure app is using nuget packages v1.0.82-alpha or newer. See <a href="https://altinn.github.io/docs/altinn-studio/app-creation/update">documentation on how to update dependencies.</a>.</p>
@@ -10165,7 +10177,7 @@ If you do experience any problems with submitting/validating form data even with
 <p>The Register API had a few GET operations that took an input parameter through the body of an http request.
 Requests against these operations would work in AT environments, but would be broken by API Management in production like environments.
 The operations in question has now been removed and replaced with operations that require POST requests.</p>
-<h3 id="errors-4">Errors</h3>
+<h3 id="errors-5">Errors</h3>
 <p>The methods that have been removed were used by an app when an instantiation were done by the Application owner.
 More specifically if the instanceOwnerPartyId were unknown.
 The instantiation request would then have the Person number or organization number instead, and the Register operation would be used to identify the correct party id.</p>
@@ -10180,19 +10192,19 @@ The instantiation request would then have the Person number or organization numb
   },
   ...
 }
-</code></pre></div><h3 id="how-to-fix-4">How to fix</h3>
+</code></pre></div><h3 id="how-to-fix-5">How to fix</h3>
 <p>Any issues related to this change can be fixed by upgrading to the latest version of <a href="https://www.nuget.org/packages/Altinn.App.PlatformServices/">Altinn.App.PlatformServices</a>.
 This means the App must be updated and a the new version deployed to all environments. Existing instances are not affected.</p>
 <h2 id="deploy-pipeline-fails-with-error-upgrade-failed">Deploy pipeline fails with error: UPGRADE FAILED</h2>
 <p>Introduced with upgrade of AKS cluster.
 The api version (extensions/v1beta1) used to deploy apps
 to the AKS cluster is no longer supported.</p>
-<h3 id="errors-5">Errors</h3>
+<h3 id="errors-6">Errors</h3>
 <p>When triggering deploy from altinn.studio the deploy fails.
 On closer inspection of the pipeline (byggloggen)
 the error message below is shown at the end of the failed step.</p>
 <figure><a href="helm-upgrade-error.PNG"><img src="helm-upgrade-error.PNG" alt="Console error message" title="Helm upgrade error" /></a><figcaption><h4>Helm upgrade error</h4></figcaption></figure>
-<h3 id="how-to-fix-5">How to fix</h3>
+<h3 id="how-to-fix-6">How to fix</h3>
 <p>To fix this issue  the deployment to use a new api version.
 Navigate to you application repository and find <em>deployment.yaml</em>.
 It is placed in the folder <em>deployment/templates</em>.</p>
@@ -10220,7 +10232,7 @@ and removing the endpoints.</p>
 <p>When sending in an instance after completing form filling the error below i prompted.
 In network you can see that the &lsquo;validate&rsquo;-request receives a 500 code in response.</p>
 <figure><a href="3927-illustration.PNG"><img src="3927-illustration.PNG" alt="Error page" title="Send-in error" /></a><figcaption><h4>Send-in error</h4></figcaption></figure>
-<h3 id="how-to-fix-6">How to fix</h3>
+<h3 id="how-to-fix-7">How to fix</h3>
 <p>Navigate to you application repository and find App.csproj.
 Upgrade the three Altinn.App nugetpackages to version 1.0.78.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.78-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
@@ -10237,7 +10249,7 @@ with the corresponding <code>Content-Type</code> of the file in the request head
 fails for the attachment, even though it is of the correct format specified in Altinn Studio. This is 
 because the dataType for the attachment expects <code>application/octet-stream</code>, but instead receives the actual
 mime type for the uploaded file.</p>
-<h3 id="how-to-fix-7">How to fix</h3>
+<h3 id="how-to-fix-8">How to fix</h3>
 <p>Update <code>allowedContentTypes</code> for the data type that fails. This can either be done manually in the applications 
 <code>applicationMetadata.json</code> for the affected data type(s) or by updating the FileUpload component in Altinn Studio
 so that the expected <code>allowedContentTypes</code> are saved.</p>
@@ -10248,7 +10260,7 @@ so that the expected <code>allowedContentTypes</code> are saved.</p>
 <h3 id="error-2">Error</h3>
 <p>When building App.cs errors simillar to those depicted in the picture below are logged.</p>
 <figure><a href="3820-errors.PNG"><img src="3820-errors.PNG" alt="build-errors" title="Build errors" /></a><figcaption><h4>Build errors</h4></figcaption></figure>
-<h3 id="how-to-fix-8">How to fix</h3>
+<h3 id="how-to-fix-9">How to fix</h3>
 <p>If you haven&rsquo;t made any changes to <code>App/logic/Validation/ValidationHandler.cs</code> and <code>App/logic/App.cs</code>
 the quickest way to fix the build errors are to copy these files from the template and paste them into your repository. 
 Find the template files <a href="https://github.com/Altinn/altinn-studio/tree/master/src/studio/AppTemplates/AspNet/App/logic">here</a>.</p>
