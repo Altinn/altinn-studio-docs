@@ -5,6 +5,24 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
+## Deploy pipeline failed to set subscription key
+
+Introduced in the newest version of Azure Powershell, which is used during deploy of apps. The change results in the 
+subscription key for the app not being set. The subscription key is needed for the apps to have access to the platform APIs.
+
+This only affects apps that were deployed some time within the period July 7th - July 22nd. Apps deployed
+for the _first time_ to a specific environment are not affected. 
+
+### Errors
+
+Users will experience that instantiation fails, and only a blue screen is shown. If looking
+at the network traffic during instantiation, users will see that the call to `user` fails with code `404`.
+
+### How to fix
+
+The deployment pipeline has been updated. Re-deploying the app to the same environment will solve the problem 
+(no need to trigger another build).
+
 ## Property type changed for UserProfile.ProfileSettingPreference 
 
 Introduced with issue: [#4466](https://github.com/Altinn/altinn-studio/issues/4466) and release v2020.28.  
