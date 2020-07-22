@@ -1,9 +1,7 @@
 ---
 title: Solution-specific application components local deveolopment
 linktitle: Local dev
-description: As part of the platform it is created a solution to develop and test applications 
-weight: 120
-alwaysopen: false
+description: As part of the platform it is created a solution to develop and test applications.
 ---
 
 ## Localtest loadbalancer
@@ -19,6 +17,4 @@ See Altinn Apps for details about the construction components on a App.
 ## Localtest platform
 Localtest platform is a application that have the same webApis that are available to apps from Altinn.Platform in test and production environments
 
-{{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/components/application/solution/local-dev/localdev_solution.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}

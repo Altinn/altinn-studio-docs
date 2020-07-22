@@ -2,8 +2,6 @@
 title: Known issues
 description: Description of errors and weaknesses in Altinn Studio that developers should know about.
 tags: [issues]
-weight: 110
-alwaysopen: false
 aliases:
  - /known-issues/
 ---

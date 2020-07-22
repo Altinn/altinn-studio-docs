@@ -2,7 +2,6 @@
 title: External APIs - analysis
 linktitle: External APIs
 description: An analysis of the SBL external API forward compatibility with Altinn Studio Apps.
-tags: [development, analysis, api]
 ---
 
 [#956](https://github.com/Altinn/altinn-studio/issues/956)

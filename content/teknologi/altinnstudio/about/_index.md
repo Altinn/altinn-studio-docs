@@ -2,8 +2,7 @@
 title: About Altinn 3
 linktitle: About
 description: Altinn 3 is the third generation platform for developing and hosting digital services. 
-weight: 1
-alwaysopen: false
+toc: true
 aliases:
  - /about/
 ---
@@ -50,11 +49,9 @@ The first version was launched in June 2020 and the first applications was deplo
 
 Below you find a presentation done at NDC Conferences Oslo June 11. 2020!
 
-The presentation starts at 4:58:43.
+[Presentation June 11. 2020 NDC Conference (slides)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinn_3_ndc_2020_06_11.pptx)
 
-{{< youtube id="XCzxzJL4Wak?start=17923" autoplay="false" >}}
-
-[Presentation June 11. 2020 NDC Conference](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinn_3_ndc_2020_06_11.pptx)
+{{<vimeo 431429016>}}
 
 ## How to learn more about Altinn 3
 
@@ -64,4 +61,4 @@ Start with reading about the different solutions of Altinn 3.
 - Altinn Apps let your host your digital services
 - Altinn Platform will provide standard functionalit to your digital services.
 
-Go to [solutions](../solutions)
+Go to [solutions](../solutions).

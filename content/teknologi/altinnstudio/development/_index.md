@@ -2,7 +2,6 @@
 title: Development
 description: Information about developing the open source Altinn Studio solution.
 tags: [development, architecture]
-weight: 100
 aliases:
  - /development/
 ---

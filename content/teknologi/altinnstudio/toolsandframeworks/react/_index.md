@@ -1,10 +1,10 @@
 ---
 title: React
-description: Modulært rammeverk for å utvikle UI komponenter
+description: Modulært rammeverk for å utvikle UI komponenter og SPA applikasjoner.
 tags: [tech, frontend, react]
 ---
 
-![React logo](react-logo.svg?width=200)
+![React logo](react-logo.svg "React logo")
 
 - Modulært rammeverk for å utvikle UI komponenter som kan gjenbrukes flere steder i løsningen.
 - Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas.
@@ -25,7 +25,7 @@ tags: [tech, frontend, react]
 
 ![Redux architecture](redux-architecture.png "Redux architecture")
 
-### Links
+## Links
 
 - https://reactjs.org 
 - https://github.com/facebook/react

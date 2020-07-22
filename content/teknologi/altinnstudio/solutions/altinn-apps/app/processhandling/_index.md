@@ -1,8 +1,7 @@
 ---
 title: Process handling
-description: Description of the process handling capability of Apps created in Altinn Studio
-tags: [altinn-apps]
-weight: 200
+description: Description of the process handling capability of Apps created in Altinn Studio.
+tags: [altinn-apps, todo]
 ---
 
 A app have a defined business process.  The business process can consist of serveral type of task in different orders.
@@ -20,9 +19,3 @@ If you want details about the business process architechture see Business Proces
 
 
 ## Events
-
-
-
-
-
-{{% children description="true" depth="1" %}}

@@ -4,6 +4,7 @@ description: The technology used in Altinn Studio, Altinn Apps and Altinn Platfo
 tags: [tech]
 aliases:
  - /technology/
+ - /tech/
 ---
 
 ![Tech map](tech-map.png "The technology used in Altinn 3")

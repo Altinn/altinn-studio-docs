@@ -1,0 +1,3959 @@
+﻿1
+00:00:01,320 --> 00:00:05,640
+Takk for at dere kom.
+Vi skal snakke om hvordan vi bygger-
+
+2
+00:00:05,720 --> 00:00:11,320
+-en statlig applikasjonsplattform
+ i skyen med åpen kildekode.
+
+3
+00:00:11,400 --> 00:00:15,720
+Vi tre er med i teamet
+som bygger Altinn 3-plattformen-
+
+4
+00:00:15,800 --> 00:00:18,480
+-for Digitaliseringsdirektoratet.
+
+5
+00:00:18,560 --> 00:00:21,120
+Teamet består av
+medlemmer fra direktoratet-
+
+6
+00:00:21,200 --> 00:00:23,720
+-og fra ulike konsulentselskaper.
+
+7
+00:00:23,800 --> 00:00:27,920
+Mitt navn er Rune T. Larsen,
+jeg jobber for Accenture Technology.
+
+8
+00:00:28,000 --> 00:00:30,840
+Der har jeg jobbet siden 2005.
+
+9
+00:00:30,920 --> 00:00:33,280
+Jeg har jobbet med
+Altinn-plattformen siden 2008-
+
+10
+00:00:33,360 --> 00:00:37,520
+-og var med i teamet
+ som bygget Altinn 2.
+
+11
+00:00:37,600 --> 00:00:39,720
+Jeg er utvikler og teknisk arkitekt,-
+
+12
+00:00:39,800 --> 00:00:42,640
+-og jeg gjør
+ mesteparten av kodingen i .NET.
+
+13
+00:00:45,160 --> 00:00:47,880
+Hei, alle sammen.
+Mitt navn er Nina Kylstad.
+
+14
+00:00:47,960 --> 00:00:50,480
+Jeg jobber også
+i Accenture Technology,-
+
+15
+00:00:50,560 --> 00:00:53,320
+-og jeg har jobbet der
+ de siste seks årene.
+
+16
+00:00:53,400 --> 00:00:58,080
+De siste fem årene har jeg
+også jobbet med Altinn-plattformen.
+
+17
+00:00:58,160 --> 00:01:01,240
+Jeg er utvikler og teknisk arkitekt,-
+
+18
+00:01:01,320 --> 00:01:04,720
+-og jeg liker å se på meg selv
+ som en "full-stack"-utvikler,-
+
+19
+00:01:04,800 --> 00:01:08,480
+Men jeg jobber for tiden
+mest med front-end.
+
+20
+00:01:08,560 --> 00:01:10,800
+Utenfor jobben har jeg en ettåring-
+
+21
+00:01:10,880 --> 00:01:13,880
+-som holder meg opptatt
+ det meste av tiden.
+
+22
+00:01:13,960 --> 00:01:17,520
+Når jeg har litt fritid,
+liker jeg å lese.
+
+23
+00:01:17,600 --> 00:01:20,360
+Jeg har også
+tørket støv av symaskinen min-
+
+24
+00:01:20,440 --> 00:01:24,160
+-nå som vi må tilbringe
+ så mye tid hjemme.
+
+25
+00:01:25,680 --> 00:01:28,640
+Hei, jeg heter Stephanie Buadu.
+
+26
+00:01:28,720 --> 00:01:32,880
+Jeg har jobbet i Avanade
+og Altinn-teamet siden 2018.
+
+27
+00:01:32,960 --> 00:01:36,960
+I dette prosjektet har jeg fokusert
+mest på back-end i løsningen-
+
+28
+00:01:37,040 --> 00:01:40,400
+-og integrasjon mot Altinn 2.
+
+29
+00:01:40,480 --> 00:01:43,440
+På fritiden liker jeg å strikke.
+
+30
+00:01:43,520 --> 00:01:50,280
+Det er en fin hobby
+å kombinere med Netflix.
+
+31
+00:01:56,800 --> 00:02:00,920
+I denne presentasjonen
+skal vi snakke om hva Altinn er-
+
+32
+00:02:01,000 --> 00:02:04,200
+-og gi en liten introduksjon til
+ dere som ikke kjenner løsningen.
+
+33
+00:02:04,280 --> 00:02:08,520
+Vi skal snakke om Altinn 3-
+prosjektet, hvordan det startet-
+
+34
+00:02:08,600 --> 00:02:13,280
+-og de tekniske prinsippene
+ vi bygger den nye plattformen på.
+
+35
+00:02:13,360 --> 00:02:16,280
+Og vi skal inn på detaljene
+for den nye plattformen,-
+
+36
+00:02:16,360 --> 00:02:18,960
+-komponentene
+ og løsningen vi bygger.
+
+37
+00:02:19,040 --> 00:02:21,760
+Og så skal vi
+gå gjennom skyarkitekturen-
+
+38
+00:02:21,840 --> 00:02:24,800
+-og komponentene vi bruker
+ som del av løsningen.
+
+39
+00:02:24,880 --> 00:02:27,000
+Dere skal få status i prosjektet-
+
+40
+00:02:27,080 --> 00:02:30,400
+-og hva vi skal
+ i gang med i neste fase.
+
+41
+00:02:30,480 --> 00:02:32,160
+Til slutt åpner vi opp for spørsmål.
+
+42
+00:02:32,240 --> 00:02:35,840
+Still gjerne spørsmål på Slack
+hvis du har noen.
+
+43
+00:02:37,360 --> 00:02:40,280
+Så, hva er Altinn?
+
+44
+00:02:40,360 --> 00:02:45,520
+Si at du jobber for en offentlig etat
+som må få data fra innbyggerne.
+
+45
+00:02:45,600 --> 00:02:49,000
+Kanskje du ønsker at de skal
+rapportere om covid-19-symptomer,-
+
+46
+00:02:49,080 --> 00:02:53,640
+-og kanskje du trenger en digital
+ nettløsning som kan motta dataene?
+
+47
+00:02:53,720 --> 00:02:56,640
+Da er Altinn plattformen for deg.
+
+48
+00:02:57,800 --> 00:03:01,040
+Altinn er en internettportal
+for dialog mellom innbyggere,-
+
+49
+00:03:01,120 --> 00:03:04,160
+-næringsliv
+ og offentlige etater i Norge.
+
+50
+00:03:04,240 --> 00:03:06,400
+Det er også en teknisk plattform-
+
+51
+00:03:06,480 --> 00:03:11,160
+-offentlige virksomheter kan benytte
+ for å lage digitale tjenester.
+
+52
+00:03:11,240 --> 00:03:15,000
+Altinn var en av de første
+tjenesteleverandørplattformene-
+
+53
+00:03:15,080 --> 00:03:18,000
+-fordi den ble etablert
+ allerede i 2002.
+
+54
+00:03:18,080 --> 00:03:20,680
+Da gikk tre offentlige etater sammen-
+
+55
+00:03:20,760 --> 00:03:24,560
+-for å bygge en felles plattform
+ for å rapportere til myndighetene.
+
+56
+00:03:24,640 --> 00:03:27,800
+Og i 2003 ble
+den første generasjonen lansert.
+
+57
+00:03:27,880 --> 00:03:32,120
+I 2010 var
+den andre generasjonen klar.
+
+58
+00:03:32,200 --> 00:03:36,000
+I løpet av disse årene har over
+50 etater tatt i bruk plattformen.
+
+59
+00:03:36,080 --> 00:03:39,200
+Blant annet forsvaret,
+politiet, helsevesenet,-
+
+60
+00:03:39,280 --> 00:03:43,560
+-og mange flere
+ over hele det offentlige Norge.
+
+61
+00:03:43,640 --> 00:03:46,200
+Det er nå
+over 1000 digitale tjenester-
+
+62
+00:03:46,280 --> 00:03:48,480
+-tilgjengelig på plattformen.
+
+63
+00:03:48,560 --> 00:03:54,120
+Alt fra å navngi din førstefødte
+til å rapportere en flyhendelse.
+
+64
+00:03:54,200 --> 00:03:58,120
+Nesten alle selskaper i Norge
+bruker Altinn hvert år.
+
+65
+00:03:58,200 --> 00:04:00,600
+Og som dette diagrammet viser,-
+
+66
+00:04:00,680 --> 00:04:05,840
+-bruker nesten alle
+ mellom 13 og 110 Altinn hvert år.
+
+67
+00:04:06,920 --> 00:04:12,440
+I Altinn har alle en egen innboks med
+all kommunikasjon med det offentlige.
+
+68
+00:04:12,520 --> 00:04:14,760
+Du har også en tjenestekatalog-
+
+69
+00:04:14,840 --> 00:04:18,040
+-der du kan finne
+ den digitale tjenesten du trenger.
+
+70
+00:04:18,120 --> 00:04:20,520
+Det er enestående
+med en slik felles plattform.
+
+71
+00:04:20,600 --> 00:04:25,000
+Det er en av grunnene til at Norge
+er langt framme på digital ledelse.
+
+72
+00:04:25,080 --> 00:04:30,720
+En annen fordel er at alle funksjoner
+er tilgjengelige gjennom API-er.
+
+73
+00:04:30,800 --> 00:04:34,840
+Mange programvareselskaper
+er integrert mot Altinn.
+
+74
+00:04:34,920 --> 00:04:40,240
+F.eks. du kan levere selvangivelsen
+direkte fra regnskapsprogrammet ditt.
+
+75
+00:04:40,320 --> 00:04:42,720
+Gartner anser Altinn
+som en av de fem beste-
+
+76
+00:04:42,800 --> 00:04:46,800
+-offentlige plattformer i verden.
+
+77
+00:04:46,880 --> 00:04:51,680
+Tilbake til etatene og behovet
+for å motta data fra myndighetene.
+
+78
+00:04:51,760 --> 00:04:56,360
+Etter det jeg akkurat sa,
+virker kanskje Altinn 2 perfekt.
+
+79
+00:04:56,440 --> 00:04:59,320
+Men det fins begrensninger.
+
+80
+00:04:59,400 --> 00:05:02,080
+Vi baserte den forrige plattformen
+på fysisk maskinvare.
+
+81
+00:05:02,160 --> 00:05:08,280
+Så selv om trafikken på én dag
+går fra 100 000 til 2,5 millioner,-
+
+82
+00:05:08,360 --> 00:05:11,800
+-har vi samme skalering året rundt.
+
+83
+00:05:12,600 --> 00:05:16,960
+Og en moderne offentlig etat
+trenger en digital tjeneste-
+
+84
+00:05:17,040 --> 00:05:20,440
+-som støttes både av mobil og PC.
+
+85
+00:05:20,520 --> 00:05:25,720
+Men vi bruker Infopath,
+og det har sine begrensninger.
+
+86
+00:05:25,800 --> 00:05:31,600
+Det er begrenset hvilken prosessflyt
+vi kan tilby sluttbrukerne.
+
+87
+00:05:31,680 --> 00:05:35,000
+Det er ganske tidkrevende
+å drive med testing-
+
+88
+00:05:35,080 --> 00:05:39,960
+-fordi hver eneste lille forandring
+ må prøves ut i testmiljøet.
+
+89
+00:05:40,040 --> 00:05:43,520
+Versjonskontroll skjer i SharePoint,
+så det er vanskelig å forstå-
+
+90
+00:05:43,600 --> 00:05:47,600
+-endringene du eller andre
+ har gjort på den digitale tjenesten.
+
+91
+00:05:47,680 --> 00:05:50,840
+Når testingen er over
+og du er klar for lansering,-
+
+92
+00:05:50,920 --> 00:05:55,560
+-trenger du på dagens plattform
+ hjelp av en tekniker.
+
+93
+00:05:55,640 --> 00:05:57,840
+Dette er noen av begrensningene-
+
+94
+00:05:57,920 --> 00:06:01,680
+-vi skal utbedre
+ på neste generasjon av Altinn.
+
+95
+00:06:03,120 --> 00:06:07,760
+Dette prosjektet
+startet tilbake i 2016.
+
+96
+00:06:07,840 --> 00:06:13,160
+Da så vi på hva slags produkt
+som kunne erstatte Infopath.
+
+97
+00:06:13,240 --> 00:06:17,360
+Så tenkte vi at vi kanskje
+skulle bygge noe selv fra grunnen av.
+
+98
+00:06:17,440 --> 00:06:20,120
+Så vi foretok en liten konsepttest.
+
+99
+00:06:20,200 --> 00:06:25,040
+For å se om vi kunne bygge
+en plattform med ASP.NET Core?
+
+100
+00:06:25,120 --> 00:06:27,560
+Vi fastslo: Ja, det er mulig.
+
+101
+00:06:27,640 --> 00:06:33,520
+Og i 2018 var vi klare
+for å foreta en full konsepttest.
+
+102
+00:06:34,480 --> 00:06:38,120
+Vi ønsket å bygge en ny plattform
+ved hjelp av .NET Core.
+
+103
+00:06:38,200 --> 00:06:42,800
+Vi ville bruke React som front-end,
+og Docker og Kubernetes.
+
+104
+00:06:42,880 --> 00:06:49,160
+Og våren 2018 begynte vi
+å bekrefte om dette var mulig.
+
+105
+00:06:49,240 --> 00:06:53,680
+Og sommeren 2018 fastslo vi at
+hovedkonseptet var gjennomførbart.
+
+106
+00:06:53,760 --> 00:06:57,400
+Vi skal bygge
+et brukergrensesnittdesign med React.
+
+107
+00:06:57,480 --> 00:07:03,360
+Vi sluttførte konseptet og begynte
+på et minste brukbare produkt.
+
+108
+00:07:03,440 --> 00:07:07,120
+Og det er det vi presenterer i dag.
+
+109
+00:07:07,200 --> 00:07:10,840
+Så hva er konseptet
+med den nye plattformen?
+
+110
+00:07:10,920 --> 00:07:19,000
+Vi skal la etatenes utviklere
+få muligheten til å utvikle,-
+
+111
+00:07:19,080 --> 00:07:22,600
+-alene eller som en gruppe,
+ digitale tjenester-
+
+112
+00:07:22,680 --> 00:07:29,640
+-og deploye dem som containere
+ i en offentlig skyinfrastruktur.
+
+113
+00:07:29,720 --> 00:07:32,560
+Uten at du trenger
+å kunne programmere-
+
+114
+00:07:32,640 --> 00:07:36,080
+-eller vite noe om skyinfrastruktur.
+
+115
+00:07:36,160 --> 00:07:38,000
+Ganske kult.
+
+116
+00:07:38,080 --> 00:07:44,200
+For å skape plattformen definerte vi
+noen arkitekturprinsipper.
+
+117
+00:07:44,280 --> 00:07:52,160
+Jeg skal bare nevne de fem viktigste.
+Vi vil ha åpen kildekode.
+
+118
+00:07:52,240 --> 00:07:57,920
+Vi vil at andre skal bruke
+plattformen og komponentene våre.
+
+119
+00:07:58,000 --> 00:08:02,240
+Andre etater kan bruke den internt
+eller kanskje et annet land.
+
+120
+00:08:02,320 --> 00:08:05,080
+Vi ønsker også bidrag fra etater-
+
+121
+00:08:05,160 --> 00:08:07,440
+-som trenger
+ egne funksjoner på plattformen.
+
+122
+00:08:07,520 --> 00:08:10,720
+Så all kildekoden vår
+er tilgjengelig på GitHub.
+
+123
+00:08:10,800 --> 00:08:14,000
+Alle problemområdene våre
+ligger på GitHub.
+
+124
+00:08:14,080 --> 00:08:18,000
+Og vi bruker bare verktøy
+og rammeverk med åpen kildekode.
+
+125
+00:08:18,960 --> 00:08:24,840
+Det andre prinsippet er at vi vil
+at plattformen skal bli godt likt.
+
+126
+00:08:24,920 --> 00:08:28,600
+Så vi bruker verktøy
+som utviklerne liker.
+
+127
+00:08:28,680 --> 00:08:31,520
+Så vi valgte det mest populære
+front-end-rammeverket,-
+
+128
+00:08:31,600 --> 00:08:34,240
+-ifølge Stack Overflow, nemlig React.
+
+129
+00:08:34,320 --> 00:08:39,480
+Vi bruker det mest populære
+back-end-rammeverket, .NET Core.
+
+130
+00:08:39,560 --> 00:08:45,480
+Og den mest populære plattformen,
+Linux-containere basert på Docker.
+
+131
+00:08:45,560 --> 00:08:51,680
+Alt er bygd rundt Visual Studio Code,
+det mest populære utviklingsmiljøet.
+
+132
+00:08:51,760 --> 00:08:57,240
+Vi elsker å jobbe med plattformen,
+og vi tror andre også vil gjøre det.
+
+133
+00:08:57,320 --> 00:09:02,120
+Dette er noen av verktøyene
+vi har brukt på plattformen vår.
+
+134
+00:09:05,200 --> 00:09:09,640
+Det tredje prinsippet er at
+vi bygger alt som mikrotjenester.
+
+135
+00:09:09,720 --> 00:09:13,080
+Vi ønsker å skalere
+de ulike komponentene hver for seg.
+
+136
+00:09:13,160 --> 00:09:14,880
+Vi skal kunne deploye dem.
+
+137
+00:09:14,960 --> 00:09:19,320
+Vi ønsker å ha team
+som jobber med de ulike komponentene.
+
+138
+00:09:19,400 --> 00:09:21,960
+Hver komponent er en mikrotjeneste,-
+
+139
+00:09:22,040 --> 00:09:28,320
+-og alle de digitale tjenestene
+ er bygget som mikrotjenester.
+
+140
+00:09:30,320 --> 00:09:33,520
+Det fjerde prinsippet
+er også veldig viktig for oss.
+
+141
+00:09:33,600 --> 00:09:38,240
+For vi skal ende opp med
+en stor skyinfrastruktur.
+
+142
+00:09:38,320 --> 00:09:43,120
+Og den er vi ikke i stand til
+å drifte på egen hånd som et team.
+
+143
+00:09:43,200 --> 00:09:47,400
+Så vi bruker tjenester som er
+administrert av Azure.
+
+144
+00:09:47,480 --> 00:09:49,920
+F.eks. Azure Kubernetes Service.
+
+145
+00:09:50,000 --> 00:09:53,200
+Stephanie
+skal snakke mer om det senere.
+
+146
+00:09:55,320 --> 00:10:00,480
+Så den siste: Applikasjonseierne
+skal være atskilt fra hverandre.
+
+147
+00:10:00,560 --> 00:10:04,920
+Vi vil ikke at en applikasjonseier
+skal få påvirke tjenesten for andre-
+
+148
+00:10:05,000 --> 00:10:07,280
+-eller få tilgang til andres data.
+
+149
+00:10:07,360 --> 00:10:12,120
+Så vi har atskilt infrastruktur
+for hver applikasjonseier.
+
+150
+00:10:12,200 --> 00:10:17,600
+Vi har også atskilt datalagring
+for hver applikasjonseier.
+
+151
+00:10:17,680 --> 00:10:22,640
+Nina skal fortelle dere mer
+om løsningen vi bygger.
+
+152
+00:10:24,720 --> 00:10:27,280
+Takk, Rune.
+
+153
+00:10:35,000 --> 00:10:38,800
+Så vi hadde
+det overordnete konseptet,-
+
+154
+00:10:38,880 --> 00:10:44,840
+-vi hadde arkitekturprinsippene
+ og vi hadde konsepttesten klar.
+
+155
+00:10:44,920 --> 00:10:49,120
+Og basert på dette
+begynte vi å lage løsningene våre.
+
+156
+00:10:49,200 --> 00:10:54,080
+Altinn 3 er satt sammen av
+tre løsninger som jobber sammen.
+
+157
+00:10:55,560 --> 00:10:58,040
+Først har vi Altinn Studio.
+
+158
+00:10:58,120 --> 00:11:00,520
+Dette er designløsningen vår-
+
+159
+00:11:00,600 --> 00:11:04,400
+-for å skape, utvikle
+ og deploye applikasjoner,-
+
+160
+00:11:04,480 --> 00:11:07,120
+-eller apper som vi kaller dem.
+
+161
+00:11:07,920 --> 00:11:10,040
+Så har vi Altinn Apps.
+
+162
+00:11:10,120 --> 00:11:13,600
+Her har vi samlet
+alle de aktive appene-
+
+163
+00:11:13,680 --> 00:11:17,120
+-og Kubernetes-klyngene
+ som de kjører på.
+
+164
+00:11:18,520 --> 00:11:21,800
+Til slutt har vi Altinn Platform,-
+
+165
+00:11:21,880 --> 00:11:26,880
+-som står for
+ appens back-end-funksjonalitet.
+
+166
+00:11:28,880 --> 00:11:32,960
+La oss se på hvordan
+disse tre løsningene jobber sammen-
+
+167
+00:11:33,040 --> 00:11:39,720
+-for neste generasjons digitale
+ tjenester for Norges innbyggere.
+
+168
+00:11:39,800 --> 00:11:43,640
+Vi går tilbake til
+scenariet med en offentlig etat-
+
+169
+00:11:43,720 --> 00:11:45,720
+-som ønsker å hente inn data,-
+
+170
+00:11:45,800 --> 00:11:50,120
+-og de ønsker å skape
+ en digital tjeneste som gjør dette.
+
+171
+00:11:50,200 --> 00:11:52,480
+Vi skal se hvordan vi kan løse dette-
+
+172
+00:11:52,560 --> 00:11:56,320
+-med å lage en app
+ ved hjelp av Altinn 3-løsningene.
+
+173
+00:11:58,920 --> 00:12:04,520
+Dette er noen av hovedfunksjonene
+som vi ønsker å støtte.
+
+174
+00:12:04,600 --> 00:12:08,520
+Dette er også noen problemområder
+på den nåværende plattformen-
+
+175
+00:12:08,600 --> 00:12:11,720
+-som vi ønsker å forbedre.
+
+176
+00:12:15,360 --> 00:12:19,600
+Så hva er en app
+i denne sammenhengen?
+
+177
+00:12:19,680 --> 00:12:25,560
+En app er en digital tjeneste i form
+av en frittstående applikasjon.
+
+178
+00:12:25,640 --> 00:12:29,360
+Og denne applikasjonen
+eksponerer noen API-er,-
+
+179
+00:12:29,440 --> 00:12:32,080
+-den har
+ et grafisk brukergrensesnitt,-
+
+180
+00:12:32,160 --> 00:12:35,840
+-og den kjører i en Docker-container.
+
+181
+00:12:35,920 --> 00:12:39,840
+Så for å støtte denne,
+trenger vi en applikasjonsmal.
+
+182
+00:12:39,920 --> 00:12:43,640
+Dette er utgangspunktet
+for alle appene.
+
+183
+00:12:43,720 --> 00:12:49,640
+Applikasjonsmalen er
+en .NET Core MVC-applikasjon.
+
+184
+00:12:49,720 --> 00:12:51,280
+Helt standard.
+
+185
+00:12:51,360 --> 00:12:55,680
+Så har vi utvidet den
+med noen støttebiblioteker.
+
+186
+00:12:55,760 --> 00:12:59,480
+Dette er prosjekter
+som vi publiserer som NuGet-pakker.
+
+187
+00:12:59,560 --> 00:13:02,960
+NuGet er .NETs pakkemanager.
+
+188
+00:13:03,040 --> 00:13:05,600
+Disse støttebibliotekene inneholder-
+
+189
+00:13:05,680 --> 00:13:09,680
+-ting som standard-API-er
+ som appen skal eksponere,-
+
+190
+00:13:09,760 --> 00:13:13,800
+-i tillegg til integrasjon
+ mot Altinn-plattformen.
+
+191
+00:13:13,880 --> 00:13:17,360
+Vi har også lagt til
+plassholdere for logikk-
+
+192
+00:13:17,440 --> 00:13:19,880
+-og et sett med konfigurasjonsfiler-
+
+193
+00:13:19,960 --> 00:13:24,760
+-som apputviklerne
+ kan bruke til å konfigurere appene.
+
+194
+00:13:24,840 --> 00:13:28,000
+Appene peker også på en front-end.
+
+195
+00:13:28,080 --> 00:13:30,160
+Dette er en React-applikasjon-
+
+196
+00:13:30,240 --> 00:13:34,160
+-som lastes fra et innholdsleverings-
+ nettverk ved oppstart.
+
+197
+00:13:34,240 --> 00:13:38,520
+Alle appene
+har samme front-end som standard.
+
+198
+00:13:38,600 --> 00:13:43,760
+Front-enden kan så konfigureres
+til de spesifikke appene.
+
+199
+00:13:43,840 --> 00:13:46,440
+Front-enden er integrert med appen-
+
+200
+00:13:46,520 --> 00:13:50,000
+-gjennom API-ene
+ som appen eksponerer.
+
+201
+00:13:51,000 --> 00:13:57,760
+La oss se på hvordan
+en apputvikler kan tilpasse appen.
+
+202
+00:13:57,840 --> 00:14:03,480
+Som jeg nevnte, så kan dette gjøres
+med et sett konfigurasjonsfiler.
+
+203
+00:14:03,560 --> 00:14:09,000
+En av de viktigste
+konfigurasjonene våre er prosessen.
+
+204
+00:14:09,080 --> 00:14:12,320
+Prosessen er det oppgavesettet-
+
+205
+00:14:12,400 --> 00:14:17,200
+-som sluttbrukeren
+ som bruker appen, må gjennom.
+
+206
+00:14:17,280 --> 00:14:21,320
+F.eks. tenk tilbake
+på scenariet vårt-
+
+207
+00:14:21,400 --> 00:14:25,360
+-med en offentlig etat
+ som ønsker å hente inn data.
+
+208
+00:14:25,440 --> 00:14:29,000
+Sluttbrukeren
+må kanskje fylle ut et skjema.
+
+209
+00:14:29,080 --> 00:14:31,760
+Dette er et utfyllingssteg.
+
+210
+00:14:31,840 --> 00:14:35,360
+Så må de kanskje bekrefte
+at dataene stemmer.
+
+211
+00:14:35,440 --> 00:14:38,720
+Dette er et bekreftelsessteg.
+
+212
+00:14:38,800 --> 00:14:45,400
+Så må de vente på tilbakemelding
+fra etaten de sender dataene til.
+
+213
+00:14:45,480 --> 00:14:47,680
+Dette er et steg for tilbakemelding.
+
+214
+00:14:47,760 --> 00:14:50,640
+Dette er de tre stegene vi støtter.
+
+215
+00:14:50,720 --> 00:14:55,600
+De kan kombineres på alle måter
+for å skape prosess.
+
+216
+00:14:55,680 --> 00:15:00,880
+Du definerer prosessen
+med prosesskonfigurasjonsfilen.
+
+217
+00:15:00,960 --> 00:15:03,160
+Da vi satte opp
+konfigurasjonsfilene våre,-
+
+218
+00:15:03,240 --> 00:15:09,120
+-prøvde vi om mulig å bruke
+ en eksisterende standard som format.
+
+219
+00:15:09,200 --> 00:15:14,200
+Til prosessen
+brukte vi BPMN 2.0-standarden.
+
+220
+00:15:14,280 --> 00:15:19,640
+Dette er en XML-notasjon
+for å definere prosesser.
+
+221
+00:15:19,720 --> 00:15:26,400
+Vi har også brukt XACML-standarden
+til autorisasjonspolicyene våre.
+
+222
+00:15:26,480 --> 00:15:31,200
+Dette er en XML-standard
+for å definere tilgangskontroll.
+
+223
+00:15:31,280 --> 00:15:40,000
+Autorisasjonspolicyer kan brukes på
+hele appen eller spesifikke oppgaver.
+
+224
+00:15:41,720 --> 00:15:47,000
+Det var litt om å lage appen
+med konfigurasjonsfilene.
+
+225
+00:15:47,080 --> 00:15:53,840
+Apputviklerne kan også
+tilpasse appene ved hjelp av kode.
+
+226
+00:15:53,920 --> 00:15:58,120
+Som jeg nevnte, har vi
+noen plassholdere for logikk.
+
+227
+00:15:58,200 --> 00:16:03,360
+For ting som validering, utregning
+eller forhåndsutfylling av data.
+
+228
+00:16:03,440 --> 00:16:06,960
+Men dette er egentlig bare starten.
+
+229
+00:16:07,040 --> 00:16:12,320
+Apputviklerne kan gjøre akkurat
+hva de vil så lenge de kan kode det.
+
+230
+00:16:12,400 --> 00:16:18,320
+De kan f.eks. hente data fra Altinn-
+plattformen eller eksterne kilder.
+
+231
+00:16:18,400 --> 00:16:22,520
+De kan lage
+og eksponere API-er, osv.
+
+232
+00:16:22,600 --> 00:16:26,840
+Hvis det kan kodes, kan det gjøres.
+
+233
+00:16:30,160 --> 00:16:33,320
+La oss ta dette ett steg videre.
+
+234
+00:16:33,400 --> 00:16:39,000
+Jeg sa at alle appene bruker
+samme front-end som standard.
+
+235
+00:16:39,080 --> 00:16:41,760
+Og at front-enden
+deretter kan bli konfigurert.
+
+236
+00:16:41,840 --> 00:16:43,960
+Tenk deg at dette ikke holder.
+
+237
+00:16:44,040 --> 00:16:48,920
+Du får ikke konfigurert standarden
+til å gjøre som du vil.
+
+238
+00:16:49,000 --> 00:16:52,360
+Bytt den ut med noe annet.
+
+239
+00:16:52,440 --> 00:16:56,080
+Siden vi bare viser til
+appens front-end fra appen,-
+
+240
+00:16:56,160 --> 00:17:00,080
+-kan du bare vise til noe annet
+ og laste det ved oppstart.
+
+241
+00:17:00,160 --> 00:17:02,960
+Eller droppe front-enden fullstendig-
+
+242
+00:17:03,040 --> 00:17:08,120
+-og la sluttbrukerne
+ gå direkte til appen via API-ene.
+
+243
+00:17:09,840 --> 00:17:12,520
+Vi kan ta dette enda lenger.
+
+244
+00:17:12,600 --> 00:17:19,400
+Ingenting hindrer deg i å gjøre det
+samme med selve applikasjonsmalen.
+
+245
+00:17:19,480 --> 00:17:25,040
+Hvis den ikke fungerer for deg,
+kan du bytte den ut med noe annet.
+
+246
+00:17:25,120 --> 00:17:27,720
+Til og med en Java-applikasjon.
+
+247
+00:17:29,840 --> 00:17:33,920
+Jeg hadde ikke valgt å bytte ut-
+
+248
+00:17:34,000 --> 00:17:39,640
+-vår vakre, fantastiske .NET-mal
+ med en Java-applikasjon.
+
+249
+00:17:41,000 --> 00:17:44,320
+Men spøk til side,-
+
+250
+00:17:44,400 --> 00:17:47,520
+-hvis standardmalen
+ ikke fungerer for deg,-
+
+251
+00:17:47,600 --> 00:17:51,440
+-kan du selvsagt
+ bytte den ut med noe annet.
+
+252
+00:17:51,520 --> 00:17:54,360
+Etter hvert kan vi faktisk ha-
+
+253
+00:17:54,440 --> 00:17:57,800
+-et sett med applikasjonsmaler
+ basert på forskjellig teknologi-
+
+254
+00:17:57,880 --> 00:18:02,440
+-som du kan velge blant
+ når du skal lage en app.
+
+255
+00:18:05,280 --> 00:18:12,640
+La oss anta at du vil beholde
+applikasjonsmal og front-end,-
+
+256
+00:18:12,720 --> 00:18:16,160
+-og jobbe med å konfigurere det.
+
+257
+00:18:16,240 --> 00:18:23,200
+Som vi sa i sted, ønsker vi
+at UI-ene skal være moderne.
+
+258
+00:18:23,280 --> 00:18:26,640
+Vi vil at de skal fungere
+både på mobil og PC.
+
+259
+00:18:26,720 --> 00:18:30,080
+En av måtene
+å konfigurere UI-en på,-
+
+260
+00:18:30,160 --> 00:18:35,080
+-er ved å lage et skjema
+ for å samle inn data.
+
+261
+00:18:35,160 --> 00:18:38,560
+Så vi bestemte oss
+for å lage vårt eget verktøy-
+
+262
+00:18:38,640 --> 00:18:42,440
+-istedenfor å bruke
+ et eksisterende verktøy til dette.
+
+263
+00:18:42,520 --> 00:18:47,680
+Vi lagde et skjemaredigeringsprogram
+med dra og slipp i React.
+
+264
+00:18:48,720 --> 00:18:54,480
+Skjemaredigeringsprogrammet
+har et bibliotek med komponenter-
+
+265
+00:18:54,560 --> 00:18:58,720
+-som kan dras inn i skjemaoppsettet
+ og konfigureres.
+
+266
+00:18:58,800 --> 00:19:01,520
+For øyeblikket
+støtter vi bare enkle former-
+
+267
+00:19:01,600 --> 00:19:06,480
+-med enkle kolonner,  
+ men dette ønsker vi å utvide.
+
+268
+00:19:06,560 --> 00:19:14,400
+Når en apputvikler jobber
+med å konfigurere et slikt skjema,-
+
+269
+00:19:14,480 --> 00:19:18,760
+-er selve skjemakonfigurasjonen
+ og skjemadefinisjonen-
+
+270
+00:19:18,840 --> 00:19:21,400
+-lagret i en JSON-layoutfil.
+
+271
+00:19:21,480 --> 00:19:26,720
+Dette er vår layoutfil som definerer
+hvordan skjemaet skal se ut.
+
+272
+00:19:27,680 --> 00:19:36,440
+Ved kjøretid henter appen opp
+denne layoutfilen og viser skjemaet.
+
+273
+00:19:38,760 --> 00:19:43,280
+Denne konfigurasjonen
+er for utfyllingssteget,-
+
+274
+00:19:43,360 --> 00:19:45,800
+-så skjemaer er for å samle inn data.
+
+275
+00:19:45,880 --> 00:19:48,920
+Men vi har også muligheten
+til å endre visning-
+
+276
+00:19:49,000 --> 00:19:51,960
+-på de andre stegene også.
+
+277
+00:19:52,040 --> 00:19:55,520
+Vi har visning for
+bekreftelse og tilbakemelding også.
+
+278
+00:19:55,600 --> 00:20:00,240
+Appeierne kan da konfigurere
+innholdet som skal vises.
+
+279
+00:20:03,000 --> 00:20:05,560
+Så langt har jeg snakket om appene.
+
+280
+00:20:05,640 --> 00:20:10,880
+Men hvordan utvikler vi apper
+til helhetlige digitale tjenester?
+
+281
+00:20:12,120 --> 00:20:15,480
+Dette gjør vi i Altinn Studio.
+
+282
+00:20:15,560 --> 00:20:18,400
+Altinn Studio
+er bygd opp av tre deler.
+
+283
+00:20:18,480 --> 00:20:20,800
+Vi har designer-applikasjonen.
+
+284
+00:20:20,880 --> 00:20:22,920
+Dette er
+det grafiske brukergrensesnittet-
+
+285
+00:20:23,000 --> 00:20:28,120
+-som apputviklerne bruker
+ for å lage og utvikle appene sine.
+
+286
+00:20:28,200 --> 00:20:30,160
+Det ser slik ut.
+
+287
+00:20:30,240 --> 00:20:35,800
+I designer-applikasjonen har vi
+skjemaredigereren jeg viste dere.
+
+288
+00:20:35,880 --> 00:20:40,520
+Vi har en tekstbehandler
+med støtte for språk.
+
+289
+00:20:40,600 --> 00:20:45,040
+Vi har støtte for
+å redigere enkel kildekode.
+
+290
+00:20:45,120 --> 00:20:49,360
+Med en innebygd kildekode-editor.
+Så har vi selvsagt deploy.
+
+291
+00:20:49,440 --> 00:20:54,120
+Designer-applikasjonen er integrert
+med repository-applikasjonen.
+
+292
+00:20:54,200 --> 00:20:58,800
+Her lagres alle appene
+i Altinn Studio.
+
+293
+00:20:58,880 --> 00:21:01,680
+Repository-applikasjonen
+er bygd på Gitea.
+
+294
+00:21:01,760 --> 00:21:06,600
+Dette er en åpen kildekode
+lagringsløsning basert på Git.
+
+295
+00:21:07,640 --> 00:21:11,320
+Den ser slik ut, nesten som GitHub.
+
+296
+00:21:11,400 --> 00:21:15,640
+Alle apper i Altinn Studio
+er lagret i hvert sitt Git-repository.
+
+297
+00:21:15,720 --> 00:21:21,000
+Når en apputvikler
+jobber med en app i Altinn Studio,-
+
+298
+00:21:21,080 --> 00:21:24,920
+-jobber de på en klone
+ fra det sentrale app-repositoriet.
+
+299
+00:21:25,000 --> 00:21:29,400
+Når de har gjort endringene sine,
+kan de sendes til app-repositoriet.
+
+300
+00:21:29,480 --> 00:21:36,160
+Det gjør det lett for flere utviklere
+å jobbe med samme app samtidig.
+
+301
+00:21:36,240 --> 00:21:41,240
+Alle filene er versjonskontrollerte,
+som vanlig kildekode.
+
+302
+00:21:42,400 --> 00:21:45,720
+Vi har satt opp
+en lastfordeler-
+
+303
+00:21:45,800 --> 00:21:49,360
+-foran repository-applikasjonen
+ og designer-applikasjonen,-
+
+304
+00:21:49,440 --> 00:21:53,200
+som fordeler trafikken
+-basert på URL-en som kommer inn.
+
+305
+00:21:55,320 --> 00:21:59,520
+Å bygge applikasjoner
+med et grafisk brukergrensesnitt,-
+
+306
+00:21:59,600 --> 00:22:01,960
+-dra og slipp, er kult.
+
+307
+00:22:02,040 --> 00:22:08,440
+Dessverre kan ikke
+alle appfunksjonene bli konfigurert-
+
+308
+00:22:08,520 --> 00:22:12,840
+-med et grafisk brukergrensesnitt
+ i Altinn Studio.
+
+309
+00:22:12,920 --> 00:22:16,680
+I tillegg foretrekker noen utviklere
+å bruke sine egne verktøy.
+
+310
+00:22:16,760 --> 00:22:19,640
+Særlig når det gjelder
+å skrive kildekode.
+
+311
+00:22:19,720 --> 00:22:21,920
+Så vi støtter lokal utvikling.
+
+312
+00:22:22,000 --> 00:22:26,320
+Der apputviklerne
+kan bruke favorittverktøyene sine.
+
+313
+00:22:26,400 --> 00:22:28,080
+Så fort en app er laget,-
+
+314
+00:22:28,160 --> 00:22:32,400
+-kan den klones til din lokale maskin
+ der du kan jobbe med den.
+
+315
+00:22:32,480 --> 00:22:38,320
+Når du er ferdig, sender du den
+til app-repositoriet for å deploye.
+
+316
+00:22:39,960 --> 00:22:46,680
+En viktig del av apputvikling
+er testing.
+
+317
+00:22:46,760 --> 00:22:49,120
+Apper må testes.
+
+318
+00:22:49,200 --> 00:22:55,360
+Da trenger appene
+at Altinn Platform faktisk kjører.
+
+319
+00:22:55,440 --> 00:22:58,920
+En mulighet er
+å åpne appen i et testmiljø-
+
+320
+00:22:59,000 --> 00:23:02,000
+-der Altinn Platform kjører.
+
+321
+00:23:02,080 --> 00:23:07,200
+Men hvis du tester
+underveis i utviklingen,-
+
+322
+00:23:07,280 --> 00:23:12,320
+-og du tester trinnvise endringer,
+ kan dette være veldig tidkrevende.
+
+323
+00:23:13,400 --> 00:23:19,080
+Så for å kunne teste lokalt,
+har vi laget en platform-mockup.
+
+324
+00:23:19,160 --> 00:23:23,240
+Denne kan lastes ned
+og kjøres parallelt med appene-
+
+325
+00:23:23,320 --> 00:23:29,520
+-for å kunne teste appene lokalt
+ underveis i utviklingen.
+
+326
+00:23:29,600 --> 00:23:32,880
+Denne platform-mockupen
+brukes også mye av utviklerteamet-
+
+327
+00:23:32,960 --> 00:23:36,840
+-når vi utvikler
+ nye funksjoner for appene.
+
+328
+00:23:41,000 --> 00:23:42,920
+La oss se på deploy.
+
+329
+00:23:43,000 --> 00:23:46,400
+Apper deployes fra Altinn Studio-
+
+330
+00:23:46,480 --> 00:23:50,720
+-til en Kubernetes-klynge
+ i Altinn Apps.
+
+331
+00:23:50,800 --> 00:23:55,680
+Som Rune nevnte,
+har hver appeier og offentlige etat-
+
+332
+00:23:55,760 --> 00:24:00,960
+-sin egen Kubernetes-klynge
+ som de deployer appene sine til.
+
+333
+00:24:01,040 --> 00:24:05,840
+Dette gjelder
+både testmiljøer og produksjon.
+
+334
+00:24:05,920 --> 00:24:11,560
+Dette betyr at appene til én etat
+ikke påvirker appene til en annen.
+
+335
+00:24:11,640 --> 00:24:18,320
+Så vi kan støtte selvbetjent deploy
+helt til produksjonsmiljøet.
+
+336
+00:24:20,360 --> 00:24:23,240
+Deploy går over to steg.
+
+337
+00:24:24,520 --> 00:24:28,400
+Først må vi bygge applikasjonen.
+
+338
+00:24:28,480 --> 00:24:32,720
+Dette lager
+et Docker-image av appen,-
+
+339
+00:24:32,800 --> 00:24:36,480
+-og sender den til
+ et containerregister i Azure.
+
+340
+00:24:36,560 --> 00:24:39,040
+Dette gjøres via
+en Azure DevOps-pipeline-
+
+341
+00:24:39,120 --> 00:24:41,600
+-som du kan se et eksempel på her.
+
+342
+00:24:41,680 --> 00:24:43,960
+Så fort den er bygget,-
+
+343
+00:24:44,040 --> 00:24:47,480
+-kan vi deploye appen
+ til det miljøet vi ønsker.
+
+344
+00:24:47,560 --> 00:24:52,360
+Det henter opp Docker-imaget
+og deployer det til ønsket miljø.
+
+345
+00:24:52,440 --> 00:24:55,600
+Igjen ved hjelp av
+en Azure DevOps-pipeline.
+
+346
+00:25:01,280 --> 00:25:05,480
+Nå skal Rune
+snakke litt om Altinn Platform.
+
+347
+00:25:10,360 --> 00:25:14,120
+Altinn Platform er
+den delen av vår nye plattform-
+
+348
+00:25:14,200 --> 00:25:17,240
+-som inneholder alle funksjonene
+ appene trenger.
+
+349
+00:25:17,320 --> 00:25:22,440
+Vi har delt funksjonene inn
+i containere, eller mikrotjenester.
+
+350
+00:25:22,520 --> 00:25:26,440
+Og alle disse er tilgjengelige
+gjennom API-ene.
+
+351
+00:25:26,520 --> 00:25:29,680
+Den første komponenten
+er autentiseringskomponenten.
+
+352
+00:25:29,760 --> 00:25:32,760
+Den skal autentisere
+brukeren og systemet-
+
+353
+00:25:32,840 --> 00:25:34,720
+-som vil ha tilgang til appen.
+
+354
+00:25:34,800 --> 00:25:37,800
+Dette er appenes
+identitetsleverandør.
+
+355
+00:25:37,880 --> 00:25:41,400
+Denne er integrert med andre
+eksterne identitetsleverandører-
+
+356
+00:25:41,480 --> 00:25:44,160
+-som ID-porten i Norge.
+
+357
+00:25:44,240 --> 00:25:49,800
+Autoriseringskomponenten autoriserer
+tilgang til alle apper, API-er, osv.
+
+358
+00:25:49,880 --> 00:25:53,280
+Dette er et XACML 3.0
+Policy Decision Point-
+
+359
+00:25:53,360 --> 00:25:55,480
+-som leser den valgte policyfilen-
+
+360
+00:25:55,560 --> 00:26:00,560
+-som en del av app-repositoriet,
+ som Nina nevnte.
+
+361
+00:26:00,640 --> 00:26:03,800
+Alle apper
+vil kontakte autorisasjonspunktet-
+
+362
+00:26:03,880 --> 00:26:09,680
+-og få et svar på om brukeren
+ eller systemet kan få tilgang.
+
+363
+00:26:09,760 --> 00:26:12,480
+Vi mener denne komponenten
+kan brukes til andre ting også.
+
+364
+00:26:12,560 --> 00:26:18,400
+Den fins i kildekoden og kan brukes
+alle steder som krever en PDP.
+
+365
+00:26:18,480 --> 00:26:22,760
+Så har du profilkomponenten
+der den henter brukerinformasjonen.
+
+366
+00:26:22,840 --> 00:26:24,800
+Du har registerkomponenten-
+
+367
+00:26:24,880 --> 00:26:28,560
+-der du finner informasjon om alle
+ innbyggerne og selskapene i Norge.
+
+368
+00:26:28,640 --> 00:26:30,600
+Ofte brukt i apper.
+
+369
+00:26:30,680 --> 00:26:34,400
+Vi har kvitteringskomponenten-
+
+370
+00:26:34,480 --> 00:26:38,960
+-som gir en kvittering for
+ tidligere offentlig kommunikasjon.
+
+371
+00:26:39,040 --> 00:26:43,160
+Alle disse appene
+er basert på ASP.Net Core.
+
+372
+00:26:43,240 --> 00:26:47,000
+Men PDF-komponenten
+er faktisk en Java-applikasjon.
+
+373
+00:26:47,080 --> 00:26:53,160
+Vi fant ikke et godt nok PDF-verktøy,
+som er åpen kildekode, for .NET
+
+374
+00:26:53,240 --> 00:26:57,800
+Så hvis noen vil bygge det,
+setter vi pris på det.
+
+375
+00:26:57,880 --> 00:27:01,720
+Så har vi kvitteringskomponenten.
+
+376
+00:27:01,800 --> 00:27:05,320
+Nei, beklager, lagringskomponenten.
+
+377
+00:27:05,400 --> 00:27:08,800
+Der finner du
+appenes lagringsfunksjoner.
+
+378
+00:27:08,880 --> 00:27:12,120
+Det er her brukerene
+lagre dataene sine.
+
+379
+00:27:12,200 --> 00:27:16,240
+Det er også her etaten
+vil hente sine data via API-er.
+
+380
+00:27:16,320 --> 00:27:19,680
+Når brukeren legger inn data i appen,
+kontakter den lagringskomponenten,-
+
+381
+00:27:19,760 --> 00:27:25,600
+-og de vil bli lagret
+ i en egen lagringskonto i Azure.
+
+382
+00:27:25,680 --> 00:27:27,680
+Dette er komponentene våre.
+
+383
+00:27:27,760 --> 00:27:31,200
+Neste steg er
+hvilken skyarkitektur vi bygger.
+
+384
+00:27:31,280 --> 00:27:34,760
+Stephanie
+skal fortelle dere mer om det.
+
+385
+00:27:35,880 --> 00:27:38,160
+Takk.
+
+386
+00:27:41,520 --> 00:27:46,600
+Vi skal snakke litt
+om skykomponentene våre-
+
+387
+00:27:46,680 --> 00:27:48,680
+-og arkitekturen vår i Azure.
+
+388
+00:27:48,760 --> 00:27:53,760
+Ved å vise hvordan
+vi deployer mikrotjenestene våre.
+
+389
+00:27:53,840 --> 00:27:58,960
+Microsoft etablerte de første norske
+datasentrene sine denne vinteren.
+
+390
+00:27:59,040 --> 00:28:02,200
+Ett på Østlandet
+og ett på Vestlandet.
+
+391
+00:28:02,280 --> 00:28:07,840
+Den eneste offentlige skyleverandøren
+med datasentre i Norge.
+
+392
+00:28:07,920 --> 00:28:14,680
+Siden de har to datasentre,
+kan vi ha redundans innad i Norge.
+
+393
+00:28:14,760 --> 00:28:18,280
+Det betyr at vi
+kan betjene applikasjonseiere-
+
+394
+00:28:18,360 --> 00:28:23,680
+-som krever at dataene deres
+ blir lagret i Norge.
+
+395
+00:28:23,760 --> 00:28:27,120
+En annen bra ting
+med å bruke norske datasentre-
+
+396
+00:28:27,200 --> 00:28:30,240
+-er at vi har mindre treghet
+ i kommunikasjonen-
+
+397
+00:28:30,320 --> 00:28:34,640
+-mellom on-premise og skyløsningen.
+
+398
+00:28:34,720 --> 00:28:39,080
+Nina og Rune har snakket om
+de ulike mikrotjenestene våre.
+
+399
+00:28:39,160 --> 00:28:41,560
+Vi har de ulike
+plattformkomponentene.
+
+400
+00:28:41,640 --> 00:28:45,400
+Vi har også brukernes apper
+og Altinn Studio.
+
+401
+00:28:45,480 --> 00:28:47,280
+Det jeg skal vise dere,-
+
+402
+00:28:47,360 --> 00:28:51,240
+-er hvordan vi går fra masse
+ kildekode på GitHub eller Gitea-
+
+403
+00:28:51,320 --> 00:28:53,880
+-til å kjøre tjenester på nett.
+
+404
+00:28:53,960 --> 00:28:58,000
+Det spennende er
+at konseptene jeg skal vise dere,-
+
+405
+00:28:58,080 --> 00:29:01,560
+-er de samme uansett om
+ vi deployer våre mikrotjenester-
+
+406
+00:29:01,640 --> 00:29:05,920
+-eller brukernes mikrotjenester,
+ altså apputviklerne.
+
+407
+00:29:07,800 --> 00:29:11,720
+Det første steget er kildekontroll.
+
+408
+00:29:11,800 --> 00:29:15,040
+Vi bruker GitHub
+til all kildekoden vi utvikler,-
+
+409
+00:29:15,120 --> 00:29:19,360
+-og Gitea til all kildekoden
+ i forbindelse med applikasjonene.
+
+410
+00:29:19,440 --> 00:29:23,360
+På dette stadiet liker vi
+å analysere kildekoden vår.
+
+411
+00:29:23,440 --> 00:29:28,040
+Så vi bruker LGTM, Looks Good To Me,
+til sikkerhetsanalyse-
+
+412
+00:29:28,120 --> 00:29:31,760
+-og SonarCloud for å sikre at
+vi har en vedlikeholdbar kildekode.
+
+413
+00:29:31,840 --> 00:29:35,120
+Det er bare
+noen av verktøyene vi bruker.
+
+414
+00:29:35,200 --> 00:29:38,320
+Så fort vi har
+en ny funksjon til plattformen-
+
+415
+00:29:38,400 --> 00:29:42,960
+-eller en applikasjonseier
+ bestemmer seg for å lage en app,-
+
+416
+00:29:43,040 --> 00:29:46,680
+-aktiveres
+ en bygg-pipeline i Azure DevOps.
+
+417
+00:29:48,560 --> 00:29:54,400
+Denne bygg-pipelinen består
+av ferdiglagde steg i Azure DevOps,-
+
+418
+00:29:54,480 --> 00:29:57,400
+-som gjør den
+ veldig enkel å konfigurere.
+
+419
+00:29:57,480 --> 00:29:59,320
+Pipelinen bruker to steg.
+
+420
+00:29:59,400 --> 00:30:02,480
+Det første steget er
+å bygge et Docker-image,-
+
+421
+00:30:02,560 --> 00:30:07,440
+-og det andre steget er å sende
+ imaget til containerregisteret.
+
+422
+00:30:08,680 --> 00:30:11,360
+Containerregisteret
+kjører i Azure,-
+
+423
+00:30:11,440 --> 00:30:13,880
+-og det er her
+ vi lagrer alle våre images-
+
+424
+00:30:13,960 --> 00:30:16,760
+-til vi er klare for
+ å deploye mikrotjenesten.
+
+425
+00:30:16,840 --> 00:30:21,760
+Det er to viktige ting
+jeg vil nevne om containerregisteret.
+
+426
+00:30:21,840 --> 00:30:26,000
+Det første er at
+siden vi er en offentlig plattform,-
+
+427
+00:30:26,080 --> 00:30:29,720
+-må brukerne våre kunne stole på
+ at dataene deres er trygge.
+
+428
+00:30:29,800 --> 00:30:32,640
+Med tanke på isolasjonsprinsippet.
+
+429
+00:30:32,720 --> 00:30:37,720
+Derfor har vi et containerregister
+for hver enkelt applikasjonseier-
+
+430
+00:30:37,800 --> 00:30:41,760
+-der bare deres egne Docker-images
+ er lagret.
+
+431
+00:30:41,840 --> 00:30:46,600
+I tillegg kan ett Docker-image
+deployes til flere ulike miljøer.
+
+432
+00:30:46,680 --> 00:30:49,680
+Altså både testing og produksjon.
+
+433
+00:30:49,760 --> 00:30:52,400
+Derfor behandler vi
+vårt containerregister-
+
+434
+00:30:52,480 --> 00:30:56,840
+-og alle Docker-images
+ som produksjonsressurser.
+
+435
+00:30:56,920 --> 00:31:02,160
+Det betyr at vi har restriksjoner på
+hvem som har tilgang til ressursen,-
+
+436
+00:31:02,240 --> 00:31:05,400
+-i tillegg til
+ tilgjengeligheten vi forventer,-
+
+437
+00:31:05,480 --> 00:31:10,320
+-og også hvilken region
+ ressursen brukes i.
+
+438
+00:31:10,400 --> 00:31:14,000
+Neste steg: Så fort vi har et
+Docker-image i containerregisteret-
+
+439
+00:31:14,080 --> 00:31:16,520
+-og vi er klare for
+ å deploye mikrotjenesten,-
+
+440
+00:31:16,600 --> 00:31:19,160
+-aktiverer vi en release-pipeline.
+
+441
+00:31:19,240 --> 00:31:22,360
+Denne kjører også i Azure DevOps.
+
+442
+00:31:22,440 --> 00:31:24,640
+Denne pipelinen bruker Helm-
+
+443
+00:31:24,720 --> 00:31:27,760
+-til å installere mikrotjenesten
+ i klyngen.
+
+444
+00:31:27,840 --> 00:31:33,360
+Men jeg må innrømme én ting før
+vi ser nærmere på release-pipelinen.
+
+445
+00:31:33,440 --> 00:31:39,000
+Prosjektet vårt er åpen kildekode,
+noe vi er svært stolte av,-
+
+446
+00:31:39,080 --> 00:31:44,680
+-men vi har også
+ et beskyttet repository i tillegg.
+
+447
+00:31:44,760 --> 00:31:46,720
+Her lagrer vi sensitive data-
+
+448
+00:31:46,800 --> 00:31:49,240
+-som Helm-charts
+ og instrumenteringsnøkler-
+
+449
+00:31:49,320 --> 00:31:52,800
+-til noen av ressursene våre
+ i Azure.
+
+450
+00:31:52,880 --> 00:31:56,160
+Så dette Helm-chartet
+og andre hemmeligheter-
+
+451
+00:31:56,240 --> 00:31:58,320
+-blir pakket som en artefakt-
+
+452
+00:31:58,400 --> 00:32:02,280
+-og inkluderes i release-pipelinen
+ på den måten.
+
+453
+00:32:03,360 --> 00:32:05,560
+Dette er en oversikt-
+
+454
+00:32:05,640 --> 00:32:10,120
+-av release-pipelinen for
+ en av plattformkomponentene våre.
+
+455
+00:32:12,280 --> 00:32:16,200
+Vi kan se at to artefakter
+er inkludert i pipelinen.
+
+456
+00:32:16,280 --> 00:32:21,240
+Første artefakt identifiserer hvilket
+Docker-image vi ønsker å deploye.
+
+457
+00:32:21,320 --> 00:32:27,160
+Det andre artefaktet er Helm-chartene
+fra repositoriet som jeg nevnte.
+
+458
+00:32:29,320 --> 00:32:31,240
+Så fort vi har artefaktene,-
+
+459
+00:32:31,320 --> 00:32:35,440
+-er vi klare for å deploye
+ mikrotjenesten til et av miljøene.
+
+460
+00:32:35,520 --> 00:32:39,920
+Dette er en liste
+over alle miljøene våre.
+
+461
+00:32:40,000 --> 00:32:45,560
+Først kommer miljøene for
+akseptanse- og ytelsestesting.
+
+462
+00:32:45,640 --> 00:32:51,640
+Så kommer testmiljøet
+for applikasjonseierne våre.
+
+463
+00:32:51,720 --> 00:32:55,040
+Og til slutt har vi produksjon.
+
+464
+00:32:55,120 --> 00:32:59,640
+Disse ulike stadiene
+har ulike triggere.
+
+465
+00:32:59,720 --> 00:33:02,200
+På en plattformkomponent-
+
+466
+00:33:02,280 --> 00:33:06,600
+-vil en ny release
+ gå til akseptanstestmiljøet,-
+
+467
+00:33:06,680 --> 00:33:09,720
+-så fort en ny Docker-container
+ er tilgjengelig.
+
+468
+00:33:09,800 --> 00:33:12,640
+Eller et Docker-image
+er tilgjengelig.
+
+469
+00:33:12,720 --> 00:33:16,800
+For testmiljøene for
+applikasjonseiere og produksjon-
+
+470
+00:33:16,880 --> 00:33:18,680
+-har vi ukentlige releaser.
+
+471
+00:33:18,760 --> 00:33:22,560
+Vi har også manuelle sjekkpunkter
+før hver release-
+
+472
+00:33:22,640 --> 00:33:28,560
+-for å sørge for at det er
+folk på jobb i tilfelle noe går galt.
+
+473
+00:33:28,640 --> 00:33:31,920
+Men det viktigste med
+denne release-pipelinen,-
+
+474
+00:33:32,000 --> 00:33:35,320
+-er oppgavene den fullfører.
+
+475
+00:33:35,400 --> 00:33:38,280
+Den viktigste oppgaven
+er at pipelinen-
+
+476
+00:33:38,360 --> 00:33:42,680
+-kjører en Helm-oppgradering
+ eller en Helm-installering-
+
+477
+00:33:42,760 --> 00:33:47,680
+-avhengig av om
+ mikrotjenesten allerede er deployet.
+
+478
+00:33:47,760 --> 00:33:51,280
+Resultatet av oppgaven
+er at en ny pod vil spinne opp-
+
+479
+00:33:51,360 --> 00:33:54,120
+-i Azure Kubernetes Services-klyngen.
+
+480
+00:33:55,200 --> 00:33:58,280
+Da kommer vi til siste steg.
+
+481
+00:33:58,360 --> 00:34:01,680
+En ny pod dukker opp
+i Kubernetes-klyngen,-
+
+482
+00:34:01,760 --> 00:34:05,480
+-og referansen til Docker-image
+ dras til poden-
+
+483
+00:34:05,560 --> 00:34:08,400
+-og mikrotjenesten starter opp.
+
+484
+00:34:08,480 --> 00:34:12,440
+Mikrotjenesten
+skal alltid være helt oppe-
+
+485
+00:34:12,520 --> 00:34:17,040
+-før vi sletter eventuelle
+ tidlige versjoner av mikrotjenesten.
+
+486
+00:34:17,120 --> 00:34:21,920
+Dette fører til
+en deploy uten nedetid.
+
+487
+00:34:22,000 --> 00:34:24,400
+Dette er hele prosessen vår-
+
+488
+00:34:24,480 --> 00:34:29,120
+-for å gå fra kildekode på GitHub
+ til en aktiv nettjeneste.
+
+489
+00:34:29,200 --> 00:34:34,080
+Det er nøyaktig samme prosess
+om vi deployer vår mikrotjeneste-
+
+490
+00:34:34,160 --> 00:34:38,960
+-eller en plattformkomponent
+ eller brukernes applikasjoner.
+
+491
+00:34:39,040 --> 00:34:42,080
+Men la oss se på
+hvordan dette ser ut i Azure-
+
+492
+00:34:42,160 --> 00:34:45,720
+-når alle mikrotjenestene
+ er deployet.
+
+493
+00:34:49,440 --> 00:34:55,040
+Her er en oversikt over hvordan vi
+setter opp infrastrukturen i Azure-
+
+494
+00:34:55,120 --> 00:34:58,000
+-for de forskjellige løsningene.
+
+495
+00:35:01,400 --> 00:35:07,040
+Først ser vi at Altinn Studio
+kjører i en egen Kubernetes-klynge.
+
+496
+00:35:07,120 --> 00:35:12,680
+Vi ser de to tjenestene
+Altinn Designer og Altinn Repos.
+
+497
+00:35:12,760 --> 00:35:16,720
+I Altinn Studio finner du også
+det virtuelle nettverket.
+
+498
+00:35:16,800 --> 00:35:19,840
+Vi har et nøkkelhvelv
+for hemmeligheter og sertifikater-
+
+499
+00:35:19,920 --> 00:35:23,120
+-som er tilgjengelige
+ for mikrotjenestene.
+
+500
+00:35:23,200 --> 00:35:26,160
+Og vi har en IngressRoute
+for å styre trafikken-
+
+501
+00:35:26,240 --> 00:35:29,520
+-til den rette noden
+ som styrer podene.
+
+502
+00:35:29,600 --> 00:35:32,440
+Så har vi en lastfordeler-
+
+503
+00:35:32,520 --> 00:35:37,400
+-for å styre trafikken videre
+ til den rette mikrotjenesten.
+
+504
+00:35:37,480 --> 00:35:39,320
+Beklager, det er motsatt.
+
+505
+00:35:39,400 --> 00:35:43,200
+Lastfordeleren
+tar imot nettverkstrafikken-
+
+506
+00:35:43,280 --> 00:35:46,560
+-og dirigerer oss
+ til den rette noden.
+
+507
+00:35:46,640 --> 00:35:51,440
+Så styrer IngressRoute oss
+til den rette mikrotjenesten.
+
+508
+00:35:51,520 --> 00:35:56,680
+Vi kan også se forbindelsen
+til bygg- og release-pipelinene-
+
+509
+00:35:56,760 --> 00:35:58,440
+-som blir trigget av brukerne-
+
+510
+00:35:58,520 --> 00:36:04,120
+-når de utvikler og deployer
+ appene sine med Altinn Studio.
+
+511
+00:36:05,640 --> 00:36:08,640
+Den neste komponenten
+er Altinn Apps.
+
+512
+00:36:08,720 --> 00:36:13,480
+Jeg syns dette er den mest
+spennende delen av infrastrukturen.
+
+513
+00:36:13,560 --> 00:36:18,400
+Her ser vi to eksempler
+på applikasjonsklynger.
+
+514
+00:36:18,480 --> 00:36:22,160
+Og de har
+fire aktive applikasjoner hver.
+
+515
+00:36:23,880 --> 00:36:27,400
+Når en applikasjonseier
+velger å bruke vår løsning,-
+
+516
+00:36:27,480 --> 00:36:30,320
+-får de to Azure-abonnementer.
+
+517
+00:36:30,400 --> 00:36:36,400
+Ett for testressursene
+og ett for produksjonsressursene.
+
+518
+00:36:36,480 --> 00:36:39,760
+I dette abonnementet
+finner du Kubernetes-klyngen-
+
+519
+00:36:39,840 --> 00:36:43,400
+-hvor de har mikrotjenestene
+ eller appene sine.
+
+520
+00:36:43,480 --> 00:36:47,400
+Du finner nøkkelhvelvet
+for sensitive data,-
+
+521
+00:36:47,480 --> 00:36:50,080
+-tilgjengelig med mikrotjenestene.
+
+522
+00:36:50,160 --> 00:36:52,000
+Du finner det virtuelle nettverket,-
+
+523
+00:36:52,080 --> 00:36:55,520
+-containerregisteret
+ der vi lagrer Docker-imagene.
+
+524
+00:36:55,600 --> 00:36:58,240
+Du finner også lagringskontoen.
+
+525
+00:36:58,320 --> 00:37:04,080
+Her lagrer vi alle dataene
+som hentes inn fra applikasjonene.
+
+526
+00:37:04,160 --> 00:37:06,800
+Og som sagt,
+så har vi en IngressRoute-
+
+527
+00:37:06,880 --> 00:37:11,560
+-som styrer nettverkstrafikken
+ og lastfordeleren.
+
+528
+00:37:11,640 --> 00:37:17,960
+Felles for disse appene er
+at mange krever en felles plattform.
+
+529
+00:37:19,600 --> 00:37:24,120
+Så kommunikasjonen
+mellom appene og Platform-
+
+530
+00:37:24,200 --> 00:37:26,960
+-må gå via en Application Gateway-
+
+531
+00:37:27,040 --> 00:37:31,560
+-så API Management før
+ man kommer til mikrotjenestene våre.
+
+532
+00:37:31,640 --> 00:37:37,440
+Her ser dere en liste over
+de ulike tjenestene i plattformen.
+
+533
+00:37:37,520 --> 00:37:42,920
+Hver plattformkomponent
+kjører på sin egen Docker-container.
+
+534
+00:37:43,000 --> 00:37:48,200
+Vi har ganske mye kommunikasjon
+innad i mikrotjenestene også.
+
+535
+00:37:48,280 --> 00:37:54,480
+Særlig til autoriseringskomponenten
+for å autorisere ulike handlinger.
+
+536
+00:37:54,560 --> 00:37:58,200
+Denne kommunikasjonen
+er aktivert gjennom Linkerd.
+
+537
+00:37:58,280 --> 00:38:02,200
+Vi har en kryptert
+pop-til-pod-kommunikasjon.
+
+538
+00:38:02,280 --> 00:38:05,440
+Det gjør at vi slipper
+å sende trafikken via internett-
+
+539
+00:38:05,520 --> 00:38:09,600
+-og tilbake til
+ den samme Kubernetes-klyngen.
+
+540
+00:38:09,680 --> 00:38:14,920
+Ta en kikk på den nederste
+komponenten, Platform Storage.
+
+541
+00:38:15,000 --> 00:38:20,240
+Denne komponenten er koblet til
+Cosmos DB eller en lagringskonto,-
+
+542
+00:38:20,320 --> 00:38:26,240
+-avhengig av hvem som eier dataene
+ den behandler i en gitt transaksjon.
+
+543
+00:38:28,000 --> 00:38:34,080
+Vi har også en forbindelse til
+on-premise-miljøet vårt, Altinn 2.
+
+544
+00:38:34,160 --> 00:38:37,440
+Denne aktiveres
+med en ExpressRoute.
+
+545
+00:38:37,520 --> 00:38:43,920
+Dette gir oss en rask kommunikasjon
+mellom on-prem og skyløsningen vår.
+
+546
+00:38:45,760 --> 00:38:48,520
+Når vi ser på hele infrastrukturen,-
+
+547
+00:38:48,600 --> 00:38:52,760
+-ser vi at de ulike komponentene
+ samsvarer på ulikt nivå.
+
+548
+00:38:52,840 --> 00:38:54,960
+For Altinn Apps, f.eks.,-
+
+549
+00:38:55,040 --> 00:38:58,320
+-har vi nye tjenesteeiere
+ eller applikasjonseiere-
+
+550
+00:38:58,400 --> 00:39:00,520
+-som ønsker løsningen vår.
+
+551
+00:39:00,600 --> 00:39:05,120
+Eller vi får henvendelser om
+å oppgradere noen av komponentene.
+
+552
+00:39:05,200 --> 00:39:07,600
+Vi har selvsagt standardjobbene,-
+
+553
+00:39:07,680 --> 00:39:11,080
+-som å oppgradere
+ Kubernetes-klyngen vår,-
+
+554
+00:39:11,160 --> 00:39:14,720
+-eller vår versjon
+ av Application Gateway, f.eks.
+
+555
+00:39:16,600 --> 00:39:21,640
+Vi har slitt med å finne en god måte
+å vedlikeholde infrastrukturen vår.
+
+556
+00:39:21,720 --> 00:39:24,920
+Men i det siste
+har vi begynt å bruke Terraform.
+
+557
+00:39:25,000 --> 00:39:27,920
+Terraform er et flott verktøy
+som gjør at vi-
+
+558
+00:39:28,000 --> 00:39:31,640
+-kan både opprette
+ og utvikle infrastrukturen vår.
+
+559
+00:39:31,720 --> 00:39:35,040
+Det beste er
+at alt er beskrevet som kode.
+
+560
+00:39:35,120 --> 00:39:38,520
+Det betyr at utviklere som oss
+i større grad-
+
+561
+00:39:38,600 --> 00:39:42,400
+-kan både sette opp
+ og vedlikeholde infrastrukturen vår.
+
+562
+00:39:42,480 --> 00:39:47,520
+Fordi vi kan lese koden
+og modifisere den etter vårt behov.
+
+563
+00:39:49,640 --> 00:39:54,840
+Ut fra dette bildet ser du at
+det er ganske mange skykomponenter-
+
+564
+00:39:54,920 --> 00:39:58,280
+-som inngår i infrastrukturen vår.
+
+565
+00:39:58,360 --> 00:40:03,000
+Man kan selvsagt dra paralleller til
+teknologi vi har brukt on-premise,-
+
+566
+00:40:03,080 --> 00:40:05,200
+-men ikke alltid.
+
+567
+00:40:05,280 --> 00:40:09,440
+Da vi prøvde å velge hvilke
+skykomponenter vi skulle bruke-
+
+568
+00:40:09,520 --> 00:40:12,800
+-eller hvordan vi skulle konfigurere
+ det virtuelle nettverket, f.eks,-
+
+569
+00:40:12,880 --> 00:40:17,320
+-måtte vi basere avgjørelsene våre
+ på punktene du ser her.
+
+570
+00:40:25,360 --> 00:40:31,640
+Jeg tror at det nederste punktet
+kanskje er det viktigste.
+
+571
+00:40:31,720 --> 00:40:34,640
+Hvilke komponenter
+tror vi har et potensial-
+
+572
+00:40:34,720 --> 00:40:36,600
+-for å vokse med plattformen vår-
+
+573
+00:40:36,680 --> 00:40:42,160
+-og funksjonaliteten
+ vi forventer å tilby i framtiden?
+
+574
+00:40:43,720 --> 00:40:48,480
+Jeg syns dette sier noe om å våge
+å se for seg hvordan framtiden blir-
+
+575
+00:40:48,560 --> 00:40:51,440
+-eller drømme om hvordan
+ vi vil at framtiden skal bli,-
+
+576
+00:40:51,520 --> 00:40:54,160
+-selv om vi ikke er der ennå.
+
+577
+00:40:54,240 --> 00:40:58,600
+I noen tilfeller betyr det også
+å gjøre den nødvendige jobben-
+
+578
+00:40:58,680 --> 00:41:01,120
+-sånn at våre behov og forventninger-
+
+579
+00:41:01,200 --> 00:41:06,040
+-er tydelige for
+ de som skal videreutvikle Azure.
+
+580
+00:41:07,920 --> 00:41:14,360
+Her ser dere de mest sentrale
+skykomponentene vi bruker nå.
+
+581
+00:41:18,760 --> 00:41:24,200
+Heldigvis er mange av
+disse komponentene administrert av Azure.
+
+582
+00:41:24,280 --> 00:41:27,120
+Det begrenser
+antallet variabler vi må tilpasse-
+
+583
+00:41:27,200 --> 00:41:30,960
+-og tiden vi må bruke på
+ å vedlikeholde disse ressursene.
+
+584
+00:41:31,040 --> 00:41:33,520
+Vi hadde aldri hatt kapasitet-
+
+585
+00:41:33,600 --> 00:41:37,280
+-til å ha så mange nye komponenter
+ i løsningen vår samtidig-
+
+586
+00:41:37,360 --> 00:41:41,400
+-hvis vi skulle drifte alle selv.
+
+587
+00:41:42,320 --> 00:41:47,520
+Grunnen til at jeg nevner at det
+er disse komponentene vi bruker nå,-
+
+588
+00:41:47,600 --> 00:41:52,880
+-er fordi vi har
+ en ganske høy grad av utskiftning.
+
+589
+00:41:52,960 --> 00:41:55,480
+Vi begynte å utvikle
+denne løsningen-
+
+590
+00:41:55,560 --> 00:41:59,200
+-før de norske datasentrene
+ ble etablert.
+
+591
+00:41:59,280 --> 00:42:01,120
+Det betyr at vi måtte tilpasse oss-
+
+592
+00:42:01,200 --> 00:42:05,480
+-hvilke tjenester
+ som var tilgjengelige i Norge.
+
+593
+00:42:05,560 --> 00:42:09,320
+For ikke å glemme den raske
+utviklingen av skyteknologien.
+
+594
+00:42:09,400 --> 00:42:12,600
+Vi er alltid klare
+for å bytte ut en komponent-
+
+595
+00:42:12,680 --> 00:42:16,000
+-eller oppgradere de vi allerede har.
+
+596
+00:42:16,080 --> 00:42:20,960
+Terraform er et flott verktøy
+for å gjøre nettopp det.
+
+597
+00:42:23,040 --> 00:42:27,040
+I det siste har også
+kostnadsstyring vært viktig.
+
+598
+00:42:27,120 --> 00:42:30,200
+Med tanke på
+disse skykomponentene.
+
+599
+00:42:30,280 --> 00:42:33,960
+For hvis du ikke er beskjeden
+når du setter opp en kostnadsplan,-
+
+600
+00:42:34,040 --> 00:42:36,800
+-kan utgiftene fort balle på seg.
+
+601
+00:42:36,880 --> 00:42:40,960
+Så vi har vært nødt til
+å stille oss selv spørsmål som:
+
+602
+00:42:41,040 --> 00:42:43,960
+Trenger vi en sporingslogg
+for backup-funksjonen vår?
+
+603
+00:42:44,040 --> 00:42:46,440
+Og hvor lenge
+er vi villige til å vente-
+
+604
+00:42:46,520 --> 00:42:50,640
+-for å finne loggdata
+ som er over 30 dager gamle?
+
+605
+00:42:50,720 --> 00:42:55,880
+Ved å stille disse spørsmålene,
+har vi kunnet...
+
+606
+00:42:55,960 --> 00:43:00,960
+Beklager, jeg mistet tråden.
+Jeg skal hente meg inn igjen.
+
+607
+00:43:01,040 --> 00:43:05,440
+Ved å stille disse spørsmålene,
+har vi kunnet tilpasse løsningen vår-
+
+608
+00:43:05,520 --> 00:43:10,840
+-for å senke kostnadene uten
+ at det går utover funksjonaliteten.
+
+609
+00:43:11,840 --> 00:43:16,080
+Jeg skal snakke om
+noen av skykomponentene-
+
+610
+00:43:16,160 --> 00:43:18,680
+-som vi er veldig fornøyde med.
+
+611
+00:43:18,760 --> 00:43:22,600
+Den første er
+Azure Kubernetes Services.
+
+612
+00:43:22,680 --> 00:43:29,040
+Som du kan se på infrastrukturen vår,
+har vi mange Kubernetes-klynger.
+
+613
+00:43:29,120 --> 00:43:34,840
+Som nevnt, dette er en flott ressurs
+fordi den er administrert av Azure.
+
+614
+00:43:34,920 --> 00:43:37,560
+Det betyr
+at vi har veldig lite ansvar-
+
+615
+00:43:37,640 --> 00:43:42,440
+-utenom å deploye
+ mikrotjenestene våre og drifte dem.
+
+616
+00:43:42,520 --> 00:43:47,760
+I tillegg støtter Azure
+Kubernetes Services autoskalering.
+
+617
+00:43:47,840 --> 00:43:52,080
+Det betyr at applikasjonene våre
+kan skaleres både opp og ned-
+
+618
+00:43:52,160 --> 00:43:55,960
+-avhengig av belastningen på dem.
+
+619
+00:43:56,040 --> 00:44:01,400
+Når vi har overført alle appeierne
+fra Altinn 2 til Altinn 3,-
+
+620
+00:44:01,480 --> 00:44:05,960
+-forventer vi å ha
+ flere hundre Kubernetes-klynger.
+
+621
+00:44:06,040 --> 00:44:09,680
+Så Microsofts Azure-team
+får kanskje mer å gjøre,-
+
+622
+00:44:09,760 --> 00:44:13,160
+-men vi burde klare oss helt fint.
+
+623
+00:44:14,400 --> 00:44:17,160
+Vi har Azure Cosmos DB.
+
+624
+00:44:17,240 --> 00:44:20,760
+Dette er en dokumentdatabase
+som vi bruker til å lagre metadata-
+
+625
+00:44:20,840 --> 00:44:24,560
+-om applikasjonene
+ og instansene deres.
+
+626
+00:44:24,640 --> 00:44:27,840
+Cosmos DB
+er ansett som svært tilgjengelig.
+
+627
+00:44:27,920 --> 00:44:33,880
+Det er dokumentert med
+en tilgjengelighetsgrad på 99.999 %.
+
+628
+00:44:33,960 --> 00:44:36,800
+Ganske høyt!
+Og om det ikke var nok,-
+
+629
+00:44:36,880 --> 00:44:43,200
+-så dupliserer den dataene våre
+ på flere lokasjoner automatisk.
+
+630
+00:44:43,280 --> 00:44:46,400
+Siden denne databasen
+ligger i Azure,-
+
+631
+00:44:46,480 --> 00:44:51,880
+-har vi tilgang til uendelig med
+ lagringsplass om det skulle behøves.
+
+632
+00:44:51,960 --> 00:44:57,280
+På Microsoft Build ble det annonsert
+autoskalering for Cosmos DB.
+
+633
+00:44:57,360 --> 00:45:03,880
+Og vi gleder oss veldig til
+å implementere dette i løsningen vår.
+
+634
+00:45:05,080 --> 00:45:09,640
+Så har vi spart det beste til sist,
+Application Insights.
+
+635
+00:45:09,720 --> 00:45:14,760
+Du vet når du har en bug,
+og du ikke vet hvor problemet ligger-
+
+636
+00:45:14,840 --> 00:45:16,960
+-eller hvor du skal begynne.
+
+637
+00:45:17,040 --> 00:45:22,000
+Jeg hadde begynt med
+Application Insights ni av ti ganger.
+
+638
+00:45:22,080 --> 00:45:26,960
+Så vi bruker Application Insights
+til å overvåke mikrotjenestene våre.
+
+639
+00:45:27,040 --> 00:45:30,680
+Dette gjelder plattformkomponentene
+og Altinn Studio,-
+
+640
+00:45:30,760 --> 00:45:34,720
+-men også alle appene
+ til applikasjonseierne våre.
+
+641
+00:45:34,800 --> 00:45:39,840
+App Insights tegner
+et applikasjonskart som dette.
+
+642
+00:45:39,920 --> 00:45:46,480
+Hvor vi kan se alle mikrotjenestene
+og kommunikasjonslinjene mellom dem.
+
+643
+00:45:46,560 --> 00:45:49,840
+En annen funksjon
+som Application Insights tilbyr,-
+
+644
+00:45:49,920 --> 00:45:52,960
+-er at vi kan gå nærmere inn
+ på et spesielt tidsrom-
+
+645
+00:45:53,040 --> 00:45:59,000
+-og se hva som brukes mest ressurser
+ og gjennomsnittlig responstid.
+
+646
+00:45:59,080 --> 00:46:03,360
+En annen flott funksjon
+er å gå inn på en web request.
+
+647
+00:46:03,440 --> 00:46:08,560
+Slik kan vi se hvordan requesten
+flyter mellom alle tjenestene våre.
+
+648
+00:46:08,640 --> 00:46:14,120
+Disse to funksjonene har blitt brukt
+mye under ytelsestestingen vår.
+
+649
+00:46:14,200 --> 00:46:16,840
+Vi har klart å finne flaskehalser-
+
+650
+00:46:16,920 --> 00:46:21,160
+-i tillegg til unødvendige
+ og duplikate requests.
+
+651
+00:46:21,240 --> 00:46:23,440
+Nå skal jeg overlate dere til Nina.
+
+652
+00:46:23,520 --> 00:46:28,520
+Hun skal snakke om erfaringene våre
+på dette prosjektet.
+
+653
+00:46:36,720 --> 00:46:44,400
+Vi har jobbet med
+dette prosjektet i litt over to år.
+
+654
+00:46:44,480 --> 00:46:48,320
+Vi er helt klart
+noen erfaringer rikere,-
+
+655
+00:46:48,400 --> 00:46:54,120
+-og vi vil gjerne dele
+ noen av de erfaringene med dere.
+
+656
+00:46:54,200 --> 00:46:57,840
+Det første jeg vil nevne,-
+
+657
+00:46:57,920 --> 00:47:03,440
+-er at det har vært flott å jobbe
+ med et åpen kildekode-prosjekt.
+
+658
+00:47:03,520 --> 00:47:06,880
+Backloggen vår ligger ute på GitHub.
+
+659
+00:47:06,960 --> 00:47:13,160
+Til høyre ser dere et skjermbilde
+fra bare noen dager siden.
+
+660
+00:47:13,240 --> 00:47:18,480
+Å ha backloggen åpen på GitHub,
+i tillegg til kildekoden, så klart,-
+
+661
+00:47:18,560 --> 00:47:22,760
+-betyr at vi har fått
+ tilbakemelding og ønsker-
+
+662
+00:47:22,840 --> 00:47:25,400
+-fra apputviklere
+ og offentlige etater-
+
+663
+00:47:25,480 --> 00:47:29,240
+-som har fulgt dette prosjektet
+ på et veldig tidlig stadium.
+
+664
+00:47:29,320 --> 00:47:31,920
+Apputviklere har sendt oss
+problemstillinger,-
+
+665
+00:47:32,000 --> 00:47:39,080
+-og så har de kunnet følge
+ prosessen med å løse dem.
+
+666
+00:47:39,160 --> 00:47:45,720
+Siden vi bare bruker åpen kildekode,
+kan vi også gjøre det samme.
+
+667
+00:47:45,800 --> 00:47:50,440
+Vi kan modifisere ting
+etter vårt behov.
+
+668
+00:47:50,520 --> 00:47:54,520
+Vi har også god oversikt over
+når nye funksjoner-
+
+669
+00:47:54,600 --> 00:48:00,000
+-blir tilgjengelige
+ i verktøyene og rammeverkene vi bruker.
+
+670
+00:48:00,080 --> 00:48:05,520
+Selv om det har vært bra
+å ha en åpen backlog på GitHub,-
+
+671
+00:48:05,600 --> 00:48:13,800
+-har "plain" GitHub som verktøy
+ for å håndtere prosjektet og backloggen,-
+
+672
+00:48:13,880 --> 00:48:17,320
+-ikke fungert særlig bra for oss.
+
+673
+00:48:17,400 --> 00:48:22,640
+For øyeblikket er vi et lite team,
+og det gjør det ganske oversiktlig.
+
+674
+00:48:22,720 --> 00:48:28,400
+Men som du kan se øverst
+på dette skjermbildet av backloggen vår,-
+
+675
+00:48:28,480 --> 00:48:33,800
+-har vi fortsatt 600 åpne saker,
+ og det har vært mange flere
+
+676
+00:48:33,880 --> 00:48:40,280
+Så det å styre dette, og prioritere
+og se hvem som jobber med hva,-
+
+677
+00:48:40,360 --> 00:48:41,960
+-har vært utfordrende.
+
+678
+00:48:42,040 --> 00:48:46,560
+Særlig tidligere
+da vi var et mye større team.
+
+679
+00:48:46,640 --> 00:48:51,760
+Vi måtte prøve ut flere ulike
+plug-ins for å jobbe med GitHub,-
+
+680
+00:48:51,840 --> 00:48:54,880
+-og vi endte opp med
+ en plug-in som heter ZenHub,-
+
+681
+00:48:54,960 --> 00:48:58,760
+-som vi syns fungerer godt for oss.
+
+682
+00:48:58,840 --> 00:49:02,200
+Til slutt noen ord om retning.
+
+683
+00:49:02,280 --> 00:49:09,920
+Vi vil si at det å endre retning midt
+i et prosjekt, kan faktisk være bra.
+
+684
+00:49:10,000 --> 00:49:12,320
+Jeg skal utdype det litt.
+
+685
+00:49:12,400 --> 00:49:14,680
+Da vi startet dette prosjektet,-
+
+686
+00:49:14,760 --> 00:49:22,560
+-fokuserte vi mye på Altinn Studio
+ som et verktøy for å bygge apper.
+
+687
+00:49:24,160 --> 00:49:31,800
+Vi fokuserte mye på verktøyet
+og kanskje ikke nok på selve appene.
+
+688
+00:49:31,880 --> 00:49:39,800
+Vi bestemte oss for å endre retning
+og fokusere mer på appene.
+
+689
+00:49:39,880 --> 00:49:46,560
+Det betydde at vi måtte endre fokus
+fra brukere som ikke kan programmere-
+
+690
+00:49:46,640 --> 00:49:49,560
+-til brukere
+ som faktisk kan programmere.
+
+691
+00:49:49,640 --> 00:49:54,000
+Jeg er sikker på at dere
+har merket det på gjennomgangen vår.
+
+692
+00:49:54,080 --> 00:50:01,800
+Du må nok kunne litt programmering
+for å tilpasse appen din skikkelig.
+
+693
+00:50:01,880 --> 00:50:06,720
+Vi håper vi kan bygge videre
+på Altinn Studio-løsningen-
+
+694
+00:50:06,800 --> 00:50:10,600
+-nå som appene våre er mer modne.
+
+695
+00:50:13,960 --> 00:50:17,360
+Jeg skal gi dere tilbake til Rune-
+
+696
+00:50:17,440 --> 00:50:21,920
+-som skal fortelle mer
+ om den nåværende statusen.
+
+697
+00:50:26,520 --> 00:50:32,480
+Nå er det 6000 dager
+siden Altinn 1 ble satt i produksjon.
+
+698
+00:50:32,560 --> 00:50:36,360
+Det er 3500 dager
+siden Altinn 2 ble satt i produksjon.
+
+699
+00:50:36,440 --> 00:50:39,800
+Og det er over to år siden vi startet
+på vår MVP for Altinn 3.
+
+700
+00:50:39,880 --> 00:50:44,000
+Så hva er statusen?
+Er vi ferdige?
+
+701
+00:50:44,080 --> 00:50:46,720
+Vi gikk faktisk live på mandag.
+
+702
+00:50:46,800 --> 00:50:53,680
+Det er stort for oss at vi kan
+lansere denne plattformen på mandag.
+
+703
+00:50:53,760 --> 00:50:57,480
+Dette betyr at pilotene
+begynner å bli klare til-
+
+704
+00:50:57,560 --> 00:51:02,320
+-å deploye de første applikasjonene
+ til produksjonsmiljøet.
+
+705
+00:51:02,400 --> 00:51:06,160
+Vi hjelper dem med de første appene.
+
+706
+00:51:06,240 --> 00:51:10,000
+Vi har som nevnt
+omtrent 600 åpne saker.
+
+707
+00:51:10,080 --> 00:51:14,400
+Og vi jobber fortsatt hjemmefra,
+men det fungerer fint.
+
+708
+00:51:14,480 --> 00:51:17,080
+Framover
+skal vi fokusere på flere ting.
+
+709
+00:51:17,160 --> 00:51:23,000
+Vi har over 1000 digitale tjenester
+på den gamle plattformen,-
+
+710
+00:51:23,080 --> 00:51:24,960
+-og vi ønsker
+ å flytte dem til den nye.
+
+711
+00:51:25,040 --> 00:51:29,800
+Så vi skal fokusere på
+å gjøre skjemaene mer fleksible.
+
+712
+00:51:29,880 --> 00:51:34,520
+Kunne bygge mer avanserte
+skjemaer og komponenter, osv.
+
+713
+00:51:34,600 --> 00:51:39,160
+Vi skal utvide
+antallet prosesssteg vi kan støtte.
+
+714
+00:51:39,240 --> 00:51:43,800
+Vi skal legge til betalingsløsning
+og signering, og mye mer.
+
+715
+00:51:43,880 --> 00:51:46,680
+Dette er
+en hendelsesdrevet arkitektur,-
+
+716
+00:51:46,760 --> 00:51:51,720
+-og vi må definere hvordan
+ vi skal eksponere hendelsene.
+
+717
+00:51:51,800 --> 00:51:54,520
+Målet for oss er
+å ha en hendelsesstrøm-
+
+718
+00:51:54,600 --> 00:51:59,400
+-for hver innbygger i Norge,
+ hver organisasjon og hver etat.
+
+719
+00:51:59,480 --> 00:52:03,240
+Det kommer til å bli spennende
+å lage den løsningen.
+
+720
+00:52:03,320 --> 00:52:05,720
+Som ofte nevnt, er vi åpen kildekode.
+
+721
+00:52:05,800 --> 00:52:09,560
+Dokumentasjonen vår
+er også åpen kildekode.
+
+722
+00:52:09,640 --> 00:52:15,680
+På GitHub finner dere en link
+til all dokumentasjonen vi har.
+
+723
+00:52:15,760 --> 00:52:19,880
+Der finner dere
+alle kravspesifikasjonene,-
+
+724
+00:52:19,960 --> 00:52:22,960
+-både funksjonelle og tekniske krav.
+
+725
+00:52:23,040 --> 00:52:28,440
+Prinsippene våre, mønstrene
+vi følger, egenskaper,-
+
+726
+00:52:28,520 --> 00:52:32,600
+-plattformens utviklingsegenskaper
+ og kjøretidsegenskaper.
+
+727
+00:52:32,680 --> 00:52:36,200
+Og alle komponentene
+og koden som vi utvikler.
+
+728
+00:52:36,280 --> 00:52:38,800
+Du finner alle designdetaljer der.
+
+729
+00:52:38,880 --> 00:52:44,080
+Ta en kikk, der finner dere detaljer
+om alle plattformkomponentene.
+
+730
+00:52:44,160 --> 00:52:50,760
+Du vil også finne denne
+presentasjonen der om et par timer.
+
+731
+00:52:50,840 --> 00:52:55,520
+Jeg vil takke alle for at dere kom.
+
+732
+00:52:56,720 --> 00:53:01,280
+Jeg vil takke NDC
+for å la oss få komme hit og snakke.
+
+733
+00:53:01,360 --> 00:53:05,520
+Nå åpner vi opp
+for spørsmål fra Slack.
+
+734
+00:53:06,520 --> 00:53:11,760
+Jeg ser vi har et par spørsmål
+på YouTube, så vi begynner der.
+
+735
+00:53:11,840 --> 00:53:18,000
+Første spørsmål: Er utviklerteamene
+basert på mikrotjenestene?
+
+736
+00:53:18,080 --> 00:53:22,960
+Har vi et eget autorisasjonsteam,
+et PDF-team, osv.?
+
+737
+00:53:23,040 --> 00:53:26,880
+Altså, fins det forskjellige team?
+
+738
+00:53:26,960 --> 00:53:31,240
+Er de ansvarlige for
+de ulike tjenestene?
+
+739
+00:53:31,320 --> 00:53:35,080
+Svaret for øyeblikket er:
+Nei, ikke ennå.
+
+740
+00:53:35,160 --> 00:53:41,760
+Vi har ikke noe stort team nå,
+så vi dekker flere komponenter.
+
+741
+00:53:41,840 --> 00:53:45,360
+Med de ulike teammedlemmene
+fokuserer på ulike komponenter.
+
+742
+00:53:45,440 --> 00:53:51,600
+Så for øyeblikket er vi ett team
+som deler på alle komponentene.
+
+743
+00:53:53,200 --> 00:53:58,720
+Vi er 5-6 utviklere,
+så vi er ikke noe stort team.
+
+744
+00:53:58,800 --> 00:54:04,120
+Jeg tror ikke engang vi har nok folk
+til å dekke en komponent hver.
+
+745
+00:54:04,200 --> 00:54:06,960
+Enda et spørsmål.
+
+746
+00:54:07,040 --> 00:54:10,360
+Du sa at dere
+ikke har multi-tenant-arkitektur,-
+
+747
+00:54:10,440 --> 00:54:13,880
+-er dette på grunn av statlige krav?
+
+748
+00:54:17,360 --> 00:54:22,240
+Vi undersøker selvsagt
+hva de offentlige etatene trenger,-
+
+749
+00:54:22,320 --> 00:54:26,560
+-og noen har behov for infrastruktur
+ som er isolert fra andre.
+
+750
+00:54:26,640 --> 00:54:29,960
+Og vi ønsker å støtte
+så mange etater som mulig.
+
+751
+00:54:30,040 --> 00:54:34,000
+Basert på erfaringer fra dagens
+plattform som ikke er isolert,-
+
+752
+00:54:34,080 --> 00:54:37,000
+-har vi sett tilfeller av-
+
+753
+00:54:37,080 --> 00:54:42,480
+-at dårlig kode kan påvirke
+ andre negativt ved stor trafikk.
+
+754
+00:54:42,560 --> 00:54:46,520
+Så det er både
+en naturlig utvikling og basert på krav.
+
+755
+00:54:47,960 --> 00:54:50,480
+Vi har enda et spørsmål fra Brian:
+
+756
+00:54:50,560 --> 00:54:53,680
+Siden dere kjører mange,
+flere hundre...
+
+757
+00:54:53,760 --> 00:54:57,720
+Det blir snart flere hundre,
+vi er ikke helt der ennå.
+
+758
+00:54:57,800 --> 00:55:03,600
+Siden vi kjører mange Kubernetes-
+klynger med apper og Cosmos DB,-
+
+759
+00:55:03,680 --> 00:55:06,320
+-hvordan fordeler vi kostnadene?
+
+760
+00:55:06,400 --> 00:55:11,560
+-Vil du svare på det, Nina?
+-Rune kan nok svare best på det.
+
+761
+00:55:11,640 --> 00:55:15,880
+Dette er en offentlig plattform,
+og det vil den fortsette å være,-
+
+762
+00:55:15,960 --> 00:55:21,120
+-så kostnadsfordelingen er en avtale-
+
+763
+00:55:21,200 --> 00:55:25,280
+-mellom etatene
+ og Digitaliseringsdirektoratet.
+
+764
+00:55:25,360 --> 00:55:31,520
+Med den nye arkitekturen
+er det enklere å dele opp kostnadene-
+
+765
+00:55:31,600 --> 00:55:34,040
+-mellom de forskjellige etatene.
+
+766
+00:55:34,120 --> 00:55:38,840
+Det er umulig på dagens plattform
+siden det er en delt ressurs.
+
+767
+00:55:38,920 --> 00:55:44,480
+Det er umulig å si at du
+bruker ti prosent, og du bruker sju.
+
+768
+00:55:44,560 --> 00:55:49,760
+Vi har nevnt applikasjonseiere
+med veldig store vedlegg, f.eks.
+
+769
+00:55:49,840 --> 00:55:51,560
+Burde vi dele den kostnaden-
+
+770
+00:55:51,640 --> 00:55:56,440
+-eller burde de selv betale
+ for å lagre disse vedleggene?
+
+771
+00:55:56,520 --> 00:56:02,640
+Med egne lagringskontoer er det lett
+å se hvor mye de bruker og kostnaden.
+
+772
+00:56:02,720 --> 00:56:05,880
+Her er det enda et godt spørsmål.
+
+773
+00:56:05,960 --> 00:56:10,120
+Tom hadde samme spørsmål som Brian.
+La oss håpe han fikk svar på dem.
+
+774
+00:56:10,200 --> 00:56:12,360
+Vi har Cybernetics100:
+
+775
+00:56:12,440 --> 00:56:15,920
+Til tross for alt det gode arbeidet
+med den nye Altinn-plattformen,-
+
+776
+00:56:16,000 --> 00:56:22,560
+-hva er de største utfordringene
+ som fortsatt gjenstår?
+
+777
+00:56:25,560 --> 00:56:28,040
+Vi bruker for lang tid på å tenke.
+
+778
+00:56:28,120 --> 00:56:31,520
+Noe som så vidt
+ble nevnt på slutten,-
+
+779
+00:56:31,600 --> 00:56:38,120
+-var det å kunne bygge en tjeneste
+ uten noen spesiell teknisk bakgrunn.
+
+780
+00:56:38,200 --> 00:56:44,280
+I den nåværende plattformen...
+
+781
+00:56:44,360 --> 00:56:47,200
+Ja, det fins mangler,
+men det er mulig å bygge-
+
+782
+00:56:47,280 --> 00:56:50,960
+-en fullgod digital tjeneste
+ uten å kunne noe om programmering.
+
+783
+00:56:51,040 --> 00:56:56,640
+Hvis du skal lage en app
+i den nåværende Altinn 3-løsningen,-
+
+784
+00:56:56,720 --> 00:57:01,600
+-og du ikke kan noe om programmering,
+ så blir det en veldig enkel app.
+
+785
+00:57:01,680 --> 00:57:10,000
+Så vi bør nok utvide dette
+og gjøre det lettere å bygge appene.
+
+786
+00:57:10,920 --> 00:57:14,080
+Vi har sett under utviklingen-
+
+787
+00:57:14,160 --> 00:57:18,360
+-at når vi gjør det brukervennlig,
+ mister vi fleksibilitet.
+
+788
+00:57:18,440 --> 00:57:23,600
+Jeg tror ikke vi vil at det
+skal være 100 prosent brukervennlig.
+
+789
+00:57:23,680 --> 00:57:25,760
+Fordi jeg tror det er enklere.
+
+790
+00:57:25,840 --> 00:57:31,240
+Vi lærer barn å programmere,
+så vi kan lære etatene å programmere.
+
+791
+00:57:31,320 --> 00:57:33,520
+Det stemmer.
+
+792
+00:57:33,600 --> 00:57:37,440
+Brian har en kommentar om kostnadene.
+
+793
+00:57:37,520 --> 00:57:42,640
+Han sier: "Oljepenger, jeg forstår."
+Det er kanskje sant.
+
+794
+00:57:42,720 --> 00:57:45,360
+Vi har enda et spørsmål fra Steffen.
+
+795
+00:57:45,440 --> 00:57:48,640
+Kan du si noe om fordelene-
+
+796
+00:57:48,720 --> 00:57:53,040
+-ved å bruke en skyløsning
+ i forhold til on-premise?
+
+797
+00:57:54,560 --> 00:57:57,080
+-Vil du ta denne? 
+-Ja.
+
+798
+00:57:57,160 --> 00:57:59,560
+Jeg snakket om Application Insights.
+
+799
+00:57:59,640 --> 00:58:05,600
+For øyeblikket bruker vi bare dette
+til å reagere på hendelser.
+
+800
+00:58:05,680 --> 00:58:10,160
+Men det hadde vært flott å bruke det
+som et prediktivt verktøy også.
+
+801
+00:58:10,240 --> 00:58:13,400
+Og så etatene
+skal få mer tilbakemelding-
+
+802
+00:58:13,480 --> 00:58:16,760
+-på hvordan og når
+ applikasjonene deres blir brukt,-
+
+803
+00:58:16,840 --> 00:58:23,880
+-så de kan hente inn mer data
+ om innbyggerne eller selskapene.
+
+804
+00:58:23,960 --> 00:58:30,400
+En annen ting er større analyser
+av datasettene de samler inn.
+
+805
+00:58:30,480 --> 00:58:34,600
+For det er ganske enkelt
+nå som det er i skyen.
+
+806
+00:58:34,680 --> 00:58:38,760
+-Noen andre fordeler?
+-Det siste du nevnte.
+
+807
+00:58:38,840 --> 00:58:42,440
+En felles plattform
+gir enorme fordeler-
+
+808
+00:58:42,520 --> 00:58:46,520
+-med tanke på
+ analyse av store mengder data.
+
+809
+00:58:46,600 --> 00:58:49,160
+For en etat, hvis de vil.
+
+810
+00:58:49,240 --> 00:58:53,560
+Ett siste spørsmål.
+Enda et fra Brian.
+
+811
+00:58:53,640 --> 00:58:58,880
+Azure DevOps, Azure API Management,
+Cosmos DB,-
+
+812
+00:58:58,960 --> 00:59:01,960
+-har vi låst oss til en skyløsning,-
+
+813
+00:59:02,040 --> 00:59:05,400
+-eller kan det tenkes
+ at vi bytter programvare-
+
+814
+00:59:05,480 --> 00:59:09,280
+-eller går tilbake
+ til en on-premise-løsning?
+
+815
+00:59:09,360 --> 00:59:10,920
+Det er et godt spørsmål.
+
+816
+00:59:11,000 --> 00:59:16,000
+Et av de andre prinsippene våre
+er at vi ikke ønsker å låse oss.
+
+817
+00:59:16,080 --> 00:59:18,240
+Vi har valgt Cosmos DB,-
+
+818
+00:59:18,320 --> 00:59:22,600
+-men det er en dokumentdatabase
+ vi lett kan bytte ut med noe annet.
+
+819
+00:59:22,680 --> 00:59:25,800
+API Management blir nok litt verre.
+
+820
+00:59:25,880 --> 00:59:29,080
+Vi bruker ikke så mange av
+funksjonene i API Management,-
+
+821
+00:59:29,160 --> 00:59:31,280
+-det er bare en gateway for API-er,-
+
+822
+00:59:31,360 --> 00:59:36,320
+-så vi kan lett bytte det ut
+ med annen programvare.
+
+823
+00:59:36,400 --> 00:59:41,080
+Det har vært et viktig krav
+fra Digitaliseringsdirektoratet-
+
+824
+00:59:41,160 --> 00:59:43,160
+-at vi ikke låser oss til Azure.
+
+825
+00:59:43,240 --> 00:59:48,440
+Vi har valgt Azure nå,
+det kan bli noe annet senere.
+
+826
+00:59:48,520 --> 00:59:50,560
+Det er viktig for oss også.
+
+827
+00:59:50,640 --> 00:59:56,240
+Vi må få noen flere datasentre
+i Norge før vi kan vurdere dem.
+
+828
+00:59:56,320 --> 01:00:01,320
+Jeg tror det var den tiden vi hadde.
+Tusen takk for at dere så på oss.
+
+829
+01:00:01,400 --> 01:00:05,640
+Ta kontakt med oss på
+Twitter, LinkedIn, hvor som helst.
+
+830
+01:00:05,720 --> 01:00:08,640
+Og se kildekoden vår på GitHub.
+
+831
+01:00:08,720 --> 01:00:12,520
+-Linken er her. 
+-Lag en pull-request, please :)

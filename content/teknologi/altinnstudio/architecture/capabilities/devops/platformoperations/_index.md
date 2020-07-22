@@ -1,10 +1,9 @@
 ---
 title: Platform Operations Management Capabilities
+linktitle: Platform Operations
 description: Platform Operations Management Capabilities describes the capabilities needed to operate the platform. 
 tags: [architecture]
-linktitle: Platform Operations
-weight: 102
-alwaysopen: false
+toc: true
 ---
 
 ## PaaS & IaaS Management Capabilities
@@ -12,12 +11,12 @@ alwaysopen: false
 ### Automation & Scheduling (batch, scripts)
 This include running scripts for infrastructure and jobs both manual and scheduled.
 
-See [operations application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Paas & IaaS Configuration & Management
-This include the capability to configure all pass and Iaas in the cloud. 
+This include the capability to configure all PaaS and IaaS in the cloud. 
 
-See [operations application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Backup & Recovery
 It is important to reduce the risk of losing data on the platform. The risks that are identified are
@@ -46,24 +45,24 @@ In Altinn Platform different types of data is stored
 The requirement is that we are able to restore data up to 90 days. 
 The platform support this requirement for all types of data listed above. 
 
-[See all details about the backup and recovery components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/) 
+[See all details about the backup and recovery components](../../../components/application/nonsolutionspecific/operations/backupandrecovery/).
 
 
 ## Performance & Availability Management Capabilities
 
 ### Performance Profiling
-See [operations application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Performance Tuning
-The performance tuning capability for includes tuning of code and architecture to increase performance and capacity. This is typical done based on
-metrix that indicates slow performance from
+The performance tuning capability for includes tuning of code and architecture to increase performance and capacity.
+This is typical done based on metrix that indicates slow performance.
 
 ### Availability and Performance Monitoring
 This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud. 
 
-See [operations application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Cloud Capacity Management
 The devops team uses differen tools to manage capacity in cloud.
 
-See [operations application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used.

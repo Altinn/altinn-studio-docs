@@ -1,8 +1,6 @@
 ---
 title: Dashboard
-description: The Dashboard in Altinn Studio gives the developer full overview over apps
-weight: 100
-
+description: The Dashboard in Altinn Studio gives the developer full overview over their apps.
 ---
 
 The dasboard lets the developer search for apps, create new apps, list all orgs and apps that developer have access to.
