@@ -386,6 +386,13 @@ POST {platformurl}/events/instanceeventsforparty/
 8. Subscriber gets relevant data
 
 
+### Approved organization needs to know about changes for all reportees
+
+This is a scenario where some organizations like banks need to be informed when somebody dies and a "deathestate" is created for that user.
+
+
+
+
 ### Anonym access to a given instances events.
 
 In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
@@ -408,7 +415,7 @@ To reduce the amount of request from subscribers we should look in to supporting
 
 This has not been detailed yet but the solution could contain:
 
-- User can set up URL webhook that would receive all or a filtered list of events.
+- User can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different subscribers.
 - User can set up a notification SMS number to get a notification about events.
 - There can be a mobile app that can listen to push notifcations.
 
