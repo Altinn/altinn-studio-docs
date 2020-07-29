@@ -15,12 +15,17 @@ The new generation of Altinn is moving to an [event-driven architecture](https:/
 This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
+Most components inside the Altinn Platform and Altinn Apps solutions will communicate throug syncronus http calls.  
+
 ## Overall Concept
 
 ### Events
 
 Events would be a combination of standard events defined by the platform and
 custom events added in an application by application developers.
+
+The events will typical only contains information about that an event has happened with a reference
+to some data that was changed because of that event. Typical the  
 
 **Standard events could be**
 
@@ -32,7 +37,6 @@ custom events added in an application by application developers.
 
 - A user has asked for a deduction in a form
 - A specific validation of data failed
-
 
 **Event attributes**
 
@@ -81,7 +85,7 @@ Below you find a offical example. [See full JSON Schema](https://raw.githubuserc
 
 ##### Example 1
 
-A form has been created for a given party. It is not possible from the event itself to know who did it.
+A instance has been created for a given party. It is not possible from the event itself to know who did it.
 
 ```json {hl_lines=[3]}
 [{
@@ -93,15 +97,16 @@ A form has been created for a given party. It is not possible from the event its
 }]
 ```
 
+
 ##### Example 2
 
-A user has completed the confirmation task in the process.
+A user has completed the confirmation1 task in the process.
 
 ```json {hl_lines=[4]}
 [{
   "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
-  "type": "instance.process.confirmationcompleted",
+  "type": "instance.process.taskcompleted.confirmation1",
   "time": "2020-03-16T10:23:46.6443563Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
 }]
@@ -209,6 +214,8 @@ events for a given org/app.
 
 #### Party events
 
+A very common scenario is that a party needs to know about events for the party or other party. 
+
 ##### Endpoint
 
 ```http
@@ -241,6 +248,25 @@ The topic and subject would be used to identify the correct XACML-policy to use.
 
 The operation would be read and the proccess task will be set to `null`.
 This way there would be no need to verify the current state of an instance.
+
+From the examples above we have this example
+
+```json {hl_lines=[4]}
+[{
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party/234234422",
+  "type": "instance.process.completed",
+  "time":  "2020-02-20T09:06:50.3736712Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+}]
+```
+
+To be able to read this event, the authenticated party is required to have the rights for SKD/Skattmelding for the party 234234422
+
+This is something it gets throug roles for that specific application.
+
+The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4552). 
+
 
 ### Adding events
 
@@ -390,9 +416,6 @@ POST {platformurl}/events/instanceeventsforparty/
 
 This is a scenario where some organizations like banks need to be informed when somebody dies and a "deathestate" is created for that user.
 
-
-
-
 ### Anonym access to a given instances events.
 
 In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
@@ -418,6 +441,7 @@ This has not been detailed yet but the solution could contain:
 - User can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different subscribers.
 - User can set up a notification SMS number to get a notification about events.
 - There can be a mobile app that can listen to push notifcations.
+
 
 ## Other technologies considered
 
@@ -450,6 +474,20 @@ The client needs to use AMQB 1.0 standard.
 There exist client library for [Java](https://github.com/Azure/azure-event-hubs-java)
 and [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs)
 
+
+#### Pro
+
+- Most popular event streaming platform.
+- Can store events indefently
+
+#### Cons
+
+- Cost of HDInsight cluster
+- Requires more admin compared to other platforms in Azure
+- Not able to support topic per party.
+- Need to build a custom REST-API as a proxy to Kafka.
+
+
 ### Apache Kafka in Azure HDInsight
 
 Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications.
@@ -479,6 +517,19 @@ Producers would send events to Kafka Brokers. In a HD-insight cluster each worke
 - Requires more admin compared to other platforms in Azure
 - Not able to support topic per party.
 - Need to build a custom REST-API as a proxy to Kafka.
+
+
+## Event Analytics
+
+With a new event architecture it is possible imagine that we can run analytics on the events to give
+important insight in to the data in the platform. 
+
+Example
+- How many instances is created for the different applications
+- How long time does each task take to complete
+- Is there any relationship between apps. 
+
+This is analyzed in the following [issue](https://github.com/Altinn/altinn-studio/issues/4555)
 
 ## Open Clarification
 
