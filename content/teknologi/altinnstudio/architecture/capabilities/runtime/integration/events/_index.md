@@ -19,12 +19,11 @@ Most components inside the Altinn Platform and Altinn Apps solutions will commun
 
 ## Overall Concept
 
-![Event concept](concept.svg "Event concept")
-
 In Altinn there will over time be thousands of different digital services deployed to Altinn Apps.
 Those digital services will be accessed by the citizens and the businesses in Norway. 
 
 They will recieve and submitt data to/from the entity that is responsible for the digital service and others using the platform. 
+![Event concept](concept.svg "Event concept")
 
 The event architecture would make it possible to get notified when there is events in the platform related to data that the different actors has intereset in.
 It could be anything from the digital service (app) owner beeing notified that a citizen has completed a form, to that the citizen is informed that there is a new form he need to fill out.
