@@ -19,6 +19,17 @@ Most components inside the Altinn Platform and Altinn Apps solutions will commun
 
 ## Overall Concept
 
+![Event concept](concept.svg "Event concept")
+
+In Altinn there will over time be thousands of different digital services deployed to Altinn Apps.
+Those digital services will be accessed by the citizens and the businesses in Norway. 
+
+They will recieve and submitt data to/from the entity that is responsible for the digital service and others using the platform. 
+
+The event architecture would make it possible to get notified when there is events in the platform related to data that the different actors has intereset in.
+It could be anything from the digital service (app) owner beeing notified that a citizen has completed a form, to that the citizen is informed that there is a new form he need to fill out.
+
+
 ### Events
 
 Events would be a combination of standard events defined by the platform and
@@ -212,6 +223,9 @@ This will be used by application owners to identify changes on instances for the
 We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
 events for a given org/app.
 
+The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4551). 
+
+
 #### Party events
 
 A very common scenario is that a party needs to know about events for the party or other party. 
@@ -231,8 +245,9 @@ This returns the events for a given party identified with a person number or org
         "personNumber": "12247918309",
         "organisationNumber": null
     },
-    "storedAfter": "2019-06-01T12:00:00Z",
-  
+    "fromtime": "2019-06-01T12:00:00Z",
+    "type": null
+}
 ```
 
 ##### Usage
@@ -275,6 +290,9 @@ The full detail for this API is described in this [issue](https://github.com/Alt
 ```http
 POST {platformurl}/events/
 ```
+
+The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4550). 
+
 
 ### Event components
 
