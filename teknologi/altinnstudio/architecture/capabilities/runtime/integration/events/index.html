@@ -1679,35 +1679,6 @@ if(host != "localhost")
           
         
           
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/">
-        <span>Event capabilities</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
         
         </ul>
               
@@ -10056,6 +10027,12 @@ This means that the Altinn Platform solution and applications running in Altinn 
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.</p>
 <p>Most components inside the Altinn Platform and Altinn Apps solutions will communicate throug syncronus http calls.</p>
 <h2 id="overall-concept">Overall Concept</h2>
+<figure><a href="concept.svg"><img src="concept.svg" alt="Event concept" title="Event concept" /></a><figcaption><h4>Event concept</h4></figcaption></figure>
+<p>In Altinn there will over time be thousands of different digital services deployed to Altinn Apps.
+Those digital services will be accessed by the citizens and the businesses in Norway.</p>
+<p>They will recieve and submitt data to/from the entity that is responsible for the digital service and others using the platform.</p>
+<p>The event architecture would make it possible to get notified when there is events in the platform related to data that the different actors has intereset in.
+It could be anything from the digital service (app) owner beeing notified that a citizen has completed a form, to that the citizen is informed that there is a new form he need to fill out.</p>
 <h3 id="events">Events</h3>
 <p>Events would be a combination of standard events defined by the platform and
 custom events added in an application by application developers.</p>
@@ -10187,6 +10164,7 @@ TODO: Verify proposed API structure
 <h5 id="authorization">Authorization</h5>
 <p>We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
 events for a given org/app.</p>
+<p>The full detail for this API is described in this <a href="https://github.com/Altinn/altinn-studio/issues/4551">issue</a>.</p>
 <h4 id="party-events">Party events</h4>
 <p>A very common scenario is that a party needs to know about events for the party or other party.</p>
 <h5 id="endpoint-1">Endpoint</h5>
@@ -10198,8 +10176,9 @@ events for a given org/app.</p>
 <span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
 </span>        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
     },
-    <span style="color:#ff79c6">&#34;storedAfter&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
-  
+    <span style="color:#ff79c6">&#34;fromtime&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#ff79c6">null</span>
+}
 </code></pre></div><h5 id="usage-1">Usage</h5>
 <p>This is used by end users to see events for a given party.
 This will list all changes for a given party.</p>
@@ -10222,7 +10201,8 @@ This way there would be no need to verify the current state of an instance.</p>
 <h3 id="adding-events">Adding events</h3>
 <h4 id="endpoint-2">Endpoint</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/
-</code></pre></div><h3 id="event-components">Event components</h3>
+</code></pre></div><p>The full detail for this API is described in this <a href="https://github.com/Altinn/altinn-studio/issues/4550">issue</a>.</p>
+<h3 id="event-components">Event components</h3>
 <p>The below diagram shows the different components in the proposed Event Architecture for Altinn 3.</p>
 <figure><a href="event_architecture_custom.svg"><img src="event_architecture_custom.svg" alt="Event architecture diagram" title="Altinn Event Architecture" /></a><figcaption><h4>Altinn Event Architecture</h4></figcaption></figure>
 <h4 id="publishers">Publishers</h4>
