@@ -1,10 +1,10 @@
 ---
 title: Material UI
-description: A popular React UI library used in Altinn Studio
+description: A popular React UI library used in Altinn Studio.
 tags: [tech, ui, react]
 ---
 
-![Material UI logo](material-ui-logo.svg?width=200)
+![Material UI logo](material-ui-logo.svg "Material UI logo")
 
 Material UI is used in Altinn Studio as the React UI library. Material UI was chosen because
 
@@ -15,17 +15,12 @@ Material UI is used in Altinn Studio as the React UI library. Material UI was ch
 - Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar)
 - It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism
 
-### Material UI links
+React router is a third party routing library used in Altinn Studio to trigger navigation within the application.
+
+
+## Links
 
 - https://material-ui.com
 - https://github.com/mui-org/material-ui
-
-
-## React Router
-
-React router is a third party routing library used in Altinn Studio to trigger navigation within the application.
-
-### React router links
-
 - https://reacttraining.com/react-router
 - https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom

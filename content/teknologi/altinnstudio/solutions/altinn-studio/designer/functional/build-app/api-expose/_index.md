@@ -1,6 +1,6 @@
 ---
-title: Exposing API
-description: Apps created in Altinn Studio can be exposed as API together with GI, or only as API without any UI.
+title: API expose
+description: Apps created in Altinn Studio can be exposed as API together with UI, or only as API without any UI.
 tags: [api]
 ---
 
@@ -9,6 +9,4 @@ have documentation that is target for the specific app.
 
 For more details, see https://docs.altinn.studio/altinn-api.
 
-
 [See all issues for API-Expose on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fapi-expose)
-

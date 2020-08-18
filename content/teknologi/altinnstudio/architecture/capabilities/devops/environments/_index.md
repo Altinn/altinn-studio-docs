@@ -1,9 +1,7 @@
 ---
 title: Environments
 description: Description of the environments
-tags: [architecture]
-weight: 110
-alwaysopen: false
+tags: [architecture, todo]
 ---
 
 Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage. 

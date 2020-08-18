@@ -1,9 +1,8 @@
 ---
 title: Customzing Application
-description: Description of you can customize the app based on this template
 linktitle: Customizing
+description: Description of you can customize the app based on this template.
 tags: [altinn-apps]
-weight: 200
 ---
 
 ## Adding custom API's

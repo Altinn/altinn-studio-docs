@@ -1,25 +1,26 @@
 ---
 title: Analysis & Design Capabilities
+linktitle: Analysis & Design
 description: Analysis & Design Capabilities is the capabiltiy needed to analyse needs and design solutions for the project.
 tags: [architecture]
-linktitle:  Analysis & Design
-weight: 104
-alwaysopen: false
+toc: true
 ---
+
 ## Analysis Enablement Capabilities
 
 ### Requirement Capture
+
 Requirements are gathered through:
 - input on Github
 - talks with organization
 
-See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
+See [development application components](../../../components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 
 ### Use Case/Story Definition 
 The devopsteam has the capability to define uses cases and user stories. 
 
-See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
+See [development application components](../../../components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ### Requirement Validation
 Product owners and architects together with the teams are responsible for validation of requirements.
@@ -41,7 +42,7 @@ We use Figma to design the UI elements.
 ### Data Modeling & Design Capability
 The devops team has the capability for data modelling and design.
 
-See [development application components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
+See [development application components](../../../components/application/nonsolutionspecific/development/) to get a overview over tools and application we use. 
 
 ### Architecture Design Enablement
 

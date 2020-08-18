@@ -2,7 +2,6 @@
 title: Agency APIs - analysis
 linktitle: Agency API
 description: An analysis of the agency API compatibility with Altinn Studio Apps.
-tags: [development, analysis, api]
 ---
 
 [#957](https://github.com/Altinn/altinn-studio/issues/957)

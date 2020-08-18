@@ -1,9 +1,8 @@
 ---
 title: Configuration of Application
-description: Description of the different configuration of the 
 linktitle: Configuration
-tags: [altinn-apps]
-weight: 200
+description: Description of the different configurations of an app. 
+tags: [altinn-apps, todo]
 ---
 
 ## Configuring Process
@@ -16,3 +15,12 @@ The authorization policy is defined as a XACML 3.0 policy file.
 
 
 ## Configuration of allowed data elements
+
+TODO
+
+
+## Configuration of Linkerd
+
+Every app cluster has [linkerd](https://linkerd.io) installed as a service mesh. The app can be configured to use linkerd to encrypt the traffic between the ingress controller and the app. Configuration is done through the deployment files in the app repo. Older app templates are missing this configuration, but the deployment files can be copied from a new app template without modification.
+
+Enabling/disabling linkerd is configured through linkerd.enabled property in the deployment/values.yaml file.

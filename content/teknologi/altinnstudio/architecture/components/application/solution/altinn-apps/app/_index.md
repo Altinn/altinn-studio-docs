@@ -1,10 +1,8 @@
 ---
-title: Solution-specific application components for App based on Asp.Net template
+title: Solution-specific application components for App based on ASP.Net template
 linktitle: App
 description: Description of the Altinn Studio solution
 tags: [architecture, solution]
-weight: 100
-alwaysopen: false
 ---
 
 Functionality in Altinn Apps are located in the Apps deployed to the Altinn Apps functionality.
@@ -52,7 +50,8 @@ Application developers can add validaiton logic to the app. User of the app will
 Application developers cann add calculation logic to the app. Users of the app will then get calculated data based on data inputed or prefilled
 
 ## Prefill
-Application developers can configure register and profile prefill. This means that the app will take values from register and profile and set them to the defined field in the datamodel.
+Application developers can configure register and profile prefill.
+This means that the app will take values from register and profile and set them to the defined field in the datamodel.
 
 The user will then experience that known fields of data about him or the choosen party is already filled out in the datamodel for the app.
 

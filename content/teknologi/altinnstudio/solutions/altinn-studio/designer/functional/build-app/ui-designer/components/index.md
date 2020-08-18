@@ -5,7 +5,6 @@ description: Overview of the components that are available for use.
 tags: [ui-designer, ui-components]
 aliases:
     - "/ui-components"
-weight: 100
 ---
 
 ### Text components

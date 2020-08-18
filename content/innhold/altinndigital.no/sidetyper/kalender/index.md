@@ -4,17 +4,18 @@ description: Arrangementene vi markedsfører i kalenderen skal være relevante f
 weight: 35
 toc: true
 ---
-<br>
-Sekundær målgruppe vil være private aktører og andre i offentlig sektor som er interesserte i hva Altinn jobber med. 
-<br>
+
+Sekundær målgruppe vil være private aktører og andre i offentlig sektor som er interesserte i hva Altinn jobber med.
+
 {{% panel %}}
-**NB: Innholdet og sidene er under utvikling**<br>
-Vi er ikke helt ferdige med disse ressursene ennå
+**NB: Innholdet og sidene er under utvikling**  
+Vi er ikke helt ferdige med disse ressursene ennå.
 {{% /panel %}}
 
 ## Brukeroppgaver for arrangementer
 
-### Generelt:
+### Generelt
+
 1. Har Altinn arrangementer som er relevante for meg i digitaliseringsjobben? 
 2. Har Altinn kurs for å lære verktøyene? 
 3. Hva er siste nytt i prosjektene?  
@@ -24,7 +25,7 @@ Vi er ikke helt ferdige med disse ressursene ennå
 7. Hvordan komme i kontakt med Altinn for å dele fra min organisasjon på Altinns arrangementer? 
 8. Er det møter jeg og min etat bør være delta på for å kunne være med på videreutviklingen av Altinn? 
 
-### Brukeroppgaver arrangementsiden: 
+### Brukeroppgaver arrangementsiden
 - Hvor og når er det? Er det digitalt? 
 - Er det relevant for meg?  
 - Hva er programmet? 

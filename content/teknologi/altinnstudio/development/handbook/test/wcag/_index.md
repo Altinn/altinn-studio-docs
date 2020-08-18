@@ -1,5 +1,6 @@
 ---
 title: WCAG testing in Altinn Studio
+linktitle: WCAG testing
 description: Coding guidelines for tests
 tags: [development, testing]
 weight: 100
@@ -7,16 +8,16 @@ weight: 100
 
 This document describes how to see results of testcafe wcag tests, and how to write new wcag tests in testcafe. See the general testcafe documentation for a recipe on how to set up a development environment for writing testcafe test.
 
-## Testing Altinn studio for accesibility with testcafe and axe-core
-WCAG tests run in Altinn Studio using the testcafe UI test project, with some additional plug-ins: axe-testcafe is the plug-in used for Altinn studio, see documentation [here](https://www.npmjs.com/package/axe-testcafe). The accessibility engine aXe allows the tester to configure which wcag rules to run, elements to include or ignore, and to format a report that can be generated automatically.
+## Testing Altinn Studio for accesibility with testcafe and axe-core
+WCAG tests run in Altinn Studio using the testcafe UI test project, with some additional plug-ins: axe-testcafe is the plug-in used for Altinn Studio, see documentation [here](https://www.npmjs.com/package/axe-testcafe). The accessibility engine aXe allows the tester to configure which wcag rules to run, elements to include or ignore, and to format a report that can be generated automatically.
 
-The Altinn studio wcag tests are run automatically each night in azure devops. Link to the build can be found [here](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=54), the wcag tests are run as a task in the build definition **altinn-studio-test-testcafe**. To inspect a run of the wcag tests, open the build definition:
+The Altinn Studio wcag tests are run automatically each night in azure devops. Link to the build can be found [here](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=54), the wcag tests are run as a task in the build definition **altinn-studio-test-testcafe**. To inspect a run of the wcag tests, open the build definition:
 
-![testcafe tasks](wcagazure.PNG "testcafe azure devops tasks")
+![Testcafe tasks](wcagazure.PNG "Testcafe azure devops tasks")
 
 The "Tests" tab contains the the general UI test report. WCAG tests use a seperate reporter (called "spec") to allow the user see which elements break with accesibility rules. Open the *npm wcag* task to inspect the wcag test results:
 
-![wcag task](wcagtask.PNG "wcag azure devop task")
+![WCAG task](wcagtask.PNG "WCAG azure devops task")
 
 Line 40 describes the title of the test. In this case, the testcase for the deployment page. Line 43 displays the number of A and AA rules violated on the specific page. The list under this line describes which specific rules were violated, a list of wcag rules can be found [here](https://dequeuniversity.com/rules/axe/3.2), as well as which element on the page caused the violation.
 

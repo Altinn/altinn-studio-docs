@@ -1,7 +1,7 @@
 ---
 title: Analysis
 description: Analysis of areas in Altinn Studio. Typically linked to a corresponding GitHub issue.
-tags: [analysis]
+draft: true
 ---
 
 

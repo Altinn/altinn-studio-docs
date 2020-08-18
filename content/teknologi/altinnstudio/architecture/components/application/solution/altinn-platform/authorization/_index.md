@@ -1,9 +1,9 @@
 ---
 title: Altinn Platform - Authorization
 linktitle: Authorization
-description: Description of authorization component
+description: Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information.
 tags: [architecture, solution]
-weight: 100
+toc: true
 ---
 
 {{%notice warning%}}
@@ -11,8 +11,7 @@ This page is a work-in-progress. Currently we haven't defined all the resources 
 {{% /notice%}}
 
 The Authorization component exposes a REST-API to Altinn Apps.
-
-Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information. Use the authorization api to manage authorizations in altinn platform.
+Use the authorization API to manage authorizations in altinn platform.
 
 Resources: Actor, Roles
 
@@ -21,13 +20,13 @@ A party is a person whom  you can represent and perform a request on his behalf.
 
 ### Operations
 
-Get a list of parties that the user can represent. The userid is sent as parameter
+Get a list of parties that the user can represent. The userid is sent as parameter.
 
 ```http
 GET /authorization/api/v1/parties?userid={userid}
 ```
 
-Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters
+Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters.
 
 ```http
 GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
@@ -37,7 +36,7 @@ GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
 A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone. 
 
 ### Operations
-Get a list of roles that the user can perform for the selected party
+Get a list of roles that the user can perform for the selected party.
 
 ```http
 GET /authorization/api/v1/roles
@@ -47,8 +46,11 @@ GET /authorization/api/v1/roles
 A set of polices contains authorization rules. 
 
 ### Operations
-Stores / updates rules for a given app, defined in the query string. The rules are sent in the body of the request. Reade more about the [policy format](../../../security/authorization/altinn-platform/prp) here.
+Stores / updates rules for a given app, defined in the query string.
+The rules are sent in the body of the request. Reade more about the [policy format](prp).
 
 ```http
 POST /authorization/api/v1/policies?org=org&app=app
 ```
+
+{{% children description="true" depth="1" %}}

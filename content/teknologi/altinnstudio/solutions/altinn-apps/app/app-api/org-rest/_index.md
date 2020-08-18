@@ -2,9 +2,6 @@
 title: REST-API for orgs
 description: Description of the  API for organisations (orgs).
 tags: [altinn-apps]
-aliases:
-    - "/altinn-studio-apps"
-weight: 200
 ---
 
 {{% notice warning %}}
@@ -19,4 +16,4 @@ In the current Altinn Platform SOAP is used for most of the agencies API's. Alti
 
 ## API to instansiate a new instance of an app with prefill
 
-See [Application Users API](/altinn-api)
+See [Application Users API](/altinn-api).

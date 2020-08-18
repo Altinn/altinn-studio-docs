@@ -5,17 +5,15 @@ tags: [tech, react]
 ---
 
 Det er ønskelig at tredjeparter skal kunne utvikle komponenter som en
-tjenesteeier skal kunne bruke i sine løsninger
+tjenesteeier skal kunne bruke i sine løsninger.
 
-### Hvordan utvikle 3. parts komponenter
+## Hvordan utvikle 3. parts komponenter
 
 Når du som en bruker ønsker å utvikle tredjeparts-komponenter så er det anbefalt å bruke [rollup.js](https://rollupjs.org) som kompilerer til cjs (CommonJS).
 
-Basert på dette [repoet](https://altinn.studio/Jesper/ThirdPartyComponents) i altinn.studio
-
 Eksempel på et komponent som i et fiktivt git repo (basert på Gitea Repo) ligger i `src/components/BalloonCounter/index.js` :
 
-```javascript
+```jsx
 import React from 'react';
 
 export class BalloonCounter extends React.Component {
@@ -74,11 +72,13 @@ Husk å  exportere denne classen i `src/components/index.js` slik:
 export * from './BallonCounter.js';
 ```
 
-Når `npm run build` blir kjørt vil dette lage en mappe med navn `dist`, med en fil som heter `index.js`. Denne filen må være med i git push for at altinn.studio skal kunne hente komponentene.
+Når `npm run build` blir kjørt vil dette lage en mappe med navn `dist`, med en fil som heter `index.js`.
+Denne filen må være med i git push for at altinn.studio skal kunne hente komponentene.
 
 ### Hvordan bruke 3. parts komponenter
 
-I tjenester du ønsker å bruke 3. parts komponenter må det ligge en `ThirdPartyComponents.json`-fil. Plasseringen av denne er viktig, den må ligge under `[Tjeneste navn]/editions/[utgave]/Resources`.
+I tjenester du ønsker å bruke 3. parts komponenter må det ligge en `ThirdPartyComponents.json`-fil.
+Plasseringen av denne er viktig, den må ligge under `[Tjeneste navn]/editions/[utgave]/Resources`.
 Innholdet av denne filen er som følger:
 
 ```json

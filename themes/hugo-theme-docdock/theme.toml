@@ -9,7 +9,7 @@ homepage = "https://github.com/vjeantet/hugo-theme-docdock"
 repo = "https://github.com/vjeantet/hugo-theme-docdock"
 tags = ["documentation", "menu","slide","search"]
 features = ["documentation","menu","nested sections","search","slide", "attachments"]
-min_version = 0.25
+min_version = 0.73
 
 [author]
   name = "Valere JEANTET"

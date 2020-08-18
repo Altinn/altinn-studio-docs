@@ -1,6 +1,6 @@
 ---
 title: Redux
-description: Redux is used for handling state in React applications
+description: Redux is used for handling state in React applications.
 tags: [tech, frontend, react]
 ---
 
@@ -11,9 +11,10 @@ tags: [tech, frontend, react]
   - Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer.
   - Når er hentingen er fullført, vil man f.eks. sende en action **"FETCH\_POSTNUMMER\_FULFILLED"** som har postnummer-data med som parameter.
   - Reducer håndterer denne handlingen og setter postnummer-data i applikasjonens tilstand.
-  - ![Redux middleware flow](redux-middleware-flow.png)
+- Vedlikeholdt av Facebook, under MIT lisens.
 
-- Vedlikeholdt av Facebook, under MIT lisens.  
+![Redux middleware flow](redux-middleware-flow.png "Redux flow")
+
 
 ## Fordeler ved å bruke redux
 

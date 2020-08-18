@@ -3,7 +3,7 @@ title: App Frontend Application Architecture
 linktitle: App Frontend
 description: Description of the Application architecture for App-Frontend
 tags: [architecture]
-weight: 100
+toc: true
 ---
 
 App Frontend is a [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) built using React + Redux.
@@ -23,27 +23,25 @@ components.
 
 The diagram below show the architecture:
 
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%;";></object>
-{{% /excerpt%}}
+![React architecture](react-architecture.svg "React architecure")
 
 ### Store
  A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action
  on it.
 
- [Read more](https://redux.js.org/api/store#store)
+ [Read more](https://redux.js.org/api/store#store).
 
 ### Reducers
 Reducers specify how the application's state changes in response to actions sent to the store. Remember that actions only
 describe what happened, but don't describe how the application's state changes.
 
- [Read more](https://redux.js.org/basics/reducers#reducers)
+ [Read more](https://redux.js.org/basics/reducers#reducers).
 
 ### Middleware
 `redux-saga` is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure
 things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.
 
-[Read more](https://redux-saga.js.org/)
+[Read more](https://redux-saga.js.org/).
 
 We try to follow some best-practices for React architecture:
 
@@ -84,16 +82,15 @@ Support for new types of workflow steps will be added as they become available i
 
 ### Instantiate
 This feature is responsible for creating a specific instance of the app for the end user. This feature validates the selected
-party by checking authorization, and gives the user the option to select a new party (if available) if the current party is 
-invalid. Once a user/party is validated, the backend API to create an instance is called, and the user is sent to the first
-process step defined for the app. 
+party by checking authorization, and gives the user the option to select a new party (if available) if the current party is invalid.
+Once a user/party is validated, the backend API to create an instance is called, and the user is sent to the first process step defined for the app. 
 
 ### Form
 This feature is responsible for the form filling process step. This includes rendering the form UI designed in Altinn Studio,
 running any rules/dynamics, calling APIs to perform calulations, validations, save form data, submit/move process to next step.
 
-To render the form UI, the _form layout_ defined in Altinn Studio is used together with metadata about the data model. The form
-components are rendered based on the contents of the form layout.
+To render the form UI, the _form layout_ defined in Altinn Studio is used together with metadata about the data model.
+The form components are rendered based on the contents of the form layout.
 
 ### Receipt
 This feature is responsible to show the summary of the instance when an app is sent to end state of the process flow.
@@ -105,7 +102,7 @@ The App Frontend requires some configuration files to work correctly. These file
 The _form layout_ is used to render the UI for the _form_ feature. It defines which layout elements should be rendered,
 in what order, and contains details about how they should be rendered (ex. text keys, data model, etc.)
 
-[See details about FormLayout.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/)
+[See details about FormLayout.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/).
 
 ### Language
 All text resources that are used in the app frontend.
@@ -113,4 +110,4 @@ All text resources that are used in the app frontend.
 ### ServiceMetadata
 Contains information about the data model and is used by UI-render to map the fields to the data model. 
 
-[See details about ServiceMetadata.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/)
+[See details about ServiceMetadata.json](/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/).

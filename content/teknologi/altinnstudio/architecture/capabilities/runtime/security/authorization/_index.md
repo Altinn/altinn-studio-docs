@@ -1,10 +1,9 @@
 ---
 title: Authorization
+linktitle: Authorization
 description: The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs. 
 tags: [architecture, security]
-weight: 100
-linktitle: Authorization
-alwaysopen: false
+toc: true
 ---
 
 
@@ -68,20 +67,14 @@ more limited resource.
 
 #### Altinn Studio rule
 
-{{%excerpt%}}
-<object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_in_altinnstudio.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
+![Altinn Studio rule](authorization_rule_defined_in_altinnstudio.svg "Rule defined in Altinn Studio")
 
 #### User defined rule 
 
-{{%excerpt%}}
-<object data="/architecture/security/authorization/altinn-platform/authorization_rule_defined_by_user.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
-
+![User rule](authorization_rule_defined_by_user.svg "Rule defined by user")
 
 ## Roles
 Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles. 
-
 
 ## Scopes
 API Scopes are used in the solutions in some uses cases where organizations are authenticated through the external ID-Provider "MaskinPorten"

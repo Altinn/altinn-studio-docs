@@ -1,5 +1,5 @@
 ---
-title: Configure API use
+title: API use
 description: To be able to support "once-only" it is essensial that it is easy to do API-call from an app to other systems APIs.
 tags: [api]
 ---
@@ -14,6 +14,5 @@ En ukjent faktor er den kommende "API-katalogen", og hvilke egenskaper den vil t
 
 Dette er et område som ikke ble sett på i PoC.
 
-
- [See all issues related to API-Usage on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fapi-use)
+[See all issues related to API-Usage on Github](https://github.com/Altinn/altinn-studio/labels/area%2Fapi-use).
 

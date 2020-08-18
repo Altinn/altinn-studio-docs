@@ -1,28 +1,20 @@
 ---
 title: Infrastructure components
-description: This documentation contains details about infrastructure components used in the different solutions.
 linktitle: Infrastructure
+description: This documentation contains details about infrastructure components used in the different solutions.
 tags: [architecture, infrastructure]
-weight: 103
-alwaysopen: false
 ---
-
-
-[Full screen](/teknologi/altinnstudio/architecture/components/infrastructure/infrastructure_components.svg") | [Visio](/teknologi/altinnstudio/architecture/components/infrastructure/infrastructure_components.vsdx)
-
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/infrastructure/infrastructure_components.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
-
-
-
 
 Altinn Studio consists of three different technical solutions to make a complete application development platform.
 
-[Full screen](/teknologi/altinnstudio/architecture/components/infrastructure/altinn_infrastructure.svg") | [Visio](/teknologi/altinnstudio/architecture/components/infrastructure/altinn_infrastructure.vsdx)
+![Infrastructure components](infrastructure_components.svg "Infrastructure components")
 
-{{%excerpt%}}
-<object data="/teknologi/altinnstudio/architecture/components/infrastructure/altinn_infrastructure.svg" type="image/svg+xml" style="width: 100%;"></object>
-{{% /excerpt%}}
+[Download as Visio](infrastructure_components.vsdx)
+
+
+![Infrastructure](altinn_infrastructure.svg "Infrastructure")
+
+[Download as Visio](altinn_infrastructure.vsdx)
+
 
 {{% children description="true" depth="1" %}}
