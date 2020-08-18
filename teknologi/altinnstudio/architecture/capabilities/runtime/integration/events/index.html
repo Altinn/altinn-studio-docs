@@ -10030,6 +10030,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#overall-concept">Overall Concept</a></li>
     <li><a href="#requirments">Requirments</a></li>
+    <li><a href="#event-principles-and-pattern">Event Principles and pattern</a></li>
     <li><a href="#proposed-event-architecture">Proposed Event Architecture</a></li>
     <li><a href="#delegating-access-to-events">Delegating access to events</a></li>
     <li><a href="#detailed-scenarios">Detailed Scenarios</a></li>
@@ -10176,6 +10177,34 @@ TODO: Verify requirements
 <li>Access to events should be authorized. Accessing a event for a party requires that the subscriber has the correct role</li>
 </ul>
 <p>See also <a href="https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering">Referansearkitektur for datautveksling</a></p>
+<h2 id="event-principles-and-pattern">Event Principles and pattern</h2>
+<p>During the analysis the following principles and pattern has been applied</p>
+<h3 id="expose-events-through-rest-api">Expose events through REST-API</h3>
+<ul>
+<li>Use of REST-API ensures low complexity for consuming events</li>
+<li>REST-API URLS and parameters are uses for filtering</li>
+</ul>
+<h3 id="small-events">Small events</h3>
+<ul>
+<li>The events will only contain a small amount of data. If more information is needed this is available from the resource itself</li>
+<li>Every event links to the resource affected by the event.</li>
+</ul>
+<h3 id="consumers-keep-track-of-their-status">Consumers keep track of their status</h3>
+<ul>
+<li>Consumers will</li>
+</ul>
+<h3 id="time-is-used-for-sequencing">Time is used for sequencing</h3>
+<ul>
+<li>The published time is the parameters used for sorting events</li>
+</ul>
+<h3 id="events-does-not-change">Events does not change</h3>
+<ul>
+<li>Events for a resource are never changed. A new event can revert an earlier event</li>
+</ul>
+<h3 id="events-are-stored-for-a-limited-time">Events are stored for a limited time</h3>
+<ul>
+<li>Events will be available for 3 months.  (todo: needs to be verified)</li>
+</ul>
 <h2 id="proposed-event-architecture">Proposed Event Architecture</h2>
 <p>To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
 a new Events component in Altinn Platform and not expose products like Kafka or Azure Event Hub directly to external systems.</p>
