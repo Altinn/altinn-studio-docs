@@ -203,6 +203,7 @@ During the analysis the following principles and pattern has been applied
 ### Small events
 - The events will only contain a small amount of data. If more information is needed this is available from the resource itself
 - Every event links to the resource affected by the event. 
+- We use CloudEvent as format. 
 
 ### Consumers keep track of their status
 - Consumers will 
