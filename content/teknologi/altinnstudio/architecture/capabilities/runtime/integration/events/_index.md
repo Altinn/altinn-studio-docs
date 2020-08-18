@@ -190,6 +190,36 @@ TODO: Verify requirements
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
+
+## Event Principles and pattern
+
+During the analysis the following principles and pattern has been applied
+
+### Expose events through REST-API
+
+- Use of REST-API ensures low complexity for consuming events
+- REST-API URLS and parameters are uses for filtering
+
+### Small events
+- The events will only contain a small amount of data. If more information is needed this is available from the resource itself
+- Every event links to the resource affected by the event. 
+
+### Consumers keep track of their status
+- Consumers will 
+
+### Time is used for sequencing
+
+- The published time is the parameters used for sorting events
+
+### Events does not change
+
+- Events for a resource are never changed. A new event can revert an earlier event
+  
+ ### Events are stored for a limited time
+
+ - Events will be available for 3 months.  (todo: needs to be verified)
+
+
 ## Proposed Event Architecture
 
 To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
