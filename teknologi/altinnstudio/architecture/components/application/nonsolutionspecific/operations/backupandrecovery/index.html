@@ -6531,6 +6531,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-restorage/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/solutions/altinn-restorage/">
+        <span>Altinn ReStorage</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/" class="dd-item 
         
         
@@ -10045,7 +10074,7 @@ if(host != "localhost")
 
 
 
-<p>As described under the <a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/">backup and recovery capabilities</a>
+<p>As described below, the <a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/">backup and recovery capabilities</a>
 there are serveral scenarious where the different type of data is lost.</p>
 <p>This page describes the application components that makes it possible to protect against data loss.</p>
 <h2 id="backup">Backup</h2>
@@ -10103,9 +10132,9 @@ When soft delete is on and you overwrite data, a soft deleted snapshot is genera
 <p>For Altinn we have 90 days retention period. Inside that periode we can recover a blob to an earlier version.</p>
 <p><a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal">See more about soft delete on Azure Documentation</a>.</p>
 <h2 id="recovery">Recovery</h2>
-<p>We would need to create tools to be able to restore elements from blob storage to Cosmos DB and from Snapshots in blob storage.</p>
-<p>This is defined as issues in Github. <a href="https://github.com/Altinn/altinn-studio/issues/4008">Issue for Cosmos DB</a>
-and <a href="https://github.com/Altinn/altinn-studio/issues/4007">Issue for Blob storage</a></p>
+<p><a href="../.../../../../../../../../../teknologi/altinnstudio/solutions/altinn-restorage/">Altinn ReStorage</a> is a command-line interface application that enables operators to
+retrieve version history and metadata about elements as well as restore and undelete them.</p>
+<p>Currently it supports restoring data elements. Further functionality is defined in <a href="https://github.com/Altinn/altinn-studio/issues/4152">this epic</a> on GitHub.</p>
 
 
 <footer class=" footline" >
@@ -13288,6 +13317,22 @@ and <a href="https://github.com/Altinn/altinn-studio/issues/4007">Issue for Blob
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
