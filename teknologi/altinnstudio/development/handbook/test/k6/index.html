@@ -10078,7 +10078,7 @@ if(host != "localhost")
 <li>Begin by adding the endpoint to <em>config.json</em></li>
 <li>Create a new method for the actual api in a .js file under folder <code>K6/src/api</code> which gets in data from the tests and returns response. Refer below picture for a sample method calling an api with endpoint and headers and returning the response.
 <img src="apicall.PNG" alt="ApiCall Example" title="ApiCall Example"></li>
-<li>Create a test .js file under <code>K6/src/tests</code>. Refer below picture for a sample test file. 
+<li>Create a test .js file under <code>K6/src/tests</code>. Refer below picture for a sample test file.
 <img src="testexample.PNG" alt="Tests Example" title="Tests Example">
 <a href="https://k6.io/docs/using-k6/test-life-cycle">More about k6 test scripts</a></li>
 <li>One test can call many api endpoints with appropriate data, the result output of the test is determined by the <strong>checks</strong> in a tests and the <strong>thresholds</strong> defined in a test.
@@ -10092,7 +10092,7 @@ if(host != "localhost")
 </ul>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">docker-compose up -d influxdb grafana
 </code></pre></div><ul>
-<li>Open <code>http://localhost:3000/</code> in a browser and import the <code>grafana-dashboard.json</code> from <code>K6/src</code> and select appropriate settings.</li>
+<li>Open <code>http://localhost:3000/</code> in a browser and the dashboard gets preloaded and is visible under &lsquo;Recently viewed dashboards&rsquo;.</li>
 <li>Run the below example command where pdf.js testscript is run for 1 minute with a maximum of 20 virtual users and with a ramp up and ramp down of virtual users.
 The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 seconds and ramps down to 5 vus for the last 10 seconds.</li>
 </ul>
@@ -10115,12 +10115,14 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <th align="center">level1user</th>
 <th align="center">level1app</th>
 <th align="center">level3app</th>
+<th align="center">maskinporten</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td align="left">platform/pdf/pdf.js</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10141,6 +10143,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">platform/register/register.js</td>
@@ -10149,6 +10152,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10165,6 +10169,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">platform/receipt/receipt.js</td>
@@ -10173,6 +10178,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10189,6 +10195,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">platform/storage/data.js</td>
@@ -10197,6 +10204,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10213,6 +10221,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">platform/storage/messageboxinstances.js</td>
@@ -10221,6 +10230,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10237,6 +10247,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">platform/storage/applications.js</td>
@@ -10246,6 +10257,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10261,6 +10273,46 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">platform/storage/appowner/createinstance.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="left">platform/storage/appowner/downloadinstances.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td align="left">platform/storage/appowner/uploaddata.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">X</td>
 </tr>
 <tr>
 <td align="left">platform/negativetests/withoutauthentication.js</td>
@@ -10269,6 +10321,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10285,6 +10338,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center">X</td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">platform/negativetests/withoutallowedroles.js</td>
@@ -10297,6 +10351,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">app/instances.js</td>
@@ -10305,6 +10360,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10321,6 +10377,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">app/process.js</td>
@@ -10329,6 +10386,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10345,6 +10403,20 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="left">app/portalsimulation.js</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">app/e2erf0002.js</td>
@@ -10353,6 +10425,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10369,6 +10442,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">app/negativetests/withoutauthentication.js</td>
@@ -10377,6 +10451,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center">X</td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
 <td align="center"></td>
@@ -10393,6 +10468,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center"></td>
 <td align="center">X</td>
+<td align="center"></td>
 </tr>
 <tr>
 <td align="left">app/negativetests/withoutallowedroles.js</td>
@@ -10404,6 +10480,7 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <td align="center"></td>
 <td align="center">X</td>
 <td align="center">X</td>
+<td align="center"></td>
 <td align="center"></td>
 </tr>
 </tbody>
@@ -10422,7 +10499,7 @@ This comes in handy to view test results in CI/CD pipelines.</li>
 <li>k6 performance test results can be visualised with the help of a influxdb and grafana instance that stores and reads the test results and displays as graph.
 <a href="https://k6.io/docs/results-visualization/influxdb-+-grafana">More about influxdb and grafana results</a></li>
 </ul>
-<h3 id="initial-results-from-a-sample-tests-against-performance-test-environment">Initial results from a sample tests against performance test environment.</h3>
+<h3 id="initial-results-from-a-sample-tests-against-performance-test-environment">Initial results from a sample tests against performance test environment</h3>
 <ul>
 <li>Test case: Login - Build test data - Create instance - Upload formdata - validate and archive instance</li>
 <li>Http-requests: 14</li>
