@@ -10109,16 +10109,22 @@ to some data that was changed because of that event. Typical the</p>
 <li>A specific validation of data failed</li>
 </ul>
 <p><strong>Event attributes</strong></p>
-<p>Events would typically have some attributes</p>
+<p>Events would typically have some attributes used for filtering.</p>
 <ul>
-<li>[org] - The organisation the event is created for</li>
-<li>[app] - The app the event is created for</li>
-<li>[instanceid] - The instanceid</li>
+<li>[org] - The application owner / service owner that owns the source (app) of the event. Example: SKD, NAV</li>
+<li>[app] - The app the event is created for. Example: taxreport</li>
+<li>[instanceid] - The instanceid:</li>
 <li>[eventtype] - The type of event. Created, completed ++. Free text not locked to a schema.</li>
 </ul>
-<p>An event will contain a limited set of information. To get the full details for an event the subscribers would need to get all details using APIs.</p>
+<p>An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.</p>
 <h4 id="event-schema">Event Schema</h4>
 <p>The Altinn 3 will use the defined <a href="https://cloudevents.io/">CloudEvents</a> specification to describe events in Altinn Apps and Altinn Platform.</p>
+<p>The reason for choosing cloud events are</p>
+<ul>
+<li>It is a standardized and open format as prefered by our architecture principles</li>
+<li>It backed by many and The specification is now under the <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a></li>
+<li>It is flexible so it would support scenarious in the future</li>
+</ul>
 <p>Below you find a offical example. <a href="https://raw.githubusercontent.com/cloudevents/spec/master/spec.json">See full JSON Schema</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;specversion&#34;</span> : <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
@@ -10137,7 +10143,7 @@ to some data that was changed because of that event. Typical the</p>
 Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.</li>
 <li><code>type</code>: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed</li>
 <li><code>source</code>: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}.
-This would be used for the subscribers to look up a given instance.</li>
+This would be used for consumers to look up a given instance.</li>
 <li><code>subject</code>: The party the event is related to. PartyID is used.</li>
 <li><code>id</code>: Unique id for a given event.</li>
 <li><code>time</code>: The time the event was triggered. Set by the publisher.</li>
@@ -10183,7 +10189,7 @@ We would need to define what kind of standard events storage should create.</p>
 <p>Applications hosted in the Altinn Apps infrastructure would be able to create events.</p>
 <p>The application template will contain API so logic in applications can publish events based on rules defined by the developer.</p>
 <p>These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.</p>
-<h3 id="event-subscribers">Event subscribers</h3>
+<h3 id="event-consumers">Event consumers</h3>
 <h4 id="orgs-application-owners">Orgs (application owners)</h4>
 <p>Orgs will need to know about events happening in their apps in Altinn.</p>
 <p>For some orgs there is a need for subscribing to events for a specific app, others might want to subscribe to all events, or maybe a specific type of event.</p>
@@ -10203,7 +10209,7 @@ TODO: Verify requirements
 <li>The architecture should support more than 10 000 publishers.</li>
 <li>The architecture should support more than 1 000 000 consumers.</li>
 <li>The architecture should support more than 500 000 000 events a year.</li>
-<li>Access to events should be authorized. Accessing a event for a party requires that the subscriber has the correct role</li>
+<li>Access to events should be authorized. Accessing a event for a party requires that the consumer has the correct role</li>
 </ul>
 <p>See also <a href="https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering">Referansearkitektur for datautveksling</a></p>
 <h2 id="event-principles-and-pattern">Event Principles and pattern</h2>
@@ -10363,8 +10369,8 @@ have for the subject of the event.</p>
 <li>Event component query events in database</li>
 <li>Event components authorized the event and filter away events where user is not authorized</li>
 <li>Events are returned</li>
-<li>Subscriber process events</li>
-<li>Subscriber gets relevant data</li>
+<li>Consumer process events</li>
+<li>Consumer gets relevant data</li>
 </ol>
 <h3 id="organization-needing-to-know-if-there-are-anything-new-for-a-party">Organization needing to know if there are anything new for a party</h3>
 <p>In this scenario a professional organization wants to see if there are any changes for a client or the organization itself.</p>
@@ -10378,8 +10384,8 @@ have for the subject of the event.</p>
 <li>Event component query events in database</li>
 <li>Event components authorized the event and filter away events where user is not authorized</li>
 <li>Events are returned</li>
-<li>Subscriber process events</li>
-<li>Subscriber gets relevant data</li>
+<li>Consumer process events</li>
+<li>Consumer gets relevant data</li>
 </ol>
 <h3 id="approved-organization-needs-to-know-about-changes-for-all-reportees">Approved organization needs to know about changes for all reportees</h3>
 <p>This is a scenario where some organizations like banks need to be informed when somebody dies and a &ldquo;deathestate&rdquo; is created for that user.</p>
@@ -10393,14 +10399,14 @@ the instance without the user needing to log in.</p>
 </code></pre></div><ol start="2">
 <li>Event component query events in database</li>
 <li>Events are returned</li>
-<li>The Subscriber process events</li>
-<li>The Subscriber gets relevant data</li>
+<li>The Consumer process events</li>
+<li>The Consumer gets relevant data</li>
 </ol>
 <h2 id="push-events">Push Events</h2>
-<p>To reduce the amount of request from subscribers we should look in to supporting push of events.</p>
+<p>To reduce the amount of request from consumer we should look in to supporting push of events.</p>
 <p>This has not been detailed yet but the solution could contain:</p>
 <ul>
-<li>User can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different subscribers.</li>
+<li>Consumer can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different consummers.</li>
 <li>User can set up a notification SMS number to get a notification about events.</li>
 <li>There can be a mobile app that can listen to push notifcations.</li>
 </ul>
@@ -10482,7 +10488,7 @@ important insight in to the data in the platform.</p>
 <p>This is analyzed in the following <a href="https://github.com/Altinn/altinn-studio/issues/4555">issue</a></p>
 <h2 id="open-clarification">Open Clarification</h2>
 <ul>
-<li>Is partyID ok for the subscribers to be returned? (need to call service to map to orgnr/ssn)</li>
+<li>Is partyID ok for the consumer to be returned? (need to call service to map to orgnr/ssn)</li>
 <li>Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
 timing an paralell events.</li>
 </ul>
