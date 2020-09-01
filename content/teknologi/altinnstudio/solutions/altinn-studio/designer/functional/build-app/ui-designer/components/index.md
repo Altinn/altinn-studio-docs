@@ -119,10 +119,10 @@ aliases:
           <li>Codelist id
       </td>
       <td>
-        <img alt="Dropdown - edit properties" src="props-dropdown.png?width=700" title="Dropdown component - edit properties"/><br/>
+        <img alt="Dropdown - edit properties" src="props-dropdown.PNG?width=700" title="Dropdown component - edit properties"/><br/>
       </td>
       <td>
-        <img alt="Dropdown - default look" src="display-dropdown.png?width=700" title="Dropdown component - default look" />
+        <img alt="Dropdown - default look" src="display-dropdown.PNG?width=700" title="Dropdown component - default look" />
       </td>
     </tr>
      <tr>
@@ -174,7 +174,7 @@ aliases:
         <ul>
       </td>
       <td><img alt="File upload component - edit properties" src="props-file-upload.png?width=700" title="File upload component - edit properties" /></td>
-      <td><img alt="File upload component - default look" src="display-file-upload.png?width=700" title="File upload component - default look" /></td>
+      <td><img alt="File upload component - default look" src="display-file-upload.PNG?width=700" title="File upload component - default look" /></td>
     </tr>
   </tbody>
 </table>
@@ -240,12 +240,12 @@ NOTE: The address component is a proof of concept. The content/design of this co
           <li>Number of repetitions</li>
       </td>
       <td>
-        <img alt="Group - edit properties" src="props-group.png?width=700" title="Group - edit properties" />
+        <img alt="Group - edit properties" src="props-group.PNG?width=700" title="Group - edit properties" />
         <br/>
         Non edit view <br/>
-        <img alt="Group - edit properties" src="props-group-non-edit.png?width=700" title="Group - non edit view" />
+        <img alt="Group - edit properties" src="props-group-non-edit.PNG?width=700" title="Group - non edit view" />
       </td>
-      <td><img alt="Group - default look" src="display-group.png?width=700" title="Group - repeating look" /></td>
+      <td><img alt="Group - default look" src="display-group.PNG?width=700" title="Group - repeating look" /></td>
     </tr>
   </tbody>
 </table>
