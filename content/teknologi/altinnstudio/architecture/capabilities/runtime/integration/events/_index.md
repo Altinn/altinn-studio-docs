@@ -50,18 +50,25 @@ to some data that was changed because of that event. Typical the
 
 **Event attributes**
 
-Events would typically have some attributes
+Events would typically have some attributes used for filtering. 
 
-- [org] - The organisation the event is created for
-- [app] - The app the event is created for
-- [instanceid] - The instanceid
+- [org] - The application owner / service owner that owns the source (app) of the event. Example: SKD, NAV
+- [app] - The app the event is created for. Example: taxreport
+- [instanceid] - The instanceid: 
 - [eventtype] - The type of event. Created, completed ++. Free text not locked to a schema.
 
-An event will contain a limited set of information. To get the full details for an event the subscribers would need to get all details using APIs.
+An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.
 
 #### Event Schema
 
 The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specification to describe events in Altinn Apps and Altinn Platform.
+
+The reason for choosing cloud events are
+
+- It is a standardized and open format as prefered by our architecture principles
+- It backed by many and The specification is now under the [Cloud Native Computing Foundation](https://www.cncf.io/)
+- It is flexible so it would support scenarious in the future
+
 
 Below you find a offical example. [See full JSON Schema](https://raw.githubusercontent.com/cloudevents/spec/master/spec.json)
 
@@ -84,7 +91,7 @@ Below you find a offical example. [See full JSON Schema](https://raw.githubuserc
   Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.
 - `type`: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed
 - `source`: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}.
-  This would be used for the subscribers to look up a given instance.
+  This would be used for consumers to look up a given instance.
 - `subject`: The party the event is related to. PartyID is used.
 - `id`: Unique id for a given event.
 - `time`: The time the event was triggered. Set by the publisher.
@@ -157,7 +164,7 @@ The application template will contain API so logic in applications can publish e
 
 These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.
 
-### Event subscribers
+### Event consumers
 
 #### Orgs (application owners)
 
@@ -186,7 +193,7 @@ TODO: Verify requirements
 - The architecture should support more than 10 000 publishers.
 - The architecture should support more than 1 000 000 consumers.
 - The architecture should support more than 500 000 000 events a year.
-- Access to events should be authorized. Accessing a event for a party requires that the subscriber has the correct role 
+- Access to events should be authorized. Accessing a event for a party requires that the consumer has the correct role 
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
@@ -437,8 +444,8 @@ POST {platformurl}/events/instanceeventsforparty/
 4. Event component query events in database 
 5. Event components authorized the event and filter away events where user is not authorized
 6. Events are returned
-7. Subscriber process events
-8. Subscriber gets relevant data
+7. Consumer process events
+8. Consumer gets relevant data
 
 
 ### Organization needing to know if there are anything new for a party
@@ -456,8 +463,8 @@ POST {platformurl}/events/instanceeventsforparty/
 4. Event component query events in database 
 5. Event components authorized the event and filter away events where user is not authorized
 6. Events are returned
-7. Subscriber process events
-8. Subscriber gets relevant data
+7. Consumer process events
+8. Consumer gets relevant data
 
 
 ### Approved organization needs to know about changes for all reportees
@@ -477,16 +484,16 @@ POST {platformurl}/events/instanceeventsforinstance/{instanceId}
 
 2. Event component query events in database
 3. Events are returned
-4. The Subscriber process events
-5. The Subscriber gets relevant data
+4. The Consumer process events
+5. The Consumer gets relevant data
 
 ## Push Events
 
-To reduce the amount of request from subscribers we should look in to supporting push of events.
+To reduce the amount of request from consumer we should look in to supporting push of events.
 
 This has not been detailed yet but the solution could contain:
 
-- User can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different subscribers.
+- Consumer can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different consummers.
 - User can set up a notification SMS number to get a notification about events.
 - There can be a mobile app that can listen to push notifcations.
 
@@ -581,7 +588,7 @@ This is analyzed in the following [issue](https://github.com/Altinn/altinn-studi
 
 ## Open Clarification
 
-- Is partyID ok for the subscribers to be returned? (need to call service to map to orgnr/ssn)
+- Is partyID ok for the consumer to be returned? (need to call service to map to orgnr/ssn)
 - Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
 timing an paralell events.
 
