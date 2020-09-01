@@ -6,7 +6,7 @@ tags: [solution, architecture]
 toc: true
 ---
 
-As described under the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/)
+As described below, the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/)
 there are serveral scenarious where the different type of data is lost.
 
 This page describes the application components that makes it possible to protect against data loss.
@@ -99,7 +99,8 @@ For Altinn we have 90 days retention period. Inside that periode we can recover 
 
 ## Recovery
 
-We would need to create tools to be able to restore elements from blob storage to Cosmos DB and from Snapshots in blob storage.
+[Altinn ReStorage](../.../../../../../../../../../teknologi/altinnstudio/solutions/altinn-restorage/) is a command-line interface application that enables operators to
+retrieve version history and metadata about elements as well as restore and undelete them.
 
-This is defined as issues in Github. [Issue for Cosmos DB](https://github.com/Altinn/altinn-studio/issues/4008)
-and [Issue for Blob storage](https://github.com/Altinn/altinn-studio/issues/4007)
+Currently it supports restoring data elements. Further functionality is defined in [this epic](https://github.com/Altinn/altinn-studio/issues/4152) on GitHub.
+

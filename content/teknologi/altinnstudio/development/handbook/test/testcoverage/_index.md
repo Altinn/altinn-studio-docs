@@ -5,11 +5,11 @@ tags: [development, testing]
 weight: 100
 ---
 
-###  Testcafe tests
+### Testcafe tests
 
 | Sl.No. | Testcase name                                                  | Area of Solution |
 | :----- | :------------------------------------------------------------- | :--------------: |
-| 1.     | Login to altinn studio                                         |    All areas     |
+| 1.     | Login to altinn studio                                         |      Login       |
 | 2.     | Cannot create new app, as app name already exists              |    Dashboard     |
 | 3.     | Happy case; deploy an app to a test environment after a change |  Deploy to test  |
 | 4.     | App cannot deploy due to compilation error                     |  Deploy to test  |
@@ -32,9 +32,12 @@ weight: 100
 | 21.    | Error messages when app does not exist                         |    Dashboard     |
 | 22.    | Open Gitea repository navigation                               |    UI-editor     |
 | 23.    | User cannot clone an app that does not have a data model       |    UI-editor     |
+| 24.    | Delete local app changes                                       |    UI-editor     |
 
-### Postman tests
+### k6 API tests
+
 #### Platform
+
 | Sl.No. | Testcase name                                              |    Area of Solution     |
 | :----- | :--------------------------------------------------------- | :---------------------: |
 | 1.     | GET Organization                                           |    Platform-Register    |
@@ -56,8 +59,11 @@ weight: 100
 | 17.    | Get instances, by id and instance events                   |       Storage-SBL       |
 | 18.    | Soft/hard delete and restore instances                     |       Storage-SBL       |
 | 19.    | POST Generate PDF                                          |     Platfrom - PDF      |
+| 20.    | Get receipt                                                |   Platform - Receipt    |
+| 21.    | Add, Edit, Delete app texts                                |         Storage         |
 
 #### App
+
 | Sl.No. | Testcase name                                             | Area of Solution |
 | :----- | :-------------------------------------------------------- | :--------------: |
 | 1.     | Create, Get, Edit app instance                            |       App        |
@@ -75,6 +81,7 @@ weight: 100
 | 13.    | End to End test from starting an instance to Archiving it |       App        |
 
 #### Negative Tests
+
 | Sl.No. | Testcase name                                                   | Area of Solution |
 | :----- | :-------------------------------------------------------------- | :--------------: |
 | 1.     | Access Storage API without authentication token                 |     Storage      |
@@ -85,7 +92,8 @@ weight: 100
 | 6.     | Access App instance with low level security login than required |     Storage      |
 | 7.     | Create App instance allowed only for AppOwner                   |       App        |
 
-#### Manual API Test
+#### App Owner API Test
+
 | Sl.No. | Testcase name                         | Area of Solution |
 | :----- | :------------------------------------ | :--------------: |
 | 1.     | GET instances as app Owner            |     Storage      |

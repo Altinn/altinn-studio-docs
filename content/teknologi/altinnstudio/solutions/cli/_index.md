@@ -14,7 +14,7 @@ The application can be used as standrad or extended with custom function devlope
 
 ## Concepts
 
-The consepts of the CLI application is releated to the different parts og a command line command. 
+The consepts of the CLI application are releated to the different parts of a command line command.
 
 Example: Storage GetData appId=ttd/how-to-name-it processIsComplete=true
 
@@ -22,17 +22,17 @@ Command is "Storage"
 SubCommand is "GetData"
 Option is "appId=ttd/how-to-name-it" "processIsComplete=true"
 
-### Command 
+### Command
 
-The name of the cammand shall give an indication of which system component that shall be accessed. 
+The name of the command shall give an indication of which system component that shall be accessed.
 
 ### SubCommand
 
-A sub command defines the operation to be performed on the Command component 
+A sub command defines the operation to be performed on the Command component.
 
 ### Option
 
-Options are often used as filter criterias that can be a part op the API call.
+Options are often used as filter criterias that can be a part of the API call.
 
 ## Standard Commands
 

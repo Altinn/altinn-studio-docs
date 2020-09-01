@@ -4,6 +4,31 @@ linktitle: Breaking changes
 description: Overview of breaking changes introduced into Altinn Studio and how and what to update on an existing app to fix the problem.
 toc: true
 ---
+## Build pipeline failed on task: Build and push docker image to acr
+
+A namespace was renamed in `Altinn.App.PlatformServices` Version="1.1.2-alpha causing the build of the application to fail
+if references to this namespace isn't changed.
+
+This affects all applications created before June 2020 that reference nuget versions >= 1.1.2-alpha.
+
+### Errors
+
+Build pipeline fails due to failing task: _Build and push docker image to acr_.
+
+Expanding the task reveals error message:
+
+```bash
+Startup.cs(5,35): error CS0234: The type or namespace name 'Extentions' does not exist in the namespace 'Altinn.App.PlatformServices' (are you missing an assembly reference?)".
+```
+
+Screenshot of the failing build pipeline.
+![Build error in pipeline](breaking-change-namespace-rename.PNG "Build error in pipeline")
+
+### How to fix
+
+1. Navigate to you application repository and find `Startup.cs` in the `App` folder. 
+2. Change `using Altinn.App.PlatformServices.Extentions;` to `using Altinn.App.PlatformServices.Extensions;`
+3. If you have a local code editor, confirm that the code is able to compile locally before building the app in Altinn Studio.
 
 ## Deploy pipeline failed to set subscription key
 
@@ -11,7 +36,7 @@ Introduced in the newest version of Azure Powershell, which is used during deplo
 subscription key for the app not being set. The subscription key is needed for the apps to have access to the platform APIs.
 
 This only affects apps that were deployed some time within the period July 7th - July 22nd. Apps deployed
-for the _first time_ to a specific environment are not affected. 
+for the _first time_ to a specific environment are not affected.
 
 ### Errors
 
@@ -23,13 +48,13 @@ at the network traffic during instantiation, users will see that the call to `us
 The deployment pipeline has been updated. Re-deploying the app to the same environment will solve the problem 
 (no need to trigger another build).
 
-## Property type changed for UserProfile.ProfileSettingPreference 
+## Property type changed for UserProfile.ProfileSettingPreference
 
 Introduced with issue: [#4466](https://github.com/Altinn/altinn-studio/issues/4466) and release v2020.28.  
 **The change affects all applications in TT02 and PR with nuget version 1.0.98 and lower.**
 
 ### Errors
-App doesn't load only the blue background is visible. 
+App doesn't load only the blue background is visible.
 
 ### How to fix
 
