@@ -3467,35 +3467,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">
-        <span>Authentication</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/" class="dd-item 
         
         
@@ -3732,6 +3703,35 @@ if(host != "localhost")
           
         
         </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">
+        <span>Event</span>
+
+        
+
+        
+        
+
+        
+      </a>
               
     </li>
   
@@ -10347,12 +10347,14 @@ See full list of dependencies in csproj. <a class="read-more" href="/teknologi/a
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">Application architecture authentication component - Altinn Platform</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The solution is available at https://platform.altinn.cloud/authentication/api/v1.
-Authenticate user The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
-GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a JWT token from an external token provider Accepted providers include: maskinporten and id-porten. Request must include a bearer token in the authorization header. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
+        <p>The authorization component consists of several parts. For a functional description see details in application solution components.
+Policy Decision Point - PDP This is implemented as a separate class library This is published to Nuget.
+Policy Retrieval Point - PRP Policy Retrieval Point component that stores authorization policies for applications.
+The policies are stored as XACML (xml) documents in a blob storage.
+When an authorization request is received to PDP, PRP identifies the correct policy document in the policy storage. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -12019,22 +12021,6 @@ GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a 
           
                               
                               
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                                   
                               
                               
@@ -12151,6 +12137,22 @@ GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a 
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   

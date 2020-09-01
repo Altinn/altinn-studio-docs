@@ -555,10 +555,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/authentication/</loc>
   </url>
   
@@ -820,6 +816,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/error-handling/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/</loc>
   </url>
   
   <url>
