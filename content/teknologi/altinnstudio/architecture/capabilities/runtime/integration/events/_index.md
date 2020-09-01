@@ -28,7 +28,6 @@ They will recieve and submitt data to/from the entity that is responsible for th
 The event architecture would make it possible to get notified when there is events in the platform related to data that the different actors has intereset in.
 It could be anything from the digital service (app) owner beeing notified that a citizen has completed a form, to that the citizen is informed that there is a new form he need to fill out.
 
-
 ### Events
 
 Events would be a combination of standard events defined by the platform and
@@ -59,89 +58,7 @@ Events would typically have some attributes used for filtering.
 
 An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.
 
-#### Event Schema
 
-The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specification to describe events in Altinn Apps and Altinn Platform.
-
-The reason for choosing cloud events are
-
-- It is a standardized and open format as prefered by our architecture principles
-- It backed by many and The specification is now under the [Cloud Native Computing Foundation](https://www.cncf.io/)
-- It is flexible so it would support scenarious in the future
-
-
-Below you find a offical example. [See full JSON Schema](https://raw.githubusercontent.com/cloudevents/spec/master/spec.json)
-
-```json
-{
-    "specversion" : "1.x-wip",
-    "type" : "com.github.pull.create",
-    "source" : "https://github.com/cloudevents/spec/pull",
-    "subject" : "123",
-    "id" : "A234-1234-1234",
-    "time" : "2018-04-05T17:31:00Z",
-    "comexampleextension1" : "value",
-    "comexampleothervalue" : 5,
-    "datacontenttype" : "text/xml",
-    "data" : "<much wow=\"xml\"/>"
-}
-```
-
-- `specversion`: The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.
-  Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.
-- `type`: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed
-- `source`: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}.
-  This would be used for consumers to look up a given instance.
-- `subject`: The party the event is related to. PartyID is used.
-- `id`: Unique id for a given event.
-- `time`: The time the event was triggered. Set by the publisher.
-- `datacontenttype`: Optional. Content type of data value.
-  This attribute enables data to carry any type of content, whereby format and encoding might differ from that of the chosen event format
-- `data`: Optional. Can contain a structure of data specific for an event type.
-
-
-##### Example 1
-
-A instance has been created for a given party. It is not possible from the event itself to know who did it.
-
-```json {hl_lines=[3]}
-[{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "party/234234422",
-  "type": "instance.created",
-  "time": "2020-02-20T08:00:06.4014168Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
-}]
-```
-
-
-##### Example 2
-
-A user has completed the confirmation1 task in the process.
-
-```json {hl_lines=[4]}
-[{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "party/234234422",
-  "type": "instance.process.taskcompleted.confirmation1",
-  "time": "2020-03-16T10:23:46.6443563Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
-}]
-```
-
-##### Example 3
-
-A user/system has completed the process for an instance.
-
-```json {hl_lines=[4]}
-[{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "party/234234422",
-  "type": "instance.process.completed",
-  "time":  "2020-02-20T09:06:50.3736712Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
-}]
-```
 
 ### Event Producers
 
@@ -235,73 +152,79 @@ a new Events component in Altinn Platform and not expose products like Kafka or 
 
 The Events component will expose clean and simple REST APIs.
 
-### API Structure
+### Event Schema
 
-The API's will be structured so the URLs are filtered queries into the events storage.
+The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specification to describe events in Altinn Apps and Altinn Platform.
 
-{{%notice warning%}}
-TODO: Verify proposed API structure
-{{% /notice%}}
+The reason for choosing cloud events are
 
-#### Instances events for Org
-
-##### Endpoint
-
-```http
-GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}
-```
-
-##### Usage
-
-This will be used by application owners to identify changes on instances for their applications.
-
-##### Authorization
-
-We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
-events for a given org/app.
-
-The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4551). 
+- It is a standardized and open format as prefered by our architecture principles
+- It backed by many and The specification is now under the [Cloud Native Computing Foundation](https://www.cncf.io/)
+- It is flexible so it would support scenarious in the future
 
 
-#### Party events
+Below you find a offical example. [See full JSON Schema](https://raw.githubusercontent.com/cloudevents/spec/master/spec.json)
 
-A very common scenario is that a party needs to know about events for the party or other party. 
-
-##### Endpoint
-
-```http
-POST {platformurl}/events/instanceeventsforparty/
-```
-
-This returns the events for a given party identified with a person number or organisation number.
-
-```json {hl_lines=[4]}
+```json
 {
-    "appId" : "{org}/{app}",
-    "party": {
-        "personNumber": "12247918309",
-        "organisationNumber": null
-    },
-    "fromtime": "2019-06-01T12:00:00Z",
-    "type": null
+    "specversion" : "1.x-wip",
+    "type" : "com.github.pull.create",
+    "source" : "https://github.com/cloudevents/spec/pull",
+    "subject" : "123",
+    "id" : "A234-1234-1234",
+    "time" : "2018-04-05T17:31:00Z",
+    "comexampleextension1" : "value",
+    "comexampleothervalue" : 5,
+    "datacontenttype" : "text/xml",
+    "data" : "<much wow=\"xml\"/>"
 }
 ```
 
-##### Usage
+- `specversion`: The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.
+  Compliant event producers MUST use a value of 1.x-wip when referring to this version of the specification.
+- `type`: This is the event type. Examples: instance.created, instance.process.paymentcompleted, instance.process.completed
+- `source`: Describes what the event is related to. Will be used to filter event types. For an app it would typical be /{org}/{app}/{partyId}/{instanceGuid}.
+  This would be used for consumers to look up a given instance.
+- `subject`: The party the event is related to. PartyID is used.
+- `id`: Unique id for a given event.
+- `time`: The time the event was triggered. Set by the publisher.
+- `datacontenttype`: Optional. Content type of data value.
+  This attribute enables data to carry any type of content, whereby format and encoding might differ from that of the chosen event format
+- `data`: Optional. Can contain a structure of data specific for an event type.
 
-This is used by end users to see events for a given party.
-This will list all changes for a given party.
 
-##### Authorization
+##### Example 1
 
-Access to events needs to be authorized. To be able to read events, you need to have the read right for the given app for the given party.
+A instance has been created for a given party. It is not possible from the event itself to know who did it.
 
-The topic and subject would be used to identify the correct XACML-policy to use. 
+```json {hl_lines=[3]}
+[{
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party/234234422",
+  "type": "instance.created",
+  "time": "2020-02-20T08:00:06.4014168Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+}]
+```
 
-The operation would be read and the proccess task will be set to `null`.
-This way there would be no need to verify the current state of an instance.
 
-From the examples above we have this example
+##### Example 2
+
+A user has completed the confirmation1 task in the process.
+
+```json {hl_lines=[4]}
+[{
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party/234234422",
+  "type": "instance.process.taskcompleted.confirmation1",
+  "time": "2020-03-16T10:23:46.6443563Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+}]
+```
+
+##### Example 3
+
+A user/system has completed the process for an instance.
 
 ```json {hl_lines=[4]}
 [{
@@ -312,23 +235,6 @@ From the examples above we have this example
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
 }]
 ```
-
-To be able to read this event, the authenticated party is required to have the rights for SKD/Skattmelding for the party 234234422
-
-This is something it gets throug roles for that specific application.
-
-The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4552). 
-
-
-### Adding events
-
-#### Endpoint
-
-```http
-POST {platformurl}/events/
-```
-
-The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4550). 
 
 
 ### Event components
