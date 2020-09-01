@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="How to install traefik">
+    <meta name="description" content="The event component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.">
 
 
     
-    <title>Installation of Traefik 2.0 :: Altinn digitalisering - Utvikling</title>
+    <title>Application construction components - Altinn Platform Event :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/teknologi/altinnstudio/development/handbook/routing/traefik/installation/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -952,7 +952,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -965,7 +965,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2123,7 +2123,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2136,7 +2136,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2161,7 +2161,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2174,7 +2174,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2199,7 +2199,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2212,7 +2212,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2733,7 +2733,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -2746,7 +2746,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -2829,8 +2829,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/">
@@ -4632,7 +4632,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -4645,7 +4645,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -4748,7 +4748,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -4761,7 +4761,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -5699,7 +5699,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -5712,7 +5712,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -5766,7 +5766,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/traefik/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -5779,7 +5779,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -5804,8 +5804,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/routing/traefik/installation/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/routing/traefik/installation/">
@@ -10041,7 +10041,12 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/routing/'>Routing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/routing/traefik/'>Traefik routing</a> <span class='adocs-breadcrumb-divider'> / </span> Installation of Traefik 2.0
+
+
+
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> Authorization
+
+ 
 
  
 
@@ -10065,13 +10070,9 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a>
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/routing">routing</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/traefik">traefik</a>
-            
-              <a class="label label-default" href="https://docs.altinn.studio/tags/installation">installation</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/solution">solution</a>
             
           </div>
         
@@ -10079,10 +10080,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Installation of Traefik 2.0
+                Application construction components - Altinn Platform Event
                 
               </h1>
-              <p class="a-leadText" id="leadText">How to install traefik</p>
+              <p class="a-leadText" id="leadText">The event component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.</p>
             
           
 
@@ -10094,9 +10095,44 @@ if(host != "localhost")
 
 
 
-<p>Installation of traefik is done through helm, and we have a traefik helm chart for Altinn Tjenester 3.0.</p>
-<p>If there is a fresh installation of traefik 2.0 with helm 3.0, make sure that there is a folder called <code>crds</code> in that helm chart folder.
-After that it is just to install with helm, and wait for the traefik service to have a public IP before updating the Azure DNS zone with a A record.</p>
+<p>The event components expose REST-APIs for publishing and subscribing to events.</p>
+<p>When a publish request is received it will push the event document to the event storage.
+When a request is received it will query the events stored in the event storage.</p>
+<h2 id="api-controllers">Api controllers</h2>
+<ul>
+<li><a href="">InstanceEvents</a></li>
+<li><a href="">PartyEvents</a></li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Altinn.Platform.Authorization.csproj">csproj</a>.</p>
+<h3 id="storage-technology">Storage technology</h3>
+<p>Choosing the technology to physical store the events will affect what kind of capabilities the
+event component can expose and what kind of scalability and performance the event architecture will have.</p>
+<div class="notices warning" >
+TODO: Verify proposed storage technology.
+</div>
+<h3 id="cosmos-db">Cosmos DB</h3>
+<p>Using CosmosDB gives the possibility to have &ldquo;endless&rdquo; number of topics/feeds based on queries.</p>
+<p>Based on filters on the db query you could get an endless amount of feeds containg events with specific criteria.</p>
+<h4 id="partition-key">Partition key</h4>
+<p>Currently, the limitations on Cosmos DB are that one logical partition can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
+<p>If we assume events in average on 350 Bytes (the examples above are around 300 Bytes).
+This would hold approx 57 million events inside a logiical partition.</p>
+<p>If we assume 5 events on average on each instance that would be around 11 million instances per partition key.
+Looking at the biggest digital services in the current platform (Altinn 2) this indicates that using a partition key 
+based on {org}/{app} is not possible because many of them have many more elements.</p>
+<p>The suggestion is to use the subject as partition key. 57 million on a given subject should be more than enough.
+And if that limit is reached the limitations probably have increased (it was raised from 10GB to 20GB in may 2020).</p>
+<h4 id="event-sequencing">Event sequencing</h4>
+<p>Events will be sequnced by eventTime. This is a datetime where precision is 7 digits, with an accuracy of 100 nanoseconds.
+The eventTime would be set by a <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-write-stored-procedures-triggers-udfs">stored procedure</a> when inserting document.</p>
+<p>It will overwrite any eventTime set by the publisher.</p>
+<h3 id="indexing">Indexing</h3>
+<p>The default indexing policy for newly created containers indexes every property of every item, 
+enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. 
+This allows you to get high query performance without having to think about indexing and index management upfront.</p>
+<p>For the topic and eventTime a composite index should be investigated to see if that performs better.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview">See Cosmos DB indexing for details</a>.</p>
 
 
 <footer class=" footline" >
@@ -10552,6 +10588,7 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                           
                               
+                              
                           
                           
           
@@ -10566,6 +10603,9 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -11101,6 +11141,7 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                           
                               
+                              
                           
                           
           
@@ -11115,6 +11156,7 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
+                              
                               
                           
                           
@@ -11131,6 +11173,7 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                           
                               
+                              
                           
                           
           
@@ -11145,6 +11188,9 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -11380,6 +11426,7 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                           
                               
+                              
                           
                           
           
@@ -11394,6 +11441,9 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -11427,6 +11477,7 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                           
                               
+                              
                           
                           
           
@@ -11442,6 +11493,9 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -12301,7 +12355,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
-                              
                               
                           
                           
@@ -12317,9 +12370,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -12368,7 +12418,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
-                              
                               
                           
                           
@@ -12384,9 +12433,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -12860,7 +12906,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                           
                               
-                              
                           
                           
           
@@ -12875,9 +12920,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -12895,7 +12937,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                           
                               
-                              
                           
                           
           
@@ -12910,7 +12951,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
-                              
                               
                           
                           
@@ -12927,9 +12967,6 @@ After that it is just to install with helm, and wait for the traefik service to 
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -15059,10 +15096,10 @@ After that it is just to install with helm, and wait for the traefik service to 
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/routing/traefik/" title="Traefik routing"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/" title="Application construction components - Altinn Platform Authorization"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/" title="TLS in Traefik 2.0" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/" title="Application architecture pdf component - Altinn Platform" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -15074,7 +15111,7 @@ After that it is just to install with helm, and wait for the traefik service to 
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/development/handbook/routing/traefik/installation/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>

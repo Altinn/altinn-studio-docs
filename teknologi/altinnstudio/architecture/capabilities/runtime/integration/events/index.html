@@ -2828,6 +2828,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/">
+        <span>Authorization</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/" class="dd-item 
         
         
@@ -10064,7 +10093,6 @@ if(host != "localhost")
     <li><a href="#delegating-access-to-events">Delegating access to events</a></li>
     <li><a href="#detailed-scenarios">Detailed Scenarios</a></li>
     <li><a href="#push-events">Push Events</a></li>
-    <li><a href="#other-technologies-considered">Other technologies considered</a></li>
     <li><a href="#event-analytics">Event Analytics</a></li>
     <li><a href="#open-clarification">Open Clarification</a></li>
     <li><a href="#other-event-concepts-in-the-platform">Other event concepts in the platform</a></li>
@@ -10302,38 +10330,6 @@ This way there would be no need to verify the current state of an instance.</p>
 <h4 id="publishers">Publishers</h4>
 <p>Both different applications and components will publish events to the Event component in Altinn Platform.<br>
 Publishers will use a REST API to post new events to the event API.</p>
-<h4 id="event-component">Event Component</h4>
-<p>The event components expose REST-APIs for publishing and subscribing to events.</p>
-<p>When a publish request is received it will push the event document to the event storage.
-When a request is received it will query the events stored in the event storage.</p>
-<h3 id="storage-technology">Storage technology</h3>
-<p>Choosing the technology to physical store the events will affect what kind of capabilities the
-event component can expose and what kind of scalability and performance the event architecture will have.</p>
-<div class="notices warning" >
-TODO: Verify proposed storage technology.
-</div>
-<h3 id="cosmos-db">Cosmos DB</h3>
-<p>Using CosmosDB gives the possibility to have &ldquo;endless&rdquo; number of topics/feeds based on queries.</p>
-<p>Based on filters on the db query you could get an endless amount of feeds containg events with specific criteria.</p>
-<h4 id="partition-key">Partition key</h4>
-<p>Currently, the limitations on Cosmos DB are that one logical partition can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
-<p>If we assume events in average on 350 Bytes (the examples above are around 300 Bytes).
-This would hold approx 57 million events inside a logiical partition.</p>
-<p>If we assume 5 events on average on each instance that would be around 11 million instances per partition key.
-Looking at the biggest digital services in the current platform (Altinn 2) this indicates that using a partition key 
-based on {org}/{app} is not possible because many of them have many more elements.</p>
-<p>The suggestion is to use the subject as partition key. 57 million on a given subject should be more than enough.
-And if that limit is reached the limitations probably have increased (it was raised from 10GB to 20GB in may 2020).</p>
-<h4 id="event-sequencing">Event sequencing</h4>
-<p>Events will be sequnced by eventTime. This is a datetime where precision is 7 digits, with an accuracy of 100 nanoseconds.
-The eventTime would be set by a <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-write-stored-procedures-triggers-udfs">stored procedure</a> when inserting document.</p>
-<p>It will overwrite any eventTime set by the publisher.</p>
-<h3 id="indexing">Indexing</h3>
-<p>The default indexing policy for newly created containers indexes every property of every item, 
-enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. 
-This allows you to get high query performance without having to think about indexing and index management upfront.</p>
-<p>For the topic and eventTime a composite index should be investigated to see if that performs better.</p>
-<p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview">See Cosmos DB indexing for details</a>.</p>
 <h2 id="delegating-access-to-events">Delegating access to events</h2>
 <p>There are serveral user scenarios when there is a need to delegate access to the events for a given party to another user/organisation.</p>
 <h3 id="delegating-org-access">Delegating Org access</h3>
@@ -10409,72 +10405,6 @@ the instance without the user needing to log in.</p>
 <li>Consumer can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different consummers.</li>
 <li>User can set up a notification SMS number to get a notification about events.</li>
 <li>There can be a mobile app that can listen to push notifcations.</li>
-</ul>
-<h2 id="other-technologies-considered">Other technologies considered</h2>
-<h3 id="azure-event-hub">Azure Event Hub</h3>
-<p>Azure Event Hub is an Event ingestion service.  It can receive and process millions of events per second.</p>
-<p>Each Subscription can have 100 Event Hub Namespaces
-Each Namespace can have 10 Event Hubs</p>
-<p>Meaning for each Subscription we can have 1000 Event Hubs,</p>
-<figure><a href="https://user-images.githubusercontent.com/13309071/75520779-a43d3600-5a06-11ea-94d7-c2b0fe856e8a.png"><img src="https://user-images.githubusercontent.com/13309071/75520779-a43d3600-5a06-11ea-94d7-c2b0fe856e8a.png" alt="Event Hubs diagram" title="Azure Event Hubs" /></a><figcaption><h4>Azure Event Hubs</h4></figcaption></figure>
-<p>Subscribers to Hubs use <a href="https://en.wikipedia.org/wiki/Advanced_Message_Queuing_Protocol">AMQP 1.0</a> protocol to read the event feed.</p>
-<h4 id="event-format-data">Event format data</h4>
-<p>The events can be any JSON format or text</p>
-<h4 id="event-filtering">Event filtering</h4>
-<p>There is no way to filter events before they are read at the subscriber.</p>
-<h4 id="subscribers">Subscribers</h4>
-<p>Subscribers need to have a SAS key for accessing the event hub.</p>
-<p>The client needs to use AMQB 1.0 standard. 
-There exist client library for <a href="https://github.com/Azure/azure-event-hubs-java">Java</a>
-and <a href="https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs">.NET</a></p>
-<h4 id="pro">Pro</h4>
-<ul>
-<li>Most popular event streaming platform.</li>
-<li>Can store events indefently</li>
-</ul>
-<h4 id="cons">Cons</h4>
-<ul>
-<li>Cost of HDInsight cluster</li>
-<li>Requires more admin compared to other platforms in Azure</li>
-<li>Not able to support topic per party.</li>
-<li>Need to build a custom REST-API as a proxy to Kafka.</li>
-</ul>
-<h3 id="apache-kafka-in-azure-hdinsight">Apache Kafka in Azure HDInsight</h3>
-<p>Apache Kafka is an open-source distributed streaming platform that can be used to build real-time streaming data pipelines and applications.
-Kafka also provides message broker functionality similar to a message queue, where you can publish and subscribe to named data streams.</p>
-<p>Apache Kafka kan be deployed in to a HDInsight cluster. <a href="https://docs.microsoft.com/en-us/azure/hdinsight/kafka/apache-kafka-introduction">See details</a></p>
-<p>Producers would send events to Kafka Brokers. In a HD-insight cluster each worker nod is a Kafka broker.</p>
-<figure><a href="kafka.png"><img src="kafka.png" alt="Kafka diagram" title="Kafka" /></a><figcaption><h4>Kafka</h4></figcaption></figure>
-<h4 id="quotas">Quotas</h4>
-<table>
-<thead>
-<tr>
-<th>Resource</th>
-<th>Limit</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Topics per kafka cluster</td>
-<td>2000-3000</td>
-</tr>
-<tr>
-<td>Retention time</td>
-<td>up to unlimited</td>
-</tr>
-</tbody>
-</table>
-<h4 id="pro-1">Pro</h4>
-<ul>
-<li>Most popular event streaming platform.</li>
-<li>Can store events indefently</li>
-</ul>
-<h4 id="cons-1">Cons</h4>
-<ul>
-<li>Cost of HDInsight cluster</li>
-<li>Requires more admin compared to other platforms in Azure</li>
-<li>Not able to support topic per party.</li>
-<li>Need to build a custom REST-API as a proxy to Kafka.</li>
 </ul>
 <h2 id="event-analytics">Event Analytics</h2>
 <p>With a new event architecture it is possible imagine that we can run analytics on the events to give
@@ -11809,6 +11739,22 @@ Calculation, validation ++ This type of event is probably not relevant to push t
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
