@@ -109,6 +109,22 @@ aliases:
         <img alt="Radio buttons component - default look" src="display-radio.png?width=700" title="Radio buttons component - default look" />
       </td>
     </tr>
+        <tr>
+      <td>Dropdown</td>
+      <td>
+        <ul>
+          <li>Link to data model</li>
+          <li>Label text</li>
+          <li>Description text</li>
+          <li>Codelist id
+      </td>
+      <td>
+        <img alt="Dropdown - edit properties" src="props-dropdown.PNG?width=700" title="Dropdown component - edit properties"/><br/>
+      </td>
+      <td>
+        <img alt="Dropdown - default look" src="display-dropdown.PNG?width=700" title="Dropdown component - default look" />
+      </td>
+    </tr>
      <tr>
       <td>Text Area</td>
       <td>
@@ -158,7 +174,7 @@ aliases:
         <ul>
       </td>
       <td><img alt="File upload component - edit properties" src="props-file-upload.png?width=700" title="File upload component - edit properties" /></td>
-      <td><img alt="File upload component - default look" src="display-file-upload.png?width=700" title="File upload component - default look" /></td>
+      <td><img alt="File upload component - default look" src="display-file-upload.PNG?width=700" title="File upload component - default look" /></td>
     </tr>
   </tbody>
 </table>
@@ -166,11 +182,6 @@ aliases:
 {{% notice info %}}
 NOTE: To make a File Upload component optional, make sure to set the minimum number of attachments to 0. The 'optional' value (used on other components) does not work for file upload. 
 {{% /notice %}}
-
-In addition to the above components, the following basic form components are under development. These are not ready to be used, they will be added to the overview when they are ready to use:
-
-* Dropdown
-* Container
 
 ### Advanced form components
 Advanced form components are components that potentially contain multiple fields that each need to be mapped to a field in the data model. They will typically contain fields that are functionally related, ex. fields related to _address_, see below.
@@ -218,6 +229,23 @@ NOTE: The address component is a proof of concept. The content/design of this co
       </td>
       <td><img alt="Address (advanced mode) - edit properties" src="props-address-advanced.png?width=700" title="Address (advanced mode) - edit properties" /></td>
       <td><img alt="Address (advanced mode) - default look" src="display-address-advanced.png?width=700" title="Address (advanced mode) - default look" /></td>
+    </tr>
+        <tr>
+      <td>Group<br/></td>
+      <td>
+        <ul>
+          <li>Group id</li>
+          <li>Repeating group</li>
+          <li>Link to data model</li>
+          <li>Number of repetitions</li>
+      </td>
+      <td>
+        <img alt="Group - edit properties" src="props-group.PNG?width=700" title="Group - edit properties" />
+        <br/>
+        Non edit view <br/>
+        <img alt="Group - edit properties" src="props-group-non-edit.PNG?width=700" title="Group - non edit view" />
+      </td>
+      <td><img alt="Group - default look" src="display-group.PNG?width=700" title="Group - repeating look" /></td>
     </tr>
   </tbody>
 </table>
