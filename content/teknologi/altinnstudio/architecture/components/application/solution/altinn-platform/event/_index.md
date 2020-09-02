@@ -37,29 +37,42 @@ events for a given org/app.
 
 The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4551). 
 
-#### Party events
 
-A very common scenario is that a party needs to know about events for the party or other party. 
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| unit | string  | Optional: the organisation number nine digits for reportee |
+| person | string(in http header)  | Optional: the f or d number of the person |
+| party | string  | Required* the partyId |
+| org | string  | Required: the org owning the application |
+| app | string  | Optional: the application related to the event |
+| from | datetime  | Required: The time to search from |
+| type | string | Optional: a specific event type |
+
+* Needs to give one identifcator of the subject, unit,person or party parammeter.
+
+#### Events for a given party
+
+A very common scenario is that a party needs to know about events for the party itself or other party that party has a relationship for (client, child unit++). 
 
 ##### Endpoint
 
 ```http
-POST {platformurl}/events/instanceeventsforparty/
+GET {platformurl}/events/instanceeventsforparty/?org={org}&from={fromTime}&unit={organizationnumber}
 ```
 
 This returns the events for a given party identified with a person number or organisation number.
 
-```json {hl_lines=[4]}
-{
-    "appId" : "{org}/{app}",
-    "party": {
-        "personNumber": "12247918309",
-        "organisationNumber": null
-    },
-    "fromtime": "2019-06-01T12:00:00Z",
-    "type": null
-}
-```
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| unit | string  | Required*  the organisation number nine digits |
+| person | string  | Required* the f or d number of the person |
+| party | string  | Required* the partyId |
+| org | string  | Optional: (required if app is provided) the org owning the application |
+| app | string  | Optional: the application related to the event |
+| from | datetime  | Required: The time to search from |
+| type | string | Optional: a specific event type |
+
+* Needs to give one identifcator of the subject, unit,person or party parammeter.
 
 ##### Usage
 
