@@ -2834,7 +2834,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/">
-        <span>Authorization</span>
+        <span>Event</span>
 
         
 
@@ -10044,7 +10044,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> Authorization
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> Event
 
  
 
@@ -10099,19 +10099,12 @@ if(host != "localhost")
 <p>When a publish request is received it will push the event document to the event storage.
 When a request is received it will query the events stored in the event storage.</p>
 <h2 id="api-controllers">Api controllers</h2>
+<p>The following API controllers are defined</p>
 <ul>
 <li><a href="">InstanceEvents</a></li>
 <li><a href="">PartyEvents</a></li>
 </ul>
-<h2 id="dependencies">Dependencies</h2>
-<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Altinn.Platform.Authorization.csproj">csproj</a>.</p>
-<h3 id="storage-technology">Storage technology</h3>
-<p>Choosing the technology to physical store the events will affect what kind of capabilities the
-event component can expose and what kind of scalability and performance the event architecture will have.</p>
-<div class="notices warning" >
-TODO: Verify proposed storage technology.
-</div>
-<h3 id="cosmos-db">Cosmos DB</h3>
+<h2 id="event-storage">Event storage</h2>
 <p>Using CosmosDB gives the possibility to have &ldquo;endless&rdquo; number of topics/feeds based on queries.</p>
 <p>Based on filters on the db query you could get an endless amount of feeds containg events with specific criteria.</p>
 <h4 id="partition-key">Partition key</h4>

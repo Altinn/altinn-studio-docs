@@ -579,10 +579,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/</loc>
   </url>
   
@@ -816,6 +812,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/error-handling/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/</loc>
   </url>
   
   <url>
