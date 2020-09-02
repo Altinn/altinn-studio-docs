@@ -37,11 +37,13 @@ events for a given org/app.
 
 The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4551). 
 
+The following url parameters and http headers has been defined. Person is given as a http header because of security.
+
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | unit | string  | Optional: the organisation number nine digits for reportee |
-| person | string(in http header)  | Optional: the f or d number of the person |
+| person | string (http header)  | Optional: the f or d number of the person |
 | party | string  | Required* the partyId |
 | org | string  | Required: the org owning the application |
 | app | string  | Optional: the application related to the event |
@@ -62,10 +64,14 @@ GET {platformurl}/events/instanceeventsforparty/?org={org}&from={fromTime}&unit=
 
 This returns the events for a given party identified with a person number or organisation number.
 
+
+The following url parameters and http headers has been defined. Person is given as a http header because of security.
+
+
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | unit | string  | Required*  the organisation number nine digits |
-| person | string  | Required* the f or d number of the person |
+| person | string (http header) | Required* the f or d number of the person |
 | party | string  | Required* the partyId |
 | org | string  | Optional: (required if app is provided) the org owning the application |
 | app | string  | Optional: the application related to the event |
