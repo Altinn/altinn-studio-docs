@@ -1,10 +1,9 @@
 ---
 title: Application construction components - Altinn Platform Event
-linktitle: Authorization
+linktitle: Event
 description: The event component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
 tags: [architecture, solution]
 ---
-
 
 The event components expose REST-APIs for publishing and subscribing to events.
 
@@ -13,23 +12,12 @@ When a request is received it will query the events stored in the event storage.
 
 ## Api controllers
 
+The following API controllers are defined
+
 - [InstanceEvents]()
 - [PartyEvents]()
 
-## Dependencies
-
-See [csproj](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Altinn.Platform.Authorization.csproj).
-
-### Storage technology
-
-Choosing the technology to physical store the events will affect what kind of capabilities the
-event component can expose and what kind of scalability and performance the event architecture will have.
-
-{{%notice warning%}}
-TODO: Verify proposed storage technology.
-{{% /notice%}}
-
-### Cosmos DB
+## Event storage
 
 Using CosmosDB gives the possibility to have "endless" number of topics/feeds based on queries.
 

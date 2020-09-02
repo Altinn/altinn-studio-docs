@@ -7,7 +7,6 @@ tags: [architecture, solution]
 
 The solution is available at https://platform.altinn.cloud/event/api/v1. 
 
-
 ### API Structure
 
 The API's will be structured so the URLs are filtered queries into the events storage.
@@ -34,7 +33,6 @@ We will use scopes from Maskinporten to authorize access. In this way, it should
 events for a given org/app.
 
 The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4551). 
-
 
 #### Party events
 
