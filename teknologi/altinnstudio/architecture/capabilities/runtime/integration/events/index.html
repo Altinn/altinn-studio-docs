@@ -10118,7 +10118,7 @@ if(host != "localhost")
     <li><a href="#overall-concept">Overall Concept</a></li>
     <li><a href="#requirments">Requirments</a></li>
     <li><a href="#event-principles-and-pattern">Event Principles and pattern</a></li>
-    <li><a href="#proposed-event-architecture">Proposed Event Architecture</a></li>
+    <li><a href="#event-architecture">Event Architecture</a></li>
     <li><a href="#delegating-access-to-events">Delegating access to events</a></li>
     <li><a href="#detailed-scenarios">Detailed Scenarios</a></li>
     <li><a href="#push-events">Push Events</a></li>
@@ -10141,19 +10141,19 @@ This is work-in-progress. The event-driven architecture is still in analysis.
 <p>The new generation of Altinn is moving to an <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">event-driven architecture</a>. 
 This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.</p>
-<p>Most components inside the Altinn Platform and Altinn Apps solutions will communicate throug syncronus http calls.</p>
+<p>Most components inside the Altinn Platform and Altinn Apps solutions will communicate through synchronous HTTP calls.</p>
 <h2 id="overall-concept">Overall Concept</h2>
 <p>In Altinn there will over time be thousands of different digital services deployed to Altinn Apps.
 Those digital services will be accessed by the citizens and the businesses in Norway.</p>
-<p>They will recieve and submitt data to/from the entity that is responsible for the digital service and others using the platform. 
+<p>They will receive and submit data to/from the entity that is responsible for the digital service and others using the platform. 
 <img src="concept.svg" alt="Event concept" title="Event concept"></p>
-<p>The event architecture would make it possible to get notified when there is events in the platform related to data that the different actors has intereset in.
-It could be anything from the digital service (app) owner beeing notified that a citizen has completed a form, to that the citizen is informed that there is a new form he need to fill out.</p>
+<p>The event architecture would make it possible to get notified when there are events in the platform related to data that the different actors have interest in.
+It could be anything from the digital service (app) owner being notified that a citizen has completed a form, to that the citizen is informed that there is a new form he needs to fill out.</p>
 <h3 id="events">Events</h3>
 <p>Events would be a combination of standard events defined by the platform and
 custom events added in an application by application developers.</p>
-<p>The events will typical only contains information about that an event has happened with a reference
-to some data that was changed because of that event. Typical the</p>
+<p>The events will typically only contain information about that an event has happened with a reference
+to some data that was changed because of that event.</p>
 <p><strong>Standard events could be</strong></p>
 <ul>
 <li>An instance is created</li>
@@ -10205,11 +10205,11 @@ TODO: Verify requirements
 <li>The architecture should support more than 10 000 publishers.</li>
 <li>The architecture should support more than 1 000 000 consumers.</li>
 <li>The architecture should support more than 500 000 000 events a year.</li>
-<li>Access to events should be authorized. Accessing a event for a party requires that the consumer has the correct role</li>
+<li>Access to events should be authorized. Accessing an event for a party requires that the consumer has the correct role</li>
 </ul>
 <p>See also <a href="https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering">Referansearkitektur for datautveksling</a></p>
 <h2 id="event-principles-and-pattern">Event Principles and pattern</h2>
-<p>During the analysis the following principles and pattern has been applied</p>
+<p>During the analysis, the following principles and pattern has been applied</p>
 <h3 id="expose-events-through-rest-api">Expose events through REST-API</h3>
 <ul>
 <li>Use of REST-API ensures low complexity for consuming events</li>
@@ -10237,17 +10237,16 @@ TODO: Verify requirements
 <ul>
 <li>Events will be available for 3 months.  (todo: needs to be verified)</li>
 </ul>
-<h2 id="proposed-event-architecture">Proposed Event Architecture</h2>
-<p>To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
-a new Events component in Altinn Platform and not expose products like Kafka or Azure Event Hub directly to external systems.</p>
+<h2 id="event-architecture">Event Architecture</h2>
+<p>As part of the Altinn 3 solutions there is defined a event architecture to support the above requirements and capabilities.</p>
 <p>The Events component will expose clean and simple REST APIs.</p>
 <h3 id="event-schema">Event Schema</h3>
 <p>The Altinn 3 will use the defined <a href="https://cloudevents.io/">CloudEvents</a> specification to describe events in Altinn Apps and Altinn Platform.</p>
 <p>The reason for choosing cloud events are</p>
 <ul>
-<li>It is a standardized and open format as prefered by our architecture principles</li>
+<li>It is a standardized and open format as preferred by our architecture principles</li>
 <li>It backed by many and The specification is now under the <a href="https://www.cncf.io/">Cloud Native Computing Foundation</a></li>
-<li>It is flexible so it would support scenarious in the future</li>
+<li>It is flexible so it would support scenarios in the future</li>
 </ul>
 <p>Below you find a offical example. <a href="https://raw.githubusercontent.com/cloudevents/spec/master/spec.json">See full JSON Schema</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
@@ -10308,17 +10307,18 @@ This attribute enables data to carry any type of content, whereby format and enc
 <h4 id="publishers">Publishers</h4>
 <p>Both different applications and components will publish events to the Event component in Altinn Platform.<br>
 Publishers will use a REST API to post new events to the event API.</p>
+<h4 id="consumers">Consumers</h4>
 <h2 id="delegating-access-to-events">Delegating access to events</h2>
 <p>There are serveral user scenarios when there is a need to delegate access to the events for a given party to another user/organisation.</p>
 <h3 id="delegating-org-access">Delegating Org access</h3>
-<p>For orgs (application owners) there might be some scenarios where they want to give access to events for a given applications.
+<p>For orgs (application owners) there might be some scenarios where they want to give access to events for a given application.
 This delegation is done through Maskinporten.</p>
 <h3 id="delegating-party-event-access">Delegating party event access</h3>
 <p>In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.</p>
 <h2 id="detailed-scenarios">Detailed Scenarios</h2>
 <h3 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h3>
-<p>In this scenario, an org is waiting on end users to complete one given app.</p>
+<p>In this scenario, an org is waiting on end-users to complete one given app.</p>
 <ol>
 <li>System (consumer) authenticates using Maskinporten and requests scope <code>altinn:events/{org}/{app}</code></li>
 <li>System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.</li>
@@ -10400,7 +10400,36 @@ important insight in to the data in the platform.</p>
 <li>Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
 timing an paralell events.</li>
 </ul>
-<h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
+<h3 id="what-is-subject">What is subject</h3>
+<h5 id="option-1--partyid">Option 1 : PartyId</h5>
+<p>The subject is a partyId. PartyId is an internal value only known for Altinn. Altinn needs to provide a API to convert from PartyId to ssn/orgnr for orgs. For parties calling they are limited to a given party so they know which party the event belongs to.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>
+}]
+</code></pre></div><h5 id="option-2--national-identifier">Option 2 : National identifier</h5>
+<p>The subject is ssn or a organization nummber or partyId. PartyId is required for self identifed users that does not have any other fixed id.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;ssn/01037712345&#34;</span>,
+</span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>
+}]
+</code></pre></div><h5 id="option-3--partyid--extension">Option 3 : PartyId + extension</h5>
+<p>The subject is a partyId. In addition there is a extension for nid (national identifier)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span>  <span style="color:#ff79c6">&#34;nid&#34;</span>: <span style="color:#f1fa8c">&#34;ssn/01037712345&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>
+}]
+</code></pre></div><h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
 <p>Events are used in different scenarios in the platform.</p>
 <ul>
 <li><strong>Instance Events</strong> - Events that happen on a given instance.
