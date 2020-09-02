@@ -408,6 +408,10 @@ The subject is a partyId. In addition there is a extension for nid (national ide
 
 Use of extensions in CloudEvent is described [here](https://github.com/cloudevents/spec/blob/master/primer.md#cloudevent-attribute-extensions)
 
+The important part is **Extension attributes to the CloudEvent specification are meant to be additional metadata that needs to be included to help ensure proper routing and processing of the CloudEvent**
+
+You could argue that this national identifier is important for processing the event and is allowed as an extension.
+
 ```json {hl_lines=[3]}
 [{
   "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
