@@ -3467,6 +3467,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">
+        <span>Authentication</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/" class="dd-item 
         
         
@@ -3717,12 +3746,12 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/" class="dd-item 
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/" class="dd-item 
         
         
         
         ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">
+      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">
         <span>Event</span>
 
         
@@ -10083,6 +10112,37 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/encryption/">Encryption</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress. See Github Issue.
+Apps hosted in Altinn Apps could cover lots of functional scenario. For statefull apps where the App store data in Altinn Platform in the Storage component, the type of data could be data that is 100% public to highly sensitive data.
+The Org that creates the App, would based on the type of data have spceial requirements for encryption to support their Confidentiality requirement for the data. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/encryption/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/encryption/">encryption</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/devops/environments/">Environments</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10142,13 +10202,14 @@ Api controllers The following API controllers are defined
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">Application architecture event component - Altinn Platform</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">Application architecture event component - Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The solution is available at https://platform.altinn.cloud/event/api/v1.
+        <p>See event capabilities for functional description of the platforms event capabilities.
+The solution is available at https://platform.altinn.cloud/event/api/v1.
 API Structure The API&rsquo;s will be structured so the URLs are filtered queries into the events storage.
 TODO: Verify proposed API structureInstances events for Org Endpoint GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged} Usage This will be used by application owners to identify changes on instances for their applications.
-Authorization We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to events for a given org/app. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
+Authorization We will use scopes from Maskinporten to authorize access. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10323,34 +10384,6 @@ Integration Libraries We use integration libraries to interact with different ex
     <section class="post-excerpt">
         <p>JWTCookieAuthentication is a ASP.NET Core authentication service created for supporting Json Web Tokens (JWT) as bearer tokens and JWT in Cookies. It is based on JWTBearer
 This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from Single Page Applications (SPA) where you want to protect the JWT from this SPA. (XSS attacks). When JWT is put in a http only cookie it is not accessible from the SPA and can&rsquo;t be stolen by malicous javascript running in the browser. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/security/jwtcookie/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/jwt-format/">JWT Format</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>JSON Web Token are an open, industry standard RFC 7519 method for representing claims securely between two parties and are choosen as the bearer of information about users and systems.
-The format that is choosen for JWT tokens is RSA256. This is a asymetric algorithm where the Authentication component in Altinn Platform generates tokens based on a private key in a certificate, and everyone can validate the token with the public key. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/jwt-format/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -11976,6 +12009,22 @@ The format that is choosen for JWT tokens is RSA256. This is a asymetric algorit
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
