@@ -4594,7 +4594,8 @@
 			</switch>
 			<rect v:rectContext="foreign" x="0" y="913.944" width="49.6535" height="33.1594" class="st15"/>
 		</g>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
+		<a
+				target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">
 			<g id="group672-1570" transform="translate(1117.37,-223.116)" v:mID="672" v:groupContext="group">
 				<title>Sheet.672</title>
 				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authorization/">
@@ -4686,7 +4687,8 @@
 		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
 			<g id="group673-1608" transform="translate(1039.41,-223.116)" v:mID="673" v:groupContext="group">
 				<title>Sheet.673</title>
-				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/authentication/">
+				<a
+						target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">
 					<g id="shape607-1609" v:mID="607" v:groupContext="shape">
 						<title>Rectangle.607</title>
 						<v:userDefs>
@@ -4730,7 +4732,8 @@
 					<text x="41.19" y="936.75" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Authentiation</text>				</g>
 			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
+		<a
+				target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">
 			<g id="group674-1628" transform="translate(1300.02,-223.116)" v:mID="674" v:groupContext="group">
 				<title>Sheet.674</title>
 				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
@@ -4777,7 +4780,8 @@
 					<text x="53.16" y="936.75" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Profile</text>				</g>
 			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/register/">
+		<a
+				target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/">
 			<g id="group675-1648" transform="translate(1441.93,-223.116)" v:mID="675" v:groupContext="group">
 				<title>Sheet.675</title>
 				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/register/">
@@ -4838,7 +4842,8 @@
 					<text x="57.64" y="936.75" class="st14" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>DSF</text>				</g>
 			</g>
 		</a>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
+		<a
+				target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/storage/">
 			<g id="group677-1674" transform="translate(1520.95,-223.116)" v:mID="677" v:groupContext="group">
 				<title>Sheet.677</title>
 				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/storage/">
@@ -5317,7 +5322,8 @@
 			</g>
 			<rect x="0" y="921.591" width="113.386" height="25.5118" class="st6"/>
 			<text x="23.48" y="937.35" class="st20" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>Confirm/Send in</text>		</g>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
+		<a
+				target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/pdf/">
 			<g id="group730-1801" transform="translate(1346.8,-223.116)" v:mID="730" v:groupContext="group">
 				<title>Sheet.730</title>
 				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
@@ -5534,7 +5540,8 @@
 			<v:textRect cx="90.7087" cy="940.016" width="181.42" height="14.1732"/>
 			<rect x="0" y="932.93" width="181.417" height="14.1732" class="st15"/>
 			<text x="4" y="943.62" class="st17" v:langID="1044"><v:paragraph/><v:tabList/>Repository</text>		</g>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
+		<a
+				target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/receipt/">
 			<g id="group833-1905" transform="translate(1393.57,-223.116)" v:mID="833" v:groupContext="group">
 				<title>Sheet.833</title>
 				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
@@ -5617,7 +5624,8 @@
 			</g>
 			<rect x="0" y="932.93" width="181.417" height="14.1732" class="st19"/>
 			<text x="71.42" y="943.02" class="st20" v:langID="1044"><v:paragraph v:horizAlign="1"/><v:tabList/>REST -API</text>		</g>
-		<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/event/">
+		<a
+				target="_top" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">
 			<g id="group846-1943" transform="translate(1253.25,-223.116)" v:mID="846" v:groupContext="group">
 				<title>Sheet.846</title>
 				<a target="_top" xlink:href="https://docs.altinn.studio/solutions/altinn-platform/profile/">
