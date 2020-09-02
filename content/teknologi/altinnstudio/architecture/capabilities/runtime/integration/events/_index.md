@@ -433,7 +433,7 @@ The ssn or orgnr is returned as part of data field. Makes other usage difficult.
     }
   }
 }]
-
+```
 
 ## Other event concepts in the platform
 
