@@ -15,26 +15,26 @@ The new generation of Altinn is moving to an [event-driven architecture](https:/
 This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
-Most components inside the Altinn Platform and Altinn Apps solutions will communicate throug syncronus http calls.  
+Most components inside the Altinn Platform and Altinn Apps solutions will communicate through synchronous HTTP calls.  
 
 ## Overall Concept
 
 In Altinn there will over time be thousands of different digital services deployed to Altinn Apps.
 Those digital services will be accessed by the citizens and the businesses in Norway. 
 
-They will recieve and submitt data to/from the entity that is responsible for the digital service and others using the platform. 
+They will receive and submit data to/from the entity that is responsible for the digital service and others using the platform. 
 ![Event concept](concept.svg "Event concept")
 
-The event architecture would make it possible to get notified when there is events in the platform related to data that the different actors has intereset in.
-It could be anything from the digital service (app) owner beeing notified that a citizen has completed a form, to that the citizen is informed that there is a new form he need to fill out.
+The event architecture would make it possible to get notified when there are events in the platform related to data that the different actors have interest in.
+It could be anything from the digital service (app) owner being notified that a citizen has completed a form, to that the citizen is informed that there is a new form he needs to fill out.
 
 ### Events
 
 Events would be a combination of standard events defined by the platform and
 custom events added in an application by application developers.
 
-The events will typical only contains information about that an event has happened with a reference
-to some data that was changed because of that event. Typical the  
+The events will typically only contain information about that an event has happened with a reference
+to some data that was changed because of that event. 
 
 **Standard events could be**
 
@@ -57,8 +57,6 @@ Events would typically have some attributes used for filtering.
 - [eventtype] - The type of event. Created, completed ++. Free text not locked to a schema.
 
 An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.
-
-
 
 ### Event Producers
 
@@ -110,14 +108,14 @@ TODO: Verify requirements
 - The architecture should support more than 10 000 publishers.
 - The architecture should support more than 1 000 000 consumers.
 - The architecture should support more than 500 000 000 events a year.
-- Access to events should be authorized. Accessing a event for a party requires that the consumer has the correct role 
+- Access to events should be authorized. Accessing an event for a party requires that the consumer has the correct role 
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
 
 
 ## Event Principles and pattern
 
-During the analysis the following principles and pattern has been applied
+During the analysis, the following principles and pattern has been applied
 
 ### Expose events through REST-API
 
@@ -144,11 +142,9 @@ During the analysis the following principles and pattern has been applied
 
  - Events will be available for 3 months.  (todo: needs to be verified)
 
+## Event Architecture
 
-## Proposed Event Architecture
-
-To reduce complexity for clients and reduce lock-in to a specific product the proposed solutions is to build
-a new Events component in Altinn Platform and not expose products like Kafka or Azure Event Hub directly to external systems.
+As part of the Altinn 3 solutions there is defined a event architecture to support the above requirements and capabilities. 
 
 The Events component will expose clean and simple REST APIs.
 
@@ -158,9 +154,9 @@ The Altinn 3 will use the defined [CloudEvents](https://cloudevents.io/) specifi
 
 The reason for choosing cloud events are
 
-- It is a standardized and open format as prefered by our architecture principles
+- It is a standardized and open format as preferred by our architecture principles
 - It backed by many and The specification is now under the [Cloud Native Computing Foundation](https://www.cncf.io/)
-- It is flexible so it would support scenarious in the future
+- It is flexible so it would support scenarios in the future
 
 
 Below you find a offical example. [See full JSON Schema](https://raw.githubusercontent.com/cloudevents/spec/master/spec.json)
@@ -248,13 +244,18 @@ The below diagram shows the different components in the proposed Event Architect
 Both different applications and components will publish events to the Event component in Altinn Platform.  
 Publishers will use a REST API to post new events to the event API.
 
+#### Consumers
+
+
+
+
 ## Delegating access to events
 
 There are serveral user scenarios when there is a need to delegate access to the events for a given party to another user/organisation.
 
 ### Delegating Org access
 
-For orgs (application owners) there might be some scenarios where they want to give access to events for a given applications.
+For orgs (application owners) there might be some scenarios where they want to give access to events for a given application.
 This delegation is done through Maskinporten.
 
 ### Delegating party event access
@@ -266,7 +267,7 @@ have for the subject of the event.
 
 ### Org waiting on ProcessComplete for a given app
 
-In this scenario, an org is waiting on end users to complete one given app.
+In this scenario, an org is waiting on end-users to complete one given app.
 
 1. System (consumer) authenticates using Maskinporten and requests scope `altinn:events/{org}/{app}`
 2. System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.
