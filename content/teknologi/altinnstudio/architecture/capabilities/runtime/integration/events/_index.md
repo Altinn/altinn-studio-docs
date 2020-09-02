@@ -369,6 +369,52 @@ This is analyzed in the following [issue](https://github.com/Altinn/altinn-studi
 - Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
 timing an paralell events.
 
+
+### What is subject
+
+
+##### Option 1 : PartyId
+
+The subject is a partyId. PartyId is an internal value only known for Altinn. Altinn needs to provide a API to convert from PartyId to ssn/orgnr for orgs. For parties calling they are limited to a given party so they know which party the event belongs to.
+
+```json {hl_lines=[3]}
+[{
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party/234234422",
+  "type": "instance.created",
+  "time": "2020-02-20T08:00:06.4014168Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+}]
+```
+
+##### Option 2 : National identifier
+
+The subject is ssn or a organization nummber or partyId. PartyId is required for self identifed users that does not have any other fixed id. 
+
+```json {hl_lines=[3]}
+[{
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "ssn/01037712345",
+  "type": "instance.created",
+  "time": "2020-02-20T08:00:06.4014168Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+}]
+```
+##### Option 3 : PartyId + extension
+
+The subject is a partyId. In addition there is a extension for nid (national identifier)
+
+```json {hl_lines=[3]}
+[{
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party/234234422",
+  "nid": "ssn/01037712345",
+  "type": "instance.created",
+  "time": "2020-02-20T08:00:06.4014168Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+}]
+```
+
 ## Other event concepts in the platform
 
 Events are used in different scenarios in the platform.
