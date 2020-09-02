@@ -377,6 +377,8 @@ timing an paralell events.
 
 The subject is a partyId. PartyId is an internal value only known for Altinn. Altinn needs to provide a API to convert from PartyId to ssn/orgnr for orgs. For parties calling they are limited to a given party so they know which party the event belongs to.
 
+In the future if there is events related to subject that does not have a partyId in Altinn we could use another identificator in addition. 
+
 ```json {hl_lines=[3]}
 [{
   "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
@@ -414,6 +416,24 @@ The subject is a partyId. In addition there is a extension for nid (national ide
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
 }]
 ```
+
+##### Option 4 : Use of data
+
+The ssn or orgnr is returned as part of data field. Makes other usage difficult. 
+
+```json {hl_lines=[3]}
+[{
+  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "subject": "party/234234422",
+  "type": "instance.created",
+  "time": "2020-02-20T08:00:06.4014168Z",
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+  "data":"{
+    "nid": "ssn/01037712345"
+    }
+  }
+}]
+
 
 ## Other event concepts in the platform
 
