@@ -239,14 +239,8 @@ The below diagram shows the different components in the proposed Event Architect
 
 ![Event architecture diagram](event_architecture_custom.svg "Altinn Event Architecture")
 
-#### Publishers
-
-Both different applications and components will publish events to the Event component in Altinn Platform.  
-Publishers will use a REST API to post new events to the event API.
-
-#### Consumers
-
-
+More details can be in [solutions components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/) with detailed API info of event component 
+and in [construction components](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/) you find the technical details how the components are constructed.
 
 
 ## Delegating access to events
