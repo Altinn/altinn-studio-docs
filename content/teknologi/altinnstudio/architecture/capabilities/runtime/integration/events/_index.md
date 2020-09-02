@@ -404,7 +404,9 @@ The subject is ssn or a organization nummber or partyId. PartyId is required for
 ```
 ##### Option 3 : PartyId + extension
 
-The subject is a partyId. In addition there is a extension for nid (national identifier)
+The subject is a partyId. In addition there is a extension for nid (national identifier).
+
+Use of extensions in CloudEvent is described [here](https://github.com/cloudevents/spec/blob/master/primer.md#cloudevent-attribute-extensions)
 
 ```json {hl_lines=[3]}
 [{
