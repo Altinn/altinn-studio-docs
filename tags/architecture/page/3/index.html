@@ -3409,35 +3409,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">
-        <span>Profile</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/" class="dd-item 
         
         
@@ -3753,6 +3724,35 @@ if(host != "localhost")
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">
         <span>Event</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">
+        <span>Profile</span>
 
         
 
@@ -10112,12 +10112,68 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">Application architecture authentication component - Altinn Platform</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/">Architecture for Altinn 3</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The solution is available at https://platform.altinn.cloud/authentication/api/v1.
-Authenticate user The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
-GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a JWT token from an external token provider Accepted providers include: maskinporten and id-porten. Request must include a bearer token in the authorization header. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
+        <p>How is the architecture documented? The non functional and functional requirements have given input to which devops and runtime capabilities that is needed in the solutions. It also have given input which type of components that is needed to implement the capabilities.
+The Architecture Principles and Architecture Patterns has been decided based on requirements and other goals with the new solutions. The Principles and patterns has been deciding factors how the components implements the capabilities needed. <a class="read-more" href="/teknologi/altinnstudio/architecture/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/">Authentication Capabilities</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn Studio Developer authentication The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea.
+The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea.
+Git repo authentication When users tries to update the Git-repo where source files for the app is stored it needs to authenticate against the Git-repo.
+This can be done through using a App Key generated in Gitea or using the username/password for the Gitea account. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">Application construction components - Altinn Platform Authentication</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The application runs on port 5040. See full details in dockerfile
+Api Controllers  Authentication : Functionality to convert the different ID-tokens from ID providers OpenID : Contains well known endpoint Organization : TODO. is this needed  Dependencies Authentication component take use of libraries for OpenID connect to create and validate JWT tokens.
+See full list of dependencies in csproj. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10205,35 +10261,6 @@ Policy Decision Point - PDP This is implemented as a separate class library This
 Policy Retrieval Point - PRP Policy Retrieval Point component that stores authorization policies for applications.
 The policies are stored as XACML (xml) documents in a blob storage.
 When an authorization request is received to PDP, PRP identifies the correct policy document in the policy storage. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This page is a work-in-progress. Currently we haven't defined all the resources and operations for the authorization component.The Authorization component exposes a REST-API to Altinn Apps. Use the authorization API to manage authorizations in altinn platform.
-Resources: Actor, Roles
-Parties A party is a person whom you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10363,34 +10390,6 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">Computing componentens</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Cloud Compute Container Orchestration Nodes As part of Azure Kubernetes Services setup you can change the number of nodes and the size. (CPU, RAM )
-Virtual Images We use Virtual Images hosted in Azure. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
 
@@ -12048,22 +12047,6 @@ Virtual Images We use Virtual Images hosted in Azure. <a class="read-more" href=
           
                               
                               
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                                   
                               
                               
@@ -12180,6 +12163,22 @@ Virtual Images We use Virtual Images hosted in Azure. <a class="read-more" href=
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   

@@ -3409,35 +3409,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">
-        <span>Profile</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/" class="dd-item 
         
         
@@ -3753,6 +3724,35 @@ if(host != "localhost")
         ">
       <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">
         <span>Event</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/">
+        <span>Profile</span>
 
         
 
@@ -10112,14 +10112,14 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/app/">Solution-specific application components for App based on ASP.Net template</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The authorization component consists of several parts. For a functional description see details in application solution components.
-Policy Decision Point - PDP This is implemented as a separate class library This is published to Nuget.
-Policy Retrieval Point - PRP Policy Retrieval Point component that stores authorization policies for applications.
-The policies are stored as XACML (xml) documents in a blob storage.
-When an authorization request is received to PDP, PRP identifies the correct policy document in the policy storage. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
+        <p>Functionality in Altinn Apps are located in the Apps deployed to the Altinn Apps functionality.
+This functionality depends on what kind of application template the app is based on and what the app developer have added in addition.
+
+Instanstation The app has instansiation functionality that presents the user for a list over alternative parties that he can select to instansiate a app for.
+The app developer can add instansiation controll that veriy the type of party selected. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/app/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10143,12 +10143,43 @@ When an authorization request is received to PDP, PRP identifies the correct pol
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">Application construction components - Altinn Platform Authentication</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>This page is a work-in-progress. Currently we haven't defined all the resources and operations for the authorization component.The Authorization component exposes a REST-API to Altinn Apps. Use the authorization API to manage authorizations in altinn platform.
-Resources: Actor, Roles
-Parties A party is a person whom you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">&raquo;</a></p>
+        <p>The application runs on port 5040. See full details in dockerfile
+Api Controllers  Authentication : Functionality to convert the different ID-tokens from ID providers OpenID : Contains well known endpoint Organization : TODO. is this needed  Dependencies Authentication component take use of libraries for OpenID connect to create and validate JWT tokens.
+See full list of dependencies in csproj. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">Application construction components - Altinn Platform Authorization</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The authorization component consists of several parts. For a functional description see details in application solution components.
+Policy Decision Point - PDP This is implemented as a separate class library This is published to Nuget.
+Policy Retrieval Point - PRP Policy Retrieval Point component that stores authorization policies for applications.
+The policies are stored as XACML (xml) documents in a blob storage.
+When an authorization request is received to PDP, PRP identifies the correct policy document in the policy storage. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10270,37 +10301,6 @@ Manual &amp; Automated Test Tools Functional Test  Automated browser testing and
 When a publish request is received it will push the event document to the event storage. When a request is received it will query the events stored in the event storage.
 Api controllers The following API controllers are defined
  InstanceEvents PartyEvents  Event storage Using CosmosDB gives the possibility to have &ldquo;endless&rdquo; number of topics/feeds based on queries. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/event/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">Application architecture event component - Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>See event capabilities for functional description of the platforms event capabilities.
-The solution is available at https://platform.altinn.cloud/event/api/v1.
-API Structure The API&rsquo;s will be structured so the URLs are filtered queries into the events storage.
-TODO: Verify proposed API structureInstances events for Org Endpoint GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged} Usage This will be used by application owners to identify changes on instances for their applications.
-Authorization We will use scopes from Maskinporten to authorize access. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/event/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -12058,22 +12058,6 @@ The available endpoints can be seen in the swagger definition.. <a class="read-m
           
                               
                               
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                                   
                               
                               
@@ -12190,6 +12174,22 @@ The available endpoints can be seen in the swagger definition.. <a class="read-m
                               
                       
                   
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
                               
                       
                   
