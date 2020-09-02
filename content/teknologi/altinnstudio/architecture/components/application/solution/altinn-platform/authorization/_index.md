@@ -4,6 +4,7 @@ linktitle: Authorization
 description: Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information.
 tags: [architecture, solution]
 toc: true
+weight: 102
 ---
 
 {{%notice warning%}}
