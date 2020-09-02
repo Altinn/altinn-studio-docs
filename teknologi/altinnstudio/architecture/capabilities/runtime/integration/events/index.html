@@ -10124,6 +10124,7 @@ if(host != "localhost")
     <li><a href="#push-events">Push Events</a></li>
     <li><a href="#event-analytics">Event Analytics</a></li>
     <li><a href="#open-clarification">Open Clarification</a></li>
+    <li><a href="#other-event-concepts-in-the-platform">Other event concepts in the platform</a></li>
   </ul>
 </nav>
           
@@ -10442,17 +10443,15 @@ timing an paralell events.</li>
     }
   }
 }]
+</code></pre></div><h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
+<p>Events are used in different scenarios in the platform.</p>
+<ul>
+<li><strong>Instance Events</strong> - Events that happen on a given instance.
+It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
+<li><strong>Application logic events</strong> - These are events where app developers could implement logic to get a specific behavior.
+Calculation, validation ++ This type of event is probably not relevant to push to the event feed.</li>
+</ul>
 
-
-## Other event concepts in the platform
-
-Events are used in different scenarios in the platform.
-
-- **Instance Events** - Events that happen on a given instance.
-  It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
-- **Application logic events** - These are events where app developers could implement logic to get a specific behavior.
-  Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
-</code></pre></div>
 
 <footer class=" footline" >
 	
