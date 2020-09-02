@@ -10124,7 +10124,6 @@ if(host != "localhost")
     <li><a href="#push-events">Push Events</a></li>
     <li><a href="#event-analytics">Event Analytics</a></li>
     <li><a href="#open-clarification">Open Clarification</a></li>
-    <li><a href="#other-event-concepts-in-the-platform">Other event concepts in the platform</a></li>
   </ul>
 </nav>
           
@@ -10403,6 +10402,7 @@ timing an paralell events.</li>
 <h3 id="what-is-subject">What is subject</h3>
 <h5 id="option-1--partyid">Option 1 : PartyId</h5>
 <p>The subject is a partyId. PartyId is an internal value only known for Altinn. Altinn needs to provide a API to convert from PartyId to ssn/orgnr for orgs. For parties calling they are limited to a given party so they know which party the event belongs to.</p>
+<p>In the future if there is events related to subject that does not have a partyId in Altinn we could use another identificator in addition.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
   <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
@@ -10429,15 +10429,30 @@ timing an paralell events.</li>
   <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>
 }]
-</code></pre></div><h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
-<p>Events are used in different scenarios in the platform.</p>
-<ul>
-<li><strong>Instance Events</strong> - Events that happen on a given instance.
-It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed.</li>
-<li><strong>Application logic events</strong> - These are events where app developers could implement logic to get a specific behavior.
-Calculation, validation ++ This type of event is probably not relevant to push to the event feed.</li>
-</ul>
+</code></pre></div><h5 id="option-4--use-of-data">Option 4 : Use of data</h5>
+<p>The ssn or orgnr is returned as part of data field. Makes other usage difficult.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+  <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
+</span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
+  <span style="color:#ff79c6">&#34;data&#34;</span>:<span style="color:#f1fa8c">&#34;{
+</span><span style="color:#f1fa8c">    &#34;</span>nid<span style="color:#f1fa8c">&#34;: &#34;</span>ssn/<span style="color:#bd93f9">01037712345</span>&#34;
+    }
+  }
+}]
 
+
+## Other event concepts in the platform
+
+Events are used in different scenarios in the platform.
+
+- **Instance Events** - Events that happen on a given instance.
+  It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
+- **Application logic events** - These are events where app developers could implement logic to get a specific behavior.
+  Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
+</code></pre></div>
 
 <footer class=" footline" >
 	
