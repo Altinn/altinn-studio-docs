@@ -275,10 +275,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/rest/</loc>
   </url>
   
@@ -292,6 +288,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/slide/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/</loc>
   </url>
   
   <url>
@@ -355,7 +355,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/</loc>
   </url>
   
   <url>
@@ -372,6 +380,14 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-restorage/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/storage/</loc>
   </url>
   
   <url>
@@ -708,10 +724,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/</loc>
   </url>
   
   <url>
@@ -1075,10 +1087,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/tags/nuget/</loc>
   </url>
   
@@ -1343,10 +1351,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/tags/solution/</loc>
   </url>
   
@@ -1364,10 +1368,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/storage/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/storage/</loc>
   </url>
   
   <url>
