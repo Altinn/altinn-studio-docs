@@ -194,7 +194,7 @@ This will be used for socical secuirty number, organization number or other iden
 
 Currently this can be
 
-- ssn : socical security number (11 digits)
+- ssn : social security number (11 digits)
 - orgno: organization number (9 digits)
 
 The value will be prefixed
@@ -241,7 +241,7 @@ A user/system has completed the process for an instance.
   "type": "instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-    "ssid": "orgno:974760673"
+  "ssid": "orgno:974760673"
 }]
 ```
 

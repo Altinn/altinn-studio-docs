@@ -4,6 +4,7 @@ linktitle: Principles
 description: The Architecture Principles are guidelines for the construction of the architecture.
 toc: true
 tags: [architecture]
+weight: 6
 ---
 
 The following architecture principles has been defined for the solutions. 
