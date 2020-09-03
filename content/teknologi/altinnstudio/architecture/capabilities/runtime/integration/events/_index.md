@@ -189,17 +189,28 @@ Below you find a offical example. [See full JSON Schema](https://raw.githubuserc
 - `data`: Optional. Can contain a structure of data specific for an event type.
 
 
-##### Example 1
+In addition to the spec there is added subject secondary identifier (ssid) as an extension to the event model.
+This will be used for socical secuirty number, organization number or other identifier in addition to the partyId found in subject property.
+
+Currently this can be
+
+- ssn : socical security number (11 digits)
+- orgno: organization number (9 digits)
+
+The value will be prefixed
+
+#### Example 1
 
 A instance has been created for a given party. It is not possible from the event itself to know who did it.
 
 ```json {hl_lines=[3]}
 [{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "party/234234422",
+  "source":  "skd/skattemelding/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd",
+  "subject": "party/1234324",
   "type": "instance.created",
   "time": "2020-02-20T08:00:06.4014168Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+  "ssid": "ssn:01038712345"
 }]
 ```
 
@@ -214,7 +225,8 @@ A user has completed the confirmation1 task in the process.
   "subject": "party/234234422",
   "type": "instance.process.taskcompleted.confirmation1",
   "time": "2020-03-16T10:23:46.6443563Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+  "ssid": "orgno:974760673"
 }]
 ```
 
@@ -228,7 +240,8 @@ A user/system has completed the process for an instance.
   "subject": "party/234234422",
   "type": "instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+    "ssid": "orgno:974760673"
 }]
 ```
 
@@ -358,82 +371,8 @@ Example
 This is analyzed in the following [issue](https://github.com/Altinn/altinn-studio/issues/4555)
 
 ## Open Clarification
-
-- Is partyID ok for the consumer to be returned? (need to call service to map to orgnr/ssn)
 - Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
 timing an paralell events.
-
-
-### What is subject
-
-
-##### Option 1 : PartyId
-
-The subject is a partyId. PartyId is an internal value only known for Altinn. Altinn needs to provide a API to convert from PartyId to ssn/orgnr for orgs. For parties calling they are limited to a given party so they know which party the event belongs to.
-
-In the future if there is events related to subject that does not have a partyId in Altinn we could use another identificator in addition. 
-
-```json {hl_lines=[3]}
-[{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "party/234234422",
-  "type": "instance.created",
-  "time": "2020-02-20T08:00:06.4014168Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
-}]
-```
-
-##### Option 2 : National identifier
-
-The subject is ssn or a organization nummber or partyId. PartyId is required for self identifed users that does not have any other fixed id. 
-
-```json {hl_lines=[3]}
-[{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "ssn/01037712345",
-  "type": "instance.created",
-  "time": "2020-02-20T08:00:06.4014168Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
-}]
-```
-##### Option 3 : PartyId + extension
-
-The subject is a partyId. In addition there is a extension for nid (national identifier).
-
-Use of extensions in CloudEvent is described [here](https://github.com/cloudevents/spec/blob/master/primer.md#cloudevent-attribute-extensions)
-
-The important part is **Extension attributes to the CloudEvent specification are meant to be additional metadata that needs to be included to help ensure proper routing and processing of the CloudEvent**
-
-You could argue that this national identifier is important for processing the event and is allowed as an extension.
-
-```json {hl_lines=[3]}
-[{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "party/234234422",
-  "nid": "ssn/01037712345",
-  "type": "instance.created",
-  "time": "2020-02-20T08:00:06.4014168Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
-}]
-```
-
-##### Option 4 : Use of data
-
-The ssn or orgnr is returned as part of data field. Makes other usage difficult. 
-
-```json {hl_lines=[3]}
-[{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
-  "subject": "party/234234422",
-  "type": "instance.created",
-  "time": "2020-02-20T08:00:06.4014168Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "data":"{
-    "nid": "ssn/01037712345"
-    }
-  }
-}]
-```
 
 ## Other event concepts in the platform
 
