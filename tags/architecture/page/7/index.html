@@ -1094,6 +1094,64 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/principles/">
+        <span>Principles</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/patterns/">
+        <span>Patterns</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/" class="dd-item 
         
         
@@ -4579,64 +4637,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/patterns/">
-        <span>Patterns</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/principles/">
-        <span>Principles</span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -10112,12 +10112,40 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">Policy Administration Point</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/">Operating Systems &amp; Cloud Platform</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
-Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organisation new rights.
-Authorization - Altinn Apps - PolicyDescription of the XACML Policy defined for a app. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
+        <p>Operating systems Container Operation Systems All containers are running on Alpine Linux, which includes apps created in Altinn Studio and the Altinn Platform components.
+Cloud Platform Orchestrating &amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.
+We use Azure Kubernetes Services that is a managed Kubernetes administration in Azure.
+Read more about our Kubernetes Clusters.
+Service Mesh &amp; Proxy We use Traefik as proxy in Kubernetes and Linkerd as service mesh. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pap/">Policy Administration Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The rules for apps is defined in Altinn Studio when developing the app. The rules for this is defined by XACML. See XACML for details.
+Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organisation new rights. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10141,15 +10169,12 @@ Delegation of rights is performed in Altinn II platform. When delegation is done
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/patterns/">Architecture Patterns</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">Policy Administration Point</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Cloud Native The solutions are designed and built to be &ldquo;Cloud Native&rdquo;, meaning it is built be scalable applications hosted in public cloud.
-There is serveral Architecture Patterns that Cloud Native applications are built on.
-Containers, microservices and declarative APIs exemplify this approach.
-These techniques enable loosely coupled components that are resilient, manageable, and observable.
-Combined with robust automation, they allow the devops team to make changes frequently.
-The Cloud Native blueprint below show the important aspect of a Cloud Native solution. <a class="read-more" href="/teknologi/altinnstudio/architecture/patterns/">&raquo;</a></p>
+        <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
+Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organisation new rights.
+Authorization - Altinn Apps - PolicyDescription of the XACML Policy defined for a app. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10159,6 +10184,8 @@ The Cloud Native blueprint below show the important aspect of a Cloud Native sol
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
 
@@ -10370,35 +10397,6 @@ Resource Attributes    Attribute Description     Org The org part of the resourc
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">Presentation (User Interface) Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing.
-These capabilities is both targeting App developers creating applications in Altinn Studio and the application created in Altinn Studio and Deployed to Altinn Apps for end users.
-Rendering &amp; Interaction Capabilities Composition The app developer may create the layout of the App UI using Altinn Studio. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
 
@@ -10932,6 +10930,38 @@ Rendering &amp; Interaction Capabilities Composition The app developer may creat
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -12584,38 +12614,6 @@ Rendering &amp; Interaction Capabilities Composition The app developer may creat
                               
                       
                   
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   

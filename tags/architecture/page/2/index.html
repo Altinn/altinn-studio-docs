@@ -1094,6 +1094,64 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/principles/">
+        <span>Principles</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/patterns/">
+        <span>Patterns</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/" class="dd-item 
         
         
@@ -4579,64 +4637,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/patterns/">
-        <span>Patterns</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/principles/">
-        <span>Principles</span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -10112,6 +10112,123 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">Attribute Based Access Control</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn Platform has a attribute based access control (ABAC).
+In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The Authorization Component contains a large part of the authorization architecture components.
+Authorization Architecture Components The authorization architecture for Altinn Platform are based on the XACML reference architecture.
+This architecture defines the following components. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/accesstoken/">Access Token</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn Studio The designer application creates a JWT based Access Token based on a certificate that designer has available when running in the Altinn Studio Kubernetes Cluster. The different Altinn Studio environments have their own certificate.
+This makes it possible for each Altinn Platform environment to configure which Altinn Studio environment that is allowed to deploy and modify applications in that specific environment.
+The token is generated with help of the Access Token generator and this is generated for each call designer are doing aginst the platform solution for Storage and Authorization. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/accesstoken/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/">Solution-specific application components Altinn Apps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Functionality in Altinn Apps are located in the apps deployed to the Altinn Apps functionality.
+This functionality depends on what kind of application template the app is based on and what the app developer have added in addition. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/">Application construction components for Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>See below for application contruction components for the different components in Altinn Platform.
+Application construction components - Altinn Platform AuthenticationThe authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
+Application construction components - Altinn Platform AuthorizationThe authorization component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/">Solution-specific application components Altinn Platform</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10275,116 +10392,6 @@ Altinn.App.Api The REST-APIS are implemented in different web-api-controllers an
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/app-backend/">app-backend</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/">Application build &amp; deploy capabilties</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Altinn Apps is the solution where all the apps developed in Altinn Studio is deployed. The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Apps.
-Download as Visio.
-Container Orchestration by Kubernetes Each app created in Altinn Studio is deployed to Altinn Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes.
-The Altinn App is deployed as sets of Docker Containers defined as Kubernetes Deployment. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/">Application development capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Code Creation Altinn Studio lets the application developer create custom code in the Application.
-With help of third party IDE like Visual Studio Code , the developer can create code from local development machine.
-Process definition The process defintion is defined in a BPMN 2.0 file located in the app repository. To change the process the app developer need to modify the BPNM file manually.
-Later Altinn Studio will support creating and updating process through GUI. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/">App Frontend Application Architecture</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>App Frontend is a Single Page Application built using React + Redux.
-This application is responsible for presenting a UI to the end user. The application consists of several different features that are responsible for handling the UI for different steps in the workflow.
-The app frontend is automatically built and deployed to a CDN, and is versioned using semantic versioning. Each App developed in Altinn Studio will reference the app frontend, which will be served by the CDN. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/">Application Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Application Construction ComponentsApplication Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.
-Non-Solution-SpecificNon-Solution-Specific Application components refer to all components other than the core solution or solution-specific Application typical used for devops.
-Solution-Specific (functional) Application ComponentsSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
         
 
@@ -10918,6 +10925,38 @@ The app frontend is automatically built and deployed to a CDN, and is versioned 
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -12570,38 +12609,6 @@ The app frontend is automatically built and deployed to a CDN, and is versioned 
                               
                       
                   
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   

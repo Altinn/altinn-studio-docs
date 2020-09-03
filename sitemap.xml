@@ -51,11 +51,27 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/principles/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/patterns/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/universell-utforming/</loc>
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/</loc>
   </url>
   
   <url>
@@ -519,10 +535,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/application-metadata/</loc>
   </url>
   
@@ -656,10 +668,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/calculationhandler/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/</loc>
   </url>
   
   <url>
@@ -1095,10 +1103,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/patterns/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/swagger/pdf/</loc>
   </url>
   
@@ -1152,10 +1156,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/principles/</loc>
   </url>
   
   <url>

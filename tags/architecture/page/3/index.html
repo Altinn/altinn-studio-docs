@@ -1094,6 +1094,64 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/principles/">
+        <span>Principles</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/patterns/">
+        <span>Patterns</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/" class="dd-item 
         
         
@@ -4579,64 +4637,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/patterns/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/patterns/">
-        <span>Patterns</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/architecture/principles/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/principles/">
-        <span>Principles</span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -10112,6 +10112,89 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/">Application build &amp; deploy capabilties</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn Apps is the solution where all the apps developed in Altinn Studio is deployed. The following diagram shows the deployment architecture for Altinn Studio together &amp; Altinn Apps.
+Download as Visio.
+Container Orchestration by Kubernetes Each app created in Altinn Studio is deployed to Altinn Apps as separate applications running in Docker Containers. The containers will be orchestrated by Kubernetes.
+The Altinn App is deployed as sets of Docker Containers defined as Kubernetes Deployment. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/">Application development capabilities</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Code Creation Altinn Studio lets the application developer create custom code in the Application.
+With help of third party IDE like Visual Studio Code , the developer can create code from local development machine.
+Process definition The process defintion is defined in a BPMN 2.0 file located in the app repository. To change the process the app developer need to modify the BPNM file manually.
+Later Altinn Studio will support creating and updating process through GUI. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/">App Frontend Application Architecture</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>App Frontend is a Single Page Application built using React + Redux.
+This application is responsible for presenting a UI to the end user. The application consists of several different features that are responsible for handling the UI for different steps in the workflow.
+The app frontend is automatically built and deployed to a CDN, and is versioned using semantic versioning. Each App developed in Altinn Studio will reference the app frontend, which will be served by the CDN. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/">Architecture for Altinn 3</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10300,94 +10383,6 @@ There is different solutions for the different data stores. <a class="read-more"
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/">Build &amp; Test Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Below list the capabilities with a short description and possible link to the different components providing that capability.
-Software Generation Capabilties Code &amp; Config Writing Capability Most of our code is written manually.
-See development application components to get a overview over tools and application we use.
-Build &amp; Integration Enablement Capabilities Software Compilation &amp; Validation The project uses .Net, Java or Typescript compilers.
-Sofware Linking &amp; Packaging The project has the capability to build packages. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/">Architecture Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Functional capabilities is described in the functional description of the solutions.
-Development &amp; Operations CapabiltiesThe development &amp; operations architecture capabilities list the capabilities used to develop and operate Altinn Studio, Altinn Apps and Altinn Platform.
-Runtime arhictecture capabilitiesThe runtime (execution) capabilities desribes the provided capabilites by the architecture components at runtime.
- <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/">Architecture Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Components relationship The figure below shows the relationship between the different componentes in the technical architecture and the capabilities they provide.
-
-Application ComponentsThe Application Components is split in to solution-specific application components, application construction components and non-solution application components.
-Data ComponentsData is the most important part of the solutions in Altinn.
-Infrastructure componentsThis documentation contains details about infrastructure components used in the different solutions. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
@@ -10923,6 +10918,38 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
           
                               
                               
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
                                   
                               
                               
@@ -12575,38 +12602,6 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
                               
                       
                   
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   
