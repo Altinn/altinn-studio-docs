@@ -95,7 +95,7 @@ The topic and subject would be used to identify the correct XACML-policy to use.
 The operation would be read and the proccess task will be set to `null`.
 This way there would be no need to verify the current state of an instance.
 
-From the examples above we have this example
+We have this example
 
 ```json {hl_lines=[4]}
 [{
@@ -103,7 +103,8 @@ From the examples above we have this example
   "subject": "party/234234422",
   "type": "instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
-  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14"
+  "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+  "ssid":"orgno:974760673"
 }]
 ```
 

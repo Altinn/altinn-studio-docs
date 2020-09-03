@@ -4,6 +4,7 @@ linktitle: Storage
 description: Storage provides persistent storage service for applications in Altinn.
 tags: [architecture, solution, platform]
 toc: true
+weight: 108
 ---
 
 The Storage component exposes a REST-API to Altinn Apps.

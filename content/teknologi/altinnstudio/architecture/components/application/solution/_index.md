@@ -3,6 +3,7 @@ title: Solution-Specific (functional) Application Components
 linktitle: Solution
 description: Solution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.
 tags: [solution, architecture]
+weight: 100
 ---
 
 Functionality in Altinn is distributed between five different solutions
