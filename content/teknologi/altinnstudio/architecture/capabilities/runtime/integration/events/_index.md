@@ -210,7 +210,7 @@ A instance has been created for a given party. It is not possible from the event
   "type": "instance.created",
   "time": "2020-02-20T08:00:06.4014168Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "fnr:01038712345"
+  "alternativesubject": "fnr/01038712345"
 }]
 ```
 
@@ -226,7 +226,7 @@ A user has completed the confirmation1 task in the process.
   "type": "instance.process.taskcompleted.confirmation1",
   "time": "2020-03-16T10:23:46.6443563Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "orgno:974760673"
+  "alternativesubject": "orgno/974760673"
 }]
 ```
 
@@ -241,7 +241,7 @@ A user/system has completed the process for an instance.
   "type": "instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "orgno:974760673"
+  "alternativesubject": "orgno/974760673"
 }]
 ```
 
