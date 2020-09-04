@@ -8,7 +8,7 @@ aliases:
 ---
 
 {{%notice warning%}}
-This is work-in-progress. The event-driven architecture is still in analysis.
+This is work-in-progress. Things may change
 {{% /notice%}}
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
@@ -189,7 +189,7 @@ Below you find a offical example. [See full JSON Schema](https://raw.githubuserc
 - `data`: Optional. Can contain a structure of data specific for an event type.
 
 
-In addition to the spec there is added subject secondary identifier (ssid) as an extension to the event model.
+In addition to the spec there is added subject secondary identifier (ssid) as an [extension](https://github.com/cloudevents/spec/blob/master/primer.md#cloudevent-attribute-extensions) to the event model.
 This will be used for socical secuirty number, organization number or other identifier in addition to the partyId found in subject property.
 
 Currently this can be
@@ -358,6 +358,8 @@ This has not been detailed yet but the solution could contain:
 - User can set up a notification SMS number to get a notification about events.
 - There can be a mobile app that can listen to push notifcations.
 
+See details in [this Github issue](https://github.com/Altinn/altinn-studio/issues/4728)
+
 ## Event Analytics
 
 With a new event architecture it is possible imagine that we can run analytics on the events to give
@@ -370,6 +372,13 @@ Example
 
 This is analyzed in the following [issue](https://github.com/Altinn/altinn-studio/issues/4555)
 
+## Altinn Platform Events as a national event hub
+
+The event capabilities in Altinn Platform is possible to use outside Altinn Apps and Altinn Platform similar to
+how Altinn Authorization is used by external wihout deploying any digital services to the platform.
+
+How this should work is not analyzed and specified yet. The isse is found [here](https://github.com/Altinn/altinn-studio/issues/4727)
+
 ## Open Clarification
 - Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
 timing an paralell events.
@@ -379,6 +388,6 @@ timing an paralell events.
 Events are used in different scenarios in the platform.
 
 - **Instance Events** - Events that happen on a given instance.
-  It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. 
+  It could be created, saved, ++ This is stored to cosmos DB. The number of details in these events is higher than we would put on an event feed. See [Instance Events](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/storage/#instanceevent) in Storage
 - **Application logic events** - These are events where app developers could implement logic to get a specific behavior.
   Calculation, validation ++ This type of event is probably not relevant to push to the event feed.  
