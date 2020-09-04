@@ -3,6 +3,7 @@ title: Runtime arhictecture capabilities
 linktitle: Runtime
 description: The runtime (execution) capabilities desribes the provided capabilites by the architecture components at runtime.
 tags: [architecture]
+weight: 8
 ---
 
 The Runtime (exceution) Architecture supports applications at run-time. 
