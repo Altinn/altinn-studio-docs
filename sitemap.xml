@@ -71,11 +71,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/design/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/</loc>
   </url>
   
   <url>
@@ -815,10 +823,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/docker/</loc>
   </url>
   
@@ -1304,10 +1308,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/rule-handler/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/</loc>
   </url>
   
   <url>
