@@ -7,7 +7,7 @@
 
 
     
-    <title>Automated test app :: Altinn digitalisering - Utvikling</title>
+    <title>App for automated test :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -6030,7 +6030,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/test/automated-test-app/">
-        <span>Automated test app</span>
+        <span>App for automated test</span>
 
         
 
@@ -10067,7 +10067,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/test/'>Test</a> <span class='adocs-breadcrumb-divider'> / </span> Automated test app
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/test/'>Test</a> <span class='adocs-breadcrumb-divider'> / </span> App for automated test
 
  
 
@@ -10099,7 +10099,7 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Automated test app
+                App for automated test
                 
               </h1>
               <p class="a-leadText" id="leadText">An app used solely for automated testing in the browser</p>
@@ -10116,86 +10116,55 @@ if(host != "localhost")
 
 <p><a href="#rules">Rules</a></p>
 <p><a href="#conditional-rules">Conditional rules</a></p>
-<p><a href="#validation">Validation</a></p>
-<p><a href="#api-connections">API connections</a></p>
-<h2 id="automated-test-apphttpsdevaltinnstudiodesignertddautomatedtest"><a href="https://dev.altinn.studio/designer/tdd/automatedtest">Automated test app</a></h2>
+<p><a href="#prefill">Prefill</a></p>
+<h2 id="change-of-name-apphttpsdevaltinnstudiodesignertddendring-av-navn-v2"><a href="https://dev.altinn.studio/designer/tdd/endring-av-navn-v2">Change of name app</a></h2>
 <p>This is an app which should only be used to run automated tests against.
 It contains these components:</p>
 <ul>
 <li>Title</li>
-<li>Paragraph</li>
 <li>Input</li>
 <li>Textarea</li>
 <li>Checkbox</li>
 <li>Radio button</li>
 <li>Attachment</li>
 <li>Datepicker</li>
-<li>Address</li>
-<li>API
-<ul>
-<li>Bring postnummer API</li>
-</ul>
-</li>
 <li>Button</li>
 </ul>
-<p>All the components are connected to the <a href="./automatedtest.xsd">datamodel</a>.</p>
 <hr>
 <h3 id="rules">Rules</h3>
-<p>In the input field with the label <em>Kort svar komponent (dynamics) for automatisert testing</em>, write a year there (i.e. 2019)
-and the datepicker below with the label <em>Dato komponent (dynamics) for automatisert testing</em> should be filled with 01-01-2019.
+<p>The rules appends the text from the text feilds for new first, middle and last name and displays in a new field.
 The relevant code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">beregnStartdato<span style="color:#ff79c6">:</span> (obj) =&gt; {
-    <span style="color:#ff79c6">return</span> obj.regnskapsaar.concat(<span style="color:#f1fa8c">&#34;-01-01&#34;</span>);
-}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> nyttNavn<span style="color:#ff79c6">:</span> (obj) =&gt; {
+        obj.fornavn <span style="color:#ff79c6">=</span> obj.fornavn <span style="color:#ff79c6">?</span> obj.fornavn <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39; &#39;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+        obj.mellomnavn <span style="color:#ff79c6">=</span> obj.mellomnavn <span style="color:#ff79c6">?</span> obj.mellomnavn <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39; &#39;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+        obj.etternavn <span style="color:#ff79c6">=</span> obj.etternavn <span style="color:#ff79c6">?</span> obj.etternavn <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+        <span style="color:#ff79c6">return</span> obj.fornavn <span style="color:#ff79c6">+</span> obj.mellomnavn <span style="color:#ff79c6">+</span> obj.etternavn;
+    }
 
-beregnStartdato<span style="color:#ff79c6">:</span> () =&gt; {
-    <span style="color:#ff79c6">return</span> {
-        regnskapsaar<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;regnskapsår&#34;</span>
+    nyttNavn<span style="color:#ff79c6">:</span> () =&gt; {
+        <span style="color:#ff79c6">return</span> {
+            fornavn<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;fornavn&#34;</span>,
+            mellomnavn<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;mellomnavn&#34;</span>,
+            etternavn<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;etternavn&#34;</span>
+        }
     }
 }
-</code></pre></div><h3 id="conditional-rules">Conditional rules</h3>
-<p>If you click the option <em>Ja</em> on the radio buttons with the label <em>Radioknapp komponent for automatisert testing</em>, the first paragraph with the label <em>Paragraf</em> at the top of the app will be shown.
-If you click the option  <em>Nei</em> on the same radio button component, that same paragraph will be hidden.
+</code></pre></div><h3 id="conditional-rendering-rules">Conditional Rendering rules</h3>
+<p>The app has several conditional rendering rules based on the values entered by the user in other fields. Below is an example code for one of the conditional rendering rules.
 The relevant code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">sjekkOmJa<span style="color:#ff79c6">:</span> (obj) =&gt; {
-    <span style="color:#ff79c6">return</span> (obj.value <span style="color:#ff79c6">&amp;&amp;</span> obj.value <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Ja&#34;</span>);
-}
-
-sjekkOmJa<span style="color:#ff79c6">:</span> () =&gt; {
-    <span style="color:#ff79c6">return</span> {
-        value<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Verdi&#34;</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">sjekkNavnendringBekreftelse<span style="color:#ff79c6">:</span> (obj) =&gt; {
+        <span style="color:#ff79c6">return</span> (obj.value <span style="color:#ff79c6">&amp;&amp;</span> obj.value <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Ja&#34;</span>);
     }
-}
-</code></pre></div><h3 id="validation">Validation</h3>
-<p>In the input field with the label <em>Kort svar komponent (hard validation) for automatisert testing</em>, hard validation has been connected.
-That means it checks your input and validates that the input has fewer than 4 characters as seen here:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateKortsvarHard(Skjema skjema, ModelStateDictionary modelState) {
-    <span style="color:#8be9fd">string</span> input = skjema?.AutomatedTest_HardValidering;
 
-    <span style="color:#ff79c6">if</span>(input == <span style="color:#ff79c6">null</span>) {
-        modelState.AddModelError(
-            <span style="color:#f1fa8c">&#34;automatedTest_HardValidering&#34;</span>,
-            <span style="color:#f1fa8c">&#34;mangler svar&#34;</span>);
-    } <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (input.Length &gt;= <span style="color:#bd93f9">5</span>) {
-        modelState.AddModelError(
-            <span style="color:#f1fa8c">&#34;automatedTest_HardValidering&#34;</span>,
-            <span style="color:#f1fa8c">&#34;ikke mer enn 4 tegn&#34;</span>);
+sjekkNavnendringBekreftelse<span style="color:#ff79c6">:</span> () =&gt; {
+        <span style="color:#ff79c6">return</span> {
+            value<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Verdi&#34;</span>
+        }
     }
-}
-</code></pre></div><p>In the input field with the label <em>Kort svar komponent (soft validation) for automatisert testing</em>, soft validation has been connected.
-It will check if the input has any characters, and if it has any, the soft validation will trigger.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateKortsvarMyk(Skjema skjema, ModelStateDictionary modelState) {
-    <span style="color:#8be9fd">string</span> input = skjema?.AutomatedTest_MykValidering;
-
-    <span style="color:#ff79c6">if</span>(input != <span style="color:#ff79c6">null</span>) {
-        modelState.AddModelError(
-            <span style="color:#f1fa8c">&#34;automatedTest_MykValidering&#34;</span>,
-            <span style="color:#f1fa8c">&#34;*WARNING*du skrev noe&#34;</span>);
-    }
-}
-</code></pre></div><h3 id="api-connections">API connections</h3>
-<p>In the input field with the label <em>API tilkobling input (Bring postnummer) for automatisert testing</em>, write a postal code in Norway (i.e. 0155).
-The input field with the label <em>API tilkobling output (Bring postnummer) for automatisert testing</em> should now show the city in Norway based on the postal code written in the previous field.</p>
+</code></pre></div><h3 id="prefill">Prefill</h3>
+<p>The app has a prefill defined in the InstantiationHandler.cs for fetching the current name of the user and display in an input component.</p>
+<h3 id="validation">Validation</h3>
+<p>The app has many required field validation, without which the user will not be allowed to submit the app instance.</p>
 
 
 <footer class=" footline" >
