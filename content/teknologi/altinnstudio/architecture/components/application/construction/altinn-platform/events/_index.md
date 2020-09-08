@@ -1,11 +1,11 @@
 ---
-title: Application construction components - Altinn Platform Event
+title: Application construction components - Altinn Platform Events
 linktitle: Event
-description: The event component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
+description: The Events component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
 tags: [architecture, solution]
 ---
 
-The event components expose REST-APIs for publishing and subscribing to events.
+The Events components expose REST-APIs for publishing and subscribing to events.
 
 When a publish request is received it will push the event document to the event storage.
 When a request is received it will query the events stored in the event storage.
