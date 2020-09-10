@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of features in App">
+    <meta name="description" content="The Events component receives and publishes events.">
 
 
     
-    <title>Features :: Altinn digitalisering - Utvikling</title>
+    <title>Events :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/teknologi/altinnstudio/solutions/altinn-apps/app/features/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/solutions/altinn-platform/events/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -6619,7 +6619,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -6632,7 +6632,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -6657,7 +6657,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/" class="dd-item 
-        parent
+        
         
         
         ">
@@ -6670,7 +6670,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-sort-down fa-lg category-icon"></i>
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
           
 
         
@@ -6952,8 +6952,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-apps/app/features/" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/teknologi/altinnstudio/solutions/altinn-apps/app/features/">
@@ -7086,7 +7086,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -7099,7 +7099,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -7182,8 +7182,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/solutions/altinn-platform/events/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/teknologi/altinnstudio/solutions/altinn-platform/events/">
@@ -10093,12 +10093,7 @@ if(host != "localhost")
 
 
 
-
-
-
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-apps/app/'>App</a> <span class='adocs-breadcrumb-divider'> / </span> Features
-
- 
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/'>Solutions</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/solutions/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> Events
 
  
 
@@ -10118,7 +10113,9 @@ if(host != "localhost")
         
           <div id="tags">
             
-              <a class="label label-default" href="https://docs.altinn.studio/tags/altinn-apps">altinn-apps</a>
+              <a class="label label-default" href="https://docs.altinn.studio/tags/platform">platform</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/events">events</a>
             
           </div>
         
@@ -10126,27 +10123,14 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Features
+                Events
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of features in App</p>
+              <p class="a-leadText" id="leadText">The Events component receives and publishes events.</p>
             
           
 
           
-            <h2>På denne siden:</h2>
-              <nav id="TableOfContents">
-  <ul>
-    <li><a href="#prefill">Prefill</a></li>
-    <li><a href="#data-validation">Data validation</a></li>
-    <li><a href="#data-calculation">Data Calculation</a></li>
-    <li><a href="#instansiation-hooks">Instansiation Hooks</a></li>
-    <li><a href="#policy-enforcment">Policy Enforcment</a></li>
-    <li><a href="#formset">Formset</a></li>
-    <li><a href="#pdf-of-data">PDF of data</a></li>
-  </ul>
-</nav>
-          
 
 
 
@@ -10154,28 +10138,7 @@ if(host != "localhost")
 
 
 
-<h2 id="prefill">Prefill</h2>
-<p>The App can prefill data in the datamodels for the app based on standard configuration for profile and register data, 
-but can also prefill data based on data from organisation or prefill based on logic define in the custom app logic defined
-by the application developer.</p>
-<h2 id="data-validation">Data validation</h2>
-<p>The App can validate the datamodel based on the datamodel itself and based on custom app logic 
-defined by the application developer.</p>
-<h2 id="data-calculation">Data Calculation</h2>
-<p>The App can calculate data in the datamodels based on custom applogic defined by the application developer.</p>
-<h2 id="instansiation-hooks">Instansiation Hooks</h2>
-<p>The App can perform instansiations checks based on custom app logic defined by the application developer.</p>
-<h2 id="policy-enforcment">Policy Enforcment</h2>
-<p>The App has built in Policy Enforcments Points at the different API endpoints to make sure that the user / system is authorized to perform operation on the app / data. This includes checks on</p>
-<ul>
-<li>Roles</li>
-<li>Rights</li>
-<li>Authentication level</li>
-</ul>
-<h2 id="formset">Formset</h2>
-<p>In the future the App will support multiple datamodels.</p>
-<h2 id="pdf-of-data">PDF of data</h2>
-<p>The App will be able to present at PDF of the data.</p>
+<p>The Events component supports storage of events in Azure Cosmos Db. Both Apps and Platform can create events.</p>
 
 
 <footer class=" footline" >
@@ -13398,7 +13361,6 @@ defined by the application developer.</p>
                       
                           
                               
-                              
                           
                           
           
@@ -13413,7 +13375,6 @@ defined by the application developer.</p>
                       
                       
                           
-                              
                               
                           
                           
@@ -13429,9 +13390,6 @@ defined by the application developer.</p>
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -13564,7 +13522,6 @@ defined by the application developer.</p>
                       
                       
                           
-                              
                               
                           
                           
@@ -13581,9 +13538,6 @@ defined by the application developer.</p>
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -13638,6 +13592,7 @@ defined by the application developer.</p>
                       
                       
                           
+                              
                               
                           
                           
@@ -13653,6 +13608,9 @@ defined by the application developer.</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -13685,6 +13643,7 @@ defined by the application developer.</p>
                       
                       
                           
+                              
                               
                           
                           
@@ -13701,6 +13660,9 @@ defined by the application developer.</p>
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -15166,10 +15128,10 @@ defined by the application developer.</p>
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/files/" title="Template filestructure"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/solutions/altinn-platform/authorization/" title="Authorization"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/solutions/altinn-apps/app/frontend/" title="Frontend" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/solutions/altinn-platform/pdf/" title="PDF" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
@@ -15181,7 +15143,7 @@ defined by the application developer.</p>
               
               
                 <div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/solutions/altinn-apps/app/features/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/solutions/altinn-platform/events/_index.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Endre denne siden i github
                   </a>
