@@ -4,6 +4,7 @@ linktitle: Patterns
 description: The architecture defines some patterns that is reused accross the different solutions.
 toc: true
 tags: [architecture]
+weight: 7
 ---
 
 

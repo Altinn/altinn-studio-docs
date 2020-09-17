@@ -3,6 +3,7 @@ title: Application architecture authentication component - Altinn Platform
 linktitle: Authentication
 description: The Authentication component is an a ASP.NET Core MVC Application exposing REST-API to Altinn Apps.
 tags: [architecture, solution]
+weight: 101
 ---
 
 The solution is available at https://platform.altinn.cloud/authentication/api/v1. 

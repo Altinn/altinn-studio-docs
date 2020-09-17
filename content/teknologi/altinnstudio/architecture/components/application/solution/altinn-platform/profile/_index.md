@@ -3,7 +3,7 @@ title: Application arhicture profile component - Altinn Platform
 linktitle: Profile
 description: Description of profile component
 tags: [architecture, solution]
-weight: 100
+weight: 104
 ---
 
 The profile component is an ASP.Net Core MVC Application exposing REST-API to Altinn Apps.

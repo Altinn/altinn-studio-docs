@@ -3,6 +3,7 @@ title: Development & Operations Capabilties
 linktitle: DevOps 
 description: The development & operations architecture capabilities list the capabilities used to develop and operate Altinn Studio, Altinn Apps and Altinn Platform.
 tags: [architecture]
+weight: 10
 ---
 
 It covers the full spectrum of capabilities starting from development, going through a transition to operations and 
