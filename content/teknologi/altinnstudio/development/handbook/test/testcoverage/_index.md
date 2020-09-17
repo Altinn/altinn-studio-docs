@@ -99,3 +99,4 @@ weight: 100
 | 1.     | GET instances as app Owner            |     Storage      |
 | 2.     | Download instance data as app Owner   |     Storage      |
 | 3.     | Confirm the download of instance data |     Storage      |
+| 4.     | Create instance and upload data       |     Storage      |
