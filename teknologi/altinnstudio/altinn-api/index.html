@@ -10129,6 +10129,7 @@ if(host != "localhost")
     <li><a href="#data">Data</a></li>
     <li><a href="#receipt-data-element">Receipt data element</a></li>
     <li><a href="#instance-read-status">Instance read status</a></li>
+    <li><a href="#instance-substatus">Instance substatus</a></li>
     <li><a href="#application-owner-download">Application owner download</a></li>
     <li><a href="#confirm-instance-completed">Confirm instance completed</a></li>
     <li><a href="#events">Events</a></li>
@@ -10460,6 +10461,11 @@ PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7d
 Permited states are defined in the
 <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs">ReadStatus enum</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
+</code></pre></div><h2 id="instance-substatus">Instance substatus</h2>
+<p>The instance substatus is used to give an end user further details about the state of their instance.
+Currently, only application owner is allowed to set and/or update substatus for an instance.
+Include the new substatus in the body of the requests as a json.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/substatus
 </code></pre></div><h2 id="application-owner-download">Application owner download</h2>
 <p>Application Owner can download instances and data elements using the same endpoints as the end user.</p>
 <h2 id="confirm-instance-completed">Confirm instance completed</h2>

@@ -10211,7 +10211,11 @@ An appId refers to the application information element which defines the metadat
         <span style="color:#ff79c6">&#34;softDeleted&#34;</span>: <span style="color:#ff79c6">null</span>,
         <span style="color:#ff79c6">&#34;archived&#34;</span>: <span style="color:#f1fa8c">&#34;2019-12-20T20:30:33.233Z&#34;</span>,
         <span style="color:#ff79c6">&#34;hardDelete&#34;</span>: <span style="color:#ff79c6">null</span>,
-        <span style="color:#ff79c6">&#34;readStatus&#34;</span>: <span style="color:#f1fa8c">&#34;Read&#34;</span>
+        <span style="color:#ff79c6">&#34;readStatus&#34;</span>: <span style="color:#f1fa8c">&#34;Read&#34;</span>,
+        <span style="color:#ff79c6">&#34;substatus&#34;</span>:{
+            <span style="color:#ff79c6">&#34;label&#34;</span>:<span style="color:#f1fa8c">&#34;substatus.accepted.label&#34;</span>,
+            <span style="color:#ff79c6">&#34;description&#34;</span>:<span style="color:#f1fa8c">&#34;substatus.accepted.description&#34;</span>
+        }
     },
     <span style="color:#ff79c6">&#34;data&#34;</span>: [
         {
@@ -10335,7 +10339,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 <tr>
 <td>process</td>
-<td>ProcessState</td>
+<td><a href="#processstate">ProcessState</a></td>
 <td>process state info</td>
 <td></td>
 <td></td>
@@ -10344,8 +10348,8 @@ An appId refers to the application information element which defines the metadat
 </tr>
 <tr>
 <td>status</td>
-<td>InstanceState</td>
-<td>data on delete, archive and read state of the instance</td>
+<td><a href="#instanceStatus">InstanceStatus</a></td>
+<td>instance status info</td>
 <td></td>
 <td></td>
 <td>U</td>
@@ -10362,7 +10366,7 @@ An appId refers to the application information element which defines the metadat
 </tr>
 <tr>
 <td>completeConfirmations</td>
-<td>List<CompleteConfirmation></td>
+<td>List&lt;<a href="#completeConfirmation">CompleteConfirmation</a>&gt;</td>
 <td>List of stakeholders that are done with their processing the instance</td>
 <td></td>
 <td></td>
@@ -10372,6 +10376,73 @@ An appId refers to the application information element which defines the metadat
 </tbody>
 </table>
 <p>C - creation time, U - can be updated</p>
+<h4 id="instancestatus">InstanceStatus</h4>
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs">Model</a>
+The instance status holds data on delete, archive, read, and substate of the instance.
+Setting the archive and read state of the instance is handled by the application itself.
+By default, both the end user and app owner can set the delete state of an instance.
+Only app owner is able to set the substatus of an instance.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Archived</td>
+<td>DateTime?</td>
+<td>Date and time for when the instance was archived. Null if instance is active.</td>
+</tr>
+<tr>
+<td>SoftDeleted</td>
+<td>DateTime?</td>
+<td>Date and time for when the instance was soft deleted. Null if instance is not deleted.</td>
+</tr>
+<tr>
+<td>HardDeleted</td>
+<td>DateTime?</td>
+<td>Date and time for when the instance was hard deleted. Null if instance is not deleted.</td>
+</tr>
+<tr>
+<td>ReadStatus</td>
+<td><a href="https://tinyurl.com/y2bdhqs7">ReadStatus</a></td>
+<td>An enum reflecting if the instance is unred, read og updated since last review.</td>
+</tr>
+<tr>
+<td>SubStatus</td>
+<td><a href="https://tinyurl.com/yygqr9px">Substatus</a></td>
+<td>Substatus of the instance. Label &amp; description should be text keys in order to enable language support.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="completeconfirmation">CompleteConfirmation</h4>
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/CompleteConfirmation.cs">Model</a></p>
+<p>The complete confirmation is used to inform Altinn about when a given stakeholder considers 
+their own process as complete with regards to an instance.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>StakeholderId</td>
+<td>string</td>
+<td>Unique identifier for a stakeholder.</td>
+</tr>
+<tr>
+<td>ConfirmedOn</td>
+<td>DateTime</td>
+<td>Date and time for when the complete confirmation was created.</td>
+</tr>
+</tbody>
+</table>
 <h3 id="operations">Operations</h3>
 <p>Create a new instance of an app for a given instance owner. 
 Post with query params that identifies the appId and the instance owner. 
@@ -10388,6 +10459,8 @@ An instance object can be sent as json data to set certian values.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /instances/{instanceId}
 </code></pre></div><p>Update read status of an instance. UpdatedState can hold values: &ldquo;read&rdquo;, &ldquo;unread&rdquo;, &ldquo;updatedSinceLastReview&rdquo;</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/readstatus?status={updatedState}
+</code></pre></div><p>Update substatus of an instance.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/substatus
 </code></pre></div><h3 id="data-service">Data service</h3>
 <p>A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
