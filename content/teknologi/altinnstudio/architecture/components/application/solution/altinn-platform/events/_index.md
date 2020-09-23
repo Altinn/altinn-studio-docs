@@ -129,7 +129,7 @@ This is used by publishers of events to publish their events.
 Events are submitted as [CloudEvents](https://cloudevents.io/).
 
 A CloudEvent consists of a number of attributes, such as the ID of the event and the type of the event.  
-The attributes we use is listed below.
+The following attributes is used by the Events component.
 
 | Attribute Name | Type | Note |
 | -------------- | ---- | ---- |
