@@ -117,6 +117,14 @@ The full detail for this API is described in this [issue](https://github.com/Alt
 
 ### Adding events
 
+#### Endpoint
+
+```http
+POST {platformurl}/events/api/v1/events
+```
+This returns the created ID for the event.
+
+##### Usage
 This is used by publishers of events to publish their events.
 Events are submitted as [CloudEvents](https://cloudevents.io/).
 
@@ -132,13 +140,6 @@ The attributes we use is listed below.
 | subject	| String	| Required. The subject of the event. |
 | time	| String (Timestamp)	| Optional. The timestamp when the event happens. The Events component will set this. |
 | alternativesubject | String | Optional. The alternative subject of the event. |
-
-#### Endpoint
-
-```http
-POST {platformurl}/events/api/v1/events
-```
-This returns the id for the event.
 
 We have this example
 
