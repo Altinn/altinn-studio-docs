@@ -117,7 +117,7 @@ The full detail for this API is described in this [issue](https://github.com/Alt
 
 ### Adding events
 
-#### Endpoint
+##### Endpoint
 
 ```http
 POST {platformurl}/events/api/v1/events
