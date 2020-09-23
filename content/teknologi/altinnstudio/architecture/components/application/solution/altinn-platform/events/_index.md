@@ -117,10 +117,27 @@ The full detail for this API is described in this [issue](https://github.com/Alt
 
 ### Adding events
 
+This is used by publishers of events to publish their events.
+Events are submitted as [CloudEvents](https://cloudevents.io/).
+
 #### Endpoint
 
 ```http
-POST {platformurl}/events/
+POST {platformurl}/events/api/v1/events
+```
+
+We have this example
+
+```json {hl_lines=[4]}
+[{
+    "specversion": "1.0", 
+    "type": "instance.created",
+    "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+    "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+    "time": "2020-02-20T08:00:06.4014168Z",
+    "subject": "party/234234422",
+    "alternativesubject": "party/131555662"
+}]
 ```
 
 The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4550). 
