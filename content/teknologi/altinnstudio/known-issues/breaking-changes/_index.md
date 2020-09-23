@@ -392,6 +392,8 @@ public override async Task RunTaskValidation(Instance instance, string taskId, M
 [#4483](https://github.com/Altinn/altinn-studio/issues/4843) changed the way we calculate the path of data protection keys to improve the support for running locally. These keys are used in [XSRF-protection](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-3.1).
 When you are running apps locally, we are using the default behaviour (directory under current user) for .Net Core. The path is passed with a environment variable when running in an apps cluster. This change requires the deployment.yaml file to be updated with the correct variable.
 
+**The change affects all application created in Altinn Studio before 30.09.2020 using Altinn.App.PlatformServices 1.1.8-alpha and above**
+
 ### Errors
 
 User may experience errors posting data when the app is restarted or when multiple replicas are used.
