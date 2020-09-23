@@ -138,6 +138,7 @@ The attributes we use is listed below.
 ```http
 POST {platformurl}/events/api/v1/events
 ```
+This returns the id for the event.
 
 We have this example
 
