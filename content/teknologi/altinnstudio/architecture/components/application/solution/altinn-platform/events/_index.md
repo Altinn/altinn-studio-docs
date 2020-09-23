@@ -120,6 +120,19 @@ The full detail for this API is described in this [issue](https://github.com/Alt
 This is used by publishers of events to publish their events.
 Events are submitted as [CloudEvents](https://cloudevents.io/).
 
+A CloudEvent consists of a number of attributes, such as the ID of the event and the type of the event.  
+The attributes we use is listed below.
+
+| Attribute Name | Type | Note |
+| -------------- | ---- | ---- |
+| id	| String	| Optional. The ID of the event. A CloudEvent is uniquely identified with its source and id. The Events component will assign the id of the event. |
+| source	| String (URI-reference)	| Required. The source of the event. |
+| specversion	| String	| Required. The version of CloudEvents Specification the Cloud Event uses. |
+| type	| String	| Required. The type of the event. |
+| subject	| String	| Required. The subject of the event. |
+| time	| String (Timestamp)	| Optional. The timestamp when the event happens. The Events component will set this. |
+| alternativesubject | String | Optional. The alternative subject of the event. |
+
 #### Endpoint
 
 ```http
