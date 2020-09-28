@@ -290,7 +290,6 @@ A data element is identified with a GUID.
 - to stream a data file you must talks to the `/data` endpoint of the instance.
 - to get or update the data element metadata elements you must talk to the `/dataelements` endpoint of the instance.
 
-
 ### Create and upload data
 
 Post a data file (e.g. an xml-document) as body (stream content) of request with matching headers. Must specify dataType as defined in the application metadata.
@@ -447,10 +446,19 @@ Permited states are defined in the
 PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
 ```
 
+## Instance substatus
+
+The instance substatus is used to give an end user further details about the state of their instance.
+Currently, only application owner is allowed to set and/or update substatus for an instance.
+Include the new substatus in the body of the requests as a json.
+
+```http
+PUT {appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/substatus
+```
+
 ## Application owner download
 
 Application Owner can download instances and data elements using the same endpoints as the end user.
-
 
 ## Confirm instance completed
 

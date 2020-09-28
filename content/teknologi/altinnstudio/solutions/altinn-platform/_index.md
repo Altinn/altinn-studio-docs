@@ -1,6 +1,6 @@
 ---
 title: Altinn Platform
-description: Altinn Platform contains components with central functionality that can be used by apps. Currently, this is storage, authentication, authorization, profile, register, receipt, and pdf.
+description: Altinn Platform contains components with central functionality that can be used by apps. Currently, this is storage, authentication, authorization, profile, register, receipt, pdf and events.
 tags: [altinn-apps]
 aliases:
     - "/altinn-platform"

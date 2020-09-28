@@ -16,7 +16,6 @@ Resources: Instance, Application, DataType, ApplicationLogic, InstanceEvent, App
 
 ![Data model](datamodel.png "Data model")
 
-
 ## Instance
 
 An application instance is created when a instance owner (reportee) starts a process in an Altinn application.
@@ -59,7 +58,11 @@ An appId refers to the application information element which defines the metadat
         "softDeleted": null,
         "archived": "2019-12-20T20:30:33.233Z",
         "hardDelete": null,
-        "readStatus": "Read"
+        "readStatus": "Read",
+        "substatus":{
+            "label":"substatus.accepted.label",
+            "description":"substatus.accepted.description"
+        }
     },
     "data": [
         {
@@ -90,23 +93,51 @@ An appId refers to the application information element which defines the metadat
 
 ### Instance type
 
-| Attribute                 | Type                       | Description                                                             | User | Owner | App | Storage |
-| --------------------------| ---------------------------| ------------------------------------------------------------------------| ---- | ----- | --- | ------- |
-| id                        | string                     | unique id                                                               |      |       |     | C       |
-| appId                     | string                     | application id                                                          |      |       |     | C       |
-| instanceOwner.partyId     | integer                    | id of instance owner                                                    | C    | C     |     |         |
-| create                    | dateTime                   | creation time                                                           |      |       |     | C       |
-| createdBy                 | string                     | user id                                                                 |      |       |     | C       |
-| lastChanged               | dateTime?                  | last changed time                                                       |      |       |     | C       |
-| lastChangedBy             | string                     | user id                                                                 |      |       |     | C       |
-| dueBefore                 | dateTime?                  | deadline for submit                                                     |      | CU    |     |         |
-| visibleAfter              | dateTime?                  | when visible for user                                                   |      | CU    |     |         |
-| process                   | ProcessState               | process state info                                                      |      |       | U   |         |
-| status                    | InstanceState              | data on delete, archive and read state of the instance                  |      |       | U   | C       |
-| data                      | List<DataElement>          | data elements                                                           |      |       | CU  |         |
-| completeConfirmations     | List<CompleteConfirmation> | List of stakeholders that are done with their processing the instance   |      |       | C   |         |
+| Attribute                 | Type                                                | Description                                                             | User | Owner | App | Storage |
+| --------------------------| --------------------------------------------------- | ------------------------------------------------------------------------| ---- | ----- | --- | ------- |
+| id                        | string                                              | unique id                                                               |      |       |     | C       |
+| appId                     | string                                              | application id                                                          |      |       |     | C       |
+| instanceOwner.partyId     | integer                                             | id of instance owner                                                    | C    | C     |     |         |
+| create                    | dateTime                                            | creation time                                                           |      |       |     | C       |
+| createdBy                 | string                                              | user id                                                                 |      |       |     | C       |
+| lastChanged               | dateTime?                                           | last changed time                                                       |      |       |     | C       |
+| lastChangedBy             | string                                              | user id                                                                 |      |       |     | C       |
+| dueBefore                 | dateTime?                                           | deadline for submit                                                     |      | CU    |     |         |
+| visibleAfter              | dateTime?                                           | when visible for user                                                   |      | CU    |     |         |
+| process                   | [ProcessState](#processstate)                       | process state info                                                      |      |       | U   |         |
+| status                    | [InstanceStatus](#instanceStatus)                   | instance status info                                                    |      |       | U   | C       |
+| data                      | List<DataElement>                                   | data elements                                                           |      |       | CU  |         |
+| completeConfirmations     | List<[CompleteConfirmation](#completeConfirmation)> | List of stakeholders that are done with their processing the instance   |      |       | C   |         |
 
 C - creation time, U - can be updated
+
+#### InstanceStatus
+
+[Model](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs)
+The instance status holds data on delete, archive, read, and substate of the instance.
+Setting the archive and read state of the instance is handled by the application itself.
+By default, both the end user and app owner can set the delete state of an instance.
+Only app owner is able to set the substatus of an instance.
+
+| Attribute | Type | Description |
+| --------- | ---- | ----------- |
+| Archived    | DateTime?                                  | Date and time for when the instance was archived. Null if instance is active. |
+| SoftDeleted | DateTime?                                  | Date and time for when the instance was soft deleted. Null if instance is not deleted.|
+| HardDeleted | DateTime?                                  | Date and time for when the instance was hard deleted. Null if instance is not deleted.|
+| ReadStatus  | [ReadStatus](https://tinyurl.com/y2bdhqs7) | An enum reflecting if the instance is unred, read og updated since last review. |
+| SubStatus   | [Substatus](https://tinyurl.com/yygqr9px)  | Substatus of the instance. Label & description should be text keys in order to enable language support. |
+
+#### CompleteConfirmation
+
+[Model](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/CompleteConfirmation.cs)
+
+The complete confirmation is used to inform Altinn about when a given stakeholder considers 
+their own process as complete with regards to an instance.
+
+| Attribute     | Type   | Description                                                   |
+| ------------- | ------ | ------------------------------------------------------------- |
+| StakeholderId | string |  Unique identifier for a stakeholder.                         |
+| ConfirmedOn | DateTime |  Date and time for when the complete confirmation was created.|
 
 ### Operations
 
@@ -147,6 +178,12 @@ Update read status of an instance. UpdatedState can hold values: "read", "unread
 
 ```http
 PUT /instances/{instanceId}/readstatus?status={updatedState}
+```
+
+Update substatus of an instance.
+
+```http
+PUT /instances/{instanceId}/substatus
 ```
 
 ### Data service
@@ -248,7 +285,8 @@ Resource: /applications/test/sailor
 | maxSize   | integer          | the maximum number of bytes that the data elements can have                     |
 
 ### DataType
-The DataType model represents data requirements for an application for different process tasks. 
+
+The DataType model represents data requirements for an application for different process tasks.
 
 | Property            | Type             | Description                                                                                                                                                |
 | ------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |

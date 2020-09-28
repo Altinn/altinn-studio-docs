@@ -386,3 +386,26 @@ public override async Task RunTaskValidation(Instance instance, string taskId, M
     await _validationHandler.ValidateTask(instance, taskId, validationResults);
 }
 ```
+
+## Update path of Data Protection Keys for Apps
+
+[#4483](https://github.com/Altinn/altinn-studio/issues/4843) changed the way we use data protection keys in order to improve the support for running locally. These keys are used in [XSRF-protection](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-3.1).
+When you are running apps locally, we are using the default behaviour (directory under current user) for .Net Core. The path is passed with an environment variable when running in an apps cluster. This change requires the deployment.yaml file to be updated with the correct variable.
+
+**The change affects all application created in Altinn Studio before 30.09.2020 using Altinn.App.PlatformServices 1.1.8-alpha and above**
+
+### Errors
+
+User may experience errors posting data when the app is restarted or when multiple replicas are used.
+
+### How to fix
+
+You need to add the environment variable in the `deployment.yaml` file. If you have not done any changes to the file previously, you can copy the file from [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/deployment/templates/deployment.yaml), otherwise you need to update the file directly. Both the name of the environment variable and the value must be set as follows:
+
+```yaml
+env:
+  - name: ALTINN_KEYS_DIRECTORY
+    value: "/mnt/keys"
+```
+
+![4843-deployment](4843-deployment.png "Deployment.yaml file")

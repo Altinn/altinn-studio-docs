@@ -9,7 +9,7 @@ weight: 103
 
 See [event capabilities](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/) for functional description of the platforms event capabilities.
 
-The solution is available at https://platform.altinn.cloud/event/api/v1. 
+The solution is available at https://platform.altinn.cloud/events/api/v1. 
 
 ### API Structure
 
@@ -117,10 +117,42 @@ The full detail for this API is described in this [issue](https://github.com/Alt
 
 ### Adding events
 
-#### Endpoint
+##### Endpoint
 
 ```http
-POST {platformurl}/events/
+POST {platformurl}/events/api/v1/app
+```
+This returns the created ID for the event.
+
+##### Usage
+This is used by the application to publish app events.
+Events are submitted as [CloudEvents](https://cloudevents.io/).
+
+A CloudEvent consists of a number of attributes, such as the ID of the event and the type of the event.  
+The following attributes is used by the Events component.
+
+| Attribute Name | Type | Note |
+| -------------- | ---- | ---- |
+| id	| String	| Optional. The ID of the event. A CloudEvent is uniquely identified with its source and id. The Events component will assign the id of the event. |
+| source	| String (URI-reference)	| Required. The source of the event. |
+| specversion	| String	| Required. The version of CloudEvents Specification the Cloud Event uses. |
+| type	| String	| Required. The type of the event. |
+| subject	| String	| Required. The subject of the event. |
+| time	| String (Timestamp)	| Optional. The timestamp when the event happens. The Events component will set this. |
+| alternativesubject | String | Optional. The alternative subject of the event. |
+
+We have this example
+
+```json {hl_lines=[4]}
+[{
+    "specversion": "1.0", 
+    "type": "instance.created",
+    "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+    "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
+    "time": "2020-02-20T08:00:06.4014168Z",
+    "subject": "party/234234422",
+    "alternativesubject": "party/131555662"
+}]
 ```
 
 The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4550). 
