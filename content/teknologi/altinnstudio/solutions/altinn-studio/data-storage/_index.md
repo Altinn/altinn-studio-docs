@@ -30,7 +30,7 @@ When designer either builds a release or deploys to en environment through an az
 altinn-repositories uses an azure-disk as storage volume. One drawback to this is that we only have the possibility for one attached pod at the time, which could set constraints on scalability.
 
 Repositories also is connected to a PostgreSQL database. The credentials for this database is read through the a secret called `gitea-db-secret`.
-There currently exists four of these databses
+There currently exists four of these databases:
 - altinnstudio-db-prod-postgres
 - altinnstudio-db-staging-postgres
 - db-gitea-postgres
