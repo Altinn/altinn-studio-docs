@@ -10,22 +10,27 @@ tags: [altinn-studio,data]
 ## Designer
 
 
-| Volume-navn       | Type          | Peristent Volume Claim                    |
+| Volume-name       | Type          | Peristent Volume Claim                    |
 |-------------------|---------------|-------------------------------------------|               
 |altinn-repo-storage|azure-file     |altinn-storage-repo-premium-volume-claim   |
 
-På `altinn-repo-storage` repo mellomlagres "lokale" kopier av repoene som blir jobbet på av apputviklere som arbeider i studio. Disse kan så bli pushet opp til repositories.
+In designer `altinn-repo-storage` is used as an intermediate storage of "local" copies that an app-developer is working on in altinn-studio. These changes can then be pushed to altinn-repositories.
 
-## Repos
+Designer also stores some metadata about what releases and deployments have been made to the various app-owner environements in Azure Comos DB - `app-release-deployment`.
+When designer either builds a release or deploys to en environment through an azure pipeline this triggers a [seperate pipeline](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=85) which in turn calls designer to update the CosmosDB.
 
-| Volume-navn           | Type          | Peristent Volume Claim            |
+
+## Repositories
+
+| Volume-name           | Type          | Peristent Volume Claim            |
 |-----------------------|---------------|-----------------------------------|               
 |altinn-gitea-storage   |azure-disk     |altinn-storage-gitea-volume-claim  |
 
 
-I Repos brukes det foreløpig en azure-disk som storage volume. Ulempem her er at man kun har mulighet til å ha en attched pod. 
+altinn-repositories uses an azure-disk as storage volume. One drawback to this is that we only have the possibility for one attached pod at the time, which could set constraints on scalability.
 
-For repositories har man også knyttet til en PostgreSQL database. Credentials blir her lastet inn gjennom `gitea-db-secret`
+Repositories also is connected to a PostgreSQL database. The credentials for this database is read through the a secret called `gitea-db-secret`.
+There currently exists four of these databses
 - altinnstudio-db-prod-postgres
 - altinnstudio-db-staging-postgres
 - db-gitea-postgres
