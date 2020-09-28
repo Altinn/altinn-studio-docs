@@ -487,6 +487,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/altinn-studio/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/</loc>
   </url>
   
@@ -767,11 +771,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/data/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/data-modeling/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/data-storage/</loc>
   </url>
   
   <url>

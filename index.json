@@ -823,7 +823,7 @@
 	"title": "Altinn Studio",
 	"tags": [],
 	"description": "Altinn Studio is the design-time solution for developing, maintaining, building and deploying applications. Applications created can target both simple and complex user scenarios and have a modern web native architecture.",
-	"content": "Altinn Studio is a user-friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists, and process tasks.\nAltinn Studio consist of serveral parts.\n\rThird Party Tools\rOne important aspect of the Altinn Studio is that we encourage to use third party development tools to create and modify applications.\n\r\rAltinn Studio Designer\rThis is where developers create, modify, build and deploy apps. In the background Designer uses Git to store code and config in Altinn Studio Repos.\n\r\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\r"
+	"content": "Altinn Studio is a user-friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists, and process tasks.\nAltinn Studio consist of serveral parts.\n\rThird Party Tools\rOne important aspect of the Altinn Studio is that we encourage to use third party development tools to create and modify applications.\n\r\rData Storage in Altinn Studio\rDescription of how the data is stored in Altinn Studio\n\r\rAltinn Studio Designer\rThis is where developers create, modify, build and deploy apps. In the background Designer uses Git to store code and config in Altinn Studio Repos.\n\r\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/tags/altinn-apps/",
@@ -842,6 +842,13 @@
 {
 	"uri": "https://docs.altinn.studio/tags/altinn-repos/",
 	"title": "altinn-repos",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/tags/altinn-studio/",
+	"title": "altinn-studio",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -1337,6 +1344,13 @@
 	"content": "Altinn Studio, Altinn Apps and Altinn Platform is created to give the government, the citizens and the businesses of Norway a effective way to share data and retrieve data.\n\rConceptual\rThe conceptual data model describes the data entities in the solutions and their relatiohip.\n\r\rLogical datamodel\rThe logcical datamodel describes the data entities that is stored.\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/tags/data/",
+	"title": "data",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/",
 	"title": "Data &amp; Reporting Components",
 	"tags": ["architecture", "infrastructure"],
@@ -1349,6 +1363,13 @@
 	"tags": ["data-modeling", "todo"],
 	"description": "Defining the data model(s) for an app is important. Altinn Studio will support importing existing data models and creating new data models.",
 	"content": "The data model for an app typical defines the format of the data either sent to the app owner or presented in the app for the user. The data model is important for a consistent and formal definition of the data. It will be used for validation both from UI and for external systems.\nAltinn Studio will support both importing existing data model as XSD or creating a data modell. In MVP only import is in scope.\nSome requirements for Altinn Studio is:\n It should be easy to model data. Built in replacment for SERES (current tool). Need to support more formats.  See all issues related to Altinn Studio and data modeling on Github.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/data-storage/",
+	"title": "Data Storage in Altinn Studio",
+	"tags": ["altinn-studio", "data"],
+	"description": "Description of how the data is stored in Altinn Studio",
+	"content": "Designer    Volume-navn Type Peristent Volume Claim     altinn-repo-storage azure-file altinn-storage-repo-premium-volume-claim    På altinn-repo-storage repo mellomlagres \u0026ldquo;lokale\u0026rdquo; kopier av repoene som blir jobbet på av apputviklere som arbeider i studio. Disse kan så bli pushet opp til repositories.\nRepos    Volume-navn Type Peristent Volume Claim     altinn-gitea-storage azure-disk altinn-storage-gitea-volume-claim    I Repos brukes det foreløpig en azure-disk som storage volume. Ulempem her er at man kun har mulighet til å ha en attched pod.\nFor repositories har man også knyttet til en PostgreSQL database. Credentials blir her lastet inn gjennom gitea-db-secret\n altinnstudio-db-prod-postgres altinnstudio-db-staging-postgres db-gitea-postgres t30-gitea-db  "
 },
 {
 	"uri": "https://docs.altinn.studio/tags/data-modeling/",
