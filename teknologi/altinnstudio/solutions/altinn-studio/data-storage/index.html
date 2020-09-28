@@ -10171,7 +10171,7 @@ if(host != "localhost")
 <table>
 <thead>
 <tr>
-<th>Volume-navn</th>
+<th>Volume-name</th>
 <th>Type</th>
 <th>Peristent Volume Claim</th>
 </tr>
@@ -10184,12 +10184,14 @@ if(host != "localhost")
 </tr>
 </tbody>
 </table>
-<p>På <code>altinn-repo-storage</code> repo mellomlagres &ldquo;lokale&rdquo; kopier av repoene som blir jobbet på av apputviklere som arbeider i studio. Disse kan så bli pushet opp til repositories.</p>
-<h2 id="repos">Repos</h2>
+<p>In designer <code>altinn-repo-storage</code> is used as an intermediate storage of &ldquo;local&rdquo; copies that an app-developer is working on in altinn-studio. These changes can then be pushed to altinn-repositories.</p>
+<p>Designer also stores some metadata about what releases and deployments have been made to the various app-owner environements in Azure Comos DB - <code>app-release-deployment</code>.
+When designer either builds a release or deploys to en environment through an azure pipeline this triggers a <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=85">seperate pipeline</a> which in turn calls designer to update the CosmosDB.</p>
+<h2 id="repositories">Repositories</h2>
 <table>
 <thead>
 <tr>
-<th>Volume-navn</th>
+<th>Volume-name</th>
 <th>Type</th>
 <th>Peristent Volume Claim</th>
 </tr>
@@ -10202,8 +10204,9 @@ if(host != "localhost")
 </tr>
 </tbody>
 </table>
-<p>I Repos brukes det foreløpig en azure-disk som storage volume. Ulempem her er at man kun har mulighet til å ha en attched pod.</p>
-<p>For repositories har man også knyttet til en PostgreSQL database. Credentials blir her lastet inn gjennom <code>gitea-db-secret</code></p>
+<p>altinn-repositories uses an azure-disk as storage volume. One drawback to this is that we only have the possibility for one attached pod at the time, which could set constraints on scalability.</p>
+<p>Repositories also is connected to a PostgreSQL database. The credentials for this database is read through the a secret called <code>gitea-db-secret</code>.
+There currently exists four of these databses</p>
 <ul>
 <li>altinnstudio-db-prod-postgres</li>
 <li>altinnstudio-db-staging-postgres</li>
