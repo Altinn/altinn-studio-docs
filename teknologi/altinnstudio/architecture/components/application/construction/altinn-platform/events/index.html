@@ -10192,27 +10192,23 @@ When a request is received it will query the events stored in the event storage.
 <li><a href="">PartyEvents</a></li>
 </ul>
 <h2 id="event-storage">Event storage</h2>
-<p>Using CosmosDB gives the possibility to have &ldquo;endless&rdquo; number of topics/feeds based on queries.</p>
-<p>Based on filters on the db query you could get an endless amount of feeds containg events with specific criteria.</p>
-<h4 id="partition-key">Partition key</h4>
-<p>Currently, the limitations on Cosmos DB are that one logical partition can <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits">maximum be 20GB</a>.</p>
-<p>If we assume events in average on 350 Bytes (the examples above are around 300 Bytes).
-This would hold approx 57 million events inside a logiical partition.</p>
-<p>If we assume 5 events on average on each instance that would be around 11 million instances per partition key.
-Looking at the biggest digital services in the current platform (Altinn 2) this indicates that using a partition key 
-based on {org}/{app} is not possible because many of them have many more elements.</p>
-<p>The suggestion is to use the subject as partition key. 57 million on a given subject should be more than enough.
-And if that limit is reached the limitations probably have increased (it was raised from 10GB to 20GB in may 2020).</p>
-<h4 id="event-sequencing">Event sequencing</h4>
-<p>Events will be sequnced by eventTime. This is a datetime where precision is 7 digits, with an accuracy of 100 nanoseconds.
-The eventTime would be set by a <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-write-stored-procedures-triggers-udfs">stored procedure</a> when inserting document.</p>
-<p>It will overwrite any eventTime set by the publisher.</p>
+<p>To be able to get the search capability needed for the Events component we have choosen to use PostgreSQL.</p>
+<p>Using PostgreSQL makes is possible to sort the events based on a primary key and also makes it possible to search
+over all events based on subject or source.</p>
+<p>The suggested table structure</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#ff79c6">CREATE</span> <span style="color:#ff79c6">TABLE</span> events(
+   sequenceno BIGSERIAL <span style="color:#ff79c6">PRIMARY</span> <span style="color:#ff79c6">KEY</span>,
+   id <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+   <span style="color:#ff79c6">source</span> <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+   subject <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+   <span style="color:#ff79c6">type</span> <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+   time timestamptz <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+   cloudevent <span style="color:#8be9fd;font-style:italic">TEXT</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>
+);
+</code></pre></div><h4 id="event-sequencing">Event sequencing</h4>
+<p>Events will be sequnced by sequence number that is the primary key of the Events table.</p>
 <h3 id="indexing">Indexing</h3>
-<p>The default indexing policy for newly created containers indexes every property of every item, 
-enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. 
-This allows you to get high query performance without having to think about indexing and index management upfront.</p>
-<p>For the topic and eventTime a composite index should be investigated to see if that performs better.</p>
-<p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview">See Cosmos DB indexing for details</a>.</p>
+<p>We would need to have index on</p>
 
 
 <footer class=" footline" >
