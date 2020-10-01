@@ -9,7 +9,7 @@ weight: 103
 
 See [event capabilities](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/) for functional description of the platforms event capabilities.
 
-The solution is available at https://platform.altinn.cloud/event/api/v1. 
+The solution is available at https://platform.altinn.cloud/events/api/v1. 
 
 ### API Structure
 
@@ -120,12 +120,12 @@ The full detail for this API is described in this [issue](https://github.com/Alt
 ##### Endpoint
 
 ```http
-POST {platformurl}/events/api/v1/events
+POST {platformurl}/events/api/v1/app
 ```
 This returns the created ID for the event.
 
 ##### Usage
-This is used by publishers of events to publish their events.
+This is used by the application to publish app events.
 Events are submitted as [CloudEvents](https://cloudevents.io/).
 
 A CloudEvent consists of a number of attributes, such as the ID of the event and the type of the event.  
