@@ -4,6 +4,75 @@ linktitle: Breaking changes
 description: Overview of breaking changes introduced into Altinn Studio and how and what to update on an existing app to fix the problem.
 toc: true
 ---
+
+## 403 response when trying to delete instance using endpoint in app
+
+[#4871](https://github.com/Altinn/altinn-studio/issues/4871) was fixed with in release of 1.1.10-alpha of the app nugets.
+**This change only affects users and app owners that try to delete an instance.**
+
+### Errors
+403 response when trying to delete an instance using the endpoint exposed in the application.
+
+### How to fix
+
+If you are not using 1.1.10-alpha or above. Start by upgrading the nuget references in you application.
+If you are running a newer release, skip to step 2.
+
+1. Navigate to you application repository and find `App.csproj` in the `App` folder.
+   Update nuget dependencies in `App.csproj` to version 1.1.10-alpha or newer..
+
+    ```xml
+    <PackageReference Include="Altinn.App.Api" Version="1.1.10-alpha" />
+    <PackageReference Include="Altinn.App.Common" Version="1.1.10-alpha" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="1.1.10-alpha" />
+    ```
+
+2. Navigate to you application repository and find `Startup.cs` in the `App` folder.
+   Add a new line to the `services.AddAuthorization`-section. 
+   The following should be added
+
+   `options.AddPolicy("InstanceDelete", policy => policy.Requirements.Add(new AppAccessRequirement("delete")));`
+
+   and the final result should look like this
+
+   ```cs
+     services.AddAuthorization(options =>
+            {
+                options.AddPolicy("InstanceRead", policy => policy.Requirements.Add(new AppAccessRequirement("read")));
+                options.AddPolicy("InstanceWrite", policy => policy.Requirements.Add(new AppAccessRequirement("write")));
+                options.AddPolicy("InstanceDelete", policy => policy.Requirements.Add(new AppAccessRequirement("delete")));
+                options.AddPolicy("InstanceInstantiate", policy => policy.Requirements.Add(new AppAccessRequirement("instantiate")));
+                options.AddPolicy("InstanceComplete", policy => policy.Requirements.Add(new AppAccessRequirement("complete")));
+            });
+   ```
+
+3. If deleting instances should be available for the application owner this must be explicitly stated in the application policy. 
+The requred rule is documented [here](https://altinn.github.io/docs/altinn-studio/app-creation/autorisasjon/regelbibliotek/#org-can-delete-an-instance-of-orgapp-in-any-task-or-event).
+
+## Update path of Data Protection Keys for Apps
+
+[#4483](https://github.com/Altinn/altinn-studio/issues/4843) changed the way we use data protection keys in order to improve the support for running locally. These keys are used in [XSRF-protection](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-3.1).
+When you are running apps locally, we are using the default behaviour (directory under current user) for .Net Core. The path is passed with an environment variable when running in an apps cluster. This change requires the deployment.yaml file to be updated with the correct variable.
+
+**The change affects all application created in Altinn Studio before 30.09.2020 using Altinn.App.PlatformServices 1.1.8-alpha and above**
+
+### Errors
+
+User may experience errors posting data when the app is restarted or when multiple replicas are used.
+
+### How to fix
+
+You need to add the environment variable in the `deployment.yaml` file. If you have not done any changes to the file previously, you can copy the file from [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/deployment/templates/deployment.yaml), otherwise you need to update the file directly. Both the name of the environment variable and the value must be set as follows:
+
+```yaml
+env:
+  - name: ALTINN_KEYS_DIRECTORY
+    value: "/mnt/keys"
+```
+
+![4843-deployment](4843-deployment.png "Deployment.yaml file")
+
+
 ## Build pipeline failed on task: Build and push docker image to acr
 
 A namespace was renamed in `Altinn.App.PlatformServices` Version="1.1.2-alpha causing the build of the application to fail
@@ -386,26 +455,3 @@ public override async Task RunTaskValidation(Instance instance, string taskId, M
     await _validationHandler.ValidateTask(instance, taskId, validationResults);
 }
 ```
-
-## Update path of Data Protection Keys for Apps
-
-[#4483](https://github.com/Altinn/altinn-studio/issues/4843) changed the way we use data protection keys in order to improve the support for running locally. These keys are used in [XSRF-protection](https://docs.microsoft.com/en-us/aspnet/core/security/anti-request-forgery?view=aspnetcore-3.1).
-When you are running apps locally, we are using the default behaviour (directory under current user) for .Net Core. The path is passed with an environment variable when running in an apps cluster. This change requires the deployment.yaml file to be updated with the correct variable.
-
-**The change affects all application created in Altinn Studio before 30.09.2020 using Altinn.App.PlatformServices 1.1.8-alpha and above**
-
-### Errors
-
-User may experience errors posting data when the app is restarted or when multiple replicas are used.
-
-### How to fix
-
-You need to add the environment variable in the `deployment.yaml` file. If you have not done any changes to the file previously, you can copy the file from [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/deployment/templates/deployment.yaml), otherwise you need to update the file directly. Both the name of the environment variable and the value must be set as follows:
-
-```yaml
-env:
-  - name: ALTINN_KEYS_DIRECTORY
-    value: "/mnt/keys"
-```
-
-![4843-deployment](4843-deployment.png "Deployment.yaml file")
