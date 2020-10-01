@@ -47,15 +47,12 @@ The first version was launched in June 2020 and the first applications was deplo
 
 ## Presentations
 
-Below you find presentations done at NDC Conferences Oslo June 11th 2020, and in an introduction to the solution done online September 25th 2020.
+Below you find a presentation done at NDC Conferences Oslo June 11th 2020. You can also find [presentations (in Norwegian) from the Altinn-kaffe meetings](/presentations).
 
 [Presentation June 11. 2020 NDC Conference (slides)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinn_3_ndc_2020_06_11.pptx)
 
 {{<vimeo 431429016>}}
 
-[Presentation Introduction to Altinn 3 (slides)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/Altinn_T3.0_introduksjon_20200925.pptx)
-
-Video to be added soon.
 
 ## How to learn more about Altinn 3
 
