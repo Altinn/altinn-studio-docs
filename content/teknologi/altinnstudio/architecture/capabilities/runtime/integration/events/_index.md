@@ -205,7 +205,7 @@ A instance has been created for a given party. It is not possible from the event
 
 ```json {hl_lines=[3]}
 [{
-  "source":  "skd/skattemelding/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd",
+  "source":  "https://skd.apps.altinn.no/skd/skattemelding/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd",
   "subject": "party/1234324",
   "type": "instance.created",
   "time": "2020-02-20T08:00:06.4014168Z",
@@ -221,7 +221,7 @@ A user has completed the confirmation1 task in the process.
 
 ```json {hl_lines=[4]}
 [{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "source":  "https://skd.apps.altinn.no/skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
   "type": "instance.process.taskcompleted.confirmation1",
   "time": "2020-03-16T10:23:46.6443563Z",
@@ -236,7 +236,7 @@ A user/system has completed the process for an instance.
 
 ```json {hl_lines=[4]}
 [{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "source":  "https://skd.apps.altinn.no/skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
   "type": "instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
