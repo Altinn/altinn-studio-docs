@@ -14,6 +14,7 @@ toc: true
 403 response when trying to delete an instance using the endpoint exposed in the application.
 
 ### How to fix
+
 If you are not using 1.1.10-alpha or above. Start by upgrading the nuget references in you application.
 If you are running a newer release, skip to step 2.
 
