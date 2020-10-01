@@ -47,7 +47,7 @@ The first version was launched in June 2020 and the first applications was deplo
 
 ## Presentations
 
-Below you find a presentation done at NDC Conferences Oslo June 11th 2020. You can also find [presentations (in Norwegian) from the Altinn-kaffe meetings](/presentations).
+Below you find a presentation done at NDC Conferences Oslo June 11th 2020. You can also find [presentations (in Norwegian) from the Altinn-kaffe meetings](/altinnkaffe).
 
 [Presentation June 11. 2020 NDC Conference (slides)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinn_3_ndc_2020_06_11.pptx)
 
