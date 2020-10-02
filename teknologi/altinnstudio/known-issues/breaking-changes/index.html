@@ -10179,6 +10179,7 @@ if(host != "localhost")
             <h2>På denne siden:</h2>
               <nav id="TableOfContents">
   <ul>
+    <li><a href="#added-registration-of-events-to-the-new-events-component">Added registration of events to the new Events component</a></li>
     <li><a href="#403-response-when-trying-to-delete-instance-using-endpoint-in-app">403 response when trying to delete instance using endpoint in app</a></li>
     <li><a href="#update-path-of-data-protection-keys-for-apps">Update path of Data Protection Keys for Apps</a></li>
     <li><a href="#build-pipeline-failed-on-task-build-and-push-docker-image-to-acr">Build pipeline failed on task: Build and push docker image to acr</a></li>
@@ -10202,6 +10203,20 @@ if(host != "localhost")
 
 
 
+<h2 id="added-registration-of-events-to-the-new-events-component">Added registration of events to the new Events component</h2>
+<p>The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.</p>
+<p>Updating to this version will require some changes in startup:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddHttpClient&lt;IEvents, EventsAppSI&gt;();
+</code></pre></div><p>Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.</p>
+<p>This will probably also require two new lines at the top of the file:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Implementation;
+<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
+</code></pre></div><p>The default behaviour of the logic is to not send events. To override this there is a new setting called <code>AppSettings:RegisterEventsWithEventsComponent</code>. Update the appsettings file by adding an entry in the AppSettings section:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;AppSettings&#34;</span>: {
+  ...
+  <span style="color:#ff79c6">&#34;RegisterEventsWithEventsComponent&#34;</span>: <span style="color:#ff79c6">false</span>
+}
+</code></pre></div><p>Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.</p>
 <h2 id="403-response-when-trying-to-delete-instance-using-endpoint-in-app">403 response when trying to delete instance using endpoint in app</h2>
 <p><a href="https://github.com/Altinn/altinn-studio/issues/4871">#4871</a> was fixed with in release of 1.1.10-alpha of the app nugets.
 <strong>This change only affects users and app owners that try to delete an instance.</strong></p>
