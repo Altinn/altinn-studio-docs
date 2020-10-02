@@ -5,6 +5,37 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
+## Added registration of events to the new Events component
+
+The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.
+
+Updating to this version will require some changes in startup: 
+
+```cs
+services.AddHttpClient<IEvents, EventsAppSI>();
+```
+
+Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.
+
+This will probably also require two new lines at the top of the file:
+
+```cs
+using Altinn.App.PlatformServices.Implementation;
+using Altinn.App.PlatformServices.Interface;
+```
+
+The default behaviour of the logic is to not send events. To override this there is a new setting called `AppSettings:RegisterEventsWithEventsComponent`. Update the appsettings file by adding an entry in the AppSettings section:
+
+```json
+"AppSettings": {
+  ...
+  "RegisterEventsWithEventsComponent": false
+}
+```
+
+Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.
+
+
 ## 403 response when trying to delete instance using endpoint in app
 
 [#4871](https://github.com/Altinn/altinn-studio/issues/4871) was fixed with in release of 1.1.10-alpha of the app nugets.
