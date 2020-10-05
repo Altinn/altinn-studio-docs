@@ -10205,13 +10205,22 @@ if(host != "localhost")
 
 <h2 id="added-registration-of-events-to-the-new-events-component">Added registration of events to the new Events component</h2>
 <p>The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.</p>
-<p>Updating to this version will require some changes in startup:</p>
+<p>Updating to this version will require changes in multiple files.</p>
+<p>1; Changes in Startup.cs:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddHttpClient&lt;IEvents, EventsAppSI&gt;();
 </code></pre></div><p>Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.</p>
 <p>This will probably also require two new lines at the top of the file:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Implementation;
 <span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Interface;
-</code></pre></div><p>The default behaviour of the logic is to not send events. To override this there is a new setting called <code>AppSettings:RegisterEventsWithEventsComponent</code>. Update the appsettings file by adding an entry in the AppSettings section:</p>
+</code></pre></div><p>2; Changes in appsettings.json:</p>
+<p>A new property has been included in called <code>PlatformSettings.ApiEventsEndpoint</code>.
+The value here is used for local test and will be replaced during deploy to test and production environments.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;PlatformSettings&#34;</span>: {
+  ...
+    <span style="color:#ff79c6">&#34;ApiEventsEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:5101/events/api/v1/&#34;</span>
+}
+</code></pre></div><p>The default behaviour of the logic is to not send events. To override this there is a new setting called <code>AppSettings:RegisterEventsWithEventsComponent</code>.
+Update the appsettings file by adding an entry in the AppSettings section:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;AppSettings&#34;</span>: {
   ...
   <span style="color:#ff79c6">&#34;RegisterEventsWithEventsComponent&#34;</span>: <span style="color:#ff79c6">false</span>
