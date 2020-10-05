@@ -9,22 +9,37 @@ toc: true
 
 The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.
 
-Updating to this version will require some changes in startup: 
+Updating to this version will require changes in multiple files. 
 
-```cs
-services.AddHttpClient<IEvents, EventsAppSI>();
+1; Changes in Startup.cs:
+
+  ```cs
+  services.AddHttpClient<IEvents, EventsAppSI>();
+  ```
+
+  Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.
+
+  This will probably also require two new lines at the top of the file:
+
+  ```cs
+  using Altinn.App.PlatformServices.Implementation;
+  using Altinn.App.PlatformServices.Interface;
+  ```
+
+2; Changes in appsettings.json:
+
+A new property has been included in called `PlatformSettings.ApiEventsEndpoint`.
+The value here is used for local test and will be replaced during deploy to test and production environments.
+
+```json
+"PlatformSettings": {
+  ...
+    "ApiEventsEndpoint": "http://localhost:5101/events/api/v1/"
+}
 ```
 
-Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.
-
-This will probably also require two new lines at the top of the file:
-
-```cs
-using Altinn.App.PlatformServices.Implementation;
-using Altinn.App.PlatformServices.Interface;
-```
-
-The default behaviour of the logic is to not send events. To override this there is a new setting called `AppSettings:RegisterEventsWithEventsComponent`. Update the appsettings file by adding an entry in the AppSettings section:
+The default behaviour of the logic is to not send events. To override this there is a new setting called `AppSettings:RegisterEventsWithEventsComponent`.
+Update the appsettings file by adding an entry in the AppSettings section:
 
 ```json
 "AppSettings": {
@@ -34,7 +49,6 @@ The default behaviour of the logic is to not send events. To override this there
 ```
 
 Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.
-
 
 ## 403 response when trying to delete instance using endpoint in app
 
