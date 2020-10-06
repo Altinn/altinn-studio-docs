@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Guidelines for error handling and error logging in backend">
+    <meta name="description" content="Guidelines for exception handling in backend logic.">
 
 
     
-    <title>Error handling and Error logging :: Altinn digitalisering - Utvikling</title>
+    <title>Error handling :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -5021,7 +5021,36 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/back-end/error-handling/">
-        <span>Error handling and Error logging</span>
+        <span>Error handling</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/logging/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/logging/">
+        <span>Logging</span>
 
         
 
@@ -10154,7 +10183,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/back-end/'>Back-end</a> <span class='adocs-breadcrumb-divider'> / </span> Error handling and Error logging
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/back-end/'>Back-end</a> <span class='adocs-breadcrumb-divider'> / </span> Error handling
 
  
 
@@ -10186,10 +10215,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Error handling and Error logging
+                Error handling
                 
               </h1>
-              <p class="a-leadText" id="leadText">Guidelines for error handling and error logging in backend</p>
+              <p class="a-leadText" id="leadText">Guidelines for exception handling in backend logic.</p>
             
           
 
@@ -10201,79 +10230,63 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" >
-This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors. 
-</div>
-<h4 id="exception-handling">Exception Handling</h4>
-<p>.Net core provides a default middleware &ldquo;UseExceptionHandler&rdquo; that will catch exceptions and log them. You can read more about it <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-2.2">here</a>.
-In addition to the default exception middleware, a custom exception middleware can be added to customize the error handling to suit application needs. Custom exception middleware will be implemented once we have a functional understanding of how users should experience errors.</p>
-<h3 id="api">API</h3>
-<p>Exception in API is handled by sending response message to users. The response messages are sent based on</p>
-<ul>
-<li>Request validation</li>
-<li>Input validation</li>
-<li>Exceptions that is thrown due to bug in code</li>
-</ul>
-<p>The repsonse messages usually are returned with a status code. It is recommended to start with the basic status codes below</p>
-<ul>
-<li>200 - Ok (Success)</li>
-<li>400 - Bad request (input validation, request validation (basically problems at client side))</li>
-<li>401 - Unauthorized</li>
-<li>403 - Forbidden</li>
-<li>404 - Not found</li>
-<li>500 - Internal server error (other type of server errors)
-By limiting the usage of status codes, we could also ease the handling of different status codes at client side.</li>
-</ul>
-<h3 id="web-services">Web Services</h3>
-<p>The exceptions rising from internal web services will bubble up and will be handled in API that requested the service.</p>
-<h4 id="logging">Logging</h4>
-<p>.Net core provides a standard logging framework that can be used to log exceptions or events to a desired logging provider (console, eventlog, azure app service, application insights). You can read more about logging in asp.net core from <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2">here</a>.</p>
-<h3 id="what-to-log">What to log?</h3>
-<p>Context is very important to any warning message or error that is logged. Without context, it can be difficult to relate applicaiton failures to logs. So it is important to include the following details in the log</p>
-<ul>
-<li>Where in the code did the application fail?</li>
-<li>Who was using the system when it failed?</li>
-<li>What was the system doing when it failed?</li>
-<li>Specify a log level that can be used to filter logs when needed</li>
-</ul>
-<h3 id="where-do-we-log">Where do we log?</h3>
-<p>The idea is to send the logs to the console and collect them using Application Insights (Note: Application Insights involves data limitation and costs vary based on needs). 
-It is also possible to log to different log providers by configuring it in the config file. F.ex It is possible log only error and warning message to appinsights and information logs to console.</p>
-<h3 id="third-party-logging-frameworks">Third Party Logging Frameworks</h3>
-<p>There are a bunch of third party logging frameworks available for .net core. Serilog is one of them and Altinn Studio will use it to log.
-There are many advantages of using serilog</p>
-<ul>
-<li>It&rsquo;s open source</li>
-<li>Allows logging to many sinks like slack, azure, etc.</li>
-<li>It has support for logging to files (Microsfot basic logging doesn&rsquo;t have support for logging in file at this point)</li>
-<li>It allows to define a custom message template for logging.</li>
-<li>Provides prebuilt enrichers through nuget. These add more value and information to the log events. This can be used to filter events in Application Insights.</li>
-</ul>
-<h4 id="step-one---init-logger-in-programcs">Step one - Init logger in Program.cs</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> IWebHostBuilder CreateWebHostBuilder(<span style="color:#8be9fd">string</span>[] args) =&gt;
-    WebHost.CreateDefaultBuilder(args)
-    .ConfigureLogging((hostingContext, logging) =&gt;
-    {
-        logging.ClearProviders();
-        Serilog.ILogger logger = <span style="color:#ff79c6">new</span> LoggerConfiguration()
-                        .WriteTo.Console()
-                        .CreateLogger();
+<h2 id="exception-handling">Exception Handling</h2>
+<p>Exception handling is the act of catching an exception with the intention of handling the situation so that normal execution flow can continue. It should not be used as any part of an expected execution flow. It should also be avoided if the situation continue to be unrecoverable.</p>
+<p>.Net core provides a default middleware <em>UseExceptionHandler</em> that will catch exceptions and log them. You can read more about this <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-3.1">here</a>. This is the preferred mechanism when it comes to dealing with errors the application logic is unable to handle elegantly on its own. The middleware should be configured to generate a response that is appropriate for the running environment.</p>
+<p>Exceptions that can be handled by the application logic should be handled as soon and as specific as possible. The following example is found in the platform Storage application. More specifically the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs#L494">DataController.GetDataElementAsync</a> method.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">ActionResult errorMessage;
+<span style="color:#ff79c6">try</span>
+{
+    DataElement dataElement = 
+        <span style="color:#ff79c6">await</span> _dataRepository.Read(instanceGuid, dataGuid);
 
-        logging.AddProvider(<span style="color:#ff79c6">new</span> SerilogLoggerProvider(logger));
-    })
-</code></pre></div><h4 id="step-two---inject-logger-where-it-is-needed">Step two - inject logger where it is needed</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">    <span style="color:#ff79c6">private</span> ILogger logger;
-
-    <span style="color:#ff79c6">public</span> ApplicationsController(IApplicationRepository repository, ILogger logger)
+    <span style="color:#ff79c6">return</span> (dataElement, <span style="color:#ff79c6">null</span>);
+}
+<span style="color:#ff79c6">catch</span> (DocumentClientException dce)
+{
+    <span style="color:#ff79c6">if</span> (dce.StatusCode == HttpStatusCode.NotFound)
     {
-        <span style="color:#ff79c6">this</span>.logger = logger;
-        <span style="color:#ff79c6">this</span>.repository = repository;
+        errorMessage = 
+            NotFound(<span style="color:#f1fa8c">$&#34;Unable to find any data element with id: {dataGuid}.&#34;</span>);
     }
-</code></pre></div><h4 id="step-three---log-error">Step three - log error</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">    logger.Error(<span style="color:#f1fa8c">$&#34;Unable to store application data in database. {exception}&#34;</span>);;
-
-</code></pre></div><p>Read more on <a href="https://github.com/serilog/serilog">serilog</a></p>
-
+    <span style="color:#ff79c6">else</span>
+    {
+        <span style="color:#ff79c6">throw</span>;
+    }
+}
+</code></pre></div><p>In this example the try..catch is interested only in the DocumentClientException, and on top of that only when the StatusCode is NotFound. All other exceptions and exception reasons are ignored and will end up in the .Net Core middleware.</p>
+<h3 id="api-response">API Response</h3>
+<p>Exceptions that are handled by application logic can result in almost any response. The outcome will depend on the type of exception and how it is handled:</p>
+<ul>
+<li><strong>200 - Ok</strong> - The original request is considered successfully processed.</li>
+<li><strong>400 - BadRequest</strong> - The exception was caused by a faulty request. In this case it is preferred that the application logic does active validation instead of needing to deal with an exception.</li>
+<li><strong>401 - Unauthorized</strong> - Similar to BadRequest, but logic is associated with authentication.</li>
+<li><strong>403 - Forbidden</strong> - Similar to BadRequest, but logic is associated with authorization.</li>
+<li><strong>404 - NotFound</strong> - The requested resource does not exist.</li>
+</ul>
+<p>By limiting the usage of status codes, we can ease the handling of different status codes at client side. Application logic should (ideally) never produce a 500 response. Exceptions that are not handled by application logic, but the default middleware will always result in a response with status code 500.</p>
+<h3 id="middleware-configuration">Middleware configuration</h3>
+<p>Handling of unrecoverable errors should be done by the built in middleware mentioned previously. The configuration should be different between production environments and other environments. In development and staging environments the middleware should allow detailed exception information to be exposed by the API.</p>
+<p>Configuration of the middleware is done in the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs#L210">Startup.Configure</a> method. This is an example from the platform Storage application:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (env.IsDevelopment() || env.IsStaging())
+{
+    app.UseDeveloperExceptionPage();
+}
+<span style="color:#ff79c6">else</span>
+{
+    app.UseExceptionHandler(<span style="color:#f1fa8c">&#34;/storage/api/v1/error&#34;</span>);
+}
+</code></pre></div><p>This configuration requires an ErrorController that can handle the server side redirect performed by the middleware. The following code sample is a stipped version of the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Authentication/Authentication/Controllers/ErrorController.cs">ErrorController</a> in the platform Storage application:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[ApiController]</span>
+<span style="color:#50fa7b">[ApiExplorerSettings(IgnoreApi = true)]</span>
+<span style="color:#50fa7b">[AllowAnonymous]</span>
+<span style="color:#50fa7b">[Route(&#34;storage/api/v1&#34;)]</span>
+<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ErrorController</span> : ControllerBase
+{
+<span style="color:#50fa7b">    [Route(&#34;error&#34;)]</span>
+    <span style="color:#ff79c6">public</span> IActionResult Error() =&gt; Problem();
+}
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -12700,6 +12713,22 @@ There are many advantages of using serilog</p>
                               
                                   
                                   
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
                               
                           
                           
@@ -15301,7 +15330,7 @@ There are many advantages of using serilog</p>
                       <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/back-end/async-programming/" title="Async programming"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/back-end/nuget-package/" title="Nuget Package" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/back-end/logging/" title="Logging" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 

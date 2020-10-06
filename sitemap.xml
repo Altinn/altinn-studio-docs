@@ -207,11 +207,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/error-handling/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/error-handling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/error-handling/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/error-handling/</loc>
   </url>
   
   <url>
@@ -240,6 +240,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/k6/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/logging/</loc>
   </url>
   
   <url>
@@ -1064,6 +1068,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/local-dev/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/tags/logging/</loc>
   </url>
   
   <url>
