@@ -5,7 +5,62 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
-## 403 response when trying to delete instance using endpoint in app
+## Added registration of events to the new Events component
+
+The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.
+
+Updating to this version will require changes in multiple files. 
+
+1. Updated package dependencies
+ Navigate to you application repository and find `App.csproj` in the `App` folder.
+   Update nuget dependencies in `App.csproj` to version 1.1.11-alpha or newer..
+
+    ```xml
+    <PackageReference Include="Altinn.App.Api" Version="1.1.11-alpha" />
+    <PackageReference Include="Altinn.App.Common" Version="1.1.11-alpha" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="1.1.11-alpha" />
+    ```
+
+2. Changes in Startup.cs:
+
+    ```cs
+    services.AddHttpClient<IEvents, EventsAppSI>();
+    ```
+
+    Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.
+
+    This will probably also require two new lines at the top of the file:
+
+    ```cs
+    using Altinn.App.PlatformServices.Implementation;
+    using Altinn.App.PlatformServices.Interface;
+    ```
+
+3. Changes in appsettings.json:
+
+A new property has been included in called `PlatformSettings.ApiEventsEndpoint`.
+The value here is used for local test and will be replaced during deploy to test and production environments.
+
+  ```json
+  "PlatformSettings": {
+    ...
+      "ApiEventsEndpoint": "http://localhost:5101/events/api/v1/"
+  }
+|```
+
+The default behaviour of the logic is to not send events. To override this there is a new setting called `AppSettings:RegisterEventsWithEventsComponent`.
+Update the appsettings file by adding an entry in the AppSettings section:
+
+  ```json
+  "AppSettings": {
+    ...
+    "RegisterEventsWithEventsComponent": false
+  }
+  ```
+
+Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.
+
+## Support for deleting instances from endpoint in app
 
 [#4871](https://github.com/Altinn/altinn-studio/issues/4871) was fixed with in release of 1.1.10-alpha of the app nugets.
 **This change only affects users and app owners that try to delete an instance.**
