@@ -60,7 +60,7 @@ Update the appsettings file by adding an entry in the AppSettings section:
 
 Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.
 
-## 403 response when trying to delete instance using endpoint in app
+## Support for deleting instances from endpoint in app
 
 [#4871](https://github.com/Altinn/altinn-studio/issues/4871) was fixed with in release of 1.1.10-alpha of the app nugets.
 **This change only affects users and app owners that try to delete an instance.**
