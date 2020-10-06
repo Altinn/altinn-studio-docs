@@ -11,42 +11,52 @@ The Altinn.App.* packages has been updated to work with the new Events component
 
 Updating to this version will require changes in multiple files. 
 
-1; Changes in Startup.cs:
+1. Updated package dependencies
+ Navigate to you application repository and find `App.csproj` in the `App` folder.
+   Update nuget dependencies in `App.csproj` to version 1.1.11-alpha or newer..
 
-  ```cs
-  services.AddHttpClient<IEvents, EventsAppSI>();
-  ```
+    ```xml
+    <PackageReference Include="Altinn.App.Api" Version="1.1.11-alpha" />
+    <PackageReference Include="Altinn.App.Common" Version="1.1.11-alpha" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="1.1.11-alpha" />
+    ```
 
-  Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.
+2. Changes in Startup.cs:
 
-  This will probably also require two new lines at the top of the file:
+    ```cs
+    services.AddHttpClient<IEvents, EventsAppSI>();
+    ```
 
-  ```cs
-  using Altinn.App.PlatformServices.Implementation;
-  using Altinn.App.PlatformServices.Interface;
-  ```
+    Startup already have multiple similar lines with calls to AddHttpClient. Add the new line anywhere among them.
 
-2; Changes in appsettings.json:
+    This will probably also require two new lines at the top of the file:
+
+    ```cs
+    using Altinn.App.PlatformServices.Implementation;
+    using Altinn.App.PlatformServices.Interface;
+    ```
+
+3. Changes in appsettings.json:
 
 A new property has been included in called `PlatformSettings.ApiEventsEndpoint`.
 The value here is used for local test and will be replaced during deploy to test and production environments.
 
-```json
-"PlatformSettings": {
-  ...
-    "ApiEventsEndpoint": "http://localhost:5101/events/api/v1/"
-}
-```
+  ```json
+  "PlatformSettings": {
+    ...
+      "ApiEventsEndpoint": "http://localhost:5101/events/api/v1/"
+  }
+|```
 
 The default behaviour of the logic is to not send events. To override this there is a new setting called `AppSettings:RegisterEventsWithEventsComponent`.
 Update the appsettings file by adding an entry in the AppSettings section:
 
-```json
-"AppSettings": {
-  ...
-  "RegisterEventsWithEventsComponent": false
-}
-```
+  ```json
+  "AppSettings": {
+    ...
+    "RegisterEventsWithEventsComponent": false
+  }
+  ```
 
 Change the setting to true if the app should create and send events. Please note that the feature is under continued development and still considered experimental.
 
