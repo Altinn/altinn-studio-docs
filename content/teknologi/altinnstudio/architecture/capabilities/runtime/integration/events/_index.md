@@ -281,7 +281,7 @@ In this scenario, an org is waiting on end-users to complete one given app.
 3. System calls 
 
 ```http
-GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}&eventType=instance.process.completed
+GET {platformurl}/events/appevents/{org}/{app}?from={lastchanged}&eventType=instance.process.completed
 ```
 4. Event component verifies that scope matches request
 5. Event components searches Cosmos DB for events that matches search criteria
@@ -299,7 +299,7 @@ In this scenario, a user wants to see if there are any changes for a client or t
 
 
 ```http
-POST {platformurl}/events/instanceeventsforparty/
+POST {platformurl}/events/partyevents/
 ```
 
 4. Event component query events in database 
@@ -318,7 +318,7 @@ In this scenario a professional organization wants to see if there are any chang
 3. System calls event api
 
 ```http
-POST {platformurl}/events/instanceeventsforparty/
+POST {platformurl}/events/partyevents/
 ```
 
 4. Event component query events in database 

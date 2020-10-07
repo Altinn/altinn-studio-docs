@@ -24,7 +24,7 @@ TODO: Verify proposed API structure
 ##### Endpoint
 
 ```http
-GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}
+GET path: platform.altinn.no/events/api/v1/app/{org}/{appName}
 ```
 
 ##### Usage
@@ -48,10 +48,12 @@ The following url parameters and http headers has been defined. Person is given 
 | party | string  | Required* the partyId |
 | org | string  | Required: the org owning the application |
 | app | string  | Optional: the application related to the event |
-| from | datetime  | Required: The time to search from |
+| from | datetime  | Required**: The time to search from |
+| after | string  | Required**: The last event received last time |
 | type | string | Optional: a specific event type |
 
 * Needs to give one identifcator of the subject, unit,person or party parammeter.
+** Needs to give aeither from or after
 
 #### Events for a given party
 
