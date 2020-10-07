@@ -10249,7 +10249,7 @@ TODO: Verify proposed API structure
 </div>
 <h4 id="instances-events-for-org">Instances events for Org</h4>
 <h5 id="endpoint">Endpoint</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET path: platform.altinn.no/events/api/v1/app/{org}/{appName}
 </code></pre></div><h5 id="usage">Usage</h5>
 <p>This will be used by application owners to identify changes on instances for their applications.</p>
 <h5 id="authorization">Authorization</h5>
@@ -10294,7 +10294,12 @@ events for a given org/app.</p>
 <tr>
 <td>from</td>
 <td>datetime</td>
-<td>Required: The time to search from</td>
+<td>Required**: The time to search from</td>
+</tr>
+<tr>
+<td>after</td>
+<td>string</td>
+<td>Required**: The last event received last time</td>
 </tr>
 <tr>
 <td>type</td>
@@ -10304,7 +10309,8 @@ events for a given org/app.</p>
 </tbody>
 </table>
 <ul>
-<li>Needs to give one identifcator of the subject, unit,person or party parammeter.</li>
+<li>Needs to give one identifcator of the subject, unit,person or party parammeter.
+** Needs to give aeither from or after</li>
 </ul>
 <h4 id="events-for-a-given-party">Events for a given party</h4>
 <p>A very common scenario is that a party needs to know about events for the party itself or other party that party has a relationship for (client, child unit++).</p>

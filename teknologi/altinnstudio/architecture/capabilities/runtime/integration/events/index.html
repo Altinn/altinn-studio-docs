@@ -10450,7 +10450,7 @@ have for the subject of the event.</p>
 <li>System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.</li>
 <li>System calls</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {platformurl}/events/appevents/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed
 </code></pre></div><ol start="4">
 <li>Event component verifies that scope matches request</li>
 <li>Event components searches Cosmos DB for events that matches search criteria</li>
@@ -10464,7 +10464,7 @@ have for the subject of the event.</p>
 <li>System exchanges token with Altinn</li>
 <li>System calls event API</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/instanceeventsforparty/
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/partyevents/
 </code></pre></div><ol start="4">
 <li>Event component query events in database</li>
 <li>Event components authorized the event and filter away events where user is not authorized</li>
@@ -10479,7 +10479,7 @@ have for the subject of the event.</p>
 <li>System exchanges token with Altinn</li>
 <li>System calls event api</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/instanceeventsforparty/
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/partyevents/
 </code></pre></div><ol start="4">
 <li>Event component query events in database</li>
 <li>Event components authorized the event and filter away events where user is not authorized</li>
