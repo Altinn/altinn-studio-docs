@@ -707,6 +707,13 @@
 	"content": "docs\r"
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/postgres/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/",
 	"title": ".NET Core",
 	"tags": ["tech", "programming"],
@@ -1691,7 +1698,7 @@
 	"title": "Handbook",
 	"tags": ["development"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "The development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way.\nThe development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rAzure Dev Spaces\rGuidelines for deploying storage\n\r\rAzure DevOps\rGuidelines for working with resources in Azure DevOps\n\r\rBack-end\rCoding guidelines for back-end\n\r\rCheat Sheet\rQucik guide for different commands\n\r\rDeployment\rGuidelines for deploying\n\r\rFront-end\rCoding guidelines for front-end\n\r\rGeneral\rGeneral coding guidelines\n\r\rGetting started\rInformation about how to get started\n\r\rGit\rInformation about version control with Git\n\r\rNaming Conventions\rNaming guidelines for Altinn Studio development\n\r\rNginx loadbalancing in studio\rInformation about routing with nginx\n\r\rRESTful APIs (Representation State Transfer)\rGuidelines for designing REST apis for microservices in Altinn\n\r\rRouting\rInformation about routing\n\r\rSecurity Checklist\rChecklist for security OWASP.\n\r\rTest\rCoding guidelines for tests\n\r\rGitea\rHow to customize and configure Gitea.\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rTheming and styling\rSolution for theming and styling conventions.\n\r\rTroubleshooting\rTroubleshooting of Altinn Studio.\n\r\r"
+	"content": "The development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way.\nThe development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rAzure Dev Spaces\rGuidelines for deploying storage\n\r\rAzure DevOps\rGuidelines for working with resources in Azure DevOps\n\r\rBack-end\rCoding guidelines for back-end\n\r\rCheat Sheet\rQucik guide for different commands\n\r\rDeployment\rGuidelines for deploying\n\r\rFront-end\rCoding guidelines for front-end\n\r\rGeneral\rGeneral coding guidelines\n\r\rGetting started\rInformation about how to get started\n\r\rGit\rInformation about version control with Git\n\r\rNaming Conventions\rNaming guidelines for Altinn Studio development\n\r\rNginx loadbalancing in studio\rInformation about routing with nginx\n\r\rRESTful APIs (Representation State Transfer)\rGuidelines for designing REST apis for microservices in Altinn\n\r\rRouting\rInformation about routing\n\r\rSecurity Checklist\rChecklist for security OWASP.\n\r\rTest\rCoding guidelines for tests\n\r\r\r\n\r\rGitea\rHow to customize and configure Gitea.\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rTheming and styling\rSolution for theming and styling conventions.\n\r\rTroubleshooting\rTroubleshooting of Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/helm/",
