@@ -281,7 +281,7 @@ In this scenario, an org is waiting on end-users to complete one given app.
 3. System calls 
 
 ```http
-GET {platformurl}/events/instanceevents/{org}/{app}?from={lastchanged}&eventType=instance.process.completed
+GET {platformurl}/events/appevents/{org}/{app}?from={lastchanged}&eventType=instance.process.completed
 ```
 4. Event component verifies that scope matches request
 5. Event components searches Cosmos DB for events that matches search criteria
@@ -299,7 +299,7 @@ In this scenario, a user wants to see if there are any changes for a client or t
 
 
 ```http
-POST {platformurl}/events/instanceeventsforparty/
+POST {platformurl}/events/partyevents/
 ```
 
 4. Event component query events in database 
@@ -318,7 +318,7 @@ In this scenario a professional organization wants to see if there are any chang
 3. System calls event api
 
 ```http
-POST {platformurl}/events/instanceeventsforparty/
+POST {platformurl}/events/partyevents/
 ```
 
 4. Event component query events in database 
@@ -350,13 +350,14 @@ POST {platformurl}/events/instanceeventsforinstance/{instanceId}
 
 ## Push Events
 
-To reduce the amount of request from consumer we should look in to supporting push of events.
+Altinn Events will also support push of events. 
 
-This has not been detailed yet but the solution could contain:
+Consumers would be able to add a subscription for specific types of event either for a specific source or for a specific subject. 
 
-- Consumer can set up URL webhook that would receive all or a filtered list of events. A new component will send events to the different consummers.
-- User can set up a notification SMS number to get a notification about events.
-- There can be a mobile app that can listen to push notifcations.
+Throug API consumers would be able to add and remove subscriptions
+
+- Consumer need to set up URL webhook that would receive all or a filtered list of events. 
+
 
 See details in [this Github issue](https://github.com/Altinn/altinn-studio/issues/4728)
 
