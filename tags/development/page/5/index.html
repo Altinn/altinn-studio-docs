@@ -5756,6 +5756,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/postgres/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/postgres/">
+        <span>PostgreSQL</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/rest/" class="dd-item 
         
         
@@ -6385,35 +6414,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/postgres/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/postgres/">
-        <span></span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -10257,6 +10257,38 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/">TLS in Traefik 2.0</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>TLS sertificates stored as secrets on the cluster apiVersion: v1 kind: Secret metadata: name: altinn-tls-secret data: tls.crt: [[BASE 64 ENCODED CERTIFICATE]] tls.key: [[BASE 64 ENCODED PRIVATE KEY]] TLS Options To set up TLS options we need to use the custom resource TLSOption. A basic set up of this is:
+apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-tls-options namespace: default spec: minVersion: VersionTLS12 Adding TLS to an Ingress Route Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally a options-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the default namespace). <a class="read-more" href="/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/">Traefik custom resources</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10525,36 +10557,6 @@ Testing Altinn Studio for accesibility with testcafe and axe-core WCAG tests run
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/flight-rules/">Flight Rules</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>What are flight rules?
-Flight rules is originally a compendium of step-by-step manuals, what to do when X occurs and why.
-Essentially, they are extremely detailed, scenario-specific standard operating procedures.
-Loadbalancer is responding with HTTP Error 502 - bad gateway This occurs when the loadbalancer could not find any of the services in it&rsquo;s configuration.
-Can be triggerd by these issues:
- Some of the kubernetes services are not existing Some of the kubernetes pods are not existing Kubernetes mapping between deployments and services are incorrect. <a class="read-more" href="/teknologi/altinnstudio/development/flight-rules/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
         
 
@@ -13371,21 +13373,6 @@ Can be triggerd by these issues:
           
                               
                               
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                               
           
                               
@@ -13406,76 +13393,6 @@ Can be triggerd by these issues:
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
                               
                                   
                       
@@ -13572,6 +13489,107 @@ Can be triggerd by these issues:
                       
                   
                               
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
                                   
                       
                       
@@ -13669,22 +13687,6 @@ Can be triggerd by these issues:
                               
                       
                   
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   

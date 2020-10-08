@@ -5756,6 +5756,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/postgres/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/postgres/">
+        <span>PostgreSQL</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/rest/" class="dd-item 
         
         
@@ -6385,35 +6414,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/postgres/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/postgres/">
-        <span></span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -10257,6 +10257,34 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/postgres/">PostgreSQL</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>NOTE: Work in progress.
+Install PostgreSQL and pgAdmin4 Follow the instructions on https://www.postgresql.org/download/
+Set up database Open pgAdmin 4. We will be working on the PostgreSQL 13 server.
+  Right click on Databases and select Create.   Fill inn database name eventsdb and click Save.   You should now be able to see a new database in the list. If you don&rsquo;t - right click the server and select REFRESH. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/postgres/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/postman/">Postman</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10511,38 +10539,6 @@ Procedure to write general testcafe test  Find a test case and area that has to 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/">TLS in Traefik 2.0</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>TLS sertificates stored as secrets on the cluster apiVersion: v1 kind: Secret metadata: name: altinn-tls-secret data: tls.crt: [[BASE 64 ENCODED CERTIFICATE]] tls.key: [[BASE 64 ENCODED PRIVATE KEY]] TLS Options To set up TLS options we need to use the custom resource TLSOption. A basic set up of this is:
-apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-tls-options namespace: default spec: minVersion: VersionTLS12 Adding TLS to an Ingress Route Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally a options-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the default namespace). <a class="read-more" href="/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/traefik/">traefik</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
             
         
 
@@ -13359,21 +13355,6 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
           
                               
                               
-                                  
-                              
-                              
-          
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
                               
           
                               
@@ -13394,76 +13375,6 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                      
-                  
-                              
-                      
-                  
                               
                                   
                       
@@ -13560,6 +13471,107 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                       
                   
                               
+                      
+                  
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                                  
+                              
+                              
+          
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
                                   
                       
                       
@@ -13657,22 +13669,6 @@ apiVersion: traefik.containo.us/v1alpha1 kind: TLSOption metadata: name: altinn-
                               
                       
                   
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
                               
                       
                   

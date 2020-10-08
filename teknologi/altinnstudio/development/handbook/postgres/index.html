@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Setting up PostgreSQL for local development">
 
 
     
-    <title> :: Altinn digitalisering - Utvikling</title>
+    <title>PostgreSQL :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -5756,6 +5756,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/postgres/" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/postgres/">
+        <span>PostgreSQL</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/rest/" class="dd-item 
         
         
@@ -6385,35 +6414,6 @@ if(host != "localhost")
           
         
         </ul>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/postgres/" class="dd-item 
-        parent
-        active
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/postgres/">
-        <span></span>
-
-        
-
-        
-        
-
-        
-      </a>
               
     </li>
   
@@ -10209,7 +10209,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> 
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> PostgreSQL
 
  
 
@@ -10227,14 +10227,20 @@ if(host != "localhost")
           </div>
         
         
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a>
+            
+          </div>
+        
         <div id="body-inner">
           
             
               <h1 class="a-fontBold">
-                
+                PostgreSQL
                 
               </h1>
-              <p class="a-leadText" id="leadText"></p>
+              <p class="a-leadText" id="leadText">Setting up PostgreSQL for local development</p>
             
           
 
@@ -10246,34 +10252,68 @@ if(host != "localhost")
 
 
 
+
+
+<div class="panel panel-primary">
+	
+	<div class="panel-body"><p><strong>NOTE:</strong> Work in progress.</p>
+</div>
+	
+</div>
+
+<h2 id="install-postgresql-and-pgadmin4">Install PostgreSQL and pgAdmin4</h2>
+<p>Follow the instructions on <a href="https://www.postgresql.org/download/">https://www.postgresql.org/download/</a></p>
+<h2 id="set-up-database">Set up database</h2>
+<p>Open pgAdmin 4.
+We will be working on the PostgreSQL 13 server.</p>
+<ol>
+<li>
+<p>Right click on <em>Databases</em> and select <em>Create</em>.
+<img src="images/setup-1.PNG" alt="Create new database" title="Create new database"></p>
+</li>
+<li>
+<p>Fill inn database name <code>eventsdb</code> and click <em>Save</em>.
+<img src="images/setup-2.PNG" alt="Configure new database" title="Configure new database"></p>
+</li>
+<li>
+<p>You should now be able to see a new database in the list. If you don&rsquo;t - right click the server and select <em>REFRESH</em>.
+<img src="images/setup-3.PNG" alt="Confirm new database" title="Confirm new database"></p>
+</li>
+</ol>
+<h2 id="set-up-users">Set up users</h2>
+<ol>
+<li>
+<p>Right click on <em>Login/Group Roles</em> , select <em>Create</em> and <em>Login/Group Roles</em>.
+<img src="images/setup-user-1.PNG" alt="Step 1" title="Step 1"></p>
+</li>
+<li>
+<p>In the <em>General</em> tab fill out the username <code>platform_events_admin</code>
+<img src="images/setup-user-2.PNG" alt="Step 2" title="Step 2"></p>
+</li>
+<li>
+<p>Navigate to the <em>Definition</em> tab and insert password: <code>Password</code>
+<img src="images/setup-user-3.PNG" alt="Step 3" title="Step 3"></p>
+</li>
+<li>
+<p>Navigate to the <em>Priviliges</em> tab and enable <em>Can login</em>
+<img src="images/setup-user-4.PNG" alt="Step 4" title="Step 4"></p>
+</li>
+<li>
+<p>Navigate to the <em>Membership</em> tab and include <code>postgres</code> as a role and click _Save
+<img src="images/setup-user-5.PNG" alt="Step 5" title="Step 5"></p>
+</li>
+<li>
+<p>Confirm that the user has been created in the side bar.
+If you cannot see the user, try refreshing the <em>Login/Group Roles</em> section.
+<img src="images/setup-user-6.PNG" alt="Step 6" title="Step 6"></p>
+</li>
+</ol>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Side 1 av 0</span>
-	
-</nav>
-
-	</div>
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Side 1 av 0</span>
-	
-</nav>
 
 
 
@@ -13063,6 +13103,26 @@ if(host != "localhost")
                       
                           
                               
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
+                                  
+                      
+                      
+                          
+                              
+                                  
+                                  
+                              
                           
                           
           
@@ -13390,26 +13450,6 @@ if(host != "localhost")
                       
                       
                           
-                              
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                                  
-                                  
                               
                           
                           
@@ -15321,10 +15361,10 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/test/xunit-testing/" title="Xunit Testing"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/" title="Nginx SSL/TLS certificate"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/gitea/" title="Gitea" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/rest/" title="RESTful APIs (Representation State Transfer)" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 

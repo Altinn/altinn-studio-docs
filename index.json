@@ -476,6 +476,13 @@
 	"content": "Window.postMessage() is introduced to handle communication between components that has no connection other then the need to communicate/trigger events. Eg. its used to communicate with the syncBar to get it to perform a new status check. To read more see: Window.postMessage\nUsage Dispatching a message event is done the following way:\n// variables should be used for messages var SAVED_EVENT = \u0026#39;SAVED\u0026#39; window.postMessage(SAVED_EVENT, window.location.href); Catching the event is done by adding an event listener to the component one needs to communicate with:\npublic componentDidMount() { window.addEventListener(\u0026#39;message\u0026#39;, this.eventThatShouldHappend); } public eventThatShouldHappend(){ if (event.data === SAVED_EVENT){ //Do necessary handling of correct message  } } When the commponent is unmounting the event listener should be removed:\npublic componentWillUnmount() { window.removeEventListener(\u0026#39;message\u0026#39;, this.eventThatShouldHappend); }  Remember to create \u0026ldquo;message variables\u0026rdquo; that make sense when comparing different messages. Example: \u0026ldquo;SAVED_IN_UI_EDITOR\u0026rdquo;, \u0026ldquo;SAVED_IN_OTHER_PLACE\u0026rdquo; or \u0026ldquo;FETCH_REPO_STATUS\u0026rdquo;.\n "
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/postgres/",
+	"title": "PostgreSQL",
+	"tags": ["development"],
+	"description": "Setting up PostgreSQL for local development",
+	"content": "\rNOTE: Work in progress.\n\r\rInstall PostgreSQL and pgAdmin4 Follow the instructions on https://www.postgresql.org/download/\nSet up database Open pgAdmin 4. We will be working on the PostgreSQL 13 server.\n  Right click on Databases and select Create.   Fill inn database name eventsdb and click Save.   You should now be able to see a new database in the list. If you don\u0026rsquo;t - right click the server and select REFRESH.   Set up users   Right click on Login/Group Roles , select Create and Login/Group Roles.   In the General tab fill out the username platform_events_admin   Navigate to the Definition tab and insert password: Password   Navigate to the Priviliges tab and enable Can login   Navigate to the Membership tab and include postgres as a role and click _Save   Confirm that the user has been created in the side bar. If you cannot see the user, try refreshing the Login/Group Roles section.   "
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/postman/",
 	"title": "Postman",
 	"tags": ["development", "testing", "api"],
@@ -705,13 +712,6 @@
 	"tags": [],
 	"description": "",
 	"content": "docs\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/postgres/",
-	"title": "",
-	"tags": [],
-	"description": "",
-	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/",
@@ -1698,7 +1698,7 @@
 	"title": "Handbook",
 	"tags": ["development"],
 	"description": "Development handbook for Altinn Studio",
-	"content": "The development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way.\nThe development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rAzure Dev Spaces\rGuidelines for deploying storage\n\r\rAzure DevOps\rGuidelines for working with resources in Azure DevOps\n\r\rBack-end\rCoding guidelines for back-end\n\r\rCheat Sheet\rQucik guide for different commands\n\r\rDeployment\rGuidelines for deploying\n\r\rFront-end\rCoding guidelines for front-end\n\r\rGeneral\rGeneral coding guidelines\n\r\rGetting started\rInformation about how to get started\n\r\rGit\rInformation about version control with Git\n\r\rNaming Conventions\rNaming guidelines for Altinn Studio development\n\r\rNginx loadbalancing in studio\rInformation about routing with nginx\n\r\rRESTful APIs (Representation State Transfer)\rGuidelines for designing REST apis for microservices in Altinn\n\r\rRouting\rInformation about routing\n\r\rSecurity Checklist\rChecklist for security OWASP.\n\r\rTest\rCoding guidelines for tests\n\r\r\r\n\r\rGitea\rHow to customize and configure Gitea.\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rTheming and styling\rSolution for theming and styling conventions.\n\r\rTroubleshooting\rTroubleshooting of Altinn Studio.\n\r\r"
+	"content": "The development handbook should provide all basic information needed to get started with development on Altinn Studio. It should alto contain the information needed to make sure all developers write their code in a consistent way.\nThe development handbook should work as reference material, but it should also be possible to read throught the whole handbook in a logical order so that new developers quickly get up and running.\nThe development handbook is a dynamic material and everybody should feel free to extend or correct articles when needed.\n\rAzure Dev Spaces\rGuidelines for deploying storage\n\r\rAzure DevOps\rGuidelines for working with resources in Azure DevOps\n\r\rBack-end\rCoding guidelines for back-end\n\r\rCheat Sheet\rQucik guide for different commands\n\r\rDeployment\rGuidelines for deploying\n\r\rFront-end\rCoding guidelines for front-end\n\r\rGeneral\rGeneral coding guidelines\n\r\rGetting started\rInformation about how to get started\n\r\rGit\rInformation about version control with Git\n\r\rNaming Conventions\rNaming guidelines for Altinn Studio development\n\r\rNginx loadbalancing in studio\rInformation about routing with nginx\n\r\rPostgreSQL\rSetting up PostgreSQL for local development\n\r\rRESTful APIs (Representation State Transfer)\rGuidelines for designing REST apis for microservices in Altinn\n\r\rRouting\rInformation about routing\n\r\rSecurity Checklist\rChecklist for security OWASP.\n\r\rTest\rCoding guidelines for tests\n\r\rGitea\rHow to customize and configure Gitea.\n\r\rReusable resources\rA important feature with Altinn Studio is that it should promote developers to create reusable resources that can be reused by other developers.\n\r\rTheming and styling\rSolution for theming and styling conventions.\n\r\rTroubleshooting\rTroubleshooting of Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/helm/",
