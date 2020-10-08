@@ -29,6 +29,9 @@ We will be working on the PostgreSQL 13 server.
 
 ## Set up users
 
+Two users are required to run Platform Events with postgreSQL.
+_platform_events_admin_ and _platform_events_.
+
 1. Right click on _Login/Group Roles_ , select _Create_ and _Login/Group Roles_.
 ![Step 1](images/setup-user-1.PNG "Step 1")
 
@@ -47,3 +50,5 @@ We will be working on the PostgreSQL 13 server.
 6. Confirm that the user has been created in the side bar.
 If you cannot see the user, try refreshing the _Login/Group Roles_ section.
 ![Step 6](images/setup-user-6.PNG "Step 6")
+
+7. Repeat steps 1 thorugh 6 for user _platform_events_
