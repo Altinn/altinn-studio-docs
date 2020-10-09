@@ -41,14 +41,11 @@ _platform_events_admin_ and _platform_events_.
 3. Navigate to the _Definition_ tab and insert password: `Password`
 ![Step 3](images/setup-user-3.PNG "Step 3")
 
-4. Navigate to the _Priviliges_ tab and enable _Can login_
+4. Navigate to the _Priviliges_ tab and enable all options and click _Save.
 ![Step 4](images/setup-user-4.PNG "Step 4")
 
-5. Navigate to the _Membership_ tab and include `postgres` as a role and click _Save
+5. Confirm that the user has been created in the side bar.
+If you cannot see the user, try refreshing the _Login/Group Roles_ section.
 ![Step 5](images/setup-user-5.PNG "Step 5")
 
-6. Confirm that the user has been created in the side bar.
-If you cannot see the user, try refreshing the _Login/Group Roles_ section.
-![Step 6](images/setup-user-6.PNG "Step 6")
-
-7. Repeat steps 1 thorugh 6 for user _platform_events_
+7. TODO: instructions on _platform_events_
