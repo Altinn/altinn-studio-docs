@@ -10280,9 +10280,7 @@ We will be working on the PostgreSQL 13 server.</p>
 <img src="images/setup-3.PNG" alt="Confirm new database" title="Confirm new database"></p>
 </li>
 </ol>
-<h2 id="set-up-users">Set up users</h2>
-<p>Two users are required to run Platform Events with postgreSQL.
-<em>platform_events_admin</em> and <em>platform_events</em>.</p>
+<h2 id="set-up-admin-user">Set up admin user</h2>
 <ol>
 <li>
 <p>Right click on <em>Login/Group Roles</em> , select <em>Create</em> and <em>Login/Group Roles</em>.
@@ -10297,7 +10295,7 @@ We will be working on the PostgreSQL 13 server.</p>
 <img src="images/setup-user-3.PNG" alt="Step 3" title="Step 3"></p>
 </li>
 <li>
-<p>Navigate to the <em>Priviliges</em> tab and enable all options and click _Save.
+<p>Navigate to the <em>Priviliges</em> tab and enable all options and click <em>Save</em>.
 <img src="images/setup-user-4.PNG" alt="Step 4" title="Step 4"></p>
 </li>
 <li>
@@ -10305,10 +10303,43 @@ We will be working on the PostgreSQL 13 server.</p>
 If you cannot see the user, try refreshing the <em>Login/Group Roles</em> section.
 <img src="images/setup-user-5.PNG" alt="Step 5" title="Step 5"></p>
 </li>
+</ol>
+<h2 id="set-up-app-user">Set up app user</h2>
+<ol>
 <li>
-<p>TODO: instructions on <em>platform_events</em></p>
+<p>Right click on <em>Login/Group Roles</em> , select <em>Create</em> and <em>Login/Group Roles</em>.
+<img src="images/setup-user-1.PNG" alt="Step 1" title="Step 1"></p>
+</li>
+<li>
+<p>In the <em>General</em> tab fill out the username <code>platform_events</code>
+<img src="images/setup-app-user-2.PNG" alt="Step 2" title="Step 2"></p>
+</li>
+<li>
+<p>Navigate to the <em>Definition</em> tab and insert password: <code>Password</code>
+<img src="images/setup-user-3.PNG" alt="Step 3" title="Step 3"></p>
+</li>
+<li>
+<p>Navigate to the <em>Priviliges</em> tab and enable <em>Can log in</em> and click <em>Save</em>.
+<img src="images/setup-app-user-4.PNG" alt="Step 4" title="Step 4"></p>
+</li>
+<li>
+<p>Confirm that the user has been created in the side bar.
+If you cannot see the user, try refreshing the <em>Login/Group Roles</em> section.
+<img src="images/setup-app-user-5.PNG" alt="Step 5" title="Step 5"></p>
+</li>
+<li>
+<p>Right click the database in the side menu and select <em>Query tool&hellip;</em>
+<img src="images/setup-app-user-6.PNG" alt="Step 6" title="Step 6"></p>
+</li>
+<li>
+<p>Run script grating user privilliges on schema resources.</p>
 </li>
 </ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#ff79c6">GRANT</span>  <span style="color:#ff79c6">USAGE</span>  <span style="color:#ff79c6">ON</span> <span style="color:#ff79c6">SCHEMA</span> events <span style="color:#ff79c6">TO</span> platform_events;
+<span style="color:#ff79c6">GRANT</span> <span style="color:#ff79c6">SELECT</span>,<span style="color:#ff79c6">INSERT</span>,<span style="color:#ff79c6">UPDATE</span>,<span style="color:#ff79c6">REFERENCES</span>,<span style="color:#ff79c6">DELETE</span>,<span style="color:#ff79c6">TRUNCATE</span>,<span style="color:#ff79c6">REFERENCES</span>,<span style="color:#ff79c6">TRIGGER</span> <span style="color:#ff79c6">ON</span> <span style="color:#ff79c6">ALL</span> TABLES <span style="color:#ff79c6">IN</span> <span style="color:#ff79c6">SCHEMA</span> events <span style="color:#ff79c6">TO</span> platform_events;
+<span style="color:#ff79c6">GRANT</span> <span style="color:#ff79c6">ALL</span> <span style="color:#ff79c6">ON</span> <span style="color:#ff79c6">ALL</span> SEQUENCES <span style="color:#ff79c6">IN</span> <span style="color:#ff79c6">SCHEMA</span> events <span style="color:#ff79c6">TO</span> platform_events;
+</code></pre></div><p>The result should be as shown in the picture below.
+<img src="images/setup-app-user-7.PNG" alt="Step 7" title="Step 7"></p>
 
 
 <footer class=" footline" >
