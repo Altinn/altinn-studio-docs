@@ -10310,7 +10310,7 @@ update process state, upload data, validate data, and change process of an insta
 <p>Client provides a self-contained access-token.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
 GET /authentication/api/v1/exchange/maskinporten
-</code></pre></div><p>The token looks something like this (after decoding):</p>
+</code></pre></div><p>The token looks something like this (after base64-decoding):</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;kid&#34;</span>: <span style="color:#f1fa8c">&#34;HtYZ1MTlVWPcBWBPUewNlYwTBFIbqMGoO58RxnczMbM&#34;</span>,
   <span style="color:#ff79c6">&#34;alg&#34;</span>: <span style="color:#f1fa8c">&#34;RS256&#34;</span>
