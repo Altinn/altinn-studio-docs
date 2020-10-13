@@ -10283,21 +10283,21 @@ if(host != "localhost")
 <li>Use &lsquo;console.log(variable_name)&rsquo; to find the runtime value of an variable - which will be logged in VS Code Terminal.
 <img src="testCafeDebug.png" alt="TestCafe Debug" title="TestCafe Debug"></li>
 <li>Rename the test to “test.only” - this will only run the specific test case.</li>
-<li>in testRunner.js, Set “chrome” as browser, Reduce the speed to 0.8 (percentage), debugOnFail : True,	stopOnFirstFail: True</li>
+<li>in testRunner.js, Set “chrome” as browser, Reduce the speed to 0.8 (percentage), debugOnFail : True, stopOnFirstFail: True</li>
 <li>Use &lsquo;&ndash;inspect &ndash;debug-brk&rsquo; in the command line when starting the tests.</li>
 <li>Check for the logs in junit.xml.</li>
 <li>Testcafe continues to work towards implementing a method to debug an application interactively. Refer: <a href="https://github.com/DevExpress/testcafe/issues/3244">https://github.com/DevExpress/testcafe/issues/3244</a></li>
 </ol>
 <h3 id="basics-on-pom-and-selectors">Basics on POM and Selectors</h3>
-<pre><code>1.	config.json has the URLs
-2.	Use of objects from POM
-        i.	Import page – 'import page_name from path_to_the_file
-        ii.	Declare an object for the page - let object_name = new page_name();
-4.	Selectors
-    a.	Id – starts with ‘#’
-    b.	Class – starts with ‘.’
-    c.	Html -&gt; “ul &gt; li”
-5.	test.skip – to skip a test in a test run (The results for the tests goes to Others)
+<pre><code>1. config.json has the URLs and app names used in different environment
+2. Use of objects from POM
+        i. Import page – 'import page_name from path_to_the_file
+        ii. Declare an object for the page - let object_name = new page_name();
+4. Selectors
+    a. Id – starts with ‘#’
+    b. Class – starts with ‘.’
+    c. Html -&gt; “ul &gt; li”
+5. test.skip – to skip a test in a test run (The results for the tests goes to Others)
 </code></pre>
 <p><a href="https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors/">More about Selectors</a></p>
 
