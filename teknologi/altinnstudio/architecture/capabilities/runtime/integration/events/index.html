@@ -10475,50 +10475,93 @@ have for the subject of the event.</p>
 <h3 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h3>
 <p>In this scenario, an org is waiting on end-users to complete one given app.</p>
 <ol>
-<li>System (consumer) authenticates using Maskinporten and requests scope <code>altinn:events/{org}/{app}</code></li>
-<li>System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.</li>
-<li>System calls</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {platformurl}/events/appevents/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed
-</code></pre></div><ol start="4">
-<li>Event component verifies that scope matches request</li>
-<li>Event components searches Cosmos DB for events that matches search criteria</li>
-<li>Event component returns the filtered and possible capped response ordered by sequence</li>
-<li>Consumer process the received events and call other API to download related data (instances, files, etc)</li>
+<li>
+<p>System (consumer) authenticates using Maskinporten and requests scope <code>altinn:events/{org}/{app}</code></p>
+</li>
+<li>
+<p>System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.</p>
+</li>
+<li>
+<p>System calls</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed
+</code></pre></div></li>
+<li>
+<p>Event component verifies that scope matches request</p>
+</li>
+<li>
+<p>Event components searches Cosmos DB for events that matches search criteria</p>
+</li>
+<li>
+<p>Event component returns the filtered and possible capped response ordered by sequence</p>
+</li>
+<li>
+<p>Consumer process the received events and call other API to download related data (instances, files, etc)</p>
+</li>
 </ol>
 <h3 id="user-needing-to-know-if-there-is-anything-new-for-a-party">User needing to know if there is anything new for a party</h3>
 <p>In this scenario, a user wants to see if there are any changes for a client or the user itself.</p>
 <ol>
-<li>System authenticates end user with ID-porten</li>
-<li>System exchanges token with Altinn</li>
-<li>System calls event API</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/partyevents/
-</code></pre></div><ol start="4">
-<li>Event component query events in database</li>
-<li>Event components authorized the event and filter away events where user is not authorized</li>
-<li>Events are returned</li>
-<li>Consumer process events</li>
-<li>Consumer gets relevant data</li>
+<li>
+<p>System authenticates end user with ID-porten</p>
+</li>
+<li>
+<p>System exchanges token with Altinn</p>
+</li>
+<li>
+<p>System calls event API</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/party/
+</code></pre></div></li>
+<li>
+<p>Event component query events in database.</p>
+</li>
+<li>
+<p>Event components authorized the event and filter away events where user is not authorized</p>
+</li>
+<li>
+<p>Events are returned</p>
+</li>
+<li>
+<p>Consumer process events</p>
+</li>
+<li>
+<p>Consumer gets relevant data</p>
+</li>
 </ol>
 <h3 id="organization-needing-to-know-if-there-are-anything-new-for-a-party">Organization needing to know if there are anything new for a party</h3>
 <p>In this scenario a professional organization wants to see if there are any changes for a client or the organization itself.</p>
 <ol>
-<li>System authenticates end user with Maskinporten</li>
-<li>System exchanges token with Altinn</li>
-<li>System calls event api</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/partyevents/
-</code></pre></div><ol start="4">
-<li>Event component query events in database</li>
-<li>Event components authorized the event and filter away events where user is not authorized</li>
-<li>Events are returned</li>
-<li>Consumer process events</li>
-<li>Consumer gets relevant data</li>
+<li>
+<p>System authenticates end user with Maskinporten</p>
+</li>
+<li>
+<p>System exchanges token with Altinn</p>
+</li>
+<li>
+<p>System calls event api</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/party/
+</code></pre></div></li>
+<li>
+<p>Event component query events in database</p>
+</li>
+<li>
+<p>Event components authorized the event and filter away events where user is not authorized</p>
+</li>
+<li>
+<p>Events are returned</p>
+</li>
+<li>
+<p>Consumer process events</p>
+</li>
+<li>
+<p>Consumer gets relevant data</p>
+</li>
 </ol>
 <h3 id="approved-organization-needs-to-know-about-changes-for-all-reportees">Approved organization needs to know about changes for all reportees</h3>
 <p>This is a scenario where some organizations like banks need to be informed when somebody dies and a &ldquo;deathestate&rdquo; is created for that user.</p>
-<h3 id="anonym-access-to-a-given-instances-events">Anonym access to a given instances events.</h3>
+<h3 id="anonym-access-to-a-given-instances-events">Anonym access to a given instances events</h3>
+<div class="notices warning" >
+Not implemented yet.
+</div>
 <p>In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
 the instance without the user needing to log in.</p>
 <ol>

@@ -10285,7 +10285,8 @@ TODO: Verify proposed API structure
 <p>We will use scopes from Maskinporten to authorize access. In this way, it should also be possible for an org to delegate access to
 events for a given org/app.</p>
 <p>The full detail for this API is described in this <a href="https://github.com/Altinn/altinn-studio/issues/4551">issue</a>.</p>
-<p>The following url parameters and http headers has been defined. Person is given as a http header because of security.</p>
+<h5 id="request">Request</h5>
+<p>The following url parameters and http headers have been defined. Person is given as a http header because of security.</p>
 <table>
 <thead>
 <tr>
@@ -10295,6 +10296,46 @@ events for a given org/app.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>org</td>
+<td>string</td>
+<td>Required: the org owning the application</td>
+</tr>
+<tr>
+<td>appName</td>
+<td>string</td>
+<td>Required: the application related to the event</td>
+</tr>
+<tr>
+<td>after</td>
+<td>string</td>
+<td>Required**: the id of the last event processed by the client</td>
+</tr>
+<tr>
+<td>from</td>
+<td>datetime</td>
+<td>Required**: The time (UTC) to search from</td>
+</tr>
+<tr>
+<td>to</td>
+<td>datetime</td>
+<td>Optional: The time (UTC) to search up until</td>
+</tr>
+<tr>
+<td>party</td>
+<td>string</td>
+<td>Optional: the partyId</td>
+</tr>
+<tr>
+<td>type</td>
+<td>List&lt;string&gt;</td>
+<td>Optional: a list of event types</td>
+</tr>
+<tr>
+<td>source</td>
+<td>List&lt;string&gt; (regex allowed)***</td>
+<td>Optional: a list of strings to match the event source</td>
+</tr>
 <tr>
 <td>unit</td>
 <td>string</td>
@@ -10306,42 +10347,43 @@ events for a given org/app.</p>
 <td>Optional: the f or d number of the person</td>
 </tr>
 <tr>
-<td>party</td>
-<td>string</td>
-<td>Required* the partyId</td>
-</tr>
-<tr>
-<td>org</td>
-<td>string</td>
-<td>Required: the org owning the application</td>
-</tr>
-<tr>
-<td>app</td>
-<td>string</td>
-<td>Optional: the application related to the event</td>
-</tr>
-<tr>
-<td>from</td>
-<td>datetime</td>
-<td>Required**: The time to search from</td>
-</tr>
-<tr>
-<td>after</td>
-<td>string</td>
-<td>Required**: The last event received last time</td>
-</tr>
-<tr>
-<td>type</td>
-<td>string</td>
-<td>Optional: a specific event type</td>
+<td>size</td>
+<td>int</td>
+<td>Optional: upper limit for number of returned events</td>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Needs to give one identifcator of the subject, unit,person or party parammeter.
-** Needs to give aeither from or after</li>
-</ul>
-<h4 id="events-for-a-given-party">Events for a given party</h4>
+<p>* Needs to give one identifcator of the subject, unit,person or party parammeter.</p>
+<p>** After or from is required</p>
+<p>*** Source allows for escaping a single character <code>_</code> or an undefined number of characters <code>%</code></p>
+<h5 id="response">Response</h5>
+<p>Response includes a <em>next</em> header that can be used to get the events following the last event returned by the response.
+Query parameter <em>after</em> is inserted or replaced and holds the id of the last event returned in the reponse.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.tt02.altinn.no/events/api/v1/app/ttd/apps-test?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
+</code></pre></div><p>Response body includes a list of cloud events on the form</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+    {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8c99c887-3861-4c2a-9ac9-178a20b1ee70&#34;</span>,
+        <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
+        <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+        <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/567890&#34;</span>,
+        <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-13T15:46:02.557971Z&#34;</span>,
+        <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>,
+        <span style="color:#ff79c6">&#34;data&#34;</span>: <span style="color:#f1fa8c">&#34;data field&#34;</span>
+    },
+    {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;5beae524-0b3d-4e3b-bf40-450575eaf5d6&#34;</span>,
+        <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
+        <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.deleted&#34;</span>,
+        <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/567890&#34;</span>,
+        <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-10-14T10:33:33.022379Z&#34;</span>,
+        <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>,
+        <span style="color:#ff79c6">&#34;data&#34;</span>: <span style="color:#f1fa8c">&#34;data field&#34;</span>
+    }
+]
+</code></pre></div><h4 id="events-for-a-given-party">Events for a given party</h4>
 <p>A very common scenario is that a party needs to know about events for the party itself or other party that party has a relationship for (client, child unit++).</p>
 <h5 id="endpoint-1">Endpoint</h5>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {platformurl}/events/instanceeventsforparty/?org={org}&amp;from={fromTime}&amp;unit={organizationnumber}
@@ -10384,7 +10426,12 @@ events for a given org/app.</p>
 <tr>
 <td>from</td>
 <td>datetime</td>
-<td>Required: The time to search from</td>
+<td>Required**: The time to search from</td>
+</tr>
+<tr>
+<td>after</td>
+<td>string</td>
+<td>Required**: the id of the last event processed by the client</td>
 </tr>
 <tr>
 <td>type</td>
@@ -10393,9 +10440,8 @@ events for a given org/app.</p>
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Needs to give one identifcator of the subject, unit,person or party parammeter.</li>
-</ul>
+<p>* Needs to give one identifcator of the subject, unit,person or party parammeter.</p>
+<p>** After or from is required</p>
 <h5 id="usage-1">Usage</h5>
 <p>This is used by end users to see events for a given party.
 This will list all changes for a given party.</p>
