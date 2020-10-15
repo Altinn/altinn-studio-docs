@@ -8,6 +8,17 @@ toc: false
 
 The authorization capabilties is based around ABAC (Attribute Based Access Controls) and the XACML standard. 
 
+This gives a very flexible authorization cababilities.
+
+* Support authorization of app and platform access
+* Rights can be given to subjects with a given role, or direct to a person/organization or other type of attribute
+* Support unlimited levels of resource levels
+* Resources can have different access requirements based on resource state
+* Rules can contain obligations like security level required
+* Roles can be retrieved from different sources
+* Access rights are verified at a central solution
+* Authorize based on API parameters
+
 The following concepts are important
 
 ## Rights
