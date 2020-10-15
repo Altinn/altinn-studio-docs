@@ -3,9 +3,12 @@ title: Authorization
 linktitle: Authorization
 description: The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs. 
 tags: [architecture, security]
-toc: true
+toc: false
 ---
 
+The authorization capabilties is based around ABAC (Attribute Based Access Controls) and the XACML standard. 
+
+The following concepts are important
 
 ## Rights
 In Altinn Apps/Platform a right is a permission to perform an action on a given resource. 
@@ -90,3 +93,6 @@ Scopes is always used together with the authorization rules.
 
 
 
+## Solution components
+
+The application solutions components are described [here](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/)
