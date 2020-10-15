@@ -10265,9 +10265,7 @@ if(host != "localhost")
             <h2>På denne siden:</h2>
               <nav id="TableOfContents">
   <ul>
-    <li><a href="#parties">Parties</a></li>
-    <li><a href="#roles">Roles</a></li>
-    <li><a href="#policies">Policies</a></li>
+    <li><a href="#api">API</a></li>
   </ul>
 </nav>
           
@@ -10278,27 +10276,26 @@ if(host != "localhost")
 
 
 
-<div class="notices warning" >
-This page is a work-in-progress. Currently we haven't defined all the resources and operations for the authorization component.
-</div>
+<p>The following diagram describres the different solutions components that provides the Authorization capabilities.</p>
+<figure><a href="authorization_solution_components.svg"><img src="authorization_solution_components.svg" alt="Authorization Solution components" title="Authorization solution components" /></a><figcaption><h4>Authorization solution components</h4></figcaption></figure>
+<h2 id="api">API</h2>
 <p>The Authorization component exposes a REST-API to Altinn Apps.
 Use the authorization API to manage authorizations in altinn platform.</p>
-<p>Resources: Actor, Roles</p>
-<h2 id="parties">Parties</h2>
+<h3 id="parties">Parties</h3>
 <p>A party is a person whom  you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.</p>
-<h3 id="operations">Operations</h3>
+<h4 id="operations">Operations</h4>
 <p>Get a list of parties that the user can represent. The userid is sent as parameter.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authorization/api/v1/parties?userid={userid}
 </code></pre></div><p>Validate that a given user is allowed to represent a given party. The partyid and userid are sent as parameters.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
-</code></pre></div><h2 id="roles">Roles</h2>
+</code></pre></div><h3 id="roles">Roles</h3>
 <p>A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.</p>
-<h3 id="operations-1">Operations</h3>
+<h4 id="operations-1">Operations</h4>
 <p>Get a list of roles that the user can perform for the selected party.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authorization/api/v1/roles
-</code></pre></div><h2 id="policies">Policies</h2>
+</code></pre></div><h3 id="policies">Policies</h3>
 <p>A set of polices contains authorization rules.</p>
-<h3 id="operations-2">Operations</h3>
+<h4 id="operations-2">Operations</h4>
 <p>Stores / updates rules for a given app, defined in the query string.
 The rules are sent in the body of the request. Reade more about the <a href="prp">policy format</a>.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /authorization/api/v1/policies?org=org&amp;app=app
