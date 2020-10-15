@@ -1,7 +1,7 @@
 ---
 title: Authorization
 linktitle: Authorization
-description: The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs. 
+description: The authorization model in Altinn Apps & Altinn Platform is flexible and supports different needs. 
 tags: [architecture, security]
 toc: false
 ---
