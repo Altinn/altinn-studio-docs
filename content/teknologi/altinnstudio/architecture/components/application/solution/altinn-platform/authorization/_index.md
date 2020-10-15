@@ -7,6 +7,8 @@ toc: false
 weight: 102
 ---
 
+Altinn Authorization is based on [ABAC - Attribute Based Access Control](abac) principles and uses [XACML 3.0](xacml) as policy format.
+
 The following diagram describes the different solution components that provides the Authorization capabilities.
 
 ![Authorization Solution components](authorization_solution_components.svg "Authorization solution components")
@@ -35,6 +37,9 @@ Responsible for providing information about the subject and the resource to the 
 ## PEP - Policy Enforcement Point
 
 Responsible for enforcing the decision from PDP. This is the component that blocks a request or let it through.
+
+
+For details about how the components are constructed go [here](/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/).
 
 
 ## Authorization API

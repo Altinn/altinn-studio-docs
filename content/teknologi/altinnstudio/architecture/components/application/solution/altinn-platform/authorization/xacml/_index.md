@@ -3,7 +3,7 @@ title: XACML - Altinn Studio
 description: XACML stands for "eXtensible Access Control Markup Language".
 tags: [architecture, security, XACML]
 linktitle: XACML
-toc: true
+toc: false
 ---
 
 The [standard] defines a declarative fine-grained, attribute-based access control policy language,

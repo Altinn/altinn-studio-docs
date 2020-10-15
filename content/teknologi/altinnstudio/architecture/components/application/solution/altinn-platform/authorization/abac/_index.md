@@ -3,7 +3,7 @@ title: Attribute Based Access Control
 linktitle: ABAC
 description: Description of the Authorization Architecture for Altinn Platform
 tags: [architecture, security]
-toc: true
+toc: false
 ---
 
 Altinn Platform has a [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
