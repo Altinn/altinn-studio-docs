@@ -1,20 +1,16 @@
 ---
 title: Altinn Platform - Authorization
 linktitle: Authorization
-description: Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information.
+description: The authorization component provides functionality to authorize access to applications and components in Altinn Apps and Altinn Platform.
 tags: [architecture, solution]
 toc: false
 weight: 102
 ---
 
-Altinn Platform has a [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
+The authorization components is based on [attribute based access control (ABAC)](https://en.wikipedia.org/wiki/Attribute-based_access_control).
 
 In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
 what type of data element and so on.
-
-The Authorization Component contains a large part of the authorization architecture components.
-
-## Authorization Architecture Components
 
 The authorization architecture for Altinn Platform are based on the 
 [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
