@@ -18,7 +18,7 @@ Responsible for make a decision if a request is authorized or not. [Read more](p
 
 ## PAP - Policy Administration Point
 
-Responsible for defining and administration of the authorization policies. [Read more][pap]
+Responsible for defining and administration of the authorization policies. [Read more](pap)
 
 ## PRP - Policy Retrieval Point
 
