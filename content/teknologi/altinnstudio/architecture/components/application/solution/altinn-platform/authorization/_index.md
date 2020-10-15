@@ -3,19 +3,41 @@ title: Altinn Platform - Authorization
 linktitle: Authorization
 description: Authorization is used by the applications to authorize an action requested by the logged in user on a given resource and to retreive policy information.
 tags: [architecture, solution]
-toc: true
+toc: false
 weight: 102
 ---
 
-
-
-The following diagram describres the different solutions components that provides the Authorization capabilities.
+The following diagram describes the different solution components that provides the Authorization capabilities.
 
 ![Authorization Solution components](authorization_solution_components.svg "Authorization solution components")
 
 
+## PDP - Policy Decision Point
 
-## API
+Responsible for make a decision if a request is authorized or not. [Read more](pdp)
+
+## PAP - Policy Administration Point
+
+Responsible for defining and administration of the authorization policies. [Read more][pap]
+
+## PRP - Policy Retrieval Point
+
+Responsible for identifying the correct policy for a request. [Read more](prp)
+
+## Context Handler
+
+Responsible for enriching the decision requst so it can correctly be evaluated. [Read more](contexthandler)
+
+## PIP - Policy information point
+
+Responsible for providing information about the subject and the resource to the context handler. [Read more](pip)
+
+## PEP - Policy Enforcement Point
+
+Responsible for enforcing the decision from PDP. This is the component that blocks a request or let it through.
+
+
+## Authorization API
 The Authorization component exposes a REST-API to Altinn Apps.
 Use the authorization API to manage authorizations in altinn platform.
 
