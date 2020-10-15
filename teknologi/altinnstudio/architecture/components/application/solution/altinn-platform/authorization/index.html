@@ -10262,13 +10262,6 @@ if(host != "localhost")
           
 
           
-            <h2>På denne siden:</h2>
-              <nav id="TableOfContents">
-  <ul>
-    <li><a href="#api">API</a></li>
-  </ul>
-</nav>
-          
 
 
 
@@ -10276,9 +10269,21 @@ if(host != "localhost")
 
 
 
-<p>The following diagram describres the different solutions components that provides the Authorization capabilities.</p>
+<p>The following diagram describes the different solution components that provides the Authorization capabilities.</p>
 <figure><a href="authorization_solution_components.svg"><img src="authorization_solution_components.svg" alt="Authorization Solution components" title="Authorization solution components" /></a><figcaption><h4>Authorization solution components</h4></figcaption></figure>
-<h2 id="api">API</h2>
+<h2 id="pdp---policy-decision-point">PDP - Policy Decision Point</h2>
+<p>Responsible for make a decision if a request is authorized or not. <a href="pdp">Read more</a></p>
+<h2 id="pap---policy-administration-point">PAP - Policy Administration Point</h2>
+<p>Responsible for defining and administration of the authorization policies. [Read more][pap]</p>
+<h2 id="prp---policy-retrieval-point">PRP - Policy Retrieval Point</h2>
+<p>Responsible for identifying the correct policy for a request. <a href="prp">Read more</a></p>
+<h2 id="context-handler">Context Handler</h2>
+<p>Responsible for enriching the decision requst so it can correctly be evaluated. <a href="contexthandler">Read more</a></p>
+<h2 id="pip---policy-information-point">PIP - Policy information point</h2>
+<p>Responsible for providing information about the subject and the resource to the context handler. <a href="pip">Read more</a></p>
+<h2 id="pep---policy-enforcement-point">PEP - Policy Enforcement Point</h2>
+<p>Responsible for enforcing the decision from PDP. This is the component that blocks a request or let it through.</p>
+<h2 id="authorization-api">Authorization API</h2>
 <p>The Authorization component exposes a REST-API to Altinn Apps.
 Use the authorization API to manage authorizations in altinn platform.</p>
 <h3 id="parties">Parties</h3>

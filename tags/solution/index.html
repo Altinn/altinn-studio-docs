@@ -10316,10 +10316,11 @@ GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a 
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The following diagram describres the different solutions components that provides the Authorization capabilities.
-API The Authorization component exposes a REST-API to Altinn Apps. Use the authorization API to manage authorizations in altinn platform.
-Parties A party is a person whom you can represent and perform a request on his behalf. A logged in user can retrieve a list of parties that he/she can represent.
-Operations Get a list of parties that the user can represent. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">&raquo;</a></p>
+        <p>The following diagram describes the different solution components that provides the Authorization capabilities.
+PDP - Policy Decision Point Responsible for make a decision if a request is authorized or not. Read more
+PAP - Policy Administration Point Responsible for defining and administration of the authorization policies. [Read more][pap]
+PRP - Policy Retrieval Point Responsible for identifying the correct policy for a request. Read more
+Context Handler Responsible for enriching the decision requst so it can correctly be evaluated. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
