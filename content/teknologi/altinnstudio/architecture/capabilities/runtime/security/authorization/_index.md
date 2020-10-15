@@ -6,12 +6,12 @@ tags: [architecture, security]
 toc: false
 ---
 
-The authorization capabilties is based around ABAC (Attribute Based Access Controls) and the XACML standard. 
-
-This gives a very flexible authorization cababilities.
+The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs.
+The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML standard.
+This gives very flexible authorization capabilities.
 
 * Support authorization of app and platform access
-* Rights can be given to subjects with a given role, or direct to a person/organization or other type of attribute
+* Rights can be given to subjects with a given role, or direct to a person/organization or another type of attribute
 * Support unlimited levels of resource levels
 * Resources can have different access requirements based on resource state
 * Rules can contain obligations like security level required
