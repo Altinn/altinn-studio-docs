@@ -2504,35 +2504,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">
-        <span>ABAC</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/" class="dd-item 
         
         
@@ -10257,36 +10228,6 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/">Authentication Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Altinn Studio Developer authentication The App Developer using Altinn Studio will authenticate with help of the build in account in Gitea.
-The designer part of Altinn Studio integrates with Gitea so it identifies the user logged in in Gitea.
-Git repo authentication When users tries to update the Git-repo where source files for the app is stored it needs to authenticate against the Git-repo.
-This can be done through using a App Key generated in Gitea or using the username/password for the Gitea account. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/">Application construction components - Altinn Platform Authentication</a></h2>
     </header>
     <section class="post-excerpt">
@@ -10347,9 +10288,8 @@ API for SBL Authentication cookie This API creates a JWT Cookie (A cookie with a
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/">Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The authorization capabilties is based around ABAC (Attribute Based Access Controls) and the XACML standard.
-This gives a very flexible authorization cababilities.
- Support authorization of app and platform access Rights can be given to subjects with a given role, or direct to a person/organization or other type of attribute Support unlimited levels of resource levels Resources can have different access requirements based on resource state Rules can contain obligations like security level required Roles can be retrieved from different sources Access rights are verified at a central solution Authorize based on API parameters  The following concepts are important <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
+        <p>The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs. The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML standard. This gives very flexible authorization capabilities.
+ Support authorization of app and platform access Rights can be given to subjects with a given role, or direct to a person/organization or another type of attribute Support unlimited levels of resource levels Resources can have different access requirements based on resource state Rules can contain obligations like security level required Roles can be retrieved from different sources Access rights are verified at a central solution Authorize based on API parameters  The following concepts are important <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10535,6 +10475,34 @@ Virtual Images We use Virtual Images hosted in Azure. <a class="read-more" href=
           
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">Context Handler</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>As an example, a decision request could contain only userId and instanceId together with the action requested.
+&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt; &lt;Request xsi:schemaLocation=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&#34; ReturnPolicyIdList=&#34;false&#34; CombinedDecision=&#34;false&#34; xmlns=&#34;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&#34; xmlns:xsi=&#34;http://www.w3.org/2001/XMLSchema-instance&#34;&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:user-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;15468&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:altinn:instance-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;cbdc7b44-9442-4fe0-854b-da278bf0b0e&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;&gt; &lt;Attribute IncludeInResult=&#34;false&#34; AttributeId=&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;&gt; &lt;AttributeValue DataType=&#34;http://www.w3.org/2001/XMLSchema#string&#34;&gt;Read&lt;/AttributeValue&gt;  &lt;/Attribute&gt; &lt;/Attributes&gt; &lt;Attributes Category=&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&#34; /&gt; &lt;/Request&gt; The enriched decision request contains all the needed attributes so PDP can identify the correct policy and evauluate the request based on it. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
             
         
 
@@ -11714,22 +11682,6 @@ Virtual Images We use Virtual Images hosted in Azure. <a class="read-more" href=
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                                   
                       

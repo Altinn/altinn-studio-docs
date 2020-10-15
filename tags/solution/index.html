@@ -2504,35 +2504,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/abac/">
-        <span>ABAC</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/" class="dd-item 
         
         
@@ -10316,11 +10287,11 @@ GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a 
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">Altinn Platform - Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Altinn Authorization is based on ABAC - Attribute Based Access Control principles and uses XACML 3.0 as policy format.
-The following diagram describes the different solution components that provides the Authorization capabilities.
-PDP - Policy Decision Point Responsible for make a decision if a request is authorized or not. Read more
-PAP - Policy Administration Point Responsible for defining and administration of the authorization policies. Read more
-PRP - Policy Retrieval Point Responsible for identifying the correct policy for a request. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">&raquo;</a></p>
+        <p>Altinn Platform has a attribute based access control (ABAC).
+In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, what type of data element and so on.
+The Authorization Component contains a large part of the authorization architecture components.
+Authorization Architecture Components The authorization architecture for Altinn Platform are based on the XACML reference architecture.
+The following diagram describes the different solution components that provides the Authorization capabilities. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -11721,22 +11692,6 @@ The Kubernetes clusters are isolated between the different applications owners a
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                                   
                       
