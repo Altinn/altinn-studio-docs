@@ -38,65 +38,72 @@ weight: 100
 
 #### Platform
 
-| Sl.No. | Testcase name                                              |    Area of Solution     |
-| :----- | :--------------------------------------------------------- | :---------------------: |
-| 1.     | GET Organization                                           |    Platform-Register    |
-| 2.     | GET Parties                                                |    Platform-Register    |
-| 3.     | GET Person information                                     |    Platform-Register    |
-| 4.     | GET Party id by SSN and Org number                         |    Platform-Register    |
-| 5.     | GET Party information by SSN and Org number                |    Platform-Register    |
-| 6.     | GET User profile details                                   |    Platform-Profile     |
-| 7.     | GET Authentication ticket                                  | Platform-Authentication |
-| 8.     | GET Parties                                                | Platform-Authorization  |
-| 9.     | GET Roles                                                  | Platform-Authorization  |
-| 10.    | Create, get with filter, edit and delete applications      |         Storage         |
-| 11.    | Create, get with filter, edit and delete app instances     |         Storage         |
-| 12.    | Create, get with filter, edit and delete app instance data |         Storage         |
-| 13.    | Create, get with filter, delete app instance events        |         Storage         |
-| 14.    | Soft and Hard delete app instances                         |         Storage         |
-| 15.    | Restore soft deleted app instance                          |         Storage         |
-| 16.    | Restore hard deleted app instance - negative               |         Storage         |
-| 17.    | Get instances, by id and instance events                   |       Storage-SBL       |
-| 18.    | Soft/hard delete and restore instances                     |       Storage-SBL       |
-| 19.    | POST Generate PDF                                          |     Platfrom - PDF      |
-| 20.    | Get receipt                                                |   Platform - Receipt    |
-| 21.    | Add, Edit, Delete app texts                                |         Storage         |
+| Sl.No. | Testcase name                                                 | Area of Solution  |
+| :----- | :------------------------------------------------------------ | :---------------: |
+| 1.     | Create instance by looking up party id for user and org       | Platform-Register |
+| 2.     | Get Authentication ticket                                     |  Platform-AuthN   |
+| 3.     | Get Parties                                                   |  Platform-Authz   |
+| 4.     | Get Roles                                                     |  Platform-Authz   |
+| 5.     | PDP decision - permit for user and NA for app owner           |  Platform-Authz   |
+| 6.     | GET applications by org and app name                          |      Storage      |
+| 7.     | Create, get with filter and id, edit and delete app instances |      Storage      |
+| 8.     | Create, get by id, edit and delete app instance form data     |      Storage      |
+| 9.     | Create, get events with filter app instance events            |      Storage      |
+| 10.    | Edit instance process and get process history                 |      Storage      |
+| 11.    | Soft and Hard delete app instances                            |      Storage      |
+| 12.    | Restore soft deleted app instance                             |      Storage      |
+| 13.    | Restore hard deleted app instance - negative                  |      Storage      |
+| 14.    | Get instances, by id and instance events                      |    Storage-SBL    |
+| 15.    | Soft/hard delete and restore instances                        |    Storage-SBL    |
+| 16.    | POST Generate PDF                                             |   Platfrom-PDF    |
+| 17.    | Get receipt and includes party info                           | Platform-Receipt  |
+| 18.    | Get app texts                                                 |      Storage      |
+| 19.    | Upload, get by id, edit and delete attachment                 |      Storage      |
 
 #### App
 
-| Sl.No. | Testcase name                                             | Area of Solution |
-| :----- | :-------------------------------------------------------- | :--------------: |
-| 1.     | Create, Get, Edit app instance                            |       App        |
-| 2.     | Start, get, get next, change next, complete Process       |       App        |
-| 3.     | Negative tests in process                                 |       App        |
-| 4.     | Add, Get, Edit Form data xml                              |       App        |
-| 4.     | Add, Get, Edit, delete Form data attachment               |       App        |
-| 5.     | Delete a form data xml - negative                         |       App        |
-| 7.     | Create app instance with multipart data                   |       App        |
-| 8.     | Verify instance created with multipart                    |       App        |
-| 9.     | Start process again - negative                            |       App        |
-| 10.    | Get current, Get next, Move to next process               |       App        |
-| 11.    | Move process to active task again - negative              |       App        |
-| 12.    | Complete a compelted process - negative                   |       App        |
-| 13.    | End to End test from starting an instance to Archiving it |       App        |
+| Sl.No. | Testcase name                                               | Area of Solution |
+| :----- | :---------------------------------------------------------- | :--------------: |
+| 1.     | Create, Get app instance                                    |       App        |
+| 2.     | Start, get current, get next, change next, complete Process |       App        |
+| 3.     | Get process history                                         |       App        |
+| 4.     | Add, Get, Edit Form data xml                                |       App        |
+| 5.     | Add, Get, Edit, delete Form data attachment                 |       App        |
+| 6.     | Create app instance with multipart data                     |       App        |
+| 7.     | Verify instance created with multipart                      |       App        |
+| 8.     | End to End test from starting an instance to Archiving it   |       App        |
+| 9.     | Test simulating all the api calls from portal               |       App        |
+| 10.    | Validate instance and instance data                         |       App        |
+| 11.    | Verify pdf generation with archiving                        |       App        |
 
 #### Negative Tests
 
-| Sl.No. | Testcase name                                                   | Area of Solution |
-| :----- | :-------------------------------------------------------------- | :--------------: |
-| 1.     | Access Storage API without authentication token                 |     Storage      |
-| 2.     | Access App API without authentication token                     |       App        |
-| 3.     | Create App instance with low level security login than required |  App & Storage   |
-| 4.     | Create App instance without allowed roles                       |  App & Storage   |
-| 5.     | Access App instance without allowed roles                       |  App & Storage   |
-| 6.     | Access App instance with low level security login than required |     Storage      |
-| 7.     | Create App instance allowed only for AppOwner                   |       App        |
+| Sl.No. | Testcase name                                                   | Area of Solution  |
+| :----- | :-------------------------------------------------------------- | :---------------: |
+| 1.     | Access Storage API without authentication token                 |      Storage      |
+| 2.     | Access App API without authentication token                     |        App        |
+| 3.     | Create App instance with low level security login than required |   App & Storage   |
+| 4.     | Create App instance without allowed roles                       |   App & Storage   |
+| 5.     | Access App instance without allowed roles                       |   App & Storage   |
+| 6.     | Access App instance with low level security login than required |      Storage      |
+| 7.     | Write to instance without write access as app owner             |        App        |
+| 8.     | GET Organization - forbidden                                    | Platform-Register |
+| 9.     | GET Parties - forbidden                                         | Platform-Register |
+| 10.    | GET Person information - forbidden                              | Platform-Register |
+| 11.    | GET User profile details - forbidden                            | Platform-Profile  |
+| 12.    | Create, edit and delete applications - forbidden                |      Storage      |
+| 13.    | Create, edit and delete app texts - forbidden                   |      Storage      |
+| 14.    | Delete a form data xml - negative                               |        App        |
+| 15.    | Start process again - negative                                  |        App        |
+| 16.    | Move process to active task again - negative                    |        App        |
+| 17.    | Complete a compelted process - negative                         |        App        |
 
 #### App Owner API Test
 
-| Sl.No. | Testcase name                         | Area of Solution |
-| :----- | :------------------------------------ | :--------------: |
-| 1.     | GET instances as app Owner            |     Storage      |
-| 2.     | Download instance data as app Owner   |     Storage      |
-| 3.     | Confirm the download of instance data |     Storage      |
-| 4.     | Create instance and upload data       |     Storage      |
+| Sl.No. | Testcase name                                                  | Area of Solution |
+| :----- | :------------------------------------------------------------- | :--------------: |
+| 1.     | GET instances as app Owner                                     |     Storage      |
+| 2.     | Download instance data as app Owner                            |     Storage      |
+| 3.     | Confirm the download of instance data                          |     Storage      |
+| 4.     | Create instance and upload data  and delete instance           |     Storage      |
+| 5.     | E2E test - create, upload data , archive and complete instance |       App        |

@@ -21,10 +21,12 @@ This presentation was recorded. Video will be available soon.
 Every other week, we present what we have done and what we're planning to do for the next fortnight.
 
 * [Status og planer - 30. september 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe_20200930.pptx)
+* [Status og planer - 14. oktober 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe_20201014.pptx)
 * More to come...
 
 ## Themed meetings
 
 The weeks where we don't presesent status, we hold themed meetings.
 
+* Hvordan komme i gang med Altinn 3? (7. oktober 2020) [Altinns presentasjon](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe_20201007.pptx) | [SSBs presentasjon](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20201007-SSB_AltinnStudio.pptx)
 * More to come...

@@ -90,7 +90,7 @@ Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ
 GET /authentication/api/v1/exchange/maskinporten
 ```
 
-The token looks something like this (after decoding):
+The token looks something like this (after base64-decoding):
 
 ```json {linenos=false,hl_lines=[15,"17-20"]}
 {

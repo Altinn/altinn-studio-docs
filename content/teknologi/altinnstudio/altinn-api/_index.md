@@ -169,9 +169,7 @@ The client specify the instance owner and can set a number of the metadata field
         "organisationNumber": null
     },
     "dueBefore": "2019-06-01T12:00:00Z",
-    "title": { "nb": "Arbeidsmelding for Ola Nordmann" },
-    "visibleAfter": "2019-05-20T00:00:00Z",
-    "status": {}
+    "visibleAfter": "2019-05-20T00:00:00Z"
 }
 ```
 

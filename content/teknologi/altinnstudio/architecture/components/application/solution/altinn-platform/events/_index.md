@@ -6,10 +6,9 @@ tags: [architecture, solution]
 weight: 103
 ---
 
-
 See [event capabilities](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/) for functional description of the platforms event capabilities.
 
-The solution is available at https://platform.altinn.cloud/events/api/v1. 
+The solution is available at https://platform.altinn.cloud/events/api/v1.
 
 ### API Structure
 
@@ -38,22 +37,65 @@ events for a given org/app.
 
 The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4551). 
 
-The following url parameters and http headers has been defined. Person is given as a http header because of security.
+##### Request
 
+The following url parameters and http headers have been defined. Person is given as a http header because of security.
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
+| org | string  | Required: the org owning the application |
+| appName | string  | Required: the application related to the event |
+| after | string  | Required**: the id of the last event processed by the client |
+| from | datetime  | Required**: The time (UTC) to search from |
+| to | datetime  | Optional: The time (UTC) to search up until |
+| party | string  | Optional: the partyId |
+| type | List\<string\> | Optional: a list of event types |
+| source | List\<string\> (regex allowed)*** | Optional: a list of strings to match the event source |
 | unit | string  | Optional: the organisation number nine digits for reportee |
 | person | string (http header)  | Optional: the f or d number of the person |
-| party | string  | Required* the partyId |
-| org | string  | Required: the org owning the application |
-| app | string  | Optional: the application related to the event |
-| from | datetime  | Required**: The time to search from |
-| after | string  | Required**: The last event received last time |
-| type | string | Optional: a specific event type |
+| size| int | Optional: upper limit for number of returned events |
 
-* Needs to give one identifcator of the subject, unit,person or party parammeter.
-** Needs to give aeither from or after
+\* Needs to give one identifcator of the subject, unit,person or party parammeter.
+
+\*\* After or from is required
+
+\*\*\* Source allows for escaping a single character `_` or an undefined number of characters `%`
+
+##### Response
+
+Response includes a _next_ header that can be used to get the events following the last event returned by the response.
+Query parameter _after_ is inserted or replaced and holds the id of the last event returned in the reponse.
+
+```http
+https://platform.tt02.altinn.no/events/api/v1/app/ttd/apps-test?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&from=2020-10-01 11:35:00
+```
+
+Response body includes a list of cloud events on the form 
+
+```json
+[
+    {
+        "id": "8c99c887-3861-4c2a-9ac9-178a20b1ee70",
+        "source": "https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd",
+        "specversion": "1.x-wip",
+        "type": "instance.created",
+        "subject": "party/567890",
+        "time": "2020-10-13T15:46:02.557971Z",
+        "alternativesubject": "/person/01038712345",
+        "data": "data field"
+    },
+    {
+        "id": "5beae524-0b3d-4e3b-bf40-450575eaf5d6",
+        "source": "https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd",
+        "specversion": "1.x-wip",
+        "type": "instance.deleted",
+        "subject": "party/567890",
+        "time": "2020-10-14T10:33:33.022379Z",
+        "alternativesubject": "/person/01038712345",
+        "data": "data field"
+    }
+]
+```
 
 #### Events for a given party
 
@@ -67,9 +109,7 @@ GET {platformurl}/events/instanceeventsforparty/?org={org}&from={fromTime}&unit=
 
 This returns the events for a given party identified with a person number or organisation number.
 
-
 The following url parameters and http headers has been defined. Person is given as a http header because of security.
-
 
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
@@ -78,10 +118,13 @@ The following url parameters and http headers has been defined. Person is given 
 | party | string  | Required* the partyId |
 | org | string  | Optional: (required if app is provided) the org owning the application |
 | app | string  | Optional: the application related to the event |
-| from | datetime  | Required: The time to search from |
+| from | datetime  | Required**: The time to search from |
+| after | string  | Required**: the id of the last event processed by the client |
 | type | string | Optional: a specific event type |
 
-* Needs to give one identifcator of the subject, unit,person or party parammeter.
+\* Needs to give one identifcator of the subject, unit,person or party parammeter.
+
+\*\* After or from is required
 
 ##### Usage
 
