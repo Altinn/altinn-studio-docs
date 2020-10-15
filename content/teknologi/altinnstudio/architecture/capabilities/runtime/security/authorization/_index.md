@@ -29,11 +29,13 @@ The resource is typical an app instance or part of it where data belongs to a gi
 
 A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.
 
-## Rules
+## Policy
+
+### Rules
 A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
 A rule consist of 5 elements
 
-### Resource
+#### Resource
 This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.
 
 - Org - Unique identifier of the organisation responsible for the app.
@@ -42,13 +44,13 @@ This describe which resource the rule applies for. Altinn Apps currently support
 
 Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee
 
-### Subject
+#### Subject
 The subject in a authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.
 
 - RoleType
 - org
 
-### Action
+#### Action
 The Action part of the rule define what type of action that the subject can perform on the resource.
 In Altinn Studio we have the following actions
 
@@ -58,32 +60,32 @@ In Altinn Studio we have the following actions
 - ArchiveRead
 - ArchiveDelete
 
-### Condition
+#### Condition
 The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
 we have the following types of conditions.
 
 - Valid To
 
-### Obligation
+#### Obligation
 A obligation is a obligation that needs to be followed it the user is permited or denied.
 In Altinn Apps/Platform this is used to define the minimun authentication level.
 
-## Creation of rules
-The rules in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
-The rules are deployed together with the App to a given Altinn Studio App environment.
+### Creation of policies
+The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
+The policy are deployed together with the App to a given Altinn Studio App environment.
 
-In Altinn II end user can also create rules. This happens when:
+In Altinn II end user can also create policies/rules. This happens when:
 - When user creates a local role that contains rights that user have through other roles
 - When delegating single rights to a user or organisation.
 
 The rules is slightly different since rules defined by the end user have different subjects and can be defined for a 
 more limited resource.
 
-#### Altinn Studio rule
+#### Altinn Studio policy/rules
 
 ![Altinn Studio rule](authorization_rule_defined_in_altinnstudio.svg "Rule defined in Altinn Studio")
 
-#### User defined rule 
+#### User defined policy/rule 
 
 ![User rule](authorization_rule_defined_by_user.svg "Rule defined by user")
 
