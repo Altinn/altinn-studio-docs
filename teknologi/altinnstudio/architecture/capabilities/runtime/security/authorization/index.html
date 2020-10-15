@@ -10283,10 +10283,11 @@ The action can be one of some predefined option like read, write and sign but ca
 custom api in the apps.
 The resource is typical an app instance or part of it where data belongs to a given party (person or organisation).</p>
 <p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
-<h2 id="rules">Rules</h2>
+<h2 id="policy">Policy</h2>
+<h3 id="rules">Rules</h3>
 <p>A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
 A rule consist of 5 elements</p>
-<h3 id="resource">Resource</h3>
+<h4 id="resource">Resource</h4>
 <p>This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.</p>
 <ul>
 <li>Org - Unique identifier of the organisation responsible for the app.</li>
@@ -10294,13 +10295,13 @@ A rule consist of 5 elements</p>
 <li>Task - A specific task in the process defined for a app</li>
 </ul>
 <p>Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee</p>
-<h3 id="subject">Subject</h3>
+<h4 id="subject">Subject</h4>
 <p>The subject in a authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.</p>
 <ul>
 <li>RoleType</li>
 <li>org</li>
 </ul>
-<h3 id="action">Action</h3>
+<h4 id="action">Action</h4>
 <p>The Action part of the rule define what type of action that the subject can perform on the resource.
 In Altinn Studio we have the following actions</p>
 <ul>
@@ -10310,28 +10311,28 @@ In Altinn Studio we have the following actions</p>
 <li>ArchiveRead</li>
 <li>ArchiveDelete</li>
 </ul>
-<h3 id="condition">Condition</h3>
+<h4 id="condition">Condition</h4>
 <p>The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
 we have the following types of conditions.</p>
 <ul>
 <li>Valid To</li>
 </ul>
-<h3 id="obligation">Obligation</h3>
+<h4 id="obligation">Obligation</h4>
 <p>A obligation is a obligation that needs to be followed it the user is permited or denied.
 In Altinn Apps/Platform this is used to define the minimun authentication level.</p>
-<h2 id="creation-of-rules">Creation of rules</h2>
-<p>The rules in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
-The rules are deployed together with the App to a given Altinn Studio App environment.</p>
-<p>In Altinn II end user can also create rules. This happens when:</p>
+<h3 id="creation-of-policies">Creation of policies</h3>
+<p>The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
+The policy are deployed together with the App to a given Altinn Studio App environment.</p>
+<p>In Altinn II end user can also create policies/rules. This happens when:</p>
 <ul>
 <li>When user creates a local role that contains rights that user have through other roles</li>
 <li>When delegating single rights to a user or organisation.</li>
 </ul>
 <p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a 
 more limited resource.</p>
-<h4 id="altinn-studio-rule">Altinn Studio rule</h4>
+<h4 id="altinn-studio-policyrules">Altinn Studio policy/rules</h4>
 <figure><a href="authorization_rule_defined_in_altinnstudio.svg"><img src="authorization_rule_defined_in_altinnstudio.svg" alt="Altinn Studio rule" title="Rule defined in Altinn Studio" /></a><figcaption><h4>Rule defined in Altinn Studio</h4></figcaption></figure>
-<h4 id="user-defined-rule">User defined rule</h4>
+<h4 id="user-defined-policyrule">User defined policy/rule</h4>
 <figure><a href="authorization_rule_defined_by_user.svg"><img src="authorization_rule_defined_by_user.svg" alt="User rule" title="Rule defined by user" /></a><figcaption><h4>Rule defined by user</h4></figcaption></figure>
 <h2 id="roles">Roles</h2>
 <p>Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles.</p>
