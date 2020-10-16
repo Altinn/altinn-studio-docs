@@ -1,12 +1,11 @@
 ---
 title: Authorization
 linktitle: Authorization
-description: The authorization model in Altinn Apps & Altinn Platform is flexible and supports different needs. 
+description: The authorization model in Altinn Apps & Altinn Platform is flexible and supports many different scenarious. 
 tags: [architecture, security]
 toc: false
 ---
 
-The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs.
 The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML standard.
 This gives very flexible authorization capabilities.
 
@@ -30,6 +29,7 @@ The resource is typical an app instance or part of it where data belongs to a gi
 A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.
 
 ## Policy
+A policy defines one or many rules for a given set of resources. This policy is described as a XACML 3.0 Policy document.
 
 ### Rules
 A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
@@ -52,13 +52,13 @@ The subject in a authorization rule identifies who the rules applies for. In Alt
 
 #### Action
 The Action part of the rule define what type of action that the subject can perform on the resource.
-In Altinn Studio we have the following actions
+
+Currently the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.
 
 - Read
 - Write
 - Sign
-- ArchiveRead
-- ArchiveDelete
+- Confirm
 
 #### Condition
 The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
