@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The authorization model in Altinn Apps &amp; Altinn Platform is flexible and supports different needs.">
+    <meta name="description" content="The authorization model in Altinn Apps &amp; Altinn Platform is flexible and supports many different scenarious.">
 
 
     
@@ -10223,7 +10223,7 @@ if(host != "localhost")
                 Authorization
                 
               </h1>
-              <p class="a-leadText" id="leadText">The authorization model in Altinn Apps &amp; Altinn Platform is flexible and supports different needs.</p>
+              <p class="a-leadText" id="leadText">The authorization model in Altinn Apps &amp; Altinn Platform is flexible and supports many different scenarious.</p>
             
           
 
@@ -10235,8 +10235,7 @@ if(host != "localhost")
 
 
 
-<p>The authorization model in Altinn Apps / Altinn Platform is flexible and supports different needs.
-The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML standard.
+<p>The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML standard.
 This gives very flexible authorization capabilities.</p>
 <ul>
 <li>Support authorization of app and platform access</li>
@@ -10256,6 +10255,7 @@ custom api in the apps.
 The resource is typical an app instance or part of it where data belongs to a given party (person or organisation).</p>
 <p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
 <h2 id="policy">Policy</h2>
+<p>A policy defines one or many rules for a given set of resources. This policy is described as a XACML 3.0 Policy document.</p>
 <h3 id="rules">Rules</h3>
 <p>A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
 A rule consist of 5 elements</p>
@@ -10274,14 +10274,13 @@ A rule consist of 5 elements</p>
 <li>org</li>
 </ul>
 <h4 id="action">Action</h4>
-<p>The Action part of the rule define what type of action that the subject can perform on the resource.
-In Altinn Studio we have the following actions</p>
+<p>The Action part of the rule define what type of action that the subject can perform on the resource.</p>
+<p>Currently the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.</p>
 <ul>
 <li>Read</li>
 <li>Write</li>
 <li>Sign</li>
-<li>ArchiveRead</li>
-<li>ArchiveDelete</li>
+<li>Confirm</li>
 </ul>
 <h4 id="condition">Condition</h4>
 <p>The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
