@@ -20,11 +20,25 @@ The login process for a user that wants to access a app in Altinn Apps is descri
 
 [Download as Visio](loginprocess.vsdx).
 
-## API for end user with OIDC
 
+## Exchange API for tokens
 
-## API for Org systems
-This API is used to authenticate the org systems. 
+Altinn supports tokens from different ID-providers, and in the future it is expected that the list of supported ID-providers will grow.
+
+To reduce complexity and increase performance the clients needs to exchange the external tokens to a Altinn token.
+
+In this way the different apps does not need to know about all ID-providers, and is not required to look up org identificator or Altinn userId/partyId that is 
+added to the Altinn token.
+
+## Exchanging ODIC token from ID-porten
+
+Altinn supports end users logging in with OIDC in their end user system. (local instalation or cloud based).
+
+The end user system gets a ID-token and a access-token from ID-porten. 
+
+The access token is exchanged in the API to an Altinn JWT token containing the needed attributes like userId
+
+## Exchanging token from MaskinPorten
 
 To authenticate a system like this Altinn Platform requires that the system is registred as a client in Maskinporten for a given org.
 The org need also to be given scopes that matches the scopes for the API requested in Maskinporten. 
