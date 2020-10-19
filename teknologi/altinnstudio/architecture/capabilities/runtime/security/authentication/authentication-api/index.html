@@ -10237,8 +10237,9 @@ if(host != "localhost")
               <nav id="TableOfContents">
   <ul>
     <li><a href="#api-for-sbl-authentication-cookie">API for SBL Authentication cookie</a></li>
-    <li><a href="#api-for-end-user-with-oidc">API for end user with OIDC</a></li>
-    <li><a href="#api-for-org-systems">API for Org systems</a></li>
+    <li><a href="#exchange-api-for-tokens">Exchange API for tokens</a></li>
+    <li><a href="#exchanging-odic-token-from-id-porten">Exchanging ODIC token from ID-porten</a></li>
+    <li><a href="#exchanging-token-from-maskinporten">Exchanging token from MaskinPorten</a></li>
   </ul>
 </nav>
           
@@ -10257,9 +10258,16 @@ This API uses API in the SBL Bridge to verify the cookie and get information abo
 <p>The login process for a user that wants to access a app in Altinn Apps is described below.</p>
 <figure><a href="loginprocess.svg"><img src="loginprocess.svg" alt="Login process" title="Login process" /></a><figcaption><h4>Login process</h4></figcaption></figure>
 <p><a href="loginprocess.vsdx">Download as Visio</a>.</p>
-<h2 id="api-for-end-user-with-oidc">API for end user with OIDC</h2>
-<h2 id="api-for-org-systems">API for Org systems</h2>
-<p>This API is used to authenticate the org systems.</p>
+<h2 id="exchange-api-for-tokens">Exchange API for tokens</h2>
+<p>Altinn supports tokens from different ID-providers, and in the future it is expected that the list of supported ID-providers will grow.</p>
+<p>To reduce complexity and increase performance the clients needs to exchange the external tokens to a Altinn token.</p>
+<p>In this way the different apps does not need to know about all ID-providers, and is not required to look up org identificator or Altinn userId/partyId that is 
+added to the Altinn token.</p>
+<h2 id="exchanging-odic-token-from-id-porten">Exchanging ODIC token from ID-porten</h2>
+<p>Altinn supports end users logging in with OIDC in their end user system. (local instalation or cloud based).</p>
+<p>The end user system gets a ID-token and a access-token from ID-porten.</p>
+<p>The access token is exchanged in the API to an Altinn JWT token containing the needed attributes like userId</p>
+<h2 id="exchanging-token-from-maskinporten">Exchanging token from MaskinPorten</h2>
 <p>To authenticate a system like this Altinn Platform requires that the system is registred as a client in Maskinporten for a given org.
 The org need also to be given scopes that matches the scopes for the API requested in Maskinporten.</p>
 <p>This will be given by Altinn.</p>
