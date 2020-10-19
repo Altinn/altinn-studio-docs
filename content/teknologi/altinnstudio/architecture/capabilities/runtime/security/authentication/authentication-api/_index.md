@@ -34,7 +34,7 @@ added to the Altinn token.
 
 Altinn supports end-users logging in with OIDC in their end user system. (local installation or cloud-based).
 
-The end-user-system gets an ID-token and a access-token from ID-porten. 
+The end-user-system gets an ID-token and a access-token from ID-porten. This is [documentet at ID-porten](https://difi.github.io/felleslosninger/oidc_auth_app.html).
 
 The access token is exchanged in the API to an Altinn JWT token containing the needed attributes like userId
 
