@@ -20,26 +20,8 @@ The login process for a user that wants to access a app in Altinn Apps is descri
 
 [Download as Visio](loginprocess.vsdx).
 
-## API for End User System
-There are two API's for end user sytems
+## API for end user with OIDC
 
-### Reserve Pin for End User
-This API lets the user request a Altinn PIN or SMS Pin for a end user.
-
-### Validate system and/or end user
-This API validates the end user system id together with the password for the system.
-
-The below diagram shows how:
-
-![Login process](loginprocess_eus.svg "Login process end user system")
-
-[Download as Visio](loginprocess_eus.vsdx).
-
-## API for enterprise users
-
-![Login process](loginprocess_ec.svg "Login process enterprise users")
-
-[Download as Visio](loginprocess_ec.vsdx).
 
 ## API for Org systems
 This API is used to authenticate the org systems. 
@@ -56,6 +38,10 @@ This token will be used in the org API in Authentication component in the Altinn
 to create a new JWT token that can be used for all org apis in Apps and platform.
 
 During the verification process of the Maskinporten JWT token the scope and org is verified.
+
+During this process the Maskinporten token is exchanged to a Altinn token containing information about the authenticated org.
+This increases performance since org information does not need to be looked up for each request and the different apps and platform components would not need to know about all the different ID-providers supported by Altinn.
+
 
 The below sequence diagram show how this will happen:
 
