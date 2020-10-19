@@ -10237,8 +10237,7 @@ if(host != "localhost")
               <nav id="TableOfContents">
   <ul>
     <li><a href="#api-for-sbl-authentication-cookie">API for SBL Authentication cookie</a></li>
-    <li><a href="#api-for-end-user-system">API for End User System</a></li>
-    <li><a href="#api-for-enterprise-users">API for enterprise users</a></li>
+    <li><a href="#api-for-end-user-with-oidc">API for end user with OIDC</a></li>
     <li><a href="#api-for-org-systems">API for Org systems</a></li>
   </ul>
 </nav>
@@ -10258,18 +10257,7 @@ This API uses API in the SBL Bridge to verify the cookie and get information abo
 <p>The login process for a user that wants to access a app in Altinn Apps is described below.</p>
 <figure><a href="loginprocess.svg"><img src="loginprocess.svg" alt="Login process" title="Login process" /></a><figcaption><h4>Login process</h4></figcaption></figure>
 <p><a href="loginprocess.vsdx">Download as Visio</a>.</p>
-<h2 id="api-for-end-user-system">API for End User System</h2>
-<p>There are two API&rsquo;s for end user sytems</p>
-<h3 id="reserve-pin-for-end-user">Reserve Pin for End User</h3>
-<p>This API lets the user request a Altinn PIN or SMS Pin for a end user.</p>
-<h3 id="validate-system-andor-end-user">Validate system and/or end user</h3>
-<p>This API validates the end user system id together with the password for the system.</p>
-<p>The below diagram shows how:</p>
-<figure><a href="loginprocess_eus.svg"><img src="loginprocess_eus.svg" alt="Login process" title="Login process end user system" /></a><figcaption><h4>Login process end user system</h4></figcaption></figure>
-<p><a href="loginprocess_eus.vsdx">Download as Visio</a>.</p>
-<h2 id="api-for-enterprise-users">API for enterprise users</h2>
-<figure><a href="loginprocess_ec.svg"><img src="loginprocess_ec.svg" alt="Login process" title="Login process enterprise users" /></a><figcaption><h4>Login process enterprise users</h4></figcaption></figure>
-<p><a href="loginprocess_ec.vsdx">Download as Visio</a>.</p>
+<h2 id="api-for-end-user-with-oidc">API for end user with OIDC</h2>
 <h2 id="api-for-org-systems">API for Org systems</h2>
 <p>This API is used to authenticate the org systems.</p>
 <p>To authenticate a system like this Altinn Platform requires that the system is registred as a client in Maskinporten for a given org.
@@ -10280,6 +10268,8 @@ The org need also to be given scopes that matches the scopes for the API request
 This token will be used in the org API in Authentication component in the Altinn Platform
 to create a new JWT token that can be used for all org apis in Apps and platform.</p>
 <p>During the verification process of the Maskinporten JWT token the scope and org is verified.</p>
+<p>During this process the Maskinporten token is exchanged to a Altinn token containing information about the authenticated org.
+This increases performance since org information does not need to be looked up for each request and the different apps and platform components would not need to know about all the different ID-providers supported by Altinn.</p>
 <p>The below sequence diagram show how this will happen:</p>
 <figure><a href="loginprocess_org.svg"><img src="loginprocess_org.svg" alt="Login process" title="Login process org systems" /></a><figcaption><h4>Login process org systems</h4></figcaption></figure>
 <p><a href="loginprocess_org.vsdx">Download as Visio</a>.</p>
