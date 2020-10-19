@@ -10233,16 +10233,6 @@ if(host != "localhost")
           
 
           
-            <h2>På denne siden:</h2>
-              <nav id="TableOfContents">
-  <ul>
-    <li><a href="#api-for-sbl-authentication-cookie">API for SBL Authentication cookie</a></li>
-    <li><a href="#exchange-api-for-tokens">Exchange API for tokens</a></li>
-    <li><a href="#exchanging-odic-token-from-id-porten">Exchanging ODIC token from ID-porten</a></li>
-    <li><a href="#exchanging-token-from-maskinporten">Exchanging token from MaskinPorten</a></li>
-  </ul>
-</nav>
-          
 
 
 
@@ -10250,28 +10240,28 @@ if(host != "localhost")
 
 
 
-<p>As part of the authentication component there will be some API&rsquo;s that support authentication of different types of users and systems.</p>
+<p>As part of the authentication component, there is some APIs that support authentication of different types of users and systems.</p>
 <h2 id="api-for-sbl-authentication-cookie">API for SBL Authentication cookie</h2>
 <p>This API creates a JWT Cookie (A cookie with a JWT Token) based on the SBL Cookie created during login in the Legacy SBL solution.
-This API uses API in the SBL Bridge to verify the cookie and get information about the logged in user.</p>
+This API uses API in the SBL Bridge to verify the cookie and get information about the logged-in user.</p>
 <p>Based on this information this API creates a JWT token with claims about the user (userid, authentication level ++) and sign the JWT token with the private key of Altinn Platform.</p>
-<p>The login process for a user that wants to access a app in Altinn Apps is described below.</p>
+<p>The login process for a user that wants to access an app in Altinn Apps is described below.</p>
 <figure><a href="loginprocess.svg"><img src="loginprocess.svg" alt="Login process" title="Login process" /></a><figcaption><h4>Login process</h4></figcaption></figure>
 <p><a href="loginprocess.vsdx">Download as Visio</a>.</p>
 <h2 id="exchange-api-for-tokens">Exchange API for tokens</h2>
-<p>Altinn supports tokens from different ID-providers, and in the future it is expected that the list of supported ID-providers will grow.</p>
-<p>To reduce complexity and increase performance the clients needs to exchange the external tokens to a Altinn token.</p>
-<p>In this way the different apps does not need to know about all ID-providers, and is not required to look up org identificator or Altinn userId/partyId that is 
+<p>Altinn supports tokens from different ID-providers, and in the future, it is expected that the list of supported ID-providers will grow.</p>
+<p>To reduce complexity and increase performance the clients need to exchange the external tokens for an Altinn token.</p>
+<p>In this way, the different apps do not need to know about all ID-providers and are not required to look up org identification or Altinn userId/partyId that is 
 added to the Altinn token.</p>
 <h2 id="exchanging-odic-token-from-id-porten">Exchanging ODIC token from ID-porten</h2>
-<p>Altinn supports end users logging in with OIDC in their end user system. (local instalation or cloud based).</p>
-<p>The end user system gets a ID-token and a access-token from ID-porten.</p>
+<p>Altinn supports end-users logging in with OIDC in their end user system. (local installation or cloud-based).</p>
+<p>The end-user-system gets an ID-token and a access-token from ID-porten.</p>
 <p>The access token is exchanged in the API to an Altinn JWT token containing the needed attributes like userId</p>
 <h2 id="exchanging-token-from-maskinporten">Exchanging token from MaskinPorten</h2>
-<p>To authenticate a system like this Altinn Platform requires that the system is registred as a client in Maskinporten for a given org.
-The org need also to be given scopes that matches the scopes for the API requested in Maskinporten.</p>
-<p>This will be given by Altinn.</p>
-<p>The org system should be given the scope needed by the administrator of org. (done through Maskinporten API described under 4 <a href="https://difi.github.io/idporten-oidc-dokumentasjon/oidc_guide_maskinporten.html#4-konfigurere-oauth2-klient">here</a>)</p>
+<p>To authenticate a system like this Altinn Platform requires that the system is registered as a client in Maskinporten for a given org.
+The org needs also to be given scopes that matches the scopes for the API requested in Maskinporten.</p>
+<p>This will be given by Altinn to the org.</p>
+<p>The org system should be given the scope needed by the administrator of org. (done through Maskinporten API described <a href="https://difi.github.io/felleslosninger/oidc_api_admin_maskinporten.html">here</a>)</p>
 <p>The org system would need to request a access token from Maskinporten with the correct scope.
 This token will be used in the org API in Authentication component in the Altinn Platform
 to create a new JWT token that can be used for all org apis in Apps and platform.</p>
