@@ -14,7 +14,7 @@ Data flows between the different actors using Altinns.
 
 - Citizens receives data from the public agencies and sends data to the public agencies
 - Business receives data from the public agencies and sends data to the public agencies
-- Pulic agencies can share data with other public agencies
+- Public agencies can share data with other public agencies
 - ++
 
 ### End-point enablement
@@ -44,5 +44,7 @@ This is in detailed explained under [Events capabilities](events)
 
 The different solutions of the platform support transport & delivery of the data.
 
-By default all 
+By default the clients are the active parts for transporting data. Agencies needs to push data to Altinn when it need to send data to other actors, and need to pull data when receiving data.
+
+The only active push from Altinn is when Altinn Platform Events component send events to subscribers. 
 
