@@ -1,23 +1,46 @@
 ---
-title: Integration Capabilties
+title: Integration & Data Transport Capabilties
 linktitle: Integration
-description: Description of the Integration Capabilties in the technology architecture
+description: The most important capability for a platform like Altinn 3 is the integration capabilites. 
 tags: [architecture]
 ---
 
-## Integration & Data Transport Capabilties
+In many ways you can say that Altinn is a integration hub for communication between the citizens, the businesses and the public
+entities in Norway. 
+
+![Integration parties](integration_capabilites.svg "Altinn integration")
+
+Data flows between the different actors using Altinns. 
+
+- Citizens receives data from the public agencies and sends data to the public agencies
+- Business receives data from the public agencies and sends data to the public agencies
+- Pulic agencies can share data with other public agencies
+- ++
+
 
 ### End-point enablement
-The different solutions in the platform has the capability to expose API endpoints.
 
-This including exposing it with Open API documentation for a given endpoint. 
+Applications created in Altinn Studio has build in API for communication with the different actors. In addition
+application developers can add their custom APIS. 
 
-### Transport & Delivery
-The different solutions of the platform support transport & delivery of the data.
+The different platform components exposes API to applications and external parties.
+
+All this is possible because the backend framework easy let developers build APIS.
+
+In the same way the different applications and components consumes APIS from other sources both inside the Altinn 3 platform solutions
+and external sources. 
 
 ### Publish & Subscribe
+
 A important change for Altinn moving to the new platform is we change to an event driven architecture. 
 
-Altinn Platform / Altinn Apps will publish events that can be subscribed to. 
+As part of the Altinn 3 platform it is created a Events component that apps and other can publish their events and other can
+subscribe to. 
 
-{{% children description="true" depth="1" %}}
+This is in detailed explained under [Events capabilities](events)
+
+### Transport & Delivery
+
+The different solutions of the platform support transport & delivery of the data.
+
+
