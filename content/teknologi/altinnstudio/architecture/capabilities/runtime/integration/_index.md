@@ -8,7 +8,7 @@ tags: [architecture]
 In many ways you can say that Altinn is a integration hub for communication between the citizens, the businesses and the public
 entities in Norway. 
 
-![Integration parties](integration_capabilites.svg "Altinn integration")
+![Integration parties](integration_capabilities.svg "integration actors")
 
 Data flows between the different actors using Altinns. 
 
@@ -16,7 +16,6 @@ Data flows between the different actors using Altinns.
 - Business receives data from the public agencies and sends data to the public agencies
 - Pulic agencies can share data with other public agencies
 - ++
-
 
 ### End-point enablement
 
@@ -29,6 +28,8 @@ All this is possible because the backend framework easy let developers build API
 
 In the same way the different applications and components consumes APIS from other sources both inside the Altinn 3 platform solutions
 and external sources. 
+
+The APIS exposed as standard from Apps and platform is described [here](/teknologi/altinnstudio/altinn-api/)
 
 ### Publish & Subscribe
 
@@ -43,4 +44,5 @@ This is in detailed explained under [Events capabilities](events)
 
 The different solutions of the platform support transport & delivery of the data.
 
+By default all 
 
