@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the Integration Capabilties in the technology architecture">
+    <meta name="description" content="The most important capability for a platform like Altinn 3 is the integration capabilites.">
 
 
     
-    <title>Integration Capabilties :: Altinn digitalisering - Utvikling</title>
+    <title>Integration &amp; Data Transport Capabilties :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -10213,10 +10213,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Integration Capabilties
+                Integration &amp; Data Transport Capabilties
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of the Integration Capabilties in the technology architecture</p>
+              <p class="a-leadText" id="leadText">The most important capability for a platform like Altinn 3 is the integration capabilites.</p>
             
           
 
@@ -10228,21 +10228,30 @@ if(host != "localhost")
 
 
 
-<h2 id="integration--data-transport-capabilties">Integration &amp; Data Transport Capabilties</h2>
+<p>In many ways you can say that Altinn is a integration hub for communication between the citizens, the businesses and the public
+entities in Norway.</p>
+<figure><a href="integration_capabilites.svg"><img src="integration_capabilites.svg" alt="Integration parties" title="Altinn integration" /></a><figcaption><h4>Altinn integration</h4></figcaption></figure>
+<p>Data flows between the different actors using Altinns.</p>
+<ul>
+<li>Citizens receives data from the public agencies and sends data to the public agencies</li>
+<li>Business receives data from the public agencies and sends data to the public agencies</li>
+<li>Pulic agencies can share data with other public agencies</li>
+<li>++</li>
+</ul>
 <h3 id="end-point-enablement">End-point enablement</h3>
-<p>The different solutions in the platform has the capability to expose API endpoints.</p>
-<p>This including exposing it with Open API documentation for a given endpoint.</p>
-<h3 id="transport--delivery">Transport &amp; Delivery</h3>
-<p>The different solutions of the platform support transport &amp; delivery of the data.</p>
+<p>Applications created in Altinn Studio has build in API for communication with the different actors. In addition
+application developers can add their custom APIS.</p>
+<p>The different platform components exposes API to applications and external parties.</p>
+<p>All this is possible because the backend framework easy let developers build APIS.</p>
+<p>In the same way the different applications and components consumes APIS from other sources both inside the Altinn 3 platform solutions
+and external sources.</p>
 <h3 id="publish--subscribe">Publish &amp; Subscribe</h3>
 <p>A important change for Altinn moving to the new platform is we change to an event driven architecture.</p>
-<p>Altinn Platform / Altinn Apps will publish events that can be subscribed to.</p>
-<ul class="children children-li js-moveChildrenFrom">
-<li>
-<a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/" >Event capabilities</a>
-<p>Description of the event-driven architecture for Altinn Apps and Altinn Platform.</p>
-</li>
-</ul>
+<p>As part of the Altinn 3 platform it is created a Events component that apps and other can publish their events and other can
+subscribe to.</p>
+<p>This is in detailed explained under <a href="events">Events capabilities</a></p>
+<h3 id="transport--delivery">Transport &amp; Delivery</h3>
+<p>The different solutions of the platform support transport &amp; delivery of the data.</p>
 
 
 <footer class=" footline" >
