@@ -1712,7 +1712,7 @@
 	"title": "Hugo",
 	"tags": ["tech", "docs", "markdown"],
 	"description": "Static site generator used for our documentation.",
-	"content": "Hugo is a static site generator that we use for generating https://docs.altinn.studio and https://altinn.github.io/docs.\nAltinn ❤️ Hugo.\nLinks  https://gohugo.io https://github.com/gohugoio/hugo https://github.com/altinn/docs https://github.com/altinn/altinn-studio-docs https://github.com/altinn/hugo-theme-altinn  "
+	"content": "Hugo is a static site generator that we use for generating https://docs.altinn.studio and https://altinn.github.io/docs from markdown.\nAltinn ❤️ Hugo.\nLinks  https://gohugo.io https://github.com/altinn/docs https://github.com/altinn/altinn-studio-docs https://github.com/altinn/hugo-theme-altinn  "
 },
 {
 	"uri": "https://docs.altinn.studio/",
