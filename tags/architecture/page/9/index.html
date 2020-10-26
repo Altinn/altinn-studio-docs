@@ -1395,8 +1395,44 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-caret-right fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/">
+        <span>Scenarios</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -10315,6 +10351,38 @@ User Profile User profile in Altinn Studio Repostories lets the app developer ma
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/">Event Scenarios</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Below you find some functional scenarios for use of events functionality in Altinn 3
+Org waiting on ProcessComplete for a given app In this scenario, an org is waiting on end-users to complete one given app.
+  System (consumer) authenticates using Maskinporten and requests scope altinn:events/{org}/{app}
+  System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.
+  System calls
+GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed   Event component verifies that scope matches request <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/events/">events</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/">Security Enforcement Capabilities</a></h2>
     </header>
     <section class="post-excerpt">
@@ -11162,6 +11230,22 @@ The Altinn Studio and Altinn Studio Apps solution uses the XACML standard for th
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                       
                   

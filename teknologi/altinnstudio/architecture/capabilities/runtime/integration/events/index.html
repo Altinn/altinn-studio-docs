@@ -1395,8 +1395,44 @@ if(host != "localhost")
         
         
 
+          
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
+          
+
+        
+
         
       </a>
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/" class="dd-item
+     
+      ">
+        <a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/">
+        <span>Scenarios</span> 
+        
+        </a></li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -10449,109 +10485,6 @@ This delegation is done through Maskinporten.</p>
 <h3 id="delegating-party-event-access">Delegating party event access</h3>
 <p>In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.</p>
-<h2 id="detailed-scenarios">Detailed Scenarios</h2>
-<h3 id="org-waiting-on-processcomplete-for-a-given-app">Org waiting on ProcessComplete for a given app</h3>
-<p>In this scenario, an org is waiting on end-users to complete one given app.</p>
-<ol>
-<li>
-<p>System (consumer) authenticates using Maskinporten and requests scope <code>altinn:events/{org}/{app}</code></p>
-</li>
-<li>
-<p>System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.</p>
-</li>
-<li>
-<p>System calls</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed
-</code></pre></div></li>
-<li>
-<p>Event component verifies that scope matches request</p>
-</li>
-<li>
-<p>Event components searches Cosmos DB for events that matches search criteria</p>
-</li>
-<li>
-<p>Event component returns the filtered and possible capped response ordered by sequence</p>
-</li>
-<li>
-<p>Consumer process the received events and call other API to download related data (instances, files, etc)</p>
-</li>
-</ol>
-<h3 id="user-needing-to-know-if-there-is-anything-new-for-a-party">User needing to know if there is anything new for a party</h3>
-<p>In this scenario, a user wants to see if there are any changes for a client or the user itself.</p>
-<ol>
-<li>
-<p>System authenticates end user with ID-porten</p>
-</li>
-<li>
-<p>System exchanges token with Altinn</p>
-</li>
-<li>
-<p>System calls event API</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/party/
-</code></pre></div></li>
-<li>
-<p>Event component query events in database.</p>
-</li>
-<li>
-<p>Event components authorized the event and filter away events where user is not authorized</p>
-</li>
-<li>
-<p>Events are returned</p>
-</li>
-<li>
-<p>Consumer process events</p>
-</li>
-<li>
-<p>Consumer gets relevant data</p>
-</li>
-</ol>
-<h3 id="organization-needing-to-know-if-there-are-anything-new-for-a-party">Organization needing to know if there are anything new for a party</h3>
-<p>In this scenario a professional organization wants to see if there are any changes for a client or the organization itself.</p>
-<ol>
-<li>
-<p>System authenticates end user with Maskinporten</p>
-</li>
-<li>
-<p>System exchanges token with Altinn</p>
-</li>
-<li>
-<p>System calls event api</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/party/
-</code></pre></div></li>
-<li>
-<p>Event component query events in database</p>
-</li>
-<li>
-<p>Event components authorized the event and filter away events where user is not authorized</p>
-</li>
-<li>
-<p>Events are returned</p>
-</li>
-<li>
-<p>Consumer process events</p>
-</li>
-<li>
-<p>Consumer gets relevant data</p>
-</li>
-</ol>
-<h3 id="approved-organization-needs-to-know-about-changes-for-all-reportees">Approved organization needs to know about changes for all reportees</h3>
-<p>This is a scenario where some organizations like banks need to be informed when somebody dies and a &ldquo;deathestate&rdquo; is created for that user.</p>
-<h3 id="anonym-access-to-a-given-instances-events">Anonym access to a given instances events</h3>
-<div class="notices warning" >
-Not implemented yet.
-</div>
-<p>In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
-the instance without the user needing to log in.</p>
-<ol>
-<li>System calls event api</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/instanceeventsforinstance/{instanceId}
-</code></pre></div><ol start="2">
-<li>Event component query events in database</li>
-<li>Events are returned</li>
-<li>The Consumer process events</li>
-<li>The Consumer gets relevant data</li>
-</ol>
 <h2 id="push-events">Push Events</h2>
 <p>Altinn Events will also support push of events.</p>
 <p>Consumers would be able to add a subscription for specific types of event either for a specific source or for a specific subject.</p>
@@ -10574,11 +10507,6 @@ important insight in to the data in the platform.</p>
 <p>The event capabilities in Altinn Platform is possible to use outside Altinn Apps and Altinn Platform similar to
 how Altinn Authorization is used by external wihout deploying any digital services to the platform.</p>
 <p>How this should work is not analyzed and specified yet. The isse is found <a href="https://github.com/Altinn/altinn-studio/issues/4727">here</a></p>
-<h2 id="open-clarification">Open Clarification</h2>
-<ul>
-<li>Would it be ok to cap the response from feed for the latest second or two to reduce the change for loosing events because of
-timing an paralell events.</li>
-</ul>
 <h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
 <p>Events are used in different scenarios in the platform.</p>
 <ul>
@@ -11267,6 +11195,25 @@ Calculation, validation ++ This type of event is probably not relevant to push t
                               
           
                               
+                                  
+                      
+                      
+                          
+                              
+                                  
+                                  
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
+                              
                       
                   
                               
@@ -11277,9 +11224,6 @@ Calculation, validation ++ This type of event is probably not relevant to push t
                       
                       
                           
-                              
-                                  
-                                  
                               
                           
                           
@@ -15645,7 +15589,7 @@ Calculation, validation ++ This type of event is probably not relevant to push t
                       <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/" title="Integration &amp; Data Transport Capabilties"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/" title="Presentation (User Interface) Capabilities" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/" title="Event Scenarios" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
