@@ -10302,13 +10302,11 @@ to some data that was changed because of that event.</p>
 <p>An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.</p>
 <h3 id="event-producers">Event Producers</h3>
 <p>This is a start. Going forward other event sources can be added, for example from Altinn 2.</p>
-<h4 id="altinn-platform">Altinn Platform</h4>
-<p>Storage is probably the one component that would create the most standard events.</p>
+<h4 id="applications-running-in-altinn-apps">Applications running in Altinn Apps</h4>
+<p>Applications hosted in the Altinn Apps infrastructure would be the most common producer of events in the beginning.</p>
+<p>The standard App template will contain code for publishing standard events to the events component.</p>
 <p>This could be events for the creation of instances when instances state is updated and so on.
 We would need to define what kind of standard events storage should create.</p>
-<p>The assumption is that all process change events logged to instance events in storage would be published to the event architecture with limited information.</p>
-<h4 id="applications">Applications</h4>
-<p>Applications hosted in the Altinn Apps infrastructure would be able to create events.</p>
 <p>The application template will contain API so logic in applications can publish events based on rules defined by the developer.</p>
 <p>These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.</p>
 <h3 id="event-consumers">Event consumers</h3>
