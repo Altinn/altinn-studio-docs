@@ -58,18 +58,14 @@ An event will contain a limited set of information. To get the full details for 
 
 This is a start. Going forward other event sources can be added, for example from Altinn 2.
 
-#### Altinn Platform
+#### Applications running in Altinn Apps
 
-Storage is probably the one component that would create the most standard events.
+Applications hosted in the Altinn Apps infrastructure would be the most common producer of events in the beginning.
+
+The standard App template will contain code for publishing standard events to the events component.
 
 This could be events for the creation of instances when instances state is updated and so on.
 We would need to define what kind of standard events storage should create.
-
-The assumption is that all process change events logged to instance events in storage would be published to the event architecture with limited information.
-
-#### Applications
-
-Applications hosted in the Altinn Apps infrastructure would be able to create events.
 
 The application template will contain API so logic in applications can publish events based on rules defined by the developer.
 
