@@ -1,15 +1,11 @@
 ---
 title: Event capabilities
 description: Description of the event-driven architecture for Altinn Apps and Altinn Platform.
-toc: true
+toc: false
 tags: [architecture, events]
 aliases:
   - /teknologi/altinnstudio/architecture/capabilities/runtime/integration/eventcapabilties
 ---
-
-{{%notice warning%}}
-This is work-in-progress. Things may change
-{{% /notice%}}
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
 This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
