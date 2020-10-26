@@ -19,7 +19,7 @@ Once testing is completed and successful
 Duplicate changes in Altinn Studio template
 7. Update nuget reference in Altinn Studio template.
 
-### Updating Altinn Platform and app template
+### Updating Altinn Platform and app template  
 
 1. Code that requires changes in platform are merged in a seperate PR
 2. The platform code must be rolled out to all environments.
