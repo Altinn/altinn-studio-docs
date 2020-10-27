@@ -7,7 +7,7 @@ tags: [tech, git, programming]
 ![Visual Studio Code logo](vscode-logo.png "VS Code logo")
 
 Visual Studio Code is a lightweight and extendable code editor which runs on your desktop and is available for Windows, macOS and Linux.  
-We use it when developing [altinn-studio](https://github.com/altinn/altinn-studio), and it can be used for editing files from [Altinn Studio Repos](/altinn-studio-repos) locally
+We use it when developing [Altinn 3](https://github.com/altinn/altinn-studio), and it can be used for editing files from [Altinn Studio Repos](/altinn-studio-repos) locally
 using the [built-in Git support](https://code.visualstudio.com/docs/editor/versioncontrol#_git-support).
 
 Altinn ❤️ vscode.
