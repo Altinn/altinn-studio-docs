@@ -97,39 +97,20 @@ Response body includes a list of cloud events on the form
 ]
 ```
 
-#### Events for a given party
+### Events for a given party
 
 A very common scenario is that a party needs to know about events for the party itself or other party that party has a relationship for (client, child unit++). 
 
 ##### Endpoint
 
 ```http
-GET {platformurl}/events/instanceeventsforparty/?org={org}&from={fromTime}&unit={organizationnumber}
+GET platform.altinn.no/events/api/v1/app/party
 ```
-
-This returns the events for a given party identified with a person number or organisation number.
-
-The following url parameters and http headers has been defined. Person is given as a http header because of security.
-
-| Parameter | Type | Description |
-| --------- | ---- | ----------- |
-| unit | string  | Required*  the organisation number nine digits |
-| person | string (http header) | Required* the f or d number of the person |
-| party | string  | Required* the partyId |
-| org | string  | Optional: (required if app is provided) the org owning the application |
-| app | string  | Optional: the application related to the event |
-| from | datetime  | Required**: The time to search from |
-| after | string  | Required**: the id of the last event processed by the client |
-| type | string | Optional: a specific event type |
-
-\* Needs to give one identifcator of the subject, unit,person or party parammeter.
-
-\*\* After or from is required
 
 ##### Usage
 
 This is used by end users to see events for a given party.
-This will list all changes for a given party.
+This will list all changes for a given party, identified with a partyId, person number or organisation number.
 
 ##### Authorization
 
@@ -140,11 +121,45 @@ The topic and subject would be used to identify the correct XACML-policy to use.
 The operation would be read and the proccess task will be set to `null`.
 This way there would be no need to verify the current state of an instance.
 
+The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4552).
+
+##### Request
+
+The following url parameters and http headers has been defined. Person is given as a http header because of security.
+
+| Parameter | Type | Description |
+| --------- | ---- | ----------- |
+| after | string  | Required**: the id of the last event processed by the client |
+| from | datetime  | Required**: The time (UTC) to search from |
+| to | datetime  | Optional: The time (UTC) to search up until |
+| party | string  | Required* the partyId |
+| type | List\<string\> | Optional: a list of event types |
+| source | List\<string\> (regex allowed)*** | Optional: a list of strings to match the event source |
+| unit | string  | Required*  the organisation number nine digits |
+| person | string (http header) | Required* the f or d number of the person |
+| size| int | Optional: upper limit for number of returned events |
+\* Needs to give one identifcator of the subject, unit,person or party parammeter.
+
+\*\* After or from is required
+
+\*\*\* Source allows for escaping a single character `_` or an undefined number of characters `%`
+
+
+##### Response
+
+Response includes a _next_ header that can be used to get the events following the last event returned by the response.
+Query parameter _after_ is inserted or replaced and holds the id of the last event returned in the reponse.
+
+```http
+https://platform.tt02.altinn.no/events/api/v1/app/party?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&from=2020-10-01 11:35:00
+```
+
+
 We have this example
 
 ```json {hl_lines=[4]}
 [{
-  "source":  "skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
+  "source":  "https://skd.apps.altinn.no/skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
   "type": "instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
@@ -153,11 +168,8 @@ We have this example
 }]
 ```
 
-To be able to read this event, the authenticated party is required to have the rights for SKD/Skattmelding for the party 234234422
-
+To be able to read this event, the authenticated party is required to have the rights for SKD/Skattmelding for the party 234234422.
 This is something it gets throug roles for that specific application.
-
-The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4552). 
 
 
 ### Adding events
