@@ -44,13 +44,12 @@ The following url parameters and http headers have been defined. Person is given
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | org | string  | Required: the org owning the application |
-| appName | string  | Required: the application related to the event |
+| appName | string  | Optional: the application related to the event |
 | after | string  | Required**: the id of the last event processed by the client |
 | from | datetime  | Required**: The time (UTC) to search from |
 | to | datetime  | Optional: The time (UTC) to search up until |
 | party | string  | Optional: the partyId |
 | type | List\<string\> | Optional: a list of event types |
-| source | List\<string\> (regex allowed)*** | Optional: a list of strings to match the event source |
 | unit | string  | Optional: the organisation number nine digits for reportee |
 | person | string (http header)  | Optional: the f or d number of the person |
 | size| int | Optional: upper limit for number of returned events |
