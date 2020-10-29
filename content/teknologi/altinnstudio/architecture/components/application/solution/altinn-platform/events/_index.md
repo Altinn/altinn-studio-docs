@@ -44,7 +44,7 @@ The following url parameters and http headers have been defined. Person is given
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
 | org | string  | Required: the org owning the application |
-| appName | string  | Optional: the application related to the event |
+| appName | string  | Required: the application related to the event |
 | after | string  | Required**: the id of the last event processed by the client |
 | from | datetime  | Required**: The time (UTC) to search from |
 | to | datetime  | Optional: The time (UTC) to search up until |
