@@ -10338,21 +10338,35 @@ if(host != "localhost")
 For a functional description see details in
 <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">application solution components</a>.</p>
 <p>The diagram below shows where the different solution components are located</p>
-<figure><a href="../../solution/altinn-platform/authorization/authorization_solution_components.svg"><img src="../../solution/altinn-platform/authorization/authorization_solution_components.svg" alt="Authorization Solution components" title="Authorization solution components" /></a><figcaption><h4>Authorization solution components</h4></figcaption></figure>
-<p>The Authorization component is constructed as a asp.net MVC application</p>
+<figure><a href="../../../solution/altinn-platform/authorization/authorization_solution_components.svg"><img src="../../../solution/altinn-platform/authorization/authorization_solution_components.svg" alt="Authorization Solution components" title="Authorization solution components" /></a><figcaption><h4>Authorization solution components</h4></figcaption></figure>
+<p>The Authorization component is constructed as a asp.net MVC application exposing API and contains the following solution components</p>
 <h2 id="policy-decision-point---pdp">Policy Decision Point - PDP</h2>
 <p>This is implemented as a separate class <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC">library</a> <a href="https://www.nuget.org/packages/Altinn.Authorization.ABAC/">This is published to Nuget</a>.</p>
+<p>This library contains all models defined for XAMCL XML/JSON and utility methods to handle XACML documents.</p>
+<p>The Policy Decision Point is implemented in this <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC/PolicyDecisionPoint.cs">class</a>.</p>
+<p>It expects both decision request and policy to be inputed.</p>
 <h2 id="policy-retrieval-point---prp">Policy Retrieval Point - PRP</h2>
 <p>Policy Retrieval Point component that stores authorization policies for applications.</p>
 <p>The policies are stored as XACML (xml) documents in a blob storage.</p>
 <p>When an authorization request is received to PDP, PRP identifies the correct policy document in the policy storage.</p>
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/PolicyRetrievalPoint.cs">See code</a>.</p>
+<p>PRP is configured as a service in the Authorization Component and can easily be replaced with other implementation.</p>
 <h2 id="context-handler">Context Handler</h2>
 <p>Context handler enriches the authorization request with information about the user and the resource requested.
 Roles are retrieved from SBL Brigde while resource information is retrieved from Instances in storage.</p>
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/ContextHandler.cs">See code</a>.</p>
+<p>Context Handler is configured as a serivce in Authorization Component and can easily be replaced with other implementation.</p>
 <h2 id="policy-information-point---roles">Policy Information Point - Roles</h2>
 <p>PIP for roles, calls SBL bridge to get the rules a user or system has for a resource party.</p>
+<p>This is implemented as a service. <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/RolesWrapper.cs">See implementation</a></p>
+<p>This can easily be replaced with other implementation.</p>
+<h2 id="policy-information-point---party">Policy Information Point - Party</h2>
+<p>This is implemented as a service. <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/PartiesWrapper.cs">See implementation</a></p>
+<p>This can easily be replaced with other implementation.</p>
+<h2 id="policy-information-point---resources">Policy Information Point - Resources</h2>
+<p>PIP for resoruces checks storage for instance information.</p>
+<p>This is implemented as a service. <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Repositories/PolicyInformationRepository.cs">See implementation</a></p>
+<p>This can easily be replaced with other implementation.</p>
 <h2 id="api-controllers">Api controllers</h2>
 <ul>
 <li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/DecisionController.cs">Decision</a></li>
@@ -10362,6 +10376,17 @@ Roles are retrieved from SBL Brigde while resource information is retrieved from
 </ul>
 <h2 id="dependencies">Dependencies</h2>
 <p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Altinn.Platform.Authorization.csproj">csproj</a>.</p>
+<h2 id="how-to-use-altinn-platform-authorization-in-your-setup">How to use Altinn Platform Authorization in your setup</h2>
+<p>The PDP does not contain any Altinn specific functionality. What you need to implement in your setup is</p>
+<h3 id="context-handler-1">Context Handler</h3>
+<p>You would need to write your own context handler functionality that undestand your domain. Meaning it would need to understand what
+kind of enrichment that is needed. It the simplest scenarious this does not need to do anything if the authorization request contains all
+information needed by PDP</p>
+<h3 id="prp">PRP</h3>
+<p>You need to implement funcionality to identify the correct XACML Policy. In Altinn we have different policies for the different apps, but in
+some simple scenarios you would only need to reference a static XACML Policy.</p>
+<h3 id="pip">PIP</h3>
+<p>If context handler need to enrich</p>
 
 
 <footer class=" footline" >
