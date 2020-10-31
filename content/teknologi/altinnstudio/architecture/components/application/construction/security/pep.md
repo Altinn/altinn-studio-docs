@@ -1,5 +1,5 @@
 ---
-title: Policy Enforcment Point
+title: Policy Enforcement Point
 linktitle: PEP
 description: There are different types of Policy Enforcement Points in the Altinn 3 platform. 
 tags: [architecture, security]
@@ -11,10 +11,10 @@ These are constructed in different ways.
 ## Standard PEP
 
 One important principle we follow is that security should be configured when possible. This means that we have developed
-some standard policy enforcment points that can be configured on the different API endpoints.
+some standard policy enforcement points that can be configured on the different API endpoints.
 
-Attribute based authorization is best solved with
-[Policy Based Authorization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0)
+Attribute-based authorization is best solved with
+[Policy-Based Authorization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0)
 
 The different standard PEP's in the ASP.Net Web application template is created as 
 [Authorization Handlers](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).

@@ -28,7 +28,7 @@ The following concepts are important
 The authorization capabilities are provided by the following solution components
 
 * PAP - Policy Administration Point: Where the authorization policies are defined
-* PDP - Policy Decision Point:  Where the authorization request is evaluted
+* PDP - Policy Decision Point:  Where the authorization request is evaluated
 * PEP - Policy Enforcement Point: The component making sure the user/system is authorized before accessing resources
 * PIP - Policy Information Point: Components giving information to PDP about resources and subjects
 * PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request
@@ -38,12 +38,12 @@ These components are described in detail under [solution components](/teknologi/
 
 ### Rights
 
-In Altinn Apps/Platform a right is permission to perform an action on a given resource.
-The action can be one of some predefined options like read, write and sign but can also be any other action defined on a
-custom api in the apps.
+In Altinn Apps/Platform a right is permission to act on a given resource.
+The action performed can be one of some predefined options like read, write and sign but can also be any other action defined on a
+custom API in the apps.
 The resource is typical an app instance or part of it where data belongs to a given party (person or organization).
 
-A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.
+A user or system gets a right based on rules that describe permissions based on being a specific user or having a specific role.
 
 ### Policy
 
@@ -56,18 +56,18 @@ A rule consists of 5 elements
 
 ##### Resource
 
-This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.
+This describe which resource the rule applies for. Altinn Apps currently supports the following resource types in rules.
 
 * Org - Unique identifier of the organization responsible for the app.
 * App - Application identifier which is unique within an organization.
 * Task - A specific task in the process defined for an app
 * Appresource - A resource for a instance/app that is not mapped to a task. Example: events
 
-Some of the resourcetypes is meant to be used in combination. As an exemple, you can have been given the right for an app for a given reportee
+Some of the resource types are meant to be used in combination. As an example, you can have been given the right for an app for a given reportee
 
 ##### Subject
 
-The subject in an authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.
+The subject in an authorization rule identifies who the rules apply for. In Altinn Apps/Platform the resource can be the following.
 
 * RoleType
 * org
@@ -92,28 +92,30 @@ Currently, the actions relevant for Altinn Apps and Altinn Platform is listed be
 
 ##### Condition
 
-The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
+The condition part of the rule is extra conditions that need to be fulfilled for the rule to be valid. In Altinn Studio
 we have the following types of conditions.
 
 * Valid To
 
 ##### Obligation
 
-A obligation is a obligation that needs to be followed it the user is permited or denied.
-In Altinn Apps/Platform this is used to define the minimun authentication level.
+An obligation is an obligation that needs to be followed if the user is permitted or denied.
+In Altinn Apps/Platform this is used to define the minimum authentication level.
 
 #### Creation of policies
 
 The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
-The policy are deployed together with the App to a given Altinn Studio App environment.
+The policy is deployed together with the App to a given Altinn Studio App environment.
 
-In Altinn II end user can also create policies/rules. This happens when:
+In Altinn II end users can also create policies/rules. This happens when:
 
-* When user creates a local role that contains rights that user have through other roles
+* When the user creates a local role that contains rights that user have through other roles
 * When delegating single rights to a user or organisation.
 
 The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
 more limited resource.
+
+This will be supported in Altinn 3. See [Github issue 4776](https://github.com/Altinn/altinn-studio/issues/4776)
 
 ##### Altinn Studio policy/rules
 
