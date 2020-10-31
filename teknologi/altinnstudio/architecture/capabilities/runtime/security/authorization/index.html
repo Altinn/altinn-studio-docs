@@ -10313,7 +10313,8 @@ and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en
 </ul>
 <h2 id="main-concept">Main Concept</h2>
 <p>The following concepts are important</p>
-<h3 id="components">Components</h3>
+<h3 id="solution-components">Solution Components</h3>
+<p>The authorization capabilities are provided by the following solution components</p>
 <ul>
 <li>PAP - Policy Administration Point : Where the authorization policies are defined</li>
 <li>PDP - Policy Decision Point :  Where the authorization request is evaluted</li>
@@ -10322,6 +10323,7 @@ and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en
 <li>PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request</li>
 <li>Context Handler - Component adding context information to the decision request so PDP can evaulate a decision request correctly.</li>
 </ul>
+<p>These components are described in detail under <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">solutin components</a></p>
 <h3 id="rights">Rights</h3>
 <p>In Altinn Apps/Platform a right is a permission to perform an action on a given resource.
 The action can be one of some predefined option like read, write and sign but can also be any other action defined on a
@@ -10377,7 +10379,7 @@ The policy are deployed together with the App to a given Altinn Studio App envir
 more limited resource.</p>
 <h5 id="altinn-studio-policyrules">Altinn Studio policy/rules</h5>
 <figure><a href="authorization_rule_defined_in_altinnstudio.svg"><img src="authorization_rule_defined_in_altinnstudio.svg" alt="Altinn Studio rule" title="Rule defined in Altinn Studio" /></a><figcaption><h4>Rule defined in Altinn Studio</h4></figcaption></figure>
-<h5 id="user-defined-policyrule">User defined policy/rule</h5>
+<h5 id="user-defined-policyrules">User defined policy/rules</h5>
 <figure><a href="authorization_rule_defined_by_user.svg"><img src="authorization_rule_defined_by_user.svg" alt="User rule" title="Rule defined by user" /></a><figcaption><h4>Rule defined by user</h4></figcaption></figure>
 <h3 id="roles">Roles</h3>
 <p>Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles.</p>
@@ -10385,13 +10387,11 @@ more limited resource.</p>
 <p>API Scopes are used in the solutions in some uses cases where organizations are authenticated through the external ID-Provider &ldquo;MaskinPorten&rdquo;</p>
 <p>The organization need to have been delegated scopes in MaskinPorten to do some specific operations.</p>
 <p>Scopes is always used together with the authorization rules.</p>
-<h4 id="scopes-1">Scopes</h4>
+<h4 id="defined-scopes">Defined Scopes</h4>
 <ul>
 <li>altinn:instances.read : Give system the right to access API for reading instances</li>
 <li>altinn:instances.write : Give system the right to access API for writing to instances</li>
 </ul>
-<h2 id="solution-components">Solution components</h2>
-<p>The application solutions components are described <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">here</a></p>
 
 
 <footer class=" footline" >
