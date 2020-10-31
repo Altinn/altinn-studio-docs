@@ -10340,7 +10340,7 @@ if(host != "localhost")
 <figure><a href="../../../solution/altinn-platform/authorization/authorization_solution_components.svg"><img src="../../../solution/altinn-platform/authorization/authorization_solution_components.svg" alt="Authorization Solution components" title="Authorization solution components" /></a><figcaption><h4>Authorization solution components</h4></figcaption></figure>
 <p>The Authorization component is constructed as a asp.net MVC application exposing API. The API communicates with the different solution components</p>
 <p>The below diagram shows the data flow including PEP.</p>
-<p><img src="data_flow_authorization.svg" alt="Data flow authorization"></p>
+<figure><a href="data_flow_authorization.svg"><img src="data_flow_authorization.svg" alt="Data flow authorization" title="Data flow authorization" /></a><figcaption><h4>Data flow authorization</h4></figcaption></figure>
 <h2 id="decision-api">Decision API</h2>
 <p>The decision API is the API that orchestrates the decision process.</p>
 <p>The API supports both XACML XML and XACML Json Profile request.</p>
@@ -10360,7 +10360,7 @@ if(host != "localhost")
 <p>Context handler enriches the authorization request with information about the user and the resource requested.
 Roles are retrieved from SBL Brigde while resource information is retrieved from Instances in storage.</p>
 <p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/ContextHandler.cs">See code</a>.</p>
-<p>Context Handler is configured as a serivce in Authorization Component and can easily be replaced with other implementation.</p>
+<p>Context Handler is configured as a service in Authorization Component and can easily be replaced with other implementation.</p>
 <h2 id="policy-information-point---roles">Policy Information Point - Roles</h2>
 <p>PIP for roles, calls SBL bridge to get the rules a user or system has for a resource party.</p>
 <p>This is implemented as a service. <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/RolesWrapper.cs">See implementation</a></p>
