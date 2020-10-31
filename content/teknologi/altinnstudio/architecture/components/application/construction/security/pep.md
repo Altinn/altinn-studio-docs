@@ -1,28 +1,28 @@
 ---
 title: Policy Enforcment Point
 linktitle: PEP
-description: Description of Policy Enforcment Point for Altinn Studio Apps
+description: There are different types of Policy Enforcement Points in the Altinn 3 platform. 
 tags: [architecture, security]
-toc: true
+toc: false
 ---
 
-There will be some different Policy Enforcement Points in Altinn Platform depending on the service in platform. 
+These are constructed in different ways.
 
 ## Standard PEP
 
-[See GitHub](https://github.com/Altinn/altinn-studio/issues/2554).
+One important principle we follow is that security should be configured when possible. This means that we have developed
+some standard policy enforcment points that can be configured on the different API endpoints.
 
 Attribute based authorization is best solved with
 [Policy Based Authorization in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0)
 
-The Policy Enforcement Point in the ASP.Net Web application template is created as a
-[Authorization Handler](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
+The different standard PEP's in the ASP.Net Web application template is created as 
+[Authorization Handlers](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
 See [AppAccessHandler](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs) for PEP for checking
 app policy for an API.
 
 See [ScopeAccessHandler](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) for PEP validating scope requirements
-
 
 In the App there is defined a set of
 [AuthorizationRequirements](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement?) 

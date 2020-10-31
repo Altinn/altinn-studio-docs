@@ -5,10 +5,11 @@ description: The Altinn 3 platform has very powerful and flexible authorization 
 tags: [architecture, security]
 toc: false
 ---
-The [authorization](https://en.wikipedia.org/wiki/Authorization) capabilities are based around [ABAC](https://en.wikipedia.org/wiki/Attribute-based_access_control) (Attribute-Based Access Controls) 
+
+The [authorization](https://en.wikipedia.org/wiki/Authorization) capabilities are based around [ABAC](https://en.wikipedia.org/wiki/Attribute-based_access_control) (Attribute-Based Access Controls)
 and the [XACML 3.0 standard](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
 
-These capabilties covers
+These capabilties include:
 
 * The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources.
 * The capability to evaulate polices based on a request for a resource
@@ -16,6 +17,7 @@ These capabilties covers
 * The capability to enforce decision request (permit or deny)
 * The capability to enrich decision request with needed information
 * The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that.
+* The capability to authorize based on API scopes
 
 ## Main Concept
 
@@ -27,12 +29,12 @@ The authorization capabilities are provided by the following solution components
 
 * PAP - Policy Administration Point : Where the authorization policies are defined
 * PDP - Policy Decision Point :  Where the authorization request is evaluted
-* PEP - Policy Enforcment Point: The component making sure the user/system is authorized before accessing resources
+* PEP - Policy Enforcement Point: The component making sure the user/system is authorized before accessing resources
 * PIP - Policy Information Point: Components giving information to PDP about resources and subjects
 * PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request
 * Context Handler - Component adding context information to the decision request so PDP can evaulate a decision request correctly.
 
-These components are described in detail under [solutin components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/)
+These components are described in detail under [solution components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/)
 
 ### Rights
 
@@ -129,3 +131,5 @@ Scopes is always used together with the authorization rules.
 
 * altinn:instances.read : Give system the right to access API for reading instances
 * altinn:instances.write : Give system the right to access API for writing to instances
+* altinn:serviceowner/instances.read : Give orgs the right to access API for reading instances
+* altinn:serviceowner/instances.write  : Give orgs the right to access API for writing to instances
