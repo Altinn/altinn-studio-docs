@@ -10341,6 +10341,10 @@ if(host != "localhost")
 <p>The Authorization component is constructed as a asp.net MVC application exposing API. The API communicates with the different solution components</p>
 <p>The below diagram shows the data flow including PEP.</p>
 <p><img src="data_flow_authorization.svg" alt="Data flow authorization"></p>
+<h2 id="decision-api">Decision API</h2>
+<p>The decision API is the API that orchestrates the decision process.</p>
+<p>The API supports both XACML XML and XACML Json Profile request.</p>
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/DecisionController.cs">Decision Controller</a> for code details</p>
 <h2 id="policy-decision-point---pdp">Policy Decision Point - PDP</h2>
 <p>This is implemented as a separate class <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC">library</a> <a href="https://www.nuget.org/packages/Altinn.Authorization.ABAC/">This is published to Nuget</a>.</p>
 <p>This library contains all models defined for XAMCL XML/JSON and utility methods to handle XACML documents.</p>
