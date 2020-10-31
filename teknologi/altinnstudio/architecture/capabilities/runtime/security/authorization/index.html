@@ -10347,7 +10347,7 @@ and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en
 <p>The authorization capabilities are provided by the following solution components</p>
 <ul>
 <li>PAP - Policy Administration Point: Where the authorization policies are defined</li>
-<li>PDP - Policy Decision Point:  Where the authorization request is evaluted</li>
+<li>PDP - Policy Decision Point:  Where the authorization request is evaluated</li>
 <li>PEP - Policy Enforcement Point: The component making sure the user/system is authorized before accessing resources</li>
 <li>PIP - Policy Information Point: Components giving information to PDP about resources and subjects</li>
 <li>PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request</li>
@@ -10355,27 +10355,27 @@ and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en
 </ul>
 <p>These components are described in detail under <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">solution components</a></p>
 <h3 id="rights">Rights</h3>
-<p>In Altinn Apps/Platform a right is permission to perform an action on a given resource.
-The action can be one of some predefined options like read, write and sign but can also be any other action defined on a
-custom api in the apps.
+<p>In Altinn Apps/Platform a right is permission to act on a given resource.
+The action performed can be one of some predefined options like read, write and sign but can also be any other action defined on a
+custom API in the apps.
 The resource is typical an app instance or part of it where data belongs to a given party (person or organization).</p>
-<p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
+<p>A user or system gets a right based on rules that describe permissions based on being a specific user or having a specific role.</p>
 <h3 id="policy">Policy</h3>
 <p>A policy defines one or many rules for a given set of resources. This policy is described as an XACML 3.0 Policy document.</p>
 <h4 id="rule">Rule</h4>
 <p>An authorization rule in the Altinn Platform defines who has been given the right to perform actions on a given resource.
 A rule consists of 5 elements</p>
 <h5 id="resource">Resource</h5>
-<p>This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.</p>
+<p>This describe which resource the rule applies for. Altinn Apps currently supports the following resource types in rules.</p>
 <ul>
 <li>Org - Unique identifier of the organization responsible for the app.</li>
 <li>App - Application identifier which is unique within an organization.</li>
 <li>Task - A specific task in the process defined for an app</li>
 <li>Appresource - A resource for a instance/app that is not mapped to a task. Example: events</li>
 </ul>
-<p>Some of the resourcetypes is meant to be used in combination. As an exemple, you can have been given the right for an app for a given reportee</p>
+<p>Some of the resource types are meant to be used in combination. As an example, you can have been given the right for an app for a given reportee</p>
 <h5 id="subject">Subject</h5>
-<p>The subject in an authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.</p>
+<p>The subject in an authorization rule identifies who the rules apply for. In Altinn Apps/Platform the resource can be the following.</p>
 <ul>
 <li>RoleType</li>
 <li>org</li>
@@ -10397,24 +10397,25 @@ A rule consists of 5 elements</p>
 <li>Delete</li>
 </ul>
 <h5 id="condition">Condition</h5>
-<p>The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
+<p>The condition part of the rule is extra conditions that need to be fulfilled for the rule to be valid. In Altinn Studio
 we have the following types of conditions.</p>
 <ul>
 <li>Valid To</li>
 </ul>
 <h5 id="obligation">Obligation</h5>
-<p>A obligation is a obligation that needs to be followed it the user is permited or denied.
-In Altinn Apps/Platform this is used to define the minimun authentication level.</p>
+<p>An obligation is an obligation that needs to be followed if the user is permitted or denied.
+In Altinn Apps/Platform this is used to define the minimum authentication level.</p>
 <h4 id="creation-of-policies">Creation of policies</h4>
 <p>The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
-The policy are deployed together with the App to a given Altinn Studio App environment.</p>
-<p>In Altinn II end user can also create policies/rules. This happens when:</p>
+The policy is deployed together with the App to a given Altinn Studio App environment.</p>
+<p>In Altinn II end users can also create policies/rules. This happens when:</p>
 <ul>
-<li>When user creates a local role that contains rights that user have through other roles</li>
+<li>When the user creates a local role that contains rights that user have through other roles</li>
 <li>When delegating single rights to a user or organisation.</li>
 </ul>
 <p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
 more limited resource.</p>
+<p>This will be supported in Altinn 3. See <a href="https://github.com/Altinn/altinn-studio/issues/4776">Github issue 4776</a></p>
 <h5 id="altinn-studio-policyrules">Altinn Studio policy/rules</h5>
 <figure><a href="authorization_rule_defined_in_altinnstudio.svg"><img src="authorization_rule_defined_in_altinnstudio.svg" alt="Altinn Studio rule" title="Rule defined in Altinn Studio" /></a><figcaption><h4>Rule defined in Altinn Studio</h4></figcaption></figure>
 <h5 id="user-defined-policyrules">User defined policy/rules</h5>
