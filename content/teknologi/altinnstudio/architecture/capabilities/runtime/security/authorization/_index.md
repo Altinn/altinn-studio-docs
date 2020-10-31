@@ -56,12 +56,12 @@ A rule consists of 5 elements
 
 ##### Resource
 
-This describe which resource the rule applies for. Altinn Apps currently supports the following resource types in rules.
+This describes which resource the rule applies for. Altinn Apps currently supports the following resource types in rules.
 
 * Org - Unique identifier of the organization responsible for the app.
 * App - Application identifier which is unique within an organization.
 * Task - A specific task in the process defined for an app
-* Appresource - A resource for a instance/app that is not mapped to a task. Example: events
+* Appresource - A resource for an instance/app that is not mapped to a task. Example: events
 
 Some of the resource types are meant to be used in combination. As an example, you can have been given the right for an app for a given reportee
 
@@ -82,7 +82,7 @@ When delegating is supported this would be expanded with
 
 The Action part of the rule defines what type of action that the subject can perform on the resource.
 
-Currently, the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.
+Currently, the actions relevant for Altinn Apps and Altinn Platform are listed below. This list will increase over time.
 
 * Read
 * Write
@@ -104,13 +104,13 @@ In Altinn Apps/Platform this is used to define the minimum authentication level.
 
 #### Creation of policies
 
-The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
+The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app.
 The policy is deployed together with the App to a given Altinn Studio App environment.
 
 In Altinn II end users can also create policies/rules. This happens when:
 
-* When the user creates a local role that contains rights that user have through other roles
-* When delegating single rights to a user or organisation.
+* When the user creates a local role that contains rights that users have through other roles
+* When delegating single rights to a user or organization.
 
 The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
 more limited resource.
@@ -127,15 +127,16 @@ This will be supported in Altinn 3. See [Github issue 4776](https://github.com/A
 
 ### Roles
 
-Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles. 
+Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles.
 
 ### Scopes
 
 API Scopes are used in the solutions in some uses cases where organizations are authenticated through the external ID-Provider "MaskinPorten"
+or when end users are accessing the apps through end-user-systems.
 
-The organization need to have been delegated scopes in MaskinPorten to do some specific operations.
+The scopes are used to control what the user can do on behalf of the user/organization.
 
-Scopes is always used together with the authorization rules.
+Scopes are always used together with the authorization rules for the specific app.
 
 #### Defined Scopes
 
