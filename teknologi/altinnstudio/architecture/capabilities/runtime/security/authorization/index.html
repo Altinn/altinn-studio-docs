@@ -10331,11 +10331,11 @@ if(host != "localhost")
 
 <p>The <a href="https://en.wikipedia.org/wiki/Authorization">authorization</a> capabilities are based around <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">ABAC</a> (Attribute-Based Access Controls)
 and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML 3.0 standard</a>.</p>
-<p>These capabilties include:</p>
+<p>These capabilities include:</p>
 <ul>
 <li>The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources.</li>
-<li>The capability to evaulate polices based on a request for a resource</li>
-<li>The capability to configure authoriztion policies for API endpoints</li>
+<li>The capability to evaluate policies  based on a request for a resource</li>
+<li>The capability to configure authorization policies for API endpoints</li>
 <li>The capability to enforce decision request (permit or deny)</li>
 <li>The capability to enrich decision request with needed information</li>
 <li>The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that.</li>
@@ -10343,50 +10343,58 @@ and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en
 </ul>
 <h2 id="main-concept">Main Concept</h2>
 <p>The following concepts are important</p>
-<h3 id="solution-components">Solution Components</h3>
+<h3 id="authorization-components">Authorization Components</h3>
 <p>The authorization capabilities are provided by the following solution components</p>
 <ul>
-<li>PAP - Policy Administration Point : Where the authorization policies are defined</li>
-<li>PDP - Policy Decision Point :  Where the authorization request is evaluted</li>
+<li>PAP - Policy Administration Point: Where the authorization policies are defined</li>
+<li>PDP - Policy Decision Point:  Where the authorization request is evaluted</li>
 <li>PEP - Policy Enforcement Point: The component making sure the user/system is authorized before accessing resources</li>
 <li>PIP - Policy Information Point: Components giving information to PDP about resources and subjects</li>
 <li>PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request</li>
-<li>Context Handler - Component adding context information to the decision request so PDP can evaulate a decision request correctly.</li>
+<li>Context Handler - Component adding context information to the decision request so PDP can evaluate a decision request correctly.</li>
 </ul>
 <p>These components are described in detail under <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">solution components</a></p>
 <h3 id="rights">Rights</h3>
-<p>In Altinn Apps/Platform a right is a permission to perform an action on a given resource.
-The action can be one of some predefined option like read, write and sign but can also be any other action defined on a
+<p>In Altinn Apps/Platform a right is permission to perform an action on a given resource.
+The action can be one of some predefined options like read, write and sign but can also be any other action defined on a
 custom api in the apps.
-The resource is typical an app instance or part of it where data belongs to a given party (person or organisation).</p>
+The resource is typical an app instance or part of it where data belongs to a given party (person or organization).</p>
 <p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
 <h3 id="policy">Policy</h3>
-<p>A policy defines one or many rules for a given set of resources. This policy is described as a XACML 3.0 Policy document.</p>
+<p>A policy defines one or many rules for a given set of resources. This policy is described as an XACML 3.0 Policy document.</p>
 <h4 id="rule">Rule</h4>
-<p>A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
-A rule consist of 5 elements</p>
+<p>An authorization rule in the Altinn Platform defines who has been given the right to perform actions on a given resource.
+A rule consists of 5 elements</p>
 <h5 id="resource">Resource</h5>
 <p>This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.</p>
 <ul>
-<li>Org - Unique identifier of the organisation responsible for the app.</li>
-<li>App - Application identifier which is unique within an organisation.</li>
-<li>Task - A specific task in the process defined for a app</li>
+<li>Org - Unique identifier of the organization responsible for the app.</li>
+<li>App - Application identifier which is unique within an organization.</li>
+<li>Task - A specific task in the process defined for an app</li>
+<li>Appresource - A resource for a instance/app that is not mapped to a task. Example: events</li>
 </ul>
-<p>Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee</p>
+<p>Some of the resourcetypes is meant to be used in combination. As an exemple, you can have been given the right for an app for a given reportee</p>
 <h5 id="subject">Subject</h5>
-<p>The subject in a authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.</p>
+<p>The subject in an authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.</p>
 <ul>
 <li>RoleType</li>
 <li>org</li>
 </ul>
+<p>When delegating is supported this would be expanded with</p>
+<ul>
+<li>userid</li>
+<li>partyid</li>
+<li>keyroleforpartyid</li>
+</ul>
 <h5 id="action">Action</h5>
-<p>The Action part of the rule define what type of action that the subject can perform on the resource.</p>
-<p>Currently the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.</p>
+<p>The Action part of the rule defines what type of action that the subject can perform on the resource.</p>
+<p>Currently, the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.</p>
 <ul>
 <li>Read</li>
 <li>Write</li>
 <li>Sign</li>
 <li>Confirm</li>
+<li>Delete</li>
 </ul>
 <h5 id="condition">Condition</h5>
 <p>The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
@@ -10405,7 +10413,7 @@ The policy are deployed together with the App to a given Altinn Studio App envir
 <li>When user creates a local role that contains rights that user have through other roles</li>
 <li>When delegating single rights to a user or organisation.</li>
 </ul>
-<p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a 
+<p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
 more limited resource.</p>
 <h5 id="altinn-studio-policyrules">Altinn Studio policy/rules</h5>
 <figure><a href="authorization_rule_defined_in_altinnstudio.svg"><img src="authorization_rule_defined_in_altinnstudio.svg" alt="Altinn Studio rule" title="Rule defined in Altinn Studio" /></a><figcaption><h4>Rule defined in Altinn Studio</h4></figcaption></figure>
