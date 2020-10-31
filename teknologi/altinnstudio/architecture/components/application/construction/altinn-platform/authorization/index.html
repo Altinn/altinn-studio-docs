@@ -10334,12 +10334,13 @@ if(host != "localhost")
 
 
 
-<p>The authorization component consists of several solution components.
-For a functional description see details in
-<a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">application solution components</a>.</p>
+<p>The authorization component consists of several solution components.</p>
+<p>For a functional description see details in <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">application solution components</a>.</p>
 <p>The diagram below shows where the different solution components are located</p>
 <figure><a href="../../../solution/altinn-platform/authorization/authorization_solution_components.svg"><img src="../../../solution/altinn-platform/authorization/authorization_solution_components.svg" alt="Authorization Solution components" title="Authorization solution components" /></a><figcaption><h4>Authorization solution components</h4></figcaption></figure>
-<p>The Authorization component is constructed as a asp.net MVC application exposing API and contains the following solution components</p>
+<p>The Authorization component is constructed as a asp.net MVC application exposing API. The API communicates with the different solution components</p>
+<p>The below diagram shows the data flow including PEP.</p>
+<p><img src="data_flow_authorization.svg" alt="Data flow authorization"></p>
 <h2 id="policy-decision-point---pdp">Policy Decision Point - PDP</h2>
 <p>This is implemented as a separate class <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC">library</a> <a href="https://www.nuget.org/packages/Altinn.Authorization.ABAC/">This is published to Nuget</a>.</p>
 <p>This library contains all models defined for XAMCL XML/JSON and utility methods to handle XACML documents.</p>
