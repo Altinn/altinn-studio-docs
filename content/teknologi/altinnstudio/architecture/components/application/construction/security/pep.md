@@ -18,8 +18,14 @@ Attribute based authorization is best solved with
 The Policy Enforcement Point in the ASP.Net Web application template is created as a
 [Authorization Handler](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
 
+See [AppAccessHandler](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs) for PEP for checking
+app policy for an API.
+
+See [ScopeAccessHandler](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) for PEP validating scope requirements
+
+
 In the App there is defined a set of
-[AuthorizationRequirements](https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/IAuthorizationRequirement.cs) 
+[AuthorizationRequirements](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement?) 
 and for each operation of the different API endpoints needs to be configured with the correct requirement.
 
 Example on requirements are:
@@ -34,6 +40,94 @@ Based on the [response](https://github.com/Altinn/altinn-studio/blob/master/src/
 
 The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).
 
+### Configuration
+
+The application needs to have a startup configuration to enable the different standard PEPs
+
+```c#
+         services.AddAuthorization(options =>
+            {
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_READ, policy => policy.Requirements.Add(new AppAccessRequirement("read")));
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_WRITE, policy => policy.Requirements.Add(new AppAccessRequirement("write")));
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_DELETE, policy => policy.Requirements.Add(new AppAccessRequirement("delete")));
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_COMPLETE, policy => policy.Requirements.Add(new AppAccessRequirement("complete")));
+                options.AddPolicy(AuthzConstants.POLICY_SCOPE_APPDEPLOY, policy => policy.Requirements.Add(new ScopeAccessRequirement("altinn:appdeploy")));
+                options.AddPolicy(AuthzConstants.POLICY_SCOPE_INSTANCE_READ, policy => policy.Requirements.Add(new ScopeAccessRequirement("altinn:instances.read")));
+                options.AddPolicy(AuthzConstants.POLICY_STUDIO_DESIGNER, policy => policy.Requirements.Add(new ClaimAccessRequirement("urn:altinn:app", "studio.designer")));
+            });
+
+```
+
+Example from [Storage Startup](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs)
+
+The API needs to have enabled PEP for a given API operation
+
+
+
+
+```c#
+     [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]
+        [HttpDelete("data/{dataGuid:guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [Produces("application/json")]
+        public async Task<ActionResult<DataElement>> Delete(int instanceOwnerPartyId, Guid instanceGuid, Guid dataGuid)
+        {
+```
+
+Example from [DataController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs)
+
+
 ## Custom PEP
 
-TODO
+For some scenarious it is not possible to authorize the request based on API parameters. 
+
+This cases requires a custom PEP that is implemented as part of API logic.
+
+In the example below a list of elements is retreived from database and we need to filter elements before they are returned based on what user is authorized for.
+
+```c#
+       [Authorize]
+        [HttpGet("{instanceOwnerPartyId:int}/{instanceGuid:guid}")]
+        public async Task<ActionResult> GetMessageBoxInstance(
+            int instanceOwnerPartyId,
+            Guid instanceGuid,
+            [FromQuery] string language)
+        {
+            string[] acceptedLanguages = { "en", "nb", "nn" };
+            string languageId = "nb";
+
+            if (language != null && acceptedLanguages.Contains(language.ToLower()))
+            {
+                languageId = language;
+            }
+
+            string instanceId = $"{instanceOwnerPartyId}/{instanceGuid}";
+
+            Instance instance = await _instanceRepository.GetOne(instanceId, instanceOwnerPartyId);
+
+            if (instance == null)
+            {
+                return NotFound($"Could not find instance {instanceId}");
+            }
+
+            List<MessageBoxInstance> authorizedInstanceList =
+                await _authorizationHelper.AuthorizeMesseageBoxInstances(
+                    HttpContext.User, new List<Instance> { instance });
+            if (authorizedInstanceList.Count <= 0)
+            {
+                return Forbid();
+            }
+
+            MessageBoxInstance authorizedInstance = authorizedInstanceList.First();
+
+            // get app texts and exchange all text keys.
+            List<TextResource> texts = await _textRepository.Get(new List<string> { instance.AppId }, languageId);
+            InstanceHelper.ReplaceTextKeys(new List<MessageBoxInstance> { authorizedInstance }, texts, languageId);
+
+            return Ok(authorizedInstance);
+        }
+```
+
+Example from [MessageboxInstancesController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/MessageboxInstancesController.cs)
