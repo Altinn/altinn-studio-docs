@@ -6,9 +6,16 @@ tags: [architecture, solution]
 toc: false
 ---
 
-The authorization component consists of several parts.
+The authorization component consists of several solution components.
 For a functional description see details in
 [application solution components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/).
+
+The diagram below shows where the different solution components are located
+
+![Authorization Solution components](../../solution/altinn-platform/authorization/authorization_solution_components.svg "Authorization solution components")
+
+The Authorization component is constructed as a asp.net MVC application
+
 
 ## Policy Decision Point - PDP
 
