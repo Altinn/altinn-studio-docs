@@ -2627,6 +2627,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/">
+        <span>PEP</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/" class="dd-item 
         
         
@@ -10300,9 +10329,9 @@ if(host != "localhost")
 
 
 
-<p>The <a href="https://en.wikipedia.org/wiki/Authorization">authorization</a> capabilities are based around <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">ABAC</a> (Attribute-Based Access Controls) 
+<p>The <a href="https://en.wikipedia.org/wiki/Authorization">authorization</a> capabilities are based around <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">ABAC</a> (Attribute-Based Access Controls)
 and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML 3.0 standard</a>.</p>
-<p>These capabilties covers</p>
+<p>These capabilties include:</p>
 <ul>
 <li>The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources.</li>
 <li>The capability to evaulate polices based on a request for a resource</li>
@@ -10310,6 +10339,7 @@ and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en
 <li>The capability to enforce decision request (permit or deny)</li>
 <li>The capability to enrich decision request with needed information</li>
 <li>The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that.</li>
+<li>The capability to authorize based on API scopes</li>
 </ul>
 <h2 id="main-concept">Main Concept</h2>
 <p>The following concepts are important</p>
@@ -10318,12 +10348,12 @@ and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en
 <ul>
 <li>PAP - Policy Administration Point : Where the authorization policies are defined</li>
 <li>PDP - Policy Decision Point :  Where the authorization request is evaluted</li>
-<li>PEP - Policy Enforcment Point: The component making sure the user/system is authorized before accessing resources</li>
+<li>PEP - Policy Enforcement Point: The component making sure the user/system is authorized before accessing resources</li>
 <li>PIP - Policy Information Point: Components giving information to PDP about resources and subjects</li>
 <li>PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request</li>
 <li>Context Handler - Component adding context information to the decision request so PDP can evaulate a decision request correctly.</li>
 </ul>
-<p>These components are described in detail under <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">solutin components</a></p>
+<p>These components are described in detail under <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/">solution components</a></p>
 <h3 id="rights">Rights</h3>
 <p>In Altinn Apps/Platform a right is a permission to perform an action on a given resource.
 The action can be one of some predefined option like read, write and sign but can also be any other action defined on a
@@ -10391,6 +10421,8 @@ more limited resource.</p>
 <ul>
 <li>altinn:instances.read : Give system the right to access API for reading instances</li>
 <li>altinn:instances.write : Give system the right to access API for writing to instances</li>
+<li>altinn:serviceowner/instances.read : Give orgs the right to access API for reading instances</li>
+<li>altinn:serviceowner/instances.write  : Give orgs the right to access API for writing to instances</li>
 </ul>
 
 
@@ -11596,6 +11628,22 @@ more limited resource.</p>
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       

@@ -2627,6 +2627,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/">
+        <span>PEP</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/" class="dd-item 
         
         
@@ -10499,13 +10528,40 @@ Policy Decision Point exposes a method that authorize the decision request. <a c
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/security/pep/">Policy Enforcment Point</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>There will be some different Policy Enforcement Points in Altinn Platform depending on the service in platform.
-Standard PEP See GitHub.
+        <p>These are constructed in different ways.
+Standard PEP One important principle we follow is that security should be configured when possible. This means that we have developed some standard policy enforcment points that can be configured on the different API endpoints.
 Attribute based authorization is best solved with Policy Based Authorization in ASP.NET Core
-The Policy Enforcement Point in the ASP.Net Web application template is created as a Authorization Handler.
-See AppAccessHandler for PEP for checking app policy for an API.
-See ScopeAccessHandler for PEP validating scope requirements
-In the App there is defined a set of AuthorizationRequirements and for each operation of the different API endpoints needs to be configured with the correct requirement. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/security/pep/">&raquo;</a></p>
+The different standard PEP&rsquo;s in the ASP.Net Web application template is created as Authorization Handlers.
+See AppAccessHandler for PEP for checking app policy for an API. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/security/pep/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/">Policy Enforcement Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The PEP is responsible for making sure that user/system is authorized befor a API operation is performed.
+The PEP will identify call the PDP to get a decision on a reuest.
+See construction components on details how the PEP are created <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10546,37 +10602,6 @@ For the Altinn Platform there are serveral Policy Information Points:
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/platform/">Platform Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The platform components can be structured in to different areas. The diagram below show the different areas and the platform components involved in Altinn Studio, Altinn Apps and Altinn Platform solutions.
-Download as Visio
-Data &amp; Reporting ComponentsData and Reporting Components hold the functionalities to manage data and create business reports.
-Integration ComponentsIntegration components are in charge of enabling communications between systems.
-Logic Executions ComponentsLogic execution components are in charge of modeling the application behavior, in terms of data processing and flow control, according to the application specifications. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/platform/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/infrastructure/">infrastructure</a>
             
         
 
@@ -11772,6 +11797,22 @@ Download as Visio
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
