@@ -5,21 +5,19 @@ description: Description of the Authoirzation architecture
 tags: [architecture, security]
 ---
 
-The Policy Decision Point is implemented in the 
-[authorization application](https://github.com/Altinn/altinn-studio/issues/1166) 
-that is deployed Altinn Platform.
+The Policy Decision Point is implemented in the [authorization component](https://github.com/Altinn/altinn-studio/issues/1166) that is deployed Altinn Platform.
 
 The Policy Decision Point follow [eXtensible Access Control Markup Language (XACML) Version 3.0](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html). 
 
-This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules. 
+This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules.
 
 The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
 
-Policy Decision Point exposes a method that authorize the decision request. 
+Policy Decision Point exposes a method that authorize the decision request.
 
 PDP uses the configured [Context Handler](../contexthandler) to enrich the decision request with attributes about the subject, resource and environment. 
 
-If instanceID or dataID is used as Resource ID PDP will use the Context Handler to identifiy the correct appId, 
+If instanceID or dataID is used as Resource ID PDP will use the Context Handler to identifiy the correct appId,
 the instance workflow state and the reporteId for the existing resource.
 
 For request for non existing instances the appId will be used and the reportee is a required input.
@@ -48,13 +46,14 @@ Flow explained
 ## XACML 3.0 Conformance
 
 The PDP tries to follow XACML 3.0 standard and have implemented some conformance tests. The goal is to fully implement
-all conformance test. See test [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Xacml30ConformanceTests.cs). 
+all conformance test.
 
-[See Github 2818 for status on this work](https://github.com/Altinn/altinn-studio/issues/2818)
+There exist no official XACML 3.0 conformance test but AT&T research made som available for OASIS in [this thread](https://lists.oasis-open.org/archives/xacml-comment/201404/msg00001.html).
+
+See our tests [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Xacml30ConformanceTests.cs). 
+
+[See Github 2818 for status on conformance test coverage](https://github.com/Altinn/altinn-studio/issues/2818)
 
 ## Implementation and construction details
 
 Details about the impelenation of PDP is found under [construction architecture](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/).
-
-
-
