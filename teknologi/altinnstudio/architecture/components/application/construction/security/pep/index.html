@@ -10320,8 +10320,11 @@ if(host != "localhost")
 <a href="https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies?view=aspnetcore-3.0">Policy Based Authorization in ASP.NET Core</a></p>
 <p>The Policy Enforcement Point in the ASP.Net Web application template is created as a
 <a href="https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/AuthorizationHandler.cs">Authorization Handler</a>.</p>
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs">AppAccessHandler</a> for PEP for checking
+app policy for an API.</p>
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Common/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs">ScopeAccessHandler</a> for PEP validating scope requirements</p>
 <p>In the App there is defined a set of
-<a href="https://github.com/aspnet/AspNetCore/blob/release/3.0/src/Security/Authorization/Core/src/IAuthorizationRequirement.cs">AuthorizationRequirements</a> 
+<a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement?">AuthorizationRequirements</a> 
 and for each operation of the different API endpoints needs to be configured with the correct requirement.</p>
 <p>Example on requirements are:</p>
 <ul>
@@ -10333,8 +10336,75 @@ and for each operation of the different API endpoints needs to be configured wit
 <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json">decision request</a> and call PDP.
 Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Response.json">response</a> the PEP will deny or approve the user. (Deny = http 403)</p>
 <p>The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).</p>
+<h3 id="configuration">Configuration</h3>
+<p>The application needs to have a startup configuration to enable the different standard PEPs</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">         services.AddAuthorization(options =&gt;
+            {
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_READ, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;read&#34;</span>)));
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_WRITE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;write&#34;</span>)));
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_DELETE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;delete&#34;</span>)));
+                options.AddPolicy(AuthzConstants.POLICY_INSTANCE_COMPLETE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;complete&#34;</span>)));
+                options.AddPolicy(AuthzConstants.POLICY_SCOPE_APPDEPLOY, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ScopeAccessRequirement(<span style="color:#f1fa8c">&#34;altinn:appdeploy&#34;</span>)));
+                options.AddPolicy(AuthzConstants.POLICY_SCOPE_INSTANCE_READ, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ScopeAccessRequirement(<span style="color:#f1fa8c">&#34;altinn:instances.read&#34;</span>)));
+                options.AddPolicy(AuthzConstants.POLICY_STUDIO_DESIGNER, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> ClaimAccessRequirement(<span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span>, <span style="color:#f1fa8c">&#34;studio.designer&#34;</span>)));
+            });
+
+</code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs">Storage Startup</a></p>
+<p>The API needs to have enabled PEP for a given API operation</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">     [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]</span>
+<span style="color:#50fa7b">        [HttpDelete(&#34;data/{dataGuid:guid}&#34;)]</span>
+<span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status200OK)]</span>
+<span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
+<span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status404NotFound)]</span>
+<span style="color:#50fa7b">        [Produces(&#34;application/json&#34;)]</span>
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;DataElement&gt;&gt; Delete(<span style="color:#8be9fd">int</span> instanceOwnerPartyId, Guid instanceGuid, Guid dataGuid)
+        {
+</code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs">DataController</a></p>
 <h2 id="custom-pep">Custom PEP</h2>
-<p>TODO</p>
+<p>For some scenarious it is not possible to authorize the request based on API parameters.</p>
+<p>This cases requires a custom PEP that is implemented as part of API logic.</p>
+<p>In the example below a list of elements is retreived from database and we need to filter elements before they are returned based on what user is authorized for.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">       [Authorize]</span>
+<span style="color:#50fa7b">        [HttpGet(&#34;{instanceOwnerPartyId:int}/{instanceGuid:guid}&#34;)]</span>
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&gt; GetMessageBoxInstance(
+            <span style="color:#8be9fd">int</span> instanceOwnerPartyId,
+            Guid instanceGuid,
+<span style="color:#50fa7b">            [FromQuery]</span> <span style="color:#8be9fd">string</span> language)
+        {
+            <span style="color:#8be9fd">string</span>[] acceptedLanguages = { <span style="color:#f1fa8c">&#34;en&#34;</span>, <span style="color:#f1fa8c">&#34;nb&#34;</span>, <span style="color:#f1fa8c">&#34;nn&#34;</span> };
+            <span style="color:#8be9fd">string</span> languageId = <span style="color:#f1fa8c">&#34;nb&#34;</span>;
+
+            <span style="color:#ff79c6">if</span> (language != <span style="color:#ff79c6">null</span> &amp;&amp; acceptedLanguages.Contains(language.ToLower()))
+            {
+                languageId = language;
+            }
+
+            <span style="color:#8be9fd">string</span> instanceId = <span style="color:#f1fa8c">$&#34;{instanceOwnerPartyId}/{instanceGuid}&#34;</span>;
+
+            Instance instance = <span style="color:#ff79c6">await</span> _instanceRepository.GetOne(instanceId, instanceOwnerPartyId);
+
+            <span style="color:#ff79c6">if</span> (instance == <span style="color:#ff79c6">null</span>)
+            {
+                <span style="color:#ff79c6">return</span> NotFound(<span style="color:#f1fa8c">$&#34;Could not find instance {instanceId}&#34;</span>);
+            }
+
+            List&lt;MessageBoxInstance&gt; authorizedInstanceList =
+                <span style="color:#ff79c6">await</span> _authorizationHelper.AuthorizeMesseageBoxInstances(
+                    HttpContext.User, <span style="color:#ff79c6">new</span> List&lt;Instance&gt; { instance });
+            <span style="color:#ff79c6">if</span> (authorizedInstanceList.Count &lt;= <span style="color:#bd93f9">0</span>)
+            {
+                <span style="color:#ff79c6">return</span> Forbid();
+            }
+
+            MessageBoxInstance authorizedInstance = authorizedInstanceList.First();
+
+            <span style="color:#6272a4">// get app texts and exchange all text keys.
+</span><span style="color:#6272a4"></span>            List&lt;TextResource&gt; texts = <span style="color:#ff79c6">await</span> _textRepository.Get(<span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt; { instance.AppId }, languageId);
+            InstanceHelper.ReplaceTextKeys(<span style="color:#ff79c6">new</span> List&lt;MessageBoxInstance&gt; { authorizedInstance }, texts, languageId);
+
+            <span style="color:#ff79c6">return</span> Ok(authorizedInstance);
+        }
+</code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/MessageboxInstancesController.cs">MessageboxInstancesController</a></p>
 
 
 <footer class=" footline" >
