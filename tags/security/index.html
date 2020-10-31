@@ -10411,8 +10411,9 @@ Based on this information this API creates a JWT token with claims about the use
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/">Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML standard. This gives very flexible authorization capabilities.
- Support authorization of app and platform access Rights can be given to subjects with a given role, or direct to a person/organization or another type of attribute Support unlimited levels of resource levels Resources can have different access requirements based on resource state Rules can contain obligations like security level required Roles can be retrieved from different sources Access rights are verified at a central solution Authorize based on API parameters  The following concepts are important <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
+        <p>The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML 3.0 standard.
+These capabilties covers
+ The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources. The capability to evaulate polices based on a request for a resource The capability to configure authoriztion policies for API endpoints The capability to enforce decision request (permit or deny) The capability to enrich decision request with needed information The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

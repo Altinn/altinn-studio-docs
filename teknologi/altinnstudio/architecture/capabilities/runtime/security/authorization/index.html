@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The authorization model in Altinn Apps &amp; Altinn Platform is flexible and supports many different scenarious.">
+    <meta name="description" content="The Altinn 3 platform has very powerful and flexible authorization capabilities.">
 
 
     
@@ -10288,7 +10288,7 @@ if(host != "localhost")
                 Authorization
                 
               </h1>
-              <p class="a-leadText" id="leadText">The authorization model in Altinn Apps &amp; Altinn Platform is flexible and supports many different scenarious.</p>
+              <p class="a-leadText" id="leadText">The Altinn 3 platform has very powerful and flexible authorization capabilities.</p>
             
           
 
@@ -10300,31 +10300,40 @@ if(host != "localhost")
 
 
 
-<p>The authorization capabilities are based around ABAC (Attribute-Based Access Controls) and the XACML standard.
-This gives very flexible authorization capabilities.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/Authorization">authorization</a> capabilities are based around <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">ABAC</a> (Attribute-Based Access Controls) 
+and the <a href="https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html">XACML 3.0 standard</a>.</p>
+<p>These capabilties covers</p>
 <ul>
-<li>Support authorization of app and platform access</li>
-<li>Rights can be given to subjects with a given role, or direct to a person/organization or another type of attribute</li>
-<li>Support unlimited levels of resource levels</li>
-<li>Resources can have different access requirements based on resource state</li>
-<li>Rules can contain obligations like security level required</li>
-<li>Roles can be retrieved from different sources</li>
-<li>Access rights are verified at a central solution</li>
-<li>Authorize based on API parameters</li>
+<li>The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources.</li>
+<li>The capability to evaulate polices based on a request for a resource</li>
+<li>The capability to configure authoriztion policies for API endpoints</li>
+<li>The capability to enforce decision request (permit or deny)</li>
+<li>The capability to enrich decision request with needed information</li>
+<li>The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that.</li>
 </ul>
+<h2 id="main-concept">Main Concept</h2>
 <p>The following concepts are important</p>
-<h2 id="rights">Rights</h2>
-<p>In Altinn Apps/Platform a right is a permission to perform an action on a given resource. 
-The action can be one of some predefined option like read, write and sign but can also be any other action defined on a 
+<h3 id="components">Components</h3>
+<ul>
+<li>PAP - Policy Administration Point : Where the authorization policies are defined</li>
+<li>PDP - Policy Decision Point :  Where the authorization request is evaluted</li>
+<li>PEP - Policy Enforcment Point: The component making sure the user/system is authorized before accessing resources</li>
+<li>PIP - Policy Information Point: Components giving information to PDP about resources and subjects</li>
+<li>PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request</li>
+<li>Context Handler - Component adding context information to the decision request so PDP can evaulate a decision request correctly.</li>
+</ul>
+<h3 id="rights">Rights</h3>
+<p>In Altinn Apps/Platform a right is a permission to perform an action on a given resource.
+The action can be one of some predefined option like read, write and sign but can also be any other action defined on a
 custom api in the apps.
 The resource is typical an app instance or part of it where data belongs to a given party (person or organisation).</p>
 <p>A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.</p>
-<h2 id="policy">Policy</h2>
+<h3 id="policy">Policy</h3>
 <p>A policy defines one or many rules for a given set of resources. This policy is described as a XACML 3.0 Policy document.</p>
-<h3 id="rules">Rules</h3>
+<h4 id="rule">Rule</h4>
 <p>A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
 A rule consist of 5 elements</p>
-<h4 id="resource">Resource</h4>
+<h5 id="resource">Resource</h5>
 <p>This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.</p>
 <ul>
 <li>Org - Unique identifier of the organisation responsible for the app.</li>
@@ -10332,13 +10341,13 @@ A rule consist of 5 elements</p>
 <li>Task - A specific task in the process defined for a app</li>
 </ul>
 <p>Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee</p>
-<h4 id="subject">Subject</h4>
+<h5 id="subject">Subject</h5>
 <p>The subject in a authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.</p>
 <ul>
 <li>RoleType</li>
 <li>org</li>
 </ul>
-<h4 id="action">Action</h4>
+<h5 id="action">Action</h5>
 <p>The Action part of the rule define what type of action that the subject can perform on the resource.</p>
 <p>Currently the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.</p>
 <ul>
@@ -10347,16 +10356,16 @@ A rule consist of 5 elements</p>
 <li>Sign</li>
 <li>Confirm</li>
 </ul>
-<h4 id="condition">Condition</h4>
+<h5 id="condition">Condition</h5>
 <p>The condition part of the rule is extra conditions needed to be fulfilled for the rule to be valid. In Altinn Studio
 we have the following types of conditions.</p>
 <ul>
 <li>Valid To</li>
 </ul>
-<h4 id="obligation">Obligation</h4>
+<h5 id="obligation">Obligation</h5>
 <p>A obligation is a obligation that needs to be followed it the user is permited or denied.
 In Altinn Apps/Platform this is used to define the minimun authentication level.</p>
-<h3 id="creation-of-policies">Creation of policies</h3>
+<h4 id="creation-of-policies">Creation of policies</h4>
 <p>The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
 The policy are deployed together with the App to a given Altinn Studio App environment.</p>
 <p>In Altinn II end user can also create policies/rules. This happens when:</p>
@@ -10366,17 +10375,17 @@ The policy are deployed together with the App to a given Altinn Studio App envir
 </ul>
 <p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a 
 more limited resource.</p>
-<h4 id="altinn-studio-policyrules">Altinn Studio policy/rules</h4>
+<h5 id="altinn-studio-policyrules">Altinn Studio policy/rules</h5>
 <figure><a href="authorization_rule_defined_in_altinnstudio.svg"><img src="authorization_rule_defined_in_altinnstudio.svg" alt="Altinn Studio rule" title="Rule defined in Altinn Studio" /></a><figcaption><h4>Rule defined in Altinn Studio</h4></figcaption></figure>
-<h4 id="user-defined-policyrule">User defined policy/rule</h4>
+<h5 id="user-defined-policyrule">User defined policy/rule</h5>
 <figure><a href="authorization_rule_defined_by_user.svg"><img src="authorization_rule_defined_by_user.svg" alt="User rule" title="Rule defined by user" /></a><figcaption><h4>Rule defined by user</h4></figcaption></figure>
-<h2 id="roles">Roles</h2>
+<h3 id="roles">Roles</h3>
 <p>Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles.</p>
-<h2 id="scopes">Scopes</h2>
+<h3 id="scopes">Scopes</h3>
 <p>API Scopes are used in the solutions in some uses cases where organizations are authenticated through the external ID-Provider &ldquo;MaskinPorten&rdquo;</p>
 <p>The organization need to have been delegated scopes in MaskinPorten to do some specific operations.</p>
 <p>Scopes is always used together with the authorization rules.</p>
-<h3 id="scopes-1">Scopes</h3>
+<h4 id="scopes-1">Scopes</h4>
 <ul>
 <li>altinn:instances.read : Give system the right to access API for reading instances</li>
 <li>altinn:instances.write : Give system the right to access API for writing to instances</li>
