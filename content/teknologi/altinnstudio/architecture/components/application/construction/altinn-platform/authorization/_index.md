@@ -20,6 +20,15 @@ The below diagram shows the data flow including PEP.
 
 ![Data flow authorization](data_flow_authorization.svg )
 
+
+## Decision API
+
+The decision API is the API that orchestrates the decision process.
+
+The API supports both XACML XML and XACML Json Profile request.
+
+See [Decision Controller](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Controllers/DecisionController.cs) for code details
+
 ## Policy Decision Point - PDP
 
 This is implemented as a separate class [library](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC
