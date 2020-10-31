@@ -10366,12 +10366,12 @@ The resource is typical an app instance or part of it where data belongs to a gi
 <p>An authorization rule in the Altinn Platform defines who has been given the right to perform actions on a given resource.
 A rule consists of 5 elements</p>
 <h5 id="resource">Resource</h5>
-<p>This describe which resource the rule applies for. Altinn Apps currently supports the following resource types in rules.</p>
+<p>This describes which resource the rule applies for. Altinn Apps currently supports the following resource types in rules.</p>
 <ul>
 <li>Org - Unique identifier of the organization responsible for the app.</li>
 <li>App - Application identifier which is unique within an organization.</li>
 <li>Task - A specific task in the process defined for an app</li>
-<li>Appresource - A resource for a instance/app that is not mapped to a task. Example: events</li>
+<li>Appresource - A resource for an instance/app that is not mapped to a task. Example: events</li>
 </ul>
 <p>Some of the resource types are meant to be used in combination. As an example, you can have been given the right for an app for a given reportee</p>
 <h5 id="subject">Subject</h5>
@@ -10388,7 +10388,7 @@ A rule consists of 5 elements</p>
 </ul>
 <h5 id="action">Action</h5>
 <p>The Action part of the rule defines what type of action that the subject can perform on the resource.</p>
-<p>Currently, the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.</p>
+<p>Currently, the actions relevant for Altinn Apps and Altinn Platform are listed below. This list will increase over time.</p>
 <ul>
 <li>Read</li>
 <li>Write</li>
@@ -10406,12 +10406,12 @@ we have the following types of conditions.</p>
 <p>An obligation is an obligation that needs to be followed if the user is permitted or denied.
 In Altinn Apps/Platform this is used to define the minimum authentication level.</p>
 <h4 id="creation-of-policies">Creation of policies</h4>
-<p>The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app. 
+<p>The policies in Altinn Studio Apps is defined when the app developer defines the rules for the app.
 The policy is deployed together with the App to a given Altinn Studio App environment.</p>
 <p>In Altinn II end users can also create policies/rules. This happens when:</p>
 <ul>
-<li>When the user creates a local role that contains rights that user have through other roles</li>
-<li>When delegating single rights to a user or organisation.</li>
+<li>When the user creates a local role that contains rights that users have through other roles</li>
+<li>When delegating single rights to a user or organization.</li>
 </ul>
 <p>The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
 more limited resource.</p>
@@ -10423,9 +10423,10 @@ more limited resource.</p>
 <h3 id="roles">Roles</h3>
 <p>Altinn Studio Apps will retrieve roles from Altinn II Administration. This will later could be expanded to other sources for roles.</p>
 <h3 id="scopes">Scopes</h3>
-<p>API Scopes are used in the solutions in some uses cases where organizations are authenticated through the external ID-Provider &ldquo;MaskinPorten&rdquo;</p>
-<p>The organization need to have been delegated scopes in MaskinPorten to do some specific operations.</p>
-<p>Scopes is always used together with the authorization rules.</p>
+<p>API Scopes are used in the solutions in some uses cases where organizations are authenticated through the external ID-Provider &ldquo;MaskinPorten&rdquo;
+or when end users are accessing the apps through end-user-systems.</p>
+<p>The scopes are used to control what the user can do on behalf of the user/organization.</p>
+<p>Scopes are always used together with the authorization rules for the specific app.</p>
 <h4 id="defined-scopes">Defined Scopes</h4>
 <ul>
 <li>altinn:instances.read : Give system the right to access API for reading instances</li>
