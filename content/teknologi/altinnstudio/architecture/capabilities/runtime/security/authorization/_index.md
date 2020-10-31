@@ -9,11 +9,11 @@ toc: false
 The [authorization](https://en.wikipedia.org/wiki/Authorization) capabilities are based around [ABAC](https://en.wikipedia.org/wiki/Attribute-based_access_control) (Attribute-Based Access Controls)
 and the [XACML 3.0 standard](https://docs.oasis-open.org/xacml/3.0/xacml-3.0-core-spec-os-en.html).
 
-These capabilties include:
+These capabilities include:
 
 * The capability to define wide/narrow authorization policies for apps. Rules can be valid for the whole application or only valid for a subset of resources.
-* The capability to evaulate polices based on a request for a resource
-* The capability to configure authoriztion policies for API endpoints
+* The capability to evaluate policies  based on a request for a resource
+* The capability to configure authorization policies for API endpoints
 * The capability to enforce decision request (permit or deny)
 * The capability to enrich decision request with needed information
 * The capability to retrieve context information from different sources both regarding resources accessed and subjects doing that.
@@ -23,64 +23,72 @@ These capabilties include:
 
 The following concepts are important
 
-### Solution Components
+### Authorization Components
 
 The authorization capabilities are provided by the following solution components
 
-* PAP - Policy Administration Point : Where the authorization policies are defined
-* PDP - Policy Decision Point :  Where the authorization request is evaluted
+* PAP - Policy Administration Point: Where the authorization policies are defined
+* PDP - Policy Decision Point:  Where the authorization request is evaluted
 * PEP - Policy Enforcement Point: The component making sure the user/system is authorized before accessing resources
 * PIP - Policy Information Point: Components giving information to PDP about resources and subjects
 * PRP - Policy Retrieval Point:  Where the PDP can find the correct policy to use for a request
-* Context Handler - Component adding context information to the decision request so PDP can evaulate a decision request correctly.
+* Context Handler - Component adding context information to the decision request so PDP can evaluate a decision request correctly.
 
 These components are described in detail under [solution components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/)
 
 ### Rights
 
-In Altinn Apps/Platform a right is a permission to perform an action on a given resource.
-The action can be one of some predefined option like read, write and sign but can also be any other action defined on a
+In Altinn Apps/Platform a right is permission to perform an action on a given resource.
+The action can be one of some predefined options like read, write and sign but can also be any other action defined on a
 custom api in the apps.
-The resource is typical an app instance or part of it where data belongs to a given party (person or organisation).
+The resource is typical an app instance or part of it where data belongs to a given party (person or organization).
 
 A user or system gets a right based on rules that describes permissions based on being a specific user or having a specific role.
 
 ### Policy
 
-A policy defines one or many rules for a given set of resources. This policy is described as a XACML 3.0 Policy document.
+A policy defines one or many rules for a given set of resources. This policy is described as an XACML 3.0 Policy document.
 
 #### Rule
 
-A authorization rule in Altinn Platform defines who has been given the right to perform actions on a given resource.
-A rule consist of 5 elements
+An authorization rule in the Altinn Platform defines who has been given the right to perform actions on a given resource.
+A rule consists of 5 elements
 
 ##### Resource
 
 This describe which resource the rule applies for. Altinn Apps currently support the following resource types in rules.
 
-* Org - Unique identifier of the organisation responsible for the app.
-* App - Application identifier which is unique within an organisation.
-* Task - A specific task in the process defined for a app
+* Org - Unique identifier of the organization responsible for the app.
+* App - Application identifier which is unique within an organization.
+* Task - A specific task in the process defined for an app
+* Appresource - A resource for a instance/app that is not mapped to a task. Example: events
 
-Some of the resourcetypes is meant to be used in combination. As an exemple you can have been given the right for an app for a given reportee
+Some of the resourcetypes is meant to be used in combination. As an exemple, you can have been given the right for an app for a given reportee
 
 ##### Subject
 
-The subject in a authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.
+The subject in an authorization rule identifies who the rules applies for. In Altinn Apps/Platform the resource can be the following.
 
 * RoleType
 * org
 
+When delegating is supported this would be expanded with
+
+* userid
+* partyid
+* keyroleforpartyid
+
 ##### Action
 
-The Action part of the rule define what type of action that the subject can perform on the resource.
+The Action part of the rule defines what type of action that the subject can perform on the resource.
 
-Currently the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.
+Currently, the actions relevant for Altinn Apps and Altinn Platform is listed below. This list will increase over time.
 
 * Read
 * Write
 * Sign
 * Confirm
+* Delete
 
 ##### Condition
 
@@ -104,7 +112,7 @@ In Altinn II end user can also create policies/rules. This happens when:
 * When user creates a local role that contains rights that user have through other roles
 * When delegating single rights to a user or organisation.
 
-The rules is slightly different since rules defined by the end user have different subjects and can be defined for a 
+The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
 more limited resource.
 
 ##### Altinn Studio policy/rules
