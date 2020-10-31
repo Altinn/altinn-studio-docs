@@ -7,14 +7,18 @@ toc: false
 ---
 
 The authorization component consists of several solution components.
-For a functional description see details in
-[application solution components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/).
+
+For a functional description see details in [application solution components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/).
 
 The diagram below shows where the different solution components are located
 
 ![Authorization Solution components](../../../solution/altinn-platform/authorization/authorization_solution_components.svg "Authorization solution components")
 
-The Authorization component is constructed as a asp.net MVC application exposing API and contains the following solution components
+The Authorization component is constructed as a asp.net MVC application exposing API. The API communicates with the different solution components
+
+The below diagram shows the data flow including PEP.
+
+![Data flow authorization](data_flow_authorization.svg )
 
 ## Policy Decision Point - PDP
 
@@ -25,7 +29,7 @@ This library contains all models defined for XAMCL XML/JSON and utility methods 
 
 The Policy Decision Point is implemented in this [class](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Altinn.Authorization.ABAC/PolicyDecisionPoint.cs).
 
-It expects both decision request and policy to be inputed. 
+It expects both decision request and policy to be inputed.
 
 ## Policy Retrieval Point - PRP
 
