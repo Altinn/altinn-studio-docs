@@ -18,8 +18,7 @@ The Authorization component is constructed as a asp.net MVC application exposing
 
 The below diagram shows the data flow including PEP.
 
-![Data flow authorization](data_flow_authorization.svg )
-
+![Data flow authorization](data_flow_authorization.svg "Data flow authorization")
 
 ## Decision API
 
@@ -59,7 +58,7 @@ Roles are retrieved from SBL Brigde while resource information is retrieved from
 
 [See code](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/Authorization/Services/Implementation/ContextHandler.cs).
 
-Context Handler is configured as a serivce in Authorization Component and can easily be replaced with other implementation.
+Context Handler is configured as a service in Authorization Component and can easily be replaced with other implementation.
 
 ## Policy Information Point - Roles
 
