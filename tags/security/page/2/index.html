@@ -10323,9 +10323,11 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">Policy Administration Point</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The rules for apps is defined in Altinn Studio when the service developer is developing the app (service). The rules for this is defined by XACML. See XACML for details.
-Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that gives user or organisation new rights.
-Authorization - Altinn Apps - PolicyDescription of the XACML Policy defined for a app. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
+        <p>The rules for this is defined as XACML 3.0 Policy documents.
+Currently the PAP is using an editor to manual edit the XACML Policy Template
+See application development guidelines for details how to do that. (In Norwegian)
+Authorization - Altinn Apps - PolicyDescription of the XACML Policy defined for a app.
+ <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -10447,9 +10449,9 @@ See construction components on details how the PEP are created <a class="read-mo
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/">Policy Information Point</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>A Policy Information Point is a component that is used by the Context Handler to enrich the decision request with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.
+        <p>Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.
 For the Altinn Platform there are serveral Policy Information Points:
- Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request Register PIP - Possible information about the party (is he still alive? <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
+ Altinn II Authorization - Get information about roles a user or system has for a given party Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state)  The number of PIP are expected to grow in the future. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

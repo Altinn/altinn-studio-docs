@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of Policy Information Point for Altinn Platform.">
+    <meta name="description" content="The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.">
 
 
     
@@ -10327,7 +10327,7 @@ if(host != "localhost")
                 Policy Information Point
                 
               </h1>
-              <p class="a-leadText" id="leadText">Description of Policy Information Point for Altinn Platform.</p>
+              <p class="a-leadText" id="leadText">The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.</p>
             
           
 
@@ -10339,16 +10339,15 @@ if(host != "localhost")
 
 
 
-<p>A Policy Information Point is a component that is used by the Context Handler to enrich the decision request
-with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.</p>
+<p>Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.</p>
 <p>For the Altinn Platform there are serveral Policy Information Points:</p>
 <ul>
 <li>Altinn II Authorization - Get information about roles a user or system has for a given party</li>
-<li>Storage PIP - Get attributes about the resource in the decision request</li>
-<li>Register PIP - Possible information about the party (is he still alive?)</li>
-<li>Other Register - Roles/claims stored other places than in Altinn</li>
+<li>Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state)</li>
 </ul>
-<p>The exact number of PIPs are work in progress.</p>
+<p>The number of PIP are expected to grow in the future.</p>
+<h3 id="implementation-details">Implementation details</h3>
+<p>See implementation details in the <a href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/#policy-information-point---roles">construction components for PIP</a>.</p>
 
 
 <footer class=" footline" >
