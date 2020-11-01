@@ -10334,34 +10334,33 @@ if(host != "localhost")
 
 
 
-<p>The authorization components is based on <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.</p>
-<p>In short, request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it, 
-what type of data element and so on.</p>
-<p>The authorization architecture for Altinn Platform are based on the 
-<a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
-<p>The following diagram describes the different solution components that provides the Authorization capabilities.</p>
+<p>The authorization components are based on <a href="https://en.wikipedia.org/wiki/Attribute-based_access_control">attribute based access control (ABAC)</a>.</p>
+<p>In short, a request is authorized based on attributes for the request. Eg what data element is the user accessing, who owns it,
+what type of data element, and so on.</p>
+<p>The authorization architecture for the Altinn Platform is based on the <a href="https://en.wikipedia.org/wiki/XACML">XACML reference architecture</a>.</p>
+<p>The following diagram describes the different solution components that provide Authorization capabilities.</p>
 <figure><a href="authorization_solution_components.svg"><img src="authorization_solution_components.svg" alt="Authorization Solution components" title="Authorization solution components" /></a><figcaption><h4>Authorization solution components</h4></figcaption></figure>
 <p>This architecture defines the following components.</p>
 <h2 id="pdp---policy-decision-point">PDP - Policy Decision Point</h2>
-<p>Responsible for make a decision if a request is authorized or not. <a href="pdp">Read more</a></p>
+<p>Responsible to decide if a request is authorized or not. <a href="pdp">Read more</a></p>
 <h2 id="pap---policy-administration-point">PAP - Policy Administration Point</h2>
-<p>Responsible for defining and administration of the authorization policies. <a href="pap">Read more</a></p>
+<p>Responsible for defining and administration authorization policies. <a href="pap">Read more</a></p>
 <h2 id="prp---policy-retrieval-point">PRP - Policy Retrieval Point</h2>
 <p>Responsible for identifying the correct policy for a request. <a href="prp">Read more</a></p>
 <h2 id="context-handler">Context Handler</h2>
-<p>Responsible for enriching the decision requst so it can correctly be evaluated. <a href="contexthandler">Read more</a></p>
+<p>Responsible for enriching the decision request so it can correctly be evaluated. <a href="contexthandler">Read more</a></p>
 <h2 id="pip---policy-information-point">PIP - Policy information point</h2>
 <p>Responsible for providing information about the subject and the resource to the context handler. <a href="pip">Read more</a></p>
 <h2 id="pep---policy-enforcement-point">PEP - Policy Enforcement Point</h2>
 <p>Responsible for enforcing the decision from PDP. This is the component that blocks a request or let it through.</p>
 <p>For details about how the components are constructed go <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/">here</a>.</p>
 <h2 id="the-overall-authorization-flow">The Overall Authorization flow</h2>
-<p>The sequence diagram below shows how request is authorized</p>
+<p>The sequence diagram below shows how a request is authorized</p>
 <figure><a href="authorization_flow_app_platform.svg"><img src="authorization_flow_app_platform.svg" alt="Authorization flow" title="Authorization flow" /></a><figcaption><h4>Authorization flow</h4></figcaption></figure>
 <h2 id="example-process">Example process</h2>
 <p>The following example flow describes in detail the authorization process when the REACT frontend calls an API to store form data</p>
 <ol>
-<li>User trigger save in the REACT application. REACT application makes a http post request against the 
+<li>User trigger save in the REACT application. REACT application makes an HTTP post request against the 
 <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Controllers/ServiceAPIController.css">ServiceAPIController</a> in</li>
 <li>The configured Policy Enforcement Point for the API, the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Runtime/Authorization/ServiceAccessHandler.cs">Service Access Handler</a>,<br>
 triggers to verify that user is authorized</li>
@@ -10370,10 +10369,10 @@ triggers to verify that user is authorized</li>
 <li>PDP calls context handler to enrich the decision request</li>
 <li>Context handler calls Storage PIP to get resource information</li>
 <li>Context handler calls authorization PIP to get roles user have for resource party</li>
-<li>Context handler enriches the decision request and return to PDP</li>
+<li>Context handler enriches the decision request and returns to PDP</li>
 <li>PDP calls PRP to get the policy for the resource</li>
 <li>PDP evaluates the decision request and returns a decision response</li>
-<li>If the result was Permit, the PEP validates the obligation from PDP to see if authentication level was high enough. 
+<li>If the result was Permit, the PEP validates the obligation from PDP to see if the authentication level was high enough.
 If it is enough the request is let through</li>
 <li>If the authentication level is not high enough the PEP will throw a not authorized exception (403)</li>
 <li>If the result was &ldquo;Not Applicable&rdquo; the PEP will throw  a not authorized exception (403)</li>
