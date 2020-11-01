@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.">
+    <meta name="description" content="The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.">
 
 
     
@@ -10318,6 +10318,10 @@ if(host != "localhost")
             
               <a class="label label-default" href="https://docs.altinn.studio/tags/security">security</a>
             
+              <a class="label label-default" href="https://docs.altinn.studio/tags/authorization">authorization</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/xacml">xacml</a>
+            
           </div>
         
         <div id="body-inner">
@@ -10327,7 +10331,7 @@ if(host != "localhost")
                 Policy Retrieval Point
                 
               </h1>
-              <p class="a-leadText" id="leadText">The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the rules defined for a app resource.</p>
+              <p class="a-leadText" id="leadText">The Policy Retrieval Point is the functionality where Policy Decision Point (PDP) can retrieve the policy defined for an app resource.</p>
             
           
 
@@ -10341,8 +10345,9 @@ if(host != "localhost")
 
 <p>During deployment of an app the rules for the app is added to the Altinn Storage.<br>
 The rules are defined as a XACML 3.0 Policy document.</p>
-<p>See <a href="../xacml">XACML</a> for detailed description of Policy format.</p>
 <p>For delegated rights Altinn II will provide the delegated policy.</p>
+<p>See <a href="../pap">Policy Adminstration Point</a> for details about how the policies are created.</p>
+<p>See <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/#policy-retrieval-point---prp">construction components</a> how PRP is built.</p>
 
 
 <footer class=" footline" >
