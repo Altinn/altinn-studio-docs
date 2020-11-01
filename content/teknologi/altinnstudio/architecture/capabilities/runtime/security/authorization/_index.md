@@ -115,7 +115,7 @@ In Altinn II end users can also create policies/rules. This happens when:
 The rules is slightly different since rules defined by the end user have different subjects and can be defined for a
 more limited resource.
 
-This will be supported in Altinn 3. See [Github issue 4776](https://github.com/Altinn/altinn-studio/issues/4776)
+This will be supported in Altinn 3. See [Github issue 1258](https://github.com/Altinn/altinn-studio/issues/1258)
 
 ##### Altinn Studio policy/rules
 
