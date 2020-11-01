@@ -1,7 +1,7 @@
 ---
 title: Context Handler
 linktitle: Context Handler
-description: The responsibility for the Context Handler is to enrich a decision request from a PEP to PDP.
+description: The responsibility for the Context Handler is to enrich a decision request sent from an PEP so it can be evaluated by PDP.
 tags: [architecture, security]
 ---
 
@@ -29,8 +29,8 @@ As an example, a decision request could contain only userId and instanceId toget
 </Request>
 ```
 
-The enriched decision request contains all the needed attributes so PDP can identify the correct policy and evauluate the request based on it.
-Context handler uses instance data from storage.
+The enriched decision request contains all the needed attributes for subject and resource so PDP can identify the correct policy and evauluate the request based on it.
+
 
 ```xml {linenos=false,hl_lines=[3,12,29]}
 <?xml version="1.0" encoding="utf-8"?>
@@ -69,3 +69,12 @@ Context handler uses instance data from storage.
   <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment" />
 </Request>
 ```
+
+### Uses Policy Information Point
+
+Context handler uses instance data from storage and role data for the subject.
+The authorization component uses request information from PIP for roles and PIP for resources.
+
+This is described in the [pip section](../pip)
+
+
