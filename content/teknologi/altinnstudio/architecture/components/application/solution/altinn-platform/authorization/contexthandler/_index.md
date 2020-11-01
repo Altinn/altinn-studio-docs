@@ -1,7 +1,7 @@
 ---
 title: Context Handler
 linktitle: Context Handler
-description: The responsibility for the Context Handler is to enrich a decision request sent from an PEP so it can be evaluated by PDP.
+description: The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.
 tags: [architecture, security, authorization, xacml]
 ---
 
@@ -73,8 +73,7 @@ The enriched decision request contains all the needed attributes for subject and
 ### Uses Policy Information Point
 
 Context handler uses instance data from storage and role data for the subject.
-The authorization component uses request information from PIP for roles and PIP for resources.
+
+The authorization component request this information from PIP for roles and PIP for resources.
 
 This is described in the [pip section](../pip)
-
-
