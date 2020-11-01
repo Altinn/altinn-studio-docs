@@ -52,6 +52,8 @@ There exist no official XACML 3.0 conformance test but AT&T research made som av
 
 See our tests [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Xacml30ConformanceTests.cs). 
 
+Testdata for conformance tests is found [here](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/ConformanceTests), and official description of tests [here](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/Altinn.Platform/Altinn.Platform.Authorization/IntegrationTests/Data/Xacml/3.0/ConformanceTests/ConformanceTests.html).
+
 [See Github 2818 for status on conformance test coverage](https://github.com/Altinn/altinn-studio/issues/2818)
 
 ## Implementation and construction details

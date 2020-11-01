@@ -98,7 +98,7 @@ GET /authorization/api/v1/parties/{partyId}/validate?userid={userid}
 
 ### Roles
 
-A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone. 
+A role in altinn offers or denies right to the logged in user to perform an action or group of actions for him or on behalf of someone.
 
 #### Operations
 
