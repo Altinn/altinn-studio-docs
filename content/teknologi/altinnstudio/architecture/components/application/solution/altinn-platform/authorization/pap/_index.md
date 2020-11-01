@@ -1,12 +1,12 @@
 ---
 title: Policy Administration Point
 linktitle: PAP
-description: The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP:
+description: The Policy Administration Point is responsible for creating and modifying the different authorization policies used by the PDP
 tags: [architecture, security, authorization, xacml]
 ---
 
 In Altinn Platform there is currently no Policy Administration Point functionality, but Altinn Platform provides functionality used
-by the other Policy Administration Points in Altinn 3.
+by the other Policy Administration Points in Altinn 3. The PRP provides API for storing policies and retrieving them.
 
 ### Policy Administration Point for applications
 
