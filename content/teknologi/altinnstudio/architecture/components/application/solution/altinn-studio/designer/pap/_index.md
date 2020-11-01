@@ -1,14 +1,14 @@
 ---
 title: Policy Administration Point
 linktitle: PAP
-description: Description of Policy Administration Point for Altinn Platform.
+description: The Policy Administration Point in Altinn Studio lets the application developer define the authorization policy for the application created.
 tags: [architecture, security]
 ---
 
-The rules for apps is defined in Altinn Studio when the service developer is developing the app (service).
-The rules for this is defined by XACML. See [XACML](xacmlpolicy) for details. 
+The rules for this is defined as XACML 3.0 Policy documents.
 
-Delegation of rights is performed in Altinn II platform. When delegation is done through creation of new rules that
-gives user or organisation new rights.
+Currently the PAP is using an editor to manual edit the XACML Policy Template
+
+See [application development guidelines](https://altinn.github.io/docs/altinn-studio/app-creation/autorisasjon/) for details how to do that. (In Norwegian)
 
 {{% children description="true" depth="1" %}}
