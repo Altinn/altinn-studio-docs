@@ -1,18 +1,19 @@
 ---
 title: Policy Information Point
 linktitle: PIP
-description: Description of Policy Information Point for Altinn Platform.
+description: The Policy Information Point(s) are responsible for providing needed information to the context handler so it can enrich the context request.
 tags: [architecture, security]
 ---
 
-A Policy Information Point is a component that is used by the Context Handler to enrich the decision request
-with the needed attributes so that the Policy Decision Point can evaluate the decision request against the relevant policy for a decision request.
+Without this information it would be impossible for the PDP to evaluate the context request in many scenarios.
 
 For the Altinn Platform there are serveral Policy Information Points:
 
 - Altinn II Authorization - Get information about roles a user or system has for a given party
-- Storage PIP - Get attributes about the resource in the decision request 
-- Register PIP - Possible information about the party (is he still alive?)
-- Other Register - Roles/claims stored other places than in Altinn
+- Storage PIP - Get attributes about the resource in the decision request. (what kind of app, who is the reportee of the data, what is the current process state)
 
-The exact number of PIPs are work in progress.
+The number of PIP are expected to grow in the future.
+
+### Implementation details
+
+See implementation details in the [construction components for PIP](https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/#policy-information-point---roles).
