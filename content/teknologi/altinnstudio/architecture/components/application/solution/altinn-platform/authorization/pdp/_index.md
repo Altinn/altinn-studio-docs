@@ -1,8 +1,8 @@
 ---
 title: Policy Decision Point
 linktitle: PDP
-description: Description of the Authoirzation architecture
-tags: [architecture, security]
+description: The Policy Decision Point is responsible to evaluate if users and systems is authorized to perform the requested operation on a resource.
+tags: [architecture, security, authorization, xacml]
 ---
 
 The Policy Decision Point is implemented in the [authorization component](https://github.com/Altinn/altinn-studio/issues/1166) that is deployed Altinn Platform.
