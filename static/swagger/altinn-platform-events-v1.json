@@ -6,7 +6,12 @@
   },
   "servers": [
     {
-      "url": "https://platform.at22.altinn.cloud"
+      "url": "https://platform.tt02.altinn.no/events/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/events/api/v1",
+      "description": "Production"
     }
   ],
   "paths": {
