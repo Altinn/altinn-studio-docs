@@ -95,20 +95,28 @@ Avaliable query paramters include:
 - created (datetime)
 - visibleAfter (datetime)
 - dueBefore (datetime)
+- excludeConfirmedBy (string)
 
-For example: To get all instances of application *org/app*, that is at process task with id *Task_2* (which is Submit, see process definition), and has last changed date greater than *2019-05-01*.
+
+**Example**: Get all instances of application *org/app*, that is at process task with id *Task_2* (which is Submit, see process definition), and has last changed date greater than *2019-05-01*.
 
 ```http
 GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChanged=gt:2019-05-01
 ```
 
-Another example is to get all instances of all applications of a given application owner *org* that has ended date greater than 2020-03-10.
+**Example:** Get all instances of all applications of a given application owner *org* that has ended date greater than 2020-03-10.
 
 ```http
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
-Yet another example is get all instances of an application that are at a specific process task e.g. *Task_1*.
+**Example:** Get all instances of all applications of a given application owner *org* that has not already been confirmed completed by *org*.
+
+```http
+GET {storagePath}/instances?org=org&excludeConfirmedBy=org
+```
+
+**Example:** Get all instances of an application that are at a specific process task e.g. *Task_1*.
 
 ```http
 GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
