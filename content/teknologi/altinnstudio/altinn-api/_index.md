@@ -86,30 +86,45 @@ Query parametr 'instanceOwner.partyId' must be included in the request if using 
 Search for instances with a simple GET request towards the *instances* endpoint.
 Avaliable query paramters include:
 
-- process.currentTask (string)
-- process.isComplete (bool)
-- process.endEvent (string)
-- process.ended (datetime)
-- instanceOwner.partyId (int)
-- lastChanged (datetime)
-- created (datetime)
-- visibleAfter (datetime)
-- dueBefore (datetime)
+- **process.currentTask** (string)  
+Search for instances at a specific step in its process. 
+- **process.isComplete** (bool)  
+Search for instances where the process is completed.
+- **process.endEvent** (string)  
+Deprecated. The parameter doesn't have any code associated with it.
+- **process.ended** (datetime)  
+Filter instances based on ended date.
+- **instanceOwner.partyId** (int)  
+Filter instances based on the instance owner party id.
+- **lastChanged** (datetime)  
+Filter instances based on the last time they where worked on.
+- **created** (datetime)  
+Filter instances based on when they where initially created.
+- **visibleAfter** (datetime)  
+Filter instances based on when they became visible.
+- **dueBefore** (datetime)  
+Filter instances based on their due date.
+- **excludeConfirmedBy** (string)  
+Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
 
-For example: To get all instances of application *org/app*, that is at process task with id *Task_2* (which is Submit, see process definition), and has last changed date greater than *2019-05-01*.
+**Some examples**:
 
+Get all instances of application *org/app*, that is at process task with id *Task_2* (which is Submit, see process definition), and has last changed date greater than *2019-05-01*.
 ```http
 GET {storagePath}/instances?appId=org/app&process.currentTask=Task_2&lastChanged=gt:2019-05-01
 ```
 
-Another example is to get all instances of all applications of a given application owner *org* that has ended date greater than 2020-03-10.
-
+Get all instances of all applications of a given application owner *org* that has ended date greater than 2020-03-10.
 ```http
 GET {storagePath}/instances?org=org&process.ended=gt:2020-03-10
 ```
 
-Yet another example is get all instances of an application that are at a specific process task e.g. *Task_1*.
+Get all instances of all applications of a given application owner *org* that has not already been confirmed completed by *org*.
+```http
+GET {storagePath}/instances?org=org&excludeConfirmedBy=org
+```
 
+Get all instances of an application that are at a specific process task e.g. *Task_1*.
 ```http
 GET {storagePath}/instances?appId={org}/{app}&process.currentTask={taskId}
 ```
