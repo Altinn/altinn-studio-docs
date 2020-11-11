@@ -38,27 +38,28 @@ weight: 100
 
 #### Platform
 
-| Sl.No. | Testcase name                                                 | Area of Solution  |
-| :----- | :------------------------------------------------------------ | :---------------: |
-| 1.     | Create instance by looking up party id for user and org       | Platform-Register |
-| 2.     | Get Authentication ticket                                     |  Platform-AuthN   |
-| 3.     | Get Parties                                                   |  Platform-Authz   |
-| 4.     | Get Roles                                                     |  Platform-Authz   |
-| 5.     | PDP decision - permit for user and NA for app owner           |  Platform-Authz   |
-| 6.     | GET applications by org and app name                          |      Storage      |
-| 7.     | Create, get with filter and id, edit and delete app instances |      Storage      |
-| 8.     | Create, get by id, edit and delete app instance form data     |      Storage      |
-| 9.     | Create, get events with filter app instance events            |      Storage      |
-| 10.    | Edit instance process and get process history                 |      Storage      |
-| 11.    | Soft and Hard delete app instances                            |      Storage      |
-| 12.    | Restore soft deleted app instance                             |      Storage      |
-| 13.    | Restore hard deleted app instance - negative                  |      Storage      |
-| 14.    | Get instances, by id and instance events                      |    Storage-SBL    |
-| 15.    | Soft/hard delete and restore instances                        |    Storage-SBL    |
-| 16.    | POST Generate PDF                                             |   Platfrom-PDF    |
-| 17.    | Get receipt and includes party info                           | Platform-Receipt  |
-| 18.    | Get app texts                                                 |      Storage      |
-| 19.    | Upload, get by id, edit and delete attachment                 |      Storage      |
+| Sl.No. | Testcase name                                                 | Area of Solution |
+| :----- | :------------------------------------------------------------ | :--------------: |
+| 1.     | Create instance by looking up party id for user and org       |     Register     |
+| 2.     | Get Authentication ticket                                     |  Authentication  |
+| 3.     | Get Parties                                                   |  Authorization   |
+| 4.     | Get Roles                                                     |  Authorization   |
+| 5.     | PDP decision - permit for user and NA for app owner           |  Authorization   |
+| 6.     | GET applications by org and app name                          |     Storage      |
+| 7.     | Create, get with filter and id, edit and delete app instances |     Storage      |
+| 8.     | Create, get by id, edit and delete app instance form data     |     Storage      |
+| 9.     | Create, get events with filter app instance events            |     Storage      |
+| 10.    | Edit instance process and get process history                 |     Storage      |
+| 11.    | Soft and Hard delete app instances                            |     Storage      |
+| 12.    | Restore soft deleted app instance                             |     Storage      |
+| 13.    | Restore hard deleted app instance - negative                  |     Storage      |
+| 14.    | Get instances, by id and instance events                      |   Storage-SBL    |
+| 15.    | Soft/hard delete and restore instances                        |   Storage-SBL    |
+| 16.    | POST Generate PDF                                             |       PDF        |
+| 17.    | Get receipt and includes party info                           |     Receipt      |
+| 18.    | Get app texts                                                 |     Storage      |
+| 19.    | Upload, get by id, edit and delete attachment                 |     Storage      |
+| 20.    | Get events by party                                           |      Events      |
 
 #### App
 
@@ -97,6 +98,8 @@ weight: 100
 | 15.    | Start process again - negative                                  |        App        |
 | 16.    | Move process to active task again - negative                    |        App        |
 | 17.    | Complete a compelted process - negative                         |        App        |
+| 18.    | Create events - forbidden                                       |  Platform-Events  |
+| 19.    | Get events for an app as end user - forbidden                   |  Platform-Events  |
 
 #### App Owner API Test
 
@@ -107,3 +110,4 @@ weight: 100
 | 3.     | Confirm the download of instance data                          |     Storage      |
 | 4.     | Create instance and upload data  and delete instance           |     Storage      |
 | 5.     | E2E test - create, upload data , archive and complete instance |       App        |
+| 6.     | Get events by party and app name                               | Platform-Events  |
