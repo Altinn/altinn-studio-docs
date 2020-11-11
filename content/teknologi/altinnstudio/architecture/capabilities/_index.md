@@ -6,6 +6,22 @@ tags: [architecture]
 weight: 8
 ---
 
-Functional capabilities is described in the functional description of the [solutions](/solutions). 
+Functional capabilities is described in the functional description of the [solutions](/solutions).
 
-{{% children description="true" depth="1" %}}
+### Runtime capabilities
+
+The runtime capabilities describes the architecture capabilities the different solutions provides during runtime operations.
+
+An example could be authorization. The architecture provides capability to authorize access to resources.
+
+[Learn more about Altinn 3 runtime capabilities.] (runtime)
+
+### Devops capabilities
+
+To develop and operate a large platform like Altinn 3 requires many different capabilities.
+
+Some capabilties are provided by application and tools and other is provided by processes performed by the devops team.
+
+An example capability is to be able to configure the infrastructure.
+
+[Learn more about Altinn 3 devops capabilities.] (devops)
