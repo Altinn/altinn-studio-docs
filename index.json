@@ -109,7 +109,7 @@
 	"title": "Architecture Capabilities",
 	"tags": ["architecture"],
 	"description": "The Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development &amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.",
-	"content": "Functional capabilities is described in the functional description of the solutions.\n\rRuntime arhictecture capabilities\rThe runtime (execution) capabilities desribes the provided capabilites by the architecture components at runtime.\n\r\rDevelopment \u0026amp; Operations Capabilties\rThe development \u0026amp; operations architecture capabilities list the capabilities used to develop and operate Altinn Studio, Altinn Apps and Altinn Platform.\n\r\r"
+	"content": "Functional capabilities is described in the functional description of the solutions.\nRuntime capabilities The runtime capabilities describes the architecture capabilities the different solutions provides during runtime operations.\nAn example could be authorization. The architecture provides capability to authorize access to resources.\n[Learn more about Altinn 3 runtime capabilities.] (runtime)\nDevops capabilities To develop and operate a large platform like Altinn 3 requires many different capabilities.\nSome capabilties are provided by application and tools and other is provided by processes performed by the devops team.\nAn example capability is to be able to configure the infrastructure.\n[Learn more about Altinn 3 devops capabilities.] (devops)\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/",
