@@ -10499,27 +10499,27 @@ if(host != "localhost")
 <tr>
 <td align="left">1.</td>
 <td align="left">Create instance by looking up party id for user and org</td>
-<td align="center">Platform-Register</td>
+<td align="center">Register</td>
 </tr>
 <tr>
 <td align="left">2.</td>
 <td align="left">Get Authentication ticket</td>
-<td align="center">Platform-AuthN</td>
+<td align="center">Authentication</td>
 </tr>
 <tr>
 <td align="left">3.</td>
 <td align="left">Get Parties</td>
-<td align="center">Platform-Authz</td>
+<td align="center">Authorization</td>
 </tr>
 <tr>
 <td align="left">4.</td>
 <td align="left">Get Roles</td>
-<td align="center">Platform-Authz</td>
+<td align="center">Authorization</td>
 </tr>
 <tr>
 <td align="left">5.</td>
 <td align="left">PDP decision - permit for user and NA for app owner</td>
-<td align="center">Platform-Authz</td>
+<td align="center">Authorization</td>
 </tr>
 <tr>
 <td align="left">6.</td>
@@ -10574,12 +10574,12 @@ if(host != "localhost")
 <tr>
 <td align="left">16.</td>
 <td align="left">POST Generate PDF</td>
-<td align="center">Platfrom-PDF</td>
+<td align="center">PDF</td>
 </tr>
 <tr>
 <td align="left">17.</td>
 <td align="left">Get receipt and includes party info</td>
-<td align="center">Platform-Receipt</td>
+<td align="center">Receipt</td>
 </tr>
 <tr>
 <td align="left">18.</td>
@@ -10590,6 +10590,11 @@ if(host != "localhost")
 <td align="left">19.</td>
 <td align="left">Upload, get by id, edit and delete attachment</td>
 <td align="center">Storage</td>
+</tr>
+<tr>
+<td align="left">20.</td>
+<td align="left">Get events by party</td>
+<td align="center">Events</td>
 </tr>
 </tbody>
 </table>
@@ -10755,6 +10760,16 @@ if(host != "localhost")
 <td align="left">Complete a compelted process - negative</td>
 <td align="center">App</td>
 </tr>
+<tr>
+<td align="left">18.</td>
+<td align="left">Create events - forbidden</td>
+<td align="center">Platform-Events</td>
+</tr>
+<tr>
+<td align="left">19.</td>
+<td align="left">Get events for an app as end user - forbidden</td>
+<td align="center">Platform-Events</td>
+</tr>
 </tbody>
 </table>
 <h4 id="app-owner-api-test">App Owner API Test</h4>
@@ -10791,6 +10806,11 @@ if(host != "localhost")
 <td align="left">5.</td>
 <td align="left">E2E test - create, upload data , archive and complete instance</td>
 <td align="center">App</td>
+</tr>
+<tr>
+<td align="left">6.</td>
+<td align="left">Get events by party and app name</td>
+<td align="center">Platform-Events</td>
 </tr>
 </tbody>
 </table>
