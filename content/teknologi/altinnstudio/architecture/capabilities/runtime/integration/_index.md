@@ -24,7 +24,10 @@ application developers can add their custom APIS.
 
 The different platform components exposes API to applications and external parties.
 
-All this is possible because the backend framework easy let developers build APIS.
+All this is possible because the backend framework let developers create and expose APIS. 
+This also include app developers that create applications in Altinn Studio. 
+
+[See Swagger definition for Platform](/teknologi/altinnstudio/altinn-api/swagger/) for details about exposed API.
 
 In the same way the different applications and components consumes APIS from other sources both inside the Altinn 3 platform solutions
 and external sources. 
