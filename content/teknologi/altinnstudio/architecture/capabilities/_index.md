@@ -1,27 +1,27 @@
 ---
 title: Architecture Capabilities
 linktitle: Capabilities
-description: The Architecture Capabilities are the logical building blocks of the solutions. They are grouped in to Development & Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.
+description: The Architecture Capabilities are the logical building blocks of the solutions. They have been grouped into Development & Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.
 tags: [architecture]
 weight: 8
 ---
 
-Functional capabilities is described in the functional description of the [solutions](/solutions).
+Functional capabilities are described in the functional description of the [solutions](/solutions).
 
 ### Runtime capabilities
 
-The runtime capabilities describes the architecture capabilities the different solutions provides during runtime operations.
+The runtime capabilities describe the architecture capabilities the different solutions provide during runtime operations.
 
-An example could be authorization. The architecture provides capability to authorize access to resources.
+An example could be authorization. The architecture provides the capability to authorize access to resources.
 
 [Learn more about Altinn 3 runtime capabilities](runtime).
 
-### Devops capabilities
+### DevOps capabilities
 
 To develop and operate a large platform like Altinn 3 requires many different capabilities.
 
-Some capabilties are provided by application and tools and other is provided by processes performed by the devops team.
+Some capabilities are provided by application and tools and other is provided by processes performed by the DevOps team.
 
 An example capability is to be able to configure the infrastructure.
 
-[Learn more about Altinn 3 devops capabilities](devops).
+[Learn more about Altinn 3 devOps capabilities](devops).
