@@ -179,7 +179,7 @@
 	"title": "Slik utvikler vi",
 	"tags": [],
 	"description": "Finn ut mer om våre tekniske løsninger, arkitekturen bak, og hvordan vi utvikler.",
-	"content": "Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid, finner du utviklingsguider for dette på altinndigital.no/utvikling.\nSlik utvikler vi Altinn Studio\r\r\rFinn ut hvordan Altinn Studio er bygget opp og hvordan du skal jobbe med utvikling i løsningen. \r\rDesignsystem for front-end kode\r\r\rAltinns designsystem, som er bygget med Pattern Lab, fungerer som et hjem for våre UI-komponenter og deres tilhørende front-end kode. \r\rAltinn på GitHub\r\nVi ønsker at det skal være enklest mulig for deg å bidra - flere av prosjektene våre ligger derfor åpent på GitHub. Vi setter stor pris på dine innspill! \r\r\rArkitektur og infrastruktur\rBeskrivelse av Altinns arkitekturområder, prinsipper og domenestruktur.\n\r\rAltinn Studio\rSystem documentation for Altinn Studio, Altinn Apps and Altinn Platform.\n\r\rFront-end designsystem\rAltinns designsystem, som er bygget med Pattern Lab, fungerer som et hjem for våre UI-komponenter og deres tilhørende front-end kode. Designsystemet er i bruk av infoportal, portal og altinn digitalisering.\n\r\r"
+	"content": "Dersom du lurer på hvordan du kan ta i bruk Altinn i ditt digitaliseringsarbeid, finner du utviklingsguider for dette på altinndigital.no/utvikling.\nSlik utvikler vi Altinn Studio\r\r\rFinn ut hvordan Altinn Studio er bygget opp og hvordan du skal jobbe med utvikling i løsningen. \r\rDesignsystem for front-end kode\r\r\rAltinns designsystem, som er bygget med Pattern Lab, fungerer som et hjem for våre UI-komponenter og deres tilhørende front-end kode. \r\rAltinn på GitHub\r\nVi ønsker at det skal være enklest mulig for deg å bidra - flere av prosjektene våre ligger derfor åpent på GitHub. Vi setter stor pris på dine innspill! \r\r\rArkitektur og infrastruktur\rBeskrivelse av Altinns arkitekturområder, prinsipper og domenestruktur.\n\r\rAltinn 3\rSystem documentation for Altinn Studio, Altinn Apps and Altinn Platform.\n\r\rFront-end designsystem\rAltinns designsystem, som er bygget med Pattern Lab, fungerer som et hjem for våre UI-komponenter og deres tilhørende front-end kode. Designsystemet er i bruk av infoportal, portal og altinn digitalisering.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/innhold/",
@@ -749,6 +749,13 @@
 	"content": "We\u0026rsquo;re using Alpine Linux as the base for all our containers, including all apps.\nLinks  https://alpinelinux.org https://hub.docker.com/_/alpine https://en.wikipedia.org/wiki/Alpine_Linux  "
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/",
+	"title": "Altinn 3",
+	"tags": [],
+	"description": "System documentation for Altinn Studio, Altinn Apps and Altinn Platform.",
+	"content": "\rDevelop digital applications using our tools and APIs\nLooking for technical guidance on how to build your own apps with our products? See the Altinn Studio user guide. (Partially in Norwegian.)\n\r\rAltinn Studio is the next generation Altinn application development solution. All you need for testing the preview is to register an account.\nAltinn 3 have an open backlog on GitHub and the code is open source. Everybody can create bugs, request features or ask questions.\nContributing to Altinn Studio\r\r\rWe love your input! We want to make contributing to this project as easy as possible. \r\rArchitecture\r\r\rDescription of the Altinn 3 architecture, build process, infrastructure and security.\n\r\rDevelopment handbook\r\r\rThe development handbook should provide the information needed to contribute to the development of Altinn 3.\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/",
 	"title": "Altinn API",
 	"tags": ["api"],
@@ -810,13 +817,6 @@
 	"tags": ["altinn-apps"],
 	"description": "Altinn Platform contains components with central functionality that can be used by apps. Currently, this is storage, authentication, authorization, profile, register, receipt, pdf and events.",
 	"content": "The components are deployed as microservices.\nSee below for details about each component.\n\rAuthentication\rThe authentication component provides functionality to authenticate users and systems accessing Altinn Apps and Altinn platform.\n\r\rAuthorization\rThe authorization component contains a highly flexible policy decision point and policy retrieval point to authorize access to applications and Altinn platform components.\n\r\rEvents\rThe Events component receives and publishes events.\n\r\rPDF\rThe PDF component is responsible for generating PDF printouts for submitted instances of an app.\n\r\rProfile\rThe Profile component gives profile information for users in Altinn.\n\r\rReceipt\rThe Receipt component in Altinn Platform presents a receipt for apps.\n\r\rRegister\rThe Register micro service gives register information to Apps.\n\r\rStorage\rThe Storage component gives storage capabilities to the apps.\n\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/",
-	"title": "Altinn Studio",
-	"tags": [],
-	"description": "System documentation for Altinn Studio, Altinn Apps and Altinn Platform.",
-	"content": "\rDevelop digital applications using our tools and APIs\nLooking for technical guidance on how to build your own apps with our products? See the Altinn Studio user guide. (Partially in Norwegian.)\n\r\rAltinn Studio is the next generation Altinn application development solution. All you need for testing the preview is to register an account.\nAltinn Studio have an open backlog on GitHub and the code is open source. Everybody can create bugs, request features or ask questions.\nContributing to Altinn Studio\r\r\rWe love your input! We want to make contributing to this project as easy as possible. \r\rArchitecture\r\r\rDescription of the Altinn Studio architecture, build process, infrastructure and security.\n\r\rDevelopment handbook\r\r\rThe development handbook should provide the information needed to contribute to the development of Altinn Studio.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/",
@@ -1477,6 +1477,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/tags/devops/",
+	"title": "devops",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/docker/",
 	"title": "Docker",
 	"tags": ["tech", "containers"],
@@ -1995,6 +2002,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/paasandiaasconfiguration/",
+	"title": "Paas &amp; IaaS Configuration &amp; Management",
+	"tags": ["architecture", "infrastructure", "devops"],
+	"description": "For a platform like Altinn 3, it is important to have good tools and processes when it comes to configuration and management of infrastructure.",
+	"content": "Over time it is expected that the Altinn 3 platform would consist of hundreds of Kubernetes clusters and other cloud resources.\nTo be able to manage and configure all these cloud resources the architecture that is selected has several capabilities enabled with help of various tools and processes.\nTools \u0026amp; components For all solutions of Altinn 3 (Altinn Apps, Altinn Platform and Altinn Studio) we use some common tools to configure and manage infrastructure.\nWe use Terraform to define the infrastructure as code. Terraform allows to write declarative configuration files defining the infrastructure we use in the different solutions.\nWe use the Terraform Azure Provider that allows lifecycle management of Microsoft Azure using the Azure Resource Manager APIs. This is a provider maintained by the Azure team at Microsoft and the Terraform team at HashiCorp.\nWe use Azure Devops Repos to store our Terraform scripts for the different solutions. We use Azure Devops Pipelines to run the Terraform scripts.\nProvision of new environemnts Altinn Apps Each org have their own Altinn Apps environment both for test and production. When a org sign up for using Altinn 3 the DevOps team will provision a Altinn Apps environment for that organization.\n K8 Cluster with the defined set of nodes and node size Storage account for org used to store data from apps Container register for apps created in Altinn Studio KeyVault for secrets used by apps Network setup Kubernetes wrapper for monitoring status of the different applications in the apps cluster Traefik loadbalancer  Altinn Platform Altinn Studio Patching environments Kured\nPaaS \u0026amp; IaaS Management Capabilities Automation \u0026amp; Scheduling (batch, scripts) This include running scripts for infrastructure and jobs both manual and scheduled.\nSee operations application components for details about tools and applications used.\nPaas \u0026amp; IaaS Configuration \u0026amp; Management This include the capability to configure all PaaS and IaaS in the cloud.\nSee operations application components for details about tools and applications used.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pap/",
 	"title": "Policy Administration Point",
 	"tags": ["architecture", "security", "authorization", "xacml"],
@@ -2083,7 +2097,7 @@
 	"title": "Platform Operations Management Capabilities",
 	"tags": ["architecture"],
 	"description": "Platform Operations Management Capabilities describes the capabilities needed to operate the platform.",
-	"content": "PaaS \u0026amp; IaaS Management Capabilities Automation \u0026amp; Scheduling (batch, scripts) This include running scripts for infrastructure and jobs both manual and scheduled.\nSee operations application components for details about tools and applications used.\nPaas \u0026amp; IaaS Configuration \u0026amp; Management This include the capability to configure all PaaS and IaaS in the cloud.\nSee operations application components for details about tools and applications used.\nBackup \u0026amp; Recovery It is important to reduce the risk of losing data on the platform. The risks that are identified are\n Data is deleted by accident by DevOps team or by wrongly configured jobs Data is corrupted by bugs in platform or application code Data is accidentally corrupted or deleted by end-users or systems A storage account is deleted Blob storage is deleted Cosmos DB collection is accidentally deleted  In Altinn Platform different types of data is stored\nCosmos DB  Instances: Metadata about instances created InstanceEvents DataElements Applications  Blob Storage  Data for data elements (structured and unstructured data, small to potential gigabytes of data) XACML Policy for applications  The requirement is that we are able to restore data up to 90 days. The platform support this requirement for all types of data listed above.\nSee all details about the backup and recovery components.\nPerformance \u0026amp; Availability Management Capabilities Performance Profiling See operations application components for details about tools and applications used.\nPerformance Tuning The performance tuning capability for includes tuning of code and architecture to increase performance and capacity. This is typical done based on metrix that indicates slow performance.\nAvailability and Performance Monitoring This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud.\nSee operations application components for details about tools and applications used.\nCloud Capacity Management The devops team uses differen tools to manage capacity in cloud.\nSee operations application components for details about tools and applications used.\n"
+	"content": "PaaS \u0026amp; IaaS Management Capabilities Automation \u0026amp; Scheduling (batch, scripts) This include running scripts for infrastructure and jobs both manual and scheduled.\nSee operations application components for details about tools and applications used.\nPaas \u0026amp; IaaS Configuration \u0026amp; Management The Altinn 3 platform is a large platform with serveral 100 cloud resources. The architecture provides serveral capabilityes to configure and manage all of this resource.\nSee details here.\nBackup \u0026amp; Recovery It is important to reduce the risk of losing data on the platform. The risks that are identified are\n Data is deleted by accident by DevOps team or by wrongly configured jobs Data is corrupted by bugs in platform or application code Data is accidentally corrupted or deleted by end-users or systems A storage account is deleted Blob storage is deleted Cosmos DB collection is accidentally deleted  In Altinn Platform different types of data is stored\nCosmos DB  Instances: Metadata about instances created InstanceEvents DataElements Applications  Blob Storage  Data for data elements (structured and unstructured data, small to potential gigabytes of data) XACML Policy for applications  The requirement is that we are able to restore data up to 90 days. The platform support this requirement for all types of data listed above.\nSee all details about the backup and recovery components.\nPerformance \u0026amp; Availability Management Capabilities Performance Profiling See operations application components for details about tools and applications used.\nPerformance Tuning The performance tuning capability for includes tuning of code and architecture to increase performance and capacity. This is typical done based on metrix that indicates slow performance.\nAvailability and Performance Monitoring This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud.\nSee operations application components for details about tools and applications used.\nCloud Capacity Management The devops team uses differen tools to manage capacity in cloud.\nSee operations application components for details about tools and applications used.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/",

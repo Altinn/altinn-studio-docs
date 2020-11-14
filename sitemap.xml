@@ -431,6 +431,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/</loc>
   </url>
   
@@ -464,10 +468,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/</loc>
   </url>
   
   <url>
@@ -847,6 +847,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/tags/devops/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/docker/</loc>
   </url>
   
@@ -1140,6 +1144,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/owasp/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/paasandiaasconfiguration/</loc>
   </url>
   
   <url>
