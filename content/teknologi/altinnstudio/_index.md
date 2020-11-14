@@ -1,5 +1,5 @@
 ---
-title: Altinn Studio
+title: Altinn 3
 description: System documentation for Altinn Studio, Altinn Apps and Altinn Platform.
 jumbotron: true
 ---
@@ -13,7 +13,7 @@ See [the Altinn Studio user guide](https://altinn.github.io/docs/altinn-studio/)
 Altinn Studio is the next generation Altinn application development solution.
 All you need for testing the preview is to [register an account](/getting-started/first-time-setup).
 
-Altinn Studio have an open backlog on GitHub and the code is open source. Everybody can [create bugs], [request features] or [ask questions].
+Altinn 3 have an open backlog on GitHub and the code is open source. Everybody can [create bugs], [request features] or [ask questions].
 
 <div class="a-card a-cardImage mt-3 mb-3">
   <img src="/images/github.svg" alt="Illustrasjon tilganger">
@@ -33,7 +33,7 @@ Altinn Studio have an open backlog on GitHub and the code is open source. Everyb
       Architecture
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>
-    <p class="pt-1">Description of the Altinn Studio architecture, build process, infrastructure and security.</p>
+    <p class="pt-1">Description of the Altinn 3 architecture, build process, infrastructure and security.</p>
   </div>
 </div>
 
@@ -44,7 +44,7 @@ Altinn Studio have an open backlog on GitHub and the code is open source. Everyb
       Development handbook
       <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright"></i>
     </a>
-    <p class="pt-1">The development handbook should provide the information needed to contribute to the development of Altinn Studio.</p>
+    <p class="pt-1">The development handbook should provide the information needed to contribute to the development of Altinn 3.</p>
   </div>
 </div>
 

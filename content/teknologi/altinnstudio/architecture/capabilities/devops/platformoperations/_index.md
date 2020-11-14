@@ -9,16 +9,21 @@ toc: true
 ## PaaS & IaaS Management Capabilities
 
 ### Automation & Scheduling (batch, scripts)
+
 This include running scripts for infrastructure and jobs both manual and scheduled.
 
 See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Paas & IaaS Configuration & Management
-This include the capability to configure all PaaS and IaaS in the cloud. 
+
+This include the capability to configure all PaaS and IaaS in the cloud.
+
+See details [here](paasandiaasconfiguration).
 
 See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Backup & Recovery
+
 It is important to reduce the risk of losing data on the platform. The risks that are identified are
 
 - Data is deleted by accident by DevOps team or by wrongly configured jobs
@@ -39,6 +44,7 @@ In Altinn Platform different types of data is stored
 
 
 #### Blob Storage
+
 - Data for data elements (structured and unstructured data, small to potential gigabytes of data)
 - XACML Policy for applications
 
@@ -51,6 +57,7 @@ The platform support this requirement for all types of data listed above.
 ## Performance & Availability Management Capabilities
 
 ### Performance Profiling
+
 See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Performance Tuning
