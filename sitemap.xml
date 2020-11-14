@@ -1011,6 +1011,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/infrastructuremgmt/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/ingress/</loc>
   </url>
   
@@ -1144,10 +1148,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/owasp/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/paasandiaasconfiguration/</loc>
   </url>
   
   <url>
