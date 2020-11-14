@@ -16,11 +16,10 @@ See [operations application components](../../../components/application/nonsolut
 
 ### Paas & IaaS Configuration & Management
 
-This include the capability to configure all PaaS and IaaS in the cloud.
+The Altinn 3 platform is a large platform with serveral 100 cloud resources. The architecture provides
+serveral capabilityes to configure and manage all of this resource.
 
 See details [here](paasandiaasconfiguration).
-
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
 ### Backup & Recovery
 
