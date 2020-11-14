@@ -1,74 +1,42 @@
 ---
 title: System and platform monitoring
 linktitle: Monitoring
-description: Platform Operations Management Capabilities describes the capabilities needed to operate the platform. 
+description: As part of the architecture Altinn 3 has capability to monitoring different aspects of the platform
 tags: [architecture]
 toc: false
 ---
 
-## PaaS & IaaS Management Capabilities
-
-### Automation & Scheduling (batch, scripts)
-
-This include running scripts for infrastructure and jobs both manual and scheduled.
-
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
-
-### Infrastructure Configuration & Management
-
-The Altinn 3 platform is a large platform with serveral 100 cloud resources. The architecture provides
-serveral capabilityes to configure and manage all of this resource.
-
-See details [here](infrastructuremgmt).
-
-### Backup & Recovery
-
-It is important to reduce the risk of losing data on the platform. The risks that are identified are
-
-- Data is deleted by accident by DevOps team or by wrongly configured jobs
-- Data is corrupted by bugs in platform or application code
-- Data is accidentally corrupted or deleted by end-users or systems
-- A storage account is deleted
-- Blob storage is deleted
-- Cosmos DB collection is accidentally deleted
-
-In Altinn Platform different types of data is stored
-
-#### Cosmos DB
-
-- Instances: Metadata about instances created
-- InstanceEvents
-- DataElements
-- Applications
+Altinn 3 uses serveral features of [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview).  
 
 
-#### Blob Storage
+### Monitoring
 
-- Data for data elements (structured and unstructured data, small to potential gigabytes of data)
-- XACML Policy for applications
+[Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) 
+is used to monitor different aspects of the platform.
 
-The requirement is that we are able to restore data up to 90 days. 
-The platform support this requirement for all types of data listed above. 
+![Operations overview](monitoring1.png "Operations overview")
 
-[See all details about the backup and recovery components](../../../components/application/nonsolutionspecific/operations/backupandrecovery/).
+The above screenshot shows statistics for different requests.  
 
+![Application Map](monitoring2.png "Application Map")
 
-## Performance & Availability Management Capabilities
+This screenshots shows how Application Insights presents how traffic flows between the different applications in the solutions.
 
-### Performance Profiling
+![Request overview](monitoring3.png "Request overview")
 
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+This screenshots show how a request flows through the different applications
 
-### Performance Tuning
-The performance tuning capability for includes tuning of code and architecture to increase performance and capacity.
-This is typical done based on metrix that indicates slow performance.
+![End to end transaction](monitoring4.png "End to end transaction")
 
-### Availability and Performance Monitoring
-This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud. 
+This screenshots show how a request flows through the different applications
 
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+![CPU and Memory](monitoring5.png "CPU and Memory")
 
-### Cloud Capacity Management
-The devops team uses differen tools to manage capacity in cloud.
+This screenshots show how a request flows through the different applications
 
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used.
+### Alerts
+
+[Azure Alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-overview) is used to define rules to notify the DevOps team about issues
+in the platform.    
+
+Alerts are posted to a specific Alerts channel on Slack. 
