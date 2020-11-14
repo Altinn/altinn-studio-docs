@@ -1,5 +1,5 @@
 ---
-title: Infrastructure configuration & management
+title: Infrastructure management
 linktitle: Infrastructure mgmt
 description: For a platform like Altinn 3, it is important to have good tools and processes when it comes to configuration and management of infrastructure.
 tags: [architecture, infrastructure, devops]
@@ -10,7 +10,9 @@ Over time it is expected that the Altinn 3 platform would consist of hundreds of
 
 To be able to manage and configure all these cloud resources the architecture that is selected has several capabilities enabled with help of various tools and processes.
 
-## Tools & components
+## Infrastructure Configuration and managment Capabilities
+
+### Tools & components
 
 For all solutions of Altinn 3 (Altinn Apps, Altinn Platform and Altinn Studio) we use some common tools to configure and manage infrastructure.
 
@@ -25,9 +27,9 @@ Microsoft Azure using the Azure Resource Manager APIs. This is a provider mainta
 We use [Azure Devops Repos](https://azure.microsoft.com/services/devops/repos/) to store our Terraform scripts for the different solutions.
 We use [Azure Devops Pipelines](https://azure.microsoft.com/services/devops/pipelines/) to run the Terraform scripts.
 
-## Provision of new environemnts
+### Provision of new environemnts
 
-### Altinn Apps
+#### Altinn Apps
 
 Each org have their own Altinn Apps environment both for test and production. When a org sign up for using Altinn 3 the DevOps team
 will provision a Altinn Apps environment for that organization.
@@ -40,7 +42,7 @@ will provision a Altinn Apps environment for that organization.
 - Kubernetes wrapper for monitoring status of the different applications in the apps cluster
 - Traefik loadbalancer
 
-### Altinn Platform
+#### Altinn Platform
 
 Each Altinn 3 environment (production, performance test, test, acceptence test) has their own Altinn Platform solution.
 
@@ -55,26 +57,22 @@ The following cloud components is configured
 - PostgresSQL server
 - Cosmos DB
 - Traefik loadbalancer
-- 
 
-### Altinn Studio
+#### Altinn Studio
+
+For altinn studio we currently have 3 environments. Staging, dev and production.
+
+Each environments is set up with help of Terraform
 
 
-
-## Patching environments
+### Patching environments
 
 Kured
 
-## PaaS & IaaS Management Capabilities
 
-### Automation & Scheduling (batch, scripts)
+
+## Automation & Scheduling (batch, scripts)
 
 This include running scripts for infrastructure and jobs both manual and scheduled.
-
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
-
-### Paas & IaaS Configuration & Management
-
-This include the capability to configure all PaaS and IaaS in the cloud.
 
 See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
