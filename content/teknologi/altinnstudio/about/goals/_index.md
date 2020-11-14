@@ -1,13 +1,13 @@
 ---
 title: Goals
-description: Main goals for Altinn Studio.
-toc: true
+description: Main goals for Altinn 3.
+toc: false
 aliases:
  - /no/altinncore/goals.html
 weight: 10
 ---
 
-This summarizes the high level goals for Altinn Studio.
+This summarizes the high level goals for Altinn 3.
 
 ## User friendly and responsive apps
 
@@ -36,7 +36,7 @@ This summarizes the high level goals for Altinn Studio.
 
 ## Open Source, cross-platform
 
-- Altinn Studio will be based on [open source](https://en.wikipedia.org/wiki/Free_and_open-source_software)
-- Altinn Studio will be open source
-- Altinn Studio can run on your own computer, own serwers on Windows, macOS or Linux
+- Altinn 3 will be based on [open source](https://en.wikipedia.org/wiki/Free_and_open-source_software)
+- Altinn 3 will be open source
+- Altinn 3 can run on your own computer, own serwers on Windows, macOS or Linux
 - Everything is based on open [web-standardes](https://en.wikipedia.org/wiki/Web_standards) and regulaer development knowledge. 

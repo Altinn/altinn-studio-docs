@@ -22,8 +22,12 @@ Examples of solutions in the current platform is: Tax reporting, aircraft incide
 
 ## Concept
 
-The concept is that agencies can develop digital services and deploy them as containers to a higly scalable cloud infrastructure.
-All with limited need for knowing programming or anything about cloud infrastructure.
+Using Altinn 3, agencies and other public entities can develop digital services as applications in Altinn Studio, they can deploy
+them to their isolated cloud infrastructure in Altinn Apps managed by Altinn. Altinn Platform supports the apps with core functionality
+like storage, authorization.
+
+The application template provided by Altinn Studio is prepared for the most common digital services scenarios making it possible to create and deploy
+the most simple public digital services in only hours.
 
 ## What types of apps can be built with Altinn Studio and hosted in Altinn Apps?
 
@@ -34,6 +38,7 @@ user or system to the organizations.
 
 There are many reasons to use Altinn 3 to build and host your digital services.
 
+- Application template are have built in functionality for the most common scenarios.
 - Easy to develop and deploy apps
 - Reuse of data, APIs and functionality (code)
 - A known platform for end users
