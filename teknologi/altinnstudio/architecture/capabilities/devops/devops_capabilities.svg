@@ -90,38 +90,42 @@
 			</g>
 			<rect x="0" y="132.35" width="1058.63" height="708.661" class="st3"/>
 			<text x="398.13" y="143.55" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Development &#38; Operations Architecture Capabilities</text>		</g>
-		<g id="shape2-8" v:mID="2" v:groupContext="shape" transform="translate(652.094,-355.896)">
-			<title>Rectangle.175</title>
-			<desc>Software Configuration &#38; Release Management Capabilities</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="184.252" cy="741.798" width="368.51" height="198.425"/>
-			<g id="shadow2-9" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="642.586" width="368.504" height="198.425" class="st2"/>
-			</g>
-			<rect x="0" y="642.586" width="368.504" height="198.425" class="st5"/>
-			<text x="34.81" y="653.79" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Software Configuration &#38; Release Management Capabilities</text>		</g>
-		<g id="shape3-15" v:mID="3" v:groupContext="shape" transform="translate(269.416,-143.297)">
-			<title>Rectangle.3</title>
-			<desc>Build &#38; Test Capabilities</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="184.252" cy="635.499" width="368.51" height="411.024"/>
-			<g id="shadow3-16" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="429.987" width="368.504" height="411.024" class="st2"/>
-			</g>
-			<rect x="0" y="429.987" width="368.504" height="411.024" class="st6"/>
-			<text x="123.81" y="441.19" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Build &#38; Test Capabilities</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/">
+			<g id="shape2-8" v:mID="2" v:groupContext="shape" transform="translate(652.094,-355.896)">
+				<title>Rectangle.175</title>
+				<desc>Software Configuration &#38; Release Management Capabilities</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+				<v:textRect cx="184.252" cy="741.798" width="368.51" height="198.425"/>
+				<g id="shadow2-9" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="642.586" width="368.504" height="198.425" class="st2"/>
+				</g>
+				<rect x="0" y="642.586" width="368.504" height="198.425" class="st5"/>
+				<text x="34.81" y="653.79" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Software Configuration &#38; Release Management Capabilities</text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/">
+			<g id="shape3-15" v:mID="3" v:groupContext="shape" transform="translate(269.416,-143.297)">
+				<title>Rectangle.3</title>
+				<desc>Build &#38; Test Capabilities</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+				<v:textRect cx="184.252" cy="635.499" width="368.51" height="411.024"/>
+				<g id="shadow3-16" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="429.987" width="368.504" height="411.024" class="st2"/>
+				</g>
+				<rect x="0" y="429.987" width="368.504" height="411.024" class="st6"/>
+				<text x="123.81" y="441.19" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Build &#38; Test Capabilities</text>			</g>
+		</a>
 		<g id="shape4-20" v:mID="4" v:groupContext="shape" transform="translate(411.149,-157.471)">
 			<title>Rectangle.174</title>
 			<desc>Test Execution &#38; Automation Capabilities</desc>
@@ -139,40 +143,44 @@
 			<rect x="0" y="642.586" width="212.598" height="198.425" class="st7"/>
 			<text x="33.1" y="653.79" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Test Execution &#38; Automation <tspan
 						x="77.37" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape5-28" v:mID="5" v:groupContext="shape" transform="translate(344.514,-569.829)">
-			<title>Rectangle.2</title>
-			<desc>Platform Operations Management Capabilities</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="238.065" cy="720.539" width="476.14" height="240.945"/>
-			<g id="shadow5-29" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="600.066" width="476.131" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="600.066" width="476.131" height="240.945" class="st5"/>
-			<text x="121.98" y="611.27" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Platform <tspan
-						class="st8" v:langID="2057">Operations Management Capabilities</tspan></text>		</g>
-		<g id="shape6-35" v:mID="6" v:groupContext="shape" transform="translate(180.015,-569.829)">
-			<title>Rectangle.6</title>
-			<desc>Quality Management Capabilities</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="74.2677" cy="720.539" width="148.54" height="240.945"/>
-			<g id="shadow6-36" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="600.066" width="148.535" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="600.066" width="148.535" height="240.945" class="st5"/>
-			<text x="21.29" y="611.27" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Quality<tspan
-						class="st8" v:langID="1044"> </tspan>Management <tspan x="45.34" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/">
+			<g id="shape5-28" v:mID="5" v:groupContext="shape" transform="translate(344.514,-569.829)">
+				<title>Rectangle.2</title>
+				<desc>Platform Operations Management Capabilities</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+				<v:textRect cx="238.065" cy="720.539" width="476.14" height="240.945"/>
+				<g id="shadow5-29" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="600.066" width="476.131" height="240.945" class="st2"/>
+				</g>
+				<rect x="0" y="600.066" width="476.131" height="240.945" class="st5"/>
+				<text x="121.98" y="611.27" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Platform <tspan
+							class="st8" v:langID="2057">Operations Management Capabilities</tspan></text>			</g>
+		</a>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/quality/">
+			<g id="shape6-35" v:mID="6" v:groupContext="shape" transform="translate(180.015,-569.829)">
+				<title>Rectangle.6</title>
+				<desc>Quality Management Capabilities</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+				<v:textRect cx="74.2677" cy="720.539" width="148.54" height="240.945"/>
+				<g id="shadow6-36" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="600.066" width="148.535" height="240.945" class="st2"/>
+				</g>
+				<rect x="0" y="600.066" width="148.535" height="240.945" class="st5"/>
+				<text x="21.29" y="611.27" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Quality<tspan
+							class="st8" v:langID="1044"> </tspan>Management <tspan x="45.34" dy="0.8em" class="st8">Capabilities</tspan></text>			</g>
+		</a>
 		<g id="shape7-43" v:mID="7" v:groupContext="shape" transform="translate(194.188,-584.002)">
 			<title>Rectangle.4</title>
 			<desc>Quality Management Capabilities</desc>
@@ -207,22 +215,24 @@
 			<rect x="0" y="685.106" width="212.598" height="155.906" class="st9"/>
 			<text x="4.44" y="696.31" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Performance &#38; Availability Management <tspan
 						x="77.37" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape12-58" v:mID="12" v:groupContext="shape" transform="translate(14.2982,-143.297)">
-			<title>Rectangle.12</title>
-			<desc>Analysis &#38; Design Capabilities</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="120.472" cy="635.499" width="240.95" height="411.024"/>
-			<g id="shadow12-59" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="429.987" width="240.945" height="411.024" class="st2"/>
-			</g>
-			<rect x="0" y="429.987" width="240.945" height="411.024" class="st6"/>
-			<text x="46.12" y="441.19" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Analysis &#38; Design Capabilities</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/">
+			<g id="shape12-58" v:mID="12" v:groupContext="shape" transform="translate(14.2982,-143.297)">
+				<title>Rectangle.12</title>
+				<desc>Analysis &#38; Design Capabilities</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+				<v:textRect cx="120.472" cy="635.499" width="240.95" height="411.024"/>
+				<g id="shadow12-59" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="429.987" width="240.945" height="411.024" class="st2"/>
+				</g>
+				<rect x="0" y="429.987" width="240.945" height="411.024" class="st6"/>
+				<text x="46.12" y="441.19" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Analysis &#38; Design Capabilities</text>			</g>
+		</a>
 		<g id="shape13-63" v:mID="13" v:groupContext="shape" transform="translate(28.4715,-370.069)">
 			<title>Rectangle.10</title>
 			<desc>Analysis Capabilities</desc>
@@ -240,22 +250,24 @@
 			<rect x="0" y="685.106" width="212.598" height="155.906" class="st7"/>
 			<text x="85.91" y="696.31" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Analysis<v:lf/><tspan
 						x="77.37" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape15-70" v:mID="15" v:groupContext="shape" transform="translate(0.125,-1.56499)">
-			<title>Rectangle.15</title>
-			<desc>Environments</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="529.315" cy="784.318" width="1058.63" height="113.386"/>
-			<g id="shadow15-71" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="727.625" width="1058.63" height="113.386" class="st2"/>
-			</g>
-			<rect x="0" y="727.625" width="1058.63" height="113.386" class="st10"/>
-			<text x="494.68" y="738.83" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Environments</text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/">
+			<g id="shape15-70" v:mID="15" v:groupContext="shape" transform="translate(0.125,-1.56499)">
+				<title>Rectangle.15</title>
+				<desc>Environments</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+				<v:textRect cx="529.315" cy="784.318" width="1058.63" height="113.386"/>
+				<g id="shadow15-71" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="727.625" width="1058.63" height="113.386" class="st2"/>
+				</g>
+				<rect x="0" y="727.625" width="1058.63" height="113.386" class="st10"/>
+				<text x="494.68" y="738.83" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Environments</text>			</g>
+		</a>
 		<g id="shape16-77" v:mID="16" v:groupContext="shape" transform="translate(14.2982,-15.7382)">
 			<title>Rectangle.13</title>
 			<desc>Build Environments</desc>
@@ -356,23 +368,25 @@
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st10"/>
 			<text x="4.74" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Performance &#38; <tspan
 						x="5.39" dy="0.8em" class="st8">Scalability Test </tspan><tspan x="10.28" dy="0.8em" class="st8">Environment</tspan></text>		</g>
-		<g id="shape27-120" v:mID="27" v:groupContext="shape" transform="translate(14.2982,-568.494)">
-			<title>Rectangle.25</title>
-			<desc>Project Management Capabilities</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
-			<v:textRect cx="74.2677" cy="720.539" width="148.54" height="240.945"/>
-			<g id="shadow27-121" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="600.066" width="148.535" height="240.945" class="st2"/>
-			</g>
-			<rect x="0" y="600.066" width="148.535" height="240.945" class="st6"/>
-			<text x="21.76" y="611.27" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Project Management <tspan
-						x="45.34" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
+		<a target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/projectmanagement/">
+			<g id="shape27-120" v:mID="27" v:groupContext="shape" transform="translate(14.2982,-568.494)">
+				<title>Rectangle.25</title>
+				<desc>Project Management Capabilities</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197" v:verticalAlign="0"/>
+				<v:textRect cx="74.2677" cy="720.539" width="148.54" height="240.945"/>
+				<g id="shadow27-121" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="600.066" width="148.535" height="240.945" class="st2"/>
+				</g>
+				<rect x="0" y="600.066" width="148.535" height="240.945" class="st6"/>
+				<text x="21.76" y="611.27" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Project Management <tspan
+							x="45.34" dy="0.8em" class="st8">Capabilities</tspan></text>			</g>
+		</a>
 		<g id="shape38-126" v:mID="38" v:groupContext="shape" transform="translate(208.361,-720.065)">
 			<title>Rectangle.38</title>
 			<desc>Quality Assurance &#38; Reviews (incl. QA &#38; peer reviews)</desc>
@@ -797,7 +811,7 @@
 						x="13.4" dy="0.8em" class="st8">Traceability</tspan></text>		</g>
 		<g id="shape76-309" v:mID="76" v:groupContext="shape" transform="translate(358.687,-626.522)">
 			<title>Rectangle.76</title>
-			<desc>PaaS &#38; IaaS Management Capabilities</desc>
+			<desc>Infrastructure Management Capabilities</desc>
 			<v:userDefs>
 				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
 				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
@@ -810,8 +824,8 @@
 				<rect x="0" y="685.106" width="222.409" height="155.906" class="st2"/>
 			</g>
 			<rect x="0" y="685.106" width="222.409" height="155.906" class="st9"/>
-			<text x="47.14" y="696.31" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>PaaS &#38;<tspan
-						class="st8" v:langID="2057"> </tspan><tspan class="st8" v:langID="2057">IaaS Management<v:lf/></tspan><tspan
+			<text x="41.79" y="696.31" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Infrastructure<tspan
+						class="st8" v:langID="2057"> </tspan><tspan class="st8" v:langID="2057">Management<v:lf/></tspan><tspan
 						x="82.28" dy="0.8em" class="st8" v:langID="2057">Capabilities</tspan></text>		</g>
 		<g id="shape77-318" v:mID="77" v:groupContext="shape" transform="translate(378.44,-677.546)">
 			<title>Rectangle.77</title>
@@ -998,23 +1012,26 @@
 			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st10"/>
 			<text x="0.96" y="821.6" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Prototype &#38; PoC <tspan
 						x="4.15" dy="0.8em" class="st8">Environment(s)</tspan></text>		</g>
-		<g id="shape108-397" v:mID="108" v:groupContext="shape" transform="translate(372.86,-720.065)">
-			<title>Rectangle.108</title>
-			<desc>System &#38; Service Monitoring</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
-			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow108-398" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
-			</g>
-			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
-			<text x="18.88" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>System &#38; <tspan
-						x="24.69" dy="0.8em" class="st8">Service </tspan><tspan x="14.38" dy="0.8em" class="st8">Monitoring</tspan></text>		</g>
+		<a
+				target="_blank" xlink:href="http://localhost:1313/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/monitoring/">
+			<g id="shape108-397" v:mID="108" v:groupContext="shape" transform="translate(372.86,-720.065)">
+				<title>Rectangle.108</title>
+				<desc>System &#38; Service Monitoring</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
+				<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
+				<g id="shadow108-398" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
+				</g>
+				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
+				<text x="18.88" y="816.8" class="st4" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>System &#38; <tspan
+							x="24.69" dy="0.8em" class="st8">Service </tspan><tspan x="14.38" dy="0.8em" class="st8">Monitoring</tspan></text>			</g>
+		</a>
 		<g id="shape113-405" v:mID="113" v:groupContext="shape" transform="translate(897.18,-187.152)">
 			<title>Rectangle.113</title>
 			<desc>Development &#38; Operations-relevant Capabilities</desc>
@@ -1033,24 +1050,27 @@
 			<text x="11.03" y="814" class="st18" v:langID="2057"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Development &#38; <tspan
 						x="18.57" dy="0.8em" class="st8">Operations</tspan>-<tspan x="25.84" dy="0.8em" class="st8">relevant </tspan><tspan
 						x="19.03" dy="0.8em" class="st8">Capabilities</tspan></text>		</g>
-		<g id="shape115-414" v:mID="115" v:groupContext="shape" transform="translate(477.653,-720.065)">
-			<title>Rectangle.115</title>
-			<desc>PaaS &#38; IaaS Configuration &#38; Management</desc>
-			<v:userDefs>
-				<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
-				<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
-				<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
-			</v:userDefs>
-			<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
-			<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
-			<g id="shadow115-415" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
-					transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
-				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
-			</g>
-			<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
-			<text x="13.27" y="816.8" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>PaaS &#38; <tspan
-						class="st8" v:langID="2057">IaaS </tspan><tspan x="2.78" dy="0.8em" class="st8" v:langID="2057">Configuration &#38; </tspan><tspan
-						x="9.07" dy="0.8em" class="st8" v:langID="2057">Management</tspan></text>		</g>
+		<a
+				target="_blank" xlink:href="https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/infrastructuremgmt/">
+			<g id="shape115-414" v:mID="115" v:groupContext="shape" transform="translate(477.653,-720.065)">
+				<title>Rectangle.115</title>
+				<desc>Infrastructure Configuration &#38; Management</desc>
+				<v:userDefs>
+					<v:ud v:nameU="visVersion" v:val="VT0(14):26"/>
+					<v:ud v:nameU="msvThemeColors" v:val="VT0(36):26"/>
+					<v:ud v:nameU="msvThemeEffects" v:val="VT0(16):26"/>
+				</v:userDefs>
+				<v:textBlock v:margins="rect(0,2,0,2)" v:tabSpace="42.5197"/>
+				<v:textRect cx="42.5197" cy="824.003" width="85.04" height="34.0157"/>
+				<g id="shadow115-415" v:groupContext="shadow" v:shadowOffsetX="1.44" v:shadowOffsetY="-1.44" v:shadowType="1"
+						transform="matrix(1,0,0,1,1.44,1.44)" class="st1">
+					<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st2"/>
+				</g>
+				<rect x="0" y="806.995" width="85.0394" height="34.0157" class="st12"/>
+				<text x="7.92" y="816.8" class="st4" v:langID="1044"><v:paragraph v:spLine="-0.8" v:horizAlign="1"/><v:tabList/>Infrastructure<tspan
+							class="st8" v:langID="2057"> </tspan><tspan x="2.78" dy="0.8em" class="st8" v:langID="2057">Configuration &#38; </tspan><tspan
+							x="9.07" dy="0.8em" class="st8" v:langID="2057">Management</tspan></text>			</g>
+		</a>
 		<g id="shape116-423" v:mID="116" v:groupContext="shape" transform="translate(893.038,-370.069)">
 			<title>Rectangle.116</title>
 			<desc>Deployment Capabilities</desc>
