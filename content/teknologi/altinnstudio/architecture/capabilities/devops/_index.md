@@ -6,16 +6,15 @@ tags: [architecture]
 weight: 10
 ---
 
-It covers the full spectrum of capabilities starting from development, going through a transition to operations and 
+It covers the full spectrum of capabilities starting from development, going through a transition to operations and
 ending with operations it-self.
 
-Each capability consists of people, the procedures they follow and the software and hardware tools they use. 
+Each capability consists of people, the procedures they follow and the software and hardware tools they use.
 
-This documentation currently focus on the capabilties that can be shared and reused of others.  
+This documentation currently focus on the capabilties that can be shared and reused of others. 
 
-![DevOps Capabilities](devops_capabilities.svg "DevOps Capabilities")
+See below for a capability map and the different DevOps capability areas.
 
-[Download as Visio](devops_capabilities.vsdx).
-
+![DevOps Capabilitiy map](devops_capabilities.svg "DevOps Capability map")
 
 {{% children description="true" depth="1" %}}

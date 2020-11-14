@@ -3,7 +3,7 @@ title: Platform Operations Management Capabilities
 linktitle: Platform Operations
 description: Platform Operations Management Capabilities describes the capabilities needed to operate the platform. 
 tags: [architecture]
-toc: true
+toc: false
 ---
 
 ## PaaS & IaaS Management Capabilities
@@ -14,12 +14,12 @@ This include running scripts for infrastructure and jobs both manual and schedul
 
 See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
 
-### Paas & IaaS Configuration & Management
+### Infrastructure Configuration & Management
 
 The Altinn 3 platform is a large platform with serveral 100 cloud resources. The architecture provides
 serveral capabilityes to configure and manage all of this resource.
 
-See details [here](paasandiaasconfiguration).
+See details [here](infrastructuremgmt).
 
 ### Backup & Recovery
 

@@ -2,7 +2,7 @@
 title: About Altinn 3
 linktitle: About
 description: Altinn 3 is the third generation platform for developing and hosting digital services. 
-toc: true
+toc: false
 aliases:
  - /about/
 ---
