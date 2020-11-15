@@ -2,7 +2,7 @@
 title: Quality Management Capabilities
 linktitle: Quality Management
 description: Quality Management Capabilities covers the different capabilities to mange the project.
-tags: [architecture]
+tags: [architecture, devops]
 toc: false
 ---
 

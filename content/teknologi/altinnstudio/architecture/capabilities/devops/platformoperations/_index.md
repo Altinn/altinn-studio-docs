@@ -2,7 +2,7 @@
 title: Platform Operations Management Capabilities
 linktitle: Platform Operations
 description: Platform Operations Management Capabilities describes the capabilities needed to operate the platform. 
-tags: [architecture]
+tags: [architecture, devops]
 toc: false
 ---
 

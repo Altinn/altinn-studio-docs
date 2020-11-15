@@ -2,7 +2,7 @@
 title: Build & Test Capabilities
 linktitle: Build & Test
 description: Involves everything from the capability to write and building code to the different types of testing of the code.
-tags: [architecture, todo]
+tags: [architecture, devops, todo]
 toc: false
 ---
 

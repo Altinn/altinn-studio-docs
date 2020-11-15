@@ -2,7 +2,7 @@
 title: Analysis & Design Capabilities
 linktitle: Analysis & Design
 description: Analysis & Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform.
-tags: [architecture]
+tags: [architecture, devops]
 toc: false
 ---
 

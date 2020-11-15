@@ -14,6 +14,9 @@ The runtime capabilities describe the architecture capabilities the different so
 
 An example could be authorization. The architecture provides the capability to authorize access to resources.
 
+Since Altinn 3 is a platform letting its users develop applications and deploy them, you will ses that many capabilities that 
+typical is DevOps capabilities in other projects, is part of the runtime capabilities. An example of this is the capability to build and deploy applications
+
 [Learn more about Altinn 3 runtime capabilities](runtime).
 
 ### DevOps capabilities

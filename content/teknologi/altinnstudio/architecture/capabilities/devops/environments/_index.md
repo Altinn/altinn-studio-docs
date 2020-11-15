@@ -1,7 +1,7 @@
 ---
 title: Environments
 description: An important DevOps capability is to have different environments to deploy the different solutions part of the Altinn 3 platform.
-tags: [architecture, todo]
+tags: [architecture, devops]
 ---
 
 Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage.

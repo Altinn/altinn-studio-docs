@@ -2,7 +2,7 @@
 title: Software Configuration & Release Management Capabilities
 linktitle: Software Configuration
 description: Software Configuration & Release Management Capabilities process of tracking changes and handle new releases for a application
-tags: [architecture, todo]
+tags: [architecture, todo, devops]
 toc: false
 ---
 
