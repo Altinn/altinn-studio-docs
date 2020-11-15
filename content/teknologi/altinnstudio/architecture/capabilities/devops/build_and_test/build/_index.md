@@ -2,7 +2,7 @@
 title: Build process
 description: Altinn Studio Build Processes
 tags: [build, ci]
-toc: true
+toc: false
 ---
 
 

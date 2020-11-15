@@ -1,6 +1,6 @@
 ---
 title: Environments
-description: Description of the environments
+description: An important DevOps capability is to have different environments to deploy the different solutions part of the Altinn 3 platform.
 tags: [architecture, todo]
 ---
 
