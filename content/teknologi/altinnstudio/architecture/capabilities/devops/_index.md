@@ -15,6 +15,8 @@ This documentation currently focus on the capabilties that can be shared and reu
 
 See below for a capability map and the different DevOps capability areas.
 
-![DevOps Capabilitiy map](devops_capabilities.svg "DevOps Capability map")
+<object data="devops_capabilities.svg " type="image/svg+xml" style="width: 100%;"></object>
+
+[Full screen](devops_capabilities.svg)
 
 {{% children description="true" depth="1" %}}
