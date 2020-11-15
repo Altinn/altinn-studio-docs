@@ -20,6 +20,9 @@ of the businesses. Over 55 agencies and municipalities host their solutions in t
 The current platform has almost 1000 active solutions supporting different user scenarios.  
 Examples of solutions in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more.
 
+
+![Consept](concept.svg "Altinn 3 concept")
+
 ## Concept
 
 Using Altinn 3, agencies and other public entities can develop digital services as applications in Altinn Studio, they can deploy

@@ -9,9 +9,9 @@ weight: 8
 The Runtime (exceution) Architecture supports applications at run-time. 
 It is a unified collection of run-time technology services, capabilities, control structures, and supporting infrastructure upon which application software runs.  
 
-The below diagram shows the different runtime capabilities grouped by different areas. 
+The below capability map shows the different runtime capabilities grouped by different areas. 
 
-![Runtime capabilities diagram](runtime_capabilities.svg "Runtime capabilities")
+![Runtime capability map](runtime_capabilities.svg "Runtime capability map")
 
 [Download as Visio](runtime_capabilities.vsdx)
 
