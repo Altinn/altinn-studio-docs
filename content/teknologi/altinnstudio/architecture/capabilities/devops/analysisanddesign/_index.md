@@ -21,12 +21,13 @@ Some example issues are
 
 - [The issue for supporting Sirius App for tax department](https://github.com/Altinn/altinn-studio/issues/3747)
 - [The issue for supporting NSM POB](https://github.com/Altinn/altinn-studio/issues/4731)
-
+  
 See [development application components](../../../components/application/nonsolutionspecific/development/)  to get an overview of the tools and applications we use.
 
-### Use Case/Story Definition
+### User story Definition
 
-The DevOps team has the capability to define uses cases and user stories.
+The DevOps team has the capability to define user stories in our GitHub repository.
+[See all user stories](https://github.com/Altinn/altinn-studio/issues?q=label%3Akind%2Fuser-story+).
 
 ### Requirement Validation
 
