@@ -20,22 +20,22 @@ of the businesses. Over 55 agencies and municipalities host their solutions in t
 The current platform has almost 1000 active solutions supporting different user scenarios.  
 Examples of solutions in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more.
 
-
 ![Consept](concept.svg "Altinn 3 concept")
 
 ## Concept
 
 Using Altinn 3, agencies and other public entities can develop digital services as applications in Altinn Studio, they can deploy
-them to their isolated cloud infrastructure in Altinn Apps managed by Altinn. Altinn Platform supports the apps with core functionality
-like storage, authorization.
+them to their isolated cloud infrastructure as containers. Altinn Platform supports the apps with core functionality
+like storage, authorization, authentication, register data, and more.
+
+The infrastructure is highly scalable to support the different needs and all infrastructure is managed by the Altinn DevOps team.
 
 The application template provided by Altinn Studio is prepared for the most common digital services scenarios making it possible to create and deploy
 the most simple public digital services in only hours.
 
 ## What types of apps can be built with Altinn Studio and hosted in Altinn Apps?
 
-The first version will support apps where the use case is to submit data from the end 
-user or system to the organizations.
+The first version supports apps where the use case is to submit data from the end user or system to the organizations.
 
 ## Why Altinn Studio?
 
@@ -51,7 +51,6 @@ There are many reasons to use Altinn 3 to build and host your digital services.
 ## When was it launched?
 
 The first version was launched in June 2020 and the first applications was deployed to production on june 19. 2020.
-
 
 ## Presentations
 
