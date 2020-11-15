@@ -2084,6 +2084,35 @@ if(host != "localhost")
  
   
     
+    <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/backupandrecovery/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/backupandrecovery/">
+        <span>Backup &amp; Recovery</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/infrastructuremgmt/" class="dd-item 
         
         
@@ -10432,14 +10461,6 @@ if(host != "localhost")
           
 
           
-            <h2>På denne siden:</h2>
-              <nav id="TableOfContents">
-  <ul>
-    <li><a href="#backup">Backup</a></li>
-    <li><a href="#recovery">Recovery</a></li>
-  </ul>
-</nav>
-          
 
 
 
@@ -10447,7 +10468,7 @@ if(host != "localhost")
 
 
 
-<p>As described below, the <a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/">backup and recovery capabilities</a>
+<p>As described below, the <a href="/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/backupandrecovery/">backup and recovery capabilities</a>
 there are serveral scenarious where the different type of data is lost.</p>
 <p>This page describes the application components that makes it possible to protect against data loss.</p>
 <h2 id="backup">Backup</h2>
@@ -10495,12 +10516,12 @@ In theese 90 days we are able to recover the document to an earlier version.</p>
 <figure><a href="document-details.png"><img src="document-details.png" alt="Details for a document" title="Details for a document, like when it was created and when last changed" /></a><figcaption><h4>Details for a document, like when it was created and when last changed</h4></figcaption></figure>
 <figure><a href="snapshots.png"><img src="snapshots.png" alt="A list of snapshots" title="A list of snapshots that can be used to restore the document to an earlier version" /></a><figcaption><h4>A list of snapshots that can be used to restore the document to an earlier version</h4></figcaption></figure>
 <h4 id="blob-storage">Blob storage</h4>
-<p>Each org has their own separte storage account with a blob storage to store data for applications. 
+<p>Each org has their own separte storage account with a blob storage to store data for applications.
 In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps.</p>
 <p>To protect against unwanted deletion or changes we have enabled soft delete.</p>
-<p>When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted. 
+<p>When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted.
 This protection extends to blob data that is erased as the result of an overwrite.</p>
-<p>When data is deleted, it transitions to a soft deleted state instead of being permanently erased. 
+<p>When data is deleted, it transitions to a soft deleted state instead of being permanently erased.
 When soft delete is on and you overwrite data, a soft deleted snapshot is generated to save the state of the overwritten data.</p>
 <p>For Altinn we have 90 days retention period. Inside that periode we can recover a blob to an earlier version.</p>
 <p><a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal">See more about soft delete on Azure Documentation</a>.</p>
@@ -11499,6 +11520,22 @@ retrieve version history and metadata about elements as well as restore and unde
                               
                               
           
+                              
+                                  
+                      
+                      
+                          
+                              
+                          
+                          
+          
+                              
+                              
+                              
+          
+                              
+                      
+                  
                               
                                   
                       
