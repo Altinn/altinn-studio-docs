@@ -10467,31 +10467,8 @@ if(host != "localhost")
 serveral capabilityes to configure and manage all of this resource.</p>
 <p>See details <a href="infrastructuremgmt">here</a>.</p>
 <h3 id="backup--recovery">Backup &amp; Recovery</h3>
-<p>It is important to reduce the risk of losing data on the platform. The risks that are identified are</p>
-<ul>
-<li>Data is deleted by accident by DevOps team or by wrongly configured jobs</li>
-<li>Data is corrupted by bugs in platform or application code</li>
-<li>Data is accidentally corrupted or deleted by end-users or systems</li>
-<li>A storage account is deleted</li>
-<li>Blob storage is deleted</li>
-<li>Cosmos DB collection is accidentally deleted</li>
-</ul>
-<p>In Altinn Platform different types of data is stored</p>
-<h4 id="cosmos-db">Cosmos DB</h4>
-<ul>
-<li>Instances: Metadata about instances created</li>
-<li>InstanceEvents</li>
-<li>DataElements</li>
-<li>Applications</li>
-</ul>
-<h4 id="blob-storage">Blob Storage</h4>
-<ul>
-<li>Data for data elements (structured and unstructured data, small to potential gigabytes of data)</li>
-<li>XACML Policy for applications</li>
-</ul>
-<p>The requirement is that we are able to restore data up to 90 days. 
-The platform support this requirement for all types of data listed above.</p>
-<p><a href="../../../components/application/nonsolutionspecific/operations/backupandrecovery/">See all details about the backup and recovery components</a>.</p>
+<p>The Altinn 3 platform has the capability to backup and restore data created by applications hosted in Altinn Apps.</p>
+<p>See details <a href="backupandrecovery">here</a>.</p>
 <h2 id="performance--availability-management-capabilities">Performance &amp; Availability Management Capabilities</h2>
 <h3 id="performance-profiling">Performance Profiling</h3>
 <p>See <a href="../../../components/application/nonsolutionspecific/operations/">operations application components</a> for details about tools and applications used.</p>
@@ -13788,54 +13765,6 @@ This is typical done based on metrix that indicates slow performance.</p>
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                       
                   
