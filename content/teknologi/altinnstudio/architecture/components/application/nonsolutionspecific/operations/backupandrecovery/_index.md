@@ -3,10 +3,10 @@ title: Backup and recovery
 linktitle: Backup & Recovery
 description: All data created in the different solutions are backed up so it is possible to restore it in case of data loss.
 tags: [solution, architecture]
-toc: true
+toc: false
 ---
 
-As described below, the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/)
+As described below, the [backup and recovery capabilities](/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/backupandrecovery/)
 there are serveral scenarious where the different type of data is lost.
 
 This page describes the application components that makes it possible to protect against data loss.
@@ -78,19 +78,18 @@ In theese 90 days we are able to recover the document to an earlier version.
 
 ![A list of snapshots](snapshots.png "A list of snapshots that can be used to restore the document to an earlier version")
 
-
 #### Blob storage
 
-Each org has their own separte storage account with a blob storage to store data for applications. 
-In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps. 
+Each org has their own separte storage account with a blob storage to store data for applications.
+In addition Altinn Platform has a shared blobstorge where metedata like XACML is stored for the different Apps.
 
-To protect against unwanted deletion or changes we have enabled soft delete. 
+To protect against unwanted deletion or changes we have enabled soft delete.
 
-When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted. 
+When enabled, soft delete enables you to save and recover your data when blobs or blob snapshots are deleted.
 This protection extends to blob data that is erased as the result of an overwrite.
 
-When data is deleted, it transitions to a soft deleted state instead of being permanently erased. 
-When soft delete is on and you overwrite data, a soft deleted snapshot is generated to save the state of the overwritten data. 
+When data is deleted, it transitions to a soft deleted state instead of being permanently erased.
+When soft delete is on and you overwrite data, a soft deleted snapshot is generated to save the state of the overwritten data.
 
 For Altinn we have 90 days retention period. Inside that periode we can recover a blob to an earlier version.
 
