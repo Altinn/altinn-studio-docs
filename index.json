@@ -109,7 +109,7 @@
 	"title": "Architecture Capabilities",
 	"tags": ["architecture"],
 	"description": "The Architecture Capabilities are the logical building blocks of the solutions. They have been grouped into Development &amp; Operations (DevOps) Capabilities and Runtime (Execution) Capabilities.",
-	"content": "Functional capabilities are described in the functional description of the solutions.\nRuntime capabilities The runtime capabilities describe the architecture capabilities the different solutions provide during runtime operations.\nAn example could be authorization. The architecture provides the capability to authorize access to resources.\nLearn more about Altinn 3 runtime capabilities.\nDevOps capabilities To develop and operate a large platform like Altinn 3 requires many different capabilities.\nSome capabilities are provided by application and tools and other is provided by processes performed by the DevOps team.\nAn example capability is to be able to configure the infrastructure.\nLearn more about Altinn 3 DevOps capabilities.\n"
+	"content": "Functional capabilities are described in the functional description of the solutions.\nRuntime capabilities The runtime capabilities describe the architecture capabilities the different solutions provide during runtime operations.\nAn example could be authorization. The architecture provides the capability to authorize access to resources.\nSince Altinn 3 is a platform letting its users develop applications and deploy them, you will ses that many capabilities that typical is DevOps capabilities in other projects, is part of the runtime capabilities. An example of this is the capability to build and deploy applications\nLearn more about Altinn 3 runtime capabilities.\nDevOps capabilities To develop and operate a large platform like Altinn 3 requires many different capabilities.\nSome capabilities are provided by application and tools and other is provided by processes performed by the DevOps team.\nAn example capability is to be able to configure the infrastructure.\nLearn more about Altinn 3 DevOps capabilities.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/",
@@ -142,7 +142,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/",
 	"title": "Development &amp; Operations Capabilties",
-	"tags": ["architecture"],
+	"tags": ["architecture", "devops"],
 	"description": "The development &amp; operations architecture capabilities list the capabilities used to develop and operate the Altinn 3 platform including Altinn Studio, Altinn Apps, and Altinn Platform.",
 	"content": "It covers the full spectrum of capabilities starting from development, going through a transition to operations, and ending with operations it-self.\nEach capability consists of people, the procedures they follow, and the software and hardware tools they use.\nThis documentation currently focuses on the capabilities that can be shared and reused by others.\nSee below for a capability map and the different DevOps capability areas.\n\nFull screen\n\rAnalysis \u0026amp; Design Capabilities\rAnalysis \u0026amp; Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform.\n\r\rBuild \u0026amp; Test Capabilities\rInvolves everything from the capability to write and building code to the different types of testing of the code.\n\r\rEnvironments\rAn important DevOps capability is to have different environments to deploy the different solutions part of the Altinn 3 platform.\n\r\rPlatform Operations Management Capabilities\rPlatform Operations Management Capabilities describes the capabilities needed to operate the platform.\n\r\rProject Management Capabilities\rProject Management Capabilities covers the different capabilities to mange the project.\n\r\rQuality Management Capabilities\rQuality Management Capabilities covers the different capabilities to mange the project.\n\r\rSoftware Configuration \u0026amp; Release Management Capabilities\rSoftware Configuration \u0026amp; Release Management Capabilities process of tracking changes and handle new releases for a application\n\r\r"
 },
@@ -877,7 +877,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/",
 	"title": "Analysis &amp; Design Capabilities",
-	"tags": ["architecture"],
+	"tags": ["architecture", "devops"],
 	"description": "Analysis &amp; Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform.",
 	"content": "Analysis Enablement Capabilities Requirement Capture Requirements are gathered through:\n input on Github talks with organization  For some pilots, we choose to create larger epics on Github to group requirements.\nSome example issues are\n The issue for supporting Sirius App for tax department The issue for supporting NSM POB  See development application components to get an overview of the tools and applications we use.\nUse Case/Story Definition The DevOps team has the capability to define uses cases and user stories.\nRequirement Validation Product owners and architects together with the teams are responsible for validation of requirements.\nRequirement Traceability Github keeps a full history on the different issues.\nPrototypes, Mock-Ups \u0026amp; Storyboarding The devopsteam has the capability to create prototypes.\nSee development application components for tools used.\nDesign Enablement Capabilities UI Design Enablement We use Figma to design the UI elements.\nData Modeling \u0026amp; Design Capability The devops team has the capability for data modelling and design.\nSee development application components to get an overview of the tools and applications we use.\nArchitecture Design Enablement Architecture design is presented on this site using Markdown and Visio.\nApplication Design Enablement Application design is presented on this site using Markdown and Visio.\n"
 },
@@ -1213,7 +1213,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/",
 	"title": "Build &amp; Test Capabilities",
-	"tags": ["architecture", "todo"],
+	"tags": ["architecture", "devops", "todo"],
 	"description": "Involves everything from the capability to write and building code to the different types of testing of the code.",
 	"content": "Below list the capabilities with a short description and possible link to the different components providing that capability.\nSoftware Generation Capabilties Code \u0026amp; Config Writing Capability Most of our code is written manually.\nSee development application components to get a overview over tools and application we use.\nBuild \u0026amp; Integration Enablement Capabilities Software Compilation \u0026amp; Validation The project uses .Net, Java or Typescript compilers.\nSofware Linking \u0026amp; Packaging The project has the capability to build packages.\nSee development application components for details how we do this.\nBuild Orchestration We use Auzure Pipelines to build the source code.\nSee development application components to get a overview over tools and application we use.\nContinuous Integration Capabilities Azure Piplines are used for Continuous Integration. When a pull request is created a build is triggered that builds the code and run unit and integration tests.\nTest Management Capabilities Test Case \u0026amp; Script Creation \u0026amp; Management  Test scripts are collected in Github.  Test Execution Tracking \u0026amp; Reporting The team\nTest Data Creation \u0026amp; Management  Test data for local testing and integration testing is kept in Github.  Test Execution \u0026amp; Automation Capabilities Functional Test The devopsteam has the capability to perform functional testing.\nUnit Test As part of the development unit test are created. They are run for every pull request.\nService \u0026amp; API Test Performance Testing \u0026amp; Profiling "
 },
@@ -1521,7 +1521,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/",
 	"title": "Environments",
-	"tags": ["architecture", "todo"],
+	"tags": ["architecture", "devops"],
 	"description": "An important DevOps capability is to have different environments to deploy the different solutions part of the Altinn 3 platform.",
 	"content": "Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage.\nDevelopment Environments Available at staging.altinn.studio for Altinn Studio\nTest environment We have serveral internal test environments used for testing.\nAvailable at at22.altinn.cloud\nAvailable at at23.altinn.cloud\nAvailable at at24.altinn.cloud\nAvailable at dev.altinn.studio for Altinn Studio.\nPre Production Environemnt This environment used by the application/service owners to test applications created in Altinn Studio.\nAvailable at tt02.altinn.no\nProduction Environment Available at www.altinn.no for Altinn 2/ Altinn 3\nAvailable at altinn.studio for Altinn Studio\n"
 },
@@ -2109,7 +2109,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/",
 	"title": "Platform Operations Management Capabilities",
-	"tags": ["architecture"],
+	"tags": ["architecture", "devops"],
 	"description": "Platform Operations Management Capabilities describes the capabilities needed to operate the platform.",
 	"content": "PaaS \u0026amp; IaaS Management Capabilities Automation \u0026amp; Scheduling (batch, scripts) This include running scripts for infrastructure and jobs both manual and scheduled.\nSee operations application components for details about tools and applications used.\nInfrastructure Configuration \u0026amp; Management The Altinn 3 platform is a large platform with serveral 100 cloud resources. The architecture provides serveral capabilityes to configure and manage all of this resource.\nSee details here.\nBackup \u0026amp; Recovery It is important to reduce the risk of losing data on the platform. The risks that are identified are\n Data is deleted by accident by DevOps team or by wrongly configured jobs Data is corrupted by bugs in platform or application code Data is accidentally corrupted or deleted by end-users or systems A storage account is deleted Blob storage is deleted Cosmos DB collection is accidentally deleted  In Altinn Platform different types of data is stored\nCosmos DB  Instances: Metadata about instances created InstanceEvents DataElements Applications  Blob Storage  Data for data elements (structured and unstructured data, small to potential gigabytes of data) XACML Policy for applications  The requirement is that we are able to restore data up to 90 days. The platform support this requirement for all types of data listed above.\nSee all details about the backup and recovery components.\nPerformance \u0026amp; Availability Management Capabilities Performance Profiling See operations application components for details about tools and applications used.\nPerformance Tuning The performance tuning capability for includes tuning of code and architecture to increase performance and capacity. This is typical done based on metrix that indicates slow performance.\nAvailability and Performance Monitoring This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud.\nSee operations application components for details about tools and applications used.\nCloud Capacity Management The devops team uses differen tools to manage capacity in cloud.\nSee operations application components for details about tools and applications used.\n"
 },
@@ -2221,7 +2221,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/projectmanagement/",
 	"title": "Project Management Capabilities",
-	"tags": ["architecture"],
+	"tags": ["architecture", "devops"],
 	"description": "Project Management Capabilities covers the different capabilities to mange the project.",
 	"content": "Most of the project capabilties is not listed. The once that is listed is the ones where we use technolgies and teqniques that can be shared/reused.\nAgile Project Management Capabilties Backlog managmenent and prioritazion The project has capability to manage the backlog and prioritize it.\nThis is done in Github and Zenhub.\nBurn-down / Tracking The project has capability to manage see the burn-down and track issues in backlog\nThis is done in Github and Zenhub.\n"
 },
@@ -2242,7 +2242,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/quality/",
 	"title": "Quality Management Capabilities",
-	"tags": ["architecture"],
+	"tags": ["architecture", "devops"],
 	"description": "Quality Management Capabilities covers the different capabilities to mange the project.",
 	"content": "Quality Assurance \u0026amp; Reviews All pull request in GitHub requires approved reviews of the changes before it can be merged in to the master branch.\nSee current and earlier pull request.\nFor infrastructure changes the pull request is done in Azure Devops with the same type of reviews.\nDefect Tracking \u0026amp; Management Defects are tracked in Gitub as bugs. See active and closed bugs.\nStatic SW Analysis Enablement Every pull requsts needs to adhere to code quality standard verifyed with static code analysis.\nThe build pipline in Azure Devops runs LGTM for static code analysis with focus on security and SonarCloud for general static code analysis.\n"
 },
@@ -2459,7 +2459,7 @@
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/",
 	"title": "Software Configuration &amp; Release Management Capabilities",
-	"tags": ["architecture", "todo"],
+	"tags": ["architecture", "todo", "devops"],
 	"description": "Software Configuration &amp; Release Management Capabilities process of tracking changes and handle new releases for a application",
 	"content": "Version, Release \u0026amp; Artefact Management Capabilities Version Management Artefact Management Software Configuration Management Release Management Continuous Del. Pipeline Management The goal is to deliver continously.\nDeployment Capabilities Deployment Orchestration Capabilites The devopsteam has the capability to orhecstrate deployes. Both autmatic and manual deploy is supported.\nSee development application components to get a overview over tools and application we use.\n"
 },
