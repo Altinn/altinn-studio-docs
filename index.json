@@ -1523,7 +1523,7 @@
 	"title": "Environments",
 	"tags": ["architecture", "todo"],
 	"description": "Description of the environments",
-	"content": "Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage.\nDevelopment Environments This is a dedicated devlopment environent\nTest environment Pre Production Environemnt Production Environment "
+	"content": "Altinn Studio, Altinn Apps and Altinn Platform is deployed in serveral environments for different usage.\nDevelopment Environments Available at staging.altinn.studio for Altinn Studio\nTest environment We have serveral internal test environments used for testing.\nAvailable at at22.altinn.cloud\nAvailable at at23.altinn.cloud\nAvailable at at24.altinn.cloud\nAvailable at dev.altinn.studio for Altinn Studio.\nPre Production Environemnt This environment used by the application/service owners to test applications created in Altinn Studio.\nAvailable at tt02.altinn.no\nProduction Environment Available at www.altinn.no for Altinn 2/ Altinn 3\nAvailable at altinn.studio for Altinn Studio\n"
 },
 {
 	"uri": "https://docs.altinn.studio/tags/error-handling/",
