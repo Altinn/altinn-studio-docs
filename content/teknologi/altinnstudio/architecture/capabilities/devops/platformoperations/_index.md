@@ -2,7 +2,7 @@
 title: Platform Operations Management Capabilities
 linktitle: Platform Operations
 description: Platform Operations Management Capabilities describes the capabilities needed to operate the platform. 
-tags: [architecture]
+tags: [architecture, devops]
 toc: false
 ---
 
@@ -12,7 +12,7 @@ toc: false
 
 This include running scripts for infrastructure and jobs both manual and scheduled.
 
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
 ### Infrastructure Configuration & Management
 
@@ -23,52 +23,29 @@ See details [here](infrastructuremgmt).
 
 ### Backup & Recovery
 
-It is important to reduce the risk of losing data on the platform. The risks that are identified are
+The Altinn 3 platform has the capability to backup and restore data created by applications hosted in Altinn Apps.
 
-- Data is deleted by accident by DevOps team or by wrongly configured jobs
-- Data is corrupted by bugs in platform or application code
-- Data is accidentally corrupted or deleted by end-users or systems
-- A storage account is deleted
-- Blob storage is deleted
-- Cosmos DB collection is accidentally deleted
-
-In Altinn Platform different types of data is stored
-
-#### Cosmos DB
-
-- Instances: Metadata about instances created
-- InstanceEvents
-- DataElements
-- Applications
-
-
-#### Blob Storage
-
-- Data for data elements (structured and unstructured data, small to potential gigabytes of data)
-- XACML Policy for applications
-
-The requirement is that we are able to restore data up to 90 days. 
-The platform support this requirement for all types of data listed above. 
-
-[See all details about the backup and recovery components](../../../components/application/nonsolutionspecific/operations/backupandrecovery/).
-
+See details [here](backupandrecovery).
 
 ## Performance & Availability Management Capabilities
 
 ### Performance Profiling
 
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
 ### Performance Tuning
+
 The performance tuning capability for includes tuning of code and architecture to increase performance and capacity.
 This is typical done based on metrix that indicates slow performance.
 
 ### Availability and Performance Monitoring
-This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud. 
 
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+This capability include automatic and manuel monitoring of the availability, healt and performance of the different components deployed to the cloud.
+
+See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used.
 
 ### Cloud Capacity Management
+
 The devops team uses differen tools to manage capacity in cloud.
 
 See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used.
