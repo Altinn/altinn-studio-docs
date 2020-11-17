@@ -10436,6 +10436,7 @@ if(host != "localhost")
             <h2>På denne siden:</h2>
               <nav id="TableOfContents">
   <ul>
+    <li><a href="#designer-moves-formlayoutjson-from-appui-to-appuilayouts">Designer moves FormLayout.json from app/ui to app/ui/layouts</a></li>
     <li><a href="#added-registration-of-events-to-the-new-events-component">Added registration of events to the new Events component</a></li>
     <li><a href="#support-for-deleting-instances-from-endpoint-in-app">Support for deleting instances from endpoint in app</a></li>
     <li><a href="#update-path-of-data-protection-keys-for-apps">Update path of Data Protection Keys for Apps</a></li>
@@ -10460,6 +10461,21 @@ if(host != "localhost")
 
 
 
+<h2 id="designer-moves-formlayoutjson-from-appui-to-appuilayouts">Designer moves FormLayout.json from app/ui to app/ui/layouts</h2>
+<p>In order to support multiple pages in an app we have done some restructuring of the app-template. When you are doing changes in Altinn Designer for your app the updated FormLayout.json will be put under the new structure.
+For apps that have nuget references to <code>Altinn.App.Api</code>, <code>Altinn.App.Common</code>, and <code>Altinn.App.PlatformServices</code> with versions below version <code>1.2.0</code> this will make the app unable to find the FormLayout.json on the network call against the app.</p>
+<ol>
+<li>
+<p>Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
+Update nuget dependencies in <code>App.csproj</code> to version 1.2.0-alpha or newer. We recommend updating to latest version which is currently at <code>1.3.1</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.3.1&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</code></pre></div></li>
+<li>
+<p>If there are some breaking changes when updating the nuget-version this should be documented below.</p>
+</li>
+</ol>
 <h2 id="added-registration-of-events-to-the-new-events-component">Added registration of events to the new Events component</h2>
 <p>The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.</p>
 <p>Updating to this version will require changes in multiple files.</p>
