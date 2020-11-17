@@ -33,11 +33,13 @@ The infrastructure is highly scalable to support the different needs and all inf
 The application template provided by Altinn Studio is prepared for the most common digital services scenarios making it possible to create and deploy
 the most simple public digital services in only hours.
 
+When an application is deployed to Altinn Apps it is available to all citizens and businesses of Norway.
+
 ## What types of apps can be built with Altinn Studio and hosted in Altinn Apps?
 
 The first version supports apps where the use case is to submit data from the end user or system to the organizations.
 
-## Why Altinn Studio?
+## Why Altinn 3?
 
 There are many reasons to use Altinn 3 to build and host your digital services.
 
@@ -47,6 +49,7 @@ There are many reasons to use Altinn 3 to build and host your digital services.
 - A known platform for end users
 - Highly scalable and secure infrastructure
 - Open source
+- Access to almost all citizens and business in Norway
 
 ## When was it launched?
 
