@@ -10494,8 +10494,8 @@ The organisation must then create a client that uses the scope.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#ff79c6">^</span>([a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+\/</span>?)<span style="color:#ff79c6">+</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>(<span style="color:#ff79c6">\.</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>)?<span style="color:#8be9fd;font-style:italic">$?</span>
 </code></pre></div><p>It means that we cannot have <code>-</code> or <code>_</code> in scope names.</p>
 <h4 id="all-instances-scope">All instances scope</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>instances.read
-altinn<span style="color:#ff79c6">:</span>instances.write
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
+altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.write
 </code></pre></div><p>This is the most general scope which can be given to an organisation by Altinn.
 It means that the application owner can create a client that can access all instances of apps issued by that application owner.</p>
 <p>Clients with <em>write</em> scope will be able to instantiate applications through direct access to the app&rsquo;s api, update metadata,
