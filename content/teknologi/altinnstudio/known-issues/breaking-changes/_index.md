@@ -5,6 +5,19 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
+## Designer moves FormLayout.json from app/ui to app/ui/layouts
+In order to support multiple pages in an app we have done some restructuring of the app-template. When you are doing changes in Altinn Designer for your app the updated FormLayout.json will be put under the new structure.
+For apps that have nuget references to `Altinn.App.Api`, `Altinn.App.Common`, and `Altinn.App.PlatformServices` with versions below version `1.2.0` this will make the app unable to find the FormLayout.json on the network call against the app.
+1. Navigate to you application repository and find `App.csproj` in the `App` folder.
+   Update nuget dependencies in `App.csproj` to version 1.2.0-alpha or newer. We recommend updating to latest version which is currently at `1.3.1`.
+
+    ```xml
+    <PackageReference Include="Altinn.App.Api" Version="1.3.1" />
+    <PackageReference Include="Altinn.App.Common" Version="1.3.1" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="1.3.1" />
+    ```
+2. If there are some breaking changes when updating the nuget-version this should be documented below. 
+
 ## Added registration of events to the new Events component
 
 The Altinn.App.* packages has been updated to work with the new Events component in Altinn. This is introduced with version 1.1.11-alpha of the packages.
