@@ -94,13 +94,20 @@ See docker files for Altinn Studio
 - [Designer])(https://github.com/Altinn/altinn-studio/blob/master/src/AltinnCore/Designer/Dockerfile)
 
 
-### Artecat & Container Registry
+### Artefact & Container Registry
 
 #### .NET Packages
+
 .NET packages som part of the codes are [published as Nuget Packages](https://www.nuget.org/profiles/altinn). 
 This process is manual and performed by developer.
 
+.Net packes used are also retrived from .Net
+
 #### Javascript packages
+
+The project uses NPM for javascript packages. 
+
+In the future we will publish NPM packages for parts of the solutions.
 
 
 #### Docker Containers
