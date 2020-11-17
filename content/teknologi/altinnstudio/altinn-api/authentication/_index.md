@@ -61,8 +61,8 @@ It means that we cannot have `-` or `_` in scope names.
 #### All instances scope
 
 ```js
-altinn:instances.read
-altinn:instances.write
+altinn:serviceowner/instances.read
+altinn:serviceowner/instances.write
 ```
 
 This is the most general scope which can be given to an organisation by Altinn.
