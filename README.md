@@ -2,6 +2,8 @@
 
 Documentation for Altinn Studio: https://docs.altinn.studio/
 
+[![Build status](https://dev.azure.com/brreg/altinn-studio-docs/_apis/build/status/altinn-studio-docs-CI)](https://dev.azure.com/brreg/altinn-studio-docs/_build/latest?definitionId=16)
+
 ## Running Altinn Studio docs locally 
 
 1. Clone the repo (assumes you've installed [Git](https://git-scm.com/downloads)):
