@@ -10461,7 +10461,7 @@ This page is constantly updated on the use of nuget package in altinn studio.
 </div>
 <h3 id="nuget-package">Nuget Package</h3>
 <p>Altinn Studio publishes nuget package to share common libraries between different solutions. You can read more about nuget <a href="https://www.nuget.org/">here</a>.</p>
-<p>Following nuget packages are published and are available for download [here] (<a href="https://www.nuget.org/profiles/altinn">https://www.nuget.org/profiles/altinn</a>)</p>
+<p>Following nuget packages are published and are available for download <a href="https://www.nuget.org/profiles/altinn">here</a></p>
 <ul>
 <li><a href="https://www.nuget.org/packages/Altinn.App.Api">Altinn.App.Api</a></li>
 <li><a href="https://www.nuget.org/packages/Altinn.App.Common">Altinn.App.Common</a></li>
@@ -10472,49 +10472,31 @@ This page is constantly updated on the use of nuget package in altinn studio.
 </ul>
 <h3 id="procedure-for-nuget-packages">Procedure for Nuget Packages</h3>
 <ol>
-<li>Implement all changes necessary in the Nuget Package project e.g. Storage.Interface.csproj.</li>
-<li>Submit PR on these changes only. No implementation on other projects should be included.</li>
-<li>Once PR approved and changes are merged into master; create and deploy new Nuget Package based on master branch.</li>
-<li>Continue with implementation, referencing the updated Nuget wherever it is needed.</li>
-<li>Remember to update all outdated references to the Nuget and check that all tests run successfully before submitting a final PR.</li>
+<li>Implement all changes necessary in the Nuget package project. Remember to update the package version.</li>
+<li>Submit a pull request on these changes only. No implementation on other projects should be included.</li>
+<li>Once pull request is approved and changes are merged into master; create and deploy new Nuget package based on master branch.</li>
+<li>Continue with implementation, referencing the updated package wherever it is needed.</li>
+<li>Remember to update all outdated references to the package and check that all tests run successfully before submitting a final PR.</li>
 </ol>
-<h3 id="create-nuget-package">Create Nuget Package</h3>
-<p>Detailed documentation on how to create a nuget package, guidelines etc can be found <a href="https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio">here</a>.</p>
+<h3 id="create-nuget-package">Create Nuget package</h3>
+<p>Detailed documentation on how to create a NuGet package, guidelines etc can be found <a href="https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio">here</a>.</p>
 <h3 id="an-example-of--nuget-package-creation-in-altinn-studio">An example of  nuget package creation in altinn studio</h3>
 <p>Example : Create Altinn.Platform.Storage.Interface nuget package</p>
 <h3 id="set-project-properties">Set Project Properties</h3>
 <ol>
-<li>
-<p>Open Altinn.Platform.Storage solution</p>
-</li>
-<li>
-<p>Right click on Storage.Interface project and select properties. You will see the screen below
-<img src="storageinterface-props.png?width=1000" alt="Project Properties" title="Project Properties"></p>
-</li>
-<li>
-<p>Choose Package, add the package details such as id, version, description, author, company and tags.</p>
-</li>
-<li>
-<p>Save the changes</p>
-</li>
-<li>
-<p>Choose release mode</p>
-</li>
-<li>
-<p>Right click on Storage.Interface and select &ldquo;Pack&rdquo;</p>
-</li>
-<li>
-<p>The package will now be created in &ldquo;C:\Repos\altinn-studio\src\Altinn.Platform\Altinn.Platform.Storage\Storage.Interface\bin\Release&rdquo;</p>
-</li>
-<li>
-<p>Go to commandline, navigate to the release path</p>
-</li>
-<li>
-<p>run &ldquo;dotnet nuget push Altinn.Platform.Storage.Interface.1.0.1-alpha.nupkg -k [nuget api key] -s <a href="https://api.nuget.org/v3/index.json%22">https://api.nuget.org/v3/index.json&quot;</a></p>
-</li>
-<li>
-<p>Your package will now be published to nuget.org</p>
-</li>
+<li>Open Altinn.Platform.Storage solution</li>
+<li>Right click on Storage.Interface project and select properties. You will see the screen below:<br>
+<img src="storageinterface-props.png?width=1000" alt="Project Properties" title="Project Properties"></li>
+<li>Choose Package, add the package details such as id, version, description, author, company and tags.</li>
+<li>Save the changes</li>
+<li>Choose release mode</li>
+<li>Right click on Storage.Interface and select &ldquo;Pack&rdquo;</li>
+<li>The package will now be created in<br>
+<strong>C:\Repos\altinn-studio\src\Altinn.Platform\Altinn.Platform.Storage\Storage.Interface\bin\Release</strong></li>
+<li>Go to commandline, navigate to the release path</li>
+<li>Run the command:<br>
+<strong>dotnet nuget push Altinn.Platform.Storage.Interface.2.3.0.nupkg -k [nuget api key] -s <a href="https://api.nuget.org/v3/index.json">https://api.nuget.org/v3/index.json</a></strong></li>
+<li>Your package will now be published to nuget.org</li>
 </ol>
 
 
