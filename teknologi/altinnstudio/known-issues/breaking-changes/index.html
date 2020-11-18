@@ -10436,6 +10436,7 @@ if(host != "localhost")
             <h2>På denne siden:</h2>
               <nav id="TableOfContents">
   <ul>
+    <li><a href="#support-for-autodelete-when-process-ends">Support for autodelete when process ends</a></li>
     <li><a href="#designer-moves-formlayoutjson-from-appui-to-appuilayouts">Designer moves FormLayout.json from app/ui to app/ui/layouts</a></li>
     <li><a href="#added-registration-of-events-to-the-new-events-component">Added registration of events to the new Events component</a></li>
     <li><a href="#support-for-deleting-instances-from-endpoint-in-app">Support for deleting instances from endpoint in app</a></li>
@@ -10461,6 +10462,46 @@ if(host != "localhost")
 
 
 
+<h2 id="support-for-autodelete-when-process-ends">Support for autodelete when process ends</h2>
+<p>For some apps, the fact that there&rsquo;s traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
+The Altinn.App.* packages has been updated to support autodelete when process ends. This is introduced with version 2.0.0-alpha of the packages.</p>
+<p>Updating to this version will require changes in multiple files.</p>
+<ol>
+<li>
+<p>Updated package dependencies
+Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
+Update nuget dependencies in <code>App.csproj</code> to version 2.0.0-alpha or newer..</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;2.0.0-alpha&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</code></pre></div></li>
+<li>
+<p>Changes in App.cs</p>
+<p>Change constructor:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
+IAppResources appResourcesService,
+ILogger&lt;App&gt; logger,
+IData dataService,
+IProcess processService,
+IPDF pdfService,
+IProfile profileService,
+IRegister registerService,
+IPrefill prefillService
+) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService)
+</code></pre></div><p>to:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
+  IAppResources appResourcesService,
+  ILogger&lt;App&gt; logger,
+  IData dataService,
+  IProcess processService,
+  IPDF pdfService,
+  IProfile profileService,
+  IRegister registerService,
+  IPrefill prefillService,
+  IInstance instanceService
+  ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
+</code></pre></div></li>
+</ol>
 <h2 id="designer-moves-formlayoutjson-from-appui-to-appuilayouts">Designer moves FormLayout.json from app/ui to app/ui/layouts</h2>
 <p>In order to support multiple pages in an app we have done some restructuring of the app-template. When you are doing changes in Altinn Designer for your app the updated FormLayout.json will be put under the new structure.
 For apps that have nuget references to <code>Altinn.App.Api</code>, <code>Altinn.App.Common</code>, and <code>Altinn.App.PlatformServices</code> with versions below version <code>1.2.0</code> this will make the app unable to find the FormLayout.json on the network call against the app.</p>
