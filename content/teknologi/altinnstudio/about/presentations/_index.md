@@ -23,6 +23,7 @@ Every other week, we present what we have done and what we're planning to do for
 * [Status og planer - 30. september 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20200930.pptx)
 * [Status og planer - 14. oktober 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201014.pptx)
 * [Status og planer - 28. oktober 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201028.pptx)
+* [Status og planer - 11. november 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201111.pptx)
 * More to come...
 
 ## Themed meetings
@@ -31,4 +32,6 @@ The weeks where we don't presesent status, we hold themed meetings.
 
 * Hvordan komme i gang med Altinn 3? (7. oktober 2020) [Altinns presentasjon](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201007.pptx) | [SSBs presentasjon](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20201007-SSB_AltinnStudio.pptx)
 * [Integrasjon med mottakssystem](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201021.pptx) (21. oktober 2020)
+* [Hvordan bidra til et bedre Altinn 3?](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201104.pptx) (4. november 2020)
+* [Signering i Altinn 3](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201118.pptx) (18. november 2020)
 * More to come...
