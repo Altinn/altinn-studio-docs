@@ -12,12 +12,12 @@ The Altinn.App.* packages has been updated to support autodelete when process en
 Updating to this version will require changes in multiple files.
 1. Updated package dependencies
  Navigate to you application repository and find `App.csproj` in the `App` folder.
-   Update nuget dependencies in `App.csproj` to version 2.0.0-alpha or newer..
+   Update nuget dependencies in `App.csproj` to version 2.0.0.
 
     ```xml
-    <PackageReference Include="Altinn.App.Api" Version="2.0.0-alpha" />
-    <PackageReference Include="Altinn.App.Common" Version="2.0.0-alpha" />
-    <PackageReference Include="Altinn.App.PlatformServices" Version="2.0.0-alpha" />
+    <PackageReference Include="Altinn.App.Api" Version="2.0.0" />
+    <PackageReference Include="Altinn.App.Common" Version="2.0.0" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="2.0.0" />
     ```
 
 2. Changes in App.cs
