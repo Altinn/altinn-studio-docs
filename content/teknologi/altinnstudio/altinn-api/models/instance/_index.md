@@ -8,7 +8,7 @@ weight: 40
 
 ## Instance
 
-The Instance model is the main model of an instance. An instance works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. 
+The Instance model is the main model of an instance. An instance can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. 
 
 ### Properties
 
