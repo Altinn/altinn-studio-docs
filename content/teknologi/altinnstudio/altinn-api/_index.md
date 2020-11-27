@@ -9,21 +9,21 @@ aliases:
 
 ## The APIs
 
-The new solution will have multiple APIs, but they can be divided in two groups. The App APIs and the Platform API.
+The new solution will have multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.
 
 ### Application API
 
 The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.
 
-Metadata for an App is the second job of the App API. There are endpoint that give access to the metadata of the App itself, its data types and process description.
+Metadata for an app is the second job of the app API. There are endpoint that give access to the metadata of the app itself, its data types and process description.
 
-Every App will expose almost identical endpoints and functionality. External parties should need only one client implementation across all App APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. In these cases, the application might require some special handling, and additional documentation should be provided by the application owner.
+Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. In these cases, the application might require some special handling, and additional documentation should be provided by the application owner.
 
 ```http
 https://{org}.apps.altinn.no/{org}/{appname}
 ```
 
-The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the App consisting of both the application owner short name and the name of the app **org/appname**. 
+The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the app consisting of both the application owner short name and the name of the app **org/appname**. 
 
 ### Platform API
 

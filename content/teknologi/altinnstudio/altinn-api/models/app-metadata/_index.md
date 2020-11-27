@@ -29,7 +29,7 @@ Data type represents the requirements for data elements. Data types representing
 
 Name | Description
 -----|-------------
-id | The id of the data type. Unique for the App.
+id | The id of the data type. Unique for the app.
 description | A collection of data type descriptions in different languages.
 allowedContentTypes | A list of Content-Types allowed by the data type.
 allowedContributers | A list of allowed contributors. This can be used to restrict who it is that can work with the data type.
@@ -64,7 +64,7 @@ subUnit | A value indicating that the instance owner can be a sub unit.
 
 ## Complete example
 
-This is a complete App metadata document with data types.
+This is a complete app metadata document with data types.
 
 ```json
 {

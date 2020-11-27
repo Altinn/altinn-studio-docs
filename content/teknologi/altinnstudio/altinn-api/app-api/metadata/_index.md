@@ -1,6 +1,6 @@
 ---
 title: App metadata
-description: The App API to get metadata information for the App.
+description: The app API to get metadata information for the app.
 toc: true
 tags: [api]
 weight: 30
@@ -8,9 +8,9 @@ weight: 30
 
 ## Overview
 
-The endpoints documented here are all for accessing metadata on the App itself and the data types that are allowed in an instance of the App. Additional endpoints provides access to text resources.
+The endpoints documented here are all for accessing metadata on the app itself and the data types that are allowed in an instance of the app. Additional endpoints provides access to text resources.
 
-## Get App metadata
+## Get app metadata
 
 Endpoint for downloading a copy of the [application metadata](../../models/app-metadata) document.
 
@@ -30,7 +30,7 @@ GET {basePath}/api/v1/texts/{languageCode}
 
 ## Get model JSON schema
 
-Download the JSON schema for a specific model. The **id** parameter must have the name of a JSON Schema in the App. This is usually a generated name based on values in the original XSD uploaded on the App. E.g: *Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES*
+Download the JSON schema for a specific model. The **id** parameter must have the name of a JSON Schema in the app. This is usually a generated name based on values in the original XSD uploaded on the app. E.g: *Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES*
 
 ```http
 GET {basePath}/api/jsonschema/{id}

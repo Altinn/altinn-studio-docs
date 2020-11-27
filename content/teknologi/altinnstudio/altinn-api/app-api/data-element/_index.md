@@ -1,6 +1,6 @@
 ---
 title: Data elements
-description: The App API to work with the data elements associated with an instance
+description: The app API to work with the data elements associated with an instance
 toc: true
 tags: [api]
 weight: 100

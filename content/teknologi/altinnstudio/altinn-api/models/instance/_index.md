@@ -1,6 +1,6 @@
 ---
 title: Instance
-description: An instance is a metadata container that is used to track the status and progress of one interaction between an App user and owner.
+description: An instance is a metadata container that is used to track the status and progress of one interaction between an app user and owner.
 toc: true
 tags: [api]
 weight: 40
@@ -16,11 +16,11 @@ Name | Description
 -----|-------------
 id | A gobally unique id for the instance. The value has two parts separated by a '/' character. The first part is the internal unique id of the instance owner and the second part is a generated UUID value.
 instanceOwner | A complex type identifying the owner of the instance. See [InstanceOwner](#instanceowner)
-appId | The id for the App the instance is associated with. The value has two parts separated by a '/' character. The first part is the short name/identifier of the owner of the App and the second part is the App name.
-org | The short name of the App owner.
+appId | The id for the app the instance is associated with. The value has two parts separated by a '/' character. The first part is the short name/identifier of the owner of the app and the second part is the app name.
+org | The short name of the app owner.
 selfLinks | A complex type containing a set of named URLs. See [ResourceLinks](#resourcelinks)
-dueBefore | This can be use by App owner to indicate a deadline for when the instance must be completed and submitted by a user that can represent the instance owner.
-visibleAfter | This can be used by App owner to have an instance become visible for App users at a given date and time. This way an instance can be created in advance and populated with data before being available to an application user.
+dueBefore | This can be use by app owner to indicate a deadline for when the instance must be completed and submitted by a user that can represent the instance owner.
+visibleAfter | This can be used by app owner to have an instance become visible for app users at a given date and time. This way an instance can be created in advance and populated with data before being available to an application user.
 process | A complex type tracking the process state of the instance. See [ProcessState](#processstate)
 status | A complex type with more state data. See [InstanceStatus](#instancestatus)
 completeConfirmations | A list of complete confirmations. See [CompleteConfirmation](#completeconfirmation)
@@ -99,19 +99,19 @@ validated | A date and time for when the instance was validated as well as a val
 
 ## ResourceLinks
 
-The resource link model is should have a collection of URLs that can be used to obtain a copy of the instance document through different API. The propose is to make it easy to switch between API. Primarily when the original was obtain from the storage instance query API and you need to use the App API to perform changes on the instance.
+The resource link model is should have a collection of URLs that can be used to obtain a copy of the instance document through different API. The propose is to make it easy to switch between API. Primarily when the original was obtain from the storage instance query API and you need to use the app API to perform changes on the instance.
 
 ### Properties
 
 Name | Description
 -----|-------------
-apps | Contains a URL for the endpoint to use to obtain a copy of the current instance document through the App API.
+apps | Contains a URL for the endpoint to use to obtain a copy of the current instance document through the app API.
 platform | Contains a URL for the endpoint to use to obtain a copy of the current instance document through the Platform Storage API.
 
 
 ## Complete example
 
-This example was created by instantiating an App running locally on a development machine using LocalTest. The process is at first step, Task_1, and it has a single data element which is the main form of the App.
+This example was created by instantiating an app running locally on a development machine using LocalTest. The process is at first step, Task_1, and it has a single data element which is the main form of the app.
 
 ```json
 {

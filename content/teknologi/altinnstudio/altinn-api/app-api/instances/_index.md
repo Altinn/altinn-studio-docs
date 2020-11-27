@@ -1,6 +1,6 @@
 ---
 title: Instances
-description: The App API to work with instances of an App
+description: The app API to work with instances of an app
 toc: true
 tags: [api]
 weight: 50
@@ -8,7 +8,7 @@ weight: 50
 
 ## Overview
 
-An [instance](../../models/instance) works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one App to another. Advanced Apps will have their own documentation.
+An [instance](../../models/instance) works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. Advanced apps will have their own documentation.
 
 **basePath**
 ```http
@@ -17,7 +17,7 @@ An [instance](../../models/instance) works as a form of envelope or folder where
 
 ## Get instance
 
-Endpoint for downloading the instance metadata document for a specific instance. The App API does not have an endpoint for listing instances. The Storage API in the Platform has a query endpoint that can be used for this purpose.
+Endpoint for downloading the instance metadata document for a specific instance. The app API does not have an endpoint for listing instances. The Storage API in the Platform has a query endpoint that can be used for this purpose.
 
 Use this endpoint for instances that are active, and the owner party id and instance guid for the instance is known. External systems that work with an instance over multiple sessions might want to keep these values (or full URL) stored on their end to limit the need to query this information multiple times.
 
