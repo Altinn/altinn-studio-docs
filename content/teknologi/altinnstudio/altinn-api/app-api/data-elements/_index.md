@@ -8,7 +8,7 @@ weight: 100
 
 ## Overview
 
-A Data element consist of two parts; its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.
+A data element consist of two parts; its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.
 
 **basePath**
 ```http
@@ -24,15 +24,15 @@ GET basePath/{dataGuid}
 Accept: application/{xml/json}
 ```
 
-The response will depend on the type of blob. There are currently 2 primary types; forms and attachments.
+The response will depend on the type of blob. There are currently 2 primary types; form data based on a model and attachments. The Accept header is considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.
 
 ### Response with form data
 
-The respons will either be a json or xml serialized version of the object model depending on the **Accept** header in the request. The value **application/xml** will result in an XML document and the value **application/json** will result inn a JSON document.
+A response with form data will either be a json or xml serialized version of the data model depending on the **Accept** header in the request. The value **application/xml** will result in an XML document and the value **application/json** will result inn a JSON document.
 
 ### Response with instance attachment
 
-The respons will be a file stream. Content-Type will be the same as the original value given when the file was uploaded. The same is true for the file name.
+A response with a file attachment will be a file stream. Content-Type will be the same as the original value given when the file was uploaded. The same is true for the file name.
 
 ```http
 Content-Disposition: attachment; filename=cute_cat.png; filename*=UTF-8''cute_cat.png
@@ -42,15 +42,15 @@ Content-Type: image/png
 
 ## Upload data
 
-Endpoint for initially uploading a new data element on a specific instance.
+Endpoint for uploading a new data element on a specific instance.
 
 ```http
 POST basePath?dataType={data type name}
 ```
 
-The **dataType** parameter is required and should contain the name of one of the data types defined on the application. Data types with an **appLogic** property are linked to a form and will have data validation and calculation rules associated with them. Submitted data will be deserialized from **application/xml** or **application/json** based on the content-type of the request. Data types without an **appLogic** property will be handeled as any random file and streamed directly to storage.
+The **dataType** parameter is required and should reference one of the data types defined on the application. Data types with an **appLogic** property are linked to a form and will have data validation and calculation rules associated with them. Submitted data will be deserialized from **application/xml** or **application/json** based on the content-type of the request. Data types without an **appLogic** property will be handeled as an attachment and streamed directly to storage.
 
-### Submitting form as application/json
+### Uploading form data as application/json
 
 ```json
 Content-Type: application/json
@@ -70,7 +70,7 @@ Content-Type: application/json
 
 ```
 
-### Submitting form as application/xml
+### Uploading form data as application/xml
 
 ```xml
 Content-Type: application/xml
@@ -84,7 +84,7 @@ Content-Type: application/xml
 </BliTjenesteeier_M>
 ```
 
-### Submitting attachment
+### Uploading an attachment
 
 Most web api client frameworks will have support for creating a valid file upload request for binary data.
 
@@ -99,7 +99,7 @@ Content-Length: 16994
 ...
 ```
 
-### Upload response
+### Response example
 
 The endpoint returns the data element metadata document that was created.
 
@@ -126,7 +126,7 @@ The endpoint returns the data element metadata document that was created.
 
 ## Replace data
 
-Endpoint for replacing an existing data element with new data. The new data must match the data type of the data element it is replacing.
+Endpoint for replacing the content of an existing data element with new data. The new data must match the data type of the data element it is replacing.
 
 ```http
 PUT basePath/{dataGuid}
@@ -141,7 +141,4 @@ Endpoint for deleting an existing data element. It is currently not possible to 
 ```http
 DELETE basePath/{dataGuid}
 ```
-
-## Validate data
-
 

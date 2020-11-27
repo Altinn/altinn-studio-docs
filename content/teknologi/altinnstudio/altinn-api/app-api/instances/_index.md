@@ -8,7 +8,7 @@ weight: 50
 
 ## Overview
 
-An [instance](../../models/instance) works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. Advanced apps will have their own documentation.
+An [instance](../../models/instance) can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance lives and how many interactions there are between the application owner and user will vary from one app to another. Advanced apps will have their own documentation.
 
 **basePath**
 ```http
@@ -19,7 +19,7 @@ An [instance](../../models/instance) works as a form of envelope or folder where
 
 Endpoint for downloading the instance metadata document for a specific instance. The app API does not have an endpoint for listing instances. The Storage API in the Platform has a query endpoint that can be used for this purpose.
 
-Use this endpoint for instances that are active, and the owner party id and instance guid for the instance is known. External systems that work with an instance over multiple sessions might want to keep these values (or full URL) stored on their end to limit the need to query this information multiple times.
+Use this endpoint for instances that are active, and the owner party id and instance guid for the instance are known. External systems that work with an instance over multiple sessions might want to keep these values (or full URL) stored on their end to limit the need to query this information multiple times.
 
 ```http
 GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
@@ -27,14 +27,14 @@ GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
 
 ## Create instance
 
-Altinn assigns an unique identifier to all users that wishes to report data. We call this id *instanceOwner.partyId*. 
+Altinn assigns a unique identifier to all users that wish to report data. We call this id *instanceOwner.partyId*. 
 If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations,
 and in some case user name. This should be provided as part of the payload to the creation request.
-Altinn will look up this identifier and replace it with the instanceOwner.PartyId. The official identity number will be stored in the instance metadata.
+Altinn will look up this identifier and replace it with the instanceOwner.partyId. The official identity number will be stored in the instance metadata.
 
 Data elements can be provided as part of the creation request, but can also be uploaded at a later time.
 
-The client specify the instance owner and can set a number of the metadata fields of the instance by attaching the following form:
+The client specifies the instance owner and may set a number of the metadata fields of the instance by attaching the following form:
 
 ```json
 {
@@ -59,12 +59,12 @@ POST {basePath}
 
 ![Flow chart for instantiation](instantiate-for-an-instance-owner.png "Instantiate for instance owner")
 
-A multipart formdata should contain the instance json document and the data element files of the instance.
+A multipart/formdata should contain the instance json document and the data element files of the instance.
 The first part should be *instance* which contains the json template to create an instance from.
 
 The subsequent parts must have a name that correspond to the element types defined in application metadata.
 They may have a filename. Hence the *model1* and *certificate* names correspond to data types defined in the application metadata.
-If more data elements are needed they must be defined in the application metadata.
+If additional data elements are required they must be defined in the application metadata.
 
 ```http {linenos=false,hl_lines=[5,10,15]}
 Content-Type: multipart/form-data; boundary="abcdefg"
@@ -92,16 +92,6 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 
 This call will return the instance metadata document that was created. 
 
-## Complete instance
-
-Endpoint used by Application Owner to mark an instance as completed. Technically this only means that the instance is no longer needed by the Application Owner. Altinn can delete the instance and associated data should the Application user decide to do so.
-
-```http
-POST {basePath}/{instanceOwnerPartyId}/{instanceGuid}/complete
-```
-
-The request does not use the request body for anything even though it is a POST request.
-
 ## Update sub status
 
 The instance [sub status](https://altinn.github.io/docs/altinn-studio/app-creation/instance/#substatus) is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.
@@ -119,10 +109,35 @@ PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus
 ```
 The values can be referencing text resource names from the language files or be regular text.
 
+## Update read status
+
+The instance read status determines how the instance is rendered in a user's innbox. As an unread or read element. It is possible to update the read status of an instance to indicate that data related to the instance has been updated.
+Permited states are defined in the
+[ReadStatus enum](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs).
+
+```http
+PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
+```
+
+
+## Complete instance
+
+Endpoint used by application owner to mark an instance as completed. Technically this only means that the instance is no longer needed by the application owner. 
+
+Altinn will permanently delete an instance and all the data, if both application owner and a user with the necessary rights indicate on the instance that they no longer have a need for it.
+
+```http
+POST {basePath}/{instanceOwnerPartyId}/{instanceGuid}/complete
+```
+
+The request does not use the request body for anything even though it is a POST request.
+
 
 ## Delete instance
 
-Endpoint for marking an instance as deleted. This can be used by both Application Owner and User to delete an instance. The endpoint has an optional parameter called **hard** that can be used to indicate the type of delete that is wanted. Hard delete means that the instance will be unrecoverable and deleted completely by Altinn within a few days. Setting the parameter to false or simply omitting it, will move the instance to a recycle bin. 
+Endpoint for marking an instance as deleted. This can be used by both application owner and user to delete an instance. The endpoint has an optional parameter called **hard** that can be used to indicate the type of delete that is wanted. Setting the parameter to false or simply omitting it, will move the instance to a recycle bin. Hard delete means that the instance will be unrecoverable. 
+
+Instances that where active might be permanently deleted by Altinn within a few days. Archived instances will be permanently deleted if both application owner and a user with the necessary rights indicate on the instance that they no longer have a need for it.
 
 ```http
 DELETE {basePath}/{instanceOwnerPartyId}/{instanceGuid}?hard=true
@@ -132,17 +147,3 @@ The endpoint does not use the request body for anything.
 
 There are no Application API endpoint for recovering instances in the recycle bin.
 
-
-## Instance read status
-
-The instance read status determines how the instance is rendered in a user's innbox. As an unread or read element.
-
-### Update read status
-
-It is possible to update the read status of an instance to indicate that data related to the instance has been updated.
-Permited states are defined in the
-[ReadStatus enum](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs).
-
-```http
-PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
-```

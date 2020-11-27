@@ -8,7 +8,7 @@ weight: 180
 
 ## Overview
 
-Application has a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these.
+All apps have a process definition that specifies start events, end events, tasks and the allowed flows (transitions) between these.
 A process is started by the application, which selects a start event to start and follows the sequence flow to the first task and
 creates a current task object to holde the process state.
 
