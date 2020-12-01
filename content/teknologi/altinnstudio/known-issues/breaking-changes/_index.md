@@ -5,6 +5,53 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
+## Support for autodelete when process ends
+For some apps, the fact that there's traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
+The Altinn.App.* packages has been updated to support autodelete when process ends. This is introduced with version 2.0.0-alpha of the packages.
+
+Updating to this version will require changes in multiple files.
+1. Updated package dependencies
+ Navigate to you application repository and find `App.csproj` in the `App` folder.
+   Update nuget dependencies in `App.csproj` to version 2.0.0.
+
+    ```xml
+    <PackageReference Include="Altinn.App.Api" Version="2.0.0" />
+    <PackageReference Include="Altinn.App.Common" Version="2.0.0" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="2.0.0" />
+    ```
+
+2. Changes in App.cs
+   
+    Change constructor:
+
+      ```cs
+      public App(
+      IAppResources appResourcesService,
+      ILogger<App> logger,
+      IData dataService,
+      IProcess processService,
+      IPDF pdfService,
+      IProfile profileService,
+      IRegister registerService,
+      IPrefill prefillService
+      ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService)
+      ```
+      to:
+      ```cs
+      public App(
+        IAppResources appResourcesService,
+        ILogger<App> logger,
+        IData dataService,
+        IProcess processService,
+        IPDF pdfService,
+        IProfile profileService,
+        IRegister registerService,
+        IPrefill prefillService,
+        IInstance instanceService
+        ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
+      ```
+
+
 ## Designer moves FormLayout.json from app/ui to app/ui/layouts
 In order to support multiple pages in an app we have done some restructuring of the app-template. When you are doing changes in Altinn Designer for your app the updated FormLayout.json will be put under the new structure.
 For apps that have nuget references to `Altinn.App.Api`, `Altinn.App.Common`, and `Altinn.App.PlatformServices` with versions below version `1.2.0` this will make the app unable to find the FormLayout.json on the network call against the app.
