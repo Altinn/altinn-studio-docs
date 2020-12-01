@@ -21,8 +21,18 @@ Currently all resources are located in [Microsoft Azure](https://azure.microsoft
 We use [Terraform](https://www.terraform.io/) to define the [infrastructure as code](https://en.wikipedia.org/wiki/Infrastructure_as_code). Terraform allows to write declarative configuration files
 defining the infrastructure we use in the different solutions.
 
+Terraform follow the principle of "desired state". Configuration files describe to Terraform the components needed to run the different solutions in Altinn 3.
+
+Terraform generates an execution plan describing what it will do to reach the desired state, and then executes it to build the described infrastructure.
+
+As the configuration changes, Terraform is able to determine what changed and create incremental execution plans which can be applied.
+
+This is crucial for the Altinn DevOps team to being able handle an infrastrucre at this scale.
+
 We use the [Terraform Azure Provider](https://registry.terraform.io/providers/hashicorp/azurerm/latest) that allows lifecycle management of
 Microsoft Azure using the Azure Resource Manager APIs. This is a provider maintained by the Azure team at Microsoft and the Terraform team at HashiCorp.
+
+The resource ARM Apis are used to verify state of infrastucture and perform changes.
 
 We use [Azure Devops Repos](https://azure.microsoft.com/services/devops/repos/) to store our Terraform scripts for the different solutions.
 We use [Azure Devops Pipelines](https://azure.microsoft.com/services/devops/pipelines/) to run the Terraform scripts.
@@ -46,7 +56,7 @@ will provision a Altinn Apps environment for that organization.
 
 Each Altinn 3 environment (production, performance test, test, acceptence test) has their own Altinn Platform solution.
 
-This is based around a Kubernetes cluster and serveral components running in this. 
+This is based around a Kubernetes cluster and serveral components running in this.
 
 The following cloud components is configured
 
@@ -64,15 +74,21 @@ For altinn studio we currently have 3 environments. Staging, dev and production.
 
 Each environments is set up with help of Terraform
 
+### Updating environments
+
+
+
 
 ### Patching environments
 
+
+
 Kured
 
+## Running Terrafrom scripts
 
+We run all Terraform scripts from [Azure DevOps Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/automate-terraform?view=azure-devops)
 
-## Automation & Scheduling (batch, scripts)
+![Environment pipelines](environments_pipelines.png "Environment pipelines")
 
-This include running scripts for infrastructure and jobs both manual and scheduled.
-
-See [operations application components](../../../components/application/nonsolutionspecific/operations/) for details about tools and applications used. 
+![Environment pipeline](environment_specific_pipeline.png "Environment pipeline")
