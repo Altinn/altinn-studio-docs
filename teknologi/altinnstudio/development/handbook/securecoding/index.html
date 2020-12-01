@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="Our secure coding process consist of processes, tools, patterns and coding standards.">
 
 
     
-    <title>react :: Altinn digitalisering - Utvikling</title>
+    <title>Secure coding process :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -47,7 +47,7 @@ if(host != "localhost")
 
 
   </head>
-  <body class="a-page" data-url="/tags/react/">
+  <body class="a-page" data-url="/teknologi/altinnstudio/development/handbook/securecoding/">
     <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
@@ -396,7 +396,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -409,7 +409,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -463,7 +463,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -476,7 +476,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -5309,7 +5309,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -5322,7 +5322,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -5425,7 +5425,7 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/" class="dd-item 
-        
+        parent
         
         
         ">
@@ -5438,7 +5438,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -6702,8 +6702,8 @@ if(host != "localhost")
   
     
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/securecoding/" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/securecoding/">
@@ -6715,7 +6715,7 @@ if(host != "localhost")
         
 
           
-            <i class="fa fa-caret-right fa-lg category-icon"></i>
+            <i class="fa fa-sort-down fa-lg category-icon"></i>
           
 
         
@@ -10893,7 +10893,22 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/tags/'>Tags</a> <span class='adocs-breadcrumb-divider'> / </span> react
+
+
+
+
+
+
+
+
+
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> Secore coding
+
+ 
+
+ 
+
+ 
 
  
 
@@ -10905,14 +10920,22 @@ if(host != "localhost")
           </div>
         
         
+          <div id="tags">
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a>
+            
+              <a class="label label-default" href="https://docs.altinn.studio/tags/routing">routing</a>
+            
+          </div>
+        
         <div id="body-inner">
           
             
               <h1 class="a-fontBold">
-                react
+                Secure coding process
                 
               </h1>
-              <p class="a-leadText" id="leadText"></p>
+              <p class="a-leadText" id="leadText">Our secure coding process consist of processes, tools, patterns and coding standards.</p>
             
           
 
@@ -10924,244 +10947,37 @@ if(host != "localhost")
 
 
 
+<p>Each part is important to ensure that Altinn 3 is secure.</p>
+<h2 id="processes">Processes</h2>
+<h3 id="code-reviews">Code Reviews</h3>
+<p>All code merged to our master branch needs to be reviewed by at least one other team member.</p>
+<h3 id="testing">Testing</h3>
+<p>Each feature added to our platform is tested.</p>
+<ul>
+<li>Integration tested with positive and negative tests for access control where possible</li>
+<li>Manual functional tests</li>
+<li>Manual security testing for selected features</li>
+</ul>
+<h3 id="evauluation-of-open-source-libraries">Evauluation of open source libraries</h3>
+<p>Before any new library is added to</p>
+<h2 id="tools">Tools</h2>
+<h3 id="static-code-analysis">Static code analysis</h3>
+<h4 id="sonar-cloud">Sonar Cloud</h4>
+<p>Every pull request is analyzed by <a href="https://www.sonarcloud.io/github">Sonar Cloud</a></p>
+<h4 id="lgtm">LGTM</h4>
+<p><a href="https://github.com/marketplace/lgtm">LGTM</a> is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.</p>
+<p>This is run for every pull request.</p>
+<h3 id="dynamic-code-analysis">Dynamic code analysis</h3>
+<h2 id="patterns">Patterns</h2>
+<h2 id="coding-checklist">Coding checklist</h2>
+<h3 id="access-control">Access Control</h3>
+<h3 id="heading"></h3>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Side 1 av 1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/react/">React</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>React React is a library for developing component based applications. It is done by having declared html as xml in javascript code, and that is again transpiled into vanilla javascript for the browser to render into a page.
-Get started by looking at the Getting started docs or trying the tutorial.
-Important concepts The 2 most important concepts when working with React components are state and props.
-State is a collection of properties, controlled by the component, that say what the current state of the component is - this can be used to determine how the component should be rendered. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/react/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/redux/">Redux</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Redux is used to manage the states of the applications. The components update the states in the Redux store, instead of keeping state only within the component. This allows components to easily react to state changes from other components.
-Store This is where the overall states are stored. Each state is stored here as an object.
-Actions Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/redux/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/toolsandframeworks/react/architecture/">Kodearkitektur</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Bruk av Redux Store i Containere og Components. Kort oppsummert (TL;DR) Send &ldquo;ID&rdquo; eller andre identifikatorer via Props til komponenten og la komponenten hente data fra Redux Store.
-Utfordring (Why?) Hvis en del av Redux Store sendes som Props så vil komponenten re-rendres ved endringer av denne Prop/Store. Det er ønskelig at komponenter ikke rendrer unødvendig.
-Re-rendring trigges av…  Endring av Props. Endring av State som endrer Props.  Kilder  Redux best practices Common pitfalls  Filtrering av Redux Store i mapStateToProps() ved help av Selector Kort oppsummert (TL;DR) Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor. <a class="read-more" href="/teknologi/altinnstudio/toolsandframeworks/react/architecture/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/frontend/">frontend</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/toolsandframeworks/material-ui/">Material UI</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Material UI is used in Altinn Studio as the React UI library. Material UI was chosen because
- It is based on the Google&rsquo;s material design. It focuses exclusively on the React components Can use responsive components provided by the library Can override the style to customize the component to match the application requirements Can save time by using the components in the library instead of creating it from scratch (for example, the navigation drawers, application bar) It uses JSS as a styling solution that exposes a low-level API which helps in advanced overriding and theming mechanism  React router is a third party routing library used in Altinn Studio to trigger navigation within the application. <a class="read-more" href="/teknologi/altinnstudio/toolsandframeworks/material-ui/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/ui/">ui</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/toolsandframeworks/react/">React</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Modulært rammeverk for å utvikle UI komponenter som kan gjenbrukes flere steder i løsningen. Hvert React komponent har en tilstand som gir den data i henhold til hvor i applikasjonen brukeren er og hvilke handlinger som foretas. Vedlikeholdt av Facebook, under MIT lisens.  Slik React blir brukt Uten redux  Ved bruk av higher order components kan tilstand sendes fra rot-komponenten nedover i komponent-hierarkiet. Rot-komponenten håndterer alt av state, og sender callbacks ned i komponentene, slik at det er mulig og legge til, fjerne og endre komponeter. <a class="read-more" href="/teknologi/altinnstudio/toolsandframeworks/react/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/frontend/">frontend</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/toolsandframeworks/react/redux/">Redux</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Applikasjonstilstandshåndtering En felles tilstand for hele applikasjonen Tilstanden styres av Actions som håndteres av Reducere som igjen populerer tilstanden.  En Action kan f.eks. være &ldquo;FETCH_POSTNUMMER&rdquo; Når en slik actions kjøres, så vil en Reducer ta imot og oppdatere tilstanden slik at det er i tilstanden at applikasjonen nå henter postnummer. Når er hentingen er fullført, vil man f.eks. sende en action &ldquo;FETCH_POSTNUMMER_FULFILLED&rdquo; som har postnummer-data med som parameter. Reducer håndterer denne handlingen og setter postnummer-data i applikasjonens tilstand. <a class="read-more" href="/teknologi/altinnstudio/toolsandframeworks/react/redux/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/frontend/">frontend</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/toolsandframeworks/react/third-party-components/">Tredjeparts komponenter</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Det er ønskelig at tredjeparter skal kunne utvikle komponenter som en tjenesteeier skal kunne bruke i sine løsninger.
-Hvordan utvikle 3. parts komponenter Når du som en bruker ønsker å utvikle tredjeparts-komponenter så er det anbefalt å bruke rollup.js som kompilerer til cjs (CommonJS).
-Eksempel på et komponent som i et fiktivt git repo (basert på Gitea Repo) ligger i src/components/BalloonCounter/index.js :
-import React from &#39;react&#39;; export class BalloonCounter extends React. <a class="read-more" href="/teknologi/altinnstudio/toolsandframeworks/react/third-party-components/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tech/">tech</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/react/">react</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Side 1 av 1</span>
-	
-</nav>
 
 
 
@@ -11327,6 +11143,7 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                           
                               
+                              
                           
                           
           
@@ -11341,6 +11158,9 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -11357,6 +11177,7 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                       
                           
+                              
                               
                           
                           
@@ -11373,6 +11194,9 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                           
                               
+                                  
+                                  
+                              
                           
                           
           
@@ -13683,6 +13507,7 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                           
                               
+                              
                           
                           
           
@@ -13697,6 +13522,9 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -13746,6 +13574,7 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                           
                               
+                              
                           
                           
           
@@ -13760,6 +13589,9 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -14397,6 +14229,7 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                           
                               
+                              
                           
                           
           
@@ -14409,6 +14242,9 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                       
                       
                           
+                              
+                                  
+                                  
                               
                           
                           
@@ -16518,15 +16354,28 @@ import React from &#39;react&#39;; export class BalloonCounter extends React. <a
                   
           
           
+                  
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/" title="Traefik ingress routes"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
-                      <a class="nav nav-next" href="/design/" title="Slik designer vi" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
+                      <a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/securecoding/checklist/" title="Security Checklist" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>
                   
               </div>
 
 
             </div>
 
+            
+              
+              
+              
+                <div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/development/handbook/securecoding/_index.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i github
+                  </a>
+                </div>
+              
             
 
         </section>
