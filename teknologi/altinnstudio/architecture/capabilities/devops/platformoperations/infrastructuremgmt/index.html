@@ -10922,8 +10922,13 @@ if(host != "localhost")
 <p>Currently all resources are located in <a href="https://azure.microsoft.com/">Microsoft Azure</a>.</p>
 <p>We use <a href="https://www.terraform.io/">Terraform</a> to define the <a href="https://en.wikipedia.org/wiki/Infrastructure_as_code">infrastructure as code</a>. Terraform allows to write declarative configuration files
 defining the infrastructure we use in the different solutions.</p>
+<p>Terraform follow the principle of &ldquo;desired state&rdquo;. Configuration files describe to Terraform the components needed to run the different solutions in Altinn 3.</p>
+<p>Terraform generates an execution plan describing what it will do to reach the desired state, and then executes it to build the described infrastructure.</p>
+<p>As the configuration changes, Terraform is able to determine what changed and create incremental execution plans which can be applied.</p>
+<p>This is crucial for the Altinn DevOps team to being able handle an infrastrucre at this scale.</p>
 <p>We use the <a href="https://registry.terraform.io/providers/hashicorp/azurerm/latest">Terraform Azure Provider</a> that allows lifecycle management of
 Microsoft Azure using the Azure Resource Manager APIs. This is a provider maintained by the Azure team at Microsoft and the Terraform team at HashiCorp.</p>
+<p>The resource ARM Apis are used to verify state of infrastucture and perform changes.</p>
 <p>We use <a href="https://azure.microsoft.com/services/devops/repos/">Azure Devops Repos</a> to store our Terraform scripts for the different solutions.
 We use <a href="https://azure.microsoft.com/services/devops/pipelines/">Azure Devops Pipelines</a> to run the Terraform scripts.</p>
 <h3 id="provision-of-new-environemnts">Provision of new environemnts</h3>
@@ -10955,11 +10960,13 @@ will provision a Altinn Apps environment for that organization.</p>
 <h4 id="altinn-studio">Altinn Studio</h4>
 <p>For altinn studio we currently have 3 environments. Staging, dev and production.</p>
 <p>Each environments is set up with help of Terraform</p>
+<h3 id="updating-environments">Updating environments</h3>
 <h3 id="patching-environments">Patching environments</h3>
 <p>Kured</p>
-<h2 id="automation--scheduling-batch-scripts">Automation &amp; Scheduling (batch, scripts)</h2>
-<p>This include running scripts for infrastructure and jobs both manual and scheduled.</p>
-<p>See <a href="../../../components/application/nonsolutionspecific/operations/">operations application components</a> for details about tools and applications used.</p>
+<h2 id="running-terrafrom-scripts">Running Terrafrom scripts</h2>
+<p>We run all Terraform scripts from <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/release/automate-terraform?view=azure-devops">Azure DevOps Pipelines</a></p>
+<figure><a href="environments_pipelines.png"><img src="environments_pipelines.png" alt="Environment pipelines" title="Environment pipelines" /></a><figcaption><h4>Environment pipelines</h4></figcaption></figure>
+<figure><a href="environment_specific_pipeline.png"><img src="environment_specific_pipeline.png" alt="Environment pipeline" title="Environment pipeline" /></a><figcaption><h4>Environment pipeline</h4></figcaption></figure>
 
 
 <footer class=" footline" >
