@@ -2,11 +2,9 @@
 title: Secure DevOps
 description: Building a secure platform it at the highest priority for Altinn. 
 tags: [development, routing]
-linktitle: Secore coding
+linktitle: Secure DevOps
 weight: 100
 ---
-
-
 
 Security is an important concern in all the phases of the DevOps cycle
 
