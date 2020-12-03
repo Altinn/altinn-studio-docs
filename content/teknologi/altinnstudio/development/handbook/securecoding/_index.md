@@ -1,39 +1,47 @@
 ---
 title: Secure DevOps
-description: Building a secure platform it at the highest priority for Altinn. 
+description: Building a secure platform is at the highest priority for Altinn. 
 tags: [development, routing]
 linktitle: Secure DevOps
 weight: 100
 ---
 
-Security is an important concern in all the phases of the DevOps cycle
+Security is an important concern in all the phases of the DevOps cycle for Altinn 3.
+
+Having a Secure DevOps process requires that security is built into the applications, the process, the infrastructure, and the configuration, and more.
 
 ![Secure DevOps phases](devops.png "Secure DevOps phases")
 
+Below you find information on what kind of tools, patterns, and processes we follow to make sure we think about application and infrastructure for all phases.
+
 ## Planning phase
 
-During the planning phase the requirements for features are gathered.
-
-Already in this phase we identify changes that needs special security considerations. Typical this is done as part of grooming.
-
-We mark our security releated features and bugs to a [specific label](https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fsecurity).
-
-Details of security related issues are in many cases kept out of github.
+During the planning phase, the requirements for features are gathered.
+Already in this phase, we identify changes that need special security considerations. Typical this is done as part of grooming.
+We mark our security-related features and bugs to a [specific label.](https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fsecurity)
+Details of security-related issues are in many cases kept out of GitHub.
 
 ## Code phase
 
-During development of a feature we have serveral processes and tools to help us creating secure code.
+During the development of a feature, we have several processes and tools to help us creating secure code.
 
 ### Development checklists
 
-We have development checklist that ensure that developers and reviewers consider the different security aspects
+We have a development checklist that ensures that developers and reviewers consider the different security aspects.
+
+[See checklist.](checklist)
 
 ### IDE and tools
 
-We use both Visual Studio and Visual Studio code. Those provides us with tools for static code analysis.
+We use both Visual Studio and Visual Studio code. Those provide us with tools for static code analysis.
 
 - StyleCop analyzes C# source code to enforce a set of style and consistency rules. [See project](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
 - [Code Analysis](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019) verifes the code after a [ruleset defined by Altinn](https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset)
+
+### Unit and integration tests
+
+As part of the coding process unit and integration test are created. In addition to cover functionality many of them
+cover security aspects like authentication and authorization.
 
 ## Build phase
 
@@ -44,6 +52,10 @@ Once a developer has finished coding of a feature he/she creates a pull request 
 All pull requests requires peer review from at least on team member from the Altinn Devops team.
 
 See active pull requests.
+
+### Run Unit and integration tests
+
+As part of the build pipelines, all unit and integration tests are run. This makes sure that security functionality has not been broken.
 
 ### Static code analysis
 
@@ -59,13 +71,7 @@ This is run for every pull request.
 
 Each part is important to ensure that Altinn 3 is secure.
 
-## Processes
-
-### Code Reviews
-
-All code merged to our master branch needs to be reviewed by at least one other team member. 
-
-### Testing
+### Test
 
 Each feature added to our platform is tested.
 
@@ -73,20 +79,38 @@ Each feature added to our platform is tested.
 - Manual functional tests
 - Manual security testing for selected features
 
-### Evauluation of open source libraries
+#### Dynamic code analysis.
 
-Before any new library is added to
+We use different tools to perform dynamic code analysis. 
 
-## Tools
+Some of the tools are
+
+- x
+- y
+- z
+
+### Release phase
+
+Releases are created automatic. For Test enviroments every build is deployed automatic.
+
+For Application Test environment and production we deploy once a week. Those releases are created automatic.
+
+Deploy are needs to be approved by one team member.
+
+### Deploy phase
+
+All deployment is done with automated tool like Azure Piplenes reducing the risk for misconfiguration.
+
+Applications are deployed to Azure Kubernetes Services that has standard policies defined with focus on reduction of risk.
+Read more about  [Secure DevOps with AKS.](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
+
+### Operate phase
+
+### Monitor phase
 
 
-### Dynamic code analysis
+#### Dependency updates
 
-## Patterns
+We use Dependabot to monitor updates for dependencies.
 
-## Coding checklist
-
-### Access Control 
-
-  
-### 
+[It creates pull request in a mirror repostory](https://github.com/alt-how/altinn-studio/pulls)

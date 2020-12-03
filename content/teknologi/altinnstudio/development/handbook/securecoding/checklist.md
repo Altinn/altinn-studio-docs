@@ -9,7 +9,10 @@ weight: 100
 
 #### 1. Are input validated? 
 
-Url parametes, post parameters and other that are store or presented in application. 
+Url parametes, post parameters and other that are store or presented in application.
+
+Examples from the Altinn 3 is [validaton of file names.](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Helpers/Extensions/StringExtensions.cs) used
+ [here.](https://github.com/Altinn/altinn-studio/blob/master/src/studio/src/designer/backend/Configuration/ServiceRepositorySettings.cs#L341)
 
 
 [This is related to OWASP Top 10 no 1.](https://owasp.org/www-project-top-ten/2017/A1_2017-Injection)
@@ -51,5 +54,26 @@ This could be that read or write access need to be authorized.
 public async Task<ActionResult<Instance>> Delete(int instanceOwnerPartyId, Guid instanceGuid, [FromQuery] bool hard)
 ```
 [This is related to OWASP Top 10 no 5.](https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control)
+
+#### 4. Dont run application with to high priveliges. 
+
+Are the docker containers running with the correct priveliges? 
+
+```txt
+securityContext:
+    runAsUser: 1000
+    runAsGroup: 3000
+    allowPrivilegeEscalation: false
+```
+
+Example from [Dockerfile](https://github.com/Altinn/altinn-studio/blob/master/src/studio/AppTemplates/AspNet/Dockerfile) 
+
+```txt
+RUN addgroup -g 3000 dotnet && adduser -u 1000 -G dotnet -D -s /bin/false dotnet
+USER dotnet
+RUN mkdir /tmp/logtelemetry
+```
+
+
 
 ### Frontend
