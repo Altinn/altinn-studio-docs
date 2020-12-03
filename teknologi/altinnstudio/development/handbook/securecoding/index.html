@@ -10958,15 +10958,23 @@ if(host != "localhost")
 <p>During development of a feature we have serveral processes and tools to help us creating secure code.</p>
 <h3 id="development-checklists">Development checklists</h3>
 <p>We have development checklist that ensure that developers and reviewers consider the different security aspects</p>
-<h3 id="static-code-analysis">Static code analysis</h3>
+<h3 id="ide-and-tools">IDE and tools</h3>
 <p>We use both Visual Studio and Visual Studio code. Those provides us with tools for static code analysis.</p>
 <ul>
-<li></li>
+<li>StyleCop analyzes C# source code to enforce a set of style and consistency rules. <a href="https://github.com/DotNetAnalyzers/StyleCopAnalyzers">See project</a></li>
+<li><a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019">Code Analysis</a> verifes the code after a <a href="https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset">ruleset defined by Altinn</a></li>
 </ul>
 <h2 id="build-phase">Build phase</h2>
 <p>Once a developer has finished coding of a feature he/she creates a pull request in our repository.</p>
 <h3 id="peer-reviews">Peer Reviews</h3>
 <p>All pull requests requires peer review from at least on team member from the Altinn Devops team.</p>
+<p>See active pull requests.</p>
+<h3 id="static-code-analysis">Static code analysis</h3>
+<h4 id="sonar-cloud">Sonar Cloud</h4>
+<p>Every pull request is analyzed by <a href="https://www.sonarcloud.io/github">Sonar Cloud</a></p>
+<h4 id="lgtm">LGTM</h4>
+<p><a href="https://github.com/marketplace/lgtm">LGTM</a> is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.</p>
+<p>This is run for every pull request.</p>
 <p>Each part is important to ensure that Altinn 3 is secure.</p>
 <h2 id="processes">Processes</h2>
 <h3 id="code-reviews">Code Reviews</h3>
@@ -10981,12 +10989,6 @@ if(host != "localhost")
 <h3 id="evauluation-of-open-source-libraries">Evauluation of open source libraries</h3>
 <p>Before any new library is added to</p>
 <h2 id="tools">Tools</h2>
-<h3 id="static-code-analysis-1">Static code analysis</h3>
-<h4 id="sonar-cloud">Sonar Cloud</h4>
-<p>Every pull request is analyzed by <a href="https://www.sonarcloud.io/github">Sonar Cloud</a></p>
-<h4 id="lgtm">LGTM</h4>
-<p><a href="https://github.com/marketplace/lgtm">LGTM</a> is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.</p>
-<p>This is run for every pull request.</p>
 <h3 id="dynamic-code-analysis">Dynamic code analysis</h3>
 <h2 id="patterns">Patterns</h2>
 <h2 id="coding-checklist">Coding checklist</h2>
