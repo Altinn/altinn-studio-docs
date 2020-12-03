@@ -7,7 +7,7 @@
 
 
     
-    <title>Security Checklist :: Altinn digitalisering - Utvikling</title>
+    <title>Code Checklist :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -6707,7 +6707,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/development/handbook/securecoding/">
-        <span>Secore coding</span>
+        <span>Secure DevOps</span>
 
         
 
@@ -6741,7 +6741,7 @@ if(host != "localhost")
      active
       ">
         <a href="/teknologi/altinnstudio/development/handbook/securecoding/checklist/">
-        <span>Security Checklist</span> 
+        <span>Code Checklist</span> 
         
         </a></li>
      
@@ -10905,7 +10905,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/securecoding/'>Secore coding</a> <span class='adocs-breadcrumb-divider'> / </span> Security Checklist
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/securecoding/'>Secure DevOps</a> <span class='adocs-breadcrumb-divider'> / </span> Code Checklist
 
  
 
@@ -10939,7 +10939,7 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Security Checklist
+                Code Checklist
                 
               </h1>
               <p class="a-leadText" id="leadText">Checklist for security OWASP.</p>
@@ -10954,39 +10954,34 @@ if(host != "localhost")
 
 
 
-<h2 id="design">Design</h2>
-<h3 id="general">General</h3>
-<table>
-<thead>
-<tr>
-<th>#</th>
-<th>Title</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Do the design use the security architecture correct?</td>
-<td>Are the mechanismen like authentication and authorization used correctly?.</td>
-</tr>
-<tr>
-<td>2</td>
-<td>Sikrer designet</td>
-<td></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Vil designet gi økt fare for DOS angrep?</td>
-<td>Eksponerer funksjonalitet tunge operasjoner som kan gjentas mange ganger</td>
-</tr>
-<tr>
-<td>4</td>
-<td>Is it performed a treath assessment for the change?</td>
-<td>Hvilke nye risikoer introdusereres ved hjelp av endringen <ul><li>Muligheter for tilgang til data? <li>Manipulering av data </ul></td>
-</tr>
-</tbody>
-</table>
+<h3 id="backend">Backend</h3>
+<h4 id="1-are-input-validated">1. Are input validated?</h4>
+<p>Url parametes, post parameters and other that are store or presented in application.</p>
+<p><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection">This is related to OWASP Top 10 no 1.</a></p>
+<h4 id="2-does-api-requires-authenticted-user">2. Does API requires authenticted user?</h4>
+<p>All API&rsquo;s need to require authenticated user or system. For .Net core application this means that it need to have the [Authorize] tag</p>
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/InstancesController.cs#L284">Example from InstancesController in Storage</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">[Authorize]</span>
+<span style="color:#50fa7b">[HttpPost]</span>
+<span style="color:#50fa7b">[Consumes(&#34;application/json&#34;)]</span>
+<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status201Created)]</span>
+<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
+<span style="color:#50fa7b">[Produces(&#34;application/json&#34;)]</span>
+<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Instance&gt;&gt; Post(<span style="color:#8be9fd">string</span> appId, [FromBody] Instance instance)
+</code></pre></div><h4 id="3-does-api-validate-correct-authorization-policy">3. Does API validate correct authorization policy?</h4>
+<p>For each API the developer needs to identify the correct authorization policy required to be validated.</p>
+<p>This could be that read or write access need to be authorized.</p>
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/InstancesController.cs#L356">Example from InstancesController in Storage</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">[Authorize(Policy = AuthzConstants.POLICY_INSTANCE_DELETE)]</span>
+<span style="color:#50fa7b">[HttpDelete(&#34;{instanceOwnerPartyId:int}/{instanceGuid:guid}&#34;)]</span>
+<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status200OK)]</span>
+<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status204NoContent)]</span>
+<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
+<span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status404NotFound)]</span>
+<span style="color:#50fa7b">[Produces(&#34;application/json&#34;)]</span>
+<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Instance&gt;&gt; Delete(<span style="color:#8be9fd">int</span> instanceOwnerPartyId, Guid instanceGuid, [FromQuery] <span style="color:#8be9fd">bool</span> hard)
+</code></pre></div><p><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control">This is related to OWASP Top 10 no 5.</a></p>
+<h3 id="frontend">Frontend</h3>
 
 
 <footer class=" footline" >
