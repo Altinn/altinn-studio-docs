@@ -51,7 +51,7 @@ Once a developer has finished coding a feature he/she creates a pull request in 
 
 All pull requests require peer review from at least one team member from the Altinn DevOps team.
 
-See active pull requests.
+[See active pull requests.](https://github.com/Altinn/altinn-studio/pulls)
 
 ### Run Unit and integration tests
 
