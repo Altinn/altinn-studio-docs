@@ -33,23 +33,23 @@ We have a development checklist that ensures that developers and reviewers consi
 
 ### IDE and tools
 
-We use both Visual Studio and Visual Studio code. Those provide us with tools for static code analysis.
+We use both Visual Studio and Visual Studio Code. Those provide us with tools for static code analysis.
 
 - StyleCop analyzes C# source code to enforce a set of style and consistency rules. [See project](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
-- [Code Analysis](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019) verifes the code after a [ruleset defined by Altinn](https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset)
+- [Code Analysis](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019) verifies the code after a [ruleset defined by Altinn](https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset)
 
 ### Unit and integration tests
 
-As part of the coding process unit and integration test are created. In addition to cover functionality many of them
-cover security aspects like authentication and authorization.
+As part of the coding process unit and integration-tests are created. Besides, to cover functionality,
+many of them cover security aspects like authentication and authorization.
 
 ## Build phase
 
-Once a developer has finished coding of a feature he/she creates a pull request in our repository.
+Once a developer has finished coding a feature he/she creates a pull request in our repository.
 
 ### Peer Reviews
 
-All pull requests requires peer review from at least on team member from the Altinn Devops team.
+All pull requests require peer review from at least one team member from the Altinn DevOps team.
 
 See active pull requests.
 
@@ -91,17 +91,15 @@ Some of the tools are
 
 ### Release phase
 
-Releases are created automatic. For Test enviroments every build is deployed automatic.
-
-For Application Test environment and production we deploy once a week. Those releases are created automatic.
-
+Releases are created automatically. For Test environments, every build is deployed automatically.
+For the Application Test environment and production, we deploy once a week. Those releases are created automatically.
 Deploy are needs to be approved by one team member.
 
 ### Deploy phase
 
-All deployment is done with automated tool like Azure Piplenes reducing the risk for misconfiguration.
+All deployment is done with an automated tool like Azure Pipelines reducing the risk for misconfiguration.
 
-Applications are deployed to Azure Kubernetes Services that has standard policies defined with focus on reduction of risk.
+Applications are deployed to Azure Kubernetes Services that has standard policies defined with a focus on the reduction of risk.
 Read more about  [Secure DevOps with AKS.](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes)
 
 ### Operate phase
@@ -113,4 +111,4 @@ Read more about  [Secure DevOps with AKS.](https://docs.microsoft.com/en-us/azur
 
 We use Dependabot to monitor updates for dependencies.
 
-[It creates pull request in a mirror repostory](https://github.com/alt-how/altinn-studio/pulls)
+[It creates pull request in a mirror repository](https://github.com/alt-how/altinn-studio/pulls)

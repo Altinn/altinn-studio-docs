@@ -74,6 +74,9 @@ USER dotnet
 RUN mkdir /tmp/logtelemetry
 ```
 
+#### 5. Protect against Cross-stire requeste forgery
 
+It is important that every endpoint that is exposed to users validates antiforgery tokens to make
+sure 
 
 ### Frontend
