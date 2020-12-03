@@ -10962,18 +10962,18 @@ Details of security-related issues are in many cases kept out of GitHub.</p>
 <p>We have a development checklist that ensures that developers and reviewers consider the different security aspects.</p>
 <p><a href="checklist">See checklist.</a></p>
 <h3 id="ide-and-tools">IDE and tools</h3>
-<p>We use both Visual Studio and Visual Studio code. Those provide us with tools for static code analysis.</p>
+<p>We use both Visual Studio and Visual Studio Code. Those provide us with tools for static code analysis.</p>
 <ul>
 <li>StyleCop analyzes C# source code to enforce a set of style and consistency rules. <a href="https://github.com/DotNetAnalyzers/StyleCopAnalyzers">See project</a></li>
-<li><a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019">Code Analysis</a> verifes the code after a <a href="https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset">ruleset defined by Altinn</a></li>
+<li><a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019">Code Analysis</a> verifies the code after a <a href="https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset">ruleset defined by Altinn</a></li>
 </ul>
 <h3 id="unit-and-integration-tests">Unit and integration tests</h3>
-<p>As part of the coding process unit and integration test are created. In addition to cover functionality many of them
-cover security aspects like authentication and authorization.</p>
+<p>As part of the coding process unit and integration-tests are created. Besides, to cover functionality,
+many of them cover security aspects like authentication and authorization.</p>
 <h2 id="build-phase">Build phase</h2>
-<p>Once a developer has finished coding of a feature he/she creates a pull request in our repository.</p>
+<p>Once a developer has finished coding a feature he/she creates a pull request in our repository.</p>
 <h3 id="peer-reviews">Peer Reviews</h3>
-<p>All pull requests requires peer review from at least on team member from the Altinn Devops team.</p>
+<p>All pull requests require peer review from at least one team member from the Altinn DevOps team.</p>
 <p>See active pull requests.</p>
 <h3 id="run-unit-and-integration-tests">Run Unit and integration tests</h3>
 <p>As part of the build pipelines, all unit and integration tests are run. This makes sure that security functionality has not been broken.</p>
@@ -11000,18 +11000,18 @@ cover security aspects like authentication and authorization.</p>
 <li>z</li>
 </ul>
 <h3 id="release-phase">Release phase</h3>
-<p>Releases are created automatic. For Test enviroments every build is deployed automatic.</p>
-<p>For Application Test environment and production we deploy once a week. Those releases are created automatic.</p>
-<p>Deploy are needs to be approved by one team member.</p>
+<p>Releases are created automatically. For Test environments, every build is deployed automatically.
+For the Application Test environment and production, we deploy once a week. Those releases are created automatically.
+Deploy are needs to be approved by one team member.</p>
 <h3 id="deploy-phase">Deploy phase</h3>
-<p>All deployment is done with automated tool like Azure Piplenes reducing the risk for misconfiguration.</p>
-<p>Applications are deployed to Azure Kubernetes Services that has standard policies defined with focus on reduction of risk.
+<p>All deployment is done with an automated tool like Azure Pipelines reducing the risk for misconfiguration.</p>
+<p>Applications are deployed to Azure Kubernetes Services that has standard policies defined with a focus on the reduction of risk.
 Read more about  <a href="https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/secure-devops-for-kubernetes">Secure DevOps with AKS.</a></p>
 <h3 id="operate-phase">Operate phase</h3>
 <h3 id="monitor-phase">Monitor phase</h3>
 <h4 id="dependency-updates">Dependency updates</h4>
 <p>We use Dependabot to monitor updates for dependencies.</p>
-<p><a href="https://github.com/alt-how/altinn-studio/pulls">It creates pull request in a mirror repostory</a></p>
+<p><a href="https://github.com/alt-how/altinn-studio/pulls">It creates pull request in a mirror repository</a></p>
 
 
 <footer class=" footline" >
