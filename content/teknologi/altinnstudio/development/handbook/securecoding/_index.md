@@ -30,11 +30,12 @@ During development of a feature we have serveral processes and tools to help us 
 
 We have development checklist that ensure that developers and reviewers consider the different security aspects
 
-### Static code analysis
+### IDE and tools
 
 We use both Visual Studio and Visual Studio code. Those provides us with tools for static code analysis.
 
-- 
+- StyleCop analyzes C# source code to enforce a set of style and consistency rules. [See project](https://github.com/DotNetAnalyzers/StyleCopAnalyzers)
+- [Code Analysis](https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019) verifes the code after a [ruleset defined by Altinn](https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset)
 
 ## Build phase
 
@@ -44,8 +45,19 @@ Once a developer has finished coding of a feature he/she creates a pull request 
 
 All pull requests requires peer review from at least on team member from the Altinn Devops team.
 
+See active pull requests.
 
+### Static code analysis
 
+#### Sonar Cloud
+
+Every pull request is analyzed by [Sonar Cloud](https://www.sonarcloud.io/github)
+
+#### LGTM
+
+[LGTM](https://github.com/marketplace/lgtm) is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.
+
+This is run for every pull request.
 
 Each part is important to ensure that Altinn 3 is secure.
 
@@ -69,17 +81,6 @@ Before any new library is added to
 
 ## Tools
 
-### Static code analysis
-
-#### Sonar Cloud
-
-Every pull request is analyzed by [Sonar Cloud](https://www.sonarcloud.io/github)
-
-#### LGTM
-
-[LGTM](https://github.com/marketplace/lgtm) is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.
-
-This is run for every pull request.
 
 ### Dynamic code analysis
 
