@@ -8,14 +8,15 @@ weight: 100
 
 
 
-Our Secure DevOps cycle cover the following phases
-
+Security is an important concern in all the phases of the DevOps cycle
 
 ![Secure DevOps phases](devops.png "Secure DevOps phases")
 
 ## Planning phase
 
-During the planning phase the requirements for features are gathered. Already in this phase we identify changes that needs special security considerations.
+During the planning phase the requirements for features are gathered.
+
+Already in this phase we identify changes that needs special security considerations. Typical this is done as part of grooming.
 
 We mark our security releated features and bugs to a [specific label](https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fsecurity).
 
@@ -31,6 +32,10 @@ We have development checklist that ensure that developers and reviewers consider
 
 ### Static code analysis
 
+We use both Visual Studio and Visual Studio code. Those provides us with tools for static code analysis.
+
+- 
+
 ## Build phase
 
 Once a developer has finished coding of a feature he/she creates a pull request in our repository.
@@ -38,15 +43,6 @@ Once a developer has finished coding of a feature he/she creates a pull request 
 ### Peer Reviews
 
 All pull requests requires peer review from at least on team member from the Altinn Devops team.
-
-
-
-
-
-
-
-
-
 
 
 
