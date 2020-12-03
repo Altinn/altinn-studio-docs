@@ -69,8 +69,6 @@ Every pull request is analyzed by [Sonar Cloud](https://www.sonarcloud.io/github
 
 This is run for every pull request.
 
-Each part is important to ensure that Altinn 3 is secure.
-
 ### Test
 
 Each feature added to our platform is tested.
