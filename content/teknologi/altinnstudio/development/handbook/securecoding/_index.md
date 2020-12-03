@@ -100,8 +100,13 @@ Read more about  [Secure DevOps with AKS.](https://docs.microsoft.com/en-us/azur
 
 ### Operate phase
 
+When the different applications is in production the DevOps team make sure that evertyhing works as expected
+
+We have different tools to identify security threats for our running applications. 
+
 ### Monitor phase
 
+During the monitor phase the team follows up how the different solutions are working and identifying improvements and changes.
 
 #### Dependency updates
 
