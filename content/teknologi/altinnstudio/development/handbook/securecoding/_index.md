@@ -1,10 +1,55 @@
 ---
-title: Secure coding process
-description: Our secure coding process consist of processes, tools, patterns and coding standards.
+title: Secure DevOps
+description: Building a secure platform it at the highest priority for Altinn. 
 tags: [development, routing]
 linktitle: Secore coding
 weight: 100
 ---
+
+
+
+Our Secure DevOps cycle cover the following phases
+
+
+![Secure DevOps phases](devops.png "Secure DevOps phases")
+
+## Planning phase
+
+During the planning phase the requirements for features are gathered. Already in this phase we identify changes that needs special security considerations.
+
+We mark our security releated features and bugs to a [specific label](https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fsecurity).
+
+Details of security related issues are in many cases kept out of github.
+
+## Code phase
+
+During development of a feature we have serveral processes and tools to help us creating secure code.
+
+### Development checklists
+
+We have development checklist that ensure that developers and reviewers consider the different security aspects
+
+### Static code analysis
+
+## Build phase
+
+Once a developer has finished coding of a feature he/she creates a pull request in our repository.
+
+### Peer Reviews
+
+All pull requests requires peer review from at least on team member from the Altinn Devops team.
+
+
+
+
+
+
+
+
+
+
+
+
 
 Each part is important to ensure that Altinn 3 is secure.
 
