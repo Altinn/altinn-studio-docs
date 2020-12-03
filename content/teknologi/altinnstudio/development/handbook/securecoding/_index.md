@@ -1,12 +1,10 @@
 ---
 title: Secure DevOps
-description: Building a secure platform is at the highest priority for Altinn. 
+description: Security is an important concern in all the phases of the DevOps cycle for Altinn 3.
 tags: [development, routing]
 linktitle: Secure DevOps
 weight: 100
 ---
-
-Security is an important concern in all the phases of the DevOps cycle for Altinn 3.
 
 Having a Secure DevOps process requires that security is built into the applications, the process, the infrastructure, and the configuration, and more.
 
