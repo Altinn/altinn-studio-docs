@@ -61,7 +61,11 @@ As part of the build pipelines, all unit and integration tests are run. This mak
 
 Every pull request is analyzed by [Sonar Cloud](https://www.sonarcloud.io/github)
 
-Sonar Cloud analyzes the code by a [defined rule set](https://sonarcloud.io/organizations/altinn/rules).  We have defined some [quality gates](https://sonarcloud.io/organizations/altinn/quality_gates/show/3829) that the code need to adhere to.
+Sonar Cloud analyzes the code by a [defined rule set](https://sonarcloud.io/organizations/altinn/rules) and checks the code against OWASP Top 10, SANS Top 25 and the Co
+
+We have defined some [quality gates](https://sonarcloud.io/organizations/altinn/quality_gates/show/3829) that the code need to adhere to to be able to merging pull request in to master. 
+
+Our current active issues are available [here](https://sonarcloud.io/organizations/altinn/issues?resolved=false).
 
 #### LGTM
 
@@ -116,6 +120,6 @@ During the monitor phase, the team follows up on how the different solutions are
 
 #### Dependency updates
 
-We use Dependabot to monitor updates for dependencies.
+We use [Dependabot](https://dependabot.com/) and [WhiteSource Bolt](https://www.whitesourcesoftware.com/free-developer-tools/bolt/) to monitor updates for dependencies.
 
 [It creates pull request in a mirror repository](https://github.com/alt-how/altinn-studio/pulls)
