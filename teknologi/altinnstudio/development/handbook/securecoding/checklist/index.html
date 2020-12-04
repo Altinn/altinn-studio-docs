@@ -10983,7 +10983,7 @@ if(host != "localhost")
 <span style="color:#50fa7b">[ProducesResponseType(StatusCodes.Status404NotFound)]</span>
 <span style="color:#50fa7b">[Produces(&#34;application/json&#34;)]</span>
 <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Instance&gt;&gt; Delete(<span style="color:#8be9fd">int</span> instanceOwnerPartyId, Guid instanceGuid, [FromQuery] <span style="color:#8be9fd">bool</span> hard)
-</code></pre></div><p><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control">This is related to OWASP Top 10 no 5.</a></p>
+</code></pre></div><p>This is related to <a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control">OWASP Top 10 no 5.</a> and <a href="http://cwe.mitre.org/data/definitions/862.html">CWE-862</a></p>
 <h4 id="4-dont-run-application-with-to-high-priveliges">4. Dont run application with to high priveliges.</h4>
 <p>Are the docker containers running with the correct priveliges?</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">securityContext:
