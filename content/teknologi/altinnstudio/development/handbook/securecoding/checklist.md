@@ -5,7 +5,10 @@ tags: [checklist, OWASP, security]
 weight: 100
 ---
 
-### Backend 
+Below you find checklists used during coding. Important input have been [OWASP Top 10](https://owasp.org/www-project-top-ten/) and [CWE Top 25](http://cwe.mitre.org/top25/)
+
+### Backend checklist
+
 
 #### 1. Are input validated? 
 
