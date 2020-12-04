@@ -10979,7 +10979,9 @@ many of them cover security aspects like authentication and authorization.</p>
 <h3 id="static-code-analysis">Static code analysis</h3>
 <h4 id="sonar-cloud">Sonar Cloud</h4>
 <p>Every pull request is analyzed by <a href="https://www.sonarcloud.io/github">Sonar Cloud</a></p>
-<p>Sonar Cloud analyzes the code by a <a href="https://sonarcloud.io/organizations/altinn/rules">defined rule set</a>.  We have defined some <a href="https://sonarcloud.io/organizations/altinn/quality_gates/show/3829">quality gates</a> that the code need to adhere to.</p>
+<p>Sonar Cloud analyzes the code by a <a href="https://sonarcloud.io/organizations/altinn/rules">defined rule set</a> and checks the code against OWASP Top 10, SANS Top 25 and the Co</p>
+<p>We have defined some <a href="https://sonarcloud.io/organizations/altinn/quality_gates/show/3829">quality gates</a> that the code need to adhere to to be able to merging pull request in to master.</p>
+<p>Our current active issues are available <a href="https://sonarcloud.io/organizations/altinn/issues?resolved=false">here</a>.</p>
 <h4 id="lgtm">LGTM</h4>
 <p><a href="https://github.com/marketplace/lgtm">LGTM</a> is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.</p>
 <p>This is run for every pull request.</p>
@@ -11017,7 +11019,7 @@ Read more about  <a href="https://docs.microsoft.com/en-us/azure/architecture/so
 <h3 id="monitor-phase">Monitor phase</h3>
 <p>During the monitor phase, the team follows up on how the different solutions are working and identifying improvements and changes.</p>
 <h4 id="dependency-updates">Dependency updates</h4>
-<p>We use Dependabot to monitor updates for dependencies.</p>
+<p>We use <a href="https://dependabot.com/">Dependabot</a> and <a href="https://www.whitesourcesoftware.com/free-developer-tools/bolt/">WhiteSource Bolt</a> to monitor updates for dependencies.</p>
 <p><a href="https://github.com/alt-how/altinn-studio/pulls">It creates pull request in a mirror repository</a></p>
 
 
