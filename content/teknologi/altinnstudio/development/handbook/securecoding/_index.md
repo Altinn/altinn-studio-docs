@@ -10,7 +10,7 @@ Having a Secure DevOps process requires that security is built into the applicat
 
 ![Secure DevOps phases](devops.png "Secure DevOps phases")
 
-Below you find information on what kind of tools, patterns, and processes we follow to make sure we think about application and infrastructure for all phases.
+Below you find information on what kind of tools, patterns, and processes we follow to make sure we think about application and infrastructure security for all phases.
 
 ## Planning phase
 
@@ -100,13 +100,13 @@ Read more about  [Secure DevOps with AKS.](https://docs.microsoft.com/en-us/azur
 
 ### Operate phase
 
-When the different applications is in production the DevOps team make sure that evertyhing works as expected
+When the different applications are in production the DevOps team make sure that everything works as expected
 
-We have different tools to identify security threats for our running applications. 
+We have different tools to identify security threats for our running applications.
 
 ### Monitor phase
 
-During the monitor phase the team follows up how the different solutions are working and identifying improvements and changes.
+During the monitor phase, the team follows up on how the different solutions are working and identifying improvements and changes.
 
 #### Dependency updates
 
