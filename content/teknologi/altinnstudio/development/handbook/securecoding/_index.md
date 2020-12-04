@@ -104,6 +104,10 @@ When the different applications are in production the DevOps team make sure that
 
 We have different tools to identify security threats for our running applications.
 
+- Application Insights presents log and traffic information making it possible to detect different types of attacks
+-  X
+-  y
+
 ### Monitor phase
 
 During the monitor phase, the team follows up on how the different solutions are working and identifying improvements and changes.

@@ -55,7 +55,7 @@ This could be that read or write access need to be authorized.
 [Produces("application/json")]
 public async Task<ActionResult<Instance>> Delete(int instanceOwnerPartyId, Guid instanceGuid, [FromQuery] bool hard)
 ```
-[This is related to OWASP Top 10 no 5.](https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control)
+This is related to [OWASP Top 10 no 5.](https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control) and [CWE-862](http://cwe.mitre.org/data/definitions/862.html)
 
 #### 4. Dont run application with to high priveliges. 
 
