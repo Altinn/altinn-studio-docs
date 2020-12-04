@@ -10994,10 +10994,16 @@ if(host != "localhost")
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">RUN addgroup -g 3000 dotnet &amp;&amp; adduser -u 1000 -G dotnet -D -s /bin/false dotnet
 USER dotnet
 RUN mkdir /tmp/logtelemetry
-</code></pre></div><h4 id="5-protect-against-cross-stire-requeste-forgery">5. Protect against Cross-stire requeste forgery</h4>
+</code></pre></div><h4 id="5-protect-against-cross-site-requeste-forgery">5. Protect against Cross-site requeste forgery</h4>
 <p>It is important that every endpoint that is exposed to users validates antiforgery tokens to make
-sure</p>
-<h3 id="frontend">Frontend</h3>
+sure we protect against Cross-site request forgery.</p>
+<p>As part of the platform their has been created a <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Filters/ValidateAntiforgeryTokenIfAuthCookieAuthorizationFilter.cs">custom authorization filter</a> to protect against CSRF for endpoints beeing access by using cookie
+or token.  This is enabled with using [AutoValidateAntiforgeryTokenIfAuthCookie] on methods or controllers.</p>
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/DataController.cs#L28">Example from datacontroller</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">[AutoValidateAntiforgeryTokenIfAuthCookie]</span>
+<span style="color:#50fa7b">[Route(&#34;{org}/{app}/instances/{instanceOwnerPartyId:int}/{instanceGuid:guid}/data&#34;)]</span>
+<span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">DataController</span> : ControllerBase
+</code></pre></div><h3 id="frontend">Frontend</h3>
 
 
 <footer class=" footline" >
