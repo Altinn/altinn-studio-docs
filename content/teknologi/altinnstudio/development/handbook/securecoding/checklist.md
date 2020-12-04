@@ -9,7 +9,6 @@ Below you find checklists used during coding. Important input have been [OWASP T
 
 ### Backend checklist
 
-
 #### 1. Are input validated? 
 
 Url parametes, post parameters and other that are store or presented in application.
@@ -39,7 +38,7 @@ public async Task<ActionResult<Instance>> Post(string appId, [FromBody] Instance
 
 #### 3. Does API validate correct authorization policy?
 
-For each API the developer needs to identify the correct authorization policy required to be validated. 
+For each API the developer needs to identify the correct authorization policy required to be validated.
 
 This could be that read or write access need to be authorized.
 
@@ -77,9 +76,20 @@ USER dotnet
 RUN mkdir /tmp/logtelemetry
 ```
 
-#### 5. Protect against Cross-stire requeste forgery
+#### 5. Protect against Cross-site requeste forgery
 
 It is important that every endpoint that is exposed to users validates antiforgery tokens to make
-sure 
+sure we protect against Cross-site request forgery. 
+
+As part of the platform their has been created a [custom authorization filter](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Filters/ValidateAntiforgeryTokenIfAuthCookieAuthorizationFilter.cs) to protect against CSRF for endpoints beeing access by using cookie
+or token.  This is enabled with using [AutoValidateAntiforgeryTokenIfAuthCookie] on methods or controllers.
+
+[Example from datacontroller](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/DataController.cs#L28)
+
+```c#
+[AutoValidateAntiforgeryTokenIfAuthCookie]
+[Route("{org}/{app}/instances/{instanceOwnerPartyId:int}/{instanceGuid:guid}/data")]
+public class DataController : ControllerBase
+```
 
 ### Frontend
