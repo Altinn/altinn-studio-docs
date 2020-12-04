@@ -61,6 +61,8 @@ As part of the build pipelines, all unit and integration tests are run. This mak
 
 Every pull request is analyzed by [Sonar Cloud](https://www.sonarcloud.io/github)
 
+Sonar Cloud analyzes the code by a [defined rule set](https://sonarcloud.io/organizations/altinn/rules).  We have defined some [quality gates](https://sonarcloud.io/organizations/altinn/quality_gates/show/3829) that the code need to adhere to.
+
 #### LGTM
 
 [LGTM](https://github.com/marketplace/lgtm) is a code analysis platform for identifying vulnerabilities and preventing them from reaching production.
