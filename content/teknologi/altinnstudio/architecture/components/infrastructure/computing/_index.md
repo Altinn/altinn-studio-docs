@@ -1,7 +1,7 @@
 ---
-title: Computing componentens
-linktitle: Computing
-description: Computing components gives processor power to applications and software
+title: Compute components
+linktitle: Compute
+description: Compute components gives processor power to applications and software
 tags: [architecture, infrastructure]
 ---
 
@@ -35,7 +35,7 @@ Currently we use [Dsv3-series](https://docs.microsoft.com/en-us/azure/virtual-ma
 - Standard_D4s_v3 is used on medium cluster
 - Standard_D8s_v3 is used on the clusters with highest requirements.
 
-The number of Nodes and the size of Nodes can vary between the different clusters. Microsoft recomends not to have less than three nodes in
+The number of nodes can vary between the different clusters. Microsoft recomends not to have less than three nodes in
 a single system node pool.
 
 ![Azure Kubernetes Services](scale.png "Node scaling")
@@ -48,10 +48,22 @@ critical bug fixes within a minor version. These patch releases include fixes fo
 
 AKS support the latest versions of Kubernetes.  
 
-See a [list](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions) over Supported Kubernetes Versions
+See a [list](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions) over Supported Kubernetes Versions.
 
-## Development machines
+The Altinn DevOps team [upgrades](https://docs.microsoft.com/nb-no/azure/aks/upgrade-cluster) the different Kubernetes Clusters. 
 
-### Virtual Images
+## Azure Functions Apps
 
-We use Virtual Images hosted in Azure.
+Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. 
+Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date servers needed to keep your applications running.
+
+In Altinn 3 we use Azure Function Apps to the following
+
+- [Data Cleanup](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/DataCleanup) : A application for cleaning up data
+- [CosmosBackup](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup)  : A application that backup data for cosmos DB in to a blob storage.
+  
+## Virtual machines
+
+### Developer machines
+
+Our developer machines are hosted as virtual machines in Azure.

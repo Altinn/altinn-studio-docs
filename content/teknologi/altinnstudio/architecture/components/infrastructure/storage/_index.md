@@ -1,25 +1,34 @@
 ---
 title: Storage componentens
 linktitle: Storage
-description: Storage component provide the physical storage of data
+description: Altinn 3 uses different types of storage components.
 tags: [architecture, infrastructure]
 ---
 
-## Disks
+## Cosmos DB
+
+Altinn 3 uses Cosmos DB to store metadata about data in Altinn.
+
+- Instances
+- InstanceEvents
+- DataElements
+
+Azure CosmosDB is configured with one Write Region and one read region. This for redundancy.
+
+Azure CosmosDB provides automatic backup of the database. This is in additon to our custom backup.
+
+[Read more about Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction)
+  
+## PostgreSQL
+
+PostgreSQL is used at a relational database for Altinn Platform Events and for Altinn Repository.
+
+## Azure Blob storage
+
+All da
+
+## Azure Disks
+
 The Kubernetes Cluster uses disks for volumes
 
 We use [Azure Disk](https://azure.microsoft.com/en-us/services/storage/disks/) for storage in Kubernetes Cluster
-
-## SAN
-
-Other data stores are based on Managed Services from Azure. 
-
-- Azure Cosmos DB
-- Azure File Share
-- Azure Blob Storage
-
-We dont have control how the data is physical stored in Azure by this services.
-
-[Read a technical overview of Cosmos DB](https://azure.microsoft.com/en-us/blog/a-technical-overview-of-azure-cosmos-db/) that talks some about how storage is handled. 
-
-[Read more about the data store components used](../../platform/datareporting/).
