@@ -19,8 +19,6 @@ This does not mean that Altinn 3 can't be deployed to other cloud providers.
 
 Below you find details about the different cloud components used.
 
-![Infrastructure components](infrastructure_components.svg "Infrastructure components")
-
-[Download as Visio](infrastructure_components.vsdx)
+<object data="infrastructure_components.svg" type="image/svg+xml" style="width: 100%;"></object>
 
 {{% children description="true" depth="1" %}}

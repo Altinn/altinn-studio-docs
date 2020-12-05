@@ -25,7 +25,11 @@ PostgreSQL is used at a relational database for Altinn Platform Events and for A
 
 ## Azure Blob storage
 
-All da
+All data stored in Altinn Platform Storage for Apps are stored in a Azure Blob storage. This include formdata and all binary attachments.
+
+The data is georeplicated between Norway East and Norway West
+
+![Geo replication](georeplication.png "Geo replication")
 
 ## Azure Disks
 
