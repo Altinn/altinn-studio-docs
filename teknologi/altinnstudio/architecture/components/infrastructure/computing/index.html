@@ -10952,9 +10952,35 @@ if(host != "localhost")
 
 
 
-<h2 id="cloud-compute">Cloud Compute</h2>
-<h3 id="container-orchestration-nodes">Container Orchestration Nodes</h3>
-<p>As part of Azure Kubernetes Services setup you can change the number of nodes and the size. (CPU, RAM )</p>
+<figure><a href="akslogo.png"><img src="akslogo.png" alt="Azure Kubernetes Services" title="AKS Logo" /></a><figcaption><h4>AKS Logo</h4></figcaption></figure>
+<h2 id="azure-kubernetes-services">Azure Kubernetes Services</h2>
+<p>Altinn 3 uses <a href="https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/">Kubernetes</a> to manage all our containerized applications.</p>
+<p><a href="https://azure.microsoft.com/nb-no/services/kubernetes-service/">Azure Kubernetes Services</a> (AKS) is a fully managed Kubernetes used by Altinn 3.</p>
+<p>For each environment (Production, Application Test, Performance Test, and Integration Test) there is AKS cluster for Altinn Platform and the
+orgs set up for that specific environment.</p>
+<p>The <a href="https://kubernetes.io/docs/concepts/overview/components/#kube-controller-manager">Kubernetes masters</a> are managed by Azure. Our DevOps team only manage and maintain the agent nodes. As a managed Kubernetes service,
+AKS is free - Microsoft only charge for the agent nodes within your clusters, not for the masters.</p>
+<p>With more than 50 orgs hosting services in Altinn 2 it is expected that Altinn 3 will have serveral hundreds of AKS clusters managed by the DevOps team.</p>
+<h3 id="nodes">Nodes</h3>
+<p>Each AKS cluster has one <a href="https://docs.microsoft.com/en-us/azure/aks/use-multiple-node-pools">Node Pool</a></p>
+<p>For each Node Pool there is a set of nodes.</p>
+<p>The size of the node pool varies depends on the type of cluster.</p>
+<p>Currently we use <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series">Dsv3-series</a></p>
+<ul>
+<li>Standard_D2s_v3 is the current standard for org clusters</li>
+<li>Standard_D4s_v3 is used on medium cluster</li>
+<li>Standard_D8s_v3 is used on the clusters with highest requirements.</li>
+</ul>
+<p>The number of Nodes and the size of Nodes can vary between the different clusters. Microsoft recomends not to have less than three nodes in
+a single system node pool.</p>
+<figure><a href="scale.png"><img src="scale.png" alt="Azure Kubernetes Services" title="Node scaling" /></a><figcaption><h4>Node scaling</h4></figcaption></figure>
+<h3 id="supported-kubernetes-versions">Supported Kubernetes Versions</h3>
+<p>The Kubernetes community releases minor versions roughly every three months.
+These releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for 
+critical bug fixes within a minor version. These patch releases include fixes for security vulnerabilities or major bugs.</p>
+<p>AKS support the latest versions of Kubernetes.</p>
+<p>See a <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions">list</a> over Supported Kubernetes Versions</p>
+<h2 id="development-machines">Development machines</h2>
 <h3 id="virtual-images">Virtual Images</h3>
 <p>We use Virtual Images hosted in Azure.</p>
 

@@ -11165,7 +11165,7 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
 
 Application ComponentsThe Application Components is split in to solution-specific application components, application construction components and non-solution application components.
 Data ComponentsData is the most important part of the solutions in Altinn.
-Infrastructure componentsThis documentation contains details about infrastructure components used in the different solutions. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/">&raquo;</a></p>
+Infrastructure componentsAltinn 3 is hosted in public cloud, and all infrastructure components are cloud based. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -11190,8 +11190,10 @@ Sofware Linking &amp; Packaging The project has the capability to build packages
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">Computing componentens</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Cloud Compute Container Orchestration Nodes As part of Azure Kubernetes Services setup you can change the number of nodes and the size. (CPU, RAM )
-Virtual Images We use Virtual Images hosted in Azure. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">&raquo;</a></p>
+        <p>Azure Kubernetes Services Altinn 3 uses Kubernetes to manage all our containerized applications.
+Azure Kubernetes Services (AKS) is a fully managed Kubernetes used by Altinn 3.
+For each environment (Production, Application Test, Performance Test, and Integration Test) there is AKS cluster for Altinn Platform and the orgs set up for that specific environment.
+The Kubernetes masters are managed by Azure. Our DevOps team only manage and maintain the agent nodes. As a managed Kubernetes service, AKS is free - Microsoft only charge for the agent nodes within your clusters, not for the masters. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
