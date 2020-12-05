@@ -1859,7 +1859,7 @@
 	"title": "Infrastructure components",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Altinn 3 is hosted in public cloud, and all infrastructure components are cloud based.",
-	"content": "Altinn 3 consists of three different technical solutions to make a complete application development platform.\nThe diagram below shows an simplified overview over the infrastructure components.\nDownload as Visio\nAltinn 3 is currently deployed to Microsoft Azure. This does not mean that Altinn 3 can\u0026rsquo;t be deployed to other cloud providers.\nBelow you find details about the different cloud components used.\nDownload as Visio\n\rCompute components\rCompute components gives processor power to applications and software\n\r\rNetwork componentens\rAll networking infrastructure is located in Azure.\n\r\rStorage componentens\rAltinn 3 uses different types of storage components.\n\r\r"
+	"content": "Altinn 3 consists of three different technical solutions to make a complete application development platform.\nThe diagram below shows an simplified overview over the infrastructure components.\nDownload as Visio\nAltinn 3 is currently deployed to Microsoft Azure. This does not mean that Altinn 3 can\u0026rsquo;t be deployed to other cloud providers.\nBelow you find details about the different cloud components used.\n\n\rCompute components\rCompute components gives processor power to applications and software\n\r\rNetwork componentens\rAll networking infrastructure is located in Azure.\n\r\rStorage componentens\rAltinn 3 uses different types of storage components.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/tags/infrastructure/",
@@ -2601,7 +2601,7 @@
 	"title": "Storage componentens",
 	"tags": ["architecture", "infrastructure"],
 	"description": "Altinn 3 uses different types of storage components.",
-	"content": "Cosmos DB Altinn 3 uses Cosmos DB to store metadata about data in Altinn.\n Instances InstanceEvents DataElements  Azure CosmosDB is configured with one Write Region and one read region. This for redundancy.\nAzure CosmosDB provides automatic backup of the database. This is in additon to our custom backup.\nRead more about Azure Cosmos DB\nPostgreSQL PostgreSQL is used at a relational database for Altinn Platform Events and for Altinn Repository.\nAzure Blob storage All da\nAzure Disks The Kubernetes Cluster uses disks for volumes\nWe use Azure Disk for storage in Kubernetes Cluster\n"
+	"content": "Cosmos DB Altinn 3 uses Cosmos DB to store metadata about data in Altinn.\n Instances InstanceEvents DataElements  Azure CosmosDB is configured with one Write Region and one read region. This for redundancy.\nAzure CosmosDB provides automatic backup of the database. This is in additon to our custom backup.\nRead more about Azure Cosmos DB\nPostgreSQL PostgreSQL is used at a relational database for Altinn Platform Events and for Altinn Repository.\nAzure Blob storage All data stored in Altinn Platform Storage for Apps are stored in a Azure Blob storage. This include formdata and all binary attachments.\nThe data is georeplicated between Norway East and Norway West\nAzure Disks The Kubernetes Cluster uses disks for volumes\nWe use Azure Disk for storage in Kubernetes Cluster\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/storage/",

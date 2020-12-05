@@ -10965,7 +10965,9 @@ if(host != "localhost")
 <h2 id="postgresql">PostgreSQL</h2>
 <p>PostgreSQL is used at a relational database for Altinn Platform Events and for Altinn Repository.</p>
 <h2 id="azure-blob-storage">Azure Blob storage</h2>
-<p>All da</p>
+<p>All data stored in Altinn Platform Storage for Apps are stored in a Azure Blob storage. This include formdata and all binary attachments.</p>
+<p>The data is georeplicated between Norway East and Norway West</p>
+<figure><a href="georeplication.png"><img src="georeplication.png" alt="Geo replication" title="Geo replication" /></a><figcaption><h4>Geo replication</h4></figcaption></figure>
 <h2 id="azure-disks">Azure Disks</h2>
 <p>The Kubernetes Cluster uses disks for volumes</p>
 <p>We use <a href="https://azure.microsoft.com/en-us/services/storage/disks/">Azure Disk</a> for storage in Kubernetes Cluster</p>
