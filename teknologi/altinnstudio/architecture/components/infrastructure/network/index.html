@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Computing components gives processor power to applications and software">
+    <meta name="description" content="All networking infrastructure is located in Azure.">
 
 
     
@@ -4914,7 +4914,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">
-        <span>Computing</span>
+        <span>Compute</span>
 
         
 
@@ -10942,7 +10942,7 @@ if(host != "localhost")
                 Network componentens
                 
               </h1>
-              <p class="a-leadText" id="leadText">Computing components gives processor power to applications and software</p>
+              <p class="a-leadText" id="leadText">All networking infrastructure is located in Azure.</p>
             
           
 
@@ -10954,7 +10954,24 @@ if(host != "localhost")
 
 
 
-<p>TODO</p>
+<p>Altinn 3 is based on different network components in Azure.</p>
+<h2 id="virtual-network">Virtual Network</h2>
+<p>As part of the Altinn 3 platform there is serveral Virtual Networks.  Each Kubernetes Cluster have their own Virtual Network.</p>
+<p>This increases security and isolates the different org cluster from eacother.</p>
+<p>Read more about <a href="https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview">Azure Virtual Networks</a>.</p>
+<h2 id="azure-loadbalancer">Azure Loadbalancer</h2>
+<p>In front of every AKS cluster there is a Azure Loadbalancer that load traffic between the different nodes in the AKS cluster.</p>
+<p>Read more about <a href="https://azure.microsoft.com/en-us/services/load-balancer/">Azure Load Balancer</a></p>
+<h2 id="application-gateway">Application Gateway</h2>
+<p>Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route 
+traffic based on source IP address and port, to a destination IP address and port.</p>
+<p>In Altinn 3 we use Application gateways in front of Azure Loadbalancers.</p>
+<p>Read more about <a href="https://docs.microsoft.com/en-us/azure/application-gateway/overview">Azure Application Gateway</a></p>
+<h2 id="ingress-controller">Ingress controller</h2>
+<p>We use Traefik as <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/">ingress controller</a> in the different Kubernetes Clusters.</p>
+<h2 id="expressroute">ExpressRoute</h2>
+<p>We use Express route for high performence networking between our Altinn 3 platform and the on-premise Altinn 2 platform.</p>
+<p>Read more about <a href="https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction">ExpressRoute</a></p>
 
 
 <footer class=" footline" >
@@ -16342,7 +16359,7 @@ if(host != "localhost")
           
           
                   
-                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/" title="Computing componentens"> <i class="fa fa-angle-left"></i> Forrige side</a>
+                      <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/" title="Compute components"> <i class="fa fa-angle-left"></i> Forrige side</a>
                   
                   
                       <a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/infrastructure/storage/" title="Storage componentens" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Storage component provide the physical storage of data">
+    <meta name="description" content="Altinn 3 uses different types of storage components.">
 
 
     
@@ -4914,7 +4914,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">
-        <span>Computing</span>
+        <span>Compute</span>
 
         
 
@@ -10940,7 +10940,7 @@ if(host != "localhost")
                 Storage componentens
                 
               </h1>
-              <p class="a-leadText" id="leadText">Storage component provide the physical storage of data</p>
+              <p class="a-leadText" id="leadText">Altinn 3 uses different types of storage components.</p>
             
           
 
@@ -10952,19 +10952,23 @@ if(host != "localhost")
 
 
 
-<h2 id="disks">Disks</h2>
+<h2 id="cosmos-db">Cosmos DB</h2>
+<p>Altinn 3 uses Cosmos DB to store metadata about data in Altinn.</p>
+<ul>
+<li>Instances</li>
+<li>InstanceEvents</li>
+<li>DataElements</li>
+</ul>
+<p>Azure CosmosDB is configured with one Write Region and one read region. This for redundancy.</p>
+<p>Azure CosmosDB provides automatic backup of the database. This is in additon to our custom backup.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/introduction">Read more about Azure Cosmos DB</a></p>
+<h2 id="postgresql">PostgreSQL</h2>
+<p>PostgreSQL is used at a relational database for Altinn Platform Events and for Altinn Repository.</p>
+<h2 id="azure-blob-storage">Azure Blob storage</h2>
+<p>All da</p>
+<h2 id="azure-disks">Azure Disks</h2>
 <p>The Kubernetes Cluster uses disks for volumes</p>
 <p>We use <a href="https://azure.microsoft.com/en-us/services/storage/disks/">Azure Disk</a> for storage in Kubernetes Cluster</p>
-<h2 id="san">SAN</h2>
-<p>Other data stores are based on Managed Services from Azure.</p>
-<ul>
-<li>Azure Cosmos DB</li>
-<li>Azure File Share</li>
-<li>Azure Blob Storage</li>
-</ul>
-<p>We dont have control how the data is physical stored in Azure by this services.</p>
-<p><a href="https://azure.microsoft.com/en-us/blog/a-technical-overview-of-azure-cosmos-db/">Read a technical overview of Cosmos DB</a> that talks some about how storage is handled.</p>
-<p><a href="../../platform/datareporting/">Read more about the data store components used</a>.</p>
 
 
 <footer class=" footline" >

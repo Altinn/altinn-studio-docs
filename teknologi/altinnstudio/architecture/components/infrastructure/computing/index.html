@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Computing components gives processor power to applications and software">
+    <meta name="description" content="Compute components gives processor power to applications and software">
 
 
     
-    <title>Computing componentens :: Altinn digitalisering - Utvikling</title>
+    <title>Compute components :: Altinn digitalisering - Utvikling</title>
     
     <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -4914,7 +4914,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/">
-        <span>Computing</span>
+        <span>Compute</span>
 
         
 
@@ -10905,7 +10905,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/infrastructure/'>Infrastructure</a> <span class='adocs-breadcrumb-divider'> / </span> Computing
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/infrastructure/'>Infrastructure</a> <span class='adocs-breadcrumb-divider'> / </span> Compute
 
  
 
@@ -10937,10 +10937,10 @@ if(host != "localhost")
           
             
               <h1 class="a-fontBold">
-                Computing componentens
+                Compute components
                 
               </h1>
-              <p class="a-leadText" id="leadText">Computing components gives processor power to applications and software</p>
+              <p class="a-leadText" id="leadText">Compute components gives processor power to applications and software</p>
             
           
 
@@ -10971,7 +10971,7 @@ AKS is free - Microsoft only charge for the agent nodes within your clusters, no
 <li>Standard_D4s_v3 is used on medium cluster</li>
 <li>Standard_D8s_v3 is used on the clusters with highest requirements.</li>
 </ul>
-<p>The number of Nodes and the size of Nodes can vary between the different clusters. Microsoft recomends not to have less than three nodes in
+<p>The number of nodes can vary between the different clusters. Microsoft recomends not to have less than three nodes in
 a single system node pool.</p>
 <figure><a href="scale.png"><img src="scale.png" alt="Azure Kubernetes Services" title="Node scaling" /></a><figcaption><h4>Node scaling</h4></figcaption></figure>
 <h3 id="supported-kubernetes-versions">Supported Kubernetes Versions</h3>
@@ -10979,10 +10979,19 @@ a single system node pool.</p>
 These releases include new features and improvements. Patch releases are more frequent (sometimes weekly) and are intended for 
 critical bug fixes within a minor version. These patch releases include fixes for security vulnerabilities or major bugs.</p>
 <p>AKS support the latest versions of Kubernetes.</p>
-<p>See a <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions">list</a> over Supported Kubernetes Versions</p>
-<h2 id="development-machines">Development machines</h2>
-<h3 id="virtual-images">Virtual Images</h3>
-<p>We use Virtual Images hosted in Azure.</p>
+<p>See a <a href="https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions">list</a> over Supported Kubernetes Versions.</p>
+<p>The Altinn DevOps team <a href="https://docs.microsoft.com/nb-no/azure/aks/upgrade-cluster">upgrades</a> the different Kubernetes Clusters.</p>
+<h2 id="azure-functions-apps">Azure Functions Apps</h2>
+<p>Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. 
+Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date servers needed to keep your applications running.</p>
+<p>In Altinn 3 we use Azure Function Apps to the following</p>
+<ul>
+<li><a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/DataCleanup">Data Cleanup</a> : A application for cleaning up data</li>
+<li><a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Storage/CosmosBackup">CosmosBackup</a>  : A application that backup data for cosmos DB in to a blob storage.</li>
+</ul>
+<h2 id="virtual-machines">Virtual machines</h2>
+<h3 id="developer-machines">Developer machines</h3>
+<p>Our developer machines are hosted as virtual machines in Azure.</p>
 
 
 <footer class=" footline" >
