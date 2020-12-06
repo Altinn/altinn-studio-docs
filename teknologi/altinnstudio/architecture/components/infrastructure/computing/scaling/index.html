@@ -11049,8 +11049,15 @@ other have digital services used only by 1 person during a year. Some have many 
 <p>To examplyfi this we shown the statistics from two different orgs for 3</p>
 <p>Org 1</p>
 <p>Org 2</p>
+<p>We have not yet decided how we will be doing scaling of org clusters. We have identifed some approaches.</p>
 <h4 id="scaling-option-1">Scaling option 1</h4>
-<p>The first option to scale</p>
+<p>The first option is manually scale both pods and nodes.</p>
+<p>This means that the Altinn Devops team would manually need to increase or decrease the number of nodes based on obeserved/expected usage.</p>
+<p>The number of pods for a specific application would also be manually set.</p>
+<h5 id="cons">Cons</h5>
+<ul>
+<li>Unknown of LoadBalancer is able to <a href="https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-distribution-mode">distribute traffic correctly</a></li>
+</ul>
 <h4 id="scaling-option-2">Scaling option 2</h4>
 
 
