@@ -98,9 +98,9 @@ That would mean that BRG would need up to 8 nodes of  Standard_D2s_v3
 
 #### Org 3
 
-HDIR is a medium org in Altinn. Daily transactions vary between 300 and 950+0.
+HDIR is a medium org in Altinn. Daily transactions vary between 300 and 950.
 
-That would mean that HDIR would need more than 3 nodes of  Standard_D2s_v3 
+That would mean that HDIR would never need more than 3 nodes of  Standard_D2s_v3 
 
 ![Org 3](org3transactions.png "Number of daily transactions")
 
