@@ -80,9 +80,19 @@ Org 2
 
 
 
+We have not yet decided how we will be doing scaling of org clusters. We have identifed some approaches.
 
 #### Scaling option 1
 
-The first option to scale 
+The first option is manually scale both pods and nodes.
+
+This means that the Altinn Devops team would manually need to increase or decrease the number of nodes based on obeserved/expected usage.
+
+The number of pods for a specific application would also be manually set.
+
+##### Cons
+
+- Unknown of LoadBalancer is able to [distribute traffic correctly](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-distribution-mode)
 
 #### Scaling option 2
+
