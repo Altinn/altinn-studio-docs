@@ -4952,7 +4952,7 @@ if(host != "localhost")
         
         ">
       <a href="/teknologi/altinnstudio/architecture/components/infrastructure/computing/scaling/">
-        <span>Scaling Altinn 3</span>
+        <span>Scaling</span>
 
         
 
@@ -10955,7 +10955,7 @@ if(host != "localhost")
 
 
 
- <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/infrastructure/'>Infrastructure</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/infrastructure/computing/'>Compute</a> <span class='adocs-breadcrumb-divider'> / </span> Scaling Altinn 3
+ <a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/infrastructure/'>Infrastructure</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/infrastructure/computing/'>Compute</a> <span class='adocs-breadcrumb-divider'> / </span> Scaling
 
  
 
@@ -11006,11 +11006,12 @@ if(host != "localhost")
 
 <p>The below diagram shows how the number of unique users logged in to Altinn 2 varied through 2019.</p>
 <figure><a href="scalable.png"><img src="scalable.png" alt="Scalability aa " title="Unique users 2019 per day Altinn 2 platform" /></a><figcaption><h4>Unique users 2019 per day Altinn 2 platform</h4></figcaption></figure>
-<p>Altinn 2 is a monolith where all digital services run on the same servers. This means that for days like the tax day when there is this enormous spike in traffic will require
-that all servers are scaled up. It is also a on-prem solution where scaling needs to be planned weeks ahead.</p>
-<p>For Altinn 3 the story is completly different. Every organization have their separate Kubernetes cluster. Each of theese cluster can be scaled independently.</p>
+<p>Altinn 2 is a monolith where all digital services run on the same servers. This means that days like the tax day when 
+there is this enormous spike in traffic will require that all servers are scaled up. It is also an on-prem solution where scaling needs to be planned weeks ahead.</p>
+<p>For Altinn 3 the story is completely different. Every organization has its separate Kubernetes cluster. Each of these 
+clusters can be scaled independently.</p>
 <h3 id="cluster-autoscaler">Cluster Autoscaler</h3>
-<p>Azure Kubernets Services does support autoscaling of nodes and pods. Read more about <a href="https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler">cluster autoscaling.</a></p>
+<p>Azure Kubernetes Services does support autoscaling of nodes and pods. Read more about <a href="https://docs.microsoft.com/en-us/azure/aks/cluster-autoscaler">cluster autoscaling.</a></p>
 <p>This is currently not been enabled.</p>
 <h3 id="resource-reservations-in-azure-kubernetes-services">Resource Reservations in Azure Kubernetes Services</h3>
 <p>Node resources are utilized by AKS to make the node function as part of your cluster. This usage creates a discrepancy between the node&rsquo;s total resources and 
@@ -11023,10 +11024,12 @@ the resources allocatable when used in AKS. This information is important to not
 </ul>
 <p>Read more about <a href="https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#resource-reservations">resource reservations</a></p>
 <h4 id="resource-limitations">Resource limitations</h4>
-<p>In Kubernetes it is possible to set</p>
+<p>In Kubernetes, it is possible to set resource limitations for each pod deployed to a Kubernetes cluster.
+In addition, we can define the number of minimum resources required for the pod.</p>
+<p>. Below there is a general example where the minimum CPU is set to 100milliCPU and maximum to 250milliCPU.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-txt" data-lang="txt">kind: Pod
 apiVersion: v1
-metadata:
+metadata:   
   name: mypod
 spec:
   containers:
@@ -11039,17 +11042,31 @@ spec:
       limits:
         cpu: 250m
         memory: 256Mi
-</code></pre></div><p>The standard org clus</p>
-<p>Read about best practice for <a href="https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management">managing resources in Azure Kubernetes Services</a></p>
+</code></pre></div><p>Read about best practice for <a href="https://docs.microsoft.com/en-us/azure/aks/developer-best-practices-resource-management">managing resources in Azure Kubernetes Services</a></p>
 <h3 id="scaling-org-clusters">Scaling org clusters</h3>
-<p>There are currently <a href="https://www.altinn.no/en/about-altinn/the-altinn-co-operation/">more than 50 orgs</a> hosting digital services in the Altinn 2 platform. 
-They range from Tax Department, Police, the Civil Aviation Authority and many more. Some have digital services used by millions of citizens every year, while
-other have digital services used only by 1 person during a year. Some have many digital services while other just 1.</p>
-<p>This means that the compute requirements for the different cluster varies a lot between the different orgs.</p>
-<p>To examplyfi this we shown the statistics from two different orgs for 3</p>
-<p>Org 1</p>
-<p>Org 2</p>
-<p>We have not yet decided how we will be doing scaling of org clusters. We have identifed some approaches.</p>
+<p>There are currently <a href="https://www.altinn.no/en/about-altinn/the-altinn-co-operation/">more than 50 orgs</a> hosting digital services 
+in the Altinn 2 platform.</p>
+<p>They range from Tax Department, Police, the Civil Aviation Authority, and many more. Some have digital services used by 
+millions of citizens every year, while
+others have digital services used only by 1 person during a year. Some have many digital services while others just 1.</p>
+<p>This means that the compute requirements for the different cluster vary a lot between the different orgs.</p>
+<p>To exemplify this we shown the transaction statistics from three different orgs for 2019 in Altinn 2.</p>
+<p>At the current time, we don&rsquo;t know what kind of CPU usage an average transaction requires.</p>
+<p>In this example, we assume that 1000 transactions require 1 CPU. (1000 milliCPU)</p>
+<p>This is probably not correct.</p>
+<h4 id="org-1">Org 1</h4>
+<p>SKD is the largest org in Altinn 2. Daily transactions vary between 2500 and 365.000.</p>
+<p>That would mean that SKD would need up to 192 nodes of  Standard_D2s_v3</p>
+<figure><a href="org1transactions.png"><img src="org1transactions.png" alt="Org 1" title="Number of daily transactions" /></a><figcaption><h4>Number of daily transactions</h4></figcaption></figure>
+<h4 id="org-2">Org 2</h4>
+<p>BRG is one of the larger orgs in Altinn.  Daily transactions vary between 300 and 14.000.</p>
+<p>That would mean that BRG would need up to 8 nodes of  Standard_D2s_v3</p>
+<figure><a href="org2transactions.png"><img src="org2transactions.png" alt="Org 2" title="Number of daily transactions" /></a><figcaption><h4>Number of daily transactions</h4></figcaption></figure>
+<h4 id="org-3">Org 3</h4>
+<p>HDIR is a medium org in Altinn. Daily transactions vary between 300 and 950+0.</p>
+<p>That would mean that HDIR would need more than 3 nodes of  Standard_D2s_v3</p>
+<figure><a href="org3transactions.png"><img src="org3transactions.png" alt="Org 3" title="Number of daily transactions" /></a><figcaption><h4>Number of daily transactions</h4></figcaption></figure>
+<p>We have not yet decided how we will be doing scaling of org clusters. We have identified some approaches.</p>
 <h4 id="scaling-option-1">Scaling option 1</h4>
 <p>The first option is manually scale both pods and nodes.</p>
 <p>This means that the Altinn Devops team would manually need to increase or decrease the number of nodes based on obeserved/expected usage.</p>
