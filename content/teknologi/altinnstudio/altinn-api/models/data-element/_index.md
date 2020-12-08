@@ -25,6 +25,7 @@ selfLinks | A complex type containing a set of named links of how to obtain a co
 size | The number of bytes in the blob.
 locked | A value indicating whether the blob is read only.
 refs | A list of UUID values. Can be used to link related data elements. 
+isRead | A boolean indicating if the dataElement has been read by a user.
 created | The date and time when the data element was first created.
 createdBy | An idenfificator indicating who it was that created the data element.
 lastChanged | The date and time when the data element was last changed.
