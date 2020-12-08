@@ -21,4 +21,6 @@ CosmosDB uses indexes to find matches for the queries,
 if there is not value for the indexed property, all instances will have to be checked to figure out if there is a match for the query. 
 This occurs in cases where we assert that a property `is null`, so queries like this should be avoided. 
 
+Always try to assert on an existing value, if this is not possible modifying the data model should be considered.
+
 
