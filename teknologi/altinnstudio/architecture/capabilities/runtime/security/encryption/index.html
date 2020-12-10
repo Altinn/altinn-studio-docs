@@ -11023,7 +11023,6 @@ if(host != "localhost")
               <nav id="TableOfContents">
   <ul>
     <li><a href="#storage-encryption">Storage encryption</a></li>
-    <li><a href="#application-layer-encryption">Application layer encryption</a></li>
   </ul>
 </nav>
           
@@ -11034,15 +11033,6 @@ if(host != "localhost")
 
 
 
-
-
-<div class="panel panel-primary">
-	
-	<div class="panel-body"><p><strong>NOTE:</strong> Work in progress. <a href="https://github.com/Altinn/altinn-studio/issues/958">See Github Issue</a>.</p>
-</div>
-	
-</div>
-
 <p>Apps hosted in Altinn Apps could cover lots of functional scenario. For statefull apps where the App store data in Altinn Platform in the Storage component, the 
 type of data could be data that is 100% public to highly sensitive data.</p>
 <p>The Org that creates the App, would based on the type of data have spceial requirements for encryption to support their Confidentiality requirement for the data.</p>
@@ -11052,22 +11042,6 @@ type of data could be data that is 100% public to highly sensitive data.</p>
 <a href="https://docs.microsoft.com/en-us/azure/cosmos-db/database-encryption-at-rest">See documentation about Azure Cosmos DB</a></p>
 <p>Azure Blob storage encrypts all data at rest. This is transparent for Altinn Platform. Blog storage support customer managed keys.</p>
 <p><a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption">See documentation about Azure Storage Encryption</a></p>
-<h2 id="application-layer-encryption">Application layer encryption</h2>
-<p>For App scenario where there is a higher requirement for encryption there might be a need to implement Application layer encryption.</p>
-<p>This can be done throug custom encryption code using standard algorithms or through existing libraries like 
-the <a href="https://docs.microsoft.com/en-us/azure/storage/common/storage-client-side-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Azure Storage client library</a>.</p>
-<h3 id="algorithms">Algorithms</h3>
-<p>For a application layer encryption functionality we would need to choose a best practice encryption algoritmh together with best practice key-length.</p>
-<p>Needs to be analyzed.</p>
-<h3 id="limitations">Limitations</h3>
-<p>Application layer encryption would probably limit the size on the data, since it would not be possible to stream data to storage before we encrypt.</p>
-<p>Needs to be analyzed</p>
-<h3 id="key-management">Key management</h3>
-<p>When doing application layer encryption Altinn Platform needs to manage the keys for the encrypted data.</p>
-<p>Needs to be analyzed.</p>
-<h3 id="risk">Risk</h3>
-<p>Doing Application Layer introudces risks for data loss. (if keys are lost).</p>
-<p>Needs to be analyzed.</p>
 
 
 <footer class=" footline" >
