@@ -11031,7 +11031,8 @@ if(host != "localhost")
 <p>Get text resources for the application for a specific language code. If the requested language isn&rsquo;t available, norsk bokmål (nb) will be returned as default. 
 The <strong>langaugeCode</strong> URL path element should follow the <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1 standard</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/api/v1/texts/{languageCode}
-</code></pre></div><h2 id="get-model-json-schema">Get model JSON schema</h2>
+</code></pre></div><p>Note that the texts are cached in Platform Storage for 60 minutes before being retrieved from the database again.</p>
+<h2 id="get-model-json-schema">Get model JSON schema</h2>
 <p>Download the JSON schema for a specific model. The <strong>id</strong> parameter must have the name of a JSON Schema in the app. This is usually a generated name based on values in the original XSD uploaded on the app. E.g: <em>Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES</em></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/api/jsonschema/{id}
 </code></pre></div>
