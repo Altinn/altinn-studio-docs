@@ -27,6 +27,7 @@ The **langaugeCode** URL path element should follow the [ISO 639-1 standard](htt
 GET {basePath}/api/v1/texts/{languageCode}
 ```
 
+Note that the texts are cached in Platform Storage for 60 minutes before being retrieved from the database again.
 
 ## Get model JSON schema
 
