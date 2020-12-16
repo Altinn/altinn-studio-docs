@@ -2,7 +2,7 @@
 title: Secure DevOps
 description: Security is an important concern in all the phases of the DevOps cycle for Altinn 3.
 tags: [development, routing]
-linktitle: Secure DevOps
+toc: true
 weight: 100
 ---
 
