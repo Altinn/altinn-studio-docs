@@ -465,6 +465,12 @@ Available language specifications: en, nb, nn-NO.
 GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&language={languageId}
 ```
 
+Search instances based on query parameters
+
+```http
+GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&language={languageId}
+```
+
 Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
 Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted. 
 
