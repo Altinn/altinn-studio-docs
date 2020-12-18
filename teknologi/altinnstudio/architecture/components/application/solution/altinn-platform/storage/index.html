@@ -11745,8 +11745,9 @@ Available language specifications: en, nb, nn-NO.</p>
 Available states: active, deleted, archived.
 Available language specifications: en, nb, nn-NO.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&amp;language={languageId}
-</code></pre></div><p>Search instances based on query parameters</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&amp;language={languageId}
+</code></pre></div><p>Search instances based on query parameters
+All query parameters are optional.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&amp;language={languageId}&amp;appId={applicationId}
 </code></pre></div><p>Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
 Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
