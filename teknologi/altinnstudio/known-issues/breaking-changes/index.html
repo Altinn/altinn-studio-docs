@@ -10997,6 +10997,7 @@ if(host != "localhost")
             <h2>På denne siden:</h2>
               <nav id="TableOfContents">
   <ul>
+    <li><a href="#support-for-dynamics-in-pdf">Support for dynamics in PDF</a></li>
     <li><a href="#support-for-autodelete-when-process-ends">Support for autodelete when process ends</a></li>
     <li><a href="#designer-moves-formlayoutjson-from-appui-to-appuilayouts">Designer moves FormLayout.json from app/ui to app/ui/layouts</a></li>
     <li><a href="#added-registration-of-events-to-the-new-events-component">Added registration of events to the new Events component</a></li>
@@ -11023,7 +11024,132 @@ if(host != "localhost")
 
 
 
-<h2 id="support-for-autodelete-when-process-ends">Support for autodelete when process ends</h2>
+<h2 id="support-for-dynamics-in-pdf">Support for dynamics in PDF</h2>
+<p>We have added a new PDF handler to make it possible to hide pages and components in PDF.</p>
+<p>The Altinn.App.* packages has been updated</p>
+<p>Updating to this version will require changes in multiple files.</p>
+<ol>
+<li>
+<p>Updated package dependencies
+Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
+Update nuget dependencies in <code>App.csproj</code> to version 3.0.0.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</code></pre></div></li>
+<li>
+<p>Add PdfHandler to logic</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">
+</code></pre></div></li>
+</ol>
+<p>using System.Threading.Tasks;
+using Altinn.App.Common.Models;</p>
+<p>namespace Altinn.App.AppLogic.Print
+{
+/// <summary>
+/// Handler for formatting PDF. Dow
+/// </summary>
+public class PdfHandler
+{
+/// <summary>
+/// Method to format PDF dynamic
+/// </summary>
+/// <example>
+///     if (data.GetType() == typeof(Skjema)
+///     {
+///     // need to create object if not there
+///     layoutSettings.Components.ExcludeFromPdf.Add(&ldquo;a23234234&rdquo;);
+///     }
+/// </example>
+/// <param name="layoutSettings">the layoutsettings</param>
+/// <param name="data">data object</param>
+public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+{
+return await Task.FromResult(layoutSettings);
+}
+}<br>
+}</p>
+<pre><code>  ```
+</code></pre>
+<ol start="3">
+<li>Changes in App.cs</li>
+</ol>
+<p>Add using</p>
+<pre><code>  ```cs
+  using Altinn.App.AppLogic.Print;
+
+  ```
+</code></pre>
+<p>Add property in top of App.cs below InstantiationHandler
+<code>cs private readonly PdfHandler _pdfHandler;</code></p>
+<pre><code>Change constructor:
+
+  ```cs
+  public App(
+    IAppResources appResourcesService,
+    ILogger&lt;App&gt; logger,
+    IData dataService,
+    IProcess processService,
+    IPDF pdfService,
+    IProfile profileService,
+    IRegister registerService,
+    IPrefill prefillService,
+    IInstance instanceService
+    ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
+  ```
+  to:
+  ```cs
+    public App(
+        IAppResources appResourcesService,
+        ILogger&lt;App&gt; logger,
+        IData dataService,
+        IProcess processService,
+        IPDF pdfService,
+        IProfile profileService,
+        IRegister registerService,
+        IPrefill prefillService,
+        IInstance instanceService,
+        IOptions&lt;GeneralSettings&gt; settings,
+        IText textService,
+        IHttpContextAccessor httpContextAccessor) : base(
+            appResourcesService,
+            logger,
+            dataService,
+            processService,
+            pdfService,
+            prefillService,
+            instanceService,
+            registerService,
+            settings,
+            profileService,
+            textService,
+            httpContextAccessor)
+    {
+        _logger = logger;
+        _validationHandler = new ValidationHandler(httpContextAccessor);
+        _calculationHandler = new CalculationHandler();
+        _instantiationHandler = new InstantiationHandler(profileService, registerService);
+        _pdfHandler = new PdfHandler();
+    }
+</code></pre>
+<pre><code>
+
+Add method 
+
+```cs
+
+        /// &lt;summary&gt;
+        /// Hook to run logic to hide pages or components when generatring PDF
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;layoutSettings&quot;&gt;The layoutsettings. Can be null and need to be created in method&lt;/param&gt;
+        /// &lt;param name=&quot;data&quot;&gt;The data that there is generated PDF from&lt;/param&gt;
+        /// &lt;returns&gt;Layoutsetting with possible hidden fields or pages&lt;/returns&gt;
+        public override async Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, object data)
+        {
+            return await _pdfHandler.FormatPdf(layoutSettings, data);
+        }
+
+</code></pre><h2 id="support-for-autodelete-when-process-ends">Support for autodelete when process ends</h2>
 <p>For some apps, the fact that there&rsquo;s traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
 The Altinn.App.* packages has been updated to support autodelete when process ends. This is introduced with version 2.0.0-alpha of the packages.</p>
 <p>Updating to this version will require changes in multiple files.</p>
