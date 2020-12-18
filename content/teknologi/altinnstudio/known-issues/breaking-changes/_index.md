@@ -24,7 +24,58 @@ Updating to this version will require changes in multiple files.
     <PackageReference Include="Altinn.App.PlatformServices" Version="3.0.0" />
     ```
 
-2. Changes in App.cs
+2. Add PdfHandler to logic
+      ```cs
+
+using System.Threading.Tasks;
+using Altinn.App.Common.Models;
+
+namespace Altinn.App.AppLogic.Print
+{
+    /// <summary>
+    /// Handler for formatting PDF. Dow
+    /// </summary>
+    public class PdfHandler
+    {
+        /// <summary>
+        /// Method to format PDF dynamic
+        /// </summary>
+        /// <example>
+        ///     if (data.GetType() == typeof(Skjema)
+        ///     {
+        ///     // need to create object if not there
+        ///     layoutSettings.Components.ExcludeFromPdf.Add("a23234234");
+        ///     }
+        /// </example>
+        /// <param name="layoutSettings">the layoutsettings</param>
+        /// <param name="data">data object</param>
+        public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+        {
+            return await Task.FromResult(layoutSettings);
+        }
+    }   
+}
+
+
+      ```
+
+
+3. Changes in App.cs
+
+
+Add using
+
+      ```cs
+      using Altinn.App.AppLogic.Print;
+
+      ```
+
+
+Add property in top of App.cs below InstantiationHandler
+    ```cs
+        private readonly PdfHandler _pdfHandler;
+    ```
+
    
     Change constructor:
 
@@ -76,41 +127,27 @@ Updating to this version will require changes in multiple files.
             _pdfHandler = new PdfHandler();
         }
 
-      ```
-3. Add PdfHandler to logic
-      ```cs
+```
 
-using System.Threading.Tasks;
-using Altinn.App.Common.Models;
 
-namespace Altinn.App.AppLogic.Print
-{
-    /// <summary>
-    /// Handler for formatting PDF. Dow
-    /// </summary>
-    public class PdfHandler
-    {
+Add method 
+
+```cs
+
         /// <summary>
-        /// Method to format PDF dynamic
+        /// Hook to run logic to hide pages or components when generatring PDF
         /// </summary>
-        /// <example>
-        ///     if (data.GetType() == typeof(Skjema)
-        ///     {
-        ///     // need to create object if not there
-        ///     layoutSettings.Components.ExcludeFromPdf.Add("a23234234");
-        ///     }
-        /// </example>
-        /// <param name="layoutSettings">the layoutsettings</param>
-        /// <param name="data">data object</param>
-        public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+        /// <param name="layoutSettings">The layoutsettings. Can be null and need to be created in method</param>
+        /// <param name="data">The data that there is generated PDF from</param>
+        /// <returns>Layoutsetting with possible hidden fields or pages</returns>
+        public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
         {
-            return await Task.FromResult(layoutSettings);
+            return await _pdfHandler.FormatPdf(layoutSettings, data);
         }
-    }   
-}
+
+```
 
 
-      ```
 
 ## Support for autodelete when process ends
 For some apps, the fact that there's traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
