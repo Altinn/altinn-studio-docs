@@ -1,7 +1,7 @@
 ---
 title: Architecture Principles
 linktitle: Principles
-description: The Architecture Principles are guidelines for the construction of the architecture.
+description: The Architecture Principles are guidelines for the construction of the architecture in Altinn 3.
 toc: true
 tags: [architecture]
 weight: 6
