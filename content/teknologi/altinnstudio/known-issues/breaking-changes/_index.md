@@ -5,6 +5,113 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
+
+## Support for dynamics in PDF
+
+We have added a new PDF handler to make it possible to hide pages and components in PDF.
+
+The Altinn.App.* packages has been updated
+
+
+Updating to this version will require changes in multiple files.
+1. Updated package dependencies
+ Navigate to you application repository and find `App.csproj` in the `App` folder.
+   Update nuget dependencies in `App.csproj` to version 3.0.0.
+
+    ```xml
+    <PackageReference Include="Altinn.App.Api" Version="3.0.0" />
+    <PackageReference Include="Altinn.App.Common" Version="3.0.0" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="3.0.0" />
+    ```
+
+2. Changes in App.cs
+   
+    Change constructor:
+
+      ```cs
+      public App(
+        IAppResources appResourcesService,
+        ILogger<App> logger,
+        IData dataService,
+        IProcess processService,
+        IPDF pdfService,
+        IProfile profileService,
+        IRegister registerService,
+        IPrefill prefillService,
+        IInstance instanceService
+        ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
+      ```
+      to:
+      ```cs
+        public App(
+            IAppResources appResourcesService,
+            ILogger<App> logger,
+            IData dataService,
+            IProcess processService,
+            IPDF pdfService,
+            IProfile profileService,
+            IRegister registerService,
+            IPrefill prefillService,
+            IInstance instanceService,
+            IOptions<GeneralSettings> settings,
+            IText textService,
+            IHttpContextAccessor httpContextAccessor) : base(
+                appResourcesService,
+                logger,
+                dataService,
+                processService,
+                pdfService,
+                prefillService,
+                instanceService,
+                registerService,
+                settings,
+                profileService,
+                textService,
+                httpContextAccessor)
+        {
+            _logger = logger;
+            _validationHandler = new ValidationHandler(httpContextAccessor);
+            _calculationHandler = new CalculationHandler();
+            _instantiationHandler = new InstantiationHandler(profileService, registerService);
+            _pdfHandler = new PdfHandler();
+        }
+
+      ```
+3. Add PdfHandler to logic
+      ```cs
+
+using System.Threading.Tasks;
+using Altinn.App.Common.Models;
+
+namespace Altinn.App.AppLogic.Print
+{
+    /// <summary>
+    /// Handler for formatting PDF. Dow
+    /// </summary>
+    public class PdfHandler
+    {
+        /// <summary>
+        /// Method to format PDF dynamic
+        /// </summary>
+        /// <example>
+        ///     if (data.GetType() == typeof(Skjema)
+        ///     {
+        ///     // need to create object if not there
+        ///     layoutSettings.Components.ExcludeFromPdf.Add("a23234234");
+        ///     }
+        /// </example>
+        /// <param name="layoutSettings">the layoutsettings</param>
+        /// <param name="data">data object</param>
+        public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+        {
+            return await Task.FromResult(layoutSettings);
+        }
+    }   
+}
+
+
+      ```
+
 ## Support for autodelete when process ends
 For some apps, the fact that there's traces of it in the user archive (and the data is stored) is a problem (e.g. for security reasons). 
 The Altinn.App.* packages has been updated to support autodelete when process ends. This is introduced with version 2.0.0-alpha of the packages.
