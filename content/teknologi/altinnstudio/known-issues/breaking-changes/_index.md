@@ -24,54 +24,50 @@ Updating to this version will require changes in multiple files.
     <PackageReference Include="Altinn.App.PlatformServices" Version="3.0.0" />
     ```
 
-2. Add PdfHandler to logic
+2. Add PdfHandler to logic/Print folder [File from template](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/Print/PdfHandler.cs)
+ 
       ```cs
+          using System.Threading.Tasks;
+          using Altinn.App.Common.Models;
 
-using System.Threading.Tasks;
-using Altinn.App.Common.Models;
-
-namespace Altinn.App.AppLogic.Print
-{
-    /// <summary>
-    /// Handler for formatting PDF. Dow
-    /// </summary>
-    public class PdfHandler
-    {
-        /// <summary>
-        /// Method to format PDF dynamic
-        /// </summary>
-        /// <example>
-        ///     if (data.GetType() == typeof(Skjema)
-        ///     {
-        ///     // need to create object if not there
-        ///     layoutSettings.Components.ExcludeFromPdf.Add("a23234234");
-        ///     }
-        /// </example>
-        /// <param name="layoutSettings">the layoutsettings</param>
-        /// <param name="data">data object</param>
-        public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
-        {
-            return await Task.FromResult(layoutSettings);
-        }
-    }   
-}
-
-
+          namespace Altinn.App.AppLogic.Print
+          {
+              /// <summary>
+              /// Handler for formatting PDF. Dow
+              /// </summary>
+              public class PdfHandler
+              {
+                  /// <summary>
+                  /// Method to format PDF dynamic
+                  /// </summary>
+                  /// <example>
+                  ///     if (data.GetType() == typeof(Skjema)
+                  ///     {
+                  ///     // need to create object if not there
+                  ///     layoutSettings.Components.ExcludeFromPdf.Add("a23234234");
+                  ///     }
+                  /// </example>
+                  /// <param name="layoutSettings">the layoutsettings</param>
+                  /// <param name="data">data object</param>
+                  public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+                  {
+                      return await Task.FromResult(layoutSettings);
+                  }
+              }   
+          }
       ```
 
+      1. Changes in App.cs
 
-3. Changes in App.cs
-
-
-Add using
+      Add using
 
       ```cs
       using Altinn.App.AppLogic.Print;
-
       ```
 
 
-Add property in top of App.cs below InstantiationHandler
+    Add property in top of App.cs below InstantiationHandler
+    
     ```cs
         private readonly PdfHandler _pdfHandler;
     ```
@@ -127,23 +123,23 @@ Add property in top of App.cs below InstantiationHandler
             _pdfHandler = new PdfHandler();
         }
 
-```
+        ```
 
 
 Add method 
 
-```cs
+    ```cs
 
-        /// <summary>
-        /// Hook to run logic to hide pages or components when generatring PDF
-        /// </summary>
-        /// <param name="layoutSettings">The layoutsettings. Can be null and need to be created in method</param>
-        /// <param name="data">The data that there is generated PDF from</param>
-        /// <returns>Layoutsetting with possible hidden fields or pages</returns>
-        public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
-        {
-            return await _pdfHandler.FormatPdf(layoutSettings, data);
-        }
+            /// <summary>
+            /// Hook to run logic to hide pages or components when generatring PDF
+            /// </summary>
+            /// <param name="layoutSettings">The layoutsettings. Can be null and need to be created in method</param>
+            /// <param name="data">The data that there is generated PDF from</param>
+            /// <returns>Layoutsetting with possible hidden fields or pages</returns>
+            public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+            {
+                return await _pdfHandler.FormatPdf(layoutSettings, data);
+            }
 
 ```
 
