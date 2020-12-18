@@ -63,6 +63,9 @@ Updating to this version will require changes in multiple files.
 
       ```cs
       using Altinn.App.AppLogic.Print;
+      using Microsoft.Extensions.Options;
+      using Microsoft.AspNetCore.Http;
+      using Altinn.App.Services.Configuration;
       ```
 
 
