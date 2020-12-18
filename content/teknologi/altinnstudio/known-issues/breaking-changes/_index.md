@@ -128,7 +128,7 @@ Updating to this version will require changes in multiple files.
 
 Add method 
 
-    ```cs
+      ```cs
 
             /// <summary>
             /// Hook to run logic to hide pages or components when generatring PDF
@@ -140,8 +140,7 @@ Add method
             {
                 return await _pdfHandler.FormatPdf(layoutSettings, data);
             }
-
-```
+      ```
 
 
 
