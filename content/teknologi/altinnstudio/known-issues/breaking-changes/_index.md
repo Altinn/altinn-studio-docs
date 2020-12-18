@@ -122,24 +122,22 @@ Updating to this version will require changes in multiple files.
             _instantiationHandler = new InstantiationHandler(profileService, registerService);
             _pdfHandler = new PdfHandler();
         }
-
         ```
 
 
 Add method 
 
       ```cs
-
-            /// <summary>
-            /// Hook to run logic to hide pages or components when generatring PDF
-            /// </summary>
-            /// <param name="layoutSettings">The layoutsettings. Can be null and need to be created in method</param>
-            /// <param name="data">The data that there is generated PDF from</param>
-            /// <returns>Layoutsetting with possible hidden fields or pages</returns>
-            public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
-            {
-                return await _pdfHandler.FormatPdf(layoutSettings, data);
-            }
+      /// <summary>
+      /// Hook to run logic to hide pages or components when generatring PDF
+      /// </summary>
+      /// <param name="layoutSettings">The layoutsettings. Can be null and need to be created in method</param>
+      /// <param name="data">The data that there is generated PDF from</param>
+      /// <returns>Layoutsetting with possible hidden fields or pages</returns>
+      public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+      {
+          return await _pdfHandler.FormatPdf(layoutSettings, data);
+      }
       ```
 
 
