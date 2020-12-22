@@ -11056,8 +11056,8 @@ if(host != "localhost")
   <span style="color:#ff79c6">name</span>: ssl-cert
 <span style="color:#ff79c6">type</span>: Opaque
 <span style="color:#ff79c6">data</span>:
-	 <span style="color:#ff79c6">star.altinn.studio.cert</span>: &lt;BASE <span style="color:#bd93f9">64</span> ENCODED SSL/TLS-BUNDLE<span style="color:#f1fa8c">&gt;
-</span><span style="color:#f1fa8c">	 star.altinn.studio.key: &lt;BASE 64 ENCODED PRIVATE KEY&gt;</span>
+	 <span style="color:#ff79c6">star.altinn.studio.cert</span>: &lt;BASE 64 ENCODED SSL/TLS-BUNDLE&gt;
+	 <span style="color:#ff79c6">star.altinn.studio.key</span>: &lt;BASE 64 ENCODED PRIVATE KEY&gt;
 </code></pre></div><p>The names under <code>data</code> will be the filenames mounted on the kubernetes pods (these will have to match with the filenames defined in the nginx.conf config file, which is a configmap).</p>
 <p>nginx.conf:</p>
 <pre><code>

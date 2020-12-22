@@ -11034,8 +11034,8 @@ if(host != "localhost")
 <span style="color:#ff79c6">metadata</span>:
   <span style="color:#ff79c6">name</span>: altinn-tls-secret
 <span style="color:#ff79c6">data</span>:
-  <span style="color:#ff79c6">tls.crt</span>: [[BASE <span style="color:#bd93f9">64</span> ENCODED CERTIFICATE]]
-  <span style="color:#ff79c6">tls.key</span>: [[BASE <span style="color:#bd93f9">64</span> ENCODED PRIVATE KEY]]
+  <span style="color:#ff79c6">tls.crt</span>: [[BASE 64 ENCODED CERTIFICATE]]
+  <span style="color:#ff79c6">tls.key</span>: [[BASE 64 ENCODED PRIVATE KEY]]
 </code></pre></div><h4 id="tls-options">TLS Options</h4>
 <p>To set up TLS options we need to use the custom resource TLSOption. A basic set up of this is:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1

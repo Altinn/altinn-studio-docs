@@ -11034,7 +11034,7 @@ if(host != "localhost")
 
 <span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span> updateFormData(field: <span style="color:#8be9fd">string</span>, data: <span style="color:#8be9fd">any</span>, componentId: <span style="color:#8be9fd">string</span>)<span style="color:#ff79c6">:</span> IUpdateFormData {
   <span style="color:#ff79c6">return</span> {
-    type: <span style="color:#8be9fd">actionTypes.UPDATE_FORM_DATA</span>,
+    <span style="color:#ff79c6">type</span><span style="color:#ff79c6">:</span> actionTypes.UPDATE_FORM_DATA,
     field,
     data,
     componentId,
@@ -11051,15 +11051,15 @@ if(host != "localhost")
 <span style="color:#8be9fd;font-style:italic">function</span><span style="color:#ff79c6">*</span> updateFormDataSaga(action: <span style="color:#8be9fd">ActionType</span>) {
   <span style="color:#ff79c6">try</span> {
     <span style="color:#6272a4">// fetch some data
-</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> relevantData <span style="color:#ff79c6">=</span> yield selectRelevantStateObjects(...);
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> relevantData <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">yield</span> selectRelevantStateObjects(...);
     ...
     <span style="color:#6272a4">// process the data
 </span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">const</span> processedData <span style="color:#ff79c6">=</span> doRelevantLogic(relevantData);
     ...
     <span style="color:#6272a4">// trigger a new action to update the store
-</span><span style="color:#6272a4"></span>    yield call(updateFormDataSagaFulfilled, processedData, ... );
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">yield</span> call(updateFormDataSagaFulfilled, processedData, ... );
   } <span style="color:#ff79c6">catch</span> (err) {
-    yield call(updateFormDataSagaRejected, err);
+    <span style="color:#ff79c6">yield</span> call(updateFormDataSagaRejected, err);
   }
 }
 
@@ -11067,7 +11067,7 @@ if(host != "localhost")
 </span><span style="color:#6272a4"> * Define a listener for the UPDATE_FORM_DATA event
 </span><span style="color:#6272a4"> */</span>
 <span style="color:#ff79c6">export</span> <span style="color:#8be9fd;font-style:italic">function</span><span style="color:#ff79c6">*</span> watchUpdateFormDataSaga()<span style="color:#ff79c6">:</span> SagaIterator {
-  yield takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
+  <span style="color:#ff79c6">yield</span> takeLatest(FormFillerActionTypes.UPDATE_FORM_DATA, updateFormDataSaga);
 }
 </code></pre></div><h3 id="reducers">Reducers</h3>
 <p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made, and update the state accordingly.</p>
@@ -11085,7 +11085,7 @@ if(host != "localhost")
     <span style="color:#ff79c6">return</span> state;
   }
 
-  <span style="color:#ff79c6">switch</span> (action.type) {
+  <span style="color:#ff79c6">switch</span> (action.<span style="color:#ff79c6">type</span>) {
     <span style="color:#ff79c6">case</span> actionTypes.UPDATE_FORM_DATA_FULFILLED<span style="color:#ff79c6">:</span> {
       <span style="color:#ff79c6">const</span> { field, data } <span style="color:#ff79c6">=</span> action <span style="color:#ff79c6">as</span> IUpdateFormDataFulfilled;
       <span style="color:#ff79c6">return</span> Immutable&lt;<span style="color:#ff79c6">IFormDataState</span>&gt;(state, {

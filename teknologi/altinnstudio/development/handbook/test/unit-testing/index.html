@@ -11052,7 +11052,7 @@ Listing of the highest priority of unit-testing:</p>
 </code></pre></div><p>and then reference it in your test the following way:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { CloneServiceComponent } from <span style="color:#f1fa8c">&#39;../../../src/dashboardServices/cloneService/cloneServices&#39;</span>;
 
-it(<span style="color:#f1fa8c">&#39;+++ this is the test&#39;</span>, async () =&gt; {
+it(<span style="color:#f1fa8c">&#39;+++ this is the test&#39;</span>, <span style="color:#ff79c6">async</span> () =&gt; {
 
   <span style="color:#ff79c6">const</span> mountedComponent <span style="color:#ff79c6">=</span> mount(
     <span style="color:#ff79c6">&lt;</span>CloneServiceComponent
@@ -11102,7 +11102,7 @@ This can be done in the following way:</p>
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as networking from <span style="color:#f1fa8c">&#39;../../../../shared/src/utils/networking&#39;</span>;
 
 <span style="color:#6272a4">// To resolve the promise and and to return the value, first make sure your test is async:
-</span><span style="color:#6272a4"></span>it(<span style="color:#f1fa8c">&#39;should handle successfully returned data from API&#39;</span>, async () =&gt; {
+</span><span style="color:#6272a4"></span>it(<span style="color:#f1fa8c">&#39;should handle successfully returned data from API&#39;</span>, <span style="color:#ff79c6">async</span> () =&gt; {
 
   <span style="color:#6272a4">/* Mounting goes here, commented to get markdown colors correctly
 </span><span style="color:#6272a4">    const mountedComponent = mount(
@@ -11136,7 +11136,7 @@ This can be done in the following way:</p>
   expect(mockGet).toHaveBeenCalled();
 
   <span style="color:#6272a4">// Resolve mocked networking
-</span><span style="color:#6272a4"></span>  await <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">await</span> <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
 
   <span style="color:#6272a4">// Expect something to happen
 </span><span style="color:#6272a4"></span>  expect(instance.state.networkingRes.isSuccessStatusCode).toEqual(<span style="color:#ff79c6">true</span>);
@@ -11152,7 +11152,7 @@ This can be done in the following way:</p>
 getStub.mockReturnValue(<span style="color:#8be9fd;font-style:italic">Promise</span>.reject(mockError));
 
 <span style="color:#6272a4">// You &#34;execute&#34; the network function the same way as a resolved promise
-</span><span style="color:#6272a4"></span>await <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">await</span> <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
 </code></pre></div><p>You can spy on the console.error with the following code:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">let</span> consoleError<span style="color:#ff79c6">:</span> any;
 
@@ -11212,7 +11212,7 @@ describe(<span style="color:#f1fa8c">&#39;HandleMergeConflictAbort&#39;</span>, 
     mockLanguage <span style="color:#ff79c6">=</span> {};
   });
 
-  it(<span style="color:#f1fa8c">&#39;should handle successfully returned data from API&#39;</span>, async () =&gt; {
+  it(<span style="color:#f1fa8c">&#39;should handle successfully returned data from API&#39;</span>, <span style="color:#ff79c6">async</span> () =&gt; {
     <span style="color:#ff79c6">const</span> wrapper <span style="color:#ff79c6">=</span> mount(
       <span style="color:#ff79c6">&lt;</span>HandleMergeConflictAbort
         language<span style="color:#ff79c6">=</span>{mockLanguage}
@@ -11260,7 +11260,7 @@ describe(<span style="color:#f1fa8c">&#39;HandleMergeConflictAbort&#39;</span>, 
     expect(instance.state.popoverState.shouldShowDoneIcon).toEqual(<span style="color:#ff79c6">false</span>);
 
     <span style="color:#6272a4">// Resolve mocked networking
-</span><span style="color:#6272a4"></span>    await <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">await</span> <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
 
     <span style="color:#6272a4">// Expect state to change
 </span><span style="color:#6272a4"></span>    expect(instance.state.popoverState.isLoading).toEqual(<span style="color:#ff79c6">false</span>);
@@ -11291,7 +11291,7 @@ describe(<span style="color:#f1fa8c">&#39;HandleMergeConflictAbort&#39;</span>, 
     mockLanguage <span style="color:#ff79c6">=</span> {};
   });
 
- it(<span style="color:#f1fa8c">&#39;should catch error from networked function&#39;</span>, async () =&gt; {
+ it(<span style="color:#f1fa8c">&#39;should catch error from networked function&#39;</span>, <span style="color:#ff79c6">async</span> () =&gt; {
     <span style="color:#ff79c6">const</span> wrapper <span style="color:#ff79c6">=</span> mount(
       <span style="color:#ff79c6">&lt;</span>HandleMergeConflictAbort
         language<span style="color:#ff79c6">=</span>{mockLanguage}
@@ -11333,7 +11333,7 @@ describe(<span style="color:#f1fa8c">&#39;HandleMergeConflictAbort&#39;</span>, 
     expect(mockGet).toHaveBeenCalled();
 
     <span style="color:#6272a4">// Error is thrown
-</span><span style="color:#6272a4"></span>    await <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">await</span> <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
 
     <span style="color:#6272a4">// Expect state to change, and error to be saved to state
 </span><span style="color:#6272a4"></span>    expect(instance.state.popoverState.isLoading).toEqual(<span style="color:#ff79c6">false</span>);

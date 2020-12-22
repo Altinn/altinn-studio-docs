@@ -11069,10 +11069,10 @@ if(host != "localhost")
   - web
 <span style="color:#ff79c6">routes</span>:
   - <span style="color:#ff79c6">match</span>:
-      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) <span style="color:#ff79c6">&amp;&amp;</span> Path(`/`)
-      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> Path(`/`)
-      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> Path(`/`)
-      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> Path(`/`)
+      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) &amp;&amp; Path(`/`)
+      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) &amp;&amp; Path(`/`)
+      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) &amp;&amp; Path(`/`)
+      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) &amp;&amp; Path(`/`)
     <span style="color:#ff79c6">kind</span>: Rule
     <span style="color:#ff79c6">strategy</span>: RoundRobin
 <span style="color:#ff79c6">middlewares</span>: []
@@ -11082,10 +11082,10 @@ if(host != "localhost")
   - web
 <span style="color:#ff79c6">routes</span>:
   - <span style="color:#ff79c6">match</span>:
-      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/Home`)
-      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/Home`)
-      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/Home`)
-      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/Home`)
+      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) &amp;&amp; PathPrefix(`/Home`)
+      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) &amp;&amp; PathPrefix(`/Home`)
+      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) &amp;&amp; PathPrefix(`/Home`)
+      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) &amp;&amp; PathPrefix(`/Home`)
     <span style="color:#ff79c6">kind</span>: Rule
     <span style="color:#ff79c6">strategy</span>: RoundRobin
 <span style="color:#ff79c6">middlewares</span>: []
@@ -11095,10 +11095,10 @@ if(host != "localhost")
   - web
 <span style="color:#ff79c6">routes</span>:
   - <span style="color:#ff79c6">match</span>:
-      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/designer`)
-      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/designer`)
-      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/designer`)
-      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> PathPrefix(`/designer`)
+      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) &amp;&amp; PathPrefix(`/designer`)
+      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) &amp;&amp; PathPrefix(`/designer`)
+      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) &amp;&amp; PathPrefix(`/designer`)
+      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) &amp;&amp; PathPrefix(`/designer`)
     <span style="color:#ff79c6">kind</span>: Rule
     <span style="color:#ff79c6">strategy</span>: RoundRobin
 <span style="color:#ff79c6">middlewares</span>: []
@@ -11108,10 +11108,10 @@ if(host != "localhost")
   - web
 <span style="color:#ff79c6">routes</span>:
   - <span style="color:#ff79c6">match</span>:
-      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) <span style="color:#ff79c6">&amp;&amp;</span> (Path(`/repos/`) || Path(`/repos`))
-      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> (Path(`/repos/`) || Path(`/repos`))
-      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> (Path(`/repos/`) || Path(`/repos`))
-      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) <span style="color:#ff79c6">&amp;&amp;</span> (Path(`/repos/`) || Path(`/repos`))
+      <span style="color:#ff79c6">local</span>: Host(`altinn3.no`) &amp;&amp; (Path(`/repos/`) || Path(`/repos`))
+      <span style="color:#ff79c6">dev</span>: Host(`dev.altinn.studio`) &amp;&amp; (Path(`/repos/`) || Path(`/repos`))
+      <span style="color:#ff79c6">staging</span>: Host(`staging.altinn.studio`) &amp;&amp; (Path(`/repos/`) || Path(`/repos`))
+      <span style="color:#ff79c6">prod</span>: Host(`altinn.studio`) &amp;&amp; (Path(`/repos/`) || Path(`/repos`))
     <span style="color:#ff79c6">kind</span>: Rule
     <span style="color:#ff79c6">strategy</span>: RoundRobin
 <span style="color:#ff79c6">middlewares</span>:
