@@ -1116,6 +1116,24 @@
             }
           },
           {
+            "name": "status.isSoftDeleted",
+            "in": "query",
+            "description": "Is the instance soft deleted.",
+            "schema": {
+              "type": "boolean",
+              "description": "Is the instance soft deleted."
+            }
+          },
+          {
+            "name": "status.isArchived",
+            "in": "query",
+            "description": "Is the instance archived.",
+            "schema": {
+              "type": "boolean",
+              "description": "Is the instance archived."
+            }
+          },
+          {
             "name": "continuationToken",
             "in": "query",
             "description": "Continuation token.",
