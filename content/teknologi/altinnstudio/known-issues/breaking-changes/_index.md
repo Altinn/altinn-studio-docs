@@ -52,6 +52,8 @@ Updating to this version will require changes in multiple files.
     Add using
     ```cs
     using Altinn.App.AppLogic.Print;
+    using Altinn.App.Services.Configuration;
+    using Microsoft.Extensions.Options;
     ```
 
     Add a new private field below InstantiationHandler
