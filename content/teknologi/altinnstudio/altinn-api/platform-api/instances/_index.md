@@ -47,6 +47,10 @@ Filter instances based on when they became visible.
 Filter instances based on their due date.
 - **excludeConfirmedBy** (string)  
 Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
+- **isArchived** (bool)
+Filter instances based on whether they are archived.
+- **isSoftDeleted** (bool)
+Filter instances based on whether they are soft deleted.
 
 **Some examples**:
 

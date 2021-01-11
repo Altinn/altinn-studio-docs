@@ -1116,6 +1116,24 @@
             }
           },
           {
+            "name": "status.isSoftDeleted",
+            "in": "query",
+            "description": "Is the instance soft deleted.",
+            "schema": {
+              "type": "boolean",
+              "description": "Is the instance soft deleted."
+            }
+          },
+          {
+            "name": "status.isArchived",
+            "in": "query",
+            "description": "Is the instance archived.",
+            "schema": {
+              "type": "boolean",
+              "description": "Is the instance archived."
+            }
+          },
+          {
             "name": "continuationToken",
             "in": "query",
             "description": "Continuation token.",
@@ -1552,6 +1570,51 @@
             "schema": {
               "type": "string",
               "description": "the instance state; active, archived or deleted",
+              "nullable": true
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "language nb, en, nn-NO",
+            "schema": {
+              "type": "string",
+              "description": "language nb, en, nn-NO",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/sbl/instances/search": {
+      "get": {
+        "tags": [
+          "MessageBoxInstances"
+        ],
+        "summary": "Search through instances to find match based on query params.",
+        "parameters": [
+          {
+            "name": "instanceOwner.partyId",
+            "in": "query",
+            "description": "The instance owner party id",
+            "schema": {
+              "type": "integer",
+              "description": "The instance owner party id",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "appId",
+            "in": "query",
+            "description": "The application id",
+            "schema": {
+              "type": "string",
+              "description": "The application id",
               "nullable": true
             }
           },
@@ -2306,6 +2369,9 @@
           "partyTypesAllowed": {
             "$ref": "#/components/schemas/PartyTypesAllowed"
           },
+          "autoDeleteOnProcessEnd": {
+            "type": "boolean"
+          },
           "created": {
             "type": "string",
             "format": "date-time",
@@ -2425,6 +2491,9 @@
               "format": "uuid"
             },
             "nullable": true
+          },
+          "isRead": {
+            "type": "boolean"
           },
           "created": {
             "type": "string",
@@ -2564,9 +2633,6 @@
       "InstanceEvent": {
         "type": "object",
         "properties": {
-          "user": {
-            "$ref": "#/components/schemas/PlatformUser"
-          },
           "id": {
             "type": "string",
             "format": "uuid",
@@ -2592,6 +2658,9 @@
           "instanceOwnerPartyId": {
             "type": "string",
             "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/PlatformUser"
           },
           "processInfo": {
             "$ref": "#/components/schemas/ProcessState"
@@ -2656,15 +2725,24 @@
       "InstanceStatus": {
         "type": "object",
         "properties": {
+          "isArchived": {
+            "type": "boolean"
+          },
           "archived": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
+          "isSoftDeleted": {
+            "type": "boolean"
+          },
           "softDeleted": {
             "type": "string",
             "format": "date-time",
             "nullable": true
+          },
+          "isHardDeleted": {
+            "type": "boolean"
           },
           "hardDeleted": {
             "type": "string",

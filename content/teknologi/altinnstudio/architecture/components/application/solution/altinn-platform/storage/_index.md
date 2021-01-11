@@ -466,9 +466,10 @@ GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&language={langua
 ```
 
 Search instances based on query parameters
+All query parameters are optional. 
 
 ```http
-GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&language={languageId}
+GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&language={languageId}&appId={applicationId}
 ```
 
 Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
