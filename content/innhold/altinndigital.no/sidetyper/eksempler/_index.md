@@ -11,9 +11,9 @@ Vi er ikke helt ferdige med disse ressursene ennå.
 
 ## Brukeroppgaver for eksempelsider
 
-1.	Hvordan har andre brukt dette produktet?
-2.	Kan min etat gjøre noe tilsvarende? 
-1.  Hva er neste steg? 
+1. Hvordan har andre brukt dette produktet?
+2. Kan min etat gjøre noe tilsvarende? 
+3. Hva er neste steg? 
 
 ## Regler for innhold
 
