@@ -10,7 +10,7 @@ toc: true
 Vi er ikke helt ferdige med disse ressursene ennå.
 {{% /panel %}}
 
-### Brukeroppgaver for verktøy
+## Brukeroppgaver for verktøy
 - Hvilke verktøy er relevante for meg, hva bør jeg velge? 
 - Hvordan utvikler jeg tjenester i Altinn ved bruk av TUL og SERES? 
 - Hva er Altinn Studio og hvordan bruker jeg det? 
