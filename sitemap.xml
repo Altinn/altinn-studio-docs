@@ -111,6 +111,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/utviklingsguider/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/api/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/metadata/</loc>
   </url>
   
@@ -171,11 +179,23 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/produkter/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/redux/</loc>
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/vekt%C3%B8y/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/debug/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/eksempler/</loc>
   </url>
   
   <url>
@@ -396,6 +416,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/unit-testing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/</loc>
   </url>
   
   <url>
