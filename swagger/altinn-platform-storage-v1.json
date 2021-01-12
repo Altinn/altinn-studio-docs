@@ -1619,6 +1619,63 @@
             }
           },
           {
+            "name": "includeActive",
+            "in": "query",
+            "description": "Boolean indicating whether to include active instances.",
+            "schema": {
+              "type": "boolean",
+              "description": "Boolean indicating whether to include active instances."
+            }
+          },
+          {
+            "name": "includeArchived",
+            "in": "query",
+            "description": "Boolean indicating whether to include archived instances.",
+            "schema": {
+              "type": "boolean",
+              "description": "Boolean indicating whether to include archived instances."
+            }
+          },
+          {
+            "name": "includeDeleted",
+            "in": "query",
+            "description": "Boolean indicating whether to include deleted instances.",
+            "schema": {
+              "type": "boolean",
+              "description": "Boolean indicating whether to include deleted instances."
+            }
+          },
+          {
+            "name": "lastChanged",
+            "in": "query",
+            "description": "Last changed date.",
+            "schema": {
+              "type": "string",
+              "description": "Last changed date.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "created",
+            "in": "query",
+            "description": "Created time.",
+            "schema": {
+              "type": "string",
+              "description": "Created time.",
+              "nullable": true
+            }
+          },
+          {
+            "name": "searchString",
+            "in": "query",
+            "description": "Search string.",
+            "schema": {
+              "type": "string",
+              "description": "Search string.",
+              "nullable": true
+            }
+          },
+          {
             "name": "language",
             "in": "query",
             "description": "language nb, en, nn-NO",
