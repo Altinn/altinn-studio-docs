@@ -2,8 +2,7 @@
 title: Nytt i Altinn
 description: "Nyhetene skal ha relevans for etater og kommuner som jobber med digitalisering. Både tjenesteeiere og de som ikke bruker Altinn ennå.
               Andre private aktøre som for eksempel journalister og konsulenthus vil også kunne ha nytte av informasjonen."
-weight: 36
-toc: true
+weight: 20
 ---
 
 ## Brukeroppgaver for nytt i Altinn

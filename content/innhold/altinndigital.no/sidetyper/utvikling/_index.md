@@ -1,7 +1,7 @@
 ---
 title: Utvikling
 description: Utviklingssidene er en teknisk veiledning for utviklere som lager tjenester ved hjelp av Altinns verktøy og API-er. 
-weight: 100
+weight: 50
 ---
 
 Målet er at innholdet ikke skal være en “dokumentasjon” på hvordan ting er gjort, men være “oppskrifter” på hvordan brukeren løser en oppgave. De [generelle skriverådene](/innhold/altinndigital.no/skriveråd/) gjelder også for utviklingssidene.
