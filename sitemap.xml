@@ -79,6 +79,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/kalender/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/design/</loc>
   </url>
   
@@ -104,6 +108,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/developing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/nyheter/</loc>
   </url>
   
   <url>
@@ -135,6 +143,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/produkter/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/react/</loc>
   </url>
   
@@ -155,19 +167,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/kalender/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/innhold/altinndigital.no/skriver%C3%A5d/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/nyheter/</loc>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/</loc>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/eksempler/</loc>
   </url>
   
   <url>
@@ -176,10 +184,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/produkter/</loc>
   </url>
   
   <url>
@@ -195,11 +199,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/eksempler/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/instances/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/instances/</loc>
+    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/</loc>
   </url>
   
   <url>
@@ -416,10 +420,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/unit-testing/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/</loc>
   </url>
   
   <url>
