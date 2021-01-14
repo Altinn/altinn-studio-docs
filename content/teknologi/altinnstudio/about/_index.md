@@ -2,7 +2,7 @@
 title: About Altinn 3
 linktitle: About
 description: Altinn 3 is the third generation platform for developing and hosting digital services. 
-toc: false
+toc: true
 aliases:
  - /about/
 ---
@@ -35,23 +35,19 @@ the most simple public digital services in only hours.
 
 When an application is deployed to Altinn Apps it is available to all citizens and businesses of Norway.
 
-## What types of apps can be built with Altinn Studio and hosted in Altinn Apps?
-
-The first version supports apps where the use case is to submit data from the end user or system to the organizations.
-
 ## Why Altinn 3?
 
 There are many reasons to use Altinn 3 to build and host your digital services.
 
-- Application template are have built in functionality for the most common scenarios.
+- Application template are have built in functionality for the most common scenarios
 - Easy to develop and deploy apps
-- Reuse of data, APIs and functionality (code)
+- Reuse of data, UX, APIs and functionality
 - A known platform for end users
 - Highly scalable and secure infrastructure
-- Open source
+- [Open source](https://github.com/Altinn/altinn-studio)
 - Access to almost all citizens and business in Norway
 
-## When was it launched?
+## When was Altinn 3 launched?
 
 The first version was launched in June 2020 and the first applications was deployed to production on june 19. 2020.
 
