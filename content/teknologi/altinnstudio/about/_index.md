@@ -15,7 +15,7 @@ as one of the five leading digital government technology platforms in the world.
 ![Gartner](gartner.png "Gartner")
 
 The current platform is used by over 90% of the Norwegian population and almost 100% 
-of the businesses. Over 55 agencies and municipalities host their solutions in the Altinn platform.
+of the businesses. Over 62 agencies and municipalities host their solutions in the Altinn platform.
 
 The current platform has almost 1000 active solutions supporting different user scenarios.  
 Examples of solutions in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more.
