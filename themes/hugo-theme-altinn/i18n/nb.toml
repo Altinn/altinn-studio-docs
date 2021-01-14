@@ -32,7 +32,10 @@ other = "Ups... Ser ikke ut som denne siden eksisterer."
 other = "Gå til hovedsiden"
 
 [Edit-this-page]
-other = "Endre denne siden i github"
+other = "Endre denne siden i GitHub"
 
 [Navigation]
 other = "Vis innhold"
+
+[on-this-page]
+other = "På denne siden:"
