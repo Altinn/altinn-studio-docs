@@ -7,7 +7,7 @@ aliases:
  - /about/
 ---
 
-The platform is is owned by the Norwegian Digitalization Agency and developed as an open source platform.
+The platform is owned by the Norwegian Digitalization Agency and developed as an open source platform.
 
 The current development solution and hosting platform (launched 2010) is considered by Gartner
 as one of the five leading digital government technology platforms in the world.
