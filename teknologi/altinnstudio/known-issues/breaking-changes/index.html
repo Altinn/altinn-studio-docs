@@ -11189,6 +11189,7 @@ if(host != "localhost")
             <h2>On this page:</h2>
               <nav id="TableOfContents">
   <ul>
+    <li><a href="#swagger-support-inn-apps">Swagger support inn Apps</a></li>
     <li><a href="#support-for-dynamics-in-pdf">Support for dynamics in PDF</a></li>
     <li><a href="#support-for-autodelete-when-process-ends">Support for autodelete when process ends</a></li>
     <li><a href="#designer-moves-formlayoutjson-from-appui-to-appuilayouts">Designer moves FormLayout.json from app/ui to app/ui/layouts</a></li>
@@ -11216,6 +11217,83 @@ if(host != "localhost")
 
 
 
+<h2 id="swagger-support-inn-apps">Swagger support inn Apps</h2>
+<p>We have added Swashbuckle to the App. It is a library that bring Swagger support and this is especially handy when developing an HTTP based API. 
+It creates a form of interactive documentation based on the OpenAPI Specification.
+To describe the Api&rsquo;s better, we use the xml documentation file.</p>
+<p>This documentation will be generated automatically when the application is build. Existing api&rsquo;s and new api&rsquo;s created in the app will be documented.</p>
+<p>The documentation will appear at <code>/swagger/index.html</code> in the app.</p>
+<p>To enable this, there&rsquo;s some changes.</p>
+<ol>
+<li>
+<p>Updated package dependencies, generate xml documentation file and copy xml documentation for Altinn.App.Api
+Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.<br>
+Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, get the xml documentation file for Altinn.App.Api and include Swashbuckle.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>lib\$(TargetFramework)\*.xml<span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
+<span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Swashbuckle.AspNetCore&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;5.6.3&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</code></pre></div><p>Add this to <code>App.csproj</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PropertyGroup&gt;</span>
+  <span style="color:#ff79c6">&lt;GenerateDocumentationFile&gt;</span>true<span style="color:#ff79c6">&lt;/GenerateDocumentationFile&gt;</span>
+  <span style="color:#ff79c6">&lt;NoWarn&gt;</span>$(NoWarn);1591<span style="color:#ff79c6">&lt;/NoWarn&gt;</span>
+<span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
+
+<span style="color:#ff79c6">&lt;Target</span> <span style="color:#50fa7b">Name=</span><span style="color:#f1fa8c">&#34;CopyXMLFromPackagesForBuild&#34;</span> <span style="color:#50fa7b">AfterTargets=</span><span style="color:#f1fa8c">&#34;Build&#34;</span><span style="color:#ff79c6">&gt;</span>
+  <span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
+    <span style="color:#ff79c6">&lt;PackageReferenceFiles</span> <span style="color:#50fa7b">Condition=</span><span style="color:#f1fa8c">&#34;%(PackageReference.CopyToOutputDirectory) != &#39;&#39;&#34;</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;$(NugetPackageRoot)$([MSBuild]::Escape(&#39;%(PackageReference.Identity)&#39;).ToLower())/%(PackageReference.Version)/%(PackageReference.CopyToOutputDirectory)&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+  <span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
+  <span style="color:#ff79c6">&lt;Copy</span> <span style="color:#50fa7b">SourceFiles=</span><span style="color:#f1fa8c">&#34;@(PackageReferenceFiles)&#34;</span> <span style="color:#50fa7b">DestinationFolder=</span><span style="color:#f1fa8c">&#34;$(OutDir)&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;/Target&gt;</span>
+</code></pre></div></li>
+<li>
+<p>Changes to the <code>Startup.cs</code> file</p>
+<p>Add this to the end of the ConfigureServices method</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#6272a4">// Add Swagger support (Swashbuckle)
+</span><span style="color:#6272a4"></span> services.AddSwaggerGen(c =&gt;
+ {
+     c.SwaggerDoc(<span style="color:#f1fa8c">&#34;v1&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiInfo { Title = <span style="color:#f1fa8c">&#34;Altinn App Api&#34;</span>, Version = <span style="color:#f1fa8c">&#34;v1&#34;</span> });
+     IncludeXmlComments(c);
+ });
+</code></pre></div><p>Add this before <code>app.UseRouting()</code> in the Configure method</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#8be9fd">string</span> applicationId = GetApplicationId();
+ <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(applicationId))
+ {
+     app.UseSwagger(o =&gt; o.RouteTemplate = applicationId + <span style="color:#f1fa8c">&#34;/swagger/{documentName}/swagger.json&#34;</span>);
+
+     app.UseSwaggerUI(c =&gt;
+     {
+         c.SwaggerEndpoint(<span style="color:#f1fa8c">$&#34;/{applicationId}/swagger/v1/swagger.json&#34;</span>, <span style="color:#f1fa8c">&#34;Altinn App API&#34;</span>);
+         c.RoutePrefix = applicationId + <span style="color:#f1fa8c">&#34;/swagger&#34;</span>;
+     });
+ }
+</code></pre></div><p>Add two methods</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> IncludeXmlComments(SwaggerGenOptions options)
+{
+    <span style="color:#ff79c6">try</span>
+    {
+        <span style="color:#8be9fd">string</span> fileName = <span style="color:#f1fa8c">$&#34;{Assembly.GetExecutingAssembly().GetName().Name}.xml&#34;</span>;
+        <span style="color:#8be9fd">string</span> fullFilePath = Path.Combine(AppContext.BaseDirectory, fileName);
+        options.IncludeXmlComments(fullFilePath);
+        <span style="color:#8be9fd">string</span> fullFilePathApi = Path.Combine(AppContext.BaseDirectory, <span style="color:#f1fa8c">&#34;Altinn.App.Api.xml&#34;</span>);
+        options.IncludeXmlComments(fullFilePathApi);
+    }
+    <span style="color:#ff79c6">catch</span> 
+    {
+        <span style="color:#6272a4">// Swagger will not have the xml-documentation to describe the api&#39;s.
+</span><span style="color:#6272a4"></span>    }            
+}
+
+<span style="color:#ff79c6">private</span> <span style="color:#8be9fd">string</span> GetApplicationId()
+{
+    <span style="color:#8be9fd">string</span> appMetaDataString = File.ReadAllText(<span style="color:#f1fa8c">&#34;config/applicationmetadata.json&#34;</span>);
+    JObject appMetadataJObject = JObject.Parse(appMetaDataString);
+    <span style="color:#ff79c6">return</span> appMetadataJObject.SelectToken(<span style="color:#f1fa8c">&#34;id&#34;</span>).Value&lt;<span style="color:#8be9fd">string</span>&gt;();
+}
+</code></pre></div></li>
+</ol>
 <h2 id="support-for-dynamics-in-pdf">Support for dynamics in PDF</h2>
 <p>We have added a new PDF handler to make it possible to hide pages and components in PDF.</p>
 <p>The new version of the Altinn.App.* packages have breaking changes:</p>
