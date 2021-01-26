@@ -7,29 +7,30 @@ toc: true
 
 ## Swagger support for Apps
 
-We have added Swashbuckle to the App. It is a library that bring Swagger support and this is especially handy when developing an HTTP based API. 
+We have added Swashbuckle to the App. It is a library that brings Swagger support and this is especially handy when developing an HTTP based API. 
 It creates a form of interactive documentation based on the OpenAPI Specification.
 To describe the Api's better, we use the xml documentation file.
 
 This documentation will be generated automatically when the application is build. Existing api's and new api's created in the app will be documented.
 
-The documentation will appear at `/swagger/index.html` in the app.
+The documentation will appear at `https://[org].app.altinn.no/[org]/[app]/swagger/index.html` in the app.
 
 To enable this, there's some changes.
 
 1. Updated package dependencies, generate xml documentation file and copy xml documentation for Altinn.App.Api
     Navigate to you application repository and find `App.csproj` in the `App` folder.  
-    Update nuget dependencies in `App.csproj` to version 3.0.4, get the xml documentation file for Altinn.App.Api and include Swashbuckle.  
+    Update nuget dependencies in `App.csproj` to version 3.0.4, add new property for Altinn.App.Api.  
     ```xml
     <PackageReference Include="Altinn.App.Api" Version="3.0.4">
       <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
     </PackageReference>
     <PackageReference Include="Altinn.App.Common" Version="3.0.4" />
     <PackageReference Include="Altinn.App.PlatformServices" Version="3.0.4" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     ```
-    Add this to `App.csproj` 
+    This is new in `App.csproj` 
     ```xml
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+
     <PropertyGroup>
       <GenerateDocumentationFile>true</GenerateDocumentationFile>
       <NoWarn>$(NoWarn);1591</NoWarn>
@@ -43,7 +44,7 @@ To enable this, there's some changes.
     </Target>
     ```
 
-2. Changes to the `Startup.cs` file
+2. Changes to the `Startup.cs` file. If you don' have any custom code in this, copy file from [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/Startup.cs).
    
    Add this to the end of the ConfigureServices method
    ```cs
