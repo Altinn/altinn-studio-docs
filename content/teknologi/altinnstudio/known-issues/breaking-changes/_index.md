@@ -44,7 +44,7 @@ To enable this, there's some changes.
     </Target>
     ```
 
-2. Changes to the `Startup.cs` file. If you don' have any custom code in this, copy file from [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/Startup.cs).
+2. Changes to the `Startup.cs` file. If you don't have any custom code in this, copy file from [here](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/Startup.cs).
    
    Add this to the end of the ConfigureServices method
    ```cs
