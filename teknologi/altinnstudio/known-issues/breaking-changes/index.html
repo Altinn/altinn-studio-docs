@@ -11218,25 +11218,26 @@ if(host != "localhost")
 
 
 <h2 id="swagger-support-for-apps">Swagger support for Apps</h2>
-<p>We have added Swashbuckle to the App. It is a library that bring Swagger support and this is especially handy when developing an HTTP based API. 
+<p>We have added Swashbuckle to the App. It is a library that brings Swagger support and this is especially handy when developing an HTTP based API. 
 It creates a form of interactive documentation based on the OpenAPI Specification.
 To describe the Api&rsquo;s better, we use the xml documentation file.</p>
 <p>This documentation will be generated automatically when the application is build. Existing api&rsquo;s and new api&rsquo;s created in the app will be documented.</p>
-<p>The documentation will appear at <code>/swagger/index.html</code> in the app.</p>
+<p>The documentation will appear at <code>https://[org].app.altinn.no/[org]/[app]/swagger/index.html</code> in the app.</p>
 <p>To enable this, there&rsquo;s some changes.</p>
 <ol>
 <li>
 <p>Updated package dependencies, generate xml documentation file and copy xml documentation for Altinn.App.Api
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.<br>
-Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, get the xml documentation file for Altinn.App.Api and include Swashbuckle.</p>
+Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, add new property for Altinn.App.Api.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span><span style="color:#ff79c6">&gt;</span>
   <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>lib\$(TargetFramework)\*.xml<span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
 <span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span> <span style="color:#ff79c6">/&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-<span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Swashbuckle.AspNetCore&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;5.6.3&#34;</span> <span style="color:#ff79c6">/&gt;</span>
-</code></pre></div><p>Add this to <code>App.csproj</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PropertyGroup&gt;</span>
+</code></pre></div><p>This is new in <code>App.csproj</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Swashbuckle.AspNetCore&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;5.6.3&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+
+<span style="color:#ff79c6">&lt;PropertyGroup&gt;</span>
   <span style="color:#ff79c6">&lt;GenerateDocumentationFile&gt;</span>true<span style="color:#ff79c6">&lt;/GenerateDocumentationFile&gt;</span>
   <span style="color:#ff79c6">&lt;NoWarn&gt;</span>$(NoWarn);1591<span style="color:#ff79c6">&lt;/NoWarn&gt;</span>
 <span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
@@ -11249,7 +11250,7 @@ Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, get the x
 <span style="color:#ff79c6">&lt;/Target&gt;</span>
 </code></pre></div></li>
 <li>
-<p>Changes to the <code>Startup.cs</code> file</p>
+<p>Changes to the <code>Startup.cs</code> file. If you don' have any custom code in this, copy file from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/Startup.cs">here</a>.</p>
 <p>Add this to the end of the ConfigureServices method</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#6272a4">// Add Swagger support (Swashbuckle)
 </span><span style="color:#6272a4"></span> services.AddSwaggerGen(c =&gt;
