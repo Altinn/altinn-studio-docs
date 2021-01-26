@@ -5,7 +5,7 @@ description: Overview of breaking changes introduced into Altinn Studio and how 
 toc: true
 ---
 
-## Swagger support inn Apps
+## Swagger support for Apps
 
 We have added Swashbuckle to the App. It is a library that bring Swagger support and this is especially handy when developing an HTTP based API. 
 It creates a form of interactive documentation based on the OpenAPI Specification.
