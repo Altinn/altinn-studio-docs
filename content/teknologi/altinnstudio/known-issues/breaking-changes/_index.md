@@ -22,11 +22,11 @@ To enable this, there's some changes.
     Update nuget dependencies in `App.csproj` to version 3.0.4, add new property for Altinn.App.Api.
 
     ```xml
-    <PackageReference Include="Altinn.App.Api" Version="3.0.4">
-        <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
+    <PackageReference  Include="Altinn.App.Api"  Version="3.0.4">
+      <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
     </PackageReference>
-    <PackageReference Include="Altinn.App.Common" Version="3.0.4" />
-    <PackageReference Include="Altinn.App.PlatformServices" Version="3.0.4" />
+    <PackageReference  Include="Altinn.App.Common"  Version="3.0.4"  />
+    <PackageReference  Include="Altinn.App.PlatformServices"  Version="3.0.4"  />
     ```
     This is new in `App.csproj` 
     ```xml
