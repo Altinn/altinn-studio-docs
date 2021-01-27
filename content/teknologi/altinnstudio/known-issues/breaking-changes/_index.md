@@ -23,9 +23,7 @@ To enable this, there's some changes.
 
     ```xml
     <PackageReference  Include="Altinn.App.Api"  Version="3.0.4">
-      <CopyToOutputDirectory>
-        lib\$(TargetFramework)\*.xml
-      </CopyToOutputDirectory>
+      <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
     </PackageReference>
     <PackageReference  Include="Altinn.App.Common"  Version="3.0.4"  />
     <PackageReference  Include="Altinn.App.PlatformServices"  Version="3.0.4"  />
