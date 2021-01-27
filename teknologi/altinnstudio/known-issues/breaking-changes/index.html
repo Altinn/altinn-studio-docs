@@ -7360,13 +7360,129 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/known-issues/breaking-changes/" class="dd-item 
-        parent
-        active
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/app-template-and-deps/" class="dd-item 
+        
+        
         
         ">
-      <a href="/teknologi/altinnstudio/known-issues/breaking-changes/">
-        <span>Breaking changes</span>
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/app-template-and-deps/">
+        <span>App template and deps</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/async-programming/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/async-programming/">
+        <span>Async programming</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/error-handling/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/error-handling/">
+        <span>Error handling</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/logging/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/logging/">
+        <span>Logging</span>
+
+        
+
+        
+        
+
+        
+      </a>
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/teknologi/altinnstudio/development/handbook/back-end/nuget-package/" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/teknologi/altinnstudio/development/handbook/back-end/nuget-package/">
+        <span>Nuget Package</span>
 
         
 
@@ -11230,7 +11346,9 @@ To describe the Api&rsquo;s better, we use the xml documentation file.</p>
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.<br>
 Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, add new property for Altinn.App.Api.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span>  <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span>  <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span><span style="color:#ff79c6">&gt;</span>
-  <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>lib\$(TargetFramework)\*.xml<span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
+  <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>
+    lib\$(TargetFramework)\*.xml
+  <span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
 <span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span>  <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span>  <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span>  <span style="color:#ff79c6">/&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span>  <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span>  <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span>  <span style="color:#ff79c6">/&gt;</span>
