@@ -13,7 +13,7 @@ To describe the Api's better, we use the xml documentation file.
 
 This documentation will be generated automatically when the application is build. Existing api's and new api's created in the app will be documented.
 
-The documentation will appear at `https://[org].app.altinn.no/[org]/[app]/swagger/index.html` in the app.
+The documentation will appear at `https://[org].apps.altinn.no/[org]/[app]/swagger/index.html` in the app.
 
 To enable this, there's some changes.
 
