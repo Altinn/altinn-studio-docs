@@ -19,7 +19,8 @@ To enable this, there's some changes.
 
 1. Updated package dependencies, generate xml documentation file and copy xml documentation for Altinn.App.Api
     Navigate to you application repository and find `App.csproj` in the `App` folder.  
-    Update nuget dependencies in `App.csproj` to version 3.0.4, add new property for Altinn.App.Api.  
+    Update nuget dependencies in `App.csproj` to version 3.0.4, add new property for Altinn.App.Api.
+
     ```xml
     <PackageReference Include="Altinn.App.Api" Version="3.0.4">
       <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
