@@ -31,14 +31,14 @@ This document describes how one can start writing tests on a test cafe project ,
 
 ### Basics on POM and Selectors
 
-    1. config.json has the URLs and app names used in different environment
-    2. Use of objects from POM
-            i. Import page – 'import page_name from path_to_the_file
-            ii. Declare an object for the page - let object_name = new page_name();
-    4. Selectors
-        a. Id – starts with ‘#’
-        b. Class – starts with ‘.’
-        c. Html -> “ul > li”
-    5. test.skip – to skip a test in a test run (The results for the tests goes to Others)
+ 1. config.json has the URLs and app names used in different environment
+ 2. Use of objects from POM
+     - Import page – 'import page_name from path_to_the_file
+     - Declare an object for the page - let object_name = new page_name();
+ 3. Selectors
+     - Id – starts with ‘#’
+     - Class – starts with ‘.’
+     - Html -> “ul > li”
+ 4. test.skip – to skip a test in a test run (The results for the tests goes to Others)
 
 [More about Selectors](https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors/)
