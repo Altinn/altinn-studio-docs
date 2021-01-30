@@ -6958,35 +6958,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/testcoverage/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/test/testcoverage/">
-        <span>Test Coverage</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/test-strategy/" class="dd-item 
         
         
@@ -11241,16 +11212,23 @@ if(host != "localhost")
 <li>Testcafe continues to work towards implementing a method to debug an application interactively. Refer: <a href="https://github.com/DevExpress/testcafe/issues/3244">https://github.com/DevExpress/testcafe/issues/3244</a></li>
 </ol>
 <h3 id="basics-on-pom-and-selectors">Basics on POM and Selectors</h3>
-<pre><code>1. config.json has the URLs and app names used in different environment
-2. Use of objects from POM
-        i. Import page – 'import page_name from path_to_the_file
-        ii. Declare an object for the page - let object_name = new page_name();
-4. Selectors
-    a. Id – starts with ‘#’
-    b. Class – starts with ‘.’
-    c. Html -&gt; “ul &gt; li”
-5. test.skip – to skip a test in a test run (The results for the tests goes to Others)
-</code></pre>
+<ol>
+<li>config.json has the URLs and app names used in different environment</li>
+<li>Use of objects from POM
+<ul>
+<li>Import page – &lsquo;import page_name from path_to_the_file</li>
+<li>Declare an object for the page - let object_name = new page_name();</li>
+</ul>
+</li>
+<li>Selectors
+<ul>
+<li>Id – starts with ‘#’</li>
+<li>Class – starts with ‘.’</li>
+<li>Html -&gt; “ul &gt; li”</li>
+</ul>
+</li>
+<li>test.skip – to skip a test in a test run (The results for the tests goes to Others)</li>
+</ol>
 <p><a href="https://devexpress.github.io/testcafe/documentation/test-api/selecting-page-elements/selectors/">More about Selectors</a></p>
 
 
@@ -14593,22 +14571,6 @@ if(host != "localhost")
                               
                                   
                                   
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
                               
                           
                           

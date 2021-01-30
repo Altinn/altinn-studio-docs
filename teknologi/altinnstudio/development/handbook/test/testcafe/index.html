@@ -6958,35 +6958,6 @@ if(host != "localhost")
  
   
     
-    <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/testcoverage/" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/teknologi/altinnstudio/development/handbook/test/testcoverage/">
-        <span>Test Coverage</span>
-
-        
-
-        
-        
-
-        
-      </a>
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
     <li data-nav-id="/teknologi/altinnstudio/development/handbook/test/test-strategy/" class="dd-item 
         
         
@@ -11228,19 +11199,35 @@ if(host != "localhost")
 </ol>
 <p>Code for <a href="https://github.com/Altinn/altinn-studio/tree/master/src/test/Testcafe">Testcafe tests</a> in altinn.studio</p>
 <h3 id="install-tools">Install Tools</h3>
-<pre><code>    1. Open PowerShell -&gt; Verify Node and Npm version
-            npm -v (6.9.0)
-            node -v (9.5.0)
-    2. Install npm
-            a. npm install -g npm
-    3. Install npm in the Altinn Studio project
-            a. Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe
-            b. Run command – npm install
-    4. Ensure that the environment variables has the path of npm
-            a. C:\Users\UserName\AppData\Roaming\npm
-    5.  Navigate to the folder of the testcafe tests in command line (altinn-studio\src\test\Testcafe)
-            a. Run command - npm install testcafe
-</code></pre>
+<ol>
+<li>Open PowerShell -&gt; Verify Node and Npm version
+<ul>
+<li>npm -v (6.9.0)</li>
+<li>node -v (9.5.0)</li>
+</ul>
+</li>
+<li>Install npm
+<ul>
+<li>npm install -g npm</li>
+</ul>
+</li>
+<li>Install npm in the Altinn Studio project
+<ul>
+<li>Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe</li>
+<li>Run command – npm install</li>
+</ul>
+</li>
+<li>Ensure that the environment variables has the path of npm
+<ul>
+<li>C:\Users\UserName\AppData\Roaming\npm</li>
+</ul>
+</li>
+<li>Navigate to the folder of the testcafe tests in command line (altinn-studio\src\test\Testcafe)
+<ul>
+<li>Run command - npm install testcafe</li>
+</ul>
+</li>
+</ol>
 <h3 id="run-a-test-locally-from-powershell">Run a Test Locally from PowerShell</h3>
 <ol>
 <li>Open testRunner.js in Visual Studio Code</li>
@@ -11254,13 +11241,6 @@ if(host != "localhost")
 <li>Set password for the test users of Studio using: set &ldquo;username from config.json&rdquo;=password</li>
 <li>Run the command – ‘node .\testRunner.js’ to run general tests</li>
 <li>Run the command - &lsquo;node .\WCAGRunner.js&rsquo; to run wcag tests</li>
-</ol>
-<h3 id="branching">Branching</h3>
-<ol>
-<li>Create a new branch with addition or changing of a new test from master.</li>
-<li>Do necessary changes and commit the same to the new branch.</li>
-<li>Create a new pull request from Github with the commits created.</li>
-<li>Once PR is approved, merge the branch to master and delete the branch.</li>
 </ol>
 <h3 id="test-cafe-pipeline-in-azure-devops">Test cafe pipeline in Azure Devops</h3>
 <p><a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=25">Azure Devops Pipeline</a></p>
@@ -14670,22 +14650,6 @@ if(host != "localhost")
                       
                           
                               
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
-                              
-                                  
-                      
-                      
-                          
-                              
                               
                           
                           
@@ -16404,22 +16368,6 @@ if(host != "localhost")
                               
                               
           
-                              
-                                  
-                      
-                      
-                          
-                              
-                          
-                          
-          
-                              
-                              
-                              
-          
-                              
-                      
-                  
                               
                       
                   
