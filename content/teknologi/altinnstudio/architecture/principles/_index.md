@@ -16,7 +16,7 @@ The [architecture principles]() below is described like TOGAF recommends.
 
 **Principle** 
 
-The components and solutions are [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software).  
+The components and solutions in Altinn 3 are [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software).  
 
 **Rationale**
 
@@ -25,10 +25,10 @@ Possibility to share the platform as Open Source. The possibility to create an O
 **Implications** 
 
 - Code developed is [shared on GitHub](https://github.com/Altinn/altinn-studio). [See License](https://github.com/Altinn/altinn-studio/blob/master/LICENSE.md).
-- We have our [backlog](https://github.com/Altinn/altinn-studio/issues) on Github.
+- We also have our [backlog](https://github.com/Altinn/altinn-studio/issues) on GitHub.
 - Can't use closed source products in the platform
 - Can't use products with licensing limiting use and modifications
-- Others can reuse and modify our components and solutions
+- Others can easily reuse, modify and improve our components and solutions
 
 ## Web Standards
 
