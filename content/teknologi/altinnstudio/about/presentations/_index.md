@@ -39,4 +39,6 @@ The weeks where we don't presesent status, we hold themed meetings.
 * [Hvordan bidra til et bedre Altinn 3?](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201104.pptx) (4. november 2020)
 * [Signering i Altinn 3](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201118.pptx) (18. november 2020)
 * [Kalkulering i Altinn 3](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20201216-kalkuleringer.pptx) (16. desember 2020)
+* [Overordnet Strategi og tiltak](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20210128_Overordnet_Strategi_og_tiltak.pdf) (28. januar 2020)
+* [Kort status fra Team Tjenestestøtte](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20210128_Kort_status_fra_Team_Tjenestestotte.pdf) (28. januar 2020)
 * More to come...
