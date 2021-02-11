@@ -13,6 +13,8 @@ aliases:
 The first meeting was an introduction to the platform, including goals.
 
 * [Altinn 3 - hva og hvorfor?](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/Altinn_T3.0_introduksjon_20200925.pptx)
+* [Generell Presentasjon og Kom i Gang](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20210209_Generell_Presentasjon_for_Altinn_Tjenester_3.0.pdf)
+ 
 
 This presentation was recorded. Video will be available soon.
 
