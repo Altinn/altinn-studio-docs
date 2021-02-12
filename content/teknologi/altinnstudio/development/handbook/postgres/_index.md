@@ -63,10 +63,13 @@ If you cannot see the user, try refreshing the _Login/Group Roles_ section.
 If you cannot see the user, try refreshing the _Login/Group Roles_ section.
 ![Step 5](images/setup-app-user-5.PNG "Step 5")
 
-6. Right click the database in the side menu and select _Query tool..._
+6. Create a schema called events.
+ [A more detailed description to come..]
+
+7. Right click the database in the side menu and select _Query tool..._
 ![Step 6](images/setup-app-user-6.PNG "Step 6")
 
-7. Run script grating user privilliges on schema resources.
+8. Run script grating user privilliges on schema resources.
 
 ```sql
 GRANT  USAGE  ON SCHEMA events TO platform_events;
