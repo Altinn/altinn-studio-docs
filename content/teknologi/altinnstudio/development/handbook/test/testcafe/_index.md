@@ -24,18 +24,18 @@ Code for [Testcafe tests](https://github.com/Altinn/altinn-studio/tree/master/sr
 
 ### Install Tools
 
-        1. Open PowerShell -> Verify Node and Npm version
-                npm -v (6.9.0)
-                node -v (9.5.0)
-        2. Install npm
-                a. npm install -g npm
-        3. Install npm in the Altinn Studio project
-                a. Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe
-                b. Run command – npm install
-        4. Ensure that the environment variables has the path of npm
-                a. C:\Users\UserName\AppData\Roaming\npm
-        5.  Navigate to the folder of the testcafe tests in command line (altinn-studio\src\test\Testcafe)
-                a. Run command - npm install testcafe
+1. Open PowerShell -> Verify Node and Npm version
+    - npm -v (6.9.0)
+    - node -v (9.5.0)
+2. Install npm
+    - npm install -g npm
+3. Install npm in the Altinn Studio project
+    - Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe
+    - Run command – npm install
+4. Ensure that the environment variables has the path of npm
+    - C:\Users\UserName\AppData\Roaming\npm
+5.  Navigate to the folder of the testcafe tests in command line (altinn-studio\src\test\Testcafe)
+    - Run command - npm install testcafe
 
 ### Run a Test Locally from PowerShell
 
@@ -50,13 +50,6 @@ Code for [Testcafe tests](https://github.com/Altinn/altinn-studio/tree/master/sr
 9. Set password for the test users of Studio using: set "username from config.json"=password
 10. Run the command – ‘node .\testRunner.js’ to run general tests
 11. Run the command - 'node .\WCAGRunner.js' to run wcag tests
-
-### Branching
-
-1. Create a new branch with addition or changing of a new test from master.
-2. Do necessary changes and commit the same to the new branch.
-3. Create a new pull request from Github with the commits created.
-4. Once PR is approved, merge the branch to master and delete the branch.
 
 ### Test cafe pipeline in Azure Devops
 

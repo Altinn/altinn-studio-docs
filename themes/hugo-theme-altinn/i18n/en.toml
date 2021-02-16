@@ -32,7 +32,10 @@ other = "Woops. Looks like this page doesn't exist."
 other = "Go to homepage"
 
 [Edit-this-page]
-other = "Edit page"
+other = "Edit page on GitHub"
 
 [Navigation]
 other = "Navigation"
+
+[on-this-page]
+other = "On this page:"

@@ -4,7 +4,39 @@ description: Guidelines for using Redux in Altinn Studio
 tags: [development, front-end, react]
 weight: 40
 ---
-Redux is used to manage the states of the applications. The components update the states in the _Redux store_, instead of keeping state only within the component. This allows components to easily react to state changes from other components.
+Redux is used to manage the states of the applications. The components update the states in the _Redux store_, instead of keeping state only within the component.
+This allows components to easily react to state changes from other components.
+
+### Redux Toolkit
+As of 2021, we have started using Redux Toolkit rather than the traditional Redux setup. This allows us to get rid of a lot of boilerplate code. Read
+more about Redux Toolkit [here](https://redux-toolkit.js.org/introduction/quick-start).
+
+In practice, this affects the setup of actions and reducers. We currently use Redux Toolkit in Altinn Studio, and plan to update the App frontend as well.
+Redux Toolkit also works well in parallel with the more traditional setup. In App frontend, any new reducers should be set up as _slices_ where possible,
+using Redux Toolit. New actions can be set up using the `createAction` method, rather than the existing boilerplate setup.
+
+#### `createAction`
+React more about creating actions [here](https://redux-toolkit.js.org/tutorials/basic-tutorial#introducing-createaction).
+Actions can also be created automatically within _slices_. The `createAction` command is useful for actions that are are not necessarily
+handled by the reducer.
+
+#### `createSlice`
+Read more about slices [here](https://redux-toolkit.js.org/tutorials/basic-tutorial#introducing-createslice).
+Slices combine the creation of actions and reducers into one command, thereby reducing the amount of code, as well as making the 
+setup much more readable.
+
+#### Dispatching actions
+In the traditional setup, we use an action dispatcher. For App frontend, it is possible to combine f.ex. `createAction` with existing action dispatchers. 
+Where possible, however, actions should be dispatched using the `dispatch` function, from the component itself. For class components, this function is provided
+as a prop from `mapStateToProps`. For functional components using hooks, we can use `const dispatch = useDispatch()` where the `useDispatch` function comes from the 
+`react-redux` package.
+
+#### Examples
+For examples of Redux Toolkit setup in the code, look at the Studio code, where all actions/reducers/dispatching has been updated to use Redux Toolkit.
+
+## Basic concepts
+Below is a short descriptions of some of the basic Redux concepts that we use. Note that these are described using the traditional Redux setup and not Redux Toolkit, but the 
+concepts are the same in both cases.
 
 ### Store
 This is where the overall states are stored. Each state is stored here as an object. 

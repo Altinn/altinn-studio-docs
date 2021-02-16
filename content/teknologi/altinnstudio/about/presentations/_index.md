@@ -13,6 +13,8 @@ aliases:
 The first meeting was an introduction to the platform, including goals.
 
 * [Altinn 3 - hva og hvorfor?](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/Altinn_T3.0_introduksjon_20200925.pptx)
+* [Generell Presentasjon og Kom i Gang](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20210209_Generell_Presentasjon_for_Altinn_Tjenester_3.0.pdf)
+ 
 
 This presentation was recorded. Video will be available soon.
 
@@ -24,6 +26,10 @@ Every other week, we present what we have done and what we're planning to do for
 * [Status og planer - 14. oktober 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201014.pptx)
 * [Status og planer - 28. oktober 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201028.pptx)
 * [Status og planer - 11. november 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201111.pptx)
+* [Status og planer - 25. november 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201125.pptx)
+* [Status og planer - 9. desember 2020](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201209.pptx)
+* [Status og planer - 6. januar 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210106.pptx)
+* [Status og planer - 20. januar 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210120.pptx)
 * More to come...
 
 ## Themed meetings
@@ -34,4 +40,7 @@ The weeks where we don't presesent status, we hold themed meetings.
 * [Integrasjon med mottakssystem](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201021.pptx) (21. oktober 2020)
 * [Hvordan bidra til et bedre Altinn 3?](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201104.pptx) (4. november 2020)
 * [Signering i Altinn 3](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20201118.pptx) (18. november 2020)
+* [Kalkulering i Altinn 3](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20201216-kalkuleringer.pptx) (16. desember 2020)
+* [Overordnet Strategi og tiltak](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20210128_Overordnet_Strategi_og_tiltak.pdf) (28. januar 2020)
+* [Kort status fra Team Tjenestestøtte](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20210128_Kort_status_fra_Team_Tjenestestotte.pdf) (28. januar 2020)
 * More to come...

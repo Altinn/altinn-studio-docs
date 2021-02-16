@@ -1,7 +1,7 @@
 ---
 title: Eksempler
 description: "Eksempler skal vise hvordan etater og kommuner har brukt Altinns produkter i sin digitalisering."
-weight: 50
+weight: 40
 ---
 
 {{% panel %}}

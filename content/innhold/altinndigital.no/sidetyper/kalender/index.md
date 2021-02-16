@@ -1,8 +1,7 @@
 ---
 title: Arrangementer
 description: Arrangementene vi markedsfører i kalenderen skal være relevante for etater og kommuner som jobber med digitalisering. Dette kan være tjenesteeiere som allerede bruker Altinn og andre som ikke bruker Altinn ennå, men er interessert i å høre om muligheter. 
-weight: 35
-toc: true
+weight: 10
 ---
 
 Sekundær målgruppe vil være private aktører og andre i offentlig sektor som er interesserte i hva Altinn jobber med.

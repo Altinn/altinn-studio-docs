@@ -1,7 +1,7 @@
 ---
 title: Produkter
 description: "Produktsidene skal presentere og selge Altinns produkter til etater og kommuner som jobber med digitalisering. Både tjenesteeiere og de som ikke bruker Altinn ennå."
-weight: 40
+weight: 30
 ---
 
 {{% panel %}}
