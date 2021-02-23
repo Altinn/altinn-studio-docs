@@ -5,11 +5,20 @@ description: Overview of changes introduced in v3.y.z
 toc: true
 ---
 
-## 3.2.3 (2021-02-17)
+## 3.2.3 (2021-02-17) - Fixed duplicate key exception on options
 
-## 3.2.1 (2021-02-10)
+When using the same option key in an option result a duplicate key exception was thrown that crashed the app. 
+This is now fixed, and keys that already exist in the option result will not be added.
 
-## 3.2.0 (2021-02-02)
+## 3.2.1 (2021-02-10) - Correctly set unread status when instantiated by end user
+
+The instance now appears as read in the messagebox if it is instantiated by an end user through api,
+regardless if they have opened the instance in GUI or downloaded the form data they just posted.
+
+## 3.2.0 (2021-02-02) - Options displayed with label in PDF
+
+Before this release the selected option was shown with it's value rather than the label that the end user was 
+presented with during form filling. This has now been fixed so the label is diplayed in the pdf.
 
 ## 3.1.6 (2021-01-29)
 
