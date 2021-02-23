@@ -1674,6 +1674,15 @@
               "description": "Search string.",
               "nullable": true
             }
+          },          
+          {
+            "name": "archiveReference",
+            "in": "query",
+            "description": "The archive reference.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
           },
           {
             "name": "language",

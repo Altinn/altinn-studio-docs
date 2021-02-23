@@ -11566,9 +11566,9 @@ if(host != "localhost")
             <h2>On this page:</h2>
               <nav id="TableOfContents">
   <ul>
-    <li><a href="#323-2021-02-17">3.2.3 (2021-02-17)</a></li>
-    <li><a href="#321-2021-02-10">3.2.1 (2021-02-10)</a></li>
-    <li><a href="#320-2021-02-02">3.2.0 (2021-02-02)</a></li>
+    <li><a href="#323-2021-02-17---fixed-duplicate-key-exception-on-options">3.2.3 (2021-02-17) - Fixed duplicate key exception on options</a></li>
+    <li><a href="#321-2021-02-10---correctly-set-unread-status-when-instantiated-by-end-user">3.2.1 (2021-02-10) - Correctly set unread status when instantiated by end user</a></li>
+    <li><a href="#320-2021-02-02---options-displayed-with-label-in-pdf">3.2.0 (2021-02-02) - Options displayed with label in PDF</a></li>
     <li><a href="#316-2021-01-29">3.1.6 (2021-01-29)</a></li>
     <li><a href="#315-2021-01-27">3.1.5 (2021-01-27)</a></li>
     <li><a href="#314-2021-01-26">3.1.4 (2021-01-26)</a></li>
@@ -11585,9 +11585,15 @@ if(host != "localhost")
 
 
 
-<h2 id="323-2021-02-17">3.2.3 (2021-02-17)</h2>
-<h2 id="321-2021-02-10">3.2.1 (2021-02-10)</h2>
-<h2 id="320-2021-02-02">3.2.0 (2021-02-02)</h2>
+<h2 id="323-2021-02-17---fixed-duplicate-key-exception-on-options">3.2.3 (2021-02-17) - Fixed duplicate key exception on options</h2>
+<p>When using the same option key in an option result a duplicate key exception was thrown that crashed the app. 
+This is now fixed, and keys that already exist in the option result will not be added.</p>
+<h2 id="321-2021-02-10---correctly-set-unread-status-when-instantiated-by-end-user">3.2.1 (2021-02-10) - Correctly set unread status when instantiated by end user</h2>
+<p>The instance now appears as read in the messagebox if it is instantiated by an end user through api,
+regardless if they have opened the instance in GUI or downloaded the form data they just posted.</p>
+<h2 id="320-2021-02-02---options-displayed-with-label-in-pdf">3.2.0 (2021-02-02) - Options displayed with label in PDF</h2>
+<p>Before this release the selected option was shown with it&rsquo;s value rather than the label that the end user was 
+presented with during form filling. This has now been fixed so the label is diplayed in the pdf.</p>
 <h2 id="316-2021-01-29">3.1.6 (2021-01-29)</h2>
 <h2 id="315-2021-01-27">3.1.5 (2021-01-27)</h2>
 <h2 id="314-2021-01-26">3.1.4 (2021-01-26)</h2>
