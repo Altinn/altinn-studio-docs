@@ -499,6 +499,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/3/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/</loc>
   </url>
   
@@ -631,7 +635,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/code-editor/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/</loc>
   </url>
   
   <url>
@@ -767,6 +779,18 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/3/breaking-changes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/3/breaking-changes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/breaking-changes/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/known-issues/breaking-changes/</loc>
   </url>
   
@@ -800,6 +824,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/certificate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/</loc>
   </url>
   
   <url>
@@ -1227,6 +1255,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/</loc>
   </url>
   
@@ -1635,6 +1667,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/3/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/validationhandler/</loc>
   </url>
   
@@ -1648,6 +1684,18 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/vs-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/3/whats-new/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/3/whats-new/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/whats-new/</loc>
   </url>
   
   <url>
