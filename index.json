@@ -2951,7 +2951,7 @@
 	"title": "What&#39;s new",
 	"tags": [],
 	"description": "Overview of changes introduced in v3 of app frontend",
-	"content": "3.0.1 (2021-02-25) - Bugfix for loading options Fix issue that only loaded options related to form layout in first data task - for subsequent data tasks options were not loaded.\nIssue #5619.\n3.0.0 (2021-02-23) - New font for App Frontend This version changes the font for the app frontend from Roboto to Altinn-DIN. For the apps to show fonts as expected, some changes need to be made. See breaking changes for the details.\n"
+	"content": "3.0.1 (2021-02-25) - Horizontally aligned components \u0026amp; Bugfix for loading options App-frontend now supports horizontally aligned components. See docs for more information.\nIssue #1515\nFix issue that only loaded options related to form layout in first data task - for subsequent data tasks options were not loaded.\nIssue #5619.\n3.0.0 (2021-02-23) - New font for App Frontend This version changes the font for the app frontend from Roboto to Altinn-DIN. For the apps to show fonts as expected, some changes need to be made. See breaking changes for the details.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/3/whats-new/",
