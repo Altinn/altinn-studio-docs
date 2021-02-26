@@ -5,7 +5,11 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
-## 3.0.1 (2021-02-25) - Bugfix for loading options
+## 3.0.1 (2021-02-25) - Horizontally aligned components & Bugfix for loading options
+App-frontend now supports horizontally aligned components. See [docs](https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/layout-style/#sidestilte-komponenter) for more information.
+
+Issue [#1515](https://github.com/Altinn/altinn-studio/issues/1515) 
+
 Fix issue that only loaded options related to form layout in first data task - for subsequent data tasks
 options were not loaded.
 
