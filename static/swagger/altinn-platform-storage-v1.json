@@ -2767,12 +2767,11 @@
       },
       "ReadStatus": {
         "enum": [
-          0,
-          1,
-          2
+          "Unread",
+          "Read",
+          "UpdatedSinceLastReview"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Substatus": {
         "type": "object",
