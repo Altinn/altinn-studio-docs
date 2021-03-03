@@ -5,6 +5,10 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.0.3 (2021-03-02) - Bugfix for metadata with layoutsets
+Fix issue where app-frontend feched wrong metadata when using layoutsets. Issue [#5624.](https://github.com/Altinn/altinn-studio/issues/5624) 
+
+
 ## 3.0.2 (2021-02-26) - Dependency patching
 Patching of external dependencies. Issue [#5676.](https://github.com/Altinn/altinn-studio/issues/5676) 
 
