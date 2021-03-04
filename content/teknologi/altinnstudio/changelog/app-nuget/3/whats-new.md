@@ -5,6 +5,13 @@ description: Overview of changes introduced in v3.y.z
 toc: true
 ---
 
+
+## 3.3.0 (2021-03-04) - Retriecing sertificate from Key Vault now uses name instead of id
+
+The ISecret service now requires certificate name as input for retrieving a certificate from key vault.
+Previously this has been the certificate id, but this identificator contains more information that an 
+app developer might have available, so the service has been simplified.
+
 ## 3.2.3 (2021-02-17) - Fixed duplicate key exception on options
 
 When using the same option key in an option result a duplicate key exception was thrown that crashed the app. 
