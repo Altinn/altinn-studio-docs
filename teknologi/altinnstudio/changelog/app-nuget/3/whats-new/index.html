@@ -11566,6 +11566,7 @@ if(host != "localhost")
             <h2>On this page:</h2>
               <nav id="TableOfContents">
   <ul>
+    <li><a href="#330-2021-03-04---retriecing-sertificate-from-key-vault-now-uses-name-instead-of-id">3.3.0 (2021-03-04) - Retriecing sertificate from Key Vault now uses name instead of id</a></li>
     <li><a href="#323-2021-02-17---fixed-duplicate-key-exception-on-options">3.2.3 (2021-02-17) - Fixed duplicate key exception on options</a></li>
     <li><a href="#321-2021-02-10---correctly-set-unread-status-when-instantiated-by-end-user">3.2.1 (2021-02-10) - Correctly set unread status when instantiated by end user</a></li>
     <li><a href="#320-2021-02-02---options-displayed-with-label-in-pdf">3.2.0 (2021-02-02) - Options displayed with label in PDF</a></li>
@@ -11585,6 +11586,10 @@ if(host != "localhost")
 
 
 
+<h2 id="330-2021-03-04---retriecing-sertificate-from-key-vault-now-uses-name-instead-of-id">3.3.0 (2021-03-04) - Retriecing sertificate from Key Vault now uses name instead of id</h2>
+<p>The ISecret service now requires certificate name as input for retrieving a certificate from key vault.
+Previously this has been the certificate id, but this identificator contains more information that an 
+app developer might have available, so the service has been simplified.</p>
 <h2 id="323-2021-02-17---fixed-duplicate-key-exception-on-options">3.2.3 (2021-02-17) - Fixed duplicate key exception on options</h2>
 <p>When using the same option key in an option result a duplicate key exception was thrown that crashed the app. 
 This is now fixed, and keys that already exist in the option result will not be added.</p>
