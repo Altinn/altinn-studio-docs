@@ -4,7 +4,7 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
-## 3.0.4 (2021-03-05) - Bugfix for text styling in tiltes/descriptions
+## 3.0.4 (2021-03-05) - Bugfix for text styling in titles/descriptions
 Fix issue where label and description texts would get cut off mid word. Issue [#5810.](https://github.com/Altinn/altinn-studio/issues/5810)
 
 ## 3.0.3 (2021-03-02) - Bugfix for metadata with layoutsets
