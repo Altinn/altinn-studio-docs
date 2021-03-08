@@ -79,6 +79,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/kalender/</loc>
   </url>
   
@@ -100,6 +104,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/models/app-metadata/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/</loc>
   </url>
   
   <url>
@@ -208,6 +216,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/models/data-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/</loc>
   </url>
   
   <url>
@@ -339,6 +351,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/</loc>
   </url>
   
@@ -419,6 +435,14 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/v2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/v3/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/versioning/</loc>
   </url>
   
@@ -496,10 +520,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/3/</loc>
   </url>
   
   <url>
@@ -635,15 +655,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/code-editor/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/</loc>
   </url>
   
   <url>
@@ -779,15 +791,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/3/breaking-changes/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/3/breaking-changes/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/v3/breaking-changes/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/breaking-changes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/breaking-changes/</loc>
   </url>
   
   <url>
@@ -1255,10 +1267,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/</loc>
   </url>
   
@@ -1559,6 +1567,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/</loc>
   </url>
   
@@ -1667,10 +1679,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/3/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/validationhandler/</loc>
   </url>
   
@@ -1687,15 +1695,19 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/3/whats-new/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/3/whats-new/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/v3/whats-new/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/whats-new/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/whats-new/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/v2/whats-new/</loc>
   </url>
   
   <url>
