@@ -5,6 +5,17 @@ description: Overview of changes introduced in v3.y.z
 toc: true
 ---
 
+## 3.4.0 (2021-03-10) - Endpoint and functionality for get page order made available
+All apps now expose an endpoint for getting the current page order based on the current state of an instance.
+Default behavior is to return the page order as defined in `Settings.json` to override, add the function below in 
+Logic/App.cs and include your own logic.
+
+```cs
+public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, object data)
+{
+    return await _pdfHandler.FormatPdf(layoutSettings, data);
+}
+```
 
 ## 3.3.0 (2021-03-04) - Retriecing sertificate from Key Vault now uses name instead of id
 
