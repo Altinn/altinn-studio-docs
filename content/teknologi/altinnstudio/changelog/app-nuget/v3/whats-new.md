@@ -1,7 +1,7 @@
 ---
 title: What's new
 linktitle: What's new
-description: Overview of changes introduced in v3.y.z
+description: Overview of changes introduced in version 3
 toc: true
 ---
 
@@ -17,7 +17,7 @@ public override async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettin
 }
 ```
 
-## 3.3.0 (2021-03-04) - Retriecing sertificate from Key Vault now uses name instead of id
+## 3.3.0 (2021-03-04) - Retrieving certificate from Key Vault now uses name
 
 The ISecret service now requires certificate name as input for retrieving a certificate from key vault.
 Previously this has been the certificate id, but this identificator contains more information that an 
@@ -127,7 +127,7 @@ To enable this, there's some changes.
         catch 
         {
             // Swagger will not have the xml-documentation to describe the api's.
-        }            
+        }
     }
 
     private string GetApplicationId()

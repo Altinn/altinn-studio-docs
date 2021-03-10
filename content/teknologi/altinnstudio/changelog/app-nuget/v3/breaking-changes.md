@@ -27,7 +27,7 @@ Updating to this version will require changes in multiple files.
     namespace Altinn.App.AppLogic.Print
     {
       /// <summary>
-      /// Handler for formatting PDF. Dow
+      /// Handler for formatting PDF.
       /// </summary>
       public class PdfHandler
       {

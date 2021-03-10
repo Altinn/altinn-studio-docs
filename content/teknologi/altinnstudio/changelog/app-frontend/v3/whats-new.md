@@ -5,9 +5,18 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.0.6 (2021-03-08) - Caching of last viewed page
+Introduced caching of the last viewed form page, so user is returned to this page when refreshing or coming back at a later
+time. Issue [#5278.](https://github.com/Altinn/altinn-studio/issues/5278) 
+
+## 3.0.5 (2021-03-05) - Dependency patching
+Patching of external dependencies. Issue [#5770.](https://github.com/Altinn/altinn-studio/issues/5770) 
+
+## 3.0.4 (2021-03-05) - Bugfix for text styling in titles/descriptions
+Fix issue where label and description texts would get cut off mid word. Issue [#5810.](https://github.com/Altinn/altinn-studio/issues/5810)
+
 ## 3.0.3 (2021-03-02) - Bugfix for metadata with layoutsets
 Fix issue where app-frontend feched wrong metadata when using layoutsets. Issue [#5624.](https://github.com/Altinn/altinn-studio/issues/5624) 
-
 
 ## 3.0.2 (2021-02-26) - Dependency patching
 Patching of external dependencies. Issue [#5676.](https://github.com/Altinn/altinn-studio/issues/5676) 
