@@ -5,6 +5,12 @@ description: Overview of changes introduced in version 3
 toc: true
 ---
 
+## 3.5.1 (2021-03-11) - Possible to get ruleconfiguration for apps with layout sets
+
+There was a bug resulting in av 404 response whenever it is attepmpted to retrieve
+the ruleconfiguration for an application while specifying the layout set id in the request.
+This has now been fixed. 
+
 ## 3.5.0 (2021-03-10) - Added funcionality for pdf generation for application owner
 
 Up until now a pdf copy has not been generated for the tasks that are completed by the application owner. 
