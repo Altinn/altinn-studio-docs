@@ -5,7 +5,15 @@ description: Overview of changes introduced in version 3
 toc: true
 ---
 
+## 3.5.0 (2021-03-10) - Added funcionality for pdf generation for application owner
+
+Up until now a pdf copy has not been generated for the tasks that are completed by the application owner. 
+This has now been implemented and pdf should be generated after a task regardless if it is an 
+end user of the app owner that completes the task.
+
+
 ## 3.4.0 (2021-03-10) - Endpoint and functionality for get page order made available
+
 All apps now expose an endpoint for getting the current page order based on the current state of an instance.
 Default behavior is to return the page order as defined in `Settings.json` to override, add the function below in 
 Logic/App.cs and include your own logic.
