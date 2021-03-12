@@ -38,7 +38,7 @@ Follow the instructions below ensure that app is complatible with the current ve
 
     The changes in the file should match the image below:
 
-    ![Changes in App.csproj](appproj-changes.png "Changes in App.csproj")
+    ![Changes in App.csproj](../appproj-changes.png "Changes in App.csproj")
 
 2. Update Dockerfile to use .Net 5 images
 
@@ -69,7 +69,7 @@ Follow the instructions below ensure that app is complatible with the current ve
     ```
     The changes in the file should match the image below:
 
-    ![Changes in the Dockerfile](dockerfile-updates.png "Changes in the Dockerfile")
+    ![Changes in the Dockerfile](../dockerfile-updates.png "Changes in the Dockerfile")
 
 3. Replace references to services will call to extension method
 
@@ -90,19 +90,19 @@ Follow the instructions below ensure that app is complatible with the current ve
     The application will still run if not all services are removed, so just do your best.
 
     Start by removing referenes to the Altinn App services.
-    ![Remove app services](remove-app-services.png "Remove app services.")
+    ![Remove app services](../remove-app-services.png "Remove app services.")
 
     Remove references to all the Altinn Platform services.
-    ![Remove platform services](remove-platform-services.png "Remove platform services")
+    ![Remove platform services](../remove-platform-services.png "Remove platform services")
 
     Remove all loading of configuration files.
-    ![Remove add configuration](remove-config-reading.png "Remove add configuration")
+    ![Remove add configuration](../remove-config-reading.png "Remove add configuration")
 
     Remove logic to configure Application insights.
-    ![Remove add appication insights](remove-add-ai.png "Remove add appication insights")
+    ![Remove add appication insights](../remove-add-ai.png "Remove add appication insights")
 
     Remove private method for retrieving the key for Application Insights.
-    ![Remove application insights help method](remove-ai-help-method.png "Remove application insights help method")
+    ![Remove application insights help method](../remove-ai-help-method.png "Remove application insights help method")
 
     As previously stated the removed references are now replaced by two calls to an extension method
     that will load all existing and future platform and app services into your application.
