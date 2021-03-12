@@ -5,6 +5,12 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.0.8 (2021-03-12) - Support for dynamicly getting page order
+App frontend now supports dynamicly fetching the page order on next page ("sporvalg"). See [docs](https://altinn.github.io/docs/altinn-studio/app-creation/sporvalg/) for more information. Issue [#5640.](https://github.com/Altinn/altinn-studio/issues/5640) 
+
+## 3.0.7 (2021-03-09) - Bugfix for page caching
+Fixed issue where the app would cache the first page in alphabetical order and not respect the order in Settings.json. Issue [#5819.](https://github.com/Altinn/altinn-studio/issues/5819) 
+
 ## 3.0.6 (2021-03-08) - Caching of last viewed page
 Introduced caching of the last viewed form page, so user is returned to this page when refreshing or coming back at a later
 time. Issue [#5278.](https://github.com/Altinn/altinn-studio/issues/5278) 
