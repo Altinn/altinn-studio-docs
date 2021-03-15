@@ -71,7 +71,7 @@ Follow the instructions below ensure that app is complatible with the current ve
 
     ![Changes in the Dockerfile](../dockerfile-updates.png "Changes in the Dockerfile")
 
-3. Replace references to services will call to extension method
+3. Replace references to services with call to extension method
 
     In the `App` folder you will also find `Startup.cs`
 
