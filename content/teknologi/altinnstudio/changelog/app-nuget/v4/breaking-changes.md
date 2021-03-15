@@ -104,7 +104,7 @@ Follow the instructions below ensure that app is complatible with the current ve
     Remove private method for retrieving the key for Application Insights.
     ![Remove application insights help method](../remove-ai-help-method.png "Remove application insights help method")
 
-    As previously stated the removed references are now replaced by two calls to an extension method
+    As previously stated the removed references are now replaced by calls to two new methods 
     that will load all existing and future platform and app services into your application.
 
     `services.AddPlatformServices(Configuration, _env);`  loads all configurations and services that the app requires to use Altinn Platform functionality, 
