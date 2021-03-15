@@ -26,7 +26,7 @@ Follow the instructions below ensure that app is complatible with the current ve
     ```xml
     <TargetFramework>net5.0</TargetFramework>
     ```
-    In the same file, update nuget dependencies to version 4.0.0.  
+    In the same file, update the Altinn.App.* package references to version 4.0.0.  
 
     ```xml
     <PackageReference Include="Altinn.App.Api" Version="4.0.0">
