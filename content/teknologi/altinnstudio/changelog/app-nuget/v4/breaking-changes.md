@@ -87,7 +87,7 @@ Follow the instructions below ensure that app is complatible with the current ve
 
     Depending on how many custom changes you have made in your file the line numbers might not match.
     Do not worry, the services should still be grouped togheter roughly as shown in the picture.
-    The application will still run if not all services are removed, so just do your best.
+    The application will run even if not all services are removed, so just do your best.
 
     Start by removing referenes to the Altinn App services.
     ![Remove app services](../remove-app-services.png "Remove app services.")
