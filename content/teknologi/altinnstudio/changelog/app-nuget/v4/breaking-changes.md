@@ -82,7 +82,7 @@ Follow the instructions below ensure that app is complatible with the current ve
     services.AddPlatformServices(Configuration, _env);      
     ```
 
-    The code that should be removed from the file is marked in pink and shown in the pictures below, 
+    The code that should be removed from the file is marked in pink in the pictures below, 
     which cover one section of the file each.
 
     Depending on how many custom changes you have made in your file the line numbers might not match.
