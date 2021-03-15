@@ -75,7 +75,7 @@ Follow the instructions below ensure that app is complatible with the current ve
 
     In the `App` folder you will also find `Startup.cs`
 
-    Several lines of code will be removed from this file and replaces with the two lines below. 
+    Several lines of code will be removed and replaced with the two lines below. 
 
     ```cs
     services.AddAppServices(Configuration, _env);
