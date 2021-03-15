@@ -8,7 +8,7 @@ weight: 100
 
 ## Overview
 
-A data element consist of two parts; its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.
+A data element consist of two parts: its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.
 
 **basePath**
 ```http
@@ -24,13 +24,13 @@ GET basePath/{dataGuid}
 Accept: application/{xml/json}
 ```
 
-The response will depend on the type of blob. There are currently 2 primary types; form data based on a model and attachments. The Accept header is considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.
+The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.
 
 ### Response with form data
 
 A response with form data will either be a json or xml serialized version of the data model depending on the **Accept** header in the request. The value **application/xml** will result in an XML document and the value **application/json** will result inn a JSON document.
 
-### Response with instance attachment
+### Response with attachment
 
 A response with a file attachment will be a file stream. Content-Type will be the same as the original value given when the file was uploaded. The same is true for the file name.
 
@@ -48,7 +48,17 @@ Endpoint for uploading a new data element on a specific instance.
 POST basePath?dataType={data type name}
 ```
 
-The **dataType** parameter is required and should reference one of the data types defined on the application. Data types with an **appLogic** property are linked to a form and will have data validation and calculation rules associated with them. Submitted data will be deserialized from **application/xml** or **application/json** based on the content-type of the request. Data types without an **appLogic** property will be handeled as an attachment and streamed directly to storage.
+The **dataType** parameter is required and should reference one of the [data types defined on the application](../../models/app-metadata/#datatype). Data types with an **appLogic** property are linked to a form and will have data validation and calculation rules associated with them. Data types without an **appLogic** property will be handeled as an attachment and streamed directly to storage.
+
+Request Content-Type is handled a little differently between the two cases:
+
+1. If a request is uploading form data, the Content-Type is used by Altinn to deserialize the request into a strongly typed object. A request must either be **application/json** or **application/xml**. No other Content-Types are supported. Content-Type is **not** validated against allowed Content-Types on the data type.
+2. If a request is uploading an attachment, the validation of Content-Type will depend on the rules of the data type.
+    1. If the data type has no Content-Type requirements, there will be no validation and the request can contain any Content-Type. 
+    2. If the data type has Content-Type requirements, there is a new set of checks. 
+        1. The request Content-Type must either be **application/octet-stream** or match the MIME type of the file being uploaded. Altinn will perform a [mapping from file extension to MIME type](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Helpers/MimeTypeMap.cs) before comparing with Content-Type. As an example we can see that .xml will map to *text/xml* and not *application/xml*.
+        2. If the data type allow Content-Type **application/octet-stream** no further validation is performed.
+        3. If not, the identified MIME type must match one of the allowed Content-Types on the data type.
 
 ### Uploading form data as application/json
 
@@ -86,11 +96,11 @@ Content-Type: application/xml
 
 ### Uploading an attachment
 
-Most web api client frameworks will have support for creating a valid file upload request for binary data.
+An example of a request uploading a PDF file.
 
 ```http
 Content-Type: application/pdf
-Content-Disposition: attachment; filename=receipt.pdf; filename*=UTF-8''receipt.pdf
+Content-Disposition: attachment; filename="receipt.pdf"; filename*=UTF-8''receipt.pdf
 Content-Length: 16994
 
 %PDF-1.4
@@ -111,7 +121,7 @@ The endpoint returns the data element metadata document that was created.
     "contentType": "application/xml",
     "blobStoragePath": "org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
     "selfLinks": {
-        "apps":   "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
+        "apps": "{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff",
         "platform": "{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff"
     },
     "filename": "default.xml",
