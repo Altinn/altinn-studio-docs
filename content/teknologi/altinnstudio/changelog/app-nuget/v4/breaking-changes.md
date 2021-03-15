@@ -9,7 +9,7 @@ Altinn.App.* librarires target .Net 5 now, which requires that the application d
 In addition, all references to app and platform sevices have been moved from Startup.cs and should be replaced with 
 two method calls.
 
-Follow the instructions below ensure that app is complatible with the current version.
+Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.
 
 
 1. Update target framework and package dependencies
