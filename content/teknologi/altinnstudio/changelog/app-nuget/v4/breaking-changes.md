@@ -42,7 +42,7 @@ Follow the instructions below to ensure that the app is compatible with version 
 
 2. Update Dockerfile to use .Net 5 images
 
-    In the `App` folder you will also find the Dockerfile
+    In the root of the application repository you will find the Dockerfile
 
     Update build image by replacing 
 
