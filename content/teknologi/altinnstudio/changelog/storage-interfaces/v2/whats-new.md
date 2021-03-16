@@ -5,6 +5,14 @@ description: Overview of changes introduced in version 2
 toc: true
 ---
 
+## 2.5.8 Extended eFormidlingContract with additional parameters
+
+- eFormidlingContract model was given three new properties to support eFormidling in apps. [#5740](https://github.com/Altinn/altinn-studio/issues/5740)
+
+## 2.5.7 Extended eFormidlingContract with a new property: sendAfterTaskId
+
+- eFormidlingContract model was given a new property to identify which task should trigger an eFormidling shipment. [#5740](https://github.com/Altinn/altinn-studio/issues/5740)
+
 ## 2.5.6 Adjustments around PresentationField and texts
 
 - Fixes to how PresentationFields were annotated.
