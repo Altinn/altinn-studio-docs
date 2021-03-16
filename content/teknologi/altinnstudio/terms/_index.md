@@ -44,7 +44,7 @@ See Altinn Apps [application architecture](/architecture/application/altinn-apps
 The command-line interface for the new APIs in Altinn.  
 Is used by service owners for retrieving data submitted by users, for instantiating and for updating status.
 
-https://github.com/altinn/alinn-cli/
+https://github.com/altinn/altinn-cli/
 
 ## Altinn Platform
 
@@ -200,7 +200,7 @@ A statefull app uses Altinn Platform to store data
 
 
 ## Stateless App
-A stateless app is a application where no data is store in in the platform. This could be a app acting like a proxy to som external APIS.
+A stateless app is a application where no data is store in in the platform. This could be a app acting like a proxy to some external APIS.
 State could potensial be stored in the external API, so term statless is limited to how the App not use any state in Altinn Platform.
 
 
