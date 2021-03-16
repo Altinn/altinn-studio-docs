@@ -6,7 +6,7 @@ description: Overview of breaking changes introduced into app nuget packages in 
 
 Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
 
-In addition, all references to app and platform sevices have been moved from Startup.cs and should be replaced with 
+In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with 
 two method calls.
 
 Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.
