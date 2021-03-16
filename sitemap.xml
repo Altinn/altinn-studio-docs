@@ -219,6 +219,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v4/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/</loc>
   </url>
   
@@ -800,6 +804,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/breaking-changes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v4/breaking-changes/</loc>
   </url>
   
   <url>
@@ -1704,6 +1712,10 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/whats-new/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v4/whats-new/</loc>
   </url>
   
   <url>
