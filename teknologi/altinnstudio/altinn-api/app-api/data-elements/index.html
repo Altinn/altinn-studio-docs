@@ -11780,17 +11780,17 @@ if(host != "localhost")
 
 
 <h2 id="overview">Overview</h2>
-<p>A data element consist of two parts; its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.</p>
+<p>A data element consist of two parts: its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.</p>
 <p><strong>basePath</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data
 </code></pre></div><h2 id="get-data">Get data</h2>
 <p>Endpoint for downloading the data blob.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET basePath/{dataGuid}
 Accept: application/{xml/json}
-</code></pre></div><p>The response will depend on the type of blob. There are currently 2 primary types; form data based on a model and attachments. The Accept header is considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.</p>
+</code></pre></div><p>The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.</p>
 <h3 id="response-with-form-data">Response with form data</h3>
 <p>A response with form data will either be a json or xml serialized version of the data model depending on the <strong>Accept</strong> header in the request. The value <strong>application/xml</strong> will result in an XML document and the value <strong>application/json</strong> will result inn a JSON document.</p>
-<h3 id="response-with-instance-attachment">Response with instance attachment</h3>
+<h3 id="response-with-attachment">Response with attachment</h3>
 <p>A response with a file attachment will be a file stream. Content-Type will be the same as the original value given when the file was uploaded. The same is true for the file name.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Disposition: attachment; filename=cute_cat.png; filename*=UTF-8&#39;&#39;cute_cat.png
 Content-Length: 16994
@@ -11798,7 +11798,23 @@ Content-Type: image/png
 </code></pre></div><h2 id="upload-data">Upload data</h2>
 <p>Endpoint for uploading a new data element on a specific instance.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST basePath?dataType={data type name}
-</code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the data types defined on the application. Data types with an <strong>appLogic</strong> property are linked to a form and will have data validation and calculation rules associated with them. Submitted data will be deserialized from <strong>application/xml</strong> or <strong>application/json</strong> based on the content-type of the request. Data types without an <strong>appLogic</strong> property will be handeled as an attachment and streamed directly to storage.</p>
+</code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a>. Data types with an <strong>appLogic</strong> property are linked to a form and will have data validation and calculation rules associated with them. Data types without an <strong>appLogic</strong> property will be handeled as an attachment and streamed directly to storage.</p>
+<p>Request Content-Type is handled a little differently between the two cases:</p>
+<ol>
+<li>If a request is uploading form data, the Content-Type is used by Altinn to deserialize the request into a strongly typed object. A request must either be <strong>application/json</strong> or <strong>application/xml</strong>. No other Content-Types are supported. Content-Type is <strong>not</strong> validated against allowed Content-Types on the data type.</li>
+<li>If a request is uploading an attachment, the validation of Content-Type will depend on the rules of the data type.
+<ol>
+<li>If the data type has no Content-Type requirements, there will be no validation and the request can contain any Content-Type.</li>
+<li>If the data type has Content-Type requirements, there is a new set of checks.
+<ol>
+<li>The request Content-Type must either be <strong>application/octet-stream</strong> or match the MIME type of the file being uploaded. Altinn will perform a <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.PlatformServices/Helpers/MimeTypeMap.cs">mapping from file extension to MIME type</a> before comparing with Content-Type. As an example we can see that .xml will map to <em>text/xml</em> and not <em>application/xml</em>.</li>
+<li>If the data type allow Content-Type <strong>application/octet-stream</strong> no further validation is performed.</li>
+<li>If not, the identified MIME type must match one of the allowed Content-Types on the data type.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
 <h3 id="uploading-form-data-as-applicationjson">Uploading form data as application/json</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Content-Type: application/json
 
@@ -11826,9 +11842,9 @@ Content-Type: image/png
     <span style="color:#ff79c6">&lt;/Kontaktperson&gt;</span>
 <span style="color:#ff79c6">&lt;/BliTjenesteeier_M&gt;</span>
 </code></pre></div><h3 id="uploading-an-attachment">Uploading an attachment</h3>
-<p>Most web api client frameworks will have support for creating a valid file upload request for binary data.</p>
+<p>An example of a request uploading a PDF file.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: application/pdf
-Content-Disposition: attachment; filename=receipt.pdf; filename*=UTF-8&#39;&#39;receipt.pdf
+Content-Disposition: attachment; filename=&#34;receipt.pdf&#34;; filename*=UTF-8&#39;&#39;receipt.pdf
 Content-Length: 16994
 
 %PDF-1.4
@@ -11844,7 +11860,7 @@ Content-Length: 16994
     <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
     <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;org/app/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
     <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
-        <span style="color:#ff79c6">&#34;apps&#34;</span>:   <span style="color:#f1fa8c">&#34;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
+        <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;{appPath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
         <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;{storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/data/692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>
     },
     <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#f1fa8c">&#34;default.xml&#34;</span>,
