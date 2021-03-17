@@ -22,6 +22,7 @@ processId | The id of the process model being used by the application. (Currentl
 dataTypes | A list of all the data types associated with the application. See [DataType](#datatype).
 partyTypesAllowed | A collection of flags that controls what type of instance owners new instances can be created for. See [PartyTypesAllowed](#partytypesallowed)
 autoDeleteOnProcessEnd | A value indicating whether an instance will be automatically deleted once the process ends. This can be used by highly sensitiv applications to force an instance delete instead of sending the instance to the archive.
+presentationFields | Currently not in use. See [PresentationField](#presentationfield).
 
 ## DataType
 
@@ -61,6 +62,19 @@ bankruptcyEstate | A value indicating that the instance owner can be a bancruptc
 organisation | A value indicating that the instance owner can be any organisation.
 person | A value indicating that the instance owner can be a person.
 subUnit | A value indicating that the instance owner can be a sub unit.
+
+## PresentationField
+
+This type is used by a feature still in development. 
+
+PresentationField represents a form field extraction rule. Every time a form is being saved the presentation field rules will be applied and any values from the form will be stored directly on the instance. This can later be used to present instance specific data in places like the portal message box. The purpose is to make it easier to identify a specific instance in a list with many almost identical instances.
+
+Name | Description
+-----|-------------
+id | An id or key to identify the specific rule. 
+path | A path to a specific field or property in the form model. 
+dataTypeId | The name of the datatype. See [DataType](#datatype). 
+
 
 ## Complete example
 
