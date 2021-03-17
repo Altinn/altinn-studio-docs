@@ -28,9 +28,7 @@
             "description": "The id of the application owner.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The id of the application owner.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -71,9 +69,7 @@
             "description": "Unique identifier of the organisation responsible for the app.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Unique identifier of the organisation responsible for the app.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -82,9 +78,7 @@
             "description": "Application identifier which is unique within an organisation.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Application identifier which is unique within an organisation.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -130,12 +124,10 @@
           {
             "name": "org",
             "in": "path",
-            "description": "The id of theowner of the application to update.",
+            "description": "The id of the owner of the application to update.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The id of theowner of the application to update.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -144,9 +136,7 @@
             "description": "The name of the application.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "The name of the application.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -205,9 +195,7 @@
             "description": "Unique identifier of the organisation responsible for the app.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Unique identifier of the organisation responsible for the app.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -216,9 +204,7 @@
             "description": "Application identifier which is unique within an organisation.",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "Application identifier which is unique within an organisation.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -226,9 +212,7 @@
             "in": "query",
             "description": "Controls whether the application should be deleted permanently.",
             "schema": {
-              "type": "boolean",
-              "description": "Controls whether the application should be deleted permanently.",
-              "nullable": true
+              "type": "boolean"
             }
           }
         ],
@@ -278,9 +262,7 @@
             "in": "query",
             "description": "The unique identification of the application to be added. Format: '{org}/{app}'",
             "schema": {
-              "type": "string",
-              "description": "The unique identification of the application to be added. Format: '{org}/{app}'",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -332,7 +314,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -343,7 +324,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the data element is associated with.",
               "format": "uuid"
             }
           },
@@ -354,7 +334,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the data element to delete.",
               "format": "uuid"
             }
           }
@@ -405,7 +384,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -416,7 +394,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the data element is associated with.",
               "format": "uuid"
             }
           },
@@ -427,7 +404,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the data element to retrieve.",
               "format": "uuid"
             }
           }
@@ -471,7 +447,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -482,7 +457,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the data element is associated with.",
               "format": "uuid"
             }
           },
@@ -493,7 +467,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the data element to replace.",
               "format": "uuid"
             }
           },
@@ -506,9 +479,7 @@
               "items": {
                 "type": "string",
                 "format": "uuid"
-              },
-              "description": "An optional array of data element references.",
-              "nullable": true
+              }
             }
           }
         ],
@@ -580,7 +551,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -591,7 +561,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the data element is associated with.",
               "format": "uuid"
             }
           }
@@ -634,7 +603,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -645,7 +613,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the data element is associated with.",
               "format": "uuid"
             }
           },
@@ -654,9 +621,7 @@
             "in": "query",
             "description": "The data type identifier for the data being uploaded.",
             "schema": {
-              "type": "string",
-              "description": "The data type identifier for the data being uploaded.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -668,9 +633,7 @@
               "items": {
                 "type": "string",
                 "format": "uuid"
-              },
-              "description": "An optional array of data element references.",
-              "nullable": true
+              }
             }
           }
         ],
@@ -712,7 +675,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -723,7 +685,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the data element is associated with.",
               "format": "uuid"
             }
           },
@@ -734,7 +695,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the data element to update.",
               "format": "uuid"
             }
           }
@@ -787,7 +747,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -798,7 +757,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the event is associated with.",
               "format": "uuid"
             }
           }
@@ -849,7 +807,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -860,7 +817,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the event(s) is associated with.",
               "format": "uuid"
             }
           },
@@ -872,9 +828,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "description": "Array of event types to filter the events by.",
-              "nullable": true
+              }
             }
           },
           {
@@ -882,9 +836,7 @@
             "in": "query",
             "description": "Lower bound for DateTime span to filter events by.",
             "schema": {
-              "type": "string",
-              "description": "Lower bound for DateTime span to filter events by.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -892,9 +844,7 @@
             "in": "query",
             "description": "Upper bound for DateTime span to filter events by.",
             "schema": {
-              "type": "string",
-              "description": "Upper bound for DateTime span to filter events by.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -936,7 +886,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -947,7 +896,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that the event is associated with.",
               "format": "uuid"
             }
           },
@@ -958,7 +906,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The unique id of the specific event to retrieve.",
               "format": "uuid"
             }
           }
@@ -999,9 +946,7 @@
             "in": "query",
             "description": "application owner.",
             "schema": {
-              "type": "string",
-              "description": "application owner.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1009,9 +954,7 @@
             "in": "query",
             "description": "application id.",
             "schema": {
-              "type": "string",
-              "description": "application id.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1019,9 +962,7 @@
             "in": "query",
             "description": "Running process current task id.",
             "schema": {
-              "type": "string",
-              "description": "Running process current task id.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1029,9 +970,7 @@
             "in": "query",
             "description": "Is process complete.",
             "schema": {
-              "type": "boolean",
-              "description": "Is process complete.",
-              "nullable": true
+              "type": "boolean"
             }
           },
           {
@@ -1039,9 +978,7 @@
             "in": "query",
             "description": "Process end state.",
             "schema": {
-              "type": "string",
-              "description": "Process end state.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1049,9 +986,7 @@
             "in": "query",
             "description": "Process ended value.",
             "schema": {
-              "type": "string",
-              "description": "Process ended value.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1060,9 +995,7 @@
             "description": "Instance owner id.",
             "schema": {
               "type": "integer",
-              "description": "Instance owner id.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             }
           },
           {
@@ -1070,9 +1003,7 @@
             "in": "query",
             "description": "Last changed date.",
             "schema": {
-              "type": "string",
-              "description": "Last changed date.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1080,9 +1011,7 @@
             "in": "query",
             "description": "Created time.",
             "schema": {
-              "type": "string",
-              "description": "Created time.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1090,9 +1019,7 @@
             "in": "query",
             "description": "The visible after date time.",
             "schema": {
-              "type": "string",
-              "description": "The visible after date time.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1100,9 +1027,7 @@
             "in": "query",
             "description": "The due before date time.",
             "schema": {
-              "type": "string",
-              "description": "The due before date time.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1110,9 +1035,7 @@
             "in": "query",
             "description": "A string that will hide instances already confirmed by stakeholder.",
             "schema": {
-              "type": "string",
-              "description": "A string that will hide instances already confirmed by stakeholder.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1120,8 +1043,7 @@
             "in": "query",
             "description": "Is the instance soft deleted.",
             "schema": {
-              "type": "boolean",
-              "description": "Is the instance soft deleted."
+              "type": "boolean"
             }
           },
           {
@@ -1129,8 +1051,7 @@
             "in": "query",
             "description": "Is the instance archived.",
             "schema": {
-              "type": "boolean",
-              "description": "Is the instance archived."
+              "type": "boolean"
             }
           },
           {
@@ -1138,9 +1059,7 @@
             "in": "query",
             "description": "Continuation token.",
             "schema": {
-              "type": "string",
-              "description": "Continuation token.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1149,9 +1068,7 @@
             "description": "The page size.",
             "schema": {
               "type": "integer",
-              "description": "The page size.",
-              "format": "int32",
-              "nullable": true
+              "format": "int32"
             }
           }
         ],
@@ -1189,9 +1106,7 @@
             "in": "query",
             "description": "the application id",
             "schema": {
-              "type": "string",
-              "description": "the application id",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1243,7 +1158,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -1254,7 +1168,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance to retrieve.",
               "format": "uuid"
             }
           }
@@ -1295,7 +1208,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -1306,7 +1218,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that should be deleted.",
               "format": "uuid"
             }
           },
@@ -1315,8 +1226,7 @@
             "in": "query",
             "description": "if true hard delete will take place. if false, the instance gets its status.softDelete attribute set to current date and time.",
             "schema": {
-              "type": "boolean",
-              "description": "if true hard delete will take place. if false, the instance gets its status.softDelete attribute set to current date and time."
+              "type": "boolean"
             }
           }
         ],
@@ -1372,7 +1282,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -1383,7 +1292,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance to confirm as complete.",
               "format": "uuid"
             }
           }
@@ -1416,7 +1324,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -1427,7 +1334,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance to confirm as complete.",
               "format": "uuid"
             }
           },
@@ -1436,9 +1342,7 @@
             "in": "query",
             "description": "The updated read status.",
             "schema": {
-              "type": "string",
-              "description": "The updated read status.",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1480,7 +1384,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -1491,7 +1394,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance to confirm as complete.",
               "format": "uuid"
             }
           }
@@ -1545,6 +1447,58 @@
         }
       }
     },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/presentationtexts": {
+      "put": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Updates the presentation texts on an instance",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to confirm as complete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Collection of changes to the presentation texts collection.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PresentationTexts"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sbl/instances/{instanceOwnerPartyId}": {
       "get": {
         "tags": [
@@ -1559,7 +1513,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "the instance owner id",
               "format": "int32"
             }
           },
@@ -1568,9 +1521,7 @@
             "in": "query",
             "description": "the instance state; active, archived or deleted",
             "schema": {
-              "type": "string",
-              "description": "the instance state; active, archived or deleted",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1578,9 +1529,7 @@
             "in": "query",
             "description": "language nb, en, nn-NO",
             "schema": {
-              "type": "string",
-              "description": "language nb, en, nn-NO",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1604,7 +1553,6 @@
             "description": "The instance owner party id",
             "schema": {
               "type": "integer",
-              "description": "The instance owner party id",
               "format": "int32"
             }
           },
@@ -1613,9 +1561,7 @@
             "in": "query",
             "description": "The application id",
             "schema": {
-              "type": "string",
-              "description": "The application id",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1623,8 +1569,7 @@
             "in": "query",
             "description": "Boolean indicating whether to include active instances.",
             "schema": {
-              "type": "boolean",
-              "description": "Boolean indicating whether to include active instances."
+              "type": "boolean"
             }
           },
           {
@@ -1632,8 +1577,7 @@
             "in": "query",
             "description": "Boolean indicating whether to include archived instances.",
             "schema": {
-              "type": "boolean",
-              "description": "Boolean indicating whether to include archived instances."
+              "type": "boolean"
             }
           },
           {
@@ -1641,8 +1585,7 @@
             "in": "query",
             "description": "Boolean indicating whether to include deleted instances.",
             "schema": {
-              "type": "boolean",
-              "description": "Boolean indicating whether to include deleted instances."
+              "type": "boolean"
             }
           },
           {
@@ -1650,9 +1593,7 @@
             "in": "query",
             "description": "Last changed date.",
             "schema": {
-              "type": "string",
-              "description": "Last changed date.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1660,9 +1601,7 @@
             "in": "query",
             "description": "Created time.",
             "schema": {
-              "type": "string",
-              "description": "Created time.",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1670,18 +1609,15 @@
             "in": "query",
             "description": "Search string.",
             "schema": {
-              "type": "string",
-              "description": "Search string.",
-              "nullable": true
+              "type": "string"
             }
-          },          
+          },
           {
             "name": "archiveReference",
             "in": "query",
             "description": "The archive reference.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1689,9 +1625,7 @@
             "in": "query",
             "description": "language nb, en, nn-NO",
             "schema": {
-              "type": "string",
-              "description": "language nb, en, nn-NO",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1716,7 +1650,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "the instance owner id",
               "format": "int32"
             }
           },
@@ -1727,7 +1660,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "the instance guid",
               "format": "uuid"
             }
           },
@@ -1736,9 +1668,7 @@
             "in": "query",
             "description": "language id en, nb, nn-NO\"",
             "schema": {
-              "type": "string",
-              "description": "language id en, nb, nn-NO\"",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -1761,7 +1691,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "instance id",
               "format": "uuid"
             }
           },
@@ -1772,7 +1701,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "instance owner",
               "format": "int32"
             }
           },
@@ -1781,8 +1709,7 @@
             "in": "query",
             "description": "if true is marked for hard delete.",
             "schema": {
-              "type": "boolean",
-              "description": "if true is marked for hard delete."
+              "type": "boolean"
             }
           }
         ],
@@ -1807,7 +1734,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "the instance owner id",
               "format": "int32"
             }
           },
@@ -1818,7 +1744,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "the instance guid",
               "format": "uuid"
             }
           }
@@ -1844,7 +1769,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "instance owner",
               "format": "int32"
             }
           },
@@ -1855,7 +1779,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "instance id",
               "format": "uuid"
             }
           }
@@ -1881,7 +1804,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -1892,7 +1814,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance that should have its process updated.",
               "format": "uuid"
             }
           }
@@ -1945,7 +1866,6 @@
             "required": true,
             "schema": {
               "type": "integer",
-              "description": "The party id of the instance owner.",
               "format": "int32"
             }
           },
@@ -1956,7 +1876,6 @@
             "required": true,
             "schema": {
               "type": "string",
-              "description": "The id of the instance whos process history to retrieve.",
               "format": "uuid"
             }
           }
@@ -1988,9 +1907,7 @@
             "description": "the org",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the org",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -1999,9 +1916,7 @@
             "description": "the application",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the application",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -2077,9 +1992,7 @@
             "description": "the org",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the org",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2088,9 +2001,7 @@
             "description": "the app",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the app",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2099,9 +2010,7 @@
             "description": "the language, must be a two letter ISO name",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the language, must be a two letter ISO name",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -2150,9 +2059,7 @@
             "description": "the org",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the org",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2161,9 +2068,7 @@
             "description": "the app",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the app",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2172,9 +2077,7 @@
             "description": "the language, must be a two letter ISO name",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the language, must be a two letter ISO name",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -2248,9 +2151,7 @@
             "description": "the org",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the org",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2259,9 +2160,7 @@
             "description": "the app",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the app",
-              "nullable": true
+              "type": "string"
             }
           },
           {
@@ -2270,9 +2169,7 @@
             "description": "the language, must be a two letter ISO name",
             "required": true,
             "schema": {
-              "type": "string",
-              "description": "the language, must be a two letter ISO name",
-              "nullable": true
+              "type": "string"
             }
           }
         ],
@@ -2296,99 +2193,6 @@
   },
   "components": {
     "schemas": {
-      "ApplicationLogic": {
-        "type": "object",
-        "properties": {
-          "autoCreate": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "classRef": {
-            "type": "string",
-            "nullable": true
-          },
-          "schemaRef": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "DataType": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "allowedContentTypes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "allowedContributers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "appLogic": {
-            "$ref": "#/components/schemas/ApplicationLogic"
-          },
-          "taskId": {
-            "type": "string",
-            "nullable": true
-          },
-          "maxSize": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "maxCount": {
-            "type": "integer",
-            "format": "int32",
-            "default": 1
-          },
-          "minCount": {
-            "type": "integer",
-            "format": "int32",
-            "default": 1
-          },
-          "grouping": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PartyTypesAllowed": {
-        "type": "object",
-        "properties": {
-          "bankruptcyEstate": {
-            "type": "boolean"
-          },
-          "organisation": {
-            "type": "boolean"
-          },
-          "person": {
-            "type": "boolean"
-          },
-          "subUnit": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
       "Application": {
         "type": "object",
         "properties": {
@@ -2438,6 +2242,16 @@
           "autoDeleteOnProcessEnd": {
             "type": "boolean"
           },
+          "presentationFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PresentationField"
+            },
+            "nullable": true
+          },
+          "eFormidlingContract": {
+            "$ref": "#/components/schemas/EFormidlingContract"
+          },
           "created": {
             "type": "string",
             "format": "date-time",
@@ -2472,43 +2286,34 @@
         },
         "additionalProperties": false
       },
-      "ProblemDetails": {
+      "ApplicationLogic": {
         "type": "object",
         "properties": {
-          "type": {
+          "autoCreate": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "classRef": {
             "type": "string",
             "nullable": true
           },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
+          "schemaRef": {
             "type": "string",
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": false
       },
-      "ResourceLinks": {
+      "CompleteConfirmation": {
         "type": "object",
         "properties": {
-          "apps": {
+          "stakeholderId": {
             "type": "string",
             "nullable": true
           },
-          "platform": {
+          "confirmedOn": {
             "type": "string",
-            "nullable": true
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -2595,101 +2400,161 @@
         },
         "additionalProperties": false
       },
-      "PlatformUser": {
+      "DataType": {
         "type": "object",
         "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "orgId": {
+          "id": {
             "type": "string",
             "nullable": true
           },
-          "authenticationLevel": {
-            "type": "integer",
-            "format": "int32"
+          "description": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
           },
-          "endUserSystemId": {
+          "allowedContentTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "allowedContributers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "appLogic": {
+            "$ref": "#/components/schemas/ApplicationLogic"
+          },
+          "taskId": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxSize": {
             "type": "integer",
             "format": "int32",
+            "nullable": true
+          },
+          "maxCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          },
+          "minCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          },
+          "grouping": {
+            "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "ValidationStatus": {
+      "EFormidlingContract": {
         "type": "object",
         "properties": {
-          "timestamp": {
+          "serviceId": {
             "type": "string",
-            "format": "date-time",
             "nullable": true
           },
-          "canCompleteTask": {
-            "type": "boolean"
+          "receiver": {
+            "type": "string",
+            "nullable": true
+          },
+          "process": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "ProcessElementInfo": {
+      "Instance": {
         "type": "object",
         "properties": {
-          "flow": {
-            "type": "integer",
-            "format": "int32",
+          "id": {
+            "type": "string",
             "nullable": true
           },
-          "started": {
+          "instanceOwner": {
+            "$ref": "#/components/schemas/InstanceOwner"
+          },
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "org": {
+            "type": "string",
+            "nullable": true
+          },
+          "selfLinks": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          },
+          "dueBefore": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "elementId": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "altinnTaskType": {
-            "type": "string",
-            "nullable": true
-          },
-          "ended": {
+          "visibleAfter": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "validated": {
-            "$ref": "#/components/schemas/ValidationStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProcessState": {
-        "type": "object",
-        "properties": {
-          "started": {
+          "process": {
+            "$ref": "#/components/schemas/ProcessState"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InstanceStatus"
+          },
+          "completeConfirmations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompleteConfirmation"
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataElement"
+            },
+            "nullable": true
+          },
+          "presentationTexts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "created": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "startEvent": {
+          "createdBy": {
             "type": "string",
             "nullable": true
           },
-          "currentTask": {
-            "$ref": "#/components/schemas/ProcessElementInfo"
-          },
-          "ended": {
+          "lastChanged": {
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
-          "endEvent": {
+          "lastChangedBy": {
             "type": "string",
             "nullable": true
           }
@@ -2765,27 +2630,35 @@
         },
         "additionalProperties": false
       },
-      "ReadStatus": {
-        "enum": [
-          "Unread",
-          "Read",
-          "UpdatedSinceLastReview"
-        ],
-        "type": "string"
-      },
-      "Substatus": {
+      "InstanceQueryResponse": {
         "type": "object",
         "properties": {
-          "label": {
+          "count": {
+            "type": "integer",
+            "description": "The number of items in this response.",
+            "format": "int64"
+          },
+          "self": {
             "type": "string",
+            "description": "The current query.",
             "nullable": true
           },
-          "description": {
+          "next": {
             "type": "string",
+            "description": "A link to the next page.",
+            "nullable": true
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Instance"
+            },
+            "description": "The metadata.",
             "nullable": true
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "Query response object"
       },
       "InstanceStatus": {
         "type": "object",
@@ -2823,126 +2696,141 @@
         },
         "additionalProperties": false
       },
-      "CompleteConfirmation": {
+      "PartyTypesAllowed": {
         "type": "object",
         "properties": {
-          "stakeholderId": {
-            "type": "string",
-            "nullable": true
+          "bankruptcyEstate": {
+            "type": "boolean"
           },
-          "confirmedOn": {
-            "type": "string",
-            "format": "date-time"
+          "organisation": {
+            "type": "boolean"
+          },
+          "person": {
+            "type": "boolean"
+          },
+          "subUnit": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
       },
-      "Instance": {
+      "PlatformUser": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orgId": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endUserSystemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PresentationField": {
         "type": "object",
         "properties": {
           "id": {
             "type": "string",
             "nullable": true
           },
-          "instanceOwner": {
-            "$ref": "#/components/schemas/InstanceOwner"
-          },
-          "appId": {
+          "path": {
             "type": "string",
             "nullable": true
           },
-          "org": {
-            "type": "string",
-            "nullable": true
-          },
-          "selfLinks": {
-            "$ref": "#/components/schemas/ResourceLinks"
-          },
-          "dueBefore": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "visibleAfter": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "process": {
-            "$ref": "#/components/schemas/ProcessState"
-          },
-          "status": {
-            "$ref": "#/components/schemas/InstanceStatus"
-          },
-          "completeConfirmations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CompleteConfirmation"
-            },
-            "nullable": true
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataElement"
-            },
-            "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastChanged": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lastChangedBy": {
+          "dataTypeId": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "InstanceQueryResponse": {
+      "PresentationTexts": {
         "type": "object",
         "properties": {
-          "totalHits": {
-            "type": "integer",
-            "description": "The total set of items that matches the query.",
-            "format": "int64"
-          },
-          "count": {
-            "type": "integer",
-            "description": "The number of items in this response.",
-            "format": "int64"
-          },
-          "self": {
-            "type": "string",
-            "description": "The current query.",
-            "nullable": true
-          },
-          "next": {
-            "type": "string",
-            "description": "A link to the next page.",
-            "nullable": true
-          },
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Instance"
+          "texts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
             },
-            "description": "The metadata.",
             "nullable": true
           }
         },
-        "additionalProperties": false,
-        "description": "Query response object"
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ProcessElementInfo": {
+        "type": "object",
+        "properties": {
+          "flow": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "started": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "elementId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "altinnTaskType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ended": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "validated": {
+            "$ref": "#/components/schemas/ValidationStatus"
+          }
+        },
+        "additionalProperties": false
       },
       "ProcessHistoryItem": {
         "type": "object",
@@ -2986,36 +2874,64 @@
         },
         "additionalProperties": false
       },
-      "TextResourceVariable": {
+      "ProcessState": {
         "type": "object",
         "properties": {
-          "key": {
+          "started": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "startEvent": {
             "type": "string",
             "nullable": true
           },
-          "dataSource": {
+          "currentTask": {
+            "$ref": "#/components/schemas/ProcessElementInfo"
+          },
+          "ended": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endEvent": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "TextResourceElement": {
+      "ReadStatus": {
+        "enum": [
+          "Unread",
+          "Read",
+          "UpdatedSinceLastReview"
+        ],
+        "type": "string"
+      },
+      "ResourceLinks": {
         "type": "object",
         "properties": {
-          "id": {
+          "apps": {
             "type": "string",
             "nullable": true
           },
-          "value": {
+          "platform": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Substatus": {
+        "type": "object",
+        "properties": {
+          "label": {
             "type": "string",
             "nullable": true
           },
-          "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TextResourceVariable"
-            },
+          "description": {
+            "type": "string",
             "nullable": true
           }
         },
@@ -3042,6 +2958,55 @@
               "$ref": "#/components/schemas/TextResourceElement"
             },
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TextResourceElement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextResourceVariable"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TextResourceVariable": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataSource": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationStatus": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "canCompleteTask": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
