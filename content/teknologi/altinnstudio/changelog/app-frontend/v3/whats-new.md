@@ -5,7 +5,7 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 ## 3.0.13 (2021-03-18) - Internal typings 
-App frontend internal typings updated to mitigate failing tests. No issue connected.
+App frontend internal typings updated to fix failing tests. No issue connected.
 
 ## 3.0.12 (2021-03-17) - Bugfix for markdown support in summary and group titles
 Fixed bug where app frontend would not render markdown in summary and group titles. Issue [#5781.](https://github.com/Altinn/altinn-studio/issues/5781)
