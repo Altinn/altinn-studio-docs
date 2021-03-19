@@ -22,7 +22,7 @@ processId | The id of the process model being used by the application. (Currentl
 dataTypes | A list of all the data types associated with the application. See [DataType](#datatype).
 partyTypesAllowed | A collection of flags that controls what type of instance owners new instances can be created for. See [PartyTypesAllowed](#partytypesallowed)
 autoDeleteOnProcessEnd | A value indicating whether an instance will be automatically deleted once the process ends. This can be used by highly sensitiv applications to force an instance delete instead of sending the instance to the archive.
-presentationFields | Currently not in use. See [PresentationField](#presentationfield).
+presentationFields | A collection of presentation fields. See [PresentationField](#presentationfield). Currently not in use. 
 
 ## DataType
 
