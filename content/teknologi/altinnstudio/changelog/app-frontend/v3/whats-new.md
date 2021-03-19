@@ -4,6 +4,21 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
+## 3.0.13 (2021-03-18) - Internal typings 
+App frontend internal typings updated to fix failing tests. No issue connected.
+
+## 3.0.12 (2021-03-17) - Bugfix for markdown support in summary and group titles
+Fixed bug where app frontend would not render markdown in summary and group titles. Issue [#5781.](https://github.com/Altinn/altinn-studio/issues/5781)
+
+## 3.0.11 (2021-03-17) - Bugfix for page order calculation
+Fixed bug where app frontend would trigger call to calculate page order even when no calculation trigger was present. Issue [#5863.](https://github.com/Altinn/altinn-studio/issues/5863)
+
+## 3.0.10 (2021-03-12) - Bugfix for page order calculation 
+Fixed bug where app frontend would trigger call to calculate page order for single page applications. Issue [#5859.](https://github.com/Altinn/altinn-studio/issues/5859) 
+
+## 3.0.9 (2021-03-12) - Dependency patching
+Patching of external dependencies. Issue [#5771.](https://github.com/Altinn/altinn-studio/issues/5771) 
+
 
 ## 3.0.8 (2021-03-12) - Support for dynamicly getting page order
 App frontend now supports dynamicly fetching the page order on next page ("sporvalg"). See [docs](https://altinn.github.io/docs/altinn-studio/app-creation/sporvalg/) for more information. Issue [#5640.](https://github.com/Altinn/altinn-studio/issues/5640) 
