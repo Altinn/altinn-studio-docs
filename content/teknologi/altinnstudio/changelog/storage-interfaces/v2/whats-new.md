@@ -5,6 +5,15 @@ description: Overview of changes introduced in version 2
 toc: true
 ---
 
+
+## 2.5.10 Dependency on .NETStandard2.0
+
+- The package was changed to depend on .NetStandard2.0 in place of .NetStandard2.1. This should ensure that applications based on .NET Framework 4.7 can use the package.
+
+## 2.5.9 Expanded the eFormidlingContract with SecurityLevel
+
+- eFormidlingContract model was given a new property holding security level information. [#5740](https://github.com/Altinn/altinn-studio/issues/5740)
+
 ## 2.5.8 Extended eFormidlingContract with additional parameters
 
 - eFormidlingContract model was given three new properties to support eFormidling in apps. [#5740](https://github.com/Altinn/altinn-studio/issues/5740)
