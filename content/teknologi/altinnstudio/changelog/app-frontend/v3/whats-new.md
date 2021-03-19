@@ -4,6 +4,10 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
+
+## 3.0.14 (2021-03-19) - Dependency patching
+Patching of external dependencies. Issue [#5877.](https://github.com/Altinn/altinn-studio/issues/5877) 
+
 ## 3.0.13 (2021-03-18) - Internal typings 
 App frontend internal typings updated to fix failing tests. No issue connected.
 
