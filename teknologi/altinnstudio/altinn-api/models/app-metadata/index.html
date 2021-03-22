@@ -11768,6 +11768,7 @@ if(host != "localhost")
     <li><a href="#datatype">DataType</a></li>
     <li><a href="#applicationlogic">ApplicationLogic</a></li>
     <li><a href="#partytypesallowed">PartyTypesAllowed</a></li>
+    <li><a href="#presentationfield">PresentationField</a></li>
     <li><a href="#complete-example">Complete example</a></li>
   </ul>
 </nav>
@@ -11828,6 +11829,10 @@ if(host != "localhost")
 <tr>
 <td>autoDeleteOnProcessEnd</td>
 <td>A value indicating whether an instance will be automatically deleted once the process ends. This can be used by highly sensitiv applications to force an instance delete instead of sending the instance to the archive.</td>
+</tr>
+<tr>
+<td>presentationFields</td>
+<td>A collection of presentation fields. See <a href="#presentationfield">PresentationField</a>. Currently not in use.</td>
 </tr>
 </tbody>
 </table>
@@ -11932,6 +11937,31 @@ if(host != "localhost")
 <tr>
 <td>subUnit</td>
 <td>A value indicating that the instance owner can be a sub unit.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="presentationfield">PresentationField</h2>
+<p>This type is used by a feature still in development.</p>
+<p>PresentationField represents a form field extraction rule. Every time a form is being saved the presentation field rules will be applied and any values from the form will be stored directly on the instance. This can later be used to present instance specific data in places like the portal message box. The purpose is to make it easier to identify a specific instance in a list with many almost identical instances.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>An id or key to identify the specific rule.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>A path to a specific field or property in the form model.</td>
+</tr>
+<tr>
+<td>dataTypeId</td>
+<td>The name of the datatype. See <a href="#datatype">DataType</a>.</td>
 </tr>
 </tbody>
 </table>
