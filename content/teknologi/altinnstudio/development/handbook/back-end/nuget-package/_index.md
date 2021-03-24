@@ -17,6 +17,7 @@ The following nuget packages are available for download [here](https://www.nuget
 - [Altinn.Common.PEP](https://www.nuget.org/packages/Altinn.Common.PEP)
 - [Altinn.Authorization.ABAC](https://www.nuget.org/packages/Altinn.Authorization.ABAC)
 - [Altinn.Platform.Storage.Interface](https://www.nuget.org/packages/Altinn.Platform.Storage.Interface/)
+- [Altinn.Platform.Models](https://www.nuget.org/packages/Altinn.Platform.Models/)
 - [JWTCookieAuthentication](https://www.nuget.org/packages/JWTCookieAuthentication/)
 - [Altinn.Common.AccessToken](https://www.nuget.org/packages/Altinn.Common.AccessToken/)
 - [Altinn.Common.AccessTokenClient](https://www.nuget.org/packages/Altinn.Common.AccessTokenClient/)
