@@ -18,6 +18,8 @@ The following nuget packages are available for download [here](https://www.nuget
 - [Altinn.Authorization.ABAC](https://www.nuget.org/packages/Altinn.Authorization.ABAC)
 - [Altinn.Platform.Storage.Interface](https://www.nuget.org/packages/Altinn.Platform.Storage.Interface/)
 - [JWTCookieAuthentication](https://www.nuget.org/packages/JWTCookieAuthentication/)
+- [Altinn.Common.AccessToken](https://www.nuget.org/packages/Altinn.Common.AccessToken/)
+- [Altinn.Common.AccessTokenClient](https://www.nuget.org/packages/Altinn.Common.AccessTokenClient/)
 
 
 ## Procedure for changes involving NuGet Packages
