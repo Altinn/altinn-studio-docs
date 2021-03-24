@@ -44,10 +44,11 @@ Keep properties related to NuGet separated from other properties as in the examp
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <!-- SonarCloud needs this -->
-    <ProjectGuid>{D9F6DAB7-E921-44B6-A1A6-5796DCAE0D07}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AssemblyVersion>2.5.10.0</AssemblyVersion>
     <FileVersion>2.5.10.0</FileVersion>
+    <!-- SonarCloud requires a ProjectGuid to separate projects. -->
+    <ProjectGuid>{D9F6DAB7-E921-44B6-A1A6-5796DCAE0D07}</ProjectGuid>
   </PropertyGroup>
 
   <PropertyGroup>
