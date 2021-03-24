@@ -40,6 +40,7 @@ Every other week, we present what we have done and what we're planning to do for
 * [Status og planer - 3. februar 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210203.pptx)
 * [Status og planer - 17. februar 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210217.pptx)
 * [Status og planer - 3. mars 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210303.pptx)
+* [Status og planer - 17. mars 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210317.pptx)
 * More to come...
 
 ## Themed meetings
@@ -53,4 +54,5 @@ The weeks where we don't presesent status, we hold themed meetings.
 * [Kalkulering i Altinn 3](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/20201216-kalkuleringer.pptx) (16. desember 2020)
 * [Hvordan bruke første halvtimen i Altinn Studio](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinkaffe-forste-halvtimen.pptx) (27. januar 2021)
 * [Datamodellering i Altinn Studio](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/datamodellering-altinn-studio-altinkaffe.pdf) (24. februar 2021)
+* Lanserte tjenester (10. mars 2021) [Arbeidstilsynets presentasjon](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/Arbeidstilsynet-AltinnKaffe-10032021.pdf) | [Presentasjon for Kartverket](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/autorisasjon-av-landmalere.pptx)
 * More to come...
