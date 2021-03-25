@@ -23,6 +23,7 @@ dataTypes | A list of all the data types associated with the application. See [D
 partyTypesAllowed | A collection of flags that controls what type of instance owners new instances can be created for. See [PartyTypesAllowed](#partytypesallowed)
 autoDeleteOnProcessEnd | A value indicating whether an instance will be automatically deleted once the process ends. This can be used by highly sensitiv applications to force an instance delete instead of sending the instance to the archive.
 presentationFields | A collection of presentation fields. See [PresentationField](#presentationfield). Currently not in use. 
+eFormidling | The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eFormidlingContract).
 
 ## DataType
 
@@ -75,6 +76,25 @@ id | An id or key to identify the specific rule.
 path | A path to a specific field or property in the form model. 
 dataTypeId | The name of the datatype. See [DataType](#datatype). 
 
+
+## eFormidlingContract
+
+This type is used by a feature still in development. 
+
+eFormidlingContract holds the configuration of the eFormidling integration for the application. 
+An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for every instance that is created. 
+
+Name | Description
+-----|-------------
+serviceId | The service identifier of the process
+process | The process type to be set on the shipment
+receiver  | The receiver of the eFormidling shipment. 
+sendAfterTaskId | The id of the last task to be completed before the shipment is sent
+type | The document type of the shipment e.g. arkivmelding
+typeVersion | The version of the document type
+standard | The document standard e.g. urn:no:difi:arkivmelding:xsd::arkivmelding
+securityLevel | The security level to be set on the standard business document
+dataTypes | A list of the dataTypes to be included in the shipment. Data type for both form data and attachments should be listed to be included in the shipment
 
 ## Complete example
 
