@@ -2192,835 +2192,855 @@
     }
   },
   "components": {
-    "schemas": {
-      "Application": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "versionId": {
-            "type": "string",
-            "nullable": true
-          },
-          "org": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "validFrom": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "validTo": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "processId": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataTypes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataType"
-            },
-            "nullable": true
-          },
-          "partyTypesAllowed": {
-            "$ref": "#/components/schemas/PartyTypesAllowed"
-          },
-          "autoDeleteOnProcessEnd": {
-            "type": "boolean"
-          },
-          "presentationFields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PresentationField"
-            },
-            "nullable": true
-          },
-          "eFormidlingContract": {
-            "$ref": "#/components/schemas/EFormidlingContract"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastChanged": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lastChangedBy": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApplicationList": {
-        "type": "object",
-        "properties": {
-          "applications": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Application"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ApplicationLogic": {
-        "type": "object",
-        "properties": {
-          "autoCreate": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "classRef": {
-            "type": "string",
-            "nullable": true
-          },
-          "schemaRef": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CompleteConfirmation": {
-        "type": "object",
-        "properties": {
-          "stakeholderId": {
-            "type": "string",
-            "nullable": true
-          },
-          "confirmedOn": {
-            "type": "string",
-            "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "DataElement": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "instanceGuid": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataType": {
-            "type": "string",
-            "nullable": true
-          },
-          "filename": {
-            "type": "string",
-            "nullable": true
-          },
-          "contentType": {
-            "type": "string",
-            "nullable": true
-          },
-          "blobStoragePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "selfLinks": {
-            "$ref": "#/components/schemas/ResourceLinks"
-          },
-          "size": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "locked": {
-            "type": "boolean"
-          },
-          "refs": {
-            "type": "array",
-            "items": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "nullable": true
-          },
-          "isRead": {
-            "type": "boolean"
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastChanged": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lastChangedBy": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "DataElementList": {
-        "type": "object",
-        "properties": {
-          "dataElements": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataElement"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "DataType": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "allowedContentTypes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "allowedContributers": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "appLogic": {
-            "$ref": "#/components/schemas/ApplicationLogic"
-          },
-          "taskId": {
-            "type": "string",
-            "nullable": true
-          },
-          "maxSize": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "maxCount": {
-            "type": "integer",
-            "format": "int32",
-            "default": 1
-          },
-          "minCount": {
-            "type": "integer",
-            "format": "int32",
-            "default": 1
-          },
-          "grouping": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "EFormidlingContract": {
-        "type": "object",
-        "properties": {
-          "serviceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "receiver": {
-            "type": "string",
-            "nullable": true
-          },
-          "process": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataTypes": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Instance": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "instanceOwner": {
-            "$ref": "#/components/schemas/InstanceOwner"
-          },
-          "appId": {
-            "type": "string",
-            "nullable": true
-          },
-          "org": {
-            "type": "string",
-            "nullable": true
-          },
-          "selfLinks": {
-            "$ref": "#/components/schemas/ResourceLinks"
-          },
-          "dueBefore": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "visibleAfter": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "process": {
-            "$ref": "#/components/schemas/ProcessState"
-          },
-          "status": {
-            "$ref": "#/components/schemas/InstanceStatus"
-          },
-          "completeConfirmations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CompleteConfirmation"
-            },
-            "nullable": true
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DataElement"
-            },
-            "nullable": true
-          },
-          "presentationTexts": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "createdBy": {
-            "type": "string",
-            "nullable": true
-          },
-          "lastChanged": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "lastChangedBy": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "InstanceEvent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "instanceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataId": {
-            "type": "string",
-            "nullable": true
-          },
-          "created": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "eventType": {
-            "type": "string",
-            "nullable": true
-          },
-          "instanceOwnerPartyId": {
-            "type": "string",
-            "nullable": true
-          },
-          "user": {
-            "$ref": "#/components/schemas/PlatformUser"
-          },
-          "processInfo": {
-            "$ref": "#/components/schemas/ProcessState"
-          }
-        },
-        "additionalProperties": false
-      },
-      "InstanceEventList": {
-        "type": "object",
-        "properties": {
-          "instanceEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/InstanceEvent"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "InstanceOwner": {
-        "type": "object",
-        "properties": {
-          "partyId": {
-            "type": "string",
-            "nullable": true
-          },
-          "personNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "organisationNumber": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "InstanceQueryResponse": {
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "description": "The number of items in this response.",
-            "format": "int64"
-          },
-          "self": {
-            "type": "string",
-            "description": "The current query.",
-            "nullable": true
-          },
-          "next": {
-            "type": "string",
-            "description": "A link to the next page.",
-            "nullable": true
-          },
-          "instances": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Instance"
-            },
-            "description": "The metadata.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Query response object"
-      },
-      "InstanceStatus": {
-        "type": "object",
-        "properties": {
-          "isArchived": {
-            "type": "boolean"
-          },
-          "archived": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isSoftDeleted": {
-            "type": "boolean"
-          },
-          "softDeleted": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "isHardDeleted": {
-            "type": "boolean"
-          },
-          "hardDeleted": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "readStatus": {
-            "$ref": "#/components/schemas/ReadStatus"
-          },
-          "substatus": {
-            "$ref": "#/components/schemas/Substatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PartyTypesAllowed": {
-        "type": "object",
-        "properties": {
-          "bankruptcyEstate": {
-            "type": "boolean"
-          },
-          "organisation": {
-            "type": "boolean"
-          },
-          "person": {
-            "type": "boolean"
-          },
-          "subUnit": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      },
-      "PlatformUser": {
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "orgId": {
-            "type": "string",
-            "nullable": true
-          },
-          "authenticationLevel": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "endUserSystemId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PresentationField": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "path": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataTypeId": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PresentationTexts": {
-        "type": "object",
-        "properties": {
-          "texts": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProblemDetails": {
-        "type": "object",
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": { }
-      },
-      "ProcessElementInfo": {
-        "type": "object",
-        "properties": {
-          "flow": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "started": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "elementId": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "altinnTaskType": {
-            "type": "string",
-            "nullable": true
-          },
-          "ended": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "validated": {
-            "$ref": "#/components/schemas/ValidationStatus"
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProcessHistoryItem": {
-        "type": "object",
-        "properties": {
-          "eventType": {
-            "type": "string",
-            "nullable": true
-          },
-          "elementId": {
-            "type": "string",
-            "nullable": true
-          },
-          "occured": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "started": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "ended": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProcessHistoryList": {
-        "type": "object",
-        "properties": {
-          "processHistory": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ProcessHistoryItem"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ProcessState": {
-        "type": "object",
-        "properties": {
-          "started": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "startEvent": {
-            "type": "string",
-            "nullable": true
-          },
-          "currentTask": {
-            "$ref": "#/components/schemas/ProcessElementInfo"
-          },
-          "ended": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "endEvent": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ReadStatus": {
-        "enum": [
-          "Unread",
-          "Read",
-          "UpdatedSinceLastReview"
-        ],
-        "type": "string"
-      },
-      "ResourceLinks": {
-        "type": "object",
-        "properties": {
-          "apps": {
-            "type": "string",
-            "nullable": true
-          },
-          "platform": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Substatus": {
-        "type": "object",
-        "properties": {
-          "label": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TextResource": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "org": {
-            "type": "string",
-            "nullable": true
-          },
-          "language": {
-            "type": "string",
-            "nullable": true
-          },
-          "resources": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TextResourceElement"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TextResourceElement": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "value": {
-            "type": "string",
-            "nullable": true
-          },
-          "variables": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TextResourceVariable"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "TextResourceVariable": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataSource": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "ValidationStatus": {
-        "type": "object",
-        "properties": {
-          "timestamp": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "canCompleteTask": {
-            "type": "boolean"
-          }
-        },
-        "additionalProperties": false
-      }
-    },
-    "securitySchemes": {
-      "JwtCookie": {
-        "type": "apiKey",
-        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\". Remember to add \"Bearer\" to the input below before your token.",
-        "name": "Authorization",
-        "in": "header"
-      }
-    }
-  },
+		"schemas": {
+			"Application": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"versionId": {
+						"type": "string",
+						"nullable": true
+					},
+					"org": {
+						"type": "string",
+						"nullable": true
+					},
+					"title": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						},
+						"nullable": true
+					},
+					"validFrom": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"validTo": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"processId": {
+						"type": "string",
+						"nullable": true
+					},
+					"dataTypes": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/DataType"
+						},
+						"nullable": true
+					},
+					"partyTypesAllowed": {
+						"$ref": "#/components/schemas/PartyTypesAllowed"
+					},
+					"autoDeleteOnProcessEnd": {
+						"type": "boolean"
+					},
+					"presentationFields": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/PresentationField"
+						},
+						"nullable": true
+					},
+					"eFormidling": {
+						"$ref": "#/components/schemas/EFormidlingContract"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"createdBy": {
+						"type": "string",
+						"nullable": true
+					},
+					"lastChanged": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"lastChangedBy": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ApplicationList": {
+				"type": "object",
+				"properties": {
+					"applications": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Application"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ApplicationLogic": {
+				"type": "object",
+				"properties": {
+					"autoCreate": {
+						"type": "boolean",
+						"nullable": true
+					},
+					"classRef": {
+						"type": "string",
+						"nullable": true
+					},
+					"schemaRef": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"CompleteConfirmation": {
+				"type": "object",
+				"properties": {
+					"stakeholderId": {
+						"type": "string",
+						"nullable": true
+					},
+					"confirmedOn": {
+						"type": "string",
+						"format": "date-time"
+					}
+				},
+				"additionalProperties": false
+			},
+			"DataElement": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"instanceGuid": {
+						"type": "string",
+						"nullable": true
+					},
+					"dataType": {
+						"type": "string",
+						"nullable": true
+					},
+					"filename": {
+						"type": "string",
+						"nullable": true
+					},
+					"contentType": {
+						"type": "string",
+						"nullable": true
+					},
+					"blobStoragePath": {
+						"type": "string",
+						"nullable": true
+					},
+					"selfLinks": {
+						"$ref": "#/components/schemas/ResourceLinks"
+					},
+					"size": {
+						"type": "integer",
+						"format": "int64"
+					},
+					"locked": {
+						"type": "boolean"
+					},
+					"refs": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"format": "uuid"
+						},
+						"nullable": true
+					},
+					"isRead": {
+						"type": "boolean"
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"createdBy": {
+						"type": "string",
+						"nullable": true
+					},
+					"lastChanged": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"lastChangedBy": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"DataElementList": {
+				"type": "object",
+				"properties": {
+					"dataElements": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/DataElement"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"DataType": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"description": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						},
+						"nullable": true
+					},
+					"allowedContentTypes": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"nullable": true
+					},
+					"allowedContributers": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"nullable": true
+					},
+					"appLogic": {
+						"$ref": "#/components/schemas/ApplicationLogic"
+					},
+					"taskId": {
+						"type": "string",
+						"nullable": true
+					},
+					"maxSize": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"maxCount": {
+						"type": "integer",
+						"format": "int32",
+						"default": 1
+					},
+					"minCount": {
+						"type": "integer",
+						"format": "int32",
+						"default": 1
+					},
+					"grouping": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"EFormidlingContract": {
+				"type": "object",
+				"properties": {
+					"serviceId": {
+						"type": "string",
+						"nullable": true
+					},
+					"receiver": {
+						"type": "string",
+						"nullable": true
+					},
+					"sendAfterTaskId": {
+						"type": "string",
+						"nullable": true
+					},
+					"process": {
+						"type": "string",
+						"nullable": true
+					},
+					"standard": {
+						"type": "string",
+						"nullable": true
+					},
+					"typeVersion": {
+						"type": "string",
+						"nullable": true
+					},
+					"type": {
+						"type": "string",
+						"nullable": true
+					},
+					"securityLevel": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"dataTypes": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"Instance": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"instanceOwner": {
+						"$ref": "#/components/schemas/InstanceOwner"
+					},
+					"appId": {
+						"type": "string",
+						"nullable": true
+					},
+					"org": {
+						"type": "string",
+						"nullable": true
+					},
+					"selfLinks": {
+						"$ref": "#/components/schemas/ResourceLinks"
+					},
+					"dueBefore": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"visibleAfter": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"process": {
+						"$ref": "#/components/schemas/ProcessState"
+					},
+					"status": {
+						"$ref": "#/components/schemas/InstanceStatus"
+					},
+					"completeConfirmations": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CompleteConfirmation"
+						},
+						"nullable": true
+					},
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/DataElement"
+						},
+						"nullable": true
+					},
+					"presentationTexts": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						},
+						"nullable": true
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"createdBy": {
+						"type": "string",
+						"nullable": true
+					},
+					"lastChanged": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"lastChangedBy": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"InstanceEvent": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"format": "uuid",
+						"nullable": true
+					},
+					"instanceId": {
+						"type": "string",
+						"nullable": true
+					},
+					"dataId": {
+						"type": "string",
+						"nullable": true
+					},
+					"created": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"eventType": {
+						"type": "string",
+						"nullable": true
+					},
+					"instanceOwnerPartyId": {
+						"type": "string",
+						"nullable": true
+					},
+					"user": {
+						"$ref": "#/components/schemas/PlatformUser"
+					},
+					"processInfo": {
+						"$ref": "#/components/schemas/ProcessState"
+					}
+				},
+				"additionalProperties": false
+			},
+			"InstanceEventList": {
+				"type": "object",
+				"properties": {
+					"instanceEvents": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/InstanceEvent"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"InstanceOwner": {
+				"type": "object",
+				"properties": {
+					"partyId": {
+						"type": "string",
+						"nullable": true
+					},
+					"personNumber": {
+						"type": "string",
+						"nullable": true
+					},
+					"organisationNumber": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"InstanceQueryResponse": {
+				"type": "object",
+				"properties": {
+					"count": {
+						"type": "integer",
+						"description": "The number of items in this response.",
+						"format": "int64"
+					},
+					"self": {
+						"type": "string",
+						"description": "The current query.",
+						"nullable": true
+					},
+					"next": {
+						"type": "string",
+						"description": "A link to the next page.",
+						"nullable": true
+					},
+					"instances": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/Instance"
+						},
+						"description": "The metadata.",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false,
+				"description": "Query response object"
+			},
+			"InstanceStatus": {
+				"type": "object",
+				"properties": {
+					"isArchived": {
+						"type": "boolean"
+					},
+					"archived": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"isSoftDeleted": {
+						"type": "boolean"
+					},
+					"softDeleted": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"isHardDeleted": {
+						"type": "boolean"
+					},
+					"hardDeleted": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"readStatus": {
+						"$ref": "#/components/schemas/ReadStatus"
+					},
+					"substatus": {
+						"$ref": "#/components/schemas/Substatus"
+					}
+				},
+				"additionalProperties": false
+			},
+			"PartyTypesAllowed": {
+				"type": "object",
+				"properties": {
+					"bankruptcyEstate": {
+						"type": "boolean"
+					},
+					"organisation": {
+						"type": "boolean"
+					},
+					"person": {
+						"type": "boolean"
+					},
+					"subUnit": {
+						"type": "boolean"
+					}
+				},
+				"additionalProperties": false
+			},
+			"PlatformUser": {
+				"type": "object",
+				"properties": {
+					"userId": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"orgId": {
+						"type": "string",
+						"nullable": true
+					},
+					"authenticationLevel": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"endUserSystemId": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"PresentationField": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"path": {
+						"type": "string",
+						"nullable": true
+					},
+					"dataTypeId": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"PresentationTexts": {
+				"type": "object",
+				"properties": {
+					"texts": {
+						"type": "object",
+						"additionalProperties": {
+							"type": "string"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ProblemDetails": {
+				"type": "object",
+				"properties": {
+					"type": {
+						"type": "string",
+						"nullable": true
+					},
+					"title": {
+						"type": "string",
+						"nullable": true
+					},
+					"status": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"detail": {
+						"type": "string",
+						"nullable": true
+					},
+					"instance": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": { }
+			},
+			"ProcessElementInfo": {
+				"type": "object",
+				"properties": {
+					"flow": {
+						"type": "integer",
+						"format": "int32",
+						"nullable": true
+					},
+					"started": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"elementId": {
+						"type": "string",
+						"nullable": true
+					},
+					"name": {
+						"type": "string",
+						"nullable": true
+					},
+					"altinnTaskType": {
+						"type": "string",
+						"nullable": true
+					},
+					"ended": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"validated": {
+						"$ref": "#/components/schemas/ValidationStatus"
+					}
+				},
+				"additionalProperties": false
+			},
+			"ProcessHistoryItem": {
+				"type": "object",
+				"properties": {
+					"eventType": {
+						"type": "string",
+						"nullable": true
+					},
+					"elementId": {
+						"type": "string",
+						"nullable": true
+					},
+					"occured": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"started": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"ended": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ProcessHistoryList": {
+				"type": "object",
+				"properties": {
+					"processHistory": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProcessHistoryItem"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ProcessState": {
+				"type": "object",
+				"properties": {
+					"started": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"startEvent": {
+						"type": "string",
+						"nullable": true
+					},
+					"currentTask": {
+						"$ref": "#/components/schemas/ProcessElementInfo"
+					},
+					"ended": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"endEvent": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ReadStatus": {
+				"enum": [
+					"Unread",
+					"Read",
+					"UpdatedSinceLastReview"
+				],
+				"type": "string"
+			},
+			"ResourceLinks": {
+				"type": "object",
+				"properties": {
+					"apps": {
+						"type": "string",
+						"nullable": true
+					},
+					"platform": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"Substatus": {
+				"type": "object",
+				"properties": {
+					"label": {
+						"type": "string",
+						"nullable": true
+					},
+					"description": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"TextResource": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"org": {
+						"type": "string",
+						"nullable": true
+					},
+					"language": {
+						"type": "string",
+						"nullable": true
+					},
+					"resources": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/TextResourceElement"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"TextResourceElement": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"nullable": true
+					},
+					"value": {
+						"type": "string",
+						"nullable": true
+					},
+					"variables": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/TextResourceVariable"
+						},
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"TextResourceVariable": {
+				"type": "object",
+				"properties": {
+					"key": {
+						"type": "string",
+						"nullable": true
+					},
+					"dataSource": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
+			"ValidationStatus": {
+				"type": "object",
+				"properties": {
+					"timestamp": {
+						"type": "string",
+						"format": "date-time",
+						"nullable": true
+					},
+					"canCompleteTask": {
+						"type": "boolean"
+					}
+				},
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {
+			"JwtCookie": {
+				"type": "apiKey",
+				"description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\". Remember to add \"Bearer\" to the input below before your token.",
+				"name": "Authorization",
+				"in": "header"
+			}
+		}
+	},
   "security": [
     {
       "JwtCookie": [ ]
