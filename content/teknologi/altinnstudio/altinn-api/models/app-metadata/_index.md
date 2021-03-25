@@ -82,7 +82,7 @@ dataTypeId | The name of the datatype. See [DataType](#datatype).
 This type is used by a feature still in development. 
 
 eFormidlingContract holds the configuration of the eFormidling integration for the application. 
-An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for each instance that is created of the application. 
+An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for every instance that is created. 
 
 Name | Description
 -----|-------------
