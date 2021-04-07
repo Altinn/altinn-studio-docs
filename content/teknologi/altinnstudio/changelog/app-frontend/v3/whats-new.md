@@ -5,6 +5,12 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.1.0 (2021-04-07)- Help text for paragraph and header components
+App now supports help text for paragraph and header components. Issue [#5862.](https://github.com/Altinn/altinn-studio/issues/5862)
+
+## 3.0.16 (2021-04-06) - Dependency patching
+Patching of external dependencies. Issue [#5877.](https://github.com/Altinn/altinn-studio/issues/5877)
+
 ## 3.0.15 (2021-03-22) - Bugix for group component with checkboxes
 Fixed bug where group component summary would display an empty value for checkboxes that had several selected values. Issue [#5907.](https://github.com/Altinn/altinn-studio/issues/5907)
 
