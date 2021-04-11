@@ -3,12 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ partial "meta.html" . }}
-    {{if .IsHome}}
-    <title>Altinn digitalisering - Utvikling</title>
-    {{else}}
-    <title>{{ .Title }} :: Altinn digitalisering - Utvikling</title>
-    {{end}}
+    {{partial "meta.html" . }}
+    <title>Altinn håndbok</title>
     <link rel="shortcut icon" href="{{"images/favicon.png" | relURL}}" type="image/x-icon" />
     <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
@@ -16,37 +12,30 @@
     <link href="{{"css/horsey.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/fortawesome.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/designsystem.css" | relURL}}" rel="stylesheet">
-    {{with .Site.Params.themeStyle}}
+    {{- with .Site.Params.themeStyle -}}
     <link href="{{(printf "css/%s.css" .) | relURL}}" rel="stylesheet">
-    {{else}}
+    {{- else -}}
     <link href="{{"css/theme.css" | relURL}}" rel="stylesheet">
-    {{end}}
-    {{with .Site.Params.themeVariant}}
+    {{- end -}}
+    {{- with .Site.Params.themeVariant -}}
       <link href="{{(printf "css/theme-%s.css" .) | relURL}}" rel="stylesheet">
-    {{end}}
-    
+    {{- end -}}
     <script src="{{"js/jquery-2.x.min.js" | relURL}}"></script>
-
-    {{ partial "custom-head.html" . }}
+    {{- partial "custom-head.html" . -}}
 
     <style>
       :root #header + #content > #left > #rlblock_left {
         display:none !important;
       }
     </style>
-
-
   </head>
   <body class="a-page" data-url="{{ .RelPermalink }}">
-    {{ partial "topbar.html" . }}
+    {{- partial "topbar.html" . -}}
 
-    {{ if and (.IsHome) (.Params.jumbotron) }}
-      {{ partial "jumbotron.html" . }}
-    {{end}}
-
-
+    {{- if and (.IsHome) (.Params.jumbotron) -}}
+      {{- partial "jumbotron.html" . -}}
+    {{- end -}}
     <div class="container pt-2 pt-md-3 pt-lg-5">
-
     <div class="row adocs-featuredBlocks">
         <div class="col-12 col-lg-4 mb-5">
             <a href="/design/" class="a-illustrationLink">
@@ -195,8 +184,6 @@
               </div>
           </div>
        </div>
-
-
 
       <div class="adocs-scrollcontainer d-none">
         <div class="row">
