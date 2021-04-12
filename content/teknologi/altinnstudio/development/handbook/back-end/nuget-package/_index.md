@@ -44,7 +44,6 @@ Keep properties related to NuGet separated from other properties as in the examp
 ```xml
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>latest</LangVersion>
     <OutputType>Library</OutputType>
     <AssemblyVersion>2.5.10.0</AssemblyVersion>
     <FileVersion>2.5.10.0</FileVersion>
