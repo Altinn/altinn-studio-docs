@@ -2249,7 +2249,7 @@
             },
             "nullable": true
           },
-          "eFormidlingContract": {
+          "eFormidling": {
             "$ref": "#/components/schemas/EFormidlingContract"
           },
           "created": {
@@ -2468,10 +2468,30 @@
             "type": "string",
             "nullable": true
           },
+          "sendAfterTaskId": {
+    				"type": "string",
+    				"nullable": true
+    			},
           "process": {
             "type": "string",
             "nullable": true
           },
+          "standard": {
+    				"type": "string",
+    				"nullable": true
+    			},
+    			"typeVersion": {
+    				"type": "string",
+    				"nullable": true
+    			},
+    			"type": {
+    				"type": "string",
+    				"nullable": true
+    			},
+    			"securityLevel": {
+    				"type": "integer",
+    				"format": "int32"
+    			},
           "dataTypes": {
             "type": "array",
             "items": {
