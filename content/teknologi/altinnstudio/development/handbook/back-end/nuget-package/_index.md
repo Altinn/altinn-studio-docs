@@ -25,7 +25,7 @@ The following nuget packages are available for download [here](https://www.nuget
 
 ## Procedure for changes involving NuGet Packages
 
-1. Implement all changes necessary in the NuGet package project. Remember to update the package version.
+1. Implement all changes necessary in the NuGet package project. Remember to update the package version, assembly version and file version so they match.
 2. Submit a pull request on these changes only. No implementation on other projects should be included.
 3. Once pull request is approved and changes are merged into master; create and publish new NuGet package based on master branch.
 4. Continue with implementation, referencing the updated package wherever it is needed.
