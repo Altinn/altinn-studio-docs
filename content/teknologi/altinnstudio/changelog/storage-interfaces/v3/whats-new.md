@@ -13,5 +13,4 @@ toc: true
 ## 3.0.0 Refactoring and model application/instance model changes 
 
 - A small breaking change was introduced in version 3. The PresentationField class was renamed to DataField to be a bit more generic as it's being used by the DataFields property on the Application model as well as the PresentationFields. All properties and the usage off the class remain the same.
-- A new property was added to support data field definitions on the application model and a corresponging data values property on the instance model to hold the actual values.
-
+- A new property was added to support data field definitions on the application model and a corresponding data values property on the instance model to hold the actual values.
