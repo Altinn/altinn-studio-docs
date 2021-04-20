@@ -841,7 +841,7 @@ if(host != "localhost")
 </ul>
 <h2 id="procedure-for-changes-involving-nuget-packages">Procedure for changes involving NuGet Packages</h2>
 <ol>
-<li>Implement all changes necessary in the NuGet package project. Remember to update the package version.</li>
+<li>Implement all changes necessary in the NuGet package project. Remember to update the package version, assembly version and file version so they match.</li>
 <li>Submit a pull request on these changes only. No implementation on other projects should be included.</li>
 <li>Once pull request is approved and changes are merged into master; create and publish new NuGet package based on master branch.</li>
 <li>Continue with implementation, referencing the updated package wherever it is needed.</li>

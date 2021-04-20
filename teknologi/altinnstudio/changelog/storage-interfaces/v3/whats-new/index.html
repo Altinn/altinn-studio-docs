@@ -819,14 +819,24 @@ if(host != "localhost")
                 <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/changelog/'>Changelog</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/changelog/storage-interfaces/'>Storage Interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/changelog/storage-interfaces/v3/'>v3</a> <span class='adocs-breadcrumb-divider'> / </span> What's new</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
-              <p class="a-leadText" id="leadText">Overview of changes introduced in version 3</p>
+              <p class="a-leadText" id="leadText">Overview of changes introduced in version 3</p><h2>On this page:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#301-new-model-datavalues">3.0.1 New model DataValues</a></li>
+    <li><a href="#300-refactoring-and-model-applicationinstance-model-changes">3.0.0 Refactoring and model application/instance model changes</a></li>
+  </ul>
+</nav>
 
 
 
 
-<h2 id="300-refactoring">3.0.0 Refactoring</h2>
+<h2 id="301-new-model-datavalues">3.0.1 New model DataValues</h2>
+<ul>
+<li>A new model class was added to support updating data values on the instance.</li>
+</ul>
+<h2 id="300-refactoring-and-model-applicationinstance-model-changes">3.0.0 Refactoring and model application/instance model changes</h2>
 <ul>
 <li>A small breaking change was introduced in version 3. The PresentationField class was renamed to DataField to be a bit more generic as it&rsquo;s being used by the DataFields property on the Application model as well as the PresentationFields. All properties and the usage off the class remain the same.</li>
+<li>A new property was added to support data field definitions on the application model and a corresponding data values property on the instance model to hold the actual values.</li>
 </ul>
 
 
