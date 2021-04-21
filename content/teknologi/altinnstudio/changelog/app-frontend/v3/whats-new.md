@@ -5,6 +5,27 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.2.0 (2021-04-21) - Validation on group save
+Added support for running validations on a group when the user tries to save an entry. Issue [#5281.](https://github.com/Altinn/altinn-studio/issues/5281)
+
+## 3.1.6 (2021-04-19) - Bugfix for checkbox values in summary component
+Fixed bug where summary would display an empty string for checkboxes with multiple selected values. Issue [#5993.](https://github.com/Altinn/altinn-studio/issues/5993)
+
+## 3.1.5 (2021-04-19) - Bugfix for repeating group state on calculation
+Fixed bug where repeating group state would not be updated if a backend calculation had altered a repeating group. Issue [#6006.](https://github.com/Altinn/altinn-studio/issues/6006)
+
+## 3.1.4 (2021-04-19) - Bugfix for validations on group delete
+Fixed bug where validations for a given group index would not be removed on delete. Issue [#5960.](https://github.com/Altinn/altinn-studio/issues/5960)
+
+## 3.1.3 (2021-04-16) - Bugfix for validation
+Fixed bug where single field validation would validate the whole instance and not data. Issue [#5885.](https://github.com/Altinn/altinn-studio/issues/5885)
+
+## 3.1.2 (2021-04-12) - Dependency patching.
+Patching of external dependencies. Issue [#5957.](https://github.com/Altinn/altinn-studio/issues/5957)
+
+## 3.1.1 (2021-04-09) - Bugfix for slow calculate 
+Fixed bug where a slow backend calculation can overwrite later entered data. Issue [#5754.](https://github.com/Altinn/altinn-studio/issues/5754)
+
 ## 3.1.0 (2021-04-07)- Help text for paragraph and header components
 App now supports help text for paragraph and header components. Issue [#5862.](https://github.com/Altinn/altinn-studio/issues/5862)
 
