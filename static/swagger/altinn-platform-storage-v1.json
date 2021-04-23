@@ -4,10 +4,14 @@
     "title": "Altinn Platform Storage",
     "version": "v1"
   },
-  "servers": [
+  "servers": [    
     {
       "url": "https://platform.tt02.altinn.no/storage/api/v1",
       "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/storage/api/v1",
+      "description": "Production"
     }
   ],
   "paths": {
@@ -188,7 +192,7 @@
           {
             "name": "org",
             "in": "path",
-            "description": "The id of theowner of the application to update.",
+            "description": "The id of the owner of the application to update.",
             "required": true,
             "schema": {
               "type": "string"
