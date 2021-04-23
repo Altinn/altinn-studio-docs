@@ -6,7 +6,8 @@
   },
   "servers": [
     {
-      "url": "https://platform.env.altinn.cloud"
+      "url": "https://platform.tt02.altinn.no/storage/api/v1",
+      "description": "TT02"
     }
   ],
   "paths": {
