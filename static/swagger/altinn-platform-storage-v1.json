@@ -6,15 +6,78 @@
   },
   "servers": [
     {
-      "url": "https://platform.tt02.altinn.no/storage/api/v1",
-      "description": "TT02"
-    },
-    {
-      "url": "https://platform.altinn.no/storage/api/v1",
-      "description": "Production"
+      "url": "https://platform.env.altinn.cloud"
     }
   ],
   "paths": {
+    "/applications": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Get all applications.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Inserts metadata about a new application.",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "description": "The unique identification of the application to be added. Format: '{org}/{app}'",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The application metadata object to store.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Application"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/applications/{org}": {
       "get": {
         "tags": [
@@ -124,7 +187,7 @@
           {
             "name": "org",
             "in": "path",
-            "description": "The id of the owner of the application to update.",
+            "description": "The id of theowner of the application to update.",
             "required": true,
             "schema": {
               "type": "string"
@@ -239,56 +302,6 @@
           },
           "404": {
             "description": "Not Found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/applications": {
-      "post": {
-        "tags": [
-          "Applications"
-        ],
-        "summary": "Inserts metadata about a new application.",
-        "parameters": [
-          {
-            "name": "appId",
-            "in": "query",
-            "description": "The unique identification of the application to be added. Format: '{org}/{app}'",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The application metadata object to store.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Application"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Application"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
             "content": {
               "application/json": {
                 "schema": {
@@ -1499,6 +1512,58 @@
         }
       }
     },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/datavalues": {
+      "put": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Updates the data values on an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to confirm as complete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Collection of changes to the presentation texts collection.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataValues"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/sbl/instances/{instanceOwnerPartyId}": {
       "get": {
         "tags": [
@@ -2245,7 +2310,14 @@
           "presentationFields": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PresentationField"
+              "$ref": "#/components/schemas/DataField"
+            },
+            "nullable": true
+          },
+          "dataFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataField"
             },
             "nullable": true
           },
@@ -2400,6 +2472,24 @@
         },
         "additionalProperties": false
       },
+      "DataField": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataTypeId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "DataType": {
         "type": "object",
         "properties": {
@@ -2457,6 +2547,19 @@
         },
         "additionalProperties": false
       },
+      "DataValues": {
+        "type": "object",
+        "properties": {
+          "dataValues": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "EFormidlingContract": {
         "type": "object",
         "properties": {
@@ -2469,29 +2572,29 @@
             "nullable": true
           },
           "sendAfterTaskId": {
-    				"type": "string",
-    				"nullable": true
-    			},
+            "type": "string",
+            "nullable": true
+          },
           "process": {
             "type": "string",
             "nullable": true
           },
           "standard": {
-    				"type": "string",
-    				"nullable": true
-    			},
-    			"typeVersion": {
-    				"type": "string",
-    				"nullable": true
-    			},
-    			"type": {
-    				"type": "string",
-    				"nullable": true
-    			},
-    			"securityLevel": {
-    				"type": "integer",
-    				"format": "int32"
-    			},
+            "type": "string",
+            "nullable": true
+          },
+          "typeVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
           "dataTypes": {
             "type": "array",
             "items": {
@@ -2554,6 +2657,13 @@
             "nullable": true
           },
           "presentationTexts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "dataValues": {
             "type": "object",
             "additionalProperties": {
               "type": "string"
@@ -2753,24 +2863,6 @@
           "endUserSystemId": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "PresentationField": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "path": {
-            "type": "string",
-            "nullable": true
-          },
-          "dataTypeId": {
-            "type": "string",
             "nullable": true
           }
         },
