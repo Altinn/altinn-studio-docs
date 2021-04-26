@@ -821,6 +821,15 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of app frontend</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#322-2020-04-23---dependency-patching">3.2.2 (2020-04-23) - Dependency patching</a></li>
+    <li><a href="#321-2020-04-23---bugfix-for-group-validations">3.2.1 (2020-04-23) - Bugfix for group validations</a></li>
+    <li><a href="#320-2021-04-21---validation-on-group-save">3.2.0 (2021-04-21) - Validation on group save</a></li>
+    <li><a href="#316-2021-04-19---bugfix-for-checkbox-values-in-summary-component">3.1.6 (2021-04-19) - Bugfix for checkbox values in summary component</a></li>
+    <li><a href="#315-2021-04-19---bugfix-for-repeating-group-state-on-calculation">3.1.5 (2021-04-19) - Bugfix for repeating group state on calculation</a></li>
+    <li><a href="#314-2021-04-19---bugfix-for-validations-on-group-delete">3.1.4 (2021-04-19) - Bugfix for validations on group delete</a></li>
+    <li><a href="#313-2021-04-16---bugfix-for-validation">3.1.3 (2021-04-16) - Bugfix for validation</a></li>
+    <li><a href="#312-2021-04-12---dependency-patching">3.1.2 (2021-04-12) - Dependency patching.</a></li>
+    <li><a href="#311-2021-04-09---bugfix-for-slow-calculate">3.1.1 (2021-04-09) - Bugfix for slow calculate</a></li>
     <li><a href="#310-2021-04-07--help-text-for-paragraph-and-header-components">3.1.0 (2021-04-07)- Help text for paragraph and header components</a></li>
     <li><a href="#3016-2021-04-06---dependency-patching">3.0.16 (2021-04-06) - Dependency patching</a></li>
     <li><a href="#3015-2021-03-22---bugix-for-group-component-with-checkboxes">3.0.15 (2021-03-22) - Bugix for group component with checkboxes</a></li>
@@ -845,6 +854,24 @@ if(host != "localhost")
 
 
 
+<h2 id="322-2020-04-23---dependency-patching">3.2.2 (2020-04-23) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6011">#6011.</a></p>
+<h2 id="321-2020-04-23---bugfix-for-group-validations">3.2.1 (2020-04-23) - Bugfix for group validations</h2>
+<p>Fixed a bug where groups with validation trigger would call the instance validation api. Now calls data validation. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6089">#6089.</a></p>
+<h2 id="320-2021-04-21---validation-on-group-save">3.2.0 (2021-04-21) - Validation on group save</h2>
+<p>Added support for running validations on a group when the user tries to save an entry. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5281">#5281.</a></p>
+<h2 id="316-2021-04-19---bugfix-for-checkbox-values-in-summary-component">3.1.6 (2021-04-19) - Bugfix for checkbox values in summary component</h2>
+<p>Fixed bug where summary would display an empty string for checkboxes with multiple selected values. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5993">#5993.</a></p>
+<h2 id="315-2021-04-19---bugfix-for-repeating-group-state-on-calculation">3.1.5 (2021-04-19) - Bugfix for repeating group state on calculation</h2>
+<p>Fixed bug where repeating group state would not be updated if a backend calculation had altered a repeating group. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6006">#6006.</a></p>
+<h2 id="314-2021-04-19---bugfix-for-validations-on-group-delete">3.1.4 (2021-04-19) - Bugfix for validations on group delete</h2>
+<p>Fixed bug where validations for a given group index would not be removed on delete. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5960">#5960.</a></p>
+<h2 id="313-2021-04-16---bugfix-for-validation">3.1.3 (2021-04-16) - Bugfix for validation</h2>
+<p>Fixed bug where single field validation would validate the whole instance and not data. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5885">#5885.</a></p>
+<h2 id="312-2021-04-12---dependency-patching">3.1.2 (2021-04-12) - Dependency patching.</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5957">#5957.</a></p>
+<h2 id="311-2021-04-09---bugfix-for-slow-calculate">3.1.1 (2021-04-09) - Bugfix for slow calculate</h2>
+<p>Fixed bug where a slow backend calculation can overwrite later entered data. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5754">#5754.</a></p>
 <h2 id="310-2021-04-07--help-text-for-paragraph-and-header-components">3.1.0 (2021-04-07)- Help text for paragraph and header components</h2>
 <p>App now supports help text for paragraph and header components. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5862">#5862.</a></p>
 <h2 id="3016-2021-04-06---dependency-patching">3.0.16 (2021-04-06) - Dependency patching</h2>
