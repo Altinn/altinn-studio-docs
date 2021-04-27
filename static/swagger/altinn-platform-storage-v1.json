@@ -2577,9 +2577,15 @@
             "nullable": true
           },
           "sendAfterTaskId": {
+<<<<<<< HEAD
             "type": "string",
             "nullable": true
           },
+=======
+    				"type": "string",
+    				"nullable": true
+    			},
+>>>>>>> feature/swagger-update
           "process": {
             "type": "string",
             "nullable": true
