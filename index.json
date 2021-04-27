@@ -3007,7 +3007,7 @@
 	"title": "What&#39;s new",
 	"tags": [],
 	"description": "Overview of changes introduced in version 4",
-	"content": "4.0.1 (2021-03-15) - Upgraded application to .Net 5 and grouped references of Altinn App and Altinn Platform services in Startup.cs Altinn.App.* librarires target .Net 5 now, which requires that the application does the same. In addition we have created two methods for referencing all app and platform sevices in Startup.cs\nSee breaking changes for how to update you app to be compatible with this version.\n"
+	"content": "4.2.0 (2021-04-19) - Possible to integrate an app with eFormidling Altinn Apps now support integration with eFormidling. Documentation on how to set up an application to use eFormidling will be published once an integration point for eFormidling is set up in Altinn Platform.\n4.0.1 (2021-03-15) - Upgraded application to .Net 5 and grouped references of Altinn App and Altinn Platform services in Startup.cs Altinn.App.* librarires target .Net 5 now, which requires that the application does the same. In addition we have created two methods for referencing all app and platform sevices in Startup.cs\nSee breaking changes for how to update you app to be compatible with this version.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/v2/whats-new/",
