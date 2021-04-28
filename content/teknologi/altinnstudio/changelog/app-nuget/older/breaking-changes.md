@@ -185,7 +185,7 @@ env:
     value: "/mnt/keys"
 ```
 
-![4843-deployment](4843-deployment.png "Deployment.yaml file")
+![4843-deployment](../4843-deployment.png "Deployment.yaml file")
 
 
 ## Build pipeline failed on task: Build and push docker image to acr
@@ -206,7 +206,7 @@ Startup.cs(5,35): error CS0234: The type or namespace name 'Extentions' does not
 ```
 
 Screenshot of the failing build pipeline.
-![Build error in pipeline](breaking-change-namespace-rename.PNG "Build error in pipeline")
+![Build error in pipeline](../breaking-change-namespace-rename.PNG "Build error in pipeline")
 
 ### How to fix
 
@@ -262,7 +262,7 @@ services.AddHttpClient<IText, TextAppSI>();
 
 Your code changes should match the image below.
 
-![Diff in code](breaking-change-4451.PNG "Diff in code")
+![Diff in code](../breaking-change-4451.PNG "Diff in code")
 
 
 ## New endpoint introduced in Altinn.Apps.Api exposing application text resources
@@ -288,7 +288,7 @@ services.AddHttpClient<IText, TextAppSI>();
 
 Your code changes should match the image below.
 
-![Diff in code](breaking-change-4451.PNG "Diff in code")
+![Diff in code](../breaking-change-4451.PNG "Diff in code")
 
 
 ## Platform authorization introduced for Platform Register and Profile
@@ -300,7 +300,7 @@ Introduced with issue: [#4162](https://github.com/altinn/altinn-studio/issues/41
 
 Users will experience that instantiation, form filling and viewing receipt fails with the following error:
 
-![Unknown error page](breaking_change_ukjent_feil.PNG "Unknown-error")
+![Unknown error page](../breaking_change_ukjent_feil.PNG "Unknown-error")
 
 When checking the network log one will find that the POST request to
 <https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances?instanceOwnerPartyId=> fails with status code 404.
@@ -314,7 +314,7 @@ There are three steps you must take in order to update your application to adher
     [this code](https://raw.githubusercontent.com/Altinn/altinn-studio/e6b43fb8c3e71c16ca4a3bb47a5ff6f208b71854/src/studio/AppTemplates/AspNet/deployment/values.yaml).  
     The picture illustrates which changes are required in the file if you wish to do it manually,
     or inspect your code. Be ware that indentation is important when working with .yaml files.
-    ![add new volume to values](breaking_change_new-volume-in-values.PNG "add-new-volume-to-values")
+    ![add new volume to values](../breaking_change_new-volume-in-values.PNG "add-new-volume-to-values")
 2. Update nuget dependencies in `App.csproj` to version 1.0.86-alpha.
     Navigate to you application repository and find `App.csproj` in the `App` folder.
     Upgrade the three Altinn.App nugetpackages to version 1.0.86.
@@ -329,7 +329,7 @@ There are three steps you must take in order to update your application to adher
     The picture illustrates which changes are required in the file if you wish to do it manually,
     or inspect your code.
 
-![Update startup](breaking_change_startup_nuget_86.PNG "Update Startup.cs")
+![Update startup](../breaking_change_startup_nuget_86.PNG "Update Startup.cs")
 
 
 ## Updated client-side validation - frontend v2 and Nuget v1.0.82-alpha
@@ -447,7 +447,7 @@ When triggering deploy from altinn.studio the deploy fails.
 On closer inspection of the pipeline (byggloggen)
 the error message below is shown at the end of the failed step.
 
-![Console error message](helm-upgrade-error.PNG "Helm upgrade error")
+![Console error message](../helm-upgrade-error.PNG "Helm upgrade error")
 
 ### How to fix
 
@@ -458,7 +458,7 @@ It is placed in the folder *deployment/templates*.
 Make the changes spesified below to the file, and update the repository.
 Remember to pull the latest version in altinn.studio before attempting to re-deploy.
 
-![Code diff view](helm-upgrade-error-fix.PNG "Helm upgrade error fix")
+![Code diff view](../helm-upgrade-error-fix.PNG "Helm upgrade error fix")
 
 - Change apiVersion from extensions/v1beta1 to apps/v1.
 
@@ -484,7 +484,7 @@ and removing the endpoints.
 When sending in an instance after completing form filling the error below i prompted.
 In network you can see that the 'validate'-request receives a 500 code in response.
 
-![Error page](3927-illustration.PNG "Send-in error")
+![Error page](../3927-illustration.PNG "Send-in error")
 
 ### How to fix
 
@@ -530,7 +530,7 @@ The base class that every application inherits has been altered to allow for bot
 ### Error
 When building App.cs errors simillar to those depicted in the picture below are logged.
 
-![build-errors](3820-errors.PNG "Build errors")
+![build-errors](../3820-errors.PNG "Build errors")
 
 ### How to fix
 
