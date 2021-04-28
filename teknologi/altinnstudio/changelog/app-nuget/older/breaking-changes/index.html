@@ -567,9 +567,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/known-issues/"><span>Known issues</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/teknologi/altinnstudio/known-issues/breaking-changes/"><span>Breaking changes</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/known-issues/"><span>Known issues</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/solutions/"><span>Solutions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -986,7 +984,7 @@ When you are running apps locally, we are using the default behaviour (directory
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">env</span>:
   - <span style="color:#ff79c6">name</span>: ALTINN_KEYS_DIRECTORY
     <span style="color:#ff79c6">value</span>: <span style="color:#f1fa8c">&#34;/mnt/keys&#34;</span>
-</code></pre></div><p><img src="4843-deployment.png" alt="4843-deployment" title="Deployment.yaml file"></p>
+</code></pre></div><p><img src="../4843-deployment.png" alt="4843-deployment" title="Deployment.yaml file"></p>
 <h2 id="build-pipeline-failed-on-task-build-and-push-docker-image-to-acr">Build pipeline failed on task: Build and push docker image to acr</h2>
 <p>A namespace was renamed in <code>Altinn.App.PlatformServices</code> Version=&ldquo;1.1.2-alpha causing the build of the application to fail
 if references to this namespace isn&rsquo;t changed.</p>
@@ -996,7 +994,7 @@ if references to this namespace isn&rsquo;t changed.</p>
 <p>Expanding the task reveals error message:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Startup.cs<span style="color:#ff79c6">(</span>5,35<span style="color:#ff79c6">)</span>: error CS0234: The <span style="color:#8be9fd;font-style:italic">type</span> or namespace name <span style="color:#f1fa8c">&#39;Extentions&#39;</span> does not exist in the namespace <span style="color:#f1fa8c">&#39;Altinn.App.PlatformServices&#39;</span> <span style="color:#ff79c6">(</span>are you missing an assembly reference?<span style="color:#ff79c6">)</span><span style="color:#f1fa8c">&#34;.
 </span></code></pre></div><p>Screenshot of the failing build pipeline.
-<img src="breaking-change-namespace-rename.PNG" alt="Build error in pipeline" title="Build error in pipeline"></p>
+<img src="../breaking-change-namespace-rename.PNG" alt="Build error in pipeline" title="Build error in pipeline"></p>
 <h3 id="how-to-fix-2">How to fix</h3>
 <ol>
 <li>Navigate to you application repository and find <code>Startup.cs</code> in the <code>App</code> folder.</li>
@@ -1035,7 +1033,7 @@ and the HttpClient in the same section as the other AppSI services.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddMemoryCache();
 services.AddHttpClient&lt;IText, TextAppSI&gt;();
 </code></pre></div><p>Your code changes should match the image below.</p>
-<p><img src="breaking-change-4451.PNG" alt="Diff in code" title="Diff in code"></p>
+<p><img src="../breaking-change-4451.PNG" alt="Diff in code" title="Diff in code"></p>
 <h2 id="new-endpoint-introduced-in-altinnappsapi-exposing-application-text-resources">New endpoint introduced in Altinn.Apps.Api exposing application text resources</h2>
 <p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/4451">#4451</a> and nuget 1.1.0.-alpha.<br>
 <strong>The change affects all application created in Altinn Studio before 8.07.2020 using nuget versions 1.1.0-alpha</strong></p>
@@ -1049,13 +1047,13 @@ and the HttpClient in the same section as the other AppSI services.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddMemoryCache();
 services.AddHttpClient&lt;IText, TextAppSI&gt;();
 </code></pre></div><p>Your code changes should match the image below.</p>
-<p><img src="breaking-change-4451.PNG" alt="Diff in code" title="Diff in code"></p>
+<p><img src="../breaking-change-4451.PNG" alt="Diff in code" title="Diff in code"></p>
 <h2 id="platform-authorization-introduced-for-platform-register-and-profile">Platform authorization introduced for Platform Register and Profile</h2>
 <p>Introduced with issue: <a href="https://github.com/altinn/altinn-studio/issues/4162">#4162</a> and Release: v2020.23.<br>
 <strong>The change affects all application created in Altinn Studio before 03.06.2020.</strong></p>
 <h3 id="errors-6">Errors</h3>
 <p>Users will experience that instantiation, form filling and viewing receipt fails with the following error:</p>
-<p><img src="breaking_change_ukjent_feil.PNG" alt="Unknown error page" title="Unknown-error"></p>
+<p><img src="../breaking_change_ukjent_feil.PNG" alt="Unknown error page" title="Unknown-error"></p>
 <p>When checking the network log one will find that the POST request to
 <a href="https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances?instanceOwnerPartyId=">https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances?instanceOwnerPartyId=</a> fails with status code 404.</p>
 <h3 id="how-to-fix-6">How to fix</h3>
@@ -1066,7 +1064,7 @@ If no custom changes have been made to this file since you created the applicati
 <a href="https://raw.githubusercontent.com/Altinn/altinn-studio/e6b43fb8c3e71c16ca4a3bb47a5ff6f208b71854/src/studio/AppTemplates/AspNet/deployment/values.yaml">this code</a>.<br>
 The picture illustrates which changes are required in the file if you wish to do it manually,
 or inspect your code. Be ware that indentation is important when working with .yaml files.
-<img src="breaking_change_new-volume-in-values.PNG" alt="add new volume to values" title="add-new-volume-to-values"></li>
+<img src="../breaking_change_new-volume-in-values.PNG" alt="add new volume to values" title="add-new-volume-to-values"></li>
 <li>Update nuget dependencies in <code>App.csproj</code> to version 1.0.86-alpha.
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.
 Upgrade the three Altinn.App nugetpackages to version 1.0.86.
@@ -1080,7 +1078,7 @@ If no custom changes have been made to this file since you created the applicati
 The picture illustrates which changes are required in the file if you wish to do it manually,
 or inspect your code.</li>
 </ol>
-<p><img src="breaking_change_startup_nuget_86.PNG" alt="Update startup" title="Update Startup.cs"></p>
+<p><img src="../breaking_change_startup_nuget_86.PNG" alt="Update startup" title="Update Startup.cs"></p>
 <h2 id="updated-client-side-validation---frontend-v2-and-nuget-v1082-alpha">Updated client-side validation - frontend v2 and Nuget v1.0.82-alpha</h2>
 <p>Introduced with issue: <a href="https://github.com/Altinn/altinn-studio/issues/3944">#3944</a>, and applies to existing apps that upgrade to the new major version of app frontend (v2).</p>
 <p>The client-side validation of the app frontend has been replaced with a JSON-schema validation in order to provide a more complete client-side validation.
@@ -1181,14 +1179,14 @@ to the AKS cluster is no longer supported.</p>
 <p>When triggering deploy from altinn.studio the deploy fails.
 On closer inspection of the pipeline (byggloggen)
 the error message below is shown at the end of the failed step.</p>
-<p><img src="helm-upgrade-error.PNG" alt="Console error message" title="Helm upgrade error"></p>
+<p><img src="../helm-upgrade-error.PNG" alt="Console error message" title="Helm upgrade error"></p>
 <h3 id="how-to-fix-9">How to fix</h3>
 <p>To fix this issue  the deployment to use a new api version.
 Navigate to you application repository and find <em>deployment.yaml</em>.
 It is placed in the folder <em>deployment/templates</em>.</p>
 <p>Make the changes spesified below to the file, and update the repository.
 Remember to pull the latest version in altinn.studio before attempting to re-deploy.</p>
-<p><img src="helm-upgrade-error-fix.PNG" alt="Code diff view" title="Helm upgrade error fix"></p>
+<p><img src="../helm-upgrade-error-fix.PNG" alt="Code diff view" title="Helm upgrade error fix"></p>
 <ul>
 <li>
 <p>Change apiVersion from extensions/v1beta1 to apps/v1.</p>
@@ -1209,7 +1207,7 @@ and removing the endpoints.</p>
 <h3 id="error">Error</h3>
 <p>When sending in an instance after completing form filling the error below i prompted.
 In network you can see that the &lsquo;validate&rsquo;-request receives a 500 code in response.</p>
-<p><img src="3927-illustration.PNG" alt="Error page" title="Send-in error"></p>
+<p><img src="../3927-illustration.PNG" alt="Error page" title="Send-in error"></p>
 <h3 id="how-to-fix-10">How to fix</h3>
 <p>Navigate to you application repository and find App.csproj.
 Upgrade the three Altinn.App nugetpackages to version 1.0.78.</p>
@@ -1237,7 +1235,7 @@ so that the expected <code>allowedContentTypes</code> are saved.</p>
 <p>The base class that every application inherits has been altered to allow for both data and task validation.</p>
 <h3 id="error-2">Error</h3>
 <p>When building App.cs errors simillar to those depicted in the picture below are logged.</p>
-<p><img src="3820-errors.PNG" alt="build-errors" title="Build errors"></p>
+<p><img src="../3820-errors.PNG" alt="build-errors" title="Build errors"></p>
 <h3 id="how-to-fix-12">How to fix</h3>
 <p>If you haven&rsquo;t made any changes to <code>App/logic/Validation/ValidationHandler.cs</code> and <code>App/logic/App.cs</code>
 the quickest way to fix the build errors are to copy these files from the template and paste them into your repository. 

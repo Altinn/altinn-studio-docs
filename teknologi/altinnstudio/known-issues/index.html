@@ -567,9 +567,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
       <li class="dd-item parent active">
-        <a href="/teknologi/altinnstudio/known-issues/"><span>Known issues</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/teknologi/altinnstudio/known-issues/breaking-changes/"><span>Breaking changes</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/known-issues/"><span>Known issues</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/solutions/"><span>Solutions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -824,20 +822,7 @@ if(host != "localhost")
 
 
 
-<div id="knownIssuesContent"></div>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
-  let content = document.getElementById('knownIssuesContent');
-  if (content.innerHTML === '') {
-    content.innerHTML = 'Loading from github...';
-  }  
-   axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://github.com/Altinn/altinn-studio/blob/master/KNOWNISSUES.md`)
-    .then((res) => {
-      const doc = new DOMParser().parseFromString(res.data, "text/html");
-
-      content.innerHTML = doc.getElementById('readme').innerHTML;
-      });
-</script>
+<p>See <a href="https://github.com/Altinn/altinn-studio/blob/master/KNOWNISSUES.md">known issues</a> on Github for latest updated list.</p>
 
 
 <footer class=" footline" >
@@ -852,7 +837,7 @@ if(host != "localhost")
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/troubleshooting/" title="Troubleshooting"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/teknologi/altinnstudio/known-issues/breaking-changes/" title="Breaking changes and how to fix them" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/troubleshooting/" title="Troubleshooting"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/teknologi/altinnstudio/solutions/" title="Solutions" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/known-issues/_index.md" target="blank">
