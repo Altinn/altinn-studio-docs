@@ -20,6 +20,8 @@ In this version, a dictionary of all the fields that have updated data from calc
 in the API response (in addition to the data element metadata), so that clients do not need to perform the additional GET request in order
 to get the updated data.
 
+This change is related to [this issue](https://github.com/Altinn/altinn-studio/issues/5754).
+
 ## 4.0.1 (2021-03-15) - Upgraded application to .Net 5 and grouped references of Altinn App and Altinn Platform services in Startup.cs
 
 Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
