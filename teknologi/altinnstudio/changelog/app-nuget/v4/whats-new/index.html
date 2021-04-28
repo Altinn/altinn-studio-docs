@@ -823,6 +823,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#420-2021-04-19---possible-to-integrate-an-app-with-eformidling">4.2.0 (2021-04-19) - Possible to integrate an app with eFormidling</a></li>
     <li><a href="#410-2021-04-07---add-new-property-with-updated-data-to-response-for-put-to-datacontroller">4.1.0 (2021-04-07) - Add new property with updated data to response for PUT to DataController</a></li>
+    <li><a href="#403-2021-03-23---fixed-a-bug-reading-filename-from-content-disposition">4.0.3 (2021-03-23) - Fixed a bug reading filename from Content-Disposition</a></li>
     <li><a href="#401-2021-03-15---upgraded-application-to-net-5-and-grouped-references-of-altinn-app-and-altinn-platform-services-in-startupcs">4.0.1 (2021-03-15) - Upgraded application to .Net 5 and grouped references of Altinn App and Altinn Platform services in Startup.cs</a></li>
   </ul>
 </nav>
@@ -842,6 +843,11 @@ In this version, a dictionary of all the fields that have updated data from calc
 in the API response (in addition to the data element metadata), so that clients do not need to perform the additional GET request in order
 to get the updated data.</p>
 <p>This change is related to <a href="https://github.com/Altinn/altinn-studio/issues/5754">this issue</a>.</p>
+<h2 id="403-2021-03-23---fixed-a-bug-reading-filename-from-content-disposition">4.0.3 (2021-03-23) - Fixed a bug reading filename from Content-Disposition</h2>
+<ul>
+<li>The specification for Content-Disposition specify that <code>filename</code> should be in quotes. This was not supported by the app backend API, causing requests following the specification to fail. This has been fixed.</li>
+<li>Added support for <code>filename*</code> (FilenameStar). If Content-Disposition contain both <code>filename</code> and <code>filename*</code>, the value defined by <code>filename*</code> will be used.</li>
+</ul>
 <h2 id="401-2021-03-15---upgraded-application-to-net-5-and-grouped-references-of-altinn-app-and-altinn-platform-services-in-startupcs">4.0.1 (2021-03-15) - Upgraded application to .Net 5 and grouped references of Altinn App and Altinn Platform services in Startup.cs</h2>
 <p>Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
 In addition we have created two methods for referencing all app and platform sevices in Startup.cs</p>
