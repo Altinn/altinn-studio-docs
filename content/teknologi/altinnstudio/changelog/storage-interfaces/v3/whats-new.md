@@ -6,6 +6,9 @@ toc: true
 ---
 
 
+## 3.2.0 New model OnEntryConfig
+
+- A new model class was added to support defining what should happen on entry on the application.
 ## 3.0.1 New model DataValues
 
 - A new model class was added to support updating data values on the instance.
