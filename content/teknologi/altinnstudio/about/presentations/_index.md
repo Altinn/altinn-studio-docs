@@ -41,6 +41,8 @@ Every other week, we present what we have done and what we're planning to do for
 * [Status og planer - 17. februar 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210217.pptx)
 * [Status og planer - 3. mars 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210303.pptx)
 * [Status og planer - 17. mars 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210317.pptx)
+* [Status og planer - 14. april 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210414.pptx)
+* [Status og planer - 28. april 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210428.pptx)
 * More to come...
 
 ## Themed meetings
@@ -56,4 +58,5 @@ The weeks where we don't presesent status, we hold themed meetings.
 * [Datamodellering i Altinn Studio](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/datamodellering-altinn-studio-altinkaffe.pdf) (24. februar 2021)
 * Lanserte tjenester (10. mars 2021) [Arbeidstilsynets presentasjon](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/Arbeidstilsynet-AltinnKaffe-10032021.pdf) | [Presentasjon for Kartverket](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/autorisasjon-av-landmalere.pptx)
 * [Planer for utvikling i Q2 2021](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/altinnkaffe-20210407-planerq2.pptx) (7. april 2021)
+* [Tilgang til logger og hemmeligheter](https://github.com/Altinn/altinn-studio-docs/raw/master/content/teknologi/altinnstudio/files/altinnkaffe/logs-secrets-presentasjon.pptx) (21. april 2021)
 * More to come...
