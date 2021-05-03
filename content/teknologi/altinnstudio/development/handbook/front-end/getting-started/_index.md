@@ -2,7 +2,7 @@
 title: Getting started
 description: Get started working with the frontend
 tags: [development, front-end]
-weight: 10
+weight: 1
 ---
 
 The frontend is made up of several React applications. Each application covers a functional area.
@@ -11,15 +11,16 @@ The frontend is made up of several React applications. Each application covers a
 - https://reactjs.org/
 - https://redux.js.org/
 - https://redux-saga.js.org/
+- https://material-ui.com/
 
 
 ## Structure
 The applications are grouped by the 2 solutions:
 
-- Altinn Studio
+- Altinn Studio (Designer)
 - Altinn Apps
 
-### Altinn Studio
+### Altinn Studio Designer
 {{%excerpt%}}
 <object data="structure-studio.drawio.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
@@ -30,7 +31,7 @@ The applications are grouped by the 2 solutions:
 {{% /excerpt%}}
 
 ## Architecture
-All of the apps are set up with the same overall architecture:
+All of the apps are set up with the same overall React + Redux architecture:
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
@@ -43,4 +44,8 @@ All of the apps are set up with the same overall architecture:
 - **Reducer:** Listens to actions and updates the store according to which action is triggered
 - **Redux-Saga:** Middleware. Intercepts the action before it reaches the reducer, in order to process data before it goes to the store. Useful for handling async operations like calling APIs.
 
+### App frontend
+Details of the architecture for app frontend can be found [here](/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend).
 
+### Altinn Studio Designer frontend
+Details of the architecture for Altinn Studio Designer frontend can be found [here](/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/)
