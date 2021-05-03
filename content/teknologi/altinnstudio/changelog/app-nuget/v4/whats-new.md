@@ -5,6 +5,15 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.3.0 (2021-04-28) - Apps now support presentation fields
+
+Altinn Apps now support presentation fields. 
+By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
+will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
+Further documentation on how to configure presentation fields is found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/presentationfields/).
+
+This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
+
 ## 4.2.0 (2021-04-19) - Possible to integrate an app with eFormidling
 
 Altinn Apps now support integration with eFormidling. 
