@@ -13,7 +13,7 @@ components.
 
 The diagram below show the architecture:
 
-![React architecture](../react-architecture.svg "React architecure")
+![React architecture](../react-architecture.svg "React architecture")
 
 ## Store
  A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action
@@ -45,7 +45,7 @@ We try to follow some best-practices for React architecture:
   - Use Material UI components as much as possible instead of building our own components from scratch.
 
 - _DRY code_
-  - Use shared resources accross features to avoid duplication of code.
+  - Use shared resources across features to avoid duplication of code.
   - Share resources/utils between app frontend and receipt frontend.
 
 - _Comments only where necessary_

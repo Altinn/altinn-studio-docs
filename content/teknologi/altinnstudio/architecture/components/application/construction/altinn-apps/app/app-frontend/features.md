@@ -7,8 +7,8 @@ toc: true
 weight: 3
 ---
 
-The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given
-functional area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.
+The App Frontend SPA is separated in several features that is a collection of components and containers that support a given
+functional area for a App. Typical a feature is connected to a type of workflow step. Like form filling, signing, ++.
 
 Support for new types of workflow steps will be added as they become available in the backend.
 
@@ -20,7 +20,7 @@ Once a user/party is validated, the backend API to create an instance is called,
 ## Form
 This feature is responsible for the `data` process task type, which is typically used for form filling. 
 This includes rendering the form UI designed in Altinn Studio,
-running any rules/dynamics, calling APIs to perform calulations, validations, save form data, submit/move process to next step.
+running any rules/dynamics, calling APIs to perform calculations, validations, save form data, submit/move process to next step.
 
 To render the form UI, the _form layout_ defined in Altinn Studio is used together with metadata about the data model.
 The form components are rendered based on the contents of the form layout.

@@ -16,10 +16,10 @@ in what order, and contains details about how they should be rendered (ex. text 
 ### FormLayout.json
 The default layout file, at the root of the `ui` config folder. This is only used if the app only has a single layout to use.
 
-### LayoutSettings.json
+### Settings.json
 A configuration file used when an app has multiple layouts within a given process task. This defines f.ex. the order the layouts should be rendered in.
 
-### LayoutSets.json
+### layout-sets.json
 When an app has multiple sets of layout files (f.ex. multiple data tasks), this configuration file defines which layout files
 belong to which task.
 
