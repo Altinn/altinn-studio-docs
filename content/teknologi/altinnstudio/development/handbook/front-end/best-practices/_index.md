@@ -13,6 +13,10 @@ Altinn.studio best practices will be updated with more and better practices ;)
 
 - Simple lists should be sorted alphabetically
 
+### Form components (app-frontend)
+Form components (`src/components`) should, whenever possible, be "dumb" components that receive all their input from props. They should not have 
+a direct connection to the store, and should not know anything about the store.
+
 ### Sagas
 All logic used in a saga should be an exported function in the `utils`-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions.
 
