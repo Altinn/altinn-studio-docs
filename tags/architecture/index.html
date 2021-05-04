@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -846,6 +862,140 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">React &#43; Redux architecture</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The app frontend uses the React and Redux frameworks for presenting a UI to the end user, together with redux-saga to handle side effects. Components are based on Material UI components.
+The diagram below show the architecture:
+Store A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action on it.
+Read more.
+Reducers Reducers specify how the application&rsquo;s state changes in response to actions sent to the store. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">App Frontend configuration files</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The App Frontend requires some configuration files to work correctly. These files are loaded through APIs.
+Layout files The form layout files are used to render the UI for the form feature. They defines which layout elements should be rendered, in what order, and contains details about how they should be rendered (ex. text keys, data model, etc.)
+FormLayout.json The default layout file, at the root of the ui config folder. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">App frontend features</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The App Frontend SPA is separated in several features that is a collection of components and containers that support a given functional area for a App. Typical a feature is connected to a type of workflow step. Like form filling, signing, ++.
+Support for new types of workflow steps will be added as they become available in the backend.
+Instantiate This feature is responsible for creating a specific instance of the app for the end user. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">App frontend code structure</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The code mainly uses a feature-based structure. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">App frontend rendering and flow</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The sections below give a high-level overview of what happens when the app frontend is rendered. Data that is loaded into the app frontend is placed in the Redux store, where it can be accessed by the React components during rendering.
+Loading general App resources - common for all apps and process task types When an app is loaded initially, there is some data that is always loaded for the App, regardless of state or which process task the app is currently in. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/requirements/">Architecture Requirements</a></h2>
     </header>
     <section class="post-excerpt">
@@ -972,152 +1122,6 @@ The below capability map shows the different runtime capabilities grouped by dif
 Download as Visio
 Application build &amp; deploy capabiltiesApplication developers using Altinn Studio to create Applications have access to build &amp; deploy capabilties
 Application development capabilitiesApplication development capabilities are capabilites that is used for developing applications in Altinn Studio <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/">Application Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Solution-Specific (functional) Application ComponentsSolution-Specific (Functional) Application Components describes the different applications and their functional components. It does not go in to detail about technology.
-Application Construction ComponentsApplication Construction Components refers to the required components and configurations needed to create the different applications in the different solutions.
-Non-Solution-SpecificNon-Solution-Specific Application components refer to all components other than the core solution or solution-specific Application typical used for devops. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/devops/">Development &amp; Operations Capabilties</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>It covers the full spectrum of capabilities starting from development, going through a transition to operations, and ending with operations it-self.
-Each capability consists of people, the procedures they follow, and the software and hardware tools they use.
-This documentation currently focuses on the capabilities that can be shared and reused by others.
-See below for a capability map and the different DevOps capability areas.
-
-Full screen
-Analysis &amp; Design CapabilitiesAnalysis &amp; Design Capabilities are the capabilities needed to analyze needs and design solutions and applications for the Altinn 3 platform. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/devops/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/">Solution-Specific (functional) Application Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Functionality in Altinn is distributed between five different solutions
- Altinn Studio - The new application development solution Altinn Apps - The new hosting and infrastructure solution for applications Altinn Platform - The new supporting platform solution SBL - The old hosting solution for InfoPath services TUL - The old app development solution  The diagram below shows where functionality is located in the five different solutions:
-Full screen | Visio <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">Application architecture authentication component - Altinn Platform</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The solution is available at https://platform.altinn.cloud/authentication/api/v1.
-Authenticate user The authentication resource enables authenticating a user and redirecting it to another Altinn-url. If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.
-GET /authentication?goto={url} Refresh a valid JwtToken GET /refresh Exchange a JWT token from an external token provider Accepted providers include: maskinporten and id-porten. Request must include a bearer token in the authorization header. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/">Application Construction Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>It also describes the internal frameworks used in the different applications and how they consume and produce data.
-Application construction components Altinn StudioThe application construction components for Altinn Studio includes all components uses to create the Altinn Studio Applications.
-Application construction components for Altinn AppsApplication created in Altinn Studio is deployed to Altinn Apps.
-Application construction components for Altinn PlatformAltinn Platform consist of serveral components that is constructed with help of different frameworks and components. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

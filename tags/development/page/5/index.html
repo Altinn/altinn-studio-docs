@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -848,6 +864,34 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/test-strategy/">Test Strategy</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>What should be tested? In tjenester 3.0, there is a need for both testing Altinn Studio, the app designer, as well as testing apps that are developed by an app developer in Altinn Studio Runtime. Testing these two areas of Altinn Studio requires different approaches.
+Testing of Altinn Studio is to be tested automatically at the unit and integration levels of testing. Unit testing of the system involves, for example, the testing of individual javascript functions, and individual pieces of logic relating to react/UI components. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/test-strategy/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/testcafe/">Testcafe</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1105,33 +1149,6 @@ Each time we make a change to a package, we need to update the version of the pa
     <section class="post-excerpt">
         <p>This document describes how to see results of testcafe wcag tests, and how to write new wcag tests in testcafe. See the general testcafe documentation for a recipe on how to set up a development environment for writing testcafe test.
 Testing Altinn Studio for accesibility with testcafe and axe-core WCAG tests run in Altinn Studio using the testcafe UI test project, with some additional plug-ins: axe-testcafe is the plug-in used for Altinn Studio, see documentation here. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/wcag/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/test/xunit-testing/">Xunit Testing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Find code on xunit tests here <a class="read-more" href="/teknologi/altinnstudio/development/handbook/test/xunit-testing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

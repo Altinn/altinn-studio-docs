@@ -7,7 +7,19 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/getting-started/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/kom-i-gang/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/</loc>
   </url>
   
   <url>
@@ -23,6 +35,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/design/figma/</loc>
   </url>
   
@@ -35,7 +51,15 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/grid-og-layout/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/</loc>
   </url>
   
   <url>
@@ -95,11 +119,27 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/getting-started/</loc>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/goals/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/developing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/new-component/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/</loc>
   </url>
   
   <url>
@@ -112,10 +152,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/generell-systemdokumentasjon/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/developing/</loc>
   </url>
   
   <url>
@@ -1048,10 +1084,6 @@
   
   <url>
     <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/form-layout/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/</loc>
   </url>
   
   <url>

@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -848,6 +864,40 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/">Front-end</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Getting startedGet started working with the frontend
+Developing locallyRunning the frontends locally for development
+Creating componentsGet started creating new form components for the apps
+ReactGuidelines for using React in Altinn Studio
+ReduxGuidelines for using Redux in Altinn Studio
+DebugDebug documentation for altinn.studio frontend
+Best practicesBest practices for altinn.studio frontend
+BuildBuild documentation for altinn. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/cheatsheet/">General</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1099,42 +1149,6 @@ Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run th
                 <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">Nginx SSL/TLS certificate</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Generate SSL/TLS certificates from .PFX file In altinn studio we are using nginx as a proxy for internal routing. After issues with creating SSL/TLS certificates for nginx we we have written a guide for future developers to follow when creating SSL/TLS certificate secrets in kubernetes and mounting them to the nginx pods.
-Download .pfx file At the moment of writing this guide, we store our *.altinn.studio certificate in azure keyvault and you will need access to download it from that vault. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/ssl/">ssl</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/certificate/">certificate</a>
             
         
 

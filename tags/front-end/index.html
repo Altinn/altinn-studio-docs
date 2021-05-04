@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -835,7 +851,9 @@ if(host != "localhost")
 	<div class="extra-pagination inner">
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 1</span>
+	<span class="page-number">Page 1 on 2</span>
+	
+	    <a class="older-posts" href="/tags/front-end/page/2/">Next Pages &rarr;</a>
 	
 </nav>
 
@@ -848,12 +866,11 @@ if(host != "localhost")
     </header>
     <section class="post-excerpt">
         <p>The frontend is made up of several React applications. Each application covers a functional area.
-Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://redux-saga.js.org/  Structure The applications are grouped by the 2 solutions:
- Altinn Studio Altinn Apps  Altinn Studio 
-Altinn Apps 
-Architecture All of the apps are set up with the same overall architecture:
-
- Component: The react component Props: Define how the component should render Store: Contains all global state data used by the components Action: Triggered when a component updates Reducer: Listens to actions and updates the store according to which action is triggered Redux-Saga: Middleware. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/">&raquo;</a></p>
+Structure The applications are grouped by the 3 solutions:
+ Altinn Studio (Designer) Altinn Apps Altinn Platform (Receipt)  Altinn Studio Designer 
+Altinn Apps &amp; Platform 
+Technologies and frameworks  https://reactjs.org/ https://redux.js.org/ https://redux-saga.js.org/ https://material-ui.com/  Architecture Each frontend runs within a .NET web application, where the transpiled javascript &amp; CSS are referenced.
+ For Altinn Studio Designer and Altinn. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -877,12 +894,41 @@ Architecture All of the apps are set up with the same overall architecture:
 	
 	   <article class="post teknologi">
     <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/developing/">Developing</a></h2>
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/developing/">Developing locally</a></h2>
     </header>
     <section class="post-excerpt">
         <p>App frontend  Follow the instructions here to set up an app to run locally, up to step 5 (do not do step 6 yet.)   Make sure Altinn Studio is not running. If it is, run  docker-compose downfrom altinn-studio/src/studio before proceeding with the instructions linked above.
- In the app that will be running, edit the &lt;path-to-app&gt;/App/views/Home/Index.cshtml file, and replace https://altinncdn.no/toolkits/altinn-app-frontend/&lt;version&gt;/ with http://localhost:8080/.
+ In the app that will be running locally, edit the &lt;path-to-app&gt;/App/views/Home/Index.cshtml file, and replace https://altinncdn.no/toolkits/altinn-app-frontend/&lt;version&gt;/ with http://localhost:8080/.
   Run the app (from &lt;path-to-app&gt;/App/): <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/developing/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/">Creating components</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>App structure When an instance is in a data step, the form defined in the JSON form layout file(s) for that task is rendered. Below you can see a simplified overview of the layers of components that are used to render the form, including some of the most important inputs.
+A detailed overview of the app frontend structure and architecture is available here.
+Form components All form components should be presentational components. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/new-component/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -939,7 +985,8 @@ Redux Toolkit As of 2021, we have started using Redux Toolkit rather than the tr
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">Best practices</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Altinn.studio best practices will be updated with more and better practices ;)Best practices  Simple lists should be sorted alphabetically  Sagas All logic used in a saga should be an exported function in the utils-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">&raquo;</a></p>
+        <p>Altinn.studio best practices will be updated with more and better practices ;)Best practices  Simple lists should be sorted alphabetically  Form components (app-frontend) Form components (src/components) should, whenever possible, be &ldquo;dumb&rdquo; components that receive all their input from props. They should not have a direct connection to the store, and should not know anything about the store.
+Sagas All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -999,13 +1046,13 @@ Adding new packages to react-applications Adding of a new package in an app is d
     </header>
     <section class="post-excerpt">
         <p>Getting startedGet started working with the frontend
-DevelopingRunning the frontends locally for development
+Developing locallyRunning the frontends locally for development
+Creating componentsGet started creating new form components for the apps
 ReactGuidelines for using React in Altinn Studio
 ReduxGuidelines for using Redux in Altinn Studio
 DebugDebug documentation for altinn.studio frontend
 Best practicesBest practices for altinn.studio frontend
-BuildBuild documentation for altinn.studio frontend
-Component LibraryComponent documentation for altinn. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/">&raquo;</a></p>
+BuildBuild documentation for altinn. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1119,42 +1166,14 @@ Proposed order of styling methods The following order is proposed when consideri
 
 
 	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/versioning/">Versioning</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The frontends, both for Altinn Studio and Apps are set up as node modules, using a package.json to import external dependencies. In package.json for each package we can specify the version of the package. In this context, package refers to the different applications we are bulding, such as altinn-app-frontend, receipt, etc.
-Each time we make a change to a package, we need to update the version of the package to reflect the change. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/versioning/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/versioning/">versioning</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
 	<nav class="pagination" role="navigation">
 	
-	<span class="page-number">Page 1 on 1</span>
+	<span class="page-number">Page 1 on 2</span>
+	
+	    <a class="older-posts" href="/tags/front-end/page/2/">Next Pages &rarr;</a>
 	
 </nav>
 

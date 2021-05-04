@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -848,6 +864,32 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/azure-devops/">Azure DevOps</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>PipelinesQuality checklist and overview of pipelines in Azure DevOps
+We use Azure DevOps for building and deploying both our solution and the app owners applications. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/azure-devops/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/back-end/">Back-end</a></h2>
     </header>
     <section class="post-excerpt">
@@ -878,7 +920,8 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">Best practices</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Altinn.studio best practices will be updated with more and better practices ;)Best practices  Simple lists should be sorted alphabetically  Sagas All logic used in a saga should be an exported function in the utils-folder. This is decided since we need to split up the logic from the fetching of data, so we have a more testable codebase. The saga only fetches data from the state, and sends the appropriate data to utils-functions. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">&raquo;</a></p>
+        <p>Altinn.studio best practices will be updated with more and better practices ;)Best practices  Simple lists should be sorted alphabetically  Form components (app-frontend) Form components (src/components) should, whenever possible, be &ldquo;dumb&rdquo; components that receive all their input from props. They should not have a direct connection to the store, and should not know anything about the store.
+Sagas All logic used in a saga should be an exported function in the utils-folder. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/best-practices/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1092,40 +1135,6 @@ Git Merge to Master Altinn Studio Release Build When the build for either Altinn
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/error-handling/">error-handling</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/front-end/">Front-end</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Getting startedGet started working with the frontend
-DevelopingRunning the frontends locally for development
-ReactGuidelines for using React in Altinn Studio
-ReduxGuidelines for using Redux in Altinn Studio
-DebugDebug documentation for altinn.studio frontend
-Best practicesBest practices for altinn.studio frontend
-BuildBuild documentation for altinn.studio frontend
-Component LibraryComponent documentation for altinn. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/front-end/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
             
         
 

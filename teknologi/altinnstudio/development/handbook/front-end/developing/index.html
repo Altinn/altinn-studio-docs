@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Running the frontends locally for development">
 
-<title>Developing :: Altinn håndbok</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Developing locally :: Altinn håndbok</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item parent active">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -814,9 +830,9 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/front-end/'>Front-end</a> <span class='adocs-breadcrumb-divider'> / </span> Developing</span>
+                <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/development/handbook/front-end/'>Front-end</a> <span class='adocs-breadcrumb-divider'> / </span> Developing locally</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/front-end">front-end</a></div><div id="body-inner"><h1 class="a-fontBold">Developing</h1>
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/development">development</a><a class="label label-default" href="https://docs.altinn.studio/tags/front-end">front-end</a></div><div id="body-inner"><h1 class="a-fontBold">Developing locally</h1>
               <p class="a-leadText" id="leadText">Running the frontends locally for development</p>
 
 
@@ -833,7 +849,7 @@ if(host != "localhost")
 </code></pre><p>from <code>altinn-studio/src/studio</code> before proceeding with the instructions linked above.</p>
 <ol start="2">
 <li>
-<p>In the app that will be running, edit the <code>&lt;path-to-app&gt;/App/views/Home/Index.cshtml</code> file, and replace <code>https://altinncdn.no/toolkits/altinn-app-frontend/&lt;version&gt;/</code> with <code>http://localhost:8080/</code>.</p>
+<p>In the app that will be running locally, edit the <code>&lt;path-to-app&gt;/App/views/Home/Index.cshtml</code> file, and replace <code>https://altinncdn.no/toolkits/altinn-app-frontend/&lt;version&gt;/</code> with <code>http://localhost:8080/</code>.</p>
 </li>
 <li>
 <p>Run the app (from <code>&lt;path-to-app&gt;/App/</code>):</p>
@@ -855,7 +871,7 @@ npm start
 <ol start="6">
 <li>Start the app in a browser by going to <a href="http://altinn3local.no">altinn3local.no</a>!</li>
 </ol>
-<h2 id="altinn-studio">Altinn Studio</h2>
+<h2 id="altinn-studio-designer">Altinn Studio Designer</h2>
 <ol>
 <li>
 <p>Follow the instructions in the Altinn Studio <a href="https://github.com/Altinn/altinn-studio/blob/master/src/studio/README.md">README</a> to set up Altinn Studio locally.</p>
@@ -879,6 +895,18 @@ npm run gulp-develop #or npm run gulp-develop-dashboard
 <ol start="5">
 <li>Open Altinn Studio in a browser</li>
 </ol>
+<div class="notices info" >
+Note that you can also run Altinn Studio Designer frontend in the same way as running app frontend. This would require changing the 
+`src/studio/src/designer/backend/views/ServiceDevelopment/Index.cshtml` (for app-development) or `src/studio/src/designer/backend/views/Home/Index.cshtml` 
+(for Dashboard) to point at `http://localhost:8080` in a similar way as described in the app frontend section.
+<p>The first time setting this up, you would have to follow steps 1-3 and then run the <code>npm run gulp</code> command from step 4, before navigating to the frontend folder
+<code>src/studio/src/designer/frontend</code> and then into the application you want to run (dashboard or app-development). From there, 
+you can run <code>npm run start</code> and the frontend will be up and running.</p>
+<p>The backend will have to be started separately, using the <code>dotnet run</code> command.</p>
+<p>Subsequent setups, you only have to do steps 1-2, and if dependencies have been updated then step 3 can be run (or these can be installed
+directly from the <code>src/studio/src/designer/frontend</code> folder).</p>
+<p>To enable hot reload of the designer frontends, this is the method to use.</p>
+</div>
 <h2 id="platform-receipt">Platform Receipt</h2>
 <p>Open a terminal in <code>src/Altinn.Platform/Altinn.Platform.Receipt</code>, and run:</p>
 <pre><code>npm install
@@ -900,7 +928,7 @@ npm run gulp-develop
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/" title="Getting started"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/front-end/react/" title="React" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/" title="Getting started"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/teknologi/altinnstudio/development/handbook/front-end/new-component/" title="Creating components" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/development/handbook/front-end/developing/_index.md" target="blank">

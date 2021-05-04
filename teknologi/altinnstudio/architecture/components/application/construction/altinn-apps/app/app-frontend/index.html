@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item parent active">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -817,13 +833,7 @@ if(host != "localhost")
                 <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/'>Components</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/'>Application</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/'>Construction</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/'>Altinn Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/'>App</a> <span class='adocs-breadcrumb-divider'> / </span> App Frontend</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a></div><div id="body-inner"><h1 class="a-fontBold">App Frontend Application Architecture</h1>
-              <p class="a-leadText" id="leadText">Description of the Application architecture for App-Frontend</p><h2>On this page:</h2><nav id="TableOfContents">
-  <ul>
-    <li><a href="#react-architecture">React Architecture</a></li>
-    <li><a href="#app-frontend-features">App Frontend Features</a></li>
-    <li><a href="#configuration-files">Configuration files</a></li>
-  </ul>
-</nav>
+              <p class="a-leadText" id="leadText">Description of the Application architecture for App-Frontend</p>
 
 
 
@@ -835,103 +845,28 @@ that are responsible for handling the UI for different steps in the workflow.</p
 Each App developed in Altinn Studio will reference the app frontend, which will be served by the CDN. By default,
 an app will reference the latest <em>major</em> version that was available when the app was created. Each app may reference a specific
 version, so that there can be different versions of the app frontend for two different deployed apps.</p>
-<h2 id="react-architecture">React Architecture</h2>
-<p>The app frontend uses the <a href="https://reactjs.org/">React</a> and <a href="https://redux.js.org/">Redux</a> frameworks for presenting a UI to the end user,
-together with <a href="https://redux-saga.js.org/">redux-saga</a> to handle side effects. Components are based on <a href="https://material-ui.com/">Material UI</a>
-components.</p>
-<p>The diagram below show the architecture:</p>
-<figure><a href="react-architecture.svg"><img src="react-architecture.svg" alt="React architecture" title="React architecure" /></a><figcaption><h4>React architecure</h4></figcaption></figure>
-<h3 id="store">Store</h3>
-<p>A store holds the whole state tree of your application. The only way to change the state inside it is to dispatch an action
-on it.</p>
-<p><a href="https://redux.js.org/api/store#store">Read more</a>.</p>
-<h3 id="reducers">Reducers</h3>
-<p>Reducers specify how the application&rsquo;s state changes in response to actions sent to the store. Remember that actions only
-describe what happened, but don&rsquo;t describe how the application&rsquo;s state changes.</p>
-<p><a href="https://redux.js.org/basics/reducers#reducers">Read more</a>.</p>
-<h3 id="middleware">Middleware</h3>
-<p><code>redux-saga</code> is a library that aims to make application side effects (i.e. asynchronous things like data fetching and impure
-things like accessing the browser cache) easier to manage, more efficient to execute, easy to test, and better at handling failures.</p>
-<p><a href="https://redux-saga.js.org/">Read more</a>.</p>
-<p>We try to follow some best-practices for React architecture:</p>
-<ul>
+<ul class="children children-li js-moveChildrenFrom">
 <li>
-<p><em>Small, function-specific components</em></p>
-<ul>
-<li>UI components are &ldquo;dumb&rdquo;, this keeps the amount of logic to a minimum within the components.</li>
-</ul>
+<a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/" >React &#43; Redux architecture</a>
+<p>High-level description of React &#43; Redux architecture used in app frontend</p>
 </li>
 <li>
-<p><em>Reusability</em></p>
-<ul>
-<li>UI components are shared across apps.</li>
-<li>Shared components between app frontend and receipt frontend .</li>
-<li>Use Material UI components as much as possible instead of building our own components from scratch.</li>
-</ul>
+<a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/" >App Frontend configuration files</a>
+<p>Description of the different configuration files used by app frontend</p>
 </li>
 <li>
-<p><em>DRY code</em></p>
-<ul>
-<li>Use shared resources accross features to avoid duplication of code.</li>
-<li>Share resources/utils between app frontend and receipt frontend.</li>
-</ul>
+<a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/" >App frontend features</a>
+<p>High-level description of app frontend features</p>
 </li>
 <li>
-<p><em>Comments only where necessary</em></p>
-<ul>
-<li>Function and component names should be self-explanatory.</li>
-<li>Avoid clutter and having to update comments when things change.</li>
-</ul>
+<a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/" >App frontend code structure</a>
+<p>High-level overview of how the app frontend is structured</p>
 </li>
 <li>
-<p><em>Component names in capital</em></p>
-</li>
-<li>
-<p><em>Keep complex data-loading logic separate from rendering of components</em></p>
-<ul>
-<li>State is handled by redux as much as possible</li>
-<li>Data should be passed as props to UI components where possible</li>
-</ul>
-</li>
-<li>
-<p><em>Use a feature-based code structure</em></p>
-<ul>
-<li>Code related to a feature should be grouped together, rather than grouping code by function (actions/reducers etc).</li>
-</ul>
-</li>
-<li>
-<p><em>Follow linting rules</em></p>
-<ul>
-<li>Use a code analyzer to make sure linting rules are followed, for clean readable code</li>
-</ul>
+<a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/" >App frontend rendering and flow</a>
+<p>High-level overview of what happens when the app frontend is rendered</p>
 </li>
 </ul>
-<h2 id="app-frontend-features">App Frontend Features</h2>
-<p>The App Frontend SPA is seperated in serveral features that is a collection of components and containers that support a given
-functional area for a App. Typical a feature is connected to a type of workflow step. Like formfilling, signing, ++.</p>
-<p>Support for new types of workflow steps will be added as they become available in the backend.</p>
-<h3 id="instantiate">Instantiate</h3>
-<p>This feature is responsible for creating a specific instance of the app for the end user. This feature validates the selected
-party by checking authorization, and gives the user the option to select a new party (if available) if the current party is invalid.
-Once a user/party is validated, the backend API to create an instance is called, and the user is sent to the first process step defined for the app.</p>
-<h3 id="form">Form</h3>
-<p>This feature is responsible for the form filling process step. This includes rendering the form UI designed in Altinn Studio,
-running any rules/dynamics, calling APIs to perform calulations, validations, save form data, submit/move process to next step.</p>
-<p>To render the form UI, the <em>form layout</em> defined in Altinn Studio is used together with metadata about the data model.
-The form components are rendered based on the contents of the form layout.</p>
-<h3 id="receipt">Receipt</h3>
-<p>This feature is responsible to show the summary of the instance when an app is sent to end state of the process flow.</p>
-<h2 id="configuration-files">Configuration files</h2>
-<p>The App Frontend requires some configuration files to work correctly. These files are loaded through APIs.</p>
-<h3 id="formlayoutjson">FormLayout.json</h3>
-<p>The <em>form layout</em> is used to render the UI for the <em>form</em> feature. It defines which layout elements should be rendered,
-in what order, and contains details about how they should be rendered (ex. text keys, data model, etc.)</p>
-<p><a href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">See details about FormLayout.json</a>.</p>
-<h3 id="language">Language</h3>
-<p>All text resources that are used in the app frontend.</p>
-<h3 id="servicemetadata">ServiceMetadata</h3>
-<p>Contains information about the data model and is used by UI-render to map the fields to the data model.</p>
-<p><a href="/solutions/altinn-studio/altinn-studio-repos/structure/form-layout/">See details about ServiceMetadata.json</a>.</p>
 
 
 <footer class=" footline" >
@@ -946,7 +881,7 @@ in what order, and contains details about how they should be rendered (ex. text 
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/" title="App Process"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/" title="Application Architecture Kubernetes Wrapper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/" title="App Process"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/" title="React &#43; Redux architecture" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/_index.md" target="blank">

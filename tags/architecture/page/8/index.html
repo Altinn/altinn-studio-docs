@@ -317,9 +317,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
       <li class="dd-item">
@@ -335,7 +339,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span></a></li></ul></li>
+        <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
       <li class="dd-item">
@@ -483,7 +497,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
       <li class="dd-item">
-        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing</span></a></li>
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/development/handbook/front-end/new-component/"><span>Creating components</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/development/handbook/front-end/react/"><span>React</span></a></li>
       <li class="dd-item">
@@ -848,6 +864,166 @@ if(host != "localhost")
 	
 	   <article class="post teknologi">
     <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/">Operating Systems &amp; Cloud Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Operating systems Container Operation Systems All containers are running on Alpine Linux, which includes apps created in Altinn Studio and the Altinn Platform components.
+Cloud Platform Orchestrating &amp; Sceduling We use Kubernetes to manage the application containers for the different solutions.
+We use Azure Kubernetes Services that is a managed Kubernetes administration in Azure.
+Read more about our Kubernetes Clusters.
+Service Mesh &amp; Proxy We use Traefik as proxy in Kubernetes and Linkerd as service mesh. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pap/">Policy Administration Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>In Altinn Platform there is currently no Policy Administration Point functionality, but Altinn Platform provides functionality used by the other Policy Administration Points in Altinn 3. The PRP provides API for storing policies and retrieving them.
+Policy Administration Point for applications The authorization policy for apps is defined in Altinn Studio when developing the app.
+See Policy Administration Point in Altinn Studio for details.
+Delegation Policies Delegation of rights will be performed in Altinn II platform through the delegation functionality. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pap/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/authorization/">authorization</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">Policy Administration Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The rules for this is defined as XACML 3.0 Policy documents.
+Currently the PAP is using an editor to manual edit the XACML Policy Template
+See application development guidelines for details how to do that. (In Norwegian)
+Authorization - Altinn Apps - PolicyDescription of the XACML Policy defined for a app.
+ <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/">Application architecture pdf component - Altinn Platform</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The PDF component is an Spring Boot java application exposing an api for triggering PDF-generation.
+The pdf api is exposed at http://platform.altinn.cloud/pdf/api/v1.
+The available endpoints can be seen in the swagger definition.. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/pdf/">pdf</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The Policy Decision Point is implemented in the authorization component that is deployed Altinn Platform.
+The Policy Decision Point follow eXtensible Access Control Markup Language (XACML) Version 3.0.
+This mean that the rules are defined in XACML Policies files and PDP evalutes request based on the rules.
+The PDP evaluates the Context Request based on standard XACML 3.0 behaviour. There is no specific Altinn behaviour.
+Policy Decision Point exposes a method that authorize the decision request. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/authorization/">authorization</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/xacml/">xacml</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post teknologi">
+    <header class="post-header">
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/security/pep/">Policy Enforcement Point</a></h2>
     </header>
     <section class="post-excerpt">
@@ -987,149 +1163,6 @@ Backup &amp; Recovery The Altinn 3 platform has the capability to backup and res
                 <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/devops/">devops</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">Authorization - Altinn Apps - Policy</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>An app needs to have defined a Authoriation Policy that will be imported in to Policy Retrieval Point when a app is deloyed to a Altinn Apps/Platform environment.
-The policy format follows XACML 3.0 and for every rule in the policy, there is attributes defining which resource, subject and which action it targets.
-Resource Attributes    Attribute Description     Org The org part of the resource attribute defines which org that owns the app. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/security/">security</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">Presentation (User Interface) Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This includes capturing user actions and generating resulting events, presenting data to the user, and assisting in the management of the dialog flow of processing.
-These capabilities is both targeting App developers creating applications in Altinn Studio and the application created in Altinn Studio and Deployed to Altinn Apps for end users.
-Rendering &amp; Interaction Capabilities Composition The app developer may create the layout of the App UI using Altinn Studio. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/platform/presentation/">Presentation Components</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Proxy Servers In Altinn Studio we use NGINX as a proxy server. In Altinn Apps and Platform, Traefik is used.
-CDN For Altinn apps we have create a CDN for storing common files used by browsers. A example is App Frontend.
-Read all about Altinn CDN.
-Web server For Altinn Studio, Altinn Apps and Altinn Platform we use Kestrel as the web server/ application server for dot.net applications. Read more about Kestrel. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/platform/presentation/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/">Processing &amp; Execution Capabilities</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Processing Capabilities BPMN Process Execution As part of the Application design and build in Altinn Studio the application developer will define a BPMN Process for the given App.
-The application framework used in the app template support reading and processing the process file.
-Read the details about BPMN processing capabilities.
-Execution Control &amp; Failure Mgmt Capabilities Auditing, Logging &amp; Tracing Altinn Studio, The applications created in Altinn Studio and Altinn Platform perform auditing, logging and tracing of events that happens. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/processing/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/profile/">Application construction components - Altinn Platform Profile</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>TODO <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/profile/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/architecture/">architecture</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/solution/">solution</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/todo/">todo</a>
             
         
 
