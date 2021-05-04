@@ -32,7 +32,7 @@ custom events added in an application by application developers.
 The events will typically only contain information about that an event has happened with a reference
 to some data that was changed because of that event. 
 
-**Standard events could be**
+**Standard app events**
 
 - An instance is created
 - An instance changes state (from one process task to another, example: data -> signing)
@@ -265,9 +265,9 @@ have for the subject of the event.
 
 ## Push Events
 
-Altinn Events will also support push of events. 
+Altinn Events also supports push of events from june 2021. 
 
-Consumers would be able to add a subscription for specific types of event either for a specific source or for a specific subject. 
+Consumers are able to add a subscription for specific types of event either for a specific source or for a specific subject. 
 
 Throug API consumers would be able to add and remove subscriptions
 

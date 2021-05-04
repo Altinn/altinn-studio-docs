@@ -211,4 +211,9 @@ We have this example
 }]
 ```
 
-The full detail for this API is described in this [issue](https://github.com/Altinn/altinn-studio/issues/4550). 
+
+
+
+### P
+
+The full detail for this API is described [here](https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/events/#/Events). 
