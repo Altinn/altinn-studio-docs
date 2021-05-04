@@ -5,6 +5,15 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.5.2 (2021-05-04) - Endpoints for stateless dataelements exposed through app. Bug stopping local testing fixed
+
+Altinn Apps now expose endpoints for creating, prefilling and running calculations on stateless data elements.
+A stateless data element entails there is no link to an instance or instance owner, and the data is simply presented to the end user, but not persisted in any database.
+
+In addition, a bug breaking apps running with localtest intoduced in 4.4.1 has been fixed.
+
+Information on the new endpoints can be found in the swagger exposed by each application https://{org}.apps.altinn.no/{org}{app}/swagger
+
 ## 4.3.0 (2021-04-28) - Apps now support presentation fields
 
 Altinn Apps now support presentation fields. 
