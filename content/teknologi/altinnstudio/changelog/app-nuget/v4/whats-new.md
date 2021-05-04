@@ -5,6 +5,10 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.4.1 (2021-04-30) - Ask user to upgrade security level 
+
+An app would show the "unknown error" message if a user were trying to access an instance with a security level that was too low for the instance. This has been fixed. The user is now sent to authentication with the option to pick an authentication method that provides a higher security level. The fix targets the GET instance endpoint specifically.
+
 ## 4.3.0 (2021-04-28) - Apps now support presentation fields
 
 Altinn Apps now support presentation fields. 
