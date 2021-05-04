@@ -2,7 +2,7 @@
 title: Creating components
 description: Get started creating new form components for the apps
 tags: [development, front-end]
-weight: 10
+weight: 12
 ---
 
 ## App structure

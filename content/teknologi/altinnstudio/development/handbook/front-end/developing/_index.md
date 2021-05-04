@@ -2,7 +2,7 @@
 title: Developing locally
 description: Running the frontends locally for development
 tags: [development, front-end]
-weight: 20
+weight: 11
 ---
 
 ## App frontend

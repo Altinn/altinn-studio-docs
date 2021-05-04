@@ -7,31 +7,37 @@ weight: 1
 
 The frontend is made up of several React applications. Each application covers a functional area.
 
-## Technologies and frameworks
-- https://reactjs.org/
-- https://redux.js.org/
-- https://redux-saga.js.org/
-- https://material-ui.com/
-
-
 ## Structure
-The applications are grouped by the 2 solutions:
+The applications are grouped by the 3 solutions:
 
 - Altinn Studio (Designer)
 - Altinn Apps
+- Altinn Platform (Receipt)
 
 ### Altinn Studio Designer
 {{%excerpt%}}
 <object data="structure-studio.drawio.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
-### Altinn Apps
+### Altinn Apps & Platform
 {{%excerpt%}}
 <object data="structure-apps.drawio.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
 {{% /excerpt%}}
 
+## Technologies and frameworks
+- https://reactjs.org/
+- https://redux.js.org/
+- https://redux-saga.js.org/
+- https://material-ui.com/
+
 ## Architecture
-All of the apps are set up with the same overall React + Redux architecture:
+Each frontend runs within a .NET web application, where the transpiled javascript & CSS are referenced.
+- For Altinn Studio Designer and Altinn.Platform.Receipt, these files are deployed as part of the application itself.
+- For Altinn.Apps frontend, these files are hosted on a CDN, and loaded in at runtime.
+
+![Web application high level](web-application-structure.drawio.svg "High level overview of web application structure")
+
+All of the frontend apps are set up with the same overall React + Redux architecture:
 
 {{%excerpt%}}
 <object data="/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react-architecture.svg" type="image/svg+xml" style="width: 100%; max-width: 1000px"></object>
