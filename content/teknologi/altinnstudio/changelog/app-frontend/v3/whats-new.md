@@ -4,10 +4,16 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
-## 3.2.2 (2020-04-23) - Dependency patching
+
+# 3.3.0 (2021-05-03) - View options for repeating groups
+Added several view options for edit mode of repeating groups,
+including possibility to edit across multiple views/pages within the group. 
+Issue [#5869](https://github.com/Altinn/altinn-studio/issues/5869)
+
+## 3.2.2 (2021-04-23) - Dependency patching
 Patching of external dependencies. Issue [#6011.](https://github.com/Altinn/altinn-studio/issues/6011)
 
-## 3.2.1 (2020-04-23) - Bugfix for group validations
+## 3.2.1 (2021-04-23) - Bugfix for group validations
 Fixed a bug where groups with validation trigger would call the instance validation api. Now calls data validation. Issue [#6089.](https://github.com/Altinn/altinn-studio/issues/6089)
 
 ## 3.2.0 (2021-04-21) - Validation on group save
