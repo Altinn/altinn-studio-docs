@@ -143,6 +143,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/data-elements/"><span>Data elements</span></a></li>
       <li class="dd-item">
+        <a href="/teknologi/altinnstudio/altinn-api/app-api/stateless-data-elements/"><span>Stateless data elements</span></a></li>
+      <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/process/"><span>Process</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/validation/"><span>Validation</span></a></li></ul></li>
@@ -835,6 +837,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#452-2021-05-04---endpoints-for-stateless-data-elements-exposed-through-app-bug-stopping-local-testing-fixed">4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed</a></li>
     <li><a href="#441-2021-04-30---ask-user-to-upgrade-security-level">4.4.1 (2021-04-30) - Ask user to upgrade security level</a></li>
     <li><a href="#430-2021-04-28---apps-now-support-presentation-fields">4.3.0 (2021-04-28) - Apps now support presentation fields</a></li>
     <li><a href="#420-2021-04-19---possible-to-integrate-an-app-with-eformidling">4.2.0 (2021-04-19) - Possible to integrate an app with eFormidling</a></li>
@@ -847,6 +850,11 @@ if(host != "localhost")
 
 
 
+<h2 id="452-2021-05-04---endpoints-for-stateless-data-elements-exposed-through-app-bug-stopping-local-testing-fixed">4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed</h2>
+<p>Altinn Apps now expose endpoints for creating, prefilling and running calculations on stateless data elements.
+A stateless data element entails there is no link to an instance or instance owner, and the data is simply presented to the end user, but not persisted in any database.</p>
+<p>In addition, a bug breaking apps running with localtest intoduced in 4.4.1 has been fixed.</p>
+<p>Information on the new endpoints can be found in the swagger exposed by each application https://{org}.apps.altinn.no/{org}{app}/swagger</p>
 <h2 id="441-2021-04-30---ask-user-to-upgrade-security-level">4.4.1 (2021-04-30) - Ask user to upgrade security level</h2>
 <p>An app would show the &ldquo;unknown error&rdquo; message if a user were trying to access an instance with a security level that was too low for the instance. This has been fixed. The user is now sent to authentication with the option to pick an authentication method that provides a higher security level. The fix targets the GET instance endpoint specifically.</p>
 <h2 id="430-2021-04-28---apps-now-support-presentation-fields">4.3.0 (2021-04-28) - Apps now support presentation fields</h2>

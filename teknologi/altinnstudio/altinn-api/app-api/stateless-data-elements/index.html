@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="The app API to work with stateless date elements not associated with an instance">
 
-<title>nginx :: Altinn håndbok</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Stateless data elements :: Altinn håndbok</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -31,7 +31,7 @@ if(host != "localhost")
       }
     </style>
   </head>
-  <body class="a-page" data-url="/tags/nginx/"><nav class="a-jumpnav">
+  <body class="a-page" data-url="/teknologi/altinnstudio/altinn-api/app-api/stateless-data-elements/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
     <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til meny</a></li>
@@ -118,12 +118,12 @@ if(host != "localhost")
         <a href="/design/farger/"><span>Farger</span></a></li>
       <li class="dd-item">
         <a href="/design/illustrasjoner/"><span>Illustrasjoner</span></a></li></ul></li>
-      <li class="dd-item">
-        <a href="/teknologi/"><span>Teknologi</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent">
+        <a href="/teknologi/"><span>Teknologi</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/teknologi/generell-systemdokumentasjon/"><span>Arkitektur og infrastruktur</span></a></li>
-      <li class="dd-item">
-        <a href="/teknologi/altinnstudio/"><span>Altinn 3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent">
+        <a href="/teknologi/altinnstudio/"><span>Altinn 3</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -132,17 +132,17 @@ if(host != "localhost")
             <span>Slides</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/about/presentations/"><span>Altinn-kaffe</span></a></li></ul></li>
-      <li class="dd-item">
-        <a href="/teknologi/altinnstudio/altinn-api/"><span>Altinn API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/teknologi/altinnstudio/altinn-api/app-api/"><span>Application API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent">
+        <a href="/teknologi/altinnstudio/altinn-api/"><span>Altinn API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent">
+        <a href="/teknologi/altinnstudio/altinn-api/app-api/"><span>Application API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/metadata/"><span>App metadata</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/data-elements/"><span>Data elements</span></a></li>
-      <li class="dd-item">
+      <li class="dd-item parent active">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/stateless-data-elements/"><span>Stateless data elements</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/app-api/process/"><span>Process</span></a></li>
@@ -832,142 +832,72 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/tags/'>Tags</a> <span class='adocs-breadcrumb-divider'> / </span> nginx</span>
+                <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/altinn-api/'>Altinn API</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/altinn-api/app-api/'>Application API</a> <span class='adocs-breadcrumb-divider'> / </span> Stateless data elements</span>
             </div>
-          </div><div id="body-inner"><h1 class="a-fontBold">nginx</h1>
-              <p class="a-leadText" id="leadText"></p>
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a></div><div id="body-inner"><h1 class="a-fontBold">Stateless data elements</h1>
+              <p class="a-leadText" id="leadText">The app API to work with stateless date elements not associated with an instance</p><h2>On this page:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#create-new-data">Create new data</a></li>
+    <li><a href="#calculate-data">Calculate data</a></li>
+  </ul>
+</nav>
 
 
 
 
+<h2 id="overview">Overview</h2>
+<p>A stateless data element is a data object based on a data model without relations to an instance, instance owner or a state.
+The data is never persisted anywhere, and the avilable endpoints simply creates, prefills and/or runs calculations on a data object before 
+returning it to the caller.</p>
+<p><strong>basePath</strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{app}/v1/data
+</code></pre></div><h2 id="create-new-data">Create new data</h2>
+<p>Endpoint for creating a new stateless dataelement based on a data type.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST basePath?dataType=[dataTypeId]
+Accept: application/{xml/json}
+</code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a> that requires app logic.</p>
+<p>If prefill or calculations are defined for the data type, these will be run on the data element before it is returned.</p>
+<h3 id="response">Response</h3>
+<p>A response with the data element in the body will be returned if a valid data type is provided.</p>
+<h2 id="calculate-data">Calculate data</h2>
+<p>Endpoint for running calculations on a data element.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT basePath?dataType=[dataTypeId]
+Accept: application/{xml/json}
+</code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a> that requires app logic.</p>
+<p>The Content-Type is used by Altinn to deserialize the request into a strongly typed object. A request must either be <strong>application/json</strong> or <strong>application/xml</strong>.
+No other Content-Types are supported. Content-Type is <strong>not</strong> validated against allowed Content-Types on the data type.</p>
+<h3 id="providing-data-as-applicationjson">Providing data as application/json</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Content-Type: application/json
 
+{
+    <span style="color:#ff79c6">&#34;dataFormatProvider&#34;</span>: <span style="color:#f1fa8c">&#34;SERES&#34;</span>,
+    <span style="color:#ff79c6">&#34;dataFormatId&#34;</span>: <span style="color:#f1fa8c">&#34;5703&#34;</span>,
+    <span style="color:#ff79c6">&#34;dataFormatVersion&#34;</span>: <span style="color:#f1fa8c">&#34;34553&#34;</span>,
+    <span style="color:#ff79c6">&#34;Tjenesteeier&#34;</span>: <span style="color:#ff79c6">null</span>,
+    <span style="color:#ff79c6">&#34;Kontaktperson&#34;</span>: {
+        <span style="color:#ff79c6">&#34;navn&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>,
+        <span style="color:#ff79c6">&#34;epost&#34;</span>: <span style="color:#f1fa8c">&#34;1337@altinnstudiotestusers.com&#34;</span>,
+        <span style="color:#ff79c6">&#34;telefonnummer&#34;</span>: <span style="color:#f1fa8c">&#34;90001337&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;OEnsketBruk&#34;</span>: <span style="color:#ff79c6">null</span>
+}
+</code></pre></div><h3 id="providing-data-as-applicationxml">Providing data as application/xml</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Content-Type: application/xml
+
+<span style="color:#ff79c6">&lt;BliTjenesteeier_M</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">dataFormatProvider=</span><span style="color:#f1fa8c">&#34;SERES&#34;</span> <span style="color:#50fa7b">dataFormatId=</span><span style="color:#f1fa8c">&#34;5703&#34;</span> <span style="color:#50fa7b">dataFormatVersion=</span><span style="color:#f1fa8c">&#34;34553&#34;</span><span style="color:#ff79c6">&gt;</span>
+    <span style="color:#ff79c6">&lt;Kontaktperson&gt;</span>
+        <span style="color:#ff79c6">&lt;navn&gt;</span>Sophie Salt<span style="color:#ff79c6">&lt;/navn&gt;</span>
+        <span style="color:#ff79c6">&lt;epost&gt;</span>1337@altinnstudiotestusers.com<span style="color:#ff79c6">&lt;/epost&gt;</span>
+        <span style="color:#ff79c6">&lt;telefonnummer&gt;</span>90001337<span style="color:#ff79c6">&lt;/telefonnummer&gt;</span>
+    <span style="color:#ff79c6">&lt;/Kontaktperson&gt;</span>
+<span style="color:#ff79c6">&lt;/BliTjenesteeier_M&gt;</span>
+</code></pre></div>
 
 <footer class=" footline" >
 	
 </footer>
 
-
-
-	
-
-	<div class="extra-pagination inner">
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
-
-	</div>
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/loadbalancer/">Nginx loadbalancing in studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Nginx routing The router config is stored as a configmap in our kubernetes cluster, and mounted to the pod as a .conf file. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
-Apply the changes, and restart the pod:
-Option 1: kill the pod and let the deployment spinn up a new pod.
-Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/teknologi/altinnstudio/development/handbook/loadbalancer/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/routing/nginx/">Nginx routing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Nginx routing The router config is stored as a configmap in our kubernetes cluster, and mounted to the pod as a .conf file. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
-Apply the changes, and restart the pod:
-Option 1: kill the pod and let the deployment spinn up a new pod.
-Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/teknologi/altinnstudio/development/handbook/routing/nginx/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post teknologi">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">Nginx SSL/TLS certificate</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Generate SSL/TLS certificates from .PFX file In altinn studio we are using nginx as a proxy for internal routing. After issues with creating SSL/TLS certificates for nginx we we have written a guide for future developers to follow when creating SSL/TLS certificate secrets in kubernetes and mounting them to the nginx pods.
-Download .pfx file At the moment of writing this guide, we store our *.altinn.studio certificate in azure keyvault and you will need access to download it from that vault. <a class="read-more" href="/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/ssl/">ssl</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/tls/">tls</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/certificate/">certificate</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-
-	<div style="margin-bottom:2rem"></div>
-
-	<nav class="pagination" role="navigation">
-	
-	<span class="page-number">Page 1 on 1</span>
-	
-</nav>
 
 
 
@@ -976,9 +906,14 @@ Download .pfx file At the moment of writing this guide, we store our *.altinn.st
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-next" href="/design/" title="Slik designer vi" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/teknologi/altinnstudio/altinn-api/app-api/data-elements/" title="Data elements"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/teknologi/altinnstudio/altinn-api/app-api/process/" title="Process" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
-            </div></section>
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/teknologi/altinnstudio/altinn-api/app-api/stateless-data-elements/_index.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
         </div> 
       </div> 
     </div>
