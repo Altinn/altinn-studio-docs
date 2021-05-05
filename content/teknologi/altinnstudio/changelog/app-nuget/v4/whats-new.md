@@ -5,6 +5,15 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
+
+Altinn Apps now expose endpoints for creating, prefilling and running calculations on stateless data elements.
+A stateless data element entails there is no link to an instance or instance owner, and the data is simply presented to the end user, but not persisted in any database.
+
+In addition, a bug breaking apps running with localtest intoduced in 4.4.1 has been fixed.
+
+Information on the new endpoints can be found in the swagger exposed by each application https://{org}.apps.altinn.no/{org}{app}/swagger
+
 ## 4.4.1 (2021-04-30) - Ask user to upgrade security level 
 
 An app would show the "unknown error" message if a user were trying to access an instance with a security level that was too low for the instance. This has been fixed. The user is now sent to authentication with the option to pick an authentication method that provides a higher security level. The fix targets the GET instance endpoint specifically.
