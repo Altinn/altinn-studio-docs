@@ -271,38 +271,203 @@
           }
         }
       }
+    },
+    "/push": {
+      "post": {
+        "tags": [
+          "Push"
+        ],
+        "summary": "Alert push controller about a new event.\r\n            \r\nThis method will then identify any matching subscriptions and authorize if the consumer is authorized\r\nto receive event. If autorized it will put it on a outbound queue",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CloudEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions": {
+      "post": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Method to register an subscription for events.\r\nRequires information about endpoint to post events for subscribers.",
+        "requestBody": {
+          "description": "The subscription details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subscription"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/{id}": {
+      "get": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Method to get a specific subscription",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "API to delete a given subscription",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subscriptions/validate/{id}": {
+      "put": {
+        "tags": [
+          "Subscription"
+        ],
+        "summary": "Method to get a specific subscription",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "ContentType": {
-        "type": "object",
-        "properties": {
-          "boundary": {
-            "type": "string",
-            "nullable": true
-          },
-          "charSet": {
-            "type": "string",
-            "nullable": true
-          },
-          "mediaType": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "parameters": {
-            "type": "array",
-            "items": { },
-            "nullable": true,
-            "readOnly": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CloudEvent": {
         "type": "object",
         "properties": {
@@ -359,6 +524,115 @@
         },
         "additionalProperties": false,
         "description": "Represents a cloud event. Based on CloudEvent: https://github.com/cloudevents/spec/blob/v1.0/spec.md."
+      },
+      "ContentType": {
+        "type": "object",
+        "properties": {
+          "boundary": {
+            "type": "string",
+            "nullable": true
+          },
+          "charSet": {
+            "type": "string",
+            "nullable": true
+          },
+          "mediaType": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "parameters": {
+            "type": "array",
+            "items": { },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "Subscription": {
+        "type": "object",
+        "properties": {
+          "endPoint": {
+            "type": "string",
+            "description": "Endpoint to receive matching events",
+            "format": "uri",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "description": "Subscription Id",
+            "format": "int32"
+          },
+          "sourceFilter": {
+            "type": "string",
+            "description": "Filter on source",
+            "format": "uri",
+            "nullable": true
+          },
+          "subjectFilter": {
+            "type": "string",
+            "description": "Filter on subject",
+            "nullable": true
+          },
+          "alternativeSubjectFilter": {
+            "type": "string",
+            "description": "Filter on alternative subject",
+            "nullable": true
+          },
+          "typeFilter": {
+            "type": "string",
+            "description": "Filter for type. Starts with",
+            "nullable": true
+          },
+          "consumer": {
+            "type": "string",
+            "description": "The events consumer",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "description": "Who created this subscription",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "description": "When subscription was created",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Class that describes a events subscriptions"
       }
     }
   }
