@@ -844,8 +844,17 @@ When a request is received it will query the events stored in the event storage.
 <h2 id="api-controllers">Api controllers</h2>
 <p>The following API controllers are defined</p>
 <ul>
-<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs">EventsController</a></li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs">EventsController</a> : responsible for registrating events and pull of events for consumers.</li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/PushController.cs">PushController</a> : responsible to validate if there is any subscriptions matching the event and if so authorize the subscriper before it pushes the event to the outbound queue</li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs">SubscriptionController</a> : responsible for managing subscriptions for consumers.</li>
 </ul>
+<h3 id="eventscontroller">Eventscontroller</h3>
+<p>The eventscontroller in the Events component is the one receiving events from Apps and other sources.</p>
+<p>It verifies if the app is authorized to creates events for the given source and then store in to event storage</p>
+<h3 id="push-events-controller">Push Events controller</h3>
+<p>Push Events controller is called by the InboundEventsController. Based on details from the Event it will identify
+matching subscriptions. For each match it will authorize the consumer using the Policy Authorization Point.</p>
+<p>The <a href="">AuthorizationHelper</a> is responsible for creating and performing the request.</p>
 <h2 id="event-storage">Event storage</h2>
 <p>To be able to get the search capability needed for the Events component we have choosen to use PostgreSQL.</p>
 <p>Using PostgreSQL makes is possible to sort the events based on a primary key and also makes it possible to search
@@ -864,6 +873,40 @@ over all events based on subject or source.</p>
 <p>Events will be sequnced by sequence number that is the primary key of the Events table.</p>
 <h3 id="indexing">Indexing</h3>
 <p>We would need to have index on</p>
+<h2 id="functions">Functions</h2>
+<p>As part of the Event Component there is 3 <a href="https://docs.microsoft.com/en-us/azure/azure-functions/">Azure Functions</a> used for pushing events to the consumers. Click on name for code.</p>
+<ul>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs">EventsInbound</a> : responsible for pushing new events to the push controller</li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsOutbound.cs">EventsOutbound</a> : responsible for pushing event to consumer webhook</li>
+<li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/ValidateSubscription.cs">ValidateSubscription</a> : responsible for validating the endpoint given in a subscription.</li>
+</ul>
+<h3 id="eventsinbound">EventsInbound</h3>
+<p>The EventsInbound function is triggered by QueueStorage changes in the &ldquo;events-inbound&rdquo; queue.</p>
+<p>It just forward the event to the PushController through the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Services/PushEventsService.cs">pushEventService</a>.</p>
+<p>The Function uses Platform Access token to authenticate itself for the PushController</p>
+<p>It uses standard mechanismen for retry, if the call for pushcontroller fails.</p>
+<h3 id="eventsoutbound">EventsOutbound</h3>
+<p>The EventsOutbound function is triggered byQueueStorage changes in the &ldquo;events-outbound&rdquo; queue.</p>
+<p>It will try to push the event to given subscription endpoint given in the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/CloudEventEnvelope.cs">CloudEventEnvelope</a>
+that is put on the queue and containing the event.</p>
+<p>This function is configured with <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs">CustomQueueProcessorFactory</a> to handle retry if it is not possible to push event to the endpoint.</p>
+<p>It will try send the event right away, but if the request to webhook fails it will put the cloudevent back on the queue with a
+defined wait time.</p>
+<ol>
+<li>retries after 10 seconds</li>
+<li>retries after 30 seconds</li>
+<li>retries after 1 minute</li>
+<li>retries after 5 minutes</li>
+<li>retries after 10 minutes</li>
+<li>retries after 30 minutes</li>
+<li>retries after 1 hour</li>
+<li>retries after 3 hours</li>
+<li>retries after 6 hours</li>
+<li>retries after 12 hours</li>
+<li>retries after 12 hours</li>
+</ol>
+<p>If it fails the 12. time it will put the event in the dead letter queue and will not try again.</p>
+<h3 id="validatesubscription">ValidateSubscription</h3>
 
 
 <footer class=" footline" >

@@ -1028,7 +1028,7 @@ Overall Concept In Altinn there will over time be thousands of different digital
         <p>The Events components expose REST-APIs for publishing and subscribing to events.
 When a publish request is received it will push the event document to the event storage. When a request is received it will query the events stored in the event storage.
 Api controllers The following API controllers are defined
- EventsController  Event storage To be able to get the search capability needed for the Events component we have choosen to use PostgreSQL. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
+ EventsController : responsible for registrating events and pull of events for consumers. PushController : responsible to validate if there is any subscriptions matching the event and if so authorize the subscriper before it pushes the event to the outbound queue SubscriptionController : responsible for managing subscriptions for consumers. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
