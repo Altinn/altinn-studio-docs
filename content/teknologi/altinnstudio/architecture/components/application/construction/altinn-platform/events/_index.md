@@ -74,11 +74,11 @@ As part of the Event Component there is 3 [Azure Functions](https://docs.microso
 
 ### EventsInbound
 
-The EventsInbound function is triggered byQueueStorage changes in the "events-inbound" queue.
+The EventsInbound function is triggered by QueueStorage changes in the "events-inbound" queue.
 
 It just forward the event to the PushController through the [pushEventService](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Services/PushEventsService.cs).
 
-The Function uses Platform Access token to authenticat itself for the PushController
+The Function uses Platform Access token to authenticate itself for the PushController
 
 It uses standard mechanismen for retry, if the call for pushcontroller fails.
 
