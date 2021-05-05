@@ -277,7 +277,7 @@
         "tags": [
           "Push"
         ],
-        "summary": "Alert push controller about a new event.\r\n            \r\nThis method will then identify any matching subscriptions and authorize if the consumer is authorized\r\nto receive event. If autorized it will put it on a outbound queue",
+        "summary": "Alert push controller about a new event. This method will then identify any matching subscriptions and authorize if the consumer is authorized to receive event. If autorized it will put it on a outbound queue",
         "requestBody": {
           "content": {
             "application/json": {
@@ -309,7 +309,7 @@
         "tags": [
           "Subscription"
         ],
-        "summary": "Method to register an subscription for events.\r\nRequires information about endpoint to post events for subscribers.",
+        "summary": "Method to register an subscription for events. Requires information about endpoint to post events for subscribers.",
         "requestBody": {
           "description": "The subscription details",
           "content": {
