@@ -25,7 +25,8 @@ process | A complex type tracking the process state of the instance. See [Proces
 status | A complex type with more state data. See [InstanceStatus](#instancestatus)
 completeConfirmations | A list of complete confirmations. See [CompleteConfirmation](#completeconfirmation)
 data | A list of data elements. This include all forms, attachments and other data types being collected. See [DataElement](../data-element)
-presentationTexts | A dictionary with text values extracted from forms that are saved on the instance. Values are extracted based on PresentationField values stored in the application metadata document. Also see See [PresentationField](../app-metadata#presentationfield)
+presentationTexts | A dictionary with text values extracted from forms that are saved on the instance. Values are extracted based on PresentationField values stored in the application metadata document. Also see [PresentationField](../app-metadata#presentationfield)
+dataValues | A dictionary with data values extracted from forms that are saved on the instance. Values are extracted based on configured data fields in the applicationmetadata document. Also see [DataField](../app-metadata#datafield)
 created | The date and time when the instance was first initialized.
 createdBy | An idenfificator indicating who it was that created the instance.
 lastChanged | The date and time when the instance was last changed.

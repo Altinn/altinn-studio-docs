@@ -76,6 +76,20 @@ id | An id or key to identify the specific rule.
 path | A path to a specific field or property in the form model. 
 dataTypeId | The name of the datatype. See [DataType](#datatype). 
 
+## DataField
+
+DataField represents a form field extraction rule. Every time a form is being saved the data field rules will be applied and any values from the form will be stored directly on the instance. While [PresentationField](#presentationField) will have logic applied to it with regards to where and how it's used, the use of data fields is entirely up to the application developer and the application owner. One usage scenario is to provide data fields which can be used for routing to the correct backend system.
+
+
+Name | Description
+-----|-------------
+id | An id or key to identify the specific rule. 
+path | A path to a specific field or property in the form model. 
+dataTypeId | The name of the datatype. See [DataType](#datatype). 
+
+While data fields configured in the app meta data file will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It's the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what's allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.
+
+Values passed in to the UpdataDataValues can have any source and is not restricted to data stored in the application. It can be called from any placed but it's recomended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.
 
 ## eFormidlingContract
 
