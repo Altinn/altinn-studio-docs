@@ -23,6 +23,7 @@ dataTypes | A list of all the data types associated with the application. See [D
 partyTypesAllowed | A collection of flags that controls what type of instance owners new instances can be created for. See [PartyTypesAllowed](#partytypesallowed)
 autoDeleteOnProcessEnd | A value indicating whether an instance will be automatically deleted once the process ends. This can be used by highly sensitiv applications to force an instance delete instead of sending the instance to the archive.
 presentationFields | A collection of presentation fields. See [PresentationField](#presentationfield). Currently not in use. 
+dataFields | A collection of data fields. See [DataField](#datafield).
 eFormidling | The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eFormidlingContract).
 
 ## DataType
@@ -76,6 +77,16 @@ id | An id or key to identify the specific rule.
 path | A path to a specific field or property in the form model. 
 dataTypeId | The name of the datatype. See [DataType](#datatype). 
 
+## DataField
+
+DataField represents a form field extraction rule. Every time a form is being saved the data field rules will be applied and any values from the form will be stored directly on the instance. While [PresentationField](#presentationField) will have logic applied to it with regards to where and how it's used, the use of data fields is entirely up to the application developer and the application owner. One usage scenario is to provide data fields which can be used for routing to the correct backend system.
+
+
+Name | Description
+-----|-------------
+id | An id or key to identify the specific rule. 
+path | A path to a specific field or property in the form model. 
+dataTypeId | The name of the datatype. See [DataType](#datatype). 
 
 ## eFormidlingContract
 

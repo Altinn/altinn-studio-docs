@@ -25,7 +25,8 @@ process | A complex type tracking the process state of the instance. See [Proces
 status | A complex type with more state data. See [InstanceStatus](#instancestatus)
 completeConfirmations | A list of complete confirmations. See [CompleteConfirmation](#completeconfirmation)
 data | A list of data elements. This include all forms, attachments and other data types being collected. See [DataElement](../data-element)
-presentationTexts | A dictionary with text values extracted from forms that are saved on the instance. Values are extracted based on PresentationField values stored in the application metadata document. Also see See [PresentationField](../app-metadata#presentationfield)
+presentationTexts | A dictionary with text values extracted from forms that are saved on the instance. Values are extracted based on PresentationField values stored in the application metadata document. Also see [PresentationField](../app-metadata#presentationfield)
+dataValues | A dictionary with data values extracted from forms that are saved on the instance. Values are extracted based on configured data fields in the applicationmetadata document. Also see [DataField](../app-metadata#datafield)
 created | The date and time when the instance was first initialized.
 createdBy | An idenfificator indicating who it was that created the instance.
 lastChanged | The date and time when the instance was last changed.
@@ -60,6 +61,15 @@ substatus | A property with human readable status information that will be displ
 ## CompleteConfirmation
 
 The CompleteConfirmation model is a simple type for holding information about who and when a given stakeholder has told Altinn that the instance is no longer needed. They have obtained all the information they needed from the instance. The instance can be deleted permanently should an application user decide to to so. At the time of writing an instance can have only one stakeholder and that is the Application Owner. 
+
+## DataValues
+
+Data values are values either extracted from the instance data or other sources. The values are stored with the instance for easy access and can be used for example in routing logic on the receiving end.
+
+While data fields configured in the [app metadata file](../app-metadata/_index.md#datafield) will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It's the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what's allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.
+
+Values passed in to the UpdataDataValues can have any source and is not restricted to data stored in the application. It can be called from any place but it's recomended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.
+
 
 ### Properties
 
