@@ -842,6 +842,7 @@ if(host != "localhost")
     <li><a href="#applicationlogic">ApplicationLogic</a></li>
     <li><a href="#partytypesallowed">PartyTypesAllowed</a></li>
     <li><a href="#presentationfield">PresentationField</a></li>
+    <li><a href="#datafield">DataField</a></li>
     <li><a href="#eformidlingcontract">eFormidlingContract</a></li>
     <li><a href="#complete-example">Complete example</a></li>
   </ul>
@@ -903,6 +904,10 @@ if(host != "localhost")
 <tr>
 <td>presentationFields</td>
 <td>A collection of presentation fields. See <a href="#presentationfield">PresentationField</a>. Currently not in use.</td>
+</tr>
+<tr>
+<td>dataFields</td>
+<td>A collection of data fields. See <a href="#datafield">DataField</a>.</td>
 </tr>
 <tr>
 <td>eFormidling</td>
@@ -1017,6 +1022,30 @@ if(host != "localhost")
 <h2 id="presentationfield">PresentationField</h2>
 <p>This type is used by a feature still in development.</p>
 <p>PresentationField represents a form field extraction rule. Every time a form is being saved the presentation field rules will be applied and any values from the form will be stored directly on the instance. This can later be used to present instance specific data in places like the portal message box. The purpose is to make it easier to identify a specific instance in a list with many almost identical instances.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>An id or key to identify the specific rule.</td>
+</tr>
+<tr>
+<td>path</td>
+<td>A path to a specific field or property in the form model.</td>
+</tr>
+<tr>
+<td>dataTypeId</td>
+<td>The name of the datatype. See <a href="#datatype">DataType</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="datafield">DataField</h2>
+<p>DataField represents a form field extraction rule. Every time a form is being saved the data field rules will be applied and any values from the form will be stored directly on the instance. While <a href="#presentationField">PresentationField</a> will have logic applied to it with regards to where and how it&rsquo;s used, the use of data fields is entirely up to the application developer and the application owner. One usage scenario is to provide data fields which can be used for routing to the correct backend system.</p>
 <table>
 <thead>
 <tr>
