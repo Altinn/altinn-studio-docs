@@ -5,6 +5,13 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.6.2 (2021-05-11) - Apps now support data fields
+Altinn Apps now support data fields.
+Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
+Form data can be added by configuring data fields in `applicationmetadata.json` while custom sources require coding.
+Documentation on how to add data values to an instance can be found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/datafields/).
+
+
 ## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
 
 Altinn Apps now expose endpoints for creating, prefilling and running calculations on stateless data elements.
