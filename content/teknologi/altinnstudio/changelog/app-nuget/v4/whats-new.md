@@ -5,7 +5,7 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
-## 4.6.2 (2021-05-11) - Apps now support data fields
+## 4.6.0 (2021-05-11) - Apps now support data fields
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
 Form data can be added by configuring data fields in `applicationmetadata.json` while custom sources require coding.
