@@ -2842,6 +2842,16 @@
         },
         "additionalProperties": false
       },
+      "OnEntryConfig": {
+				"type": "object",
+				"properties": {
+					"show": {
+						"type": "string",
+						"nullable": true
+					}
+				},
+				"additionalProperties": false
+			},
       "PartyTypesAllowed": {
         "type": "object",
         "properties": {
