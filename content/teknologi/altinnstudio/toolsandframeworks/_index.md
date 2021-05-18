@@ -1,6 +1,6 @@
 ---
 title: Tools and frameworks
-description: The technology used in Altinn Studio, Altinn Apps and Altinn Platform.
+description: The open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.
 tags: [tech]
 aliases:
  - /technology/
@@ -9,4 +9,4 @@ aliases:
 
 ![Tech map](tech-map.png "The technology used in Altinn 3")
 
-{{% children description="true" depth="1" %}}
+{{<children>}}
