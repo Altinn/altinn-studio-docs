@@ -1065,6 +1065,14 @@
             }
           },
           {
+            "name": "status.isHardDeleted",
+            "in": "query",
+            "description": "Is the instance hard deleted.",
+            "schema": {
+            "type": "boolean"
+            }
+          },
+          {
             "name": "status.isArchived",
             "in": "query",
             "description": "Is the instance archived.",
@@ -2328,6 +2336,9 @@
           },
           "eFormidling": {
             "$ref": "#/components/schemas/EFormidlingContract"
+          },
+          "onEntry": {
+            "$ref": "#/components/schemas/OnEntryConfig"
           },
           "created": {
             "type": "string",
