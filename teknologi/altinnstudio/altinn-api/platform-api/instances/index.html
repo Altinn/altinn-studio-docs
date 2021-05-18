@@ -881,6 +881,9 @@ Exclude instances already confirmed by a specific stakeholder. Usually the short
 Filter instances based on whether they are archived.</li>
 <li><strong>isSoftDeleted</strong> (bool)
 Filter instances based on whether they are soft deleted.</li>
+<li><strong>isHardDeleted</strong> (bool)
+Filter instances based on whether they are hard deleted. 
+Note that hard deleted instances are only included if an application owner retrieves instances, and the results may include deleted drafts.</li>
 </ul>
 <p><strong>Some examples</strong>:</p>
 <p>Get all instances of application <em>org/app</em>, that is at process task with id <em>Task_2</em> (which is Submit, see process definition), and has last changed date greater than <em>2019-05-01</em>.</p>
