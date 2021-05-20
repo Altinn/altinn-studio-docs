@@ -265,6 +265,7 @@ This delegation is done through Maskinporten.
 In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.
 
+
 ## Event Analytics
 
 With a new event architecture it is possible imagine that we can run analytics on the events to give

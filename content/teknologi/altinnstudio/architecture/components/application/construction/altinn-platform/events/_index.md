@@ -133,4 +133,3 @@ defined wait time.
 If it fails the 12. time it will put the event in the dead letter queue and will not try again.
 
 If endpoint responds with 200OK it will then set the subscription status to valid with calling the [validate](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs#L111) endpoint in the Subscription API.
-
