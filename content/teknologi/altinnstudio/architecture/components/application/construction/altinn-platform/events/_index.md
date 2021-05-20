@@ -107,4 +107,30 @@ defined wait time.
 
 If it fails the 12. time it will put the event in the dead letter queue and will not try again.
 
-### ValidateSubscription
+### SubscriptionValidation
+
+The SubscriptionValidation function is triggered byQueueStorage changes in the "subscription-validation" queue.
+
+It will try to validate the endpoing given in the [Subscription](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/Subscription.cs)
+that is put on the queue.
+
+This function is configured with [CustomQueueProcessorFactory](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs) to handle retry if it is not possible to push event to the endpoint.
+
+It will try send the event right away, but if the request to webhook fails it will put the cloudevent back on the queue with a
+defined wait time.
+1. retries after 10 seconds
+2. retries after 30 seconds
+3. retries after 1 minute
+4. retries after 5 minutes
+5. retries after 10 minutes
+6. retries after 30 minutes
+7. retries after 1 hour
+8. retries after 3 hours
+9. retries after 6 hours
+10. retries after 12 hours
+11. retries after 12 hours
+
+If it fails the 12. time it will put the event in the dead letter queue and will not try again.
+
+If endpoint responds with 200OK it will then set the subscription status to valid with calling the [validate](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs#L111) endpoint in the Subscription API.
+

@@ -85,46 +85,50 @@ Parties submitting and receiving data in Altinn would benefit from knowing about
 
 In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.
 
+Currently we only support persons and consumers. They need to be authenticated through ID-porten to set up a subscription for themself.
+
+Before any event is pushed 
+
 ## Requirments
 
-The following requirements are identified for the new event architecture in Altinn 3.
-
-{{%notice warning%}}
-TODO: Verify requirements
-{{% /notice%}}
+The following requirements was identified for the new event architecture in Altinn 3.
 
 - It should be possible to subscribe to a specific type of event. (Example alls `instance.process.completed` events for a given app)
-- It should be possible to go at least 3 months back in history.
+- It should be possible to go at least 3 months back in history when searching for events throug API.
 - The consumer will keep track of which events the consumer has processed.
-- The architecture should be able to list feeds for 5 000 000 users and 1 000 000 businesses.
 - The architecture should support more than 10 000 publishers.
 - The architecture should support more than 1 000 000 consumers.
 - The architecture should support more than 500 000 000 events a year.
 - Access to events should be authorized. Accessing an event for a party requires that the consumer has the correct role 
+- Before pusing events to a subscriper endpoint the push functionality need to authorize the subscriber for the event
 
 See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
-
 
 ## Event Principles and pattern
 
 During the analysis, the following principles and pattern has been applied
-
-### Expose events through REST-API
-
-- Use of REST-API ensures low complexity for consuming events
-- REST-API URLS and parameters are uses for filtering
 
 ### Small events
 - The events will only contain a small amount of data. If more information is needed this is available from the resource itself
 - Every event links to the resource affected by the event. 
 - We use CloudEvent as format. 
 
+### Prefer push of events to consumers
+
+The prefered consumption of events is through subscription and subscriber endpoints where Altinn Events pushes
+the events.
+
+### Support retry of push
+
+The push functionality needs to support
+
+### Expose events through REST-API
+
+- Use of REST-API ensures low complexity for consuming events
+- REST-API URLS and parameters are uses for filtering
+
 ### Consumers keep track of their status
-- Consumers will 
-
-### Time is used for sequencing
-
-- The published time is the parameters used for sorting events
+- Consumers will keep track of their own status when using events API for consumption of events.
 
 ### Events does not change
 
@@ -132,13 +136,13 @@ During the analysis, the following principles and pattern has been applied
   
  ### Events are stored for a limited time
 
- - Events will be available for 3 months.  (todo: needs to be verified)
+ - Events will be available for 3 months through API.
+
+
 
 ## Event Architecture
 
 As part of the Altinn 3 solutions there is defined a event architecture to support the above requirements and capabilities. 
-
-The Events component will expose clean and simple REST APIs.
 
 ### Event Schema
 
@@ -237,7 +241,6 @@ A user/system has completed the process for an instance.
 }]
 ```
 
-
 ### Event components
 
 The below diagram shows the different components in the proposed Event Architecture for Altinn 3.
@@ -261,20 +264,6 @@ This delegation is done through Maskinporten.
 
 In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.
-
-
-## Push Events
-
-Altinn Events also supports push of events from june 2021. 
-
-Consumers are able to add a subscription for specific types of event either for a specific source or for a specific subject. 
-
-Throug API consumers would be able to add and remove subscriptions
-
-- Consumer need to set up URL webhook that would receive all or a filtered list of events. 
-
-
-See details in [this Github issue](https://github.com/Altinn/altinn-studio/issues/4728)
 
 ## Event Analytics
 

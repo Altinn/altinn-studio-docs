@@ -12,11 +12,7 @@ The solution is available at https://platform.altinn.cloud/events/api/v1.
 
 ### API Structure
 
-The API's will be structured so the URLs are filtered queries into the events storage.
-
-{{%notice warning%}}
-TODO: Verify proposed API structure
-{{% /notice%}}
+The API's is structured so the URLs are filtered queries into the events storage.
 
 #### Instances events for Org
 
@@ -212,8 +208,42 @@ We have this example
 ```
 
 
+### Adding Subscription
 
+##### Endpoint
 
-### P
+```http
+POST {platformurl}/events/api/v1/subscriptions/
+```
+This returns the created subscription with IDs
+
+##### Usage
+
+This is used by the consumer to add a subscription.
+
+The consumer needs to ba an org authenticated with maskinporten or a end user autenticated with ID-porten
+
+We have this example that adds a subscription for all events for the app ttd/apps-test to be pushed
+to a Slack webhook
+
+```json {hl_lines=[4]}
+{
+    "endPoint": "https://hooks.slack.com/services/TSRSASBVNF3/ADRRSDSSSAahttsasdfasFO3w83456ss",
+    "sourceFilter": "https://ttd.apps.at21.altinn.cloud/ttd/apps-test"
+}
+```
+
+### API Documentation
 
 The full detail for this API is described [here](https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/events/#/Events). 
+
+
+## Push Functions
+
+A important part of the Events components are three different Azure Functions that is responsible for the following
+
+- Inbound Function: Send every event to an subscription matching and authorization function
+- Outbound Function: Pushes events to subscription endpoints
+- Subscription Validation Function
+
+See more details in the construction components for Events
