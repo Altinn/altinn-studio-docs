@@ -50,13 +50,12 @@ Events would typically have some attributes used for filtering.
 - [org] - The application owner / service owner that owns the source (app) of the event. Example: SKD, NAV
 - [app] - The app the event is created for. Example: taxreport
 - [instanceid] - The instanceid: 
-- [eventtype] - The type of event. Created, completed ++. Free text not locked to a schema.
+- [eventtype] - The type of event. Created, completed 
+- ++. Free text not locked to a schema.
 
 An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.
 
 ### Event Producers
-
-This is a start. Going forward other event sources can be added, for example from Altinn 2.
 
 #### Applications running in Altinn Apps
 
@@ -74,6 +73,24 @@ The application template will contain API so logic in applications can publish e
 These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.
 
 [See code example](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/events/#pushe-egendefinerte-events-i-applikasjonen-din)
+
+#### Other producers
+
+Altinn Events together with Altinn Authorization has the potential to be the national event hub for Norway.
+
+The possibility to have Altinn Authorization to authorize access to events gives great possibilities not
+available from other event platforms.
+
+In the future, several other Event producers could be added. Examples could be
+
+- Altinn 2 ServiceEngine: Reducing the need for polling to the current platform
+- Altinn 2 Authorization: Information about changes on rights
+- National Register: Informing- Other agency specific applications
+- Private sector applications
+ about register changes
+- Other national components
+
+Only the imagination limits whats is possible in the future. This is followed up in [this issue](https://github.com/Altinn/altinn-studio/issues/4727).
 
 ### Event consumers
 
@@ -277,6 +294,8 @@ Example
 - How many instances is created for the different applications
 - How long time does each task take to complete
 - Is there any relationship between apps. 
+
+![image](https://user-images.githubusercontent.com/13309071/119110077-0c1fd800-ba22-11eb-8ba9-c26b03c734ba.png)
 
 This is analyzed in the following [issue](https://github.com/Altinn/altinn-studio/issues/4555)
 
