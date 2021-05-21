@@ -8,6 +8,9 @@ weight: 103
 
 See [event capabilities](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/) for functional description of the platforms event capabilities.
 
+![Event architecture diagram](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg "Altinn Event Architecture")
+
+
 The solution is available at https://platform.altinn.cloud/events/api/v1.
 
 ### API Structure
@@ -246,4 +249,4 @@ A important part of the Events components are three different Azure Functions th
 - Outbound Function: Pushes events to subscription endpoints
 - Subscription Validation Function
 
-See more details in the construction components for Events
+See more details in the [construction components for Events](/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/)
