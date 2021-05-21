@@ -8,7 +8,7 @@ aliases:
 ---
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
-This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
+This means that applications (digital services) running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
 Most components inside the Altinn Platform and Altinn Apps solutions will communicate through synchronous HTTP calls.  
