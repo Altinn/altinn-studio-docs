@@ -6,10 +6,11 @@ tags: [architecture, solution]
 weight: 103
 ---
 
+In addition it contains serveral [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) to support push of events. 
+
 See [event capabilities](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/) for functional description of the platforms event capabilities.
 
 ![Event architecture diagram](/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg "Altinn Event Architecture")
-
 
 The solution is available at https://platform.altinn.cloud/events/api/v1.
 

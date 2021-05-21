@@ -40,24 +40,41 @@ The [AuthorizationHelper]() is responsible for creating and performing the reque
 
 To be able to get the search capability needed for the Events component we have choosen to use PostgreSQL.
 
-Using PostgreSQL makes is possible to sort the events based on a primary key and also makes it possible to search
+Using [PostgreSQL](https://www.postgresql.org/) makes is possible to sort the events based on a primary key and also makes it possible to search
 over all events based on subject or source. 
 
-The suggested table structure 
-
+The table structure 
 
 ```sql
-CREATE TABLE events(
-   sequenceno BIGSERIAL PRIMARY KEY,
-   id VARCHAR NOT NULL,
-   source VARCHAR NOT NULL,
-   subject VARCHAR NOT NULL,
-   type VARCHAR NOT NULL,
-   time timestamptz NOT NULL,
-   cloudevent TEXT NOT NULL
-);
+CREATE TABLE IF NOT EXISTS events.events
+(
+    sequenceno BIGSERIAL,
+    id character varying COLLATE pg_catalog."default" NOT NULL,
+    source character varying COLLATE pg_catalog."default" NOT NULL,
+    subject character varying COLLATE pg_catalog."default" NOT NULL,
+    "time" timestamptz  NOT NULL,
+    type character varying COLLATE pg_catalog."default" NOT NULL,
+    cloudevent text COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT events_pkey PRIMARY KEY (sequenceno)
+)
 ```
 
+```sql
+CREATE TABLE IF NOT EXISTS events.subscription
+(
+    id BIGSERIAL,
+    sourcefilter character varying COLLATE pg_catalog."default",
+    subjectfilter character varying COLLATE pg_catalog."default",
+    typefilter character varying COLLATE pg_catalog."default",
+    consumer character varying COLLATE pg_catalog."default" NOT NULL,
+    endpointurl character varying COLLATE pg_catalog."default" NOT NULL,
+    createdby character varying COLLATE pg_catalog."default" NOT NULL,
+    validated BOOLEAN NOT NULL,
+    "time" timestamptz  NOT NULL,
+    CONSTRAINT eventssubscription_pkey PRIMARY KEY (id)
+)
+
+```
 
 #### Event sequencing
 
@@ -78,7 +95,7 @@ As part of the Event Component there is 3 [Azure Functions](https://docs.microso
 
 ### EventsInbound
 
-The EventsInbound function is triggered by QueueStorage changes in the "events-inbound" queue.
+The [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function is triggered by QueueStorage changes in the "events-inbound" queue.
 
 It just forward the event to the PushController through the [pushEventService](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Services/PushEventsService.cs).
 
@@ -95,7 +112,7 @@ that is put on the queue and containing the event.
 
 This function is configured with [CustomQueueProcessorFactory](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs) to handle retry if it is not possible to push event to the endpoint.
 
-It will try send the event right away, but if the request to webhook fails it will put the cloudevent back on the queue with a
+It will try send the event right away, but if the request to webhook fails  (Http status != 200) it will put the cloudevent back on the queue with a
 defined wait time.
 1. retries after 10 seconds
 2. retries after 30 seconds
@@ -113,14 +130,14 @@ If it fails the 12. time it will put the event in the dead letter queue and will
 
 ### SubscriptionValidation
 
-The SubscriptionValidation function is triggered byQueueStorage changes in the "subscription-validation" queue.
+The [SubscriptionValidation](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/SubscriptionValidation.cs) function is triggered byQueueStorage changes in the "subscription-validation" queue.
 
 It will try to validate the endpoing given in the [Subscription](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/Subscription.cs)
 that is put on the queue.
 
 This function is configured with [CustomQueueProcessorFactory](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs) to handle retry if it is not possible to push event to the endpoint.
 
-It will try send the event right away, but if the request to webhook fails it will put the cloudevent back on the queue with a
+It will try send the event right away, but if the request to webhook fails (Http status != 200) it will put the cloudevent back on the queue with a
 defined wait time.
 1. retries after 10 seconds
 2. retries after 30 seconds
