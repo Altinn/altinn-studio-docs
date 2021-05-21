@@ -8,7 +8,7 @@ aliases:
 ---
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
-In this context this means that applications (digital services) running in Altinn Apps will publish events that
+In this context, this means that applications (digital services) running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
 This page is focused on capabilities. If you are interested in more details about the components and construction
@@ -304,7 +304,7 @@ This is analyzed in the following [issue](https://github.com/Altinn/altinn-studi
 The event capabilities in Altinn Platform is possible to use outside Altinn Apps and Altinn Platform similar to
 how Altinn Authorization is used by external wihout deploying any digital services to the platform.
 
-How this should work is not analyzed and specified yet. The isse is found [here](https://github.com/Altinn/altinn-studio/issues/4727)
+How this should work is not analyzed and specified yet. The issue is found [here](https://github.com/Altinn/altinn-studio/issues/4727)
 
 ## Other event concepts in the platform
 
