@@ -30,7 +30,9 @@ It verifies if the app is authorized to creates events for the given source and 
 
 It also exposes API to search for events and to get events. 
 
-Access to events is authorized. 
+The access is controlled by the XACML Policy for the given App that is the source for an given event.
+
+The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs) is responsible for creating and performing the request to the Policy Decision Point.
 
 
 ### PushController
@@ -42,6 +44,8 @@ Based on details from the Event it will identify matching subscriptions.
 For each match it will authorize the consumer using the Policy Authorization Point.
 
 The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs) is responsible for creating and performing the request to the Policy Decision Point.
+
+The access is controlled by the XACML Policy for the given App that is the source for an given event.
 
 If consumer is Authorized the event will be added to the "events-outbound" queue and picked up by the EventsOutbound function. (see below)
 
