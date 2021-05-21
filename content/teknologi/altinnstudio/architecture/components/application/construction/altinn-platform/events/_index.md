@@ -24,21 +24,39 @@ The following API controllers are defined
 
 ### Eventscontroller
 
-The eventscontroller in the Events component is the one receiving events from Apps and other sources. 
+The [EventsController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs) in the Events component is the one receiving events from Apps and other sources. 
 
-It verifies if the app is authorized to creates events for the given source and then store in to event storage
+It verifies if the app is authorized to creates events for the given source and then store in to event storage.
+
+It also exposes API to search for events and to get events. 
+
+Access to events is authorized. 
 
 
-### Push Events controller
+### PushController
 
-Push Events controller is called by the InboundEventsController. Based on details from the Event it will identify
-matching subscriptions. For each match it will authorize the consumer using the Policy Authorization Point.
+[PushController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/PushController.cs) is called by the  [EventsInbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function. 
 
-The [AuthorizationHelper]() is responsible for creating and performing the request.
+Based on details from the Event it will identify matching subscriptions. 
+
+For each match it will authorize the consumer using the Policy Authorization Point.
+
+The [AuthorizationHelper](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs) is responsible for creating and performing the request to the Policy Decision Point.
+
+If consumer is Authorized the event will be added to the "events-outbound" queue and picked up by the EventsOutbound function. (see below)
+
+### SubscriptionController
+
+The [SubscriptionController](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs) exposes API to 
+
+- Add subscriptions
+- Delete subscriptions
+- Get subscriptions
+- Validate subscriptions
 
 ## Event storage
 
-To be able to get the search capability needed for the Events component we have choosen to use PostgreSQL.
+To be able to get the search capability needed for the Events component we have choosen to use  [PostgreSQL](https://www.postgresql.org/).
 
 Using [PostgreSQL](https://www.postgresql.org/) makes is possible to sort the events based on a primary key and also makes it possible to search
 over all events based on subject or source. 
@@ -75,6 +93,9 @@ CREATE TABLE IF NOT EXISTS events.subscription
 )
 
 ```
+
+Stored procedures is used to add, delete and query data from the above tables. 
+See all stored procedures [here](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Migration).
 
 #### Event sequencing
 
