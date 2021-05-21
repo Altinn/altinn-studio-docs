@@ -193,7 +193,7 @@ This will be used for socical secuirty number, organization number or other iden
 Currently this can be
 
 - fnr : social security number (11 digits)
-- orgno: organization number (9 digits)
+- org: organization number (9 digits)
 
 The value will be prefixed
 
@@ -224,7 +224,7 @@ A user has completed the confirmation1 task in the process.
   "type": "app.instance.process.movedTo.confirmation1",
   "time": "2020-03-16T10:23:46.6443563Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "/organization/974760673"
+  "alternativesubject": "/org/974760673"
 }]
 ```
 
@@ -239,7 +239,7 @@ A user/system has completed the process for an instance.
   "type": "app.instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "/organization/974760673"
+  "alternativesubject": "/org/974760673"
 }]
 ```
 

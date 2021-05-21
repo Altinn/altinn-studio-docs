@@ -88,7 +88,7 @@ It uses standard mechanismen for retry, if the call for pushcontroller fails.
 
 ### EventsOutbound
 
-The EventsOutbound function is triggered byQueueStorage changes in the "events-outbound" queue.
+The [EventsOutbound](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs) function is triggered byQueueStorage changes in the "events-outbound" queue.
 
 It will try to push the event to given subscription endpoint given in the [CloudEventEnvelope](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/CloudEventEnvelope.cs)
 that is put on the queue and containing the event.
