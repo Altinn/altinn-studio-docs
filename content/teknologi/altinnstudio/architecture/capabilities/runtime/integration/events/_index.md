@@ -47,10 +47,9 @@ to some data that was changed because of that event.
 
 Events would typically have some attributes used for filtering. 
 
-- [org] - The application owner / service owner that owns the source (app) of the event. Example: SKD, NAV
-- [app] - The app the event is created for. Example: taxreport
-- [instanceid] - The instanceid: 
-- [eventtype] - The type of event. Created, completed 
+- [source] - This is the application that created the event. Currently, there are apps deployed to Altinn Apps
+- [type] - The type of event. Created, completed
+- [subject] - Who is the owner of the data related to the event.
 - ++. Free text not locked to a schema.
 
 An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.
