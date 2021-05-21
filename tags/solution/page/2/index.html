@@ -151,6 +151,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/"><span>Platform API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/teknologi/altinnstudio/altinn-api/platform-api/events/"><span>Events</span></a></li>
+      <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instancee-events/"><span>Instance events</span></a></li>
@@ -1138,10 +1140,10 @@ Manual &amp; Automated Test Tools Functional Test  Automated browser testing and
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">Application construction components - Altinn Platform Events</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The Events components expose REST-APIs for publishing and subscribing to events.
+        <p>The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events to subscriber webhooks. The below diagram shows the components
 When a publish request is received it will push the event document to the event storage. When a request is received it will query the events stored in the event storage.
 Api controllers The following API controllers are defined
- EventsController : responsible for registrating events and pull of events for consumers. PushController : responsible to validate if there is any subscriptions matching the event and if so authorize the subscriper before it pushes the event to the outbound queue SubscriptionController : responsible for managing subscriptions for consumers. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
+ EventsController : responsible for registrating events and pull of events for consumers. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

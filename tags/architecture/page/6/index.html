@@ -151,6 +151,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/"><span>Platform API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/teknologi/altinnstudio/altinn-api/platform-api/events/"><span>Events</span></a></li>
+      <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instancee-events/"><span>Instance events</span></a></li>
@@ -998,8 +1000,8 @@ Production Environment Available at www. <a class="read-more" href="/teknologi/a
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/">Event capabilities</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The new generation of Altinn is moving to an event-driven architecture. This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
-Most components inside the Altinn Platform and Altinn Apps solutions will communicate through synchronous HTTP calls.
+        <p>The new generation of Altinn is moving to an event-driven architecture. In this context, this means that applications (digital services) running in Altinn Apps will publish events that application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
+This page is focused on capabilities. If you are interested in more details about the components and construction see Event Solution Components and Event Construction Components.
 Overall Concept In Altinn there will over time be thousands of different digital services deployed to Altinn Apps. <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
@@ -1027,10 +1029,10 @@ Overall Concept In Altinn there will over time be thousands of different digital
         <h2 class="post-title"><a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">Application construction components - Altinn Platform Events</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>The Events components expose REST-APIs for publishing and subscribing to events.
+        <p>The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events to subscriber webhooks. The below diagram shows the components
 When a publish request is received it will push the event document to the event storage. When a request is received it will query the events stored in the event storage.
 Api controllers The following API controllers are defined
- EventsController : responsible for registrating events and pull of events for consumers. PushController : responsible to validate if there is any subscriptions matching the event and if so authorize the subscriper before it pushes the event to the outbound queue SubscriptionController : responsible for managing subscriptions for consumers. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
+ EventsController : responsible for registrating events and pull of events for consumers. <a class="read-more" href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

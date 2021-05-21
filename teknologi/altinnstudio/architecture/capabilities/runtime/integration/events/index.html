@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Description of the event-driven architecture for Altinn Apps and Altinn Platform.">
+    <meta name="description" content="Description of the event capabilities for Altinn Apps and Altinn Platform.">
 
 <title>Event capabilities :: Altinn håndbok</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
@@ -150,6 +150,8 @@ if(host != "localhost")
         <a href="/teknologi/altinnstudio/altinn-api/app-api/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/"><span>Platform API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/teknologi/altinnstudio/altinn-api/platform-api/events/"><span>Events</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
@@ -835,21 +837,22 @@ if(host != "localhost")
                 <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/integration/'>Integration</a> <span class='adocs-breadcrumb-divider'> / </span> Event capabilities</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/events">events</a></div><div id="body-inner"><h1 class="a-fontBold">Event capabilities</h1>
-              <p class="a-leadText" id="leadText">Description of the event-driven architecture for Altinn Apps and Altinn Platform.</p>
+              <p class="a-leadText" id="leadText">Description of the event capabilities for Altinn Apps and Altinn Platform.</p>
 
 
 
 
 <p>The new generation of Altinn is moving to an <a href="https://en.wikipedia.org/wiki/Event-driven_architecture">event-driven architecture</a>. 
-This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
+In this context, this means that applications (digital services) running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.</p>
-<p>Most components inside the Altinn Platform and Altinn Apps solutions will communicate through synchronous HTTP calls.</p>
+<p>This page is focused on capabilities. If you are interested in more details about the components and construction
+see <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/events/">Event Solution Components</a> and <a href="/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/">Event Construction Components</a>.</p>
 <h2 id="overall-concept">Overall Concept</h2>
 <p>In Altinn there will over time be thousands of different digital services deployed to Altinn Apps.
-Those digital services will be accessed by the citizens and the businesses in Norway.</p>
+Those digital services will be accessed by the citizens and businesses in Norway.</p>
 <p>They will receive and submit data to/from the entity that is responsible for the digital service and others using the platform. 
 <img src="concept.svg" alt="Event concept" title="Event concept"></p>
-<p>The event architecture would make it possible to get notified when there are events in the platform related to data that the different actors have interest in.
+<p>The event architecture would make it possible to get notified when there are events in the platform related to data that the different actors have an interest in.
 It could be anything from the digital service (app) owner being notified that a citizen has completed a form, to that the citizen is informed that there is a new form he needs to fill out.</p>
 <h3 id="events">Events</h3>
 <p>Events would be a combination of standard events defined by the platform and
@@ -870,21 +873,39 @@ to some data that was changed because of that event.</p>
 <p><strong>Event attributes</strong></p>
 <p>Events would typically have some attributes used for filtering.</p>
 <ul>
-<li>[org] - The application owner / service owner that owns the source (app) of the event. Example: SKD, NAV</li>
-<li>[app] - The app the event is created for. Example: taxreport</li>
-<li>[instanceid] - The instanceid:</li>
-<li>[eventtype] - The type of event. Created, completed ++. Free text not locked to a schema.</li>
+<li>[source] - This is the application that created the event. Currently, there are apps deployed to Altinn Apps</li>
+<li>[type] - The type of event. Created, completed</li>
+<li>[subject] - Who is the owner of the data related to the event.</li>
+<li>++. Free text not locked to a schema.</li>
 </ul>
 <p>An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.</p>
 <h3 id="event-producers">Event Producers</h3>
-<p>This is a start. Going forward other event sources can be added, for example from Altinn 2.</p>
 <h4 id="applications-running-in-altinn-apps">Applications running in Altinn Apps</h4>
 <p>Applications hosted in the Altinn Apps infrastructure would be the most common producer of events in the beginning.</p>
-<p>The standard App template will contain code for publishing standard events to the events component.</p>
-<p>This could be events for the creation of instances when instances state is updated and so on.
-We would need to define what kind of standard events storage should create.</p>
+<p>The standard App template contains code for publishing standard events to the events component.
+The following standard events published by an app is</p>
+<ul>
+<li>app.instance.created : <a href="https://github.com/Altinn/altinn-studio/blob/cc9e569450d2528902ce402c8557440720368a12/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/InstancesController.cs#L617">When a instance is created</a>.</li>
+<li>app.instance.process.movedTo.{TaskId}  : <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/ProcessController.cs#L605">When a process is moved to a specific task</a></li>
+<li>app.instance.process.completed : <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/ProcessController.cs#L605">When a process is complete</a></li>
+</ul>
 <p>The application template will contain API so logic in applications can publish events based on rules defined by the developer.</p>
 <p>These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.</p>
+<p><a href="https://altinn.github.io/docs/altinn-studio/app-creation/configuration/events/#pushe-egendefinerte-events-i-applikasjonen-din">See code example</a></p>
+<h4 id="other-producers">Other producers</h4>
+<p>Altinn Events together with Altinn Authorization has the potential to be the national event hub for Norway.</p>
+<p>The possibility to have Altinn Authorization to authorize access to events gives great possibilities not
+available from other event platforms.</p>
+<p>In the future, several other Event producers could be added. Examples could be</p>
+<ul>
+<li>Altinn 2 ServiceEngine: Reducing the need for polling to the current platform</li>
+<li>Altinn 2 Authorization: Information about changes on rights</li>
+<li>National Register: Informing- Other agency specific applications</li>
+<li>Private sector applications
+about register changes</li>
+<li>Other national components</li>
+</ul>
+<p>Only the imagination limits whats is possible in the future. This is followed up in <a href="https://github.com/Altinn/altinn-studio/issues/4727">this issue</a>.</p>
 <h3 id="event-consumers">Event consumers</h3>
 <h4 id="orgs-application-owners">Orgs (application owners)</h4>
 <p>Orgs will need to know about events happening in their apps in Altinn.</p>
@@ -892,54 +913,53 @@ We would need to define what kind of standard events storage should create.</p>
 <h4 id="parties-persons-and-organizations">Parties (persons and organizations)</h4>
 <p>Parties submitting and receiving data in Altinn would benefit from knowing about events. This could be feedback has been added to a form, or that a new message has been received.</p>
 <p>In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.</p>
+<p>Currently we only support persons and consumers. They need to be authenticated through ID-porten to set up a subscription for themself.</p>
+<p>Before any event is pushed</p>
 <h2 id="requirments">Requirments</h2>
-<p>The following requirements are identified for the new event architecture in Altinn 3.</p>
-<div class="notices warning" >
-TODO: Verify requirements
-</div>
+<p>The following requirements were identified for the new event architecture in Altinn 3.</p>
 <ul>
-<li>It should be possible to subscribe to a specific type of event. (Example alls <code>instance.process.completed</code> events for a given app)</li>
-<li>It should be possible to go at least 3 months back in history.</li>
+<li>It should be possible to subscribe to a specific type of event. (Example all <code>app.instance.process.completed</code> events for a given app)</li>
+<li>It should be possible to go at least 3 months back in history when searching for events through API.</li>
 <li>The consumer will keep track of which events the consumer has processed.</li>
-<li>The architecture should be able to list feeds for 5 000 000 users and 1 000 000 businesses.</li>
 <li>The architecture should support more than 10 000 publishers.</li>
 <li>The architecture should support more than 1 000 000 consumers.</li>
 <li>The architecture should support more than 500 000 000 events a year.</li>
 <li>Access to events should be authorized. Accessing an event for a party requires that the consumer has the correct role</li>
+<li>Before pushing events to a subscriber endpoint the push functionality need to authorize the subscriber for the event</li>
 </ul>
-<p>See also <a href="https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering">Referansearkitektur for datautveksling</a></p>
+<p>See also <a href="https://nasjonal-arkitektur.github.io/architecture-repository/data-exchange-ra/book-data-exchange-ra.html">Referansearkitektur for datautveksling</a></p>
 <h2 id="event-principles-and-pattern">Event Principles and pattern</h2>
 <p>During the analysis, the following principles and pattern has been applied</p>
-<h3 id="expose-events-through-rest-api">Expose events through REST-API</h3>
-<ul>
-<li>Use of REST-API ensures low complexity for consuming events</li>
-<li>REST-API URLS and parameters are uses for filtering</li>
-</ul>
 <h3 id="small-events">Small events</h3>
 <ul>
 <li>The events will only contain a small amount of data. If more information is needed this is available from the resource itself</li>
 <li>Every event links to the resource affected by the event.</li>
-<li>We use CloudEvent as format.</li>
+<li>We use CloudEvent as the format.</li>
+</ul>
+<h3 id="prefer-push-of-events-to-consumers">Prefer push of events to consumers</h3>
+<p>The preferred consumption of events is through subscription and subscriber endpoints where Altinn Events pushes
+the events to a subscriber webhook.</p>
+<h3 id="support-retry-of-push">Support retry of push</h3>
+<p>The push functionality needs to support retry of pushing events if the subscriber endpoint is unavailable.</p>
+<h3 id="expose-events-through-rest-api">Expose events through REST-API</h3>
+<ul>
+<li>The use of REST-API ensures low complexity for consuming events</li>
+<li>REST-API URLs and parameters are uses for filtering</li>
 </ul>
 <h3 id="consumers-keep-track-of-their-status">Consumers keep track of their status</h3>
 <ul>
-<li>Consumers will</li>
+<li>Consumers will keep track of their status when using events API for consumption of events.</li>
 </ul>
-<h3 id="time-is-used-for-sequencing">Time is used for sequencing</h3>
+<h3 id="events-do-not-change">Events do not change</h3>
 <ul>
-<li>The published time is the parameters used for sorting events</li>
-</ul>
-<h3 id="events-does-not-change">Events does not change</h3>
-<ul>
-<li>Events for a resource are never changed. A new event can revert an earlier event</li>
+<li>Events for a resource are never changed. A new event can revert the effect of an earlier event</li>
 </ul>
 <h3 id="events-are-stored-for-a-limited-time">Events are stored for a limited time</h3>
 <ul>
-<li>Events will be available for 3 months.  (todo: needs to be verified)</li>
+<li>Events will be available for 3 months through API.</li>
 </ul>
 <h2 id="event-architecture">Event Architecture</h2>
 <p>As part of the Altinn 3 solutions there is defined a event architecture to support the above requirements and capabilities.</p>
-<p>The Events component will expose clean and simple REST APIs.</p>
 <h3 id="event-schema">Event Schema</h3>
 <p>The Altinn 3 will use the defined <a href="https://cloudevents.io/">CloudEvents</a> specification to describe events in Altinn Apps and Altinn Platform.</p>
 <p>The reason for choosing cloud events are</p>
@@ -979,7 +999,7 @@ This will be used for socical secuirty number, organization number or other iden
 <p>Currently this can be</p>
 <ul>
 <li>fnr : social security number (11 digits)</li>
-<li>orgno: organization number (9 digits)</li>
+<li>org: organization number (9 digits)</li>
 </ul>
 <p>The value will be prefixed</p>
 <h4 id="example-1">Example 1</h4>
@@ -987,7 +1007,7 @@ This will be used for socical secuirty number, organization number or other iden
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
   <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/1234324&#34;</span>,
-</span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
+</span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
   <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-02-20T08:00:06.4014168Z&#34;</span>,
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
   <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/01038712345&#34;</span>
@@ -997,10 +1017,10 @@ This will be used for socical secuirty number, organization number or other iden
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
   <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
   <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
-<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.taskcompleted.confirmation1&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.movedTo.confirmation1&#34;</span>,
 </span>  <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2020-03-16T10:23:46.6443563Z&#34;</span>,
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/organization/974760673&#34;</span>
+  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
 }]
 </code></pre></div><h5 id="example-3">Example 3</h5>
 <p>A user/system has completed the process for an instance.</p>
@@ -1010,7 +1030,7 @@ This will be used for socical secuirty number, organization number or other iden
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,
 </span>  <span style="color:#ff79c6">&#34;time&#34;</span>:  <span style="color:#f1fa8c">&#34;2020-02-20T09:06:50.3736712Z&#34;</span>,
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;91f2388f-bd8c-4647-8684-fd9f68af5b14&#34;</span>,
-  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/organization/974760673&#34;</span>
+  <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/org/974760673&#34;</span>
 }]
 </code></pre></div><h3 id="event-components">Event components</h3>
 <p>The below diagram shows the different components in the proposed Event Architecture for Altinn 3.</p>
@@ -1025,14 +1045,6 @@ This delegation is done through Maskinporten.</p>
 <h3 id="delegating-party-event-access">Delegating party event access</h3>
 <p>In general, access to events for a given party will be authorized based on roles the requesting organization/user
 have for the subject of the event.</p>
-<h2 id="push-events">Push Events</h2>
-<p>Altinn Events also supports push of events from june 2021.</p>
-<p>Consumers are able to add a subscription for specific types of event either for a specific source or for a specific subject.</p>
-<p>Throug API consumers would be able to add and remove subscriptions</p>
-<ul>
-<li>Consumer need to set up URL webhook that would receive all or a filtered list of events.</li>
-</ul>
-<p>See details in <a href="https://github.com/Altinn/altinn-studio/issues/4728">this Github issue</a></p>
 <h2 id="event-analytics">Event Analytics</h2>
 <p>With a new event architecture it is possible imagine that we can run analytics on the events to give
 important insight in to the data in the platform.</p>
@@ -1042,11 +1054,12 @@ important insight in to the data in the platform.</p>
 <li>How long time does each task take to complete</li>
 <li>Is there any relationship between apps.</li>
 </ul>
+<p><img src="https://user-images.githubusercontent.com/13309071/119110077-0c1fd800-ba22-11eb-8ba9-c26b03c734ba.png" alt="image"></p>
 <p>This is analyzed in the following <a href="https://github.com/Altinn/altinn-studio/issues/4555">issue</a></p>
 <h2 id="altinn-platform-events-as-a-national-event-hub">Altinn Platform Events as a national event hub</h2>
 <p>The event capabilities in Altinn Platform is possible to use outside Altinn Apps and Altinn Platform similar to
 how Altinn Authorization is used by external wihout deploying any digital services to the platform.</p>
-<p>How this should work is not analyzed and specified yet. The isse is found <a href="https://github.com/Altinn/altinn-studio/issues/4727">here</a></p>
+<p>How this should work is not analyzed and specified yet. The issue is found <a href="https://github.com/Altinn/altinn-studio/issues/4727">here</a></p>
 <h2 id="other-event-concepts-in-the-platform">Other event concepts in the platform</h2>
 <p>Events are used in different scenarios in the platform.</p>
 <ul>

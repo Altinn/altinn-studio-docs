@@ -151,6 +151,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/"><span>Platform API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/teknologi/altinnstudio/altinn-api/platform-api/events/"><span>Events</span></a></li>
+      <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instancee-events/"><span>Instance events</span></a></li>
@@ -845,7 +847,7 @@ if(host != "localhost")
 <p>In this scenario, an org is waiting on end-users to complete one given app.</p>
 <ol>
 <li>
-<p>System (consumer) authenticates using Maskinporten and requests scope <code>altinn:events/{org}/{app}</code></p>
+<p>System (consumer) authenticates using Maskinporten and requests scope for org</p>
 </li>
 <li>
 <p>System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.</p>
@@ -858,7 +860,7 @@ if(host != "localhost")
 <p>Event component verifies that scope matches request</p>
 </li>
 <li>
-<p>Event components searches Cosmos DB for events that matches search criteria</p>
+<p>Event components searches database for events that matches search criteria</p>
 </li>
 <li>
 <p>Event component returns the filtered and possible capped response ordered by sequence</p>
@@ -895,53 +897,6 @@ if(host != "localhost")
 <li>
 <p>Consumer gets relevant data</p>
 </li>
-</ol>
-<h3 id="organization-needing-to-know-if-there-are-anything-new-for-a-party">Organization needing to know if there are anything new for a party</h3>
-<p>In this scenario a professional organization wants to see if there are any changes for a client or the organization itself.</p>
-<ol>
-<li>
-<p>System authenticates end user with Maskinporten</p>
-</li>
-<li>
-<p>System exchanges token with Altinn</p>
-</li>
-<li>
-<p>System calls event api</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/party/
-</code></pre></div></li>
-<li>
-<p>Event component query events in database</p>
-</li>
-<li>
-<p>Event components authorized the event and filter away events where user is not authorized</p>
-</li>
-<li>
-<p>Events are returned</p>
-</li>
-<li>
-<p>Consumer process events</p>
-</li>
-<li>
-<p>Consumer gets relevant data</p>
-</li>
-</ol>
-<h3 id="approved-organization-needs-to-know-about-changes-for-all-reportees">Approved organization needs to know about changes for all reportees</h3>
-<p>This is a scenario where some organizations like banks need to be informed when somebody dies and a &ldquo;deathestate&rdquo; is created for that user.</p>
-<h3 id="anonym-access-to-a-given-instances-events">Anonym access to a given instances events</h3>
-<div class="notices warning" >
-Not implemented yet.
-</div>
-<p>In this scenario the end user has used a system to submit data, and the system needs to follow up if any feedback is given to
-the instance without the user needing to log in.</p>
-<ol>
-<li>System calls event api</li>
-</ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/instanceeventsforinstance/{instanceId}
-</code></pre></div><ol start="2">
-<li>Event component query events in database</li>
-<li>Events are returned</li>
-<li>The Consumer process events</li>
-<li>The Consumer gets relevant data</li>
 </ol>
 
 

@@ -151,6 +151,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/"><span>Platform API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/teknologi/altinnstudio/altinn-api/platform-api/events/"><span>Events</span></a></li>
+      <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instancee-events/"><span>Instance events</span></a></li>
@@ -928,7 +930,7 @@ Altinn 2 is a monolith where all digital services run on the same servers. This 
     <section class="post-excerpt">
         <p>Below you find some functional scenarios for use of events functionality in Altinn 3
 Org waiting on ProcessComplete for a given app In this scenario, an org is waiting on end-users to complete one given app.
-  System (consumer) authenticates using Maskinporten and requests scope altinn:events/{org}/{app}
+  System (consumer) authenticates using Maskinporten and requests scope for org
   System exchanges Maskinporten token to an Altinn token. Scopes is included in new token.
   System calls
 GET {platformurl}/events/api/v1/app/{org}/{app}?from={lastchanged}&amp;eventType=instance.process.completed   Event component verifies that scope matches request <a class="read-more" href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/">&raquo;</a></p>

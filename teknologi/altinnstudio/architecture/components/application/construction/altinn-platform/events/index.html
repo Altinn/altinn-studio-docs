@@ -151,6 +151,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/"><span>Platform API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/teknologi/altinnstudio/altinn-api/platform-api/events/"><span>Events</span></a></li>
+      <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
         <a href="/teknologi/altinnstudio/altinn-api/platform-api/instancee-events/"><span>Instance events</span></a></li>
@@ -840,7 +842,9 @@ if(host != "localhost")
 
 
 
-<p>The Events components expose REST-APIs for publishing and subscribing to events.</p>
+<p>The Events components expose REST-APIs for publishing and subscribing to events. The Azure function are responsible for pushing events
+to subscriber webhooks. The below diagram shows the components</p>
+<figure><a href="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg"><img src="/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/event_architecture_custom.svg" alt="Event architecture diagram" title="Altinn Event Architecture" /></a><figcaption><h4>Altinn Event Architecture</h4></figcaption></figure>
 <p>When a publish request is received it will push the event document to the event storage.
 When a request is received it will query the events stored in the event storage.</p>
 <h2 id="api-controllers">Api controllers</h2>
@@ -851,27 +855,59 @@ When a request is received it will query the events stored in the event storage.
 <li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs">SubscriptionController</a> : responsible for managing subscriptions for consumers.</li>
 </ul>
 <h3 id="eventscontroller">Eventscontroller</h3>
-<p>The eventscontroller in the Events component is the one receiving events from Apps and other sources.</p>
-<p>It verifies if the app is authorized to creates events for the given source and then store in to event storage</p>
-<h3 id="push-events-controller">Push Events controller</h3>
-<p>Push Events controller is called by the InboundEventsController. Based on details from the Event it will identify
-matching subscriptions. For each match it will authorize the consumer using the Policy Authorization Point.</p>
-<p>The <a href="">AuthorizationHelper</a> is responsible for creating and performing the request.</p>
+<p>The <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/EventsController.cs">EventsController</a> in the Events component is the one receiving events from Apps and other sources.</p>
+<p>It verifies if the app is authorized to creates events for the given source and then store in to event storage.</p>
+<p>It also exposes API to search for events and to get events.</p>
+<p>The access is controlled by the XACML Policy for the given App that is the source for an given event.</p>
+<p>The <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs">AuthorizationHelper</a> is responsible for creating and performing the request to the <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a>.</p>
+<h3 id="pushcontroller">PushController</h3>
+<p><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/PushController.cs">PushController</a> is called by the  <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs">EventsInbound</a> function.</p>
+<p>Based on details from the Event it will identify matching subscriptions.</p>
+<p>For each match it will authorize the consumer using the Policy Authorization Point.</p>
+<p>The <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Authorization/AuthorizationHelper.cs">AuthorizationHelper</a> is responsible for creating and performing the request to the <a href="/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/">Policy Decision Point</a>.</p>
+<p>The access is controlled by the XACML Policy for the given App that is the source for an given event.</p>
+<p>If consumer is Authorized the event will be added to the &ldquo;events-outbound&rdquo; queue and picked up by the EventsOutbound function. (see below)</p>
+<h3 id="subscriptioncontroller">SubscriptionController</h3>
+<p>The <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs">SubscriptionController</a> exposes API to</p>
+<ul>
+<li>Add subscriptions</li>
+<li>Delete subscriptions</li>
+<li>Get subscriptions</li>
+<li>Validate subscriptions</li>
+</ul>
 <h2 id="event-storage">Event storage</h2>
-<p>To be able to get the search capability needed for the Events component we have choosen to use PostgreSQL.</p>
-<p>Using PostgreSQL makes is possible to sort the events based on a primary key and also makes it possible to search
+<p>To be able to get the search capability needed for the Events component we have choosen to use  <a href="https://www.postgresql.org/">PostgreSQL</a>.</p>
+<p>Using <a href="https://www.postgresql.org/">PostgreSQL</a> makes is possible to sort the events based on a primary key and also makes it possible to search
 over all events based on subject or source.</p>
-<p>The suggested table structure</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#ff79c6">CREATE</span> <span style="color:#ff79c6">TABLE</span> events(
-   sequenceno BIGSERIAL <span style="color:#ff79c6">PRIMARY</span> <span style="color:#ff79c6">KEY</span>,
-   id <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
-   <span style="color:#ff79c6">source</span> <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
-   subject <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
-   <span style="color:#ff79c6">type</span> <span style="color:#8be9fd;font-style:italic">VARCHAR</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
-   time timestamptz <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
-   cloudevent <span style="color:#8be9fd;font-style:italic">TEXT</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>
-);
-</code></pre></div><h4 id="event-sequencing">Event sequencing</h4>
+<p>The table structure</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#ff79c6">CREATE</span> <span style="color:#ff79c6">TABLE</span> <span style="color:#ff79c6">IF</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">EXISTS</span> events.events
+(
+    sequenceno BIGSERIAL,
+    id <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    <span style="color:#ff79c6">source</span> <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    subject <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    <span style="color:#f1fa8c">&#34;time&#34;</span> timestamptz  <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    <span style="color:#ff79c6">type</span> <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    cloudevent <span style="color:#8be9fd;font-style:italic">text</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    <span style="color:#ff79c6">CONSTRAINT</span> events_pkey <span style="color:#ff79c6">PRIMARY</span> <span style="color:#ff79c6">KEY</span> (sequenceno)
+)
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#ff79c6">CREATE</span> <span style="color:#ff79c6">TABLE</span> <span style="color:#ff79c6">IF</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">EXISTS</span> events.subscription
+(
+    id BIGSERIAL,
+    sourcefilter <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span>,
+    subjectfilter <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span>,
+    typefilter <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span>,
+    consumer <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    endpointurl <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    createdby <span style="color:#8be9fd;font-style:italic">character</span> <span style="color:#8be9fd;font-style:italic">varying</span> <span style="color:#ff79c6">COLLATE</span> pg_catalog.<span style="color:#f1fa8c">&#34;default&#34;</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    validated <span style="color:#8be9fd;font-style:italic">BOOLEAN</span> <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    <span style="color:#f1fa8c">&#34;time&#34;</span> timestamptz  <span style="color:#ff79c6">NOT</span> <span style="color:#ff79c6">NULL</span>,
+    <span style="color:#ff79c6">CONSTRAINT</span> eventssubscription_pkey <span style="color:#ff79c6">PRIMARY</span> <span style="color:#ff79c6">KEY</span> (id)
+)
+
+</code></pre></div><p>Stored procedures is used to add, delete and query data from the above tables. 
+See all stored procedures <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Migration">here</a>.</p>
+<h4 id="event-sequencing">Event sequencing</h4>
 <p>Events will be sequnced by sequence number that is the primary key of the Events table.</p>
 <h3 id="indexing">Indexing</h3>
 <p>We would need to have index on</p>
@@ -883,16 +919,16 @@ over all events based on subject or source.</p>
 <li><a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/ValidateSubscription.cs">ValidateSubscription</a> : responsible for validating the endpoint given in a subscription.</li>
 </ul>
 <h3 id="eventsinbound">EventsInbound</h3>
-<p>The EventsInbound function is triggered by QueueStorage changes in the &ldquo;events-inbound&rdquo; queue.</p>
+<p>The <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs">EventsInbound</a> function is triggered by QueueStorage changes in the &ldquo;events-inbound&rdquo; queue.</p>
 <p>It just forward the event to the PushController through the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Services/PushEventsService.cs">pushEventService</a>.</p>
 <p>The Function uses Platform Access token to authenticate itself for the PushController</p>
 <p>It uses standard mechanismen for retry, if the call for pushcontroller fails.</p>
 <h3 id="eventsoutbound">EventsOutbound</h3>
-<p>The EventsOutbound function is triggered byQueueStorage changes in the &ldquo;events-outbound&rdquo; queue.</p>
+<p>The <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/EventsInbound.cs">EventsOutbound</a> function is triggered byQueueStorage changes in the &ldquo;events-outbound&rdquo; queue.</p>
 <p>It will try to push the event to given subscription endpoint given in the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/CloudEventEnvelope.cs">CloudEventEnvelope</a>
 that is put on the queue and containing the event.</p>
 <p>This function is configured with <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs">CustomQueueProcessorFactory</a> to handle retry if it is not possible to push event to the endpoint.</p>
-<p>It will try send the event right away, but if the request to webhook fails it will put the cloudevent back on the queue with a
+<p>It will try send the event right away, but if the request to webhook fails  (Http status != 200) it will put the cloudevent back on the queue with a
 defined wait time.</p>
 <ol>
 <li>retries after 10 seconds</li>
@@ -908,7 +944,28 @@ defined wait time.</p>
 <li>retries after 12 hours</li>
 </ol>
 <p>If it fails the 12. time it will put the event in the dead letter queue and will not try again.</p>
-<h3 id="validatesubscription">ValidateSubscription</h3>
+<h3 id="subscriptionvalidation">SubscriptionValidation</h3>
+<p>The <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/SubscriptionValidation.cs">SubscriptionValidation</a> function is triggered byQueueStorage changes in the &ldquo;subscription-validation&rdquo; queue.</p>
+<p>It will try to validate the endpoing given in the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Models/Subscription.cs">Subscription</a>
+that is put on the queue.</p>
+<p>This function is configured with <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Functions/Factories/CustomQueueProcessorFactory.cs">CustomQueueProcessorFactory</a> to handle retry if it is not possible to push event to the endpoint.</p>
+<p>It will try send the event right away, but if the request to webhook fails (Http status != 200) it will put the cloudevent back on the queue with a
+defined wait time.</p>
+<ol>
+<li>retries after 10 seconds</li>
+<li>retries after 30 seconds</li>
+<li>retries after 1 minute</li>
+<li>retries after 5 minutes</li>
+<li>retries after 10 minutes</li>
+<li>retries after 30 minutes</li>
+<li>retries after 1 hour</li>
+<li>retries after 3 hours</li>
+<li>retries after 6 hours</li>
+<li>retries after 12 hours</li>
+<li>retries after 12 hours</li>
+</ol>
+<p>If it fails the 12. time it will put the event in the dead letter queue and will not try again.</p>
+<p>If endpoint responds with 200OK it will then set the subscription status to valid with calling the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Events/Events/Controllers/SubscriptionController.cs#L111">validate</a> endpoint in the Subscription API.</p>
 
 
 <footer class=" footline" >
