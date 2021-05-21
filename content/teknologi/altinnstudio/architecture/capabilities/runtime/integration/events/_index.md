@@ -1,6 +1,6 @@
 ---
 title: Event capabilities
-description: Description of the event-driven architecture for Altinn Apps and Altinn Platform.
+description: Description of the event capabilities for Altinn Apps and Altinn Platform.
 toc: false
 tags: [architecture, events]
 aliases:
@@ -12,6 +12,10 @@ This means that the Altinn Platform solution and applications running in Altinn 
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
 Most components inside the Altinn Platform and Altinn Apps solutions will communicate through synchronous HTTP calls.  
+
+This page is focused on capabilities. If you are interested in more details about the components and construction
+see [Event Solution Components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/events/) and [Event Construction Components](/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/).
+
 
 ## Overall Concept
 
