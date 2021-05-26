@@ -4,10 +4,39 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
-## 3.2.2 (2020-04-23) - Dependency patching
+
+## 3.4.2 (2021-05-26) Improve look of summary for checkboxes component
+Issue [#6329](https://github.com/Altinn/altinn-studio/issues/6329).
+
+## 3.4.1 (2021-05-20) Dependency patching
+Patching of external dependencies. Issue [#6221](https://github.com/Altinn/altinn-studio/issues/6221).
+
+## 3.4.0 (2021-05-18) Support for stateless apps
+Issue [#6124](https://github.com/Altinn/altinn-studio/issues/6124).
+
+## 3.3.5 (2021-05-14) - Dependency patching
+Patching of external dependencies. Issue [#6221](https://github.com/Altinn/altinn-studio/issues/6221).
+
+## 3.3.4 (2021-05-11) Bugfix for calculation in groups
+Issue [#6235](https://github.com/Altinn/altinn-studio/issues/6235).
+
+## 3.3.3 (2021-05-11) Run data validation on page switch, and fix group component mobile view
+Issue [#6236](https://github.com/Altinn/altinn-studio/issues/6236).
+Issue [#5977](https://github.com/Altinn/altinn-studio/issues/5977).
+
+## 3.3.2 (2021-05-06) - Dependency patching
+Patching of external dependencies. Issue [#6011](https://github.com/Altinn/altinn-studio/issues/6011).
+
+## 3.3.1 (2021-05-06) Support for markdown in validation messages
+Issue [#5137](https://github.com/Altinn/altinn-studio/issues/5137).
+
+## 3.3.0 (2021-05-03) Support for multiple views in repeating group edit mode
+Issue [#5869](https://github.com/Altinn/altinn-studio/issues/5869).
+
+## 3.2.2 (2021-04-23) - Dependency patching
 Patching of external dependencies. Issue [#6011.](https://github.com/Altinn/altinn-studio/issues/6011)
 
-## 3.2.1 (2020-04-23) - Bugfix for group validations
+## 3.2.1 (2021-04-23) - Bugfix for group validations
 Fixed a bug where groups with validation trigger would call the instance validation api. Now calls data validation. Issue [#6089.](https://github.com/Altinn/altinn-studio/issues/6089)
 
 ## 3.2.0 (2021-04-21) - Validation on group save

@@ -5,6 +5,35 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.6.0 (2021-05-11) - Apps now support data fields
+Altinn Apps now support data fields.
+Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
+Form data can be added by configuring data fields in `applicationmetadata.json` while custom sources require coding.
+Documentation on how to add data values to an instance can be found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/datafields/).
+
+
+## 4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed
+
+Altinn Apps now expose endpoints for creating, prefilling and running calculations on stateless data elements.
+A stateless data element entails there is no link to an instance or instance owner, and the data is simply presented to the end user, but not persisted in any database.
+
+In addition, a bug breaking apps running with localtest intoduced in 4.4.1 has been fixed.
+
+Information on the new endpoints can be found in the swagger exposed by each application https://{org}.apps.altinn.no/{org}{app}/swagger
+
+## 4.4.1 (2021-04-30) - Ask user to upgrade security level 
+
+An app would show the "unknown error" message if a user were trying to access an instance with a security level that was too low for the instance. This has been fixed. The user is now sent to authentication with the option to pick an authentication method that provides a higher security level. The fix targets the GET instance endpoint specifically.
+
+## 4.3.0 (2021-04-28) - Apps now support presentation fields
+
+Altinn Apps now support presentation fields. 
+By specifying presentation fields in `applicationmetadata.json`, speficied data values from the form data
+will be stored on the instance in order to show them along with the app title in the Altinn messagebox. 
+Further documentation on how to configure presentation fields is found [here](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/presentationfields/).
+
+This change is related to [this epic](https://app.zenhub.com/workspace/o/altinn/altinn-studio/issues/594).
+
 ## 4.2.0 (2021-04-19) - Possible to integrate an app with eFormidling
 
 Altinn Apps now support integration with eFormidling. 

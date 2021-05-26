@@ -1,6 +1,6 @@
 ---
 title: Event capabilities
-description: Description of the event-driven architecture for Altinn Apps and Altinn Platform.
+description: Description of the event capabilities for Altinn Apps and Altinn Platform.
 toc: false
 tags: [architecture, events]
 aliases:
@@ -8,20 +8,21 @@ aliases:
 ---
 
 The new generation of Altinn is moving to an [event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture). 
-This means that the Altinn Platform solution and applications running in Altinn Apps will publish events that
+In this context, this means that applications (digital services) running in Altinn Apps will publish events that
 application owners (agencies) and parties(citizens and businesses) can subscribe to and react to.
 
-Most components inside the Altinn Platform and Altinn Apps solutions will communicate through synchronous HTTP calls.  
+This page is focused on capabilities. If you are interested in more details about the components and construction
+see [Event Solution Components](/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/events/) and [Event Construction Components](/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/).
 
 ## Overall Concept
 
 In Altinn there will over time be thousands of different digital services deployed to Altinn Apps.
-Those digital services will be accessed by the citizens and the businesses in Norway. 
+Those digital services will be accessed by the citizens and businesses in Norway. 
 
 They will receive and submit data to/from the entity that is responsible for the digital service and others using the platform. 
 ![Event concept](concept.svg "Event concept")
 
-The event architecture would make it possible to get notified when there are events in the platform related to data that the different actors have interest in.
+The event architecture would make it possible to get notified when there are events in the platform related to data that the different actors have an interest in.
 It could be anything from the digital service (app) owner being notified that a citizen has completed a form, to that the citizen is informed that there is a new form he needs to fill out.
 
 ### Events
@@ -32,7 +33,7 @@ custom events added in an application by application developers.
 The events will typically only contain information about that an event has happened with a reference
 to some data that was changed because of that event. 
 
-**Standard events could be**
+**Standard app events**
 
 - An instance is created
 - An instance changes state (from one process task to another, example: data -> signing)
@@ -47,29 +48,49 @@ to some data that was changed because of that event.
 
 Events would typically have some attributes used for filtering. 
 
-- [org] - The application owner / service owner that owns the source (app) of the event. Example: SKD, NAV
-- [app] - The app the event is created for. Example: taxreport
-- [instanceid] - The instanceid: 
-- [eventtype] - The type of event. Created, completed ++. Free text not locked to a schema.
+- [source] - This is the application that created the event. Currently, there are apps deployed to Altinn Apps
+- [type] - The type of event. Created, completed
+- [subject] - Who is the owner of the data related to the event.
+- ++. Free text not locked to a schema.
 
 An event will contain a limited set of information. To get the full details for an event the consumer would need to get all details using APIs.
 
 ### Event Producers
 
-This is a start. Going forward other event sources can be added, for example from Altinn 2.
-
 #### Applications running in Altinn Apps
 
 Applications hosted in the Altinn Apps infrastructure would be the most common producer of events in the beginning.
 
-The standard App template will contain code for publishing standard events to the events component.
+The standard App template contains code for publishing standard events to the events component.
+The following standard events published by an app is
 
-This could be events for the creation of instances when instances state is updated and so on.
-We would need to define what kind of standard events storage should create.
+- app.instance.created : [When a instance is created](https://github.com/Altinn/altinn-studio/blob/cc9e569450d2528902ce402c8557440720368a12/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/InstancesController.cs#L617).
+- app.instance.process.movedTo.{TaskId}  : [When a process is moved to a specific task](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/ProcessController.cs#L605)
+- app.instance.process.completed : [When a process is complete](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/Altinn.App.Api/Controllers/ProcessController.cs#L605) 
 
 The application template will contain API so logic in applications can publish events based on rules defined by the developer.
 
 These app events could be anything, and could also be triggered by other external systems through custom APIs in the app.
+
+[See code example](https://altinn.github.io/docs/altinn-studio/app-creation/configuration/events/#pushe-egendefinerte-events-i-applikasjonen-din)
+
+#### Other producers
+
+Altinn Events together with Altinn Authorization has the potential to be the national event hub for Norway.
+
+The possibility to have Altinn Authorization to authorize access to events gives great possibilities not
+available from other event platforms.
+
+In the future, several other Event producers could be added. Examples could be
+
+- Altinn 2 ServiceEngine: Reducing the need for polling to the current platform
+- Altinn 2 Authorization: Information about changes on rights
+- National Register: Informing- Other agency specific applications
+- Private sector applications
+ about register changes
+- Other national components
+
+Only the imagination limits whats is possible in the future. This is followed up in [this issue](https://github.com/Altinn/altinn-studio/issues/4727).
 
 ### Event consumers
 
@@ -85,60 +106,62 @@ Parties submitting and receiving data in Altinn would benefit from knowing about
 
 In many cases, parties use professionals to handle their data in Altinn. These professionals typically have many hundred or thousands of clients.
 
+Currently we only support persons and consumers. They need to be authenticated through ID-porten to set up a subscription for themself.
+
+Before any event is pushed 
+
 ## Requirments
 
-The following requirements are identified for the new event architecture in Altinn 3.
+The following requirements were identified for the new event architecture in Altinn 3.
 
-{{%notice warning%}}
-TODO: Verify requirements
-{{% /notice%}}
-
-- It should be possible to subscribe to a specific type of event. (Example alls `instance.process.completed` events for a given app)
-- It should be possible to go at least 3 months back in history.
+- It should be possible to subscribe to a specific type of event. (Example all `app.instance.process.completed` events for a given app)
+- It should be possible to go at least 3 months back in history when searching for events through API.
 - The consumer will keep track of which events the consumer has processed.
-- The architecture should be able to list feeds for 5 000 000 users and 1 000 000 businesses.
 - The architecture should support more than 10 000 publishers.
 - The architecture should support more than 1 000 000 consumers.
 - The architecture should support more than 500 000 000 events a year.
 - Access to events should be authorized. Accessing an event for a party requires that the consumer has the correct role 
+- Before pushing events to a subscriber endpoint the push functionality need to authorize the subscriber for the event
 
-See also [Referansearkitektur for datautveksling](https://doc.difi.no/nasjonal-arkitektur/nab_referanse_arkitekturer_datautveksling/#overskrift-grunnleggende-publisering)
-
+See also [Referansearkitektur for datautveksling](https://nasjonal-arkitektur.github.io/architecture-repository/data-exchange-ra/book-data-exchange-ra.html)
 
 ## Event Principles and pattern
 
 During the analysis, the following principles and pattern has been applied
 
-### Expose events through REST-API
-
-- Use of REST-API ensures low complexity for consuming events
-- REST-API URLS and parameters are uses for filtering
-
 ### Small events
 - The events will only contain a small amount of data. If more information is needed this is available from the resource itself
 - Every event links to the resource affected by the event. 
-- We use CloudEvent as format. 
+- We use CloudEvent as the format. 
+
+### Prefer push of events to consumers
+
+The preferred consumption of events is through subscription and subscriber endpoints where Altinn Events pushes
+the events to a subscriber webhook.
+
+### Support retry of push
+
+The push functionality needs to support retry of pushing events if the subscriber endpoint is unavailable.
+
+### Expose events through REST-API
+
+- The use of REST-API ensures low complexity for consuming events
+- REST-API URLs and parameters are uses for filtering
 
 ### Consumers keep track of their status
-- Consumers will 
+- Consumers will keep track of their status when using events API for consumption of events.
 
-### Time is used for sequencing
+### Events do not change
 
-- The published time is the parameters used for sorting events
-
-### Events does not change
-
-- Events for a resource are never changed. A new event can revert an earlier event
+- Events for a resource are never changed. A new event can revert the effect of an earlier event
   
  ### Events are stored for a limited time
 
- - Events will be available for 3 months.  (todo: needs to be verified)
+ - Events will be available for 3 months through API.
 
 ## Event Architecture
 
 As part of the Altinn 3 solutions there is defined a event architecture to support the above requirements and capabilities. 
-
-The Events component will expose clean and simple REST APIs.
 
 ### Event Schema
 
@@ -187,7 +210,7 @@ This will be used for socical secuirty number, organization number or other iden
 Currently this can be
 
 - fnr : social security number (11 digits)
-- orgno: organization number (9 digits)
+- org: organization number (9 digits)
 
 The value will be prefixed
 
@@ -199,7 +222,7 @@ A instance has been created for a given party. It is not possible from the event
 [{
   "source":  "https://skd.apps.altinn.no/skd/skattemelding/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd",
   "subject": "party/1234324",
-  "type": "instance.created",
+  "type": "app.instance.created",
   "time": "2020-02-20T08:00:06.4014168Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
   "alternativesubject": "/person/01038712345"
@@ -215,10 +238,10 @@ A user has completed the confirmation1 task in the process.
 [{
   "source":  "https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8",
   "subject": "party/234234422",
-  "type": "app.instance.process.taskcompleted.confirmation1",
+  "type": "app.instance.process.movedTo.confirmation1",
   "time": "2020-03-16T10:23:46.6443563Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "/organization/974760673"
+  "alternativesubject": "/org/974760673"
 }]
 ```
 
@@ -233,10 +256,9 @@ A user/system has completed the process for an instance.
   "type": "app.instance.process.completed",
   "time":  "2020-02-20T09:06:50.3736712Z",
   "id": "91f2388f-bd8c-4647-8684-fd9f68af5b14",
-  "alternativesubject": "/organization/974760673"
+  "alternativesubject": "/org/974760673"
 }]
 ```
-
 
 ### Event components
 
@@ -263,19 +285,6 @@ In general, access to events for a given party will be authorized based on roles
 have for the subject of the event.
 
 
-## Push Events
-
-Altinn Events will also support push of events. 
-
-Consumers would be able to add a subscription for specific types of event either for a specific source or for a specific subject. 
-
-Throug API consumers would be able to add and remove subscriptions
-
-- Consumer need to set up URL webhook that would receive all or a filtered list of events. 
-
-
-See details in [this Github issue](https://github.com/Altinn/altinn-studio/issues/4728)
-
 ## Event Analytics
 
 With a new event architecture it is possible imagine that we can run analytics on the events to give
@@ -286,6 +295,8 @@ Example
 - How long time does each task take to complete
 - Is there any relationship between apps. 
 
+![image](https://user-images.githubusercontent.com/13309071/119110077-0c1fd800-ba22-11eb-8ba9-c26b03c734ba.png)
+
 This is analyzed in the following [issue](https://github.com/Altinn/altinn-studio/issues/4555)
 
 ## Altinn Platform Events as a national event hub
@@ -293,7 +304,7 @@ This is analyzed in the following [issue](https://github.com/Altinn/altinn-studi
 The event capabilities in Altinn Platform is possible to use outside Altinn Apps and Altinn Platform similar to
 how Altinn Authorization is used by external wihout deploying any digital services to the platform.
 
-How this should work is not analyzed and specified yet. The isse is found [here](https://github.com/Altinn/altinn-studio/issues/4727)
+How this should work is not analyzed and specified yet. The issue is found [here](https://github.com/Altinn/altinn-studio/issues/4727)
 
 ## Other event concepts in the platform
 

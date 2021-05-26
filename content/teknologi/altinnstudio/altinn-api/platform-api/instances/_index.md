@@ -51,6 +51,9 @@ Exclude instances already confirmed by a specific stakeholder. Usually the short
 Filter instances based on whether they are archived.
 - **isSoftDeleted** (bool)
 Filter instances based on whether they are soft deleted.
+- **isHardDeleted** (bool)
+Filter instances based on whether they are hard deleted. 
+Note that hard deleted instances are only included if an application owner retrieves instances, and the results may include deleted drafts. 
 
 **Some examples**:
 
