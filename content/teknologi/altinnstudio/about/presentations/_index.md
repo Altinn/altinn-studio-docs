@@ -43,6 +43,8 @@ Every other week, we present what we have done and what we're planning to do for
 * [Status og planer - 17. mars 2021](altinnkaffe-20210317.pptx)
 * [Status og planer - 14. april 2021](altinnkaffe-20210414.pptx)
 * [Status og planer - 28. april 2021](altinnkaffe-20210428.pptx)
+* [Status og planer - 12. mai 2021](altinnkaffe-20210512.pptx)
+* [Status og planer - 26. mai 2021](altinnkaffe-20210526.pptx)
 * More to come...
 
 ## Themed meetings
@@ -59,4 +61,6 @@ The weeks where we don't presesent status, we hold themed meetings.
 * Lanserte tjenester (10. mars 2021) [Arbeidstilsynets presentasjon](Arbeidstilsynet-AltinnKaffe-10032021.pdf) | [Presentasjon for Kartverket](autorisasjon-av-landmalere.pptx)
 * [Planer for utvikling i Q2 2021](altinnkaffe-20210407-planerq2.pptx) (7. april 2021)
 * [Tilgang til logger og hemmeligheter](logs-secrets-presentasjon.pptx) (21. april 2021)
+* [Altinn Events - inkludert mulighet for push](altinn-events.pptx) (5. mai 2021)
+* [Datamodellering: Håndtering av utfasing av Seres](seres-utfasing-altinnkaffe.pptx) (19. mai 2021)
 * More to come...
