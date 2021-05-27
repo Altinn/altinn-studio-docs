@@ -5,6 +5,10 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.5.0 (2021-05-27) Support for number formatting
+Added support for formatting numbers for `Input`-components. 
+Issue [#5972](https://github.com/altinn/altinn-studio/issues/5972).
+
 ## 3.4.2 (2021-05-26) Improve look of summary for checkboxes component
 Issue [#6329](https://github.com/Altinn/altinn-studio/issues/6329).
 
