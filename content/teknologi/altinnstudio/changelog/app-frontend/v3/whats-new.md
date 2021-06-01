@@ -5,6 +5,17 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.6.2 (2021-06-01) Bugfix for summary view of group with multiple pages
+Fixed bug that caused app frontend to crash when rendering summary component for group when the group was defined with
+multiple pages in edit mode.
+Issue [#6233](https://github.com/Altinn/altinn-studio/issues/6233).
+
+## 3.6.1 (2021-05-28) Dependency patching
+Patching of external dependencies. Issue [#6324](https://github.com/Altinn/altinn-studio/issues/6324).
+
+## 3.6.0 (2021-05-28) Support for hiding back button in apps
+Issue [#6193](https://github.com/altinn/altinn-studio/issues/6193).
+
 ## 3.5.0 (2021-05-27) Support for number formatting
 Added support for formatting numbers for `Input`-components. 
 Issue [#5972](https://github.com/altinn/altinn-studio/issues/5972).
