@@ -5,6 +5,18 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.6.5 (2021-06-02) Bugfix for stateless app 
+Fixed bug where stateless app with onEntry.show set to `new-instance` would crash.
+Issue [#6321](https://github.com/Altinn/altinn-studio/issues/6321).
+
+## 3.6.4 (2021-06-02) Bugfix for simple receipt
+Fixed bug where simple receipt did not parse markdown if the app overrides defult texts.
+Issue [#6232](https://github.com/Altinn/altinn-studio/issues/6362).
+
+## 3.6.3 (2021-06-02) Bufix for content loader
+Fixed bug where content loader did not scale for whole view.
+Issue [#4888](https://github.com/Altinn/altinn-studio/issues/4888).
+
 ## 3.6.2 (2021-06-01) Bugfix for summary view of group with multiple pages
 Fixed bug that caused app frontend to crash when rendering summary component for group when the group was defined with
 multiple pages in edit mode.
