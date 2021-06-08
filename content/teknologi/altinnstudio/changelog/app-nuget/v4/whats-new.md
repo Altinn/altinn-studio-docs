@@ -5,7 +5,6 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
-
 ### 4.7.0 (2021-06-08)
 
 Altinn Apps not authorize access for statless apps.
@@ -14,6 +13,10 @@ Altinn Apps have now to new Application Events where application developers can 
 
 In addition RunCalculate Applicaiton is now OBSOLETE. Apps should move from RunCalculation to RunProcessDataWrite and RunProcessDataRead.
 See details [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/calculation/)
+
+## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
+
+This release has a fix for a crash related to PDF rendering when an app have [options](https://altinn.github.io/docs/altinn-studio/app-creation/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
 ## 4.6.1. (2021-05-21) Changed alternative subject
 

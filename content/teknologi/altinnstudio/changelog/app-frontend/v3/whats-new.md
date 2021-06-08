@@ -4,10 +4,66 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
-## 3.2.2 (2020-04-23) - Dependency patching
+
+## 3.6.5 (2021-06-02) Bugfix for stateless app 
+Fixed bug where stateless app with onEntry.show set to `new-instance` would crash.
+Issue [#6321](https://github.com/Altinn/altinn-studio/issues/6321).
+
+## 3.6.4 (2021-06-02) Bugfix for simple receipt
+Fixed bug where simple receipt did not parse markdown if the app overrides defult texts.
+Issue [#6232](https://github.com/Altinn/altinn-studio/issues/6362).
+
+## 3.6.3 (2021-06-02) Bufix for content loader
+Fixed bug where content loader did not scale for whole view.
+Issue [#4888](https://github.com/Altinn/altinn-studio/issues/4888).
+
+## 3.6.2 (2021-06-01) Bugfix for summary view of group with multiple pages
+Fixed bug that caused app frontend to crash when rendering summary component for group when the group was defined with
+multiple pages in edit mode.
+Issue [#6233](https://github.com/Altinn/altinn-studio/issues/6233).
+
+## 3.6.1 (2021-05-28) Dependency patching
+Patching of external dependencies. Issue [#6324](https://github.com/Altinn/altinn-studio/issues/6324).
+
+## 3.6.0 (2021-05-28) Support for hiding back button in apps
+Issue [#6193](https://github.com/altinn/altinn-studio/issues/6193).
+
+## 3.5.0 (2021-05-27) Support for number formatting
+Added support for formatting numbers for `Input`-components. 
+Issue [#5972](https://github.com/altinn/altinn-studio/issues/5972).
+
+## 3.4.2 (2021-05-26) Improve look of summary for checkboxes component
+Issue [#6329](https://github.com/Altinn/altinn-studio/issues/6329).
+
+## 3.4.1 (2021-05-20) Dependency patching
+Patching of external dependencies. Issue [#6221](https://github.com/Altinn/altinn-studio/issues/6221).
+
+## 3.4.0 (2021-05-18) Support for stateless apps
+Issue [#6124](https://github.com/Altinn/altinn-studio/issues/6124).
+
+## 3.3.5 (2021-05-14) - Dependency patching
+Patching of external dependencies. Issue [#6221](https://github.com/Altinn/altinn-studio/issues/6221).
+
+## 3.3.4 (2021-05-11) Bugfix for calculation in groups
+Issue [#6235](https://github.com/Altinn/altinn-studio/issues/6235).
+
+## 3.3.3 (2021-05-11) Run data validation on page switch, and fix group component mobile view
+Issue [#6236](https://github.com/Altinn/altinn-studio/issues/6236).
+Issue [#5977](https://github.com/Altinn/altinn-studio/issues/5977).
+
+## 3.3.2 (2021-05-06) - Dependency patching
+Patching of external dependencies. Issue [#6011](https://github.com/Altinn/altinn-studio/issues/6011).
+
+## 3.3.1 (2021-05-06) Support for markdown in validation messages
+Issue [#5137](https://github.com/Altinn/altinn-studio/issues/5137).
+
+## 3.3.0 (2021-05-03) Support for multiple views in repeating group edit mode
+Issue [#5869](https://github.com/Altinn/altinn-studio/issues/5869).
+
+## 3.2.2 (2021-04-23) - Dependency patching
 Patching of external dependencies. Issue [#6011.](https://github.com/Altinn/altinn-studio/issues/6011)
 
-## 3.2.1 (2020-04-23) - Bugfix for group validations
+## 3.2.1 (2021-04-23) - Bugfix for group validations
 Fixed a bug where groups with validation trigger would call the instance validation api. Now calls data validation. Issue [#6089.](https://github.com/Altinn/altinn-studio/issues/6089)
 
 ## 3.2.0 (2021-04-21) - Validation on group save
