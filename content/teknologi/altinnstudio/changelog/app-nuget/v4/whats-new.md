@@ -7,7 +7,7 @@ toc: true
 
 ### 4.7.0 (2021-06-08)
 
-Altinn Apps not authorize access for statless apps.
+Altinn Apps now authorize access for statless apps.
 
 Altinn Apps have now to new Application Events where application developers can add data processing logic. Calulation, population +++
 
