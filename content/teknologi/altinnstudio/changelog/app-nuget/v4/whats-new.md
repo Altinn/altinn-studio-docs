@@ -5,6 +5,20 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+
+### 4.7.0 (2021-06-08)
+
+Altinn Apps not authorize access for statless apps.
+
+Altinn Apps have now to new Application Events where application developers can add data processing logic. Calulation, population +++
+
+In addition RunCalculate Applicaiton is now OBSOLETE. Apps should move from RunCalculation to RunProcessDataWrite and RunProcessDataRead.
+See details [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/calculation/)
+
+## 4.6.1. (2021-05-21) Changed alternative subject
+
+Altinn Apps now uses org instead of organization as subject when publishing events.
+
 ## 4.6.0 (2021-05-11) - Apps now support data fields
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
@@ -24,6 +38,9 @@ Information on the new endpoints can be found in the swagger exposed by each app
 ## 4.4.1 (2021-04-30) - Ask user to upgrade security level 
 
 An app would show the "unknown error" message if a user were trying to access an instance with a security level that was too low for the instance. This has been fixed. The user is now sent to authentication with the option to pick an authentication method that provides a higher security level. The fix targets the GET instance endpoint specifically.
+
+## 4.4.0(2021-04-27) - Performance fix
+Improved performance.
 
 ## 4.3.0 (2021-04-28) - Apps now support presentation fields
 
