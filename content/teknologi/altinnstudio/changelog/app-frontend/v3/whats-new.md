@@ -4,6 +4,11 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
+
+## 3.6.7 (2021-06-10) - Dependency patching
+Patching of external dependencies.
+Issue [#6385](https://github.com/Altinn/altinn-studio/issues/6385)
+
 ## 3.6.6 (2021-06-09) - Dependency patching
 Updated to latest major version of react v17. 
 Issue [#5072](https://github.com/Altinn/altinn-studio/issues/5072)
