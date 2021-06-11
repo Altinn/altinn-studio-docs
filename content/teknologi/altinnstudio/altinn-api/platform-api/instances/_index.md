@@ -110,3 +110,14 @@ Accept: application/json
 }
 ```
 
+## Update read status
+
+The instance read status determines how the instance is rendered in a user's innbox. As an unread or read element. It is possible to update the read status of an instance to indicate that data related to the instance has been updated.
+Permited states are defined in the
+[ReadStatus enum](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs).
+
+```http
+PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
+```
+
+
