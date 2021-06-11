@@ -109,17 +109,6 @@ PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus
 ```
 The values can be referencing text resource names from the language files or be regular text.
 
-## Update read status
-
-The instance read status determines how the instance is rendered in a user's innbox. As an unread or read element. It is possible to update the read status of an instance to indicate that data related to the instance has been updated.
-Permited states are defined in the
-[ReadStatus enum](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs).
-
-```http
-PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
-```
-
-
 ## Complete instance
 
 Endpoint used by application owner to mark an instance as completed. Technically this only means that the instance is no longer needed by the application owner. 
