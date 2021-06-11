@@ -843,7 +843,6 @@ if(host != "localhost")
     <li><a href="#get-instance">Get instance</a></li>
     <li><a href="#create-instance">Create instance</a></li>
     <li><a href="#update-sub-status">Update sub status</a></li>
-    <li><a href="#update-read-status">Update read status</a></li>
     <li><a href="#complete-instance">Complete instance</a></li>
     <li><a href="#delete-instance">Delete instance</a></li>
   </ul>
@@ -917,12 +916,7 @@ Content-Type: application/pdf
     <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Beskrivelse i klarteskst&#34;</span>
 }
 </code></pre></div><p>The values can be referencing text resource names from the language files or be regular text.</p>
-<h2 id="update-read-status">Update read status</h2>
-<p>The instance read status determines how the instance is rendered in a user&rsquo;s innbox. As an unread or read element. It is possible to update the read status of an instance to indicate that data related to the instance has been updated.
-Permited states are defined in the
-<a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Models/InstanceStatus.cs">ReadStatus enum</a>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/readstatus?status={updatedState}
-</code></pre></div><h2 id="complete-instance">Complete instance</h2>
+<h2 id="complete-instance">Complete instance</h2>
 <p>Endpoint used by application owner to mark an instance as completed. Technically this only means that the instance is no longer needed by the application owner.</p>
 <p>Altinn will permanently delete an instance and all the data, if both application owner and a user with the necessary rights indicate on the instance that they no longer have a need for it.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {basePath}/{instanceOwnerPartyId}/{instanceGuid}/complete
