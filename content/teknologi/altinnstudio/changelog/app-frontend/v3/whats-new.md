@@ -4,6 +4,13 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
+## 3.6.9 (2021-06-14) - Bugfix variables in text
+Fixed bug where only first occurance of a variable in a given text was replaced.
+Issue [#6091](https://github.com/Altinn/altinn-studio/issues/6091)
+
+## 3.6.8 (2021-06-11) - New endpoints for statless app
+New endpoints for stateless app.
+Issue [#6227](https://github.com/Altinn/altinn-studio/issues/6227)
 
 ## 3.6.7 (2021-06-10) - Dependency patching
 Patching of external dependencies.
