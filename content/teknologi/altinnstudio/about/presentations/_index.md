@@ -23,7 +23,7 @@ We held a meeting for giving input on the Altinn 3 desimination strategy January
 
 We have also made a more generic presentation of what Altinn Studio / Altinn 3 is, and how to get started
 
-* [Generell Presentasjon og Kom i Gang](20210209_Generell_Presentasjon_for_Altinn_Tjenester_3.0.pdf)
+* [Generell Presentasjon og Kom i Gang](20210614_Generell_Presentasjon_for_Altinn_Tjenester_3.0.pdf)
 
 ## Status and plans
 
