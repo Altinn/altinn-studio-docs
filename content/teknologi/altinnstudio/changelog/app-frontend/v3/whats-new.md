@@ -4,6 +4,11 @@ linktitle: What's new
 description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
+
+## 3.6.10 (2021-06-15) - Bugfix for triggers in NavigationButtons
+Fixed bug where not all triggers specified in NavigationButtons would run.
+Issue [#6387](https://github.com/Altinn/altinn-studio/issues/6387)
+
 ## 3.6.9 (2021-06-14) - Bugfix variables in text
 Fixed bug where only first occurance of a variable in a given text was replaced.
 Issue [#6091](https://github.com/Altinn/altinn-studio/issues/6091)
