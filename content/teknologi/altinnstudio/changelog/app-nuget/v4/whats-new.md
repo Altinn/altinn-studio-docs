@@ -8,6 +8,12 @@ toc: true
 ## 4.7.1 (2021-06-15) - Adjustments to response headers
 Some of the controllers exposed by the applications have been modified to not allow caching and/or storage of their responces in the client.
 
+
+## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
+
+This release has a fix for a crash related to PDF rendering when an app have [options](https://altinn.github.io/docs/altinn-studio/app-creation/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
+
+
 ## 4.6.0 (2021-05-11) - Apps now support data fields
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
