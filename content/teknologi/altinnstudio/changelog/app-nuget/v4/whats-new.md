@@ -6,7 +6,7 @@ toc: true
 ---
 
 ## 4.7.1 (2021-06-15) - Adjustments to response headers
-For security reasons the headers for some of the controllers exposed by the applications have been modified.
+Some of the controllers exposed by the applications have been modified to not allow caching and/or storage of their responces in the client.
 
 ## 4.6.0 (2021-05-11) - Apps now support data fields
 Altinn Apps now support data fields.
