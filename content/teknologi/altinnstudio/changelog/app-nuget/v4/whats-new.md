@@ -5,6 +5,9 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.7.1 (2021-06-15) - Adjustments to response headers
+For security reasons the headers for some of the controllers exposed by the applications have been modified.
+
 ## 4.6.0 (2021-05-11) - Apps now support data fields
 Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
