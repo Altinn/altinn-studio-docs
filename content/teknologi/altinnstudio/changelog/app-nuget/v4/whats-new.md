@@ -14,8 +14,7 @@ Altinn Apps now authorize access for statless apps.
 
 Altinn Apps now have two new application events where application developers can add data processing logic. calculation, population, and more.
 
-In addition, RunCalculate Application event is now OBSOLETE. It is recommended  that Apps should move from RunCalculation to RunProcessDataWrite and RunProcessDataRead.
-In the future, RunCalculate methods will not be supported.
+In this update the RunCalculate application event is made obsolete/deprecated. It's recommended that Apps are updated to use RunProcessDataWrite and RunProcessDataRead instead. Calls to the RunCalculate method will be removed in a future update.
 
 The process to update is
 
