@@ -12,7 +12,7 @@ Some of the controllers exposed by the applications have been modified to not al
 
 Altinn Apps now authorize access for statless apps.
 
-Altinn Apps have now two new Application Events where application developers can add data processing logic. Calulation, population +++
+Altinn Apps now have two new application events where application developers can add data processing logic. calculation, population, and more.
 
 In addition, RunCalculate Application event is now OBSOLETE. It is recommended  that Apps should move from RunCalculation to RunProcessDataWrite and RunProcessDataRead.
 In the future, RunCalculate methods will not be supported.
