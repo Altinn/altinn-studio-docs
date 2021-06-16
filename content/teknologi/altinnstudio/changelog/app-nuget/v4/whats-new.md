@@ -9,10 +9,21 @@ toc: true
 
 Altinn Apps now authorize access for statless apps.
 
-Altinn Apps have now to new Application Events where application developers can add data processing logic. Calulation, population +++
+Altinn Apps have now two new Application Events where application developers can add data processing logic. Calulation, population +++
 
-In addition RunCalculate Applicaiton is now OBSOLETE. Apps should move from RunCalculation to RunProcessDataWrite and RunProcessDataRead.
-See details [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/calculation/)
+In addition, RunCalculate Application event is now OBSOLETE. It is recommended  that Apps should move from RunCalculation to RunProcessDataWrite and RunProcessDataRead.
+In the future, RunCalculate methods will not be supported.
+
+The process to update is
+
+1. Add DataProcessing folder and Handler from template [here](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic)
+2. Update App.cs. Add referane to dataprocessinghandler and copy new methods from [App.cs](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs#L112)
+3. Move logic from calculation handler to DataProcessinghandler
+4. Remove RunCalculation method from App.cs
+5. Remove calculationHandler when code is moved to DataProcessingHandler
+6. Compile and test your app. 
+
+See details about datataprocessing [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/)
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
