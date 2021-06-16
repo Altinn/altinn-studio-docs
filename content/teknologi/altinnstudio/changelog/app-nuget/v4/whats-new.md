@@ -22,7 +22,7 @@ The process to update is
 2. Update App.cs. Add referane to dataprocessinghandler and copy new methods ( RunProcessDataRad and RunProcessDataWrite) from [App.cs](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs)
 3. Move logic from calculation handler to DataProcessinghandler
 4. Remove RunCalculation method from App.cs
-5. Remove calculationHandler when code is moved to DataProcessingHandler
+5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
 6. Compile and test your app. 
 
 See details about datataprocessing [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/)
