@@ -67,7 +67,7 @@ This gives better access to resources with the needed competency.
 - We build the frontend using React. The [most loved web framework](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks)
 - We use .Net core that developers [love the most](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-other-frameworks-libraries-and-tools)
 - We use Linux Docker containers in Kubernetes. [The 3 most loved platforms](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-platforms)
-- We use Visual Studio Code and Visual Studio.  The [two most loved development environments](https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments)
+- We use Visual Studio Code. The [most loved development environment](https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments)
 
 
 ## Favor standards over custom
