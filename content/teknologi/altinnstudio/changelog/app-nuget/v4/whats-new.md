@@ -19,7 +19,7 @@ In this update the RunCalculate application event is made obsolete/deprecated. I
 The process to update is
 
 1. Add the DataProcessing folder and DataProcessingHandler class from our [app template](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic) to your app.
-2. Update App.cs. Add referane to dataprocessinghandler and copy new methods ( RunProcessDataRad and RunProcessDataWrite) from [App.cs](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs)
+2. Update App.cs. Add new field for DataProcessingHandler and copy new methods ( RunProcessDataRead and RunProcessDataWrite) from [App.cs](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs)
 3. Move logic from calculation handler to DataProcessinghandler
 4. Remove RunCalculation method from App.cs
 5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
