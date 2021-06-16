@@ -8,11 +8,32 @@ toc: true
 ## 4.7.1 (2021-06-15) - Adjustments to response headers
 Some of the controllers exposed by the applications have been modified to not allow caching and/or storage of their responces in the client.
 
+### 4.7.0 (2021-06-08)
+
+Altinn Apps now authorize access for statless apps.
+
+Altinn Apps now have two new application events where application developers can add data processing logic. calculation, population, and more.
+
+In this update the RunCalculate application event is made obsolete/deprecated. It's recommended that Apps are updated to use RunProcessDataWrite and RunProcessDataRead instead. Calls to the RunCalculate method will be removed in a future update.
+
+The process to update is
+
+1. Add the DataProcessing folder and DataProcessingHandler class from our [app template](https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic) to your app.
+2. Update App.cs. Add a class field for DataProcessingHandler and copy new methods ( RunProcessDataRead and RunProcessDataWrite) from [App.cs](https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs)
+3. Move logic from calculation handler to DataProcessinghandler
+4. Remove RunCalculation method from App.cs
+5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
+6. Compile and test your app. 
+
+See details about data processing [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/)
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
 This release has a fix for a crash related to PDF rendering when an app have [options](https://altinn.github.io/docs/altinn-studio/app-creation/data/options/) with duplicate entries. [#5887](https://github.com/Altinn/altinn-studio/issues/5887)
 
+## 4.6.1. (2021-05-21) Changed alternative subject
+
+Altinn Apps now uses org instead of organization as subject when publishing events.
 
 ## 4.6.0 (2021-05-11) - Apps now support data fields
 Altinn Apps now support data fields.
@@ -33,6 +54,9 @@ Information on the new endpoints can be found in the swagger exposed by each app
 ## 4.4.1 (2021-04-30) - Ask user to upgrade security level 
 
 An app would show the "unknown error" message if a user were trying to access an instance with a security level that was too low for the instance. This has been fixed. The user is now sent to authentication with the option to pick an authentication method that provides a higher security level. The fix targets the GET instance endpoint specifically.
+
+## 4.4.0(2021-04-27) - Performance fix
+Improved performance.
 
 ## 4.3.0 (2021-04-28) - Apps now support presentation fields
 

@@ -18,7 +18,9 @@ The following AppLogic Events are currently defined
 
 - InstantiateValidation - Event where app developer can add custom code to validate instantiation. 
 - DataCreation - Event where app develoepr can add custom code to prefill data
-- Calculation - Event where app developer can add custom calculation code
+- RunProcessDataRead - Where app developer can add custom data code for calculation or population of data when data is read from app
+- RunProcessDataWrite - Where app developer can add custom data code for calculation or population of data when data is saved to app (POST/PUT)
+- Calculation - Event where app developer can add custom calculation code OBSOLETE.
 - Validation - Event where app developer can add custom code to validate the instance/data
 - OnStartProcess
 - OnStartProcessTask
