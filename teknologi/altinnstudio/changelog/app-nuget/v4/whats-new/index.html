@@ -841,9 +841,11 @@ if(host != "localhost")
   <ul>
     <li><a href="#471-2021-06-15---adjustments-to-response-headers">4.7.1 (2021-06-15) - Adjustments to response headers</a></li>
     <li><a href="#462-2021-06-01---duplicate-keys-in-options-causing-crash">4.6.2 (2021-06-01) - Duplicate keys in options causing crash</a></li>
+    <li><a href="#461-2021-05-21-changed-alternative-subject">4.6.1. (2021-05-21) Changed alternative subject</a></li>
     <li><a href="#460-2021-05-11---apps-now-support-data-fields">4.6.0 (2021-05-11) - Apps now support data fields</a></li>
     <li><a href="#452-2021-05-04---endpoints-for-stateless-data-elements-exposed-through-app-bug-stopping-local-testing-fixed">4.5.2 (2021-05-04) - Endpoints for stateless data elements exposed through app. Bug stopping local testing fixed</a></li>
     <li><a href="#441-2021-04-30---ask-user-to-upgrade-security-level">4.4.1 (2021-04-30) - Ask user to upgrade security level</a></li>
+    <li><a href="#4402021-04-27---performance-fix">4.4.0(2021-04-27) - Performance fix</a></li>
     <li><a href="#430-2021-04-28---apps-now-support-presentation-fields">4.3.0 (2021-04-28) - Apps now support presentation fields</a></li>
     <li><a href="#420-2021-04-19---possible-to-integrate-an-app-with-eformidling">4.2.0 (2021-04-19) - Possible to integrate an app with eFormidling</a></li>
     <li><a href="#410-2021-04-07---add-new-property-with-updated-data-to-response-for-put-to-datacontroller">4.1.0 (2021-04-07) - Add new property with updated data to response for PUT to DataController</a></li>
@@ -857,8 +859,24 @@ if(host != "localhost")
 
 <h2 id="471-2021-06-15---adjustments-to-response-headers">4.7.1 (2021-06-15) - Adjustments to response headers</h2>
 <p>Some of the controllers exposed by the applications have been modified to not allow caching and/or storage of their responces in the client.</p>
+<h3 id="470-2021-06-08">4.7.0 (2021-06-08)</h3>
+<p>Altinn Apps now authorize access for statless apps.</p>
+<p>Altinn Apps now have two new application events where application developers can add data processing logic. calculation, population, and more.</p>
+<p>In this update the RunCalculate application event is made obsolete/deprecated. It&rsquo;s recommended that Apps are updated to use RunProcessDataWrite and RunProcessDataRead instead. Calls to the RunCalculate method will be removed in a future update.</p>
+<p>The process to update is</p>
+<ol>
+<li>Add the DataProcessing folder and DataProcessingHandler class from our <a href="https://github.com/Altinn/altinn-studio/tree/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic">app template</a> to your app.</li>
+<li>Update App.cs. Add a class field for DataProcessingHandler and copy new methods ( RunProcessDataRead and RunProcessDataWrite) from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/App.cs">App.cs</a></li>
+<li>Move logic from calculation handler to DataProcessinghandler</li>
+<li>Remove RunCalculation method from App.cs</li>
+<li>Remove CalculationHandler when code has been moved to DataProcessingHandler.</li>
+<li>Compile and test your app.</li>
+</ol>
+<p>See details about data processing <a href="https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/">here</a></p>
 <h2 id="462-2021-06-01---duplicate-keys-in-options-causing-crash">4.6.2 (2021-06-01) - Duplicate keys in options causing crash</h2>
 <p>This release has a fix for a crash related to PDF rendering when an app have <a href="https://altinn.github.io/docs/altinn-studio/app-creation/data/options/">options</a> with duplicate entries. <a href="https://github.com/Altinn/altinn-studio/issues/5887">#5887</a></p>
+<h2 id="461-2021-05-21-changed-alternative-subject">4.6.1. (2021-05-21) Changed alternative subject</h2>
+<p>Altinn Apps now uses org instead of organization as subject when publishing events.</p>
 <h2 id="460-2021-05-11---apps-now-support-data-fields">4.6.0 (2021-05-11) - Apps now support data fields</h2>
 <p>Altinn Apps now support data fields.
 Data fields allows for adding data values, from either form fields or a custom source, to the instance object.
@@ -871,6 +889,8 @@ A stateless data element entails there is no link to an instance or instance own
 <p>Information on the new endpoints can be found in the swagger exposed by each application https://{org}.apps.altinn.no/{org}{app}/swagger</p>
 <h2 id="441-2021-04-30---ask-user-to-upgrade-security-level">4.4.1 (2021-04-30) - Ask user to upgrade security level</h2>
 <p>An app would show the &ldquo;unknown error&rdquo; message if a user were trying to access an instance with a security level that was too low for the instance. This has been fixed. The user is now sent to authentication with the option to pick an authentication method that provides a higher security level. The fix targets the GET instance endpoint specifically.</p>
+<h2 id="4402021-04-27---performance-fix">4.4.0(2021-04-27) - Performance fix</h2>
+<p>Improved performance.</p>
 <h2 id="430-2021-04-28---apps-now-support-presentation-fields">4.3.0 (2021-04-28) - Apps now support presentation fields</h2>
 <p>Altinn Apps now support presentation fields. 
 By specifying presentation fields in <code>applicationmetadata.json</code>, speficied data values from the form data
