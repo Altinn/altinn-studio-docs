@@ -5,6 +5,8 @@ description: The Architecture Principles are guidelines for the construction of 
 toc: true
 tags: [architecture]
 weight: 6
+aliases:
+ - /principles/
 ---
 
 The following architecture principles has been defined for the solutions. 
