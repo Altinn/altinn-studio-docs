@@ -25,7 +25,7 @@ The process to update is
 5. Remove CalculationHandler when code has been moved to DataProcessingHandler.
 6. Compile and test your app. 
 
-See details about datataprocessing [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/)
+See details about data processing [here](https://altinn.github.io/docs/altinn-studio/app-creation/logic/dataprocessing/)
 
 ## 4.6.2 (2021-06-01) - Duplicate keys in options causing crash
 
