@@ -839,6 +839,10 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of app frontend</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#3613-2021-06-18---bugfix-for-replaceall-with-variables-in-text">3.6.13 (2021-06-18) - Bugfix for replaceAll with variables in text</a></li>
+    <li><a href="#3612-2021-06-18---dependency-patching">3.6.12 (2021-06-18) - Dependency patching</a></li>
+    <li><a href="#3611-2021-06-16---bugfix-for-disappearing-validation-messages">3.6.11 (2021-06-16) - Bugfix for disappearing validation messages</a></li>
+    <li><a href="#3610-2021-06-15---bugfix-for-navigation-buttons-with-multiple-triggers">3.6.10 (2021-06-15) - Bugfix for navigation buttons with multiple triggers</a></li>
     <li><a href="#369-2021-06-14---bugfix-variables-in-text">3.6.9 (2021-06-14) - Bugfix variables in text</a></li>
     <li><a href="#368-2021-06-11---new-endpoints-for-statless-app">3.6.8 (2021-06-11) - New endpoints for statless app</a></li>
     <li><a href="#367-2021-06-10---dependency-patching">3.6.7 (2021-06-10) - Dependency patching</a></li>
@@ -892,6 +896,20 @@ if(host != "localhost")
 
 
 
+<h2 id="3613-2021-06-18---bugfix-for-replaceall-with-variables-in-text">3.6.13 (2021-06-18) - Bugfix for replaceAll with variables in text</h2>
+<p>Fix for bug introduced in 3.6.9, where only the last variable in texts with multiple variables was replaced. 
+The change in 3.6.9 also caused summary page to fail in some cases.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6455">#6455</a>.</p>
+<h2 id="3612-2021-06-18---dependency-patching">3.6.12 (2021-06-18) - Dependency patching</h2>
+<p>Patching of external dependencies.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6385">#6385</a>.</p>
+<h2 id="3611-2021-06-16---bugfix-for-disappearing-validation-messages">3.6.11 (2021-06-16) - Bugfix for disappearing validation messages</h2>
+<p>Fixed bug for disappearing validation messages. Single field validation response would overwrite all 
+existing validations, causing earlier triggered validation messages to disappear.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5857">#5857</a>.</p>
+<h2 id="3610-2021-06-15---bugfix-for-navigation-buttons-with-multiple-triggers">3.6.10 (2021-06-15) - Bugfix for navigation buttons with multiple triggers</h2>
+<p>Fixed bug for navigation buttons configured with multiple triggers, where only the first one was actually triggered.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6387">#6387</a>.</p>
 <h2 id="369-2021-06-14---bugfix-variables-in-text">3.6.9 (2021-06-14) - Bugfix variables in text</h2>
 <p>Fixed bug where only first occurance of a variable in a given text was replaced.
 Issue <a href="https://github.com/Altinn/altinn-studio/issues/6091">#6091</a></p>
