@@ -19,7 +19,6 @@ Fixed bug for disappearing validation messages. Single field validation response
 existing validations, causing earlier triggered validation messages to disappear.
 Issue [#5857](https://github.com/Altinn/altinn-studio/issues/5857).
 
-
 ## 3.6.10 (2021-06-15) - Bugfix for navigation buttons with multiple triggers
 Fixed bug for navigation buttons configured with multiple triggers, where only the first one was actually triggered.
 Issue [#6387](https://github.com/Altinn/altinn-studio/issues/6387).
