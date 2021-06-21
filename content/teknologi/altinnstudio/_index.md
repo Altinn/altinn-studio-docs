@@ -2,16 +2,18 @@
 title: Altinn 3
 description: System documentation for Altinn Studio, Altinn Apps and Altinn Platform.
 jumbotron: true
+aliases:
+ - /altinn3/
 ---
 
 {{% panel %}}
 **Develop digital applications using our tools and APIs**  
 Looking for technical guidance on how to build your own apps with our products?
-See [the Altinn Studio user guide](https://altinn.github.io/docs/altinn-studio/). (Partially in Norwegian.)
+See [the Altinn Studio user guide](https://altinn.github.io/docs/altinn-studio/). (Currently partially in Norwegian.)
 {{% /panel %}}
 
-Altinn Studio is the next generation Altinn application development solution.
-All you need for testing the preview is to [register an account](/getting-started/first-time-setup).
+Altinn Studio is the next generation Altinn application development and hosting solution.
+All you need for testing Studio is to [register an account](/getting-started/first-time-setup).
 
 Altinn 3 have an open backlog on GitHub and the code is open source. Everybody can [create bugs], [request features] or [ask questions].
 
