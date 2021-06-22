@@ -5,9 +5,23 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
-## 3.6.10 (2021-06-15) - Bugfix for triggers in NavigationButtons
-Fixed bug where not all triggers specified in NavigationButtons would run.
-Issue [#6387](https://github.com/Altinn/altinn-studio/issues/6387)
+## 3.6.13 (2021-06-18) - Bugfix for replaceAll with variables in text
+Fix for bug introduced in 3.6.9, where only the last variable in texts with multiple variables was replaced. 
+The change in 3.6.9 also caused summary page to fail in some cases.
+Issue [#6455](https://github.com/Altinn/altinn-studio/issues/6455).
+
+## 3.6.12 (2021-06-18) - Dependency patching
+Patching of external dependencies.
+Issue [#6385](https://github.com/Altinn/altinn-studio/issues/6385).
+
+## 3.6.11 (2021-06-16) - Bugfix for disappearing validation messages
+Fixed bug for disappearing validation messages. Single field validation response would overwrite all 
+existing validations, causing earlier triggered validation messages to disappear.
+Issue [#5857](https://github.com/Altinn/altinn-studio/issues/5857).
+
+## 3.6.10 (2021-06-15) - Bugfix for navigation buttons with multiple triggers
+Fixed bug for navigation buttons configured with multiple triggers, where only the first one was actually triggered.
+Issue [#6387](https://github.com/Altinn/altinn-studio/issues/6387).
 
 ## 3.6.9 (2021-06-14) - Bugfix variables in text
 Fixed bug where only first occurance of a variable in a given text was replaced.

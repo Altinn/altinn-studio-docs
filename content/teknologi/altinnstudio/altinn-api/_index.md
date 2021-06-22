@@ -5,6 +5,7 @@ toc: true
 tags: [api]
 aliases:
  - /altinn-api/
+ - /api/
 ---
 
 ## The APIs

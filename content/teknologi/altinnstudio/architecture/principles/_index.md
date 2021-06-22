@@ -5,6 +5,8 @@ description: The Architecture Principles are guidelines for the construction of 
 toc: true
 tags: [architecture]
 weight: 6
+aliases:
+ - /principles/
 ---
 
 The following architecture principles has been defined for the solutions. 
@@ -49,23 +51,23 @@ to run on the platform.
 
 ## Build with modern and popular frameworks
 
-![Modern platform](modernplatform.png "Popular tech")
+![Modern platform](../../toolsandframeworks/tech-map.png "Popular tech")
 
 **Principle**
 
-When needing to choose between different framework with similar capabilites select the most modern and popular framework.
+When choosing between different technology with similar capabilites, select the most modern and popular framework.
 
 **Rationale**
 
-The project is open source and it is a big advantage to build the solution on frameworks that developers love to use.
+The project is open source and it is a big advantage to build the solution on open source technology that developers love to use.
 This gives better access to resources with the needed competency. 
 
 **Implications** 
 
-- We build the frontend using React. The [most loved web framework](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-web-frameworks)
-- We use .Net core that developers [love the most](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-other-frameworks-libraries-and-tools)
-- We use Linux Docker containers in Kubernetes. [The 3 most loved platforms](https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-platforms)
-- We use Visual Studio Code and Visual Studio.  The [two most loved development environments](https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments)
+- We build the frontend using React and ASP.NET Core, the [2 most loved web frameworks](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-web-frameworks-loved2).
+- We use .NET Core, the [framework that developers love the most](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-other-frameworks-libraries-and-tools-loved3)
+- We use Linux and Docker containers in Kubernetes, [the 3 most loved platforms](https://insights.stackoverflow.com/survey/2020#technology-most-loved-dreaded-and-wanted-platforms-loved5).
+- We use Visual Studio Code, the [most loved development environment](https://insights.stackoverflow.com/survey/2019#technology-_-most-popular-development-environments).
 
 
 ## Favor standards over custom
