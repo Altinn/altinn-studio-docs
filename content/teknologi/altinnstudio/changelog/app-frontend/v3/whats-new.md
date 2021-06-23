@@ -5,6 +5,10 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.6.14 (2021-06-22)- Bug fix for duplicated validation messages
+Fixed a bug that caused validation messages on a FileUpload component to be displayed twice.
+Issue [#6400](https://github.com/Altinn/altinn-studio/issues/6400).
+
 ## 3.6.13 (2021-06-18) - Bugfix for replaceAll with variables in text
 Fix for bug introduced in 3.6.9, where only the last variable in texts with multiple variables was replaced. 
 The change in 3.6.9 also caused summary page to fail in some cases.
