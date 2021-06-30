@@ -6,9 +6,7 @@ toc: true
 ---
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
-During deployment an environment variable containing the application version is made available in the app cluster
-this version number is now possible to retrieve in any controller or service by injecting AppSettings into the class.
-The new property is called `AppVersion`
+During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on `AppSettings` into the class and access the new property called `AppVersion`.
 
 ## 4.7.1 (2021-06-15) - Adjustments to response headers
 Some of the controllers exposed by the applications have been modified to not allow caching and/or storage of their responces in the client.
