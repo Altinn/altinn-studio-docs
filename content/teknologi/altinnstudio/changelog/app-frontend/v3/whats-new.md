@@ -5,6 +5,15 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.8.0 (2021-06-29) Several updates to validation functionality
+- Support for adding custom error messages to client side validations (JSON schema).
+- Support for specifying single field validation (server) as FIXED to make sure resolved validation error messages are removed.
+- Fixes bug where single field validation that returned empty (no errors/warnings) did not remove existing validation messages.
+Issue [#5747](https://github.com/Altinn/altinn-studio/issues/5747).
+
+## 3.7.0 (2021-06-29) Support for posting data from stateless app
+Issue [#6194](https://github.com/Altinn/altinn-studio/issues/6194).
+
 ## 3.6.14 (2021-06-22)- Bug fix for duplicated validation messages
 Fixed a bug that caused validation messages on a FileUpload component to be displayed twice.
 Issue [#6400](https://github.com/Altinn/altinn-studio/issues/6400).
