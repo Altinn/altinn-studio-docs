@@ -5,10 +5,13 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.8.0 (2021-06-22) - Application version number available in AppSettings
+During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on `AppSettings` into the class and access the new property called `AppVersion`.
+
 ## 4.7.1 (2021-06-15) - Adjustments to response headers
 Some of the controllers exposed by the applications have been modified to not allow caching and/or storage of their responces in the client.
 
-### 4.7.0 (2021-06-08)
+## 4.7.0 (2021-06-08)
 
 Altinn Apps now authorize access for statless apps.
 
