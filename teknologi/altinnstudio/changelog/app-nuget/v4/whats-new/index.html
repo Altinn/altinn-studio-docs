@@ -841,7 +841,9 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#480-2021-06-22---application-version-number-available-in-appsettings">4.8.0 (2021-06-22) - Application version number available in AppSettings</a></li>
     <li><a href="#471-2021-06-15---adjustments-to-response-headers">4.7.1 (2021-06-15) - Adjustments to response headers</a></li>
+    <li><a href="#470-2021-06-08">4.7.0 (2021-06-08)</a></li>
     <li><a href="#462-2021-06-01---duplicate-keys-in-options-causing-crash">4.6.2 (2021-06-01) - Duplicate keys in options causing crash</a></li>
     <li><a href="#461-2021-05-21-changed-alternative-subject">4.6.1. (2021-05-21) Changed alternative subject</a></li>
     <li><a href="#460-2021-05-11---apps-now-support-data-fields">4.6.0 (2021-05-11) - Apps now support data fields</a></li>
@@ -859,9 +861,11 @@ if(host != "localhost")
 
 
 
+<h2 id="480-2021-06-22---application-version-number-available-in-appsettings">4.8.0 (2021-06-22) - Application version number available in AppSettings</h2>
+<p>During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on <code>AppSettings</code> into the class and access the new property called <code>AppVersion</code>.</p>
 <h2 id="471-2021-06-15---adjustments-to-response-headers">4.7.1 (2021-06-15) - Adjustments to response headers</h2>
 <p>Some of the controllers exposed by the applications have been modified to not allow caching and/or storage of their responces in the client.</p>
-<h3 id="470-2021-06-08">4.7.0 (2021-06-08)</h3>
+<h2 id="470-2021-06-08">4.7.0 (2021-06-08)</h2>
 <p>Altinn Apps now authorize access for statless apps.</p>
 <p>Altinn Apps now have two new application events where application developers can add data processing logic. calculation, population, and more.</p>
 <p>In this update the RunCalculate application event is made obsolete/deprecated. It&rsquo;s recommended that Apps are updated to use RunProcessDataWrite and RunProcessDataRead instead. Calls to the RunCalculate method will be removed in a future update.</p>
