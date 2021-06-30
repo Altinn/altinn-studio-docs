@@ -841,6 +841,8 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of app frontend</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#380-2021-06-29-several-updates-to-validation-functionality">3.8.0 (2021-06-29) Several updates to validation functionality</a></li>
+    <li><a href="#370-2021-06-29-support-for-posting-data-from-stateless-app">3.7.0 (2021-06-29) Support for posting data from stateless app</a></li>
     <li><a href="#3614-2021-06-22--bug-fix-for-duplicated-validation-messages">3.6.14 (2021-06-22)- Bug fix for duplicated validation messages</a></li>
     <li><a href="#3613-2021-06-18---bugfix-for-replaceall-with-variables-in-text">3.6.13 (2021-06-18) - Bugfix for replaceAll with variables in text</a></li>
     <li><a href="#3612-2021-06-18---dependency-patching">3.6.12 (2021-06-18) - Dependency patching</a></li>
@@ -899,6 +901,15 @@ if(host != "localhost")
 
 
 
+<h2 id="380-2021-06-29-several-updates-to-validation-functionality">3.8.0 (2021-06-29) Several updates to validation functionality</h2>
+<ul>
+<li>Support for adding custom error messages to client side validations (JSON schema).</li>
+<li>Support for specifying single field validation (server) as FIXED to make sure resolved validation error messages are removed.</li>
+<li>Fixes bug where single field validation that returned empty (no errors/warnings) did not remove existing validation messages.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5747">#5747</a>.</li>
+</ul>
+<h2 id="370-2021-06-29-support-for-posting-data-from-stateless-app">3.7.0 (2021-06-29) Support for posting data from stateless app</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/6194">#6194</a>.</p>
 <h2 id="3614-2021-06-22--bug-fix-for-duplicated-validation-messages">3.6.14 (2021-06-22)- Bug fix for duplicated validation messages</h2>
 <p>Fixed a bug that caused validation messages on a FileUpload component to be displayed twice.
 Issue <a href="https://github.com/Altinn/altinn-studio/issues/6400">#6400</a>.</p>
