@@ -5,6 +5,10 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.9.1 (2021-07-01) Support for redirect to require higher authentication level for stateless app
+Fix for bug that didn't redirect user to login page with allowed authentication levels if logged in with a too low level.
+Issue [#6506](https://github.com/Altinn/altinn-studio/issues/6506).
+
 ## 3.8.0 (2021-06-29) Several updates to validation functionality
 - Support for adding custom error messages to client side validations (JSON schema).
 - Support for specifying single field validation (server) as FIXED to make sure resolved validation error messages are removed.
