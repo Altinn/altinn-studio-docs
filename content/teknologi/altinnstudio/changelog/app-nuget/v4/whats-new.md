@@ -4,6 +4,9 @@ linktitle: What's new
 description: Overview of changes introduced in version 4
 toc: true
 ---
+## 4.9.1 (2021-07-02) - Bugfix for errors in multipart validation
+Fixed a bug that caused validation messages to show C# type of DataType rather than DataTypeId.
+Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
 During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on `AppSettings` into the class and access the new property called `AppVersion`.
