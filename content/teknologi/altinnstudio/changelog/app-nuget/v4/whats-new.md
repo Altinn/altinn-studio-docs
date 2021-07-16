@@ -8,7 +8,10 @@ toc: true
 ## 4.10.2 (2021-07-15) - Text resources are loaded locally
 - The app will now load texts from the locally stored text resource files (config/texts/*) instead of retrieving them from Storage. Texts are still uploaded to Storage during deploy. The change is to remove unnecessary calls to Storage and to avoid an issue with caching that prevented new texts from being used immediately. [#6466](https://github.com/Altinn/altinn-studio/issues/6466), [#6415](https://github.com/Altinn/altinn-studio/issues/6415)
 - Fixed a bug where a filename with space in it could lead to a crash. [#6421](https://github.com/Altinn/altinn-studio/issues/6421)
-- The app will now provide security headers like X-Frame-Options, X-XSS-Protection, X-Content-Type-Options, and Referer-Policy.
+- New apps created after the v2021.29 release will provide security headers like X-Frame-Options, X-XSS-Protection, X-Content-Type-Options, and Referer-Policy. To activate this in existing apps follow these steps:
+   1. Open the `App/Startup.cs` file.
+   2. At the top of the file add the namespace reference: `using Altinn.App.Api.Middleware;`
+   3. Find the `Configure` method and add the statement: `app.UseDefaultSecurityHeaders();` Add it right before existing `app.Use*` statements. E.g. before `app.UseRouting();`
 
 ## 4.9.2 (2021-07-08) - Fixed messages from multipart request validation
 Validation messages from multipart request validation was misleading. This release solved issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418). 
