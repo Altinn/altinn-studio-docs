@@ -5,6 +5,20 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.10.2 (2021-07-15) - Text resources are loaded locally
+- The app will now load texts from the locally stored text resource files (config/texts/*) instead of retrieving them from Storage. Texts are still uploaded to Storage during deploy. The change is to remove unnecessary calls to Storage and to avoid an issue with caching that prevented new texts from being used immediately. [#6466](https://github.com/Altinn/altinn-studio/issues/6466), [#6415](https://github.com/Altinn/altinn-studio/issues/6415)
+- Fixed a bug where a filename with space in it could lead to a crash. [#6421](https://github.com/Altinn/altinn-studio/issues/6421)
+- New apps created after the v2021.29 release will provide security headers like X-Frame-Options, X-XSS-Protection, X-Content-Type-Options, and Referer-Policy. To activate this in existing apps follow these steps:
+   1. Open the `App/Startup.cs` file.
+   2. At the top of the file add the namespace reference: `using Altinn.App.Api.Middleware;`
+   3. Find the `Configure` method and add the statement: `app.UseDefaultSecurityHeaders();` Add it right before existing `app.Use*` statements. E.g. before `app.UseRouting();`
+
+## 4.9.2 (2021-07-08) - Fixed messages from multipart request validation
+Validation messages from multipart request validation was misleading. This release solved issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418). 
+
+## 4.9.0 (2021-06-29) - Improvements to single field validation
+It was possible to end up with the wrong validation state in the GUI after a lot of relatively quick clicking back and forth between radio buttons. This release solved issue [#5747](https://github.com/Altinn/altinn-studio/issues/5747). 
+
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
 During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on `AppSettings` into the class and access the new property called `AppVersion`.
 
