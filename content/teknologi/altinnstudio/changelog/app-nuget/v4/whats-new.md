@@ -8,7 +8,7 @@ toc: true
 ## 4.10.2 (2021-07-15) - Text resources are loaded locally
 - The app will now load texts from the locally stored text resource files (config/texts/*) instead of retrieving them from Storage. Texts are still uploaded to Storage during deploy. The change is to remove unnecessary calls to Storage and to avoid an issue with caching that prevented new texts from being used immediately. [#6466](https://github.com/Altinn/altinn-studio/issues/6466), [#6415](https://github.com/Altinn/altinn-studio/issues/6415)
 - Fixed a bug where a filename with space in it could lead to a crash. [#6421](https://github.com/Altinn/altinn-studio/issues/6421)
-- The app will now provide security headers like X-XSS-Protection, X-Content-Type-Options, and Content-Security-Policy
+- The app will now provide security headers like X-Frame-Options, X-XSS-Protection, X-Content-Type-Options, and Referer-Policy.
 
 ## 4.9.2 (2021-07-08) - Fixed messages from multipart request validation
 Validation messages from multipart request validation was misleading. This release solved issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418). 
