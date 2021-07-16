@@ -60,12 +60,8 @@ docker-compose run k6 run --vus=20 --stage 10s:5,40s:20,10s:5 /src/tests/platfor
 
 k6 by default outputs in stdout format while running a test. Below is described various methods to visualise results.
 
-- To get a junit.xml output from k6 tests, pipe the results to a k6-to-junit npm package with file name. (use `npm install -g k6-to-junit@1.0.2` to install the package globally).
+- To get a junit.xml output from k6 tests, use handleSummary and the logic to export junit from the summary.json
 This comes in handy to view test results in CI/CD pipelines.
-
-```cmd
-docker run -i -v C:/Repos/altinn-studio/src/test/K6/src/:/src loadimpact/k6 run src/tests/platform/pdf/pdf.js -e env=value | k6-to-junit results.xml
-```
 
 - k6 performance test results can be visualised with the help of a influxdb and grafana instance that stores and reads the test results and displays as graph.
 [More about influxdb and grafana results](https://k6.io/docs/results-visualization/influxdb-+-grafana)
