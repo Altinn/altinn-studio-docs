@@ -5,6 +5,14 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.9.6 (2021-08-02) - Dependency patching
+Patching of external dependenecies for w30.
+Issue [#6571](https://github.com/Altinn/altinn-studio/issues/6571).
+
+## 3.9.5 (2021-07-28) - Bugfix for mobile view during app startup
+Fixed a bug where the app modal would behave inconsistent during app startup on mobile devices.
+Issue [#6558](https://github.com/Altinn/altinn-studio/issues/6558).
+
 ## 3.9.4 (2021-07-23) - Bugfix validation trigger for groups.
 Fix a bug where validations would not be triggered when closing a repeating group by clicking `Edit` button when trigger was present.
 Issue [#6427](https://github.com/Altinn/altinn-studio/issues/6427).
