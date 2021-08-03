@@ -34,9 +34,6 @@ Cookies are easily added to the postman requests under the slightly hidden cooki
 [More about test scrips](https://learning.getpostman.com/docs/postman/scripts/test_scripts/)
 6. Tests should have one test to verify valid response code and another test to validate the content of the response.
 
-### Postman test pipeline in Azure Devops
-[Azure Devops Pipeline](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=54)
-
 ### Information about the postman collections
 1. Collections folder include postman collections for Platform API, Storage API, APP API.
 2. Platform API uses Platform.postman_environment as an environment file.
