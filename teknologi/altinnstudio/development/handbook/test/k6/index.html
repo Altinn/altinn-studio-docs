@@ -893,13 +893,14 @@ The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 se
 <h3 id="visualizing-k6-results">Visualizing k6 results</h3>
 <p>k6 by default outputs in stdout format while running a test. Below is described various methods to visualise results.</p>
 <ul>
-<li>To get a junit.xml output from k6 tests, pipe the results to a k6-to-junit npm package with file name. (use <code>npm install -g k6-to-junit@1.0.2</code> to install the package globally).
-This comes in handy to view test results in CI/CD pipelines.</li>
-</ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">docker run -i -v C:/Repos/altinn-studio/src/test/K6/src/:/src loadimpact/k6 run src/tests/platform/pdf/pdf.js -e env=value | k6-to-junit results.xml
-</code></pre></div><ul>
-<li>k6 performance test results can be visualised with the help of a influxdb and grafana instance that stores and reads the test results and displays as graph.
-<a href="https://k6.io/docs/results-visualization/influxdb-+-grafana">More about influxdb and grafana results</a></li>
+<li>
+<p>To get a junit.xml output from k6 tests, use handleSummary and the logic to export junit from the summary.json
+This comes in handy to view test results in CI/CD pipelines.</p>
+</li>
+<li>
+<p>k6 performance test results can be visualised with the help of a influxdb and grafana instance that stores and reads the test results and displays as graph.
+<a href="https://k6.io/docs/results-visualization/influxdb-+-grafana">More about influxdb and grafana results</a></p>
+</li>
 </ul>
 <h3 id="initial-results-from-a-sample-tests-against-performance-test-environment">Initial results from a sample tests against performance test environment</h3>
 <ul>
