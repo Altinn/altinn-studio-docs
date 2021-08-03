@@ -4,6 +4,15 @@ linktitle: What's new
 description: Overview of changes introduced in version 4
 toc: true
 ---
+## 4.9.1 (2021-07-02) - Bugfix for errors in multipart validation
+Fixed a bug that caused validation messages to show C# type of DataType rather than DataTypeId.
+Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
+
+
+## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
+It is not possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
+[documentation on how to implement the functionality](https://altinn.github.io/docs/altinn-studio/app-creation/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
+
 
 ## 4.10.2 (2021-07-15) - Text resources are loaded locally
 - The app will now load texts from the locally stored text resource files (config/texts/*) instead of retrieving them from Storage. Texts are still uploaded to Storage during deploy. The change is to remove unnecessary calls to Storage and to avoid an issue with caching that prevented new texts from being used immediately. [#6466](https://github.com/Altinn/altinn-studio/issues/6466), [#6415](https://github.com/Altinn/altinn-studio/issues/6415)
