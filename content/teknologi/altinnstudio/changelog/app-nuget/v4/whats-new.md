@@ -6,9 +6,8 @@ toc: true
 ---
 
 ## 4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal
-Apps now support adding two query parameters to disable the reportee selection when an unauthorized user accesses an app. 
+Apps now support adding query parameter `DontChooseReportee=true` to disable the reportee selection when an unauthorized user accesses an app. 
 The result being that the user will represent themselves and be routed directly to the application after login.
-Note that this is only supported for ID-porten logings, and not the alternative Altinn logins.
 
 This release solves issue [#6573](https://github.com/Altinn/altinn-studio/issues/6573).
 
