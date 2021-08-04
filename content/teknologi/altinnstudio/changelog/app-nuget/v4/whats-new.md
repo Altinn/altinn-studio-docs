@@ -14,6 +14,12 @@ It is not possible to mark a previous validation error as fixed by using the pre
 [documentation on how to implement the functionality](https://altinn.github.io/docs/altinn-studio/app-creation/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
 
 
+## 4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal
+Apps now support adding query parameter `DontChooseReportee=true` to disable the reportee selection when an unauthorized user accesses an app. 
+The result being that the user will represent themselves and be routed directly to the application after login.
+
+This release solves issue [#6573](https://github.com/Altinn/altinn-studio/issues/6573).
+
 ## 4.10.2 (2021-07-15) - Text resources are loaded locally
 - The app will now load texts from the locally stored text resource files (config/texts/*) instead of retrieving them from Storage. Texts are still uploaded to Storage during deploy. The change is to remove unnecessary calls to Storage and to avoid an issue with caching that prevented new texts from being used immediately. [#6466](https://github.com/Altinn/altinn-studio/issues/6466), [#6415](https://github.com/Altinn/altinn-studio/issues/6415)
 - Fixed a bug where a filename with space in it could lead to a crash. [#6421](https://github.com/Altinn/altinn-studio/issues/6421)
