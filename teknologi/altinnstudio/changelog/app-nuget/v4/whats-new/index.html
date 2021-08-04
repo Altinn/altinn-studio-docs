@@ -843,6 +843,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#491-2021-07-02---bugfix-for-errors-in-multipart-validation">4.9.1 (2021-07-02) - Bugfix for errors in multipart validation</a></li>
     <li><a href="#490-2021-06-29---support-for-marking-a-single-field-validation-error-as-fixed">4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed</a></li>
+    <li><a href="#4110-2021-08-03---support-for-disabling-reportee-selection-in-altinn-portal">4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal</a></li>
     <li><a href="#4102-2021-07-15---text-resources-are-loaded-locally">4.10.2 (2021-07-15) - Text resources are loaded locally</a></li>
     <li><a href="#492-2021-07-08---fixed-messages-from-multipart-request-validation">4.9.2 (2021-07-08) - Fixed messages from multipart request validation</a></li>
     <li><a href="#490-2021-06-29---improvements-to-single-field-validation">4.9.0 (2021-06-29) - Improvements to single field validation</a></li>
@@ -872,6 +873,10 @@ Issue <a href="https://github.com/Altinn/altinn-studio/issues/6418">#6418</a></p
 <h2 id="490-2021-06-29---support-for-marking-a-single-field-validation-error-as-fixed">4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed</h2>
 <p>It is not possible to mark a previous validation error as fixed by using the prefix <code>*FIXED*</code> in front of the original error. 
 <a href="https://altinn.github.io/docs/altinn-studio/app-creation/logic/validation/#spesifisere-at-valideringsfeil-er-fikset">documentation on how to implement the functionality</a> (in Norwegian )</p>
+<h2 id="4110-2021-08-03---support-for-disabling-reportee-selection-in-altinn-portal">4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal</h2>
+<p>Apps now support adding query parameter <code>DontChooseReportee=true</code> to disable the reportee selection when an unauthorized user accesses an app. 
+The result being that the user will represent themselves and be routed directly to the application after login.</p>
+<p>This release solves issue <a href="https://github.com/Altinn/altinn-studio/issues/6573">#6573</a>.</p>
 <h2 id="4102-2021-07-15---text-resources-are-loaded-locally">4.10.2 (2021-07-15) - Text resources are loaded locally</h2>
 <ul>
 <li>The app will now load texts from the locally stored text resource files (config/texts/*) instead of retrieving them from Storage. Texts are still uploaded to Storage during deploy. The change is to remove unnecessary calls to Storage and to avoid an issue with caching that prevented new texts from being used immediately. <a href="https://github.com/Altinn/altinn-studio/issues/6466">#6466</a>, <a href="https://github.com/Altinn/altinn-studio/issues/6415">#6415</a></li>
