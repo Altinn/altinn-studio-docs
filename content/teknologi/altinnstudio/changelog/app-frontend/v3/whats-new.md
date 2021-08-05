@@ -5,6 +5,10 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.9.8 (2021-08-05) - Dependency patching
+Patching of external dependenecies for w31.
+Issue [#6571](https://github.com/Altinn/altinn-studio/issues/6571).
+
 ## 3.9.7 (2021-08-03) - Bugfix print view
 Fixed a bug where the print view for Altinn Apps would display an empty container.
 Issue [#6578](https://github.com/Altinn/altinn-studio/issues/6578).
