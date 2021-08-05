@@ -4,15 +4,6 @@ linktitle: What's new
 description: Overview of changes introduced in version 4
 toc: true
 ---
-## 4.9.1 (2021-07-02) - Bugfix for errors in multipart validation
-Fixed a bug that caused validation messages to show C# type of DataType rather than DataTypeId.
-Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
-
-
-## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
-It is not possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[documentation on how to implement the functionality](https://altinn.github.io/docs/altinn-studio/app-creation/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
-
 
 ## 4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal
 Apps now support adding query parameter `DontChooseReportee=true` to disable the reportee selection when an unauthorized user accesses an app. 
@@ -28,11 +19,20 @@ This release solves issue [#6573](https://github.com/Altinn/altinn-studio/issues
    2. At the top of the file add the namespace reference: `using Altinn.App.Api.Middleware;`
    3. Find the `Configure` method and add the statement: `app.UseDefaultSecurityHeaders();` Add it right before existing `app.Use*` statements. E.g. before `app.UseRouting();`
 
+
 ## 4.9.2 (2021-07-08) - Fixed messages from multipart request validation
 Validation messages from multipart request validation was misleading. This release solved issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418). 
 
-## 4.9.0 (2021-06-29) - Improvements to single field validation
-It was possible to end up with the wrong validation state in the GUI after a lot of relatively quick clicking back and forth between radio buttons. This release solved issue [#5747](https://github.com/Altinn/altinn-studio/issues/5747). 
+
+## 4.9.1 (2021-07-02) - Bugfix for errors in multipart validation
+Fixed a bug that caused validation messages to show C# type of DataType rather than DataTypeId.
+Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
+
+
+## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
+It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
+[documentation on how to implement the functionality](https://altinn.github.io/docs/altinn-studio/app-creation/logic/validation/#spesifisere-at-valideringsfeil-er-fikset) (in Norwegian )
+
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
 During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on `AppSettings` into the class and access the new property called `AppVersion`.
