@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{partial "meta.html" . }}
-    <title>Altinn håndbok</title>
+    <title> {{- .Site.Params.Title -}}</title>
     <link rel="shortcut icon" href="{{"images/favicon.png" | relURL}}" type="image/x-icon" />
     <link href="{{"css/nucleus.css" | relURL}}" rel="stylesheet">
     <link href="{{"css/font-awesome.min.css" | relURL}}" rel="stylesheet">
@@ -39,12 +39,12 @@
     <div class="row adocs-featuredBlocks">
         <div class="col-12 col-lg-4 mb-5">
             <a href="/design/" class="a-illustrationLink">
-                <h2 class="a-h3">Slik designer vi</h2>
-                <p class="a-js-truncate-2">Her finner du våre designprinsipper, visuelle profil, merkevare og personlighet.</p>
+                <h2 class="a-h3">{{ T "how-we-design"}}</h2>
+                <p class="a-js-truncate-2">{{ T "how-we-design-description"}}</p>
                 <div class="a-illustration-icon">
                     <img src="/images/forsideillustrasjon_design.svg">
                     <div class="a-illustration-overlay">
-                        <span class="sr-only">Gå til tema: Design</span>
+                        <span class="sr-only">{{ T "how-we-design"}}</span>
                     </div>
                 </div>
             </a>
@@ -54,7 +54,7 @@
                         <a href="/design/designprinsipper/" class="a-list-rowLink">
                             <div class="row">
                                 <div class="col">
-                                    Designprinsipper
+                                    {{ T "design-principles"}}
                                 </div>
                             </div>
                         </a>
@@ -63,7 +63,7 @@
                         <a href="/design/designsystem" class="a-list-rowLink">
                             <div class="row">
                                 <div class="col">
-                                    Designsystem
+                                    {{ T "designsystem"}}
                                 </div>
                             </div>
                         </a>
@@ -72,7 +72,7 @@
                         <a href="/design/figma/" class="a-list-rowLink">
                             <div class="row">
                                 <div class="col">
-                                    Kom i gang med Figma
+                                    {{ T "figma-getting-started"}}
                                 </div>
                             </div>
                         </a>
@@ -82,12 +82,12 @@
         </div>
         <div class="col-12 col-lg-4 mb-5">
             <a href="/teknologi/" class="a-illustrationLink">
-                <h2 class="a-h3">Slik utvikler vi</h2>
-                <p class="a-js-truncate-2">Finn ut mer om våre tekniske løsninger, arkitekturen bak, og hvordan vi utvikler.</p>
+                <h2 class="a-h3">{{ T "how-we-develop"}}</h2>
+                <p class="a-js-truncate-2">{{ T "how-we-develop-description"}}</p>
                 <div class="a-illustration-icon">
                     <img src="/images/forsideillustrasjon_utvikling.svg">
                     <div class="a-illustration-overlay">
-                        <span class="sr-only">Gå til tema: Teknologi</span>
+                        <span class="sr-only">{{ T "how-we-develop"}}</span>
                     </div>
                 </div>
             </a>
@@ -97,7 +97,7 @@
                         <a href="/teknologi/generell-systemdokumentasjon" class="a-list-rowLink">
                             <div class="row">
                                 <div class="col">
-                                    Arkitektur og infrastruktur
+                                    {{ T "architecture-and-infrastructure"}}
                                 </div>
                             </div>
                         </a>
@@ -115,7 +115,7 @@
                         <a href="/teknologi/front-end-designsystem/" class="a-list-rowLink">
                             <div class="row">
                                 <div class="col">
-                                    Front-end designsystem
+                                    {{ T "front-end-designsystem"}}
                                 </div>
                             </div>
                         </a>
@@ -125,12 +125,12 @@
         </div>
         <div class="col-12 col-lg-4 mb-5">
               <a href="/innhold/" class="a-illustrationLink">
-                  <h2 class="a-h3">Slik skriver vi</h2>
-                  <p class="a-js-truncate-2">Tips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din.</p>
+                  <h2 class="a-h3">{{ T "how-we-write"}}</h2>
+                  <p class="a-js-truncate-2">{{ T "how-we-write-description"}}</p>
                   <div class="a-illustration-icon">
                       <img src="/images/forsideillustrasjon_skrive.svg">
                       <div class="a-illustration-overlay">
-                          <span class="sr-only">Gå til tema: Innhold</span>
+                          <span class="sr-only">{{ T "how-we-write"}}</span>
                       </div>
                   </div>
               </a>
@@ -140,7 +140,7 @@
                           <a href="/innhold/altinn.no/" class="a-list-rowLink">
                               <div class="row">
                                   <div class="col">
-                                      Skriveråd for altinn.no
+                                    {{ T "write-for-altinn-no"}}
                                   </div>
                               </div>
                           </a>
@@ -149,7 +149,7 @@
                           <a href="/innhold/altinndigital.no/" class="a-list-rowLink">
                               <div class="row">
                                   <div class="col">
-                                      Skriveråd for altinndigital.no
+                                    {{ T "write-for-altinndigital-no"}}
                                   </div>
                               </div>
                           </a>
@@ -158,7 +158,7 @@
                           <a href="/innhold/universell-utforming-for-innhold/" class="a-list-rowLink">
                               <div class="row">
                                   <div class="col">
-                                      Universell utforming
+                                    {{ T "uu"}}
                                   </div>
                               </div>
                           </a>
@@ -168,22 +168,7 @@
           </div>
       </div>
 
-      <div class="adocs-caseBlock a-bgBlueDark">
-          <div class="row mx-sm-0 mb-6 mb-lg-8">
-              <div class="col-12 col-md-5 p-0">
-                  <div class="">
-                      <img src="/images/altinndigitalutvikling.svg" class="mx-4 mt-4" alt="Illustrasjon for Utviklingsguider">
-                  </div>
-              </div>
-              <div class="col-12 col-md-7 d-flex flex-column align-self-center pl-3 pl-md-5 pl-lg-0 pr-4 pr-lg-8">
-                  <h2 class="a-fontSizeXL mb-1">Skal du digitalisere tjenestene
-                      dine med hjelp av Altinn?</h2>
-                  <p class="a-fontSizeS mb-4">Finn våre utviklingsguider på  <a href="https://www.altinndigital.no/utvikling/" class="">
-                    altinn digitalisering
-                </a></p>
-              </div>
-          </div>
-       </div>
+      {{partial "dev-guides-link.html" . }}
 
       <div class="adocs-scrollcontainer d-none">
         <div class="row">

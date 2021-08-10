@@ -1,7 +1,7 @@
 <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til meny</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#content">{{ T "jump-to-main-content" }}</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">{{ T "jump-to-main-menu" }}</a></li>
   </ul>
 </nav>
 
@@ -13,40 +13,39 @@
 
         <!-- Begin .a-globalNav -->
         <nav class="a-globalNav " id="primary-nav">
-          <a href="/" class="a-globalNav-logo">
-            <img src="/images/altinn-logo-white.svg" alt="Altinn logo"
+          <a href="/" class="a-globalNav-logo" style="color:black; background-color:white; padding: 0.1em 0.3em; font-size: 22px; font-weight: bold">
+            <img style="background-color:white;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo"
               class="an-logo adocs-logo">
-
-            <span class="adocs-logo-text">
-              <span>/håndbok</span>
-              <span class="sr-only">Til forsiden</span>
-            </span>
+              <span>docs</span>
+              <span class="sr-only">{{ T "to-the-frontpage"}}</span>
           </a>
 
-          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">{{ T "show-hide-menu"}}</span></button>
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul id="exCollapsingNavbar">
              
               <li>
                 <a class="a-hvr-underline" href="/design/">
-                  design
+                  {{ T "design"}}
                 </a>
               </li>
               <li>
                 <a class="a-hvr-underline " href="/teknologi/">
-                  teknologi
+                  {{ T "technology"}}
                 </a>
               </li>
               <li>
                 <a class="a-hvr-underline" href="/innhold/">
-                  innhold
+                  {{ T "content"}}
                 </a>
               </li>
             </ul>
           </div>
 
         </nav> <!-- End .a-globalNav -->
-        
+
+        {{partial "language-switcher.html" .}}
+
       </div><!-- End .col -->
     </div> <!-- End .row -->
   </div> <!-- End .container -->
