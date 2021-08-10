@@ -1,0 +1,112 @@
+# Header
+- id: jump-to-main-content
+  translation: Jump to the main content
+- id: jump-to-main-menu
+  translation: Jump to the main menu
+- id: jump-to-search
+  translation: Jump to search
+- id: inbox
+  translation: inbox
+- id: all-forms
+  translation: all forms
+- id: profile
+  translation: profile
+- id: language
+  translation: Language
+- id: login
+  translation: Log in
+- id: login-my-profile
+  translation: Login/My profile
+- id: search
+  translation: Search
+- id: to-the-frontpage
+  translation: To the frontpage
+- id: show-hide-menu
+  translation: Show/hide menu
+- id: design
+  translation: design
+- id: technology
+  translation: technology
+- id: content
+  translation: content
+
+# Frontpage
+- id: altinn-your-dialogue
+  translation: Altinn - your digital government dialogue.
+- id: here-you-find
+  translation: Here you'll find forms, messages and relevant information.
+- id: and-see-your-inbox
+  translation: and see your inbox
+- id: learn-about-studio
+  translation: Learn about Altinn Studio
+- id: jumbotron
+  translation: Everything you need to know to be able to create both simple and advanced applications with Altinn Studio.
+
+- id: how-we-design
+  translation: How we design
+- id: how-we-design-description
+  translation: Here you can find design principles, visual profile, brand and personality.
+- id: design-principles
+  translation: Design principles
+- id: designsystem
+  translation: Design system
+- id: figma-getting-started
+  translation: Getting started with Figma
+
+- id: how-we-develop
+  translation: How we develop
+- id: how-we-develop-description
+  translation: Discover our technical solutions, the architecture and how we do development.
+- id: architecture-and-infrastructure
+  translation: Architecture and infrastructure
+- id: front-end-designsystem
+  translation: Front-end design system
+
+- id: how-we-write
+  translation: How we write
+- id: how-we-write-description
+  translation: Tips and guidance important for finding and understanding the content you write.
+- id: write-for-altinn-no
+  translation: Writing guides for altinn.no
+- id: write-for-altinndigital-no
+  translation: Writing guides for altinndigital.no
+- id: uu
+  translation: Universal design
+
+- id: digitalize
+  translation: Are you going to modernise your digital services using Altinn?
+- id: dev-guides
+  translation: Find our development guides on <a href="https://www.altinndigital.no/utvikling/">altinn digital</a>
+
+
+# Help
+- id: what-can-we-help-you-with
+  translation: What can we help you with?
+
+# News
+- id: news
+  translation: News
+- id: latest-news
+  translation: Latest news
+- id: show-all-news
+  translation: Show all news
+
+# Footer
+- id: about-altinn
+  translation: About Altinn
+- id: feeling-stuck
+  translation: Feeling stuck?
+- id: help-and-contact
+  translation: hjelp and contact
+- id: privacy-and-cookies
+  translation: Privacy and cookies
+- id: search-for-content
+  translation: Search for content
+- id: service-announcements
+  translation: Service announcements
+- id: start-and-run-business
+  translation: start and run business
+- id: to-the-top
+  translation: To the top
+- id: write-us
+  translation: Write us

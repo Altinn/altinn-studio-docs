@@ -1,0 +1,111 @@
+# Header
+- id: jump-to-main-content
+  translation: Hopp til hovedinnholdet
+- id: jump-to-main-menu
+  translation: Hopp til hovedmeny
+- id: jump-to-search
+  translation: Hopp til søk
+- id: inbox
+  translation: innboks
+- id: all-forms
+  translation: alle skjema
+- id: profile
+  translation: profil
+- id: language
+  translation: Language
+- id: login
+  translation: Logg inn
+- id: login-my-profile
+  translation: Logg inn/Min profil
+- id: search
+  translation: Søk
+- id: to-the-frontpage
+  translation: Til forsiden
+- id: show-hide-menu
+  translation: Vis/skjul meny
+- id: design
+  translation: design
+- id: technology
+  translation: teknologi
+- id: content
+  translation: innhold
+
+# Frontpage
+- id: altinn-your-dialogue
+  translation: Altinn - din digitale dialog med det offentlige.
+- id: here-you-find
+  translation: Her finner du skjema, meldinger og relevant informasjon.
+- id: and-see-your-inbox
+  translation: og sjekk din innboks
+- id: learn-about-studio
+  translation: Lær om Altinn Studio
+- id: jumbotron
+  translation: Her har vi samlet det du trenger å vite både for å raskt kunne lage både enkle og avanserte applikasjoner med Altinn Studio.
+
+- id: how-we-design
+  translation: Slik designer vi
+- id: how-we-design-description
+  translation: Her finner du våre designprinsipper, visuelle profil, merkevare og personlighet.
+- id: design-principles
+  translation: Designprinsipper
+- id: designsystem
+  translation: Designsystem
+- id: figma-getting-started
+  translation: Kom i gang med Figma
+
+- id: how-we-develop
+  translation: Slik utvikler vi
+- id: how-we-develop-description
+  translation: Finn ut mer om våre tekniske løsninger, arkitekturen bak, og hvordan vi utvikler.
+- id: architecture-and-infrastructure
+  translation: Arkitektur og infrastruktur
+- id: front-end-designsystem
+  translation: Front-end designsystem
+
+- id: how-we-write
+  translation: Slik skriver vi
+- id: how-we-write-description
+  translation: Tips og råd som er viktige for at flest mulig skal kunne finne og forstå teksten din.
+- id: write-for-altinn-no
+  translation: Skriveråd for altinn.no
+- id: write-for-altinndigital-no
+  translation: Skriveråd for altinndigital.no
+- id: uu
+  translation: Universell utforming
+
+- id: digitalize
+  translation: Skal du digitalisere tjenestene dine med hjelp av Altinn?
+- id: dev-guides
+  translation: Finn våre utviklingsguider på <a href="https://www.altinndigital.no/utvikling/">altinn digitalisering</a>
+
+# Help
+- id: what-can-we-help-you-with
+  translation: Hva kan vi hjelpe deg med?
+
+# News
+- id: news
+  translation: Nyheter
+- id: latest-news
+  translation: Siste nytt
+- id: show-all-news
+  translation: Vis alle nyheter
+
+# Footer
+- id: about-altinn
+  translation: Om Altinn
+- id: feeling-stuck
+  translation: Står du fast?
+- id: help-and-contact
+  translation: hjelp og kontakt
+- id: privacy-and-cookies
+  translation: Personvern og cookies
+- id: search-for-content
+  translation: Søk etter innhold
+- id: service-announcements
+  translation: Driftsmeldinger
+- id: start-and-run-business
+  translation: starte og drive bedrift
+- id: to-the-top
+  translation: Til toppen
+- id: write-us
+  translation: Skriv til oss
