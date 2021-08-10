@@ -1120,6 +1120,13 @@
 	"content": "Altinn Studio is a user-friendly solution where non-technical and technical developers can create apps based on reuse and configuration of existing building blocks.\nExamples on building blocks can be layouts, themes, web-components, texts, API-calls, code lists, and process tasks.\nAltinn Studio consist of serveral parts.\n\rThird Party Tools\rOne important aspect of the Altinn Studio is that we encourage to use third party development tools to create and modify applications.\n\r\rData Storage in Altinn Studio\rDescription of how the data is stored in Altinn Studio\n\r\rAltinn Studio Designer\rThis is where developers create, modify, build and deploy apps. In the background Designer uses Git to store code and config in Altinn Studio Repos.\n\r\rAltinn Studio Repos\rThe Git repository solution for storing and versioning apps developed with Altinn Studio.\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/",
+	"title": "Altinn Studio docs",
+	"tags": [],
+	"description": "Learn about Altinn Studio",
+	"content": "Altinn Studio docs "
+},
+{
 	"uri": "https://docs.altinn.studio/tags/altinn-apps/",
 	"title": "altinn-apps",
 	"tags": [],
@@ -2042,13 +2049,6 @@
 	"tags": ["tech", "docs", "markdown"],
 	"description": "Static site generator used for our documentation.",
 	"content": "Hugo is a static site generator that we use for generating https://docs.altinn.studio and https://altinn.github.io/docs from markdown.\nAltinn ❤️ Hugo.\nLinks  https://gohugo.io https://github.com/altinn/docs https://github.com/altinn/altinn-studio-docs https://github.com/altinn/hugo-theme-altinn  "
-},
-{
-	"uri": "https://docs.altinn.studio/",
-	"title": "Håndbok",
-	"tags": [],
-	"description": "Lær om hvordan vi lager Altinn",
-	"content": "Håndbok "
 },
 {
 	"uri": "https://docs.altinn.studio/design/illustrasjoner/",

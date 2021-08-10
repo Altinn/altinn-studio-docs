@@ -33,8 +33,8 @@ if(host != "localhost")
   </head>
   <body class="a-page" data-url="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
-    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
-    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til meny</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
   </ul>
 </nav>
 
@@ -46,17 +46,14 @@ if(host != "localhost")
 
         
         <nav class="a-globalNav " id="primary-nav">
-          <a href="/" class="a-globalNav-logo">
-            <img src="/images/altinn-logo-white.svg" alt="Altinn logo"
+          <a href="/" class="a-globalNav-logo" style="color:black; background-color:white; padding: 0.1em 0.3em; font-size: 22px; font-weight: bold">
+            <img style="background-color:white;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo"
               class="an-logo adocs-logo">
-
-            <span class="adocs-logo-text">
-              <span>/håndbok</span>
-              <span class="sr-only">Til forsiden</span>
-            </span>
+              <span>docs</span>
+              <span class="sr-only">To the frontpage</span>
           </a>
 
-          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul id="exCollapsingNavbar">
              
@@ -67,19 +64,44 @@ if(host != "localhost")
               </li>
               <li>
                 <a class="a-hvr-underline " href="/teknologi/">
-                  teknologi
+                  technology
                 </a>
               </li>
               <li>
                 <a class="a-hvr-underline" href="/innhold/">
-                  innhold
+                  content
                 </a>
               </li>
             </ul>
           </div>
 
         </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+    <li class="nav-item dropdown d-none d-md-block">
+      <a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown"
+        aria-haspopup="true" lang="en" href="#">
+        Language
+      </a>
+      <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
         
+          
+          <a aria-hidden="true" class="dropdown-item" href="/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/">
+            <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+            <p>
+              <span class="a-h3">English</span><br>
+              
+              <span>Most content is available in english.</span>
+              
+            </p>
+          </a>
+          
+        
+      </div>
+    </li>
+  </ul>
+  
+
       </div>
     </div> 
   </div> 
@@ -836,7 +858,7 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> Presentation</span>
+                <span class="links"><a href='/'>Altinn Studio docs</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/'>Altinn 3</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/'>Capabilities</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/teknologi/altinnstudio/architecture/capabilities/runtime/'>Runtime</a> <span class='adocs-breadcrumb-divider'> / </span> Presentation</span>
             </div>
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/architecture">architecture</a><a class="label label-default" href="https://docs.altinn.studio/tags/todo">todo</a></div><div id="body-inner"><h1 class="a-fontBold">Presentation (User Interface) Capabilities</h1>
               <p class="a-leadText" id="leadText">Presentation Capabilities enable an application to manage the human-computer interface.</p><h2>On this page:</h2><nav id="TableOfContents">
@@ -930,7 +952,7 @@ TODO: Link to relevant archiecture component(s) providing this capability.</p>
             <div class="col-12">
                 <ul>
                     <li>
-                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
                     </li>
                     <li>
                         <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
@@ -939,7 +961,7 @@ TODO: Link to relevant archiecture component(s) providing this capability.</p>
                         <a href="https://altinnstudio.slack.com">Slack</a>
                     </li>
                     <li>
-                        <a href="https://github.com/Altinn/altinn-studio">Github</a>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
                     </li>
                 </ul>
             </div>
