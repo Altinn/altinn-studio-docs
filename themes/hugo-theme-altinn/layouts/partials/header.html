@@ -100,7 +100,7 @@
           {{- end -}}
 
 {{- define "breadcrumb" -}}
-  {{- if .page.Parent -}}
+  {{- if .page.Parent.Parent -}}
     {{- $value := (printf "<a href='%s'>%s</a> <span class='adocs-breadcrumb-divider'> / </span> %s" .page.Parent.URL .page.Parent.LinkTitle .value) -}}
     {{- template "breadcrumb" dict "page" .page.Parent "value" $value -}}
   {{- else -}}
