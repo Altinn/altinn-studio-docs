@@ -13,7 +13,7 @@
 
         <!-- Begin .a-globalNav -->
         <nav class="a-globalNav " id="primary-nav">
-          <a href="/" class="a-globalNav-logo" style="color:black; background-color:white; padding: 0.1em 0.3em; font-size: 22px; font-weight: bold">
+          <a href="/" class="a-globalNav-logo" style="color:black; background-color:white; padding: 0em 0.2em; font-size: 22px; font-weight: bold">
             <img style="background-color:white;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo"
               class="an-logo adocs-logo">
               <span>docs</span>
@@ -23,29 +23,27 @@
           <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">{{ T "show-hide-menu"}}</span></button>
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul id="exCollapsingNavbar">
-             
-              <li>
-                <a class="a-hvr-underline" href="/design/">
-                  {{ T "design"}}
-                </a>
+              <li class="d-md-none dropdown">
+                {{- partial "language-switcher.html" . -}}
               </li>
               <li>
-                <a class="a-hvr-underline " href="/teknologi/">
-                  {{ T "technology"}}
-                </a>
+                <a class="a-nav-link a-hvr-underline" href="/design/">{{ T "design"}}</a>
               </li>
               <li>
-                <a class="a-hvr-underline" href="/innhold/">
-                  {{ T "content"}}
-                </a>
+                <a class="a-nav-link a-hvr-underline " href="/teknologi/">{{ T "technology"}}</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/innhold/">{{ T "content"}}</a>
               </li>
             </ul>
           </div>
 
         </nav> <!-- End .a-globalNav -->
-
-        {{partial "language-switcher.html" .}}
-
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block">
+            {{- partial "language-switcher.html" . -}}
+          </li>
+        </ul>
       </div><!-- End .col -->
     </div> <!-- End .row -->
   </div> <!-- End .container -->
