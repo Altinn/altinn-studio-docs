@@ -5,6 +5,18 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.10.1 (2021-08-16) - App frontend includes partyID for stateless apps
+App frontend includes partyID in calls for fetching stateless data.
+Issue [#6609](https://github.com/Altinn/altinn-studio/issues/6609)
+
+## 3.10.0 (2021-08-13) - Log out functionality
+Added functionality for log out from app frontend.
+Issue [#6620](https://github.com/Altinn/altinn-studio/issues/6620)
+
+## 3.9.9 (2021-08-12) - Dependency patching
+Patching of external dependencies for w32.
+Issue [#6600](https://github.com/Altinn/altinn-studio/issues/6600).
+
 ## 3.9.8 (2021-08-05) - Dependency patching
 Patching of external dependenecies for w31.
 Issue [#6571](https://github.com/Altinn/altinn-studio/issues/6571).
