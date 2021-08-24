@@ -5,7 +5,7 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
-## 3.10.2 (2021-08-23) - Added some IDs used by automated tests
+## 3.10.3 (2021-08-23) - Added some IDs used by automated tests
 Non functional change. Not connected to an issue.
 
 ## 3.10.2 (2021-08-19) - Dependency patching
