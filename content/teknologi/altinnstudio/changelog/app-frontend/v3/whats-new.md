@@ -5,6 +5,13 @@ description: Overview of changes introduced in v3 of app frontend
 toc: true
 ---
 
+## 3.10.3 (2021-08-23) - Added some IDs used by automated tests
+Non functional change. Not connected to an issue.
+
+## 3.10.2 (2021-08-19) - Dependency patching
+Patching of external dependencies for w33.
+Issue [#6600](https://github.com/Altinn/altinn-studio/issues/6600)
+
 ## 3.10.1 (2021-08-16) - App frontend includes partyID for stateless apps
 App frontend includes partyID in calls for fetching stateless data.
 Issue [#6609](https://github.com/Altinn/altinn-studio/issues/6609)
