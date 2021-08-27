@@ -5,6 +5,22 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests
+In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.
+
+- partyId
+- authentication level
+- userId 
+- organisationNumber
+
+This solves issue [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
+
+
+## 4.11.1 (2021-08-26) - No longer possible to cache response from stateless apps
+Caching of the stateless data responses is no longer possible.
+
+This solves issue [#6532](https://github.com/Altinn/altinn-studio/issues/6532)
+
 ## 4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal
 Apps now support adding query parameter `DontChooseReportee=true` to disable the reportee selection when an unauthorized user accesses an app. 
 The result being that the user will represent themselves and be routed directly to the application after login.
