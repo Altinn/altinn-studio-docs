@@ -15,6 +15,20 @@ enableEmoji = true
 enableGitInfo = false
 disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap robotsTXT 404
 
+[languages]
+  [languages.en]
+    title = "Altinn Studio docs"
+    languageName = "English"
+    weight = 1
+  [languages.nb]
+    title = "Altinn Studio docs"
+    languageName = "Bokmål"
+    weight = 2
+# [languages.nn]
+#   title = "Altinn"
+#   languageName = "Nynorsk"
+#   weight = 3
+
 [markup.goldmark.renderer]
 unsafe = true
 
