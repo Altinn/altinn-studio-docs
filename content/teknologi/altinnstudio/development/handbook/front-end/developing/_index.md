@@ -13,7 +13,7 @@ weight: 11
   ```
   from `altinn-studio/src/studio` before proceeding with the instructions linked above.
 
-2. In the app that will be running locally, edit the `<path-to-app>/App/views/Home/Index.cshtml` file, and replace `https://altinncdn.no/toolkits/altinn-app-frontend/<version>/` with `http://localhost:8080/`. 
+2. In the app that will be running locally, edit the `<path-to-app>/App/views/Home/Index.cshtml` file, and replace `https://altinncdn.no/toolkits/altinn-app-frontend/<version>/` with `http://localhost:8080/toolkits/altinn-app-frontend/<version>/`. 
 
 3. Run the app (from `<path-to-app>/App/`):
 ```
