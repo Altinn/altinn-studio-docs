@@ -5,6 +5,11 @@ description: Overview of changes introduced in version 4
 toc: true
 ---
 
+## 4.1.3.0 (2021-09-03) - Event for changed substatus on instance
+Changing the substatus of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in the event component.
+
+This solves issue [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
+
 ## 4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests
 In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.
 
