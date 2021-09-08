@@ -1,14 +1,14 @@
-
 <a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
   {{ T "language" }}
 </a>
 <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+  {{- $currentPage := . -}}
   {{- if .Site.IsMultiLingual -}}
     {{- range .AllTranslations -}}
     <a aria-hidden="true" class="dropdown-item" href="{{ .URL }}">
       <img src="/images/{{ .Language }}.svg" class="a-iconLeft a-flag" alt="" />
       <p>
-        <span class="a-h3">{{ .Language.LanguageName }}</span><br>
+        <span class="a-h3">{{ .Language.LanguageName }}{{- if eq .Language.Lang $currentPage.Language.Lang }} ✓{{- end -}}</span><br>
         {{- if eq .Language.Lang "en" -}}
         <span>Most content is available in english.</span>
         {{- else if eq .Language.Lang "nb" -}}

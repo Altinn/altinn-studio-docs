@@ -62,6 +62,39 @@
 - id: front-end-designsystem
   translation: Front-end designsystem
 
+- id: create-your-first-app
+  translation: Lag din første app
+- id: create-your-first-app-description
+  translation: Lag enkle eller avanserte tjenester (apps) basert på React and .NET Core.
+- id: getting-started-with-altinn-studio
+  translation: Kom i gang med Altinn Studio
+- id: app-development
+  translation: App-utvikling
+- id: apis
+  translation: API
+
+- id: altinn-is-open-source
+  translation: Altinn er åpen kildekode
+- id: altinn-is-open-source-description
+  translation: Kode, backlog og dokumentasjon, alt vi lager deles som åpen kildekode på GitHub.
+- id: about-altinn
+  translation: Om Altinn 3
+- id: contributing
+  translation: Bidra sammen med oss
+- id: github-code-and-backlog
+  translation: GitHub (kode og backlog)
+
+- id: the-new-architecture
+  translation: En ny arkitektur
+- id: the-new-architecture-description
+  translation: Både Altinn, og dine apper, kjører nå som container-baserte mikrotjenester i Kubernetes.
+- id: principles
+  translation: Prinsipper
+- id: solutions
+  translation: Løsninger
+- id: tools-and-frameworks
+  translation: Verktøy og rammeverk
+
 - id: how-we-write
   translation: Slik skriver vi
 - id: how-we-write-description
