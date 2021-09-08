@@ -2,7 +2,7 @@
 title: Styling
 description: Hvordan styre styling, formattering og grid-layout for en app.
 toc: true
-weight: 10
+weight: 30
 ---
 
 {{%notice warning%}}
