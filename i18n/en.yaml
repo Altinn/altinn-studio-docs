@@ -86,7 +86,7 @@
   translation: GitHub (code and backlog)
 
 - id: the-new-architecture
-  translation: The new architecture
+  translation: The architecture
 - id: the-new-architecture-description
   translation: Both Altinn itself, and your apps, are now running as micro services in Kubernetes.
 - id: principles

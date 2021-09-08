@@ -85,9 +85,9 @@
   translation: GitHub (kode og backlog)
 
 - id: the-new-architecture
-  translation: En ny arkitektur
+  translation: Arkitektur
 - id: the-new-architecture-description
-  translation: Både Altinn, og dine apper, kjører nå som container-baserte mikrotjenester i Kubernetes.
+  translation: Både Altinn, og appene som du utvikler, kjører nå som containere i Kubernetes.
 - id: principles
   translation: Prinsipper
 - id: solutions
