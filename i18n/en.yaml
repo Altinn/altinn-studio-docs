@@ -42,6 +42,7 @@
 - id: jumbotron
   translation: Everything you need to know to be able to create both simple and advanced applications with Altinn Studio.
 
+  # Blocks
 - id: how-we-design
   translation: How we design
 - id: how-we-design-description
@@ -62,6 +63,39 @@
 - id: front-end-designsystem
   translation: Front-end design system
 
+- id: create-your-first-app
+  translation: Create your first app
+- id: create-your-first-app-description
+  translation: Create simple or advanced containerized applications with React and .NET Core.
+- id: getting-started-with-altinn-studio
+  translation: Getting started with Altinn Studio
+- id: app-development
+  translation: App development
+- id: apis
+  translation: APIs
+
+- id: altinn-is-open-source
+  translation: Altinn is open source
+- id: altinn-is-open-source-description
+  translation: Code, backlogs and documentation, everything we do is open source on GitHub.
+- id: about-altinn
+  translation: About Altinn 3
+- id: contributing
+  translation: Contributing
+- id: github-code-and-backlog
+  translation: GitHub (code and backlog)
+
+- id: the-new-architecture
+  translation: The architecture
+- id: the-new-architecture-description
+  translation: Both Altinn itself, and your apps, are now running as micro services in Kubernetes.
+- id: principles
+  translation: Principles
+- id: solutions
+  translation: Solutions
+- id: tools-and-frameworks
+  translation: Tools and frameworks
+
 - id: how-we-write
   translation: How we write
 - id: how-we-write-description
@@ -77,7 +111,6 @@
   translation: Are you going to modernise your digital services using Altinn?
 - id: dev-guides
   translation: Find our development guides on <a href="https://www.altinndigital.no/utvikling/">altinn digital</a>
-
 
 # Help
 - id: what-can-we-help-you-with
