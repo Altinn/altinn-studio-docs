@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hvordan sette opp visning av oppsummering av utfylt skjema.">
+
+<title>Oppsummeringsvisning – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/app/development/ux/pages/summary/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
+  </ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo" style="background-color:white; padding: 0.2em;">
+            <img style="vertical-align: bottom;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo" class="an-logo adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/ux/pages/summary/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/ux/pages/summary/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
+              </li>
+              
+            </ul>
+          </div>
+
+        </nav> 
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/ux/pages/summary/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/ux/pages/summary/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+</header>
+
+
+<div class="container pt-2 pt-md-3 pt-lg-5">
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+            <div class="col-sm-12"><nav id="sidebar" class=""><div class="highlightable">
+    <div id="header-wrapper"><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script></div>
+    <ul id="docsmenu" class="topics">
+      <li class="dd-item parent">
+        <a href="/nb/app/"><span>Apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/first-time-setup/"><span>Opprette bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/create-app/"><span>Opprette app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/migrate-services/"><span>Migrere tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/"><span>Navigasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/"><span>Tilganger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/data-model/"><span>Datamodell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/prefill/"><span>Preutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/options/"><span>Kodelister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/attachments/"><span>Vedlegg</span></a></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/app/development/ux/"><span>Brukergrensesnitt</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item parent">
+        <a href="/nb/app/development/ux/pages/"><span>Sider</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/navigation/"><span>Navigasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/tracks/"><span>Sporvalg</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/nb/app/development/ux/pages/summary/"><span>Oppsummering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/layout-sets/"><span>Flere skjema</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/"><span>Felter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/"><span>Gruppering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/setup/"><span>Oppsett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/repeating/"><span>Repeterende</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/alternatives/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/settings/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/texts/"><span>Tekster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/widgets/"><span>Widgets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/"><span>Logikk</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/instantiation/"><span>Instansiering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/calculation/"><span>Kalkuleringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/datafields/"><span>Datafelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/auto-delete/"><span>Automatisk sletting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/message/"><span>Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/customize/"><span>Tilpasse visninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/secrets/"><span>Hemmeligheter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/stateless/"><span>Stateless</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/expose/"><span>Eksponere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/instance/"><span>Instans</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/consume/"><span>Konsumere</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/"><span>Lokalt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/org/"><span>Org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/user/"><span>Sluttbruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/"><span>Produksjonssetting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/"><span>Lanserte tjenester</span><sup>NY</sup></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>Applikasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/id-porten/"><span>ID-porten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/"><span>Om Altinn</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li><li class="dd-item">
+          <a href="/nb/community/about/slide/">
+            <span>Presentasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/community/contributing/intro/">
+            <span>Intro for utviklere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/presentations/"><span>Altinn kaffe</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Tech</span></a></li></ul>
+  </div>
+</nav>
+
+<section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links"><a href='/nb/app/'>Apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/'>Utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/ux/'>Brukergrensesnitt</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/ux/pages/'>Sider</a> <span class='adocs-breadcrumb-divider'> / </span> Oppsummering</span>
+            </div>
+          </div><div id="body-inner"><h1 class="a-fontBold">Oppsummeringsvisning</h1>
+              <p class="a-leadText" id="leadText">Hvordan sette opp visning av oppsummering av utfylt skjema.</p><h2>På denne siden:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#oppsett">Oppsett</a></li>
+    <li><a href="#kategorier">Kategorier</a></li>
+    <li><a href="#eksempel-på-oppsummeringsside">Eksempel på oppsummeringsside</a></li>
+  </ul>
+</nav>
+
+
+
+
+<div class="notices warning" >
+Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.
+<p><strong>MERK</strong>: PDF-genereringen har per nå ikke støtte for oppsummerings-komponenten. For at PDF-generering skal fungere må enten alle oppsummerings-komponentene, eller hele oppsummerings-siden(e) ekskluderes fra PDF. Dette gjøres i <code>Settings.json</code>-filen knyttet til layout-filene.</p>
+</div>
+<h2 id="oppsett">Oppsett</h2>
+<p>Visning av oppsummering settes opp på samme måte som øvrige skjema-komponenter i et skjema.
+Man kan velge å ha oppsummeringen på en egen side, eller på samme side som andre skjema-komponenter.</p>
+<p>Oppsummerings-komponenten er meget enkel, og refererer til <em>komponent</em> som skal oppsummeres, og <em>siden</em> denne ligger på. Eksempel:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;komponent-id&gt;&#34;</span>,
+</span>    <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;side komponenten er definert på&gt;&#34;</span>
+},
+</code></pre></div><p>Komponenten viser oppsummering av data fra den spesifiserte komponenten. I tillegg får sluttbruker mulighet
+til å gå tilbake til den aktuelle komponenten/siden for å gjøre endringer.</p>
+<p>Visningen er litt forskjellig avhengig av hva slags skjemakomponent oppsummeringen refererer til.</p>
+<p>Merk: PDF-generering støtter ikke oppsummering side, så må den ekskluderes ved å endre <code>layout/ui/Settings.json</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;pages&#34;</span>: 
+      { 
+        <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [ <span style="color:#f1fa8c">&#34;navn-til-oppsummering-side&#34;</span> ] 
+      }
+</code></pre></div><h3 id="enkel-skjemakomponent">Enkel skjemakomponent</h3>
+<p>Dette er skjemakomponenter som kun er knyttet til 1 felt i datamodellen. F.eks. Input, Dropdown, Checkbox/Radio, osv.</p>
+<figure><a href="simple-summary.png"><img src="simple-summary.png" alt="Oppsummering enkel skjemakomponent" title="Oppsummering enkel skjemakomponent" /></a><figcaption><h4>Oppsummering enkel skjemakomponent</h4></figcaption></figure>
+<p>Oppsummeringen viser ledeteksten til skjemakomponenten, og tilknyttet data. Dersom det er en aktiv feilmelding
+knyttet til skjemakomponenten, vil dette også vises.</p>
+<figure><a href="simple-summary-error.png"><img src="simple-summary-error.png" alt="Oppsummering enkel skjemakomponent med feil" title="Oppsummering enkel skjemakomponent med feil" /></a><figcaption><h4>Oppsummering enkel skjemakomponent med feil</h4></figcaption></figure>
+<h3 id="adressekomponent">Adressekomponent</h3>
+<p>Denne komponenten har flere felter som inngår. Visningen er lik som for en enkel skjemakomponent, 
+slik at feltene blir slått sammen til en enkel tekst.</p>
+<figure><a href="summary-address.png"><img src="summary-address.png" alt="Oppsummering adressekomponent, med feil" title="Oppsummering adressekomponent, med feil" /></a><figcaption><h4>Oppsummering adressekomponent, med feil</h4></figcaption></figure>
+<h3 id="filvedlegg">Filvedlegg</h3>
+<p>Oppsummeringsvisningen for filvedlegg viser en liste over de vedleggene som er lastet opp for den aktuelle
+komponenten.</p>
+<figure><a href="attachment-summary.png"><img src="attachment-summary.png" alt="Oppsummering vedleggskomponent" title="Oppsummering vedleggskomponent" /></a><figcaption><h4>Oppsummering vedleggskomponent</h4></figcaption></figure>
+<h3 id="repeterende-grupper">Repeterende grupper</h3>
+<figure><a href="group-summary.png"><img src="group-summary.png" alt="Oppsummering repeterende grupper" title="Oppsummering repeterende grupper" /></a><figcaption><h4>Oppsummering repeterende grupper</h4></figcaption></figure>
+<h3 id="grupper-i-grupper">Grupper i grupper</h3>
+<p>Oppsummering støttes også for repeterende grupper <em>inne i</em> repeterende grupper. Vi støtter kun ett nivå av 
+grupper i grupper. I dette tilfellet vises oppsummeringen av hvert innslag av gruppen på øverst nivå som en
+egen <a href="#kategorier">kategori</a>, og gruppen på nederste nivå vises på samme måte som vanlige repeterende
+grupper.
+<img src="nested-group-summary.png" alt="Oppsummering repeterende grupper i grupper" title="Oppsummering repeterende grupper i grupper"></p>
+<h2 id="kategorier">Kategorier</h2>
+<p>Det er mulig å gruppere oppsummeringene i forskjellige kategorier, for å gjøre en ev. oppsummeringsside
+mer oversiktlig. Dette gjøres ved å bruke den eksisterende <em>gruppe</em>-komponenten, uten å sette den opp
+som en repeterende gruppe.</p>
+<p>Feltene i oppsummeringen vises da med en tittel, som settes i <code>title</code>-feltet for <code>textResourceBindings</code> for 
+gruppe-komponenten. Se eksempel under.</p>
+<figure><a href="category-summary.png"><img src="category-summary.png" alt="Felter samlet under en kategori" title="Felter samlet under en kategori" /></a><figcaption><h4>Felter samlet under en kategori</h4></figcaption></figure>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;personalia-group&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personalia&#34;</span>
+  },
+  <span style="color:#ff79c6">&#34;children&#34;</span>: [
+    <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+    <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+    <span style="color:#f1fa8c">&#34;summary-3&#34;</span>
+  ]
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d566c79c-3e3e-445b-be25-a404508f6607&#34;</span>,
+  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;22a60bf0-d5b7-4b45-9ac9-c266b6ad3716&#34;</span>,
+  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-3&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+  <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d497737b-67b2-4e03-87a9-43f58579c938&#34;</span>,
+  <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+},
+</code></pre></div><h2 id="eksempel-på-oppsummeringsside">Eksempel på oppsummeringsside</h2>
+<p>Under er et eksempel på en oppsummeringsside, med oppsett i layout-filen. Da oppsummeringen settes opp
+i layout-filene på samme måte som andre komponenter, kan man også ha med andre skjemakomponenter som tekster
+ved behov.</p>
+<figure><a href="summary.png"><img src="summary.png" alt="Oppsummering eksempel" title="Oppsummering eksempel" /></a><figcaption><h4>Oppsummering eksempel</h4></figcaption></figure>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>:  <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layout.schema.v1.json&#34;</span>,
+  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;send-in-text&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Paragraph&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">1</span>,
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;finish&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;personalia-group&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personalia&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;children&#34;</span>: [
+          <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+          <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+          <span style="color:#f1fa8c">&#34;summary-3&#34;</span>
+        ]
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-1&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d566c79c-3e3e-445b-be25-a404508f6607&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-2&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;22a60bf0-d5b7-4b45-9ac9-c266b6ad3716&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-3&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;d497737b-67b2-4e03-87a9-43f58579c938&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;personalia&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;drugs-group&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Rus- og dopingmidler&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;children&#34;</span>: [
+          <span style="color:#f1fa8c">&#34;summary-4&#34;</span>,
+          <span style="color:#f1fa8c">&#34;summary-5&#34;</span>,
+          <span style="color:#f1fa8c">&#34;summary-6&#34;</span>,
+          <span style="color:#f1fa8c">&#34;summary-7&#34;</span>
+        ]
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-4&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;064c0033-8996-4825-85fc-2a19fe654400&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-5&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;7f22e523-3f6d-4371-a5dd-233dc41af824&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-6&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;18a7c709-ae2f-48b3-b6f6-bd631f5d8d56&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-7&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;b7417cf9-f806-4835-a3d1-424c8d094d5f&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;drugs&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-group-1&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;arbeidserfaring-group&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;work&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;summary-8&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;25f720db-5784-4c95-a530-43f0bf523466&#34;</span>,
+        <span style="color:#ff79c6">&#34;pageRef&#34;</span>: <span style="color:#f1fa8c">&#34;attachment&#34;</span>
+      },
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;312afa87-c2a9-4ef1-a681-26cc47462878&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Button&#34;</span>,
+        <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">9</span>,
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Send inn&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+        <span style="color:#ff79c6">&#34;textResourceId&#34;</span>: <span style="color:#f1fa8c">&#34;Standard.Button.Button&#34;</span>,
+        <span style="color:#ff79c6">&#34;customType&#34;</span>: <span style="color:#f1fa8c">&#34;Standard&#34;</span>
+      }
+    ]
+  }
+}
+</code></pre></div>
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+                </div>
+              </div>
+
+              <div id="navigation">
+                  <a class="nav nav-prev" href="/nb/app/development/ux/pages/tracks/" title="Sporvalg"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/ux/pages/layout-sets/" title="Flere skjema i samme app (layout-sets)" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/ux/pages/summary/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://altinnstudio.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="/js/custom.js"></script></body>
+</html>

@@ -3,571 +3,1521 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://docs.altinn.studio/design/designprinsipper/</loc>
+    <loc>https://docs.altinn.studio/community/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/getting-started/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/getting-started/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/kom-i-gang/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/react/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/react/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/fields/grouping/setup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/fields/grouping/setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/fields/grouping/setup/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/design/designsystem/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/fields/grouping/repeating/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/fields/grouping/repeating/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/fields/grouping/repeating/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/frontend-retningslinjer/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/features/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/css-utilities/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/fields/grouping/alternatives/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/fields/grouping/alternatives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/fields/grouping/alternatives/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/features/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/design/figma/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/design/logo/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/requirements/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/font/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/principles/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/patterns/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/grid-og-layout/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/design/ikonbruk/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-frontend/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-frontend/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-frontend/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/ikonbruk/</loc>
+    <loc>https://docs.altinn.studio/app/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/principles/</loc>
+    <loc>https://docs.altinn.studio/app/development/data/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/data/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/data/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/patterns/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/universell-utforming/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/designer/frontend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/</loc>
+    <loc>https://docs.altinn.studio/app/development/logic/generic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/generic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/generic/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/nettleserstotte/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/</loc>
+    <loc>https://docs.altinn.studio/community/about/goals/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/goals/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/goals/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/intro/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/intro/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/intro/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/pages/navigation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/pages/navigation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/pages/navigation/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/kalender/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/pages/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/pages/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/pages/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/design/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/designer/frontend/applications/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/developing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/routine/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/goals/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/new-component/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/applications/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/designer/frontend/structure/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/developing/</loc>
+    <loc>https://docs.altinn.studio/api/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/routine/</loc>
+    <loc>https://docs.altinn.studio/api/models/app-metadata/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/models/app-metadata/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/models/app-metadata/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/new-component/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/frontend/structure/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/models/app-metadata/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/fields/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/fields/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/fields/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/pages/tracks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/pages/tracks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/pages/tracks/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/generell-systemdokumentasjon/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/nyheter/</loc>
+    <loc>https://docs.altinn.studio/api/apps/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/contributing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/contributing/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/utviklingsguider/</loc>
+    <loc>https://docs.altinn.studio/app/development/logic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/api/</loc>
+    <loc>https://docs.altinn.studio/api/apps/metadata/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/metadata/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/metadata/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/metadata/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/react/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/styling/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/styling/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/styling/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/pages/summary/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/pages/summary/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/pages/summary/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinn.no/m%C3%A5lform/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/produkter/</loc>
+    <loc>https://docs.altinn.studio/api/models/instance/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/models/instance/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/models/instance/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/react/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/pages/layout-sets/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/pages/layout-sets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/pages/layout-sets/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinn.no/skriver%C3%A5d/</loc>
+    <loc>https://docs.altinn.studio/api/platform/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinn.no/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/redux/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/texts/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/texts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/texts/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/universell-utforming-for-innhold/</loc>
+    <loc>https://docs.altinn.studio/app/development/api/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/api/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/skriver%C3%A5d/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/debug/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/</loc>
+    <loc>https://docs.altinn.studio/api/apps/instances/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/instances/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/instances/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/eksempler/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/pdf/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/pdf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/pdf/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/models/instance/</loc>
+    <loc>https://docs.altinn.studio/api/models/data-element/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/models/data-element/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/models/data-element/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/widgets/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/widgets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/widgets/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/redux/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/storage-interfaces/v3/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/storage-interfaces/v3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/storage-interfaces/v3/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/vekt%C3%B8y/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/v4/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v4/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v4/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/debug/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/v3/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v3/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/instances/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/innhold/altinndigital.no/sidetyper/utvikling/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/automated-test-app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/models/data-element/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/back-end/app-template-and-deps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/v3/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/back-end/async-programming/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v4/</loc>
+    <loc>https://docs.altinn.studio/api/scenarios/authentication/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/scenarios/authentication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/scenarios/authentication/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/authorisation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/authorisation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/authorisation/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/azure-devops/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/automated-test-app/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/back-end/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/app-template-and-deps/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/best-practices/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/async-programming/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/build/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/scenarios/authentication/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/general/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/azure-dev-spaces/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/securecoding/checklist/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/azure-devops/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/component-library/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/cosmosdb/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/best-practices/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/first-time-setup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/first-time-setup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/first-time-setup/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/build/</loc>
+    <loc>https://docs.altinn.studio/api/apps/data-elements/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/data-elements/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/data-elements/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/general/</loc>
+    <loc>https://docs.altinn.studio/app/development/data/data-model/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/data/data-model/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/data/data-model/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/securecoding/checklist/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/deployment/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/component-library/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/navigation/designer/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/navigation/designer/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/navigation/designer/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/cosmosdb/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/back-end/error-handling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/data-elements/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/error-handling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/deployment/</loc>
+    <loc>https://docs.altinn.studio/api/platform/events/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/events/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/events/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/error-handling/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/error-handling/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/cheatsheet/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/events/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/getting-started/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/git/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/cheatsheet/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/routing/traefik/installation/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/getting-started/</loc>
+    <loc>https://docs.altinn.studio/api/platform/instances/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/instances/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/instances/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/git/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/intro/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/contributing/intro/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/contributing/intro/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/installation/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/k6/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/instances/</loc>
+    <loc>https://docs.altinn.studio/app/testing/local/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/local/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/local/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/devslide/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/back-end/logging/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/k6/</loc>
+    <loc>https://docs.altinn.studio/api/authentication/maskinporten/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/authentication/maskinporten/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/authentication/maskinporten/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/logging/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/naming/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/naming/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/loadbalancer/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/loadbalancer/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/routing/nginx/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/nginx/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/loadbalancer/ssl-certificate/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/loadbalancer/ssl-certificate/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/back-end/nuget-package/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/back-end/nuget-package/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/older/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/azure-devops/pipelines/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/azure-devops/pipelines/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/postmessage/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/postmessage/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/postgres/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/postgres/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/postman/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/postman/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/processing/process/process_interaction/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/process_interaction/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/rest/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/rest/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/routing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/securecoding/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/securecoding/</loc>
+    <loc>https://docs.altinn.studio/community/about/slide/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/slide/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/slide/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/slide/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/</loc>
+    <loc>https://docs.altinn.studio/api/apps/stateless-data-elements/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/stateless-data-elements/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/stateless-data-elements/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/stateless-data-elements/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/styling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/styling/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/test-strategy/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/test-strategy/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/testcafe/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/testcafe/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/testcafe/testcafehowto/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/testcafe/testcafehowto/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/routing/traefik/tls-configuration/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/tls-configuration/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/routing/traefik/custom-resources/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/custom-resources/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/routing/traefik/ingress-routes/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/ingress-routes/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/routing/traefik/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/routing/traefik/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/unit-testing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/unit-testing/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/storage-interfaces/v2/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/storage-interfaces/v2/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/storage-interfaces/v2/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/v2/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-frontend/v3/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-frontend/v3/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-frontend/v3/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/v3/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/versioning/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/front-end/versioning/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/wcag/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/wcag/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/xunit-testing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/test/xunit-testing/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authentication/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authentication/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/nonsolutionspecific/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/thirdpartytools/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/thirdpartytools/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/events/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/events/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/profile/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/profile/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-restorage/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-restorage/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/register/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/register/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/storage/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/storage/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/create-app/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/create-app/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/create-app/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/process/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/partytype/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/partytype/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/partytype/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/instancee-events/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/migrate-services/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/migrate-services/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/migrate-services/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/app-api/validation/</loc>
+    <loc>https://docs.altinn.studio/api/apps/process/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/process/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/process/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/scenarios/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/access-management/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/access-management/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/access-management/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/models/</loc>
+    <loc>https://docs.altinn.studio/app/getting-started/access-management/apps/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/access-management/apps/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/access-management/apps/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/configuration/datafields/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/datafields/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/datafields/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/api/authentication/id-porten/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/authentication/id-porten/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/authentication/id-porten/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/testing/deploy/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/deploy/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/deploy/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/api/platform/instance-events/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/instance-events/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/instance-events/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/getting-started/navigation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/navigation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/navigation/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/data/prefill/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/data/prefill/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/data/prefill/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/configuration/presentationfields/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/presentationfields/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/presentationfields/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/configuration/process/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/process/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/process/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/getting-started/navigation/repos/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/navigation/repos/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/navigation/repos/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/getting-started/access-management/studio/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/access-management/studio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/access-management/studio/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/api/apps/validation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/validation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/validation/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/api/authentication/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/authentication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/authentication/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/getting-started/navigation/code/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/navigation/code/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/navigation/code/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/data/options/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/data/options/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/data/options/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/configuration/secrets/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/secrets/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/secrets/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/data/attachments/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/data/attachments/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/data/attachments/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/configuration/events/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/events/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/events/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/configuration/settings/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/settings/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/settings/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/configuration/stateless/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/stateless/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/stateless/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/testing/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/deployment/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/deployment/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/deployment/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/maintainance/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/maintainance/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/maintainance/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/launched-apps/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/launched-apps/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/launched-apps/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/api/models/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/models/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/models/"
+                />
   </url>
   
   <url>
@@ -575,71 +1525,73 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/dotnet-core/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/dotnet-core/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/accesstoken/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/accesstoken/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/alpine-linux/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/alpine-linux/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/presentation/altinn-cdn/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/cli/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/</loc>
+    <loc>https://docs.altinn.studio/community/presentations/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/presentations/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/presentations/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/altinn-cdn/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/cli/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-studio/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/</loc>
   </url>
   
   <url>
@@ -665,10 +1617,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/about/presentations/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/tags/altinn-repos/</loc>
   </url>
   
@@ -677,63 +1625,87 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/analysisanddesign/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/analysisanddesign/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/tags/api/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/api/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/api/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/api-expose/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/api-expose/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/api-use/</loc>
+    <loc>https://docs.altinn.studio/app/testing/local/apitests/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/local/apitests/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/local/apitests/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/api-use/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-apps/app/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-apps/app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/app-api/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdeploy/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-backend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/appdevelopment/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/appdeploy/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-frontend/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/appdevelopment/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/code-editor/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/app-parameters/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/code-editor/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/apptemplates/</loc>
   </url>
   
   <url>
@@ -745,15 +1717,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/app-csproj/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/app-csproj/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/application-metadata/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/application-metadata/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/</loc>
   </url>
   
   <url>
@@ -761,7 +1733,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/</loc>
   </url>
   
   <url>
@@ -773,7 +1745,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/apptemplates/asp.net/</loc>
   </url>
   
   <url>
@@ -781,19 +1753,29 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/authentication/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/authentication/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/authentication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/authentication/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authentication/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/authentication/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/authentication/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/authentication/</loc>
   </url>
   
   <url>
@@ -801,27 +1783,37 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/authentication-api/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/authentication-api/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/authorization/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/authorization/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/authorization/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/authorization/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authorization/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authorization/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/authorization/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/authorization/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/authorization/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/authorization/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/authorization-rules/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/</loc>
   </url>
   
   <url>
@@ -829,15 +1821,29 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/backend/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/process/auto-delete/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/process/auto-delete/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/process/auto-delete/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/backupandrecovery/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/designer/backend/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/</loc>
   </url>
   
   <url>
@@ -849,11 +1855,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/bpmn/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/bpmn/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/branching/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/branching/</loc>
   </url>
   
   <url>
@@ -861,19 +1867,49 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/v3/breaking-changes/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-frontend/v3/breaking-changes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-frontend/v3/breaking-changes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-frontend/v3/breaking-changes/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/breaking-changes/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/older/breaking-changes/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/breaking-changes/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/v3/breaking-changes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v3/breaking-changes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v3/breaking-changes/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v4/breaking-changes/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/v4/breaking-changes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v4/breaking-changes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v4/breaking-changes/"
+                />
   </url>
   
   <url>
@@ -881,23 +1917,37 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/build_and_test/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/build_and_test/build/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/build_and_test/build/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/c-sharp/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/c-sharp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/calculationhandler/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/calculationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/logic/calculation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/calculation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/calculation/"
+                />
   </url>
   
   <url>
@@ -919,10 +1969,6 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/</loc>
-  </url>
-  
-  <url>
     <loc>https://docs.altinn.studio/tags/checklist/</loc>
   </url>
   
@@ -935,23 +1981,51 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/</loc>
+    <loc>https://docs.altinn.studio/community/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/computing/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/conceptual/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/infrastructure/computing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/configuration/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/data/conceptual/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/apptemplates/asp.net/configuration/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/development/api/consume/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/api/consume/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/api/consume/"
+                />
   </url>
   
   <url>
@@ -959,7 +2033,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/contexthandler/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/</loc>
   </url>
   
   <url>
@@ -971,19 +2045,33 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/customizing/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/process/customize/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/process/customize/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/process/customize/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/dashboard/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/apptemplates/asp.net/customizing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/data/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/dashboard/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/data/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/data/</loc>
   </url>
   
   <url>
@@ -991,15 +2079,29 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/datareporting/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/datareporting/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/data-modeling/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/data-modeling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/data-storage/</loc>
+    <loc>https://docs.altinn.studio/app/development/logic/dataprocessing/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/dataprocessing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/dataprocessing/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/data-storage/</loc>
   </url>
   
   <url>
@@ -1011,7 +2113,49 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/deployment/</loc>
+    <loc>https://docs.altinn.studio/app/testing/local/debug/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/local/debug/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/local/debug/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/api/authentication/delegate-scopes/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/authentication/delegate-scopes/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/authentication/delegate-scopes/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/maintainance/dependencies/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/maintainance/dependencies/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/maintainance/dependencies/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/deployment/</loc>
   </url>
   
   <url>
@@ -1019,7 +2163,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/deployment/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/softwareconfiguration/deployment/</loc>
   </url>
   
   <url>
@@ -1027,27 +2171,33 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/designer/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/designer/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-studio/designer/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/development/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/nonsolutionspecific/development/</loc>
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/tags/development/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/development/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/development/"
+                />
   </url>
   
   <url>
@@ -1055,7 +2205,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/docker/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/docker/</loc>
   </url>
   
   <url>
@@ -1063,7 +2213,21 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/encryption/</loc>
+    <loc>https://docs.altinn.studio/app/development/logic/dynamic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/dynamic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/dynamic/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/encryption/</loc>
   </url>
   
   <url>
@@ -1071,7 +2235,21 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/environments/</loc>
+    <loc>https://docs.altinn.studio/app/testing/local/apitests/user/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/local/apitests/user/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/local/apitests/user/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/environments/</loc>
   </url>
   
   <url>
@@ -1079,19 +2257,29 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/integration/events/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/events/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/events/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/events/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/events/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/events/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/events/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/events/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/events/</loc>
   </url>
   
   <url>
@@ -1099,27 +2287,37 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/design/farger/</loc>
+    <loc>https://docs.altinn.studio/app/development/api/expose/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/api/expose/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/api/expose/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/features/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/features/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/apptemplates/asp.net/files/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/apptemplates/asp.net/files/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/flight-rules/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/flight-rules/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/eus-rest/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/app-api/eus-rest/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/form-layout/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/form-layout/</loc>
   </url>
   
   <url>
@@ -1127,11 +2325,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/front-end-designsystem/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/frontend/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/frontend/</loc>
   </url>
   
   <url>
@@ -1139,19 +2333,19 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/functional/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/requirements/functional/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/functional/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/functional/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/git/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/git/</loc>
   </url>
   
   <url>
@@ -1159,11 +2353,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/gitea/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/gitea/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/gitea/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/gitea/</loc>
   </url>
   
   <url>
@@ -1171,35 +2365,55 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/go/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/go/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/grafana/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/grafana/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/fields/grouping/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/fields/grouping/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/fields/grouping/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/helm/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/contributing/handbook/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/contributing/handbook/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/helptext/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/helm/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/hugo/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/helptext/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/design/illustrasjoner/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/hugo/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/infrastructure/</loc>
   </url>
   
   <url>
@@ -1207,7 +2421,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/infrastructuremgmt/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/</loc>
   </url>
   
   <url>
@@ -1223,55 +2437,79 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/instantiationhandler/</loc>
+    <loc>https://docs.altinn.studio/app/development/api/instance/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/api/instance/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/api/instance/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/instantiationhandler/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/integration/</loc>
+    <loc>https://docs.altinn.studio/app/development/logic/instantiation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/instantiation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/instantiation/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/tags/issues/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/integration/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/jest/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/integration/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/security/jwtcookie/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/jest/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/authentication/jwt-format/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/authorisation/json/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/known-issues/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/security/jwtcookie/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/react/architecture/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/authentication/jwt-format/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/kubernetes/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/react/architecture/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/kubernetes/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/oscloudplatform/kubernetes/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/kuberneteswrapper/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/kubernetes/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/loadbalancer/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/kuberneteswrapper/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/loadbalancer/</loc>
   </url>
   
   <url>
@@ -1279,7 +2517,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/local-dev/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/local-dev/</loc>
   </url>
   
   <url>
@@ -1287,15 +2525,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/logicexecution/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/logicexecution/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/data/logical/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/data/logical/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/markdown/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/markdown/</loc>
   </url>
   
   <url>
@@ -1303,11 +2541,25 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/material-ui/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/material-ui/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/monitoring/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/process/message/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/process/message/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/process/message/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/platformoperations/monitoring/</loc>
   </url>
   
   <url>
@@ -1315,11 +2567,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/network/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/infrastructure/network/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/nginx/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/nginx/</loc>
   </url>
   
   <url>
@@ -1327,11 +2579,11 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/node-js/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/node-js/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/requirements/non_functional/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/requirements/non_functional/</loc>
   </url>
   
   <url>
@@ -1339,11 +2591,25 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/nonsolutionspecific/operations/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/nonsolutionspecific/operations/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/oscloudplatform/</loc>
+    <loc>https://docs.altinn.studio/app/testing/local/apitests/org/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/local/apitests/org/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/local/apitests/org/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/oscloudplatform/</loc>
   </url>
   
   <url>
@@ -1351,23 +2617,33 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pap/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/pap/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-studio/designer/pap/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/pdf/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/pdf/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/pdf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/pdf/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/pdf/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/pdf/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/pdf/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/pdf/</loc>
   </url>
   
   <url>
@@ -1375,23 +2651,23 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pdp/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/security/pep/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/security/pep/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pep/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/pep/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/pip/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/pip/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/</loc>
   </url>
   
   <url>
@@ -1399,35 +2675,35 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/platformoperations/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/platformoperations/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/prefill/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/prefill/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/presentation/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/presentation/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/platform/presentation/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/platform/presentation/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/process/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/processing/process/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/app/app-backend/process/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/app/app-backend/process/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/define-process/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/define-process/</loc>
   </url>
   
   <url>
@@ -1435,23 +2711,33 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/processhandling/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/processhandling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/processing/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/processing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/profile/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/profile/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/profile/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/profile/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/profile/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/profile/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/profile/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/profile/</loc>
   </url>
   
   <url>
@@ -1463,23 +2749,23 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/projectmanagement/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/projectmanagement/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/prometheus/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/prometheus/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/prp/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/prp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/quality/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/quality/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/react/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/react/</loc>
   </url>
   
   <url>
@@ -1487,15 +2773,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/reactapp/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/reactapp/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/receipt/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/receipt/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/receipt/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/receipt/</loc>
   </url>
   
   <url>
@@ -1503,19 +2789,29 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/react/redux/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/react/redux/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/register/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/register/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/register/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/register/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/register/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/register/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/register/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/register/</loc>
   </url>
   
   <url>
@@ -1523,7 +2819,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/</loc>
   </url>
   
   <url>
@@ -1531,19 +2827,19 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-studio/repositories/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-studio/repositories/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-studio/repositories/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-studio/repositories/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-apps/app/app-api/org-rest/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-apps/app/app-api/org-rest/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/reusable-resources/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/reusable-resources/</loc>
   </url>
   
   <url>
@@ -1551,7 +2847,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-apps/routing/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-apps/routing/</loc>
   </url>
   
   <url>
@@ -1559,7 +2855,21 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/rule-handler/</loc>
+    <loc>https://docs.altinn.studio/app/development/configuration/authorisation/rules/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/authorisation/rules/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/authorisation/rules/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/rule-handler/</loc>
   </url>
   
   <url>
@@ -1567,19 +2877,33 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/computing/scaling/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/infrastructure/computing/scaling/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/integration/events/scenarios/</loc>
+    <loc>https://docs.altinn.studio/api/scenarios/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/scenarios/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/scenarios/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/runtime/security/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/integration/events/scenarios/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/security/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/security/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/security/</loc>
   </url>
   
   <url>
@@ -1587,27 +2911,41 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/service-configurations/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/service-configurations/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/serviceimplementation/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/serviceimplementation/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/servicemetadata/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/servicemetadata/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/servicemodel/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/servicemodel/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/servicemodelxsd/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/capabilities/devops/softwareconfiguration/</loc>
+    <loc>https://docs.altinn.studio/app/development/ux/fields/settings/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/ux/fields/settings/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/ux/fields/settings/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/softwareconfiguration/</loc>
   </url>
   
   <url>
@@ -1615,7 +2953,7 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/</loc>
   </url>
   
   <url>
@@ -1623,19 +2961,29 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/storage/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/storage/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/storage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/storage/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/construction/altinn-platform/storage/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/storage/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/infrastructure/storage/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/infrastructure/storage/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-platform/storage/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/storage/</loc>
   </url>
   
   <url>
@@ -1643,19 +2991,39 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/storage-interfaces/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/storage-interfaces/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/storage-interfaces/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/studio/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/studio/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/studio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/studio/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/stylecop/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/stylecop/</loc>
   </url>
   
   <url>
@@ -1663,11 +3031,31 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/altinn-api/platform-api/swagger/</loc>
+    <loc>https://docs.altinn.studio/api/platform/swagger/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/platform/swagger/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/platform/swagger/"
+                />
   </url>
   
   <url>
     <loc>https://docs.altinn.studio/tags/swagger/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/swagger/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/swagger/"
+                />
   </url>
   
   <url>
@@ -1685,15 +3073,29 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/technology/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/technology/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/technology/"
+                />
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/tech/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/terms/</loc>
+    <loc>https://docs.altinn.studio/technology/terms/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/terraform/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/terraform/</loc>
   </url>
   
   <url>
@@ -1701,15 +3103,29 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/app/testing/local/testusers/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/testing/local/testusers/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/testing/local/testusers/"
+                />
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/tags/testing/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/text/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/text/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/theming/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/theming/</loc>
   </url>
   
   <url>
@@ -1722,14 +3138,24 @@
   
   <url>
     <loc>https://docs.altinn.studio/tags/todo/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/todo/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/todo/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/traefik/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/traefik/</loc>
   </url>
   
   <url>
@@ -1737,11 +3163,15 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/development/handbook/troubleshooting/</loc>
+    <loc>https://docs.altinn.studio/tags/translate-to-english/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/typescript/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/troubleshooting/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/tools/typescript/</loc>
   </url>
   
   <url>
@@ -1749,7 +3179,21 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/build-app/ui-designer/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/app/getting-started/navigation/designer/ui-editor/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/navigation/designer/ui-editor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/navigation/designer/ui-editor/"
+                />
   </url>
   
   <url>
@@ -1761,11 +3205,25 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/repos/structure/validationhandler/</loc>
+    <loc>https://docs.altinn.studio/app/development/logic/validation/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/validation/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/validation/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/solutions/altinn-studio/designer/functional/version-control/</loc>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/validationhandler/</loc>
+  </url>
+  
+  <url>
+    <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/version-control/</loc>
   </url>
   
   <url>
@@ -1773,35 +3231,57 @@
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/toolsandframeworks/vs-code/</loc>
+    <loc>https://docs.altinn.studio/technology/tools/vs-code/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-frontend/v3/whats-new/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-frontend/v3/whats-new/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-frontend/v3/whats-new/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-frontend/v3/whats-new/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/older/whats-new/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/older/whats-new/</loc>
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v3/whats-new/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/v3/whats-new/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v3/whats-new/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v3/whats-new/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/app-nuget/v4/whats-new/</loc>
+    <loc>https://docs.altinn.studio/community/changelog/app-nuget/v4/whats-new/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/app-nuget/v4/whats-new/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/app-nuget/v4/whats-new/"
+                />
   </url>
   
   <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/v2/whats-new/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/changelog/storage-interfaces/v3/whats-new/</loc>
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/teknologi/altinnstudio/architecture/components/application/solution/altinn-platform/authorization/xacml/</loc>
+    <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/</loc>
   </url>
   
   <url>

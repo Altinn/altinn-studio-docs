@@ -57,14 +57,13 @@ if(host != "localhost")
           <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
           <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
             <ul id="exCollapsingNavbar">
-              <li class="d-md-none dropdown">
-<a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
   Language
 </a>
 <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/">
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
-        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+        <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
     </a><a aria-hidden="true" class="dropdown-item" href="/nb/">
       <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
       <p>
@@ -72,27 +71,31 @@ if(host != "localhost")
     </a></div>
 </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="/design/">design</a>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline " href="/teknologi/">technology</a>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="/innhold/">content</a>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
               </li>
+              
             </ul>
           </div>
 
         </nav> 
         <ul class="nav nav-pills a-header-options" id="nav-list">
-          <li class="nav-item dropdown d-none d-md-block">
-<a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
   Language
 </a>
 <div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/">
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
-        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+        <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
     </a><a aria-hidden="true" class="dropdown-item" href="/nb/">
       <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
       <p>
@@ -120,151 +123,135 @@ if(host != "localhost")
   </div>
 </div>
 <div class="container pt-2 pt-md-3 pt-lg-5">
-    <div class="row adocs-featuredBlocks">
-        <div class="col-12 col-lg-4 mb-5">
-            <a href="/design/" class="a-illustrationLink">
-                <h2 class="a-h3">How we design</h2>
-                <p class="a-js-truncate-2">Here you can find design principles, visual profile, brand and personality.</p>
-                <div class="a-illustration-icon">
-                    <img src="/images/forsideillustrasjon_design.svg">
-                    <div class="a-illustration-overlay">
-                        <span class="sr-only">How we design</span>
+    <div class="row adocs-featuredBlocks"><div class="col-12 col-lg-4 mb-5">
+    <a href="/app/" class="a-illustrationLink">
+        <h2 class="a-h3">Create your first app</h2>
+        <p class="a-js-truncate-2">Create simple or advanced containerized applications with React and .NET Core.</p>
+        <div class="a-illustration-icon">
+            <img src="/images/forsideillustrasjon_utvikling.svg">
+            <div class="a-illustration-overlay">
+                <span class="sr-only">Create your first app</span>
+            </div>
+        </div>
+    </a>
+    <div class="a-list-container mb-2 mx-auto mx-lg-2">
+        <ul class="a-list a-list-noIcon">
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/app/getting-started/" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Getting started with Altinn Studio
+                        </div>
                     </div>
-                </div>
-            </a>
-            <div class="a-list-container mb-2 mx-auto mx-lg-2">
-                <ul class="a-list a-list-noIcon">
-                    <li class="a-dotted a-clickable a-list-hasRowLink">
-                        <a href="/design/designprinsipper/" class="a-list-rowLink">
-                            <div class="row">
-                                <div class="col">
-                                    Design principles
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="a-dotted a-clickable a-list-hasRowLink">
-                        <a href="/design/designsystem" class="a-list-rowLink">
-                            <div class="row">
-                                <div class="col">
-                                    Design system
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="a-dotted a-clickable a-list-hasRowLink">
-                        <a href="/design/figma/" class="a-list-rowLink">
-                            <div class="row">
-                                <div class="col">
-                                    Getting started with Figma
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-5">
-            <a href="/teknologi/" class="a-illustrationLink">
-                <h2 class="a-h3">How we develop</h2>
-                <p class="a-js-truncate-2">Discover our technical solutions, the architecture and how we do development.</p>
-                <div class="a-illustration-icon">
-                    <img src="/images/forsideillustrasjon_utvikling.svg">
-                    <div class="a-illustration-overlay">
-                        <span class="sr-only">How we develop</span>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/app/development/" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            App development
+                        </div>
                     </div>
-                </div>
-            </a>
-            <div class="a-list-container mb-2 mx-auto mx-lg-2">
-                <ul class="a-list a-list-noIcon">
-                <li class="a-dotted a-clickable a-list-hasRowLink">
-                        <a href="/teknologi/generell-systemdokumentasjon" class="a-list-rowLink">
-                            <div class="row">
-                                <div class="col">
-                                    Architecture and infrastructure
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="a-dotted a-clickable a-list-hasRowLink">
-                        <a href="/teknologi/altinnstudio/" class="a-list-rowLink">
-                            <div class="row">
-                                <div class="col">
-                                    Altinn Studio
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="a-dotted a-clickable a-list-hasRowLink">
-                        <a href="/teknologi/front-end-designsystem/" class="a-list-rowLink">
-                            <div class="row">
-                                <div class="col">
-                                    Front-end design system
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-12 col-lg-4 mb-5">
-              <a href="/innhold/" class="a-illustrationLink">
-                  <h2 class="a-h3">How we write</h2>
-                  <p class="a-js-truncate-2">Tips and guidance important for finding and understanding the content you write.</p>
-                  <div class="a-illustration-icon">
-                      <img src="/images/forsideillustrasjon_skrive.svg">
-                      <div class="a-illustration-overlay">
-                          <span class="sr-only">How we write</span>
-                      </div>
-                  </div>
-              </a>
-              <div class="a-list-container mb-2 mx-auto mx-lg-2">
-                  <ul class="a-list a-list-noIcon">
-                      <li class="a-dotted a-clickable a-list-hasRowLink">
-                          <a href="/innhold/altinn.no/" class="a-list-rowLink">
-                              <div class="row">
-                                  <div class="col">
-                                    Writing guides for altinn.no
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li class="a-dotted a-clickable a-list-hasRowLink">
-                          <a href="/innhold/altinndigital.no/" class="a-list-rowLink">
-                              <div class="row">
-                                  <div class="col">
-                                    Writing guides for altinndigital.no
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                      <li class="a-dotted a-clickable a-list-hasRowLink">
-                          <a href="/innhold/universell-utforming-for-innhold/" class="a-list-rowLink">
-                              <div class="row">
-                                  <div class="col">
-                                    Universal design
-                                  </div>
-                              </div>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-
-      <div class="adocs-caseBlock a-bgBlueDark">
-    <div class="row mx-sm-0 mb-6 mb-lg-8">
-        <div class="col-12 col-md-5 p-0">
-            <div class="">
-                <img src="/images/altinndigitalutvikling.svg" class="mx-4 mt-4" alt="Illustrasjon for Utviklingsguider">
-            </div>
-        </div>
-        <div class="col-12 col-md-7 d-flex flex-column align-self-center pl-3 pl-md-5 pl-lg-0 pr-4 pr-lg-8">
-            <h2 class="a-fontSizeXL mb-1"> Are you going to modernise your digital services using Altinn?</h2>
-            <p class="a-fontSizeS mb-4">Find our development guides on <a href="https://www.altinndigital.no/utvikling/">altinn digital</a></p>
-        </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/api/" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            APIs
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
     </div>
- </div>
+</div><div class="col-12 col-lg-4 mb-5">
+    <a href="/community/" class="a-illustrationLink">
+        <h2 class="a-h3">Altinn is open source</h2>
+        <p class="a-js-truncate-2">Code, backlogs and documentation, everything we do is open source on GitHub.</p>
+        <div class="a-illustration-icon">
+            <img src="/images/forsideillustrasjon_github.svg" style="background-color: white;">
+            <div class="a-illustration-overlay">
+                <span class="sr-only">Altinn is open source</span>
+            </div>
+        </div>
+    </a>
+    <div class="a-list-container mb-2 mx-auto mx-lg-2">
+        <ul class="a-list a-list-noIcon">
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/community/about/" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            About Altinn
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/community/contributing/" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Contributing
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="https://github.com/Altinn/altinn-studio" target="_blank" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            GitHub (code and backlog)
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div><div class="col-12 col-lg-4 mb-5">
+    <a href="/technology" class="a-illustrationLink">
+        <h2 class="a-h3">The architecture</h2>
+        <p class="a-js-truncate-2">Both Altinn itself, and your apps, are now running as micro services in Kubernetes.</p>
+        <div class="a-illustration-icon">
+            <img src="/images/forsideillustrasjon_design.svg">
+            <div class="a-illustration-overlay">
+                <span class="sr-only">The architecture</span>
+            </div>
+        </div>
+    </a>
+    <div class="a-list-container mb-2 mx-auto mx-lg-2">
+        <ul class="a-list a-list-noIcon">
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/technology/architecture/principles" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Principles
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/technology/solutions" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Solutions
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/technology/tools" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Tools and frameworks
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+        
 
       <div class="adocs-scrollcontainer d-none">
         <div class="row">
@@ -291,7 +278,7 @@ if(host != "localhost")
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-next" href="/design/" title="Slik designer vi" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-next" href="/app/" title="Creating apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div></section>
         </div> 

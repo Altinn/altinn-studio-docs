@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An instance is a metadata container that is used to track the status and progress of one interaction between an app user and owner.">
+
+<title>Instance – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/api/models/instance/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
+  </ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo" style="background-color:white; padding: 0.2em;">
+            <img style="vertical-align: bottom;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo" class="an-logo adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/api/models/instance/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/api/models/instance/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
+              </li>
+              
+            </ul>
+          </div>
+
+        </nav> 
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/api/models/instance/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/api/models/instance/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+</header>
+
+
+<div class="container pt-2 pt-md-3 pt-lg-5">
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+            <div class="col-sm-12"><nav id="sidebar" class=""><div class="highlightable">
+    <div id="header-wrapper"><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script></div>
+    <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/app/"><span>Apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/first-time-setup/"><span>Opprette bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/create-app/"><span>Opprette app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/migrate-services/"><span>Migrere tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/"><span>Navigasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/"><span>Tilganger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/data-model/"><span>Datamodell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/prefill/"><span>Preutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/options/"><span>Kodelister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/attachments/"><span>Vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/"><span>Brukergrensesnitt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/"><span>Sider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/navigation/"><span>Navigasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/tracks/"><span>Sporvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/summary/"><span>Oppsummering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/layout-sets/"><span>Flere skjema</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/"><span>Felter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/"><span>Gruppering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/setup/"><span>Oppsett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/repeating/"><span>Repeterende</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/alternatives/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/settings/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/texts/"><span>Tekster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/widgets/"><span>Widgets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/"><span>Logikk</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/instantiation/"><span>Instansiering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/calculation/"><span>Kalkuleringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/datafields/"><span>Datafelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/auto-delete/"><span>Automatisk sletting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/message/"><span>Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/customize/"><span>Tilpasse visninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/secrets/"><span>Hemmeligheter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/stateless/"><span>Stateless</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/expose/"><span>Eksponere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/instance/"><span>Instans</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/consume/"><span>Konsumere</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/"><span>Lokalt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/org/"><span>Org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/user/"><span>Sluttbruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/"><span>Produksjonssetting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/"><span>Lanserte tjenester</span><sup>NY</sup></a></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>Applikasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/id-porten/"><span>ID-porten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/"><span>Om Altinn</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li><li class="dd-item">
+          <a href="/nb/community/about/slide/">
+            <span>Presentasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/community/contributing/intro/">
+            <span>Intro for utviklere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/presentations/"><span>Altinn kaffe</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Tech</span></a></li></ul>
+  </div>
+</nav>
+
+<section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links"><a href='/nb/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/api/models/'>Modeller</a> <span class='adocs-breadcrumb-divider'> / </span> Instance</span>
+            </div>
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">Instance</h1>
+              <p class="a-leadText" id="leadText">An instance is a metadata container that is used to track the status and progress of one interaction between an app user and owner.</p><h2>På denne siden:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#instance">Instance</a></li>
+    <li><a href="#instanceowner">InstanceOwner</a></li>
+    <li><a href="#instancestatus">InstanceStatus</a></li>
+    <li><a href="#completeconfirmation">CompleteConfirmation</a></li>
+    <li><a href="#datavalues">DataValues</a></li>
+    <li><a href="#processstate">ProcessState</a></li>
+    <li><a href="#processelementinfo">ProcessElementInfo</a></li>
+    <li><a href="#resourcelinks">ResourceLinks</a></li>
+    <li><a href="#complete-example">Complete example</a></li>
+  </ul>
+</nav>
+
+
+
+
+<h2 id="instance">Instance</h2>
+<p>The Instance model is the main model of an instance. An instance can be regarded as an envelope or folder where data is collected and exchanged between the application user and owner. The instance document is a way for Altinn and external parties to track the state of one specific data exchange.</p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>A gobally unique id for the instance. The value has two parts separated by a &lsquo;/&rsquo; character. The first part is the internal unique id of the instance owner and the second part is a generated UUID value.</td>
+</tr>
+<tr>
+<td>instanceOwner</td>
+<td>A complex type identifying the owner of the instance. See <a href="#instanceowner">InstanceOwner</a></td>
+</tr>
+<tr>
+<td>appId</td>
+<td>The id for the app the instance is associated with. The value has two parts separated by a &lsquo;/&rsquo; character. The first part is the short name/identifier of the owner of the app and the second part is the app name.</td>
+</tr>
+<tr>
+<td>org</td>
+<td>The short name of the app owner.</td>
+</tr>
+<tr>
+<td>selfLinks</td>
+<td>A complex type containing a set of named URLs. See <a href="#resourcelinks">ResourceLinks</a></td>
+</tr>
+<tr>
+<td>dueBefore</td>
+<td>This can be use by app owner to indicate a deadline for when the instance must be completed and submitted by a user that can represent the instance owner.</td>
+</tr>
+<tr>
+<td>visibleAfter</td>
+<td>This can be used by app owner to have an instance become visible for app users at a given date and time. This way an instance can be created in advance and populated with data before being available to an application user.</td>
+</tr>
+<tr>
+<td>process</td>
+<td>A complex type tracking the process state of the instance. See <a href="#processstate">ProcessState</a></td>
+</tr>
+<tr>
+<td>status</td>
+<td>A complex type with more state data. See <a href="#instancestatus">InstanceStatus</a></td>
+</tr>
+<tr>
+<td>completeConfirmations</td>
+<td>A list of complete confirmations. See <a href="#completeconfirmation">CompleteConfirmation</a></td>
+</tr>
+<tr>
+<td>data</td>
+<td>A list of data elements. This include all forms, attachments and other data types being collected. See <a href="../data-element">DataElement</a></td>
+</tr>
+<tr>
+<td>presentationTexts</td>
+<td>A dictionary with text values extracted from forms that are saved on the instance. Values are extracted based on PresentationField values stored in the application metadata document. Also see <a href="../app-metadata#presentationfield">PresentationField</a></td>
+</tr>
+<tr>
+<td>dataValues</td>
+<td>A dictionary with data values extracted from forms that are saved on the instance. Values are extracted based on configured data fields in the applicationmetadata document. Also see <a href="../app-metadata#datafield">DataField</a></td>
+</tr>
+<tr>
+<td>created</td>
+<td>The date and time when the instance was first initialized.</td>
+</tr>
+<tr>
+<td>createdBy</td>
+<td>An idenfificator indicating who it was that created the instance.</td>
+</tr>
+<tr>
+<td>lastChanged</td>
+<td>The date and time when the instance was last changed.</td>
+</tr>
+<tr>
+<td>lastChangedBy</td>
+<td>An idenfificator indicating who it was that made the last change to the instance.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="instanceowner">InstanceOwner</h2>
+<p>The InstanceOwner model is a simple definition whose only porpose is to hold a universally known identification value of the instance owner.</p>
+<h3 id="properties-1">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>partyId</td>
+<td>A value used internally by Altinn to uniquely identify an entity across Organisations, Persons and Self identified users.</td>
+</tr>
+<tr>
+<td>personNumber</td>
+<td>If the instance owner is a person this field is populated with a person number from the National Population Register in Norway.</td>
+</tr>
+<tr>
+<td>organisationNumber</td>
+<td>If the instance owner is an organisation this field is populated with an organisation number from the National Unit Register in Norway.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="instancestatus">InstanceStatus</h2>
+<p>The InstanceStatus model is used to hold key status related metadata about an instance. All information is also tracked through instance events, but this is an easily accessible summary of the last events.</p>
+<h3 id="properties-2">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>archived</td>
+<td>The date and time for when an archived instance was archived.</td>
+</tr>
+<tr>
+<td>softDeleted</td>
+<td>The date and time for when a deleted instance were moved to the recycle bin.</td>
+</tr>
+<tr>
+<td>hardDeleted</td>
+<td>The date and time for when an instance became unrecoverable through any API. A few days later the instance and all its data will be physically deleted from storage and truly unrecoverable.</td>
+</tr>
+<tr>
+<td>readStatus</td>
+<td>A field indicating whether an application user has opened the instance at any time. Used internally by the message box to indicate read status of elements.</td>
+</tr>
+<tr>
+<td>substatus</td>
+<td>A property with human readable status information that will be displayed by the message box.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="completeconfirmation">CompleteConfirmation</h2>
+<p>The CompleteConfirmation model is a simple type for holding information about who and when a given stakeholder has told Altinn that the instance is no longer needed. They have obtained all the information they needed from the instance. The instance can be deleted permanently should an application user decide to to so. At the time of writing an instance can have only one stakeholder and that is the Application Owner.</p>
+<h2 id="datavalues">DataValues</h2>
+<p>Data values are values either extracted from the instance data or other sources. The values are stored with the instance for easy access and can be used for example in routing logic on the receiving end.</p>
+<p>While data fields configured in the <a href="../app-metadata/_index.md#datafield">app metadata file</a> will be extracted and automatically picked up by the application, there is also the option of adding values manually by using the UpdataDataValues method from the IInstance interface. You can mix and match data fields from configuration and by manually adding. It&rsquo;s the UpdateDataValues method that is called under the hood in both cases. UpdateDataValues merges the incoming collection with what&rsquo;s allready stored. However if yo specify the same id it will be overwritten by one or the other and you have no guaranties on which is stored.</p>
+<p>Values passed in to the UpdataDataValues can have any source and is not restricted to data stored in the application. It can be called from any place but it&rsquo;s recomended to not call it more than strictly required. A good place is to override the RunProcessTaskEnd method from AppBase causing the method to be called when a task is completed.</p>
+<h3 id="properties-3">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stakeholderId</td>
+<td>The short name of an application owner.</td>
+</tr>
+<tr>
+<td>confirmedOn</td>
+<td>The date and time for when the application owner confirmed that they consider the instance as no longer needed in Altinn.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="processstate">ProcessState</h2>
+<p>The process state model keeps track of the process of a specific instance.</p>
+<h3 id="properties-4">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>started</td>
+<td>Date and time for when the process was initially started.</td>
+</tr>
+<tr>
+<td>startEvent</td>
+<td>The name of the start event triggering the beginning of the process.</td>
+</tr>
+<tr>
+<td>currentTask</td>
+<td>A complex model keeping track of current process step. See <a href="#processelementinfo">ProcessElementInfo</a></td>
+</tr>
+<tr>
+<td>ended</td>
+<td>Date and time for when the process was finished.</td>
+</tr>
+<tr>
+<td>endEvent</td>
+<td>The name of the end event that the process ended with.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="processelementinfo">ProcessElementInfo</h2>
+<p>The process element info holds information about the current task in the process.</p>
+<h3 id="properties-5">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>flow</td>
+<td>A step counter that increase every time the process moves forward.</td>
+</tr>
+<tr>
+<td>started</td>
+<td>Date and time for when the instance entered the current step.</td>
+</tr>
+<tr>
+<td>elementId</td>
+<td>The unique id of current process task.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The name of the task. (Human readable.)</td>
+</tr>
+<tr>
+<td>altinnTaskType</td>
+<td>The type of task.</td>
+</tr>
+<tr>
+<td>validated</td>
+<td>A date and time for when the instance was validated as well as a value indicating if the task can be completed without additional changes and a new validation.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="resourcelinks">ResourceLinks</h2>
+<p>The resource link model is should have a collection of URLs that can be used to obtain a copy of the instance document through different API. The propose is to make it easy to switch between API. Primarily when the original was obtain from the storage instance query API and you need to use the app API to perform changes on the instance.</p>
+<h3 id="properties-6">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apps</td>
+<td>Contains a URL for the endpoint to use to obtain a copy of the current instance document through the app API.</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>Contains a URL for the endpoint to use to obtain a copy of the current instance document through the Platform Storage API.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="complete-example">Complete example</h2>
+<p>This example was created by instantiating an app running locally on a development machine using LocalTest. The process is at first step, Task_1, and it has a single data element which is the main form of the app.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
+    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+        <span style="color:#ff79c6">&#34;partyId&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>,
+        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;01039012345&#34;</span>,
+        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
+    },
+    <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier&#34;</span>,
+    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;ttd&#34;</span>,
+    <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
+        <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
+        <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#ff79c6">null</span>,
+    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#ff79c6">null</span>,
+    <span style="color:#ff79c6">&#34;process&#34;</span>: {
+        <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:41.5662973Z&#34;</span>,
+        <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
+        <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
+            <span style="color:#ff79c6">&#34;flow&#34;</span>: <span style="color:#bd93f9">2</span>,
+            <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:41.5664762Z&#34;</span>,
+            <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+            <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Utfylling&#34;</span>,
+            <span style="color:#ff79c6">&#34;altinnTaskType&#34;</span>: <span style="color:#f1fa8c">&#34;data&#34;</span>,
+            <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#ff79c6">null</span>,
+            <span style="color:#ff79c6">&#34;validated&#34;</span>: {
+                <span style="color:#ff79c6">&#34;timestamp&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-20T13:00:05.1800273+00:00&#34;</span>,
+                <span style="color:#ff79c6">&#34;canCompleteTask&#34;</span>: <span style="color:#ff79c6">true</span>
+            }
+        },
+        <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#ff79c6">null</span>,
+        <span style="color:#ff79c6">&#34;endEvent&#34;</span>: <span style="color:#ff79c6">null</span>
+    },
+    <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#ff79c6">null</span>,
+    <span style="color:#ff79c6">&#34;completeConfirmations&#34;</span>: <span style="color:#ff79c6">null</span>,
+    <span style="color:#ff79c6">&#34;data&#34;</span>: [
+        {
+            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
+            <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;bd9edd59-b18c-4726-aa9e-6b150eade814&#34;</span>,
+            <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES&#34;</span>,
+            <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#ff79c6">null</span>,
+            <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
+            <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/bli-applikasjonseier/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
+            <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
+                <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/ttd/bli-applikasjonseier/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>,
+                <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinn3local.no/storage/api/v1/instances/1337/bd9edd59-b18c-4726-aa9e-6b150eade814/data/8a8a01ae-9533-4aa9-b914-8ab0fae6ea0d&#34;</span>
+            },
+            <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">401</span>,
+            <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>,
+            <span style="color:#ff79c6">&#34;refs&#34;</span>: [],
+            <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:43.1089008Z&#34;</span>,
+            <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#ff79c6">null</span>,
+            <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:43.1089008Z&#34;</span>,
+            <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#ff79c6">null</span>
+        }
+    ],
+    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:42.1972942Z&#34;</span>,
+    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>,
+    <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2020-11-18T15:56:42.1972942Z&#34;</span>,
+    <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;1337&#34;</span>
+}
+</code></pre></div>
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+                </div>
+              </div>
+
+              <div id="navigation">
+                  <a class="nav nav-prev" href="/nb/api/models/app-metadata/" title="App metadata"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/api/models/data-element/" title="DataElement" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/models/instance/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://altinnstudio.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="/js/custom.js"></script></body>
+</html>

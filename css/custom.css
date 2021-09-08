@@ -97,16 +97,11 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
     border-bottom: none;
 }
 
-body.adocs-design .a-globalNav-main li a[href*='/design/'] {
-    border-bottom: solid white 3px;
-}
-
-body.adocs-teknologi .a-globalNav-main li a[href*='/teknologi/'] {
-    border-bottom: solid white 3px;
-}
-
-body.adocs-innhold .a-globalNav-main li a[href*='/innhold/'] {
-    border-bottom: solid white 3px;
+body.adocs-apps .a-globalNav-main li a[href*='/app/'],
+body.adocs-apis .a-globalNav-main li a[href*='/api/'],
+body.adocs-comm .a-globalNav-main li a[href*='/community/'],
+body.adocs-tech .a-globalNav-main li a[href*='/technology/'] {
+    border-bottom: solid white 3px !important;
 }
 
 /* Jumbotron */

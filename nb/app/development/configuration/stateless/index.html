@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hvordan legge inn konfigurasjon for å styre oppførsel ved applikasjonens oppstart">
+
+<title>Stateless applikasjon (innsynstjeneste) – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/app/development/configuration/stateless/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
+  </ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo" style="background-color:white; padding: 0.2em;">
+            <img style="vertical-align: bottom;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo" class="an-logo adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/configuration/stateless/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/configuration/stateless/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
+              </li>
+              
+            </ul>
+          </div>
+
+        </nav> 
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/configuration/stateless/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/configuration/stateless/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+</header>
+
+
+<div class="container pt-2 pt-md-3 pt-lg-5">
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+            <div class="col-sm-12"><nav id="sidebar" class=""><div class="highlightable">
+    <div id="header-wrapper"><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script></div>
+    <ul id="docsmenu" class="topics">
+      <li class="dd-item parent">
+        <a href="/nb/app/"><span>Apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/first-time-setup/"><span>Opprette bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/create-app/"><span>Opprette app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/migrate-services/"><span>Migrere tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/"><span>Navigasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/"><span>Tilganger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/data-model/"><span>Datamodell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/prefill/"><span>Preutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/options/"><span>Kodelister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/attachments/"><span>Vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/"><span>Brukergrensesnitt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/"><span>Sider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/navigation/"><span>Navigasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/tracks/"><span>Sporvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/summary/"><span>Oppsummering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/layout-sets/"><span>Flere skjema</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/"><span>Felter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/"><span>Gruppering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/setup/"><span>Oppsett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/repeating/"><span>Repeterende</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/alternatives/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/settings/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/texts/"><span>Tekster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/widgets/"><span>Widgets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/"><span>Logikk</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/instantiation/"><span>Instansiering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/calculation/"><span>Kalkuleringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/datafields/"><span>Datafelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/auto-delete/"><span>Automatisk sletting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/message/"><span>Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/customize/"><span>Tilpasse visninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/secrets/"><span>Hemmeligheter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/nb/app/development/configuration/stateless/"><span>Stateless</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/expose/"><span>Eksponere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/instance/"><span>Instans</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/consume/"><span>Konsumere</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/"><span>Lokalt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/org/"><span>Org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/user/"><span>Sluttbruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/"><span>Produksjonssetting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/"><span>Lanserte tjenester</span><sup>NY</sup></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>Applikasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/id-porten/"><span>ID-porten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/"><span>Om Altinn</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li><li class="dd-item">
+          <a href="/nb/community/about/slide/">
+            <span>Presentasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/community/contributing/intro/">
+            <span>Intro for utviklere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/presentations/"><span>Altinn kaffe</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Tech</span></a></li></ul>
+  </div>
+</nav>
+
+<section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links"><a href='/nb/app/'>Apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/'>Utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/configuration/'>Konfigurasjon</a> <span class='adocs-breadcrumb-divider'> / </span> Stateless</span>
+            </div>
+          </div><div id="body-inner"><h1 class="a-fontBold">Stateless applikasjon (innsynstjeneste)</h1>
+              <p class="a-leadText" id="leadText">Hvordan legge inn konfigurasjon for å styre oppførsel ved applikasjonens oppstart</p><h2>På denne siden:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduksjon-til-stateless-applikasjoner">Introduksjon til stateless applikasjoner</a></li>
+    <li><a href="#konfigurasjon">Konfigurasjon</a></li>
+    <li><a href="#datapopulering">Datapopulering</a></li>
+    <li><a href="#autorisasjon-med-tredjepartsløsninger">Autorisasjon med tredjepartsløsninger</a></li>
+  </ul>
+</nav>
+
+
+
+
+<h2 id="introduksjon-til-stateless-applikasjoner">Introduksjon til stateless applikasjoner</h2>
+<p>En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data,
+verken skjemadata eller metadata om instanser av applikasjonen. 
+Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs
+evt. presenterer data fra en tredjepart basert på hvem brukeren er.</p>
+<h2 id="konfigurasjon">Konfigurasjon</h2>
+<div class="notices warning" >
+<p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.</p>
+<p><strong>MERK:</strong> for å benytte denne funksjonaliteten må man versjon &gt;= 4.5.2 av nugetpakkene <code>Altinn.App.PlatformServices</code>, <code>Altinn.App.Common</code> og <code>Altinn.App.Api</code>.</p>
+</div>
+<p>I applikasjonsmetadataen er det mulig styre oppførselen en applikasjonen har under oppstart. Om man ønsker at applikasjonen skal oppføre seg som en tilstandsløs applikasjon vil det nå være mulig.
+For en slik applikasjon vil det ikke bli lagret noe data eller metadata, og applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker. Dette tilsvarer en innsynstjeneste i Altinn 2.</p>
+<p>Konfigurasjonen av dette gjøres i <code>applicationmetadata.json</code>. Eksempel:</p>
+<pre><code class="language-json{hl_lines=[31]}" data-lang="json{hl_lines=[31]}">{
+  &quot;id&quot;: &quot;ttd/stateless-app-demo&quot;,
+  &quot;org&quot;: &quot;ttd&quot;,
+  &quot;title&quot;: {
+    &quot;nb&quot;: &quot;Stateless App Demo&quot;
+  },
+  &quot;dataTypes&quot;: [
+    {
+      &quot;id&quot;: &quot;ref-data-as-pdf&quot;,
+      &quot;allowedContentTypes&quot;: [
+        &quot;application/pdf&quot;
+      ],
+      &quot;maxCount&quot;: 0,
+      &quot;minCount&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;Stateless&quot;,
+      &quot;allowedContentTypes&quot;: [
+        &quot;application/xml&quot;
+      ],
+      &quot;appLogic&quot;: {
+        &quot;autoCreate&quot;: true,
+        &quot;classRef&quot;: &quot;Altinn.App.Models.StatelessV1&quot;
+      },
+      &quot;taskId&quot;: &quot;Task_1&quot;,
+      &quot;maxCount&quot;: 1,
+      &quot;minCount&quot;: 1
+    }
+  ],
+  ...
+  &quot;onEntry&quot;: { &quot;show&quot;: &quot;stateless&quot; } // legg til denne linjen
+}
+
+</code></pre><p>I feltet <code>onEntry.show</code> har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets <a href="../../ux/ui-editor/multiple-layoutsets/#oppsett">her.</a></p>
+<p>Layout-settet man referer til her blir så benyttet som visningen brukeren blir presentert for i det man navigerer til applikasjonen.</p>
+<p>Konfigurasjonsfilen <code>layout-sets.json</code> kan opprettes dersom den ikke finnes fra før av. Den skal ligge i mappen <code>App/ui</code>.
+I <code>layout-sets.json</code> legger man så inn det aktuelle settet man referer til fra <code>applicationmetadata.json</code>, eksempel:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;sets&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;stateless&#34;</span>,
+        <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;Stateless&#34;</span>
+      }
+    ]
+  }
+</code></pre></div><p>I eksempelet over så referer layout-settet <code>stateless</code> til datamodellen <code>Stateless</code>. Eksempel app-struktur på en applikasjon som har satt opp på denne måten:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">├───App
+    ├───config
+    ├───logic
+    ├───models
+    │       Stateless.cs
+    │       Stateless.metadata.json
+    │       Stateless.schema.json
+    │       Stateless.xsd
+    ├───ui
+        │   layout-sets.json
+        │
+        └───stateless
+            |   RuleConfiguration.json
+            │   RuleHandler.js
+            │   Settings.json
+            │
+            └───layouts
+                  FormLayout.json
+</code></pre></div><p><code>FormLayout.json</code> vil så kunne settes opp på samme måte som en vanlig applikasjon, og vil støtte samtlige komponenter som er mulig å sette opp i en vanlig app, med unntak av:</p>
+<ul>
+<li>Filopplaster</li>
+<li>Knapp</li>
+</ul>
+<p>App frontend vil så skjønne ut fra konfigurasjonen i <code>applicationmetadata.json</code> at den ikke skal instansiere, og hente ned de aktuelle layout-filene og den tilkoblede datamodellen og presentere dette til sluttbrukeren.</p>
+<h2 id="datapopulering">Datapopulering</h2>
+<p>Når man benytter en stateless datatype så vil man kunne populere datamodellen i det app-frontend spør om skjemadataen.</p>
+<p>Datapopuleringen skjer i to steg på det initielle kallet fra frontend (GET):</p>
+<ol>
+<li>Prefill, les mer om dette <a href="../../data/prefill/">her.</a></li>
+<li>Dataprossesering, les mer om dette <a href="../../logic/dataprocessing/">her.</a></li>
+</ol>
+<p>På påfølgende oppdateringer på samme skjemadata (POST) så vil man ikke kjøre prefill en gang til, men kalkuleringen trigges. Dette muligjør manipulering av dataen basert på brukerens input selv i en stateless tilstand.</p>
+<p>Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataRead(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+{  
+    <span style="color:#ff79c6">if</span> (instance.GetType() == <span style="color:#ff79c6">typeof</span>(StatelessV1))
+    {
+        StatelessV1 form = (StatelessV1) data;
+        <span style="color:#6272a4">// Her kan du gjøre det du ønsker, f.eks et API-kall 
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// om tjenesten skal oppføre seg som en innsynstjeneste.
+</span><span style="color:#6272a4"></span>        form.Fornavn = <span style="color:#f1fa8c">&#34;Test&#34;</span>;
+        form.Etternavn = <span style="color:#f1fa8c">&#34;Testesten&#34;</span>;
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>
+    }
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+}
+</code></pre></div><h2 id="autorisasjon-med-tredjepartsløsninger">Autorisasjon med tredjepartsløsninger</h2>
+<p>Tilgangsstyring for stateless applikasjoner kan løses med <a href="../authorisation">standard app-autorisasjon</a> 
+der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytte tjenesten.
+Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
+Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.</p>
+<p>I eksempelet nedenfor benyttes Finanstilsynets API til å fastslå om virksomheten som repesenteres av en bruker i Altinn 
+har tilstrekkelige lisenser til å benytte tjenesten.</p>
+<figure><a href="extra-credentials-example-allowed.png"><img src="extra-credentials-example-allowed.png" alt="GUI for autorisert bruker" title="GUI for autorisert bruker" /></a><figcaption><h4>GUI for autorisert bruker</h4></figcaption></figure>
+<figure><a href="extra-credentials-example-denied.png"><img src="extra-credentials-example-denied.png" alt="GUI for ikke-autorisert bruker" title="GUI for ikke-autorisert bruker" /></a><figcaption><h4>GUI for ikke-autorisert bruker</h4></figcaption></figure>
+<p>Kildekoden til applikasjonen som eksempelet er basert på finnes <a href="https://altinn.studio/repos/ttd/extra-credentials-demo">her</a>. (Krever bruker i Altinn Studio.)</p>
+<p>Videre i eksempelet vil betegnelsen <em>bruker</em> være synonymt med en virksomhet representert ved en person i Altinn.</p>
+<ol>
+<li>
+<p><strong>Utvid datamodellen med felter for autorisasjon</strong></p>
+<p>I tillegg til et felt for å ta input fra bruker og et felt for å vise fram resultatet,
+har vi i dette eksempelet et felt for å holde på infomasjon om hvorvidt brukeren er autentisert 
+og et felt for å holde på en dynamisk feilmelding.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;searchString&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;result&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;userAuthorized&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:boolean&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;errorMessage&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;/xs:sequence&gt;</span>
+</code></pre></div><p><em>Hopp til steg 4 dersom applikasjonen kun skal benyttes via API.</em></p>
+</li>
+<li>
+<p><strong>Legg til felt for å vise feilmelding i brukergrensesnittet</strong></p>
+<p>I brukergrensesnittet til applikasjonen er det tre komponenter. 
+Et søkefelt for brukerinput, et tekstfelt dedikert til å vise fram søkeresultatet og en paragraf som er reservert for feilmeldinger.</p>
+<figure><a href="extra-credentials-example-layout.png"><img src="extra-credentials-example-layout.png" alt="GUI i Altinn Studio" title="GUI i Altinn Studio" /></a><figcaption><h4>GUI i Altinn Studio</h4></figcaption></figure>
+<p>Komponentene er koblet til datamodell og tekstressurs på følgende måte i <code>FormLayout.json</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;layout&#34;</span>: [
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;sokeBoks&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;SearchString&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;searchString&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
+    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
+  },
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;resultatBoks&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;TextArea&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Result&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;result&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
+    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">true</span>
+  },
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;errorBoks&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Paragraph&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;ErrorMessage&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
+    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">true</span>
+  }
+]
+</code></pre></div></li>
+<li>
+<p><strong>Legg inn dynamikkregler for å vise/skjule felter</strong></p>
+<p>Vi bruker dynamikkregler til å vise/skjule felter avhengig av om en bruker en autorisert eller ikke.</p>
+<p>Det er lagt inn en dynamikkregel i <code>RuleHandler.js</code> som sjekker om et felt i datamodellen har verdien <code>false</code>. 
+Konfigurasjon av regler er beskrevet nærmere <a href="../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul">her</a>.</p>
+<p>I <code>RuleConfiguration.json</code> ser man hvordan regelen benyttes.
+Dersom inputverdien fra datamodellen <code>userAuthorized</code> er false, så vises errorBoks-komponenten,
+mens det motsatte skjer med søke- og resultatfeltene, disse skjules.</p>
+<p>Default oppførsel vil være det motsatte, altså at søk og resultat er synlig, mens error feltet er skjult.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+    <span style="color:#ff79c6">&#34;ruleConnection&#34;</span>: {},
+    <span style="color:#ff79c6">&#34;conditionalRendering&#34;</span>: {
+      <span style="color:#ff79c6">&#34;e2dd8ff0-f8f1-11eb-b2bc-5b40a942c260&#34;</span>: {
+        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;isFalse&#34;</span>,
+        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
+          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;userAuthorized&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;selectedAction&#34;</span>: <span style="color:#f1fa8c">&#34;Show&#34;</span>,
+        <span style="color:#ff79c6">&#34;selectedFields&#34;</span>: {
+          <span style="color:#ff79c6">&#34;e2dd68e0-f8f1-11eb-b2bc-5b40a942c260&#34;</span>: <span style="color:#f1fa8c">&#34;errorBoks&#34;</span>
+        }
+      },
+      <span style="color:#ff79c6">&#34;e2dd8ff0-f8f1-11eb-b2bc-5b40a942c261&#34;</span>: {
+        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;isFalse&#34;</span>,
+        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
+          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;userAuthorized&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;selectedAction&#34;</span>: <span style="color:#f1fa8c">&#34;Hide&#34;</span>,
+        <span style="color:#ff79c6">&#34;selectedFields&#34;</span>: {
+          <span style="color:#ff79c6">&#34;e2dd68e0-f8f1-11eb-b2bc-5b40a942c261&#34;</span>: <span style="color:#f1fa8c">&#34;sokeBoks&#34;</span>,
+          <span style="color:#ff79c6">&#34;e2dd68e0-f8f1-11eb-b2bc-5b40a942c262&#34;</span>: <span style="color:#f1fa8c">&#34;resultatBoks&#34;</span>
+        }
+      }
+    }
+  }
+}
+</code></pre></div></li>
+<li>
+<p><strong>Legg til tekstressurser</strong></p>
+<p>I tillegg til navnet på tjenesten er det lagt inn tre tekstressurser.</p>
+<p>Tekstressursen for feilmelding inneholder en placeholder for navnet på brukeren. 
+Variabelen <code>errorMessage</code> vil populeres i datamodellen når det registreres at en bruker ikke er autorisert til å bruke tjenesten.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ErrorMessage&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;{0} mangler rettigheter til å bruke denne tjenesten.&#34;</span>,
+  <span style="color:#ff79c6">&#34;variables&#34;</span>: [
+    {
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;errorMessage&#34;</span>,
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.lookup&#34;</span>
+    }
+  ]
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Result&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Resultat&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;SearchString&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Legg inn søkeord her:&#34;</span>
+},
+</code></pre></div></li>
+<li>
+<p><strong>Implementér autorisasjonslogikk</strong></p>
+<p>Alt av dataprosessering for stateless applikasjoner ligger i filen <code>App\logic\DataProcessing\DataProcessingHandler.cs</code>, 
+og det er her autorisasjonslogikken skal plasseres.</p>
+<p>Logikk for å slå opp data og autorisere brukeren ligger i metoden <code>ProcessDataRead</code>.
+Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input data.</p>
+<pre><code class="language-{cs," data-lang="{cs,"> public async Task&lt;bool&gt; ProcessDataRead(Instance instance, Guid? dataId, object data)
+ {
+     lookup lookup = (lookup)data;
+        
+     // Check if user is authorized to use service
+     Party party = await _register.GetParty(int.Parse(instance.InstanceOwner.PartyId)); 
+
+     if (string.IsNullOrEmpty(party.OrgNumber) || !await _finanstilsynet.HasReqiuiredLicence(_settings.LicenseCode, party.OrgNumber))
+     {
+         lookup.userAuthorized = false;
+         lookup.errorMessage = $&quot;{party.Name}&quot;;
+         return true;
+     }         
+         
+     // logic for looking up data
+     if (!string.IsNullOrEmpty(lookup.searchString))
+     {
+         lookup.result = $&quot;You typed \&quot;{lookup.searchString}\&quot;. This is the result.&quot;;
+         return true;
+     }
+
+     return false;
+ }
+</code></pre><p>Metoden starter med logikk for å hente ut skjemadataen slik at denne kan benyttes 
+videre i metoden.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup lookup = (lookup)data 
+</code></pre></div><p>Videre kommer logikken for å sjekke om brukeren er autorisert.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// Check if user is authorized to use service
+</span><span style="color:#6272a4"></span>Party party = <span style="color:#ff79c6">await</span> _register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
+
+<span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(party.OrgNumber) || !<span style="color:#ff79c6">await</span> _finanstilsynet.HasReqiuiredLicence(_settings.LicenseCode, party.OrgNumber))
+{
+    lookup.userAuthorized = <span style="color:#ff79c6">false</span>;
+    lookup.errorMessage = <span style="color:#f1fa8c">$&#34;{party.Name}&#34;</span>;
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+}   
+</code></pre></div><p>For å vite hvem brukeren er, benyttes identifikatoren <code>instance.InstanceOwner.PartyId</code>, denne får vi som input til metoden.
+Vi slår opp i Altinn sitt register for å hente ut party-objektet som representerer brukeren. Dette kan inneholde en organisasjon eller en person.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Party party = <span style="color:#ff79c6">await</span> _register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
+</code></pre></div><p>Det gjøres to sjekker for å avgjøre om en bruker er autorisert eller ikke. 
+Først verifiseres det at party-objektet har definert et organisasjonsnummer,
+dersom dette ikke er tilfellet er brukeren en person, og dermed ikke autorisert.</p>
+<p>Den andre sjekken kaller <code>_finanstilsynet.HasReqiuiredLicence()</code>, en metode som slår opp i finanstilsynets API for å avgjøre om en organisasjonen har en gitt lisens.
+Implementasjonen av servicen er tilgjengelig <a href="https://altinn.studio/repos/ttd/extra-credentials-demo/src/branch/master/App/services/FinanstilsynetService.cs">her</a>.</p>
+<p>Dersom ingen av sjekkene er vellykkede populeres to felter i datamodellen;</p>
+<ul>
+<li>en indikator på at brukeren ikke er autorisert</li>
+<li>en feilmelding, her kun navnet til brukeren</li>
+</ul>
+<p>og <code>true</code> returneres for å indikere at dataverdier har blitt oppdatert.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup.userAuthorized = <span style="color:#ff79c6">false</span>;
+lookup.errorMessage = <span style="color:#f1fa8c">$&#34;{party.Name}&#34;</span>;
+<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</code></pre></div><p>Helt til slutt kommer logikken for å vise fram et resultat basert på søkestrengen.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// logic for looking up data
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(lookup.searchString))
+{
+    lookup.result = <span style="color:#f1fa8c">$&#34;You typed \&#34;</span>{lookup.searchString}\<span style="color:#f1fa8c">&#34;. This is the result.&#34;</span>;
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+}
+
+<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</code></pre></div><p><code>lookup.result</code> populeres med verdien av oppslaget, i dette tilfellet skriver vi bare søkestrenger tilbake til bruker.
+Igjen returneres <code>true</code> for å indikere at en dataverdi er blitt endret, og <code>false</code> dersom dette ikke er tilfellet.</p>
+</li>
+</ol>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+                </div>
+              </div>
+
+              <div id="navigation">
+                  <a class="nav nav-prev" href="/nb/app/development/configuration/settings/" title="Settings og miljøvariabler"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/api/" title="API" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/configuration/stateless/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://altinnstudio.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="/js/custom.js"></script></body>
+</html>

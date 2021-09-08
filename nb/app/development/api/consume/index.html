@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="En applikasjon kan konsumere åpne og lukkede API som er tilgjengelig via Internett.">
+
+<title>Konsumere APIer i en app – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/app/development/api/consume/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li>
+  </ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo" style="background-color:white; padding: 0.2em;">
+            <img style="vertical-align: bottom;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo" class="an-logo adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/api/consume/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/api/consume/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
+              </li>
+              
+            </ul>
+          </div>
+
+        </nav> 
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/api/consume/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/api/consume/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+</header>
+
+
+<div class="container pt-2 pt-md-3 pt-lg-5">
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+            <div class="col-sm-12"><nav id="sidebar" class=""><div class="highlightable">
+    <div id="header-wrapper"><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Søk...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script></div>
+    <ul id="docsmenu" class="topics">
+      <li class="dd-item parent">
+        <a href="/nb/app/"><span>Apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/intro/"><span>Introduksjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/first-time-setup/"><span>Opprette bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/create-app/"><span>Opprette app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/migrate-services/"><span>Migrere tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/"><span>Navigasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/"><span>Tilganger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/data-model/"><span>Datamodell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/prefill/"><span>Preutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/options/"><span>Kodelister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/data/attachments/"><span>Vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/"><span>Brukergrensesnitt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/"><span>Sider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/navigation/"><span>Navigasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/tracks/"><span>Sporvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/summary/"><span>Oppsummering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pages/layout-sets/"><span>Flere skjema</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/"><span>Felter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/"><span>Gruppering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/setup/"><span>Oppsett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/repeating/"><span>Repeterende</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/grouping/alternatives/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/fields/settings/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/texts/"><span>Tekster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/ux/widgets/"><span>Widgets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/"><span>Logikk</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/instantiation/"><span>Instansiering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/calculation/"><span>Kalkuleringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/datafields/"><span>Datafelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/auto-delete/"><span>Automatisk sletting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/message/"><span>Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/process/customize/"><span>Tilpasse visninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/secrets/"><span>Hemmeligheter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/stateless/"><span>Stateless</span></a></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/nb/app/development/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/expose/"><span>Eksponere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/api/instance/"><span>Instans</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/nb/app/development/api/consume/"><span>Konsumere</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/"><span>Lokalt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/org/"><span>Org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/apitests/user/"><span>Sluttbruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/deployment/"><span>Produksjonssetting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/launched-apps/"><span>Lanserte tjenester</span><sup>NY</sup></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>Applikasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/id-porten/"><span>ID-porten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/"><span>Om Altinn</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li><li class="dd-item">
+          <a href="/nb/community/about/slide/">
+            <span>Presentasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/community/contributing/intro/">
+            <span>Intro for utviklere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/"><span>Håndbok</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/presentations/"><span>Altinn kaffe</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Tech</span></a></li></ul>
+  </div>
+</nav>
+
+<section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links"><a href='/nb/app/'>Apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/'>Utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/development/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> Konsumere</span>
+            </div>
+          </div><div id="body-inner"><h1 class="a-fontBold">Konsumere APIer i en app</h1>
+              <p class="a-leadText" id="leadText">En applikasjon kan konsumere åpne og lukkede API som er tilgjengelig via Internett.</p><h2>På denne siden:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#kalle-et-eksternt-api-direkte-i-en-metode">Kalle et eksternt API direkte i en metode</a></li>
+    <li><a href="#konsumere-rest-api-uten-klientbibliotek">Konsumere REST API uten klientbibliotek</a></li>
+    <li><a href="#konsumere-api-fra-applikasjonslogikkapi-kontrollere">Konsumere API fra applikasjonslogikk/API kontrollere</a></li>
+  </ul>
+</nav>
+
+
+
+
+<p>ASP.NET Core har gode muligheter til å konsumere forskjellige typer API.</p>
+<p>Dette kan være nyttig dersom man ønsker å eksponere organisasjonens
+egne API via en app eller har behov for hjelp fra eksterne API i applikasjonslogikken.</p>
+<p>Det er mange måter å gjøre dette på, og på denne siden finner du eksempler på
+hvordan man kan konsumere REST APIer i en app.</p>
+<h2 id="kalle-et-eksternt-api-direkte-i-en-metode">Kalle et eksternt API direkte i en metode</h2>
+<p>I dette eksemplet brukes et åpent API til å kalkulere et felt i skjemaet basert på input i et annet felt.
+Klientkallet implementeres direkte i kalkuleringsmetoden og det implementeres en modell for å kunne parse API responsen.</p>
+<p><a href="https://restcountries.eu/">REST Countries</a> tilbyr et API som returnerer fakta om et land dersom man sender med navnet på landet.
+Vi ønsker å lage en app som tilbyr en bruker å søke opp hovedstaden i et land
+ved å bruke deres åpne API-endepunkt: <code>https://restcountries.eu/rest/v2/name/</code>.</p>
+<figure><a href="capital-app-example.gif"><img src="capital-app-example.gif" alt="App example animation" title="App example" /></a><figcaption><h4>App example</h4></figcaption></figure>
+<p>API-kallet er lagt til i kalkuleringsmetoden i <code>App/logic/CalculationHandler</code>
+slik at et nytt søk trigges hver gang man endrer et felt i appen.</p>
+<p>Forutsetninger:</p>
+<ol>
+<li>Det er laget en app i Altinn Studio.</li>
+<li>Det er lastet opp en datamodell som beskriver verden bestående av land med et navn og en hovedstad.</li>
+<li>Autogenerert C# klasse av datamodellen er utvidet med JSON-property tags for å kunne gjenbruke klassen i parsing av API responsen.</li>
+</ol>
+<p>Implementasjon:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">/// &lt;summary&gt;
+</span><span style="color:#6272a4">/// Perform calculations and update data model
+</span><span style="color:#6272a4">/// &lt;/summary&gt;
+</span><span style="color:#6272a4">/// &lt;param name=&#34;instance&#34;&gt;The data&lt;/param&gt;
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; Calculate(<span style="color:#8be9fd">object</span> instance)
+{
+    <span style="color:#ff79c6">if</span> (instance.GetType() == <span style="color:#ff79c6">typeof</span>(Verden))
+    {
+        Verden verden = (Verden)instance;
+        <span style="color:#8be9fd">string</span> navn = verden?.land?.Navn;
+
+        <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(navn))
+        {
+<span style="display:block;width:100%;background-color:#3d3f4a">            <span style="color:#ff79c6">using</span> var client = <span style="color:#ff79c6">new</span> HttpClient
+</span>            {
+                BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.eu/rest/v2/name/&#34;</span>);
+            };
+
+<span style="display:block;width:100%;background-color:#3d3f4a">            HttpResponseMessage response = <span style="color:#ff79c6">await</span> client.GetAsync(navn);
+</span>
+            <span style="color:#ff79c6">if</span> (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                <span style="color:#8be9fd">var</span> land = <span style="color:#ff79c6">await</span> response.Content.ReadAsAsync&lt;List&lt;Land&gt;&gt;();
+                Land l = land.FirstOrDefault();
+                verden.land.Hovedstad = l.Hovedstad;
+            }
+            <span style="color:#ff79c6">else</span> {
+                verden.land.Hovedstad =
+                    <span style="color:#f1fa8c">$&#34;Hmm.. Du skrev {navn}. Er det et land?&#34;</span>;
+            }
+        }
+    }
+    
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+}
+</code></pre></div><h2 id="konsumere-rest-api-uten-klientbibliotek">Konsumere REST API uten klientbibliotek</h2>
+<p>I dette eksemplet setter man opp en klient som konsumerer et åpent API til bruk i ulike deler av appen.
+Vi dekker oppsett av et klient interface, implementasjon av klient, tilgjengeliggjøring av klienten i appen og dependency injection inn i ulike klasser.</p>
+<p>Hvis REST API&rsquo;et ikke tilbyr et klientbibliotek for sitt API må dette opprettes som en del av applikasjonen eller som et ekstern bibliotek.</p>
+<h3 id="definere-api-modeller">Definere API modeller</h3>
+<p>Hvis API-et som skal konsumeres er dokumentert ved hjelp av Swagger eller OpenAPI kan man relativt lett genere C# klasser basert på datamodellen.
+Dette kan gjøres manuelt eller ved hjelp av verktøy som tilbyr slik generering.
+Bruker man Visual Studio kan man konvertere dette direkte. Velg &ldquo;Paste JSON as classes&rdquo;.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System;
+<span style="color:#ff79c6">using</span> System.Collections.Generic;
+<span style="color:#ff79c6">using</span> System.Linq;
+<span style="color:#ff79c6">using</span> System.Threading.Tasks;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.services.br.models
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Enhet</span>
+    {
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> organisasjonsnummer { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> navn { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> Organisasjonsform organisasjonsform { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> Adresse postadresse { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> registreringsdatoEnhetsregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIMvaregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> Naeringskode naeringskode1 { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">int</span> antallAnsatte { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> Adresse forretningsadresse { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> stiftelsesdato { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> Institusjonellsektorkode institusjonellSektorkode { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIForetaksregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIStiftelsesregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIFrivillighetsregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> sisteInnsendteAarsregnskap { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> konkurs { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> underAvvikling { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> underTvangsavviklingEllerTvangsopplosning { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> maalform { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> Links _links { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+    }
+}
+</code></pre></div><p>Eksempel modeller for API ses <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/models">her</a>.</p>
+<h3 id="definere-klient-interface">Definere Klient Interface</h3>
+<p>Det anbefales at det defineres et interface for klienten som skal kalle API. Dette gjør at man kan benytte seg av dependency injection 
+ved enhetstesting for å kunne mocke vekk API kall.  Definer interface som vist nedenfor.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.services.br.models;
+<span style="color:#ff79c6">using</span> System;
+<span style="color:#ff79c6">using</span> System.Collections.Generic;
+<span style="color:#ff79c6">using</span> System.Linq;
+<span style="color:#ff79c6">using</span> System.Threading.Tasks;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.services.br.client
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> IEnhetsregisteret
+    {
+        Task&lt;Enhet&gt; GetEnhetAsync(<span style="color:#8be9fd">string</span> orgnr);
+    }
+}
+</code></pre></div><p>Eksempel interface kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/client/IEnhetsregisteret.cs">her</a>.</p>
+<h3 id="implementere-klient">Implementere klient</h3>
+<p>Klienten er selve koden som gjøre kallene mot API og omformer resultatet til gitt datamodell.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.services.br.models;
+<span style="color:#ff79c6">using</span> Newtonsoft.Json;
+<span style="color:#ff79c6">using</span> System;
+<span style="color:#ff79c6">using</span> System.Collections.Generic;
+<span style="color:#ff79c6">using</span> System.Linq;
+<span style="color:#ff79c6">using</span> System.Net.Http;
+<span style="color:#ff79c6">using</span> System.Threading.Tasks;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.services.br.client
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">EnhetsregistreretCI</span> : IEnhetsregisteret
+    {
+        <span style="color:#ff79c6">private</span> HttpClient _apiClient;
+
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Enhet&gt; GetEnhetAsync(<span style="color:#8be9fd">string</span> orgnr)
+        {
+            <span style="color:#8be9fd">string</span> apiUrl = <span style="color:#f1fa8c">$&#34;enheter/&#34;</span> + orgnr;
+            <span style="color:#8be9fd">var</span> result = <span style="color:#ff79c6">new</span> Enhet();
+
+<span style="display:block;width:100%;background-color:#3d3f4a">            HttpResponseMessage respons = <span style="color:#ff79c6">await</span> ApiClient.GetAsync(apiUrl);
+</span>
+            <span style="color:#ff79c6">if</span> (respons.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                <span style="color:#8be9fd">string</span> data = respons.Content.ReadAsStringAsync().Result;
+<span style="display:block;width:100%;background-color:#3d3f4a">                result = JsonConvert.DeserializeObject&lt;Enhet&gt;(data);
+</span>            }
+
+            <span style="color:#ff79c6">return</span> result;
+        }
+
+        <span style="color:#ff79c6">public</span> HttpClient ApiClient
+        {
+            <span style="color:#ff79c6">get</span>
+            {
+                <span style="color:#ff79c6">if</span> (_apiClient != <span style="color:#ff79c6">null</span>)
+                {
+                    <span style="color:#ff79c6">return</span> _apiClient;
+                }
+
+                <span style="color:#8be9fd">string</span> url = <span style="color:#f1fa8c">&#34;https://data.brreg.no/enhetsregisteret/api/&#34;</span>;
+                _apiClient = GetNewHttpClient(url);
+
+                <span style="color:#ff79c6">return</span> _apiClient;
+            }
+        }
+
+        <span style="color:#ff79c6">private</span> HttpClient GetNewHttpClient(<span style="color:#8be9fd">string</span> apiEndpoint)
+        {
+            <span style="color:#8be9fd">var</span> httpClient = <span style="color:#ff79c6">new</span> HttpClient
+            {
+                BaseAddress = <span style="color:#ff79c6">new</span> Uri(apiEndpoint)
+            };
+
+            <span style="color:#ff79c6">return</span> httpClient;
+        }
+    }
+}
+</code></pre></div><p>Eksempel kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/client/EnhetsregistreretCI.cs">her</a>.</p>
+<h3 id="sett-opp-klient-i-applikasjon">Sett opp klient i applikasjon</h3>
+<p>Når tjenesten med interface og klient er implementert kan den settes opp for bruk av applikasjonen.</p>
+<p>Dette gjøres i <em>App/Startup.cs</em> hvor det settes opp interface og implementasjon av interface som tilbyr en gitt service til applikasjonen.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">// Custom service used by this application
+</span><span style="color:#6272a4"></span>services.AddTransient&lt;IEnhetsregisteret, EnhetsregistreretCI&gt;();
+</code></pre></div><p>Eksempel kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/Startup.cs">her</a></p>
+<h2 id="konsumere-api-fra-applikasjonslogikkapi-kontrollere">Konsumere API fra applikasjonslogikk/API kontrollere</h2>
+<p>For å få tak i service som er satt opp i applikasjonen må disse &ldquo;injectes&rdquo; inn i konstrukturøen på kontrolleren eller applikasjonslogikken.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+<span style="color:#ff79c6">using</span> Altinn.App.services.br.client;
+<span style="color:#ff79c6">using</span> Altinn.App.services.br.models;
+<span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Http;
+<span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Mvc;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.controllers
+{
+<span style="color:#50fa7b">    [ApiController]</span>
+<span style="color:#50fa7b">    [Route(&#34;{org}/{app}/enhetsregisteret&#34;)]</span>
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">EnhetsregisteretController</span> : ControllerBase
+    {
+        <span style="color:#ff79c6">private</span> IEnhetsregisteret _enhetsregisteret;
+
+        <span style="color:#ff79c6">public</span> EnhetsregisteretController(IEnhetsregisteret enhetsregisteret)
+        {
+<span style="display:block;width:100%;background-color:#3d3f4a">            _enhetsregisteret = enhetsregisteret;
+</span>        }
+<span style="color:#50fa7b">
+</span><span style="color:#50fa7b">        [HttpGet(&#34;enhet/{orgnr}&#34;)]</span>
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Enhet&gt;&gt; GetEnhet([FromRoute] <span style="color:#8be9fd">string</span> orgnr)
+        {
+<span style="display:block;width:100%;background-color:#3d3f4a">            Enhet enhet = <span style="color:#ff79c6">await</span> _enhetsregisteret.GetEnhetAsync(orgnr);
+</span>            <span style="color:#ff79c6">return</span> Ok(enhet);
+        }
+    }
+}
+</code></pre></div><p>Eksempel kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/EnhetsregisteretController.cs">her</a>.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+                </div>
+              </div>
+
+              <div id="navigation">
+                  <a class="nav nav-prev" href="/nb/app/development/api/instance/" title="Instans"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/testing/" title="Testing av apper" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/api/consume/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://altinnstudio.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="/js/custom.js"></script></body>
+</html>

@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How to add configuration to control behavior at the application startup.">
+
+<title>Stateless application (lookup-service) – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+    <link href="/css/horsey.css" rel="stylesheet">
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/app/development/configuration/stateless/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
+    <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
+  </ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/" class="a-globalNav-logo" style="background-color:white; padding: 0.2em;">
+            <img style="vertical-align: bottom;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo" class="an-logo adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="d-md-none dropdown"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/configuration/stateless/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/configuration/stateless/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
+              </li>
+              
+            </ul>
+          </div>
+
+        </nav> 
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+          <li class="nav-item dropdown d-none d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  Language
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle"><a aria-hidden="true" class="dropdown-item" href="/app/development/configuration/stateless/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/development/configuration/stateless/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
+    </a></div>
+</li>
+        </ul>
+      </div>
+    </div> 
+  </div> 
+</header>
+
+
+<div class="container pt-2 pt-md-3 pt-lg-5">
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+            <div class="col-sm-12"><nav id="sidebar" class=""><div class="highlightable">
+    <div id="header-wrapper"><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script src="/js/lunr.min.js"></script>
+<script src="/js/horsey.js"></script>
+<script>
+    var baseurl = "https:\/\/docs.altinn.studio\/";
+</script>
+<script src="/js/search.js"></script></div>
+    <ul id="docsmenu" class="topics">
+      <li class="dd-item parent">
+        <a href="/app/"><span>Apps</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/"><span>Getting started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/first-time-setup/"><span>Create user</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/create-app/"><span>Create app</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/migrate-services/"><span>Migrate services</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/access-management/"><span>Access</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/"><span>Navigation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/designer/ui-editor/"><span>UI editor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
+      <li class="dd-item">
+        <a href="/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/app/development/"><span>Development</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/data/data-model/"><span>Data model.</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/data/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/data/options/"><span>Code lists</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/data/attachments/"><span>Attachments</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/"><span>User interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/"><span>Pages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/navigation/"><span>Navigation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/tracks/"><span>Tracks</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pages/layout-sets/"><span>Layout sets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/"><span>Fields</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/"><span>Grouping</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/setup/"><span>Setup</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/repeating/"><span>Repeating</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/grouping/alternatives/"><span>Settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/fields/settings/"><span>Settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/texts/"><span>Texts</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/ux/widgets/"><span>Widgets</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/"><span>Logic</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/logic/generic/"><span>Generic</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/calculation/"><span>Calculations</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/dataprocessing/"><span>Data processing</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/dynamic/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/instantiation/"><span>Instantiation</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
+      <li class="dd-item parent">
+        <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/datafields/"><span>Data fields</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/presentationfields/"><span>Presentation fields</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/auto-delete/"><span>Automatic deletion</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/customize/"><span>Customize Views</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/process/message/"><span>Message</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/app/development/configuration/stateless/"><span>Stateless</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/development/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/api/consume/"><span>Consume</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/api/expose/"><span>Expose</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/api/instance/"><span>Instance</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/testing/local/"><span>Locally</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/testing/local/apitests/user/"><span>End user</span></a></li>
+      <li class="dd-item">
+        <a href="/app/testing/local/apitests/org/"><span>Org</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/app/testing/local/testusers/"><span>Test users</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/testing/deploy/"><span>In test environment</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/app/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/launched-apps/"><span>Launched apps</span><sup>NEW</sup></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/instances/"><span>Instances</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/data-elements/"><span>Data elements</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/stateless-data-elements/"><span>Stateless data elements</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/process/"><span>Process</span></a></li>
+      <li class="dd-item">
+        <a href="/api/apps/validation/"><span>Validation</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/instances/"><span>Instances</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/id-porten/"><span>ID-porten</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/delegate-scopes/"><span>Delegate API Access</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/models/"><span>Models</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/api/models/data-element/"><span>DataElement</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/scenarios/"><span>Scenarios</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/scenarios/authentication/"><span>Authentication</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/about/goals/"><span>Goals</span></a></li><li class="dd-item">
+          <a href="/community/about/slide/">
+            <span>Slides</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v4/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/older/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/community/contributing/intro/">
+            <span>Intro for developers</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/azure-devops/pipelines/"><span>Pipelines</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/app-template-and-deps/"><span>App template and deps</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/async-programming/"><span>Async programming</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/back-end/nuget-package/"><span>Nuget Package</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/general/"><span>Cheat Sheet</span></a></li><li class="dd-item">
+          <a href="/community/contributing/handbook/cosmosdb/">
+            <span>Cosmos DB</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/routine/"><span>Routines for development</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/new-component/"><span>Creating components</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/react/"><span>React</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/redux/"><span>Redux</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/debug/"><span>Debug</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/best-practices/"><span>Best practices</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/build/"><span>Build</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/component-library/"><span>Component Library</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/postmessage/"><span>Post Message</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/styling/"><span>Styling (css)</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/front-end/versioning/"><span>Versioning</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/cheatsheet/"><span>General</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/naming/"><span>Naming Conventions</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/loadbalancer/"><span>Nginx loadbalancing in studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/loadbalancer/ssl-certificate/"><span>Nginx SSL/TLS certificate</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/postgres/"><span>PostgreSQL</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/rest/"><span>RESTful APIs (Representation State Transfer)</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/nginx/"><span>Nginx routing</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/installation/"><span>Installation of Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/tls-configuration/"><span>TLS in Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/custom-resources/"><span>Traefik custom resources</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/community/contributing/handbook/securecoding/checklist/">
+            <span>Code Checklist</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/testcafe/"><span>Testcafe</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/testcafe/testcafehowto/"><span>Testcafe - Tests</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/wcag/"><span>WCAG testing</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/branching/"><span>Branching</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/flight-rules/"><span>Flight Rules</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/reusable-resources/"><span>Reusable resources</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
+      <li class="dd-item">
+        <a href="/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/community/presentations/"><span>Altinn Coffee</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/"><span>Tech</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/requirements/functional/"><span>Functional</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/requirements/non_functional/"><span>Non-Functional</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/principles/"><span>Principles</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/patterns/"><span>Patterns</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/appdeploy/"><span>App Build &amp; Deploy</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/appdevelopment/"><span>App Development</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/data/"><span>Data</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/integration/"><span>Integration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/integration/events/"><span>Event capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/capabilities/runtime/integration/events/scenarios/">
+            <span>Scenarios</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/presentation/"><span>Presentation</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/processing/"><span>Processing &amp; Execution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/processing/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/capabilities/runtime/processing/process/process_interaction/">
+            <span>Process Interaction</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/authentication-api/"><span>Authentication API</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/runtime/security/encryption/"><span>Encryption</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/analysisanddesign/"><span>Analysis &amp; Design</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/build_and_test/"><span>Build &amp; Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/build_and_test/build/"><span>Build process</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/environments/"><span>Environments</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/"><span>Platform Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/"><span>Infrastructure mgmt</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/platformoperations/monitoring/"><span>Monitoring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/projectmanagement/"><span>Project Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/quality/"><span>Quality Management</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/softwareconfiguration/"><span>Software Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/"><span>Altinn Studio</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/"><span>Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-apps/app/"><span>App</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/contexthandler/"><span>Context Handler</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pap/"><span>PAP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pdp/"><span>PDP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pep/"><span>PEP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/"><span>XACML</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-platform/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/"><span>PAP</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/designer/pap/xacmlpolicy/"><span>Policy</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/altinn-studio/repositories/"><span>Repositories</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/solution/local-dev/"><span>Local dev</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/"><span>Construction</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/applications/">
+            <span>Applications</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-studio/designer/frontend/structure/">
+            <span>Structure</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/designer/backend/"><span>Back-end</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/loadbalancer/"><span>Load balancer</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-studio/repositories/"><span>Repositories</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/"><span>App Backend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/applogic-events/"><span>AppLogic Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-backend/process/"><span>Process</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/"><span>App Frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/react/">
+            <span>React &#43; Redux</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/configuration/">
+            <span>Configuration files</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/features/">
+            <span>Features</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/structure/">
+            <span>Structure</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/altinn-apps/app/app-frontend/rendering/">
+            <span>Rendering</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-apps/routing/"><span>Routing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/receipt/"><span>Receipt</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/altinn-platform/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/construction/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/security/jwtcookie/">
+            <span>JWT</span></a></li><li class="dd-item">
+          <a href="/technology/architecture/components/application/construction/security/pep/">
+            <span>PEP</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/"><span>Non-Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/development/"><span>Development</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/operations/"><span>Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/data/conceptual/"><span>Conceptual</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/data/logical/"><span>Logical</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/"><span>Infrastructure</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/computing/"><span>Compute</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/computing/scaling/"><span>Scaling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/network/"><span>Network</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/infrastructure/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/datareporting/"><span>Data &amp; Reporting</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/logicexecution/"><span>Logic Execution</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/oscloudplatform/"><span>OS &amp; Cloud Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/oscloudplatform/kubernetes/"><span>Kubernetes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/"><span>Solutions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-restorage/"><span>Altinn ReStorage</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/app-api/"><span>App API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/app-api/eus-rest/"><span>For end-user systems</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/app-api/org-rest/"><span>REST-API for orgs</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/apptemplates/"><span>App templates</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/"><span>ASP.NET Web</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/configuration/">
+            <span>Configuration</span></a></li><li class="dd-item">
+          <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/customizing/">
+            <span>Customizing</span></a></li><li class="dd-item">
+          <a href="/technology/solutions/altinn-apps/app/apptemplates/asp.net/files/">
+            <span>Filestructure</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/features/"><span>Features</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/frontend/"><span>Frontend</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-apps/app/processhandling/"><span>Process handling</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/cli/"><span>Altinn CLI</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/receipt/"><span>Receipt</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-platform/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/"><span>Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/thirdpartytools/"><span>Third Party Tools</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/data-storage/"><span>Data Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/"><span>Designer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/"><span>Functionality</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/"><span>Building apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/api-expose/"><span>API expose</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/api-use/"><span>API use</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/code-editor/"><span>App logic</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/"><span>App Parameters</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/authorization-rules/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/data-modeling/"><span>Data modeling</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/helptext/"><span>Help texts</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/define-process/"><span>Process</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/text/"><span>Text</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/"><span>UI Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/">
+            <span>Components</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/deployment/"><span>Deploy</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/designer/functional/version-control/"><span>Version Control</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/"><span>Repos</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/functional/"><span>Functionality</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/"><span>Structure</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/app-csproj/"><span>App.csproj</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/application-metadata/"><span>applicationmetadata.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/calculationhandler/"><span>CalculationHandler.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/form-layout/"><span>FormLayout.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/instantiationhandler/"><span>InstansiationHandler.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/reactapp/"><span>react-app.js</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/rule-handler/"><span>RuleHandler.js</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/service-configurations/"><span>ServiceConfigurations.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/serviceimplementation/"><span>ServiceImplementation.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/servicemetadata/"><span>ServiceMetadata.json</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/servicemodel/"><span>ServiceModel.cs</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/"><span>ServiceModel.xsd</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/solutions/altinn-studio/repos/structure/validationhandler/"><span>ValidationHandler.cs</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/terms/"><span>Terms</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/tools/dotnet-core/"><span>.NET Core</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/alpine-linux/"><span>Alpine Linux</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/bpmn/"><span>BPMN</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/c-sharp/"><span>C#</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/docker/"><span>Docker</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/go/"><span>Go</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/grafana/"><span>Grafana</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/helm/"><span>Helm</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/hugo/"><span>Hugo</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/jest/"><span>Jest</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/kubernetes/"><span>Kubernetes</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/markdown/"><span>Markdown</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/material-ui/"><span>Material UI</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/nginx/"><span>Nginx</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/node-js/"><span>Node.js</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/prometheus/"><span>Prometheus</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/react/"><span>React</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/technology/tools/react/architecture/"><span>Kodearkitektur</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/react/redux/"><span>Redux</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/technology/tools/stylecop/"><span>StyleCop</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/terraform/"><span>Terraform</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/traefik/"><span>Traefik</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/typescript/"><span>TypeScript</span></a></li>
+      <li class="dd-item">
+        <a href="/technology/tools/vs-code/"><span>Visual Studio Code</span></a></li></ul></li></ul></li></ul>
+  </div>
+</nav>
+
+<section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">
+            <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links"><a href='/app/'>Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Stateless</span>
+            </div>
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Stateless application (lookup-service)</h1>
+              <p class="a-leadText" id="leadText">How to add configuration to control behavior at the application startup.</p><h2>On this page:</h2><nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduksjon-til-stateless-applikasjoner">Introduksjon til stateless applikasjoner</a></li>
+    <li><a href="#konfigurasjon">Konfigurasjon</a></li>
+    <li><a href="#datapopulering">Datapopulering</a></li>
+    <li><a href="#autorisasjon-med-tredjepartsløsninger">Autorisasjon med tredjepartsløsninger</a></li>
+  </ul>
+</nav>
+
+
+
+
+<h2 id="introduksjon-til-stateless-applikasjoner">Introduksjon til stateless applikasjoner</h2>
+<p>En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data,
+verken skjemadata eller metadata om instanser av applikasjonen. 
+Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs
+evt. presenterer data fra en tredjepart basert på hvem brukeren er.</p>
+<h2 id="konfigurasjon">Konfigurasjon</h2>
+<div class="notices warning" >
+<p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre.</p>
+<p><strong>MERK:</strong> for å benytte denne funksjonaliteten må man versjon &gt;= 4.5.2 av nugetpakkene <code>Altinn.App.PlatformServices</code>, <code>Altinn.App.Common</code> og <code>Altinn.App.Api</code>.</p>
+</div>
+<p>I applikasjonsmetadataen er det mulig styre oppførselen en applikasjonen har under oppstart. Om man ønsker at applikasjonen skal oppføre seg som en tilstandsløs applikasjon vil det nå være mulig.
+For en slik applikasjon vil det ikke bli lagret noe data eller metadata, og applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker. Dette tilsvarer en innsynstjeneste i Altinn 2.</p>
+<p>Konfigurasjonen av dette gjøres i <code>applicationmetadata.json</code>. Eksempel:</p>
+<pre><code class="language-json{hl_lines=[31]}" data-lang="json{hl_lines=[31]}">{
+  &quot;id&quot;: &quot;ttd/stateless-app-demo&quot;,
+  &quot;org&quot;: &quot;ttd&quot;,
+  &quot;title&quot;: {
+    &quot;nb&quot;: &quot;Stateless App Demo&quot;
+  },
+  &quot;dataTypes&quot;: [
+    {
+      &quot;id&quot;: &quot;ref-data-as-pdf&quot;,
+      &quot;allowedContentTypes&quot;: [
+        &quot;application/pdf&quot;
+      ],
+      &quot;maxCount&quot;: 0,
+      &quot;minCount&quot;: 0
+    },
+    {
+      &quot;id&quot;: &quot;Stateless&quot;,
+      &quot;allowedContentTypes&quot;: [
+        &quot;application/xml&quot;
+      ],
+      &quot;appLogic&quot;: {
+        &quot;autoCreate&quot;: true,
+        &quot;classRef&quot;: &quot;Altinn.App.Models.StatelessV1&quot;
+      },
+      &quot;taskId&quot;: &quot;Task_1&quot;,
+      &quot;maxCount&quot;: 1,
+      &quot;minCount&quot;: 1
+    }
+  ],
+  ...
+  &quot;onEntry&quot;: { &quot;show&quot;: &quot;stateless&quot; } // legg til denne linjen
+}
+
+</code></pre><p>I feltet <code>onEntry.show</code> har man mulighet til nå å referere til et layout-set som man ønsker skal vises under oppstarten av applkasjonen. Les mer om layout-sets <a href="../../ux/ui-editor/multiple-layoutsets/#oppsett">her.</a></p>
+<p>Layout-settet man referer til her blir så benyttet som visningen brukeren blir presentert for i det man navigerer til applikasjonen.</p>
+<p>Konfigurasjonsfilen <code>layout-sets.json</code> kan opprettes dersom den ikke finnes fra før av. Den skal ligge i mappen <code>App/ui</code>.
+I <code>layout-sets.json</code> legger man så inn det aktuelle settet man referer til fra <code>applicationmetadata.json</code>, eksempel:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;sets&#34;</span>: [
+      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;stateless&#34;</span>,
+        <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;Stateless&#34;</span>
+      }
+    ]
+  }
+</code></pre></div><p>I eksempelet over så referer layout-settet <code>stateless</code> til datamodellen <code>Stateless</code>. Eksempel app-struktur på en applikasjon som har satt opp på denne måten:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">├───App
+    ├───config
+    ├───logic
+    ├───models
+    │       Stateless.cs
+    │       Stateless.metadata.json
+    │       Stateless.schema.json
+    │       Stateless.xsd
+    ├───ui
+        │   layout-sets.json
+        │
+        └───stateless
+            |   RuleConfiguration.json
+            │   RuleHandler.js
+            │   Settings.json
+            │
+            └───layouts
+                  FormLayout.json
+</code></pre></div><p><code>FormLayout.json</code> vil så kunne settes opp på samme måte som en vanlig applikasjon, og vil støtte samtlige komponenter som er mulig å sette opp i en vanlig app, med unntak av:</p>
+<ul>
+<li>Filopplaster</li>
+<li>Knapp</li>
+</ul>
+<p>App frontend vil så skjønne ut fra konfigurasjonen i <code>applicationmetadata.json</code> at den ikke skal instansiere, og hente ned de aktuelle layout-filene og den tilkoblede datamodellen og presentere dette til sluttbrukeren.</p>
+<h2 id="datapopulering">Datapopulering</h2>
+<p>Når man benytter en stateless datatype så vil man kunne populere datamodellen i det app-frontend spør om skjemadataen.</p>
+<p>Datapopuleringen skjer i to steg på det initielle kallet fra frontend (GET):</p>
+<ol>
+<li>Prefill, les mer om dette <a href="../../data/prefill/">her.</a></li>
+<li>Dataprossesering, les mer om dette <a href="../../logic/dataprocessing/">her.</a></li>
+</ol>
+<p>På påfølgende oppdateringer på samme skjemadata (POST) så vil man ikke kjøre prefill en gang til, men kalkuleringen trigges. Dette muligjør manipulering av dataen basert på brukerens input selv i en stateless tilstand.</p>
+<p>Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataRead(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+{  
+    <span style="color:#ff79c6">if</span> (instance.GetType() == <span style="color:#ff79c6">typeof</span>(StatelessV1))
+    {
+        StatelessV1 form = (StatelessV1) data;
+        <span style="color:#6272a4">// Her kan du gjøre det du ønsker, f.eks et API-kall 
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">// om tjenesten skal oppføre seg som en innsynstjeneste.
+</span><span style="color:#6272a4"></span>        form.Fornavn = <span style="color:#f1fa8c">&#34;Test&#34;</span>;
+        form.Etternavn = <span style="color:#f1fa8c">&#34;Testesten&#34;</span>;
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>
+    }
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+}
+</code></pre></div><h2 id="autorisasjon-med-tredjepartsløsninger">Autorisasjon med tredjepartsløsninger</h2>
+<p>Tilgangsstyring for stateless applikasjoner kan løses med <a href="../authorisation">standard app-autorisasjon</a> 
+der man hved hjelp av Altinn-roller definerer hvem som har tilgang til å benytte tjenesten.
+Dersom man har behov for ytteligere sikring av tjenesten kan man implementere logikk for autorisasjon av brukere med tredjepartløsninger.
+Dette kan være API-er som er eksponert innenfor egen virksomhet eller åpne API fra andre tilbydere.</p>
+<p>I eksempelet nedenfor benyttes Finanstilsynets API til å fastslå om virksomheten som repesenteres av en bruker i Altinn 
+har tilstrekkelige lisenser til å benytte tjenesten.</p>
+<figure><a href="extra-credentials-example-allowed.png"><img src="extra-credentials-example-allowed.png" alt="GUI for autorisert bruker" title="GUI for autorisert bruker" /></a><figcaption><h4>GUI for autorisert bruker</h4></figcaption></figure>
+<figure><a href="extra-credentials-example-denied.png"><img src="extra-credentials-example-denied.png" alt="GUI for ikke-autorisert bruker" title="GUI for ikke-autorisert bruker" /></a><figcaption><h4>GUI for ikke-autorisert bruker</h4></figcaption></figure>
+<p>Kildekoden til applikasjonen som eksempelet er basert på finnes <a href="https://altinn.studio/repos/ttd/extra-credentials-demo">her</a>. (Krever bruker i Altinn Studio.)</p>
+<p>Videre i eksempelet vil betegnelsen <em>bruker</em> være synonymt med en virksomhet representert ved en person i Altinn.</p>
+<ol>
+<li>
+<p><strong>Utvid datamodellen med felter for autorisasjon</strong></p>
+<p>I tillegg til et felt for å ta input fra bruker og et felt for å vise fram resultatet,
+har vi i dette eksempelet et felt for å holde på infomasjon om hvorvidt brukeren er autentisert 
+og et felt for å holde på en dynamisk feilmelding.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;searchString&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;result&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;userAuthorized&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:boolean&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;errorMessage&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<span style="color:#ff79c6">&lt;/xs:sequence&gt;</span>
+</code></pre></div><p><em>Hopp til steg 4 dersom applikasjonen kun skal benyttes via API.</em></p>
+</li>
+<li>
+<p><strong>Legg til felt for å vise feilmelding i brukergrensesnittet</strong></p>
+<p>I brukergrensesnittet til applikasjonen er det tre komponenter. 
+Et søkefelt for brukerinput, et tekstfelt dedikert til å vise fram søkeresultatet og en paragraf som er reservert for feilmeldinger.</p>
+<figure><a href="extra-credentials-example-layout.png"><img src="extra-credentials-example-layout.png" alt="GUI i Altinn Studio" title="GUI i Altinn Studio" /></a><figcaption><h4>GUI i Altinn Studio</h4></figcaption></figure>
+<p>Komponentene er koblet til datamodell og tekstressurs på følgende måte i <code>FormLayout.json</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;layout&#34;</span>: [
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;sokeBoks&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;SearchString&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;searchString&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
+    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">false</span>
+  },
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;resultatBoks&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;TextArea&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Result&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;result&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
+    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">true</span>
+  },
+  {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;errorBoks&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Paragraph&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;ErrorMessage&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">false</span>,
+    <span style="color:#ff79c6">&#34;readOnly&#34;</span>: <span style="color:#ff79c6">true</span>
+  }
+]
+</code></pre></div></li>
+<li>
+<p><strong>Legg inn dynamikkregler for å vise/skjule felter</strong></p>
+<p>Vi bruker dynamikkregler til å vise/skjule felter avhengig av om en bruker en autorisert eller ikke.</p>
+<p>Det er lagt inn en dynamikkregel i <code>RuleHandler.js</code> som sjekker om et felt i datamodellen har verdien <code>false</code>. 
+Konfigurasjon av regler er beskrevet nærmere <a href="../../logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul">her</a>.</p>
+<p>I <code>RuleConfiguration.json</code> ser man hvordan regelen benyttes.
+Dersom inputverdien fra datamodellen <code>userAuthorized</code> er false, så vises errorBoks-komponenten,
+mens det motsatte skjer med søke- og resultatfeltene, disse skjules.</p>
+<p>Default oppførsel vil være det motsatte, altså at søk og resultat er synlig, mens error feltet er skjult.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+    <span style="color:#ff79c6">&#34;ruleConnection&#34;</span>: {},
+    <span style="color:#ff79c6">&#34;conditionalRendering&#34;</span>: {
+      <span style="color:#ff79c6">&#34;e2dd8ff0-f8f1-11eb-b2bc-5b40a942c260&#34;</span>: {
+        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;isFalse&#34;</span>,
+        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
+          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;userAuthorized&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;selectedAction&#34;</span>: <span style="color:#f1fa8c">&#34;Show&#34;</span>,
+        <span style="color:#ff79c6">&#34;selectedFields&#34;</span>: {
+          <span style="color:#ff79c6">&#34;e2dd68e0-f8f1-11eb-b2bc-5b40a942c260&#34;</span>: <span style="color:#f1fa8c">&#34;errorBoks&#34;</span>
+        }
+      },
+      <span style="color:#ff79c6">&#34;e2dd8ff0-f8f1-11eb-b2bc-5b40a942c261&#34;</span>: {
+        <span style="color:#ff79c6">&#34;selectedFunction&#34;</span>: <span style="color:#f1fa8c">&#34;isFalse&#34;</span>,
+        <span style="color:#ff79c6">&#34;inputParams&#34;</span>: {
+          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;userAuthorized&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;selectedAction&#34;</span>: <span style="color:#f1fa8c">&#34;Hide&#34;</span>,
+        <span style="color:#ff79c6">&#34;selectedFields&#34;</span>: {
+          <span style="color:#ff79c6">&#34;e2dd68e0-f8f1-11eb-b2bc-5b40a942c261&#34;</span>: <span style="color:#f1fa8c">&#34;sokeBoks&#34;</span>,
+          <span style="color:#ff79c6">&#34;e2dd68e0-f8f1-11eb-b2bc-5b40a942c262&#34;</span>: <span style="color:#f1fa8c">&#34;resultatBoks&#34;</span>
+        }
+      }
+    }
+  }
+}
+</code></pre></div></li>
+<li>
+<p><strong>Legg til tekstressurser</strong></p>
+<p>I tillegg til navnet på tjenesten er det lagt inn tre tekstressurser.</p>
+<p>Tekstressursen for feilmelding inneholder en placeholder for navnet på brukeren. 
+Variabelen <code>errorMessage</code> vil populeres i datamodellen når det registreres at en bruker ikke er autorisert til å bruke tjenesten.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ErrorMessage&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;{0} mangler rettigheter til å bruke denne tjenesten.&#34;</span>,
+  <span style="color:#ff79c6">&#34;variables&#34;</span>: [
+    {
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;errorMessage&#34;</span>,
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.lookup&#34;</span>
+    }
+  ]
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;Result&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Resultat&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;SearchString&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Legg inn søkeord her:&#34;</span>
+},
+</code></pre></div></li>
+<li>
+<p><strong>Implementér autorisasjonslogikk</strong></p>
+<p>Alt av dataprosessering for stateless applikasjoner ligger i filen <code>App\logic\DataProcessing\DataProcessingHandler.cs</code>, 
+og det er her autorisasjonslogikken skal plasseres.</p>
+<p>Logikk for å slå opp data og autorisere brukeren ligger i metoden <code>ProcessDataRead</code>.
+Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input data.</p>
+<pre><code class="language-{cs," data-lang="{cs,"> public async Task&lt;bool&gt; ProcessDataRead(Instance instance, Guid? dataId, object data)
+ {
+     lookup lookup = (lookup)data;
+        
+     // Check if user is authorized to use service
+     Party party = await _register.GetParty(int.Parse(instance.InstanceOwner.PartyId)); 
+
+     if (string.IsNullOrEmpty(party.OrgNumber) || !await _finanstilsynet.HasReqiuiredLicence(_settings.LicenseCode, party.OrgNumber))
+     {
+         lookup.userAuthorized = false;
+         lookup.errorMessage = $&quot;{party.Name}&quot;;
+         return true;
+     }         
+         
+     // logic for looking up data
+     if (!string.IsNullOrEmpty(lookup.searchString))
+     {
+         lookup.result = $&quot;You typed \&quot;{lookup.searchString}\&quot;. This is the result.&quot;;
+         return true;
+     }
+
+     return false;
+ }
+</code></pre><p>Metoden starter med logikk for å hente ut skjemadataen slik at denne kan benyttes 
+videre i metoden.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup lookup = (lookup)data 
+</code></pre></div><p>Videre kommer logikken for å sjekke om brukeren er autorisert.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// Check if user is authorized to use service
+</span><span style="color:#6272a4"></span>Party party = <span style="color:#ff79c6">await</span> _register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
+
+<span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(party.OrgNumber) || !<span style="color:#ff79c6">await</span> _finanstilsynet.HasReqiuiredLicence(_settings.LicenseCode, party.OrgNumber))
+{
+    lookup.userAuthorized = <span style="color:#ff79c6">false</span>;
+    lookup.errorMessage = <span style="color:#f1fa8c">$&#34;{party.Name}&#34;</span>;
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+}   
+</code></pre></div><p>For å vite hvem brukeren er, benyttes identifikatoren <code>instance.InstanceOwner.PartyId</code>, denne får vi som input til metoden.
+Vi slår opp i Altinn sitt register for å hente ut party-objektet som representerer brukeren. Dette kan inneholde en organisasjon eller en person.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Party party = <span style="color:#ff79c6">await</span> _register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
+</code></pre></div><p>Det gjøres to sjekker for å avgjøre om en bruker er autorisert eller ikke. 
+Først verifiseres det at party-objektet har definert et organisasjonsnummer,
+dersom dette ikke er tilfellet er brukeren en person, og dermed ikke autorisert.</p>
+<p>Den andre sjekken kaller <code>_finanstilsynet.HasReqiuiredLicence()</code>, en metode som slår opp i finanstilsynets API for å avgjøre om en organisasjonen har en gitt lisens.
+Implementasjonen av servicen er tilgjengelig <a href="https://altinn.studio/repos/ttd/extra-credentials-demo/src/branch/master/App/services/FinanstilsynetService.cs">her</a>.</p>
+<p>Dersom ingen av sjekkene er vellykkede populeres to felter i datamodellen;</p>
+<ul>
+<li>en indikator på at brukeren ikke er autorisert</li>
+<li>en feilmelding, her kun navnet til brukeren</li>
+</ul>
+<p>og <code>true</code> returneres for å indikere at dataverdier har blitt oppdatert.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup.userAuthorized = <span style="color:#ff79c6">false</span>;
+lookup.errorMessage = <span style="color:#f1fa8c">$&#34;{party.Name}&#34;</span>;
+<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+</code></pre></div><p>Helt til slutt kommer logikken for å vise fram et resultat basert på søkestrengen.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// logic for looking up data
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(lookup.searchString))
+{
+    lookup.result = <span style="color:#f1fa8c">$&#34;You typed \&#34;</span>{lookup.searchString}\<span style="color:#f1fa8c">&#34;. This is the result.&#34;</span>;
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+}
+
+<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</code></pre></div><p><code>lookup.result</code> populeres med verdien av oppslaget, i dette tilfellet skriver vi bare søkestrenger tilbake til bruker.
+Igjen returneres <code>true</code> for å indikere at en dataverdi er blitt endret, og <code>false</code> dersom dette ikke er tilfellet.</p>
+</li>
+</ol>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+                </div>
+              </div>
+
+              <div id="navigation">
+                  <a class="nav nav-prev" href="/app/development/configuration/settings/" title="Settings and environmental variables"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/development/api/" title="API" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/configuration/stateless/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://altinnstudio.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer><div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <script>
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+<script src="/js/custom.js"></script></body>
+</html>
