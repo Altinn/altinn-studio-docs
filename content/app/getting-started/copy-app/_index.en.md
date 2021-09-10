@@ -1,5 +1,5 @@
 ---
-title: Copy app in Altin Studio
+title: Copy app in Altinn Studio
 linktitle: Copy app 
 description: How to make a copy of an application in Altinn Studio
 weight: 150
@@ -10,7 +10,7 @@ In Altinn Studio you can make a copy of an existing application within an organi
 In order to do this you have to have permission to create new repositories within your org. Members of the teams "**Owners**" and "**Developers**" have these righs by deault. 
 If you don't have permissions you should talk to your organizations administrator.
 
-![Dashboard in Altin Studio](overview.png "Dashboard - overview")
+![Dashboard in Altinn Studio](overview.png "Dashboard - overview")
 
 1. Click the "..."-icon in the top right corner of the application overview of the app you want to copy.
 2. Press "**Lag kopi**" from the menu
