@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Slik oppretter man en kopi av applikasjon i Altinn Studio.">
+    <meta name="description" content="How to make a copy of an application in Altinn Studio">
 
-<title>Kopier app i Altinn Studio – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Copy app in Altinn Studio – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -61,6 +61,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/getting-started/copy-app/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
               <li>
@@ -89,6 +93,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/app/getting-started/copy-app/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
         </ul>
@@ -122,10 +130,10 @@ if(host != "localhost")
         <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/first-time-setup/"><span>Create user</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/app/getting-started/copy-app/"><span>Copy app</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/create-app/"><span>Create app</span></a></li>
-      <li class="dd-item parent active">
-        <a href="/app/getting-started/copy-app/"><span>Kopier app</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/migrate-services/"><span>Migrate services</span></a></li>
       <li class="dd-item">
@@ -926,54 +934,32 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/app/'>Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/getting-started/'>Getting started</a> <span class='adocs-breadcrumb-divider'> / </span> Kopier app</span>
+                <span class="links"><a href='/app/'>Apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/getting-started/'>Getting started</a> <span class='adocs-breadcrumb-divider'> / </span> Copy app</span>
             </div>
-          </div><div id="body-inner"><h1 class="a-fontBold">Kopier app i Altinn Studio</h1>
-              <p class="a-leadText" id="leadText">Slik oppretter man en kopi av applikasjon i Altinn Studio.</p>
+          </div><div id="body-inner"><h1 class="a-fontBold">Copy app in Altinn Studio</h1>
+              <p class="a-leadText" id="leadText">How to make a copy of an application in Altinn Studio</p>
 
 
 
 
-<p>I Altinn Studio har man mulighet til å lage en kopi av en eksisterende applikasjon innad i en organisasjon. Dette gjøres fra dashboardet.
-Merk: for å ha mulighet til å lage en kopi i en org må du ha rettigheter til å opprette nye repositories. Medlemmer av teamene &ldquo;<strong>Owners</strong>&rdquo; og &ldquo;<strong>Developers</strong>&rdquo; har disse rettighetene.
-Dersom du mangler skrivetilgang må du ta kontakt med personen som har administratorrettigheter for din organisasjon.</p>
-<figure><a href="overview.png"><img src="overview.png" alt="Dashboardet i Altinn Studio" title="Dashboard - oversikt" /></a><figcaption><h4>Dashboard - oversikt</h4></figcaption></figure>
+<p>In Altinn Studio you can make a copy of an existing application within an organization. This is done through the dashboard.
+In order to do this you have to have permission to create new repositories within your org. Members of the teams &ldquo;<strong>Owners</strong>&rdquo; and &ldquo;<strong>Developers</strong>&rdquo; have these righs by deault. 
+If you don&rsquo;t have permissions you should talk to your organizations administrator.</p>
+<figure><a href="overview.png"><img src="overview.png" alt="Dashboard in Altinn Studio" title="Dashboard - overview" /></a><figcaption><h4>Dashboard - overview</h4></figcaption></figure>
 <ol>
-<li>
-<p>Klikk på &ldquo;&hellip;&quot;-ikonet i det øvre høyre hjørnet av app oversikten til applikasjonen du ønsker kopiere.</p>
-</li>
-<li>
-<p>Velg &ldquo;Lag kopi&rdquo; fra menyen.</p>
-</li>
-<li>
-<p>Legg inn <strong>navnet</strong> du ønsker den nye applikasjonen skal ha. Dette navnet brukes til å identifisere appen, og brukes også som navn på repository, og i URL-er og API-er.
-Navnet bør være kort og beskrivende som for eksempel &ldquo;sykmelding&rdquo; eller &ldquo;lokalvalg-2019&rdquo;. <img src="copy-app.png" alt="Kopier app" title="Kopier app">
-<em>Navnet kan <strong>ikke</strong> endres etter at appen er publisert.</em></p>
-</li>
-<li>
-<p>Opprett kopien ved å klikke &ldquo;<strong>Lag kopi</strong>&rdquo;.</p>
-</li>
-<li>
-<p>Når applikasjonen har blitt kopiert vil du bli sendt til din nye applikasjon.</p>
-</li>
-<li>
-<p>For at den kopierte applikasjonen skal være klar til å brukes trengs det en liten endring i koden. Denne endringen har automatisk blitt lagt inn som en pull request mot repositoriet ditt. For å navigere til repo klikk på profil-ikonet i høyre hjørne og velg &ldquo;Åpne repository&rdquo;. <img src="open-repository.png" alt="Åpne repository" title="Åpne repository"></p>
-</li>
-<li>
-<p>Naviger så til fanen &ldquo;<strong>Pull requests</strong>&rdquo; og se at det ligger klar en pull request med navnet &ldquo;Auto-generated: Final changes for cloning app.&rdquo;. <img src="pull-request-summary.png" alt="Pull request visning" title="Pull-request-summary"></p>
-</li>
-<li>
-<p>Klikk deg inn på denne og se over at endringene stemmer overens med det nye navnet på applikasjonen din.</p>
-</li>
-<li>
-<p>Om alt ser greit ut så kan endringen merges ved å klikke på &ldquo;<strong>Merge pull request</strong>&rdquo;.</p>
-</li>
-<li>
-<p>Siste steget som trengs er nå å pulle endringene dine til studio. Naviger så til fanen med den ny appen din og klikk &ldquo;<strong>Pull</strong>&rdquo; for å hente endringene du nettopp merget. <img src="pull.png" alt="Pull endringer" title="Pull endringer"></p>
-</li>
-<li>
-<p>Viola! Du er nå klar til å utvikle på den kopierte appen.</p>
-</li>
+<li>Click the &ldquo;&hellip;&quot;-icon in the top right corner of the application overview of the app you want to copy.</li>
+<li>Press &ldquo;<strong>Lag kopi</strong>&rdquo; from the menu</li>
+<li>Add the <strong>name</strong> you want for the new application. This name is used to identify the application, as well as the repository name, and URLS and API&rsquo;s.
+The name should be short and descriptive, for instance &ldquo;sick-leave&rdquo; or &ldquo;local-election-2019&rdquo;. <img src="copy-app.png" alt="Copy app" title="Copy app">
+<em>The name can not be changed after the application has been published.</em></li>
+<li>Create the copy by clicking &ldquo;<strong>Kopier app</strong>&rdquo;.</li>
+<li>When the application has been copied you will be redirected to the copied app.</li>
+<li>In order for the copied app to work there is some changes in the source code. These changes has automatically been added as a pull request against your repository. To navigate to the repo click the profile-icon in the top right corner and choose &ldquo;<strong>Åpne repository</strong>&rdquo; <img src="open-repository.png" alt="Open repository" title="Open repository"></li>
+<li>Navigate to the tab &ldquo;<strong>Pull requests</strong>&rdquo; and the that the changes under the pull request named &ldquo;Auto-generated: Final changes for cloning app.&rdquo;. <img src="pull-request-summary.png" alt="Pull request" title="Pull-request-summary"></li>
+<li>Look through the pull request and make sure that the changes matches the new name of your application.</li>
+<li>If everything is in order the pull request can be merged by clicking &ldquo;<strong>Merge pull request</strong>&rdquo;.</li>
+<li>The final step is now to pull these changes to studio. Navigate to the tab with your created app and click &ldquo;<strong>Pull</strong>&rdquo; to fetch the changes you just merged. <img src="pull.png" alt="Pull changes" title="Pull changes"></li>
+<li>Viola! You are now ready to develop on your copied app.</li>
 </ol>
 
 
@@ -989,10 +975,10 @@ Navnet bør være kort og beskrivende som for eksempel &ldquo;sykmelding&rdquo; 
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/app/getting-started/create-app/" title="Create app in Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/getting-started/migrate-services/" title="Migrate services" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/app/getting-started/first-time-setup/" title="Create user in Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/getting-started/create-app/" title="Create app in Altinn Studio" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
-                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/copy-app/_index.md" target="blank">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/copy-app/_index.en.md" target="blank">
                     <i class="fa fa-code-fork"></i>
                     Edit page on GitHub
                   </a>

@@ -1087,6 +1087,20 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/app/getting-started/copy-app/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/copy-app/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/copy-app/"
+                />
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/app/getting-started/create-app/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1098,10 +1112,6 @@
                 hreflang="en"
                 href="https://docs.altinn.studio/app/getting-started/create-app/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://docs.altinn.studio/app/getting-started/copy-app/</loc>
   </url>
   
   <url>
