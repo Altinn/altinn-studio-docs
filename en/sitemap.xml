@@ -1101,6 +1101,10 @@
   </url>
   
   <url>
+    <loc>https://docs.altinn.studio/app/getting-started/copy-app/</loc>
+  </url>
+  
+  <url>
     <loc>https://docs.altinn.studio/app/development/configuration/partytype/</loc>
     <xhtml:link
                 rel="alternate"
