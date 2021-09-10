@@ -7,7 +7,7 @@ weight: 150
 
 
 In Altinn Studio you can make a copy of an existing application within an organization. This is done through the dashboard.
-In order to do this you have to have permission to create new repositories within your org. Members of the teams "**Owners**" and "**Developers**" have these righs by deault. 
+In order to do this you have to have permission to create new repositories within your org. Members of the teams "**Owners**" and "**Developers**" have these rights by default.
 If you don't have permissions you should talk to your organizations administrator.
 
 ![Dashboard in Altinn Studio](overview.png "Dashboard - overview")
