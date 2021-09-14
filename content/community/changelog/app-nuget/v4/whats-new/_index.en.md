@@ -13,7 +13,7 @@ Example:
    <Navn>Altinn</Navn>
 </Skjema>
 ```
-Deserialization occur when an external system use the app API to submit a new form, when they overwrite an existing form, and when an app retrieves a form from blob storage.
+Deserialization occurs when an external system uses the app API to submit a new form, when they overwrite an existing form, and when an app retrieves a form from blob storage.
 
 The change is not automatically used by all apps that update to this version. For the change to take properly effect the C# class that represents the model must be updated. The class needs to be decorated with an XmlRootAttribute with the Namespace property set to the correct namespace. 
 
