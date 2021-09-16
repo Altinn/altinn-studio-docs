@@ -1,5 +1,5 @@
 ---
-title: API
+title: Altinn 3 API
 description: Beskrivelse av Altinn API for sluttbrukere og applikasjonseiere.
 toc: true
 weight: 20

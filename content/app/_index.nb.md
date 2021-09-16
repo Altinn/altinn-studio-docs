@@ -1,6 +1,6 @@
 ---
-title: Hvordan lage apper
-linktitle: Apper
+title: Lag en app
+linktitle: Lag en app
 description: Altinn Studio er vårt nye verktøy for å utvikle digitale tjenester (apps). Dette kan være alt fra helt enkle skjema til veldig avanserte applikasjoner.
 weight: 10
 ---

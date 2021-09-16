@@ -64,15 +64,32 @@
   translation: Front-end design system
 
 - id: create-your-first-app
-  translation: Create your first app
+  translation: Create apps
 - id: create-your-first-app-description
   translation: Create simple or advanced containerized applications with React and .NET Core.
 - id: getting-started-with-altinn-studio
-  translation: Getting started with Altinn Studio
+  translation: Get started with Altinn Studio
+- id: design
+  translation: Plan and design your app
+- id: guidelines
+  translation: Guidelines
 - id: app-development
   translation: App development
-- id: apis
-  translation: APIs
+- id: testing
+  translation: Testing
+
+- id: api-title
+  translation: Altinn 3 API
+- id: api-description
+  translation: Description of the Altinn 3 APIs for end users and application owners.
+- id: application
+  translation: Application APIs
+- id: platform
+  translation: Altinn Platform APIs
+- id: models
+  translation: Models
+- id: scenarios
+  translation: Scenarios
 
 - id: altinn-is-open-source
   translation: Altinn is open source
@@ -86,14 +103,16 @@
   translation: GitHub (code and backlog)
 
 - id: the-new-architecture
-  translation: The architecture
+  translation: Technology
 - id: the-new-architecture-description
   translation: Both Altinn itself, and your apps, are now running as micro services in Kubernetes.
-- id: principles
-  translation: Principles
+- id: architecture
+  translation: Architecture
 - id: solutions
   translation: Solutions
-- id: tools-and-frameworks
+- id: terms
+  translation: Terms
+- id: tools
   translation: Tools and frameworks
 
 - id: how-we-write
@@ -107,10 +126,12 @@
 - id: uu
   translation: Universal design
 
-- id: digitalize
-  translation: Are you going to modernise your digital services using Altinn?
-- id: dev-guides
-  translation: Find our development guides on <a href="https://www.altinndigital.no/utvikling/">altinn digital</a>
+- id: caseBlock-title
+  translation: Building Altinn together
+- id: caseBlock-description
+  translation: Collaborate, share and learn. Everything we do is open source on GitHub, and we highly value your comments and contributions!
+- id: caseBlock-link
+  translation: Community
 
 # Help
 - id: what-can-we-help-you-with

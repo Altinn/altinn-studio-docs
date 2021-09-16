@@ -1,8 +1,8 @@
 ---
 title: App-utvikling
-linktitle: Utvikling
+linktitle: App-utvikling
 description: Hvordan opprette og redigere apper i Altinn Studio.
-weight: 200
+weight: 40
 ---
 
 {{<children>}}

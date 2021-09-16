@@ -5,8 +5,6 @@ description: Altinn Studio er vårt nye verktøy for å utvikle offentlige digit
 weight: 10
 ---
 
-Skal du bruke TUL eller Altinn Studio? Les [kom i gang med utvikling](https://altinn.github.io/docs/kom-i-gang-med-utvikling/#skal-du-bruke-tul-eller-altinn-studio).
-
 Prosessen for å lage skjemaer og meldinger vil være forskjellig alt etter som hvor stor eller liten målgruppen er,
 hvor mye data som skal behandles eller hvor mye jobb det er å legge til rette for at egne systemer kan snakke med Altinn.
 
@@ -14,9 +12,11 @@ Slik går du frem:
 
 1. **Start alltid med å definere brukerbehov**  
    Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen og hvem skal den løses for?
-   Hva er databehovet? Lag gjerne en skisse til kommunikasjon med brukeren og test skissen på folk i målgruppen.
-   [Lese også vår guide til prototyping i Figma](../../design/figma/). God planlegging er nøkkelen til et godt resultat.
-   Sjekk Guide: [Hvordan jobbe brukerorientert?](https://www.altinndigital.no/kom-i-gang/hvordan-jobbe-brukerorientert/) for inspirasjon.
+   Hva er databehovet? Lag gjerne en skisse til kommunikasjon med brukeren og test skissen på folk i målgruppen.<br><br>
+   <a href="/app/design/" class="a-linkFeatured mb-2">
+    Planlegg og design din app
+    <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright" aria-hidden="true"></i>
+   </a>
 2. **Få tilgang til systemer**  
    Hvis du ikke har utviklet tjenester i Altinn Studio før trenger du å [opprette en bruker](../first-time-setup/).
    Har du ikke allerede en ferdig datamodell/XSD så trenger du i tillegg tilgang til [SERES-domeneklient](https://altinn.github.io/docs/seres/).
