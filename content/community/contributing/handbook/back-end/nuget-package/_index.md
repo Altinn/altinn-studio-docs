@@ -38,35 +38,29 @@ Detailed documentation on how to create a NuGet package, guidelines etc can be f
 
 ## An example of nuget package creation
 
-Open the project csproj file to edit it as an xml file. 
+Open the project csproj file to edit it as an xml file:
 
-Keep properties related to NuGet separated from other properties as in the example below:
 ```xml
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
     <OutputType>Library</OutputType>
-    <AssemblyVersion>2.5.10.0</AssemblyVersion>
-    <FileVersion>2.5.10.0</FileVersion>
-    <!-- SonarCloud requires a ProjectGuid to separate projects. -->
-    <ProjectGuid>{D9F6DAB7-E921-44B6-A1A6-5796DCAE0D07}</ProjectGuid>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <!-- NuGet package properties -->
-    <PackageId>Altinn.Platform.Storage.Interface</PackageId>
-    <PackageVersion>2.5.10</PackageVersion>
-    <PackageTags>Altinn;Studio;Platform;Storage;Models</PackageTags>
+    <Version>4.14.0</Version>
+    <AssemblyVersion>4.14.0.0</AssemblyVersion>
+    <PackageId>Altinn.App.PlatformServices</PackageId>
+    <PackageTags>Altinn;Studio;App;Services;Platform</PackageTags>
     <Description>
-      This class library holds the models exposed by the external endpoints of the Altinn 3 Storage component.
+      This class library holds most of the Altinn App business logic and clients for communication with the platform.
     </Description>
-    <PackageReleaseNotes>
-      https://docs.altinn.studio/community/changelog/storage-interfaces/
-    </PackageReleaseNotes>
+    <PackageReleaseNotes>https://docs.altinn.studio/community/changelog/app-nuget/</PackageReleaseNotes>
     <Authors>Altinn Platform Contributors</Authors>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/Altinn/altinn-studio</RepositoryUrl>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <IsPackable>true</IsPackable>
+
+    <!-- SonarCloud requires a ProjectGuid to separate projects. -->
+    <ProjectGuid>{98E6200A-ED99-418E-B30C-81BA564B509A}</ProjectGuid>
   </PropertyGroup>
 ```
 
