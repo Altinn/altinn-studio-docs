@@ -7,17 +7,17 @@ weight: 10
 ## Retningslinjer
 
 UI-komponenter som foreløpig inngår i Altinns bibliotek:
-- [Tittel og avsnitt](/planlegging-og-design/guidelines/ui-komponenter/#-tittel-og-avsnitt)
-- [Logo og kontaktinfo](/planlegging-og-design/guidelines/ui-komponenter/#-logo-og-kontaktinfo) *(⚠️ Kommer snart til Altinn Studio)*
-- [Knapp og lenke](/planlegging-og-design/guidelines/ui-komponenter/#-knapp-og-lenke)
-- [Inputfelt](/planlegging-og-design/guidelines/ui-komponenter/#-inputfelt)
-- [Dato](/planlegging-og-design/guidelines/ui-komponenter/#-datovelger)
-- [Avkrysningsbokser](/planlegging-og-design/guidelines/ui-komponenter/#-avkrysningsbokser)
-- [Radioknapper](/planlegging-og-design/guidelines/ui-komponenter/#-radioknapper)
-- [Nedtrekksliste](/planlegging-og-design/guidelines/ui-komponenter/#-nedtrekksliste)
-- [Hjelpetekst](/planlegging-og-design/guidelines/ui-komponenter/#-hjelpetekst)
-- [Feilmeldinger](/planlegging-og-design/guidelines/ui-komponenter/#-feilmeldinger)
-- [Filopplasting](/planlegging-og-design/guidelines/ui-komponenter/#-filopplasting)
+- [Tittel og avsnitt](/nb/app/guidelines/ui-components/#-tittel-og-avsnitt)
+- [Logo og kontaktinfo](/nb/app/guidelines/ui-components/#-logo-og-kontaktinfo) *(⚠️ Kommer snart til Altinn Studio)*
+- [Knapp og lenke](/nb/app/guidelines/ui-components#-knapp-og-lenke)
+- [Inputfelt](/nb/app/guidelines/ui-components/#-inputfelt)
+- [Dato](/nb/app/guidelines/ui-components/#-datovelger)
+- [Avkrysningsbokser](/nb/app/guidelines/ui-components/#-avkrysningsbokser)
+- [Radioknapper](/nb/app/guidelines/ui-components/#-radioknapper)
+- [Nedtrekksliste](/nb/app/guidelines/ui-components/#-nedtrekksliste)
+- [Hjelpetekst](/nb/app/guidelines/ui-components/#-hjelpetekst)
+- [Feilmeldinger](/nb/app/guidelines/ui-components/#-feilmeldinger)
+- [Filopplasting](/nb/app/guidelines/ui-components/#-filopplasting)
 
 
 <hr>
