@@ -1,7 +1,7 @@
 ---
 title: Planlegging og design
 linktitle: Planlegging og design
-description: I Altinn setter vi brukerbehov først og produktene våre er derfor utviklet med brukerne i sentrum. Men for at tjenestene skal bli gode til slutt, trenger vi at etatene og kommunene som bruker Altinn også har fokus på brukerne i utviklingen av nye tjenester. 
+description: For at tjenesten din skal bli best mulig for de som skal bruke den, er det viktig å starte med å fokusere på brukerne og forstå deres brukerbehov i møte med tjenesten din. 
 weight: 20
 ---
 

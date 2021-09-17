@@ -6,22 +6,7 @@ weight: 20
 
 Som hovedregel bør du bruke retningslinjene fra [Språkrådet](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) når du skriver. I tillegg har vi definert noen mer spesifikke regler for Altinn som vi anbefaler at du følger. 
 
-## Målform
-Har vi noen krav til at tjenestene skal eksistere på ulike målformer? 
-## Oppdeling av tall
-Riktig og konsekvent oppdeling av tallene hjelper brukeren å lese og skille forskjellige typer nummer. Ingen av nummerne skal skilles med punktum, kun mellomrom. I felt hvor brukeren skal skrive inn lengre nummer er det hjelpsomt å indikere antall siffer.
-
-- Organisasjonsnummer deles opp i tre og tre: 123 456 789
-- Bankkonto deles opp i fire, to og fem: 1234 56 78901
-- Personnummer deles opp i seks og fem: 123456 78901
-- Mobilnummer deles opp i tre, to og tre: 987 65 432
-- Fasttelefon og faks deles opp i to og to: 98 76 54 32
-
-### Tid og dato
-- Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45
-- Dato skal som hovedregel skrives slik: 05.06.2017
-- Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017
-
+Vi oppfordrer til at du skriver innholdet i tjenestene dine på både bokmål, nynorsk og engelsk. 
 ## Generelle anbefalinger
 - Bruk et muntlig og lett språk
 - Skriv direkte til brukeren (bruk «du») 
@@ -69,3 +54,18 @@ I Altinn sine løsninger vil det gjerne være flere enn en person som skal gjør
 
 **Eksempel:**  
 Forberedelser og planleggingsaktiviteter må gjennomføres før utviklingen av tjenesten(e) kan og bør starte → <br>Gjør forberedelser og planlegg godt før du utvikler tjenesten. 
+
+
+## Oppdeling av tall
+Riktig og konsekvent oppdeling av tallene hjelper brukeren å lese og skille forskjellige typer nummer. Ingen av nummerne skal skilles med punktum, kun mellomrom. I felt hvor brukeren skal skrive inn lengre nummer er det hjelpsomt å indikere antall siffer.
+
+- Organisasjonsnummer deles opp i tre og tre: 123 456 789
+- Bankkonto deles opp i fire, to og fem: 1234 56 78901
+- Personnummer deles opp i seks og fem: 123456 78901
+- Mobilnummer deles opp i tre, to og tre: 987 65 432
+- Fasttelefon og faks deles opp i to og to: 98 76 54 32
+
+### Tid og dato
+- Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45
+- Dato skal som hovedregel skrives slik: 05.06.2017
+- Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017

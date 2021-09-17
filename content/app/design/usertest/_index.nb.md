@@ -4,7 +4,7 @@ description: Gjennom brukertester måler du om det du lager treffer brukernes be
 weight: 10
 ---
 
-Å brukerteste trenger ikke være veldig avansert, hverken med tanke på oppsett eller antall testpersoner. En tommelfingerregel er at hvis du har testet på fem personer har du funnet 80 % av brukervennlighetsfeilene (Jacob Nielsen, 2000).
+Å brukerteste trenger ikke være veldig avansert, hverken med tanke på oppsett eller antall testpersoner. En tommelfingerregel er at hvis du har testet på fem personer har du funnet 80 % av brukervennlighetsfeilene ([Jacob Nielsen](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/)).
 
 Etter en brukertest vil det være ting å justere på. Det kan være større ting slik som navigasjon og flyt, men også små justeringer som har mye å si for om brukeren får til å løse det de skal ha gjort, slik som språk eller mindre endringer i interaksjonsdesignet. Hvis det er behov for å gjøre større endringer kan det være lurt å ta en ny brukertest for å sjekke om justeringene har ønsket effekt.
 
