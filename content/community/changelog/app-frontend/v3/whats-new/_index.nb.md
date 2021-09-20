@@ -5,6 +5,22 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.11.3 (2021-09-17) - Forhåndsvalgt nedtrekksliste
+Nedtrekksliste støtter forhåndsvalgt (preselectedOptionIndex) verdi.
+Issue [#5255](https://github.com/Altinn/altinn-studio/issues/5255).
+
+## 3.11.2 (2021-09-16) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for u37.
+Issue [#6794](https://github.com/Altinn/altinn-studio/issues/6794).
+
+## 3.11.1 (2021-09-09) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for u36.
+Issue [#6794](https://github.com/Altinn/altinn-studio/issues/6794).
+
+## 3.11.0 (2021-09-08) - Aktør valg i stateless app
+Stateless appene støtter aktør valg basert på innstillinger i app metadata.
+Issue [#6443](https://github.com/Altinn/altinn-studio/issues/6443).
+
 ## 3.10.3 (2021-08-23) - Added some IDs used by automated tests
 Non functional change. Not connected to an issue.
 

@@ -4,6 +4,14 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.11.3 (2021-09-17) - Preselect dropdown
+Support for preselectedOptionIndex in dropdown component.
+Issue [#5255](https://github.com/Altinn/altinn-studio/issues/5255).
+
+## 3.11.2 (2021-09-16) - Dependency patching
+Patching of external dependencies for w37.
+Issue [#6794](https://github.com/Altinn/altinn-studio/issues/6794).
+
 ## 3.11.1 (2021-09-09) - Dependency patching
 Patching of external dependencies for w36.
 Issue [#6794](https://github.com/Altinn/altinn-studio/issues/6794).
