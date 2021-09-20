@@ -8,7 +8,7 @@ weight: 10
 
 UI-komponenter som foreløpig inngår i Altinns bibliotek:
 - [Tittel og avsnitt](/nb/app/guidelines/ui-components/#-tittel-og-avsnitt)
-- [Logo og kontaktinfo](/nb/app/guidelines/ui-components/#-logo-og-kontaktinfo) *(⚠️ Kommer snart til Altinn Studio)*
+<!-- - [Logo og kontaktinfo](/nb/app/guidelines/ui-components/#-logo-og-kontaktinfo) *(⚠️ Kommer snart til Altinn Studio)* -->
 - [Knapp og lenke](/nb/app/guidelines/ui-components#-knapp-og-lenke)
 - [Inputfelt](/nb/app/guidelines/ui-components/#-inputfelt)
 - [Dato](/nb/app/guidelines/ui-components/#-datovelger)
@@ -19,8 +19,22 @@ UI-komponenter som foreløpig inngår i Altinns bibliotek:
 - [Feilmeldinger](/nb/app/guidelines/ui-components/#-feilmeldinger)
 - [Filopplasting](/nb/app/guidelines/ui-components/#-filopplasting)
 
+<br>
 
-<hr>
+{{% panel %}}**Har du behov for en ny komponent?**<p>Vi ønsker at alle er med på å videreutvikle <a href="/planlegging-og-design/guidelines/ui-komponenter/">biblioteket av komponenter</a> med både design og kode. I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser behovet for det. </p>
+
+<div class="a-btn-group" id="btnGroup">
+
+  <a href="https://github.com/Altinn/altinn-studio/issues/new/choose" class="a-btn mt-1 ">
+    Opprett en sak i github
+  </a>
+  <a href="https://altinn.slack.com/" class=" ">
+    Skriv til oss på Slack
+  </a>
+</div>
+
+{{% /panel %}}
+
 
 ### ❖ Tittel og avsnitt
 Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.
@@ -39,7 +53,7 @@ Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på 
 
 <hr>
 
-### ❖ Logo og kontaktinfo
+<!-- ### ❖ Logo og kontaktinfo
 Hensikten med komponenten er at brukeren tydelig skal kunne se hvem eieren av tjenesten er, og hvem som kan kontaktes dersom brukeren trenger hjelp med utfylling av skjemaet. Svært mange av henvendelsene til Altinn Brukerstøtte er knyttet til feil kontaktpunkt.
 
 
@@ -56,7 +70,7 @@ Hensikten med komponenten er at brukeren tydelig skal kunne se hvem eieren av tj
 
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A2290" allowfullscreen></iframe>
 
-<hr>
+<hr> -->
 
 ### ❖ Knapp og lenke
 Hovedknapp (blå) brukes for å sende brukeren til neste steg. 
@@ -124,7 +138,7 @@ I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke 
 
 <hr>
 
-#### ❖ Datofelt
+<!-- #### ❖ Datofelt
 For datoer lengre tilbake i tid, eller datoer brukeren kjenner godt, bør datofelt benyttes. Tre tekstfelt er i disse tilfellene den enkleste måten for brukeren å fylle ut datoen. Dersom det er noe som skal planlegges eller tilfeller der en spesifikk dag er viktig, bruk [datovelgeren](/planlegging-og-design/guidelines/design/#-datovelger) i stedet. 
 <br>
 
@@ -141,7 +155,7 @@ For datoer lengre tilbake i tid, eller datoer brukeren kjenner godt, bør datofe
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5139%253A832" allowfullscreen></iframe>
 <br><br>
 
-<hr>
+<hr> -->
 
 ### ❖ Avkrysningsbokser
 Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. Dersom brukeren kun kan velge et av alternativene, bruk [radioknapper](/planlegging-og-design/guidelines/design/#-radioknapper) i stedet. 

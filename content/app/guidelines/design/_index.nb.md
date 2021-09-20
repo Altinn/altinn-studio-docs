@@ -23,14 +23,14 @@ Når brukere møter en ny tjeneste, har de med seg forventninger fra tidligere o
 Vi anbefaler **ikke** å endre CSS for individuelle tjenester som bruker Altinn-designet. Dersom vi åpner opp for designendringer og fargeendringer, vil dette skade konsistensen mellom tjenestene. Konsekvent design mellom tjenesteeiere er noe vi bør strekke oss mot. For å få det til kreves et godt samarbeid mellom fagmiljøet i Altinn og hos de ulike tjenesteeierene. **Vi ønsker oss en god felles løsning som kan brukes og forbedres av alle, fremfor mange forskjellige løsninger gjennom ulike CSS-endringer.** Dette vil også gjøre det lettere å kontrollere tilgjengeligheten på tvers av apper på plattformen vår. Velger du likevel å gå bort fra designet, er du selv ansvarlig for å følge alle [WCAG-krav](https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86). 
 <br><br>
 
-{{% panel %}}**Har du laget en ny komponent som bør tas inn i Altinns bibliotek?**<p>Vi ønsker at alle er med på å videreutvikle <a href="/planlegging-og-design/guidelines/ui-komponenter/">biblioteket av komponenter</a> med både design og kode. I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser behovet for det. </p>
+{{% panel %}}**Har du behov for en ny komponent?**<p>Vi ønsker at alle er med på å videreutvikle <a href="/planlegging-og-design/guidelines/ui-komponenter/">biblioteket av komponenter</a> med både design og kode. I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser behovet for det. </p>
 
 <div class="a-btn-group" id="btnGroup">
 
   <a href="https://github.com/Altinn/altinn-studio/issues/new/choose" class="a-btn mt-1 ">
     Opprett en sak i github
   </a>
-  <a href="http://altinnstudio.slack.com" class=" ">
+  <a href="https://altinn.slack.com/" class=" ">
     Skriv til oss på Slack
   </a>
 </div>

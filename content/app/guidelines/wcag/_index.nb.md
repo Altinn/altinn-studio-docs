@@ -1,5 +1,5 @@
 ---
-title: WCAG
+title: Tilgjengelighet
 description: God tilgjengelighet hjelper mennesker med funksjonshemninger å oppfatte innholdet vårt på en meningsfull måte. Ved å bruke Altinn 3 får du mye på kjøpet, men noen ting må du fortsatt huske på selv. 
 weight: 7
 weight: 30
@@ -35,18 +35,15 @@ Du er selv ansvarlig for at [korrekte feilmeldinger](/planlegging-og-design/guid
 
 ## Hvordan teste
 Det er viktig at dere tester at tjenesten deres er tilgjengelig for alle. Dette vil ikke bare hjelpe deres tjeneste, men det kan også belyse feil som har oppstått eller blitt oversett hos oss. Her er noen verktøy som kan brukes til å gjøre enkle tester.
+### Tastaturnavigasjon
+Sjekk at alle knapper og inputfelter kan nåes ved tastaturnavigasjon.
 
-**Tastaturnavigasjon**
-<br>Sjekk at alle knapper og inputfelter kan nåes ved tastaturnavigasjon.
+### Skjermleser
+Gå gjennom flyten med en skjermleser som hjelpemiddel. Her kan du forsikre deg om at alt blir lest opp riktig og at tekstene er beskrivende nok. 
 
-**Skjermleser**
-<br>Gå gjennom flyten med en skjermleser som hjelpemiddel. Her kan du forsikre deg om at alt blir lest opp riktig og at tekstene er beskrivende nok. 
+- **Mac:** VoiceOver er forhåndsinstallert på Apples mobiler og PCer. [VoiceOver Brukerveiledning](https://support.apple.com/no-no/guide/voiceover/welcome/mac)
 
-Mac
-<br>VoiceOver er forhåndsinstallert på Apples mobiler og PCer. [VoiceOver Brukerveiledning](https://support.apple.com/no-no/guide/voiceover/welcome/mac)
-
-Windows
-<br>NVDA Screenreader er et gratis skjermleser verktøy laget av NV Access 
+- **Windows:** NVDA Screenreader er et gratis skjermleser verktøy laget av NV Access 
 [Om NVDA Screenreader](https://www.nvaccess.org/about-nvda/)
 
 ## Kontrast
