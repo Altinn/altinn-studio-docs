@@ -5,6 +5,10 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.11.4 (2021-09-20) - Fiks for tekst parse feil
+Fikset tekst parse feil i confirm steget av en app.
+Issue [#6775](https://github.com/Altinn/altinn-studio/issues/6775).
+
 ## 3.11.3 (2021-09-17) - Forhåndsvalgt nedtrekksliste
 Nedtrekksliste støtter forhåndsvalgt (preselectedOptionIndex) verdi.
 Issue [#5255](https://github.com/Altinn/altinn-studio/issues/5255).
