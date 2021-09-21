@@ -4,6 +4,14 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.11.6 (20201-09-21) - Focus indicator input field
+Fixed bug for missing focus indicator on input field.
+Issue [#6801.](https://github.com/Altinn/altinn-studio/issues/6801)
+
+## 3.11.5 (2021-09-21) - Content loader overflow
+Fixed bug where content loader would overflow for small screens.
+Issue [#6876.](https://github.com/Altinn/altinn-studio/issues/6876)
+
 ## 3.11.4 (2021-09-20) - Fix parsing error in confirm page
 Fix for text parsing error in confirm page.
 Issue [#6775](https://github.com/Altinn/altinn-studio/issues/6775).
