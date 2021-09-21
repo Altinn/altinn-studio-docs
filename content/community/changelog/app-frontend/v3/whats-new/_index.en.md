@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.11.4 (2021-09-20) - Fix parsing error in confirm page
+Fix for text parsing error in confirm page.
+Issue [#6775](https://github.com/Altinn/altinn-studio/issues/6775).
+
 ## 3.11.3 (2021-09-17) - Preselect dropdown
 Support for preselectedOptionIndex in dropdown component.
 Issue [#5255](https://github.com/Altinn/altinn-studio/issues/5255).
