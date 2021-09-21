@@ -12,10 +12,9 @@ Issue [#6801.](https://github.com/Altinn/altinn-studio/issues/6801)
 Fixed bug where content loader would overflow for small screens.
 Issue [#6876.](https://github.com/Altinn/altinn-studio/issues/6876)
 
-## 3.11.4 (2021-09-20) - App name not displayed in confirm step
-Fixed bug where app name would display [Object object] in confirm step.
-Issue [#6775.](https://github.com/Altinn/altinn-studio/issues/6775)
-
+## 3.11.4 (2021-09-20) - Fix parsing error in confirm page
+Fix for text parsing error in confirm page.
+Issue [#6775](https://github.com/Altinn/altinn-studio/issues/6775).
 
 ## 3.11.3 (2021-09-17) - Preselect dropdown
 Support for preselectedOptionIndex in dropdown component.
