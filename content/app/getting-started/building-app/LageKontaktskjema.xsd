@@ -1,0 +1,30 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xsd:element name="melding" type="Kontaktskjema" />
+  <xsd:complexType name="Kontaktskjema">
+    <xsd:sequence>
+      <xsd:element name="personopplysninger" type="Personopplysninger" />
+	  <xsd:element name="henvendelse" type="Henvendelse" />
+    </xsd:sequence>
+    <xsd:anyAttribute />
+  </xsd:complexType>
+  <xsd:complexType name="Personopplysninger">
+    <xsd:sequence>
+      <xsd:element name="fornavn" type="Text" />
+	  <xsd:element name="etternavn" type="Text" />
+      <xsd:element name="telefonnummer" type="Telefonnummer"/>
+	  <xsd:element name="epost" type="Text" />	  
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Henvendelse">
+	  <xsd:element name="velgTema" type="boolean" />
+	  <xsd:element name="kontaktOnske" type="boolean" />
+	  <xsd:element name="utfyllendeInformasjon" type="boolean" />
+	  <xsd:element name="utfyllendeInformasjonTekst" type="Text" />
+  </xsd:complexType>
+  <xsd:simpleType name="Telefonnummer">
+      <xsd:restriction base="xsd:string">
+      <xsd:minLength value="1" />
+      <xsd:maxLength value="25" />
+      </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>
