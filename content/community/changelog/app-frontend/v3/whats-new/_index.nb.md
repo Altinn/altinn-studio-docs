@@ -5,6 +5,18 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.11.6 (20201-09-21) - Fokus indikator for input-felt
+Fikset bug hvor fokus indikator ikke var synlig for input-felter.
+Issue [#6801.](https://github.com/Altinn/altinn-studio/issues/6801)
+
+## 3.11.5 (2021-09-21) - Content loader visning på mobil
+Fikset bug hvor content loader gikk over tildelt bredde for små skjermer.
+Issue [#6876.](https://github.com/Altinn/altinn-studio/issues/6876)
+
+## 3.11.4 (2021-09-20) - Fiks for tekst parse feil
+Fikset tekst parse feil i confirm steget av en app.
+Issue [#6775](https://github.com/Altinn/altinn-studio/issues/6775).
+
 ## 3.11.3 (2021-09-17) - Forhåndsvalgt nedtrekksliste
 Nedtrekksliste støtter forhåndsvalgt (preselectedOptionIndex) verdi.
 Issue [#5255](https://github.com/Altinn/altinn-studio/issues/5255).
