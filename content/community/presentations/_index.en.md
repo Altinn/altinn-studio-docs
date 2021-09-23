@@ -16,8 +16,6 @@ The first meeting was an introduction to the platform, including goals.
 
 * [Altinn 3 - hva og hvorfor?](Altinn_T3.0_introduksjon_20200925.pptx)
 
-This presentation was recorded. Video will be available soon.
-
 We held a meeting for giving input on the Altinn 3 desimination strategy January 28 2021. These slides were shown.
 
 * [Overordnet Strategi og tiltak](20210128_Overordnet_Strategi_og_tiltak.pdf)
