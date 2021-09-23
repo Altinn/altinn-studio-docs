@@ -29,6 +29,10 @@ disableKinds = ["RSS"] # page home section taxonomy taxonomyTerm RSS sitemap rob
 #   languageName = "Nynorsk"
 #   weight = 3
 
+[markup.goldmark.parser.attribute]
+block = true
+title = true
+
 [markup.goldmark.renderer]
 unsafe = true
 
