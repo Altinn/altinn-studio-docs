@@ -16,8 +16,6 @@ The first meeting was an introduction to the platform, including goals.
 
 * [Altinn 3 - hva og hvorfor?](Altinn_T3.0_introduksjon_20200925.pptx)
 
-This presentation was recorded. Video will be available soon.
-
 We held a meeting for giving input on the Altinn 3 desimination strategy January 28 2021. These slides were shown.
 
 * [Overordnet Strategi og tiltak](20210128_Overordnet_Strategi_og_tiltak.pdf)
@@ -47,6 +45,11 @@ Every other week, we present what we have done and what we're planning to do for
 * [Status og planer - 28. april 2021](altinnkaffe-20210428.pptx)
 * [Status og planer - 12. mai 2021](altinnkaffe-20210512.pptx)
 * [Status og planer - 26. mai 2021](altinnkaffe-20210526.pptx)
+* [Status og planer - 9. juni 2021](altinnkaffe-20210609.pptx)
+* [Status og planer - 23. juni 2021](altinnkaffe-20210623.pptx)
+* [Status og planer - 26. august 2021](altinnkaffe-20210826.pptx)
+* [Status og planer - 9. september 2021](altinnkaffe-20210909.pptx)
+* [Status og planer - 23. september 2021](altinnkaffe-20210923.pptx)
 * More to come...
 
 ## Themed meetings
@@ -65,4 +68,7 @@ The weeks where we don't presesent status, we hold themed meetings.
 * [Tilgang til logger og hemmeligheter](logs-secrets-presentasjon.pptx) (21. april 2021)
 * [Altinn Events - inkludert mulighet for push](altinn-events.pptx) (5. mai 2021)
 * [Datamodellering: Håndtering av utfasing av Seres](seres-utfasing-altinnkaffe.pptx) (19. mai 2021)
+* [Case: Karantenehotellunntak](udi-altinnkaffe.pptx) (2. juni 2021)
+* [Standardisering vs. fleksibilitet](altinnkaffe-standardisering.pptx) (30. juni 2021)
+* [Kopiering av app](altinnkaffe-kopi-app.pptx) (2. september 2021)
 * More to come...
