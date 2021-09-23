@@ -12,7 +12,7 @@ Documentation for Altinn Studio: https://docs.altinn.studio/
 cd C:/repos
 git clone https://github.com/altinn/altinn-studio-docs
 ```
-2. [Download Hugo](https://github.com/gohugoio/hugo/releases) (v0.73.0 or newer), and copy the executable into the new altinn-studio-docs folder.
+2. [Download the latest Hugo](https://github.com/gohugoio/hugo/releases) for your platform, and copy the executable into the new `altinn-studio-docs`-folder.
    
 3. Navigate to folder and run Hugo:
 
