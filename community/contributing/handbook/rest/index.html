@@ -962,15 +962,15 @@ A resource in a system should have only one logical URI, which should provide a 
 <p>REST APIs specifications should be public awailable as OpenApi 3.0 (swagger).</p>
 </li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/{domain}/{version}/{resource}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/{domain}/{version}/{resource}
 </code></pre></div><p>Example:</p>
 <p>Create a new instance resource. Post to <em>instances</em> with query params that identifies the application and the instance owner.
 This call should return identifier of the new instance resource or the json of the instance resource itself.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/storage/v1/instances?applicationId=KNS-sailor&amp;instanceOwnerId=1024
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/storage/v1/instances?applicationId=KNS-sailor&amp;instanceOwnerId=1024
 </code></pre></div><p>GET one instance or PUT to to this url to update the instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/storage/v1/instances/23f1faab-bdb3-4cba-aed2-d515e1be6db8
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/storage/v1/instances/23f1faab-bdb3-4cba-aed2-d515e1be6db8
 </code></pre></div><p>Get (query) all instances that is instance owner has</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/storage/v1/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/api/storage/v1/instances&amp;instanceOwnerId={instanceOwnerId}[&amp;since=2017-01-01]
 </code></pre></div>
 
 <footer class=" footline" >

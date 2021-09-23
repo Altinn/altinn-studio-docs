@@ -409,12 +409,12 @@ if(host != "localhost")
 <li>Updated package dependencies<br>
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.<br>
 Update nuget dependencies in <code>App.csproj</code> to version 3.0.0.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
 </code></pre></div></li>
 <li>Create a new file for a new class called PdfHandler in the logic/Print folder <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/logic/Print/PdfHandler.cs">File from template</a>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
 <span style="color:#ff79c6">using</span> Altinn.App.Common.Models; 
 <span style="color:#ff79c6">namespace</span> Altinn.App.AppLogic.Print
 {
@@ -437,14 +437,14 @@ Update nuget dependencies in <code>App.csproj</code> to version 3.0.0.
 </code></pre></div></li>
 <li>Changes to the App.cs file<br>
 Add using
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.AppLogic.Print;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.AppLogic.Print;
 <span style="color:#ff79c6">using</span> Microsoft.Extensions.Options;
 <span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Http;
 <span style="color:#ff79c6">using</span> Altinn.App.Services.Configuration;
 </code></pre></div><p>Add a new private field below InstantiationHandler</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> PdfHandler _pdfHandler;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> PdfHandler <span style="color:#bd93f9">_</span>pdfHandler;
 </code></pre></div><p>Change constructor from:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
   IAppResources appResourcesService,
   ILogger&lt;App&gt; logger,
   IData dataService,
@@ -456,7 +456,7 @@ Add using
   IInstance instanceService
   ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService, instanceService)
 </code></pre></div><p>to:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
   IAppResources appResourcesService,
   ILogger&lt;App&gt; logger,
   IData dataService,
@@ -482,14 +482,14 @@ Add using
     textService,
     httpContextAccessor)
 {
-  _logger = logger;
-  _validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
-  _calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
-  _instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
-  _pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
+  <span style="color:#bd93f9">_l</span>ogger = logger;
+  <span style="color:#bd93f9">_</span>validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);
+  <span style="color:#bd93f9">_</span>calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
+  <span style="color:#bd93f9">_</span>instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
+  <span style="color:#bd93f9">_</span>pdfHandler = <span style="color:#ff79c6">new</span> PdfHandler();
 }
 </code></pre></div><p>Add method</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;summary&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;summary&gt;
 </span><span style="color:#6272a4">/// Hook to run logic to hide pages or components when generatring PDF
 </span><span style="color:#6272a4">/// &lt;/summary&gt;
 </span><span style="color:#6272a4">/// &lt;param name=&#34;layoutSettings&#34;&gt;The layoutsettings. Can be null and need to be created in method&lt;/param&gt;
@@ -497,7 +497,7 @@ Add using
 </span><span style="color:#6272a4">/// &lt;returns&gt;Layoutsetting with possible hidden fields or pages&lt;/returns&gt;
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
 {
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
 }
 </code></pre></div></li>
 </ol>

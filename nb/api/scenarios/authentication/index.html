@@ -415,7 +415,7 @@ if(host != "localhost")
 <p>To provide an API in maskinporten Altinn has to do two operations.</p>
 <ol>
 <li>As API-provider Altinn registres a scope in <em>Maskinporten</em>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">POST /scopes
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">POST /scopes
 {
     <span style="color:#ff79c6">&#34;prefix&#34;</span>: <span style="color:#f1fa8c">&#34;altinn&#34;</span>,
     <span style="color:#ff79c6">&#34;subscope&#34;</span>: <span style="color:#f1fa8c">&#34;instances/metadata.read&#34;</span>,
@@ -423,7 +423,7 @@ if(host != "localhost")
 }
 </code></pre></div></li>
 <li>As API-provider Altinn has to give access to its scope for a given organisation
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /scopes/access/889640782?scope=altinn:apps.read
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /scopes/access/889640782?scope=altinn:apps.read
 </code></pre></div><p>Here we have given organisation 889640782 access to the scope <code>altinn:instances/metadata.read</code>.
 The organisation must then create a client that uses the scope.</p>
 </li>
@@ -432,7 +432,7 @@ The organisation must then create a client that uses the scope.</p>
 <p>To access the Altinn API an organisation must create a client.</p>
 <ol>
 <li>As API-consumer the organisation must create a client in <em>Maskinporten</em> with scopes provided by Altinn:
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">POST /clients
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">POST /clients
 {
     <span style="color:#ff79c6">&#34;client_name&#34;</span>: <span style="color:#f1fa8c">&#34;altinnOrgRead&#34;</span>,
     <span style="color:#ff79c6">&#34;client_type&#34;</span>: <span style="color:#f1fa8c">&#34;CONFIDENTIAL&#34;</span>,
@@ -444,10 +444,10 @@ The organisation must then create a client that uses the scope.</p>
 </ol>
 <h3 id="scopes">Scopes</h3>
 <p>scope names must follow the following regexp:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#ff79c6">^</span>([a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+\/</span>?)<span style="color:#ff79c6">+</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>(<span style="color:#ff79c6">\.</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>)?<span style="color:#8be9fd;font-style:italic">$?</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#ff79c6">^</span>([a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+\/</span>?)<span style="color:#ff79c6">+</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>(<span style="color:#ff79c6">\.</span>[a<span style="color:#ff79c6">-</span>z0<span style="color:#ff79c6">-</span><span style="color:#bd93f9">9</span>]<span style="color:#ff79c6">+</span>)?<span style="color:#8be9fd;font-style:italic">$?</span>
 </code></pre></div><p>It means that we cannot have <code>-</code> or <code>_</code> in scope names.</p>
 <h4 id="all-instances-scope">All instances scope</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
 altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.write
 </code></pre></div><p>This is the most general scope which can be given to an organisation by Altinn.
 It means that the application owner can create a client that can access all instances of apps issued by that application owner.</p>
@@ -460,10 +460,10 @@ update process state, upload data, validate data, and change process of an insta
 <p>This token has to be validated and replaced with an <em>Altinn JWT access token</em> which should be used to access the apis.</p>
 <h4 id="maskinporten-jwt-access-token-input">Maskinporten JWT access token (input)</h4>
 <p>Client provides a self-contained access-token.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Autorization: Bearer eyJraWQiOiJIdFlaMU1UbFZXUGNCV0JQVWV3TmxZd1RCRklicU1Hb081OFJ4bmN6TWJNIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZXN0X3JwIiwic2NvcGUiOiJ ...
 GET /authentication/api/v1/exchange/maskinporten
 </code></pre></div><p>The token looks something like this (after base64-decoding):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;kid&#34;</span>: <span style="color:#f1fa8c">&#34;HtYZ1MTlVWPcBWBPUewNlYwTBFIbqMGoO58RxnczMbM&#34;</span>,
   <span style="color:#ff79c6">&#34;alg&#34;</span>: <span style="color:#f1fa8c">&#34;RS256&#34;</span>
 }
@@ -490,7 +490,7 @@ GET /authentication/api/v1/exchange/maskinporten
 <h4 id="the-altinn-jwt-access-token-output">The Altinn JWT Access token (output)</h4>
 <p>The convert operation validates the incoming token and generates a new JWT token with the same scope as the token.
 The scopes is copied. The <code>orgNumber</code> and <code>org</code> is added by the token converter.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:instances.read altinn:instances.write&#34;</span>,
   <span style="color:#ff79c6">&#34;token_type&#34;</span>: <span style="color:#f1fa8c">&#34;Bearer&#34;</span>,
   <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1571996946</span>,
@@ -517,10 +517,10 @@ When authenticated the system may exchange a token provided by ID-porten with an
 <h4 id="exchange-of-jwt-token-1">Exchange of JWT token</h4>
 <p>This token has to be validated and replaced with an <em>Altinn JWT access token</em> which should be used to access the apis.</p>
 <h5 id="id-porten-jwt-access-token-input">ID-porten JWT access token (input)</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Autorization: Bearer eyJraWQiOiJjWmswME1rbTVIQzRnN3Z0NmNwUDVGSFpMS0pzdzhmQkFJdUZiUzRSVEQ0IiwiYWxnIjoiUlMyNTYifQ.eyJhdF9 ...
 GET /authentication/api/v1/exchange/id-porten
 </code></pre></div><p>The token looks something like this (after decoding):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;kid&#34;</span>: <span style="color:#f1fa8c">&#34;cZk00Mkm5HC4g7vt6cpP5FHZLKJsw8fBAIuFbS4RTD4&#34;</span>,
   <span style="color:#ff79c6">&#34;alg&#34;</span>: <span style="color:#f1fa8c">&#34;RS256&#34;</span>
 }
@@ -549,7 +549,7 @@ GET /authentication/api/v1/exchange/id-porten
 <p>The exchange operation validates the incomming token and generates a new JWT token that contains user data
 retrieved from the database using the provided pid (person identification number) and pre-existing data from the ID-porten token.</p>
 <p><code>pid</code> is referred to as ssn (social security number) i Altinn Platform.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;nameid&#34;</span>: <span style="color:#f1fa8c">&#34;20000011&#34;</span>,
   <span style="color:#ff79c6">&#34;urn:altinn:userid&#34;</span>: <span style="color:#f1fa8c">&#34;20000011&#34;</span>,
   <span style="color:#ff79c6">&#34;urn:altinn:username&#34;</span>: <span style="color:#f1fa8c">&#34;&#34;</span>,

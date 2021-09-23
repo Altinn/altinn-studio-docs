@@ -953,10 +953,10 @@ if(host != "localhost")
 The data is never persisted anywhere, and the avilable endpoints simply creates, prefills and/or runs calculations on a data object before 
 returning it to the caller.</p>
 <p><strong>basePath</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{app}/v1/data
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{app}/v1/data
 </code></pre></div><h2 id="create-new-data">Create new data</h2>
 <p>Endpoint for creating a new stateless dataelement based on a data type.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST basePath?dataType=[dataTypeId]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST basePath?dataType=[dataTypeId]
 Accept: application/{xml/json}
 </code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a> that requires app logic.</p>
 <p>If prefill or calculations are defined for the data type, these will be run on the data element before it is returned.</p>
@@ -964,13 +964,13 @@ Accept: application/{xml/json}
 <p>A response with the data element in the body will be returned if a valid data type is provided.</p>
 <h2 id="calculate-data">Calculate data</h2>
 <p>Endpoint for running calculations on a data element.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT basePath?dataType=[dataTypeId]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT basePath?dataType=[dataTypeId]
 Accept: application/{xml/json}
 </code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a> that requires app logic.</p>
 <p>The Content-Type is used by Altinn to deserialize the request into a strongly typed object. A request must either be <strong>application/json</strong> or <strong>application/xml</strong>.
 No other Content-Types are supported. Content-Type is <strong>not</strong> validated against allowed Content-Types on the data type.</p>
 <h3 id="providing-data-as-applicationjson">Providing data as application/json</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Content-Type: application/json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Content-Type: application/json
 
 {
     <span style="color:#ff79c6">&#34;dataFormatProvider&#34;</span>: <span style="color:#f1fa8c">&#34;SERES&#34;</span>,
@@ -985,7 +985,7 @@ No other Content-Types are supported. Content-Type is <strong>not</strong> valid
     <span style="color:#ff79c6">&#34;OEnsketBruk&#34;</span>: <span style="color:#ff79c6">null</span>
 }
 </code></pre></div><h3 id="providing-data-as-applicationxml">Providing data as application/xml</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Content-Type: application/xml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Content-Type: application/xml
 
 <span style="color:#ff79c6">&lt;BliTjenesteeier_M</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">dataFormatProvider=</span><span style="color:#f1fa8c">&#34;SERES&#34;</span> <span style="color:#50fa7b">dataFormatId=</span><span style="color:#f1fa8c">&#34;5703&#34;</span> <span style="color:#50fa7b">dataFormatVersion=</span><span style="color:#f1fa8c">&#34;34553&#34;</span><span style="color:#ff79c6">&gt;</span>
     <span style="color:#ff79c6">&lt;Kontaktperson&gt;</span>

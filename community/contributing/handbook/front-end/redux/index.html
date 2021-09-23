@@ -964,7 +964,7 @@ concepts are the same in both cases.</p>
 <p>This is where the overall states are stored. Each state is stored here as an object.</p>
 <h3 id="actions">Actions</h3>
 <p>Actions are the events that are triggered when a change is made. An action contains the action type, and any metadata needed to complete the action. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IUpdateFormData <span style="color:#ff79c6">extends</span> Action {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">interface</span> IUpdateFormData <span style="color:#ff79c6">extends</span> Action {
   field: <span style="color:#8be9fd">string</span>;
   data: <span style="color:#8be9fd">any</span>;
   componentId: <span style="color:#8be9fd">string</span>;
@@ -983,7 +983,7 @@ concepts are the same in both cases.</p>
 <p>Redux saga is the middleware used to process information before the store is updated (i.e. before the reducer does its work).</p>
 <p>An example is asyncronous calls to backend APIs to get data, or submit data.</p>
 <p>Each saga defines methods that complete different tasks, connected to actions. These methods are called via listeners that listen to the actions that are being dispatched. There are different sagas for all the different functional areas.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#6272a4">/**
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#6272a4">/**
 </span><span style="color:#6272a4"> * Define the saga for the UPDATE_FORM_DATA event
 </span><span style="color:#6272a4"> */</span>
 <span style="color:#8be9fd;font-style:italic">function</span><span style="color:#ff79c6">*</span> updateFormDataSaga(action: <span style="color:#8be9fd">ActionType</span>) {
@@ -1010,7 +1010,7 @@ concepts are the same in both cases.</p>
 </code></pre></div><h3 id="reducers">Reducers</h3>
 <p>Redux reducers are used to update the different states in the store. There is one reduer per state. The reducers listen to the actions that are dispatched when changes are made, and update the state accordingly.</p>
 <p>Example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#ff79c6">const</span> initialState: <span style="color:#8be9fd">IFormDataState</span> <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#ff79c6">const</span> initialState: <span style="color:#8be9fd">IFormDataState</span> <span style="color:#ff79c6">=</span> {
   formData<span style="color:#ff79c6">:</span> {},
   error: <span style="color:#8be9fd">null</span>,
 };

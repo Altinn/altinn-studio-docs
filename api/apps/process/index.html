@@ -962,9 +962,9 @@ creates a current task object to holde the process state.</p>
 <p>A process is represented by an process modell in BPMN/XML notation. Each task has an unique id, which is used to refer to the task in the api.</p>
 <h3 id="process-model">Process model</h3>
 <p>Get the application&rsquo;s process model.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/process
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/process
 </code></pre></div><p>Returns the bpmn file defining the process.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;bpmn2:process</span> <span style="color:#50fa7b">id=</span><span style="color:#f1fa8c">&#34;Process_1&#34;</span> <span style="color:#50fa7b">isExecutable=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;bpmn2:process</span> <span style="color:#50fa7b">id=</span><span style="color:#f1fa8c">&#34;Process_1&#34;</span> <span style="color:#50fa7b">isExecutable=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">&gt;</span>
     <span style="color:#ff79c6">&lt;bpmn2:startEvent</span> <span style="color:#50fa7b">id=</span><span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span><span style="color:#ff79c6">&gt;</span>
         <span style="color:#ff79c6">&lt;bpmn2:outgoing&gt;</span>Flow_1<span style="color:#ff79c6">&lt;/bpmn2:outgoing&gt;</span>
     <span style="color:#ff79c6">&lt;/bpmn2:startEvent&gt;</span>
@@ -989,11 +989,11 @@ which signify the behaviour of the task. So far we have defined the following:</
 <li><em>external</em> - task is handled by an external entity, user must wait until they have completed the task.</li>
 </ul>
 <h2 id="get-process-state-of-a-specific-instance">Get process state of a specific instance</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process
 </code></pre></div><p>For an ongoing process this process state can look like the json below. It indicates that the process was started at a given date time and that it&rsquo;s current task is <em>Task_1</em>.
 The flow number indicates the sequence of process events/tasks that occurs during the execution of the process.
 Notice that same task can be visited multiple times in a process if there is a sequence flow that allows that.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-09-25T09:32:44.20Z&#34;</span>,
     <span style="color:#ff79c6">&#34;currentTask&#34;</span>: {
         <span style="color:#ff79c6">&#34;flow&#34;</span>: <span style="color:#bd93f9">2</span>,
@@ -1007,7 +1007,7 @@ Notice that same task can be visited multiple times in a process if there is a s
         }
     }
 </code></pre></div><p>For an ended process the following will be returned:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;started&#34;</span>: <span style="color:#f1fa8c">&#34;2019-09-25T09:32:44.20Z&#34;</span>,
     <span style="color:#ff79c6">&#34;startEvent&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
     <span style="color:#ff79c6">&#34;ended&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-10T14:01:22.034Z&#34;</span>,
@@ -1022,7 +1022,7 @@ Notice that same task can be visited multiple times in a process if there is a s
 <li>End Event</li>
 </ul>
 <h3 id="start-event">Start Event</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&#34;</span>,
     <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;process:Start&#34;</span>,
     <span style="color:#ff79c6">&#34;processInfo&#34;</span>: {
@@ -1032,7 +1032,7 @@ Notice that same task can be visited multiple times in a process if there is a s
     <span style="color:#ff79c6">&#34;createdDateTime&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-10T14:01:22.034Z&#34;</span>,
 }
 </code></pre></div><h3 id="starttask-event">StartTask Event</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;process:StartTask&#34;</span>,
 </span>    <span style="color:#ff79c6">&#34;processInfo&#34;</span>: {
@@ -1049,7 +1049,7 @@ Notice that same task can be visited multiple times in a process if there is a s
     <span style="color:#ff79c6">&#34;createdDateTime&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-01T13:22.01Z&#34;</span>,
 }
 </code></pre></div><h3 id="endtask-event">EndTask Event</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;process:EndTask&#34;</span>,
 </span>    <span style="color:#ff79c6">&#34;processInfo&#34;</span>: {
@@ -1066,7 +1066,7 @@ Notice that same task can be visited multiple times in a process if there is a s
     <span style="color:#ff79c6">&#34;createdDateTime&#34;</span>: <span style="color:#f1fa8c">&#34;2019-10-05T01:11.33Z&#34;</span>,
 }
 </code></pre></div><h3 id="end-event">End Event</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;347829/41e57962-dfb7-4502-a4dd-8da28b0885fc&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;process:EndEvent&#34;</span>,
 </span>    <span style="color:#ff79c6">&#34;processInfo&#34;</span>: {
@@ -1079,8 +1079,8 @@ Notice that same task can be visited multiple times in a process if there is a s
 }
 </code></pre></div><h3 id="get-process-history-of-a-specific-instance">Get process history of a specific instance</h3>
 <p>Based on the process events the history of the instance&rsquo;s process is generated. The following illustrates an ended process:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/history
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;processHistory&#34;</span>: [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/history
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;processHistory&#34;</span>: [
         {
             <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;process_StartEvent&#34;</span>,
             <span style="color:#ff79c6">&#34;elementId&#34;</span>: <span style="color:#f1fa8c">&#34;StartEvent_1&#34;</span>,
@@ -1101,23 +1101,23 @@ Notice that same task can be visited multiple times in a process if there is a s
 }
 </code></pre></div><h2 id="start-process">Start Process</h2>
 <p>To start a process one can post start to the process endpoint.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/start[?startEvent=StartEvent_1]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/start[?startEvent=StartEvent_1]
 </code></pre></div><p>This will start the process and move the process state to the first task from the given start. If process has more than one start event, then the client has to chose which one to start with the startEvent query parameter.</p>
 <h2 id="complete-and-move-to-next-task">Complete and move to next task</h2>
 <p>The process logic attempts to finish the current task and then moves the process forward to the next task in the flow. The cannot always select the next task, especially when more than one tasks can be chosen. In this case the client must chose which process element id to select.</p>
 <figure><a href="process-completeTask.png"><img src="process-completeTask.png" alt="Flowchart for completing a task" title="Process next task" /></a><figcaption><h4>Process next task</h4></figcaption></figure>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next[?id=Task_2]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next[?id=Task_2]
 </code></pre></div><h2 id="complete-the-process">Complete the process</h2>
 <p>The complete process method will attempt to complete the process for an instance. Hence, the app will move the process from one task to the next until it reaches an valid end state.</p>
 <p>If a task&rsquo;s exit condition is not met, the process will be stopped in the last valid task. And the user must manually fix the problem and complete the process.</p>
 <figure><a href="process-completeProcess.png"><img src="process-completeProcess.png" alt="Flowchart for completing a process" title="Complete the process" /></a><figcaption><h4>Complete the process</h4></figcaption></figure>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/completeProcess
 </code></pre></div><h2 id="get-the-next-tasks-in-a-process">Get the next tasks in a process</h2>
 <p>Returns an list of the next tasks/events that can be reached from the current task.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next
 </code></pre></div><h2 id="start-a-task">Start a task</h2>
 <p>If you are at a specific task and want to start the next task you can try to put next to the process endpoint. The process controller then tries to close the current task and start the wanted task. Updates process state accordingly. If exit condition of current task is not met, an error will be returned. If the task is not directly reachable by the flow, an error will be returned.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Task_2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {appPath}/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/process/next?id=Task_2
 </code></pre></div>
 
 <footer class=" footline" >

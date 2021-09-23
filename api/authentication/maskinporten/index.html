@@ -959,13 +959,13 @@ så har du tilgang til selvbetjening for <a href="https://samarbeid.digdir.no/ma
 <h2 id="tilgang-som-tjenesteeier">Tilgang som tjenesteeier</h2>
 <p>For å kunne hente data fra Storage i Altinn 3 via API som tjenesteeier, så må man opprette en integrasjon (klient) i Maskinporten, med nødvendige scopes.</p>
 <p>Følgende scopes er opprettet av Altinn, og delegert til tjenesteeier. Disse scopene behøves for å benytte APIene relatert til instanser som tjenesteeier:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.read
 altinn<span style="color:#ff79c6">:</span>serviceowner<span style="color:#ff79c6">/</span>instances.write
 </code></pre></div><p>Klienter med <em>write</em> scope kan bl.a. instansiere apper på vegne av bruker via appens eget API, laste opp data, oppdatere metadata og prosess-status.
 Klienter med <em>read</em> scope kan kun lese data, metadata og events.</p>
 <p>I de fleste tilfeller så vile en klient for tjenesteeier ha behov for begge scopene.</p>
 <p>Oppretting av klient kan gjøres via API eller i Samarbeidsportalen.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST https://integrasjon.difi.no/clients/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST https://integrasjon.difi.no/clients/
 {
     &#34;integration_type&#34;: &#34;maskinporten&#34;,
     &#34;client_name&#34;: &#34;DIHE testklient for instanser&#34;,

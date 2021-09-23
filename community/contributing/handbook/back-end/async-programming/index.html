@@ -945,21 +945,21 @@ which antipatterns to avoid.</p>
 This use of <code>.Result</code> ties up the thread that could be doing other useful work, but even more serious
 it might cause a deadlock.</p>
 <p>Instead of implementations like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> Party GetCurrentParty()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> Party GetCurrentParty()
  {
-     UserContext userContext = _userHelper.GetUserContext(HttpContext).Result;
+     UserContext userContext = <span style="color:#bd93f9">_</span>userHelper.GetUserContext(HttpContext).Result;
      <span style="color:#8be9fd">int</span> userId = userContext.UserId;
-     <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[_settings.GetAltinnPartyCookieName];
+     <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[<span style="color:#bd93f9">_</span>settings.GetAltinnPartyCookieName];
      <span style="color:#8be9fd">int</span>.TryParse(cookieValue, <span style="color:#ff79c6">out</span> <span style="color:#8be9fd">int</span> partyId);
      (...)
  }
 
 </code></pre></div><p>Try using this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Party GetCurrentParty()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Party GetCurrentParty()
  {
-    UserContext userContext = <span style="color:#ff79c6">await</span> _userHelper.GetUserContext(HttpContext);
+    UserContext userContext = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>userHelper.GetUserContext(HttpContext);
     <span style="color:#8be9fd">int</span> userId = userContext.UserId;
-    <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[_settings.GetAltinnPartyCookieName];
+    <span style="color:#8be9fd">string</span> cookieValue = Request.Cookies[<span style="color:#bd93f9">_</span>settings.GetAltinnPartyCookieName];
     <span style="color:#8be9fd">int</span>.TryParse(cookieValue, <span style="color:#ff79c6">out</span> <span style="color:#8be9fd">int</span> partyId);
     (...)
  }

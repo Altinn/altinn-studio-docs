@@ -417,12 +417,12 @@ Substatus vil vises frem både i meldingsboksen i Altinn og på kvitteringssiden
 Substatus er et enkelt objekt som inneholder <code>label</code> og <code>description</code>. Disse feltene kan enten inneholde ren tekst, eller en tekstnøkkel som referer til applikasjonstekstene. Verdt å merke seg at vi ikke støtter variabler i tekst for disse tekstene.
 I meldingsboksen er det satt en begrensning på 25 tegn på <code>label</code>, og inneholder label mer enn 25 tegn vil bare de 22 første tegnene bli brukt og &ldquo;&hellip;&rdquo; lagt til på slutten.</p>
 <p>Eksempel på et substatus-objekt:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;some.label&#34;</span>,
     <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Beskrivelse i klarteskst&#34;</span>
 }
 </code></pre></div><p>Under ser du du eksempler på hvordan substatus ser ut i meldingsboksen og i kvitteringen hvor substatusen er satt opp på følgende måte:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Godkjent&#34;</span>,
     <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Din søknad er godkjent av kongen.&#34;</span>
 }

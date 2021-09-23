@@ -942,7 +942,7 @@ if(host != "localhost")
 <p>The API&rsquo;s is structured so the URLs are filtered queries into the events storage.</p>
 <h4 id="instances-events-for-org">Instances events for Org</h4>
 <h5 id="endpoint">Endpoint</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET path: platform.altinn.no/events/api/v1/app/{org}/{appName}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET path: platform.altinn.no/events/api/v1/app/{org}/{appName}
 </code></pre></div><h5 id="usage">Usage</h5>
 <p>This will be used by application owners to identify changes on instances for their applications.</p>
 <h5 id="authorization">Authorization</h5>
@@ -1018,9 +1018,9 @@ events for a given org/app.</p>
 <h5 id="response">Response</h5>
 <p>Response includes a <em>next</em> header that can be used to get the events following the last event returned by the response.
 Query parameter <em>after</em> is inserted or replaced and holds the id of the last event returned in the reponse.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.tt02.altinn.no/events/api/v1/app/ttd/apps-test?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.tt02.altinn.no/events/api/v1/app/ttd/apps-test?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
 </code></pre></div><p>Response body includes a list of cloud events on the form</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8c99c887-3861-4c2a-9ac9-178a20b1ee70&#34;</span>,
         <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://nav.apps.altinn.no/nav/app/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
@@ -1045,7 +1045,7 @@ Query parameter <em>after</em> is inserted or replaced and holds the id of the l
 </code></pre></div><h3 id="events-for-a-given-party">Events for a given party</h3>
 <p>A very common scenario is that a party needs to know about events for the party itself or other party that party has a relationship for (client, child unit++).</p>
 <h5 id="endpoint-1">Endpoint</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET platform.altinn.no/events/api/v1/app/party
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET platform.altinn.no/events/api/v1/app/party
 </code></pre></div><h5 id="usage-1">Usage</h5>
 <p>This is used by end users to see events for a given party.
 This will list all changes for a given party, identified with a partyId, person number or organisation number.</p>
@@ -1123,9 +1123,9 @@ This way there would be no need to verify the current state of an instance.</p>
 <h5 id="response-1">Response</h5>
 <p>Response includes a <em>next</em> header that can be used to get the events following the last event returned by the response.
 Query parameter <em>after</em> is inserted or replaced and holds the id of the last event returned in the reponse.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.tt02.altinn.no/events/api/v1/app/party?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://platform.tt02.altinn.no/events/api/v1/app/party?after=5beae524-0b3d-4e3b-bf40-450575eaf5d6&amp;from=2020-10-01 11:35:00
 </code></pre></div><p>We have this example</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
   <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
   <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.process.completed&#34;</span>,
@@ -1137,7 +1137,7 @@ Query parameter <em>after</em> is inserted or replaced and holds the id of the l
 This is something it gets throug roles for that specific application.</p>
 <h3 id="adding-events">Adding events</h3>
 <h5 id="endpoint-2">Endpoint</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/app
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/app
 </code></pre></div><p>This returns the created ID for the event.</p>
 <h5 id="usage-2">Usage</h5>
 <p>This is used by the application to publish app events.
@@ -1191,7 +1191,7 @@ The following attributes is used by the Events component.</p>
 </tbody>
 </table>
 <p>We have this example</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
     <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>, 
     <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;instance.created&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;skd/skattemelding/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
@@ -1202,14 +1202,14 @@ The following attributes is used by the Events component.</p>
 }]
 </code></pre></div><h3 id="adding-subscription">Adding Subscription</h3>
 <h5 id="endpoint-3">Endpoint</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/subscriptions/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {platformurl}/events/api/v1/subscriptions/
 </code></pre></div><p>This returns the created subscription with IDs</p>
 <h5 id="usage-3">Usage</h5>
 <p>This is used by the consumer to add a subscription.</p>
 <p>The consumer needs to ba an org authenticated with maskinporten or a end user autenticated with ID-porten</p>
 <p>We have this example that adds a subscription for all events for the app ttd/apps-test to be pushed
 to a Slack webhook</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;endPoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://hooks.slack.com/services/TSRSASBVNF3/ADRRSDSSSAahttsasdfasFO3w83456ss&#34;</span>,
     <span style="color:#ff79c6">&#34;sourceFilter&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.at21.altinn.cloud/ttd/apps-test&#34;</span>
 <span style="display:block;width:100%;background-color:#3d3f4a">}

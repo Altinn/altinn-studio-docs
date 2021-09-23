@@ -941,7 +941,7 @@ if(host != "localhost")
 <ul>
 <li><em>Make sure Altinn Studio is not running</em>. If it is, run</li>
 </ul>
-<pre><code>docker-compose down
+<pre tabindex="0"><code>docker-compose down
 </code></pre><p>from <code>altinn-studio/src/studio</code> before proceeding with the instructions linked above.</p>
 <ol start="2">
 <li>
@@ -951,17 +951,17 @@ if(host != "localhost")
 <p>Run the app (from <code>&lt;path-to-app&gt;/App/</code>):</p>
 </li>
 </ol>
-<pre><code>dotnet run
+<pre tabindex="0"><code>dotnet run
 </code></pre><p>or run it directly from VS Code.</p>
 <ol start="4">
 <li>Install frontend dependencies if this has not been done (or dependencies have been updated) (from <code>src/Altinn.Apps/AppFrontend/react</code>):</li>
 </ol>
-<pre><code>npm ci
+<pre tabindex="0"><code>npm ci
 npm run install-deps
 </code></pre><ol start="5">
 <li>Run the app frontend (from <code>src/Altinn.Apps/AppFrontend/react</code>):</li>
 </ol>
-<pre><code>cd altinn-app-frontend
+<pre tabindex="0"><code>cd altinn-app-frontend
 npm start
 </code></pre><p>This serves altinn-app-frontend at localhost:8080. The command <code>npm start</code> runs the application with <em>hot reload</em>, which rebuilds the application any time a new change is saved. The page should refresh automatically.</p>
 <ol start="6">
@@ -976,16 +976,16 @@ npm start
 <p>Stop the <code>altinn-designer</code> container:</p>
 </li>
 </ol>
-<pre><code>docker stop altinn-designer
+<pre tabindex="0"><code>docker stop altinn-designer
 </code></pre><ol start="3">
 <li>Install/update dependencies (from <code>src/studio/src/designer/backend</code>):</li>
 </ol>
-<pre><code>npm ci
+<pre tabindex="0"><code>npm ci
 npm run gulp-install-deps # Installs front-end dependencies
 </code></pre><ol start="4">
 <li>Run the designer application (from <code>src/studio/src/designer/backend</code>):</li>
 </ol>
-<pre><code>npm run gulp # only needed the first time
+<pre tabindex="0"><code>npm run gulp # only needed the first time
 npm run gulp-develop #or npm run gulp-develop-dashboard
 </code></pre><p>This will both start the backend application with <code>dotnet run</code>, and serve the front-end application at localhost:8080 with <em>hot reload</em>, which rebuilds the frontend application any time a new change is saved. You might have to refresh the page to see your changes.</p>
 <ol start="5">
@@ -1005,7 +1005,7 @@ directly from the <code>src/studio/src/designer/frontend</code> folder).</p>
 </div>
 <h2 id="platform-receipt">Platform Receipt</h2>
 <p>Open a terminal in <code>src/Altinn.Platform/Altinn.Platform.Receipt</code>, and run:</p>
-<pre><code>npm install
+<pre tabindex="0"><code>npm install
 npm run gulp #(only the first time)
 npm run gulp-install-deps
 npm run gulp-develop

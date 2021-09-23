@@ -939,11 +939,11 @@ Eg. its used to communicate with the syncBar to get it to perform a new status c
 To read more see: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">Window.postMessage</a></p>
 <h3 id="usage">Usage</h3>
 <p>Dispatching a message event is done the following way:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">// variables should be used for messages
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">// variables should be used for messages
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">var</span> SAVED_EVENT <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;SAVED&#39;</span>
 <span style="color:#8be9fd;font-style:italic">window</span>.postMessage(SAVED_EVENT, <span style="color:#8be9fd;font-style:italic">window</span>.location.href);
 </code></pre></div><p>Catching the event is done by adding an event listener to the component one needs to communicate with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#ff79c6">public</span> componentDidMount() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#ff79c6">public</span> componentDidMount() {
     <span style="color:#8be9fd;font-style:italic">window</span>.addEventListener(<span style="color:#f1fa8c">&#39;message&#39;</span>, <span style="color:#ff79c6">this</span>.eventThatShouldHappend);
   }
 
@@ -953,7 +953,7 @@ To read more see: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Wind
 </span><span style="color:#6272a4"></span>     }
   }
 </code></pre></div><p>When the commponent is unmounting the event listener should be removed:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#ff79c6">public</span> componentWillUnmount() {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">  <span style="color:#ff79c6">public</span> componentWillUnmount() {
     <span style="color:#8be9fd;font-style:italic">window</span>.removeEventListener(<span style="color:#f1fa8c">&#39;message&#39;</span>, <span style="color:#ff79c6">this</span>.eventThatShouldHappend);
   }
 </code></pre></div><blockquote>

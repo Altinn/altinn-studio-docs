@@ -951,7 +951,7 @@ an architecture, and a processing model describing how to evaluate access reques
 <a href="http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html">See documentation</a>.</p>
 <h3 id="single-request">Single request</h3>
 <p>The below example show how a request try to verify that a user is allowed to read a given instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;Request&#34;</span>: {
 </span>    <span style="color:#ff79c6">&#34;ReturnPolicyIdList&#34;</span>: <span style="color:#ff79c6">true</span>,
     <span style="color:#ff79c6">&#34;AccessSubject&#34;</span>: [
@@ -990,7 +990,7 @@ an architecture, and a processing model describing how to evaluate access reques
 </code></pre></div><h3 id="request-for-multiple-decisions">Request for Multiple Decisions</h3>
 <p>Policy Decision Point supports Request for Multiple Decisions.
 The below request show how you can request decision for both read an write for the same resource.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;Request&#34;</span>: {
     <span style="color:#ff79c6">&#34;ReturnPolicyIdList&#34;</span>: <span style="color:#ff79c6">true</span>,
     <span style="color:#ff79c6">&#34;AccessSubject&#34;</span>: [
@@ -1082,7 +1082,7 @@ The below request show how you can request decision for both read an write for t
 <p>The XACML Response will follow XACML 3.0 JSON profile.
 <a href="http://docs.oasis-open.org/xacml/xacml-json-http/v1.1/csprd01/xacml-json-http-v1.1-csprd01.html">See documentation</a>.</p>
 <h3 id="response-for-single-decision-request">Response for single decision request</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;Response&#34;</span>: [
     {
 <span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&#34;Decision&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
@@ -1122,7 +1122,7 @@ The below request show how you can request decision for both read an write for t
   ]
 }
 </code></pre></div><h3 id="response-for-multipe-decision">Response for multipe decision</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;Response&#34;</span>: [
     {
 <span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&#34;Decision&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,

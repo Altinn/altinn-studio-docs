@@ -961,9 +961,9 @@ Listing of the highest priority of unit-testing:</p>
 </ul>
 <h2 id="exporting-and-importing-your-component">Exporting and importing your component</h2>
 <p>A quick way to get started testing your component is first to export the React Component:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> CloneServiceComponent <span style="color:#ff79c6">extends</span> React.Component<span style="color:#ff79c6">&lt;</span>ICloneServiceComponentProps <span style="color:#ff79c6">&amp;</span> RouteChildrenProps, ICloneServiceComponentState<span style="color:#ff79c6">&gt;</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">class</span> CloneServiceComponent <span style="color:#ff79c6">extends</span> React.Component<span style="color:#ff79c6">&lt;</span>ICloneServiceComponentProps <span style="color:#ff79c6">&amp;</span> RouteChildrenProps, ICloneServiceComponentState<span style="color:#ff79c6">&gt;</span> {
 </code></pre></div><p>and then reference it in your test the following way:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { CloneServiceComponent } from <span style="color:#f1fa8c">&#39;../../../src/dashboardServices/cloneService/cloneServices&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { CloneServiceComponent } from <span style="color:#f1fa8c">&#39;../../../src/dashboardServices/cloneService/cloneServices&#39;</span>;
 
 it(<span style="color:#f1fa8c">&#39;+++ this is the test&#39;</span>, <span style="color:#ff79c6">async</span> () =&gt; {
 
@@ -986,13 +986,13 @@ are props passed into the component (match={mockMatch}).</p>
 <h2 id="methods-in-your-component">Methods in your component</h2>
 <p>Methods can be called directly from your test, or executed when clicked on UI elements (See own section).
 Calling methods is done like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">instance.getCurrentRepositoryInfo();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">instance.getCurrentRepositoryInfo();
 instance.componentDidMount();
 </code></pre></div><blockquote>
 <p>If you call networked functions in componentDidMount() you need to mock the networked functions before mounting.</p>
 </blockquote>
 <p>If you have one function that calls another function, and you want to be sure that both functions ran at the end of the test, you can use jest&rsquo;s spyOn functionality described here:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> <span style="color:#ff79c6">const</span> spy <span style="color:#ff79c6">=</span> jest.spyOn(instance, <span style="color:#f1fa8c">&#39;funcitonTwoCalledWithinFunctionOne&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> <span style="color:#ff79c6">const</span> spy <span style="color:#ff79c6">=</span> jest.spyOn(instance, <span style="color:#f1fa8c">&#39;funcitonTwoCalledWithinFunctionOne&#39;</span>);
  instance.functionOne();
  expect(spy).toHaveBeenCalled();
 </code></pre></div><blockquote>
@@ -1001,7 +1001,7 @@ instance.componentDidMount();
 <h2 id="user-interface-and-methods">User Interface and Methods</h2>
 <p>In the example above, testing the actual interface is excluded.
 Simulating a click on an element might need to be performed twice in some cases. Simulating a click can be done using the elements ID and the simulate method from Enzyme:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">mountedComponent.find(<span style="color:#f1fa8c">&#39;button#editService&#39;</span>).simulate(<span style="color:#f1fa8c">&#39;click&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">mountedComponent.find(<span style="color:#f1fa8c">&#39;button#editService&#39;</span>).simulate(<span style="color:#f1fa8c">&#39;click&#39;</span>);
 </code></pre></div><blockquote>
 <p>ReactWrapper will pass a SyntheticEvent object to the event handler in your code.
 If the code you are testing uses properties that are not included in the SyntheticEvent,
@@ -1011,7 +1011,7 @@ for instance event.target.value, you will need to provide a mock event for it to
 <h2 id="networked-functions-get-post-put">Networked functions (get, post, put)</h2>
 <p>If you are using get, post or put from the shared networking.ts component you need to mock the actual call to be able to test functions that calls either get, post or put.
 This can be done in the following way:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">// Add this to the import statements in you test file:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">// Add this to the import statements in you test file:
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as networking from <span style="color:#f1fa8c">&#39;../../../../shared/src/utils/networking&#39;</span>;
 
 <span style="color:#6272a4">// To resolve the promise and and to return the value, first make sure your test is async:
@@ -1058,7 +1058,7 @@ This can be done in the following way:</p>
 
 </code></pre></div><h2 id="rejecting-promises--error-testing--negative-tests">Rejecting Promises / Error testing / Negative tests</h2>
 <p>If you want to test how your component handles rejected Promises / errors, for example in your Try/Catch you can use the following modification:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">// This is the rejected version of the mock gode
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#6272a4">// This is the rejected version of the mock gode
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">const</span> mockError <span style="color:#ff79c6">=</span> <span style="color:#8be9fd;font-style:italic">Error</span>(<span style="color:#f1fa8c">&#39;mocked error&#39;</span>);
 <span style="color:#ff79c6">const</span> getStub <span style="color:#ff79c6">=</span> jest.fn();
 <span style="color:#ff79c6">const</span> mockGet <span style="color:#ff79c6">=</span> jest.spyOn(networking, <span style="color:#f1fa8c">&#39;get&#39;</span>).mockImplementation(getStub);
@@ -1067,7 +1067,7 @@ getStub.mockReturnValue(<span style="color:#8be9fd;font-style:italic">Promise</s
 <span style="color:#6272a4">// You &#34;execute&#34; the network function the same way as a resolved promise
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">await</span> <span style="color:#8be9fd;font-style:italic">Promise</span>.resolve();
 </code></pre></div><p>You can spy on the console.error with the following code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">let</span> consoleError<span style="color:#ff79c6">:</span> any;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">let</span> consoleError<span style="color:#ff79c6">:</span> any;
 
 beforeAll(() =&gt; {
   consoleError <span style="color:#ff79c6">=</span> jest.spyOn(console, <span style="color:#f1fa8c">&#39;error&#39;</span>).mockImplementation(() =&gt; {
@@ -1083,7 +1083,7 @@ beforeAll(() =&gt; {
 <h2 id="using-router">Using Router</h2>
 <p>If you are testing a component that uses React Router, you might have to build router props and pass them to the component you are testing.
 Here is an example on how this can be done:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">mockLocation <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">mockLocation <span style="color:#ff79c6">=</span> {
   pathname<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;pathname&#39;</span>,
   search<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;search&#39;</span>,
   state<span style="color:#ff79c6">:</span> {},
@@ -1111,7 +1111,7 @@ mockMatch <span style="color:#ff79c6">=</span> {
   url<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span>,
 };
 </code></pre></div><h2 id="example-1-positive-test">Example #1, positive test</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { mount } from <span style="color:#f1fa8c">&#39;enzyme&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { mount } from <span style="color:#f1fa8c">&#39;enzyme&#39;</span>;
 <span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;jest&#39;</span>;
 <span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as React from <span style="color:#f1fa8c">&#39;react&#39;</span>;
 <span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as networking from <span style="color:#f1fa8c">&#39;../../shared/src/utils/networking&#39;</span>;
@@ -1183,7 +1183,7 @@ describe(<span style="color:#f1fa8c">&#39;HandleMergeConflictAbort&#39;</span>, 
   });
 });
 </code></pre></div><h2 id="example-2-negative-test-error-handling">Example #2, negative test (Error handling)</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { mount } from <span style="color:#f1fa8c">&#39;enzyme&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { mount } from <span style="color:#f1fa8c">&#39;enzyme&#39;</span>;
 <span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#39;jest&#39;</span>;
 <span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as React from <span style="color:#f1fa8c">&#39;react&#39;</span>;
 <span style="color:#ff79c6">import</span> <span style="color:#ff79c6">*</span> as networking from <span style="color:#f1fa8c">&#39;../../shared/src/utils/networking&#39;</span>;

@@ -1072,7 +1072,7 @@ the events to a subscriber webhook.</p>
 <li>It is flexible so it would support scenarios in the future</li>
 </ul>
 <p>Below you find a offical example. <a href="https://raw.githubusercontent.com/cloudevents/spec/master/spec.json">See full JSON Schema</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;specversion&#34;</span> : <span style="color:#f1fa8c">&#34;1.x-wip&#34;</span>,
     <span style="color:#ff79c6">&#34;type&#34;</span> : <span style="color:#f1fa8c">&#34;com.github.pull.create&#34;</span>,
     <span style="color:#ff79c6">&#34;source&#34;</span> : <span style="color:#f1fa8c">&#34;https://github.com/cloudevents/spec/pull&#34;</span>,
@@ -1107,7 +1107,7 @@ This will be used for socical secuirty number, organization number or other iden
 <p>The value will be prefixed</p>
 <h4 id="example-1">Example 1</h4>
 <p>A instance has been created for a given party. It is not possible from the event itself to know who did it.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
   <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/1234324/6fb3f738-6800-4f29-9f3e-1c66862656cd&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/1234324&#34;</span>,
 </span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.created&#34;</span>,
@@ -1117,7 +1117,7 @@ This will be used for socical secuirty number, organization number or other iden
 }]
 </code></pre></div><h5 id="example-2">Example 2</h5>
 <p>A user has completed the confirmation1 task in the process.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
   <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
   <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.movedTo.confirmation1&#34;</span>,
@@ -1127,7 +1127,7 @@ This will be used for socical secuirty number, organization number or other iden
 }]
 </code></pre></div><h5 id="example-3">Example 3</h5>
 <p>A user/system has completed the process for an instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[{
   <span style="color:#ff79c6">&#34;source&#34;</span>:  <span style="color:#f1fa8c">&#34;https://skd.apps.altinn.no/skd/skattemelding/instances/234234422/2acb1253-07b3-4463-9ff5-60dc82fd59f8&#34;</span>,
   <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;party/234234422&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,

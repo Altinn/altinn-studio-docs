@@ -975,7 +975,7 @@ beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering s
 <p>Det er inne i disse at de forskjellige funksjonene skal defineres. I tillegg er det satt opp to <em>hjelpe-objekter</em>  (<code>ruleHandlerHelper</code> og <code>conditionalRuleHandlerHelper</code>), hvor man skal sette opp hva slags input de forskjellige funksjonene forventer å få inn. Dette gjør det mulig å konfigurere opp reglene i Altinn Studio senere. For at en funksjon skal være tilgjengelig for å konfigureres som dynamikk, må selve funksjonen være definert i hoved-objektet 
 (<code>ruleHandlerObject</code> eller <code>conditionalRuleHandlerObject</code>), og parametrene den forventer å få inn må være satt opp i det tilhørende hjelpe-objektet.</p>
 <p>Strukturen på hjelpe-objektet vises under:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerHelper <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerHelper <span style="color:#ff79c6">=</span> {
   <span style="color:#ff79c6">&lt;</span>name_of_rule<span style="color:#ff79c6">&gt;:</span> () =&gt; {
     <span style="color:#ff79c6">return</span> {
       <span style="color:#ff79c6">&lt;</span>input_param<span style="color:#ff79c6">&gt;:</span> <span style="color:#f1fa8c">&#34;&lt;description&gt;&#34;</span>,
@@ -986,7 +986,7 @@ beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering s
   }
 }
 </code></pre></div><p>Strukturen på hoved-objektet, som inneholder funksjoner som brukes i dynamikk, vises under:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerObject <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerObject <span style="color:#ff79c6">=</span> {
   <span style="color:#ff79c6">&lt;</span>name_of_rule<span style="color:#ff79c6">&gt;:</span> (<span style="color:#ff79c6">&lt;</span>input_variable_name<span style="color:#ff79c6">&gt;</span>) =&gt; {
     <span style="color:#6272a4">// Do something here
 </span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// Values from input parameters defined in 
@@ -996,7 +996,7 @@ beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering s
 </span><span style="color:#6272a4"></span>  }
 }
 </code></pre></div><p>For eksempel, for å lage en regel som returnerer summen av to tall (beregning), vil man trenge følgende kode:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerHelper <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerHelper <span style="color:#ff79c6">=</span> {
   sum<span style="color:#ff79c6">:</span> () =&gt; {
     <span style="color:#ff79c6">return</span> {
       field1<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;Field 1 in sum&#34;</span>,
@@ -1054,7 +1054,7 @@ beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering s
 Funksjonene som da kjøres må kunne håndtere dersom det f.eks. har kommet inn kun 1 av 2 parametre eller lignende.</p>
 <p>Et eksempel på hvordan dette kan gjøres er vist i <code>sum</code>-funksjonen under, hvor man tester hvilke parametre man 
 har fått inn, og setter verdi til <code>0</code> på den/de parametre som mangler, sånn at regelen fortsatt fungerer.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerObject <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerObject <span style="color:#ff79c6">=</span> {
   sum<span style="color:#ff79c6">:</span> (obj) =&gt; {
     obj.value1 <span style="color:#ff79c6">=</span> obj.value1 <span style="color:#ff79c6">?</span> <span style="color:#ff79c6">+</span>obj.value1 <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>;
     obj.value2 <span style="color:#ff79c6">=</span> obj.value2 <span style="color:#ff79c6">?</span> <span style="color:#ff79c6">+</span>obj.value2 <span style="color:#ff79c6">:</span> <span style="color:#bd93f9">0</span>;
@@ -1121,7 +1121,7 @@ Avhengig av hva sluttbruker velger her, skal forskjellig innhold vises i skjemae
 </ul>
 <p>Dette kan gjøres ved å legge inn følgende i <code>RuleHandler.js</code>, enten via <em>Rediger dynamikk</em> i Altinn Studio, eller ved å laste ned kildekoden
 til appen og redigere lokalt.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> conditionalRuleHandlerObject <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> conditionalRuleHandlerObject <span style="color:#ff79c6">=</span> {
   sjekkVirksomhetIDrift<span style="color:#ff79c6">:</span> (obj) =&gt; {
     <span style="color:#ff79c6">return</span> (obj.value <span style="color:#ff79c6">&amp;&amp;</span> obj.value <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Ja&#34;</span>);
   },
@@ -1156,7 +1156,7 @@ hvert enkelt innslag av den repeterende gruppen.</li>
 <li>I tillegg må man legge enn en ny egenskap på regelen, <code>repeatingGroups</code>. Denne skal inneholde id&rsquo;en til gruppen i layout-filen.</li>
 </ul>
 <p>Et eksempel på en regel som er satt opp for repeterende grupper vises under:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;ruleConnection&#34;</span>: {},
     <span style="color:#ff79c6">&#34;conditionalRendering&#34;</span>: {
@@ -1205,7 +1205,7 @@ Et skjema med to sett med radioknapper (ja/nei) og en avkrysningsboks.</p>
 </li>
 </ul>
 <p>Koden for å løse dette kan være:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> conditionalRuleHandlerObject <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> conditionalRuleHandlerObject <span style="color:#ff79c6">=</span> {
   showField2<span style="color:#ff79c6">:</span> (obj) =&gt; {
     <span style="color:#ff79c6">if</span> (obj <span style="color:#ff79c6">&amp;&amp;</span> obj.field1 <span style="color:#ff79c6">&amp;&amp;</span> obj.field1<span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;yes&#34;</span>) {
       <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
@@ -1239,7 +1239,7 @@ Et skjema med to sett med radioknapper (ja/nei) og en avkrysningsboks.</p>
 </code></pre></div><h3 id="alternativ-2">Alternativ 2</h3>
 <p>Dette kan også settes opp ved å bruke den samme betingelsen for å vise både det andre settet med radionkapper og avkrusningsboksen. I tillegg må man 
 da ha en regel som sletter verdien i det andre settet med radioknapper dersom verdien i det første settet settes til <em>Nei</em>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerObject <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#8be9fd;font-style:italic">var</span> ruleHandlerObject <span style="color:#ff79c6">=</span> {
   clearField<span style="color:#ff79c6">:</span> (obj) =&gt; {
     <span style="color:#ff79c6">if</span> (obj <span style="color:#ff79c6">&amp;&amp;</span> obj.checkValue <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;no&#34;</span>) {
       <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#34;&#34;</span>;
@@ -1278,7 +1278,7 @@ da ha en regel som sletter verdien i det andre settet med radioknapper dersom ve
 <p>Appen må inkludere <code>layout/ui/Settings.json</code> filen som <a href="https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/multiple-pages/#rekkef%C3%B8lge">her</a>.</p>
 <p>Teknisk er det veldlig likt hvordan man gjør det for validering.</p>
 <p>Eksempel nedenfor som skjuler et gitt felt basert på innhold. Komponentene er basert på ID som man finner i layouts filene til skjema.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
         {
             <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> Skjema)
             {

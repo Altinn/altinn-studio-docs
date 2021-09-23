@@ -953,22 +953,22 @@ if(host != "localhost")
 <h2 id="overview">Overview</h2>
 <p>A data element consist of two parts: its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.</p>
 <p><strong>basePath</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data
 </code></pre></div><h2 id="get-data">Get data</h2>
 <p>Endpoint for downloading the data blob.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET basePath/{dataGuid}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET basePath/{dataGuid}
 Accept: application/{xml/json}
 </code></pre></div><p>The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. The header is then used to pick a serializer for the data.</p>
 <h3 id="response-with-form-data">Response with form data</h3>
 <p>A response with form data will either be a json or xml serialized version of the data model depending on the <strong>Accept</strong> header in the request. The value <strong>application/xml</strong> will result in an XML document and the value <strong>application/json</strong> will result inn a JSON document.</p>
 <h3 id="response-with-attachment">Response with attachment</h3>
 <p>A response with a file attachment will be a file stream. Content-Type will be the same as the original value given when the file was uploaded. The same is true for the file name.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Disposition: attachment; filename=cute_cat.png; filename*=UTF-8&#39;&#39;cute_cat.png
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Disposition: attachment; filename=cute_cat.png; filename*=UTF-8&#39;&#39;cute_cat.png
 Content-Length: 16994
 Content-Type: image/png
 </code></pre></div><h2 id="upload-data">Upload data</h2>
 <p>Endpoint for uploading a new data element on a specific instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST basePath?dataType={data type name}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST basePath?dataType={data type name}
 </code></pre></div><p>The <strong>dataType</strong> parameter is required and should reference one of the <a href="../../models/app-metadata/#datatype">data types defined on the application</a>. Data types with an <strong>appLogic</strong> property are linked to a form and will have data validation and calculation rules associated with them. Data types without an <strong>appLogic</strong> property will be handeled as an attachment and streamed directly to storage.</p>
 <p>Request Content-Type is handled a little differently between the two cases:</p>
 <ol>
@@ -987,7 +987,7 @@ Content-Type: image/png
 </li>
 </ol>
 <h3 id="uploading-form-data-as-applicationjson">Uploading form data as application/json</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Content-Type: application/json
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">Content-Type: application/json
 
 {
     <span style="color:#ff79c6">&#34;dataFormatProvider&#34;</span>: <span style="color:#f1fa8c">&#34;SERES&#34;</span>,
@@ -1003,7 +1003,7 @@ Content-Type: image/png
 }
 
 </code></pre></div><h3 id="uploading-form-data-as-applicationxml">Uploading form data as application/xml</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Content-Type: application/xml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">Content-Type: application/xml
 
 <span style="color:#ff79c6">&lt;BliTjenesteeier_M</span> <span style="color:#50fa7b">xmlns:xsi=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#50fa7b">xmlns:xsd=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema&#34;</span> <span style="color:#50fa7b">dataFormatProvider=</span><span style="color:#f1fa8c">&#34;SERES&#34;</span> <span style="color:#50fa7b">dataFormatId=</span><span style="color:#f1fa8c">&#34;5703&#34;</span> <span style="color:#50fa7b">dataFormatVersion=</span><span style="color:#f1fa8c">&#34;34553&#34;</span><span style="color:#ff79c6">&gt;</span>
     <span style="color:#ff79c6">&lt;Kontaktperson&gt;</span>
@@ -1014,7 +1014,7 @@ Content-Type: image/png
 <span style="color:#ff79c6">&lt;/BliTjenesteeier_M&gt;</span>
 </code></pre></div><h3 id="uploading-an-attachment">Uploading an attachment</h3>
 <p>An example of a request uploading a PDF file.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: application/pdf
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: application/pdf
 Content-Disposition: attachment; filename=&#34;receipt.pdf&#34;; filename*=UTF-8&#39;&#39;receipt.pdf
 Content-Length: 16994
 
@@ -1024,7 +1024,7 @@ Content-Length: 16994
 ...
 </code></pre></div><h3 id="response-example">Response example</h3>
 <p>The endpoint returns the data element metadata document that was created.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;692ee7df-82a9-4bba-b2f2-c8c4dac69aff&#34;</span>,
     <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;762011d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
     <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
@@ -1044,11 +1044,11 @@ Content-Length: 16994
 }
 </code></pre></div><h2 id="replace-data">Replace data</h2>
 <p>Endpoint for replacing the content of an existing data element with new data. The new data must match the data type of the data element it is replacing.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT basePath/{dataGuid}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT basePath/{dataGuid}
 </code></pre></div><p>The endpoint works exactly like the endpoint for uploading a new data element.</p>
 <h2 id="delete-data">Delete data</h2>
 <p>Endpoint for deleting an existing data element. It is currently not possible to delete the data for a form this way.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE basePath/{dataGuid}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE basePath/{dataGuid}
 </code></pre></div>
 
 <footer class=" footline" >

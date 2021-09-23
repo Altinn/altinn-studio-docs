@@ -964,7 +964,7 @@ if(host != "localhost")
 <h3 id="eksempel">Eksempel</h3>
 <h4 id="selector">Selector</h4>
 <p>Dette er en enkel Selector uten mye logikk og filtrering. Jo større logikk i &ldquo;filtreringen&rdquo; jo mer &ldquo;sparer&rdquo; man i ytelse.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { createSelector } from <span style="color:#f1fa8c">&#39;reselect&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">import</span> { createSelector } from <span style="color:#f1fa8c">&#39;reselect&#39;</span>;
 
 <span style="color:#6272a4">/**
 </span><span style="color:#6272a4"> * Reselect version
@@ -1015,7 +1015,7 @@ if(host != "localhost")
 <span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> makeGetFormDataSelector <span style="color:#ff79c6">=</span> getFormData;
 
 </code></pre></div><h4 id="implementasjon-i-mapstatetoprops">Implementasjon i mapStateToProps</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">const</span> makeMapStateToProps <span style="color:#ff79c6">=</span> () =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">const</span> makeMapStateToProps <span style="color:#ff79c6">=</span> () =&gt; {
   <span style="color:#ff79c6">const</span> GetFormDataSelector <span style="color:#ff79c6">=</span> makeGetFormDataSelector();
   <span style="color:#ff79c6">const</span> mapStateToProps <span style="color:#ff79c6">=</span> (state<span style="color:#ff79c6">:</span> IAppState, props<span style="color:#ff79c6">:</span> IProvidedProps)<span style="color:#ff79c6">:</span> IFormElementProps =&gt; ({
     id<span style="color:#ff79c6">:</span> props.id,
@@ -1038,7 +1038,7 @@ Higher Order Component som gir den en callback funksjon som tar imot data som ko
 og kjøre en redux-action som oppdaterer data i redux-state. Uten at utvikleren av 3. parts komponenten må sette seg inn i hvilke actions som skal kjøres. 
 Dette gir også bedre mulighet for å gjennbruke 3. parts komponenter.</p>
 <h4 id="eksempel-på-higher-order-component">Eksempel på Higher Order Component</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">const</span> FormComponentWrapper <span style="color:#ff79c6">=</span> (WrappedComponent, ...) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#ff79c6">const</span> FormComponentWrapper <span style="color:#ff79c6">=</span> (WrappedComponent, ...) =&gt; {
 	<span style="color:#6272a4">// Feel free to do anything that will enhance the components properties
 </span><span style="color:#6272a4"></span>
 	<span style="color:#6272a4">// Return a react component
@@ -1073,7 +1073,7 @@ Dette gir også bedre mulighet for å gjennbruke 3. parts komponenter.</p>
 <li>Unødvendig re-rendering grunnet oppdatering av nøstede objekter.</li>
 </ul>
 <h3 id="eksempel-1">Eksempel</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
     posts <span style="color:#ff79c6">:</span> {
         byId <span style="color:#ff79c6">:</span> {
             <span style="color:#f1fa8c">&#34;post1&#34;</span> <span style="color:#ff79c6">:</span> {

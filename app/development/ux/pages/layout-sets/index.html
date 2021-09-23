@@ -949,7 +949,7 @@ Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Stø
 <p>For å få funksjonalitet for flere skjema i tjeneste, <strong>må</strong> nuget-versjon til pakkene app&rsquo;en bruker oppgraderes til versjon <code>3.1.4</code> <em>eller nyere</em>.
 Se instrukser for hvordan det gjøres <a href="../../../../maintainance/dependencies">her</a>.</p>
 <p>Sentralt i løsningen er at man har flere layout-sets som består av en eller flere sider og configurasjon. Hvert layout-set består av tilsvarende filer som en skjema tjenester.</p>
-<pre><code>|- App/
+<pre tabindex="0"><code>|- App/
   |- ui/
     | - layout-sets.json
     |- skjema-a/
@@ -971,7 +971,7 @@ Se instrukser for hvordan det gjøres <a href="../../../../maintainance/dependen
 </code></pre><p>I <code>layout-set.json</code> defineres det hvilke steg i prosessen (task) hvor et gitt layout-set skal brukes.
 Merk at id&rsquo;en er case sensitiv, så om du har stor bokstav i mappenavnet må id&rsquo;en reflektere dette. Vi anbefaler små bokstaver i mappenavn.</p>
 <p>Eksempel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;sets&#34;</span>: [
     {
       <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;rf0002&#34;</span>,

@@ -998,7 +998,7 @@ Hopefully, making it clear how to include new files into the project and where t
 </li>
 <li>
 <p>Make the class an extention of the <em>IBaseCmd</em> interface.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
     {
     }
 </code></pre></div></li>
@@ -1007,7 +1007,7 @@ Hopefully, making it clear how to include new files into the project and where t
 It is possible to add more parameters, explore which ones might be usefor for your command.
 The ones listed below are suggested as a minimum for all commands. The <em>name</em> parameter is
 what will be used to navigate to this command when running the app. <em>Note that the name should be all lower case.</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> McMaster.Extensions.CommandLineUtils;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> McMaster.Extensions.CommandLineUtils;
 <span style="color:#50fa7b">
 </span><span style="color:#50fa7b">[Command(
 </span><span style="color:#50fa7b">    Name = &#34;newcommand&#34;,
@@ -1022,7 +1022,7 @@ what will be used to navigate to this command when running the app. <em>Note tha
 <p>Inlcude the override of the OnExecuteAsync from the base class.
 The implementation below will show the help for the command and then complete the task.
 If the command does not have any sub commands simply remove <code>app.ShowHelp();</code> and include your own implementation.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;inheritdoc/&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;inheritdoc/&gt;
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">protected</span> <span style="color:#ff79c6">override</span> Task OnExecuteAsync(CommandLineApplication app)
 {
     app.ShowHelp();
@@ -1035,21 +1035,21 @@ If you require any input parameters check the how to section for this below.</p>
 <p>The new command should now be included in <em>Program.cs</em>.
 This is so that the command is recognized and executed when inputed in the running program.</p>
 <p>Add a new parameter:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> CommandLineApplication&lt;NewCommand&gt; _newCommandCmd = <span style="color:#ff79c6">new</span> CommandLineApplication&lt;NewCommand&gt;();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> CommandLineApplication&lt;NewCommand&gt; <span style="color:#bd93f9">_</span>newCommandCmd = <span style="color:#ff79c6">new</span> CommandLineApplication&lt;NewCommand&gt;();
 </code></pre></div><p>In the Task function the standard conventions are set for the new command and all DI services are made available.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">_newCommandCmd.Conventions
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#bd93f9">_</span>newCommandCmd.Conventions
             .UseDefaultConventions()
             .UseConstructorInjection(serviceProvider);
 </code></pre></div></li>
 <li>
 <p>Finally the command must be added to the switch case that identifies the input and routes it to the correct 
 CommandLineApplication. Extend the switch case a shown below.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;newcommand&#34;</span>:
-    <span style="color:#ff79c6">await</span> _newCommandCmd.ExecuteAsync(args);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;newcommand&#34;</span>:
+    <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>newCommandCmd.ExecuteAsync(args);
     <span style="color:#ff79c6">break</span>;
 </code></pre></div><p>The standard error message in the default clause of the loop
 should also be modified to include the new command.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">default</span>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">default</span>:
     Console.WriteLine(<span style="color:#f1fa8c">$&#34;Unknown argument {string.Join(&#34;</span> <span style="color:#f1fa8c">&#34;, args)}, Valid commands are data, instance and settings.&#34;</span>);
     <span style="color:#ff79c6">break</span>;
 </code></pre></div></li>
@@ -1064,7 +1064,7 @@ The class should share a name with the sub command.</p>
 <li>
 <p>The command attribute must be set on the class
 <em>Name</em> should be in lower case and match the class name. Note that the McMaster nugetpackage must be references to use the Command attribute.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Command(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Command(
 </span><span style="color:#50fa7b">    Name = &#34;newsubcommand&#34;,
 </span><span style="color:#50fa7b">    OptionsComparison = StringComparison.InvariantCultureIgnoreCase,
 </span><span style="color:#50fa7b">    UnrecognizedArgumentHandling = UnrecognizedArgumentHandling.CollectAndContinue)]</span>
@@ -1076,11 +1076,11 @@ The class should share a name with the sub command.</p>
 <p>The root command must include a reference for the new subcommand, so navigate back to newCommand.cs
 Add the following attribute to the class <code>[Subcommand(typeof(NewSubCommand))]</code>.
 If the class has multiple sub commands simply comma seperate them as such:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Subcommand(typeof(NewSubCommandA),typeof(NewSubCommandB), typeof(NewSubCommandC))]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Subcommand(typeof(NewSubCommandA),typeof(NewSubCommandB), typeof(NewSubCommandC))]</span>
 </code></pre></div></li>
 <li>
 <p>Make the class an extention of <em>IBaseCmd</em> and include an override of the <em>OnExecuteAsync</em> method.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">NewCommand</span> : IBaseCmd
 {
     <span style="color:#ff79c6">protected</span> <span style="color:#ff79c6">override</span> Task OnExecuteAsync(CommandLineApplication app)
     {
@@ -1095,7 +1095,7 @@ services through dependency injection a constructor should be included in the bl
 <h4 id="-add-a-new-option-to-a-command">&hellip; add a new option to a command</h4>
 <p>An option is simply implemented as a public property in the command class with an <em>option</em> attribute included.
 There are several input parameters for the options attribute. The ones belowe are what we suggest, but feel free to add more parameters if you require.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Option(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[Option(
 </span><span style="color:#50fa7b">    CommandOptionType.SingleValue,
 </span><span style="color:#50fa7b">    ShortName = &#34;dg&#34;,
 </span><span style="color:#50fa7b">    LongName = &#34;dataGuid&#34;,
@@ -1119,7 +1119,7 @@ See <a href="https://github.com/Altinn/altinn-tools/blob/master/AltinnReStorage/
 Depending on the required lifetime of the service you will have to use one of the
 implementations below.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddScoped&lt;IService, Service&gt;();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddScoped&lt;IService, Service&gt;();
 services.AddSingleton&lt;IService, Service&gt;();
 services.AddTransien&lt;IService, Service&gt;();
 </code></pre></div><p>Documentation on service lifetim is available

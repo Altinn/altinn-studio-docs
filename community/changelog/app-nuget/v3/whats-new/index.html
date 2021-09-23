@@ -970,9 +970,9 @@ end user of the app owner that completes the task.</p>
 <p>All apps now expose an endpoint for getting the current page order based on the current state of an instance.
 Default behavior is to return the page order as defined in <code>Settings.json</code> to override, add the function below in 
 Logic/App.cs and include your own logic.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
 {
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> _pdfHandler.FormatPdf(layoutSettings, data);
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>pdfHandler.FormatPdf(layoutSettings, data);
 }
 </code></pre></div><h2 id="330-2021-03-04---retrieving-certificate-from-key-vault-now-uses-name">3.3.0 (2021-03-04) - Retrieving certificate from Key Vault now uses name</h2>
 <p>The ISecret service now requires certificate name as input for retrieving a certificate from key vault.
@@ -1002,14 +1002,14 @@ To describe the Api&rsquo;s better, we use the xml documentation file.</p>
 <p>Updated package dependencies, generate xml documentation file and copy xml documentation for Altinn.App.Api
 Navigate to you application repository and find <code>App.csproj</code> in the <code>App</code> folder.<br>
 Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, add new property for Altinn.App.Api.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span>  <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span>  <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span>  <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span>  <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span><span style="color:#ff79c6">&gt;</span>
   <span style="color:#ff79c6">&lt;CopyToOutputDirectory&gt;</span>lib\$(TargetFramework)\*.xml
   <span style="color:#ff79c6">&lt;/CopyToOutputDirectory&gt;</span>
 <span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span>  <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span>  <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span>  <span style="color:#ff79c6">/&gt;</span>
 <span style="color:#ff79c6">&lt;PackageReference</span>  <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span>  <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.4&#34;</span>  <span style="color:#ff79c6">/&gt;</span>
 </code></pre></div><p>This is new in <code>App.csproj</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Swashbuckle.AspNetCore&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;5.6.3&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Swashbuckle.AspNetCore&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;5.6.3&#34;</span> <span style="color:#ff79c6">/&gt;</span>
 
 <span style="color:#ff79c6">&lt;PropertyGroup&gt;</span>
   <span style="color:#ff79c6">&lt;GenerateDocumentationFile&gt;</span>true<span style="color:#ff79c6">&lt;/GenerateDocumentationFile&gt;</span>
@@ -1026,14 +1026,14 @@ Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, add new p
 <li>
 <p>Changes to the <code>Startup.cs</code> file. If you don&rsquo;t have any custom code in this, copy file from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Apps/AppTemplates/AspNet/App/Startup.cs">here</a>.</p>
 <p>Add this to the end of the ConfigureServices method</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#6272a4">// Add Swagger support (Swashbuckle)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#6272a4">// Add Swagger support (Swashbuckle)
 </span><span style="color:#6272a4"></span> services.AddSwaggerGen(c =&gt;
  {
      c.SwaggerDoc(<span style="color:#f1fa8c">&#34;v1&#34;</span>, <span style="color:#ff79c6">new</span> OpenApiInfo { Title = <span style="color:#f1fa8c">&#34;Altinn App Api&#34;</span>, Version = <span style="color:#f1fa8c">&#34;v1&#34;</span> });
      IncludeXmlComments(c);
  });
 </code></pre></div><p>Add this before <code>app.UseRouting()</code> in the Configure method</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#8be9fd">string</span> applicationId = GetApplicationId();
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#8be9fd">string</span> applicationId = GetApplicationId();
  <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(applicationId))
  {
      app.UseSwagger(o =&gt; o.RouteTemplate = applicationId + <span style="color:#f1fa8c">&#34;/swagger/{documentName}/swagger.json&#34;</span>);
@@ -1045,7 +1045,7 @@ Update nuget dependencies in <code>App.csproj</code> to version 3.0.4, add new p
      });
  }
 </code></pre></div><p>Add two methods</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> IncludeXmlComments(SwaggerGenOptions options)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> IncludeXmlComments(SwaggerGenOptions options)
 {
     <span style="color:#ff79c6">try</span>
     {

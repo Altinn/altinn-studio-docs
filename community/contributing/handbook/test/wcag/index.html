@@ -945,19 +945,19 @@ if(host != "localhost")
 <h2 id="writing-new-wcag-tests-in-testcafe">Writing new wcag tests in testcafe</h2>
 <p>Writing new wcag tests will become necessary as new functionality and pages are added to Altinn Studio. New wcag tests are added to the wcag js file in the testcafe project: <em>src/test/Testcafe/wcag/wcag.js</em></p>
 <p>To write a new wcag test, add the following code to the file</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">test(<span style="color:#f1fa8c">&#39;My new wcag test for ACME page&#39;</span>, <span style="color:#ff79c6">async</span> t =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">test(<span style="color:#f1fa8c">&#39;My new wcag test for ACME page&#39;</span>, <span style="color:#ff79c6">async</span> t =&gt; {
     <span style="color:#ff79c6">const</span> { error, violations } <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> axeCheck(t);
     <span style="color:#ff79c6">await</span> t.expect(violations.length <span style="color:#ff79c6">===</span> <span style="color:#bd93f9">0</span>).ok(createReport(violations));
 });
 </code></pre></div><p>Add the required testcafe code to navigate to the page under test, for example the dashboard page:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">test(<span style="color:#f1fa8c">&#39;My new wcag test for altinn studio dashboard&#39;</span>, <span style="color:#ff79c6">async</span> t =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">test(<span style="color:#f1fa8c">&#39;My new wcag test for altinn studio dashboard&#39;</span>, <span style="color:#ff79c6">async</span> t =&gt; {
     <span style="color:#ff79c6">await</span> t.navigateTo(app.baseUrl)
     <span style="color:#ff79c6">const</span> { error, violations } <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">await</span> axeCheck(t);
     <span style="color:#ff79c6">await</span> t.expect(violations.length <span style="color:#ff79c6">===</span> <span style="color:#bd93f9">0</span>).ok(createReport(violations));
 });
 </code></pre></div><p>The object <em>app</em> is a part of the page object model of the testcafe project, baseUrl points to the dashboard url for the selected altinn studio environment to be tested.</p>
 <p>Axe can also allow the tester to specify the context, what elements of the test should included or excluded, as well as which rules should be run:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">test(<span style="color:#f1fa8c">&#39;Accessibility testing for dashboard page&#39;</span>, <span style="color:#ff79c6">async</span> t =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">test(<span style="color:#f1fa8c">&#39;Accessibility testing for dashboard page&#39;</span>, <span style="color:#ff79c6">async</span> t =&gt; {
     <span style="color:#ff79c6">await</span> t.navigateTo(app.baseUrl);
     <span style="color:#ff79c6">const</span> axeContext <span style="color:#ff79c6">=</span> { exclude<span style="color:#ff79c6">:</span> [[<span style="color:#f1fa8c">&#39;img&#39;</span>]] };
     <span style="color:#ff79c6">const</span> axeOptions <span style="color:#ff79c6">=</span> { runOnly<span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#39;wcag2a&#39;</span>, <span style="color:#f1fa8c">&#39;wcag2aa&#39;</span>] };

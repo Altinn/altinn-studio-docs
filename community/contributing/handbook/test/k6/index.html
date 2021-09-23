@@ -966,13 +966,13 @@ if(host != "localhost")
 <li>In cmd, change directory to <code>\altinn-studio\src\test\K6</code></li>
 <li>Download and run docker containers of influxdb and grafana</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">docker-compose up -d influxdb grafana
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">docker-compose up -d influxdb grafana
 </code></pre></div><ul>
 <li>Open <code>http://localhost:3000/</code> in a browser and the dashboard gets preloaded and is visible under &lsquo;Recently viewed dashboards&rsquo;.</li>
 <li>Run the below example command where pdf.js testscript is run for 1 minute with a maximum of 20 virtual users and with a ramp up and ramp down of virtual users.
 The testscript targets 5 vus for first 10 seconds, targets 20 vus for next 40 seconds and ramps down to 5 vus for the last 10 seconds.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">docker-compose run k6 run --vus=20 --stage 10s:5,40s:20,10s:5 /src/tests/platform/pdf/pdf.js -e env=value
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">docker-compose run k6 run --vus=20 --stage 10s:5,40s:20,10s:5 /src/tests/platform/pdf/pdf.js -e env=value
 </code></pre></div><ul>
 <li>Once the above script it run, one could see results in grafana similar to the below image.
 <img src="grafana.PNG" alt="Grafana darsboard" title="Grafana darsboard"></li>

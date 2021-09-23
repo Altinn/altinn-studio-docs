@@ -935,7 +935,7 @@ if(host != "localhost")
 
 
 <h4 id="tls-sertificates-stored-as-secrets-on-the-cluster">TLS sertificates stored as secrets on the cluster</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
 <span style="color:#ff79c6">kind</span>: Secret
 <span style="color:#ff79c6">metadata</span>:
   <span style="color:#ff79c6">name</span>: altinn-tls-secret
@@ -944,7 +944,7 @@ if(host != "localhost")
   <span style="color:#ff79c6">tls.key</span>: [[BASE 64 ENCODED PRIVATE KEY]]
 </code></pre></div><h4 id="tls-options">TLS Options</h4>
 <p>To set up TLS options we need to use the custom resource TLSOption. A basic set up of this is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
 <span style="color:#ff79c6">kind</span>: TLSOption
 <span style="color:#ff79c6">metadata</span>:
   <span style="color:#ff79c6">name</span>: altinn-tls-options
@@ -954,7 +954,7 @@ if(host != "localhost")
 </code></pre></div><h4 id="adding-tls-to-an-ingress-route">Adding TLS to an Ingress Route</h4>
 <p>Add a tls attribute to the spec if the ingress route, with secretName (secret that contains the TLS certificate and private key) and optionally
 a <code>options</code>-attribute with the name of the TLSOption we made and the namespace (if nothing is specified when creating the secret it would be in the <code>default</code> namespace).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
 <span style="color:#ff79c6">kind</span>: IngressRoute
 <span style="color:#ff79c6">metadata</span>:
   <span style="color:#ff79c6">name</span>: altinn-runtime

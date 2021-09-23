@@ -962,7 +962,7 @@ evt. presenterer data fra en tredjepart basert på hvem brukeren er.</p>
 <p>I applikasjonsmetadataen er det mulig styre oppførselen en applikasjonen har under oppstart. Om man ønsker at applikasjonen skal oppføre seg som en tilstandsløs applikasjon vil det nå være mulig.
 For en slik applikasjon vil det ikke bli lagret noe data eller metadata, og applikasjonen vil heller ikke havne i meldingsboksen til sluttbruker. Dette tilsvarer en innsynstjeneste i Altinn 2.</p>
 <p>Konfigurasjonen av dette gjøres i <code>applicationmetadata.json</code>. Eksempel:</p>
-<pre><code class="language-json{hl_lines=[31]}" data-lang="json{hl_lines=[31]}">{
+<pre tabindex="0"><code class="language-json{hl_lines=[31]}" data-lang="json{hl_lines=[31]}">{
   &quot;id&quot;: &quot;ttd/stateless-app-demo&quot;,
   &quot;org&quot;: &quot;ttd&quot;,
   &quot;title&quot;: {
@@ -999,7 +999,7 @@ For en slik applikasjon vil det ikke bli lagret noe data eller metadata, og appl
 <p>Layout-settet man referer til her blir så benyttet som visningen brukeren blir presentert for i det man navigerer til applikasjonen.</p>
 <p>Konfigurasjonsfilen <code>layout-sets.json</code> kan opprettes dersom den ikke finnes fra før av. Den skal ligge i mappen <code>App/ui</code>.
 I <code>layout-sets.json</code> legger man så inn det aktuelle settet man referer til fra <code>applicationmetadata.json</code>, eksempel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;sets&#34;</span>: [
       {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;stateless&#34;</span>,
@@ -1008,7 +1008,7 @@ I <code>layout-sets.json</code> legger man så inn det aktuelle settet man refer
     ]
   }
 </code></pre></div><p>I eksempelet over så referer layout-settet <code>stateless</code> til datamodellen <code>Stateless</code>. Eksempel app-struktur på en applikasjon som har satt opp på denne måten:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">├───App
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">├───App
     ├───config
     ├───logic
     ├───models
@@ -1041,7 +1041,7 @@ I <code>layout-sets.json</code> legger man så inn det aktuelle settet man refer
 </ol>
 <p>På påfølgende oppdateringer på samme skjemadata (POST) så vil man ikke kjøre prefill en gang til, men kalkuleringen trigges. Dette muligjør manipulering av dataen basert på brukerens input selv i en stateless tilstand.</p>
 <p>Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataRead(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataRead(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
 {  
     <span style="color:#ff79c6">if</span> (instance.GetType() == <span style="color:#ff79c6">typeof</span>(StatelessV1))
     {
@@ -1071,7 +1071,7 @@ har tilstrekkelige lisenser til å benytte tjenesten.</p>
 <p>I tillegg til et felt for å ta input fra bruker og et felt for å vise fram resultatet,
 har vi i dette eksempelet et felt for å holde på infomasjon om hvorvidt brukeren er autentisert 
 og et felt for å holde på en dynamisk feilmelding.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xs:sequence&gt;</span>
     <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;searchString&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
     <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;result&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:string&#34;</span> <span style="color:#ff79c6">/&gt;</span>
     <span style="color:#ff79c6">&lt;xs:element</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;userAuthorized&#34;</span> <span style="color:#50fa7b">type=</span><span style="color:#f1fa8c">&#34;xs:boolean&#34;</span> <span style="color:#ff79c6">/&gt;</span>
@@ -1085,7 +1085,7 @@ og et felt for å holde på en dynamisk feilmelding.</p>
 Et søkefelt for brukerinput, et tekstfelt dedikert til å vise fram søkeresultatet og en paragraf som er reservert for feilmeldinger.</p>
 <figure><a href="extra-credentials-example-layout.png"><img src="extra-credentials-example-layout.png" alt="GUI i Altinn Studio" title="GUI i Altinn Studio" /></a><figcaption><h4>GUI i Altinn Studio</h4></figcaption></figure>
 <p>Komponentene er koblet til datamodell og tekstressurs på følgende måte i <code>FormLayout.json</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;layout&#34;</span>: [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;layout&#34;</span>: [
   {
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;sokeBoks&#34;</span>,
     <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
@@ -1130,7 +1130,7 @@ Konfigurasjon av regler er beskrevet nærmere <a href="../../logic/dynamic/#legg
 Dersom inputverdien fra datamodellen <code>userAuthorized</code> er false, så vises errorBoks-komponenten,
 mens det motsatte skjer med søke- og resultatfeltene, disse skjules.</p>
 <p>Default oppførsel vil være det motsatte, altså at søk og resultat er synlig, mens error feltet er skjult.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;ruleConnection&#34;</span>: {},
     <span style="color:#ff79c6">&#34;conditionalRendering&#34;</span>: {
@@ -1164,7 +1164,7 @@ mens det motsatte skjer med søke- og resultatfeltene, disse skjules.</p>
 <p>I tillegg til navnet på tjenesten er det lagt inn tre tekstressurser.</p>
 <p>Tekstressursen for feilmelding inneholder en placeholder for navnet på brukeren. 
 Variabelen <code>errorMessage</code> vil populeres i datamodellen når det registreres at en bruker ikke er autorisert til å bruke tjenesten.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ErrorMessage&#34;</span>,
   <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;{0} mangler rettigheter til å bruke denne tjenesten.&#34;</span>,
   <span style="color:#ff79c6">&#34;variables&#34;</span>: [
@@ -1189,10 +1189,10 @@ Variabelen <code>errorMessage</code> vil populeres i datamodellen når det regis
 og det er her autorisasjonslogikken skal plasseres.</p>
 <p>Logikk for å slå opp data og autorisere brukeren ligger i metoden <code>ProcessDataRead</code>.
 Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input data.</p>
-<pre><code class="language-{cs," data-lang="{cs,"> public async Task&lt;bool&gt; ProcessDataRead(Instance instance, Guid? dataId, object data)
+<pre tabindex="0"><code class="language-{cs," data-lang="{cs,"> public async Task&lt;bool&gt; ProcessDataRead(Instance instance, Guid? dataId, object data)
  {
      lookup lookup = (lookup)data;
-        
+
      // Check if user is authorized to use service
      Party party = await _register.GetParty(int.Parse(instance.InstanceOwner.PartyId)); 
 
@@ -1202,7 +1202,7 @@ Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input
          lookup.errorMessage = $&quot;{party.Name}&quot;;
          return true;
      }         
-         
+
      // logic for looking up data
      if (!string.IsNullOrEmpty(lookup.searchString))
      {
@@ -1214,12 +1214,12 @@ Denne kalles hver gang en bruker åpner applikasjonen eller sendes inn noe input
  }
 </code></pre><p>Metoden starter med logikk for å hente ut skjemadataen slik at denne kan benyttes 
 videre i metoden.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup lookup = (lookup)data 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup lookup = (lookup)data 
 </code></pre></div><p>Videre kommer logikken for å sjekke om brukeren er autorisert.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// Check if user is authorized to use service
-</span><span style="color:#6272a4"></span>Party party = <span style="color:#ff79c6">await</span> _register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// Check if user is authorized to use service
+</span><span style="color:#6272a4"></span>Party party = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
 
-<span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(party.OrgNumber) || !<span style="color:#ff79c6">await</span> _finanstilsynet.HasReqiuiredLicence(_settings.LicenseCode, party.OrgNumber))
+<span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(party.OrgNumber) || !<span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_f</span>inanstilsynet.HasReqiuiredLicence(<span style="color:#bd93f9">_</span>settings.LicenseCode, party.OrgNumber))
 {
     lookup.userAuthorized = <span style="color:#ff79c6">false</span>;
     lookup.errorMessage = <span style="color:#f1fa8c">$&#34;{party.Name}&#34;</span>;
@@ -1227,7 +1227,7 @@ videre i metoden.</p>
 }   
 </code></pre></div><p>For å vite hvem brukeren er, benyttes identifikatoren <code>instance.InstanceOwner.PartyId</code>, denne får vi som input til metoden.
 Vi slår opp i Altinn sitt register for å hente ut party-objektet som representerer brukeren. Dette kan inneholde en organisasjon eller en person.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Party party = <span style="color:#ff79c6">await</span> _register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">Party party = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>register.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId)) 
 </code></pre></div><p>Det gjøres to sjekker for å avgjøre om en bruker er autorisert eller ikke. 
 Først verifiseres det at party-objektet har definert et organisasjonsnummer,
 dersom dette ikke er tilfellet er brukeren en person, og dermed ikke autorisert.</p>
@@ -1239,11 +1239,11 @@ Implementasjonen av servicen er tilgjengelig <a href="https://altinn.studio/repo
 <li>en feilmelding, her kun navnet til brukeren</li>
 </ul>
 <p>og <code>true</code> returneres for å indikere at dataverdier har blitt oppdatert.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup.userAuthorized = <span style="color:#ff79c6">false</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">lookup.userAuthorized = <span style="color:#ff79c6">false</span>;
 lookup.errorMessage = <span style="color:#f1fa8c">$&#34;{party.Name}&#34;</span>;
 <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
 </code></pre></div><p>Helt til slutt kommer logikken for å vise fram et resultat basert på søkestrengen.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// logic for looking up data
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">// logic for looking up data
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(lookup.searchString))
 {
     lookup.result = <span style="color:#f1fa8c">$&#34;You typed \&#34;</span>{lookup.searchString}\<span style="color:#f1fa8c">&#34;. This is the result.&#34;</span>;

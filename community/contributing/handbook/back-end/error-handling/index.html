@@ -938,11 +938,11 @@ if(host != "localhost")
 <p>Exception handling is the act of catching an exception with the intention of handling the situation so that normal execution flow can continue. It should not be used as any part of an expected execution flow. It should also be avoided if the situation continue to be unrecoverable.</p>
 <p>.Net core provides a default middleware <em>UseExceptionHandler</em> that will catch exceptions and log them. You can read more about this <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/error-handling?view=aspnetcore-3.1">here</a>. This is the preferred mechanism when it comes to dealing with errors the application logic is unable to handle elegantly on its own. The middleware should be configured to generate a response that is appropriate for the running environment.</p>
 <p>Exceptions that can be handled by the application logic should be handled as soon and as specific as possible. The following example is found in the platform Storage application. More specifically the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Controllers/DataController.cs#L494">DataController.GetDataElementAsync</a> method.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">ActionResult errorMessage;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">ActionResult errorMessage;
 <span style="color:#ff79c6">try</span>
 {
     DataElement dataElement = 
-        <span style="color:#ff79c6">await</span> _dataRepository.Read(instanceGuid, dataGuid);
+        <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_d</span>ataRepository.Read(instanceGuid, dataGuid);
 
     <span style="color:#ff79c6">return</span> (dataElement, <span style="color:#ff79c6">null</span>);
 }
@@ -972,7 +972,7 @@ if(host != "localhost")
 <h3 id="middleware-configuration">Middleware configuration</h3>
 <p>Handling of unrecoverable errors should be done by the built in middleware mentioned previously. The configuration should be different between production environments and other environments. In development and staging environments the middleware should allow detailed exception information to be exposed by the API.</p>
 <p>Configuration of the middleware is done in the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs#L210">Startup.Configure</a> method. This is an example from the platform Storage application:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (env.IsDevelopment() || env.IsStaging())
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (env.IsDevelopment() || env.IsStaging())
 {
     app.UseDeveloperExceptionPage();
 }
@@ -981,7 +981,7 @@ if(host != "localhost")
     app.UseExceptionHandler(<span style="color:#f1fa8c">&#34;/storage/api/v1/error&#34;</span>);
 }
 </code></pre></div><p>This configuration requires an ErrorController that can handle the server side redirect performed by the middleware. The following code sample is a stipped version of the <a href="https://github.com/Altinn/altinn-studio/blob/0ff6a8d1dde279578fdab3b0a4403da001601a50/src/Altinn.Platform/Altinn.Platform.Authentication/Authentication/Controllers/ErrorController.cs">ErrorController</a> in the platform Storage application:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[ApiController]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#50fa7b">[ApiController]</span>
 <span style="color:#50fa7b">[ApiExplorerSettings(IgnoreApi = true)]</span>
 <span style="color:#50fa7b">[AllowAnonymous]</span>
 <span style="color:#50fa7b">[Route(&#34;storage/api/v1&#34;)]</span>

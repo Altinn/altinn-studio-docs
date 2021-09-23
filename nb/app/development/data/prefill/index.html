@@ -419,7 +419,7 @@ Navnet på filen skal inneholde navnet på datamodellen og ha postfix &ldquo;.pr
 Dersom datamodellen din heter <em>appModel</em> skal du nå kunne finne disse tre filene i mappen:
 <em>appModel.metadata.json</em>, <em>appModel.schema.json</em>, <em>appModel.prefill.json</em></p>
 <p>Lim inn innholdet nedenfor i filen.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json&#34;</span>,
     <span style="color:#ff79c6">&#34;allowOverwrite&#34;</span>: <span style="color:#ff79c6">true</span>,
     <span style="color:#ff79c6">&#34;ER&#34;</span>: {
@@ -445,7 +445,7 @@ Instansiering vil feile dersom man forsøker å preutfylle ER-data, men ikke har
 </li>
 </ul>
 <p>Eksempelet nedenfor vil populere feltet <em>Datamodell.Organisasjon.Organisasjonsnummer</em> med organisasjonsnummeret hentet fra enhetsregisteret.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;ER&#34;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;ER&#34;</span>: {
     <span style="color:#ff79c6">&#34;OrgNumber&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Organisasjon.Organisasjonsnummer&#34;</span>
 }
 </code></pre></div><ul>
@@ -454,7 +454,7 @@ Feltet som preutfylles med DSF-data vil kun få en verdi dersom man instansierer
 Instansiering vil feile dersom man forsøker å preutfylle DSF-data, men ikke har en person tilgjengelig.</li>
 </ul>
 <p>Eksempelet nedenfor vil populere feltet <em>Datamodell.Person.Nummer</em> med telefonnummer henter fra folkeregistret.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;DSF&#34;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;DSF&#34;</span>: {
    <span style="color:#ff79c6">&#34;TelephoneNumber&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Person.Nummer&#34;</span>
 }
 </code></pre></div><ul>
@@ -462,7 +462,7 @@ Instansiering vil feile dersom man forsøker å preutfylle DSF-data, men ikke ha
 Merk at det er den innloggede brukeren om instansierer man henter ut data for.</li>
 </ul>
 <p>Eksempelet nedenfor vil populere feltet _Datamodell.Bruker.Epost med epost hentet fra brukerens profil i Altinn.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;UserProfile&#34;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;UserProfile&#34;</span>: {
     <span style="color:#ff79c6">&#34;Email&#34;</span>:<span style="color:#f1fa8c">&#34;Datamodell.Bruker.Epost&#34;</span>
 }
 </code></pre></div><h3 id="tilgjengelige-prefill-verdier">Tilgjengelige prefill verdier</h3>
@@ -542,7 +542,7 @@ Tilgjengelige verdier for prefill inkluderer:</p>
 det være seg resultet fra et API-kall, beregninger gjort under instansiering, eller annen logikk.
 Dette implementeres i metoden <em>DataCreation</em> i filen <em>InstansiationHandler.cs</em> som finnes i applikasjonsrepoet under <code>App/logic</code>.</p>
 <p>Eksempelet nedenfor populerer feltet <em>Bruker.FulltNavn</em> i modellen <em>Datamodell</em> med verdien &ldquo;Test Testesen&rdquo;.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
 {
     <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Datamodell))
     {
@@ -556,7 +556,7 @@ som skal populeres ved bruk av intellisense.</p>
 <p>Vær oppmerksom på at dersom du har komplekse typer i modellen din, må disse instansieres før man kan
 tilegne en verdi til ett av typens underelementer. Se eksempel nedenfor der vi legger til grunn at &lsquo;Bruker&rsquo;
 og &lsquo;Name&rsquo; er egne C# klasser.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data)
 {
     <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Datamodell))
     {
@@ -570,7 +570,7 @@ og &lsquo;Name&rsquo; er egne C# klasser.</p>
 <p>Altinn apper støtter instansiering med prefill.
 Skjemadataen legges ved i en multipart i instansieringsrequesten som sendes til appen.
 Nedenfor ser du et eksempel på en request for å instansiere en app med prefill for partyId 12345.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: multipart/form-data; boundary=&#34;abcdefg&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">Content-Type: multipart/form-data; boundary=&#34;abcdefg&#34;
 Body:
 
 --abcdefg

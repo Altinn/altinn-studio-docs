@@ -937,7 +937,7 @@ if(host != "localhost")
 <p>Before traefik 2.0 the only supported way of routing in kubernetes was through the Kubernetes Ingress prodvider, which limited the functionality traefik could offer.</p>
 <p>As a result of introducing the custom resource IngressRoutes in traefik 2.0 we don&rsquo;t need to write many annotations on the ingress. And it is easier to configure access to a kubernetes cluster.</p>
 <h3 id="resource-configuration">Resource configuration</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
 <span style="color:#ff79c6">kind</span>: IngressRoute
 <span style="color:#ff79c6">metadata</span>:
   <span style="color:#ff79c6">name</span>: altinn-runtime
@@ -956,7 +956,7 @@ if(host != "localhost")
 <p>Pay close attencion to the <strong>priority</strong>-field. If nothing is specified it will be the length of the string in the <strong>match</strong>-field. So longer rules are higher prioritized.</p>
 <h3 id="routing-middlewares">Routing Middlewares</h3>
 <p>In the earlier example we can hook up <strong>middlewares</strong>. You can define middlewares in this format:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: traefik.containo.us/v1alpha1
 <span style="color:#ff79c6">kind</span>: Middleware
 <span style="color:#ff79c6">metadata</span>:
   <span style="color:#ff79c6">name</span>: fetch-cookie-and-redirect
@@ -967,7 +967,7 @@ if(host != "localhost")
 </code></pre></div><p>This example is for when the designer fetches cookies and redirects to &ldquo;/home&rdquo;.</p>
 <p>The different specs can be found in the <a href="https://docs.traefik.io/middlewares/overview/">traefik docs</a>.</p>
 <p>So first create a middleware resource in kubernetes and then you can use it in the ingressRoute like this</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">name</span>: altinn-designer-root
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">name</span>: altinn-designer-root
 <span style="color:#ff79c6">namespace</span>: default
 <span style="color:#ff79c6">entrypoints</span>:
   - web

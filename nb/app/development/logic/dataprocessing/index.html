@@ -418,7 +418,7 @@ For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om det er n
 Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
 </div>
 <p>Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">      <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">      <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
         {
             <span style="color:#8be9fd">bool</span> edited = <span style="color:#ff79c6">false</span>;
 
@@ -426,7 +426,7 @@ Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbru
             {
                 SoknadUnntakKaranteneHotellVelferd model = (SoknadUnntakKaranteneHotellVelferd)data;
 
-                HttpContext ctxt = _httpContextAccessor.HttpContext;
+                HttpContext ctxt = <span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext;
 
                 <span style="color:#8be9fd">string</span> org = instance.Org;
                 <span style="color:#8be9fd">string</span> app = instance.AppId.Split(<span style="color:#f1fa8c">&#34;/&#34;</span>)[<span style="color:#bd93f9">1</span>];
@@ -460,7 +460,7 @@ Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbru
                 {
                     model.applogic ??= <span style="color:#ff79c6">new</span> Applogic();
 
-                    Party party = <span style="color:#ff79c6">await</span> _registerService.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId));
+                    Party party = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>registerService.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId));
                     model.applogic.avsender = <span style="color:#f1fa8c">$&#34;{instance.InstanceOwner.PersonNumber}-{party.Name}&#34;</span>;
                     model.applogic.altinnRef = instance.Id.Split(<span style="color:#f1fa8c">&#34;-&#34;</span>)[<span style="color:#bd93f9">4</span>];
                 }

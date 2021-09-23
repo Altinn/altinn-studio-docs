@@ -426,7 +426,7 @@ Det går an å gjøre endringer i JSON schema direkte for å tilpasse validering
 JSON schema også genereres, og alle manuelle tilpasninger må gjøres på nytt. Derfor er det anbefalt å gjøre endringer i XSD og/eller datamodelleringsverktøyet
 for at disse endringene skal reflekteres i JSON schema.</strong></p>
 <p>Et eksempel på hvordan et felt kan defineres i JSON schema datamodellen er:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON"><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JSON" data-lang="JSON"><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
   <span style="color:#ff79c6">&#34;maxLength&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>
 }
@@ -497,7 +497,7 @@ input er en tekst med lengde mer enn 4 karakterer.</p>
 <h3 id="egendefinerte-feilmeldinger">Egendefinerte feilmeldinger</h3>
 <p>Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter <code>errorMessage</code> der 
 hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
   <span style="color:#ff79c6">&#34;maxLength&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;errorMessage&#34;</span>: <span style="color:#f1fa8c">&#34;myCustomError&#34;</span>
@@ -527,7 +527,7 @@ eller direkte i applikasjonsrepoet der ligger filen i <code>logic/Validation</co
 Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
 For å legge til en valideringsfeil brukes <code>AddModelError</code>-metoden til <code>validationResults</code> object som sendes med i begge metodene.</p>
 <p>Et eksempel på en enkel data-validering som sjekker at feltet <em>FirstName</em> ikke inneholder verdien <em>1337</em>, når rotelementet til modellen er <code>Skjema</code> er vist nedenfor:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
 {
     <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
     {
@@ -551,7 +551,7 @@ For å legge til en valideringsfeil brukes <code>AddModelError</code>-metoden ti
 }
 </code></pre></div><p>Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.</p>
 <p>Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateTask(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateTask(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
 {
   <span style="color:#ff79c6">if</span> (taskId.Equals(<span style="color:#f1fa8c">&#34;Task_1&#34;</span>))
   {
@@ -566,7 +566,7 @@ For å legge til en valideringsfeil brukes <code>AddModelError</code>-metoden ti
 <p>Dersom det er behov for umiddelbar validering av et felt
 som ikke kan dekkes i klientsidevalideringen, 
 så kan man sette opp en trigger for validering på enkeltfelter i <code>formLayout.json</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;layout&#34;</span>: [
       {
@@ -602,9 +602,9 @@ valideringer på feltet også på server-siden, det går an å legge flere feilm
 vil trigges hver gang feltet oppdaterer seg. Dersom du har behov for å vite hvilket
 felt som trigget valideringen er denne tilgjengelig i http-konteksten som en header på requesten ved navn <em>ValidationTriggerField</em>.</p>
 <p>Et eksempel på en egendefinert validering der headerverdien hentes ut er vist nedenfor.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
  {
-    _httpContextAccessor.HttpContext.Request.Headers.TryGetValue(<span style="color:#f1fa8c">&#34;ValidationTriggerField&#34;</span>, <span style="color:#ff79c6">out</span> StringValues <span style="color:#ff79c6">value</span>);
+    <span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext.Request.Headers.TryGetValue(<span style="color:#f1fa8c">&#34;ValidationTriggerField&#34;</span>, <span style="color:#ff79c6">out</span> StringValues <span style="color:#ff79c6">value</span>);
 
     <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">value</span>.Count &gt; <span style="color:#bd93f9">0</span> &amp;&amp; <span style="color:#ff79c6">value</span>[<span style="color:#bd93f9">0</span>].Equals(<span style="color:#f1fa8c">&#34;kommune&#34;</span>))
     {
@@ -630,7 +630,7 @@ Eksempelet som omhandler flere komplekse valideringer viser hvordan dette kan im
 <li>I <em>App.cs</em> inkluderes <code>using Microsoft.AspNetCore.Http;</code> øverst i filen for å kunne ta i bruk <code>IHttpContextAccessor</code>.</li>
 <li>I <em>App.cs</em> dependency injectes <code>IHttpContextAccessor</code> i konstruktøren og sendes med videre til ValidationHandler.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
             IAppResources appResourcesService,
             ILogger&lt;App&gt; logger,
             IData dataService,
@@ -642,19 +642,19 @@ Eksempelet som omhandler flere komplekse valideringer viser hvordan dette kan im
 <span style="display:block;width:100%;background-color:#3d3f4a">            IHttpContextAccessor httpContextAccessor <span style="color:#6272a4">// &lt;--- Add this line
 </span></span><span style="color:#6272a4"></span>            ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService)
         {
-            _logger = logger;
-<span style="display:block;width:100%;background-color:#3d3f4a">            _validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);  <span style="color:#6272a4">// &lt;--- Include the new property here
-</span></span><span style="color:#6272a4"></span>            _calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
-            _instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
+            <span style="color:#bd93f9">_l</span>ogger = logger;
+<span style="display:block;width:100%;background-color:#3d3f4a">            <span style="color:#bd93f9">_</span>validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);  <span style="color:#6272a4">// &lt;--- Include the new property here
+</span></span><span style="color:#6272a4"></span>            <span style="color:#bd93f9">_</span>calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
+            <span style="color:#bd93f9">_</span>instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
         }
 </code></pre></div><p>Dersom man har flere komplekse valideringer som er tidkrevende er det anbefalt å implementere flere private metoder
 for validering av disse og bruke ValidationTriggerField til å avgjøre hvilken private metode som skal kjøres.
 Man kan bl.a. bruke en <em>switch statement</em> for å oppnå dette.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
 {
     <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> flyttemelding model))
     {
-        _httpContextAccessor.HttpContext.Request.Headers
+        <span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext.Request.Headers
             .TryGetValue(<span style="color:#f1fa8c">&#34;ValidationTriggerField&#34;</span>, <span style="color:#ff79c6">out</span> StringValues <span style="color:#ff79c6">value</span>);
 
         <span style="color:#8be9fd">string</span> dataField = <span style="color:#ff79c6">value</span>.Any() ? <span style="color:#ff79c6">value</span>[<span style="color:#bd93f9">0</span>] : <span style="color:#8be9fd">string</span>.Empty;
@@ -700,7 +700,7 @@ feil i disse feltene. Dette er fordi man ikke har noen måte å vite hvilke felt
 <p>F.eks., dersom man har 2 felter: fornavn og etternavn. Begge felter trigger enkeltfeltvalidering, og dersom begge feltene har verdi så validerer man at fullt navn ikke
 kan være lengre enn 50 tegn. Feilmelding settes da på begge feltene. Dersom man retter opp i dette ved å endre fornavn, vil feilmeldingen fra fornavn-feltet forsvinne,
 men feilmeldingen som vises på etternavn-feltet vises fortsatt selv om valideringen ikke setter noen feilmeldinger på feltene.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
 {
   <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.fornavn) &amp;&amp; !<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.etternavn)
     &amp;&amp; model.fornavn.Length + model.etternavn.Length &gt; <span style="color:#bd93f9">50</span>)
@@ -717,7 +717,7 @@ vil det aktuelle feltet kunne få beskjed om at en spesifikk feilmelding som den
 og sette <code>*FIXED*</code> foran selve feilmeldingen. Dette tilsvarer oppsettet for <a href="#myk-validering">myk validering</a>. 
 Denne prefixen gjør at feilmeldingen som settes fjernes fra det aktuelle feltet, eller ignoreres (dersom det ikke er noen feilmelding på feltet fra før).</p>
 <p>Man kan da utvide eksempelet over for å støtte dette:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
 {
   <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.fornavn) &amp;&amp; !<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.etternavn)
     &amp;&amp; model.fornavn.Length + model.etternavn.Length &gt; <span style="color:#bd93f9">50</span>)
@@ -742,7 +742,7 @@ Denne typen valideringer kan f.eks. brukes til å be brukeren om å verifisere i
 <p>Myke valideringer legges til fra server-siden i validerings-logikken, på samme måte som vanlige validerings-feil. Forskjellen er at valideringsmeldingen
 må prefixes med <code>*WARNING*</code>. Dette vil da tolkes som en myk validering. Prefixen <code>*WARNING*</code> blir ikke synlig for sluttbruker.</p>
 <p><strong>Kodeeksempel</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary modelState)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary modelState)
 {
   <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> TestModel testModel)
   {
@@ -760,7 +760,7 @@ må prefixes med <code>*WARNING*</code>. Dette vil da tolkes som en myk valideri
 </code></pre></div><h2 id="gruppevalidering">Gruppevalidering</h2>
 <p>Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
 Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks <code>FormLayout.json</code>). Eksempel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;layout&#34;</span>: [
       {
@@ -783,11 +783,11 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
 Om det finnes valideringsfeil så vil man stoppes fra å lagre gruppen før dette er rettet opp i.</p>
 <p>Om man legger til validering på gruppe-komponenten så vil det også gå et kall mot valideringen backend med en header som spesifiserer hvilken komponent som trigget valideringen: <code>ComponentId</code>.
 Valideringer er skrevet i C#, i <code>ValidationHandler.cs</code>-filen i applikasjonsmalen. I valideringen kan man så hente ut denne id&rsquo;en og skreddersy eventuelle valideringer som skal gjøres backend, eksempel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
 {
     <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> flyttemelding model))
     {
-        _httpContextAccessor.HttpContext.Request.Headers
+        <span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext.Request.Headers
             .TryGetValue(<span style="color:#f1fa8c">&#34;ComponentId&#34;</span>, <span style="color:#ff79c6">out</span> StringValues <span style="color:#ff79c6">value</span>);
 
         <span style="color:#8be9fd">string</span> component = <span style="color:#ff79c6">value</span>.Any() ? <span style="color:#ff79c6">value</span>[<span style="color:#bd93f9">0</span>] : <span style="color:#8be9fd">string</span>.Empty;

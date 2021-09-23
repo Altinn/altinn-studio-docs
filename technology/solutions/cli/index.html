@@ -967,7 +967,7 @@ The login command will then use this JSON Web Token and exchange it for a new JS
 This final JWT is what other commands will be including when sending requests to the Altinn APIs.</p>
 <p>The Client ID is something each Application Owner is required to administrate themselves.
 Each application owner should have a team of people with access to Maskinporten and the rights to administrate their clients.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">Altinn CLI &gt; Login Maskinporten clientId=&lt;clientId&gt; thumbprint=&lt;certificate thumbprint&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cmd" data-lang="cmd">Altinn CLI &gt; Login Maskinporten clientId=&lt;clientId&gt; thumbprint=&lt;certificate thumbprint&gt;
 </code></pre></div><h3 id="help">Help</h3>
 <p>The Help command displays help information that is registered on commands, subcommands and options according command line options.</p>
 <p>Example : 
@@ -1002,7 +1002,7 @@ The file is part of the project as an embedded resource but can be modified and 
 <p>The CLI Application searches for the file at startup, the <strong>CommandDefinitionFile</strong> is search first.</p>
 <h3 id="application-settings">Application settings</h3>
 <p>Setting which is required for the CLI Application is defined in the appsettings.json file. Initial content of this file is:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;APIBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.at21.altinn.cloud/storage/api/v1&#34;</span>,
   <span style="color:#ff79c6">&#34;AppAPIBaseAddress&#34;</span>: <span style="color:#f1fa8c">&#34;https://{org}.apps.at21.altinn.cloud&#34;</span>,
   <span style="color:#ff79c6">&#34;UseLiveClient&#34;</span>: <span style="color:#f1fa8c">&#34;True&#34;</span>,
@@ -1048,7 +1048,7 @@ The file is part of the project as an embedded resource but can be modified and 
 <h3 id="kommando-definisjon">Kommando Definisjon</h3>
 <p>The command definition file, CommandDefs.json defines all commands with subcommands and options which can be &ldquo;executed&rdquo; i the CLI application.
 The file is initially a resource is the development project. New commands can be added following this format:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;Name&#34;</span>: <span style="color:#f1fa8c">&#34;Login&#34;</span>,
   <span style="color:#ff79c6">&#34;SubCommands&#34;</span>: [
     {
@@ -1205,7 +1205,7 @@ Register means in this context to scan the application for classes that implemen
 <p>The actual CLI implementation consist in reading the keyboard and forward it to the ApplicationManager</p>
 <h4 id="logging">Logging</h4>
 <p>Logger is injected to the registered command and is configured as a part of the service registration. Logging is default configured to output on console and file for all log levels.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">Log.Logger = <span style="color:#ff79c6">new</span> LoggerConfiguration()
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">Log.Logger = <span style="color:#ff79c6">new</span> LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.File(<span style="color:#f1fa8c">&#34;log.txt&#34;</span>, LogEventLevel.Information)
     .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Information)
@@ -1221,7 +1221,7 @@ That makes the command available for the generic code which is selecting a comma
 <p>The selection is based on the implementation of the ICommand interface and the Name property which must match the command name on the command line.
 The command itself is executed by calling any of the the command class Run methods.</p>
 <p>There exist two Run commands, one with the SubCommand as parameter and one with a list of command line input parameters that is called if no subcommand is specified.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ICommand
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ICommand
 {
   <span style="color:#6272a4">/// &lt;summary&gt;
 </span><span style="color:#6272a4"></span>  <span style="color:#6272a4">/// Run the supported command handler
@@ -1241,7 +1241,7 @@ The command itself is executed by calling any of the the command class Run metho
 </span><span style="color:#6272a4"></span>  <span style="color:#8be9fd">string</span> Name { <span style="color:#ff79c6">get</span>; }
 }
 </code></pre></div><h4 id="subcommand-1">SubCommand</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ISubCommandHandler : IValidate
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ISubCommandHandler : IValidate
 {
     <span style="color:#6272a4">/// &lt;summary&gt;
 </span><span style="color:#6272a4"></span>    <span style="color:#6272a4">/// 
@@ -1290,7 +1290,7 @@ The handling of the option is as described in the ApplicationManager description
 Partly means here creation of correct option type based on the option&rsquo;s type definition property and the activation of validation.</p>
 <p>The actual validation is implemented in the option class itself.
 An Option base class is implemented with basic functionality like the TryParse method that is used as a part of the validation of the NumberOption type.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">/// &lt;summary&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">/// &lt;summary&gt;
 </span><span style="color:#6272a4">/// Interface that defines the propertioes and methods that
 </span><span style="color:#6272a4">/// shall be implemented by an Option class
 </span><span style="color:#6272a4">/// &lt;/summary&gt;

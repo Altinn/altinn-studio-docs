@@ -954,7 +954,7 @@ It contains these components:</p>
 <h3 id="rules">Rules</h3>
 <p>The rules appends the text from the text feilds for new first, middle and last name and displays in a new field.
 The relevant code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> nyttNavn<span style="color:#ff79c6">:</span> (obj) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"> nyttNavn<span style="color:#ff79c6">:</span> (obj) =&gt; {
         obj.fornavn <span style="color:#ff79c6">=</span> obj.fornavn <span style="color:#ff79c6">?</span> obj.fornavn <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39; &#39;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
         obj.mellomnavn <span style="color:#ff79c6">=</span> obj.mellomnavn <span style="color:#ff79c6">?</span> obj.mellomnavn <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#39; &#39;</span> <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
         obj.etternavn <span style="color:#ff79c6">=</span> obj.etternavn <span style="color:#ff79c6">?</span> obj.etternavn <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
@@ -972,7 +972,7 @@ The relevant code:</p>
 </code></pre></div><h3 id="conditional-rendering-rules">Conditional Rendering rules</h3>
 <p>The app has several conditional rendering rules based on the values entered by the user in other fields. Below is an example code for one of the conditional rendering rules.
 The relevant code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">sjekkNavnendringBekreftelse<span style="color:#ff79c6">:</span> (obj) =&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">sjekkNavnendringBekreftelse<span style="color:#ff79c6">:</span> (obj) =&gt; {
         <span style="color:#ff79c6">return</span> (obj.value <span style="color:#ff79c6">&amp;&amp;</span> obj.value <span style="color:#ff79c6">===</span> <span style="color:#f1fa8c">&#34;Ja&#34;</span>);
     }
 

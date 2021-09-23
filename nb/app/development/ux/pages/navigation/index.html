@@ -412,7 +412,7 @@ if(host != "localhost")
 <figure><a href="nav-button-next.png"><img src="nav-button-next.png" alt="Navigeringsknapper" title="Navigeringsknapper" /></a><figcaption><h4>Navigeringsknapper</h4></figcaption></figure>
 <h2 id="legge-til-knapp-for-navigering">Legge til knapp for navigering</h2>
 <p>Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under</p>
-<pre><code>{
+<pre tabindex="0"><code>{
   &quot;id&quot;: &quot;nav-page2&quot;,
   &quot;type&quot;: &quot;NavigationButtons&quot;,
   &quot;textResourceBindings&quot;: {
@@ -451,14 +451,14 @@ if(host != "localhost")
 </table>
 <h2 id="rekkefølge">Rekkefølge</h2>
 <p>Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:</p>
-<pre><code>|- App/
+<pre tabindex="0"><code>|- App/
   |- ui/
     |- layouts/
       |- 1.firstPage.json
       |- 2.secondPage.json
       |- 3.aFinalPage.json
 </code></pre><p>Det er også mulig å styre rekkefølgen på sidene ved hjelp av <code>Settings.json</code> under <code>App/ui/</code>. Dette gjøres på følgende vis:</p>
-<pre><code>{
+<pre tabindex="0"><code>{
   &quot;pages&quot;: {
     &quot;order&quot;: [&quot;side2&quot;, &quot;side1&quot;]
   }
@@ -469,7 +469,7 @@ Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke 
 </div>
 <h2 id="validering-ved-sidebytte">Validering ved sidebytte</h2>
 <p>Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side. Dette kan gjøres ved å legge til strengen <code>validatePage</code> i <code>triggers</code> på navigasjons-knapp komponenten. Eksempel:</p>
-<pre><code>{
+<pre tabindex="0"><code>{
   &quot;id&quot;: &quot;7cbc1c00-4c8c-42b6-bcef-12b3c4c45373&quot;,
   &quot;type&quot;: &quot;NavigationButtons&quot;,
   &quot;componentType&quot;: &quot;NavigationButtons&quot;,

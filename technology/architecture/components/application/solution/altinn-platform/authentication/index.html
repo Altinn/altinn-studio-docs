@@ -938,15 +938,15 @@ if(host != "localhost")
 <h2 id="authenticate-user">Authenticate user</h2>
 <p>The authentication resource enables authenticating a user and redirecting it to another Altinn-url. 
 If the user is not authenticated already it will be sent to the login page before redirecting the user to its final destination {url}.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authentication?goto={url}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /authentication?goto={url}
 </code></pre></div><h2 id="refresh-a-valid-jwttoken">Refresh a valid JwtToken</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /refresh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /refresh
 </code></pre></div><h2 id="exchange-a-jwt-token-from-an-external-token-provider">Exchange a JWT token from an external token provider</h2>
 <p>Accepted providers include: <code>maskinporten</code> and <code>id-porten</code>.
 Request must include a bearer token in the authorization header.
 Set test equal to true if retrieving a token for Testdepartementet.
 (This ony works with maskinporten as the token provider.)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /exchange/{tokenProvider}?test={bool}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /exchange/{tokenProvider}?test={bool}
 </code></pre></div>
 
 <footer class=" footline" >

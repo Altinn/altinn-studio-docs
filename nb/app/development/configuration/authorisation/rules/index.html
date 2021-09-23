@@ -415,7 +415,7 @@ if(host != "localhost")
 
 <h2 id="org-kan-instansiere-orgapp">[ORG] kan instansiere [ORG]/[APP]</h2>
 <p>[ORG_1] og [ORG_2] kan her være like eller ulike. I tilfellet at de er ulike vil [ORG_1] tilsvare applikasjonseieren og [ORG_2] være en annen organisasjon som får lov til å instansiere.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG_2] can instantiate an instance of [ORG_1]/[APP]<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
 </span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
@@ -450,7 +450,7 @@ if(host != "localhost")
 <span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
 </code></pre></div><h2 id="bruker-med-rollen-regna-can-lese-instanser-av-orgapp-som-er-i-task_1">Bruker med rollen REGNA can lese instanser av [ORG]/[APP] som er i Task_1</h2>
 <p>Ved å endre på rolle og task i denne regelen vil du kunne gi rettigheter til å lese instansdata på en gitt task i prosessflyten.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instances of [ORG]/[APP] when it is in Task_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
 </span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
@@ -489,7 +489,7 @@ if(host != "localhost")
 <span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
 </code></pre></div><h2 id="org-kan-skrive-til-en-instans-av-orgapp-uavhengig-av-prosessflyt">[ORG] kan skrive til en instans av [ORG]/[APP] uavhengig av prosessflyt</h2>
 <p>Denne regelen kan brukes dersom applikasjonseier skal kunne oppdatere instanser uavhengig av hvor de er i prosessflyten sin.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG] can write to instances of [ORG]/[APP] in any task or event<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
 </span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
@@ -525,7 +525,7 @@ if(host != "localhost")
 </code></pre></div><h2 id="bruker-med-rollen-regna-eller-dagl-kan-bekrefte-instanser-av-orgapp-som-er-i-task_2">Bruker med rollen REGNA eller DAGL kan bekrefte instanser av [ORG]/[APP] som er i Task_2</h2>
 <p>Denne reglen begrenser rettigheten til å bekrefte en instans i en bestemt task til kun to roller.
 Ved å enten modifisere task eller roller vil du her kunne sette regler for hvem som får bekrefte instansen i ulike faser av prosessen.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA or DAGL can confirm instances of [ORG]/[APP] when it is in Task_2<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
 </span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
@@ -571,7 +571,7 @@ Ved å enten modifisere task eller roller vil du her kunne sette regler for hvem
 </code></pre></div><h2 id="bruker-med-rolle-regna-kan-lese-instanser-av-orgapp-som-er-i-endevent_1">Bruker med rolle REGNA kan lese instanser av [ORG]/[APP] som er i EndEvent_1</h2>
 <p>Denne regler tillatter en bruker med den gitte rollen å lese instansdata etter at prosessen er avsluttet.
 Dette vil bl.a. inkludere å laste ned vedlegg og kvitteringer knyttet til instansen.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
 </span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
@@ -609,7 +609,7 @@ Dette vil bl.a. inkludere å laste ned vedlegg og kvitteringer knyttet til insta
 <span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
 </code></pre></div><h2 id="regel-som-definerer-at-org-kan-fullføre-en-instans-av-orgapp-som-har-en-fullført-prosess">Regel som definerer at [ORG] kan fullføre en instans av [ORG]/[APP] som har en fullført prosess.</h2>
 <p>Denne regelen tillatter applikasjonseier å utføre en kvittering på at de er ferdig med en instans. Instansen må ha en fullført process.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>Rule that defines that [ORG] can complete an instance of [ORG]/[APP] which state is at the end event.<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
 </span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
@@ -648,7 +648,7 @@ Dette vil bl.a. inkludere å laste ned vedlegg og kvitteringer knyttet til insta
 <span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
 </code></pre></div><h2 id="org-kan-slette-en-instans-av-orgapp-uavhengig-av-hvor-den-er-i-prosessen">[ORG] kan slette en instans av [ORG]/[APP] uavhengig av hvor den er i prosessen</h2>
 <p>Denne regelen tillatter applikasjonseier å slette en instans. Dette kan gjøres uavhengig av hvor i prosessen instansen er.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:[RULE_ID]&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
   <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>[ORG] can delete an instance of [ORG]/[APP] in any task or event.<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
   <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
@@ -682,7 +682,7 @@ Dette vil bl.a. inkludere å laste ned vedlegg og kvitteringer knyttet til insta
   <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
 <span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
 </code></pre></div><h2 id="org-kan-aksesserere-med-autentiseringsnivå-3">[ORG] kan aksesserere med autentiseringsnivå 3</h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#ff79c6">&lt;xacml:ObligationExpressions&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#ff79c6">&lt;xacml:ObligationExpressions&gt;</span>
     <span style="color:#ff79c6">&lt;xacml:ObligationExpression</span> <span style="color:#50fa7b">FulfillOn=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span> <span style="color:#50fa7b">ObligationId=</span><span style="color:#f1fa8c">&#34;urn:altinn:obligation:authenticationLevel1&#34;</span><span style="color:#ff79c6">&gt;</span>
       <span style="color:#ff79c6">&lt;xacml:AttributeAssignmentExpression</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:obligation1-assignment1&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:altinn:minimum-authenticationlevel&#34;</span><span style="color:#ff79c6">&gt;</span>
         <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span><span style="color:#ff79c6">&gt;</span>4<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>

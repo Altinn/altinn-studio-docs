@@ -959,9 +959,9 @@ Can be triggerd by these issues:</p>
 <p>This occurs when the loadbalancer is not getting a response from the other services running in kubernetes.
 Because the loadbalancer is not updated when the deployment of new versions or altinn-designer, altinn-runtime or altinn-repositories.
 To delete a pod, first find the name of the running pod:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get pods
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get pods
 </code></pre></div><p>Then use the whole name, and run the following command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl delete pod <span style="color:#ff79c6">[</span>POD_NAME<span style="color:#ff79c6">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl delete pod <span style="color:#ff79c6">[</span>POD_NAME<span style="color:#ff79c6">]</span>
 </code></pre></div><h2 id="sonarqube-code-analysis-pipeline-fails-on-pull-request">Sonarqube-code-analysis pipeline fails on pull request</h2>
 <p>This occurs when there exists double line shifts in the code that is being analyzed. This somehow crashes the sonarqube code analysis tool.
 To solve this issue you need to identify and remove the double line shift is in the code:</p>
@@ -976,10 +976,10 @@ To solve this issue you need to identify and remove the double line shift is in 
 <p>The storage we use today don&rsquo;t support two pods accessing it at the same time, 
 so on deploy if the first pod don&rsquo;t release the storage before the other one tries to connect to it the second pod will get stuck in ContainerCreating status. 
 If you then run kubectl get pods and get the name of the pod you can then run</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl describe <span style="color:#ff79c6">[</span>POD_NAME<span style="color:#ff79c6">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl describe <span style="color:#ff79c6">[</span>POD_NAME<span style="color:#ff79c6">]</span>
 </code></pre></div><p>then you see the message &ldquo;Unable to mount volumes for pod XXX: timeout expired waiting for volumes to attach or mount for pod XXX&rdquo;</p>
 <p>To fix this you need to delete the deployment to that pod and start a new release:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl delete deployment <span style="color:#ff79c6">[</span>DEPLOYMENT_NAME<span style="color:#ff79c6">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl delete deployment <span style="color:#ff79c6">[</span>DEPLOYMENT_NAME<span style="color:#ff79c6">]</span>
 </code></pre></div><p>To start a new release go to <a href="https://dev.azure.com/brreg/altinn-studio/_release">release pipeline</a></p>
 <h2 id="i-try-to-pull-master-from-github-and-get-error-cannot-lock-ref">I try to pull master from github and get error &ldquo;Cannot lock ref&rdquo;</h2>
 <p>This happens from time to time, still unsure why. To fix it run the command:</p>

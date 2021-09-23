@@ -284,7 +284,7 @@
 	"title": "Contribute to the development of Altinn",
 	"tags": [],
 	"description": "Discover how to contribute to Altinn Studio and the rest of Altinn 3.",
-	"content": "If you wonder how to start using Altinn, you\u0026rsquo;ll find development guides at altinndigital.no.\nHow we develop Altinn Studio\r\r\rDiscover how Altinn Studio is architected and how you can contribute in the development.\r\r\rDesign system for front-end code\r\r\rThe Altinns Design System, built using Pattern Lab, contains our UI-components and the corresponding front-end code. \r\rAltinn on GitHub\r\nWe want it to be as easy for you to contribute - therefore most of our solutions can be found on GitHub. We value your comments and contributions highly!\r\r\r\rIntro for developers\rIntroduction\n\r\rDevelopment handbook\rDeveloper handbook for contributions to the Altinn code base.\n\r\r"
+	"content": "How we develop Altinn Studio\r\r\rDiscover how Altinn Studio is architected and how you can contribute in the development.\r\r\rDesign system for front-end code\r\r\rThe Altinns Design System, built using Pattern Lab, contains our UI-components and the corresponding front-end code. \r\rAltinn on GitHub\r\nWe want it to be as easy for you to contribute - therefore most of our solutions can be found on GitHub. We value your comments and contributions highly!\r\r\r\rIntro for developers\rIntroduction\n\r\rDevelopment handbook\rDeveloper handbook for contributions to the Altinn code base.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/development/logic/",

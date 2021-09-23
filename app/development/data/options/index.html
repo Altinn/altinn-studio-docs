@@ -954,7 +954,7 @@ Dropdown-komponenten vil automatisk kunne hente ut en slik liste om man kobler d
 <p>Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet. 
 Options filene må ligge under <code>App/options/</code> og vil bli differensiert ved hjelp av navngivningen på json-filen. F.eks <code>land.json</code>. Her vil da optionsId være <code>land</code>, og vil være eksponert gjennom endepunktet <code>{org}/{app}/api/options/land</code>.
 Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inneholder land (<code>App/options/land.json</code>):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
         <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;norway&#34;</span>,
         <span style="color:#ff79c6">&#34;label&#34;</span>: <span style="color:#f1fa8c">&#34;Norge&#34;</span>
@@ -973,7 +973,7 @@ Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inn
 <p>I app-templaten har man også mulighet til å dynamisk eksponere/endre kodelister under kjøringen av appen. Dette muligjør det å eksponere dynamiske verdier som en del av kodelisten, og settes opp
 i metoden <code>GetOptions</code> i <code>App.cs</code>. Denne metoden vil bli kalt i det appen får et kall mot options-apiet, og man kan selv velge å returnere det objektet man ønsker.</p>
 <p>Under finner du et eksempel på hvordan dette kan settes opp. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot <code>{org}/{app}/api/options/demo_id</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task&lt;AppOptions&gt; GetOptions(<span style="color:#8be9fd">string</span> id, AppOptions options)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task&lt;AppOptions&gt; GetOptions(<span style="color:#8be9fd">string</span> id, AppOptions options)
 {
     <span style="color:#ff79c6">if</span> (id.Equals(<span style="color:#f1fa8c">&#34;demo_id&#34;</span>))
     {
@@ -1003,7 +1003,7 @@ i metoden <code>GetOptions</code> i <code>App.cs</code>. Denne metoden vil bli k
 }
 </code></pre></div><h2 id="koble-dropdown-komponent-til-kodeliste">Koble dropdown-komponent til kodeliste</h2>
 <p>Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44&#34;</span>,
     <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
     <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#bd93f9">4</span>,

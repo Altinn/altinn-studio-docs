@@ -404,9 +404,9 @@ if(host != "localhost")
 
 <h2 id="instance-events">Instance events</h2>
 <p>All instance events, e.g. creation, read, save, change process state, &hellip;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/instances/347829/762011d1-d341-4c0a-8641-d8a104e83d30/events
 </code></pre></div><p>Example of event data.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>:<span style="color:#f1fa8c">&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;</span>,
     <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;</span>,
     <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;deleted&#34;</span>,
@@ -431,7 +431,7 @@ if(host != "localhost")
 </blockquote>
 <p>Selected instance events. Created, first read, change process state. Optinally specified by application developer.</p>
 <p>Events can be queried. May be piped.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&amp;process.currentTask=Task_2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {storagePath}/applications/org/app/events?created=gte:2019-03-30&amp;process.currentTask=Task_2
 </code></pre></div>
 
 <footer class=" footline" >

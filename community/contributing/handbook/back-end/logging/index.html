@@ -961,7 +961,7 @@ There are many advantages of using serilog</p>
 <li>Provides prebuilt enrichers through nuget. These add more value and information to the log events. This can be used to filter events in Application Insights.</li>
 </ul>
 <h4 id="step-one---init-logger-in-programcs">Step one - Init logger in Program.cs</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> IWebHostBuilder CreateWebHostBuilder(<span style="color:#8be9fd">string</span>[] args) =&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> IWebHostBuilder CreateWebHostBuilder(<span style="color:#8be9fd">string</span>[] args) =&gt;
     WebHost.CreateDefaultBuilder(args)
         .ConfigureLogging((hostingContext, logging) =&gt;
     {
@@ -974,7 +974,7 @@ There are many advantages of using serilog</p>
         logging.AddProvider(<span style="color:#ff79c6">new</span> SerilogLoggerProvider(logger));
     });
 </code></pre></div><h4 id="step-two---inject-logger-where-it-is-needed">Step two - inject logger where it is needed</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> ILogger logger;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> ILogger logger;
 
 <span style="color:#ff79c6">public</span> ApplicationsController(
     IApplicationRepository repository, 
@@ -984,7 +984,7 @@ There are many advantages of using serilog</p>
     <span style="color:#ff79c6">this</span>.repository = repository;
 }
 </code></pre></div><h4 id="step-three---log-error">Step three - log error</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">_logger.LogError(exception, <span style="color:#f1fa8c">&#34;Unable to process request...&#34;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#bd93f9">_l</span>ogger.LogError(exception, <span style="color:#f1fa8c">&#34;Unable to process request...&#34;</span>);
 </code></pre></div>
 
 <footer class=" footline" >

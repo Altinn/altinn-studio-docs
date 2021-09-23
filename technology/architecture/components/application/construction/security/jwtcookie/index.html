@@ -972,7 +972,7 @@ Nuget Package <a href="https://www.nuget.org/packages/JWTCookieAuthentication/">
 </ul>
 <h2 id="how-to-configure-jwtcookieauthentication">How To Configure JWTCookieAuthentication</h2>
 <h3 id="configuration-for-consumers">Configuration for consumers</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">// Configure Authentication
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">// Configure Authentication
 </span><span style="color:#6272a4">// Use [Authorize] to require login on MVC Controller Actions
 </span><span style="color:#6272a4"></span>services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
     .AddJwtCookie(options =&gt;
@@ -988,14 +988,14 @@ Nuget Package <a href="https://www.nuget.org/packages/JWTCookieAuthentication/">
         options.Cookie.Domain = Configuration[<span style="color:#f1fa8c">&#34;GeneralSettings:HostName&#34;</span>];
         options.Cookie.Name = Services.Constants.General.RuntimeCookieName;
         options.MetadataAddress = Configuration[<span style="color:#f1fa8c">&#34;AppSettings:OpenIdWellKnownEndpoint&#34;</span>];
-        <span style="color:#ff79c6">if</span> (_env.IsDevelopment())
+        <span style="color:#ff79c6">if</span> (<span style="color:#bd93f9">_</span>env.IsDevelopment())
         {
             options.RequireHttpsMetadata = <span style="color:#ff79c6">false</span>;
         }
     });
 </code></pre></div><h3 id="configuration-for-the-identity-provider">Configuration for the identity provider</h3>
 <p>The below configuration is relevant for the Identity Provider application.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">// Use [Authorize] to require login on MVC Controller Actions
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">// Use [Authorize] to require login on MVC Controller Actions
 </span><span style="color:#6272a4"></span>services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddJwtCookie(JwtCookieDefaults.AuthenticationScheme, options =&gt;
     {
@@ -1004,7 +1004,7 @@ Nuget Package <a href="https://www.nuget.org/packages/JWTCookieAuthentication/">
     })
 </code></pre></div><h2 id="how-to-get-access-to-user-information">How to get access to user information</h2>
 <p>When a application is configured with JWTCookie authentication the information is available in httpContext about the user.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">int</span> GetUserId(HttpContext context)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"> <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">int</span> GetUserId(HttpContext context)
 {
     <span style="color:#8be9fd">int</span> userId = <span style="color:#bd93f9">0</span>;
 

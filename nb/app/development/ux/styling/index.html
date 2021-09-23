@@ -423,7 +423,7 @@ Følgende størrelser med tilhørende breakpoints er definert:</p>
 <li><strong>xl</strong>: 1920px</li>
 </ul>
 <p>For å sidestille komponenter horisontalt må man gjøre noen små endringer i formlayout. Det er definert en egen property <code>grid</code> som man kan fylle inn bredde ønsket på de ulik størrelsene. Her er et eksempel hvor to input-felt har blitt satt til å ta halve skjermen (enkelte props er fjernet for lesbarhet):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
         <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
@@ -448,7 +448,7 @@ Oppsettet over vil gi følgende resultat:</p>
 <p>Siden man har 12 inndelinger tilgjengelig i sidebredden er det opp til apputvikler å tildele hvor stor andel komponenten skal ha. Om man ønsker at en komponent skal ta 2/12, en annen 6/12 og siste 4/12 så er det mulig.
 Det er viktig å tenke på brukeropplevelsen når man gjør slike endringer, og sidestilling av komponenter bør gjøres med omhu. Komponenter med lengre tekster og beskrivelser blir også fort små og uoversiktelige om disse sidestilles. Skal det benyttes lengre tekster og beskrivelser anbefales det at disse benytter full bredde av skjema.</p>
 <p>Om man i eksemepelet over hadde ønsket at komponentene skulle ta hele bredden frem til skjermen ble større enn 960px så kunne man satt opp følgende layout:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
         <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
@@ -475,7 +475,7 @@ Det er viktig å tenke på brukeropplevelsen når man gjør slike endringer, og 
 <h3 id="innergrid">InnerGrid</h3>
 <p>Utover det å sette bredde på <code>grid</code> i komponenten har vi også lagt til mulighet til å styre <code>innerGrid</code>. Å overstyre denne bredden vil typisk være for caser hvor man ønsker at teksten til en komponent skal oppta en større bredde enn input-feltet.
 Du kan tenke på komponenten på denne måten:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">Grid</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;grid&#34;</span>&gt; 
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">Grid</span> <span style="color:#50fa7b">id</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;grid&#34;</span>&gt; 
     &lt;<span style="color:#ff79c6">div</span>&gt;
         Komponentens tekster
     &lt;/<span style="color:#ff79c6">div</span>&gt;
@@ -484,7 +484,7 @@ Du kan tenke på komponenten på denne måten:</p>
     &lt;/<span style="color:#ff79c6">Grid</span>&gt;
 &lt;/<span style="color:#ff79c6">Grid</span>&gt;
 </code></pre></div><p>Her vil det da være mulig å styre bredden til både ytterste grid og den innerste griden. Eksempel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
      {
         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;input-felt-1&#34;</span>,
         <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
@@ -518,7 +518,7 @@ og vil dukke opp automatisk i intellisense når man redigerer komponenten i f.ek
 Formatteringen er kun for visning i frontend, og tallene som legges inn i et inputfelt med formattering vil lagres uformattert.
 </div>
 <figure><a href="number-format-money.png"><img src="number-format-money.png" alt="Formattert tall i input-felt" title="Formattert tall i input-felt" /></a><figcaption><h4>Formattert tall i input-felt</h4></figcaption></figure>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;numberComponent&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
   <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {

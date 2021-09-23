@@ -431,7 +431,7 @@ Da kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner 
 <li>Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen <code>App/App.csproj</code> i appens repo.</li>
 </ul>
 <p>F.eks.:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
   <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
   <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
   <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.PlatformServices&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
@@ -471,11 +471,11 @@ Om det kommer en ny <em>major</em> versjon må man eksplisitt oppdatere appen ti
 <ul>
 <li>Referansen til altinn-app-frontend.<strong>js</strong>-filen som er app frontend koden.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
 </code></pre></div><ul>
 <li>Referansen til altinn-app-frontend.<strong>css</strong> som inneholder styling for app frontend.</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.css&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.css&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
 </code></pre></div><p>Søk etter filnavnet (<code>altinn-app-frontend.js</code> eller <code>altinn-app-frontend.css</code>) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).</p>
 <p><em>Husk:</em> Dersom man setter kun <em>major versjon</em> (f.eks. 2), så vil alle oppdateringer innenfor denne major versjoner (bugfix, ny funksjonalitet som ikke er breaking) komme med automatisk. Dersom man setter en <em>spesifikk versjon</em> (f.eks. 2.0.0) så vil appen hente akkurat denne versjonen, helt til referansen evt. oppdateres til å bruke en annen versjon.</p>
 

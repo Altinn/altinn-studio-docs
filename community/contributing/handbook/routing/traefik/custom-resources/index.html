@@ -937,7 +937,7 @@ if(host != "localhost")
 <p><strong>IMPORTANT</strong> These resources have to be installed before creating any of the resources they describe. They are most likely installed with helm when installing traefik 2.0.</p>
 <p>To support new features in routing and middlewares with IngressRoutes and dynamic tls options, traefik supplies it&rsquo;s own kubernetes custom resources <a href="https://docs.traefik.io/reference/dynamic-configuration/kubernetes-crd/">defined in the traefik docs</a>.
 These are:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: apiextensions.k8s.io/v1beta1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: apiextensions.k8s.io/v1beta1
 <span style="color:#ff79c6">kind</span>: CustomResourceDefinition
 <span style="color:#ff79c6">metadata</span>:
   <span style="color:#ff79c6">name</span>: ingressroutes.traefik.containo.us

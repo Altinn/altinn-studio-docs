@@ -951,14 +951,14 @@ if(host != "localhost")
 <h5 id="shared-components-should-utilize-styled-componentshttpsmaterial-uicomguidesinteroperabilitystyled-components-which-can-write-props-directly-in-the-css-styling">Shared components should utilize &ldquo;<a href="https://material-ui.com/guides/interoperability/#styled-components">Styled Components</a>&rdquo; which can write Props directly in the CSS styling.</h5>
 <h5 id="the-alternative-way-is-handling-styling-via-props-is-leveraging-inline-styling-combined-with-material-uis-jss-when-using-inline-styling-the-components-styling-will-be-configured-in-two-different-places">The alternative way is handling styling via props is leveraging &ldquo;inline styling&rdquo; combined with Material-UI&rsquo;s JSS. When using inline styling, the component&rsquo;s styling will be configured in two different places.</h5>
 <p><em>Inline style example</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx">&lt;<span style="color:#ff79c6">FormControl</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx">&lt;<span style="color:#ff79c6">FormControl</span>
   <span style="color:#50fa7b">fullWidth</span><span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">true</span>}
   <span style="color:#50fa7b">style</span><span style="color:#ff79c6">=</span>{{
     width: <span style="color:#8be9fd">this.props.width</span> <span style="color:#ff79c6">?</span> <span style="color:#ff79c6">this</span>.props.width : <span style="color:#8be9fd">null</span>,
   }}
 &gt;
 </code></pre></div><p><em>Styled Components example</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">const</span> theme <span style="color:#ff79c6">=</span> createMuiTheme(altinnTheme);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">const</span> theme <span style="color:#ff79c6">=</span> createMuiTheme(altinnTheme);
 
 <span style="color:#ff79c6">const</span> StyledPopper <span style="color:#ff79c6">=</span> styled(({ ...otherProps }) <span style="color:#ff79c6">=&gt;</span> (
   &lt;<span style="color:#ff79c6">Popper</span> {<span style="color:#50fa7b">...otherProps</span>} /&gt;
@@ -993,7 +993,7 @@ if(host != "localhost")
 </code></pre></div><h4 id="exception">Exception</h4>
 <p>There will be examples where &ldquo;Styled Components&rdquo; are hard to configure using some of Material-UI&rsquo;s components where &ldquo;Props&rdquo; with styling needs to be passed down to sub-components. Then the regular CreateStyles method from Material-UI needs to be leveraged and can be used in a combination with Styled Components.</p>
 <p><em>Styled object example</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">const</span> styles <span style="color:#ff79c6">=</span> {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">const</span> styles <span style="color:#ff79c6">=</span> {
   searchBoxInput<span style="color:#ff79c6">:</span> {
     fontSize<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;16px&#39;</span>,
     color<span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#39;#000000&#39;</span>,
@@ -1006,7 +1006,7 @@ if(host != "localhost")
   },
 };
 </code></pre></div><p><em>React component, with Styled Component AND &lsquo;classes.searchBoxInput&rsquo; from Styled Object example above.</em></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">class</span> AltinnSearchInput <span style="color:#ff79c6">extends</span> React.Component&lt;<span style="color:#ff79c6">IAltinnSearchInputComponentProvidedProps</span>, <span style="color:#50fa7b">IAltinnSearchInputComponentState</span>&gt; {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tsx" data-lang="tsx"><span style="color:#ff79c6">class</span> AltinnSearchInput <span style="color:#ff79c6">extends</span> React.Component&lt;<span style="color:#ff79c6">IAltinnSearchInputComponentProvidedProps</span>, <span style="color:#50fa7b">IAltinnSearchInputComponentState</span>&gt; {
   <span style="color:#ff79c6">public</span> render() {
     <span style="color:#ff79c6">const</span> { classes } <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">this</span>.props;
     <span style="color:#ff79c6">return</span> (

@@ -960,7 +960,7 @@ Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Al
 <p>The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).</p>
 <h3 id="configuration">Configuration</h3>
 <p>The application needs to have a startup configuration to enable the different standard PEPs</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">         services.AddAuthorization(options =&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">         services.AddAuthorization(options =&gt;
             {
                 options.AddPolicy(AuthzConstants.POLICY_INSTANCE_READ, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;read&#34;</span>)));
                 options.AddPolicy(AuthzConstants.POLICY_INSTANCE_WRITE, policy =&gt; policy.Requirements.Add(<span style="color:#ff79c6">new</span> AppAccessRequirement(<span style="color:#f1fa8c">&#34;write&#34;</span>)));
@@ -973,7 +973,7 @@ Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Al
 
 </code></pre></div><p>Example from <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage/Startup.cs">Storage Startup</a></p>
 <p>The API needs to have enabled PEP for a given API operation</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">     [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">     [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]</span>
 <span style="color:#50fa7b">        [HttpDelete(&#34;data/{dataGuid:guid}&#34;)]</span>
 <span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status200OK)]</span>
 <span style="color:#50fa7b">        [ProducesResponseType(StatusCodes.Status400BadRequest)]</span>
@@ -986,7 +986,7 @@ Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Al
 <p>For some scenarious it is not possible to authorize the request based on API parameters.</p>
 <p>This cases requires a custom PEP that is implemented as part of API logic.</p>
 <p>In the example below a list of elements is retreived from database and we need to filter elements before they are returned based on what user is authorized for.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">       [Authorize]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#50fa7b">       [Authorize]</span>
 <span style="color:#50fa7b">        [HttpGet(&#34;{instanceOwnerPartyId:int}/{instanceGuid:guid}&#34;)]</span>
         <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&gt; GetMessageBoxInstance(
             <span style="color:#8be9fd">int</span> instanceOwnerPartyId,
@@ -1003,7 +1003,7 @@ Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Al
 
             <span style="color:#8be9fd">string</span> instanceId = <span style="color:#f1fa8c">$&#34;{instanceOwnerPartyId}/{instanceGuid}&#34;</span>;
 
-            Instance instance = <span style="color:#ff79c6">await</span> _instanceRepository.GetOne(instanceId, instanceOwnerPartyId);
+            Instance instance = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>instanceRepository.GetOne(instanceId, instanceOwnerPartyId);
 
             <span style="color:#ff79c6">if</span> (instance == <span style="color:#ff79c6">null</span>)
             {
@@ -1011,7 +1011,7 @@ Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Al
             }
 
             List&lt;MessageBoxInstance&gt; authorizedInstanceList =
-                <span style="color:#ff79c6">await</span> _authorizationHelper.AuthorizeMesseageBoxInstances(
+                <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>authorizationHelper.AuthorizeMesseageBoxInstances(
                     HttpContext.User, <span style="color:#ff79c6">new</span> List&lt;Instance&gt; { instance });
             <span style="color:#ff79c6">if</span> (authorizedInstanceList.Count &lt;= <span style="color:#bd93f9">0</span>)
             {
@@ -1021,7 +1021,7 @@ Based on the <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Al
             MessageBoxInstance authorizedInstance = authorizedInstanceList.First();
 
             <span style="color:#6272a4">// get app texts and exchange all text keys.
-</span><span style="color:#6272a4"></span>            List&lt;TextResource&gt; texts = <span style="color:#ff79c6">await</span> _textRepository.Get(<span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt; { instance.AppId }, languageId);
+</span><span style="color:#6272a4"></span>            List&lt;TextResource&gt; texts = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>textRepository.Get(<span style="color:#ff79c6">new</span> List&lt;<span style="color:#8be9fd">string</span>&gt; { instance.AppId }, languageId);
             InstanceHelper.ReplaceTextKeys(<span style="color:#ff79c6">new</span> List&lt;MessageBoxInstance&gt; { authorizedInstance }, texts, languageId);
 
             <span style="color:#ff79c6">return</span> Ok(authorizedInstance);

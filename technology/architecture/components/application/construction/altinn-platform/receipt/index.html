@@ -949,17 +949,17 @@ If you need information about the user, instance or party you should use
 <p>A user is the entity which is logged in in Altinn and performs actions for on behalf of an instance owner.</p>
 <h3 id="operations">Operations</h3>
 <p>Get information about the currently logged in user</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/users/current
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/users/current
 </code></pre></div><h2 id="extendedinstance">/extendedinstance</h2>
 <p>The extended instance object holds metadata about and instance and party data related to the instance owner.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;instance&#34;</span>: {},
     <span style="color:#ff79c6">&#34;party&#34;</span>: {}
 }
 </code></pre></div><h2 id="operations-1">Operations</h2>
 <p>Get instance and party data for a given instance id.
 It is optional to include the party data, and this can be regulated using the query parameter <em>includeParty</em>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/instances/{instanceOwnerPartyId}/{instanceGuid}?includeParty={true/false}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">/instances/{instanceOwnerPartyId}/{instanceGuid}?includeParty={true/false}
 </code></pre></div>
 
 <footer class=" footline" >

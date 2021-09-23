@@ -953,7 +953,7 @@ It provides a registry of all <em>applications</em> metadata, data types and eve
 An instance replaces Altinn2 Message.
 An instanceOwner is a person/company that reports information via Altinn.
 An appId refers to the application information element which defines the metadata about the application.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;60238/762011d1-d341-4c0a-8641-d8a104e83d30&#34;</span>,
     <span style="color:#ff79c6">&#34;appId&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor&#34;</span>,
     <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;test&#34;</span>,
@@ -1223,37 +1223,37 @@ their own process as complete with regards to an instance.</p>
 <p>Create a new instance of an app for a given instance owner. 
 Post with query params that identifies the appId and the instance owner. 
 An instance object can be sent as json data to set certian values.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances?appId=test/sailor
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances?appId=test/sailor
 { &#34;instanceOwner&#34;: { &#34;partyId&#34;: &#34;60238&#34; }}
 </code></pre></div><p>Get information about one instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}
 </code></pre></div><p>Get (query) all instances that an instance owner has</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceOwnerPartyId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceOwnerPartyId}
 </code></pre></div><p>Query all instances of an application owner&rsquo;s organisation</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances?org={org}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances?org={org}
 </code></pre></div><p>Delete a specific instance (also deletes its data).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /instances/{instanceId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /instances/{instanceId}
 </code></pre></div><p>Update read status of an instance. UpdatedState can hold values: &ldquo;read&rdquo;, &ldquo;unread&rdquo;, &ldquo;updatedSinceLastReview&rdquo;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/readstatus?status={updatedState}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/readstatus?status={updatedState}
 </code></pre></div><p>Update substatus of an instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/substatus
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/substatus
 </code></pre></div><h3 id="data-service">Data service</h3>
 <p>A data element is a file that contains a specific form element of an instance.
 It may be structured file, e.g. json, xml, or it may be a binary file, e.g. pdf.
 The application metadata restricts the types of form elements that are allowed {dataType}.</p>
 <p>Get a specific data element</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/data/{dataId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/data/{dataId}
 </code></pre></div><p>Post to create a specific data element. Content a file (as MultipartContent).
 After success the instance&rsquo;s data section is updated, with the appropriate dataId guid
 that is used to identify the specific data element</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances/{instanceId}/data?dataType={dataType}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances/{instanceId}/data?dataType={dataType}
 </code></pre></div><p>Put to replace a specific data element. Delete to remove data element.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/data/{dataId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /instances/{instanceId}/data/{dataId}
 </code></pre></div><p>Notice that PDFs, such as receipts or simmilar, is handled the same way as data elements.</p>
 <h2 id="application">Application</h2>
 <p>Application metadata used to validate data element types in instances. And to provide application events.</p>
 <p>Resource: /applications/test/sailor</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor&#34;</span>,
     <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#f1fa8c">&#34;v32.23-xyp&#34;</span>,
     <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;test&#34;</span>,
@@ -1412,7 +1412,7 @@ that is used to identify the specific data element</p>
 </tbody>
 </table>
 <h4 id="example">Example</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;receipt&#34;</span>,
     <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;image/jpeg&#34;</span>, <span style="color:#f1fa8c">&#34;image/png&#34;</span>],
     <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
@@ -1452,16 +1452,16 @@ that is used to identify the specific data element</p>
 </table>
 <h3 id="operations-1">Operations</h3>
 <p>Get a list of all Applications</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications
 </code></pre></div><p>Get metadata about a specific application</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}
 </code></pre></div><p>Get application events.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}/events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}/events
 </code></pre></div><h2 id="instanceevent">InstanceEvent</h2>
 <p>User actions on an instance trigger instance events such as <em>created</em>, <em>saved</em>, _submitted, <em>deleted</em>, and <em>undeleted</em>.
 The events are associated with an instance, a user and an instance owner and generated by the application and stored in CosmosDB.</p>
 <p>Format of the JSON object stored in the database.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>:<span style="color:#f1fa8c">&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;</span>,
     <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;</span>,
     <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;deleted&#34;</span>,
@@ -1536,21 +1536,21 @@ The events are associated with an instance, a user and an instance owner and gen
 </tbody>
 </table>
 <h3 id="operations-2">Operations</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events
 </code></pre></div><p>Create an event. POST with body. 
 <strong>Note</strong> id and createDateTime is set by the system and should not be included in the json object.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances/{instanceId}/events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /instances/{instanceId}/events
 </code></pre></div><p>Get all instance events for a specific instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events
 </code></pre></div><p>Get all instance events for a specific instance filtered by event types</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?eventTypes={eventTypeA},{eventTypeB}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?eventTypes={eventTypeA},{eventTypeB}
 </code></pre></div><p>Get all instance events for a specific instance within a time frame
 The times are strings defined in UTC-format. E.g. &ldquo;2019-05-03T12:55:23&rdquo;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}
 </code></pre></div><p>Get all instance events for a specific instance within a time frame filtered by event types</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}&amp;eventTypes={eventTypeA},{eventTypeB}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}&amp;eventTypes={eventTypeA},{eventTypeB}
 </code></pre></div><p>Delete all instance events for a specific instance. DELETE request.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /instances/{instanceId}/events
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /instances/{instanceId}/events
 </code></pre></div><h2 id="messageboxinstance">MessageBoxInstance</h2>
 <p>A message box instance is a compressed instance object stripped for data that is
 not relevant for the Altinn II message box. In addition some properties from the application
@@ -1640,19 +1640,19 @@ metadata such as application title are included in the object.</p>
 <h3 id="operations-3">Operations</h3>
 <p>Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
 Available language specifications: en, nb, nn-NO.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/{instanceOwnerPartyId}/{instanceId}?language={languageId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/{instanceOwnerPartyId}/{instanceId}?language={languageId}
 </code></pre></div><p>Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
 Available states: active, deleted, archived.
 Available language specifications: en, nb, nn-NO.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&amp;language={languageId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&amp;language={languageId}
 </code></pre></div><p>Search instances based on query parameters
 All query parameters are optional.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&amp;language={languageId}&amp;appId={applicationId}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&amp;language={languageId}&amp;appId={applicationId}
 </code></pre></div><p>Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
 Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
 </code></pre></div><p>Restore a soft deleted instance.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
 </code></pre></div><h2 id="processhistory">ProcessHistory</h2>
 <p>The process history is a list comprised of process history events for a given instance.</p>
 <h3 id="processhistoryitem-type">ProcessHistoryItem type</h3>
@@ -1694,7 +1694,7 @@ Calling this endpoint will not the delete the instance from Storage, simply mark
 </table>
 <h3 id="operations-4">Operations</h3>
 <p>Get process history for a given instance</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceOwnerPartyId}/{instanceId}/process/history
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /instances/{instanceOwnerPartyId}/{instanceId}/process/history
 </code></pre></div><h2 id="texts">Texts</h2>
 <p>Represents text resources for an application.</p>
 <h3 id="text-type">Text type</h3>
@@ -1731,7 +1731,7 @@ Calling this endpoint will not the delete the instance from Storage, simply mark
 </table>
 <p>The <code>id</code> and <code>org</code> fields are generated by the system, and should not be included when using POST the text resource object.
 Example of an text element that should be sent during a POST:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
     <span style="color:#ff79c6">&#34;resources:&#34;</span>: [
         {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some value&#34;</span>},
@@ -1800,13 +1800,13 @@ Example of an text element that should be sent during a POST:</p>
 </table>
 <h3 id="operations-5">Operations</h3>
 <p>Create a new text resource for an application.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /applications/{appId}/texts
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST /applications/{appId}/texts
 </code></pre></div><p>Get a specific text resource for an application.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}/texts/{language}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /applications/{appId}/texts/{language}
 </code></pre></div><p>Update a specific text resource for an application.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /applications/{appId}/texts/{language}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT /applications/{appId}/texts/{language}
 </code></pre></div><p>Delete a specific text resource for an application.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /applications/{appId}/texts/{language}
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">DELETE /applications/{appId}/texts/{language}
 </code></pre></div>
 
 <footer class=" footline" >
