@@ -1,6 +1,7 @@
 ---
 title: Presentasjon
 description: En presentasjon om målsettinger og konsepter for Tjenester 3.0
+hidden: true
 type: slide
 theme: beige # black, white, league, beige, sky, night, serif, simple, solarized
 revealOptions:
