@@ -2,7 +2,6 @@
 title: Mål
 description: Oppsummering av målene for Altinn 3.
 toc: false
-weight: 10
 tags: [translate-to-norwegian]
 ---
 
