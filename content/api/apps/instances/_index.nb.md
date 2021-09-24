@@ -35,7 +35,7 @@ Note that the object returned is a simplified instance object and that `LastChan
 ```json
 [
 	{
-		"instanceId": "1337/bffd2c17-9d93-49f4-b504-3d0ece2402c7",
+		"id": "1337/bffd2c17-9d93-49f4-b504-3d0ece2402c7",
 		"lastChanged": "2021-09-23T10:19:43",
 		"lastChangedBy": "Sophie Salt"
 	},
