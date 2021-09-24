@@ -86,8 +86,7 @@ The migration is fairly simple and involves three changes in your deployment fol
       repository: https://charts.altinn.studio/
       version: 1.1.0
     ```
-3. Add a new line at the top of your values.yaml containing the string `deployment:` and indent all the old lines with two spaces (yaml treats spaces and tab diffrently so check that you add spaces) 
-<br><br>Given that your values.yaml looked like this:
+3. Add a new line at the top of your values.yaml containing the string `deployment:` and indent all the old lines with two spaces (yaml treats spaces and tab diffrently so check that you add spaces) <br><br>Given that your values.yaml looked like this:
     ```yaml
     replicaCount: 3
 
@@ -125,7 +124,7 @@ The migration is fairly simple and involves three changes in your deployment fol
             - name: hsts-header
       tls:
         options:
-        name: tls-options
+          name: tls-options
         secretName: ssl-cert
 
     volumeMounts:
@@ -145,7 +144,7 @@ The migration is fairly simple and involves three changes in your deployment fol
     After you have made your changes it should look like this:
     ```yaml
     deployment:
-      replicaCount: 1
+      replicaCount: 3
   
       image:
         # Set "repository" name of your image for manual Helm install and upgrade.
