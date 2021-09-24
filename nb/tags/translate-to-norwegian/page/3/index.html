@@ -502,10 +502,8 @@ Navigate to you application repository and find App.csproj in the App folder. <a
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/whats-new/">Hva er nytt?</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>4.1.3.0 (2021-09-03) - Event for changed substatus on instance Changing the substatus of an instance triggers an event app.instance.substatus.changed which can be subscribed to in the event component.
-This solves issue #6691
-4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.
- partyId authentication level userId organisationNumber  This solves issue #5983 <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
+        <p>4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed There was a bug causing a 500 response when an request is made towards Get/Instances for a non-existing instance. This has now been fixed and the response returned is 403. Swagger for the endpoint is updated to reflect possible response codes.
+4.14.0 (2021-09-13) - Partial support for namespace XML The code that deserializes XML has been updated to support namespace declaration in the root element. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

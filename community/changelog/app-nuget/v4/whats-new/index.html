@@ -939,6 +939,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4141-2021-09-22---500-error-when-retrieving-non-existing-instance-fixed">4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed</a></li>
     <li><a href="#4140-2021-09-13---partial-support-for-namespace-xml">4.14.0 (2021-09-13) - Partial support for namespace XML</a></li>
     <li><a href="#4130-2021-09-03---event-for-changed-substatus-on-instance">4.13.0 (2021-09-03) - Event for changed substatus on instance</a></li>
     <li><a href="#4120-2021-08-27---identity-data-is-included-in-the-request-telemetry-for-all-requests">4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests</a></li>
@@ -968,6 +969,10 @@ if(host != "localhost")
 
 
 
+<h2 id="4141-2021-09-22---500-error-when-retrieving-non-existing-instance-fixed">4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed</h2>
+<p>There was a bug causing a 500 response when an request is made towards Get/Instances for a
+non-existing instance. This has now been fixed and the response returned is 403.
+Swagger for the endpoint is updated to reflect possible response codes.</p>
 <h2 id="4140-2021-09-13---partial-support-for-namespace-xml">4.14.0 (2021-09-13) - Partial support for namespace XML</h2>
 <p>The code that deserializes XML has been updated to support namespace declaration in the root element.</p>
 <p>Example:</p>
