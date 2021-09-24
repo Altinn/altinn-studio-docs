@@ -1216,18 +1216,6 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/cli/</loc>
   </url><url>
-    <loc>https://docs.altinn.studio/community/presentations/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/presentations/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/presentations/"
-                />
-  </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/</loc>
@@ -1939,6 +1927,18 @@
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/presentation/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/platform/presentation/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/community/presentations/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/presentations/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/presentations/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/runtime/processing/process/</loc>
   </url><url>
