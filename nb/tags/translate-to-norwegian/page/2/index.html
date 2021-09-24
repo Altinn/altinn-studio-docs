@@ -418,35 +418,6 @@ if(host != "localhost")
 	
 	   <article class="post api">
     <header class="post-header">
-        <h2 class="post-title"><a href="/nb/api/scenarios/authentication/">Autentisering</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Authentication for application owners Application owners should be authenticated with Maskinporten.
-API provisioning in Maskinporten API-provider To provide an API in maskinporten Altinn has to do two operations.
- As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; }  As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/nb/api/scenarios/authentication/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post api">
-    <header class="post-header">
         <h2 class="post-title"><a href="/nb/api/apps/data-elements/">Data-elementer</a></h2>
     </header>
     <section class="post-excerpt">
@@ -682,6 +653,36 @@ Once an app is upgraded to use v3 of the app frontend, all CSS expects the Altin
 In App/views/Home/Index.cshtml, replace the line
 &lt;link href=&#34;https://altinncdn.no/fonts/roboto/latin/roboto.css&#34; rel=&#34;stylesheet&#34;&gt; with
 &lt;link href=&#34;https://altinncdn.no/fonts/altinn-din/altinn-din.css&#34; rel=&#34;stylesheet&#34;&gt; The updated file, referring to v3 of app frontend, should reflect the changes of the file on the right: <a class="read-more" href="/nb/community/changelog/app-frontend/v3/breaking-changes/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post community">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v3/breaking-changes/">Breaking changes</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>We have added a new PDF handler to make it possible to hide pages and components in PDF.
+The new version of the Altinn.App.* packages have breaking changes:
+Updating to this version will require changes in multiple files.
+ Updated package dependencies
+Navigate to you application repository and find App.csproj in the App folder.
+Update nuget dependencies in App.csproj to version 3.0.0. &lt;PackageReference Include=&#34;Altinn.App.Api&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn.App.Common&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn. <a class="read-more" href="/nb/community/changelog/app-nuget/v3/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

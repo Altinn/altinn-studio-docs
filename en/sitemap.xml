@@ -138,18 +138,6 @@
                 href="https://docs.altinn.studio/app/getting-started/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/community/about/goals/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/about/goals/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/about/goals/"
-                />
-  </url><url>
     <loc>https://docs.altinn.studio/app/getting-started/intro/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1730,6 +1718,18 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/go/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/community/about/goals/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/goals/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/goals/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/technology/tools/grafana/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/app/development/ux/fields/grouping/</loc>
@@ -2331,5 +2331,7 @@
     <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/xacml/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/community/about/open-source/</loc>
   </url>
 </urlset>
