@@ -87,7 +87,7 @@ Her er noen av de fantastiske SaaS-verktøyene som vi benytter:
 
 Og dette er bare et lite utvalg...  
 Alle verktøy og rammeverk som vi bygger Altinn på toppen av er åpen programvare som også er
-[veldig godt likt](http://localhost:1313/technology/architecture/principles/#build-with-modern-and-popular-frameworks).
+[veldig godt likt](/technology/architecture/principles/#build-with-modern-and-popular-frameworks).
 
 ## De beste folkene
 
