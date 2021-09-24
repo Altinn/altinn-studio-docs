@@ -25,6 +25,32 @@ Use this endpoint for instances that are active, and the owner party id and inst
 GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
 ```
 
+## Get active instances
+
+Endpoint for listing active instances for an instance owner.
+
+This endpoint can be used to determine if a new instance of an app should be created or if continuation on an existing instance would be more feasible.
+Note that the object returned is a simplified instance object and that `LastChangedBy` contains the name of the latest active entity rather than an id number.
+
+```json
+[
+	{
+		"instanceId": "1337/bffd2c17-9d93-49f4-b504-3d0ece2402c7",
+		"lastChanged": "2021-09-23T10:19:43",
+		"lastChangedBy": "Sophie Salt"
+	},
+    {
+		"instanceId": "1337/agfd2c17-4d93-49f4-b504-3d0ece2402d8",
+		"lastChanged": "2021-07-11T22:14:02",
+		"lastChangedBy": "Sophie Salt"
+	}
+]
+```
+
+```http
+GET {basePath}/{instanceOwnerPartyId}/active
+```
+
 ## Create instance
 
 Altinn assigns a unique identifier to all users that wish to report data. We call this id *instanceOwner.partyId*. 
