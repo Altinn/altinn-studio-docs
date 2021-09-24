@@ -1,6 +1,6 @@
 ---
-title: Presentations from Altinn Coffee
-linktitle: Altinn Coffee
+title: Presentations and Altinn Coffee
+linktitle: Presentations
 description: The Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we're doing in Altinn 3.
              It's also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.
 toc: true
@@ -72,3 +72,12 @@ The weeks where we don't presesent status, we hold themed meetings.
 * [Standardisering vs. fleksibilitet](altinnkaffe-standardisering.pptx) (30. juni 2021)
 * [Kopiering av app](altinnkaffe-kopi-app.pptx) (2. september 2021)
 * More to come...
+
+## NDC 2020 talk
+
+This is a talk held by 3 of our developers, June 11th 2020 at [NDC Oslo](https://ndcoslo.com/), describing Altinn 3 just after going to production.
+
+{{<vimeo 431429016>}}
+
+- [Slides used while presenting (pptx)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/technology/files/altinn_3_ndc_2020_06_11.pptx)
+- [Behind the scenes](https://www.digdir.no/digitalisering-og-samordning/altinn-3-pa-norwegian-developer-conference/1779)

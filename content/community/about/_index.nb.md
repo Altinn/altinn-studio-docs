@@ -1,6 +1,6 @@
 ---
 title: Om Altinn 3
-linktitle: Om Altinn
+linktitle: Om
 description: Altinn 3 er tredje generasjon plattform for å utvikle og kjøre digitale tjenester.
 toc: true
 weight: 1
@@ -50,15 +50,6 @@ There are many reasons to use Altinn 3 to build and host your digital services.
 ## When was Altinn 3 launched?
 
 The first version was launched in June 2020 and the first applications was deployed to production on june 19. 2020.
-
-## Presentations
-
-Below you find a presentation done at NDC Conferences Oslo June 11th 2020. You can also find [presentations (in Norwegian) from the Altinn-kaffe meetings](/altinnkaffe).
-
-[Presentation June 11. 2020 NDC Conference (slides)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/technology/files/altinn_3_ndc_2020_06_11.pptx)
-
-{{<vimeo 431429016>}}
-
 
 ## How to learn more about Altinn 3
 
