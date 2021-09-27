@@ -5,6 +5,14 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.11.8 (2021-09-27) - Lagt til mellomrom mellom valgfri tekst og titteltekst
+Lagt til mellomrom mellom valgfri tekst og titteltekst i radioknapp, avkrysningsboks og adresse komponenter.
+Issue [#6893](https://github.com/Altinn/altinn-studio/issues/6893).
+
+## 3.11.7 (2021-09-24) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for u38.
+Issue [#6873](https://github.com/Altinn/altinn-studio/issues/6873).
+
 ## 3.11.6 (20201-09-21) - Fokus indikator for input-felt
 Fikset bug hvor fokus indikator ikke var synlig for input-felter.
 Issue [#6801.](https://github.com/Altinn/altinn-studio/issues/6801)
