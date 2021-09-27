@@ -4,6 +4,14 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.11.8 (2021-09-27) - Added white space between optional label and title text
+Added white space between optional label and title text in radiobutton, checkbox and address component.
+Issue [#6893](https://github.com/Altinn/altinn-studio/issues/6893).
+
+## 3.11.7 (2021-09-24) - Dependency patching
+Patching of external dependencies for w38.
+Issue [#6873](https://github.com/Altinn/altinn-studio/issues/6873).
+
 ## 3.11.6 (20201-09-21) - Focus indicator input field
 Fixed bug for missing focus indicator on input field.
 Issue [#6801.](https://github.com/Altinn/altinn-studio/issues/6801)
