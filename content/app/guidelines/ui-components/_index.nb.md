@@ -7,17 +7,19 @@ weight: 10
 ## Retningslinjer
 
 UI-komponenter som foreløpig inngår i Altinns bibliotek:
-- [Tittel og avsnitt](/nb/app/guidelines/ui-components/#-tittel-og-avsnitt)
-<!-- - [Logo og kontaktinfo](/nb/app/guidelines/ui-components/#-logo-og-kontaktinfo) *(⚠️ Kommer snart til Altinn Studio)* -->
-- [Knapp og lenke](/nb/app/guidelines/ui-components#-knapp-og-lenke)
-- [Inputfelt](/nb/app/guidelines/ui-components/#-inputfelt)
-- [Dato](/nb/app/guidelines/ui-components/#-datovelger)
-- [Avkrysningsbokser](/nb/app/guidelines/ui-components/#-avkrysningsbokser)
-- [Radioknapper](/nb/app/guidelines/ui-components/#-radioknapper)
-- [Nedtrekksliste](/nb/app/guidelines/ui-components/#-nedtrekksliste)
-- [Hjelpetekst](/nb/app/guidelines/ui-components/#-hjelpetekst)
-- [Feilmeldinger](/nb/app/guidelines/ui-components/#-feilmeldinger)
-- [Filopplasting](/nb/app/guidelines/ui-components/#-filopplasting)
+  - [Tittel og avsnitt](#tittel-og-avsnitt)
+  - [Knapp og lenke](#knapp-og-lenke)
+  - [Inputfelt](#inputfelt)
+    - [Stort tekstfelt](#stort-tekstfelt)
+    - [Adresse](#adresse)
+    - [Datovelger](#datovelger)
+  - [Avkrysningsbokser](#avkrysningsbokser)
+  - [Radioknapper](#radioknapper)
+  - [Nedtrekksliste](#nedtrekksliste)
+  - [Hjelpetekst](#hjelpetekst)
+  - [Feilmeldinger](#feilmeldinger)
+  - [Filopplasting](#filopplasting)
+  -  [Liste over vedlegg](#liste-over-vedlegg)
 
 <br>
 
@@ -36,7 +38,7 @@ UI-komponenter som foreløpig inngår i Altinns bibliotek:
 {{% /panel %}}
 
 
-### ❖ Tittel og avsnitt
+### Tittel og avsnitt
 Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.
 
 
@@ -72,7 +74,7 @@ Hensikten med komponenten er at brukeren tydelig skal kunne se hvem eieren av tj
 
 <hr> -->
 
-### ❖ Knapp og lenke
+### Knapp og lenke
 Hovedknapp (blå) brukes for å sende brukeren til neste steg. 
 
 **Retningslinjer:**
@@ -86,7 +88,7 @@ Hovedknapp (blå) brukes for å sende brukeren til neste steg.
 
 <hr>
 
-### ❖ Inputfelt
+### Inputfelt
 Inputfelt brukes når brukeren skal føre inn tekst eller tall. 
 
 **Retningslinjer:**
@@ -113,7 +115,7 @@ Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De 
 
 <hr>
 
-#### ❖ Adresse
+#### Adresse
 For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under datofeltet. Postfelt fylles ut automatisk basert på postnr-input. 
 
 **Eksempel på bruk:**
@@ -123,7 +125,7 @@ For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under
 
 <hr>
 
-#### ❖ Datovelger
+#### Datovelger
 I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke datovelgeren.
 
 **Retningslinjer:**
@@ -138,7 +140,7 @@ I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke 
 
 <hr>
 
-<!-- #### ❖ Datofelt
+<!-- #### Datofelt
 For datoer lengre tilbake i tid, eller datoer brukeren kjenner godt, bør datofelt benyttes. Tre tekstfelt er i disse tilfellene den enkleste måten for brukeren å fylle ut datoen. Dersom det er noe som skal planlegges eller tilfeller der en spesifikk dag er viktig, bruk [datovelgeren](/planlegging-og-design/guidelines/design/#-datovelger) i stedet. 
 <br>
 
@@ -157,7 +159,7 @@ For datoer lengre tilbake i tid, eller datoer brukeren kjenner godt, bør datofe
 
 <hr> -->
 
-### ❖ Avkrysningsbokser
+### Avkrysningsbokser
 Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. Dersom brukeren kun kan velge et av alternativene, bruk [radioknapper](/planlegging-og-design/guidelines/design/#-radioknapper) i stedet. 
 
 **Retningslinjer:**
@@ -172,7 +174,7 @@ Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere al
 
 <hr>
 
-### ❖ Radioknapper
+### Radioknapper
 Radioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, så vær bevisst på når du bruker hvilken.  
 
 Radioknapper velges når:
@@ -197,7 +199,7 @@ Radioknapper velges når:
 
 <hr>
 
-### ❖ Nedtrekksliste
+### Nedtrekksliste
 Nedtrekksliste brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder radioknapper, så vær bevisst på når du bruker hvilken.  
 
 Nedtrekksliste velges når:
@@ -217,7 +219,7 @@ Nedtrekksliste velges når:
  
 <hr>
 
-### ❖ Hjelpetekst
+### Hjelpetekst
 Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter. Man kan også benytte feltet til å forklare et regelverk, fremmede begreper, eller utdype hvorfor man ber om informasjonen.  
 
 <br>
@@ -232,7 +234,7 @@ Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra ve
 
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A1788" allowfullscreen></iframe>
 
-### ❖ Feilmeldinger
+### Feilmeldinger
 Vær kort og tydelig i formuleringen av feilmeldingene og sørg for at brukeren vet hva som må gjøres for å komme videre. Å skrive "Feltet er påkrevd" gir ikke brukeren en forklaring på hva som er feil. 
 
 **Eksempel på forklarende feilmeldinger:** 
@@ -259,9 +261,9 @@ Les mer om å formidle feil i skjema på [UU-tilsynets nettsider](https://www.uu
 <hr>
 
 
-### ❖ Filopplasting
+### Filopplasting
 
 <hr>
 
 
-#### ❖ Liste over vedlegg
+#### Liste over vedlegg

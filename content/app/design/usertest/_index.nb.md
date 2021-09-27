@@ -1,32 +1,26 @@
 ---
 title: Brukertest
-description: Gjennom brukertester måler du om det du lager treffer brukernes behov. Det er en god investering å gjøre dette tidlig i prosjektet, slik at du ikke bruker penger på å utvikle en løsning som ikke løser utfordringene.
+description: Det er alltid lurt å brukerteste i flere faser av prosjektet. Gjennom brukertester måler du om det du lager treffer brukernes behov. Det er en god investering å gjøre dette tidlig i prosjektet, slik at du ikke bruker penger på å utvikle en løsning som ikke løser utfordringene.
 weight: 10
 ---
 
 Å brukerteste trenger ikke være veldig avansert, hverken med tanke på oppsett eller antall testpersoner. En tommelfingerregel er at hvis du har testet på fem personer har du funnet 80 % av brukervennlighetsfeilene ([Jacob Nielsen](https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/)).
 
-Etter en brukertest vil det være ting å justere på. Det kan være større ting slik som navigasjon og flyt, men også små justeringer som har mye å si for om brukeren får til å løse det de skal ha gjort, slik som språk eller mindre endringer i interaksjonsdesignet. Hvis det er behov for å gjøre større endringer kan det være lurt å ta en ny brukertest for å sjekke om justeringene har ønsket effekt.
+Etter en brukertest vil det være ting å justere på. Det kan være større ting som navigasjon og flyt, men også små justeringer som språk eller mindre endringer i interaksjonsdesignet. Hvis det er behov for å gjøre større endringer kan det være lurt å ta en ny brukertest for å sjekke om justeringene har ønsket effekt.
 
 Et tegn på om du har lykkes å lage en løsning som treffer brukernes behov er hvis de fleste brukerne i brukertesten klarer å gjennomføre det de skal ha gjort på nettstedet eller løsningen din uten hjelp, og innenfor en fornuftig tidsramme. 
 
 ## Brukertesting i Figma
 
-Har du satt opp en prototype i Figma ved hjelp av vårt [Prototype-Kit](/planlegging-og-design/prototypekit)? Flott! Da kan du benytte denne til brukertesting! 
+Har du satt opp en prototype i Figma ved hjelp av vårt [Prototype-Kit]({{< ref "prototype" >}})? Flott! Da kan du benytte denne til brukertesting! 
 
 Dersom du har lagt til flere steg i ditt skjema, må du huske å lenke mellom disse stegene. Dette gjør du ved å velge "Prototype" oppe til høyre i Figma. Marker en ramme eller en knapp og legg merke til den lille hvite dotten som vises til høyre på det du markerte. Denne dotten kan du ta tak i og dra til rammen du ønsker å gå til. 
 
-Trykk på Play-knappen øverst til høyre for å spille av prototypen. Tada! Det lille blå Play-ikonet viser hvor prototypen skal starte. Du kan dra det til den rammen du ønsker skal være det første skjermbildet. 
+Det finnes en flyt for hvert startalternativ, samt en flyt for mobilskissene. Trykk på Play-knappen på prototypen du vil starte. Etter at den er startet kan du bytte mellom de ulike flytene i venstremargen.
+
+![Brukertesting i Figma](/app/design/usertest/prototype-play.gif "Brukertesting i Figma")
 
 For å dele filen med testerne velger du “Share” oppe til høyre i vinduet. Du kan enten velge at filen skal være åpen for alle som har lenken, eller at kun inviterte (via epost) skal få tilgang. 
-
-<figure class="video_container">
-  <video style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" controls="true" allowfullscreen="true" autoplay loop muted playsinline poster="path/to/poster_image.png">
-    <source src="/app/design/usertest/prototype-i-figma.mp4" type="video/mp4">
-    <source src="/app/design/usertest/prototype-i-figma.ogg" type="video/ogg">
-    <source src="/app/design/usertest/prototype-i-figma.webm" type="video/webm">
-  </video>
-</figure>
 
 ## Gode råd for brukertesting
 
@@ -44,9 +38,7 @@ Bruk god tid på å formulere oppgavene til brukertesten, og gjør gjerne en pil
 
 
 Hos [gov.uk](https://www.gov.uk/service-manual/user-research/using-moderated-usability-testing) finner du flere gode råd for å gjennomføre testen på best mulig måte.
-
-
 ## Etter testen
 Når du har vært gjennom et par brukertester har du sannsynligvis funnet ting du bør forbedre i utformingen av skjemaet eller formuleringen av innholdet. Vurder å kjøre en ekstra runde brukertesting etter du har gjort endringene.
 
-Nå er du snart klar for utvikling! Husk også å se våre [retningslinjer](/nb/app/guidelines/) for design og innhold i skjemaene.
+Nå er du snart klar for utvikling! Husk også å se våre [retningslinjer]({{< ref "guidelines" >}}) for design og innhold i skjemaene.

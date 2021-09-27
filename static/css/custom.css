@@ -197,8 +197,18 @@ li > label {
     content: none !important;
 }
 
-/* Case block */
+/* img */
 
+img.img-border {
+    border: 2px solid rgb(0 0 0 / 90%);
+    border-radius: 9px;
+    box-shadow: 1px 1px 4px 0 rgb(137 137 137 / 50%);
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+
+/* Case block */
 
 .adocs-caseBlock a{
     color: white;
@@ -252,7 +262,8 @@ li > label {
     width: 100px;
     height: 100px;
     background: #fff;
-    box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5); }
+    box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5); 
+}
   
   .ap-colors {
     margin-left: 0;
