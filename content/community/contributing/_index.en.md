@@ -7,7 +7,7 @@ aliases:
 weight: 30
 ---
 
-If you wonder how to start using Altinn, you'll find development guides at [altinndigital.no](https://altinndigital.no/utvikling).
+
 
 
 <div class="a-card a-cardImage mt-3 mb-3">

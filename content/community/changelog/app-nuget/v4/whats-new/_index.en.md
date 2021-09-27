@@ -4,6 +4,12 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed
+
+There was a bug causing a 500 response when an request is made towards Get/Instances for a
+non-existing instance. This has now been fixed and the response returned is 403.
+Swagger for the endpoint is updated to reflect possible response codes.
+
 ## 4.14.0 (2021-09-13) - Partial support for namespace XML
 The code that deserializes XML has been updated to support namespace declaration in the root element.
 

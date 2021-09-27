@@ -2,7 +2,6 @@
 title: Goals
 description: This summarizes the high level goals for Altinn 3.
 toc: false
-weight: 10
 aliases:
 - /teknologi/altinnstudio/about/goals/
 ---
