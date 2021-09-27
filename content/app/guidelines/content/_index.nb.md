@@ -2,6 +2,7 @@
 title: Språk
 description: Retningslinjene skal sørge for at vi får et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn. 
 weight: 20
+toc: true
 ---
 
 Som hovedregel bør du bruke retningslinjene fra [Språkrådet](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) når du skriver. I tillegg har vi definert noen mer spesifikke regler for Altinn som vi anbefaler at du følger. 
@@ -33,7 +34,9 @@ Formelt språk er ofte skrudd sammen slik at utsagnet (verbet) kommer sent i set
 
 **Eksempel:**  
 Arbeidstaker har en del plikter som må oppfylles →
-<br>Arbeidstaker må oppfylle en del plikter
+
+
+Arbeidstaker må oppfylle en del plikter
 
 ### Unngå verbalsubstantiver
 Verbalsubstantiver gjør teksten unødvendig tung å lese.
@@ -53,7 +56,9 @@ I lovspråk blir det ofte skrevet at noe skal gjøres og det er ikke ønskelig �
 I Altinn sine løsninger vil det gjerne være flere enn en person som skal gjøre noe, men vi kan skrive direkte til brukeren likevel.
 
 **Eksempel:**  
-Forberedelser og planleggingsaktiviteter må gjennomføres før utviklingen av tjenesten(e) kan og bør starte → <br>Gjør forberedelser og planlegg godt før du utvikler tjenesten. 
+Forberedelser og planleggingsaktiviteter må gjennomføres før utviklingen av tjenesten(e) kan og bør starte → 
+
+Gjør forberedelser og planlegg godt før du utvikler tjenesten. 
 
 
 ## Oppdeling av tall

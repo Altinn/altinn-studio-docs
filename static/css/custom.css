@@ -131,6 +131,12 @@ body.adocs-tech .a-globalNav-main li a[href*='/technology/'] {
     background-size: 100%;
 }
 
+/* TOC */
+
+#TableOfContents {
+    margin-bottom: 24px;
+}
+
 /* Lists */
 
 .a-text ul.connected-bullets {
@@ -199,12 +205,8 @@ li > label {
 
 /* img */
 
-img.img-border {
-    border: 2px solid rgb(0 0 0 / 90%);
-    border-radius: 9px;
-    box-shadow: 1px 1px 4px 0 rgb(137 137 137 / 50%);
-    margin-top: 24px;
-    margin-bottom: 24px;
+figure {
+    margin-bottom: 36px;
 }
 
 

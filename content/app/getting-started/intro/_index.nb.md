@@ -12,7 +12,9 @@ Slik går du frem:
 
 1. **Start alltid med å definere brukerbehov**  
    Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen og hvem skal den løses for?
-   Hva er databehovet? Lag gjerne en skisse til kommunikasjon med brukeren og test skissen på folk i målgruppen.<br><br>
+   Hva er databehovet? Lag gjerne en skisse til kommunikasjon med brukeren og test skissen på folk i målgruppen.
+
+   
    <a href="/app/design/" class="a-linkFeatured mb-2">
     Planlegg og design din app
     <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright" aria-hidden="true"></i>

@@ -12,21 +12,17 @@ Forskrift om universell utforming av IKT-løsninger stiller krav om at nettsider
 
 ## Sjekkliste
 
-- **Innholdsstruktur** <br>
-Sjekk at du har en logisk struktur på overskrifter (H1 - H4), og at du ikke har noen tomme overskriftselementer. Det er fort gjort å glemme et nivå. For å oppdage feil i innholdstrukturen kan det være nyttig å benytte “Wave” som er et utvidelsesverktøy til chrome. [Last ned Wave til Chrome], installer og ikonet vil dukke opp øverst til høyre i nettleseren.
+- **Innholdsstruktur** Sjekk at du har en logisk struktur på overskrifter (H1 - H4), og at du ikke har noen tomme overskriftselementer. Det er fort gjort å glemme et nivå. For å oppdage feil i innholdstrukturen kan det være nyttig å benytte “Wave” som er et utvidelsesverktøy til chrome. [Last ned Wave til Chrome], installer og ikonet vil dukke opp øverst til høyre i nettleseren.
 
 [Last ned Wave til Chrome]: https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh
 
-- **Forklarende tekster og hjelpetekst** <br>
-Sjekk at lenker, label og knapper har forklarende tekster. Ta en vurdering på om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
+- **Forklarende tekster og hjelpetekst** Sjekk at lenker, label og knapper har forklarende tekster. Ta en vurdering på om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
 
-- **Knapp vs lenke** <br>
-Det er viktig at man er bevisst på om det blir brukt knapper eller lenker, da skjermlesere kan få problemer med å tolke funksjonaliteten. 
+- **Knapp vs lenke** Det er viktig at man er bevisst på om det blir brukt knapper eller lenker, da skjermlesere kan få problemer med å tolke funksjonaliteten. 
 
-- **Feilmeldinger** <br>
-Du er selv ansvarlig for at [korrekte feilmeldinger](/planlegging-og-design/guidelines/innhold/#formulering-av-feilmeldinger) blir lagt inn på hvert av skjemafeltene. 
+- **Feilmeldinger** Du er selv ansvarlig for at [korrekte feilmeldinger](/planlegging-og-design/guidelines/innhold/#formulering-av-feilmeldinger) blir lagt inn på hvert av skjemafeltene. 
 
-<br>
+
 
 
 {{% panel theme="warning" %}}

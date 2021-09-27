@@ -4,4 +4,4 @@ description: Vi ønsker å oppnå helhetlige og konsistente brukeropplevelser ve
 weight: 30
 ---
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

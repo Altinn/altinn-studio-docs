@@ -4,6 +4,6 @@ description: We want to achieve consistent user experiences across services crea
 weight: 30
 ---
 
-The pages for guidelines is currently only available in [norwegian](/nb/app/guidelines/)..
+The pages for guidelines is currently only available in [norwegian](/nb/app/guidelines/).
 
-{{% children description="true" depth="1" %}}
+{{<children>}}

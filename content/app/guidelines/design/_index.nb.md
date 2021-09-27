@@ -21,7 +21,6 @@ Felles retningslinjer for design hjelper oss å skape konsistens på tvers av tj
 Når brukere møter en ny tjeneste, har de med seg forventninger fra tidligere opplevelser. Når disse forventningene møtes, kreves det mindre av brukeren for å samhandle med komponentene, og det bygges selvtillit. Ved å ikke trenge å lære nye interaksjoner, vil brukerens fokus i større grad være på innholdet.
 
 Vi anbefaler **ikke** å endre CSS for individuelle tjenester som bruker Altinn-designet. Dersom vi åpner opp for designendringer og fargeendringer, vil dette skade konsistensen mellom tjenestene. Konsekvent design mellom tjenesteeiere er noe vi bør strekke oss mot. For å få det til kreves et godt samarbeid mellom fagmiljøet i Altinn og hos de ulike tjenesteeierene. **Vi ønsker oss en god felles løsning som kan brukes og forbedres av alle, fremfor mange forskjellige løsninger gjennom ulike CSS-endringer.** Dette vil også gjøre det lettere å kontrollere tilgjengeligheten på tvers av apper på plattformen vår. Velger du likevel å gå bort fra designet, er du selv ansvarlig for å følge alle [WCAG-krav](https://www.uutilsynet.no/wcag-standarden/wcag-20-standarden/86). 
-<br><br>
 
 {{% panel %}}**Har du behov for en ny komponent?**<p>Vi ønsker at alle er med på å videreutvikle <a href="/planlegging-og-design/guidelines/ui-komponenter/">biblioteket av komponenter</a> med både design og kode. I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser behovet for det. </p>
 
@@ -42,10 +41,12 @@ Brukertester har vist at når brukerne starter på etaten/kommunens sider for å
 
 ![Inngang til et skjema i Altinn bør presenteres tydelig](/app/guidelines/design/lenketilaltinn.png "Inngang til et skjema i Altinn bør presenteres tydelig")
 
-<br>
+
 {{% panel %}}
-<i class="ai ai-info-circle"></i> **Integrerte komponenter** <br><br> I tett samarbeid med sentrale tjenesteeiere planlegger vi på sikt å kunne tilby komponenter som kan benyttes på etatens nettsider, slik at brukerne kan løse oppgaven i den konteksten de er i. 
-<br>
+<i class="ai ai-info-circle"></i> **Integrerte komponenter** 
+
+I tett samarbeid med sentrale tjenesteeiere planlegger vi på sikt å kunne tilby komponenter som kan benyttes på etatens nettsider, slik at brukerne kan løse oppgaven i den konteksten de er i. 
+
 
 Altinns brukere ønsker både løsning der de er og en samlet oversikt. Og de bør få begge deler. Men behovene dekkes best på litt forskjellige måter.
 
