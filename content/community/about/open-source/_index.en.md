@@ -52,7 +52,7 @@ noe labelen [external-contribution-❤️](https://github.com/Altinn/altinn-stud
 
 ## Leverandørbindinger
 
-Altinn som felleskomponent har tidligere brent seg stygt på å basere seg på lukket proprietær programvare. Programvare fra Adobe i Altinn 1 og fra Microsoft i Altinn 2.
+Altinn som felleskomponent har tidligere fått store utfordringer ved å basere seg på lukket proprietær programvare. Programvare fra Adobe i Altinn 1 og fra Microsoft i Altinn 2.
 Dette er faktisk [hovedårsaken](https://www.digi.no/artikler/altinn-skal-aldri-mer-ga-ut-pa-dato-men-forst-ma-inntil-tusen-tjenester-skrives-om/508174) til behovet for Altinn 3.
 
 Når du bygger en løsning på toppen av proprietær programvare så har du i praksis mistet kontroll over egen fremtid, f.eks. om leverandøren velger å fase ut produktet.
