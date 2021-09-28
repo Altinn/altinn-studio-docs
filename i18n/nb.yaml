@@ -125,11 +125,11 @@
 - id: uu
   translation: Universell utforming
 
-- id: caseBlock-title
+- id: caseblock-title
   translation: Vi bygger Altinn sammen
-- id: caseBlock-description
+- id: caseblock-description
   translation: Samarbeid, del og lær av andre etater. Alt vi gjør er åpen kildekode på GitHub, og vi setter stor pris på dine tilbakemeldinger og bidrag!
-- id: caseBlock-link
+- id: caseblock-link
   translation: Community
 
 # Help

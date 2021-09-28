@@ -1,43 +1,27 @@
 ---
 title: UI-komponenter
-description: De ulike komponentene er laget for at de skal passe sammen i en større helhet. Det er derfor viktig å følge retningslinjene for hvordan disse brukes for å oppnå et konsistent og gjenkjennbart uttrykk. 
+description: De ulike komponentene er laget for at de skal passe sammen i en større helhet. Det er derfor viktig å følge retningslinjene for hvordan disse brukes for å oppnå et konsistent og gjenkjennbart uttrykk. UI-komponenter som foreløpig inngår i Altinns bibliotek finner du her.
 weight: 10
+toc: true
 ---
 
-## Retningslinjer
+{{% panel-contribute 
+src1="https://github.com/Altinn/altinn-studio/issues/new/choose" title1="Opprett en sak i github" 
+src2="https://altinn.slack.com/" title2="Skriv til oss på Slack" %}}
 
-UI-komponenter som foreløpig inngår i Altinns bibliotek:
-  - [Tittel og avsnitt](#tittel-og-avsnitt)
-  - [Knapp og lenke](#knapp-og-lenke)
-  - [Inputfelt](#inputfelt)
-    - [Stort tekstfelt](#stort-tekstfelt)
-    - [Adresse](#adresse)
-    - [Datovelger](#datovelger)
-  - [Avkrysningsbokser](#avkrysningsbokser)
-  - [Radioknapper](#radioknapper)
-  - [Nedtrekksliste](#nedtrekksliste)
-  - [Hjelpetekst](#hjelpetekst)
-  - [Feilmeldinger](#feilmeldinger)
-  - [Filopplasting](#filopplasting)
-  -  [Liste over vedlegg](#liste-over-vedlegg)
+**Har du behov for en ny komponent?**
 
 
-{{% panel %}}**Har du behov for en ny komponent?**<p>Vi ønsker at alle er med på å videreutvikle <a href="/planlegging-og-design/guidelines/ui-komponenter/">biblioteket av komponenter</a> med både design og kode. I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser behovet for det. </p>
+Vi ønsker at alle er med på å videreutvikle 
+[biblioteket av komponenter]({{< ref "ui-components" >}}) med både design og kode. 
+I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser 
+behovet for det. 
 
-<div class="a-btn-group" id="btnGroup">
+Sjekk gjerne nedenunder at ikke komponenten du trenger allerede eksisterer.
 
-  <a href="https://github.com/Altinn/altinn-studio/issues/new/choose" class="a-btn mt-1 ">
-    Opprett en sak i github
-  </a>
-  <a href="https://altinn.slack.com/" class=" ">
-    Skriv til oss på Slack
-  </a>
-</div>
+{{% /panel-contribute %}}
 
-{{% /panel %}}
-
-
-### Tittel og avsnitt
+## Tittel og avsnitt
 Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.
 
 
@@ -49,29 +33,11 @@ Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på 
 
 **Eksempel på bruk:**
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2815%253A680" allowfullscreen></iframe>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2815%253A680" %}}
 
-<hr>
+---
 
-<!-- ### Logo og kontaktinfo
-Hensikten med komponenten er at brukeren tydelig skal kunne se hvem eieren av tjenesten er, og hvem som kan kontaktes dersom brukeren trenger hjelp med utfylling av skjemaet. Svært mange av henvendelsene til Altinn Brukerstøtte er knyttet til feil kontaktpunkt.
-
-
-{{% panel theme="warning" %}} ⚠️ Denne komponenten er ikke tilgjengelig i Altinn Studio enda. 
-{{% /panel %}}
-
-**Retningslinjer:**
-- Logoen bør lastes opp i breddeformat dersom mulig. 
-- Bakgrunnsfarge kan tilpasses etatens logo og profil.
-
-
-**Eksempel på bruk:**
-
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A2290" allowfullscreen></iframe>
-
-<hr> -->
-
-### Knapp og lenke
+## Knapp og lenke
 Hovedknapp (blå) brukes for å sende brukeren til neste steg. 
 
 **Retningslinjer:**
@@ -80,12 +46,11 @@ Hovedknapp (blå) brukes for å sende brukeren til neste steg.
 - På siste steg i skjemaet (innsending) skal hovedknappen være grønn.
 
 **Eksempel på bruk:**
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A809" %}}
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A809" allowfullscreen></iframe>
+---
 
-<hr>
-
-### Inputfelt
+## Inputfelt
 Inputfelt brukes når brukeren skal føre inn tekst eller tall. 
 
 **Retningslinjer:**
@@ -96,29 +61,29 @@ Inputfelt brukes når brukeren skal føre inn tekst eller tall.
 
 
 **Eksempel på bruk:**
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" allowfullscreen></iframe>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" %}}
 
-<hr>
+---
 
-#### ❖ Stort tekstfelt
+### Stort tekstfelt
 Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De samme retningslinjene som inputfelt gjelder. 
 
 **Eksempel på bruk:**
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A656" allowfullscreen></iframe>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A656" %}}
 
-<hr>
+---
 
-#### Adresse
+### Adresse
 For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under datofeltet. Postfelt fylles ut automatisk basert på postnr-input. 
 
 **Eksempel på bruk:**
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2911%253A652" allowfullscreen></iframe>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2911%253A652" %}}
 
-<hr>
+---
 
-#### Datovelger
+### Datovelger
 I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke datovelgeren.
 
 **Retningslinjer:**
@@ -129,26 +94,10 @@ I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke 
 
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D4833%253A961" allowfullscreen></iframe>
 
-<hr>
-
-<!-- #### Datofelt
-For datoer lengre tilbake i tid, eller datoer brukeren kjenner godt, bør datofelt benyttes. Tre tekstfelt er i disse tilfellene den enkleste måten for brukeren å fylle ut datoen. Dersom det er noe som skal planlegges eller tilfeller der en spesifikk dag er viktig, bruk [datovelgeren](/planlegging-og-design/guidelines/design/#-datovelger) i stedet. 
+---
 
 
-{{% panel theme="warning" %}} ⚠️ Denne komponenten er ikke tilgjengelig i Altinn Studio enda. 
-{{% /panel %}}
-
-**Retningslinjer:**
-- Bruk alltid label på hver av de tre boksene (dag, måned, år), og ledetekst (legend) for hele input-gruppen. 
-- Om datagrunnlaget finnes, kan en spesifikk dato være foreslått i feltet. Ellers kan eksempelinnholdet være dagen i dag. 
-
-**Eksempel på bruk:**
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5139%253A832" allowfullscreen></iframe>
-
-
-<hr> -->
-
-### Avkrysningsbokser
+## Avkrysningsbokser
 Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. Dersom brukeren kun kan velge et av alternativene, bruk [radioknapper](/planlegging-og-design/guidelines/design/#-radioknapper) i stedet. 
 
 **Retningslinjer:**
@@ -158,11 +107,11 @@ Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere al
 
 **Eksempel på bruk:**
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5295%253A1181" allowfullscreen></iframe>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5295%253A1181" %}}
 
-<hr>
+---
 
-### Radioknapper
+## Radioknapper
 Radioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, så vær bevisst på når du bruker hvilken.  
 
 Radioknapper velges når:
@@ -172,19 +121,18 @@ Radioknapper velges når:
 - Du ønsker at brukeren skal lese alle alternativene
 - Valgalternativene er ukjent for brukeren
 
-
 **Retningslinjer:**
 - Radioknapper skal stå foran tilhørende tekst, og skal aldri stå alene.
 - Deaktiverte radioknapper bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares i tekst hvorfor det mangler. 
 
 **Eksempel på bruk:**
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5655%253A1419" allowfullscreen></iframe>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5655%253A1419" %}}
 
 
-<hr>
+---
 
-### Nedtrekksliste
+## Nedtrekksliste
 Nedtrekksliste brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder radioknapper, så vær bevisst på når du bruker hvilken.  
 
 Nedtrekksliste velges når:
@@ -197,11 +145,11 @@ Nedtrekksliste velges når:
 
 **Eksempel på bruk:**
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5655%253A1605" allowfullscreen></iframe>
- 
-<hr>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5655%253A1605" %}}
 
-### Hjelpetekst
+---
+
+## Hjelpetekst
 Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter. Man kan også benytte feltet til å forklare et regelverk, fremmede begreper, eller utdype hvorfor man ber om informasjonen.  
 
 
@@ -209,12 +157,10 @@ Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra ve
 - Hjelpetekst plasseres i sammenheng med en label eller tittel som skal utdypes.
 - Dersom innholdet er avgjørende informasjon for at brukeren skal kunne fylle ut skjemaet riktig, bør det heller plasseres i en infotekst i grensesnittet (under labelen). 
 
-
 **Eksempel på bruk:**
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A1788" %}}
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A1788" allowfullscreen></iframe>
-
-### Feilmeldinger
+## Feilmeldinger
 Vær kort og tydelig i formuleringen av feilmeldingene og sørg for at brukeren vet hva som må gjøres for å komme videre. Å skrive "Feltet er påkrevd" gir ikke brukeren en forklaring på hva som er feil. 
 
 **Eksempel på forklarende feilmeldinger:** 
@@ -233,15 +179,13 @@ Les mer om å formidle feil i skjema på [UU-tilsynets nettsider](https://www.uu
 
 **Eksempel på bruk:**
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A2073" allowfullscreen></iframe>
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A2073" %}}
+
+---
+
+## Filopplasting
+
+---
 
 
-<hr>
-
-
-### Filopplasting
-
-<hr>
-
-
-#### Liste over vedlegg
+### Liste over vedlegg

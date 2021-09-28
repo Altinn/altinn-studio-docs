@@ -212,12 +212,12 @@ figure {
 
 /* Case block */
 
-.adocs-caseBlock a{
+.adocs-caseblock a{
     color: white;
     border-color: white;
 }
 
-.adocs-caseBlock a:after {
+.adocs-caseblock a:after {
     filter: brightness(0) invert(1);
     -webkit-filter: brightness(0) invert(1);
 }
@@ -234,13 +234,13 @@ figure {
     margin: auto;
 }
 
-.adocs-caseBlock .a-linkFeatured {
+.adocs-caseblock .a-linkFeatured {
     align-self: flex-start;
     color: #022F51;
     height: 32px;
 }
 
-.adocs-caseBlock .a-btn-border {
+.adocs-caseblock .a-btn-border {
     padding: 5px 24px 7px 24px;
 }
 

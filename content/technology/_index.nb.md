@@ -1,6 +1,5 @@
 ---
 title: Teknologi
-linktitle: Teknologi
 description: Systemdokumentasjon for Altinn Studio, Altinn Apps og Altinn Platform.
 jumbotron: true
 weight: 30

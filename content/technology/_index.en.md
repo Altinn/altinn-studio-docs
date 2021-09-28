@@ -1,6 +1,5 @@
 ---
 title: Technology
-linktitle: Technology
 description: System documentation for Altinn Studio, Altinn Apps and Altinn Platform.
 jumbotron: true
 weight: 30

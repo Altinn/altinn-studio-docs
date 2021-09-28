@@ -126,11 +126,11 @@
 - id: uu
   translation: Universal design
 
-- id: caseBlock-title
+- id: caseblock-title
   translation: Building Altinn together
-- id: caseBlock-description
+- id: caseblock-description
   translation: Collaborate, share and learn. Everything we do is open source on GitHub, and we highly value your comments and contributions!
-- id: caseBlock-link
+- id: caseblock-link
   translation: Community
 
 # Help
