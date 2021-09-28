@@ -93,7 +93,8 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
 }
 
 .adocs-logo {
-    margin-top: -11px;
+    margin-top: 2px;
+    max-width: 240px;
 }
 
 .adocs-logo-text {
