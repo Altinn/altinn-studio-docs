@@ -4,6 +4,7 @@ description: For at tjenesten din skal bli best mulig for de som skal bruke den,
 weight: 20
 ---
 
-Før du begynner utviklingen av tjenesten/applikasjonen din, anbefaler vi å gjennomføre en innsiktsfase, lage en prototype og utføre en brukertest. 
+Før du begynner utviklingen av tjenesten/applikasjonen din, anbefaler vi å gjennomføre en innsiktsfase, 
+lage en prototype og utføre en brukertest. 
 
 {{<children>}}

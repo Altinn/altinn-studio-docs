@@ -22,12 +22,13 @@ Sjekk gjerne nedenunder at ikke komponenten du trenger allerede eksisterer.
 {{% /panel-contribute %}}
 
 ## Tittel og avsnitt
-Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere brukerens oppgave.
+Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på en skjamaside for å oppsummere 
+brukerens oppgave.
 
 
 **Retningslinjer:**
-- Tekstlengde på avsnitt strekkes ikke ut 100% i modalboksen, ettersom lange linjer tekst forstyrrer flyten i lesingen. Avsnitt er derfor begrenset til maks 696px i bredden, selv om modalen fyller ut 1056px. 
-
+- Tekstlengde på avsnitt strekkes ikke ut 100% i modalboksen, ettersom lange linjer tekst forstyrrer flyten i lesingen. 
+- Avsnitt er derfor begrenset til maks 696px i bredden, selv om modalen fyller ut 1056px. 
 - Teksten skal alltid være venstrestilt. 
 
 
@@ -42,7 +43,8 @@ Hovedknapp (blå) brukes for å sende brukeren til neste steg.
 
 **Retningslinjer:**
 - Det skal kun være en hovedknapp per side. Sekundærvalg kan legges til som knapper stylet som lenker.
-- Teksten på knappen skal være tydelig. Som regel fungerer "Neste" bra, men knappen kan også formuleres som svar på et spørsmål (se eksempel under).
+- Teksten på knappen skal være tydelig. Som regel fungerer "Neste" bra, men knappen kan også formuleres som svar på 
+et spørsmål (se eksempel under).
 - På siste steg i skjemaet (innsending) skal hovedknappen være grønn.
 
 **Eksempel på bruk:**
@@ -65,8 +67,9 @@ Inputfelt brukes når brukeren skal føre inn tekst eller tall.
 
 ---
 
-### Stort tekstfelt
-Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De samme retningslinjene som inputfelt gjelder. 
+## Stort tekstfelt
+Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De samme retningslinjene som 
+inputfelt gjelder. 
 
 **Eksempel på bruk:**
 
@@ -74,8 +77,9 @@ Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De 
 
 ---
 
-### Adresse
-For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under datofeltet. Postfelt fylles ut automatisk basert på postnr-input. 
+## Adresse
+For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under datofeltet. Postfelt fylles 
+ut automatisk basert på postnr-input. 
 
 **Eksempel på bruk:**
 
@@ -83,12 +87,15 @@ For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under
 
 ---
 
-### Datovelger
+## Datovelger
 I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke datovelgeren.
 
 **Retningslinjer:**
--  Dersom du skal hente inn en fødselsdato eller andre datoer lengre tilbake i tid, er ikke datovelgeren et anbefalt alternativ, se studier fra [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates) I disse tilfellene kan du heller bruke [datofeltet](/planlegging-og-design/guidelines/design/#-datofelt).
--  Legg til korrekt validering og gi brukeren informasjon om hva som er gyldige datoer å velge. Skal brukeren kunne velge datoer tilbake i tid? Innenfor en gitt periode?
+-  Dersom du skal hente inn en fødselsdato eller andre datoer lengre tilbake i tid, er ikke datovelgeren et anbefalt 
+alternativ, se studier fra [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates) 
+-  I disse tilfellene kan du heller bruke [datofeltet](/planlegging-og-design/guidelines/design/#-datofelt).
+-  Legg til korrekt validering og gi brukeren informasjon om hva som er gyldige datoer å velge. Skal brukeren kunne 
+velge datoer tilbake i tid? Innenfor en gitt periode?
 
 **Eksempel på bruk:**
 
@@ -98,11 +105,13 @@ I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke 
 
 
 ## Avkrysningsbokser
-Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. Dersom brukeren kun kan velge et av alternativene, bruk [radioknapper](/planlegging-og-design/guidelines/design/#-radioknapper) i stedet. 
+Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. Dersom 
+brukeren kun kan velge et av alternativene, bruk [radioknapper](/planlegging-og-design/guidelines/design/#-radioknapper) i stedet. 
 
 **Retningslinjer:**
 - Avkrysningsboksene skal stå foran tilhørende tekst, og skal aldri stå alene.
-- Deaktiverte avkrysningsbokser bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares i tekst hvorfor det mangler. 
+- Deaktiverte avkrysningsbokser bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares 
+i tekst hvorfor det mangler. 
 
 
 **Eksempel på bruk:**
@@ -112,7 +121,8 @@ Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere al
 ---
 
 ## Radioknapper
-Radioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, så vær bevisst på når du bruker hvilken.  
+Radioknapper brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder nedtrekksliste, 
+så vær bevisst på når du bruker hvilken.  
 
 Radioknapper velges når:
 - Du ikke har for mange valgalternativer (Maks 7) 
@@ -123,7 +133,8 @@ Radioknapper velges når:
 
 **Retningslinjer:**
 - Radioknapper skal stå foran tilhørende tekst, og skal aldri stå alene.
-- Deaktiverte radioknapper bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares i tekst hvorfor det mangler. 
+- Deaktiverte radioknapper bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares 
+i tekst hvorfor det mangler. 
 
 **Eksempel på bruk:**
 
@@ -133,7 +144,8 @@ Radioknapper velges når:
 ---
 
 ## Nedtrekksliste
-Nedtrekksliste brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder radioknapper, så vær bevisst på når du bruker hvilken.  
+Nedtrekksliste brukes i tilfeller der brukeren skal velge et alternativ blant flere. Det samme gjelder radioknapper, 
+så vær bevisst på når du bruker hvilken.  
 
 Nedtrekksliste velges når:
 - Du har mange alternativer (mer enn 5)
@@ -150,18 +162,21 @@ Nedtrekksliste velges når:
 ---
 
 ## Hjelpetekst
-Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter. Man kan også benytte feltet til å forklare et regelverk, fremmede begreper, eller utdype hvorfor man ber om informasjonen.  
+Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter. 
+Man kan også benytte feltet til å forklare et regelverk, fremmede begreper, eller utdype hvorfor man ber om informasjonen.  
 
 
 **Retningslinjer:**
 - Hjelpetekst plasseres i sammenheng med en label eller tittel som skal utdypes.
-- Dersom innholdet er avgjørende informasjon for at brukeren skal kunne fylle ut skjemaet riktig, bør det heller plasseres i en infotekst i grensesnittet (under labelen). 
+- Dersom innholdet er avgjørende informasjon for at brukeren skal kunne fylle ut skjemaet riktig, bør det heller 
+plasseres i en infotekst i grensesnittet (under labelen). 
 
 **Eksempel på bruk:**
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A1788" %}}
 
 ## Feilmeldinger
-Vær kort og tydelig i formuleringen av feilmeldingene og sørg for at brukeren vet hva som må gjøres for å komme videre. Å skrive "Feltet er påkrevd" gir ikke brukeren en forklaring på hva som er feil. 
+Vær kort og tydelig i formuleringen av feilmeldingene og sørg for at brukeren vet hva som må gjøres for å komme 
+videre. Å skrive "Feltet er påkrevd" gir ikke brukeren en forklaring på hva som er feil. 
 
 **Eksempel på forklarende feilmeldinger:** 
 - "Postnummer må ha 4 siffer"
@@ -174,8 +189,11 @@ Les mer om å formidle feil i skjema på [UU-tilsynets nettsider](https://www.uu
 **Retningslinjer:**
 
 - Feilmeldingstekst bør gjenta nøkkelord fra label
-- Kravene for å fylle ut skjemaet riktig skal tydelig fremgå av skjemaet uten at brukeren trenger å få noen feilmeldinger fra valideringen for å forstå dette.
-- Dersom skjemaet har feil når brukeren forsøker å gå videre, skal feilmeldingsboksen i toppen vise alle feilene og lenke til de feltene feilen gjelder. Feilene skal forsvinne etterhvert som de blir utbedret. ⚠️ NB: Denne funksjonaliteten er ikke tilgjengelig i Altinn Studio enda.
+- Kravene for å fylle ut skjemaet riktig skal tydelig fremgå av skjemaet uten at brukeren trenger å få noen 
+feilmeldinger fra valideringen for å forstå dette.
+- Dersom skjemaet har feil når brukeren forsøker å gå videre, skal feilmeldingsboksen i toppen vise alle feilene 
+og lenke til de feltene feilen gjelder. Feilene skal forsvinne etterhvert som de blir utbedret. ⚠️ NB: Denne 
+funksjonaliteten er ikke tilgjengelig i Altinn Studio enda.
 
 **Eksempel på bruk:**
 

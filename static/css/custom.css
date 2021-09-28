@@ -71,7 +71,7 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
 
 @media (min-width: 768px) {
     .a-globalNav-main li:last-child a {
-        border-bottom: 3px solid #fff;
+        border-bottom: none;
     }
 }
 

@@ -13,8 +13,8 @@
 
         <!-- Begin .a-globalNav -->
         <nav class="a-globalNav " id="primary-nav">
-          <a href="https://www.altinndigital.no/" class="a-globalNav-logo">
-            <img src="/images/d-altinndigital-logo-white.svg" alt="Altinn digitalisering logo" class="a-logo a-modal-top-logo ">
+          <a href="{{ with .Site.GetPage `/`}}{{.URL}}{{end}}" class="a-globalNav-logo" style="background-color:white; padding: 0.2em;">
+            <img style="vertical-align: bottom;" src="/images/AltinnD-logo.svg" alt="Altinn Studio logo" class="an-logo adocs-logo">
             <span class="sr-only">{{ T "to-the-frontpage"}}</span>
           </a>
 
@@ -25,21 +25,23 @@
                 {{- partial "language-switcher.html" . -}}
               </li>
               <li>
-                <a class="a-hvr-underline" href="https://www.altinndigital.no/produkter/">
-                  produkter
-                </a>
+                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
               </li>
               <li>
-                <a class="a-hvr-underline " href="https://www.altinndigital.no/eksempler/">
-                  eksempler
-                </a>
+                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
+              </li>
+              <!--li>
+                <a class="a-nav-link a-hvr-underline" href="/design">{{ T "design"}}</a>
+              </li-->
+              <li>
+                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
               </li>
               <li>
-                <a class="a-hvr-underline" href="/">
-                  utvikling
-                  <span class="badge badge-primary a-label badge-pill">Altinn3</span>
-                </a>
+                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
               </li>
+              <!--li>
+                <a class="a-nav-link a-hvr-underline" href="/innhold">{{ T "content"}}</a>
+              </li-->
             </ul>
           </div>
 
@@ -53,5 +55,3 @@
     </div> <!-- End .row -->
   </div> <!-- End .container -->
 </header>
-
-
