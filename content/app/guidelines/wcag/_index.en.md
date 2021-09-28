@@ -27,7 +27,7 @@ om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
 få problemer med å tolke funksjonaliteten. 
 
 - **Feilmeldinger** Du er selv ansvarlig for at 
-[korrekte feilmeldinger](../ui-components/#feilmeldinger) 
+[korrekte feilmeldinger](../components/#feilmeldinger) 
 blir lagt inn på hvert av skjemafeltene. 
 
 
