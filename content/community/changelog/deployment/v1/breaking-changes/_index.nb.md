@@ -1,5 +1,6 @@
 ---
 title: Breaking changes
-description: Oversikt over breaking changes introdusert i app frontend i v1.0.0
-tags: [translate-to-norwegian]
+description: Oversikt over breaking changes introdusert i deployment i v1.1.0
 ---
+
+Helm chart flyttet til eksternt repository. Følg [migreringsguiden](../../migration)

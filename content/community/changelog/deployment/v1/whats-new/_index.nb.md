@@ -2,6 +2,8 @@
 title: Hva er nytt
 description: Oversikt over endringer som ble introdusert i v1 av deployment.
 toc: true
-tags: [translate-to-norwegian]
 ---
 
+## 1.1.0
+
+Første versjon i remote repository. Templates kopiert fra apps template
