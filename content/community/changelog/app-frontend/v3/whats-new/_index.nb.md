@@ -4,6 +4,13 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 tags: [translate-to-norwegian]
 ---
+## 3.12.0 (2021-09-29) - Bildekomponent
+La til bildekomponent for enklere å kunne legge til bilder i applikasjonen.
+Issue [#379.](https://github.com/Altinn/altinn-studio/issues/379)
+
+## 3.11.9 (2021-09-29) - Støtte for JSON Schema 2020-12 i app frontend
+Fikset bug hvor JSON Schema 2020-12 ikke var støttet i app frontend.
+Tilhørende issues: [#6703](https://github.com/Altinn/altinn-studio/issues/6703) [#6812.](https://github.com/Altinn/altinn-studio/issues/6812)
 
 ## 3.11.8 (2021-09-27) - Lagt til mellomrom mellom valgfri tekst og titteltekst
 Lagt til mellomrom mellom valgfri tekst og titteltekst i radioknapp, avkrysningsboks og adresse komponenter.
