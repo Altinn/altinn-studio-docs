@@ -10,7 +10,7 @@ Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og 
 
 Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk _versjon_.
 Når ressursene oppdateres, publiseres de på nytt som en ny _versjon_. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer.
-For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressutsene appen henter. 
+For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressursene appen henter. 
 
 ## Nuget
 _Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene._
