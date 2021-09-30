@@ -10,12 +10,12 @@ This includes larger libraries with common functionality for all apps and refere
 
 These dependencies are defined in different places in the app, and each dependency is references by a specific _version_.
 When fixes and improvements are made to the dependencies a new _version_ will be published.
-To use the updated dependencies you need to update the version use in your app.
+To use the updated dependencies, you need to update the version use in your app.
 
 ## Nuget
-_Nuget is .NET packagemanager, this is where we publish codelibraries that is used by all the apps._
+_Nuget is .NET package manager, this is where we publish code libraries that is used by all the apps._
 
-Apps uses multiple supportlibraries, these are updated regurarly with improvements and new functionality. 
+Apps uses multiple libraries, these are updated regularly with improvements and new functionality. 
 Apps references explicit versions of the different libraries. 
 These references must be updated to get the latest version
 
@@ -26,7 +26,7 @@ These references must be updated to get the latest version
 With this extension you can view what the latest version of all dependencies when you open App.csproj (the extension also supports npm).
 {{% /panel%}}
 
-- Locate the references to the libraries used in your app. The references is located in `App/App.csproj`. 
+- Locate the references to the libraries used in your app. The references are located in `App/App.csproj`. 
 
 Example.:
 
@@ -85,14 +85,13 @@ You need to update two references:
 <script src="https://altinncdn.no/toolkits/altinn-app-frontend/<VERSIONNUMBER>/altinn-app-frontend.css"></script>
 ```
 
-Søk etter filnavnet (`altinn-app-frontend.js` eller `altinn-app-frontend.css`) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).
-Search for the filename (àltinn-app-frontend.js` or `altinn-app-frontend.css`) and replace the versionnuber (e.g. 1) with the desired versionnumber (e.g. 2).
+Search for the filename (àltinn-app-frontend.js` or `altinn-app-frontend.css`) and replace the version number (e.g. 1) with the desired version number (e.g. 2).
 
-_Reminder:_ If you depende on a _major_ version (e.g. 2), every _minor_ and _patch_ version of this _major_ release will be applied automatically. If a specific version is defined (e.g. 2.0.0) the application will fetch this version until the reference is updated and no fixes or improvements will be fetched.
+_Reminder:_ If you depend on a _major_ version (e.g. 2), every _minor_ and _patch_ version of this _major_ release will be applied automatically. If a specific version is defined (e.g. 2.0.0) the application will fetch this version until the reference is updated and no fixes or improvements will be fetched.
 
 ## Deployment
 
-Deployments are defined with helm-charts. The standard deployment setup is fetched from altinn-studios helm repository if you leverage the latest deployment strategy (recomended).
+Deployments are defined with helm-charts. The standard deployment setup is fetched from altinn-studios helm repository if you leverage the latest deployment strategy (recommended).
 
 If you unsure if your app leverages the latest deployment strategy you can follow the migration guide [here](../../../../community/changelog/deployment/migration)
 
@@ -103,11 +102,11 @@ or add the helm repo locally and search for available version with these command
 # Add the altinn-studio helm repo
 helm repo add altinn-studio https://charts.altinn.studio
 
-# Search for version of altinn-studio/deployment charten
+# Search for version of altinn-studio/deployment chart
 helm search repo -l altinn-studio/deployment
 ```
 
-If there is a new version of the helm chart check the [changelog](../../../../community/changelog/deployment/) to see whats new in this release.
+If there is a new version of the helm chart check the [changelog](../../../../community/changelog/deployment/) to see what's new in this release.
 
 To update to the new version update the dependency reference in `deployment/Chart.yaml`
 

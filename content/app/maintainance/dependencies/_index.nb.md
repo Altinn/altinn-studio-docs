@@ -66,7 +66,7 @@ App'en refererer som standard til en _major_ versjon av app frontend, f.eks. ver
 Med mindre det kommer en ny _major_ versjon vil alle oppdateringer med ny _minor_ eller _patch_ versjoner komme med automatisk.
 Om det kommer en ny _major_ versjon må man eksplisitt oppdatere appen til å referere til denne.
 
-Dersom man ønsker å refere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url'en som peker på app frontend.
+Dersom man ønsker å referere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url'en som peker på app frontend.
 
 ### Oppgradere til nyeste versjon / spesifisere versjon
 Referansen til app frontend ligger i `App/views/Home/Index.cshtml`.
