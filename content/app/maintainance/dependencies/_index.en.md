@@ -93,7 +93,7 @@ _Reminder:_ If you depend on a _major_ version (e.g. 2), every _minor_ and _patc
 
 Deployments are defined with helm-charts. The standard deployment setup is fetched from altinn-studios helm repository if you leverage the latest deployment strategy (recommended).
 
-If you unsure if your app leverages the latest deployment strategy you can follow the migration guide [here](../../../../community/changelog/deployment/migration)
+If you unsure if your app leverages the latest deployment strategy you can follow the migration guide [here](/community/changelog/deployment/migration)
 
 To find the latest version of the standard helm-chart you can either check for the latest release of the chart `deployment` [here](https://github.com/Altinn/altinn-studio-charts/releases)
 or add the helm repo locally and search for available version with these commands:
@@ -106,7 +106,7 @@ helm repo add altinn-studio https://charts.altinn.studio
 helm search repo -l altinn-studio/deployment
 ```
 
-If there is a new version of the helm chart check the [changelog](../../../../community/changelog/deployment/) to see what's new in this release.
+If there is a new version of the helm chart check the [changelog](/community/changelog/deployment/) to see what's new in this release.
 
 To update to the new version update the dependency reference in `deployment/Chart.yaml`
 
