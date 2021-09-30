@@ -13,6 +13,7 @@ cd C:/repos
 git clone https://github.com/altinn/altinn-studio-docs
 ```
 2. [Download the latest Hugo](https://github.com/gohugoio/hugo/releases) for your platform, and copy the executable into the new `altinn-studio-docs`-folder.
+  Or type `docker compose up` if you have docker installed
    
 3. Navigate to folder and run Hugo:
 
