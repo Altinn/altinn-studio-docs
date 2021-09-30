@@ -33,17 +33,17 @@ der målsettingen er å kunne gjenbruke det vi utvikler ikke bare på nasjonalt 
 
 ## Samarbeid
 
-Den beste måten å få til et godt samarbeid på tvers av organisasjoner og prosjekter er åpenhet og gjennomsiktighet, at alle kan bidra, gi imput, bli hørt, følge med.
+Den beste måten å få til et godt samarbeid på tvers av organisasjoner og prosjekter er åpenhet og gjennomsiktighet, at alle kan bidra, gi input, bli hørt, følge med.
 
-Det er dette som har vært helt sentralt i "revolusjonen" med åpen kildekode som har blitt den nye"normalen for store deler av programvareutvikling i verden, f.eks.
-der GitHub har [40 millioner utviklere og over 28 millioner åpne repos](https://en.wikipedia.org/wiki/GitHub).
+Det er dette som har vært helt sentralt i "revolusjonen" med åpen kildekode som har blitt den nye normalen for store deler av programvareutvikling i verden, f.eks.
+så er det nå [40 millioner utviklere og over 28 millioner åpne repos](https://en.wikipedia.org/wiki/GitHub) på GitHub.
 
-Siden alle våre verktøy og avhengigeheter ligger åpent på GitHub så kan også vi i Altinn følge med, samarbeide og bidra tilbake til programvaren som vi benytter.
+Siden alle våre verktøy og avhengigeheter ligger åpent på GitHub så kan også vi i Altinn følge med, samarbeide og bidra tilbake til programvare som vi benytter.
 
 Eksempler på dette er [.NET](https://dotnet.microsoft.com/platform/open-source),
 [Kubernetes](https://github.com/kubernetes/kubernetes), [React](https://github.com/facebook/react), [Linkerd](https://linkerd.io/) og [Gitea](https://github.com/go-gitea/gitea).
 
-Denne måten å spore og enkelt kunne lenke til problemer på tvers er issue [#5992](https://github.com/Altinn/altinn-studio/issues/5992) et eksempel på.
+Denne måten å spore og enkelt kunne lenke til problemer på tvers av programvare er [issue #5992](https://github.com/Altinn/altinn-studio/issues/5992) et eksempel på.
 
 Og siden Altinn er åpen kildekode på GitHub, så er det like enkelt for alle andre å gjøre det samme mot oss,
 både det å [opprette nye issues](https://github.com/Altinn/altinn-studio/issues/new/choose), bidra i diskusjoner eller bidra med kode,
@@ -52,15 +52,15 @@ noe labelen [external-contribution-❤️](https://github.com/Altinn/altinn-stud
 
 ## Leverandørbindinger
 
-Altinn som felleskomponent har tidligere brent seg stygt på å basere seg på lukket proprietær programvare. Programvare fra Adobe i Altinn 1 og fra Microsoft i Altinn 2.
+Altinn som felleskomponent har tidligere fått store utfordringer ved å basere seg på lukket proprietær programvare. Programvare fra Adobe i Altinn 1 og fra Microsoft i Altinn 2.
 Dette er faktisk [hovedårsaken](https://www.digi.no/artikler/altinn-skal-aldri-mer-ga-ut-pa-dato-men-forst-ma-inntil-tusen-tjenester-skrives-om/508174) til behovet for Altinn 3.
 
-Når du bygger din løsning på toppen av proprietær programvare så har du i praksis mistet kontroll over egen fremtid, f.eks. om leverandøren velger å fase ut produktet.
+Når du bygger en løsning på toppen av proprietær programvare så har du i praksis mistet kontroll over egen fremtid, f.eks. om leverandøren velger å fase ut produktet.
 Om man baserer seg på åpen kildekode så kan man i en slik situasjon lage en [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo), om ikke noen andre gjør det.
 
 Derfor er Altinn 3 [basert på programvare og biblioteker](../../../technology/tools/) som er åpen kildekode.
 
-Vi tenker at dette naturlig nok også er veldig viktig for de som vurderer om man skal ta Altinn i bruk.
+Vi tenker at dette naturlig nok også er veldig viktig for de som vurderer om man skal ta i bruk Altinn.
 
 *Hvilke bindinger innfører vi til Altinn som teknisk løsning og Digdir som leverandør?*
 Selv om Altinn er [et samarbeid](https://www.altinn.no/om-altinn/om-altinn-samarbeidet/), så vil dette være viktige spørsmål.
@@ -86,7 +86,7 @@ Her er noen av de fantastiske SaaS-verktøyene som vi benytter:
 - [LGTM](https://semmle.com/lgtm) - Sikkerhetsanalyse av kildekode.
 
 Og dette er bare et lite utvalg...  
-Alle verktøy og rammeverk som vi bygger Altinn på toppen av er åpen programvare som også er
+Alle verktøy og rammeverk som vi bygger Altinn på toppen av, er åpen programvare som er
 [veldig godt likt](/technology/architecture/principles/#build-with-modern-and-popular-frameworks).
 
 ## De beste folkene
