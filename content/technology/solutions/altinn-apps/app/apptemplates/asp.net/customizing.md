@@ -17,4 +17,4 @@ See development handbook for a step to step guideline for consuming external API
 
 ## Custom frontend
 If the standard UI-editor is to limited it is possible to build a custom frontend with the single page application (SPA) framework of your choice. (React, Angular, Vue etc ++).
-You need to compile the SPA application and add it to the wwroot folder of the app. In addition you would need to modive the index.cshtml file to 
+You need to compile the SPA application and add it to the wwroot folder of the app. In addition you would need to modify the index.cshtml file to display your app.
