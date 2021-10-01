@@ -96,8 +96,6 @@ if(host != "localhost")
     </div> 
   </div> 
 </header>
-
-
 <div class="container pt-2 pt-md-3 pt-lg-5">
       <div class="adocs-scrollcontainer">
         <div class="row">
@@ -115,9 +113,9 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/getting-started/"><span>Getting started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
       <li class="dd-item">
@@ -144,6 +142,24 @@ if(host != "localhost")
         <a href="/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/design/"><span>Design</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/"><span>UI-komponenter</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/content/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -495,7 +511,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/technology/"><span>Tech</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -958,6 +974,168 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/api/expose/">Exposing APIs from an app</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>The applications that are developed in Altinn Studio are based on ASP.NET Core for back-end. This provides high flexible to change and modify the applications.
+Legge til API kontroller For å kunne eksponere et nytt API i applikasjonen må det legges til en eller flere API kontrollere.
+Nedenfor vises et eksempel fra en API controller som er lagt til i en gitt app. Her settes det opp hvilken path API skal lytte på og logikken. <a class="read-more" href="/app/development/api/expose/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/api/instance/">Instance</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Denne siden er foreløpig ikke fullstendig, mer informasjon vil komme på et senere tidspunkt.
+En instansiert applikasjon vil ha et tilhørende instans-objekt. Dette objektet inneholder metadata om den spesifikke instansen. Om du ønsker å lære mer om instans og api&rsquo;et rundt så kan du lese teknisk dokumentasjon om dette under API.
+Substatus Som app-eier kan man sette en substatus på instansen, dette for å kunne gi sluttbruker ytterligere informasjon om hvilken tilstand instansen befinner seg i. <a class="read-more" href="/app/development/api/instance/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/logic/instantiation/">Instantiation</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Introduksjon Applikasjonslogikk knyttet til instansiering kan defineres i InstantiationHandler.cs. For en helt ny app vil det være to funksjoner implementert i denne klassen:
+ RunInstantiationValidation - lag egne sjekker for å avgjøre om en bruker/avgiver får lov til å instansiere. DataCreation - lag tilpasset prefill data.  Egendefinerte valideringsregler for instansiering Som tidligere nevnt, kan sjekker for instansiering defineres i RunInstantiationValidation. Tilgang til Register- og Profile-tjenester er inkludert i InstantiationHandler.cs-filen, som tillater å gjøre sjekker mot disse. <a class="read-more" href="/app/development/logic/instantiation/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/configuration/process/message/">Message</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>En melding i Altinn 3 er egentlig bare et data-steg, på samme måte som f.eks. skjemautfylling. Det settes opp med en datamodell for meldingen, og en layout for hva som skal vises på siden. Melding er dermed ikke en egen steg-type. Dette gjør at en melding i Altinn 3 er ekstremt fleksibel, og kan settes opp enten som eneste steg i en prosess, eller som en del av en større prosess. <a class="read-more" href="/app/development/configuration/process/message/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/testing/local/apitests/org/">API test org</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Appen har en rekke API som kan benyttes av applikasjonseier/tjenesteeier. Beskrivelsen du finner her er laget for Postman hvor det er benyttet testapplikasjonen MVA testapp.
+Postman-prosjektet kan lastes ned fra her (høyreklikk og velg &ldquo;save as&rdquo;).
+Autentisering av tjenesteier org I testmiljø og produksjon brukes maskinporten for å autentisere organisasjoner som eier apper.
+Testplattformen for lokal testing tilbyr et enkelt api for å autentisere organisjonen som er ansvarlig.
+Man trenger bare å oppgi tjenesteeier kode (som f. <a class="read-more" href="/app/testing/local/apitests/org/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/ux/fields/settings/">Field settings</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt direkte i form layout inntil videre.
+MERK: Denne funksjonaliteten krever app-frontend versjon 3. Se denne lenken.
+Indikere at felt er valgfritt Det er mulig å styre om et felt er markert som valgfritt eller ikke. Normal oppførsel er at felt som er valgfrie blir markert som valgfrie.
+Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via labelSettings på en komponent i form layout. <a class="read-more" href="/app/development/ux/fields/settings/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/local/testusers/">Test-user for local testing</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1055,7 +1233,7 @@ Klientside-validering baserer seg på datamodellen som hører til skjemaet, og b
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Creating apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div></section>
         </div> 

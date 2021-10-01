@@ -96,8 +96,6 @@ if(host != "localhost")
     </div> 
   </div> 
 </header>
-
-
 <div class="container pt-2 pt-md-3 pt-lg-5">
       <div class="adocs-scrollcontainer">
         <div class="row">
@@ -115,9 +113,9 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/getting-started/"><span>Getting started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
       <li class="dd-item">
@@ -144,6 +142,24 @@ if(host != "localhost")
         <a href="/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/design/"><span>Design</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/"><span>UI-komponenter</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/content/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -495,7 +511,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/technology/"><span>Tech</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -960,6 +976,165 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/first-time-setup/">Create user in Altinn Studio</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Lag en bruker i Altinn Studio Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med andre og få tilgang til eksisterende apper.
+Vis/skjul innholdLag bruker med GitHub brukernavn Velg å logge inn på altinn.studio. På “Logg in”-siden, klikk på knappen “Har du en Github konto? Registrer deg med den her”.  Logg inn i GitHub hvis du ikke allerede er det. <a class="read-more" href="/app/getting-started/first-time-setup/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/data/data-model/">Data model in Altinn Studio</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Det er planlagt datamodelleringsfunksjonalitet inn i Altinn Studio. Den midlertidige funksjonaliteten er derfor svært begrenset.Laste opp / vise datamodell Datamodellen definerer hvilke data som kan sendes inn via en app, og hvilket format det skal sendes på. Per nå må datamodellen være definert som en XSD i et eksternt verktøy - gjerne Seres Domeneklient.
+Det må lastes opp en datamodell for hver app.
+ Åpne appen fra dashboardet Velg fanen Lage, og valget Datamodell i navigasjonsmenyen Klikk på Velg XSD og velg XSD-en i filvelgeren Klikk Last opp  Datamodellen blir da parset, og alle nødvendige filer generert og lagret i app-repositoryet. <a class="read-more" href="/app/development/data/data-model/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/navigation/designer/">Designer</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Designer er verktøyet du starer i etter å ha logget inn på https://altinn.studio. Det er et verktøy for å opprette, konfigurere og deploye apper.
+Navigere til en app Alle apper du har tilgang til å endre på vises på dashboardet. Gå til appen ved å klikke på appen. Dersom du ikke har en lokal klone av appen, vil du bli bedt om å opprette det.
+Hvis du ønsker å gå til app-repositoryet når du er inne i en app i Designer, er det en lenke i menyen som ligger i profilmenyen øverst til høyre. <a class="read-more" href="/app/getting-started/navigation/designer/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/testing/local/">Test of app locally</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Dersom man skal skrive en del kode (f.eks. logikk), eller kjapt sjekke hvordan skjema ser ut kan det være nytting å kunne teste endringer uten å måtte deploye hele appen til testmiljø.
+Når appen lages, kommer den med alle nødvendige filer og oppsett til å kunne kjøres som en frittstående applikasjon. Ved å laste ned alle filene knyttet til appen fra repoet til appen, kan man kjøre appen lokalt på egen maskin, og på den måten enkelt teste endringer. <a class="read-more" href="/app/testing/local/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post api">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/api/authentication/maskinporten/">Authenticate with Maskinporten</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Samarbeidsportalen I Min profil i Samarbeidsportalen så har du tilgang til selvbetjening for Maskinporten, og der kan du opprette nye integrasjoner (klienter).
+ https://tt02.altinn.no er testmiljø for apper i Altinn, og det er koblet mot Ver 2-miljøet i Maskinporten. https://www.altinn.no er koblet mot Produksjon.  Tilgang som tjenesteeier For å kunne hente data fra Storage i Altinn 3 via API som tjenesteeier, så må man opprette en integrasjon (klient) i Maskinporten, med nødvendige scopes. <a class="read-more" href="/api/authentication/maskinporten/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/create-app/">Create app in Altinn Studio</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn Studio brukes til å opprette applikasjoner (apps). En app kan være alt fra enkle skjemaer til større applikasjoner med både API-er og UI, og alt derimellom.
+Du lager en ny app fra dashboardet i Altinn Studio.
+ Klikk på &ldquo;ny app&quot;-knappen i det øvre høyre hjørnet av dashboardet. Velg hvem som skal være eier av appen. Hvis du ikke har tilgang for noen organisasjoner, må du velge deg selv så du lager appen i din sandkasse. <a class="read-more" href="/app/getting-started/create-app/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
         <h2 class="post-title"><a href="/app/development/configuration/partytype/">Party types</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1063,170 +1238,6 @@ Dette kan gjøres på to måter, ved konfigurasjon eller manuelt. Ved konfiguras
 
 
 	
-	   <article class="post api">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/api/authentication/id-porten/">Authenticate with ID-porten</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Systemer for sluttbrukere kan autentisere brukere via ID-porten. Dette for å kunne benytte API fra applikasjoner kjørende i Altinn Apps og enkelte funksjoner i Altinn Platform på vegne av sluttbruker.
-Det er i hoveddsak to typer systemer hvor dette er aktuelt. Dette er webbaserte løsninger og tykke klienter.
-Felles for begge løsninger er at sluttbruker vil logge inn via nettleser i ID-porten med den autentiseringsmekanismen de ønsker.
-Dette er for eksempel: <a class="read-more" href="/api/authentication/id-porten/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/testing/deploy/">Test app in test environment</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Klargjøring av app og deploy til testmiljø gjøres fra Deploy-fanen i Altinn Studio.
-Bygge app Før en app kan deployes til testmiljø, må alle nødvendige filer samles sammen i en pakke som kan deplpoyes. Dette gjøres ved å bygge appen.
-Merk at det er filene fra app-repoet som benyttes i bygget. Dersom en har gjort endringer på en app i Altinn Studio så må disse sendes til repoet for at endringene skal bli med i bygg-pakken. <a class="read-more" href="/app/testing/deploy/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/data/prefill/">Prefilling data</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker. Disse metodene kan kombineres fritt for å oppnå ønsket resultat
-Prefill fra nasjonale register og brukerprofil Altinn apps støtter prefill med data fra Enhetsregisteret, Folkeregisteret og brukerprofil i Altinn.
-Ved å følge beskrivelsen nedenfor vil man under instansiering av et skjema preutfylle datamodellen med de definerte verdiene hentet fra Altinns database.
-Oppsett av prefill i applikasjons repository Opprett en ny json-fil i app repoet under App/models. <a class="read-more" href="/app/development/data/prefill/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/presentationfields/">Presentation fields in the message box</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>I noen tilfeller kan det være nyttig med presentasjonsfelter for å enklere kunne skille mellom flere instaner av samme applikasjon.
-Ved å konfigurere presentasjonsfelter på en applikasjon vil man hente ut verdier fra skjemadataene og legge dette på instansobjektet. Disse verdiene benyttes i meldingsboksen i Altinn til å berrike tittelen til instansen med dataverdiene.
-Konfigurasjon Konfigurasjon av presentasjonsfelter gjøres i applicationmetadata.json som ligger i repoet under mappen App/config.
-Legg til en ny seksjon med navn presentationField med følgende underfelter <a class="read-more" href="/app/development/configuration/presentationfields/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/getting-started/navigation/repos/">Repos</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Repos er verktøyet der appene er lagret som Git repositoryer, og kan bli funnet på https://altinn.studio/repos.
-Hovedmeny Hovedmenyen øverst inneholder disse elementene:
- Altinn-logoen - tilbake til Altinn Studio-dashboardet. Dashboard - Lister ut dine aktiviteter og de repositoryene og organisasjonene du har tilgang til. Du kan også se dashboard for den enkelte organisasjonen. Issues - Lister ut åpne og lukkede issues som er relevant for deg. Pull requests - Lister ut åpne og lukkede pull requests som er relevant for deg. <a class="read-more" href="/app/getting-started/navigation/repos/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/getting-started/access-management/studio/">Altinn Studio access</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Tilgangsstyring for organisasjonen Som eier av en organisasjon i Altinn Studio har man mulighet til å konfigurere tilgangene til de øvrige brukerne knyttet til organisasjonen. Dette gjøres via Gitea på følgende lenke: https://altinn.studio/repos/org/{organisasjonens kortnavn}/teams/
-Det er definert fire standard team som legger føringer for hva en bruker har tillatelse til å gjøre innad i en organisasjon i Altinn Studio. Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye team og endre konfigurasjon på eksisterende team. <a class="read-more" href="/app/getting-started/access-management/studio/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -1247,7 +1258,7 @@ Det er definert fire standard team som legger føringer for hva en bruker har ti
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Creating apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div></section>
         </div> 

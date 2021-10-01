@@ -104,8 +104,6 @@ if(host != "localhost")
     </div> 
   </div> 
 </header>
-
-
 <div class="container pt-2 pt-md-3 pt-lg-5">
       <div class="adocs-scrollcontainer">
         <div class="row">
@@ -123,7 +121,7 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item parent">
-        <a href="/nb/app/"><span>Apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/app/"><span>Lage apper</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item parent">
         <a href="/nb/app/getting-started/"><span>Kom i gang</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item parent active">
@@ -152,6 +150,24 @@ if(host != "localhost")
         <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/insight/"><span>Innsiktsfase</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/usertest/"><span>Brukertest</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/design/"><span>Design</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/"><span>UI-komponenter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/content/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -377,7 +393,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/presentations/"><span>Presentasjoner</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/technology/"><span>Tech</span></a></li></ul>
+        <a href="/nb/technology/"><span>Teknologi</span></a></li></ul>
   </div>
 </nav>
 
@@ -392,7 +408,7 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/nb/app/'>Apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/getting-started/'>Kom i gang</a> <span class='adocs-breadcrumb-divider'> / </span> Introduksjon</span>
+                <span class="links"><a href='/nb/app/'>Lage apper</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/app/getting-started/'>Kom i gang</a> <span class='adocs-breadcrumb-divider'> / </span> Introduksjon</span>
             </div>
           </div><div id="body-inner"><h1 class="a-fontBold">Introduksjon til Altinn Studio</h1>
               <p class="a-leadText" id="leadText">Altinn Studio er vårt nye verktøy for å utvikle offentlige digitale tjenester. Dette kan være alt fra helt enkle skjema til avanserte applikasjoner.</p>
@@ -400,39 +416,54 @@ if(host != "localhost")
 
 
 
-<p>Skal du bruke TUL eller Altinn Studio? Les <a href="https://altinn.github.io/docs/kom-i-gang-med-utvikling/#skal-du-bruke-tul-eller-altinn-studio">kom i gang med utvikling</a>.</p>
 <p>Prosessen for å lage skjemaer og meldinger vil være forskjellig alt etter som hvor stor eller liten målgruppen er,
 hvor mye data som skal behandles eller hvor mye jobb det er å legge til rette for at egne systemer kan snakke med Altinn.</p>
 <p>Slik går du frem:</p>
 <ol>
-<li><strong>Start alltid med å definere brukerbehov</strong><br>
+<li>
+<p><strong>Start alltid med å definere brukerbehov</strong><br>
 Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen og hvem skal den løses for?
-Hva er databehovet? Lag gjerne en skisse til kommunikasjon med brukeren og test skissen på folk i målgruppen.
-<a href="../../design/figma/">Lese også vår guide til prototyping i Figma</a>. God planlegging er nøkkelen til et godt resultat.
-Sjekk Guide: <a href="https://www.altinndigital.no/kom-i-gang/hvordan-jobbe-brukerorientert/">Hvordan jobbe brukerorientert?</a> for inspirasjon.</li>
-<li><strong>Få tilgang til systemer</strong><br>
+Hva er databehovet? Lag gjerne en skisse til kommunikasjon med brukeren og test skissen på folk i målgruppen.</p>
+<a href="/app/design/" class="a-linkFeatured mb-2">
+ Planlegg og design din app
+ <i class="ai ai-sm ai-nw ai-nw-right ai-arrowright" aria-hidden="true"></i>
+</a>
+</li>
+<li>
+<p><strong>Få tilgang til systemer</strong><br>
 Hvis du ikke har utviklet tjenester i Altinn Studio før trenger du å <a href="../first-time-setup/">opprette en bruker</a>.
-Har du ikke allerede en ferdig datamodell/XSD så trenger du i tillegg tilgang til <a href="https://altinn.github.io/docs/seres/">SERES-domeneklient</a>.</li>
-<li><strong>Tilrettelegge egne systemer for sending og mottak av data</strong><br>
+Har du ikke allerede en ferdig datamodell/XSD så trenger du i tillegg tilgang til <a href="https://altinn.github.io/docs/seres/">SERES-domeneklient</a>.</p>
+</li>
+<li>
+<p><strong>Tilrettelegge egne systemer for sending og mottak av data</strong><br>
 Det finnes <a href="/api">standardiserte mønstre basert på REST-API</a>
 for å sende og motta data fra/til dine interne systemer.
 Autentisering skjer med <a href="https://www.digdir.no/digitale-felleslosninger/maskinporten/869">Maskinporten</a> og du laster ned data ved pull fra database,
 og laster opp data direkte mot API i den enkelte applikasjon.
-Vår referanseapplikasjon <a href="https://github.com/Altinn/altinn-cli">Altinn CLI</a> ​viser disse mønstrene og kan brukes for å komme i gang.</li>
-<li><strong>Utvikle tjenestene</strong><br>
+Vår referanseapplikasjon <a href="https://github.com/Altinn/altinn-cli">Altinn CLI</a> ​viser disse mønstrene og kan brukes for å komme i gang.</p>
+</li>
+<li>
+<p><strong>Utvikle tjenestene</strong><br>
 Altinn Studio brukes til å <a href="../create-app">opprette applikasjoner</a> (apps).
 En app kan være alt fra enkle skjemaer til større avanserte applikasjoner som digitaliserer komplekse prosesser.
 Det er viktig å tenke på at brukeren skal oppleve prosessene som sammenhengende og oversiktlige.
-Prosessene kan startes av det offentlige eller av brukeren selv, eller automatisk som en reaksjon på en hendelse.</li>
-<li><strong>Teste tjenestene</strong><br>
+Prosessene kan startes av det offentlige eller av brukeren selv, eller automatisk som en reaksjon på en hendelse.</p>
+</li>
+<li>
+<p><strong>Teste tjenestene</strong><br>
 Altinn har et eget testmiljø hvor du kan teste om apper og opp-/nedlasting av data virker som det skal.
 I testmiljøet bruker du fiktive testpersoner og organisasjoner.
 Når du har kommet så langt i utviklingen er det også viktig å brukerteste den endelige løsningen på reelle folk i målgruppen.
-Dette for å sikre at det ikke er noen hinder for de som skal bruke tjenestene. Det er også mulig å <a href="../../testing/local/">teste app lokalt</a> på egen maskin.</li>
-<li><strong>Produksjonssette tjenestene</strong><br>
-Tjenesteeier kan <a href="../../deployment">selv produksjonssette</a> sine applikasjoner og gjøre vedlikehold av kode og avhengigheter.</li>
-<li><strong>Melding av feil</strong><br>
-Feil meldes til Altinn fra den enkelte tjenesteeier sitt dashboard på <a href="https://www.altinndigital.no/oversikt/">Altinn Digitalisering</a> (krever innlogging).</li>
+Dette for å sikre at det ikke er noen hinder for de som skal bruke tjenestene. Det er også mulig å <a href="../../testing/local/">teste app lokalt</a> på egen maskin.</p>
+</li>
+<li>
+<p><strong>Produksjonssette tjenestene</strong><br>
+Tjenesteeier kan <a href="../../deployment">selv produksjonssette</a> sine applikasjoner og gjøre vedlikehold av kode og avhengigheter.</p>
+</li>
+<li>
+<p><strong>Melding av feil</strong><br>
+Feil meldes til Altinn fra den enkelte tjenesteeier sitt dashboard på <a href="https://www.altinndigital.no/oversikt/">Altinn Digitalisering</a> (krever innlogging).</p>
+</li>
 </ol>
 
 
@@ -448,7 +479,7 @@ Feil meldes til Altinn fra den enkelte tjenesteeier sitt dashboard på <a href="
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/getting-started/" title="Kom i gang med Altinn Studio"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/getting-started/first-time-setup/" title="Opprette bruker i Altinn Studio" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/nb/app/getting-started/" title="Kom i gang"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/getting-started/first-time-setup/" title="Opprette bruker i Altinn Studio" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/getting-started/intro/_index.nb.md" target="blank">

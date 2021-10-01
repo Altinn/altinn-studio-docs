@@ -96,8 +96,6 @@ if(host != "localhost")
     </div> 
   </div> 
 </header>
-
-
 <div class="container pt-2 pt-md-3 pt-lg-5">
       <div class="adocs-scrollcontainer">
         <div class="row">
@@ -115,9 +113,9 @@ if(host != "localhost")
 <script src="/js/search.js"></script></div>
     <ul id="docsmenu" class="topics">
       <li class="dd-item">
-        <a href="/app/"><span>Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/"><span>Create apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/getting-started/"><span>Getting started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/app/getting-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/getting-started/intro/"><span>Introduction</span></a></li>
       <li class="dd-item">
@@ -144,6 +142,24 @@ if(host != "localhost")
         <a href="/app/getting-started/navigation/repos/"><span>Repos</span></a></li>
       <li class="dd-item">
         <a href="/app/getting-started/navigation/code/"><span>Code</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/insight/"><span>Innsiktsfase</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/usertest/"><span>Brukertest</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/design/"><span>Design</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/components/"><span>UI-komponenter</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/content/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -495,7 +511,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/presentations/"><span>Presentations</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/technology/"><span>Tech</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/technology/"><span>Technology</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/technology/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -958,6 +974,170 @@ if(host != "localhost")
 	</div>
 
 	
+	   <article class="post api">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/api/authentication/id-porten/">Authenticate with ID-porten</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Systemer for sluttbrukere kan autentisere brukere via ID-porten. Dette for å kunne benytte API fra applikasjoner kjørende i Altinn Apps og enkelte funksjoner i Altinn Platform på vegne av sluttbruker.
+Det er i hoveddsak to typer systemer hvor dette er aktuelt. Dette er webbaserte løsninger og tykke klienter.
+Felles for begge løsninger er at sluttbruker vil logge inn via nettleser i ID-porten med den autentiseringsmekanismen de ønsker.
+Dette er for eksempel: <a class="read-more" href="/api/authentication/id-porten/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/testing/deploy/">Test app in test environment</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Klargjøring av app og deploy til testmiljø gjøres fra Deploy-fanen i Altinn Studio.
+Bygge app Før en app kan deployes til testmiljø, må alle nødvendige filer samles sammen i en pakke som kan deplpoyes. Dette gjøres ved å bygge appen.
+Merk at det er filene fra app-repoet som benyttes i bygget. Dersom en har gjort endringer på en app i Altinn Studio så må disse sendes til repoet for at endringene skal bli med i bygg-pakken. <a class="read-more" href="/app/testing/deploy/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/data/prefill/">Prefilling data</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn tilbyr i dag tre fremgangsmåter for å preutfylle data i en app for en sluttbruker. Disse metodene kan kombineres fritt for å oppnå ønsket resultat
+Prefill fra nasjonale register og brukerprofil Altinn apps støtter prefill med data fra Enhetsregisteret, Folkeregisteret og brukerprofil i Altinn.
+Ved å følge beskrivelsen nedenfor vil man under instansiering av et skjema preutfylle datamodellen med de definerte verdiene hentet fra Altinns database.
+Oppsett av prefill i applikasjons repository Opprett en ny json-fil i app repoet under App/models. <a class="read-more" href="/app/development/data/prefill/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/configuration/presentationfields/">Presentation fields in the message box</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>I noen tilfeller kan det være nyttig med presentasjonsfelter for å enklere kunne skille mellom flere instaner av samme applikasjon.
+Ved å konfigurere presentasjonsfelter på en applikasjon vil man hente ut verdier fra skjemadataene og legge dette på instansobjektet. Disse verdiene benyttes i meldingsboksen i Altinn til å berrike tittelen til instansen med dataverdiene.
+Konfigurasjon Konfigurasjon av presentasjonsfelter gjøres i applicationmetadata.json som ligger i repoet under mappen App/config.
+Legg til en ny seksjon med navn presentationField med følgende underfelter <a class="read-more" href="/app/development/configuration/presentationfields/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/navigation/repos/">Repos</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Repos er verktøyet der appene er lagret som Git repositoryer, og kan bli funnet på https://altinn.studio/repos.
+Hovedmeny Hovedmenyen øverst inneholder disse elementene:
+ Altinn-logoen - tilbake til Altinn Studio-dashboardet. Dashboard - Lister ut dine aktiviteter og de repositoryene og organisasjonene du har tilgang til. Du kan også se dashboard for den enkelte organisasjonen. Issues - Lister ut åpne og lukkede issues som er relevant for deg. Pull requests - Lister ut åpne og lukkede pull requests som er relevant for deg. <a class="read-more" href="/app/getting-started/navigation/repos/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/access-management/studio/">Altinn Studio access</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Tilgangsstyring for organisasjonen Som eier av en organisasjon i Altinn Studio har man mulighet til å konfigurere tilgangene til de øvrige brukerne knyttet til organisasjonen. Dette gjøres via Gitea på følgende lenke: https://altinn.studio/repos/org/{organisasjonens kortnavn}/teams/
+Det er definert fire standard team som legger føringer for hva en bruker har tillatelse til å gjøre innad i en organisasjon i Altinn Studio. Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye team og endre konfigurasjon på eksisterende team. <a class="read-more" href="/app/getting-started/access-management/studio/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
 	   <article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/navigation/code/">Code</a></h2>
@@ -1066,166 +1246,6 @@ Konfigurer støtte for hemmeligheter i din app For å kunne benytte hemmelighete
 
 
 	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/settings/">Settings and environmental variables</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Standard .NET konfigurasjon Altinn 3 sin App template baserer seg på en ASP.Net Core applikasjon og har med dette en rekke muligheter for å styre konfigurasjon av en App. Denne dokumentasjonen er derfor i stor grad utdrag fra eller linker til Microsoft sin egen dokumentasjon. Det er derimot ikke alt som er mulig i en App da det er litt begrenset hva Altinn 3 gir av tilganger til miljøet en App kjører i. <a class="read-more" href="/app/development/configuration/settings/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/stateless/">Stateless application (lookup-service)</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Introduksjon til stateless applikasjoner En stateless, eller tilstandsløs, applikasjon skiller ser fra standard applikasjoner ved at den ikke lagrer noe data, verken skjemadata eller metadata om instanser av applikasjonen. Derfor passer stateless applikasjoner godt som innsynstjenester der en sluttbruker eller et system gjør et oppslag mot en eller annen ressurs evt. presenterer data fra en tredjepart basert på hvem brukeren er.
-Konfigurasjon Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. <a class="read-more" href="/app/development/configuration/stateless/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/calculation/">Calculations</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Calculationa is from 4.7.0 replaced by data processing. Look here
-Kalkulering Kalkuleringer kjøres på serveren, og er basert på input fra sluttbruker/skjemadata. Kalkuleringer trenger ikke å være rent matematiske, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
-Kalkuleringer kodes i C#, i filen CalculationHandler.cs. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code. <a class="read-more" href="/app/development/logic/calculation/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/api/consume/">Consume APIs in an app</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>ASP.NET Core has good opportunities to consume different types of API.
-This can be useful if you want to expose your organization&rsquo;s own APIs via an app or need help from external APIs in the application logic.
-There are many ways to do this, and on this page you will find examples of how to consume REST APIs in an app.
-Kalle et eksternt API direkte i en metode I dette eksemplet brukes et åpent API til å kalkulere et felt i skjemaet basert på input i et annet felt. <a class="read-more" href="/app/development/api/consume/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/configuration/process/customize/">Customize Views of Step</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>En applikasjon vil ha en prosess som brukeren av applikasjonen vil følge. Avhengig av hvilken type steg brukeren er i, vil forskjellige ting vises. Denne siden vil forklare hvordan visningen til de forskjellige stegene kan tilpasses.
-Data (tilsvarer utfyllingssteg i Altinn II) I denne prosess-task-typen vises skjema som kan fylles ut.
-Skjema kan redigeres ved bruk av UI editoren eller ved å endre FormLayout.json direkte.
-Bekreftelse (Confirmation) I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å bekrefte for å gå videre. <a class="read-more" href="/app/development/configuration/process/customize/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/dataprocessing/">Data processing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker/skjemadata. Dataprossering kan være kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
-Dataprossering kodes i C#, i filen DataProsessingHandler.cs. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code. Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov. <a class="read-more" href="/app/development/logic/dataprocessing/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 
 	<div style="margin-bottom:2rem"></div>
 
@@ -1246,7 +1266,7 @@ Dataprossering kodes i C#, i filen DataProsessingHandler.cs. Denne filen kan red
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Creating apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/technology/tools/vs-code/" title="Visual Studio Code"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div></section>
         </div> 

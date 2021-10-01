@@ -34,7 +34,7 @@ if(host != "localhost")
       }
     </style>
   </head>
-  <body class="a-page" data-url="/"><nav class="a-jumpnav">
+  <body class="a-page a-bgWhite" data-url="/"><nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li>
     <li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li>
@@ -107,8 +107,6 @@ if(host != "localhost")
     </div> 
   </div> 
 </header>
-
-
 <div class="jumbotron jumbotron-fluid a-jumbotron a-jumbotron-header a-jumbotron-dark" style="background-color: #022F51; background-image: url('https://docs.altinn.studio/images/jumbotron.svg')">
 
   <div class="container">
@@ -125,12 +123,12 @@ if(host != "localhost")
 <div class="container pt-2 pt-md-3 pt-lg-5">
     <div class="row adocs-featuredBlocks"><div class="col-12 col-lg-4 mb-5">
     <a href="/app/" class="a-illustrationLink">
-        <h2 class="a-h3">Create your first app</h2>
+        <h2 class="a-h3">Create apps</h2>
         <p class="a-js-truncate-2">Create simple or advanced containerized applications with React and .NET Core.</p>
         <div class="a-illustration-icon">
-            <img src="/images/forsideillustrasjon_utvikling.svg">
+            <img src="/images/forsideillustrasjon_skrive.svg">
             <div class="a-illustration-overlay">
-                <span class="sr-only">Create your first app</span>
+                <span class="sr-only">Create apps</span>
             </div>
         </div>
     </a>
@@ -140,7 +138,25 @@ if(host != "localhost")
                 <a href="/app/getting-started/" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
-                            Getting started with Altinn Studio
+                            Get started with Altinn Studio
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/app/design/" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Plan and design your app
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Guidelines
                         </div>
                     </div>
                 </a>
@@ -154,53 +170,54 @@ if(host != "localhost")
                     </div>
                 </a>
             </li>
-            <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="/api/" class="a-list-rowLink">
-                    <div class="row">
-                        <div class="col">
-                            APIs
-                        </div>
-                    </div>
-                </a>
-            </li>
+            
         </ul>
     </div>
 </div><div class="col-12 col-lg-4 mb-5">
-    <a href="/community/" class="a-illustrationLink">
-        <h2 class="a-h3">Altinn is open source</h2>
-        <p class="a-js-truncate-2">Code, backlogs and documentation, everything we do is open source on GitHub.</p>
+    <a href="/api/" class="a-illustrationLink">
+        <h2 class="a-h3">Altinn 3 API</h2>
+        <p class="a-js-truncate-2">Description of the Altinn 3 APIs for end users and application owners.</p>
         <div class="a-illustration-icon">
-            <img src="/images/forsideillustrasjon_github.svg" style="background-color: white;">
+            <img src="/images/api.svg" style="background-color: white;">
             <div class="a-illustration-overlay">
-                <span class="sr-only">Altinn is open source</span>
+                <span class="sr-only"></span>
             </div>
         </div>
     </a>
     <div class="a-list-container mb-2 mx-auto mx-lg-2">
         <ul class="a-list a-list-noIcon">
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="/community/about/" class="a-list-rowLink">
+                <a href="/api/apps/" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
-                            About Altinn
+                            Application APIs
                         </div>
                     </div>
                 </a>
             </li>
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="/community/contributing/" class="a-list-rowLink">
+                <a href="/api/platform/" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
-                            Contributing
+                            Altinn Platform APIs
                         </div>
                     </div>
                 </a>
             </li>
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="https://github.com/Altinn/altinn-studio" target="_blank" class="a-list-rowLink">
+                <a href="/api/models/" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
-                            GitHub (code and backlog)
+                            Models
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/api/scenarios/" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Scenarios
                         </div>
                     </div>
                 </a>
@@ -209,22 +226,22 @@ if(host != "localhost")
     </div>
 </div><div class="col-12 col-lg-4 mb-5">
     <a href="/technology" class="a-illustrationLink">
-        <h2 class="a-h3">The architecture</h2>
+        <h2 class="a-h3">Technology</h2>
         <p class="a-js-truncate-2">Both Altinn itself, and your apps, are now running as micro services in Kubernetes.</p>
         <div class="a-illustration-icon">
-            <img src="/images/forsideillustrasjon_design.svg">
+            <img src="/images/forsideillustrasjon_utvikling.svg">
             <div class="a-illustration-overlay">
-                <span class="sr-only">The architecture</span>
+                <span class="sr-only">Technology</span>
             </div>
         </div>
     </a>
     <div class="a-list-container mb-2 mx-auto mx-lg-2">
         <ul class="a-list a-list-noIcon">
             <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="/technology/architecture/principles" class="a-list-rowLink">
+                <a href="/technology/architecture" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
-                            Principles
+                            Architecture
                         </div>
                     </div>
                 </a>
@@ -234,6 +251,15 @@ if(host != "localhost")
                     <div class="row">
                         <div class="col">
                             Solutions
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="/technology/terms" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            Terms
                         </div>
                     </div>
                 </a>
@@ -249,9 +275,19 @@ if(host != "localhost")
             </li>
         </ul>
     </div>
-</div>
+</div><div class="adocs-caseblock a-bgGreyLight">
+    <div class="row mx-sm-0 mt-3 mb-3">
+        <div class="col-12 col-md-5 p-0">
+            <img src="/images/community.svg" class="mx-4 mt-2" alt="Illustrasjon for Utviklingsguider">
+        </div>
+        <div class="col-12 col-md-7 pl-3 pl-md-5 pl-lg-0 pr-4 pr-lg-8">
+            <h2 class="a-fontSizeXL a-fontBold mb-1"> Building Altinn together</h2>
+            <p class="a-fontSizeS mb-4">Collaborate, share and learn. Everything we do is open source on GitHub, and we highly value your comments and contributions!</p>
 
-        
+            <a class="a-btn a-btn-border" href="/community/">Community</a>
+        </div>
+    </div>
+ </div></div>
 
       <div class="adocs-scrollcontainer d-none">
         <div class="row">
@@ -278,7 +314,7 @@ if(host != "localhost")
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-next" href="/app/" title="Creating apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-next" href="/app/" title="Create apps" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div></section>
         </div> 
