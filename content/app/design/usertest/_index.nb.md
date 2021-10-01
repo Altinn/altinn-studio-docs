@@ -2,6 +2,7 @@
 title: Brukertest
 description: Det er alltid lurt å brukerteste i flere faser av prosjektet. Gjennom brukertester måler du om det du lager treffer brukernes behov. Det er en god investering å gjøre dette tidlig i prosjektet, slik at du ikke bruker penger på å utvikle en løsning som ikke løser utfordringene.
 weight: 10
+toc: true
 ---
 
 Å brukerteste trenger ikke være veldig avansert, hverken med tanke på oppsett eller antall testpersoner. 

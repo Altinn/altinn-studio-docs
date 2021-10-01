@@ -1,7 +1,7 @@
 ---
 title: Community
 description: Building Altinn together, in the open.
-weight: 40
+weight: 30
 ---
 
 {{% panel %}}

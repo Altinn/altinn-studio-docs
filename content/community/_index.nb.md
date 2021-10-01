@@ -1,7 +1,7 @@
 ---
 title: Community
 description: Vi bygger Altinn i lag med mange andre, helt åpent.
-weight: 40
+weight: 30
 ---
 
 {{% panel %}}
