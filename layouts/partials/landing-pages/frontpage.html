@@ -29,7 +29,7 @@
       }
     </style>
   </head>
-  <body class="a-page" data-url="{{ .RelPermalink }}">
+  <body class="a-page a-bgWhite" data-url="{{ .RelPermalink }}">
     {{- partial "topbar.html" . -}}
 
     {{- if and (.IsHome) (.Params.jumbotron) -}}
@@ -38,13 +38,11 @@
     <div class="container pt-2 pt-md-3 pt-lg-5">
     <div class="row adocs-featuredBlocks">
         {{- partial "blocks/apps.html" . -}}
-        {{- partial "blocks/community.html" . -}}
+        {{- partial "blocks/api.html" . -}}
         {{- partial "blocks/architecture.html" . -}}
-        <!--{{- partial "blocks/design.html" . -}}
-        {{- partial "blocks/development.html" . -}}
-        {{- partial "blocks/writing.html" . -}} -->
+        {{- partial "dev-guides-link.html" . -}}
 
-        <!--{{- partial "dev-guides-link.html" . -}} -->
+      </div>
 
       <div class="adocs-scrollcontainer d-none">
         <div class="row">

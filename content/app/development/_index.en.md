@@ -1,8 +1,7 @@
 ---
-title: App development
-linktitle: Development
+title: Development
 description: How to create and edit apps in Altinn Studio.
-weight: 200
+weight: 40
 ---
 
 {{<children>}}

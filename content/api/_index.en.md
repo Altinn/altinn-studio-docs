@@ -1,5 +1,5 @@
 ---
-title: API
+title: Altinn 3 API
 linktitle: API
 description: Description of the Altinn 3 APIs for end users and application owners.
 toc: true

@@ -1,8 +1,8 @@
 ---
 title: Technology
-linktitle: Tech
 description: System documentation for Altinn Studio, Altinn Apps and Altinn Platform.
 jumbotron: true
+weight: 40
 aliases:
  - /altinn3/
  - /teknologi/altinnstudio/
