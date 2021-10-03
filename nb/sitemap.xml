@@ -1743,5 +1743,17 @@
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/app/development/logic/validation/"
                 />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/about/open-source/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/open-source/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/open-source/"
+                />
   </url>
 </urlset>

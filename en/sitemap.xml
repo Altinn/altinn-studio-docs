@@ -1986,6 +1986,18 @@
   </url><url>
     <loc>https://docs.altinn.studio/tags/nuget/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/community/about/open-source/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/about/open-source/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/about/open-source/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/nonsolutionspecific/operations/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/app/testing/local/apitests/org/</loc>
@@ -2439,7 +2451,5 @@
     <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/xacml/</loc>
-  </url><url>
-    <loc>https://docs.altinn.studio/community/about/open-source/</loc>
   </url>
 </urlset>
