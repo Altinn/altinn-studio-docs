@@ -4,6 +4,14 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.12.2 (2021-10-04) - Fixed design of readonly datepicker component
+Readonly datepicker component now follows design of other readonly components.
+Issue [#6253](https://github.com/Altinn/altinn-studio/issues/6253)
+
+## 3.12.1 (2021-09-30) - Dependency patching
+Patching of external dependencies for w39.
+Issue [#6873](https://github.com/Altinn/altinn-studio/issues/6873).
+
 ## 3.12.0 (2021-09-29) - Image component
 Added image component for easier adding of images to our apps.
 Issue [#379.](https://github.com/Altinn/altinn-studio/issues/379)
