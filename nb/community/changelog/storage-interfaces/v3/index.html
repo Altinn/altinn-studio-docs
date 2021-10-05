@@ -422,11 +422,12 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/nb/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/changelog/'>Endringslogg</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/changelog/storage-interfaces/'>Storage Interface</a> <span class='adocs-breadcrumb-divider'> / </span> v3</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">v3</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">v3</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer introdusert i v3 av Altinn.Platform.Storage.Interface.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#320-new-model-onentryconfig">3.2.0 New model OnEntryConfig</a></li>
-    <li><a href="#301-new-model-datavalues">3.0.1 New model DataValues</a></li>
+    <li><a href="#330-lagt-til-tags-på-modellen-dataelement">3.3.0 Lagt til Tags på modellen DataElement</a></li>
+    <li><a href="#320-innføring-av-ny-modell-onentryconfig">3.2.0 Innføring av ny modell OnEntryConfig</a></li>
+    <li><a href="#301-innføring-av-ny-modell-datavalues">3.0.1 Innføring av ny modell DataValues</a></li>
     <li><a href="#300-refactoring-and-model-applicationinstance-model-changes">3.0.0 Refactoring and model application/instance model changes</a></li>
   </ul>
 </nav>
@@ -434,20 +435,27 @@ if(host != "localhost")
 
 
 
-<h2 id="320-new-model-onentryconfig">3.2.0 New model OnEntryConfig</h2>
+<h2 id="330-lagt-til-tags-på-modellen-dataelement">3.3.0 Lagt til Tags på modellen DataElement</h2>
 <ul>
-<li>A new model class was added to support defining what should happen on entry on the application.</li>
+<li><code>DataElement</code> modellen har blitt utvidet med en ny egenskap for å holde på en liste med stikkord (tags).</li>
 </ul>
-<h2 id="301-new-model-datavalues">3.0.1 New model DataValues</h2>
+<h2 id="320-innføring-av-ny-modell-onentryconfig">3.2.0 Innføring av ny modell OnEntryConfig</h2>
 <ul>
-<li>A new model class was added to support updating data values on the instance.</li>
+<li>Innføring av en ny model, <code>OnEntryConfig</code> for å støtte definering av hva som skal skje når en bruker åpner opp en applikasjon. Modellen er lagt inn som en egenskap på <code>Application</code>.</li>
+</ul>
+<h2 id="301-innføring-av-ny-modell-datavalues">3.0.1 Innføring av ny modell DataValues</h2>
+<ul>
+<li>Modellen <code>DataValues</code> er innført til å representere input til API endepunkt for registrering av tekster fra skjema direkte på en Instance.</li>
 </ul>
 <h2 id="300-refactoring-and-model-applicationinstance-model-changes">3.0.0 Refactoring and model application/instance model changes</h2>
+<h3 id="endringer-som-krever-tilpassninger-i-app-kode-breaking-changes">Endringer som krever tilpassninger i app kode (breaking changes)</h3>
 <ul>
-<li>A small breaking change was introduced in version 3.<br>
-The PresentationField class was renamed to DataField to be a bit more generic as it&rsquo;s being used by the DataFields property on the Application model as well as the PresentationFields.
-All properties and the usage off the class remain the same.</li>
-<li>A new property was added to support data field definitions on the application model and a corresponding data values property on the instance model to hold the actual values.</li>
+<li>Modellen <code>PresentationField</code> har endret navn til <code>DataField</code>.<br>
+Dette gjøres slik at den kan benyttes i flere sammenhenger. Bruken av modellen er utvidet til å representere et element i egenskapen <code>DataFields</code> på <code>Application</code> i tillegg til at den fortsatt brukes for å representere elementer i egenskapen <code>PresentationFields</code>. Det er ingen andre endringer i modellen eller hvordan den blir brukt.</li>
+</ul>
+<h3 id="andre-endringer">Andre endringer</h3>
+<ul>
+<li><code>Application</code> modellen er utvidet med en ny egenskap kalt <code>DataFields</code> og <code>Instance</code> er utvidet med korresponderende egenskap kalt <code>DataValues</code> for å holde verdiene identifisert basert på <code>DataFields</code>.</li>
 </ul>
 
 

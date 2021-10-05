@@ -663,13 +663,14 @@ Properties    Name Description     id A globally unique id for the data element.
 
 
 	
-	   <article class="post community">
+	   <article class="post api">
     <header class="post-header">
-        <h2 class="post-title"><a href="/nb/community/changelog/storage-interfaces/v3/">v3</a></h2>
+        <h2 class="post-title"><a href="/nb/api/scenarios/authentication/">Autentisering</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>3.2.0 New model OnEntryConfig  A new model class was added to support defining what should happen on entry on the application.  3.0.1 New model DataValues  A new model class was added to support updating data values on the instance.  3.0.0 Refactoring and model application/instance model changes  A small breaking change was introduced in version 3.
-The PresentationField class was renamed to DataField to be a bit more generic as it&rsquo;s being used by the DataFields property on the Application model as well as the PresentationFields. <a class="read-more" href="/nb/community/changelog/storage-interfaces/v3/">&raquo;</a></p>
+        <p>Authentication for application owners Application owners should be authenticated with Maskinporten.
+API provisioning in Maskinporten API-provider To provide an API in maskinporten Altinn has to do two operations.
+ As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; }  As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/nb/api/scenarios/authentication/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -677,6 +678,8 @@ The PresentationField class was renamed to DataField to be a bit more generic as
 
         
           
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
             
@@ -691,12 +694,13 @@ The PresentationField class was renamed to DataField to be a bit more generic as
 	
 	   <article class="post api">
     <header class="post-header">
-        <h2 class="post-title"><a href="/nb/api/scenarios/authentication/">Autentisering</a></h2>
+        <h2 class="post-title"><a href="/nb/api/apps/data-elements/">Data-elementer</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Authentication for application owners Application owners should be authenticated with Maskinporten.
-API provisioning in Maskinporten API-provider To provide an API in maskinporten Altinn has to do two operations.
- As API-provider Altinn registres a scope in Maskinporten POST /scopes { &#34;prefix&#34;: &#34;altinn&#34;, &#34;subscope&#34;: &#34;instances/metadata.read&#34;, &#34;description&#34;: &#34;Clients can access metadata for all instances for all apps of the organisation&#34; }  As API-provider Altinn has to give access to its scope for a given organisation PUT /scopes/access/889640782? <a class="read-more" href="/nb/api/scenarios/authentication/">&raquo;</a></p>
+        <p>Overview A data element consist of two parts: its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.
+basePath
+{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data Get data Endpoint for downloading the data blob.
+GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. <a class="read-more" href="/nb/api/apps/data-elements/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

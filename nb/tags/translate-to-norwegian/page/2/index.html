@@ -446,36 +446,6 @@ if(host != "localhost")
 	
 	   <article class="post api">
     <header class="post-header">
-        <h2 class="post-title"><a href="/nb/api/apps/data-elements/">Data-elementer</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Overview A data element consist of two parts: its metadata document and the actual data blob. This API work primarily with the blob while keeping the metadata document updated.
-basePath
-{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data Get data Endpoint for downloading the data blob.
-GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. <a class="read-more" href="/nb/api/apps/data-elements/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post api">
-    <header class="post-header">
         <h2 class="post-title"><a href="/nb/api/platform/events/">Events (hendelser)</a></h2>
     </header>
     <section class="post-excerpt">
@@ -711,6 +681,35 @@ Updating to this version will require changes in multiple files.
  Updated package dependencies
 Navigate to you application repository and find App.csproj in the App folder.
 Update nuget dependencies in App.csproj to version 3.0.0. &lt;PackageReference Include=&#34;Altinn.App.Api&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn.App.Common&#34; Version=&#34;3.0.0&#34; /&gt; &lt;PackageReference Include=&#34;Altinn. <a class="read-more" href="/nb/community/changelog/app-nuget/v3/breaking-changes/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post community">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/breaking-changes/">Breaking changes</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Altinn.App.* librarires target .Net 5 now, which requires that the application does the same.
+In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with two method calls.
+Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.
+  Update target framework and package dependencies
+Navigate to you application repository and find App.csproj in the App folder. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/breaking-changes/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
