@@ -5,6 +5,12 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.15.2 (2021-09-27) - Nytt endepunkt for å hente ut aktive instanser'
+Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver.
+Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/{instanceOwnerPartyId}/active.
+
+Denne endringen tilhører issue [6767](https://github.com/Altinn/altinn-studio/issues/6767).
+
 ## 4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed
 
 There was a bug causing a 500 response when an request is made towards Get/Instances for a
