@@ -44,7 +44,7 @@ Altinn 3 har standardiserte API-er som tjenesteeier kan bruke for å hente og la
 For å benytte API-ene som tjenesteeier må man autentisere seg med Maskinporten.
 
 ### Forvaltning av apper
-Det er lagt opp til [tilgang til overvåking av egne applikasjoner](/apps/getting-started/access-management/apps/), slik at man kan ha oversikt over hvordan appene fungerer. Se også [sidene om vedlikehold av apps](/app/maintainance/).
+Det er lagt opp til [tilgang til overvåking av egne applikasjoner](/app/getting-started/access-management/apps/), slik at man kan ha oversikt over hvordan appene fungerer. Se også [sidene om vedlikehold av apps](/app/maintainance/).
 
 ## Kommende funksjonalitet
 
