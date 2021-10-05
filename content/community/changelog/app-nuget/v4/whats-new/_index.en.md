@@ -4,7 +4,7 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
-## 4.15.1 (2021-09-27) - New endpoint for retrieving active instances
+## 4.15.2 (2021-09-27) - New endpoint for retrieving active instances
 Altinn Apps now expose a new endpoint for retriveing active instances for a given instance owner. 
 The new endpoint can be reached at {org}.apps.altinn.no/{org}/{app}/{instanceOwnerPartyId}/active.
 
