@@ -27,10 +27,10 @@ GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
 
 ## Get active instances
 
-Endpoint for listing active instances for an instance owner.
+Endepunkt for å liste aktive instanser for en avgiver.
 
-This endpoint can be used to determine if a new instance of an app should be created or if continuation on an existing instance would be more feasible.
-Note that the object returned is a simplified instance object and that `LastChangedBy` contains the name of the latest active entity rather than an id number.
+Dette endepunktet kan benyttes for å avgjøre om en ny instans av en app skal opprettes eller om det er mer hensiktsmessig å fortsette utfylling av en eksisterende instans.
+Merk at objektet som returneres er en liste med forenklede instansobjekt og at `LastChangedBy` inneholder navnet på den sist aktive entiteten i stedet for id.
 
 ```json
 [
