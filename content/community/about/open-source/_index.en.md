@@ -30,7 +30,7 @@ But to be clear, reuse is something we in Altinn consider a central motivation.
 
 And we're not alone thinking like this; the UK government action plan
 [Open Source, Open Standards and Re­Use](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/61962/open_source.pdf)
-describes reuse as both a policy and a principle.
+(PDF) describes reuse as both a policy and a principle.
 
 We facilitate reuse and sharing at all levels of the architecture, from [our principles](/principles)
 to the entire platform and infrastructure, down to design and GUI-components, code and configuration.
