@@ -56,7 +56,7 @@ Currently these microservices are part of Platform: Authorization, Authenticatio
 
 Altinn Platform is running in its own Kubernetes cluster.
 
-See Altinn Platform [solution architecture](https://docs.altinn.studio/architecture/solution/altinn-platform/), [application architecture](https://docs.altinn.studio/architecture/application/altinn-platform/)
+See Altinn Platform [solution architecture](../solutions/altinn-platform/), [application architecture](../architecture/components/application/solution/altinn-platform/)
 and [deployment architecture]
 
 ## Altinn environment

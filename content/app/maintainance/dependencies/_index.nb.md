@@ -10,7 +10,7 @@ Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og 
 
 Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk _versjon_.
 Når ressursene oppdateres, publiseres de på nytt som en ny _versjon_. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer.
-For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressutsene appen henter. 
+For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressursene appen henter. 
 
 ## Nuget
 _Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene._
@@ -66,7 +66,7 @@ App'en refererer som standard til en _major_ versjon av app frontend, f.eks. ver
 Med mindre det kommer en ny _major_ versjon vil alle oppdateringer med ny _minor_ eller _patch_ versjoner komme med automatisk.
 Om det kommer en ny _major_ versjon må man eksplisitt oppdatere appen til å referere til denne.
 
-Dersom man ønsker å refere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url'en som peker på app frontend.
+Dersom man ønsker å referere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url'en som peker på app frontend.
 
 ### Oppgradere til nyeste versjon / spesifisere versjon
 Referansen til app frontend ligger i `App/views/Home/Index.cshtml`.
@@ -87,3 +87,36 @@ Det er 2 referanser som må oppdateres:
 Søk etter filnavnet (`altinn-app-frontend.js` eller `altinn-app-frontend.css`) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).
 
 _Husk:_ Dersom man setter kun _major versjon_ (f.eks. 2), så vil alle oppdateringer innenfor denne major versjoner (bugfix, ny funksjonalitet som ikke er breaking) komme med automatisk. Dersom man setter en _spesifikk versjon_ (f.eks. 2.0.0) så vil appen hente akkurat denne versjonen, helt til referansen evt. oppdateres til å bruke en annen versjon.
+
+## Deployment
+
+Deployment utføres ved hjelp av helm charts. Standard deployment oppsett for apps hentes fra altinn-studio sitt helm repository.
+
+Er du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden [her](/nb/community/changelog/deployment/migration)
+
+For å finne siste versjon av helm-charten kan du enten sjekke releases av charten deployment [her](https://github.com/Altinn/altinn-studio-charts/releases)
+eller legge inn [helm](https://helm.sh/) repoet lokalt og søke i dette på følgende måte:
+
+```shell
+# Legg til helm altinn-studio helm repo
+helm repo add altinn-studio https://charts.altinn.studio
+
+# Søk for versjoner av altinn-studio/deployment charten
+helm search repo -l altinn-studio/deployment
+```
+
+Hvis det er ny versjon av helm charten sjekk [changelog](/nb/community/changelog/deployment/) for å se hva som er oppdatert i versjonen.
+
+For å ta i bruk en ny versjon oppdater versjon under dependencies i `deployment/Chart.yaml`
+
+```yaml {hl_lines=[9]}
+apiVersion: v1
+description: A Helm chart for Kubernetes
+name: deployment
+version: 1.1.0
+
+dependencies:
+- name: deployment
+  repository: https://charts.altinn.studio/
+  version: 1.1.0                                <--- Oppdater her
+```

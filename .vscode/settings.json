@@ -2,6 +2,8 @@
 {
     "[markdown]": {
         "editor.wordWrap": "off",
-	"files.trimTrailingWhitespace": false
+        "editor.renderWhitespace": "trailing",
+        "editor.rulers": [ 120 ],
+	    "files.trimTrailingWhitespace": false
     }
 }

@@ -5,6 +5,30 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.12.2 (2021-10-04) - Fiks for design av readonly datovelger
+Readonly datovelger nå har samme design som andre readonly komponenter.
+Issue [#6253](https://github.com/Altinn/altinn-studio/issues/6253)
+
+## 3.12.1 (2021-09-30) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for u39.
+Issue [#6873](https://github.com/Altinn/altinn-studio/issues/6873).
+
+## 3.12.0 (2021-09-29) - Bildekomponent
+La til bildekomponent for enklere å kunne legge til bilder i applikasjonen.
+Issue [#379.](https://github.com/Altinn/altinn-studio/issues/379)
+
+## 3.11.9 (2021-09-29) - Støtte for JSON Schema 2020-12 i app frontend
+Fikset bug hvor JSON Schema 2020-12 ikke var støttet i app frontend.
+Tilhørende issues: [#6703](https://github.com/Altinn/altinn-studio/issues/6703) [#6812.](https://github.com/Altinn/altinn-studio/issues/6812)
+
+## 3.11.8 (2021-09-27) - Lagt til mellomrom mellom valgfri tekst og titteltekst
+Lagt til mellomrom mellom valgfri tekst og titteltekst i radioknapp, avkrysningsboks og adresse komponenter.
+Issue [#6893](https://github.com/Altinn/altinn-studio/issues/6893).
+
+## 3.11.7 (2021-09-24) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for u38.
+Issue [#6873](https://github.com/Altinn/altinn-studio/issues/6873).
+
 ## 3.11.6 (20201-09-21) - Fokus indikator for input-felt
 Fikset bug hvor fokus indikator ikke var synlig for input-felter.
 Issue [#6801.](https://github.com/Altinn/altinn-studio/issues/6801)

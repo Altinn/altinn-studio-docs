@@ -3,7 +3,7 @@
         <h2 class="a-h3">{{T "create-your-first-app"}}</h2>
         <p class="a-js-truncate-2">{{T "create-your-first-app-description"}}</p>
         <div class="a-illustration-icon">
-            <img src="/images/forsideillustrasjon_utvikling.svg">
+            <img src="/images/forsideillustrasjon_skrive.svg">
             <div class="a-illustration-overlay">
                 <span class="sr-only">{{T "create-your-first-app"}}</span>
             </div>
@@ -21,6 +21,24 @@
                 </a>
             </li>
             <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="{{ with .Site.GetPage `/app/design`}}{{.URL}}{{end}}" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            {{T "design"}}
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="{{ with .Site.GetPage `/app/guidelines`}}{{.URL}}{{end}}" class="a-list-rowLink">
+                    <div class="row">
+                        <div class="col">
+                            {{T "guidelines"}}
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li class="a-dotted a-clickable a-list-hasRowLink">
                 <a href="{{ with .Site.GetPage `/app/development`}}{{.URL}}{{end}}" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
@@ -29,15 +47,15 @@
                     </div>
                 </a>
             </li>
-            <li class="a-dotted a-clickable a-list-hasRowLink">
-                <a href="{{ with .Site.GetPage `/api`}}{{.URL}}{{end}}" class="a-list-rowLink">
+            <!-- <li class="a-dotted a-clickable a-list-hasRowLink">
+                <a href="{{ with .Site.GetPage `/app/testing`}}{{.URL}}{{end}}" class="a-list-rowLink">
                     <div class="row">
                         <div class="col">
-                            {{T "apis"}}
+                            {{T "testing"}}
                         </div>
                     </div>
                 </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </div>

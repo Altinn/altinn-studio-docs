@@ -4,6 +4,30 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.12.2 (2021-10-04) - Fixed design of readonly datepicker component
+Readonly datepicker component now follows design of other readonly components.
+Issue [#6253](https://github.com/Altinn/altinn-studio/issues/6253)
+
+## 3.12.1 (2021-09-30) - Dependency patching
+Patching of external dependencies for w39.
+Issue [#6873](https://github.com/Altinn/altinn-studio/issues/6873).
+
+## 3.12.0 (2021-09-29) - Image component
+Added image component for easier adding of images to our apps.
+Issue [#379.](https://github.com/Altinn/altinn-studio/issues/379)
+
+## 3.11.9 (2021-09-29) - Support for JSON Schema 2020-12 in app frontend
+Fixed bug where JSON Schema 2020-12 not was supported in app frontend.
+Connected issues: [#6703](https://github.com/Altinn/altinn-studio/issues/6703) [#6812.](https://github.com/Altinn/altinn-studio/issues/6812)
+
+## 3.11.8 (2021-09-27) - Added white space between optional label and title text
+Added white space between optional label and title text in radiobutton, checkbox and address component.
+Issue [#6893](https://github.com/Altinn/altinn-studio/issues/6893).
+
+## 3.11.7 (2021-09-24) - Dependency patching
+Patching of external dependencies for w38.
+Issue [#6873](https://github.com/Altinn/altinn-studio/issues/6873).
+
 ## 3.11.6 (20201-09-21) - Focus indicator input field
 Fixed bug for missing focus indicator on input field.
 Issue [#6801.](https://github.com/Altinn/altinn-studio/issues/6801)

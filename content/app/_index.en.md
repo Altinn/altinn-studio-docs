@@ -1,6 +1,6 @@
 ---
-title: Creating apps
-linktitle: Apps
+title: Create apps
+linktitle: Create apps
 description: Altinn Studio is our new tool for developing digital services aka apps. These can be anything from simple forms to very advanced applications.
 weight: 10
 ---
