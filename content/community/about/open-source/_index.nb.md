@@ -28,10 +28,14 @@ Vi applauderer når NAV skriver dette:
 
 Gjenbruk er derimot noe vi i Altinn anser som en helt sentral motivasjon.
 
+Og vi er ikke alene om å tenke på denne måten, f.eks. gov.uk planen
+[Open Source, Open Standards and Re­Use](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/61962/open_source.pdf)
+(PDF) beskriver gjenbruk som både en policy og et prinsipp.
+
 Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen, fra [våre prinsipper](/principles)
 til hele plattformen og infrastrukturen, ned til design og GUI-komponenter, kode og konfigurasjon.
 
-Og vi oppfordrer også alle de som utvikler på toppen av Altinn til å [dele sine apps](../../../app/launched-apps/).
+Vi oppfordrer også alle de som utvikler på toppen av Altinn til å [dele sine apps](../../../app/launched-apps/).
 
 Dette er også en av flere grunner til at Altinn nå er et [digitalt fellesgode (DPG)](https://digitalpublicgoods.net/),
 der målsettingen er å kunne gjenbruke det vi utvikler ikke bare på nasjonalt nivå, men også globalt.
