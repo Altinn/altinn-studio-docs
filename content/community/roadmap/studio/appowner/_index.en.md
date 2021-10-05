@@ -3,83 +3,88 @@ title: App owner functionality in Altinn 3
 linktitle: App owner
 description: This is the functionality available for app owners in Altinn 3, and some of the larger planned changes.
 toc: true
-tags: [translate-to-english]
 ---
-## Lansert funksjonalitet
+## Launched functionality
 
 {{% panel %}}
-For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se brukerdokumentasjonen for [Altinn Studio](/app/) og [API](/api/).
+For information on **How to use** the functionalities described here, see the [Altinn Studio](/app/) and [API](/api/) user documentation.
 {{% /panel %}}
 
-### Tjenesteutvikling i GUI
+### GUI based app development
 
-I [brukergrensesnittet til Altinn Studio](https://altinn.studio) kan du gjøre følgende:
+In [the Altinn Studio GUI](https://altinn.studio) you can do the following:
 
-- Opprette (og finne igjen) en app
-- Laste opp datamodell
-- Legge inn tekster
-- Lage et enkelt skjema (en eller flere sider), med kobling mellom elementer, tekster og datamodell
-- Legge inn dynamikkregler (NB! Kodes i JavaScript)
-- Deploye app til test- og produksjonsmiljø
+- Create (and retrieve) an app
+- Upload a data model
+- Add and edit texts
+- Create a simple form (one or more pages), which links elements, texts and data model
+- Add and edit rules for dynamics (Note! Coded as JavaScript)
+- Deploy app to test and production environments
 
-### Tjenesteutvikling via kode
+### Code based app development
 
-Ved å hente ned applikasjonskoden (via Git) lokalt (eller ved å redigere på app-filene i repository-visning) kan du gjøre alle mulige endringer av appen. Dette inkluderer blant annet standardfunksjonalitet for å:
+By downloading the app code (through Git) locally (or by editing the app files in the repository view) you can do a wide variety of changes to the app.
+This includes standard functionality for:
 
-- Lage kalkulerings- og valideringsregler
-- Koble på forhåndsutfylling
-- Legge inn API-oppslag
-- Redigere på prosessen/arbeidsflyten i appen
-- Redigere på autorisasjonsreglene for appen, samt lage egendefinert instansieringslogikk
-- Lage egendefinerte hendelser/events
+- Making rules for validation and calculation
+- Add prefill
+- Add lookup to external APIs
+- Edit the process/workflow of the app
+- Edit the authorisation rules for the app, and make custom logic for instantiating
+- Make custom events
 
-### Teste lokalt
+### Test locally
 
-Når du har applikasjonskoden lokalt, kan du også benytte deg av muligheten til å ha [et lokalt testmiljø for å gjøre de fleste typer testing](/app/testing/local/). 
+Once you have your app code locally, you can also take advantage of [a local test enviroment for most types of app testing](/app/testing/local/). 
 
-### Integrasjon med tjenesteeier
+### Integration with app owner
 
-Altinn 3 har standardiserte API-er som tjenesteeier kan bruke for å hente og laste opp data. For nedlasting bygger Altinn 3 på at tjenesteeier gjør spørringer og laster ned data (pull). I tillegg kan tjenesteeier benytte app-enes API-er for å instansiere eller gjøre endringer på instanser.
+Altinn 3 has standardised APIs that the app owner can use to upload and download data.
+For downloading Altinn 3 relies on the app owner polling for information and downloading data (pull). 
+In addition app owner can use the app APIs to instantiate or change the data and/or status for instances.
 
-For å benytte API-ene som tjenesteeier må man autentisere seg med Maskinporten.
+You can reduce the amount of polling by using push events - where app owner can be notified when there is data available for download (Q2 2021) ([#4728](https://github.com/Altinn/altinn-studio/issues/4728)) :heavy_check_mark:
 
-### Forvaltning av apper
-Det er lagt opp til [tilgang til overvåking av egne applikasjoner](/app/getting-started/access-management/apps/), slik at man kan ha oversikt over hvordan appene fungerer. Se også [sidene om vedlikehold av apps](/app/maintainance/).
+To use the APIs as an app owner, you need to authenticate using Maskinporten.
 
-## Kommende funksjonalitet
+### Maintaining apps
+App owners get [access to monitoring their apps](/app/getting-started/access-management/apps/), so they can keep track of how they are functioning. 
+See also [the pages about app maintenance](/app/maintainance/).
 
-Altinn 3 er i stadig videreutvikling, og funksjonalitet lanseres løpende. Backlogg revideres åtte ganger i året, og mindre endringer kan også forekomme mellom revisjonene.
-Generelt kan man si at jo lenger frem i tid leveranse er planlagt jo mer usikkert er angitt leveransetidspunkt.
+- Let developers easily copy an old app into a new one (Q3 2021) ([#5923](https://github.com/Altinn/altinn-studio/issues/5923)) :heavy_check_mark:
 
-Endringer beskrevet i _kursiv_ er å regne som på idéstadiet, og er ikke besluttet at skal utvikles.
+## Upcoming functionality
 
-### Tjenesteutvikling i GUI
+Altinn 3 is in constant development, and functionality is released continuously. The backlog is revised eight times a year, and minor changes may occur between these revisions.
+In general, the further into the future a functionality is planned, the less certain the time frame is for said functionality.
 
-For all kommende funksjonalitet gjør vi vurderinger av om det er egnet å løse det i GUI. På et senere tidspunkt (2023 eller senere) vil vi gjøre et løft for at mer funksjonalitet skal være tilgjengelig via GUI.
+Changes described in _italic_ are regarded as ideas, and if they are to be developed has not yet been decided.
 
-- Støtte for branching i Altinn Studio (Q2 2021) ([#985](https://github.com/Altinn/altinn-studio/issues/985))
+### GUI based app development
 
-### Datamodellering
+For all upcoming functionality, we assess if it's suitable for solving i the GUI. At some point (2023 or later) we will intensify the effort to make more functionality available through GUI.
 
-Den avhengigheten vi i dag har til at datamodellering skal gjøres i et eksternt system vil forsvinne. Noen høydepunkter i planene for datamodellering i Altinn 3 er:
+- Support branching in Altinn Studio (Q4 2021) ([#985](https://github.com/Altinn/altinn-studio/issues/985))
 
-- Å kunne jobbe med en datamodell i et GUI (Q2 2021) ([#5551](https://github.com/Altinn/altinn-studio/issues/5551))
-- Integrasjoner med Felles datakatalog (Q3 2021) ([#3811](https://github.com/Altinn/altinn-studio/issues/3811))
-- _Å kunne få automatisk generert datamodell fra det man bygger av brukergrensesnitt_
-- _Å kunne få automatisk generert forslag til brukergrensesnitt ut fra datamodellen_
+### Data modelling
 
-### Forvaltning av tjenester
+The dependency on data modelling having to be done in an external tool will be removed. Some highlights from the plans for data modelling in Altinn 3 is:
 
-Vi ønsker å gjøre tjenesteeiere i stand til å selv forvalte sine applikasjoner i Altinn 3. For å få til dette kommer blant annet:
+- To work with a data modeli in a GUI (Q4 2021) ([#5551](https://github.com/Altinn/altinn-studio/issues/5551))
+- Integrations with Felles datakatalog (Q1 2022) ([#3811](https://github.com/Altinn/altinn-studio/issues/3811))
+- _To get an auto-generated data model from the app GUI you build_
+- _To get an auto-generated draft for an app GUI from the data model_
 
-- Mulighet for å avpublisere en applikasjon (Q2 2021) ([#3717](https://github.com/Altinn/altinn-studio/issues/3717))
-- Mulighet for å lage en ny app som kopi av en tidligere (Q2 2021) ([#5923](https://github.com/Altinn/altinn-studio/issues/5923))
-- _Webanalyse for applikasjonene_
+### Maintaining apps
 
-### Integrasjon med tjenesteeier
+We wish to make app owners able to maintain their apps themselves in Altinn 3. To achieve this we will (among other things):
 
-Pull av data vil fortsatt være grunnmønsteret for at tjenesteeier får tilgang til data, men det kommer et par unntak:
+- Make it possible to decomission an app (Q4 2021) ([#3717](https://github.com/Altinn/altinn-studio/issues/3717))
+- _Add a Web analysis tool for the apps_
 
-- Mulighet for å bruke [eFormidling](https://samarbeid.digdir.no/eformidling/eformidling/20) som grensesnitt for å få data direkte fra en Altinn 3-app til tjenesteeiers systemer (Q2 2021) ([#4788](https://github.com/Altinn/altinn-studio/issues/4788))
-- Push av events - at tjenesteeier varsles når det er data til nedlasting (Q2 2021) ([#4728](https://github.com/Altinn/altinn-studio/issues/4728))
-- Splitt av data - flere tjenesteeiere kan motta data fra samme tjeneste (2022) ([#4274](https://github.com/Altinn/altinn-studio/issues/4274))
+### Integration with app owner
+
+Pull of data will stay as the main pattern for downloading data as an app owner, but a few exceptions will come:
+
+- Possibility to use [eFormidling](https://samarbeid.digdir.no/eformidling/eformidling/20) as an interface to get data sent from Altinn to app owner (Q4 2021) ([#4788](https://github.com/Altinn/altinn-studio/issues/4788))
+- Split of data - multiple app owners can receive data from the same app (Q3 2022) ([#4274](https://github.com/Altinn/altinn-studio/issues/4274))
