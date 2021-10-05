@@ -1404,7 +1404,7 @@
 	"title": "API expose",
 	"tags": ["api"],
 	"description": "Apps created in Altinn Studio can be exposed as API together with UI, or only as API without any UI.",
-	"content": "Each app will have its unique set of APIs. Compared to current API it makes it possible to create APIs that have documentation that is target for the specific app.\nFor more details, see https://docs.altinn.studio/altinn-api.\nSee all issues for API-Expose on Github\n"
+	"content": "Each app will have its unique set of APIs. Compared to current API it makes it possible to create APIs that have documentation that is target for the specific app.\nFor more details, see altinn api.\nSee all issues for API-Expose on Github\n"
 },
 {
 	"uri": "https://docs.altinn.studio/app/testing/local/apitests/",
