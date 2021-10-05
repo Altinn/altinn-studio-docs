@@ -1,15 +1,15 @@
 ---
 title: Migration to versioned charts
 linktitle: Migration
-description: Migrating from helm template files to versioned helm dependency 
-weight: 100
+description: Migrating from helm template files to versioned helm dependency.
+toc: true
 ---
 
 To ease the upgrade process of deployment charts we have moved the files that earlier where located under the folder `deployment/templates` to a centraly managed helm chart and pull those files in at deploy time using helm dependencies.
 
 This give us the ailiti to publish updates to the helm chart in one place and version them. Service owners then only need to update the version of their helm dependency.
 
-## Determin if your app is using the old deployment strategy
+## Determine if your app is using the old deployment strategy
 Open your app in gitea or pull the latest version to your computer using git.
 
 If the deployment folder of your app is similar to this:

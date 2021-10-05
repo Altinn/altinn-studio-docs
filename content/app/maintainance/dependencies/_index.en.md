@@ -110,7 +110,7 @@ If there is a new version of the helm chart check the [changelog](/community/cha
 
 To update to the new version update the dependency reference in `deployment/Chart.yaml`
 
-```yaml
+```yaml {hl_lines=[9]}
 apiVersion: v1
 description: A Helm chart for Kubernetes
 name: deployment

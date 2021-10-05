@@ -109,7 +109,7 @@ Hvis det er ny versjon av helm charten sjekk [changelog](/nb/community/changelog
 
 For å ta i bruk en ny versjon oppdater versjon under dependencies i `deployment/Chart.yaml`
 
-```yaml
+```yaml {hl_lines=[9]}
 apiVersion: v1
 description: A Helm chart for Kubernetes
 name: deployment

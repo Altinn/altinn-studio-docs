@@ -1,8 +1,8 @@
 ---
 title: Migrering til versjonerte charts
 linktitle: Migrering
-description: Migrering fra helm template filer til versjonert helm dependency
-weight: 100
+description: Migrering fra helm template filer til versjonert helm dependency.
+toc: true
 ---
 For å forenkle oppraderings prosessen av deployment charts har vi flyttet template filene ut et sentralt repository på github. Fra her publiseres helm charts som igjen draes inn i apps repoene som avhengigheter.
 
