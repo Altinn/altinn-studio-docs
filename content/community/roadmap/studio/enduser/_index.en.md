@@ -9,7 +9,7 @@ tags: [translate-to-english]
 ## Lansert funksjonalitet
 
 {{% panel %}}
-For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se [brukerdokumentasjonen for Altinn Studio](/docs/altinn-studio/).
+For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se [brukerdokumentasjonen for Altinn Studio](/app/).
 {{% /panel %}}
 ### Skjemafunksjonalitet
 
