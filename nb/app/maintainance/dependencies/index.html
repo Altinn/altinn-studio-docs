@@ -381,6 +381,16 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li></ul></li>
       <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/migration/"><span>Migrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/whats-new/"><span>Hva er nytt</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
         <a href="/nb/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
@@ -417,6 +427,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#nuget">Nuget</a></li>
     <li><a href="#app-frontend">App frontend</a></li>
+    <li><a href="#deployment">Deployment</a></li>
   </ul>
 </nav>
 
@@ -427,7 +438,7 @@ if(host != "localhost")
 Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og referanse til appen sin frontend.</p>
 <p>Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk <em>versjon</em>.
 Når ressursene oppdateres, publiseres de på nytt som en ny <em>versjon</em>. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer.
-For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressutsene appen henter.</p>
+For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressursene appen henter.</p>
 <h2 id="nuget">Nuget</h2>
 <p><em>Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene.</em></p>
 <p>Appen bruker flere støttebiblioteker, som oppdateres fortløpende med forbedringer og ny funksjonalitet. En app refererer til konkrete versjoner av de forskjellige
@@ -480,7 +491,7 @@ PATCH version when you make backwards compatible bug fixes.</p>
 <p>App&rsquo;en refererer som standard til en <em>major</em> versjon av app frontend, f.eks. versjon 1.x.y.
 Med mindre det kommer en ny <em>major</em> versjon vil alle oppdateringer med ny <em>minor</em> eller <em>patch</em> versjoner komme med automatisk.
 Om det kommer en ny <em>major</em> versjon må man eksplisitt oppdatere appen til å referere til denne.</p>
-<p>Dersom man ønsker å refere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url&rsquo;en som peker på app frontend.</p>
+<p>Dersom man ønsker å referere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url&rsquo;en som peker på app frontend.</p>
 <h3 id="oppgradere-til-nyeste-versjon--spesifisere-versjon">Oppgradere til nyeste versjon / spesifisere versjon</h3>
 <p>Referansen til app frontend ligger i <code>App/views/Home/Index.cshtml</code>.</p>
 <p>Det er 2 referanser som må oppdateres:</p>
@@ -494,7 +505,28 @@ Om det kommer en ny <em>major</em> versjon må man eksplisitt oppdatere appen ti
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.css&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
 </code></pre></div><p>Søk etter filnavnet (<code>altinn-app-frontend.js</code> eller <code>altinn-app-frontend.css</code>) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).</p>
 <p><em>Husk:</em> Dersom man setter kun <em>major versjon</em> (f.eks. 2), så vil alle oppdateringer innenfor denne major versjoner (bugfix, ny funksjonalitet som ikke er breaking) komme med automatisk. Dersom man setter en <em>spesifikk versjon</em> (f.eks. 2.0.0) så vil appen hente akkurat denne versjonen, helt til referansen evt. oppdateres til å bruke en annen versjon.</p>
+<h2 id="deployment">Deployment</h2>
+<p>Deployment utføres ved hjelp av helm charts. Standard deployment oppsett for apps hentes fra altinn-studio sitt helm repository.</p>
+<p>Er du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden <a href="/nb/community/changelog/deployment/migration">her</a></p>
+<p>For å finne siste versjon av helm-charten kan du enten sjekke releases av charten deployment <a href="https://github.com/Altinn/altinn-studio-charts/releases">her</a>
+eller legge inn <a href="https://helm.sh/">helm</a> repoet lokalt og søke i dette på følgende måte:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#6272a4"># Legg til helm altinn-studio helm repo</span>
+helm repo add altinn-studio https://charts.altinn.studio
 
+<span style="color:#6272a4"># Søk for versjoner av altinn-studio/deployment charten</span>
+helm search repo -l altinn-studio/deployment
+</code></pre></div><p>Hvis det er ny versjon av helm charten sjekk <a href="/nb/community/changelog/deployment/">changelog</a> for å se hva som er oppdatert i versjonen.</p>
+<p>For å ta i bruk en ny versjon oppdater versjon under dependencies i <code>deployment/Chart.yaml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
+<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+<span style="color:#ff79c6">name</span>: deployment
+<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+
+<span style="color:#ff79c6">dependencies</span>:
+- <span style="color:#ff79c6">name</span>: deployment
+  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>                                &lt;--- Oppdater her
+</span></code></pre></div>
 
 <footer class=" footline" >
 	

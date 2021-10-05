@@ -379,6 +379,16 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
       <li class="dd-item">
+        <a href="/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/migration/"><span>Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
         <a href="/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
@@ -1191,11 +1201,11 @@ Delegering av API-tilganger til leverandør Som en bruker som er nøkkelrolleinn
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/maintainance/dependencies/">Update dependencies in app</a></h2>
+        <h2 class="post-title"><a href="/app/development/logic/dynamic/">Dynamics</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Appen er avhengig av flere ressurser som ligger utenfor selve appen. Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og referanse til appen sin frontend.
-Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk versjon. Når ressursene oppdateres, publiseres de på nytt som en ny versjon. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer. For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressutsene appen henter. <a class="read-more" href="/app/maintainance/dependencies/">&raquo;</a></p>
+        <p>Introduksjon Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kategorier:
+ Beregning - kjøre beregninger på klient-side, og oppdatere felter med ny verdi Vis/skjul felter - bestemme om felter skal vises eller skjules basert på verdier i skjema.  All dynamikk skrives som funksjoner i javascript, i filen RuleHandler.js. Denne filen finner man under App/ui-mappen i appen, og kan også redigeres direkte i Lage- visningen i Altinn Studio, ved å velge Rediger dynamikk i høyre-menyen. <a class="read-more" href="/app/development/logic/dynamic/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1217,11 +1227,12 @@ Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhen
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/dynamic/">Dynamics</a></h2>
+        <h2 class="post-title"><a href="/app/development/api/expose/">Exposing APIs from an app</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Introduksjon Dynamikk er hendelser som skjer på klient-siden. Disse kan deles opp i to kategorier:
- Beregning - kjøre beregninger på klient-side, og oppdatere felter med ny verdi Vis/skjul felter - bestemme om felter skal vises eller skjules basert på verdier i skjema.  All dynamikk skrives som funksjoner i javascript, i filen RuleHandler.js. Denne filen finner man under App/ui-mappen i appen, og kan også redigeres direkte i Lage- visningen i Altinn Studio, ved å velge Rediger dynamikk i høyre-menyen. <a class="read-more" href="/app/development/logic/dynamic/">&raquo;</a></p>
+        <p>The applications that are developed in Altinn Studio are based on ASP.NET Core for back-end. This provides high flexible to change and modify the applications.
+Legge til API kontroller For å kunne eksponere et nytt API i applikasjonen må det legges til en eller flere API kontrollere.
+Nedenfor vises et eksempel fra en API controller som er lagt til i en gitt app. Her settes det opp hvilken path API skal lytte på og logikken. <a class="read-more" href="/app/development/api/expose/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

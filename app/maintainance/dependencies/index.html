@@ -387,6 +387,16 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
       <li class="dd-item">
+        <a href="/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/migration/"><span>Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/community/changelog/deployment/v1/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
         <a href="/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
@@ -952,41 +962,43 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/maintainance/'>Maintenance</a> <span class='adocs-breadcrumb-divider'> / </span> Dependencies</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Update dependencies in app</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Update dependencies in app</h1>
               <p class="a-leadText" id="leadText">How to update dependencies in an app.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
     <li><a href="#nuget">Nuget</a></li>
     <li><a href="#app-frontend">App frontend</a></li>
+    <li><a href="#deployment">Deployment</a></li>
   </ul>
 </nav>
 
 
 
 
-<p>Appen er avhengig av flere ressurser som ligger utenfor selve appen.
-Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og referanse til appen sin frontend.</p>
-<p>Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk <em>versjon</em>.
-Når ressursene oppdateres, publiseres de på nytt som en ny <em>versjon</em>. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer.
-For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressutsene appen henter.</p>
+<p>The app is dependent on multiple external dependencies.
+This includes larger libraries with common functionality for all apps and reference to the apps frontend.</p>
+<p>These dependencies are defined in different places in the app, and each dependency is references by a specific <em>version</em>.
+When fixes and improvements are made to the dependencies a new <em>version</em> will be published.
+To use the updated dependencies, you need to update the version use in your app.</p>
 <h2 id="nuget">Nuget</h2>
-<p><em>Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene.</em></p>
-<p>Appen bruker flere støttebiblioteker, som oppdateres fortløpende med forbedringer og ny funksjonalitet. En app refererer til konkrete versjoner av de forskjellige
-bibliotekene, og disse referansene må oppdateres for å hente inn siste versjon.</p>
-<h3 id="oppgradere-til-nyeste-versjon">Oppgradere til nyeste versjon</h3>
+<p><em>Nuget is .NET package manager, this is where we publish code libraries that is used by all the apps.</em></p>
+<p>Apps uses multiple libraries, these are updated regularly with improvements and new functionality. 
+Apps references explicit versions of the different libraries. 
+These references must be updated to get the latest version</p>
+<h3 id="upgrade-to-latest-version">Upgrade to latest version</h3>
 
 
 <div class="panel panel-primary">
 	
-	<div class="panel-body"><p><strong>Tips:</strong> Installer <a href="https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens">Version Lens</a>-utvidelsen for Visual Studio Code.<br>
-Da kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner App.csproj. Støtter også npm.</p>
+	<div class="panel-body"><p><strong>Tip</strong> Install <a href="https://marketplace.visualstudio.com/items?itemName=pflannery.vscode-versionlens">Version Lens</a>-extension for Visual Studio Code.<br>
+With this extension you can view what the latest version of all dependencies when you open App.csproj (the extension also supports npm).</p>
 </div>
 	
 </div>
 
 <ul>
-<li>Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen <code>App/App.csproj</code> i appens repo.</li>
+<li>Locate the references to the libraries used in your app. The references are located in <code>App/App.csproj</code>.</li>
 </ul>
-<p>F.eks.:</p>
+<p>Example.:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
   <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Api&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
   <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Altinn.App.Common&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.0.0&#34;</span> <span style="color:#ff79c6">/&gt;</span>
@@ -995,21 +1007,21 @@ Da kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner 
   <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Microsoft.VisualStudio.Web.CodeGeneration.Design&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;3.1.2&#34;</span> <span style="color:#ff79c6">/&gt;</span>
 <span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
 </code></pre></div><ul>
-<li>Sjekk om det har kommet en oppdatert versjon av bibliotekene:
+<li>Check if a new version of the libraries are published:
 <ul>
 <li><a href="https://www.nuget.org/packages/Altinn.App.Api">Altinn.App.Api</a></li>
 <li><a href="https://www.nuget.org/packages/Altinn.App.Common">Altinn.App.Common</a></li>
 <li><a href="https://www.nuget.org/packages/Altinn.App.PlatformServices">Altinn.App.PlatformServices</a></li>
 </ul>
 </li>
-<li>Oppdater de aktuelle referansene til den siste versjonen og lagre filen.</li>
-<li>Sjekk om det er noen <a href="/community/changelog/app-nuget">breaking changes</a> ifm endringer i bibliotekene,
-og gjør ev. endringer som beskrives for å løse ev. problemer.</li>
-<li>Bygg og deploy appen på nytt.</li>
+<li>Update the reference to the latest version and save the file.</li>
+<li>Check if there is any <a href="/community/changelog/app-nuget">breaking changes</a> with the new version,
+make necessary changes if there are any issues.</li>
+<li>Build and deploy a new version of your app.</li>
 </ul>
 <h2 id="app-frontend">App frontend</h2>
-<p>App frontend lastes inn av appen runtime, via en lenke til javascript-filen som er app frontend.
-Denne javascript-filen versjoneres ihht. <a href="https://semver.org/">Semantic Versioning</a>:</p>
+<p>App frontend is loaded at runtime, through a link to the javascript-file for app frontend.
+This javascript-file uses <a href="https://semver.org/">Semantic Versioning</a>:</p>
 <blockquote>
 <p>Given a version number MAJOR.MINOR.PATCH, increment the:</p>
 <p>MAJOR version when you make incompatible API changes,<br/>
@@ -1017,24 +1029,45 @@ MINOR version when you add functionality in a backwards compatible manner, and<b
 PATCH version when you make backwards compatible bug fixes.</p>
 <p>Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.</p>
 </blockquote>
-<p>App&rsquo;en refererer som standard til en <em>major</em> versjon av app frontend, f.eks. versjon 1.x.y.
-Med mindre det kommer en ny <em>major</em> versjon vil alle oppdateringer med ny <em>minor</em> eller <em>patch</em> versjoner komme med automatisk.
-Om det kommer en ny <em>major</em> versjon må man eksplisitt oppdatere appen til å referere til denne.</p>
-<p>Dersom man ønsker å refere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url&rsquo;en som peker på app frontend.</p>
-<h3 id="oppgradere-til-nyeste-versjon--spesifisere-versjon">Oppgradere til nyeste versjon / spesifisere versjon</h3>
-<p>Referansen til app frontend ligger i <code>App/views/Home/Index.cshtml</code>.</p>
-<p>Det er 2 referanser som må oppdateres:</p>
+<p>The app references by default to a <em>major</em> version of app frontend, e.g. version 1.x.y
+With the default setup all <em>minor</em> and <em>patch</em> version will be automatically pulled in.
+If a new <em>major</em> version is published you need to update your app to pull this new version, watch out for <a href="/community/changelog/app-frontend">breaking changes</a>)</p>
+<p>If you want to lock the frontend to a specific version of app frontend (e.g. 1.2.3) you specify this directly in the URL that points to app frontend.</p>
+<h3 id="upgrade-to-new-version--specific-version">Upgrade to new version / specific version</h3>
+<p>The reference to app frontend is located in <code>App/views/Home/Index.cshtml</code>.</p>
+<p>You need to update two references:</p>
 <ul>
-<li>Referansen til altinn-app-frontend.<strong>js</strong>-filen som er app frontend koden.</li>
+<li>Reference to altinn-app-frontend.<strong>js</strong>-file which contains the code for app frontend.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSIONNUMBER&gt;/altinn-app-frontend.js&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
 </code></pre></div><ul>
-<li>Referansen til altinn-app-frontend.<strong>css</strong> som inneholder styling for app frontend.</li>
+<li>Reference to altinn-app-frontend.<strong>css</strong> which contains the styling for app frontend.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSJONSNUMMER&gt;/altinn-app-frontend.css&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
-</code></pre></div><p>Søk etter filnavnet (<code>altinn-app-frontend.js</code> eller <code>altinn-app-frontend.css</code>) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).</p>
-<p><em>Husk:</em> Dersom man setter kun <em>major versjon</em> (f.eks. 2), så vil alle oppdateringer innenfor denne major versjoner (bugfix, ny funksjonalitet som ikke er breaking) komme med automatisk. Dersom man setter en <em>spesifikk versjon</em> (f.eks. 2.0.0) så vil appen hente akkurat denne versjonen, helt til referansen evt. oppdateres til å bruke en annen versjon.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#ff79c6">script</span> <span style="color:#50fa7b">src</span><span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/&lt;VERSIONNUMBER&gt;/altinn-app-frontend.css&#34;</span>&gt;&lt;/<span style="color:#ff79c6">script</span>&gt;
+</code></pre></div><p>Search for the filename (àltinn-app-frontend.js<code>or</code>altinn-app-frontend.css`) and replace the version number (e.g. 1) with the desired version number (e.g. 2).</p>
+<p><em>Reminder:</em> If you depend on a <em>major</em> version (e.g. 2), every <em>minor</em> and <em>patch</em> version of this <em>major</em> release will be applied automatically. If a specific version is defined (e.g. 2.0.0) the application will fetch this version until the reference is updated and no fixes or improvements will be fetched.</p>
+<h2 id="deployment">Deployment</h2>
+<p>Deployments are defined with helm-charts. The standard deployment setup is fetched from altinn-studios helm repository if you leverage the latest deployment strategy (recommended).</p>
+<p>If you unsure if your app leverages the latest deployment strategy you can follow the migration guide <a href="/community/changelog/deployment/migration">here</a></p>
+<p>To find the latest version of the standard helm-chart you can either check for the latest release of the chart <code>deployment</code> <a href="https://github.com/Altinn/altinn-studio-charts/releases">here</a>
+or add the helm repo locally and search for available version with these commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#6272a4"># Add the altinn-studio helm repo</span>
+helm repo add altinn-studio https://charts.altinn.studio
 
+<span style="color:#6272a4"># Search for version of altinn-studio/deployment chart</span>
+helm search repo -l altinn-studio/deployment
+</code></pre></div><p>If there is a new version of the helm chart check the <a href="/community/changelog/deployment/">changelog</a> to see what&rsquo;s new in this release.</p>
+<p>To update to the new version update the dependency reference in <code>deployment/Chart.yaml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
+<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+<span style="color:#ff79c6">name</span>: deployment
+<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+
+<span style="color:#ff79c6">dependencies</span>:
+- <span style="color:#ff79c6">name</span>: deployment
+  <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>                                &lt;--- Update this
+</span></code></pre></div>
 
 <footer class=" footline" >
 	
