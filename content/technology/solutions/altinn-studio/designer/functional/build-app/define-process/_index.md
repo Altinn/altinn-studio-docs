@@ -12,7 +12,7 @@ In Altinn Studio the developer will need to define the process for the app.
 
 In current version of Altinn Studio the only support for process definition is to upload a BPMN process file and the only task type we support are FormFilling
 
-[See Process Architecture for more details how process is defined](https://docs.altinn.studio/architecture/application/altinn-apps/app/app-backend/process/)
+[See Process Architecture for more details how process is defined](/technology/architecture/capabilities/runtime/processing/process/)
 
 See all issues related to Altinn Studio and workflow on [Github](https://github.com/Altinn/altinn-studio/labels/area%2Fprocess).
 
