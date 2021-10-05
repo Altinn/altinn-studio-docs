@@ -957,6 +957,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#overview">Overview</a></li>
     <li><a href="#get-instance">Get instance</a></li>
+    <li><a href="#get-active-instances">Get active instances</a></li>
     <li><a href="#create-instance">Create instance</a></li>
     <li><a href="#update-sub-status">Update sub status</a></li>
     <li><a href="#complete-instance">Complete instance</a></li>
@@ -975,6 +976,23 @@ if(host != "localhost")
 <p>Endpoint for downloading the instance metadata document for a specific instance. The app API does not have an endpoint for listing instances. The Storage API in the Platform has a query endpoint that can be used for this purpose.</p>
 <p>Use this endpoint for instances that are active, and the owner party id and instance guid for the instance are known. External systems that work with an instance over multiple sessions might want to keep these values (or full URL) stored on their end to limit the need to query this information multiple times.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
+</code></pre></div><h2 id="get-active-instances">Get active instances</h2>
+<p>Endpoint for listing active instances for an instance owner.</p>
+<p>This endpoint can be used to determine if a new instance of an app should be created or if continuation on an existing instance would be more feasible.
+Note that the object returned is a simplified instance object and that <code>LastChangedBy</code> contains the name of the latest active entity rather than an id number.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+	{
+		<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;1337/bffd2c17-9d93-49f4-b504-3d0ece2402c7&#34;</span>,
+		<span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2021-09-23T10:19:43&#34;</span>,
+		<span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>
+	},
+    {
+		<span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;1337/agfd2c17-4d93-49f4-b504-3d0ece2402d8&#34;</span>,
+		<span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2021-07-11T22:14:02&#34;</span>,
+		<span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;Sophie Salt&#34;</span>
+	}
+]
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET {basePath}/{instanceOwnerPartyId}/active
 </code></pre></div><h2 id="create-instance">Create instance</h2>
 <p>Altinn assigns a unique identifier to all users that wish to report data. We call this id <em>instanceOwner.partyId</em>. 
 If you do not know this, you should provide the official identity number, e.g national identification number for persons or organisation number for organisations,
