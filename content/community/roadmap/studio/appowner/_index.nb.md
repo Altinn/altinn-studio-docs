@@ -40,10 +40,14 @@ Når du har applikasjonskoden lokalt, kan du også benytte deg av muligheten til
 
 Altinn 3 har standardiserte API-er som tjenesteeier kan bruke for å hente og laste opp data. For nedlasting bygger Altinn 3 på at tjenesteeier gjør spørringer og laster ned data (pull). I tillegg kan tjenesteeier benytte app-enes API-er for å instansiere eller gjøre endringer på instanser.
 
+Man kan redusere mengden spørringer ved bruk av push av events - at tjenesteeier varsles når det er data til nedlasting (Q2 2021) ([#4728](https://github.com/Altinn/altinn-studio/issues/4728)) :heavy_check_mark:
+
 For å benytte API-ene som tjenesteeier må man autentisere seg med Maskinporten.
 
 ### Forvaltning av apper
 Det er lagt opp til [tilgang til overvåking av egne applikasjoner](/nb/app/getting-started/access-management/apps/), slik at man kan ha oversikt over hvordan appene fungerer. Se også [sidene om vedlikehold av apps](/nb/app/maintainance/).
+
+- Mulighet for å lage en ny app som kopi av en tidligere (Q3 2021) ([#5923](https://github.com/Altinn/altinn-studio/issues/5923)) :heavy_check_mark:
 
 ## Kommende funksjonalitet
 
@@ -56,14 +60,14 @@ Endringer beskrevet i _kursiv_ er å regne som på idéstadiet, og er ikke beslu
 
 For all kommende funksjonalitet gjør vi vurderinger av om det er egnet å løse det i GUI. På et senere tidspunkt (2023 eller senere) vil vi gjøre et løft for at mer funksjonalitet skal være tilgjengelig via GUI.
 
-- Støtte for branching i Altinn Studio (Q2 2021) ([#985](https://github.com/Altinn/altinn-studio/issues/985))
+- Støtte for branching i Altinn Studio (Q4 2021) ([#985](https://github.com/Altinn/altinn-studio/issues/985))
 
 ### Datamodellering
 
 Den avhengigheten vi i dag har til at datamodellering skal gjøres i et eksternt system vil forsvinne. Noen høydepunkter i planene for datamodellering i Altinn 3 er:
 
-- Å kunne jobbe med en datamodell i et GUI (Q2 2021) ([#5551](https://github.com/Altinn/altinn-studio/issues/5551))
-- Integrasjoner med Felles datakatalog (Q3 2021) ([#3811](https://github.com/Altinn/altinn-studio/issues/3811))
+- Å kunne jobbe med en datamodell i et GUI (Q4 2021) ([#5551](https://github.com/Altinn/altinn-studio/issues/5551))
+- Integrasjoner med Felles datakatalog (Q1 2022) ([#3811](https://github.com/Altinn/altinn-studio/issues/3811))
 - _Å kunne få automatisk generert datamodell fra det man bygger av brukergrensesnitt_
 - _Å kunne få automatisk generert forslag til brukergrensesnitt ut fra datamodellen_
 
@@ -71,14 +75,12 @@ Den avhengigheten vi i dag har til at datamodellering skal gjøres i et eksternt
 
 Vi ønsker å gjøre tjenesteeiere i stand til å selv forvalte sine applikasjoner i Altinn 3. For å få til dette kommer blant annet:
 
-- Mulighet for å avpublisere en applikasjon (Q2 2021) ([#3717](https://github.com/Altinn/altinn-studio/issues/3717))
-- Mulighet for å lage en ny app som kopi av en tidligere (Q2 2021) ([#5923](https://github.com/Altinn/altinn-studio/issues/5923))
+- Mulighet for å avpublisere en applikasjon (Q4 2021) ([#3717](https://github.com/Altinn/altinn-studio/issues/3717))
 - _Webanalyse for applikasjonene_
 
 ### Integrasjon med tjenesteeier
 
 Pull av data vil fortsatt være grunnmønsteret for at tjenesteeier får tilgang til data, men det kommer et par unntak:
 
-- Mulighet for å bruke [eFormidling](https://samarbeid.digdir.no/eformidling/eformidling/20) som grensesnitt for å få data direkte fra en Altinn 3-app til tjenesteeiers systemer (Q2 2021) ([#4788](https://github.com/Altinn/altinn-studio/issues/4788))
-- Push av events - at tjenesteeier varsles når det er data til nedlasting (Q2 2021) ([#4728](https://github.com/Altinn/altinn-studio/issues/4728))
-- Splitt av data - flere tjenesteeiere kan motta data fra samme tjeneste (2022) ([#4274](https://github.com/Altinn/altinn-studio/issues/4274))
+- Mulighet for å bruke [eFormidling](https://samarbeid.digdir.no/eformidling/eformidling/20) som grensesnitt for å få data direkte fra en Altinn 3-app til tjenesteeiers systemer (Q4 2021) ([#4788](https://github.com/Altinn/altinn-studio/issues/4788))
+- Splitt av data - flere tjenesteeiere kan motta data fra samme tjeneste (Q3 2022) ([#4274](https://github.com/Altinn/altinn-studio/issues/4274))
