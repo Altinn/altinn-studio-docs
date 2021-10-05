@@ -5,9 +5,9 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
-## 4.15.2 (2021-09-27) - Nytt endepunkt for å hente ut aktive instanser'
+## 4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser'
 Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver.
-Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/{instanceOwnerPartyId}/active.
+Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/instances/{instanceOwnerPartyId}/active.
 
 Denne endringen tilhører issue [6767](https://github.com/Altinn/altinn-studio/issues/6767).
 
