@@ -32,7 +32,7 @@ kreves det mindre av brukeren for å samhandle med komponentene, og det bygges s
 interaksjoner, vil brukerens fokus i større grad være på innholdet.
 
 Vi anbefaler **ikke** å endre CSS for individuelle tjenester som bruker Altinn-designet. Dersom vi åpner opp for 
-designendringer og fargeendringer, vil dette skade konsistensen mellom tjenestene. Konsanelekvent design mellom 
+designendringer og fargeendringer, vil dette skade konsistensen mellom tjenestene. Konsekvent design mellom 
 tjenesteeiere er noe vi bør strekke oss mot. For å få det til kreves et godt samarbeid mellom fagmiljøet i Altinn 
 og hos de ulike tjenesteeierene. 
 **Vi ønsker oss en god felles løsning som kan brukes og forbedres av alle, fremfor mange forskjellige løsninger gjennom ulike CSS-endringer.** 
