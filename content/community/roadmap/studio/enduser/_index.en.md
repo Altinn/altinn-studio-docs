@@ -3,103 +3,107 @@ title: End user functionality in Altinn 3
 linktitle: End user
 description: This is the functionality available for end users in Altinn 3, and some of the larger planned changes.
 toc: true
-tags: [translate-to-english]
 ---
 
-## Lansert funksjonalitet
+## Launched functionality
 
 {{% panel %}}
-For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se [brukerdokumentasjonen for Altinn Studio](/app/).
+For information on **How to use** the functionalities described here, see the [app](../../../../app/) section of the documentation.
 {{% /panel %}}
-### Skjemafunksjonalitet
 
-Støtte for innsendingstjenester. Et utvalg standardkomponenter å bygge med (eks. tekstfelt, radioknapp, sjekkliste, datovelger, vedlegg), inkludert sidestilling av elementer (støtte for grid). Støtte for at skjemaet består av flere sider, men sluttbruker kan kun navigere framover/bakover mellom sidene (styrt navigasjon). Alle skjema og elementer har standardisert look and feel.
+### Form functionality
 
-Støtte for å sette opp ulike regler, herunder kalkulering, validering og dynamikk på både element- og sidenivå (dvs. styre hva som vises ut fra hva bruker fyller inn i skjemaet.)
+Support for apps where data is sent in. A variety of standard components to build with (ex. text field, radio button, checklist, date picker, attachment, repeating group of components), including putting these in a grid. 
+Support for an app consisting of multiple pages, but the end user can only navigate forward and backward between the pages (controlled navigation).
+All forms and elements have a standardised look and feel.
 
-Elementene kobles med tekster og knyttes til datamodell. Mulighet til å koble på API-er som datakilder, samt å forhåndsutfylle med data fra Altinns kopier av Folkeregisteret og Enhetsregisteret.
+Support for defining rules, including calculation, validation and dynamics on both element and page level (i.e. control what the user will see depending on what they enter in the form).
 
-### Arbeidsflyt i applikasjonen
+The elements are linked to texts and data model. Possibility to connect to APIs as data sources, and prefilling with data from Altinn's copies of Folkeregisteret and Enhetsregisteret.
 
-Du kan kombinere flere ulike steg i den rekkefølgen som er relevant for tjenesten:
+We also support stateless apps ([#1328](https://github.com/Altinn/altinn-studio/issues/1328)) :heavy_check_mark:
+### Application process
 
-- Utfylling/melding (data) - eksponering av data fra tjenesteeier og/eller innhenting av data fra sluttbruker
-- Bekreftelse (confirm) - bruker skal bekrefte at dette er dataene de ønsker å sende inn
-- Vente på tilbakemelding (feedback) - prosessen er ikke fullført, men det er andre enn bruker (tjenesteeier eller tredjepart) som skal gjøre noe
+You can combine different tasks in the order that's relevant for the app:
 
-I tillegg har alle en sluttstatus for at instanser er arkivert/fullført.
+- Form filling / message (data) - exposing data from app owner and/or collecting data from end user
+- Confirmation (confirm) - the user should confirm that _these are the data I want to submit_
+- Wait for feedback (feedback) - the process is not complete, but someone other than the user (app owner or third party) is the party that should act
 
-### Autentisering og autorisasjon
+In addidtion we have an end stated for an instance being archived/complete.
 
-Det er støtte for å definere hvilke(n) rolle(r) som har tilgang til ulike operasjoner per steg i arbeidsflyten. Rollene kan enten være Altinn-roller, roller fra Enhetsregisteret eller at tjenesteeier selv har tilgang.
+### Authentication and authorisation
 
-### Integrasjon med meldingsboksen i Altinn
+You can define which role(s) in Altinn that can access different operations on each task in the app process. 
+The roles can either be Altinn specific roles, roles from Enhetsregisteret or that the app owner has access.
 
-Instanser av tjenester ligger i brukers meldingsboks på samme måte som i Altinn 2. Det er mulig å finne instansene ved bruk av søk (men med enkelte begrensninger).
+### Integration with the Altinn message box
 
-Tjenesteeier har selv mulighet til å angi hvilken status som er relevant for den enkelte instans. Det er også mulig å definere opp at instanser av en app aldri skal legges i brukers arkiv.
+The app instances are shown in the users message box in the same way as in Altinn 2.
+You can find the instances through search (albeit with a few limitations).
 
-### Integrasjon med sluttbrukersystemer
+You can use presentation fields to discern instances of the same app apart (Q2 2021) ([#594](https://github.com/Altinn/altinn-studio/issues/594)) :heavy_check_mark:
 
-Tjenestene har standardiserte API-er som kan benyttes for innsending fra tredjepartssystemer. Hver app har sine egne endepunkter. Autentisering av bruker skjer med ID-porten.
+The app owner can decide what status is relevant for each instance. They can also decided that instances of an app should never be archived.
 
-## Kommende funksjonalitet
+### Integration with end user systems
 
-Altinn 3 er i stadig videreutvikling, og funksjonalitet lanseres løpende. Backlogg revideres åtte ganger i året, og mindre endringer kan også forekomme mellom revisjonene.
-Generelt kan man si at jo lenger frem i tid leveranse er planlagt jo mer usikkert er angitt leveransetidspunkt.
+The apps have standardised APIs that can be used for submission from third party systems.
+Every app has its own end points. Authentication is done through ID-porten.
 
-Endringer beskrevet i _kursiv_ er å regne som på idéstadiet, og er ikke besluttet at skal utvikles.
-Lenker i parentes er til beskrivelser i vår åpne backlog på Github.
+## Upcoming functionality
 
-### Skjemafunksjonalitet
+Altinn 3 is in constant development, and functionality is released continuously. The backlog is revised eight times a year, and minor changes may occur between these revisions.
+In general, the further into the future a functionality is planned, the less certain the time frame is for said functionality.
 
-Det skal være mulig å definere opp brukergrensesnitt som passer godt til den enkelte tjenestens behov. Eksempler på kommende funksjonaliteter:
-
-- Fylle ut repeterende gruppe over flere sider (Q2 2021) ([#5176](https://github.com/Altinn/altinn-studio/issues/5176))
-- Friere navigering mellom sider (Q3 2021) ([#5893](https://github.com/Altinn/altinn-studio/issues/5893))
-- Utfyllbare tabeller (Q3 2021) ([#378](https://github.com/Altinn/altinn-studio/issues/378))
-- Mulighet for å endre språk inne i applikasjonen (Q4 2021) ([#2055](https://github.com/Altinn/altinn-studio/issues/2055)). Denne endringen gjør det også mulig å tilby tjenester på andre språk enn bokmål/nynorsk/engelsk.
-- _Ulike «tema» for brukergrensesnittet i portalen_ ([#2115](https://github.com/Altinn/altinn-studio/issues/2115))
+Changes described in _italic_ are regarded as ideas, and if they are to be developed has not yet been decided.
 
 
-### Arbeidsflyt i applikasjonen
+### Form functionality
+It should be possible to define user interfaces that fit the needs of the individual app. Examples of upcoming functionality:
 
-Vi vil utvide biblioteket med tilgjengelige arbeidsflytsteg for å dekke stadig flere bruksområder. Eksempler på kommende funksjonaliteter:
+- More freedom in navigating between pages (Q4 2021) ([#5893](https://github.com/Altinn/altinn-studio/issues/5893))
+- Editable tables (Q4 2021) ([#378](https://github.com/Altinn/altinn-studio/issues/378))
+- Selecting language in an app (Q1 2022) ([#2055](https://github.com/Altinn/altinn-studio/issues/2055)). Denne endringen gjør det også mulig å tilby tjenester på andre språk enn bokmål/nynorsk/engelsk.
+- _Theming of the user interface_ ([#2115](https://github.com/Altinn/altinn-studio/issues/2115))
 
-- Funksjonell signering (Q3 2021) ([#5540](https://github.com/Altinn/altinn-studio/issues/5540))
-- Teknisk signering (Q4 2021)
-- Komplekse signeringsregler - f.eks. basert på hva som fylles ut i skjemaet og parallellsignering (x av y personer skal signere) (Q3 2021) ([#1324](https://github.com/Altinn/altinn-studio/issues/1324)) / ([#1325](https://github.com/Altinn/altinn-studio/issues/1325))
-- Betaling (2022) ([#1320](https://github.com/Altinn/altinn-studio/issues/1320))
-- Erstatning for innsynstjenester (Q2 2021) ([#1328](https://github.com/Altinn/altinn-studio/issues/1328))
-- Friere navigering mellom stegene i prosessen (Q4 2021) ([#2743](https://github.com/Altinn/altinn-studio/issues/2743))
-- _Innhenting av samtykke_
+### Application process
 
-### Autentisering og autorisasjon
+We will expand the library of available task types to cover more use cases. Examples of upcoming functionality:
 
-Vi skal tilby minst samme fleksibilitet for brukerne til å styre hvem som har tilgang til Altinn 3-tjenestene som finnes i Altinn II. Det innebærer f.eks. følgende endringer:
+- Functional signing (Q4 2021) ([#5540](https://github.com/Altinn/altinn-studio/issues/5540))
+- Technical signing (Q1 2022)
+- Complex signing rules - e.g. based on what is filled in in the for and parallel signing (x out of y persons has to sign) (Q2 2022) ([#1324](https://github.com/Altinn/altinn-studio/issues/1324)) / ([#1325](https://github.com/Altinn/altinn-studio/issues/1325))
+- Payment (Q3 2022) ([#1320](https://github.com/Altinn/altinn-studio/issues/1320))
+- More freedom in moving between tasks (Q4 2021) ([#2743](https://github.com/Altinn/altinn-studio/issues/2743))
+- _Obtaining concent from the user_
 
-- Støtte for delegering på app-nivå (Q2 2021) ([#2731](https://github.com/Altinn/altinn-studio/issues/2731))
-- Støtte for delegering på instansnivå (Q3 2021) ([#2732](https://github.com/Altinn/altinn-studio/issues/2732))
-- _Tilgang til app med virksomhetsbruker_ ([#3743](https://github.com/Altinn/altinn-studio/issues/3743))
-- _Whitelisting av aktuelle brukere for en app_ ([#5547](https://github.com/Altinn/altinn-studio/issues/5547))
+### Authentication and authorisation
 
-### Hendelsesstyrte tjenester
+In Altinn 3 we want to have at least the same level of flexibility for the users when it comes to how to grant and granulate access as we do in Altinn 2. 
+This implies these (and possibly other) changes:
 
-For å bygge sammenhengende tjenestekjeder, uten at man må bygge kompleks orkestrering, er det nødvendig at en tjeneste skal kunne "reagere" på hendelser i en annen app, eller på eksterne hendelser.
-Å legge til rette for denne måten å lage tjenestekjeder ligger i planene for 2022.
+- Support for delegating acces on app level (Q4 2021) ([#2731](https://github.com/Altinn/altinn-studio/issues/2731))
+- Support for delegating acces on instance level (Q4 2021) ([#2732](https://github.com/Altinn/altinn-studio/issues/2732))
+- _Access to app with enterprise user_ ([#3743](https://github.com/Altinn/altinn-studio/issues/3743))
+- _Whitelisting of relevant users for an app_ ([#5547](https://github.com/Altinn/altinn-studio/issues/5547))
 
-### Varslinger (e-post og sms)
+### Event driven apps
 
-Å sende ut varsler på e-post og/eller sms er en viktig del av flere tjenester. Inntil videre vil Altinn 3 bruke varslingsfunksjonaliteten i Altinn II. 
+To build complete service chains without a need for complex orchestration, it's necessary that an app can "react" to events in another app or to external events.
+Facilitating this way of build service chains are in the plans for late 2022.
 
-- Det skal være mulig å koble varslingene til ulike hendelser i appene (Q4 2021) ([#4275](https://github.com/Altinn/altinn-studio/issues/4275))
-- Sluttbruker selv skal kunne sende e-post av kvitteringen (2022) ([#1902](https://github.com/Altinn/altinn-studio/issues/1902))
+### Notifications (email and sms)
 
-### Integrasjon med meldingsboksen i Altinn
+Sending out notifications by email and/or sms is an integral part of some services. For now Altinn 3 will use the notification functionality inn Altinn 2.
 
-Det skal være lett å finne riktig instans av en tjeneste i meldingsboksen. For å få til dette legger vi til:
+- It should be possible to connect notifications to various events in the app (Q1 2022) ([#4275](https://github.com/Altinn/altinn-studio/issues/4275))
+- The end user should be able to email a copy of the receipt (Q3 2022) ([#1902](https://github.com/Altinn/altinn-studio/issues/1902))
 
-- Presentasjonsfelter - mulighet for å skille instanser av samme app fra hverandre (Q2 2021) ([#594](https://github.com/Altinn/altinn-studio/issues/594))
-- Støtte for å lage ny instans med utgangspunkt i en eksisterende - lag ny kopi (Q2 2021) ([#1566](https://github.com/Altinn/altinn-studio/issues/1566))
-- Sjekk av om man allerede har en instans av app i meldingsboks, slik at man får velge mellom ny instans eller fortsette på eksisterende (Q2 2021) ([#1811](https://github.com/Altinn/altinn-studio/issues/1811))
-- _Mulighet for å søke i innholdet i instansene_ ([#5450](https://github.com/Altinn/altinn-studio/issues/5450))
+### Integration with the Altinn message box
+
+Finding the right instance of a service in the message box should be simple. To achieve this we will add:
+
+- Support to create a new instance based on an excisting one (Q4 2021) ([#1566](https://github.com/Altinn/altinn-studio/issues/1566))
+- Check if the user already has an instance of the app in message box when going to the app, so they can chose if they want a new instance or continue the existing (Q4 2021) ([#1811](https://github.com/Altinn/altinn-studio/issues/1811))
+- _Possibility to search the content of the apps_ ([#5450](https://github.com/Altinn/altinn-studio/issues/5450))
