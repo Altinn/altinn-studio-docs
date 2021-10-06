@@ -6,7 +6,7 @@ toc: true
 weight: 500
 ---
 
-In `applicationmetadata.json` there is an option to configure the behavior of app-frontend when a user navigates with a direct link to the application.
+In `applicationmetadata.json` there is an option to configure the user interface when a user navigates to a direct link to the application.
 This is done in the field `onEntry.show` where you have the possibility to set the values `new-instance` (default) or `select-instance`.
 Standard behaviour if this field is not present is to create a new instance for the user.
 
@@ -18,7 +18,7 @@ Standard behaviour if this field is not present is to create a new instance for 
 
 {{%/notice%}}
 
-If the field `onEntry.show` is set to `select-instance` the user is presented with a list of active instances when navigating to the application.
+If the field `onEntry.show` is set to `select-instance` the user is presented with a list of active instances for the selected reportree when navigating to the application.
 
 ### Example
 The following configuration is added to `applicationmetadata.json` to configure select from active instance.

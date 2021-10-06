@@ -6,7 +6,7 @@ toc: true
 weight: 500
 ---
 
-I `applicationmetadata.json` har man mulighet til å styre hva app-frontend skal foreta seg i det brukeren går mot en direktelenke til applikasjonen.
+I `applicationmetadata.json` har man mulighet til å styre hva applikasjonen viser i det brukeren går mot en direktelenke.
 Dette gjøres under feltet `onEntry.show`, hvor man har mulighet til å sette verdiene `new-instance` (default) eller `select-instance`.
 Standard oppførsel om dette feltet ikke er satt er at det lages en ny instans for brukeren som besøker applikasjonen.
 
@@ -18,7 +18,7 @@ Standard oppførsel om dette feltet ikke er satt er at det lages en ny instans f
 
 {{%/notice%}}
 
-Om man setter feltet til `onEntry.show` til `select-instance` vil brukeren bli presentert med en liste av aktive instanser når man navigerer seg til en applikasjon.
+Om man setter feltet til `onEntry.show` til `select-instance` vil brukeren bli presentert med en liste av aktive instanser for den valgte avgiver når man navigerer seg til en applikasjon.
 
 ### Eksempel
 Følgende konfigurasjon legges til i `applicationmetadata.json` for å sette opp valg av aktive instanser.
