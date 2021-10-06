@@ -18,7 +18,7 @@ Standard behaviour if this field is not present is to create a new instance for 
 
 {{%/notice%}}
 
-If the field `onEntry.show` is set to `select-instance` the user is presented with a list of active instances when navigating to the applicaiton.
+If the field `onEntry.show` is set to `select-instance` the user is presented with a list of active instances when navigating to the application.
 
 ### Example
 The following configuration is added to `applicationmetadata.json` to configure select from active instance.
