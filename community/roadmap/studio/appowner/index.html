@@ -61,6 +61,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/community/roadmap/studio/appowner/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
               <li>
@@ -89,6 +93,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/community/roadmap/studio/appowner/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
         </ul>
@@ -962,84 +970,90 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/roadmap/'>Roadmap</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/community/roadmap/studio/'>Studio</a> <span class='adocs-breadcrumb-divider'> / </span> App owner</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">App owner functionality in Altinn 3</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">App owner functionality in Altinn 3</h1>
               <p class="a-leadText" id="leadText">This is the functionality available for app owners in Altinn 3, and some of the larger planned changes.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#lansert-funksjonalitet">Lansert funksjonalitet</a></li>
-    <li><a href="#kommende-funksjonalitet">Kommende funksjonalitet</a></li>
+    <li><a href="#launched-functionality">Launched functionality</a></li>
+    <li><a href="#upcoming-functionality">Upcoming functionality</a></li>
   </ul>
 </nav>
 
 
 
 
-<h2 id="lansert-funksjonalitet">Lansert funksjonalitet</h2>
+<h2 id="launched-functionality">Launched functionality</h2>
 
 
 <div class="panel panel-primary">
 	
-	<div class="panel-body"><p>For informasjon om <strong>hvordan man bruker</strong> funksjonalitetene som er beskrevet her, se brukerdokumentasjonen for <a href="/app/">Altinn Studio</a> og <a href="/api/">API</a>.</p>
+	<div class="panel-body"><p>For information on <strong>How to use</strong> the functionalities described here, see the <a href="../../../../app/">Altinn Studio</a> and <a href="../../../../api/">API</a> user documentation.</p>
 </div>
 	
 </div>
 
-<h3 id="tjenesteutvikling-i-gui">Tjenesteutvikling i GUI</h3>
-<p>I <a href="https://altinn.studio">brukergrensesnittet til Altinn Studio</a> kan du gjøre følgende:</p>
+<h3 id="gui-based-app-development">GUI based app development</h3>
+<p>In <a href="https://altinn.studio">the Altinn Studio GUI</a> you can do the following:</p>
 <ul>
-<li>Opprette (og finne igjen) en app</li>
-<li>Laste opp datamodell</li>
-<li>Legge inn tekster</li>
-<li>Lage et enkelt skjema (en eller flere sider), med kobling mellom elementer, tekster og datamodell</li>
-<li>Legge inn dynamikkregler (NB! Kodes i JavaScript)</li>
-<li>Deploye app til test- og produksjonsmiljø</li>
+<li>Create (and retrieve) an app</li>
+<li>Upload a data model</li>
+<li>Add and edit texts</li>
+<li>Create a simple form (one or more pages), which links elements, texts and data model</li>
+<li>Add and edit rules for dynamics (Note! Coded as JavaScript)</li>
+<li>Deploy app to test and production environments</li>
 </ul>
-<h3 id="tjenesteutvikling-via-kode">Tjenesteutvikling via kode</h3>
-<p>Ved å hente ned applikasjonskoden (via Git) lokalt (eller ved å redigere på app-filene i repository-visning) kan du gjøre alle mulige endringer av appen. Dette inkluderer blant annet standardfunksjonalitet for å:</p>
+<h3 id="code-based-app-development">Code based app development</h3>
+<p>By downloading the app code (through Git) locally (or by editing the app files in the repository view) you can do a wide variety of changes to the app.
+This includes standard functionality for:</p>
 <ul>
-<li>Lage kalkulerings- og valideringsregler</li>
-<li>Koble på forhåndsutfylling</li>
-<li>Legge inn API-oppslag</li>
-<li>Redigere på prosessen/arbeidsflyten i appen</li>
-<li>Redigere på autorisasjonsreglene for appen, samt lage egendefinert instansieringslogikk</li>
-<li>Lage egendefinerte hendelser/events</li>
+<li>Making rules for validation and calculation</li>
+<li>Add prefill</li>
+<li>Add lookup to external APIs</li>
+<li>Edit the process/workflow of the app</li>
+<li>Edit the authorisation rules for the app, and make custom logic for instantiating</li>
+<li>Make custom events</li>
 </ul>
-<h3 id="teste-lokalt">Teste lokalt</h3>
-<p>Når du har applikasjonskoden lokalt, kan du også benytte deg av muligheten til å ha <a href="/app/testing/local/">et lokalt testmiljø for å gjøre de fleste typer testing</a>.</p>
-<h3 id="integrasjon-med-tjenesteeier">Integrasjon med tjenesteeier</h3>
-<p>Altinn 3 har standardiserte API-er som tjenesteeier kan bruke for å hente og laste opp data. For nedlasting bygger Altinn 3 på at tjenesteeier gjør spørringer og laster ned data (pull). I tillegg kan tjenesteeier benytte app-enes API-er for å instansiere eller gjøre endringer på instanser.</p>
-<p>For å benytte API-ene som tjenesteeier må man autentisere seg med Maskinporten.</p>
-<h3 id="forvaltning-av-apper">Forvaltning av apper</h3>
-<p>Det er lagt opp til <a href="/apps/getting-started/access-management/apps/">tilgang til overvåking av egne applikasjoner</a>, slik at man kan ha oversikt over hvordan appene fungerer. Se også <a href="/app/maintainance/">sidene om vedlikehold av apps</a>.</p>
-<h2 id="kommende-funksjonalitet">Kommende funksjonalitet</h2>
-<p>Altinn 3 er i stadig videreutvikling, og funksjonalitet lanseres løpende. Backlogg revideres åtte ganger i året, og mindre endringer kan også forekomme mellom revisjonene.
-Generelt kan man si at jo lenger frem i tid leveranse er planlagt jo mer usikkert er angitt leveransetidspunkt.</p>
-<p>Endringer beskrevet i <em>kursiv</em> er å regne som på idéstadiet, og er ikke besluttet at skal utvikles.</p>
-<h3 id="tjenesteutvikling-i-gui-1">Tjenesteutvikling i GUI</h3>
-<p>For all kommende funksjonalitet gjør vi vurderinger av om det er egnet å løse det i GUI. På et senere tidspunkt (2023 eller senere) vil vi gjøre et løft for at mer funksjonalitet skal være tilgjengelig via GUI.</p>
+<h3 id="test-locally">Test locally</h3>
+<p>Once you have your app code locally, you can also take advantage of <a href="../../../../app/testing/local/">a local test enviroment for most types of app testing</a>.</p>
+<h3 id="integration-with-app-owner">Integration with app owner</h3>
+<p>Altinn 3 has standardised APIs that the app owner can use to upload and download data.
+For downloading Altinn 3 relies on the app owner polling for information and downloading data (pull). 
+In addition app owner can use the app APIs to instantiate or change the data and/or status for instances.</p>
+<p>You can reduce the amount of polling by using push events - where app owner can be notified when there is data available for download (Q2 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/4728">#4728</a>) ✔️</p>
+<p>To use the APIs as an app owner, you need to authenticate using Maskinporten.</p>
+<h3 id="maintaining-apps">Maintaining apps</h3>
+<p>App owners get <a href="../../../../app/getting-started/access-management/apps/">access to monitoring their apps</a>, so they can keep track of how they are functioning. 
+See also <a href="../../../../app/maintainance/">the pages about app maintenance</a>.</p>
 <ul>
-<li>Støtte for branching i Altinn Studio (Q2 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/985">#985</a>)</li>
+<li>Let developers easily copy an old app into a new one (Q3 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/5923">#5923</a>) ✔️</li>
 </ul>
-<h3 id="datamodellering">Datamodellering</h3>
-<p>Den avhengigheten vi i dag har til at datamodellering skal gjøres i et eksternt system vil forsvinne. Noen høydepunkter i planene for datamodellering i Altinn 3 er:</p>
+<h2 id="upcoming-functionality">Upcoming functionality</h2>
+<p>Altinn 3 is in constant development, and functionality is released continuously. The backlog is revised eight times a year, and minor changes may occur between these revisions.
+In general, the further into the future a functionality is planned, the less certain the time frame is for said functionality.</p>
+<p>Changes described in <em>italic</em> are regarded as ideas, and if they are to be developed has not yet been decided.</p>
+<h3 id="gui-based-app-development-1">GUI based app development</h3>
+<p>For all upcoming functionality, we assess if it&rsquo;s suitable for solving i the GUI. At some point (2023 or later) we will intensify the effort to make more functionality available through GUI.</p>
 <ul>
-<li>Å kunne jobbe med en datamodell i et GUI (Q2 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/5551">#5551</a>)</li>
-<li>Integrasjoner med Felles datakatalog (Q3 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/3811">#3811</a>)</li>
-<li><em>Å kunne få automatisk generert datamodell fra det man bygger av brukergrensesnitt</em></li>
-<li><em>Å kunne få automatisk generert forslag til brukergrensesnitt ut fra datamodellen</em></li>
+<li>Support branching in Altinn Studio (Q4 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/985">#985</a>)</li>
 </ul>
-<h3 id="forvaltning-av-tjenester">Forvaltning av tjenester</h3>
-<p>Vi ønsker å gjøre tjenesteeiere i stand til å selv forvalte sine applikasjoner i Altinn 3. For å få til dette kommer blant annet:</p>
+<h3 id="data-modelling">Data modelling</h3>
+<p>The dependency on data modelling having to be done in an external tool will be removed. Some highlights from the plans for data modelling in Altinn 3 is:</p>
 <ul>
-<li>Mulighet for å avpublisere en applikasjon (Q2 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/3717">#3717</a>)</li>
-<li>Mulighet for å lage en ny app som kopi av en tidligere (Q2 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/5923">#5923</a>)</li>
-<li><em>Webanalyse for applikasjonene</em></li>
+<li>To work with a data modeli in a GUI (Q4 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/5551">#5551</a>)</li>
+<li>Integrations with Felles datakatalog (Q1 2022) (<a href="https://github.com/Altinn/altinn-studio/issues/3811">#3811</a>)</li>
+<li><em>To get an auto-generated data model from the app GUI you build</em></li>
+<li><em>To get an auto-generated draft for an app GUI from the data model</em></li>
 </ul>
-<h3 id="integrasjon-med-tjenesteeier-1">Integrasjon med tjenesteeier</h3>
-<p>Pull av data vil fortsatt være grunnmønsteret for at tjenesteeier får tilgang til data, men det kommer et par unntak:</p>
+<h3 id="maintaining-apps-1">Maintaining apps</h3>
+<p>We wish to make app owners able to maintain their apps themselves in Altinn 3. To achieve this we will (among other things):</p>
 <ul>
-<li>Mulighet for å bruke <a href="https://samarbeid.digdir.no/eformidling/eformidling/20">eFormidling</a> som grensesnitt for å få data direkte fra en Altinn 3-app til tjenesteeiers systemer (Q2 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/4788">#4788</a>)</li>
-<li>Push av events - at tjenesteeier varsles når det er data til nedlasting (Q2 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/4728">#4728</a>)</li>
-<li>Splitt av data - flere tjenesteeiere kan motta data fra samme tjeneste (2022) (<a href="https://github.com/Altinn/altinn-studio/issues/4274">#4274</a>)</li>
+<li>Make it possible to decomission an app (Q4 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/3717">#3717</a>)</li>
+<li><em>Add a Web analysis tool for the apps</em></li>
+</ul>
+<h3 id="integration-with-app-owner-1">Integration with app owner</h3>
+<p>Pull of data will stay as the main pattern for downloading data as an app owner, but a few exceptions will come:</p>
+<ul>
+<li>Possibility to use <a href="https://samarbeid.digdir.no/eformidling/eformidling/20">eFormidling</a> as an interface to get data sent from Altinn to app owner (Q4 2021) (<a href="https://github.com/Altinn/altinn-studio/issues/4788">#4788</a>)</li>
+<li>Split of data - multiple app owners can receive data from the same app (Q3 2022) (<a href="https://github.com/Altinn/altinn-studio/issues/4274">#4274</a>)</li>
 </ul>
 
 

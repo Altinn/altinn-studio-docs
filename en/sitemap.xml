@@ -1331,8 +1331,28 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/roadmap/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/community/roadmap/studio/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/studio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/studio/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/_header/</loc>
   </url><url>
@@ -1433,6 +1453,16 @@
     <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/code-editor/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/roadmap/studio/appowner/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/studio/appowner/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/studio/appowner/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/designer/functional/build-app/app-parameters/</loc>
   </url><url>
@@ -1799,6 +1829,16 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/roadmap/studio/enduser/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/studio/enduser/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/studio/enduser/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/environments/</loc>
   </url><url>

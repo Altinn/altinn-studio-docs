@@ -1178,6 +1178,30 @@
                 href="https://docs.altinn.studio/nb/api/models/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/community/roadmap/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/roadmap/studio/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/studio/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/studio/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1212,6 +1236,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/app/testing/local/apitests/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/roadmap/studio/appowner/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/studio/appowner/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/studio/appowner/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/api/platform/swagger/authentication/</loc>
@@ -1656,6 +1692,18 @@
                 rel="alternate"
                 hreflang="nb"
                 href="https://docs.altinn.studio/nb/app/testing/local/apitests/user/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/nb/community/roadmap/studio/enduser/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/roadmap/studio/enduser/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/roadmap/studio/enduser/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/api/platform/swagger/storage/</loc>
