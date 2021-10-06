@@ -37,7 +37,7 @@ The following configuration is added to `applicationmetadata.json` to configure 
 }
 ```
 
-Users that does not have any active instances there will be created an instance,
+For users that do not have any active instances, a new instance will be created,
 while users that have active instances will be presented with the following user interface:
 
 ![User interface for selecting active instances](select-active-instance.png "User interface for selecting active instances")
