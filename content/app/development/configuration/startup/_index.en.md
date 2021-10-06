@@ -14,7 +14,7 @@ Standard behaviour if this field is not present is to create a new instance for 
 
 {{%notice warning%}}
 
-**Notice:** in order to use this functionality the application have to rely on version >= 4.15.2 of the nuget packages `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
+**Notice:** in order to use this functionality the application must reference version >= 4.15.2 of the nuget packages `Altinn.App.PlatformServices`, `Altinn.App.Common` and `Altinn.App.Api`.
 
 {{%/notice%}}
 
