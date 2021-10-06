@@ -8,7 +8,7 @@ toc: true
 ## Lansert funksjonalitet
 
 {{% panel %}}
-For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se [brukerdokumentasjonen for Altinn Studio](/nb/app/).
+For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se [brukerdokumentasjonen for Altinn Studio](../../../../app/).
 {{% /panel %}}
 ### Skjemafunksjonalitet
 

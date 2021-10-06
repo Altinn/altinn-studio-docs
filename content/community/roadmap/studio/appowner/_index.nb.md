@@ -7,7 +7,7 @@ toc: true
 ## Lansert funksjonalitet
 
 {{% panel %}}
-For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se brukerdokumentasjonen for [Altinn Studio](/nb/app/) og [API](/nb/api/).
+For informasjon om **hvordan man bruker** funksjonalitetene som er beskrevet her, se brukerdokumentasjonen for [Altinn Studio](../../../../app/) og [API](../../../../api/).
 {{% /panel %}}
 
 ### Tjenesteutvikling i GUI
@@ -34,7 +34,7 @@ Ved å hente ned applikasjonskoden (via Git) lokalt (eller ved å redigere på a
 
 ### Teste lokalt
 
-Når du har applikasjonskoden lokalt, kan du også benytte deg av muligheten til å ha [et lokalt testmiljø for å gjøre de fleste typer testing](/nb/app/testing/local/). 
+Når du har applikasjonskoden lokalt, kan du også benytte deg av muligheten til å ha [et lokalt testmiljø for å gjøre de fleste typer testing](../../../../app/testing/local/). 
 
 ### Integrasjon med tjenesteeier
 
@@ -45,7 +45,7 @@ Man kan redusere mengden spørringer ved bruk av push av events - at tjenesteeie
 For å benytte API-ene som tjenesteeier må man autentisere seg med Maskinporten.
 
 ### Forvaltning av apper
-Det er lagt opp til [tilgang til overvåking av egne applikasjoner](/nb/app/getting-started/access-management/apps/), slik at man kan ha oversikt over hvordan appene fungerer. Se også [sidene om vedlikehold av apps](/nb/app/maintainance/).
+Det er lagt opp til [tilgang til overvåking av egne applikasjoner](../../../../app/getting-started/access-management/apps/), slik at man kan ha oversikt over hvordan appene fungerer. Se også [sidene om vedlikehold av apps](../../../../app/maintainance/).
 
 - Mulighet for å lage en ny app som kopi av en tidligere (Q3 2021) ([#5923](https://github.com/Altinn/altinn-studio/issues/5923)) :heavy_check_mark:
 

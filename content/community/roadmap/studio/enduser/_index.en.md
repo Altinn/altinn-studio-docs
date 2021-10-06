@@ -8,7 +8,7 @@ toc: true
 ## Launched functionality
 
 {{% panel %}}
-For information on **How to use** the functionalities described here, see the [app](/app/) section of the documentation.
+For information on **How to use** the functionalities described here, see the [app](../../../../app/) section of the documentation.
 {{% /panel %}}
 
 ### Form functionality

@@ -7,7 +7,7 @@ toc: true
 ## Launched functionality
 
 {{% panel %}}
-For information on **How to use** the functionalities described here, see the [Altinn Studio](/app/) and [API](/api/) user documentation.
+For information on **How to use** the functionalities described here, see the [Altinn Studio](../../../../app/) and [API](../../../../api/) user documentation.
 {{% /panel %}}
 
 ### GUI based app development
@@ -35,7 +35,7 @@ This includes standard functionality for:
 
 ### Test locally
 
-Once you have your app code locally, you can also take advantage of [a local test enviroment for most types of app testing](/app/testing/local/). 
+Once you have your app code locally, you can also take advantage of [a local test enviroment for most types of app testing](../../../../app/testing/local/). 
 
 ### Integration with app owner
 
@@ -48,8 +48,8 @@ You can reduce the amount of polling by using push events - where app owner can 
 To use the APIs as an app owner, you need to authenticate using Maskinporten.
 
 ### Maintaining apps
-App owners get [access to monitoring their apps](/app/getting-started/access-management/apps/), so they can keep track of how they are functioning. 
-See also [the pages about app maintenance](/app/maintainance/).
+App owners get [access to monitoring their apps](../../../../app/getting-started/access-management/apps/), so they can keep track of how they are functioning. 
+See also [the pages about app maintenance](../../../../app/maintainance/).
 
 - Let developers easily copy an old app into a new one (Q3 2021) ([#5923](https://github.com/Altinn/altinn-studio/issues/5923)) :heavy_check_mark:
 

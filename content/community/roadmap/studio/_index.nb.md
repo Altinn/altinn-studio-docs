@@ -6,7 +6,7 @@ weight: 900
 ---
 
 {{% panel %}}
-For informasjon om **hvordan man bruker** funksjonalitetene beskrevet her, se seksjonene om [apper](/nb/app/) og [API](/nb/api).
+For informasjon om **hvordan man bruker** funksjonalitetene beskrevet her, se seksjonene om [apper](../../../app/) og [API](../../../api).
 {{% /panel %}}
 
 {{% children %}}

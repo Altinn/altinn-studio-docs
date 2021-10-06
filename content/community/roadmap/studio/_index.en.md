@@ -6,7 +6,7 @@ weight: 900
 ---
 
 {{% panel %}}
-For information on **how to use** the functionalities described here, see the [Apps](/app) and [API](/api) sections.
+For information on **how to use** the functionalities described here, see the [Apps](../../../app) and [API](../../../api) sections.
 {{% /panel %}}
 
 {{% children %}}
