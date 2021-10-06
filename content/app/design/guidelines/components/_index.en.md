@@ -25,13 +25,13 @@ Det bør som hovedregel alltid være en header (H2) og et avsnitt i starten på 
 brukerens oppgave.
 
 
-**Retningslinjer:**
+### Retningslinjer:
 - Tekstlengde på avsnitt strekkes ikke ut 100% i modalboksen, ettersom lange linjer tekst forstyrrer flyten i lesingen. 
 - Avsnitt er derfor begrenset til maks 696px i bredden, selv om modalen fyller ut 1056px. 
 - Teksten skal alltid være venstrestilt. 
 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2815%253A680" %}}
 
@@ -40,13 +40,13 @@ brukerens oppgave.
 ## Knapp og lenke
 Hovedknapp (blå) brukes for å sende brukeren til neste steg. 
 
-**Retningslinjer:**
+### Retningslinjer:
 - Det skal kun være en hovedknapp per side. Sekundærvalg kan legges til som knapper stylet som lenker.
 - Teksten på knappen skal være tydelig. Som regel fungerer "Neste" bra, men knappen kan også formuleres som svar på 
 et spørsmål (se eksempel under).
 - På siste steg i skjemaet (innsending) skal hovedknappen være grønn.
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A809" %}}
 
 ---
@@ -54,14 +54,14 @@ et spørsmål (se eksempel under).
 ## Inputfelt
 Inputfelt brukes når brukeren skal føre inn tekst eller tall. 
 
-**Retningslinjer:**
+### Retningslinjer:
 - Et inputfelt skal alltid ha en tilhørende label med forklarende tekst.
 - Ta en vurdering på om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
 - To inputfelt kan plasseres ved siden av hverandre dersom de på et eller annet vis hører sammen. Se eksempel under.
 - Deaktivert felt bør unngås. Dersom et felt ikke kan redigeres bør informasjonen heller presenteres i tekst. 
 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" %}}
 
 ---
@@ -70,7 +70,7 @@ Inputfelt brukes når brukeren skal føre inn tekst eller tall.
 Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De samme retningslinjene som 
 inputfelt gjelder. 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D3495%253A656" %}}
 
@@ -80,7 +80,7 @@ inputfelt gjelder.
 For adresse finnes det et fast oppsett der postnr og poststed er sidestilt under datofeltet. Postfelt fylles 
 ut automatisk basert på postnr-input. 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2911%253A652" %}}
 
@@ -89,14 +89,14 @@ ut automatisk basert på postnr-input.
 ## Datovelger
 I forbindelse med planlegging, eller for datoer i nærliggende tid kan du bruke datovelgeren.
 
-**Retningslinjer:**
+### Retningslinjer:
 -  Dersom du skal hente inn en fødselsdato eller andre datoer lengre tilbake i tid, er ikke datovelgeren et anbefalt 
 alternativ, se studier fra [gov.uk](https://design-system.service.gov.uk/patterns/dates/#asking-for-memorable-dates) 
 -  I disse tilfellene kan du heller bruke [datofeltet](#datofelt).
 -  Legg til korrekt validering og gi brukeren informasjon om hva som er gyldige datoer å velge. Skal brukeren kunne 
 velge datoer tilbake i tid? Innenfor en gitt periode?
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D4833%253A961" allowfullscreen></iframe>
 
@@ -111,11 +111,11 @@ der en spesifikk dag er viktig, bruk [datovelgeren](#datovelger) i stedet.
 {{% panel theme="warning" %}} ⚠️ Denne komponenten er ikke tilgjengelig i Altinn Studio enda. 
 {{% /panel %}}
 
-**Retningslinjer:**
+### Retningslinjer:
 - Bruk alltid label på hver av de tre boksene (dag, måned, år), og ledetekst (legend) for hele input-gruppen. 
 - Om datagrunnlaget finnes, kan en spesifikk dato være foreslått i feltet. Ellers kan eksempelinnholdet være dagen i dag. 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5139%253A832" %}}
 
 ---
@@ -124,13 +124,13 @@ der en spesifikk dag er viktig, bruk [datovelgeren](#datovelger) i stedet.
 Avkrysningsbokser brukes i tilfeller der brukeren kan huke av ett eller flere alternativer fra en liste. Dersom 
 brukeren kun kan velge et av alternativene, bruk [radioknapper](/planlegging-og-design/guidelines/design/#-radioknapper) i stedet. 
 
-**Retningslinjer:**
+### Retningslinjer:
 - Avkrysningsboksene skal stå foran tilhørende tekst, og skal aldri stå alene.
 - Deaktiverte avkrysningsbokser bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares 
 i tekst hvorfor det mangler. 
 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5295%253A1181" %}}
 
@@ -147,12 +147,12 @@ Radioknapper velges når:
 - Du ønsker at brukeren skal lese alle alternativene
 - Valgalternativene er ukjent for brukeren
 
-**Retningslinjer:**
+### Retningslinjer:
 - Radioknapper skal stå foran tilhørende tekst, og skal aldri stå alene.
 - Deaktiverte radioknapper bør unngås. Dersom et valg ikke er tilgjengelig bør det heller fjernes og forklares 
 i tekst hvorfor det mangler. 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5655%253A1419" %}}
 
@@ -170,8 +170,7 @@ Nedtrekksliste velges når:
 - Du ønsker ikke at brukeren skal trenge å lese alle alternativene
 - Valgalternativene er kjent for brukeren
 
-
-**Eksempel på bruk:**
+### Eksempel på bruk:
 
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5655%253A1605" %}}
 
@@ -181,28 +180,26 @@ Nedtrekksliste velges når:
 Hjelpetekster er små tekstsnutter som kan benyttes for å gi brukeren ekstra veiledning i utfylling av skjemafelter. 
 Man kan også benytte feltet til å forklare et regelverk, fremmede begreper, eller utdype hvorfor man ber om informasjonen.  
 
-
-**Retningslinjer:**
+### Retningslinjer:
 - Hjelpetekst plasseres i sammenheng med en label eller tittel som skal utdypes.
 - Dersom innholdet er avgjørende informasjon for at brukeren skal kunne fylle ut skjemaet riktig, bør det heller 
 plasseres i en infotekst i grensesnittet (under labelen). 
 
-**Eksempel på bruk:**
+### Eksempel på bruk:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A1788" %}}
 
 ## Feilmeldinger
 Vær kort og tydelig i formuleringen av feilmeldingene og sørg for at brukeren vet hva som må gjøres for å komme 
 videre. Å skrive "Feltet er påkrevd" gir ikke brukeren en forklaring på hva som er feil. 
 
-**Eksempel på forklarende feilmeldinger:** 
+### Eksempel på forklarende feilmeldinger:
 - "Postnummer må ha 4 siffer"
 - "Du må velge minst ett leveringsalternativ"
 - "For å sende inn skjemaet må du bekrefte at navnet er korrekt ved å huke av i avkrysningsboksen"
 
 Les mer om å formidle feil i skjema på [UU-tilsynets nettsider](https://www.uutilsynet.no/wcag-standarden/skjema/38#formidle_feil_i_skjema).
 
-
-**Retningslinjer:**
+### Retningslinjer:
 
 - Feilmeldingstekst bør gjenta nøkkelord fra label
 - Kravene for å fylle ut skjemaet riktig skal tydelig fremgå av skjemaet uten at brukeren trenger å få noen 
@@ -211,15 +208,23 @@ feilmeldinger fra valideringen for å forstå dette.
 og lenke til de feltene feilen gjelder. Feilene skal forsvinne etterhvert som de blir utbedret. ⚠️ NB: Denne 
 funksjonaliteten er ikke tilgjengelig i Altinn Studio enda.
 
-**Eksempel på bruk:**
-
+### Eksempel på bruk:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D5711%253A2073" %}}
 
 ---
 
 ## Filopplasting
+Du bør ikke be brukeren laste opp vedlegg med mindre det faktisk har en avgjørende betydning for tjenesten. 
+Sjekk først om informasjonen kan hentes  inn på annet vis, kanskje gjennom API?
 
----
+### Retningslinjer:
+- Vær så fleksibel som mulig i forhold til hvilke filtyper som kan lastes opp. Ikke alle har kompetanse til å endre 
+filtypeformat eller komprimere filer. 
+- Dersom det er feil i opplastingen, vær så spesifikk som mulig i feilmeldingen. Å si at “formatet ikke er godkjent” holder ikke, 
+det må spesifiseres nøyaktig hva som kreves. 
+- Har du behov for at brukeren laster opp vedlegg av ulike typer/kategorier, anbefaler vi å bruke flere steg med en
+filopplaster i hvert steg. Spesifiser i innledningen på hver side hva som skal legges ved, slik at brukeren ikke blir i tvil.
 
+### Eksempel på bruk:
+{{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D10665%253A6471" %}}
 
-### Liste over vedlegg
