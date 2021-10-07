@@ -5,6 +5,10 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.12.3 (2021-10-01) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 40.
+Issue [#7051](https://github.com/Altinn/altinn-studio/issues/7051).
+
 ## 3.12.2 (2021-10-04) - Fiks for design av readonly datovelger
 Readonly datovelger nå har samme design som andre readonly komponenter.
 Issue [#6253](https://github.com/Altinn/altinn-studio/issues/6253)
