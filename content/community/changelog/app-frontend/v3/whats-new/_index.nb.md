@@ -5,9 +5,13 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
-## 3.12.3 (2021-10-07) - Repeterende gruppe åpen konfigurasjon
+## 3.12.4 (2021-10-07) - Repeterende gruppe åpen konfigurasjon
 La til funksjonalitet til å styre om en repeterende gruppe skal være åpen i editeringsmodus når applikasjonen lastes.
 Løser deler av issue [#4870.](https://github.com/Altinn/altinn-studio/issues/4870)
+
+## 3.12.3 (2021-10-07) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 40.
+Issue [#7051](https://github.com/Altinn/altinn-studio/issues/7051).
 
 ## 3.12.2 (2021-10-04) - Fiks for design av readonly datovelger
 Readonly datovelger nå har samme design som andre readonly komponenter.
