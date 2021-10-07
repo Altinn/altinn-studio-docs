@@ -58,7 +58,7 @@ Bestemmer om "Slett"-knappen vises når et gruppeelement er i redigeringsmodus. 
 Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger. Krever mer oppsett for å fungere, se under for mer informasjon.
 
 ## openByDefault
-Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne funker ikke godt med `"mode": "showAll"`.
+Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne ikke kan brukes sammen med `"mode": "showAll"`.
 
 Eksempel:
 ```json
