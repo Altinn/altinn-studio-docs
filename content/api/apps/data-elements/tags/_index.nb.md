@@ -6,7 +6,7 @@ tags: [api]
 weight: 100
 ---
 
-## Overview
+## Oversikt
 
 Api'et for tags (stikkord) på data elementer har endepunkter for å liste ut tags, legge til en tag, samt sletting av tag.
 
