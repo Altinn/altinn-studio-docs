@@ -222,6 +222,18 @@
                 href="https://docs.altinn.studio/app/development/ux/pages/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/title-and-paragraph/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/title-and-paragraph/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/title-and-paragraph/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/design/guidelines/components/</loc>
     <xhtml:link
                 rel="alternate"
@@ -316,6 +328,18 @@
                 href="https://docs.altinn.studio/app/development/ux/fields/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/button/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/button/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/button/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/design/guidelines/content/</loc>
     <xhtml:link
                 rel="alternate"
@@ -400,6 +424,18 @@
                 href="https://docs.altinn.studio/app/design/guidelines/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/input/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/input/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/input/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/development/logic/</loc>
     <xhtml:link
                 rel="alternate"
@@ -472,6 +508,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/app/development/configuration/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/date/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/date/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/date/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/changelog/deployment/</loc>
@@ -572,6 +620,18 @@
                 href="https://docs.altinn.studio/app/development/api/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/checkbox/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/checkbox/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/checkbox/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/debug/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/api/apps/instances/</loc>
@@ -622,6 +682,18 @@
                 href="https://docs.altinn.studio/api/models/data-element/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/radiobutton/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/radiobutton/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/radiobutton/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/development/ux/widgets/</loc>
     <xhtml:link
                 rel="alternate"
@@ -632,6 +704,42 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/app/development/ux/widgets/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/select/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/select/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/select/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/helptext/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/helptext/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/helptext/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/error-message/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/error-message/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/error-message/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/changelog/storage-interfaces/v3/</loc>
@@ -782,6 +890,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/api/platform/events/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/file-upload/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/file-upload/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/file-upload/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/</loc>
