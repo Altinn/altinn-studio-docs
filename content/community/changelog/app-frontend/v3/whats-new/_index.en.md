@@ -6,7 +6,7 @@ toc: true
 
 ## 3.12.3 (2021-10-01) - Dependency patching
 Patching of external dependencies for week 40.
-Issue [#6873](https://github.com/Altinn/altinn-studio/issues/7051).
+Issue [#7051](https://github.com/Altinn/altinn-studio/issues/7051).
 
 ## 3.12.2 (2021-10-04) - Fixed design of readonly datepicker component
 Readonly datepicker component now follows design of other readonly components.
