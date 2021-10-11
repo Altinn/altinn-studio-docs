@@ -5,7 +5,11 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
-## 3.12.4 (2021-10-07) - Repeterende gruppe åpen konfigurasjon
+## 3.13.0 (2021-10-11) - Start fra aktiv instans
+La til funksjonalitet for å starte en applikasjon fra en aktiv instans.
+Issue [#6766.](https://github.com/Altinn/altinn-studio/issues/6766)
+
+## 3.12.4 (2021-10-11) - Repeterende gruppe åpen konfigurasjon
 La til funksjonalitet til å styre om en repeterende gruppe skal være åpen i editeringsmodus når applikasjonen lastes.
 Løser deler av issue [#4870.](https://github.com/Altinn/altinn-studio/issues/4870)
 
