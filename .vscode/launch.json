@@ -2,11 +2,18 @@
     "version": "1.0.0",
     "configurations": [
         {
-            "type": "chrome",
+            "type": "pwa-msedge",
             "request": "launch",
-            "name": "Altinn Studio docs",
+            "name": "Launch in Edge",
             "url": "http://localhost:1313",
-            "preLaunchTask": "Hugo"
+            "preLaunchTask": "Hugo Server"
+        },
+        {
+            "type": "pwa-chrome",
+            "request": "launch",
+            "name": "Launch in Chrome",
+            "url": "http://localhost:1313",
+            "preLaunchTask": "Hugo Server"
         }
     ]
 }
