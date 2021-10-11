@@ -1050,7 +1050,16 @@ gruppe-elementet. Dataene lagres uansett.</p>
 <p>Bestemmer om &ldquo;Slett&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Slett&rdquo;-knapp vises.</p>
 <h3 id="multipage">multiPage</h3>
 <p>Sier at redigering/utfylling av gruppe kan gjøres over flere &ldquo;sider&rdquo;/visninger. Krever mer oppsett for å fungere, se under for mer informasjon.</p>
-<h2 id="flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</h2>
+<h2 id="openbydefault">openByDefault</h2>
+<p>Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne ikke kan brukes sammen med <code>&quot;mode&quot;: &quot;showAll&quot;</code>.</p>
+<p>Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  ...
+  <span style="color:#ff79c6">&#34;edit&#34;</span>: {
+    <span style="color:#ff79c6">&#34;openByDefault&#34;</span>: <span style="color:#ff79c6">true</span>
+  }
+}
+</code></pre></div><h2 id="flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</h2>
 <div class="notices info" >
 - Denne funksjonaliteten er p.t. kun tilgjengelig for repeterende grupper.
 - Visning av gruppe over flere sider inne i redigerings-flaten til gruppen støttes KUN for grupper på øverste nivå, og støttes ikke for grupper i grupper.
