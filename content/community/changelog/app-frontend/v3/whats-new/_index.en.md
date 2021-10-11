@@ -4,7 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
-## 3.12.4 (2021-10-07) - Repeating group open configuration
+## 3.13.0 (2021-10-11) - Start from active instance
+Added functionality to start an application from an active instance.
+Issue [#6766.](https://github.com/Altinn/altinn-studio/issues/6766)
+
+## 3.12.4 (2021-10-11) - Repeating group open configuration
 Added functionality to configure that a repeating group should be opened in edit mode when the app starts.
 Solves parts of Issue [#4870.](https://github.com/Altinn/altinn-studio/issues/4870)
 
