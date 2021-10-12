@@ -890,6 +890,18 @@
                 href="https://docs.altinn.studio/nb/community/about/slide/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/api/apps/data-elements/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/data-elements/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/data-elements/tags/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/api/apps/stateless-data-elements/</loc>
     <xhtml:link
                 rel="alternate"

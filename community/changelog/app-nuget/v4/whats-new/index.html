@@ -317,7 +317,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/apps/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
-        <a href="/api/apps/data-elements/"><span>Data elements</span></a></li>
+        <a href="/api/apps/data-elements/"><span>Data elements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/apps/stateless-data-elements/"><span>Stateless data elements</span></a></li>
       <li class="dd-item">
@@ -995,6 +997,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4160-2021-10-07---added-api-for-tagging-of-data-elements">4.16.0 (2021-10-07) - Added API for tagging of data elements</a></li>
     <li><a href="#4152-2021-10-04---new-endpoint-for-retrieving-active-instances">4.15.2 (2021-10-04) - New endpoint for retrieving active instances</a></li>
     <li><a href="#4141-2021-09-22---500-error-when-retrieving-non-existing-instance-fixed">4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed</a></li>
     <li><a href="#4140-2021-09-13---partial-support-for-namespace-xml">4.14.0 (2021-09-13) - Partial support for namespace XML</a></li>
@@ -1026,6 +1029,10 @@ if(host != "localhost")
 
 
 
+<h2 id="4160-2021-10-07---added-api-for-tagging-of-data-elements">4.16.0 (2021-10-07) - Added API for tagging of data elements</h2>
+<p>It&rsquo;s now possible to save tags on a data element. To support this there are 3 new API endpoints for listing existing tags, adding a tag, and to remove a tag from a data element.</p>
+<p>This change is associated with issue <a href="https://github.com/Altinn/altinn-studio/issues/6861">6861</a> on github.</p>
+<p>There is more information about the new API under the app API documentation.</p>
 <h2 id="4152-2021-10-04---new-endpoint-for-retrieving-active-instances">4.15.2 (2021-10-04) - New endpoint for retrieving active instances</h2>
 <p>Altinn Apps now expose a new endpoint for retriveing active instances for a given instance owner. 
 The new endpoint can be reached at {org}.apps.altinn.no/{org}/{app}/instances/{instanceOwnerPartyId}/active.</p>

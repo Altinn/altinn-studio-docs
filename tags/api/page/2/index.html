@@ -317,7 +317,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/apps/instances/"><span>Instances</span></a></li>
       <li class="dd-item">
-        <a href="/api/apps/data-elements/"><span>Data elements</span></a></li>
+        <a href="/api/apps/data-elements/"><span>Data elements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/apps/stateless-data-elements/"><span>Stateless data elements</span></a></li>
       <li class="dd-item">
@@ -1119,6 +1121,35 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
 basePath
 {org}/{app}/v1/data Create new data Endpoint for creating a new stateless dataelement based on a data type.
 POST basePath?dataType=[dataTypeId] Accept: application/{xml/json} The dataType parameter is required and should reference one of the data types defined on the application that requires app logic. <a class="read-more" href="/api/apps/stateless-data-elements/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post api">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/api/apps/data-elements/tags/">Tags</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Overview The tag API for data elements have endpoints for listing of tags, adding a tag and removing a tag.
+basePath
+{org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/ Get tags Endpoint for retrieving a list of tags already added to a data element.
+GET basePath/tags Accept: application/json Add tag Endpoint for adding a tag to a data element.
+POST basePath/tags Content-Type: application/json &#34;letters&#34; The body should contain the new word in quotes. This is the JSON representation of a text and the Content-Type needs to be application/json. <a class="read-more" href="/api/apps/data-elements/tags/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

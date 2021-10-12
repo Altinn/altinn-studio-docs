@@ -1022,6 +1022,18 @@
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/styling/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/api/apps/data-elements/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/api/apps/data-elements/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/api/apps/data-elements/tags/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/test/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/test/test-strategy/</loc>

@@ -309,7 +309,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span></a></li>
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
       <li class="dd-item">
@@ -531,9 +533,10 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/whats-new/">Hva er nytt?</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser' Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver. Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/instances/{instanceOwnerPartyId}/active.
-Denne endringen tilhører issue 6767.
-4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed There was a bug causing a 500 response when an request is made towards Get/Instances for a non-existing instance. This has now been fixed and the response returned is 403. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
+        <p>4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.
+Denne endringer tilhører saken 6861 på github.
+Det er mer informasjon om endringen under app API dokumentasjon.
+4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
