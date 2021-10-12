@@ -474,33 +474,6 @@ if(host != "localhost")
 	</div>
 
 	
-	   <article class="post community">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/nb/community/about/">Om Altinn 3</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>The platform is owned by the Norwegian Digitalization Agency and developed as an open source platform.
-The current development solution and hosting platform (launched 2010) is considered by Gartner as one of the five leading digital government technology platforms in the world.
-The current platform is used by over 90% of the Norwegian population and almost 100% of the businesses. Over 62 agencies and municipalities host their solutions in the Altinn platform. <a class="read-more" href="/nb/community/about/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 	   <article class="post api">
     <header class="post-header">
         <h2 class="post-title"><a href="/nb/api/">Altinn 3 API</a></h2>
@@ -733,6 +706,35 @@ API provisioning in Maskinporten API-provider To provide an API in maskinporten 
 basePath
 {org}/{appname}/instances/{instanceOwnerPartyId}/{instanceGuid}/data Get data Endpoint for downloading the data blob.
 GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend on the type of blob. There are currently 2 primary types: form data based on a model and attachments. An Accept header in a request will be considered only when the requested data element is connected to a data model. <a class="read-more" href="/nb/api/apps/data-elements/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian/">translate-to-norwegian</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post api">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/nb/api/platform/events/">Events (hendelser)</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Overview Events are in this context is information about events created by applications or other sources. The event itself is based on the CloudEvent standard and is a small JSON structure containing the most important information of an event. Details are found here.
+The events APIs are used to access events created by applications in Altinn Apps and other event sources that use Altinn Platform as av &ldquo;event hub&rdquo;.
+Subscription The highly preferred way to use events is to set up a subscription that enables push of events to a webhook-endpoint. <a class="read-more" href="/nb/api/platform/events/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
