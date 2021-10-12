@@ -80,7 +80,7 @@ f.eks. om leverandøren velger å fase ut produktet.
 Om man baserer seg på åpen kildekode så kan man i en slik situasjon
 lage en [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo), om ikke noen andre gjør det.
 
-Altinn 3 er derfor [basert på programvare og biblioteker](../../../technology/tools/) som er åpen kildekode.
+Altinn 3 er derfor [basert på programvare og biblioteker](/technology/tools/) som er åpen kildekode.
 
 Vi tenker at dette naturlig nok også er veldig viktig for de som vurderer om man skal ta i bruk Altinn.
 
