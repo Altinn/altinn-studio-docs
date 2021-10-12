@@ -11,7 +11,7 @@ Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I d
 
 Denne endringer tilhører saken [6861](https://github.com/Altinn/altinn-studio/issues/6861) på github.
 
-Det er mer informasjon om endringen under app api dokumentasjon.
+Det er mer informasjon om endringen under app API dokumentasjon.
 
 ## 4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser
 Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver.

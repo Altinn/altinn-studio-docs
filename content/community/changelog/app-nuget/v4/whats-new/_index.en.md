@@ -10,7 +10,7 @@ It's now possible to save tags on a data element. To support this there are 3 ne
 
 This change is associated with issue [6861](https://github.com/Altinn/altinn-studio/issues/6861) on github.
 
-There are more information about the new API under the App API documentation.
+There is more information about the new API under the app API documentation.
 
 ## 4.15.2 (2021-10-04) - New endpoint for retrieving active instances
 Altinn Apps now expose a new endpoint for retriveing active instances for a given instance owner. 

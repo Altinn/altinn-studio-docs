@@ -8,7 +8,7 @@ weight: 100
 
 ## Oversikt
 
-Api'et for tags (stikkord) på data elementer har endepunkter for å liste ut tags, legge til en tag, samt sletting av tag.
+API'et for tags (stikkord) på data elementer har endepunkter for å liste ut tags, legge til en tag, samt sletting av tag.
 
 **baseSti**
 ```http
@@ -41,7 +41,7 @@ Svaret på et kall vil inneholde listen over alle tags lagt til på data element
 
 ## Slett tag
 
-Endepunkt for l fjerne en tag fra et data element.
+Endepunkt for å fjerne en tag fra et data element.
 
 ```http
 DELETE baseSti/tags/{tag}
