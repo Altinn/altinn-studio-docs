@@ -4,6 +4,13 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.16.0 (2021-10-07) - Added API for tagging of data elements
+
+It's now possible to save tags on a data element. To support this there are 3 new API endpoints for listing existing tags, adding a tag, and to remove a tag from a data element.
+
+This change is associated with issue [6861](https://github.com/Altinn/altinn-studio/issues/6861) on github.
+
+There is more information about the new API under the app API documentation.
 
 ## 4.15.2 (2021-10-04) - New endpoint for retrieving active instances
 Altinn Apps now expose a new endpoint for retriveing active instances for a given instance owner. 

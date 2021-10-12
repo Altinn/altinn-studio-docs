@@ -5,7 +5,15 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
-## 4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser'
+## 4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer
+
+Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.
+
+Denne endringer tilhører saken [6861](https://github.com/Altinn/altinn-studio/issues/6861) på github.
+
+Det er mer informasjon om endringen under app API dokumentasjon.
+
+## 4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser
 Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver.
 Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/instances/{instanceOwnerPartyId}/active.
 
