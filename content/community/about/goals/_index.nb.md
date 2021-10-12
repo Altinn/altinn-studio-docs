@@ -2,37 +2,36 @@
 title: Mål
 description: Oppsummering av målene for Altinn 3.
 toc: false
-tags: [translate-to-norwegian]
 ---
 
-## User friendly and responsive apps
+## Brukervennlige og responsive applikasjoner
 
-- User interface that is user friendly, effective and modern.
-- Support for Responsive Design both for forms and the development tool.
-- Built in accessability with support for [WCAG 2](https://www.w3.org/Translations/WCAG20-no/)
-- Good performance and low response time
+- Brukergrensesnitt som er vennlig, effektivt og moderne.
+- Støtte for responsivt design, både for tjenestene og tjenesteutviklingsverktøyet.
+- Innebygd universell utforming med støtte for [WCAG 2](https://www.w3.org/Translations/WCAG20-no/)
+- God ytelse og lave responstider
 
-## Effective and self-serviced development
+## Effektiv og selvbetjent tjenesteutvikling
 
-- As a developer you can do everthing yourself (including deployment to production) whenever you want, without need for orders, training ++. Bottlenecks is eliminated.
-- Effective and real testing, where unit test works like in a test environment and produiction. 
-- Support for creating automated tests of apps
-- Rules and logic is defined once for all channels (portal/web service / rest), and are more robust than current plattform
-- Built inn data modelling in web based tool (and support for XSD import from external tools like [SERES](https://altinnett.brreg.no/no/SERES/), [OR](https://w2.brreg.no/oppgaveregisteret/spesifikasjon_etatsliste.jsp), etc. )
-- Not nescessery with Citrix for access to Altinn Studio
+- Som utvikler kan du gjøre alt selv (inkludert å sette tjenesten i produksjon) når du vil, uten bestillinger, kursing eller lignende. Ingen flaskehalser.
+- Effektiv og reell testing, der enhetstesting lokalt fungerer likt som i testmiljøer og produksjon
+- Støtte for automatisert testing
+- Regler og logikk defineres én gang for alle kanaler (portal og API), og er mer robust enn i gammel plattform
+- Innebygd datamodelleringsverktøy (og støtte for import av modeller fra eksterne verktøy som [SERES](https://altinnett.brreg.no/no/SERES/), [OR](https://w2.brreg.no/oppgaveregisteret/spesifikasjon_etatsliste.jsp), osv. )
+- Ikke behov for Citrix for å få tilgang til Altinn Studio
 
-## Simple for non-technical developers, flexible for technical developers
+## Enkelt for ikke-tekniske utviklere, fleksibelt for tekniske utviklere
 
-- Non-technical app developers have access to needed functionality [in browser](../dev-in-browser)
-- You can reuse good and testet components/widgets
-- It is easy to do call against API's in other systems (retrieve data, run external logic)
-- Techincally skilled deveopers can configure all aspect of the apps, as an example make a reusable widgets, stylesheets ++
-- Reuse of text and other resources on the desired level (platform, org, app), all languages supported
-- Git (version control) are used for source control for the apps, both from browser and code editior. 
+- Ikke-tekniske apputviklere har tilgang på relevant funksjonalitet i det nettleserbaserte grensesnittet til Altinn Studio
+- Du kan gjenbruke gode, gjennomtestede komponenter
+- Det er enkelt å gjøre kall mot eksterne API-er, både for gjenbruk av data og for å kjøre ekstern logikk
+- Tekniske utviklere kan konfigurere alle aspekter ved appene, for eksempel overstyre styling og lage egne komponenter
+- Gjenbruke tekster og andre ressurser på egnet nivå (plattform, organisasjon, applikasjon), og alle språk er støttet
+- Git brukes som kildekodehåndtering (inkludert versjonshåndtering) for appene, både fra nettleser og ved bruk av kodeeditor.
 
-## Open Source, cross-platform
+## Plattformuavhengig åpen kildekode
 
-- Altinn 3 will be based on [open source](https://en.wikipedia.org/wiki/Free_and_open-source_software)
-- Altinn 3 will be open source
-- Altinn 3 can run on your own computer, own serwers on Windows, macOS or Linux
-- Everything is based on open [web-standardes](https://en.wikipedia.org/wiki/Web_standards) and regulaer development knowledge. 
+- Altinn 3 bygger på [åpen kildekode](https://en.wikipedia.org/wiki/Free_and_open-source_software)
+- Altinn 3 skal være åpen kildekode
+- Altinn 3 kan kjøres på din egen maskin, dine egne servere, på Windows, macOS eller Linux
+- Alt er basert på åpne [web-standarder](https://en.wikipedia.org/wiki/Web_standards) og god utviklingskunnskap og -praksis. 

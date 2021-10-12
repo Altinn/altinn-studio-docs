@@ -4,59 +4,59 @@ linktitle: Om
 description: Altinn 3 er tredje generasjon plattform for å utvikle og kjøre digitale tjenester.
 toc: true
 weight: 1
-tags: [translate-to-norwegian]
 ---
 
-The platform is owned by the Norwegian Digitalization Agency and developed as an open source platform.
+Plattformen er eid av Digitaliseringsdirektoratet og utviklet som en åpen kildekode-plattform.
 
-The current development solution and hosting platform (launched 2010) is considered by Gartner
-as one of the five leading digital government technology platforms in the world.
+Den nåværende løsningen og plattformen (Altinn II - lansert i 2010) regnes av Gartner som en
+av verdens fem ledende plattformer for digitale myndigheter.
 
 ![Gartner](gartner.png "Gartner")
 
-The current platform is used by over 90% of the Norwegian population and almost 100% 
-of the businesses. Over 62 agencies and municipalities host their solutions in the Altinn platform.
+Plattformen brukes av over 90 % av den norske befolknigen og nær 100 % av alle virksomheter
+Mer enn 62 etater, fylkeskommuner og kommuner bruker Altinn som platform for sine tjenester.
 
-The current platform has almost 1000 active solutions supporting different user scenarios.  
-Examples of solutions in the current platform is: Tax reporting, aircraft incident reporting, correspondence services from health department, lookup service in to the business register and many many more.
+Det finnes nær 1000 aktive tjenester på plattformen som dekker ulike bruksscenarier.  
+Eksempler på slike tjenester er skattemeldingen, rapportering av ulykker i luftfarten, meldinger fra forsvaret,
+oppslag mot data i Brønnøysundregistrene og mye, mye mer.
 
-![Consept](concept3.svg "Altinn 3 concept")
+![Konsept](concept3.svg "Konsept for Altinn 3")
 
-## Concept
+## Konsept
 
-Using Altinn 3, agencies and other public entities can develop digital services as applications in Altinn Studio, they can deploy
-them to their isolated cloud infrastructure as containers. Altinn Platform supports the apps with core functionality
-like storage, authorization, authentication, register data, and more.
+Ved å bruke Altinn 3 kan etater og andre myndighetsutøvere bygge tjenester som fullverdige applikasjoner og produksjonssette
+dem som containere til deres isolerte infrastruktur i skyen. Altinn Platform gir appene kjernefunksjonalitet
+som lagring, autorisasjon, autentisering, tilgang på registerdatam med mer.
 
-The infrastructure is highly scalable to support the different needs and all infrastructure is managed by the Altinn DevOps team.
+Infrastrukturen er svært skalerbar for å støtte de ulike behovene tjenesteeierne har, og forvaltes av DevOps-teamet hos Altinn.
 
-The application template provided by Altinn Studio is prepared for the most common digital services scenarios making it possible to create and deploy
-the most simple public digital services in only hours.
+Applikasjons-templaten som følger med Altinn Studio er gjort klar for de vanligste typene digitale tjenester,
+noe som gjør det mulig å lage og publisere de enkleste tjenestene i løpet av timer.
 
-When an application is deployed to Altinn Apps it is available to all citizens and businesses of Norway.
+Når applikasjonen er produksjonssatt til Altinn Apps er den tilgjengelig for så godt som alle privatpersoner og virksomheter i Norge.
 
-## Why Altinn 3?
+## Hvorfor Altinn 3?
 
-There are many reasons to use Altinn 3 to build and host your digital services.
+Det er mange grunner til å bruke Altinn 3 til å bygge og kjøre dine digitale tjenester.
 
-- Application template are have built in functionality for the most common scenarios
-- Easy to develop and deploy apps
-- Reuse of data, UX, APIs and functionality
-- A known platform for end users
-- Highly scalable and secure infrastructure
-- [Open source](https://github.com/Altinn/altinn-studio)
-- Access to almost all citizens and business in Norway
+- Applikasjons-template som har innebygd funksjonalitet for de vanligste bruksområdene for digitale tjenester
+- Lett å utvikle og kjøre applikasjoner
+- Gjenbruk av data, brukergrensesnitt, APIer og funksjonalitet
+- En kjent plattform for sluttbrukerne
+- Svært skalerbar og sikker infrastruktur
+- [Åpen kildekode](https://github.com/Altinn/altinn-studio)
+- Tilgang til så godt som alle privatpersoner og virksomheter i Norge
 
-## When was Altinn 3 launched?
+## Når ble Altinn 3 lansert?
 
-The first version was launched in June 2020 and the first applications was deployed to production on june 19. 2020.
+Første versjon av Altinn 3 kom i juni 2020, og de første applikasjonene på løsningen ble satt i produksjon 19. juni 2020.
 
-## How to learn more about Altinn 3
+## Hvordan lære mer om Altinn 3
 
-Start with reading about the different solutions of Altinn 3.  
+Begynn gjerne med å lese om de ulike delløsningene i Altinn 3.  
 
-- Altinn Studio let you build your digital services
-- Altinn Apps let your host your digital services
-- Altinn Platform will provide standard functionalit to your digital services
+- Altinn Studio lar deg bygge dine digitale tjenester
+- Altinn Apps lar deg kjøre dine digitale tjenester
+- Altinn Platform gir deg standardfunksjonalitet til bruk i dine digitale tjenester
 
 {{<children>}}
