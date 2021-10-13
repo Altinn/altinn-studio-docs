@@ -8,14 +8,14 @@ tags: [translate-to-english]
 - **[Opprett en Feature request in github](https://github.com/Altinn/altinn-studio/issues/new?assignees=lvbachmann&labels=kind%2Ffeature-request&template=feature_request.md).** 
 Beskriv komponenten, forklar hvorfor den vil være nyttig og i hvilken 
 sammenheng den trengs. 
-- **Gjennomgang av Altinn 3 teamet.** 
-Altinn 3-teamet går gjennom forslaget for å kontrollere at en eventuell ny komponent oppfyller visse kriterier. 
-Etter gjennomgangen vil Altinn 3-teamet gi deg beskjed om beslutningen og anbefalingene.
+- **Gjennomgang/review** 
+Altinn går gjennom forslaget for å kontrollere at en eventuell ny komponent oppfyller visse kriterier. 
+Etter gjennomgangen vil Altinn gi deg beskjed om beslutningen og anbefalingene.
 - **Planlegg utviklingen** Et medlem av teamet vil kontakte deg for å finne ut i samarbeid hvem som skal 
 fortsette utviklingen. 
 {.connected-bullets}
 
-![Foreslå en ny komponent](contributing-propose.svg "Forløp når nye komponenter blir foreslått")
+![Foreslå en ny komponent](contributing-propose.svg "Ønsket forløp når nye komponenter blir foreslått")
 
 ## Kriterier
 
@@ -26,7 +26,7 @@ Dersom løsningen er en ny komponent, ønsker vi å sikre best mulig kvalitet p�
 kriterier: 
 - **Brukbar** - Forslaget skal tilfredsstille brukernes behov, være forståelig, gjenkjennelig og forhindre at det 
 oppstår problemer.
-- **Tilgjengelig** - Forslaget bør følge standarden i WCAG 2.1.
+- **Tilgjengelig** - Forslaget skal følge standarden i WCAG 2.1.
 - **Konsekvent** - Forslaget skal gjenbruke eksisterende stiler og komponenter i designsystemet der det er relevant. 
 Brukere skal ikke trenge å lure på om forskjellige ord, situasjoner eller handlinger betyr det samme.
 - **Allsidig** - En ny komponent bør utformes slik at den kan brukes i andre tilsvarende scenarioer og tjenester.
