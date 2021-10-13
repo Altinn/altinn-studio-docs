@@ -25,23 +25,17 @@
                 {{- partial "language-switcher.html" . -}}
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="/app/">apps</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/app`}}{{.URL}}{{end}}">apps</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline" href="/api/">api</a>
-              </li>
-              <!--li>
-                <a class="a-nav-link a-hvr-underline" href="/design">{{ T "design"}}</a>
-              </li-->
-              <li>
-                <a class="a-nav-link a-hvr-underline" href="/community/">community</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/api`}}{{.URL}}{{end}}">api</a>
               </li>
               <li>
-                <a class="a-nav-link a-hvr-underline " href="/technology/">tech</a>
+                <a class="a-nav-link a-hvr-underline" href="{{ with .Site.GetPage `/community`}}{{.URL}}{{end}}">community</a>
               </li>
-              <!--li>
-                <a class="a-nav-link a-hvr-underline" href="/innhold">{{ T "content"}}</a>
-              </li-->
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="{{ with .Site.GetPage `/technology`}}{{.URL}}{{end}}">tech</a>
+              </li>
             </ul>
           </div>
 
