@@ -5,8 +5,12 @@ tags: [translate-to-english]
 toc: true
 ---
 
+{{%notice warning%}}
+`CalculationHandler.cs` is deprecated from version 4.7.0, and will only run as a fallback when `ProcessDataWrite` eller `ProcessDataRead` 
+throws a `NotImplementedException`
 
-**Calculationa is from 4.7.0 replaced by data processing. Look [here](../dataprocessing/)**
+See: [Dataprocessing](../dataprocessing/) to understand the new way.
+{{% /notice %}}
 
 ## Kalkulering 
 

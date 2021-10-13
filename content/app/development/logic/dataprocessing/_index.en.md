@@ -20,17 +20,19 @@ For å sikre optimal opplevelse og kontroll er applikasjonstemplaten to forskjel
 
 {{%notice info%}}
 VIKTIG: Når en dataprossering er kjørt som har oppdatert dataene på server, må front-end få beskjed om dette, sånn at de oppdaterte dataene kan lastes inn.
-For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om det er noen av dataene som har blitt oppdatert.
+For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om du kan ha rørt dataene.
 Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
+
+
+**PS:** Det blir uansett kjørt en diff, slik at frontend bare oppdateres om det faktisk har skjedd endringer. Det er ingen
+grunn til å skrive komplisert kode. Bare returner `true` om det er mulig at noe har blitt oppdatert.
 {{% /notice%}}
 
 Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.
 
-```C# {hl_lines=[16,22]}
+```C# {hl_lines=[45]}
       public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
         {
-            bool edited = false;
-
             if (data.GetType() == typeof(SoknadUnntakKaranteneHotellVelferd))
             {
                 SoknadUnntakKaranteneHotellVelferd model = (SoknadUnntakKaranteneHotellVelferd)data;
@@ -56,8 +58,6 @@ Eksempel på kode fra app som prosesserer og populerer forskjellige data under l
                     model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains("arbeidunntak") ? true : false;
                     model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains("annet") ? true : false;
                     model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains("annet") ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : null;
-
-                    edited = true;
                 }
                 else
                 {
@@ -75,6 +75,6 @@ Eksempel på kode fra app som prosesserer og populerer forskjellige data under l
                 }
             }
 
-            return await Task.FromResult(edited);
+            return true;
         }
 ```

@@ -4,9 +4,12 @@ description: Hvordan legge til kalkuleringer?
 toc: true
 ---
 
+{{%notice warning%}}
+`CalculationHandler.cs` er ikke lenger anbefalt etter 4.7.0, og vil bare kjøre som et alternaltiv når `ProcessDataWrite` eller `ProcessDataRead`
+kaster en `NotImplementedException`
 
-**Kalkulering er fra 4.7.0 erstattet av dataprosessering. Se [her](../dataprocessing/)**
-
+Se: [Dataprocessing](../dataprocessing/) for å se hvordan dette skal gjøres fremover.
+{{% /notice %}}
 ## Kalkulering 
 
 Kalkuleringer kjøres på serveren, og er basert på input fra sluttbruker/skjemadata.
