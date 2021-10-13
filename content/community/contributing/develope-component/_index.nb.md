@@ -1,6 +1,6 @@
 ---
 title: Utvikle en komponent
-description: Vi setter stor pris på om du ønsker å utvikle nye komponenter eller funksjonalitet som kan forbedre Altinn. 
+description: Start gjerne utviklingen av ny funksjonalitet eller nye komponenter som er godkjent av Altinn. Vi setter pris på om du planlegger arbeidet ditt med oss før du begynner. 
 weight: 40
 ---
 
