@@ -50,7 +50,7 @@ src2="https://altinn.slack.com/" title2="Skriv til oss på Slack" %}}
 
 Vi ønsker at alle er med på å videreutvikle 
 [biblioteket av komponenter](../components) med både design og kode. 
-I praksis vil dette si at Altinn ønsker å ta imot forslag til nye komponenter etter hvert som tjenesteeierne ser 
+I praksis vil dette si at Altinn ønsker å [ta imot forslag til nye komponenter](../../../../community/contributing/propose-component/) etter hvert som tjenesteeierne ser 
 behovet for det.
 
 {{% /panel-contribute %}}
