@@ -280,11 +280,11 @@
 	"content": "\rv4\rOverview of changes introduced in v4 of the Altinn.App.* packages.\n\r\rv3\rOverview of changes introduced in v3 of the Altinn.App.* packages.\n\r\rOlder\rOverview of changes introduced into app nuget packages up to (not including) major version 3.\n\r\r"
 },
 {
-	"uri": "https://docs.altinn.studio/community/changelog/",
-	"title": "Changelog",
+	"uri": "https://docs.altinn.studio/community/contributing/",
+	"title": "Contribute to the development of Altinn",
 	"tags": [],
-	"description": "Overview of changes introduced into Altinn 3.",
-	"content": "\rChangelog for app frontend\rOverview of changes introduced into app frontend.\n\r\rChangelog for app nuget packages\rOverview of changes introduced into app nuget packages.\n\r\rChangelog for deployment\rOverview of changes introduced into helm-chart for deployment.\n\r\rStorage Interface changelog\rOverview of changes introduced to the Altinn.Platform.Storage.Interface NuGet package.\n\r\r"
+	"description": "Discover how to contribute to Altinn Studio and the rest of Altinn 3.",
+	"content": "\r\rPropose a new component\rOm dere har behov for en komponent eller funksjonalitet som vi ikke tilbyr ønsker vi at behovet blir meldt som en feature request før utviklingen starter.\n\r\rDevelop a component\rStart gjerne utviklingen av ny funksjonalitet eller nye komponenter som er godkjent av Altinn. Vi setter pris på om du planlegger arbeidet ditt med oss før du begynner.\n\r\rIntro for developers\rIntroduction\n\r\rDevelopment handbook\rDeveloper handbook for contributions to the Altinn code base.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/design/",
@@ -336,18 +336,18 @@
 	"content": "Overview The features documented here are the default features of any app created based on the app template in Altinn Studio. Application owners are free to make changes to this, but it is probably safe to say that removal of features will be extremly rare. Any app with changes to its API should have its own documentation published by the application owner.\nAll app API endpoints have the same URL base path that will vary based on application owner and application name.\nTest environment (TT02)\nhttps://{org}.apps.tt02.altinn.no/{org}/{appname} Production\nhttps://{org}.apps.altinn.no/{org}/{appname} The URL identifies the application owner specific hostname using the short name org, and the identificator of the app consisting of both the application owner short name and the name of the app; org/appname.\n\rApp metadata\rThe app API to get metadata information for the app.\n\r\rInstances\rThe app API to work with instances of an app\n\r\rData elements\rThe app API to work with the data elements associated with an instance.\n\r\rStateless data elements\rThe app API to work with stateless date elements not associated with an instance\n\r\rProcess\rThe process API endpoints to lead an instance through the defined process.\n\r\rValidation\rThe validation API endpoints for instances and data elements.\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/community/changelog/",
+	"title": "Changelog",
+	"tags": [],
+	"description": "Overview of changes introduced into Altinn 3.",
+	"content": "\rChangelog for app frontend\rOverview of changes introduced into app frontend.\n\r\rChangelog for app nuget packages\rOverview of changes introduced into app nuget packages.\n\r\rChangelog for deployment\rOverview of changes introduced into helm-chart for deployment.\n\r\rStorage Interface changelog\rOverview of changes introduced to the Altinn.Platform.Storage.Interface NuGet package.\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/community/",
 	"title": "Community",
 	"tags": [],
 	"description": "Building Altinn together, in the open.",
-	"content": "\rAltinn on GitHub\r\nWe want it to be as easy for you to contribute - therefore most of our solutions can be found on GitHub.\rWe value your comments and contributions highly!\r\r\r\rAbout Altinn 3\rAltinn 3 is the third generation platform for developing and hosting digital services.\n\r\rChangelog\rOverview of changes introduced into Altinn 3.\n\r\rContribute to the development of Altinn\rDiscover how to contribute to Altinn Studio and the rest of Altinn 3.\n\r\rRoadmap for Altinn\rHigh level roadmap and functional description for Altinn.\n\r\rPresentations and Altinn Coffee\rThe Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we\u0026#39;re doing in Altinn 3. It\u0026#39;s also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.\n\r\r"
-},
-{
-	"uri": "https://docs.altinn.studio/community/contributing/",
-	"title": "Contribute to the development of Altinn",
-	"tags": [],
-	"description": "Discover how to contribute to Altinn Studio and the rest of Altinn 3.",
-	"content": "How we develop Altinn Studio\r\r\rDiscover how Altinn Studio is architected and how you can contribute in the development.\r\r\rDesign system for front-end code\r\r\rThe Altinns Design System, built using Pattern Lab, contains our UI-components and the corresponding front-end code. \r\rAltinn on GitHub\r\nWe want it to be as easy for you to contribute - therefore most of our solutions can be found on GitHub. We value your comments and contributions highly!\r\r\r\rIntro for developers\rIntroduction\n\r\rDevelopment handbook\rDeveloper handbook for contributions to the Altinn code base.\n\r\r"
+	"content": "\r\rAbout Altinn 3\rAltinn 3 is the third generation platform for developing and hosting digital services.\n\r\rContribute to the development of Altinn\rDiscover how to contribute to Altinn Studio and the rest of Altinn 3.\n\r\rChangelog\rOverview of changes introduced into Altinn 3.\n\r\rRoadmap for Altinn\rHigh level roadmap and functional description for Altinn.\n\r\rPresentations and Altinn Coffee\rThe Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we\u0026#39;re doing in Altinn 3. It\u0026#39;s also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/design/guidelines/",
@@ -376,6 +376,13 @@
 	"tags": ["api"],
 	"description": "The app API to get metadata information for the app.",
 	"content": "Overview The endpoints documented here are all for accessing metadata on the app itself and the data types that are allowed in an instance of the app. Additional endpoints provides access to text resources.\nGet app metadata Endpoint for downloading a copy of the application metadata document.\nGET {basePath}/api/v1/applicationmetadata Get Application texts Get text resources for the application for a specific language code. If the requested language isn\u0026rsquo;t available, norsk bokmål (nb) will be returned as default. The langaugeCode URL path element should follow the ISO 639-1 standard\nGET {basePath}/api/v1/texts/{languageCode} Note that the texts are cached in Platform Storage for 60 minutes before being retrieved from the database again.\nGet model JSON schema Download the JSON schema for a specific model. The id parameter must have the name of a JSON Schema in the app. This is usually a generated name based on values in the original XSD uploaded on the app. E.g: Kursdomene_BliTjenesteeier_M_2020-05-25_5703_34553_SERES\nGET {basePath}/api/jsonschema/{id} "
+},
+{
+	"uri": "https://docs.altinn.studio/community/contributing/propose-component/",
+	"title": "Propose a new component",
+	"tags": ["translate-to-english"],
+	"description": "Om dere har behov for en komponent eller funksjonalitet som vi ikke tilbyr ønsker vi at behovet blir meldt som en feature request før utviklingen starter.",
+	"content": "Opprett en Feature request in github. Beskriv komponenten, forklar hvorfor den vil være nyttig og i hvilken sammenheng den trengs. Review av forslag Altinn går gjennom forslaget for å kontrollere at en eventuell ny komponent oppfyller visse kriterier. Etter gjennomgangen vil Altinn gi deg beskjed om beslutningen og anbefalingene. Planlegg utviklingen Et medlem av teamet vil kontakte deg for å finne ut i samarbeid hvem som skal fortsette utviklingen.  Kriterier Når et nytt forslag tas inn til vurdering ser vi først og fremst på hva som faktisk er behovet og hva komponenten skal løse. Er det en ny komponent som trengs eller har vi eksisterende funksjonalitet som kan endres eller utvides?\nDersom løsningen er en ny komponent, ønsker vi å sikre best mulig kvalitet på denne ved å imøtekomme følgende kriterier:\n Brukbar - Forslaget skal tilfredsstille brukernes behov, være forståelig, gjenkjennelig og forhindre at det oppstår problemer. Tilgjengelig - Forslaget skal følge standarden i WCAG 2.1. Konsekvent - Forslaget skal gjenbruke eksisterende stiler og komponenter i designsystemet der det er relevant. Brukere skal ikke trenge å lure på om forskjellige ord, situasjoner eller handlinger betyr det samme. Allsidig - En ny komponent bør utformes slik at den kan brukes i andre tilsvarende scenarioer og tjenester.  \r"
 },
 {
 	"uri": "https://docs.altinn.studio/community/contributing/handbook/front-end/react/",
@@ -427,6 +434,13 @@
 	"content": "\rMigration to versioned charts\rMigrating from helm template files to versioned helm dependency.\n\r\rv1\rOverview of changes introduced in v1 of deployment.\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/community/contributing/develop-component/",
+	"title": "Develop a component",
+	"tags": ["translate-to-english"],
+	"description": "Start gjerne utviklingen av ny funksjonalitet eller nye komponenter som er godkjent av Altinn. Vi setter pris på om du planlegger arbeidet ditt med oss før du begynner.",
+	"content": "Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om oppgaven allerede ligger i backloggen vår. Om du ikke finner den vil vi gjerne at du først foreslår ønsket funksjonalitet/komponent og starter en dialog med oss før utviklingen starter.\nVi stiller samme krav til eksterne bidrag som vi gjør til vår egne. Før utviklingen starter vil vi derfor gjerne være med å spesifisere hvordan komponenten skal løses både når det gjelder design og tekniske beslutninger. Det beste for å få til en bra flyt er en dialog.\nI dialog med deg vil vi:\n Finne ut hva komponenten skal dekke og diskutere løsningen Er det mangler i designskisser eller teknisk løsning som må utbedres Trenger du hjelp med design eller brukertesting  Utviklingshåndbok All informasjon du trenger for komme i gang finner du i vår utviklingshåndbok. Håndboken inneholder blant annet informasjon du trenger for å skrive konsistent kode og bygge nye komponenter.\nTilgjengelighetstest Apper bygget på Altinn 3 skal være tilgjengelig for alle og for å forsikre oss om dette skal vi oppfylle WCAG 2.1 rettningslinjene. Se kravene beskrevet på UU-tilsynet eller a11yproject.\nReview av komponent Når en pull request blir laget vil vi gjøre en review av komponenten din. Forhåpentligvis har vi blitt enige om hvordan komponenten skal løses på forhånd slik at ikke de store endringene blir i denne delen av prosessen.\n Testing WCAG-testing Code review Design review  Dersom vi finner noe som bør utbedres kontakter vi deg for videre utvikling.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/app/development/",
 	"title": "Development",
 	"tags": [],
@@ -466,7 +480,7 @@
 	"title": "Technology",
 	"tags": [],
 	"description": "System documentation for Altinn Studio, Altinn Apps and Altinn Platform.",
-	"content": "Altinn Studio is the next generation Altinn application development and hosting solution. All you need for testing Studio is to register an account.\nAltinn 3 have an open backlog on GitHub and the code is open source. Everybody can create bugs, request features or ask questions.\nContributing to Altinn Studio\r\r\rWe love your input! We want to make contributing to this project as easy as possible. \r\rArchitecture\r\r\rDescription of the Altinn 3 architecture, build process, infrastructure and security.\n\r\rDevelopment handbook\r\r\rThe development handbook should provide the information needed to contribute to the development of Altinn 3.\n\r\r\rArchitecture\rAltinn Studio, Altinn Apps and Altinn Platform has a modern cloud native architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.\n\r\rSolutions\rThe latest generation Altinn platform consist of serveral solutions.\n\r\rTerms\rDescription of the most common terms used in the documentation for Altinn Studio.\n\r\rTools and frameworks\rThe open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.\n\r\r"
+	"content": "Altinn Studio is the next generation Altinn application development and hosting solution. All you need for testing Studio is to register an account.\nAltinn 3 have an open backlog on GitHub and the code is open source. Everybody can create bugs, request features or ask questions.\n\rArchitecture\rAltinn Studio, Altinn Apps and Altinn Platform has a modern cloud native architecture. This documentation describes everything from the requirements affecting the architecture to the defined capabilities and the components that provides them.\n\r\rSolutions\rThe latest generation Altinn platform consist of serveral solutions.\n\r\rTerms\rDescription of the most common terms used in the documentation for Altinn Studio.\n\r\rTools and frameworks\rThe open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/app/development/ux/texts/",

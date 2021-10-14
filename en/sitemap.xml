@@ -292,16 +292,16 @@
                 href="https://docs.altinn.studio/community/changelog/app-nuget/"
                 />
   </url><url>
-    <loc>https://docs.altinn.studio/community/changelog/</loc>
+    <loc>https://docs.altinn.studio/community/contributing/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/changelog/"
+                href="https://docs.altinn.studio/nb/community/contributing/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://docs.altinn.studio/community/changelog/"
+                href="https://docs.altinn.studio/community/contributing/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/design/</loc>
@@ -388,6 +388,18 @@
                 href="https://docs.altinn.studio/api/apps/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/community/changelog/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/changelog/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/changelog/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/community/</loc>
     <xhtml:link
                 rel="alternate"
@@ -398,18 +410,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/community/"
-                />
-  </url><url>
-    <loc>https://docs.altinn.studio/community/contributing/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="nb"
-                href="https://docs.altinn.studio/nb/community/contributing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://docs.altinn.studio/community/contributing/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/design/guidelines/</loc>
@@ -458,6 +458,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/api/apps/metadata/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/community/contributing/propose-component/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/contributing/propose-component/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/contributing/propose-component/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/react/</loc>
@@ -532,6 +544,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://docs.altinn.studio/community/changelog/deployment/"
+                />
+  </url><url>
+    <loc>https://docs.altinn.studio/community/contributing/develop-component/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/community/contributing/develop-component/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/community/contributing/develop-component/"
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/development/</loc>
