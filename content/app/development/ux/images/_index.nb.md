@@ -5,6 +5,12 @@ toc: true
 weight: 40
 ---
 
+{{%notice warning%}}
+
+**MERK:** bildekomponenten er enda ikke støttet i PDF-genereringen og må derfor ekskluderes inntil videre. Les mer om hvordan dette gjøres [her.](lhttps://docs.altinn.studio/app/development/ux/pdf/)
+
+{{%/notice%}}
+
 ## Legge til bilder i applikasjonen
 
 Å legge til bilder gjøres i _FormLayout.json_ ved bruk av bildekomponenten. Alternativ tekst for bildet er nyttig for situasjoner hvor bildet ikke kan lastes, eller for brukere som benytter skjermleser. Dette kan legges til som en tekst ressurs som er definert i _resource.[språk].json_.

@@ -5,6 +5,12 @@ toc: true
 weight: 40
 ---
 
+{{%notice warning%}}
+
+**NOTE:** the image component is not yet supported in PDF-generation and needs to be excluded for now. Read more about how that is done [here.](lhttps://docs.altinn.studio/app/development/ux/pdf/)
+
+{{%/notice%}}
+
 ## Add images to the application
 
 Adding images is done in _FormLayout.json_ by using the image component. Alternative text is useful for scenarios when the image cannot be loaded for any reason, or for users that use screen readers. This can be added as a text resource, defined in _resource.[language].json_.
