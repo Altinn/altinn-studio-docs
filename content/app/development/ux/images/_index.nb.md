@@ -62,7 +62,7 @@ Bildet kan også ha ulik kilde i forskjellige språk. Standardkilde er _nb_, og 
 
 Dersom bildet skal lastes fra appen, må man sette opp statisk hosting av filer i applikasjonen.
 Dette konfigureres i _App/Startup.cs_, i _Configure_ metoden. Dette vil så hoste alle filer som ligger i `/app/wwwroot` mappen. Om denne mappen ikke finnes må den opprettes.
-Ønsker du å referer til filen `app/wwwroot/bilde_nb.png` så vil denne kunne nås med følgende path fra `/org/app-name/bilde_nb.png`
+Ønsker du å referer til filen `app/wwwroot/bilde_nb.png` så vil denne kunne nås med følgende path: `/org/app-name/bilde_nb.png`
 
 Bytt ut _org/app-name_ med din organisasjon og app navn. Eksempel:
 

@@ -7,7 +7,7 @@ weight: 40
 
 ## Add images to the application
 
-Adding images is done in _FormLayout.json_ by using the image component. Alternative text is useful for scenarios when the image cannot be loaded for any reason, or for users that use screen readers. This can be added as a text resource, defined in _resource.[språk].json_.
+Adding images is done in _FormLayout.json_ by using the image component. Alternative text is useful for scenarios when the image cannot be loaded for any reason, or for users that use screen readers. This can be added as a text resource, defined in _resource.[language].json_.
 
 ```json
 {
@@ -62,7 +62,7 @@ The image can also have separate sources for different languages. The default so
 
 If the image should be loaded from the app, you need to set up static hosting of files in the application.
 This is configured in _App/Startup.cs_, in the _Configure_ method. This will host all files that is inside the `/app/wwwroot` folder. If this folder does not exist, it needs to be created.
-If you want to refer to the file `app/wwwroot/bilde_nb.png` it can be reached at the following realtive url `/org/app-name/bilde_nb.png`
+If you want to refer to the file `app/wwwroot/bilde_nb.png` it can be reached at the following relative url `/org/app-name/bilde_nb.png`
 
 Swap out _org/app-name_ with your organisation and app name. Example:
 
