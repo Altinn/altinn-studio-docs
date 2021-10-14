@@ -7,7 +7,7 @@ weight: 40
 
 ## Add images to the application
 
-Adding images is dont in _FormLayout.json_ by using the image component. Alternative text for the image can be added as a text resource, defined in _resource.[språk].json_.
+Adding images is done in _FormLayout.json_ by using the image component. Alternative text is useful for scenarios when the image cannot be loaded for any reason, or for users that use screen readers. This can be added as a text resource, defined in _resource.[språk].json_.
 
 ```json
 {

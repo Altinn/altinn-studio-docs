@@ -7,7 +7,7 @@ weight: 40
 
 ## Legge til bilder i applikasjonen
 
-Å legge til bilder gjøres i _FormLayout.json_ ved bruk av bildekomponenten. Alternativ tekst for bildet legges til som en tekst ressurs, som er definert i _resource.[språk].json_.
+Å legge til bilder gjøres i _FormLayout.json_ ved bruk av bildekomponenten. Alternativ tekst for bildet er nyttig for situasjoner hvor bildet ikke kan lastes, eller for brukere som benytter skjermleser. Dette kan legges til som en tekst ressurs som er definert i _resource.[språk].json_.
 
 ```json
 {
