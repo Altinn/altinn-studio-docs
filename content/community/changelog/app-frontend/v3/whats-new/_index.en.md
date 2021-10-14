@@ -4,6 +4,14 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.13.2 (2021-10-14) - Dependency patching
+Patching of external dependencies for week 41.
+Issue [#7051](https://github.com/Altinn/altinn-studio/issues/7051).
+
+## 3.13.1 (2021-10-13) - Fix for custom validation of attachment
+Fixed appfrontend crash on custom validation of an attachment.
+Issue [#7107](https://github.com/Altinn/altinn-studio/issues/7107).
+
 ## 3.13.0 (2021-10-11) - Start from active instance
 Added functionality to start an application from an active instance.
 Issue [#6766.](https://github.com/Altinn/altinn-studio/issues/6766)
