@@ -4,9 +4,11 @@ description: How to configure the generation of PDF.
 weight: 50
 ---
 
+It is possible to exclude components, or entire pages from being a part of the pdf generation. This is done by configuring `Settings.json` under `App/ui`.
+
 ## Exclude pages
 
-It is possible to configure which pages one want to include in the generated PDF using `Settings.json` under `App/ui/`. This is done using:
+Here the pages specified in `pages.excludeFromPdf` will be excluded from pdf. If this array is not defined, all pages will be generated.
 
 ```json
 {
@@ -16,5 +18,15 @@ It is possible to configure which pages one want to include in the generated PDF
 }
 ```
 
-Here the pages specified in `pages.excludeFromPdf` will be excluded from pdf. If this array is not defined, all pages will be generated.
+## Exclude components
 
+Components specified in `components.excludeFromPdf` will be excluded from pdf. In this example, the component with id _image-component-id_ will be excluded from pdf.
+
+```json {linenos=false,hl_lines=["3-5"]}
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "components": {
+    "excludeFromPdf": ["image-component-id"]
+  }
+}
+```
