@@ -8,7 +8,7 @@ Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om o
 Om du ikke finner den vil vi gjerne at du først [foreslår ønsket funksjonalitet/komponent](../propose-component/) 
 og starter en dialog med oss før utviklingen starter.
 
-![Contributing process](contribute-develope.svg "Ønsket forløp når nye komponenter skal utvikles")
+![Contributing process](contribute-develop.svg "Ønsket forløp når nye komponenter skal utvikles")
 
 Vi stiller samme krav til eksterne bidrag som vi gjør til vår egne. Før utviklingen starter vil vi derfor gjerne 
 være med å spesifisere hvordan komponenten skal løses både når det gjelder design og tekniske beslutninger. Det beste for å få til en bra 

@@ -1,5 +1,5 @@
 ---
-title: Develope a component
+title: Develop a component
 description: Start gjerne utviklingen av ny funksjonalitet eller nye komponenter som er godkjent av Altinn. Vi setter pris på om du planlegger arbeidet ditt med oss før du begynner. 
 weight: 40
 tags: [translate-to-english]
@@ -9,7 +9,7 @@ Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om o
 Om du ikke finner den vil vi gjerne at du først [foreslår ønsket funksjonalitet/komponent](../propose-component/) 
 og starter en dialog med oss før utviklingen starter.
 
-![Contributing process](contribute-develope.svg "Ønsket forløp når nye komponenter skal utvikles")
+![Contributing process](contribute-develop.svg "Ønsket forløp når nye komponenter skal utvikles")
 
 Vi stiller samme krav til eksterne bidrag som vi gjør til vår egne. Før utviklingen starter vil vi derfor gjerne 
 være med å spesifisere hvordan komponenten skal løses både når det gjelder design og tekniske beslutninger. Det beste for å få til en bra 
