@@ -167,3 +167,25 @@ Formatteringen er kun for visning i frontend, og tallene som legges inn i et inp
   }
 },
 ```
+
+## Justering av tekst i input felter
+Når skjemaet inneholder en liste med tall som summeres er det vanlig å justere teksten i input feltet til høyre slik som
+når man summerer på papir og slik det vises i Excel. Dette kan gjøres ved å sette `"align": "right"` under `formatting`
+på input componenten. Andre gyldige verdier er `"center"` og `"left"`.
+
+![Høyrejusterte tall](align-right.png "Høyrejusterte tall")
+
+```json {hl_lines=["10"]} {linenos=inline}
+{
+  "id": "numberComponent",
+  "type": "Input",
+  ...
+  "formatting": {
+    "number": {
+      "thousandSeparator": " ",
+      "prefix": "kr "
+    },
+    "align":"right"
+  }
+},
+```
