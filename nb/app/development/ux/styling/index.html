@@ -461,6 +461,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#sidestilte-komponenter-grid">Sidestilte komponenter (grid)</a></li>
     <li><a href="#formattering-av-tall">Formattering av tall</a></li>
+    <li><a href="#justering-av-tekst-i-input-felter">Justering av tekst i input felter</a></li>
   </ul>
 </nav>
 
@@ -594,6 +595,23 @@ Formatteringen er kun for visning i frontend, og tallene som legges inn i et inp
 </span><span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&#34;thousandSeparator&#34;</span>: <span style="color:#f1fa8c">&#34;,&#34;</span>,
 </span><span style="display:block;width:100%;background-color:#3d3f4a">      <span style="color:#ff79c6">&#34;prefix&#34;</span>: <span style="color:#f1fa8c">&#34;$&#34;</span>
 </span><span style="display:block;width:100%;background-color:#3d3f4a">    }
+</span>  }
+},
+</code></pre></div><h2 id="justering-av-tekst-i-input-felter">Justering av tekst i input felter</h2>
+<p>Når skjemaet inneholder en liste med tall som summeres er det vanlig å justere teksten i input feltet til høyre slik som
+når man summerer på papir og slik det vises i Excel. Dette kan gjøres ved å sette <code>&quot;align&quot;: &quot;right&quot;</code> under <code>formatting</code>
+på input componenten. Andre gyldige verdier er <code>&quot;center&quot;</code> og <code>&quot;left&quot;</code>.</p>
+<figure><a href="align-right.png"><img src="align-right.png" alt="Høyrejusterte tall" title="Høyrejusterte tall" /></a><figcaption><h4>Høyrejusterte tall</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;numberComponent&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+  ...
+  <span style="color:#ff79c6">&#34;formatting&#34;</span>: {
+    <span style="color:#ff79c6">&#34;number&#34;</span>: {
+      <span style="color:#ff79c6">&#34;thousandSeparator&#34;</span>: <span style="color:#f1fa8c">&#34; &#34;</span>,
+      <span style="color:#ff79c6">&#34;prefix&#34;</span>: <span style="color:#f1fa8c">&#34;kr &#34;</span>
+    },
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;align&#34;</span>:<span style="color:#f1fa8c">&#34;right&#34;</span>
 </span>  }
 },
 </code></pre></div>

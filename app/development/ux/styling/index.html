@@ -1001,6 +1001,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#sidestilte-komponenter-grid">Sidestilte komponenter (grid)</a></li>
     <li><a href="#formattering-av-tall">Formattering av tall</a></li>
+    <li><a href="#aligning-text-in-input-fields">Aligning text in input fields</a></li>
   </ul>
 </nav>
 
@@ -1136,7 +1137,23 @@ Formatteringen er kun for visning i frontend, og tallene som legges inn i et inp
 </span><span style="display:block;width:100%;background-color:#3d3f4a">    }
 </span>  }
 },
-</code></pre></div>
+</code></pre></div><h2 id="aligning-text-in-input-fields">Aligning text in input fields</h2>
+<p>When a schema contains a list of numbers that are automatically summarized, it is common to align text to the right,
+like when summarizing on paper and how Excel shows numbers. This can be done by setting <code>&quot;align&quot;: &quot;right&quot;</code> under <code>formatting</code>
+on the input componenten. Other valid values are <code>&quot;center&quot;</code> and <code>&quot;left&quot;</code>.</p>
+<figure><a href="align-right.png"><img src="align-right.png" alt="Right aligned numbers" title="Right aligned numbers" /></a><figcaption><h4>Right aligned numbers</h4></figcaption></figure>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;numberComponent&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+  ...
+  <span style="color:#ff79c6">&#34;formatting&#34;</span>: {
+    <span style="color:#ff79c6">&#34;number&#34;</span>: {
+      <span style="color:#ff79c6">&#34;thousandSeparator&#34;</span>: <span style="color:#f1fa8c">&#34; &#34;</span>,
+      <span style="color:#ff79c6">&#34;prefix&#34;</span>: <span style="color:#f1fa8c">&#34;kr &#34;</span>
+    },
+<span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;align&#34;</span>:<span style="color:#f1fa8c">&#34;right&#34;</span>
+</span>  }
+},</code></pre></div>
 
 <footer class=" footline" >
 	
