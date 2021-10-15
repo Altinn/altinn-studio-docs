@@ -6,7 +6,7 @@ toc: true
 ---
 
 {{%notice warning%}}
-`CalculationHandler.cs` is deprecated from version 4.7.0, and will only run as a fallback when `ProcessDataWrite` eller `ProcessDataRead` 
+`CalculationHandler.cs` is deprecated from version 4.7.0, and will only run as a fallback when `ProcessDataWrite` or `ProcessDataRead` 
 throws a `NotImplementedException`
 
 See: [Dataprocessing](../dataprocessing/) to understand the new way.
