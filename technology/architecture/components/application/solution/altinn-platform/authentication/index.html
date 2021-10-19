@@ -1012,6 +1012,10 @@ If the user is not authenticated already it will be sent to the login page befor
 Request must include a bearer token in the authorization header.
 Set test equal to true if retrieving a token for Testdepartementet.
 (This ony works with maskinporten as the token provider.)</p>
+<div class="notices info" >
+A token from id-porten contains both an id-token and and access-token. 
+Only the access token it to be exhanged using this endpoint.
+</div>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">GET /exchange/{tokenProvider}?test={bool}
 </code></pre></div>
 
