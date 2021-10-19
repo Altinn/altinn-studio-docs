@@ -1086,7 +1086,7 @@ Content-Type: application/pdf
 --abcdefg--
 </code></pre></div><p>This call will return the instance metadata document that was created.</p>
 <h2 id="update-sub-status">Update sub status</h2>
-<p>The instance <a href="https://altinn.github.io/docs/altinn-studio/app-creation/instance/#substatus">sub status</a> is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.</p>
+<p>The instance <a href="../../../app/development/api/instance/#substatus">sub status</a> is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus
 </code></pre></div><p><strong>Request body</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
