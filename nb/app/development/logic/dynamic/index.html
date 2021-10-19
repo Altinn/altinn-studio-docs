@@ -679,7 +679,7 @@ vanlig, og så redigerer på oppsettet <code>App/ui/RuleConfiguration.json</code
 <li>For alle <code>inputParams</code>, må man legge til <code>{0}</code> etter <em>gruppe-delen</em> av data-modellen. F.eks. <code>Datamodell.gruppe{0}.felt</code>. Dette erstattes i koden av <em>indeksen</em> til 
 hvert enkelt innslag av den repeterende gruppen.</li>
 <li>For alle <code>selectedFields</code> (altså feltene som påvirkes av reglen), må man legge til <code>{0}</code> bak felt-id&rsquo;en. F.eks. <code>skjemaFelt1{0}</code></li>
-<li>I tillegg må man legge enn en ny egenskap på regelen, <code>repeatingGroups</code>. Denne skal inneholde id&rsquo;en til gruppen i layout-filen.</li>
+<li>I tillegg må man legge enn en ny egenskap på regelen, <code>repeatingGroup</code>. Denne skal inneholde id&rsquo;en til gruppen i layout-filen.</li>
 </ul>
 <p>Et eksempel på en regel som er satt opp for repeterende grupper vises under:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
