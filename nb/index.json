@@ -284,7 +284,7 @@
 	"title": "Endringslogg for deployment",
 	"tags": [],
 	"description": "Oversikt over endringer introdusert i helm-chart for deployment.",
-	"content": "\rMigrering til versjonerte charts\rMigrering fra helm template filer til versjonert helm dependency.\n\r\rv1\rOversikt over endringer introdusert i v1 av deployment.\n\r\r"
+	"content": "\rMigrering til versjonerte charts\rMigrering fra helm template filer til versjonert helm dependency.\n\r\rv1\rOversikt over endringer introdusert i v1 av deployment.\n\r\rv2\rOversikt over endringer introdusert i v2 av deployment.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/development/ux/pages/layout-sets/",
@@ -882,6 +882,13 @@
 	"content": "Helm chart flyttet til eksternt repository. Følg migreringsguiden\n"
 },
 {
+	"uri": "https://docs.altinn.studio/nb/community/changelog/deployment/v2/breaking-changes/",
+	"title": "Breaking changes",
+	"tags": [],
+	"description": "Oversikt over breaking changes introdusert i deployment i v2.0.0",
+	"content": " Endring på navnet til deployment i kubernetes fører til en nedetid opp til tiden applikasjonen bruker på å starte Standard antall replikas ved start er endret fra 1 til 2 og autoskalering påskrudd som standard (min: 2, max: 10) Hvis din applikasjon kun kan ha en replika må overstyres i deployment/values.yaml  deployment: replicaCount: 1  autoscaling: enabled: false "
+},
+{
 	"uri": "https://docs.altinn.studio/nb/categories/",
 	"title": "Categories",
 	"tags": [],
@@ -950,6 +957,13 @@
 	"tags": [],
 	"description": "Oversikt over endringer som ble introdusert i v1 av deployment.",
 	"content": "1.1.0 Første versjon i remote repository. Templates kopiert fra apps template\n"
+},
+{
+	"uri": "https://docs.altinn.studio/nb/community/changelog/deployment/v2/whats-new/",
+	"title": "Hva er nytt",
+	"tags": [],
+	"description": "Oversikt over endringer som ble introdusert i v2 av deployment.",
+	"content": "2.0.0 Oppgradering til 2.0.0 fra 1.x.x vil føre til en kort nedetid ved første deploy. Påfølgende deployments vil gå som normalt\r\rHvis din apps deployment mappe fortsatt har undermappen templates vennligst følg migrerings guiden\nChanges introduced  Deployment objektet får nytt navn -v2 dette på grunn av nødvendig endring på selector som ikke kan endre på et objekt. ADVARSEL fører til nedetid ved førstegangs deploy Alle applikasjoner får satt resource requests Horizontal pod autoscaler er påskrudd som default (automatisk skalering av applikasjon) Labels and selectors oppdaterte for de fleste kubernetes objekter Standard initial skalering er endret fra 1 til 2  Nye valgfrie felter med standard verdier tilgjengelig for overstyring i values.yaml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  deployment: autoscaling: enabled: true replicas: min: 2 max: 10 avgCpuUtilization: 70 behavior: stabilizationWindowSeconds: scaleUp: 0 scaleDown: 120 resources: requests: cpu: 300m memory: 256Mi   Gjennomgang\n3. Aktiver eller deaktiver autoskalering for denne applikasjonen.\n5. Nedre grense for antall pods som kan settes av autoskaleringen.\n6. Øvre grense for antall pods som kan settes av autoskaleringen.\n7. Grensen for gjennomsnittlig CPU utnyttelse (målt i prosent av request CPU) over alle pods for når skalering skal inntreffe.\n9. Stabiliseringsvinduet brukes for å begrense unødvendige endringer i antall replikaer av applikasjonen.\n10. Antall sekunder gjennomsnittlig CPU forbruk over alle pods er over terskelverdi (cpuAvgCpuUtilization) før oppskalering starter.\n11. Antall sekunder gjennomsnittlig CPU forbruk over alle pods er under terskelverdi (cpuAvgCpuUtilization) før nedskalering starter.\n14. CPU millicores reservert av kubelet for hver pod/replica av denne applikasjonen. Benyttet av HPA for å kalkulere skalering. Pods kan bruke mer CPU enn dette hvis det er tilgjengelig.\n15. Minne reservert av kubelet for hver pod/replica av denne applikasjonen. Pods kan bruke mer minne enn dette hvis det er tilgjengelig.\nNye valgfrie felter uten standard verdier tilgjengelig for overstyring i values.yaml 1 2 3 4 5  deployment: resources: limits: cpu: 1000m memoty: 512Mi   Lines walkthrough\n4. Øvre grense for CPU millicores en pod kan benytte. Forsøk på bruk utover dette vil føre til CPU throttling.\n5. Øvre grense for minne en pod kan benytte. Pods som forsøker å allokere mer minne en dette vil termineres med en \u0026ldquo;Out of memory (OOM)\u0026rdquo; error.\nPull requests merged  Horizontal Pod Autoscaler (PR #3)  "
 },
 {
 	"uri": "https://docs.altinn.studio/nb/community/changelog/app-frontend/v3/whats-new/",
@@ -1174,6 +1188,13 @@
 	"tags": [],
 	"description": "Oversikt over endringer introdusert i v1 av deployment.",
 	"content": "\rBreaking changes\rOversikt over breaking changes introdusert i deployment i v1.1.0\n\r\rHva er nytt\rOversikt over endringer som ble introdusert i v1 av deployment.\n\r\r"
+},
+{
+	"uri": "https://docs.altinn.studio/nb/community/changelog/deployment/v2/",
+	"title": "v2",
+	"tags": [],
+	"description": "Oversikt over endringer introdusert i v2 av deployment.",
+	"content": "\rBreaking changes\rOversikt over breaking changes introdusert i deployment i v2.0.0\n\r\rHva er nytt\rOversikt over endringer som ble introdusert i v2 av deployment.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/development/logic/validation/",

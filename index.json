@@ -431,7 +431,7 @@
 	"title": "Changelog for deployment",
 	"tags": [],
 	"description": "Overview of changes introduced into helm-chart for deployment.",
-	"content": "\rMigration to versioned charts\rMigrating from helm template files to versioned helm dependency.\n\r\rv1\rOverview of changes introduced in v1 of deployment.\n\r\r"
+	"content": "\rMigration to versioned charts\rMigrating from helm template files to versioned helm dependency.\n\r\rv1\rOverview of changes introduced in v1 of deployment.\n\r\rv2\rOverview of changes introduced in v2 of deployment.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/community/contributing/develop-component/",
@@ -1881,6 +1881,13 @@
 	"tags": [],
 	"description": "Overview of breaking changes introduced into deployment in v1.0.0",
 	"content": "Helm templates moved to external repository. Follow the migration guide\n"
+},
+{
+	"uri": "https://docs.altinn.studio/community/changelog/deployment/v2/breaking-changes/",
+	"title": "Breaking changes",
+	"tags": [],
+	"description": "Overview of breaking changes introduced into deployment in v2.0.0",
+	"content": " Rename of deployment object might lead to a downtime equal to the startup time of the application. Default number of replicas changed from 1 to 2 and autoscaling enabled by default (min: 2, max: 10). If your application cannot run multiple replicas you need to override this in deployment/values.yaml  deployment: replicaCount: 1  autoscaling: enabled: false "
 },
 {
 	"uri": "https://docs.altinn.studio/tags/build/",
@@ -3542,6 +3549,13 @@
 	"content": "\rBreaking changes\rOverview of breaking changes introduced into deployment in v1.0.0\n\r\rWhat\u0026#39;s new\rOverview of changes introduced in v1 of deployment.\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/community/changelog/deployment/v2/",
+	"title": "v2",
+	"tags": [],
+	"description": "Overview of changes introduced in v2 of deployment.",
+	"content": "\rBreaking changes\rOverview of breaking changes introduced into deployment in v2.0.0\n\r\rWhat\u0026#39;s new\rOverview of changes introduced in v2 of deployment.\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/app/development/logic/validation/",
 	"title": "Validation",
 	"tags": ["translate-to-english"],
@@ -3610,6 +3624,13 @@
 	"tags": [],
 	"description": "Overview of changes introduced in v1 of deployment.",
 	"content": "1.1.0 First version in remote repository. Templates copied from apps template.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/community/changelog/deployment/v2/whats-new/",
+	"title": "What&#39;s new",
+	"tags": [],
+	"description": "Overview of changes introduced in v2 of deployment.",
+	"content": "2.0.0 Upgrading to 2.0.0 from 1.x.x leads to a short downtime during deployment. Subsequent deployments will run as normal.\r\rIf your apps deployment folder contains the templates folder please follow the migration guide.\nChanges introduced  Deployment renamed to -v2 due to changes in selector fields (field is immutable) WARNING leads to downtime during first deploy Add resource requests to all deployments Horizontal pod autoscaler enabled by default for all deployments (automatic scaling of application) Labels and selectors updated for most kubernetes objects Default initial replicaCount changed from 1 to 2  New optional fields with default values available in values.yaml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15  deployment: autoscaling: enabled: true replicas: min: 2 max: 10 avgCpuUtilization: 70 behavior: stabilizationWindowSeconds: scaleUp: 0 scaleDown: 120 resources: requests: cpu: 300m memory: 256Mi   Walkthrough\n3. Enable or disable autoscaling for this application\n5. The lower limit for the number of pods that can be set by the autoscaler.\n6. The upper limit for the number of pods that can be set by the autoscaler.\n7. The target average CPU utilization (represented as a percent of requested CPU) over all the pods for when scaling should occur.\n9. The stabilization window is used to restrict the flapping of replicas when the metrics used for scaling keep fluctuating.\n10. Number of seconds the average CPU utilization for all pods are above the threshold (avgCpuUtilization) before scaleUp starts.\n11. Number of seconds the average CPU utilization for all pods are below the threshold (avgCpuUtilization) before scaleDown starts.\n14. CPU millicores reserved by the kubelet for each pod of this application. Used by HPA to calculate scale. Pods are allowed to consume more than this if it\u0026rsquo;s available.\n15. Memory reserved by the kubelet for each pod of this application. Pods are allowed to consume more than this if it\u0026rsquo;s available\nNew optional field without default values available in values.yaml 1 2 3 4 5  deployment: resources: limits: cpu: 1000m memoty: 512Mi   Walkthrough\n4. Upper limit of CPU millicores a pod is allowed to consume. Pods hitting the limit will be throttled\n5. Upper limit of memory a pod is allowed to consume. Pods exceeding this limit will be terminated by the system with an out of memory (OOM) error.\nPull requests merged  Horizontal Pod Autoscaler (PR #3)  "
 },
 {
 	"uri": "https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/authorization/xacml/",
