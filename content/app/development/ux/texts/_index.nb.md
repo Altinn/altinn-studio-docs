@@ -41,7 +41,7 @@ Dette er også **fet tekst**, men laget med stjerner!
 ### Lenker
 
 ```markdown
-Trykk [her](https://altinn.github.io/docs) for å komme til Altinn docs.
+Trykk [her](https://altinn.no) for å komme til Altinn.
 ```
 
 ### Headinger
