@@ -212,7 +212,7 @@ vanlig, og så redigerer på oppsettet `App/ui/RuleConfiguration.json` manuelt. 
 - For alle `inputParams`, må man legge til `{0}` etter _gruppe-delen_ av data-modellen. F.eks. `Datamodell.gruppe{0}.felt`. Dette erstattes i koden av _indeksen_ til 
 hvert enkelt innslag av den repeterende gruppen.
 - For alle `selectedFields` (altså feltene som påvirkes av reglen), må man legge til `{0}` bak felt-id'en. F.eks. `skjemaFelt1{0}`
-- I tillegg må man legge enn en ny egenskap på regelen, `repeatingGroups`. Denne skal inneholde id'en til gruppen i layout-filen.
+- I tillegg må man legge enn en ny egenskap på regelen, `repeatingGroup`. Denne skal inneholde id'en til gruppen i layout-filen.
 
 Et eksempel på en regel som er satt opp for repeterende grupper vises under:
 
