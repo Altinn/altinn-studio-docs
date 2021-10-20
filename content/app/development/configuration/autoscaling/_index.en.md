@@ -71,7 +71,7 @@ The autoscaling section defines when the application should scale, autoscaling i
 To read more about Horizontal Pod Autoscaler you can view the kubernetes documentation [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 
 Defaults if not overridden in _deployment/values.yaml_
-```yaml {linenos=table}
+```yaml
 deployment:
   autoscaling:
     enabled: true

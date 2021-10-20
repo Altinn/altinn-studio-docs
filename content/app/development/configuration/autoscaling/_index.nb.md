@@ -71,7 +71,7 @@ Autoscaling seksjonen konfigurerer når en applikasjon automatisk skal skaleres.
 For å lese mer og Horizontal Pod Autoscaler kan du lese kubernetes sin dokumentasjon [her](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 Standard verdier hvis ikke overstyrt i _deployment/values.yaml_
-```yaml {linenos=table}
+```yaml
 deployment:
   autoscaling:
     enabled: true
