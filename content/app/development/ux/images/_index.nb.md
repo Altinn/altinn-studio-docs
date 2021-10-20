@@ -7,9 +7,9 @@ weight: 40
 
 {{%notice warning%}}
 
-**MERK:** bildekomponenten er enda ikke støttet i PDF-genereringen og må derfor ekskluderes inntil videre. Les mer om hvordan dette gjøres [her.](lhttps://docs.altinn.studio/app/development/ux/pdf/)
+**MERK:** bildekomponenten er enda ikke støttet i PDF-genereringen og må derfor ekskluderes inntil videre. Les mer om hvordan dette gjøres [her.](../pdf/)
 
-{{%/notice%}}
+{{%/notice%}} 
 
 ## Legge til bilder i applikasjonen
 

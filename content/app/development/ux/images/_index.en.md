@@ -7,7 +7,7 @@ weight: 40
 
 {{%notice warning%}}
 
-**NOTE:** the image component is not yet supported in PDF-generation and needs to be excluded for now. Read more about how that is done [here.](lhttps://docs.altinn.studio/app/development/ux/pdf/)
+**NOTE:** the image component is not yet supported in PDF-generation and needs to be excluded for now. Read more about how that is done [here.](../pdf/)
 
 {{%/notice%}}
 
