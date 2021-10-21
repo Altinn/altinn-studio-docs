@@ -29,6 +29,11 @@ Request must include a bearer token in the authorization header.
 Set test equal to true if retrieving a token for Testdepartementet.
 (This ony works with maskinporten as the token provider.)
 
+{{%notice info%}}
+A token from id-porten contains both an id-token and and access-token. 
+Only the access token it to be exhanged using this endpoint.
+{{% /notice%}}
+
 ```http
 GET /exchange/{tokenProvider}?test={bool}
 ```

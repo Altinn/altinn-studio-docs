@@ -5,6 +5,14 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.13.2 (2021-10-14) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 41.
+Issue [#7051](https://github.com/Altinn/altinn-studio/issues/7051).
+
+## 3.13.1 (2021-10-13) - Fiks for tilpasset validering av vedlegg
+Fikset validering av vedlegg som krasjet med tilpasset logikk.
+Issue [#7107](https://github.com/Altinn/altinn-studio/issues/7107).
+
 ## 3.13.0 (2021-10-11) - Start fra aktiv instans
 La til funksjonalitet for å starte en applikasjon fra en aktiv instans.
 Issue [#6766.](https://github.com/Altinn/altinn-studio/issues/6766)

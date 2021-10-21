@@ -154,7 +154,7 @@ The scopes is copied. The `orgNumber` and `org` is added by the token converter.
 ## Authentication for end user system
 
 End user systems should be authentication with [ID-porten](https://difi.github.io/felleslosninger/idporten_overordnet.html).
-When authenticated the system may exchange a token provided by ID-porten with an Altinn token by instructions below.
+When authenticated the system may exchange an access token provided by ID-porten with an Altinn token by instructions below.
 
 #### Exchange of JWT token
 

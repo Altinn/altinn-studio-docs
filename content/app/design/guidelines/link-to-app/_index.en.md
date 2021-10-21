@@ -2,7 +2,6 @@
 title: Inngang til skjema
 description: For å gjøre opplevelsen til brukeren best mulig bør du tenke over hvordan du lenker til Altinn-appen fra din etat.
 weight: 10
-toc: true
 ---
 
 Brukertester har vist at når brukerne starter på etaten/kommunens sider for å fylle ut et skjema og så blir sendt 

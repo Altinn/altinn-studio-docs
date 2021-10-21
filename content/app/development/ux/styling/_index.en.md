@@ -168,3 +168,24 @@ Formatteringen er kun for visning i frontend, og tallene som legges inn i et inp
   }
 },
 ```
+
+## Aligning text in input fields
+When a schema contains a list of numbers that are automatically summarized, it is common to align text to the right,
+like when summarizing on paper and how Excel shows numbers. This can be done by setting `"align": "right"` under `formatting`
+on the input componenten. Other valid values are `"center"` and `"left"`.
+
+![Right aligned numbers](align-right.png "Right aligned numbers")
+
+```json {hl_lines=["10"]} {linenos=inline}
+{
+  "id": "numberComponent",
+  "type": "Input",
+  ...
+  "formatting": {
+    "number": {
+      "thousandSeparator": " ",
+      "prefix": "kr "
+    },
+    "align":"right"
+  }
+},
