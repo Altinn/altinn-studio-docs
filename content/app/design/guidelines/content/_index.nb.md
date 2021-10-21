@@ -1,81 +1,33 @@
 ---
-title: Språk
-description: Retningslinjene skal sørge for at vi får et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn. 
-weight: 20
-toc: true
+title: Innhold i skjema
+description: Forklar brukeren hva som skal til for å fylle ut skjemaet riktig og fordel innholdet i flere steg.
+weight: 10
+tags: [translate-to-english]
 ---
 
-Som hovedregel bør du bruke retningslinjene fra 
-[Språkrådet](https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/) når du skriver. I tillegg har vi definert noen mer spesifikke regler for Altinn som vi anbefaler at du følger. 
+Brukeren skal ikke trenge å få feilmelding for å forstå hva som skal til for å fylle ut skjemaet riktig. Dette bør 
+tydelig komme frem i informasjonstekst i begynnelsen av skjemaet og i labels som tilhører hvert enkelt skjemafelt. 
 
-Vi oppfordrer til at du skriver innholdet i tjenestene dine på både bokmål, nynorsk og engelsk. 
-## Generelle anbefalinger
-- Bruk et muntlig og lett språk
-- Skriv direkte til brukeren (bruk «du») 
-- Forklar hva som er neste steg 
-- Skriv kort, klart og klikkbart 
-- Skriv tekster som kan skummes 
-- Vær spesifikk om innholdet, men sørg samtidig for å bruke ord som alle kan forstå 
+Som hovedregel bør man kun spørre om informasjon som er helt nødvendig å innhente. Du kan derfor opplyse i starten 
+av skjemaet om at alle felt er påkrevde og må fylles ut (for å slippe å markere alle som påkrevde). Frivillige 
+felt kan eventuelt markeres med "frivillig" i selve labelen til feltet.
 
-### Unngå:
-- lange ord 
-- lange setninger  
-- kryptiske eller lyriske overskrifter  
-- flere poenger i samme setning 
-- flere poenger i samme avsnitt 
-- VERSALER (store bokstaver) 
+### Fordel innholdet i flere steg og bruk sporvalg
+En side med mye informasjon og flere oppgaver kan fort bli overveldende for en bruker. Prøv å del opp tjenesten 
+slik at brukeren bare har en oppgave per side. Dette kan for eksempel være et spørsmål brukeren må svare på eller 
+viktig informasjon som må leses. Dette kan gjøre det lettere for brukeren å fokusere på og forstå det du ber dem om.
 
-### Lengde på tekst:
-- overskrifter: maks. 8 ord 
-- setninger: 15-20 ord
-- avsnitt: 40-80 ord 
+Designet vi tilbyr nå er laget med utgangspunkt i dette konseptet. Et større antall komponenter kan føre til mye 
+scrolling og en mer uoversiktlig opplevelse for brukeren. 
+Se eksempel: [Starte enkeltpersonforetak](dsf).
 
-## Skriv rett frem
-Formelt språk er ofte skrudd sammen slik at utsagnet (verbet) kommer sent i setningen. Det gjør at man må lese mange 
-ord før man får verbet. Det krever mer av leseren som må huske hva som stod tidlig i setningen. Verbet bør stå så 
-tidlig som mulig i setningen og bør stå så nært subjektet som mulig. 
+Brukeren skal slippe å svare på mer enn nødvendig. Dersom brukeren har svart nei på et spørsmål og du dermed kan 
+skjule flere av stegene for ham, kan du gjøre dette med 
+[dynamisk sporvalg](https://altinn.github.io/docs/altinn-studio/app-creation/ux/sporvalg/).
 
-**Eksempel:**  
-Arbeidstaker har en del plikter som må oppfylles →
+### Disabled
+Ved å vise skjemafelt som disabled forventer man at brukeren skal vite hvorfor de ikke kan bruke elementet, 
+men dette er ikke alltid tilfellet. Noen brukerer forstår heller ikke at feltet er deaktivert, som igjen kan 
+føre til forvirring. Bruk av disabled bør derfor unngås. Dersom en handlingen av en eller annen grunn ikke er 
+tillatt, kan dette i stedet forklares i en informasjonstekst.
 
-
-Arbeidstaker må oppfylle en del plikter
-
-### Unngå verbalsubstantiver
-Verbalsubstantiver gjør teksten unødvendig tung å lese.
-Et verbalsubstantiv er et substantiv dannet av et verb, for eksempel at «å utrede» blir til «å foreta en utredning»,
-der utredning er selve verbalsubstantivet. De fleste verbalsubstantiv slutter på «-ing» og «-else».  
-
-En tekst med mange verbalsubstantiver blir abstrakt fordi den fjerner seg fra de konkrete handlingene den egentlig beskriver.
-Teksten blir mer konkret når vi bruker verbene i stedet.  
-
-**Eksempler:**  
-- Ved avtaleinngå**elsen** → Da avtalen ble inngått
-- Ny henvend**else** → Kontakt oss
-- Innmeld**ing** av feil → Meld inn feil
-
-### Skriv aktivt, ikke passivt: 
-I lovspråk blir det ofte skrevet at noe skal gjøres og det er ikke ønskelig å si noe om hvem som skal gjøre det.
-I Altinn sine løsninger vil det gjerne være flere enn en person som skal gjøre noe, men vi kan skrive direkte til brukeren likevel.
-
-**Eksempel:**  
-Forberedelser og planleggingsaktiviteter må gjennomføres før utviklingen av tjenesten(e) kan og bør starte → 
-
-Gjør forberedelser og planlegg godt før du utvikler tjenesten. 
-
-
-## Oppdeling av tall
-Riktig og konsekvent oppdeling av tallene hjelper brukeren å lese og skille forskjellige typer nummer. 
-Ingen av nummerne skal skilles med punktum, kun mellomrom. I felt hvor brukeren skal skrive inn lengre nummer er 
-det hjelpsomt å indikere antall siffer.
-
-- Organisasjonsnummer deles opp i tre og tre: 123 456 789
-- Bankkonto deles opp i fire, to og fem: 1234 56 78901
-- Personnummer deles opp i seks og fem: 123456 78901
-- Mobilnummer deles opp i tre, to og tre: 987 65 432
-- Fasttelefon og faks deles opp i to og to: 98 76 54 32
-
-### Tid og dato
-- Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45
-- Dato skal som hovedregel skrives slik: 05.06.2017
-- Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017
