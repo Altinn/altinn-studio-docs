@@ -13,7 +13,22 @@ weight: 11
   ```
   from `altinn-studio/src/studio` before proceeding with the instructions linked above.
 
-2. In the app that will be running locally, edit the `<path-to-app>/App/views/Home/Index.cshtml` file, and replace `https://altinncdn.no/toolkits/altinn-app-frontend/<version>/` with `http://localhost:8080/toolkits/altinn-app-frontend/<version>/`. 
+2. In the app that will be running locally, edit the `<path-to-app>/App/views/Home/Index.cshtml` file, and replace the javascript reference from:
+```
+  <script src="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js"></script>
+```
+to:
+```
+  <script src="http://localhost:8080/altinn-app-frontend.js"></script>
+```
+And Replace the reference to the CSS-file from:
+```
+  <link rel="stylesheet" type="text/css" href="https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css">
+```
+to:
+```
+  <link rel="stylesheet" type="text/css" href="http://localhost:8080/altinn-app-frontend.css">
+```
 
 3. Run the app (from `<path-to-app>/App/`):
 ```
