@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Retningslinjene skal sørge for at vi får et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn.">
+    <meta name="description" content="Forklar brukeren hva som skal til for å fylle ut skjemaet riktig og fordel innholdet i flere steg.">
 
-<title>Språk – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>Innhold i skjema – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -159,7 +159,13 @@ if(host != "localhost")
       <li class="dd-item parent">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/design/guidelines/design/"><span>Design</span></a></li>
+        <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/link-to-app/"><span>Inngang til skjema</span></a></li>
+      <li class="dd-item parent active">
+        <a href="/app/design/guidelines/content/"><span>Innhold i skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/consistency/"><span>Konsistens</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/"><span>UI-komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -182,8 +188,8 @@ if(host != "localhost")
         <a href="/app/design/guidelines/components/error-message/"><span>Feilmeldinger</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li></ul></li>
-      <li class="dd-item parent active">
-        <a href="/app/design/guidelines/content/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
@@ -1000,89 +1006,34 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> Språk</span>
+                <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/'>Design</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/design/guidelines/'>Guidelines</a> <span class='adocs-breadcrumb-divider'> / </span> Innhold i skjema</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Språk</h1>
-              <p class="a-leadText" id="leadText">Retningslinjene skal sørge for at vi får et ensrettet språk og forståelig innhold i tjenestene som lages i Altinn.</p><h2>On this page:</h2><nav id="TableOfContents">
-  <ul>
-    <li><a href="#generelle-anbefalinger">Generelle anbefalinger</a></li>
-    <li><a href="#skriv-rett-frem">Skriv rett frem</a></li>
-    <li><a href="#oppdeling-av-tall">Oppdeling av tall</a></li>
-  </ul>
-</nav>
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Innhold i skjema</h1>
+              <p class="a-leadText" id="leadText">Forklar brukeren hva som skal til for å fylle ut skjemaet riktig og fordel innholdet i flere steg.</p>
 
 
 
 
-<p>Som hovedregel bør du bruke retningslinjene fra 
-<a href="https://www.sprakradet.no/klarsprak/om-skriving/generelle-skriverad-bokmal/">Språkrådet</a> når du skriver. I tillegg har vi definert noen mer spesifikke regler for Altinn som vi anbefaler at du følger.</p>
-<p>Vi oppfordrer til at du skriver innholdet i tjenestene dine på både bokmål, nynorsk og engelsk.</p>
-<h2 id="generelle-anbefalinger">Generelle anbefalinger</h2>
-<ul>
-<li>Bruk et muntlig og lett språk</li>
-<li>Skriv direkte til brukeren (bruk «du»)</li>
-<li>Forklar hva som er neste steg</li>
-<li>Skriv kort, klart og klikkbart</li>
-<li>Skriv tekster som kan skummes</li>
-<li>Vær spesifikk om innholdet, men sørg samtidig for å bruke ord som alle kan forstå</li>
-</ul>
-<h3 id="unngå">Unngå:</h3>
-<ul>
-<li>lange ord</li>
-<li>lange setninger</li>
-<li>kryptiske eller lyriske overskrifter</li>
-<li>flere poenger i samme setning</li>
-<li>flere poenger i samme avsnitt</li>
-<li>VERSALER (store bokstaver)</li>
-</ul>
-<h3 id="lengde-på-tekst">Lengde på tekst:</h3>
-<ul>
-<li>overskrifter: maks. 8 ord</li>
-<li>setninger: 15-20 ord</li>
-<li>avsnitt: 40-80 ord</li>
-</ul>
-<h2 id="skriv-rett-frem">Skriv rett frem</h2>
-<p>Formelt språk er ofte skrudd sammen slik at utsagnet (verbet) kommer sent i setningen. Det gjør at man må lese mange 
-ord før man får verbet. Det krever mer av leseren som må huske hva som stod tidlig i setningen. Verbet bør stå så 
-tidlig som mulig i setningen og bør stå så nært subjektet som mulig.</p>
-<p><strong>Eksempel:</strong><br>
-Arbeidstaker har en del plikter som må oppfylles →</p>
-<p>Arbeidstaker må oppfylle en del plikter</p>
-<h3 id="unngå-verbalsubstantiver">Unngå verbalsubstantiver</h3>
-<p>Verbalsubstantiver gjør teksten unødvendig tung å lese.
-Et verbalsubstantiv er et substantiv dannet av et verb, for eksempel at «å utrede» blir til «å foreta en utredning»,
-der utredning er selve verbalsubstantivet. De fleste verbalsubstantiv slutter på «-ing» og «-else».</p>
-<p>En tekst med mange verbalsubstantiver blir abstrakt fordi den fjerner seg fra de konkrete handlingene den egentlig beskriver.
-Teksten blir mer konkret når vi bruker verbene i stedet.</p>
-<p><strong>Eksempler:</strong></p>
-<ul>
-<li>Ved avtaleinngå<strong>elsen</strong> → Da avtalen ble inngått</li>
-<li>Ny henvend<strong>else</strong> → Kontakt oss</li>
-<li>Innmeld<strong>ing</strong> av feil → Meld inn feil</li>
-</ul>
-<h3 id="skriv-aktivt-ikke-passivt">Skriv aktivt, ikke passivt:</h3>
-<p>I lovspråk blir det ofte skrevet at noe skal gjøres og det er ikke ønskelig å si noe om hvem som skal gjøre det.
-I Altinn sine løsninger vil det gjerne være flere enn en person som skal gjøre noe, men vi kan skrive direkte til brukeren likevel.</p>
-<p><strong>Eksempel:</strong><br>
-Forberedelser og planleggingsaktiviteter må gjennomføres før utviklingen av tjenesten(e) kan og bør starte →</p>
-<p>Gjør forberedelser og planlegg godt før du utvikler tjenesten.</p>
-<h2 id="oppdeling-av-tall">Oppdeling av tall</h2>
-<p>Riktig og konsekvent oppdeling av tallene hjelper brukeren å lese og skille forskjellige typer nummer. 
-Ingen av nummerne skal skilles med punktum, kun mellomrom. I felt hvor brukeren skal skrive inn lengre nummer er 
-det hjelpsomt å indikere antall siffer.</p>
-<ul>
-<li>Organisasjonsnummer deles opp i tre og tre: 123 456 789</li>
-<li>Bankkonto deles opp i fire, to og fem: 1234 56 78901</li>
-<li>Personnummer deles opp i seks og fem: 123456 78901</li>
-<li>Mobilnummer deles opp i tre, to og tre: 987 65 432</li>
-<li>Fasttelefon og faks deles opp i to og to: 98 76 54 32</li>
-</ul>
-<h3 id="tid-og-dato">Tid og dato</h3>
-<ul>
-<li>Klokkeslett skriver vi kun med timer og minutter, aldri sekunder. Klokkeslett skrives slik: 13:45</li>
-<li>Dato skal som hovedregel skrives slik: 05.06.2017</li>
-<li>Unntaksvis kan datoer skrives slik i løpende tekst: 5. juni 2017</li>
-</ul>
+<p>Brukeren skal ikke trenge å få feilmelding for å forstå hva som skal til for å fylle ut skjemaet riktig. Dette bør 
+tydelig komme frem i informasjonstekst i begynnelsen av skjemaet og i labels som tilhører hvert enkelt skjemafelt.</p>
+<p>Som hovedregel bør man kun spørre om informasjon som er helt nødvendig å innhente. Du kan derfor opplyse i starten 
+av skjemaet om at alle felt er påkrevde og må fylles ut (for å slippe å markere alle som påkrevde). Frivillige 
+felt kan eventuelt markeres med &ldquo;frivillig&rdquo; i selve labelen til feltet.</p>
+<h3 id="fordel-innholdet-i-flere-steg-og-bruk-sporvalg">Fordel innholdet i flere steg og bruk sporvalg</h3>
+<p>En side med mye informasjon og flere oppgaver kan fort bli overveldende for en bruker. Prøv å del opp tjenesten 
+slik at brukeren bare har en oppgave per side. Dette kan for eksempel være et spørsmål brukeren må svare på eller 
+viktig informasjon som må leses. Dette kan gjøre det lettere for brukeren å fokusere på og forstå det du ber dem om.</p>
+<p>Designet vi tilbyr nå er laget med utgangspunkt i dette konseptet. Et større antall komponenter kan føre til mye 
+scrolling og en mer uoversiktlig opplevelse for brukeren. 
+Se eksempel: <a href="dsf">Starte enkeltpersonforetak</a>.</p>
+<p>Brukeren skal slippe å svare på mer enn nødvendig. Dersom brukeren har svart nei på et spørsmål og du dermed kan 
+skjule flere av stegene for ham, kan du gjøre dette med 
+<a href="https://altinn.github.io/docs/altinn-studio/app-creation/ux/sporvalg/">dynamisk sporvalg</a>.</p>
+<h3 id="disabled">Disabled</h3>
+<p>Ved å vise skjemafelt som disabled forventer man at brukeren skal vite hvorfor de ikke kan bruke elementet, 
+men dette er ikke alltid tilfellet. Noen brukerer forstår heller ikke at feltet er deaktivert, som igjen kan 
+føre til forvirring. Bruk av disabled bør derfor unngås. Dersom en handlingen av en eller annen grunn ikke er 
+tillatt, kan dette i stedet forklares i en informasjonstekst.</p>
 
 
 <footer class=" footline" >
@@ -1097,7 +1048,7 @@ det hjelpsomt å indikere antall siffer.</p>
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/app/design/guidelines/components/file-upload/" title="Filopplasting"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/design/guidelines/wcag/" title="Tilgjengelighet" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/app/design/guidelines/link-to-app/" title="Inngang til skjema"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/app/design/guidelines/consistency/" title="Konsistens på tvers av tjenester" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/design/guidelines/content/_index.en.md" target="blank">

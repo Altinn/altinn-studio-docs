@@ -61,6 +61,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/tags/translate-to-english/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
               <li>
@@ -87,6 +91,10 @@ if(host != "localhost")
       <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
       <p>
         <span class="a-h3">English ✓</span><br><span>Most content is available in english.</span></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/nb/tags/translate-to-english/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br><span>Noe innhold er tilgjengelig på bokmål.</span></p>
     </a></div>
 </li>
         </ul>
@@ -151,7 +159,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/app/design/guidelines/design/"><span>Design</span></a></li>
+        <a href="/app/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/link-to-app/"><span>Inngang til skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/content/"><span>Innhold i skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/app/design/guidelines/consistency/"><span>Konsistens</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/components/"><span>UI-komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -175,7 +189,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/app/design/guidelines/content/"><span>Språk</span></a></li>
+        <a href="/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
         <a href="/app/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
       <li class="dd-item">
@@ -1181,11 +1195,10 @@ Etter en brukertest vil det være ting å justere på. Det kan være større tin
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/design/guidelines/design/">Design</a></h2>
+        <h2 class="post-title"><a href="/app/design/guidelines/design-principles/">Designprinsipper</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Designprinsipper Når vi utvikler nye eller forbedrer eksisterende produkter følger vi et sett med prinsipper for å kunne sikre oss at vi leverer brukervennlige løsninger til alle. Vi anbefaler å følge disse prinsippene når du jobber med utvikling av nye tjenester.
- Vi setter brukerbehov først Vi bruker innsikt om brukernes behov aktivt i utviklingen av produktene våre. Alle løsninger skal fokusere på å løse reelle problemer for brukerne og vi bruker undersøkelser og brukerinnsikt til å ta beslutninger. <a class="read-more" href="/app/design/guidelines/design/">&raquo;</a></p>
+        <p>Vi setter brukerbehov først Vi bruker innsikt om brukernes behov aktivt i utviklingen av produktene våre. Alle løsninger skal fokusere på å løse reelle problemer for brukerne og vi bruker undersøkelser og brukerinnsikt til å ta beslutninger. Skjule kompleksitet Vi lager fokuserte og forenklede løsninger og skreller vekk unødvendig kompleksitet for brukerne. Løsningene er ofte komplekse på baksiden, men fremstår enkle og brukervennlige for folk som bruker dem. Helhetlige brukeropplevelser Produktene våre skal henge sammen slik at folk får en helhetlig brukeropplevelse. <a class="read-more" href="/app/design/guidelines/design-principles/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1234,13 +1247,11 @@ De kan også redigeres direkte fra applikasjonsrepoet, under folderen App/logic 
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/getting-started/intro/">Introduction to Altinn Studio</a></h2>
+        <h2 class="post-title"><a href="/app/design/guidelines/content/">Innhold i skjema</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Prosessen for å lage skjemaer og meldinger vil være forskjellig alt etter som hvor stor eller liten målgruppen er, hvor mye data som skal behandles eller hvor mye jobb det er å legge til rette for at egne systemer kan snakke med Altinn.
-Slik går du frem:
- Start alltid med å definere brukerbehov
-Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen og hvem skal den løses for? <a class="read-more" href="/app/getting-started/intro/">&raquo;</a></p>
+        <p>Brukeren skal ikke trenge å få feilmelding for å forstå hva som skal til for å fylle ut skjemaet riktig. Dette bør tydelig komme frem i informasjonstekst i begynnelsen av skjemaet og i labels som tilhører hvert enkelt skjemafelt.
+Som hovedregel bør man kun spørre om informasjon som er helt nødvendig å innhente. Du kan derfor opplyse i starten av skjemaet om at alle felt er påkrevde og må fylles ut (for å slippe å markere alle som påkrevde). <a class="read-more" href="/app/design/guidelines/content/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1262,11 +1273,13 @@ Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen o
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/pages/navigation/">Navigation between pages</a></h2>
+        <h2 class="post-title"><a href="/app/getting-started/intro/">Introduction to Altinn Studio</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Navigering videre til neste side skjer via en navigerings-knapp. Denne må legges til manuelt i hver layout-fil hvor man ønsker navigering fremover. Navigering tilbake til forrige side gjøres via tilbake-pil i venstre hjørnet. Denne knappen vises alltid så lenge det er en side å gå tilbake til, og er ikke en del av layout-filen. Se bilde under.
-Legge til knapp for navigering Knapp for navigering legges inn i alle layout-filer der det er behov. <a class="read-more" href="/app/development/ux/pages/navigation/">&raquo;</a></p>
+        <p>Prosessen for å lage skjemaer og meldinger vil være forskjellig alt etter som hvor stor eller liten målgruppen er, hvor mye data som skal behandles eller hvor mye jobb det er å legge til rette for at egne systemer kan snakke med Altinn.
+Slik går du frem:
+ Start alltid med å definere brukerbehov
+Tenk nøye gjennom hele prosessen fra et brukerperspektiv. Hva er utfordringen og hvem skal den løses for? <a class="read-more" href="/app/getting-started/intro/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
