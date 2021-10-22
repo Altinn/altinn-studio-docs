@@ -410,7 +410,7 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
 
         string component = value.Any() ? value[0] : string.Empty;
 
-        switch (dataField)
+        switch (component)
         {
             case "demo-group":
                 // kjør valideringer spesifikke til gruppen
