@@ -1016,12 +1016,17 @@ if(host != "localhost")
 <pre tabindex="0"><code>docker-compose down
 </code></pre><p>from <code>altinn-studio/src/studio</code> before proceeding with the instructions linked above.</p>
 <ol start="2">
-<li>
-<p>In the app that will be running locally, edit the <code>&lt;path-to-app&gt;/App/views/Home/Index.cshtml</code> file, and replace <code>https://altinncdn.no/toolkits/altinn-app-frontend/&lt;version&gt;/</code> with <code>http://localhost:8080/toolkits/altinn-app-frontend/&lt;version&gt;/</code>.</p>
-</li>
-<li>
-<p>Run the app (from <code>&lt;path-to-app&gt;/App/</code>):</p>
-</li>
+<li>In the app that will be running locally, edit the <code>&lt;path-to-app&gt;/App/views/Home/Index.cshtml</code> file, and replace the javascript reference from:</li>
+</ol>
+<pre tabindex="0"><code>  &lt;script src=&quot;https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>to:</p>
+<pre tabindex="0"><code>  &lt;script src=&quot;http://localhost:8080/altinn-app-frontend.js&quot;&gt;&lt;/script&gt;
+</code></pre><p>And Replace the reference to the CSS-file from:</p>
+<pre tabindex="0"><code>  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://altinncdn.no/toolkits/altinn-app-frontend/3/altinn-app-frontend.css&quot;&gt;
+</code></pre><p>to:</p>
+<pre tabindex="0"><code>  &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost:8080/altinn-app-frontend.css&quot;&gt;
+</code></pre><ol start="3">
+<li>Run the app (from <code>&lt;path-to-app&gt;/App/</code>):</li>
 </ol>
 <pre tabindex="0"><code>dotnet run
 </code></pre><p>or run it directly from VS Code.</p>
