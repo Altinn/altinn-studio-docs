@@ -90,6 +90,8 @@ Endringer gjøres i `ValidateData` og `ValidateTask`-metodene (disse er tomme n�
 Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
 For å legge til en valideringsfeil brukes `AddModelError`-metoden til `validationResults` object som sendes med i begge metodene.
 
+Merk at selve feilmeldingen "_Error: First name cannot contain the value '1337'_" kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte.
+
 Et eksempel på en enkel data-validering som sjekker at feltet _FirstName_ ikke inneholder verdien _1337_, når rotelementet til modellen er `Skjema` er vist nedenfor:
 
 ```C# {hl_lines=[12]}
