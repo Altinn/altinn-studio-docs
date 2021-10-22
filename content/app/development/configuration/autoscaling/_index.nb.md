@@ -1,6 +1,6 @@
 ---
-title: Autoskalering
-description: Konfigurering av automatisk skalering av app basert på observert CPU benyttelse.
+title: Deployment
+description: Konfigurering av deploy og kjøretids oppsett
 toc: true
 weight: 600
 ---
@@ -14,7 +14,56 @@ Når man skal konfigurere hvordan autoskaleringen oppfører seg må man ta hensy
 1. _resources_ ressursene som din applikasjon får tildelt i clusteret.
 2. _autoscaling_ konfigurerer når din applikasjon skal skaleres opp eller ned.
 
-Vi setter noen standard verdier basert på tester vi har utført og erfaringer vi har gjort oss, disse kan endre seg etterhvert som vi får mer erfaringer over tid.
+Vi setter noen standard verdier basert på tester vi har utført og erfaringer vi har gjort oss, disse kan endre seg etter hvert som vi får mer erfaringer over tid.
+
+## Skalering
+
+### Initial skalering
+Initial skalering er konfigurerbart med feltet `replicaCount`. Hvis autoskalering er aktivert vil autoskalerings logikken overstyre denne verdien.
+Eksempel hvor initial skalering er satt til 2:
+```yaml
+deployment:
+  replicaCount: 2
+```
+### Autoscaling konfigurasjon
+Autoscaling seksjonen konfigurerer når en applikasjon automatisk skal skaleres. Dette er håndtert av Horizontal Pod Autoscaler i kubernetes.
+
+For å lese mer og Horizontal Pod Autoscaler kan du lese kubernetes sin dokumentasjon [her](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+
+Standard verdier hvis ikke overstyrt i _deployment/values.yaml_
+```yaml
+deployment:
+  autoscaling:
+    enabled: true
+    replicas:
+      min: 2
+      max: 10
+    avgCpuUtilization: 70
+    behavior:
+      stabilizationWindowSeconds:
+        scaleUp: 0
+        scaleDown: 120
+```
+
+#### deployment.autoscaling.replicas
+__min__: Det laveste antall pods autoskaleringen har lov til å sette.
+__max__: Det høyeste antall pods autoskalering har lov til å sette.
+
+#### deployment.autoscaling.avgCpuUtilization
+Terskelen for prosent av cpu request som er utnyttet før opp eller ned skalering skal skje.
+
+Oppskaleringen er ikke umiddelbar siden en ny pod trenger tid på å starte (1-2 min i de fleste tilfeller).
+Hvis alle ressursene i et cluster er reservert må en ny node startes opp i azure (5-10 min i de fleste tilfeller).
+Det er derfor lurt å ha en liten buffer sånn at applikasjonen kan håndtere lasten frem til kapasiteten er utvidet.
+
+#### deployment.autoscaling.behavior.stabilizationWindowSeconds
+Stabiliserings vindu er benyttet for å begrense blafring av replikaer når metrikkene som er brukt for skalering svinger.
+
+Som standard vil en oppskalering skje så fort forbruket er over terskelverdiene. Nedskalering vil vente i to minutter.
+
+__scaleUp__: Antall sekunder kubernetes skal vente etter siste skalering før den gjør en ny evaluering om oppskalering.
+__scaleDown__: Antall sekunder kubernetes skal vente etter siste skalering før den gjør en ny evaluering om nedskalering.
+
 
 ## Resources konfigurasjon
 For å sette gode requests og eventuelt limits er kjennskap til appen viktig da koden og oppgavene applikasjonen utfører har stor innvirkning på dette.
@@ -65,41 +114,61 @@ Hvis en pod forsøker å benytte mer CPU en det som er satt som limit vil denne 
 
 Hvis en pod forsøker å allokere mer minne en det som er satt som limit vil den bli terminert med en Out Of Memory (OOM) error.
 
-## Autoscaling konfigurasjon
-Autoscaling seksjonen konfigurerer når en applikasjon automatisk skal skaleres. Dette er håndtert av Horizontal Pod Autoscaler i kubernetes.
+## Linkerd
+Alle applikasjoner som deployes er som standard innlemmet i linkerd sitt service mesh.
 
-For å lese mer og Horizontal Pod Autoscaler kan du lese kubernetes sin dokumentasjon [her](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+Vi anbefaler på det sterkeste å ikke endre denne innstillingen da den legger på mutual tls som krypterer all intern kommunikasjon mellom tjenester i klusteret før det forlater en maskin.
 
-Standard verdier hvis ikke overstyrt i _deployment/values.yaml_
 ```yaml
 deployment:
-  autoscaling:
+...
+  linkerd:
     enabled: true
-    replicas:
-      min: 2
-      max: 10
-    avgCpuUtilization: 70
-    behavior:
-      stabilizationWindowSeconds:
-        scaleUp: 0
-        scaleDown: 120
+...
 ```
 
-#### deployment.autoscaling.replicas
-__min__: Det laveste antall pods autoskaleringen har lov til å sette.
-__max__: Det høyeste antall pods autoskalering har lov til å sette.
+## Volumes and VolumeMounts
+Disse delene gjør det mulig å _mounte_ opp forskjellige ressurser til filsystemet til en applikasjon.
+Det er to predefinerte _mounts_ som benyttes av standard funksjonalitet for å blant annet kommunisere med Altinn Platform.
 
-#### deployment.autoscaling.avgCpuUtilization
-Terskelen for prosent av cpu request som er utnyttet før opp eller ned skalering skal skje.
+```yaml
+deployment:
+...
+  volumeMounts:
+    - name: datakeys
+      mountPath: /mnt/keys
+    - name: accesstoken
+      mountPath: "/accesstoken"
+  volumes:
+    - name : datakeys
+      persistentVolumeClaim:
+        claimName: keys
+    - name: accesstoken
+      secret:
+        secretName: accesstoken
+```
 
-Oppskaleringen er ikke umiddelbar siden en ny pod trenger tid på å starte (1-2 min i de fleste tilfeller).
-Hvis alle ressursene i et cluster er reservert må en ny node startes opp i azure (5-10 min i de fleste tilfeller).
-Det er derfor lurt å ha en liten buffer sånn at applikasjonen kan håndtere lasten frem til kapasiteten er utvidet.
+På gjeldende tidspunkt er det kun en use case for å legge til andre volumer: [Hente hemmeligheter fra Azure Key Vault](../secrets)
 
-#### deployment.autoscaling.behavior.stabilizationWindowSeconds
-Stabiliserings vindu er benyttet for å begrense blafring av replikaer når metrikkene som er brukt for skalering svinger.
+## Service
+Service konfigurasjonen gjør det mulig å endre hvilke port som eksponeres internt i clusteret og hvilken intern port dette skal mappes til. Det er sjelden disse verdiene må endres.
+Hvis din applikasjon kjører på annen port enn 5005 så endrer du internalPort. EksternalPort må ikke endres
+Standard oppsett er:
+```yaml {hl_lines=[8]}
+deployment:
+...
+  service:
+    name: deployment
+    type: ClusterIP
+    externalPort: 80
+    ## If your application is running on another port, change only the internal port.
+    internalPort: 5005
+...
+```
 
-Som standard vil en oppskalering skje så fort forbruket er over terskelverdiene. Nedskalering vil vente i to minutter.
+## Deler som blir overskrevet ved deploy
 
-__scaleUp__: Antall sekunder kubernetes skal vente etter siste skalering før den gjør en ny evaluering om oppskalering.
-__scaleDown__: Antall sekunder kubernetes skal vente etter siste skalering før den gjør en ny evaluering om nedskalering.
+* image
+* ingressRoute
+
+Disse områdene blir overskrevet ved deploy så endringer her vil ha liten til ingen effekt.
