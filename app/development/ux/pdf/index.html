@@ -231,6 +231,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/ux/styling/"><span>Styling</span></a></li>
       <li class="dd-item">
+        <a href="/app/development/ux/images/"><span>Images</span></a></li>
+      <li class="dd-item">
         <a href="/app/development/ux/texts/"><span>Texts</span></a></li>
       <li class="dd-item parent active">
         <a href="/app/development/ux/pdf/"><span>PDF</span></a></li>
@@ -1014,15 +1016,23 @@ if(host != "localhost")
 
 
 
+<p>It is possible to exclude components, or entire pages from being a part of the pdf generation. This is done by configuring <code>Settings.json</code> under <code>App/ui</code>.</p>
 <h2 id="exclude-pages">Exclude pages</h2>
-<p>It is possible to configure which pages one want to include in the generated PDF using <code>Settings.json</code> under <code>App/ui/</code>. This is done using:</p>
+<p>Here the pages specified in <code>pages.excludeFromPdf</code> will be excluded from pdf. If this array is not defined, all pages will be generated.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;pages&#34;</span>: {
     <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [<span style="color:#f1fa8c">&#34;side2&#34;</span>]
   }
 }
-</code></pre></div><p>Here the pages specified in <code>pages.excludeFromPdf</code> will be excluded from pdf. If this array is not defined, all pages will be generated.</p>
-
+</code></pre></div><h2 id="exclude-components">Exclude components</h2>
+<p>Components specified in <code>components.excludeFromPdf</code> will be excluded from pdf. In this example, the component with id <em>image-component-id</em> will be excluded from pdf.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;components&#34;</span>: {
+</span><span style="display:block;width:100%;background-color:#3d3f4a">    <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [<span style="color:#f1fa8c">&#34;image-component-id&#34;</span>]
+</span><span style="display:block;width:100%;background-color:#3d3f4a">  }
+</span>}
+</code></pre></div>
 
 <footer class=" footline" >
 	
