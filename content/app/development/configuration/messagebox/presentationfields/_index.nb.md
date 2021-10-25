@@ -1,19 +1,19 @@
 ---
-title: Presentation fields in the message box
-linktitle: Presentation fields
-description: Configuration of presentation fields for app.
-tags: [translate-to-english]
+title: Presentasjonsfelter
+linktitle: Presentasjonsfelter
+description: Konfigurasjon av presentasjonsfelter for app.
 weight: 200
 ---
 
-I noen tilfeller kan det være nyttig med presentasjonsfelter for å enklere kunne 
-skille mellom flere instaner av samme applikasjon.
+I noen tilfeller kan det være nyttig med presentasjonsfelter for å enklere kunne
+skille mellom flere instanser av samme applikasjon.
 
-Ved å konfigurere presentasjonsfelter på en applikasjon vil man hente ut 
-verdier fra skjemadataene og legge dette på instansobjektet. 
+Ved å konfigurere presentasjonsfelter på en applikasjon vil man hente ut
+verdier fra skjemadataene og legge dette på instansobjektet.
 Disse verdiene benyttes i meldingsboksen i Altinn til å berrike tittelen til instansen med dataverdiene.
 
-## Konfigurasjon 
+## Konfigurasjon
+
 Konfigurasjon av presentasjonsfelter gjøres i `applicationmetadata.json` som ligger i repoet under mappen `App/config`.
 
 Legg til en ny seksjon med navn `presentationField` med følgende underfelter
@@ -22,7 +22,7 @@ Legg til en ny seksjon med navn `presentationField` med følgende underfelter
 ----------|------------
 id        | Id på presentasjonsfeltet. Benyttes til å identifisere presentasjonsteksten når den er lagret på instansen.
 path      | Datamodell path til presentasjonsfeltet. Denne verdien er den samme som bindes til en komponent i layoutfilen til appen.
-dataTypeId| Id på datamodellen som verdien skal hentes fra. 
+dataTypeId| Id på datamodellen som verdien skal hentes fra.
 
 Konfigurasjonen til en app med to definerte presentasjonsfelter vil se slik ut:
 
@@ -37,9 +37,11 @@ Konfigurasjonen til en app med to definerte presentasjonsfelter vil se slik ut:
   "id": "Navn",
   "path": "OpplysningerOmArbeidstakeren-grp-8819.OpplysningerOmArbeidstakeren-grp-8855.AnsattNavn-datadef-1223.value",
   "dataTypeId": "default"
-}],
+}]
 ```
 
-Resultatet i meldingsboksen vil være tittel på applikasjonen med påfølgende presentasjonstekster i en kommaseparert liste. 
+## Resultat
+
+Resultatet i meldingsboksen vil være tittel på applikasjonen med påfølgende presentasjonstekster i en kommaseparert liste.
 
 ![Instanser med presentasjonsfelter i meldingsboks](presentationtexts-msgbox.png "Instanser med presentasjonsfelter i meldingsboks")
