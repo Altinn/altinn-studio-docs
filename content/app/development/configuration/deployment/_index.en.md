@@ -45,7 +45,7 @@ Autoscaling leverages [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tas
 to automatically scale your application based on CPU utilization.
 
 When configuring how the autoscaling of your app behaves, there are two sections in the values that affect it.
-1. _resources_ cpu and memory that are available to app pods in kubernetes, see: [Resources Configuration](##resources-configuration)
+1. _resources_ cpu/memory guarantees and limits for the app pods at runtime, see: [Resources Configuration](##resources-configuration)
 2. _autoscaling_ when and how the autoscaling should happen
 
 Defaults if not overridden in _deployment/values.yaml_
