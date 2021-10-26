@@ -4,7 +4,7 @@ description: Configuring deploy and runtime behavior
 toc: true
 weight: 600
 ---
-You can change how your application is deployed in kubernetes in det file _deployment/values.yaml_
+You can change how your application is deployed in kubernetes in the file _deployment/values.yaml_
 
 Examples of what options are available are: scale/autoscaling, ports and resources allocated.
 
