@@ -4,13 +4,13 @@ description: Configuring deploy and runtime behavior
 toc: true
 weight: 600
 ---
-You can change how your application is deployed in kubernetes in det file _deployment/values.yaml_
+You can change how your application is deployed in kubernetes in the file _deployment/values.yaml_
 
 Examples of what options are available are: scale/autoscaling, ports and resources allocated.
 
 We provide some default values that you can choose to override as you see fit. The default values are defined [here](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml)
 
-To override a value in this file you need do add it as a child to _deployment_ section in _deployment/values.yaml_
+To override a value in this file you need do add it as a child to the _deployment_ section in _deployment/values.yaml_
 
 An example where initial scale is overridden.
 
@@ -41,7 +41,7 @@ deployment:
 
 From version [2.0.0](/community/changelog/deployment/v2) of the deployment helm-chart autoscaling is available and enabled by default.
 
-Autoscaling leverages [Horizontal Pod Autoscaler)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 
+Autoscaling leverages [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 
 to automatically scale your application based on CPU utilization.
 
 When configuring how the autoscaling of your app behaves there are two sections in the values that affects it.
