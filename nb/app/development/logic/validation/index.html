@@ -866,7 +866,7 @@ Valideringer er skrevet i C#, i <code>ValidationHandler.cs</code>-filen i applik
 
         <span style="color:#8be9fd">string</span> component = <span style="color:#ff79c6">value</span>.Any() ? <span style="color:#ff79c6">value</span>[<span style="color:#bd93f9">0</span>] : <span style="color:#8be9fd">string</span>.Empty;
 
-        <span style="color:#ff79c6">switch</span> (dataField)
+        <span style="color:#ff79c6">switch</span> (component)
         {
             <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;demo-group&#34;</span>:
                 <span style="color:#6272a4">// kjør valideringer spesifikke til gruppen
