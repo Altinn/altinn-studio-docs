@@ -10,7 +10,7 @@ Examples of what options are available are: scale/autoscaling, ports and resourc
 
 We provide some default values that you can choose to override as you see fit. The default values are defined [here](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml)
 
-To override a value in this file you need do add it as a child to _deployment_ section in _deployment/values.yaml_
+To override a value in this file you need do add it as a child to the _deployment_ section in _deployment/values.yaml_
 
 An example where initial scale is overridden.
 
