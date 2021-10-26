@@ -11,7 +11,7 @@ Autoskalering benytter [Horizontal Pod Autoscaler)](https://kubernetes.io/docs/t
 for å automatisk skalere opp og ned en app basert på CPU forbruk.
 
 Når man skal konfigurere hvordan autoskaleringen oppfører seg må man ta hensyn til to seksjoner i _deployment/values.yaml_.
-1. _resources_ ressursene som din applikasjon får tildelt i clusteret.
+1. _resources_ cpu/minne garantier og grenser for app pods under kjøring, se: [Resources konfigurasjon](#resources-konfigurasjon)
 2. _autoscaling_ konfigurerer når din applikasjon skal skaleres opp eller ned.
 
 Vi setter noen standard verdier basert på tester vi har utført og erfaringer vi har gjort oss, disse kan endre seg etter hvert som vi får mer erfaringer over tid.
