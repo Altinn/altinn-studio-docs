@@ -39,7 +39,7 @@ deployment:
 
 From version [2.0.0](/community/changelog/deployment/v2) of the deployment helm-chart autoscaling is available and enabled by default.
 
-Autoscaling leverages [Horizontal Pod Autoscaler)](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 
+Autoscaling leverages [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) 
 to automatically scale your application based on CPU utilization.
 
 When configuring how the autoscaling of your app behaves there are two sections in the values that affects it.
