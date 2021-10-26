@@ -118,10 +118,9 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 
 This call will return the instance metadata document that was created. 
 
-
 ## Simplified instansiation
 
-For scenarious where the multipart is not required there is created a new API that is simpler but also have support for key-value prefilling.
+For scenarios where the multipart is not required there is created a new API that is simpler but also has support for key-value prefilling.
 
 ```json
 {
@@ -141,6 +140,7 @@ For scenarious where the multipart is not required there is created a new API th
 ```http
 POST {basePath}/create
 ```
+
 
 ## Update sub status
 
