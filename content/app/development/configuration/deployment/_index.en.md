@@ -25,7 +25,9 @@ To override this in your _deployment/values.yaml_ you add it as a child to the d
 deployment:
   replicaCount: 3
 ```
-Note the addition of _deployment:_ and that the _replicaCount is indented with two spaces (yaml-indents are spaces and not <tab>, your yaml will not be valid with <tab> indents!)
+{{%notice warning%}}
+Note the addition of "deployment:" and that the "replicaCount" is indented with two spaces (yaml-indents are spaces and not tab, your yaml will not be valid with tab indents!)
+{{% /notice %}}
 
 ## Scale
 ### Initial scale

@@ -16,6 +16,26 @@ Når man skal konfigurere hvordan autoskaleringen oppfører seg må man ta hensy
 
 Vi setter noen standard verdier basert på tester vi har utført og erfaringer vi har gjort oss, disse kan endre seg etter hvert som vi får mer erfaringer over tid.
 
+Standrad verdiene kan du se [her](https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml)
+
+Et eksempel på hvordan du overskriver verdier:
+
+I values.yaml i den sentrale helm-charten er _replicaCount_ definert som følger:
+```yaml
+replicaCount: 2
+...
+```
+
+For å overskrive dette i den app endrer du filen _deployment/values.yaml_ og legger _replicaCount_ under _deplyoment_:
+```yaml
+deployment:
+  replicaCount: 3
+...
+```
+{{%notice warning%}}
+Legg merke til at "deployment:" er lagt til i forhold til det sentrale charten sin values.yaml. _replicaCount_ er også indentert med to mellomrom.
+I yaml skal indents være mellomrom og ikke tab, benytter du tab vil ikke din yaml være gyldig.
+{{% /notice %}}
 ## Skalering
 
 ### Initial skalering
