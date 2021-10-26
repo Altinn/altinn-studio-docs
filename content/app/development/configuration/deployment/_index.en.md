@@ -45,12 +45,8 @@ Autoscaling leverages [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tas
 to automatically scale your application based on CPU utilization.
 
 When configuring how the autoscaling of your app behaves there are two sections in the values that affects it.
-1. _resources_ pods of your application is given in the kubernetes cluster
-2. _autoscaling_ when and how the autoscaling should happen see [Resources Configuration](##resources-configuration)
-
-The autoscaling section defines when the application should scale, autoscaling is handled by Horizontal Pod Autoscaler in kubernetes.
-
-To read more about Horizontal Pod Autoscaler you can view the kubernetes documentation [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
+1. _resources_ cpu and memory that are available to app pods in kubernetes, see: [Resources Configuration](##resources-configuration)
+2. _autoscaling_ when and how the autoscaling should happen
 
 Defaults if not overridden in _deployment/values.yaml_
 ```yaml
@@ -135,9 +131,9 @@ If a pod tries to use more CPU than the limit it is throttled.
 
 If a pod tries to allocate more memory than the limit it is terminated with an Out Of Memory (OOM) error
 ## Linkerd
-By default all services are add to the linkerd service mesh.
+By default all services are add to the Linkerd service mesh.
 
-We strongly recommend not changing this setting as it add mutual tls and other security features to all communication between services in the cluster.
+We strongly recommend not changing this setting as it add mutual TLS and other security features to all communication between services in the cluster.
 
 ```yaml
 deployment:
@@ -168,7 +164,7 @@ At the time of writing there is one case for adding other Volumes: [Secrets load
 ## Service
 In the service definition you can change the port forwarding rules to your application, most likely this is something you do not need to change.
 
-If your application runs on a different port than 5005 set deployment.service.internalPort to the port your app is running on.
+If your application runs on a different port than 5005, set deployment.service.internalPort to the port your app is running on.
 
 Defaults are:
 ```yaml {hl_lines=[8]}
@@ -188,4 +184,4 @@ deployment:
 * image
 * ingressRoute
 
-These sections are overridden at deploytime so changes has no affect.
+These sections are overridden at deploytime so changes have no affect.

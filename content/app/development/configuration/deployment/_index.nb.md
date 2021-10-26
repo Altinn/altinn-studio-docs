@@ -135,9 +135,9 @@ Hvis en pod forsøker å benytte mer CPU en det som er satt som limit vil denne 
 Hvis en pod forsøker å allokere mer minne en det som er satt som limit vil den bli terminert med en Out Of Memory (OOM) error.
 
 ## Linkerd
-Alle applikasjoner som deployes er som standard innlemmet i linkerd sitt service mesh.
+Alle applikasjoner som deployes er som standard innlemmet i Linkerd sitt service mesh.
 
-Vi anbefaler på det sterkeste å ikke endre denne innstillingen da den legger på mutual tls som krypterer all intern kommunikasjon mellom tjenester i klusteret før det forlater en maskin.
+Vi anbefaler på det sterkeste å ikke endre denne innstillingen da den legger på mutual TLS som krypterer all intern kommunikasjon mellom tjenester i klusteret før det forlater en maskin.
 
 ```yaml
 deployment:
