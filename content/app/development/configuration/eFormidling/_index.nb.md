@@ -21,7 +21,7 @@ I filen `appsettings.json` i mappen _App_ må følgende legges til i seksjonen _
 ```
 
 I tillegg må det i samme fil opprettes en ny seksjon; _EFormidlingClientSettings_.
-Innholdet i kodesnutten nedenfor kan kopieres i sin helhet. 
+Innholdet i kodesnutten nedenfor kan kopieres i sin helhet.
 Denne setter opp url til integrasjonspunktet.
 Lenken peker på mocken som kan kjøres opp lokalt.
 Les mer om oppsettet av eFormidlings mocken [her](#-Kjøring-med-eFormidling-mock-lokalt).
@@ -37,7 +37,7 @@ og peke mot integrasjonspunktet i Altinn Platform.
 ```
 
 Dersom det ikke er ønskelig å teste integrasjonen med eFormidling når man kjører applikasjonen lokalt kan man overstyre
-denne konfigurasjonen i `appsettings.Development.json`. 
+denne konfigurasjonen i `appsettings.Development.json`.
 Opprett _AppSettings_ seksjonen dersom den ikke finne og sett `EnableEFormidling` til false.
 
 ```json
@@ -46,7 +46,7 @@ Opprett _AppSettings_ seksjonen dersom den ikke finne og sett `EnableEFormidling
 }
 ```
 
-## Konfigurere nøkkelverdier for eFormidling i applikasjonen din 
+## Konfigurere nøkkelverdier for eFormidling i applikasjonen din
 
 Det kreves en del metadata om eFormidlingsforsendelsen og denne defineres i `applicationmetadata.json`.
 Filen finner du i repoet under mappen `App/config`.
@@ -84,7 +84,7 @@ Et eksempel for en konfigurasjon i application metadata:
 
 ## Generering av metadata til forsendelsen i applikasjonen
 
-Apputvikler er selv ansvarlig for å sette opp arkivmeldingen til en forsendelse som skal via eFormidling. 
+Apputvikler er selv ansvarlig for å sette opp arkivmeldingen til en forsendelse som skal via eFormidling.
 Dette gjøres ved å legge til funksjonen nedenfor i App.cs.
 
 Forventet output fra denne metoden er en tuppel som inneholder navnet på metadatafilen som første element
@@ -94,10 +94,10 @@ og en stream med metadataen som andre element.
 /// <inheritdoc />
 public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instance instance)
 {
-    Altinn.Common.EFormidlingClient.Models.Arkivmelding arkivmelding = new ();  
+    Altinn.Common.EFormidlingClient.Models.Arkivmelding arkivmelding = new ();
 
     // bygg opp arkivmeldingen eller annet metadataobjekt her.
-                  
+
     MemoryStream stream = new MemoryStream();
     XmlSerializer serializer = new XmlSerializer(typeof(Altinn.Common.EFormidlingClient.Models.Arkivmelding));
     serializer.Serialize(stream, arkivmelding);
@@ -111,29 +111,29 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 ## Sette mottaker for forsendelse i applogikken
 
 I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra `applicationmetadata.json`.
-Denne funksjonaliteten kan benyttes dersom dataen skal sendes til ulike mottakere basert på input fra slutbruker i skjemaet. 
+Denne funksjonaliteten kan benyttes dersom dataen skal sendes til ulike mottakere basert på input fra slutbruker i skjemaet.
 
 Det må tre steg til for å sette mottaker i applogikken, og alle endringer gjøres i `App.cs` finnes i repoet under `App/logic`
 
-1. Øverst i filen må det legges til en referanse til eFormidlings biblioteket. 
+1. Øverst i filen må det legges til en referanse til eFormidlings biblioteket.
 
   ```cs
   using Altinn.Common.EFormidlingClient.Models.SBD;
-  ``` 
+  ```
 
-2. Legg til denne funksjonen i klassen. 
+2. Legg til denne funksjonen i klassen.
    Forventet output fra denne metoden er en liste som inneholder minst ett receiver-objekt.
-   
+
     ```cs
     public override async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
-    {    
+    {
         Identifier identifier = new Identifier
         {
             Authority = "iso6523-actorid-upis"
         };
 
         // 0192 prefix for all Norwegian organisations.
-        identifier.Value = "[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]" ; 
+        identifier.Value = "[INSERT ORGANISATION NUMBER HERE WITH PREFIX `0192:`]" ;
 
         Receiver receiver = new Receiver { Identifier = identifier };
         return new List<Receiver> { receiver };
@@ -141,41 +141,41 @@ Det må tre steg til for å sette mottaker i applogikken, og alle endringer gjø
     ```
 
 3. Legg til egen logikk for å populere `identifier.Value` i fiksjonen.
-   Merk at det kun er norske organisasjonsnummer som støttes som mottaker per September 2021, 
+   Merk at det kun er norske organisasjonsnummer som støttes som mottaker per September 2021,
    og at prefiksen `0192:` er påkrevd før organisasjonsnummeret.
 
-## Lokal test av applikasjon med eFormidling 
+## Lokal test av applikasjon med eFormidling
 
-Det er mulig å teste eFormidlingsintegrasjonen i applikasjonen lokalt på utviklingsmiljøet ditt. 
+Det er mulig å teste eFormidlingsintegrasjonen i applikasjonen lokalt på utviklingsmiljøet ditt.
 I tillegg til Altinn Localtest og applikasjonen er det to ting som må kjøre:
 1. eFormidling integrasjonspunkt
 2. mock av eFormidling
 
 ### Forberedelser
 
-1. Installer siste verjson av Java. 
+1. Installer siste verjson av Java.
 
    Finn nedlastingslenke og beskrivelse av nødvendige steg [her](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
 2.  Det skal nå lastes ned en rekke filer. Finn en egnet plassering for eFormidling lokalt på maskinen din og navigér dit i en terminal.
-3.  Klon repoet som inneholder eFormidling mocken med følgende commando 
-    
+3.  Klon repoet som inneholder eFormidling mocken med følgende commando
+
     ```cmd
     git clone --branch development https://github.com/felleslosninger/efm-mocks.git
     ```
 
 4. Last ned integrasjonspunktet [herfra](https://docs.digdir.no/eformidling_download_ip.html). Dette kan plasseres på samme nivå som mappen `efm-mocks`.
-   
+
 #### Kjøre eFormidling lokalt
 
 1. Åpne en terminal og navigér til `efm-mocks` (Command prompt eller bash er anbefalt, PowerShell funker ikke. )
 2. Kjør `docker-compose up -d`
-3. Navigér til mappen der integrasjonspunkt-filen ligger 
+3. Navigér til mappen der integrasjonspunkt-filen ligger
 4. Kjør og kjører kommandoen `java -Xmx2g -Dspring.profiles.active=mock -jar integrasjonspunkt-2.2.0.jar`
-    Dersom du har en nyere versjon av integrasjonspunktet enn `2.2.0`  må kommandoen siste ledd i siste linje justeres for dette. 
+    Dersom du har en nyere versjon av integrasjonspunktet enn `2.2.0`  må kommandoen siste ledd i siste linje justeres for dette.
 
 #### Verifiser at eFormidling er satt opp korrekt
 
-Dette steget krever [node og npm](https://www.npmjs.com/get-npm) på maskinen din, men er ikke nødvendig for å bruke mocken. 
+Dette steget krever [node og npm](https://www.npmjs.com/get-npm) på maskinen din, men er ikke nødvendig for å bruke mocken.
 
 - Åpne en terminal og navigér til `efm-mocks/tests/`
 - Kjør `npm i`
@@ -188,11 +188,11 @@ Les mer om mockløsningen [her](https://github.com/felleslosninger/efm-mocks)
 ## Test av eFormidling integrasjon i testmiljø
 
 {{%notice warning%}}
-Det oppfordres sterkt til grundig testing av eFormidlingsintegrasjonen i applikasjonene. 
+Det oppfordres sterkt til grundig testing av eFormidlingsintegrasjonen i applikasjonene.
 Det er lagt inn sikringer og retry mekanismer for å få en forsendelse fram til
 mottaker dersom feil skyldes svakheter i nettverksforbindelse,
 men ugyldige forsendelser, herunder manglende vedlegg eller feil i arkivmelding, vil forsendelsen feile uten eksplisitt varsling
-til sluttbruker eller tjenesteeier. 
+til sluttbruker eller tjenesteeier.
 {{% /notice%}}
 
-### 
+###
