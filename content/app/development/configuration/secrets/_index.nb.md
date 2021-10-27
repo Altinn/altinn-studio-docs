@@ -1,86 +1,48 @@
 ---
-title: Hemmeligheter
-description: Hvordan håndtere hemmeligheter og sensitiv data i en app.
+title: Secrets
+description: How to deal with secrets and sensitive data in an app.
 weight: 300
+tags: [translate-to-english]
 ---
 
 ## Administrasjon av hemmeligheter i Azure
 
 Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
 
-Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet [her](../../../getting-started/access-management/apps/).
+[Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her](../../../getting-started/access-management/apps/).
 
 ## Konfigurer støtte for hemmeligheter i din app
 
-For å kunne benytte hemmeligheter i din applikasjon må du bruke nugetversjon >= 1.2.2.
-Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](../update/#nuget-pakker).
+Hemmeligheter i app er støttet for nugetversjoner >= 1.2.2.
+[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](../update/#nuget-pakker).
 
-1. Oppdater helm charts for å koble opp rett konfigurasjon til din
+For å tilgjengeliggjøre hemmeligheter i applikasjonen må det gjøres oppdateringer i helm charten tilknyttet applikasjonen.
 
-    I applikasjonsrepoet ditt finner du filen `values.yaml` i mappen _deployment_.
+I applikasjonsrepoet ditt finner du filen `values.yaml` i mappen _deployment_.
 
-    Under seksjonen _volumeMounts_ legger du til følgende linjer:
+Under seksjonen _volumeMounts_ legger du til følgende linjer:
 
-    ```yaml
-    - name: altinn-appsettings-secret
-    mountPath: "/altinn-appsettings-secret"
-    ```
+```yaml
+- name: altinn-appsettings-secret
+mountPath: "/altinn-appsettings-secret"
+```
 
-    Under seksjonen _volumes_ legger du til følgende linjer:
+Under seksjonen _volumes_ legger du til følgende linjer:
 
-    ```yaml
-    - name: altinn-appsettings-secret
-        secret:
-        secretName: altinn-appsettings-secret
-    ```
+```yaml
+- name: altinn-appsettings-secret
+    secret:
+    secretName: altinn-appsettings-secret
+```
 
-    OBS! Vær påpasselig med antall linjeskift og innrykk når du jobber i _values.yaml_.
+{{%notice warning%}}
+Vær påpasselig med innrykk når du jobber i _values.yaml_.
+I yaml skal indents være mellomrom og ikke tab, benytter du tab vil ikke din yaml være gyldig.
+{{% /notice %}}
 
-    Siste del av filen skal se omtrent slik ut når du har gjort ferdig alle endringer.
+Siste del av filen skal se omtrent slik ut når du har gjort ferdig alle endringer.
 
-    ![Steg 1](yaml.png)
-
-2. Videre må konfigurasjonen som ligger i appclusteret knyttes til den kjørende tjenesten
-
-    I applikasjonsrepoet ditt finner du filen `Program.cs` i mappen _App_.
-
-    I metoden `CreateHostBuilder` skal det kalles på en metode som vil laste opp konfigurasjon for hemmeligheter.
-
-    Du kan bytte ut hele metoden med kodesnuten nedenfor.
-
-    ```cs
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-                Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.ConfigureAppConfiguration((hostingContext, configBuilder) =>
-                    {
-                        configBuilder.LoadAppConfig();
-                    });
-                    webBuilder.UseStartup<Startup>();
-                });
-    ```
-
-    I tillegg må man importere biblioteket der _configBuilder.LoadAppConfig_ er implementert.
-    Lim inn følgende øverst i filen.
-
-    ```cs
-    using Altinn.App.PlatformServices.Extensions;
-    ```
-
-3. I applikasjonsrepoet ditt finner du filen `Startup.cs` i mappen `App`.
-
-    I metoden `ConfigureServices` skal det kalles på en metode som vil tilgjengeliggjøre konfigurasjon samt en klient for å hente tjeneser
-    for applikasjonens ulike klasser.
-
-    Lim inn følgende et sted i denne metoden. Gjerne der andre kall til _services_ blir gjort.
-
-    ```cs
-    services.AddAppSecrets(Configuration, _env);
-    ```
-
-4. Forsikre deg om at applikasjonen din fortsatt bygger og at deploy via Altinn Studio enda er mulig.
-    Din applikasjon er nå klar til å benytte hemmeligheter!
+![Steg 1](yaml.png)
 
 ## Hvordan benytte hemmeligheter i applikasjonen
 
@@ -156,6 +118,7 @@ namespace Altinn.App.AppLogic
                 Skjema model = (Skjema)data;
                 model.etatid = await _secretsService_.GetSecretAsync("secretId");
             }
+
             await Task.CompletedTask;
         }
     }
