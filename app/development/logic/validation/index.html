@@ -1166,6 +1166,7 @@ For å legge til en valideringsfeil brukes <code>AddModelError</code>-metoden ti
     }
 }
 </code></pre></div><p>Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.</p>
+<p>I det andre parameteret til metoden <code>AddModelError</code>, der det står &ldquo;<em>Error: First name cannot contain the value &lsquo;1337&rsquo;</em>&rdquo;, kan man bruke en tekstnøkkel for en <a href="../../ux/texts">tekst definert i ressursfilene</a> for språkstøtte.</p>
 <p>Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task ValidateTask(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
 {
