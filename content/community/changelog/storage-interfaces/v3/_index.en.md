@@ -5,13 +5,9 @@ toc: true
 weight: 90
 ---
 
-## 3.4.0 Added MessageBoxConfig to Applicaton
-
-- The `Application` model has been expanded with a new property to hold Message Box configuration.
-
 ## 3.3.0 Added Tags to the model DataElement
 
-- The `DataElement` model has been expanded with a new property to hold a list of tags.
+- The `DataElement` model has been expanded with a new property to hold a list of tags. 
 
 ## 3.2.0 New model OnEntryConfig
 
@@ -21,10 +17,10 @@ weight: 90
 
 - A new model, `DataValues` was added to support updating data values on the instance.
 
-## 3.0.0 Refactoring and model application/instance model changes
+## 3.0.0 Refactoring and model application/instance model changes 
 
 ### Breaking changes
-- The `PresentationField` class was renamed to `DataField`.
+- The `PresentationField` class was renamed to `DataField`.  
   This was done to make the model more generic as it's being used by the new `DataFields` property on the `Application` model as well as the existing `PresentationFields` property. All properties and the usage off the class remains the same.
 
 ### Other changes
