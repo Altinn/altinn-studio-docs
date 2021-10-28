@@ -5,6 +5,18 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.13.5 (2021-10-28) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 43.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.4 (2021-10-22) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 42.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.3 (2021-10-15) - Høyrejustere tekst i inputfelter
+La til funksjonalitete for å høyrejustere tekst i inputfelter.
+Pull request [#7034](https://github.com/Altinn/altinn-studio/pull/7034) 
+
 ## 3.13.2 (2021-10-14) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 41.
 Issue [#7051](https://github.com/Altinn/altinn-studio/issues/7051).
