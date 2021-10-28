@@ -17,7 +17,7 @@ You can also use prefill in custom code. This will require that the app implemen
         }
 ```
 
-And the latest instansiationhandler.cs with the method signature
+And the latest `InstansiationHandler.cs` with the method signature
 
 ```c#
   public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
