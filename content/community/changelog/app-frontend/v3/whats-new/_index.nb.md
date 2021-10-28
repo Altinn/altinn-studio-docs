@@ -15,7 +15,7 @@ Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
 
 ## 3.13.3 (2021-10-15) - Høyrejustere tekst i inputfelter
 La til funksjonalitete for å høyrejustere tekst i inputfelter.
-Pull request [#7034](https://github.com/Altinn/altinn-studio/pull/7034) 
+Pull request [#7034](https://github.com/Altinn/altinn-studio/pull/7034).
 
 ## 3.13.2 (2021-10-14) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 41.
