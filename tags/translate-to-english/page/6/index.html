@@ -255,6 +255,12 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/hide_instances/"><span>Hide instances</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
+      <li class="dd-item">
         <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
@@ -262,8 +268,6 @@ if(host != "localhost")
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/datafields/"><span>Data fields</span></a></li>
-      <li class="dd-item">
-        <a href="/app/development/configuration/presentationfields/"><span>Presentation fields</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1044,6 +1048,32 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/logic/dataprocessing/">Data processing</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker/skjemadata. Dataprossering kan være kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
+Dataprossering kodes i C#, i filen DataProsessingHandler.cs. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code. Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov. <a class="read-more" href="/app/development/logic/dataprocessing/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
         <h2 class="post-title"><a href="/app/testing/local/debug/">Debugging of app</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1266,33 +1296,6 @@ Man trenger bare å oppgi tjenesteeier kode (som f. <a class="read-more" href="/
 MERK: Denne funksjonaliteten krever app-frontend versjon 3. Se denne lenken.
 Indikere at felt er valgfritt Det er mulig å styre om et felt er markert som valgfritt eller ikke. Normal oppførsel er at felt som er valgfrie blir markert som valgfrie.
 Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via labelSettings på en komponent i form layout. <a class="read-more" href="/app/development/ux/fields/settings/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/testing/local/testusers/">Test-user for local testing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Disse kan man velge når man logger inn i lokal test.
-Sophie Salt Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningsententer som heter DDG Fitness og til nå er det startet 3 underenheter i Oslo, Bergen og Trondheim. Sophie har rollen DAGL og dens underroller for DDG Fitness AS og dens underhenheter.
-I tilegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. <a class="read-more" href="/app/testing/local/testusers/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

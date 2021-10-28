@@ -255,6 +255,12 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/hide_instances/"><span>Hide instances</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
+      <li class="dd-item">
         <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
@@ -262,8 +268,6 @@ if(host != "localhost")
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/datafields/"><span>Data fields</span></a></li>
-      <li class="dd-item">
-        <a href="/app/development/configuration/presentationfields/"><span>Presentation fields</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1044,6 +1048,32 @@ if(host != "localhost")
 	
 	   <article class="post app">
     <header class="post-header">
+        <h2 class="post-title"><a href="/app/getting-started/access-management/studio/">Altinn Studio access</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Tilgangsstyring for organisasjonen Som eier av en organisasjon i Altinn Studio har man mulighet til å konfigurere tilgangene til de øvrige brukerne knyttet til organisasjonen. Dette gjøres via Gitea på følgende lenke: https://altinn.studio/repos/org/{organisasjonens kortnavn}/teams/
+Det er definert fire standard team som legger føringer for hva en bruker har tillatelse til å gjøre innad i en organisasjon i Altinn Studio. Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye team og endre konfigurasjon på eksisterende team. <a class="read-more" href="/app/getting-started/access-management/studio/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
         <h2 class="post-title"><a href="/app/getting-started/navigation/code/">Code</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1265,32 +1295,6 @@ Kalle et eksternt API direkte i en metode I dette eksemplet brukes et åpent API
 Data (tilsvarer utfyllingssteg i Altinn II) I denne prosess-task-typen vises skjema som kan fylles ut.
 Skjema kan redigeres ved bruk av UI editoren eller ved å endre FormLayout.json direkte.
 Bekreftelse (Confirmation) I denne prosess-task-typen vises noen standard-tekster, og bruker kan velge å bekrefte for å gå videre. <a class="read-more" href="/app/development/configuration/process/customize/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post app">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/logic/dataprocessing/">Data processing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker/skjemadata. Dataprossering kan være kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
-Dataprossering kodes i C#, i filen DataProsessingHandler.cs. Denne filen kan redigeres enklest ved å laste ned kildekoden til app&rsquo;en og redigere på egen maskin, f.eks. i Visual Studio Code. Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov. <a class="read-more" href="/app/development/logic/dataprocessing/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

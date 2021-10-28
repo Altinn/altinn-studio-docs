@@ -255,6 +255,12 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/hide_instances/"><span>Hide instances</span></a></li>
+      <li class="dd-item">
+        <a href="/app/development/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li></ul></li>
+      <li class="dd-item">
         <a href="/app/development/configuration/authorisation/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/app/development/configuration/authorisation/rules/"><span>Rule library</span></a></li></ul></li>
@@ -262,8 +268,6 @@ if(host != "localhost")
         <a href="/app/development/configuration/partytype/"><span>Party types</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/datafields/"><span>Data fields</span></a></li>
-      <li class="dd-item">
-        <a href="/app/development/configuration/presentationfields/"><span>Presentation fields</span></a></li>
       <li class="dd-item">
         <a href="/app/development/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1022,6 +1026,7 @@ if(host != "localhost")
     <li><a href="#presentationfield">PresentationField</a></li>
     <li><a href="#datafield">DataField</a></li>
     <li><a href="#eformidlingcontract">eFormidlingContract</a></li>
+    <li><a href="#messageboxconfig">messageBoxConfig</a></li>
     <li><a href="#complete-example">Complete example</a></li>
   </ul>
 </nav>
@@ -1090,6 +1095,10 @@ if(host != "localhost")
 <tr>
 <td>eFormidling</td>
 <td>The configuration for the eFormidling integration for the application. See <a href="#eFormidlingContract">eFormidlingContract</a>.</td>
+</tr>
+<tr>
+<td>messageBoxConfig</td>
+<td>A collection of configurations related to the Altinn Message box</td>
 </tr>
 </tbody>
 </table>
@@ -1198,7 +1207,6 @@ if(host != "localhost")
 </tbody>
 </table>
 <h2 id="presentationfield">PresentationField</h2>
-<p>This type is used by a feature still in development.</p>
 <p>PresentationField represents a form field extraction rule. Every time a form is being saved the presentation field rules will be applied and any values from the form will be stored directly on the instance. This can later be used to present instance specific data in places like the portal message box. The purpose is to make it easier to identify a specific instance in a list with many almost identical instances.</p>
 <table>
 <thead>
@@ -1248,7 +1256,7 @@ if(host != "localhost")
 </table>
 <h2 id="eformidlingcontract">eFormidlingContract</h2>
 <p>This type is used by a feature still in development.</p>
-<p>eFormidlingContract holds the configuration of the eFormidling integration for the application. 
+<p>eFormidlingContract holds the configuration of the eFormidling integration for the application.
 An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for every instance that is created.</p>
 <table>
 <thead>
@@ -1293,6 +1301,42 @@ An application configured to enable eFormidling integration in combination with 
 <tr>
 <td>dataTypes</td>
 <td>A list of the dataTypes to be included in the shipment. Data type for both form data and attachments should be listed to be included in the shipment</td>
+</tr>
+</tbody>
+</table>
+<h2 id="messageboxconfig">messageBoxConfig</h2>
+<p>MessageBoxConfig holds configurations related to the presentation of instances in the Altinn MessageBox.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hideSettings</td>
+<td>The settings related to hiding an instance from the message box</td>
+</tr>
+</tbody>
+</table>
+<h3 id="hidesettings">hideSettings</h3>
+<p>Only one of the two settings should be used at a time.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hideAlways</td>
+<td>A boolean indicating that the instance should always be hidden</td>
+</tr>
+<tr>
+<td>hideOnTask</td>
+<td>A list of tasks where the instance should be hidden from the message box</td>
 </tr>
 </tbody>
 </table>
@@ -1347,6 +1391,11 @@ An application configured to enable eFormidling integration in combination with 
         <span style="color:#ff79c6">&#34;organisation&#34;</span>: <span style="color:#ff79c6">true</span>,
         <span style="color:#ff79c6">&#34;person&#34;</span>: <span style="color:#ff79c6">true</span>,
         <span style="color:#ff79c6">&#34;subUnit&#34;</span>: <span style="color:#ff79c6">true</span>
+    },
+        <span style="color:#ff79c6">&#34;messageBoxConfig&#34;</span>:{
+        <span style="color:#ff79c6">&#34;hideSettings&#34;</span>:{
+            <span style="color:#ff79c6">&#34;hideOnTask&#34;</span>:[<span style="color:#f1fa8c">&#34;Task_3&#34;</span>]
+        }
     },
     <span style="color:#ff79c6">&#34;autoDeleteOnProcessEnd&#34;</span>: <span style="color:#ff79c6">false</span>,
     <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2020-07-17T08:26:21.5707559Z&#34;</span>,

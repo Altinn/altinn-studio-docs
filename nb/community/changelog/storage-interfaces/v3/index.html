@@ -255,6 +255,12 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
+        <a href="/nb/app/development/configuration/messagebox/"><span>Meldingsboks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/messagebox/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li></ul></li>
+      <li class="dd-item">
         <a href="/nb/app/development/configuration/authorisation/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/authorisation/rules/"><span>Regelbibliotek</span></a></li></ul></li>
@@ -262,8 +268,6 @@ if(host != "localhost")
         <a href="/nb/app/development/configuration/partytype/"><span>Aktørtyper</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/datafields/"><span>Datafelter</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/app/development/configuration/presentationfields/"><span>Presentasjonsfelter</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -475,6 +479,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">v3</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer introdusert i v3 av Altinn.Platform.Storage.Interface.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#340-lagt-til-messageboxconfig-på-modellen-applicaton">3.4.0 Lagt til MessageBoxConfig på modellen Applicaton</a></li>
     <li><a href="#330-lagt-til-tags-på-modellen-dataelement">3.3.0 Lagt til Tags på modellen DataElement</a></li>
     <li><a href="#320-innføring-av-ny-modell-onentryconfig">3.2.0 Innføring av ny modell OnEntryConfig</a></li>
     <li><a href="#301-innføring-av-ny-modell-datavalues">3.0.1 Innføring av ny modell DataValues</a></li>
@@ -485,6 +490,10 @@ if(host != "localhost")
 
 
 
+<h2 id="340-lagt-til-messageboxconfig-på-modellen-applicaton">3.4.0 Lagt til MessageBoxConfig på modellen Applicaton</h2>
+<ul>
+<li><code>Application</code> modellen har blitt utvidet med en ny egenskap for å holde på en meldingsbokskonfigurasjon.</li>
+</ul>
 <h2 id="330-lagt-til-tags-på-modellen-dataelement">3.3.0 Lagt til Tags på modellen DataElement</h2>
 <ul>
 <li><code>DataElement</code> modellen har blitt utvidet med en ny egenskap for å holde på en liste med stikkord (tags).</li>
@@ -500,7 +509,7 @@ if(host != "localhost")
 <h2 id="300-refactoring-and-model-applicationinstance-model-changes">3.0.0 Refactoring and model application/instance model changes</h2>
 <h3 id="endringer-som-krever-tilpassninger-i-app-kode-breaking-changes">Endringer som krever tilpassninger i app kode (breaking changes)</h3>
 <ul>
-<li>Modellen <code>PresentationField</code> har endret navn til <code>DataField</code>.<br>
+<li>Modellen <code>PresentationField</code> har endret navn til <code>DataField</code>.
 Dette gjøres slik at den kan benyttes i flere sammenhenger. Bruken av modellen er utvidet til å representere et element i egenskapen <code>DataFields</code> på <code>Application</code> i tillegg til at den fortsatt brukes for å representere elementer i egenskapen <code>PresentationFields</code>. Det er ingen andre endringer i modellen eller hvordan den blir brukt.</li>
 </ul>
 <h3 id="andre-endringer">Andre endringer</h3>
