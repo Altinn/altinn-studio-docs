@@ -527,10 +527,9 @@ if(host != "localhost")
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/whats-new/">Hva er nytt?</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.
-Denne endringer tilhører saken 6861 på github.
-Det er mer informasjon om endringen under app API dokumentasjon.
-4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
+        <p>4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil It is now possible to instantiate with keyValue prefill through a new instantiation API.
+You can also use prefill in custom code. This will require that the app implements the latest version of App.cs which includes the following method
+public override async Task RunDataCreation(Instance instance, object data, Dictionary&lt;string, string&gt; prefill) { await _instantiationHandler.DataCreation(instance, data, prefill); } And the latest InstansiationHandler.cs with the method signature <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

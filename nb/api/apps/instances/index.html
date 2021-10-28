@@ -483,6 +483,7 @@ if(host != "localhost")
     <li><a href="#get-instance">Get instance</a></li>
     <li><a href="#get-active-instances">Get active instances</a></li>
     <li><a href="#create-instance">Create instance</a></li>
+    <li><a href="#simplified-instansiation">Simplified instansiation</a></li>
     <li><a href="#update-sub-status">Update sub status</a></li>
     <li><a href="#complete-instance">Complete instance</a></li>
     <li><a href="#delete-instance">Delete instance</a></li>
@@ -565,7 +566,22 @@ Content-Type: application/pdf
 
 --abcdefg--
 </code></pre></div><p>This call will return the instance metadata document that was created.</p>
-<h2 id="update-sub-status">Update sub status</h2>
+<h2 id="simplified-instansiation">Simplified instansiation</h2>
+<p>For scenarios where the multipart is not required there is created a new API that is simpler but also has support for key-value prefilling.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    
+    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#f1fa8c">&#34;12247918309&#34;</span>,
+        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
+    },
+    <span style="color:#ff79c6">&#34;prefill&#34;</span>: {
+        <span style="color:#ff79c6">&#34;navnGarantist&#34;</span> : <span style="color:#f1fa8c">&#34;Ole Hansen&#34;</span>
+     },
+    <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
+    <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-20T00:00:00Z&#34;</span>
+}
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {basePath}/create
+</code></pre></div><h2 id="update-sub-status">Update sub status</h2>
 <p>The instance <a href="../../../app/development/api/instance/#substatus">sub status</a> is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus
 </code></pre></div><p><strong>Request body</strong></p>

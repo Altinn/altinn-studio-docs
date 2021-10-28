@@ -1019,6 +1019,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4172-2021-10-27---added-api-for-instansiation-with-key-value-prefil">4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil</a></li>
     <li><a href="#4160-2021-10-07---added-api-for-tagging-of-data-elements">4.16.0 (2021-10-07) - Added API for tagging of data elements</a></li>
     <li><a href="#4152-2021-10-04---new-endpoint-for-retrieving-active-instances">4.15.2 (2021-10-04) - New endpoint for retrieving active instances</a></li>
     <li><a href="#4141-2021-09-22---500-error-when-retrieving-non-existing-instance-fixed">4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed</a></li>
@@ -1051,7 +1052,19 @@ if(host != "localhost")
 
 
 
-<h2 id="4160-2021-10-07---added-api-for-tagging-of-data-elements">4.16.0 (2021-10-07) - Added API for tagging of data elements</h2>
+<h2 id="4172-2021-10-27---added-api-for-instansiation-with-key-value-prefil">4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil</h2>
+<p>It is now possible to instantiate with keyValue prefill through a new instantiation API.</p>
+<p>You can also use prefill in custom code. This will require that the app implements the latest version of <code>App.cs</code> which includes the following method</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunDataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
+        {
+           <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>instantiationHandler.DataCreation(instance, data, prefill);
+        }
+</code></pre></div><p>And the latest <code>InstansiationHandler.cs</code> with the method signature</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
+        {
+            <span style="color:#ff79c6">await</span> Task.CompletedTask;
+        }
+</code></pre></div><h2 id="4160-2021-10-07---added-api-for-tagging-of-data-elements">4.16.0 (2021-10-07) - Added API for tagging of data elements</h2>
 <p>It&rsquo;s now possible to save tags on a data element. To support this there are 3 new API endpoints for listing existing tags, adding a tag, and to remove a tag from a data element.</p>
 <p>This change is associated with issue <a href="https://github.com/Altinn/altinn-studio/issues/6861">6861</a> on github.</p>
 <p>There is more information about the new API under the app API documentation.</p>

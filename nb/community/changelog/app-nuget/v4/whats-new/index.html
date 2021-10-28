@@ -479,6 +479,7 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">Hva er nytt?</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer som ble introdusert i versjon 4.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4172-2021-10-27---added-api-for-instansiation-with-key-value-prefil">4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil</a></li>
     <li><a href="#4160-2021-10-07---nytt-app-api-for-tagging-av-data-elementer">4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer</a></li>
     <li><a href="#4152-2021-10-04---nytt-endepunkt-for-å-hente-ut-aktive-instanser">4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser</a></li>
     <li><a href="#4141-2021-09-22---500-error-when-retrieving-non-existing-instance-fixed">4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed</a></li>
@@ -511,7 +512,19 @@ if(host != "localhost")
 
 
 
-<h2 id="4160-2021-10-07---nytt-app-api-for-tagging-av-data-elementer">4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer</h2>
+<h2 id="4172-2021-10-27---added-api-for-instansiation-with-key-value-prefil">4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil</h2>
+<p>It is now possible to instantiate with keyValue prefill through a new instantiation API.</p>
+<p>You can also use prefill in custom code. This will require that the app implements the latest version of <code>App.cs</code> which includes the following method</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task RunDataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
+        {
+           <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>instantiationHandler.DataCreation(instance, data, prefill);
+        }
+</code></pre></div><p>And the latest <code>InstansiationHandler.cs</code> with the method signature</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">  <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
+        {
+            <span style="color:#ff79c6">await</span> Task.CompletedTask;
+        }
+</code></pre></div><h2 id="4160-2021-10-07---nytt-app-api-for-tagging-av-data-elementer">4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer</h2>
 <p>Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.</p>
 <p>Denne endringer tilhører saken <a href="https://github.com/Altinn/altinn-studio/issues/6861">6861</a> på github.</p>
 <p>Det er mer informasjon om endringen under app API dokumentasjon.</p>
