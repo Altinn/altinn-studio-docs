@@ -8,7 +8,7 @@ toc: true
 
 It is now possible to instantiate with keyValue prefill through a new instantiation API.
 
-You can also use prefill in custom code. That requires to use latest version App.cs with the following method
+You can also use prefill in custom code. This will require that the app implements the latest version of `App.cs` which includes the following method
 
 ```c#
   public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
