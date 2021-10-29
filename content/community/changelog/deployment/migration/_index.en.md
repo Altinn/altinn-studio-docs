@@ -59,8 +59,13 @@ dependencies:
   version: 1.1.0
 ```
 
-You are using the latest deployment strategy
+You are using the latest deployment strategy.
 
+How to configure your deployment is documented [here](/app/development/configuration/deployment)
+
+{{%notice info%}}
+Newer version are available. If the new version is a major version please note that there could be breaking changes.
+{{%/notice%}}
 ## Migrating to new deployment strategy
 
 The migration is fairly simple and involves three changes in your deployment folder:
