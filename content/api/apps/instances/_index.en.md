@@ -27,6 +27,32 @@ Use this endpoint for instances that are active, and the owner party id and inst
 GET {basePath}/{instanceOwnerPartyId}/{instanceGuid}
 ```
 
+## Get active instances
+
+Endpoint for listing active instances for an instance owner.
+
+This endpoint can be used to determine if a new instance of an app should be created or if continuation on an existing instance would be more feasible.
+Note that the object returned is a simplified instance object and that `LastChangedBy` contains the name of the latest active entity rather than an id number.
+
+```json
+[
+	{
+		"id": "1337/bffd2c17-9d93-49f4-b504-3d0ece2402c7",
+		"lastChanged": "2021-09-23T10:19:43",
+		"lastChangedBy": "Sophie Salt"
+	},
+    {
+		"instanceId": "1337/agfd2c17-4d93-49f4-b504-3d0ece2402d8",
+		"lastChanged": "2021-07-11T22:14:02",
+		"lastChangedBy": "Sophie Salt"
+	}
+]
+```
+
+```http
+GET {basePath}/{instanceOwnerPartyId}/active
+```
+
 ## Create instance
 
 Altinn assigns a unique identifier to all users that wish to report data. We call this id *instanceOwner.partyId*. 
@@ -94,9 +120,32 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 
 This call will return the instance metadata document that was created. 
 
+## Simplified instansiation
+
+For scenarios where the multipart is not required there is created a new API that is simpler but also has support for key-value prefilling.
+
+```json
+{
+    
+    "instanceOwner": {
+        "personNumber": "12247918309",
+        "organisationNumber": null
+    },
+    "prefill": {
+        "navnGarantist" : "Ole Hansen"
+     },
+    "dueBefore": "2019-06-01T12:00:00Z",
+    "visibleAfter": "2019-05-20T00:00:00Z"
+}
+```
+
+```http
+POST {basePath}/create
+```
+
 ## Update sub status
 
-The instance [sub status](https://altinn.github.io/docs/altinn-studio/app-creation/instance/#substatus) is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.
+The instance [sub status](../../../app/development/api/instance/#substatus) is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.
 
 ```http
 PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus

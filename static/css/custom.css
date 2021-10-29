@@ -27,6 +27,13 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
     display: none;
 }
 
+.a-iconText-text a[href^=http]:not([href*='altinn.no']):not([href*='basefarm.net']):not([href*='local.altinn'])::after {
+    display: inline-block;
+    width: 0;
+    margin-left: 0;
+    content: '';
+}
+
 .a-illustration-icon {
     background: #022F51;
 }
@@ -41,6 +48,17 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
     background: #022F51;
 }
 
+.a-globalNav-main .a-label {
+    padding: 2px 9px 0px 9px;
+}
+
+@media (min-width: 768px) {
+    .a-globalNav-main .a-label {
+        margin-left: 4px;
+        position: absolute;
+    }
+}
+
 .a-globalNav .a-globalNav-logo {
     margin-left: 3px;
 }
@@ -51,12 +69,19 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
     }
 }
 
+@media (min-width: 768px) {
+    .a-globalNav-main li:last-child a {
+        border-bottom: none;
+    }
+}
+
 @media (min-width: 992px) {
     .a-header  {
         padding-top: 33px;
     }
     .a-header .a-logo {
-        max-width: 210px;
+        max-width: 284px;
+        margin-top: 1px;
     }
     .a-globalNav .a-globalNav-logo {
         margin-left: 0;
@@ -68,7 +93,8 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
 }
 
 .adocs-logo {
-    margin-top: -11px;
+    margin-top: 2px;
+    max-width: 240px;
 }
 
 .adocs-logo-text {
@@ -93,10 +119,6 @@ a[href^=http]:not([href*='localhost']):not([href*='docs.altinn.studio']):not([hr
     text-transform: lowercase;
 }
 
-.a-globalNav-main li:last-child > a {
-    border-bottom: none;
-}
-
 body.adocs-apps .a-globalNav-main li a[href*='/app/'],
 body.adocs-apis .a-globalNav-main li a[href*='/api/'],
 body.adocs-comm .a-globalNav-main li a[href*='/community/'],
@@ -108,6 +130,22 @@ body.adocs-tech .a-globalNav-main li a[href*='/technology/'] {
 
 .a-jumbotron-header {
     background-size: 100%;
+}
+
+/* TOC */
+
+#TableOfContents {
+    margin-bottom: 24px;
+}
+
+/* Lists */
+
+.a-text ul.connected-bullets {
+    margin-left: 36px;
+}
+
+ul.connected-bullets li::after {
+    background: #fff;
 }
 
 /* Scrollable tables */
@@ -130,6 +168,8 @@ body.adocs-tech .a-globalNav-main li a[href*='/technology/'] {
 
 blockquote {
     border-left: 5px solid #1eaef7;
+    margin-left: 1em;
+    padding-left: 0.5em;
 }
 blockquote p {
     font-size: 1.1rem;
@@ -142,7 +182,7 @@ li > label {
 /* Footer */ 
 
 .adocs-footer {
-    margin-top:36px;
+    margin-top: 60px;
     padding: 36px;
     background: #022F51;
 }
@@ -166,15 +206,21 @@ li > label {
     content: none !important;
 }
 
+/* img */
+
+figure {
+    margin-bottom: 36px;
+}
+
+
 /* Case block */
 
-
-.adocs-caseBlock a{
+.adocs-caseblock a{
     color: white;
     border-color: white;
 }
 
-.adocs-caseBlock a:after {
+.adocs-caseblock a:after {
     filter: brightness(0) invert(1);
     -webkit-filter: brightness(0) invert(1);
 }
@@ -189,6 +235,16 @@ li > label {
     margin-bottom: 0;
     max-width: 350px;
     margin: auto;
+}
+
+.adocs-caseblock .a-linkFeatured {
+    align-self: flex-start;
+    color: #022F51;
+    height: 32px;
+}
+
+.adocs-caseblock .a-btn-border {
+    padding: 5px 24px 7px 24px;
 }
 
 
@@ -211,7 +267,8 @@ li > label {
     width: 100px;
     height: 100px;
     background: #fff;
-    box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5); }
+    box-shadow: 1px 1px 4px 0 rgba(137, 137, 137, 0.5); 
+}
   
   .ap-colors {
     margin-left: 0;

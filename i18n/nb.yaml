@@ -38,9 +38,9 @@
 - id: and-see-your-inbox
   translation: og sjekk din innboks
 - id: learn-about-studio
-  translation: Lær om Altinn Studio
+  translation: Veien til en tjeneste i Altinn 3
 - id: jumbotron
-  translation: Her har vi samlet det du trenger å vite både for å raskt kunne lage både enkle og avanserte applikasjoner med Altinn Studio.
+  translation: Veiledningen, ressursene og retningslinjene du trenger for å lage både enkle og avanserte applikasjoner i Altinn Studio.
 
 - id: how-we-design
   translation: Slik designer vi
@@ -63,15 +63,32 @@
   translation: Front-end designsystem
 
 - id: create-your-first-app
-  translation: Lag din første app
+  translation: Lage apper
 - id: create-your-first-app-description
-  translation: Lag enkle eller avanserte tjenester (apps) basert på React and .NET Core.
+  translation: Lag enkle eller avanserte tjenester (apper) basert på React and .NET Core.
 - id: getting-started-with-altinn-studio
   translation: Kom i gang med Altinn Studio
+- id: design
+  translation: Design og planlegging
+- id: guidelines
+  translation: Retningslinjer
 - id: app-development
-  translation: App-utvikling
-- id: apis
-  translation: API
+  translation: Utvikling
+- id: testing
+  translation: Testing
+
+- id: api-title
+  translation: Altinn 3 API
+- id: api-description
+  translation: Beskrivelse av Altinn API for sluttbrukere og applikasjonseiere.
+- id: application
+  translation: Applikasjon API
+- id: platform
+  translation: Altinn Platform API
+- id: models
+  translation: Modeller
+- id: scenarios
+  translation: Scenarier
 
 - id: altinn-is-open-source
   translation: Altinn er åpen kildekode
@@ -85,14 +102,16 @@
   translation: GitHub (kode og backlog)
 
 - id: the-new-architecture
-  translation: Arkitektur
+  translation: Teknologi
 - id: the-new-architecture-description
   translation: Både Altinn, og appene som du utvikler, kjører nå som containere i Kubernetes.
-- id: principles
-  translation: Prinsipper
+- id: architecture
+  translation: Arkitektur
 - id: solutions
   translation: Løsninger
-- id: tools-and-frameworks
+- id: terms
+  translation: Vilkår
+- id: tools
   translation: Verktøy og rammeverk
 
 - id: how-we-write
@@ -106,10 +125,12 @@
 - id: uu
   translation: Universell utforming
 
-- id: digitalize
-  translation: Skal du digitalisere tjenestene dine med hjelp av Altinn?
-- id: dev-guides
-  translation: Finn våre utviklingsguider på <a href="https://www.altinndigital.no/utvikling/">altinn digitalisering</a>
+- id: caseblock-title
+  translation: Vi bygger Altinn sammen
+- id: caseblock-description
+  translation: Samarbeid, del og lær av andre etater. Alt vi gjør er åpen kildekode på GitHub, og vi setter stor pris på dine tilbakemeldinger og bidrag!
+- id: caseblock-link
+  translation: Community
 
 # Help
 - id: what-can-we-help-you-with

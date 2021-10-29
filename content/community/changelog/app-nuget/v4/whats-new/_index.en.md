@@ -4,6 +4,49 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
+
+It is now possible to instantiate with keyValue prefill through a new instantiation API.
+
+You can also use prefill in custom code. This will require that the app implements the latest version of `App.cs` which includes the following method
+
+```c#
+  public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+           await _instantiationHandler.DataCreation(instance, data, prefill);
+        }
+```
+
+And the latest `InstansiationHandler.cs` with the method signature
+
+```c#
+  public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            await Task.CompletedTask;
+        }
+```
+
+
+## 4.16.0 (2021-10-07) - Added API for tagging of data elements
+
+It's now possible to save tags on a data element. To support this there are 3 new API endpoints for listing existing tags, adding a tag, and to remove a tag from a data element.
+
+This change is associated with issue [6861](https://github.com/Altinn/altinn-studio/issues/6861) on github.
+
+There is more information about the new API under the app API documentation.
+
+## 4.15.2 (2021-10-04) - New endpoint for retrieving active instances
+Altinn Apps now expose a new endpoint for retriveing active instances for a given instance owner. 
+The new endpoint can be reached at {org}.apps.altinn.no/{org}/{app}/instances/{instanceOwnerPartyId}/active.
+
+The change is related to issue [6767](https://github.com/Altinn/altinn-studio/issues/6767).
+
+## 4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed
+
+There was a bug causing a 500 response when an request is made towards Get/Instances for a
+non-existing instance. This has now been fixed and the response returned is 403.
+Swagger for the endpoint is updated to reflect possible response codes.
+
 ## 4.14.0 (2021-09-13) - Partial support for namespace XML
 The code that deserializes XML has been updated to support namespace declaration in the root element.
 

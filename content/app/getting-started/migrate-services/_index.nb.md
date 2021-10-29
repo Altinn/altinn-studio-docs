@@ -6,7 +6,7 @@ weight: 170
 ---
 
 ## Migrere en eksisterende tjeneste til Altinn 3
-Gjør deg kjent med [Tjenesteeier-funksjonalitet i Altinn 3](https://altinn.github.io/docs/ny-funksjonalitet/roadmap/altinn3/tjenesteeier/).
+Gjør deg kjent med [Tjenesteeier-funksjonalitet i Altinn 3](../../../community/roadmap/studio/appowner).
 
 1. **Opprett [bruker](../first-time-setup/) og [app](../create-app/) i [Altinn Studio](https://altinn.studio/).**  
    Når bruker er opprettet kan du be om å [bli en del av en organisasjon](../first-time-setup/#bli-del-av-en-organisasjon).
@@ -42,5 +42,5 @@ og slik at man har en referanse å se til når man utvikler løsningen. Slik gj�
 - Gå inn på nettsiden [https://www.figma.com/](https://www.figma.com/) og lag deg en bruker.
 - Figma kan installeres lokalt eller brukes i din nettleser.
 - Altinn har et åpent design kit for eksterne og det finner du [her](https://www.figma.com/proto/wnBveAG2ikUspFsQwM3GNE/ADS---Prototyping-for-eksterne?node-id=47%3A4068&amp;viewport=326%2C2144%2C0.653957724571228&amp;scaling=min-zoom).
-- Gå inn på [denne](/nb/app/design/figma/) siden for å få mer informasjon om hvordan du kan komme i gang med Figma.
+- Gå inn på [denne](/app/design/prototype/) siden for å få mer informasjon om hvordan du kan komme i gang med Figma.
 {{% /expandlarge %}}

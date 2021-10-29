@@ -1,33 +1,30 @@
 ---
-title: Presentasjoner fra Altinn kaffe
-linktitle: Altinn kaffe
+title: Presentasjoner og Altinn kaffe
+linktitle: Presentasjoner
 description: The Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we're doing in Altinn 3.
              It's also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.
 toc: true
-tags: [translate-to-norwegian]
 ---
 
 
-## Introduction presentation and strategy input meeting
+## Introduksjonspresentasjon og utbredelsesstrategimøte
 
-The first meeting was an introduction to the platform, including goals.
+Det første møtet var en lengre introduksjon til plattformen og målene med den.
 
 * [Altinn 3 - hva og hvorfor?](Altinn_T3.0_introduksjon_20200925.pptx)
 
-This presentation was recorded. Video will be available soon.
-
-We held a meeting for giving input on the Altinn 3 desimination strategy January 28 2021. These slides were shown.
+Vi holdt et møte for at man skulle kunne gi input på Altinn 3 utbredelsesstrategi 28. januar 2021. Disse presentasjonene ble vist.
 
 * [Overordnet Strategi og tiltak](20210128_Overordnet_Strategi_og_tiltak.pdf)
 * [Kort status fra Team Tjenestestøtte](20210128_Kort_status_fra_Team_Tjenestestotte.pdf)
 
-We have also made a more generic presentation of what Altinn Studio / Altinn 3 is, and how to get started
+Vi har også lagd en mer generell presntasjon om hva Altinn Studio / Altinn 3 er, og hvordan man kommer i gang
 
 * [Generell Presentasjon og Kom i Gang](20210614_Generell_Presentasjon_for_Altinn_Tjenester_3.0.pdf)
 
-## Status and plans
+## Status og planer
 
-Every other week, we present what we have done and what we're planning to do for the next fortnight.
+Annenhver uke presenterer vi hva vi har gjort og hva vi planlegger å gjøre den neste to-ukersperioden.
 
 * [Status og planer - 30. september 2020](altinnkaffe-20200930.pptx)
 * [Status og planer - 14. oktober 2020](altinnkaffe-20201014.pptx)
@@ -45,11 +42,16 @@ Every other week, we present what we have done and what we're planning to do for
 * [Status og planer - 28. april 2021](altinnkaffe-20210428.pptx)
 * [Status og planer - 12. mai 2021](altinnkaffe-20210512.pptx)
 * [Status og planer - 26. mai 2021](altinnkaffe-20210526.pptx)
-* More to come...
+* [Status og planer - 9. juni 2021](altinnkaffe-20210609.pptx)
+* [Status og planer - 23. juni 2021](altinnkaffe-20210623.pptx)
+* [Status og planer - 26. august 2021](altinnkaffe-20210826.pptx)
+* [Status og planer - 9. september 2021](altinnkaffe-20210909.pptx)
+* [Status og planer - 23. september 2021](altinnkaffe-20210923.pptx)
+* Det kommer mer...
 
-## Themed meetings
+## Temamøter
 
-The weeks where we don't presesent status, we hold themed meetings.
+Ukene vi ikke presenterer status, har vi temamøter.
 
 * Hvordan komme i gang med Altinn 3? (7. oktober 2020) [Altinns presentasjon](altinnkaffe-20201007.pptx) | [SSBs presentasjon](20201007-SSB_AltinnStudio.pptx)
 * [Integrasjon med mottakssystem](altinnkaffe-20201021.pptx) (21. oktober 2020)
@@ -63,4 +65,18 @@ The weeks where we don't presesent status, we hold themed meetings.
 * [Tilgang til logger og hemmeligheter](logs-secrets-presentasjon.pptx) (21. april 2021)
 * [Altinn Events - inkludert mulighet for push](altinn-events.pptx) (5. mai 2021)
 * [Datamodellering: Håndtering av utfasing av Seres](seres-utfasing-altinnkaffe.pptx) (19. mai 2021)
-* More to come...
+* [Case: Karantenehotellunntak](udi-altinnkaffe.pptx) (2. juni 2021)
+* [Standardisering vs. fleksibilitet](altinnkaffe-standardisering.pptx) (30. juni 2021)
+* [Kopiering av app](altinnkaffe-kopi-app.pptx) (2. september 2021)
+* Det kommer mer...
+
+## NDC 2020
+
+Dette er et foredrag som ble holdt 11. juni 2020 på [NDC Oslo](https://ndcoslo.com/), der tre av utviklerne våre presenterer Altinn 3 like etter produksjonssetting.
+
+Foredraget er på engelsk, men er tekstet på både engelsk og norsk.
+
+{{<vimeo 431429016>}}
+
+- [Slides brukt under presentasjonen (pptx)](https://github.com/Altinn/altinn-studio-docs/raw/master/content/technology/files/altinn_3_ndc_2020_06_11.pptx)
+- [Behind the scenes](https://www.digdir.no/digitalisering-og-samordning/altinn-3-pa-norwegian-developer-conference/1779)

@@ -5,7 +5,73 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
-## 4.1.3.0 (2021-09-03) - Event for changed substatus on instance
+## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
+
+It is now possible to instantiate with keyValue prefill through a new instantiation API.
+
+You can also use prefill in custom code. This will require that the app implements the latest version of `App.cs` which includes the following method
+
+```c#
+  public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+           await _instantiationHandler.DataCreation(instance, data, prefill);
+        }
+```
+
+And the latest `InstansiationHandler.cs` with the method signature
+
+```c#
+  public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            await Task.CompletedTask;
+        }
+```
+
+## 4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer
+
+Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.
+
+Denne endringer tilhører saken [6861](https://github.com/Altinn/altinn-studio/issues/6861) på github.
+
+Det er mer informasjon om endringen under app API dokumentasjon.
+
+## 4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser
+Altinn Apps eksponerer nå et endepunkt for å hente ut aktive instanser for en gitt avgiver.
+Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/instances/{instanceOwnerPartyId}/active.
+
+Denne endringen tilhører issue [6767](https://github.com/Altinn/altinn-studio/issues/6767).
+
+## 4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed
+
+There was a bug causing a 500 response when an request is made towards Get/Instances for a
+non-existing instance. This has now been fixed and the response returned is 403.
+Swagger for the endpoint is updated to reflect possible response codes.
+
+## 4.14.0 (2021-09-13) - Partial support for namespace XML
+The code that deserializes XML has been updated to support namespace declaration in the root element.
+
+Example:
+```xml
+<Skjema xmlns="urn:no:altinn:skjema:v1">
+   <Navn>Altinn</Navn>
+</Skjema>
+```
+Deserialization occurs when an external system uses the app API to submit a new form, when they overwrite an existing form, and when an app retrieves a form from blob storage.
+
+The change is not automatically used by all apps that update to this version. For the change to take properly effect the C# class that represents the model must be updated. The class needs to be decorated with an XmlRootAttribute with the Namespace property set to the correct namespace. 
+
+Example:
+```cs
+[XmlRoot(ElementName = "Skjema", Namespace = "urn:no:altinn:skjema:v1")]
+public class Skjema {
+    [MaxLength(100)]
+    [XmlElement("Navn")]
+    public string Navn { get; set; }
+}
+```
+This change must be done manually for all old and new models. The model editor in altinn.studio has not be updated to do this automatically.
+
+## 4.13.0 (2021-09-03) - Event for changed substatus on instance
 Changing the substatus of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in the event component.
 
 This solves issue [#6691](https://github.com/Altinn/altinn-studio/issues/6691)

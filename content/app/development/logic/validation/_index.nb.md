@@ -25,7 +25,7 @@ for at disse endringene skal reflekteres i JSON schema.**
 
 Et eksempel på hvordan et felt kan defineres i JSON schema datamodellen er:
 
-```JSON
+```json
 "someField": {
   "type": "string",
   "maxLength": "4"
@@ -61,7 +61,7 @@ hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:
 }
 ```
 
-Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/tekster) for språkstøtte.
+Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte.
 
 {{% notice warning %}}
 Merk at ved XSD-endringer, så vil ev. egendefinerte feilmeldinger forsvinne da JSON schema filen genereres på nytt fra XSD. På sikt er det tenkt at 
@@ -117,6 +117,8 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 ```
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
+
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte. 
 
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.
 
@@ -372,7 +374,7 @@ public async Task ValidateData(object data, ModelStateDictionary modelState)
 Det er mulig å gjøre valideringer på en repeterende gruppe i det brukeren ønsker å lagre en gitt indeks.
 Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (f.eks `FormLayout.json`). Eksempel:
 
-```json {hl_lines=[20]}
+```json {hl_lines=[14]}
 {
   "data": {
     "layout": [
@@ -386,7 +388,7 @@ Dette gjøres ved å legge til en trigger på gruppe-komponenten i layoutfilen (
         "dataModelBindings": {
             "group": "Endringsmelding-grp-9786.OversiktOverEndringene-grp-9788"
         },
-        "triggers": ["validation"]  // <--- Legg til denne              
+        "triggers": ["validation"]  // <--- Legg til denne
       },
       ...
     ]
@@ -410,7 +412,7 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
 
         string component = value.Any() ? value[0] : string.Empty;
 
-        switch (dataField)
+        switch (component)
         {
             case "demo-group":
                 // kjør valideringer spesifikke til gruppen
@@ -423,4 +425,4 @@ public async Task ValidateData(object data, ModelStateDictionary validationResul
 }
 ```
 
-For tips til hvordan man løser komplekse valideringer se ekemplene under [enkeltfeltvalidering.](#Enkeltfeltvalidering)
+For tips til hvordan man løser komplekse valideringer se ekemplene under [enkeltfeltvalidering](#enkeltfeltvalidering).
