@@ -1178,31 +1178,6 @@ Trigge kalkulering av sporvalg fra frontend Appen vil gjøre et initielt kall fo
 
 
 	
-	   <article class="post community">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/propose-component/">Propose a new component</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Opprett en Feature request in github. Beskriv komponenten, forklar hvorfor den vil være nyttig og i hvilken sammenheng den trengs. Review av forslag Altinn går gjennom forslaget for å kontrollere at en eventuell ny komponent oppfyller visse kriterier. Etter gjennomgangen vil Altinn gi deg beskjed om beslutningen og anbefalingene. Planlegg utviklingen Et medlem av teamet vil kontakte deg for å finne ut i samarbeid hvem som skal fortsette utviklingen.  Kriterier Når et nytt forslag tas inn til vurdering ser vi først og fremst på hva som faktisk er behovet og hva komponenten skal løse. <a class="read-more" href="/community/contributing/propose-component/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
 	   <article class="post app">
     <header class="post-header">
         <h2 class="post-title"><a href="/app/development/ux/styling/">Styling</a></h2>
@@ -1282,13 +1257,42 @@ Sjekkliste  Innholdsstruktur Sjekk at du har en logisk struktur på overskrifter
 
 
 	
-	   <article class="post community">
+	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/develop-component/">Develop a component</a></h2>
+        <h2 class="post-title"><a href="/app/development/ux/pages/layout-sets/">Layout sets</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om oppgaven allerede ligger i backloggen vår. Om du ikke finner den vil vi gjerne at du først foreslår ønsket funksjonalitet/komponent og starter en dialog med oss før utviklingen starter.
-Vi stiller samme krav til eksterne bidrag som vi gjør til vår egne. Før utviklingen starter vil vi derfor gjerne være med å spesifisere hvordan komponenten skal løses både når det gjelder design og tekniske beslutninger. <a class="read-more" href="/community/contributing/develop-component/">&raquo;</a></p>
+        <p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre. Støtte for oppsett via Altinn Studio kommer snart.Oppsett For å få funksjonalitet for flere skjema i tjeneste, må nuget-versjon til pakkene app&rsquo;en bruker oppgraderes til versjon 3.1.4 eller nyere. Se instrukser for hvordan det gjøres her.
+Sentralt i løsningen er at man har flere layout-sets som består av en eller flere sider og configurasjon. Hvert layout-set består av tilsvarende filer som en skjema tjenester. <a class="read-more" href="/app/development/ux/pages/layout-sets/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english/">translate-to-english</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post app">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/app/development/ux/texts/">Texts</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Tekster lagres i ressursfiler i appen (App/config/texts). Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.
+Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.
+Tekster lagres i JSON-format og det er én fil pr språk.
+Format på filnavn for tekster er resource.[språk].json f.eks: resource.nb.json.
+Formatering av tekster Alle tekster kan formateres med markdown. <a class="read-more" href="/app/development/ux/texts/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
