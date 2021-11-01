@@ -4,13 +4,14 @@ description: Om dere har behov for en komponent eller funksjonalitet som vi ikke
 weight: 30
 ---
 
-- **[Opprett en Feature request in github](https://github.com/Altinn/altinn-studio/issues/new?assignees=lvbachmann&labels=kind%2Ffeature-request&template=feature_request.md).** 
+- **[Opprett en Feature request in github](https://github.com/Altinn/altinn-studio/issues/new?assignees=lvbachmann&labels=kind%2Ffeature-request&template=feature_request.md).**  
 Beskriv komponenten, forklar hvorfor den vil være nyttig og i hvilken 
 sammenheng den trengs. 
-- **Review av forslag** 
+- **Review av forslag**  
 Altinn går gjennom forslaget for å kontrollere at en eventuell ny komponent oppfyller visse [kriterier](#kriterier). 
 Etter gjennomgangen vil Altinn gi deg beskjed om beslutningen og anbefalingene.
-- **Planlegg utviklingen** Et medlem av teamet vil kontakte deg for å finne ut i samarbeid hvem som skal 
+- **Planlegg utviklingen**  
+Et medlem av teamet vil kontakte deg for å finne ut i samarbeid hvem som skal 
 fortsette utviklingen. 
 {.connected-bullets}
 
