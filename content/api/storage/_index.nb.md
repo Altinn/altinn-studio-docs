@@ -1,5 +1,6 @@
 ---
-title: Storage
+title: Storage (lagring)
+linktitle: Storage
 description: Beskrivelse av API'et til Storage komponenten i Altinn 3 platformen.
 toc: true
 weight: 40

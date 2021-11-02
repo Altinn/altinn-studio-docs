@@ -1,5 +1,6 @@
 ---
 title: Events
+linktitle: Events
 description: The Platform API to work with events
 toc: true
 tags: [api]
