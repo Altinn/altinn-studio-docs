@@ -1,8 +1,8 @@
 ---
-title: OpenAPI
-description: API documentation for Altinn Platform Authentication.
+title: OpenAPI specification for the authentication component
+linktitle: OpenAPI
 type: openapi
 spec: "/swagger/altinn-platform-authentication-v1.json"
-tags: [swagger]
+tags: [swagger, openapi]
 ---
 
