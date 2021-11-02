@@ -30,6 +30,8 @@ og at det oppfordres til å alltid delegere leserettigheter dersom en entitet og
 I denne filen er det definert regler som gir innehaver av rollene daglig leder (DAGL) og/eller regnskapsmedarbeider (REGNA)
 rettigheter til å instansiere, skrive, lese og slette instanser av applikasjonen.
 
+En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/metadata/roledefinitions) .
+
 ### Rettigheter for applikasjonseier
 Applikasjonseier (organisasjonen) har rettigheter til å instansiere, skrive og lese instanser av applikasjonen.
 Til slutt har de rettigheter til å markere på en instans at de er ferdig med den.
