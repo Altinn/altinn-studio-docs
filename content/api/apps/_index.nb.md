@@ -1,28 +1,27 @@
 ---
-title: App APIer
-linktitle: Applikasjon
-description: Standard API som eksponeres av apper i Altinn 3.
+title: App
+description: Standard API'er eksponert av apper i Altinn 3.
 toc: false
-tags: [api, translate-to-norwegian]
+tags: [api]
 weight: 30
 ---
 
 ## Overview
 
-The features documented here are the default features of any app created based on the app template in Altinn Studio. Application owners are free to make changes to this, but it is probably safe to say that removal of features will be extremly rare. Any app with changes to its API should have its own documentation published by the application owner.
+De API funksjonene som er dokumentert her er standard funksjoner i en app basert på app malen i Altinn Studio. Applikasjonseiere kan fritt gjøre endringer, men det er relativt trygt å annta at fjerning av funksjoner vil være ekstremt skjeldent. Enhver app med tillegg eller endringer skal ha sin egen dokumentasjon publisert av applikasjonseieren.
 
-All app API endpoints have the same URL base path that will vary based on application owner and application name.
+Alle app API adresser starter med samme navn og filsti, men de varierer fra en app til en annen basert på eier av app og app navn.
 
-**Test environment (TT02)**
+**Test miljø (TT02)**
 ```http
 https://{org}.apps.tt02.altinn.no/{org}/{appname}
 ```
 
-**Production**
+**Produksjon**
 ```http
 https://{org}.apps.altinn.no/{org}/{appname}
 ```
 
-The URL identifies the application owner specific hostname using the short name **org**, and the identificator of the app consisting of both the application owner short name and the name of the app; **org/appname**. 
+URL'en identifiserer app eier spesifikt domene ved hjelp av applikasjonseier sitt kortnavn **org**, og identifiserer spesifikk app ved hjelp av både kortnavnet til applikasjonseier og navnet på appen; **org/appname**.
 
 {{% children description="true" depth="1" %}}

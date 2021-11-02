@@ -1,7 +1,6 @@
 ---
-title: App APIs
-linktitle: Application
-description: The APIs exposed by apps in Altinn 3.
+title: App
+description: The default APIs exposed by apps in Altinn 3.
 toc: false
 tags: [api]
 weight: 30
