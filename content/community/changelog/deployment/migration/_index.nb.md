@@ -60,6 +60,12 @@ dependencies:
 
 Benytter din applikasjon siste deployment strategi.
 
+Hvordan du konfigurerer din deployment er dokumentert [her](/nb/app/development/configuration/deployment)
+
+{{%notice info%}}
+Nye  versjoner er tilgjengelige. Hvis det er ny major versjon må du være obs på breaking changes.
+{{%/notice%}}
+
 ## Migrere til ny deployment strategi
 
 Migreringen er rimelig enkel og involverer bare tre endringer i mappen `deployment`:

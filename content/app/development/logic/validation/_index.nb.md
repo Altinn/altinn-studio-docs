@@ -118,6 +118,8 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
 
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte. 
+
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.
 
 ```C# {hl_lines=["5-6"]}

@@ -120,6 +120,29 @@ Content-Disposition: form-data; name="certificate"; filename=certificate.pdf
 
 This call will return the instance metadata document that was created. 
 
+## Simplified instansiation
+
+For scenarios where the multipart is not required there is created a new API that is simpler but also has support for key-value prefilling.
+
+```json
+{
+    
+    "instanceOwner": {
+        "personNumber": "12247918309",
+        "organisationNumber": null
+    },
+    "prefill": {
+        "navnGarantist" : "Ole Hansen"
+     },
+    "dueBefore": "2019-06-01T12:00:00Z",
+    "visibleAfter": "2019-05-20T00:00:00Z"
+}
+```
+
+```http
+POST {basePath}/create
+```
+
 ## Update sub status
 
 The instance [sub status](../../../app/development/api/instance/#substatus) is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.

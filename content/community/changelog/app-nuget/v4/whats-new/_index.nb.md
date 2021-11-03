@@ -5,6 +5,28 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
+
+It is now possible to instantiate with keyValue prefill through a new instantiation API.
+
+You can also use prefill in custom code. This will require that the app implements the latest version of `App.cs` which includes the following method
+
+```c#
+  public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+           await _instantiationHandler.DataCreation(instance, data, prefill);
+        }
+```
+
+And the latest `InstansiationHandler.cs` with the method signature
+
+```c#
+  public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            await Task.CompletedTask;
+        }
+```
+
 ## 4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer
 
 Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.

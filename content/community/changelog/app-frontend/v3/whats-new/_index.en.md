@@ -4,6 +4,18 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.13.5 (2021-10-28) -  Dependency patching
+Patching of external dependencies for week 43.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.4 (2021-10-22) -  Dependency patching
+Patching of external dependencies for week 42.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.3 (2021-10-15) - Right align text in input fields
+Added functionality to right align text in input fields.
+Pull request [#7034](https://github.com/Altinn/altinn-studio/pull/7034).
+
 ## 3.13.2 (2021-10-14) - Dependency patching
 Patching of external dependencies for week 41.
 Issue [#7051](https://github.com/Altinn/altinn-studio/issues/7051).
