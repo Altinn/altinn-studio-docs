@@ -5,6 +5,12 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.18.0 (2021-11-10) - Støtte for OIDC konfigurasjon i App
+
+Lagt til støtte for å konfigurere opp en spesifikk OIDC provider for en app.
+
+Relatert til [7173](https://github.com/Altinn/altinn-studio/issues/7173)
+
 ## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
 
 It is now possible to instantiate with keyValue prefill through a new instantiation API.

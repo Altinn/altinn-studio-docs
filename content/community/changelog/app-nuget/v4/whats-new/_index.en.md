@@ -4,6 +4,13 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.18.0 (2021-11-10) - Added support for OIDC configuration
+
+You can now configure a specific OIDC provider in app.
+
+Related to [7173](https://github.com/Altinn/altinn-studio/issues/7173)
+
+
 ## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
 
 It is now possible to instantiate with keyValue prefill through a new instantiation API.
