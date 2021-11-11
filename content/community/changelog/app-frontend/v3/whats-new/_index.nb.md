@@ -5,6 +5,22 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 3.14.2 (2021-11-11) - Oppdatering av jsonpointer
+Oppdaterte ekstern avhenghighet jsonpointer.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.1 (2021-11-11) -  Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 45.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.0 (2021-11-08) - "today"-flagg for datovelger min/max datoer
+La til et flag for å dynamisk kunne styre min/max datoer basert på dagens dato.
+Issue [#7228](https://github.com/Altinn/altinn-studio/issues/7228).
+
+## 3.13.6 (2021-11-04) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 44.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
 ## 3.13.5 (2021-10-28) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 43.
 Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).

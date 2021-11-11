@@ -3,6 +3,21 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+## 3.14.2 (2021-11-11) - Patching of jsonpointer
+Patching of external dependency jsonpointer.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.1 (2021-11-11) - Dependency patching
+Patching of external dependencies for week 45.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.0 (2021-11-08) - Today-flag for datepicker min/max dates
+Added a flag to dynamicly control min/max dates based on the current date.
+Issue [#7228](https://github.com/Altinn/altinn-studio/issues/7228).
+
+## 3.13.6 (2021-11-04) - Dependency patching
+Patching of external dependencies for week 44.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
 
 ## 3.13.5 (2021-10-28) -  Dependency patching
 Patching of external dependencies for week 43.
