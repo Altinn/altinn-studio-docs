@@ -30,7 +30,7 @@ Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye
   
   Dette teamet ligger inne som standard i alle organisasjoner og det er ikke mulig å endre konfigurasjonen for dette teamet.
 
-### Deploy-Prod
+### Deploy-Production
 #### Beskrivelse
 
   Medlemmer i dette teamet kan deploye applikasjoner til produksjonsmiljøet.
@@ -44,7 +44,7 @@ Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye
 #### Konfigurasjon
 
   Konfigurasjonen av dette teamet kan justeres av owners etter behov, 
-  muligheten til å deploye til testmiljø er ikke avhengig av øvrig config. 
+  muligheten til å deploye til produksjonsmiljø er ikke avhengig av øvrig config. 
   
   Standard konfigurasjon for teamet inkluderer rettigheter til å
   - Lese samtlige repositories
@@ -90,4 +90,9 @@ Ved behov kan man som eier kan man legge til/fjerne brukere i team, opprette nye
 
 ## Tilgangsstyring for repository
 
-[Mer informasjon kommer]
+En administrator for organisasjonen kan også styre hvem som har tilgang til det enkelte repository.
+Det gjøres ved at man går til repositoryet i Gitea, og går til fanen `Collaboration` under `Innstillinger`.
+Tilgang kan gis både til team og enkeltbrukere. For å holde oversikt anbefaler vi primært å sette opp
+team for tilgangsstyring. For å gi et team tilgang, søk det fram og klikk `Add Team`.
+
+![Styre tilgang på repository](access-management-repository.png "Styre tilgang til et enkelt repository")
