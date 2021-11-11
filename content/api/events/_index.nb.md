@@ -1,10 +1,9 @@
 ---
-title: Events (hendelser)
+title: Events API
 linktitle: Events
 description: Platform API for hendelser.
 toc: true
 tags: [api, translate-to-norwegian]
-weight: 100
 ---
 
 ## Overview

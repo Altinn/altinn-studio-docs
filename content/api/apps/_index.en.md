@@ -1,9 +1,9 @@
 ---
-title: App
+title: App API
+linktitle: App
 description: The default APIs exposed by apps in Altinn 3.
 toc: false
 tags: [api]
-weight: 30
 aliases:
 - /teknologi/altinnstudio/altinn-api/app-api/
 ---

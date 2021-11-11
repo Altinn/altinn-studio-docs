@@ -1,9 +1,9 @@
 ---
-title: App
+title: App API
+linktitle: App
 description: Standard API'er eksponert av apper i Altinn 3.
 toc: false
 tags: [api]
-weight: 30
 ---
 
 ## Overview
