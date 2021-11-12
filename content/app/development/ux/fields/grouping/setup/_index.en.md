@@ -33,7 +33,7 @@ En gruppe defineres på følgende måte i FormLayout.json:
     "<felt-id>",
     "osv..."
   ],
-  "tableHeadings": [
+  "tableHeaders": [
     "<felt-id>"
   ],
   "textResourceBindings": {
@@ -50,5 +50,5 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | textResourceBindings  | Nei     | Kan være satt for repeterende grupper, med `add_button`-parameteren som i eksemepelt over. Denne bindingen til bli lagt til på knappen.   |
 | maxCount              | Ja      | Antall ganger en gruppe kan repetere. Settes til `1` om gruppen ikke er repeterende.                                                      |
 | children              | Ja      | Liste over de feltene som skal inngå i gruppen. Her brukes felt-id fra FormLayout.json                                                    |
-| tableHeadings         | Nei     | Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.              |                                                           |
+| tableHeaders          | Nei     | Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.              |                                                           |
 
