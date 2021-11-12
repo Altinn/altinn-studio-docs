@@ -84,8 +84,8 @@
   translation: Description of the Altinn 3 APIs for end users and application owners.
 - id: application
   translation: Application APIs
-- id: platform
-  translation: Altinn Platform APIs
+- id: storage
+  translation: Altinn Storage APIs
 - id: models
   translation: Models
 - id: scenarios

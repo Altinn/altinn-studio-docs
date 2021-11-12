@@ -83,8 +83,8 @@
   translation: Beskrivelse av Altinn API for sluttbrukere og applikasjonseiere.
 - id: application
   translation: Applikasjon API
-- id: platform
-  translation: Altinn Platform API
+- id: storage
+  translation: Altinn Storage API
 - id: models
   translation: Modeller
 - id: scenarios

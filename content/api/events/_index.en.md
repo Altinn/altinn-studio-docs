@@ -1,9 +1,9 @@
 ---
-title: Events
+title: Events API
+linktitle: Events
 description: The Platform API to work with events
 toc: true
 tags: [api]
-weight: 100
 aliases:
 - /teknologi/altinnstudio/altinn-api/platform-api/events/
 ---
