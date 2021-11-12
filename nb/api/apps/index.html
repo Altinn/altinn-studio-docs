@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Standard API som eksponeres av apper i Altinn 3.">
+    <meta name="description" content="Standard API&#39;er eksponert av apper i Altinn 3.">
 
-<title>App APIer – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+<title>App API – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
     <link href="/css/nucleus.css" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hybrid.css" rel="stylesheet">
@@ -323,7 +323,7 @@ if(host != "localhost")
       <li class="dd-item parent">
         <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item parent active">
-        <a href="/nb/api/apps/"><span>Applikasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -337,45 +337,23 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li></ul></li>
+        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/platform/events/"><span>Events</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/instances/"><span>Instanser</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/instance-events/"><span>Instance events</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/events/"><span>Events</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/pdf/"><span>PDF</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/profile/"><span>Profile</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/register/"><span>Register</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/storage/"><span>Storage</span></a></li>
-      <li class="dd-item">
-        <a href="/nb/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
-      <li class="dd-item">
-        <a href="/nb/api/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/api/authentication/maskinporten/"><span>Maskinporten</span></a></li>
       <li class="dd-item">
         <a href="/nb/api/authentication/id-porten/"><span>ID-porten</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li></ul></li>
+        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/nb/api/authentication/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
-        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+        <a href="/nb/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -383,7 +361,21 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
       <li class="dd-item">
-        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li></ul></li>
+        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/storage/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -474,22 +466,22 @@ if(host != "localhost")
                     <span class="sr-only">Vis/skjul meny</span>
                   </a>
                 </span>
-                <span class="links"><a href='/nb/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> Applikasjon</span>
+                <span class="links"><a href='/nb/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> App</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">App APIer</h1>
-              <p class="a-leadText" id="leadText">Standard API som eksponeres av apper i Altinn 3.</p>
+          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/api">api</a></div><div id="body-inner"><h1 class="a-fontBold">App API</h1>
+              <p class="a-leadText" id="leadText">Standard API&#39;er eksponert av apper i Altinn 3.</p>
 
 
 
 
 <h2 id="overview">Overview</h2>
-<p>The features documented here are the default features of any app created based on the app template in Altinn Studio. Application owners are free to make changes to this, but it is probably safe to say that removal of features will be extremly rare. Any app with changes to its API should have its own documentation published by the application owner.</p>
-<p>All app API endpoints have the same URL base path that will vary based on application owner and application name.</p>
-<p><strong>Test environment (TT02)</strong></p>
+<p>De API funksjonene som er dokumentert her er standard funksjoner i en app basert på app malen i Altinn Studio. Applikasjonseiere kan fritt gjøre endringer, men det er relativt trygt å annta at fjerning av funksjoner vil være ekstremt skjeldent. Enhver app med tillegg eller endringer skal ha sin egen dokumentasjon publisert av applikasjonseieren.</p>
+<p>Alle app API adresser starter med samme navn og filsti, men de varierer fra en app til en annen basert på eier av app og app navn.</p>
+<p><strong>Test miljø (TT02)</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.tt02.altinn.no/{org}/{appname}
-</code></pre></div><p><strong>Production</strong></p>
+</code></pre></div><p><strong>Produksjon</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">https://{org}.apps.altinn.no/{org}/{appname}
-</code></pre></div><p>The URL identifies the application owner specific hostname using the short name <strong>org</strong>, and the identificator of the app consisting of both the application owner short name and the name of the app; <strong>org/appname</strong>.</p>
+</code></pre></div><p>URL&rsquo;en identifiserer app eier spesifikt domene ved hjelp av applikasjonseier sitt kortnavn <strong>org</strong>, og identifiserer spesifikk app ved hjelp av både kortnavnet til applikasjonseier og navnet på appen; <strong>org/appname</strong>.</p>
 <ul class="children children-li js-moveChildrenFrom">
 <li>
 <a href="/nb/api/apps/metadata/" >App metadata</a>
@@ -514,6 +506,10 @@ if(host != "localhost")
 <li>
 <a href="/nb/api/apps/validation/" >Validering</a>
 <p>Validering API-endepunktene for instanser og dataelementer.</p>
+</li>
+<li>
+<a href="/nb/api/apps/spec/" >OpenAPI (swagger) for Apps</a>
+<p></p>
 </li>
 </ul>
 

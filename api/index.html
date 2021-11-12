@@ -323,7 +323,7 @@ if(host != "localhost")
       <li class="dd-item parent active">
         <a href="/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/api/apps/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -337,33 +337,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/apps/process/"><span>Process</span></a></li>
       <li class="dd-item">
-        <a href="/api/apps/validation/"><span>Validation</span></a></li></ul></li>
+        <a href="/api/apps/validation/"><span>Validation</span></a></li>
       <li class="dd-item">
-        <a href="/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/api/platform/events/"><span>Events</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/instances/"><span>Instances</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/instance-events/"><span>Instance events</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/events/"><span>Events</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/pdf/"><span>PDF</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/profile/"><span>Profile</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/register/"><span>Register</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/storage/"><span>Storage</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+        <a href="/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -371,7 +347,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/authentication/id-porten/"><span>ID-porten</span></a></li>
       <li class="dd-item">
-        <a href="/api/authentication/delegate-scopes/"><span>Delegate API Access</span></a></li></ul></li>
+        <a href="/api/authentication/delegate-scopes/"><span>Delegate API Access</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/models/"><span>Models</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -383,7 +365,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/scenarios/"><span>Scenarios</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/api/scenarios/authentication/"><span>Authentication</span></a></li></ul></li></ul></li>
+        <a href="/api/scenarios/authentication/"><span>Authentication</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/storage/instances/"><span>Instances</span></a></li>
+      <li class="dd-item">
+        <a href="/api/storage/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1029,7 +1021,7 @@ if(host != "localhost")
 
 <h2 id="the-apis">The APIs</h2>
 <p>The new solution will have multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.</p>
-<h3 id="application-api">Application API</h3>
+<h3 id="app-api">App API</h3>
 <p>The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.</p>
 <p>Metadata for an app is the second job of the app API. There are endpoint that give access to the metadata of the app itself, its data types and process description.</p>
 <p>Every app will expose almost identical endpoints and functionality. External parties should need only one client implementation across all app APIs. Technically there is nothing preventing an application owner from adding or making changes to the API, but in those cases it is probably an application with a different process flow. In these cases, the application might require some special handling, and additional documentation should be provided by the application owner.</p>
@@ -1090,8 +1082,8 @@ if(host != "localhost")
 
 
 <li>
-<a href="/api/apps/" >App APIs</a>
-<p>The APIs exposed by apps in Altinn 3.</p>
+<a href="/api/apps/" >App API</a>
+<p>The default APIs exposed by apps in Altinn 3.</p>
 </li>
 
 
@@ -1102,20 +1094,20 @@ if(host != "localhost")
 
 
 <li>
-<a href="/api/platform/" >Platform APIs</a>
-<p>The API exposed by the Altinn Platform.</p>
-</li>
-
-
-
-		
-	
-		
-
-
-<li>
-<a href="/api/authentication/" >Authentication</a>
+<a href="/api/authentication/" >Authentication API</a>
 <p>Description of how systems and service owners can use Maskinporten or ID-porten to access APIs in Altinn 3.</p>
+</li>
+
+
+
+		
+	
+		
+
+
+<li>
+<a href="/api/events/" >Events API</a>
+<p>The Platform API to work with events</p>
 </li>
 
 
@@ -1146,6 +1138,30 @@ if(host != "localhost")
 
 		
 	
+		
+
+
+<li>
+<a href="/api/storage/" >Storage API</a>
+<p>Description of the Altinn 3 APIs supported by the storage component in the Altinn 3 Platform.</p>
+</li>
+
+
+
+		
+	
+		
+
+
+<li>
+<a href="/api/studio/" >Altinn Studio Repository API</a>
+<p>The OpenAPI (swagger) specification for the App source control API.</p>
+</li>
+
+
+
+		
+	
 
 	
 </ul>
@@ -1167,7 +1183,7 @@ if(host != "localhost")
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/app/launched-apps/" title="Launched apps"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/api/apps/" title="App APIs" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/app/launched-apps/" title="Launched apps"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/api/apps/" title="App API" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/_index.en.md" target="blank">

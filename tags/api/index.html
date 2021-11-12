@@ -323,7 +323,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/api/apps/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+        <a href="/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/api/apps/metadata/"><span>Metadata</span></a></li>
       <li class="dd-item">
@@ -337,33 +337,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/apps/process/"><span>Process</span></a></li>
       <li class="dd-item">
-        <a href="/api/apps/validation/"><span>Validation</span></a></li></ul></li>
+        <a href="/api/apps/validation/"><span>Validation</span></a></li>
       <li class="dd-item">
-        <a href="/api/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/api/platform/events/"><span>Events</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/instances/"><span>Instances</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/instance-events/"><span>Instance events</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/"><span>Swagger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/authentication/"><span>Authentication</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/authorization/"><span>Authorization</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/events/"><span>Events</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/pdf/"><span>PDF</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/profile/"><span>Profile</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/register/"><span>Register</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/storage/"><span>Storage</span></a></li>
-      <li class="dd-item">
-        <a href="/api/platform/swagger/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+        <a href="/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -371,7 +347,13 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/authentication/id-porten/"><span>ID-porten</span></a></li>
       <li class="dd-item">
-        <a href="/api/authentication/delegate-scopes/"><span>Delegate API Access</span></a></li></ul></li>
+        <a href="/api/authentication/delegate-scopes/"><span>Delegate API Access</span></a></li>
+      <li class="dd-item">
+        <a href="/api/authentication/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/events/spec/"><span>OpenAPI</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/api/models/"><span>Models</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -383,7 +365,17 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/api/scenarios/"><span>Scenarios</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
-        <a href="/api/scenarios/authentication/"><span>Authentication</span></a></li></ul></li></ul></li>
+        <a href="/api/scenarios/authentication/"><span>Authentication</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/api/storage/instances/"><span>Instances</span></a></li>
+      <li class="dd-item">
+        <a href="/api/storage/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/api/studio/"><span>Studio</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -1072,32 +1064,6 @@ if(host != "localhost")
 	
 	   <article class="post api">
     <header class="post-header">
-        <h2 class="post-title"><a href="/api/apps/">App APIs</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Overview The features documented here are the default features of any app created based on the app template in Altinn Studio. Application owners are free to make changes to this, but it is probably safe to say that removal of features will be extremly rare. Any app with changes to its API should have its own documentation published by the application owner.
-All app API endpoints have the same URL base path that will vary based on application owner and application name. <a class="read-more" href="/api/apps/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post api">
-    <header class="post-header">
         <h2 class="post-title"><a href="/api/apps/metadata/">App metadata</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1257,12 +1223,10 @@ GET basePath/{dataGuid} Accept: application/{xml/json} The response will depend 
 	
 	   <article class="post api">
     <header class="post-header">
-        <h2 class="post-title"><a href="/api/platform/events/">Events</a></h2>
+        <h2 class="post-title"><a href="/api/storage/instances/">Instances</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Overview Events are in this context is information about events created by applications or other sources. The event itself is based on the CloudEvent standard and is a small JSON structure containing the most important information of an event. Details are found here.
-The events APIs are used to access events created by applications in Altinn Apps and other event sources that use Altinn Platform as av &ldquo;event hub&rdquo;.
-Subscription The highly preferred way to use events is to set up a subscription that enables push of events to a webhook-endpoint. <a class="read-more" href="/api/platform/events/">&raquo;</a></p>
+        <p>Overview An instance works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. <a class="read-more" href="/api/storage/instances/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1282,12 +1246,13 @@ Subscription The highly preferred way to use events is to set up a subscription 
 
 
 	
-	   <article class="post api">
+	   <article class="post community">
     <header class="post-header">
-        <h2 class="post-title"><a href="/api/platform/instances/">Instances</a></h2>
+        <h2 class="post-title"><a href="/community/contributing/handbook/test/k6/">k6</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Overview An instance works as a form of envelope or folder where data can be collected and exchanged between the user and owner of the application. The instance document is a way for Altinn and external parties to track the state of one specific data exchange. How long an instance can live and how many interactions there can be between the application owner and user will vary from one app to another. <a class="read-more" href="/api/platform/instances/">&raquo;</a></p>
+        <p>k6 is a developer-centric, free and open-source load testing tool built for making performance testing a productive and enjoyable experience. read more about K6 here
+Set up k6 tests  Clone the k6 tests from GitHub Repo Install docker and make sure the drive having the k6 tests is shared. Open cmd and download the latest k6 docker image docker pull loadimpact/k6  How to write k6 tests  Find the area/collection where the new test has to be added. <a class="read-more" href="/community/contributing/handbook/test/k6/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1295,6 +1260,41 @@ Subscription The highly preferred way to use events is to set up a subscription 
 
         
           
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post community">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/community/contributing/handbook/test/postman/">Postman</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>Postman To test API endpoints the tool postman enables easy configuration and setup of various HTTP requests, read more about postman here.
+Authentication Several of the exposed APIs requires various cookies, for instance authentication and gitea information. To be able to do requests against these APIs the cookies have to be included in the HTTP request, and configured in postman. The cookies can be found in the following way:
+ In your browser login to dev. <a class="read-more" href="/community/contributing/handbook/test/postman/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/api/">api</a>
             
