@@ -120,7 +120,7 @@ This call will return the instance metadata document that was created.
 
 ## Simplified instansiation
 
-For scenarios where the multipart is not required there is created a new API that is simpler. 
+For scenarios where the multipart is not required there is a new API that is simpler. 
 It supports both key-value prefilling and copying data from an archived instance. 
 
 The endpoint is available at
