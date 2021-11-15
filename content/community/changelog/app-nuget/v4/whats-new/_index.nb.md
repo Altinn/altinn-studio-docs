@@ -11,7 +11,6 @@ tags: [translate-to-norwegian]
 Lagt til støtte for å instansiere en applikasjon basert på en arkivert instans.
 [Det nye endepunktet er dokumentert her](../../../../../api/apps/instances). 
 Merk at støtte for kopiering av instans i meldingsboksen og konfigurasjon av funksjonaliteten via Altinn Studio enda er under utvikling.
-of the application through Altinn Studio is still under development.
 
 Relatert til [6695](https://github.com/Altinn/altinn-studio/issues/6695)
 
