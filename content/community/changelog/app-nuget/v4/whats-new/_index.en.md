@@ -4,6 +4,14 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
+
+The app template now supports the instantiation of an app based on a copy of an archived instance. 
+[The new endpoint and is documented here](../../../../../api/apps/instances). Note that support for copying an app in the message box and configuration 
+of the application through Altinn Studio is still under development.
+
+Related to [6695](https://github.com/Altinn/altinn-studio/issues/6695)
+
 ## 4.18.0 (2021-11-10) - Added support for OIDC configuration
 
 You can now configure a specific OIDC provider in app.
