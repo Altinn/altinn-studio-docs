@@ -122,7 +122,18 @@ This call will return the instance metadata document that was created.
 
 ## Simplified instansiation
 
-For scenarios where the multipart is not required there is created a new API that is simpler but also has support for key-value prefilling.
+For scenarios where the multipart is not required there is a new API that is simpler. 
+It supports both key-value prefilling and copying data from an archived instance. 
+
+The endpoint is available at
+
+```http
+POST {basePath}/create
+```
+
+Required body differs for the two features, and examples are available below. 
+
+### Instantiation with key-value prefill
 
 ```json
 {
@@ -139,8 +150,18 @@ For scenarios where the multipart is not required there is created a new API tha
 }
 ```
 
-```http
-POST {basePath}/create
+### Instantiation from archived instance
+
+```json
+{
+    
+    "instanceOwner": {
+        "partyId":"50002108",
+        "personNumber": null,
+        "organisationNumber": null
+    },
+    "sourceInstanceId": "50002108/049622b8-ea06-40f6-9f1b-26ceb7566232"
+}
 ```
 
 ## Update sub status
