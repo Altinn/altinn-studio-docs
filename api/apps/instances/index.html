@@ -1099,7 +1099,12 @@ Content-Type: application/pdf
 --abcdefg--
 </code></pre></div><p>This call will return the instance metadata document that was created.</p>
 <h2 id="simplified-instansiation">Simplified instansiation</h2>
-<p>For scenarios where the multipart is not required there is created a new API that is simpler but also has support for key-value prefilling.</p>
+<p>For scenarios where the multipart is not required there is a new API that is simpler. 
+It supports both key-value prefilling and copying data from an archived instance.</p>
+<p>The endpoint is available at</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {basePath}/create
+</code></pre></div><p>Required body differs for the two features, and examples are available below.</p>
+<h3 id="instantiation-with-key-value-prefill">Instantiation with key-value prefill</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     
     <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
@@ -1112,7 +1117,16 @@ Content-Type: application/pdf
     <span style="color:#ff79c6">&#34;dueBefore&#34;</span>: <span style="color:#f1fa8c">&#34;2019-06-01T12:00:00Z&#34;</span>,
     <span style="color:#ff79c6">&#34;visibleAfter&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-20T00:00:00Z&#34;</span>
 }
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">POST {basePath}/create
+</code></pre></div><h3 id="instantiation-from-archived-instance">Instantiation from archived instance</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    
+    <span style="color:#ff79c6">&#34;instanceOwner&#34;</span>: {
+        <span style="color:#ff79c6">&#34;partyId&#34;</span>:<span style="color:#f1fa8c">&#34;50002108&#34;</span>,
+        <span style="color:#ff79c6">&#34;personNumber&#34;</span>: <span style="color:#ff79c6">null</span>,
+        <span style="color:#ff79c6">&#34;organisationNumber&#34;</span>: <span style="color:#ff79c6">null</span>
+    },
+    <span style="color:#ff79c6">&#34;sourceInstanceId&#34;</span>: <span style="color:#f1fa8c">&#34;50002108/049622b8-ea06-40f6-9f1b-26ceb7566232&#34;</span>
+}
 </code></pre></div><h2 id="update-sub-status">Update sub status</h2>
 <p>The instance <a href="../../../app/development/api/instance/#substatus">sub status</a> is used to give an end user further details about the state of their instance. Currently, only application owner is allowed to update substatus for an instance. Include the new substatus in the body of the requests as a json.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-http" data-lang="http">PUT {basePath}/{instanceOwnerPartyId}/{instanceGuid}/substatus
