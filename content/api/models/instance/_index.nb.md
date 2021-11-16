@@ -43,6 +43,7 @@ The InstanceOwner model is a simple definition whose only porpose is to hold a u
 | partyId            | A value used internally by Altinn to uniquely identify an entity across Organisations, Persons and Self identified users.               |
 | personNumber       | If the instance owner is a person this field is populated with a person number from the National Population Register in Norway.         |
 | organisationNumber | If the instance owner is an organisation this field is populated with an organisation number from the National Unit Register in Norway. |
+| username           | If the instance owner is a self identified user this field is populated with a user name.                                               |
 
 ## InstanceStatus
 
@@ -130,7 +131,8 @@ This example was created by instantiating an app running locally on a developmen
     "instanceOwner": {
         "partyId": "1337",
         "personNumber": "01039012345",
-        "organisationNumber": null
+        "organisationNumber": null,
+        "username": null
     },
     "appId": "ttd/bli-applikasjonseier",
     "org": "ttd",
