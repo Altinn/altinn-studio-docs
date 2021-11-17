@@ -2312,6 +2312,9 @@
           "messageBoxConfig": {
             "$ref": "#/components/schemas/MessageBoxConfig"
           },
+          "copyInstanceSettings": {
+            "$ref": "#/components/schemas/CopyInstanceSettings"
+          },
           "created": {
             "type": "string",
             "format": "date-time",
@@ -2374,6 +2377,29 @@
           "confirmedOn": {
             "type": "string",
             "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CopyInstanceSettings": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "excludedDataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "excludedDataFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2767,6 +2793,10 @@
           "organisationNumber": {
             "type": "string",
             "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2936,7 +2966,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": {}
+        "additionalProperties": { }
       },
       "ProcessElementInfo": {
         "type": "object",

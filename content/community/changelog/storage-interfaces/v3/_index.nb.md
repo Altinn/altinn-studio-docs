@@ -5,6 +5,13 @@ toc: true
 weight: 90
 ---
 
+## 3.6.0 Utvidet InstanceOwner med `username` egenskap
+- `InstanceOwner` modellen har blitt utviden med en ny egenskap `username`.
+
+## 3.5.0 Lagt til CopyInstanceSettings på modellen Application
+- `Application` modellen har blitt utvidet med en ny egenskap for å holde på konfigurasjon knyttet til kopiering av instans.
+  Egenskapen tillater å aktivere kopiering av instans, samt spesifisere ekskluderte datafelt og -typer.
+
 ## 3.4.0 Lagt til MessageBoxConfig på modellen Applicaton
 
 - `Application` modellen har blitt utvidet med en ny egenskap for å holde på en meldingsbokskonfigurasjon.
