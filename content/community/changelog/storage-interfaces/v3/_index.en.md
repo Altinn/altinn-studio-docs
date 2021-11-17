@@ -9,8 +9,8 @@ weight: 90
 - The `InstanceOwner` model has been expanded with a new property to hold username.
 
 ## 3.5.0 Added CopyInstanceSettings to Application
-- The `Application` model has been expanded with a new property to hold CopyInstanceSetting. 
-  This proerty allows for enabling copying of application and specifies excluded data fields and types.
+- The `Application` model has been expanded with a new property to hold CopyInstanceSettings. 
+  This property allows for enabling copying of application and specifies excluded data fields and types.
 
 ## 3.4.0 Added MessageBoxConfig to Applicaton
 
