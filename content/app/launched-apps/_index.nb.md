@@ -6,6 +6,11 @@ weight: 800
 ---
 
 
+## November 2021
+- Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).  
+_Lanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå._
+- Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).  
+_Lanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå._
 
 ## Juni 2021
 - Forhåndsgodkjenning av innreise for kjærestebesøk (UDI).  
