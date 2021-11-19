@@ -8,6 +8,7 @@ toc: true
 
 The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
 can be used to redirect the user to that URL when the user clicks on the exit icon in an Altinn 3 app. 
+[Read more about it here](../../../../../../../app/development/configuration/queryparameters)   
 
 Related to [7183](https://github.com/Altinn/altinn-studio/issues/7183)
 

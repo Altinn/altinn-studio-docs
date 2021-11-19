@@ -9,6 +9,7 @@ tags: [translate-to-norwegian]
 
 Lagt til støtte for ett spesifikt query parameter (returnUrl) for å videresende brukeren til den spesifiserte URLen når
 brukeren avslutter appen ved å trykke på avslutt-knappen i Altinn 3 appen.
+[Les mer om dette her](../../../../../../../app/development/configuration/queryparameters)   
 
 Relatert til [7183](https://github.com/Altinn/altinn-studio/issues/7183)
 
