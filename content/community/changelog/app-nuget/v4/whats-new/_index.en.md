@@ -4,6 +4,14 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.20.0 (2021-11-18) - Added support for custom redirect URL when exiting an app
+
+The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
+can be used to redirect the user to that URL when the user clicks on the exit icon in an Altinn 3 app. 
+[Read more about it here](../../../../../../../app/development/configuration/queryparameters)   
+
+Related to [7183](https://github.com/Altinn/altinn-studio/issues/7183)
+
 ## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
 
 The app template now supports the instantiation of an app based on a copy of an archived instance. 
