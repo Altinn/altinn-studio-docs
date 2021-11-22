@@ -1342,6 +1342,8 @@
                 href="https://docs.altinn.studio/app/development/configuration/process/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/development/configuration/queryparameters/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/app/getting-started/navigation/repos/</loc>
     <xhtml:link
                 rel="alternate"
