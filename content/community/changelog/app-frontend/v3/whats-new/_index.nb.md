@@ -4,6 +4,25 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 tags: [translate-to-norwegian]
 ---
+## 3.17.1 (2021-11-24) - Bufiks DataProcessWrite.
+Fikset en feil hvor numeriske felter som ble satt i DataProcessWrite ikke ble oppdatert i skjema om verdien var 0.
+Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).
+
+## 3.17.0 (2021-11-24) - Optimalisering for mobilvisning
+La til forbedringer i måten skjema ser ut på mobil.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.16.0 (2021-11-24) - Endret ikon for hjelpetekst.
+Endret hjelpetekst ikonet fra plus til spørsmålstegn.
+Issue [#5722](https://github.com/Altinn/altinn-studio/issues/5722).
+
+## 3.15.1 (2021-11-18) - Ugyldige typer for reselect
+Fikset ugyldige typer for reselect.
+Pull request [#7502](https://github.com/Altinn/altinn-studio/pull/7502).  
+
+## 3.15.0 (2021-11-15) - Støtte for returnUrl
+La til støtte for returnUrl i app-frontend.
+Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
 
 ## 3.14.2 (2021-11-11) - Oppdatering av jsonpointer
 Oppdaterte ekstern avhenghighet jsonpointer.

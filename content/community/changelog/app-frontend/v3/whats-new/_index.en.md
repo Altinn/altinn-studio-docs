@@ -3,6 +3,26 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+## 3.17.1 (2021-11-24) - Bugfix DataProcessWrite
+Fixed bug where numeric fields that gets changed in DataProcessWrite are not updated if their value happened to be 0.
+Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).
+
+## 3.17.0 (2021-11-24) - Mobile optimization layout
+Added some optimized layout for our mobile view.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.16.0 (2021-11-24) - Changed icon for help text
+Changed help text icon from plus to question mark.
+Issue [#5722](https://github.com/Altinn/altinn-studio/issues/5722).
+
+## 3.15.1 (2021-11-18) - Invalid types for reselect
+Fixed invalid types in reselect.
+Pull request [#7502](https://github.com/Altinn/altinn-studio/pull/7502).  
+
+## 3.15.0 (2021-11-15) - Support for returnUrl
+Added support for returnUrl in app-frontend.
+Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
+
 ## 3.14.2 (2021-11-11) - Patching of jsonpointer
 Patching of external dependency jsonpointer.
 Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
