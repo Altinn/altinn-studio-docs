@@ -24,7 +24,7 @@ Under seksjonen _volumeMounts_ legger du til følgende linjer:
 
 ```yaml
 - name: altinn-appsettings-secret
-mountPath: "/altinn-appsettings-secret"
+  mountPath: "/altinn-appsettings-secret"
 ```
 
 Under seksjonen _volumes_ legger du til følgende linjer:
@@ -32,7 +32,7 @@ Under seksjonen _volumes_ legger du til følgende linjer:
 ```yaml
 - name: altinn-appsettings-secret
     secret:
-    secretName: altinn-appsettings-secret
+      secretName: altinn-appsettings-secret
 ```
 
 {{%notice warning%}}
