@@ -87,15 +87,19 @@ Om man i eksemepelet over hadde ønsket at komponentene skulle ta hele bredden f
 
 Da ville komponentene først legge seg sidestilt i det sluttbruker faktisk sitter på en skjerm som oppfyller kravet stilt.
 
-### InnerGrid
+### innerGrid og labelGrid
 
-Utover det å sette bredde på `grid` i komponenten har vi også lagt til mulighet til å styre `innerGrid`. Å overstyre denne bredden vil typisk være for caser hvor man ønsker at teksten til en komponent skal oppta en større bredde enn input-feltet.
+Utover det å sette bredde på `grid` i komponenten har vi også lagt til mulighet til å styre `innerGrid` og `labelGrid`. 
+Dette gir deg mulighet til å påvirke på samme måte hvor stor bredde label og input skal ta. Dette brukes typisk når du
+vil gjøre input feltet mindre (for å gi en visuell markering av at det forventes kort svar), eller hvis du ønsker å vise
+label og input på samme linje (som i en tabell).
+
 Du kan tenke på komponenten på denne måten:
 ```html
 <Grid id="grid"> 
-    <div>
+    <Grid id="labelGrid">
         Komponentens tekster
-    </div>
+    </Grid>
     <Grid id="innerGrid"> 
         Komponentens input
     </Grid>
@@ -133,6 +137,32 @@ InnerGrid vil kunne styres for komponentene:
 Eksempelet over vil gi følgende output:
 
 ![InnerGrid eksempel output](inner-grid.png "InnerGrid eksempel output")
+
+En tabellvisning med sidestilt label vil komme frem hvis du setter `labelGrid` og `innerGrid` slik at summen blir 12 
+(eller mindre). Dette kan være lurt hvis du har en lang liste med relaterte spørsmål. Det er ofte lurt å ikke bruke
+et slikt layout på de minste skjermene, så bruk gjerne `md`
+
+```json
+{
+     {
+        "id": "input-felt-1",
+        "type": "Input",
+        ... 
+        "grid": {
+          "labelGrid": {
+              "md": 8
+          },
+          "innerGrid": {
+              "md": 4
+          }
+        }
+      }
+}
+```
+
+Det vil se omtrent slik ut
+
+![labelGrid eksempel output](label-grid.png "labelGrid eksempel output")
 
 ## Formattering av tall
 Det er nå implementert støtte for å kunne spesifisere formattering av tall i _inputfelt_. Dette gjøres ved å legge til en property `formatting` på
