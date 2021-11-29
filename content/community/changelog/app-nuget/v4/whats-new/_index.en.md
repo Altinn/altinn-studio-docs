@@ -4,6 +4,11 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+
+## 4.21.0 (2021-11-30) - Added support for saving username for instance owner
+
+If a self indentified user instansiates an instance, their username is saved in the instance owner metadata. 
+
 ## 4.20.0 (2021-11-18) - Added support for custom redirect URL when exiting an app
 
 The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),

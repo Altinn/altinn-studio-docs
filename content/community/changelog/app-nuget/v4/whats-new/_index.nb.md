@@ -5,6 +5,11 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+
+## 4.21.0 (2021-11-30) - Støtte for lagring av brukernavn for instanseier
+
+Dersom en selvidentifisert bruker instansierer en instans vil dere brukernavn lagres i metadataen for instanseier.
+
 ## 4.20.0 (2021-11-18) - Støtte for egendefinert redirect URL når man avslutter appen
 
 Lagt til støtte for ett spesifikt query parameter (returnUrl) for å videresende brukeren til den spesifiserte URLen når
