@@ -6,7 +6,7 @@ tags: [translate-to-norwegian]
 ---
 
 
-## 4.21.0 (2021-11-30) - Støtte for lagring av brukernavn for instanseier
+## 4.21.0 (2021-12-01) - Støtte for lagring av brukernavn for instanseier
 
 Dersom en selvidentifisert bruker instansierer en instans vil dere brukernavn lagres i metadataen for instanseier.
 
