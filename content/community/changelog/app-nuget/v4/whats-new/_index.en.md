@@ -9,6 +9,8 @@ toc: true
 
 If a self indentified user instansiates an instance, their username is saved in the instance owner metadata. 
 
+Added Api in App to expose XACML Policy and BPMN Process
+
 ## 4.20.0 (2021-11-18) - Added support for custom redirect URL when exiting an app
 
 The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
