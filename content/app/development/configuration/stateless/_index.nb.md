@@ -422,20 +422,20 @@ Om man ønsker å velge ut deler av datamodellen som er benyttet i det tilstands
       "title": "Start instans"
     },
     "mapping": {
-      "some.source.field": "target1",
-      "some.other.field": "target2"
+      "some.source.field": "name",
+      "some.other.field": "id"
     }
   }
 ```
 
-Når brukeren da velger å starte en instans så vil app-frontend hente ut feltene `some.source.field` og `some.other.field` fra datamodellen i det tilstandsløse steget og mappe disse mot feltene `target1` og `target2` som sendes med i instansieringskallet for applikasjonen.
+Når brukeren da velger å starte en instans så vil app-frontend hente ut feltene `some.source.field` og `some.other.field` fra datamodellen i det tilstandsløse steget og mappe disse mot feltene `name` og `id` som sendes med i instansieringskallet for applikasjonen.
 Eksempel request som vil gå mot backend som man kan mappe over datamodellen man benytter i datamodellen man benytter i innsendingsdelen av applikasjonen:
 
 ```json
 {
     "prefill": {
-        "target1": "Noe data fra datamodellen som man trenger i innsendingssteget",
-        "targe2": "12345"
+        "name": "Ola Nordmann",
+        "id": "12345"
     },
     ...
 }
