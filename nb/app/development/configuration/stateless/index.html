@@ -475,6 +475,7 @@ if(host != "localhost")
     <li><a href="#konfigurasjon">Konfigurasjon</a></li>
     <li><a href="#datapopulering">Datapopulering</a></li>
     <li><a href="#autorisasjon-med-tredjepartsløsninger">Autorisasjon med tredjepartsløsninger</a></li>
+    <li><a href="#starte-instans-fra-et-stateless-skjema">Starte instans fra et stateless skjema</a></li>
   </ul>
 </nav>
 
@@ -787,6 +788,76 @@ lookup.errorMessage = <span style="color:#f1fa8c">$&#34;{party.Name}&#34;</span>
 Igjen returneres <code>true</code> for å indikere at en dataverdi er blitt endret, og <code>false</code> dersom dette ikke er tilfellet.</p>
 </li>
 </ol>
+<h2 id="starte-instans-fra-et-stateless-skjema">Starte instans fra et stateless skjema</h2>
+<div class="notices warning" >
+<p>Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.</p>
+<p><strong>MERK:</strong> for å benytte denne funksjonaliteten må man versjon &gt;= 4.17.2 av nugetpakkene <code>Altinn.App.PlatformServices</code>, <code>Altinn.App.Common</code> og <code>Altinn.App.Api</code>.</p>
+</div>
+<p>Fra en tilstandsløs applikasjon har man mulighet til å benytte <code>InstantiationButton</code>-komponenten til å starte en instans.
+Enn så lenge støtter vi kun å starte en instans innad i samme applikasjonen som stateless skjema vises i. Det å starte en instans i en annn applikasjon er funksjonalitet som kommer.</p>
+<p>Det er laget en eksempel applikasjon som er satt opp som en innsynstjeneste hvor sluttbruker kan velge å starte en instans på den aktuelle applikasjonen. Denne kan brukes til inspirasjon for videre utvikling. Applikasjonen med kildekode finnes <a href="https://altinn.studio/repos/ttd/start-from-stateless">her.</a></p>
+<h3 id="instansiere-med-prefill">Instansiere med prefill</h3>
+<p>Et bruksområde for det å starte en instans fra et stateless view kan være at man først ønsker at appen skal oppføre seg som en innsynstjeneste hvor brukeren blir presentert for gitte data som er aktuell. Fra denne informasjonen kan brukeren velge å agere videre på dataen som listes opp, og da er man over på en vanlig innsendingstjeneste.</p>
+<p>For å få til en slik flyt er man først avhengig av å sette opp applikasjonen som en stateless appliksjon som står beskrevet under <a href="#konfigurasjon">konfigurasjon.</a>
+Når dette er gjort kan man utvide stateless viewet til å inkludere <code>InstantiationButton</code> som kan vil starte en ny instans i det brukeren klikker på knappen.
+Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har benyttet inn som en del av instansieringn under feltet <code>prefill</code>. 
+Om man ønsker å velge ut deler av datamodellen som er benyttet i det tilstandsløse steget vil det også være mulig ved å legge til <code>mapping</code> på <code>InstantiationButton</code>-komponenten. F.eks</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;instantiation-button&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;InstantiationButton&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Start instans&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;mapping&#34;</span>: {
+      <span style="color:#ff79c6">&#34;some.source.field&#34;</span>: <span style="color:#f1fa8c">&#34;name&#34;</span>,
+      <span style="color:#ff79c6">&#34;some.other.field&#34;</span>: <span style="color:#f1fa8c">&#34;id&#34;</span>
+    }
+  }
+</code></pre></div><p>Når brukeren da velger å starte en instans så vil app-frontend hente ut feltene <code>some.source.field</code> og <code>some.other.field</code> fra datamodellen i det tilstandsløse steget og mappe disse mot feltene <code>name</code> og <code>id</code> som sendes med i instansieringskallet for applikasjonen.
+Eksempel request som vil gå mot backend som man kan mappe over datamodellen man benytter i datamodellen man benytter i innsendingsdelen av applikasjonen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;prefill&#34;</span>: {
+        <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Ola Nordmann&#34;</span>,
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;12345&#34;</span>
+    },
+    ...
+}
+
+</code></pre></div><p>Denne prefill verdien kan man så benytte seg av i metoden <code>DataCreation</code> i <code>InstantiationHandler.cs</code> for å mappe mot de feltene man trenger som en del av innsendsingsdelen av applikasjonen under instansieringen. Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task DataCreation(Instance instance, <span style="color:#8be9fd">object</span> data, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; prefill)
+  {
+      <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(MessageV1))
+      {
+          <span style="color:#8be9fd">string</span> name = <span style="color:#f1fa8c">&#34;&#34;</span>;
+          <span style="color:#8be9fd">string</span> id = <span style="color:#f1fa8c">&#34;&#34;</span>;
+          <span style="color:#ff79c6">if</span> (prefill.ContainsKey(<span style="color:#f1fa8c">&#34;name&#34;</span>)) {
+              name = prefill[<span style="color:#f1fa8c">&#34;name&#34;</span>];
+          }
+          <span style="color:#ff79c6">if</span> (prefill.ContainsKey(<span style="color:#f1fa8c">&#34;id&#34;</span>)) {
+              id = prefill[<span style="color:#f1fa8c">&#34;id&#34;</span>];
+          }
+          MessageV1 skjema = (MessageV1)data;
+          skjema.Sender = name;
+          skjema.Reference = id;
+      }            
+      <span style="color:#ff79c6">await</span> Task.CompletedTask;
+  }
+</code></pre></div><h4 id="instansiere-fra-en-repeterende-gruppe">Instansiere fra en repeterende gruppe</h4>
+<p>Om man i det tilstandsløse steget ønsker at brukeren f.eks velger et element fra en repeterende gruppe å jobber videre på et gitt element kan man sette opp <code>InstantiationButton</code>-komponenten som en del av den repeterende gruppen.
+Her kan man så konfigurere instansierings-knappen til å mappe felter fra den gitte indeksen brukeren velger å starte en instans fra. Dette krever at man setter opp mapping-feltene med en indeks på den aktuelle gruppen.
+Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"> {
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;instantiation-button&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;InstantiationButton&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+      <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Start ny instans&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;mapping&#34;</span>: {
+      <span style="color:#ff79c6">&#34;people[{0}].name&#34;</span>: <span style="color:#f1fa8c">&#34;name&#34;</span>,
+      <span style="color:#ff79c6">&#34;people[{0}].age&#34;</span>: <span style="color:#f1fa8c">&#34;age&#34;</span>
+    }
+  }
+</code></pre></div><p>I den repeterende gruppen vil så <code>{0}</code> bli erstattet med den aktuelle indeksen på gruppen brukeren ønsker å starte fra.</p>
 
 
 <footer class=" footline" >
