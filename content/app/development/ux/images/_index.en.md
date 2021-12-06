@@ -66,7 +66,7 @@ The image can also have separate sources for different languages. The default so
 
 ## Hosting images from apps
 
-If the image should be loaded from the app, you need to set up static hosting of files in the application (if you have an older app).
+If the image should be loaded from the app, you need to set up static hosting of files in the application. This is automatically set up for applications created after december 2021. For older applications, you should follow the steps below.
 This is configured in _App/Startup.cs_, in the _Configure_ method. This will host all files that is inside the `/app/wwwroot` folder. If this folder does not exist, it needs to be created.
 If you want to refer to the file `app/wwwroot/bilde_nb.png` it can be reached at the following relative url `/org/app-name/bilde_nb.png`
 
