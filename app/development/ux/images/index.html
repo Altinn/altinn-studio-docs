@@ -1069,19 +1069,20 @@ if(host != "localhost")
   }
 }
 </code></pre></div><h2 id="hosting-images-from-apps">Hosting images from apps</h2>
-<p>If the image should be loaded from the app, you need to set up static hosting of files in the application.
+<p>If the image should be loaded from the app, you need to set up static hosting of files in the application. This is automatically set up for applications created after december 2021. For older applications, you should follow the steps below.
 This is configured in <em>App/Startup.cs</em>, in the <em>Configure</em> method. This will host all files that is inside the <code>/app/wwwroot</code> folder. If this folder does not exist, it needs to be created.
 If you want to refer to the file <code>app/wwwroot/bilde_nb.png</code> it can be reached at the following relative url <code>/org/app-name/bilde_nb.png</code></p>
-<p>Swap out <em>org/app-name</em> with your organisation and app name. Example:</p>
+<p><em>applicationId</em> is a variable from a few lines above containing <em>org/app-name</em> from <code>applicationmetadata.json</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Configure(IApplicationBuilder app, IWebHostEnvironment env)
   {
     <span style="color:#6272a4">// ...
 </span><span style="color:#6272a4"></span>    app.UseRouting();
-<span style="display:block;width:100%;background-color:#3d3f4a">    app.UseStaticFiles(<span style="color:#f1fa8c">&#34;/org/app-name&#34;</span>);
+<span style="display:block;width:100%;background-color:#3d3f4a">    app.UseStaticFiles(<span style="color:#f1fa8c">&#39;/&#39;</span> + applicationId);
 </span>    app.UseAuthentication();
     <span style="color:#6272a4">// ...
 </span><span style="color:#6272a4"></span>  }
-</code></pre></div><p>In <em>FormLayout.json</em> the reference to the image should be a relative url that starts with <em>/org/app-name</em> similar to what was set up as the static hosting. Example:</p>
+</code></pre></div><p>In <em>FormLayout.json</em> the reference to the image should be a relative url that starts with <em>/org/app-name</em> similar to what was set up as the static hosting.
+You can also use the custom prefix <code>wwwroot</code> (without a starting <code>/</code>), that will be replaced with <em>/org/app-name</em> before the image is loaded.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;layout&#34;</span>: [
@@ -1093,7 +1094,7 @@ If you want to refer to the file <code>app/wwwroot/bilde_nb.png</code> it can be
         },
         <span style="color:#ff79c6">&#34;image&#34;</span>: {
           <span style="color:#ff79c6">&#34;src&#34;</span>: {
-            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;/org/app-name/bilde_nb.png&#34;</span>
+            <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;wwwroot/bilde_nb.png&#34;</span>
           },
           <span style="color:#ff79c6">&#34;width&#34;</span>: <span style="color:#f1fa8c">&#34;100%&#34;</span>,
           <span style="color:#ff79c6">&#34;align&#34;</span>: <span style="color:#f1fa8c">&#34;center&#34;</span>
