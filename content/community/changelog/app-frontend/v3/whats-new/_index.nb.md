@@ -4,7 +4,40 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 tags: [translate-to-norwegian]
 ---
-## 3.17.1 (2021-11-24) - Bufiks DataProcessWrite.
+
+## 3.19.2 (2021-12-09) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 49.
+Issue [#7590](https://github.com/Altinn/altinn-studio/issues/7590).
+
+## 3.19.1 (2021-12-09) - Endringer til bilde komponent
+Flere endringer til bilde komponent.
+Issue [#7484](https://github.com/Altinn/altinn-studio/issues/7484).
+
+## 3.19.0 (2021-12-06) - Starte instans fra stateless modus
+Støtte for å starte en data instans fra stateless modus.
+Issue [#6196](https://github.com/Altinn/altinn-studio/issues/6196).
+
+## 3.18.4 (2021-12-03) - Optimalisering for mobil visning - bug fix
+Rulletilbake endringer av maxWidth fra versjon 3.18.3.
+Issue [#7588](https://github.com/Altinn/altinn-studio/pull/7588).
+
+## 3.18.3 (2021-12-01) - Optimalisering for mobil visning - spacing
+Fixed maxWidth for input and spacing for address component.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.2 (2021-11-30) - Optimalisering for mobil visning - spacing
+Fixed spacing for header and paragraph.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.1 (2021-11-30) - Optimalisering for mobil visning - maxWidth
+Changed max-width of validation error from auto to none.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.0 (2021-11-29) - Support for labelgrid
+Support for labelgrid in grid enabling long lists of short questions and answers to be presented in a table like way
+Issue [#7027](https://github.com/Altinn/altinn-studio/pull/7027).
+
+## 3.17.1 (2021-11-24) - Bugfiks DataProcessWrite.
 Fikset en feil hvor numeriske felter som ble satt i DataProcessWrite ikke ble oppdatert i skjema om verdien var 0.
 Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).
 
