@@ -3,6 +3,39 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+
+## 3.19.2 (2021-12-09) - Dependency patching
+Patching of external dependencies for week 49.
+Issue [#7590](https://github.com/Altinn/altinn-studio/issues/7590).
+
+## 3.19.1 (2021-12-09) - Fixes for image component
+Several fixes for image component.
+Issue [#7484](https://github.com/Altinn/altinn-studio/issues/7484).
+
+## 3.19.0 (2021-12-06) - Create instance from stateless view
+Support for starting a stateful app instance from a stateless view.
+Issue [#6196](https://github.com/Altinn/altinn-studio/issues/6196).
+
+## 3.18.4 (2021-12-03) - Optimization for mobile view - bug fix
+Rollback maxWidth changes from version 3.18.3.
+Issue [#7588](https://github.com/Altinn/altinn-studio/pull/7588).
+
+## 3.18.3 (2021-12-01) - Optimization for mobile view - spacing
+Fixed maxWidth for input and spacing for address component.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.2 (2021-11-30) - Optimization for mobile view - spacing
+Fixed spacing for header and paragraph.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.1 (2021-11-30) - Optimization for mobile view - maxWidth
+Changed max-width of validation error from auto to none.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.0 (2021-11-29) - Support for labelgrid
+Support for labelgrid in grid enabling long lists of short questions and answers to be presented in a table like way
+Issue [#7027](https://github.com/Altinn/altinn-studio/pull/7027).
+
 ## 3.17.1 (2021-11-24) - Bugfix DataProcessWrite
 Fixed bug where numeric fields that gets changed in DataProcessWrite are not updated if their value happened to be 0.
 Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).

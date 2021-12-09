@@ -4,7 +4,40 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 tags: [translate-to-norwegian]
 ---
-## 3.17.1 (2021-11-24) - Bufiks DataProcessWrite.
+
+## 3.19.2 (2021-12-09) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 49.
+Issue [#7590](https://github.com/Altinn/altinn-studio/issues/7590).
+
+## 3.19.1 (2021-12-09) - Endringer i bilde komponent
+Flere endringer for bilde-komponenten.
+Issue [#7484](https://github.com/Altinn/altinn-studio/issues/7484).
+
+## 3.19.0 (2021-12-06) - Starte instans fra stateless visning
+Støtte for å starte en data instans fra stateless visning innad i samme applikasjon.
+Issue [#6196](https://github.com/Altinn/altinn-studio/issues/6196).
+
+## 3.18.4 (2021-12-03) - Optimalisering for mobil visning
+Tilbakestilte endring av maxWidth fra versjon 3.18.3 da dette skapte trøbbel med fokus-visning på større skjermer.
+Issue [#7588](https://github.com/Altinn/altinn-studio/pull/7588).
+
+## 3.18.3 (2021-12-01) - Optimalisering for mobil visning - bredde
+Fikset maxWidth for input-komponenter og  for address component.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.2 (2021-11-30) - Optimalisering for mobil visning - luft
+Forbedret luft for tittel og paragraf-komponentene.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.1 (2021-11-30) - Optimalisering for mobil visning - bredde
+Endret maxWidth på valideringsmeldinger fra auto til none.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.0 (2021-11-29) - Støtte for labelgrid
+La til støtte for labelGrid i grid som muliggjør lengre lister med korte spørsmål og svar som kan bli presentert i en tabell-liknende visning.
+Issue [#7027](https://github.com/Altinn/altinn-studio/pull/7027).
+
+## 3.17.1 (2021-11-24) - Bugfiks DataProcessWrite.
 Fikset en feil hvor numeriske felter som ble satt i DataProcessWrite ikke ble oppdatert i skjema om verdien var 0.
 Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).
 
