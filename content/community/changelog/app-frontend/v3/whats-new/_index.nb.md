@@ -33,8 +33,8 @@ Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 Endret maxWidth på valideringsmeldinger fra auto til none.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
-## 3.18.0 (2021-11-29) - Support for labelgrid
-Support for labelgrid in grid enabling long lists of short questions and answers to be presented in a table like way
+## 3.18.0 (2021-11-29) - Støtte for labelgrid
+La til støtte for labelGrid i grid som muliggjør lengre lister med korte spørsmål og svar som kan bli presentert i en tabell-liknende visning.
 Issue [#7027](https://github.com/Altinn/altinn-studio/pull/7027).
 
 ## 3.17.1 (2021-11-24) - Bugfiks DataProcessWrite.
