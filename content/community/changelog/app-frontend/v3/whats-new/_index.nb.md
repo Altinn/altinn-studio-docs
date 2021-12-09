@@ -9,28 +9,28 @@ tags: [translate-to-norwegian]
 Oppdaterte eksterne avhengigheter for uke 49.
 Issue [#7590](https://github.com/Altinn/altinn-studio/issues/7590).
 
-## 3.19.1 (2021-12-09) - Endringer til bilde komponent
-Flere endringer til bilde komponent.
+## 3.19.1 (2021-12-09) - Endringer i bilde komponent
+Flere endringer for bilde-komponenten.
 Issue [#7484](https://github.com/Altinn/altinn-studio/issues/7484).
 
-## 3.19.0 (2021-12-06) - Starte instans fra stateless modus
-Støtte for å starte en data instans fra stateless modus.
+## 3.19.0 (2021-12-06) - Starte instans fra stateless visning
+Støtte for å starte en data instans fra stateless visning innad i samme applikasjon.
 Issue [#6196](https://github.com/Altinn/altinn-studio/issues/6196).
 
-## 3.18.4 (2021-12-03) - Optimalisering for mobil visning - bug fix
-Rulletilbake endringer av maxWidth fra versjon 3.18.3.
+## 3.18.4 (2021-12-03) - Optimalisering for mobil visning
+Tilbakestilte endring av maxWidth fra versjon 3.18.3 da dette skapte trøbbel med fokus-visning på større skjermer.
 Issue [#7588](https://github.com/Altinn/altinn-studio/pull/7588).
 
-## 3.18.3 (2021-12-01) - Optimalisering for mobil visning - spacing
-Fixed maxWidth for input and spacing for address component.
+## 3.18.3 (2021-12-01) - Optimalisering for mobil visning - bredde
+Fikset maxWidth for input-komponenter og  for address component.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
-## 3.18.2 (2021-11-30) - Optimalisering for mobil visning - spacing
-Fixed spacing for header and paragraph.
+## 3.18.2 (2021-11-30) - Optimalisering for mobil visning - luft
+Forbedret luft for tittel og paragraf-komponentene.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
-## 3.18.1 (2021-11-30) - Optimalisering for mobil visning - maxWidth
-Changed max-width of validation error from auto to none.
+## 3.18.1 (2021-11-30) - Optimalisering for mobil visning - bredde
+Endret maxWidth på valideringsmeldinger fra auto til none.
 Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
 
 ## 3.18.0 (2021-11-29) - Support for labelgrid
