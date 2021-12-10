@@ -24,7 +24,7 @@ Disse applikasjonene vil alltid ligge øverst i dashboardet og vil være synlige
 
 ![Favoritter i dashboard](favs.png "Favoritter i dashboard")
 
-Man kan også mulighet til å legge til eller ta bort favoritter i dashboardet ved markere de ønskede applikasjonene som favoritter ved å toggle stjerne-ikonet.
+For å legge til eller fjerne en favorittmarkering kan man toggle stjerne-ikonet.
 
 ![Markere som favoritt](make-fav.png "Markere som favoritt")
 
