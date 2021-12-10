@@ -6,7 +6,7 @@ weight: 150
 ---
 
 Altinn Studio is used to create applications (apps).
-An app could be anything form simple forms to more complex applications with APIs, user interfaces, and everything in between.
+An app could be anything form a simple form to a more  complex application with APIs, user interfaces, and everything in between.
 
 You create an app from the dashboard in Altinn Studio.
 
