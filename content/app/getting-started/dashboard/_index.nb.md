@@ -14,7 +14,7 @@ Her vil man få opp en meny over hvilke kontekster man kan filtrere på. Konteks
 
 ![Kontekstmeny](profile-menu.png "Kontekstmeny")
 
-Velger man en gitt organisajon vil det kun være disse appene man ser igjen i listen i dashboardet.
+Velger man en gitt organisajon vil det kun være disse appene som er synlig i listen i dashboardet.
 
 ![Valgt kontekt](context-chosen.png "Valgt kontekst")
 
