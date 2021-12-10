@@ -29,6 +29,6 @@ For å legge til eller fjerne en favorittmarkering kan man toggle stjerne-ikonet
 ![Markere som favoritt](make-fav.png "Markere som favoritt")
 
 ## Søk
-Fra dashboardet har man også mulighet til å søke på de applikasjonene man har tilgang til. Dette gjøres fra søkefeltet, og resultatet vil dukke opp i listen under.
+Fra dashboardet kan man gjøre et søk blant de applikasjonene man har tilgang til. Dette gjøres fra søkefeltet, og resultatet vil dukke opp i listen under.
 
 ![Søk](search.png "Søk")
