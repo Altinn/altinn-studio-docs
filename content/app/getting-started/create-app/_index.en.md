@@ -17,7 +17,7 @@ You create an app from the dashboard in Altinn Studio.
 3. Add the **navn** of the app. This name is used to identify the application and will be used as the repository name, in URL's, and APIs.
    The name should be short and descriptive, for instance "sick-leave" or "local-election-2019".  
     _Name can **not** be changed after an app has been deployed._
-4. Create the app by clicking "**Opprett**".
+4. Click "**Opprett**" to create the app.
 
 ![New app popup](new-app.png "Create new app")
 
