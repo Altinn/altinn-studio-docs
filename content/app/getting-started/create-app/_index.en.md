@@ -21,6 +21,6 @@ You create an app from the dashboard in Altinn Studio.
 
 ![New app popup](new-app.png "Create new app")
 
-When the app is created you will be forwarded to the created application.
+Once the app is created, you will be forwarded to the created application.
 
 ![App created](app-created.png "App created")
