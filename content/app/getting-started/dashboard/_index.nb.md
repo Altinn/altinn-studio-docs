@@ -20,7 +20,7 @@ Velger man en gitt organisajon vil det kun være disse appene som er synlig i li
 
 ## Favoritter
 Fra dashboardet har man enkel tilgang til sine favoritter. Favorittene i dashboardet gjenspeiler "Star"-konseptet i Gitea, og markerer du et repository som starred i gitea vil det dukke opp som favoritt i dashboardet.
-Disse applikasjonene vil alltid ligge øverst i dashboardet og vil være uavhengig av valgt kontekst.
+Disse applikasjonene vil alltid ligge øverst i dashboardet og vil være synlige uavhengig av valgt kontekst.
 
 ![Favoritter i dashboard](favs.png "Favoritter i dashboard")
 
