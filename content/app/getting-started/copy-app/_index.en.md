@@ -12,7 +12,7 @@ If you don't have permissions you should talk to your organizations administrato
 
 ![Dashboard in Altinn Studio](overview.png "Dashboard - overview")
 
-1. Click the "..."-icon in the top right corner of the application overview of the app you want to copy.
+1. Click the "..."-icon in the far right table row of the app you want to copy.
 2. Press "**Lag kopi**" from the menu
 3. Add the **name** you want for the new application. This name is used to identify the application, as well as the repository name, and URLS and API's.
    The name should be short and descriptive, for instance "sick-leave" or "local-election-2019". ![Copy app](copy-app.png "Copy app")
