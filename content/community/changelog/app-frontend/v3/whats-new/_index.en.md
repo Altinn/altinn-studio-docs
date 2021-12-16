@@ -3,6 +3,12 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+## 3.20.1 (2021-12-16) - Bugfix for address component
+Fixed a bug where the address component would crash unexpectedly.
+Issue [#7658](https://github.com/Altinn/altinn-studio/issues/7658).
+## 3.20.0 (2021-12-14) - Support for custom OIDC provider
+Added support in frontend so that Altinn.Apps can have a custom OIDC provider.
+Issue [#7173](https://github.com/Altinn/altinn-studio/issues/7173).
 
 ## 3.19.2 (2021-12-09) - Dependency patching
 Patching of external dependencies for week 49.
