@@ -1174,6 +1174,18 @@
                 href="https://docs.altinn.studio/app/getting-started/create-app/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/getting-started/dashboard/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/dashboard/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/dashboard/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/development/configuration/partytype/</loc>
     <xhtml:link
                 rel="alternate"
