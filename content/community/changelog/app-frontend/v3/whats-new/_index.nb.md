@@ -6,8 +6,8 @@ tags: [translate-to-norwegian]
 ---
 ## 3.20.1 (2021-12-16) - Fikset feil i adressekomponenten
 Fikset en feil hvor adressekomponenten ville kræsje uventet.
-
 Issue [#7658](https://github.com/Altinn/altinn-studio/issues/7658).
+
 ## 3.20.0 (2021-12-14) - Støtte for egendefinert OIDC provider
 La til støtte i frontend for at Altinn.Apps kan ha ulike OIDC provider.
 Issue [#7173](https://github.com/Altinn/altinn-studio/issues/7173).
