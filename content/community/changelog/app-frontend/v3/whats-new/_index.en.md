@@ -3,6 +3,10 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+## 3.21.1 (2021-12-17) - Bugfix for task validation
+Fixed a bug where validations set in `ValidateTask` in `ValidationHandler.cs` would not get presented to the user.
+Issue [#7333](https://github.com/Altinn/altinn-studio/issues/7333).
+
 ## 3.21.0 (2021-12-17) - Possibility to use h2, h3 and h4 as size values for the header component in FormLayout
 It is now possible to use h2, h3 and h4, instead of S, M and L as size values in the header component.
 Issue [#7611](https://github.com/Altinn/altinn-studio/issues/7611).

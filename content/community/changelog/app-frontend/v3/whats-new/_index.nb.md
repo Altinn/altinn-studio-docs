@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 tags: [translate-to-norwegian]
 ---
+## 3.21.1 (2021-12-17) - Fikset feil med validering på task
+Fikset en feil hvor feilmeldinger satt i `ValidateTask` i `ValidationHandler.cs` ikke ble vist til bruker.
+Issue [#7333](https://github.com/Altinn/altinn-studio/issues/7333).
+
 ## 3.21.0 (2021-12-17) - Mulighet for å bruke h2, h3 og h4 for størrelse i header komponenten i FormLayout
 Det er nå mulig å bruke h2, h3 og h4, istedenfor S, M og L som verdier for størrelse i header komponenten.
 Issue [#7611](https://github.com/Altinn/altinn-studio/issues/7611).
