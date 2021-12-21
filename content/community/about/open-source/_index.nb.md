@@ -71,7 +71,7 @@ illustrerer godt.
 Altinn som felleskomponent har tidligere fått store utfordringer ved å basere seg på lukket proprietær programvare.
 Programvare fra Adobe i Altinn 1 og fra Microsoft i Altinn 2.
 
-End-of-life for proprietær programvere er faktisk
+End-of-life for proprietær programvare er faktisk
 [hovedårsaken](https://www.digi.no/artikler/altinn-skal-aldri-mer-ga-ut-pa-dato-men-forst-ma-inntil-tusen-tjenester-skrives-om/508174)
 til behovet for å lage Altinn 3.
 
