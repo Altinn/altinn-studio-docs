@@ -13,9 +13,48 @@ toc: true
 - To inputfelt kan plasseres ved siden av hverandre dersom de på et eller annet vis hører sammen. Se eksempel under.
 - Deaktivert felt bør unngås. Dersom et felt ikke kan redigeres bør informasjonen heller presenteres i tekst. 
 
-
 ### Eksempel på bruk:
 {{% figma-example src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" %}}
+
+
+### Bredde på inputfelt
+Bredden på inputfeltet burde reflektere det som forventes av input fra brukeren. Vi har laget tre standard størrelser som burde dekke de fleste scenarioer og som skal fungere på forskjellige skjermstørrelser. [Les om hvordan du endrer størrelsen her](https://docs.altinn.studio/app/development/ux/styling/#innergrid-og-labelgrid)
+
+#### Lite input
+Brukes til for eksempel telefonnummer, postnummer og årstall
+
+```json
+"grid": {
+    "xs": 12,
+    "innergrid": {
+        "xs":5,
+        "sm":3, 
+        "md":2
+    }
+}
+```
+#### Medium input
+Brukes til for eksempel kommune og land
+```json
+"grid": {
+    "xs": 12,
+    "innergrid": {
+        "xs":8,
+        "sm":6, 
+        "md":6
+    }      
+}
+```
+#### Stor input
+Brukes til for eksempel navn, e-post adresse og en URL
+```json
+"grid": {
+    "xs": 12,
+    "innergrid": {
+        "sm":10 
+    }
+}
+```
 
 ---
 

@@ -58,7 +58,7 @@ Oppsettet over vil gi følgende resultat:
 Siden man har 12 inndelinger tilgjengelig i sidebredden er det opp til apputvikler å tildele hvor stor andel komponenten skal ha. Om man ønsker at en komponent skal ta 2/12, en annen 6/12 og siste 4/12 så er det mulig.
 Det er viktig å tenke på brukeropplevelsen når man gjør slike endringer, og sidestilling av komponenter bør gjøres med omhu. Komponenter med lengre tekster og beskrivelser blir også fort små og uoversiktelige om disse sidestilles. Skal det benyttes lengre tekster og beskrivelser anbefales det at disse benytter full bredde av skjema.
 
-Om man i eksemepelet over hadde ønsket at komponentene skulle ta hele bredden frem til skjermen ble større enn 960px så kunne man satt opp følgende layout:
+Om man i eksempelet over hadde ønsket at komponentene skulle ta hele bredden frem til skjermen ble større enn 960px så kunne man satt opp følgende layout:
 
 ```json
  {
@@ -165,18 +165,18 @@ Det vil se omtrent slik ut
 
 ![labelGrid eksempel output](label-grid.png "labelGrid eksempel output")
 
-## Formattering av tall
-Det er nå implementert støtte for å kunne spesifisere formattering av tall i _inputfelt_. Dette gjøres ved å legge til en property `formatting` på
-Input-komponenten. Formatteringsmuligheter er dokumentert i et [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
+## Formatering av tall
+Det er nå implementert støtte for å kunne spesifisere formatering av tall i _inputfelt_. Dette gjøres ved å legge til en property `formatting` på
+Input-komponenten. Formateringsmuligheter er dokumentert i et [JSON-schema](https://altinncdn.no/schemas/json/component/number-format.schema.v1.json),
 og vil dukke opp automatisk i intellisense når man redigerer komponenten i f.eks. VSCode. 
 
-Eksempelet under vil resultere i et inputfelt for tall, hvor tallet vil bli formattert med `,` mellom hver tusen, og `$` foran tallet.
+Eksempelet under vil resultere i et inputfelt for tall, hvor tallet vil bli formatert med `,` mellom hver tusen, og `$` foran tallet.
 
 {{% notice info %}}
-Formatteringen er kun for visning i frontend, og tallene som legges inn i et inputfelt med formattering vil lagres uformattert.
+Formateringen er kun for visning i frontend, og tallene som legges inn i et inputfelt med formatering vil lagres uformatert.
 {{% /notice %}}
 
-![Formattert tall i input-felt](number-format-money.png "Formattert tall i input-felt")
+![Formatert tall i input-felt](number-format-money.png "Formatert tall i input-felt")
 
 ```json {hl_lines=["12-16"]} {linenos=inline}
 {
