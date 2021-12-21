@@ -52,7 +52,7 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | tableHeaders          | Nei     | Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.              |                                                           |
 
 ## textResourceBindings
-Det er mulig å legge til litt ulike nøkler i textResourceBindings for å overstyre default tekster. 
+Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre default tekster.
 - `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person". 
 - `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
 - `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.
