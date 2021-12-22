@@ -47,8 +47,14 @@ En gruppe defineres på følgende måte i FormLayout.json:
 | id                    | Ja      | Unik ID, tilsvarer ID på andre komponenter. Må være unik i FormLayout.json-filen.                                                         |
 | type                  | Ja      | MÅ være "group". Sier at dette er en gruppe.                                                                                              |
 | dataModelBindings     | Nei     | MÅ være satt for repeterende grupper, med `group`-parameteren som i eksempelet over. Skal peke på den repeterende gruppen i datamodellen. |
-| textResourceBindings  | Nei     | Kan være satt for repeterende grupper, med `add_button`-parameteren som i eksemepelt over. Denne bindingen til bli lagt til på knappen.   |
+| textResourceBindings  | Nei     | Kan være satt for repeterende grupper, se [beskrivelse.](#textResourceBindings)                                                            |
 | maxCount              | Ja      | Antall ganger en gruppe kan repetere. Settes til `1` om gruppen ikke er repeterende.                                                      |
 | children              | Ja      | Liste over de feltene som skal inngå i gruppen. Her brukes felt-id fra FormLayout.json                                                    |
 | tableHeaders          | Nei     | Liste over komponentener som skal inngå som en del av tabbel header feltene. Om ikke spesifisert så vises alle komponentene.              |                                                           |
 
+## textResourceBindings
+Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre default tekster.
+- `add_button` - blir lagt til på enden av "Legg til ny" teksten på knappen, og kan brukes til å f.eks ha tekst som sier "Legg til ny person". 
+- `save_button` - blir brukt som tekst i "Lagre"-knappen når brukeren fyller ut data.
+- `edit_button_open` - blir brukt som tekst i "Endre" knappen i tabellen når brukeren skal åpne et element.
+- `edit_button_close` - blir brukt som tekst i "Endre" knappen tabellen når brukeren skal lukke et element.
