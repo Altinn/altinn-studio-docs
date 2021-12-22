@@ -2,8 +2,11 @@
 title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
-tags: [translate-to-norwegian]
 ---
+## 3.22.0 (2021-12-22) - Flere muligheter til å skreddersy repeterende gruppe
+La til flere muligheter til å overstyre tekster og skjule "legg til" knappen for repeterende gruppe.
+Issue [#7164](https://github.com/Altinn/altinn-studio/issues/7164).
+
 ## 3.21.1 (2021-12-17) - Fikset feil med validering på task
 Fikset en feil hvor feilmeldinger satt i `ValidateTask` i `ValidationHandler.cs` ikke ble vist til bruker.
 Issue [#7333](https://github.com/Altinn/altinn-studio/issues/7333).
