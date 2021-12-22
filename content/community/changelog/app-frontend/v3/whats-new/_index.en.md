@@ -3,6 +3,10 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+## 3.22.0 (2021-12-22) - More options for customization of repeating groups
+Added more possible texts to override possibility to hide "add new" button for a repeating group.
+Issue [#7164](https://github.com/Altinn/altinn-studio/issues/7164).
+
 ## 3.21.1 (2021-12-17) - Bugfix for task validation
 Fixed a bug where validations set in `ValidateTask` in `ValidationHandler.cs` would not get presented to the user.
 Issue [#7333](https://github.com/Altinn/altinn-studio/issues/7333).
