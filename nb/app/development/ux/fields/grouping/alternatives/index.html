@@ -189,7 +189,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/components/error-message/"><span>Feilmeldinger</span></a></li>
       <li class="dd-item">
-        <a href="/nb/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li></ul></li>
+        <a href="/nb/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/picture-component/"><span>Bilde</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
@@ -474,7 +476,6 @@ if(host != "localhost")
               <p class="a-leadText" id="leadText">Innstillinger for visning.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
     <li><a href="#styre-visning">Styre visning</a></li>
-    <li><a href="#openbydefault">openByDefault</a></li>
     <li><a href="#flere-sider-innad-i-gruppe-visning">Flere sider innad i gruppe-visning</a></li>
   </ul>
 </nav>
@@ -528,6 +529,8 @@ Andre elementer i gruppen skjules. <code>filter</code> kan kombineres med <code>
 Om man kombinerer `"mode": "showAll"` med `"filter"`, vil det ikke fungere å legge til nye elementer i gruppen. Dette er fordi man med "showAll" kun 
 viser redigerings-flaten, og så lenge filteret ikke matcher, vil ikke elementet vises.
 </div>
+<h3 id="addbutton">addButton</h3>
+<p>Bestemmer om &ldquo;Legg til ny&rdquo;-knappen vises under tabellen. Nyttig å skjule denne om man kun ønsker å presentere data.</p>
 <h3 id="savebutton">saveButton</h3>
 <p>Bestemmer om &ldquo;Lagre&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Lagre&rdquo;-knapp vises.
 Dersom man har satt <code>&quot;mode&quot;: &quot;showAll&quot;</code> skjules Lagre-knappen alltid, da man i denne modusen ikke har mulighet til å lukke redigerings-flaten for 
@@ -536,7 +539,7 @@ gruppe-elementet. Dataene lagres uansett.</p>
 <p>Bestemmer om &ldquo;Slett&rdquo;-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at &ldquo;Slett&rdquo;-knapp vises.</p>
 <h3 id="multipage">multiPage</h3>
 <p>Sier at redigering/utfylling av gruppe kan gjøres over flere &ldquo;sider&rdquo;/visninger. Krever mer oppsett for å fungere, se under for mer informasjon.</p>
-<h2 id="openbydefault">openByDefault</h2>
+<h3 id="openbydefault">openByDefault</h3>
 <p>Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne ikke kan brukes sammen med <code>&quot;mode&quot;: &quot;showAll&quot;</code>.</p>
 <p>Eksempel:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{

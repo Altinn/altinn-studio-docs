@@ -189,7 +189,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/components/error-message/"><span>Feilmeldinger</span></a></li>
       <li class="dd-item">
-        <a href="/nb/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li></ul></li>
+        <a href="/nb/app/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/design/guidelines/components/picture-component/"><span>Bilde</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
       <li class="dd-item">
@@ -492,7 +494,37 @@ if(host != "localhost")
 </ul>
 <h3 id="eksempel-på-bruk">Eksempel på bruk:</h3>
 <iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="450" src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwnBveAG2ikUspFsQwM3GNE%2FPrototyping-av-skjematjenester%3Fnode-id%3D2816%253A1332" allowfullscreen></iframe>
-<hr>
+<h3 id="bredde-på-inputfelt">Bredde på inputfelt</h3>
+<p>Bredden på inputfeltet burde reflektere det som forventes av input fra brukeren. Vi har laget tre standard størrelser som burde dekke de fleste scenarioer og som skal fungere på forskjellige skjermstørrelser. <a href="https://docs.altinn.studio/app/development/ux/styling/#innergrid-og-labelgrid">Les om hvordan du endrer størrelsen her</a></p>
+<h4 id="lite-input">Lite input</h4>
+<p>Brukes til for eksempel telefonnummer, postnummer og årstall</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
+    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
+    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
+        <span style="color:#ff79c6">&#34;xs&#34;</span>:<span style="color:#bd93f9">5</span>,
+        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">3</span>, 
+        <span style="color:#ff79c6">&#34;md&#34;</span>:<span style="color:#bd93f9">2</span>
+    }
+}
+</code></pre></div><h4 id="medium-input">Medium input</h4>
+<p>Brukes til for eksempel kommune og land</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
+    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
+    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
+        <span style="color:#ff79c6">&#34;xs&#34;</span>:<span style="color:#bd93f9">8</span>,
+        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">6</span>, 
+        <span style="color:#ff79c6">&#34;md&#34;</span>:<span style="color:#bd93f9">6</span>
+    }      
+}
+</code></pre></div><h4 id="stor-input">Stor input</h4>
+<p>Brukes til for eksempel navn, e-post adresse og en URL</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;grid&#34;</span>: {
+    <span style="color:#ff79c6">&#34;xs&#34;</span>: <span style="color:#bd93f9">12</span>,
+    <span style="color:#ff79c6">&#34;innergrid&#34;</span>: {
+        <span style="color:#ff79c6">&#34;sm&#34;</span>:<span style="color:#bd93f9">10</span> 
+    }
+}
+</code></pre></div><hr>
 <h2 id="stort-tekstfelt">Stort tekstfelt</h2>
 <p>Stort tekstfelt benyttes når brukeren skal fylle inn en lengre beskrivelse. De samme retningslinjene som 
 inputfelt gjelder.</p>

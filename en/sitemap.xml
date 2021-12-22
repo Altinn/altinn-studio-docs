@@ -1150,6 +1150,18 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/components/application/solution/altinn-platform/storage/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/app/design/guidelines/components/picture-component/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/design/guidelines/components/picture-component/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/design/guidelines/components/picture-component/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/getting-started/copy-app/</loc>
     <xhtml:link
                 rel="alternate"
