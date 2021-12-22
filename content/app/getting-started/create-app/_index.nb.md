@@ -17,7 +17,7 @@ Du lager en ny app fra dashboardet i Altinn Studio.
 3. Legg inn **navnet** på appen. Dette navnet brukes til å identifisere appen, og brukes også som navn på repository, og i URL-er og API-er.
    Navnet bør være kort og beskrivende som for eksempel "sykmelding" eller "lokalvalg-2019".  
     _Navnet kan **ikke** endres etter at appen er gått i produksjon._
-4. Opprett appen ved å klikke "**Opprett**".
+4. Opprett appen ved å klikke "**Opprett applikasjon**".
 
 ![Ny app popup](new-app.png "Opprett en ny app")
 
