@@ -3,6 +3,10 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+## 3.22.1 (2021-12-23) - Bugfix missing rights for stateless view
+Fixed a bug where missing rights would display generic error message and not the missing rights error.
+Issue [#6514](https://github.com/Altinn/altinn-studio/issues/6514).
+
 ## 3.22.0 (2021-12-22) - More options for customization of repeating groups
 Added more possible texts to override possibility to hide "add new" button for a repeating group.
 Issue [#7164](https://github.com/Altinn/altinn-studio/issues/7164).
