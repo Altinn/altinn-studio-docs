@@ -101,11 +101,11 @@ Others are triggered when a new release is deployed to an environment.
 - environment: at22
 - details: tests platform and app APIs
 
-#### studio-testcafe
+#### studio-cypress
 
 - trigger: final task in release pipeline for Designer
 - environment: all
-- details: runs test café test in Altinn Studio to validate most common functionality.
+- details: runs cypress test in Altinn Studio to validate most common functionality.
 
 #### apps-k6
 
