@@ -3,6 +3,10 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+## 3.22.2 (2021-12-23) - Fikset feil med variabler i tekst
+Fikset en feil hvor variabler i tekst ikke ville bli oppdatert etter en backend kalkulering.
+Issue [#7308](https://github.com/Altinn/altinn-studio/issues/7308).
+
 ## 3.22.1 (2021-12-23) - Fikset feil for manglende rettigheter i stateless view
 Fikset en feil hvor manglende rettigheter ville resultere i en generisk feilmelding og ikke feilmelding om manglende rettigheter.
 Issue [#6514](https://github.com/Altinn/altinn-studio/issues/6514).
