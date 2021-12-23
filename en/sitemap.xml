@@ -1086,10 +1086,6 @@
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/test/test-strategy/</loc>
   </url><url>
-    <loc>https://docs.altinn.studio/community/contributing/handbook/test/testcafe/</loc>
-  </url><url>
-    <loc>https://docs.altinn.studio/community/contributing/handbook/test/testcafe/testcafehowto/</loc>
-  </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/routing/traefik/tls-configuration/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/routing/traefik/custom-resources/</loc>
@@ -1125,8 +1121,6 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/front-end/versioning/</loc>
-  </url><url>
-    <loc>https://docs.altinn.studio/community/contributing/handbook/test/wcag/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/contributing/handbook/test/xunit-testing/</loc>
   </url><url>

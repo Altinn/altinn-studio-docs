@@ -489,13 +489,7 @@ if(host != "localhost")
       <li class="dd-item parent active">
         <a href="/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/test/testcafe/"><span>Testcafe</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/community/contributing/handbook/test/testcafe/testcafehowto/"><span>Testcafe - Tests</span></a></li></ul></li>
-      <li class="dd-item">
         <a href="/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
-      <li class="dd-item">
-        <a href="/community/contributing/handbook/test/wcag/"><span>WCAG testing</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
       <li class="dd-item">
@@ -1022,16 +1016,16 @@ if(host != "localhost")
 <ul>
 <li>Unit testing: Jest / Enzyme / xUnit</li>
 <li>Integration testing: Jest / Sinon</li>
-<li>Regression testing: Testcafe</li>
+<li>Regression testing: Cypress</li>
 </ul>
-<p>The chosen tool set has been chosen for their ease of integration into the exisiting codebase, and also because they are all open source tools. Testcafe also gives the possibility of recording tests, with a paid license, the testcafe framework and UI test project will be the responsibility of the test developer in the team. Developers write unit and integration tests by using Jest and xUnit. See the other pages under test in this handbook for more information on how to effectively write unit tests or regression tests.</p>
+<p>The chosen tool set has been chosen for their ease of integration into the exisiting codebase, and also because they are all open source tools. Cypress also gives the possibility of recording tests with cypress dashboard, the test framework and UI test project will be the responsibility of the test developer in the team. Developers write unit and integration tests by using Jest and xUnit. See the other pages under test in this handbook for more information on how to effectively write unit tests or regression tests.</p>
 <p>Documentation for the mentioned tools can be found below:</p>
 <ul>
 <li><a href="https://xunit.github.io/">xUnit</a></li>
 <li><a href="https://jestjs.io/">Jest</a></li>
 <li><a href="http://airbnb.io/enzyme/">Enzyme</a></li>
 <li><a href="https://sinonjs.org/">Sinon</a></li>
-<li><a href="https://testcafe.devexpress.com/">Testcafe</a></li>
+<li><a href="https://www.cypress.io/">Cypress</a></li>
 </ul>
 <h3 id="test-in-the-first-mvp-delivery">Test in the first MVP delivery</h3>
 <p>Testing in the first MVP delivery was primarily done thru unit testing with test written in xunit, and jest, as well as thru manual functional tests of user stories under development. The unit testing frameworks xunit and jest were integrated in the MVP01 delivery, and the tests are executed using pipeline definitions in azure devops. The unit test pipelines are automatically triggered both by pull requests to the altinn github repo, as well as when code is merged into master. The pipelines for unit tests can be found <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=22">here</a> for the xunit pipeline, and <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=26">here</a> for the jest test pipeline. At the end of MVP01, testcafe tests also began running in their own pipeline. The regression tests in the testcafe pipeline are run as a nightly build, and does not deploy on pull requests, to avoid slowing down and hindering the work of developers. The pipeline for testcafe can be found <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=25">here</a></p>
@@ -1045,7 +1039,7 @@ if(host != "localhost")
 <p>#Methodology
 During sprint planning, the product owner, the developers, and the test developer agree on an approach for teting on individual user stories that are pulled into the sprint. A plan is then created for how the responsible role will test the required functionality, and sub tasks are created on the different user stories. It is possible, and likely, that a user story will contain tasks to develop tests on all the testing levels specified above. When a test is written and completed, it can be integrated into a testing build.</p>
 <p><strong>Naming convention for element ids'</strong>
-Testcafe&rsquo;s test api has different methods of instantiating Selector objects that can be then used in tests. The easiest and most robust method of defining a selector in testcafe is with a css id selector. The idea behind using css id&rsquo;s is to avoid finding elements by their relative location in the DOM, or by the element&rsquo;s inner texts, as tests become brittle with these selectors due to design changs. The id&rsquo;s must be unique, to ensure the uniqueness of a Selector, the following naming convention for element id&rsquo;s is proposed: Id&rsquo;s must be tekstbased and written in camelCase, id&rsquo;s follow a logical location the Altinn Studio system, such as; &ldquo;Pagelocation Submenu Elementtype Descriptiveword&rdquo;. The text box element id under the GUI creator could then be assigned the following id: &ldquo;designerSkjemakomponenterKnappTekstområde&rdquo;.</p>
+Cypress has different methods of getting elements from the DOM. The easiest and most robust method of defining a selector is with a css id selector. The idea behind using html-id&rsquo;s is to avoid finding elements by their relative location in the DOM, or by the element&rsquo;s inner texts, as tests become brittle with these selectors due to design changs. The id&rsquo;s must be unique, to ensure the uniqueness of a Selector, the following naming convention for element id&rsquo;s is proposed: Id&rsquo;s must be tekstbased and written in camelCase, id&rsquo;s follow a logical location the Altinn Studio system, such as; &ldquo;Pagelocation Submenu Elementtype Descriptiveword&rdquo;. The text box element id under the GUI creator could then be assigned the following id: &ldquo;designerSkjemakomponenterKnappTekstområde&rdquo;.</p>
 <h2 id="building-and-deploying-testcode">Building and deploying testcode</h2>
 <p>See the pipeline hyperlinks above in this document.</p>
 
@@ -1062,7 +1056,7 @@ Testcafe&rsquo;s test api has different methods of instantiating Selector object
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/community/contributing/handbook/test/postman/" title="Postman"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/handbook/test/testcafe/" title="Testcafe" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/community/contributing/handbook/test/postman/" title="Postman"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/community/contributing/handbook/test/unit-testing/" title="Unit testing" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/test/test-strategy/_index.md" target="blank">

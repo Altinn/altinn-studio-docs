@@ -489,13 +489,7 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
       <li class="dd-item">
-        <a href="/community/contributing/handbook/test/testcafe/"><span>Testcafe</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
-      <li class="dd-item">
-        <a href="/community/contributing/handbook/test/testcafe/testcafehowto/"><span>Testcafe - Tests</span></a></li></ul></li>
-      <li class="dd-item">
         <a href="/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
-      <li class="dd-item">
-        <a href="/community/contributing/handbook/test/wcag/"><span>WCAG testing</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
       <li class="dd-item">
@@ -1134,9 +1128,9 @@ Authentication Several of the exposed APIs requires various cookies, for instanc
 k6Performance and Functional Testing of API with K6
 PostmanAPI Testing with postman
 Test StrategyTest Strategy
-TestcafeTestcafe
 Unit testingHow to write jest test in altinn studio, what we know so far
-WCAG testing in Altinn StudioCoding guidelines for tests <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
+Xunit TestingXunit Testing
+ <a class="read-more" href="/community/contributing/handbook/test/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1188,64 +1182,6 @@ Testing of Altinn Studio is to be tested automatically at the unit and integrati
 	
 	   <article class="post community">
     <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/handbook/test/testcafe/">Testcafe</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This document describes how one can start working on a test cafe project from installtion of plugins, cloning the project to run tests and pipeline information.
-Clone project in Visual Studio Code Clone the project- git clone https://github.com/Altinn/altinn-studio.git
-Code for Testcafe tests in altinn.studio
-Install Tools  Open PowerShell -&gt; Verify Node and Npm version  npm -v (6.9.0) node -v (9.5.0)   Install npm  npm install -g npm   Install npm in the Altinn Studio project  Navigate to the folder - C:\Altinn Studio\altinn-studio\src\test\Testcafe Run command – npm install   Ensure that the environment variables has the path of npm  C:\Users\UserName\AppData\Roaming\npm    Run a Test Locally from PowerShell  Open testRunner. <a class="read-more" href="/community/contributing/handbook/test/testcafe/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post community">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/handbook/test/testcafe/testcafehowto/">Testcafe - Tests</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This document describes how one can start writing tests on a test cafe project , and debug of the tests.
-Procedure to write general testcafe test  Find a test case and area that has to be automated. Find the &lsquo;-tests.js&rsquo; file that the test case has to be added or create a new folder and new .js file for the test under src/test/Testcafe. Identify and add the page objects with the selectors information under respective file under src/test/Testcafe/page-objects. <a class="read-more" href="/community/contributing/handbook/test/testcafe/testcafehowto/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post community">
-    <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/test/unit-testing/">Unit testing</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1262,34 +1198,6 @@ Procedure to write general testcafe test  Find a test case and area that has to 
                 <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/front-end/">front-end</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post community">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/handbook/test/wcag/">WCAG testing in Altinn Studio</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>This document describes how to see results of testcafe wcag tests, and how to write new wcag tests in testcafe. See the general testcafe documentation for a recipe on how to set up a development environment for writing testcafe test.
-Testing Altinn Studio for accesibility with testcafe and axe-core WCAG tests run in Altinn Studio using the testcafe UI test project, with some additional plug-ins: axe-testcafe is the plug-in used for Altinn Studio, see documentation here. <a class="read-more" href="/community/contributing/handbook/test/wcag/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
             
                 <a class="label label-default" href="https://docs.altinn.studio/tags/testing/">testing</a>
             
