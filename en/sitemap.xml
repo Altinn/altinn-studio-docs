@@ -898,6 +898,8 @@
                 href="https://docs.altinn.studio/app/getting-started/first-time-setup/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/community/contributing/handbook/test/cypress/</loc>
+  </url><url>
     <loc>https://docs.altinn.studio/api/apps/data-elements/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2775,6 +2777,8 @@
     <loc>https://docs.altinn.studio/tags/versioning/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/tools/vs-code/</loc>
+  </url><url>
+    <loc>https://docs.altinn.studio/tags/web/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/community/changelog/app-frontend/v3/whats-new/</loc>
     <xhtml:link

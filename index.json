@@ -721,6 +721,13 @@
 	"content": "Lag en bruker i Altinn Studio Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med andre og få tilgang til eksisterende apper.\n\rVis/skjul innhold\r\rLag bruker med GitHub brukernavn\r\r\r Velg å logge inn på altinn.studio. På “Logg in”-siden, klikk på knappen “Har du en Github konto? Registrer deg med den her”.  Logg inn i GitHub hvis du ikke allerede er det.  Godkjenn at Altinn Studio bruker din GitHub-konto for å logge inn.  Lage en Altinn Studio bruker ved å fylle ut brukernavn, epost, passord, en captcha og klikk på “Fullfør”.\nBrukeren i Altinn Studio vil bli koblet til din GitHub-bruker og du er klar for å begynne arbeide med din første applikasjon.   \r\r \rVis/skjul innhold\r\rLag en bruker med epostadresse (uten GitHub)\r\r\r På “Logg inn”-siden, klikk på knappen “Behov for konto? Registrer deg nå.”  Lage en Altinn Studio bruker ved å fylle ut brukernavn, epostadresse, passord, en captcha og klikk på “Fullfør”. Du er nå klar for å begynne arbeide med din første applikasjon.   \r\r Bli del av en organisasjon Organisasjoner i Altinn Studio er det samme som tjenesteeiere i Altinn. De eier applikasjonene og gjør det mulig for flere innen samme organisasjon å samarbeide.\nFor å bli del av en organisasjon tar du kontakt med administrator for organisasjonen du arbeider for som legger deg til. Hvis du er usikker på hvem som er administrator eller du ikke vet om organisasjonen din er satt opp i Altinn Studio, kan du spørre Altinn servicedesk om hjelp.\nOpprette en organisasjon Det er Altinn som oppretter organisasjoner i Altinn Studio. For å kunne få en organisasjon i Altinn studio må du ha en avtale med Altinn.\nSend en mail til Altinn Servicedesk med navn på organisasjonen og hvem som skal være administrator for å opprette en ny organisasjon. Det vil kunne ta noen dager å opprette organisasjonen og du vil få en mail så fort det er gjort.\n"
 },
 {
+	"uri": "https://docs.altinn.studio/community/contributing/handbook/test/cypress/",
+	"title": "Cypress",
+	"tags": ["development", "testing", "web"],
+	"description": "Functional Testing of Altinn Studio and Altinn app-frontend with Cypress",
+	"content": "Cypress is a next generation front end open-source testing tool built for the modern web. Read more about Cypress here.\nPre requisite  Cypress lists the requirement for the tests here.  Clone the cypress test project from altinn-studio git clone https://github.com/Altinn/altinn-studio.git Cypress test project has a simple read me which describes how one can install the dependencies, start the solution and run the tests.\nFolder structure  Test files are under src/test/cypress/e2e/integration. Static files are under src/test/cypress/e2e/fixtures. Pageobjects with the css selector are under src/test/cypress/e2e/pageobjects. Custom cypress commands are under src/test/cypress/e2e/support. src/test/cypress/cypress.json has most of the configuration for the test. configuration for the different environment are placed under src/test/cypress/e2e/config src/test/cypress/package.json has test dependencies and scripts.  Write tests  Identify the test and find the .js file under integration folder where the test must be placed. Add the new CSS selectors under pageobjects. Add custom cypress command under support for reusability across the tests. Add the static files (response json of XHR, texts) under fixtures.  Read cypress documentation for more information on writing tests\nLinting og Formatting  The test projects has scripts for linting og formatting. Run yarn run eslint:check and yarn run prettier:check for checking the deviations from config of eslint and prettier. Run yarn run eslint:fix and yarn run prettier:format to correct the lint and formatting fails.  Run tests locally and debug  Make sure all the solutions are running according to the readme file for the solution to be tested. Open cypress by running yarn run cy:open -e environment=local,component=appfrontend for testing appfrontend. yarn run cy:open -e environment=local,component=studio for studio. Choose the browser and the test.js file that has to be run. Use cy.log() for checking runtime values. And Cypress by default starts the test again when there is a change in the files. Use console in the browser developer tools where Cypress prints results from a cypress command.  Altinn app-frontend tests The tests on altinn-app-frontend are run from github actions are triggered when a pull request or changes are merged to the files underer react/shared and react/altinn-app-frontend.\nThe tests are run on apps deployed to TT02 pointing to localhost app frontend.\nTests are run in parallel and the recorded in cypress dashboard with tag:altinn-app-frontend.\nAltinn Studio tests The tests on altinn studio are run from an azure devops pipeline and the results are recorded in cypress dashboard with tag: altinn-studio.\n"
+},
+{
 	"uri": "https://docs.altinn.studio/api/apps/data-elements/",
 	"title": "Data elements",
 	"tags": ["api"],
@@ -984,7 +991,7 @@
 	"title": "Test",
 	"tags": ["development", "testing"],
 	"description": "Coding guidelines for tests",
-	"content": "Coding guidelines for tests \rApp for automated test\rAn app used solely for automated testing in the browser\n\r\rk6\rPerformance and Functional Testing of API with K6\n\r\rPostman\rAPI Testing with postman\n\r\rTest Strategy\rTest Strategy\n\r\rUnit testing\rHow to write jest test in altinn studio, what we know so far\n\r\rXunit Testing\rXunit Testing\n\r\r"
+	"content": "Coding guidelines for tests \rApp for automated test\rAn app used solely for automated testing in the browser\n\r\rCypress\rFunctional Testing of Altinn Studio and Altinn app-frontend with Cypress\n\r\rk6\rPerformance and Functional Testing of API with K6\n\r\rPostman\rAPI Testing with postman\n\r\rTest Strategy\rTest Strategy\n\r\rUnit testing\rHow to write jest test in altinn studio, what we know so far\n\r\rXunit Testing\rXunit Testing\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/community/contributing/handbook/test/test-strategy/",
@@ -3617,6 +3624,13 @@
 	"tags": ["tech", "git", "programming"],
 	"description": "Visual Studio Code is a lightweight source code editor which runs on your desktop.",
 	"content": "Visual Studio Code is a lightweight and extendable code editor which runs on your desktop and is available for Windows, macOS and Linux.\nWe use it when developing Altinn 3, and it can be used for editing files from Altinn Studio Repos locally using the built-in Git support.\nAltinn ❤️ vscode.\nLanguages and tech VS Code comes with support for hundreds of languages and technologies, including all the ones that are relevant in Altinn 3:\n C# CSS Docker GitHub Go HTML Java JavaScript JSON Kubernetes Markdown .NET Core Node.js React and JSX Terraform TypeScript  Links  https://code.visualstudio.com https://github.com/Microsoft/vscode Marketplace  "
+},
+{
+	"uri": "https://docs.altinn.studio/tags/web/",
+	"title": "web",
+	"tags": [],
+	"description": "",
+	"content": ""
 },
 {
 	"uri": "https://docs.altinn.studio/community/changelog/app-frontend/v3/whats-new/",

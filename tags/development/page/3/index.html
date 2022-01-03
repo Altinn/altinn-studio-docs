@@ -491,6 +491,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
       <li class="dd-item">
+        <a href="/community/contributing/handbook/test/cypress/"><span>Cypress</span></a></li>
+      <li class="dd-item">
         <a href="/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
       <li class="dd-item">
         <a href="/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
@@ -1040,6 +1042,33 @@ if(host != "localhost")
 	
 	   <article class="post community">
     <header class="post-header">
+        <h2 class="post-title"><a href="/community/contributing/handbook/front-end/error-handling/">Error handling</a></h2>
+    </header>
+    <section class="post-excerpt">
+        <p>This page is a work-in-progress. Because we do not have details on how potential errors should be shown to the users, this is only a general overview currently. More details will be added once we have a functional understanding of how users should experience errors. React components Error boundaries Error boundaries are React&rsquo;s official way of handling errors that occur in a component. This functionality is available from React 16. <a class="read-more" href="/community/contributing/handbook/front-end/error-handling/">&raquo;</a></p>
+    </section>
+    <footer class=" footline" >
+         
+        
+
+        
+          
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
+            
+                <a class="label label-default" href="https://docs.altinn.studio/tags/error-handling/">error-handling</a>
+            
+        
+
+    </footer>
+</article>
+
+
+
+
+	
+	   <article class="post community">
+    <header class="post-header">
         <h2 class="post-title"><a href="/community/contributing/handbook/front-end/">Front-end</a></h2>
     </header>
     <section class="post-excerpt">
@@ -1279,38 +1308,6 @@ Methods should not be more than 50 lines long When dealing with XML you should p
 Apply the changes, and restart the pod:
 Option 1: kill the pod and let the deployment spinn up a new pod.
 Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/community/contributing/handbook/loadbalancer/">&raquo;</a></p>
-    </section>
-    <footer class=" footline" >
-         
-        
-
-        
-          
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/development/">development</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/nginx/">nginx</a>
-            
-                <a class="label label-default" href="https://docs.altinn.studio/tags/routing/">routing</a>
-            
-        
-
-    </footer>
-</article>
-
-
-
-
-	
-	   <article class="post community">
-    <header class="post-header">
-        <h2 class="post-title"><a href="/community/contributing/handbook/routing/nginx/">Nginx routing</a></h2>
-    </header>
-    <section class="post-excerpt">
-        <p>Nginx routing The router config is stored as a configmap in our kubernetes cluster, and mounted to the pod as a .conf file. When the config needs to be changed, the changes should be done in the loadbalancer-configmap for the correct environment (dev/prod).
-Apply the changes, and restart the pod:
-Option 1: kill the pod and let the deployment spinn up a new pod.
-Option 2: open a shell into the pod kubectl exec -it [POD_NAME] -- sh and run the command nginx -s reload <a class="read-more" href="/community/contributing/handbook/routing/nginx/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
