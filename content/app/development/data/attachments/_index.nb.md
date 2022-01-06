@@ -43,6 +43,18 @@ Ved å sette '0' på _minst antall filvedlegg_ vil det ikke være påkrevd å la
 Ytterligere konfigurasjoner som kan settes for vedlegg inkluderer: tillatte bidragsytere og beskrivelse.
 Dette gjøres i _applicationMetadata.json_ som ligger under App/config i applikasjonsrepoet.
 
+### Vedleggskomponent med merking
+Det finnes også en egen komponent der man får brukeren til å merke filen med hjelp av en nedtrekksliste.
+Dette settes opp ganske likt som med den vanlige filopplastingskomponenten, med tillegget av en kodeliste-ID og navnet
+man vil gi merkingen. 
+
+![Vedleggskomponenten med merking](vedleggsmerkekom.PNG "Vedleggskomponenten med merking")
+
+
+Her under kan du se den i bruk
+
+![Vedleggskomponenten med merking eksempelvisning](vedleggsmerkekomeks.PNG "Vedleggskomponenten med merking eksempel")
+
 ## Innsending av vedlegg med API-kall
 
 For å legge til rette for å kunne sende inn vedlegg uten å ha støtte for dette i GUI
