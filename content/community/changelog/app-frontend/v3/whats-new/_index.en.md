@@ -3,6 +3,11 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+
+## 3.22.3 (2022-01-06) - Dependency patching
+Patching of external dependencies for week 1 of 2022.
+Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
+
 ## 3.22.2 (2021-12-23) - Bugfix variables in text
 Fixed a bug where variables in text not would get updated after a backend calculation.
 Issue [#7308](https://github.com/Altinn/altinn-studio/issues/7308).

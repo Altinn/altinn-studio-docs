@@ -3,6 +3,11 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+
+## 3.22.3 (2022-01-06) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 1 av 2022.
+Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
+
 ## 3.22.2 (2021-12-23) - Fikset feil med variabler i tekst
 Fikset en feil hvor variabler i tekst ikke ville bli oppdatert etter en backend kalkulering.
 Issue [#7308](https://github.com/Altinn/altinn-studio/issues/7308).
