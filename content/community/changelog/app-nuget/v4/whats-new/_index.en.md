@@ -4,6 +4,10 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
+
+The integration point used for sending instance data through eFormidling now 
+required a valid access token. Apps now fulfill all requirements of the integration point.
 
 ## 4.21.0 (2021-12-01) - Added support for saving username for instance owner
 
