@@ -4,7 +4,7 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
-## 3.22.3 (2022-01-06) - Oppdaterte avhengigheter
+## 3.22.3 (2022-01-07) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 1 av 2022.
 Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
 
