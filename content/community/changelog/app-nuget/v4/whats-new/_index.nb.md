@@ -8,7 +8,7 @@ tags: [translate-to-norwegian]
 ## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
 
 Integrasjonspunktet som benyttes for å sende instansdata via eFormidling
-krever nå et gylig tilgangstoken. Applikasjonstemplaten er nå oppdatert til å 
+krever nå et gyldig tilgangstoken. Applikasjonstemplaten er nå oppdatert til å 
 fylle alle krav for integrasjonspunktet.
 
 ## 4.21.0 (2021-12-01) - Støtte for lagring av brukernavn for instanseier
