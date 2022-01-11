@@ -51,7 +51,9 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
-hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:
+hvor feltet er definert i JSON schema. JSON schema filen ligger i mappen `App/models` og følger navne standard `*.schema.json`. 
+
+F.eks., man kan utvide eksempelet over:
 
 ```json  {hl_lines=[4]}
 "someField": {
