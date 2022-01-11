@@ -1,34 +1,33 @@
 ---
 title: eFormidling
-description: Hvordan konfigurere eFormidling integrasjon for en app.
+description: How to configure integration with eFormidling for an app.
 toc: true
 weight: 400
 ---
 
-## Aktivere integrasjon med eFormidling i applikasjonen din
+## Activate eFormidling integration for your application
 
 {{%notice info%}}
-For at applikasjonen din skal kunne sende instansdata videre til eFormidling må den referere til nugetversjon >= 4.22.0.
-Se hvordan du oppdaterer nugetreferanser for applikasjonen din [her](../update/#nuget-pakker).
+Nuget versions >= 4.22.0 are required for your application to support eFormidling.
+[See how to update the nuget references of your application here](../update/#nuget-pakker).
 {{% /notice%}}
 
-Dersom man har behov for integrasjon med eFormidling i applikasjonen må dette aktiveres.
+Integration with eFormidling needs to be explicitly activated in the application. 
 
-I filen `appsettings.json` i mappen _App_ må følgende legges til i seksjonen _AppSettings_
+In the file `appsettings.json` in th efolder _App_, the following must be added to the _AppSettings_ section.
 
 ```json
 "EnableEFormidling":  true
 ```
 
-I tillegg må det i samme fil opprettes en ny seksjon; _EFormidlingClientSettings_.
-Innholdet i kodesnutten nedenfor kan kopieres i sin helhet.
-Denne setter opp url til integrasjonspunktet.
-Lenken peker på mocken som kan kjøres opp lokalt.
-Les mer om oppsettet av eFormidlings mocken [her](#-Kjøring-med-eFormidling-mock-lokalt).
+In addition, continuing in the same file, a new section; _EFormidlingClientSettings_ should be added.
+The contents of the code snippet below can be copied in its entirety. 
+This sets up the url for the integation point.
+The link points to the mock that can be ran locally. 
+[Read more about setting up the local mock for the integration point here](#-Kjøring-med-eFormidling-mock-lokalt).
 
-Når en app deployes til test eller produksjon vil denne verdien overskrives
-og peke mot integrasjonspunktet i Altinn Platform.
-
+When an application is deployed to TT02 or production,
+this value will be substituted to point to the integration point hosted in Altinn Platfor.
 
 ```json
 "EFormidlingClientSettings": {
@@ -36,9 +35,10 @@ og peke mot integrasjonspunktet i Altinn Platform.
  }
 ```
 
-Dersom det ikke er ønskelig å teste integrasjonen med eFormidling når man kjører applikasjonen lokalt kan man overstyre
-denne konfigurasjonen i `appsettings.Development.json`.
-Opprett _AppSettings_ seksjonen dersom den ikke finne og sett `EnableEFormidling` til false.
+In the case you do not wish to test the eFormidling integration when running your app locally, 
+you can overide this configuration in  `appsettings.Development.json`.
+
+Create the section _AppSettings_, if it does not already exist, and set `EnableEFormidling` to false.
 
 ```json
 "AppSettings": {
@@ -46,24 +46,94 @@ Opprett _AppSettings_ seksjonen dersom den ikke finne og sett `EnableEFormidling
 }
 ```
 
+## Adding support for eForimdling in App.cs
+
+Neste steg for å få støtte for eFormidling i tjenesten din er å tilgjengeliggjøre services som appen behøver.
+Endringene skal alle gjøres i filen `App.cs` som ligger i mappen `App/logic`.
+
+Øverst i filen, blant bibliotekreferansene legges disse tre linjene til.
+
+```cs
+using Altinn.Common.EFormidlingClient.Models;
+using Altinn.Common.EFormidlingClient;
+using Altinn.Common.AccessTokenClient.Services;
+```
+
+Videre skal vi injecte services i konstruktøren til både klassen og base klassen. 
+
+Konstruktøren vil se ut som eksempelet nedenfor, men hvilke services som sendes med kan variere fra tjeneste til tjeneste,
+så her er kun et eksempel på det vanligste oppsettet.
+
+```cs
+public App(
+IAppResources appResourcesService,
+(...)
+IHttpContextAccessor httpContextAccessor):base(
+appResourcesService,
+(...)
+httpContextAccessor)
+```
+
+Listen med services i konstruktøren skal utvides med de fire servicene vist nedenfor.
+
+```cs
+IEFormidlingClient eformidlingClient,
+IOptions<AppSettings> appsettings,
+IAccessTokenGenerator tokenGenerator,
+IOptions<PlatformSettings> platformSettings
+```
+
+Videre skal disse servicene sendes med videre til baseklassen, da er det kun navnene som sendes med og ikke typene.
+
+```cs
+eformidlingClient,
+appsettings,
+platformSettings,
+tokenGenerator
+```
+
+Endelig resultalt skal se slik ut:
+
+```cs
+public App(
+IAppResources appResourcesService,
+(...)
+IHttpContextAccessor httpContextAccessor,
+IEFormidlingClient eformidlingClient,
+IOptions<AppSettings> appsettings,
+IAccessTokenGenerator tokenGenerator,
+IOptions<PlatformSettings> platformSettings):base(
+appResourcesService,
+(...)
+httpContextAccessor,
+eformidlingClient,
+appsettings,
+platformSettings,
+tokenGenerator)
+````
+
 ## Konfigurere nøkkelverdier for eFormidling i applikasjonen din
 
 Det kreves en del metadata om eFormidlingsforsendelsen og denne defineres i `applicationmetadata.json`.
 Filen finner du i repoet under mappen `App/config`.
 
-Opprett en ny seksjon `eFormidling` og fyll ut verdier for følgende parametre.
+Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 
 | Id              | Beskrivelse                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| serviceId       |                                                                                                            |
-| process         | prosessId som settes på scopet i StandardBusinessDocumentHeader                                            |
-| dataTypes       | Liste id for data typer som skal legges ved forsendelsenn                                                  |
+| serviceId       | Id som spesifiserer type forsendelse DPO, DPV, DPI eller DPF*                                              |
+| process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                 |
+| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsenn                                           |
 | sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |                                                    |
 | receiver        | Organsisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
 | standard        | DocumentIdentification standard                                                                            |
 | type            | DocumentIdentification type                                                                                |
 | typeVersion     | DocumentIdentification type versjon                                                                        |
 | securityLevel   | Sikkerhetsnivå som settes på StandardBusinessDocument                                                      |
+
+\* per Januar 2022 støttes kun DPF.
+
+\** tilgjengelige prosesser for mottaker er tilgjengelig på https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
 
 
 Et eksempel for en konfigurasjon i application metadata:
@@ -85,7 +155,7 @@ Et eksempel for en konfigurasjon i application metadata:
 ## Generering av metadata til forsendelsen i applikasjonen
 
 Apputvikler er selv ansvarlig for å sette opp arkivmeldingen til en forsendelse som skal via eFormidling.
-Dette gjøres ved å legge til funksjonen nedenfor i App.cs.
+Dette gjøres ved å legge til funksjonen nedenfor i `App.cs`.
 
 Forventet output fra denne metoden er en tuppel som inneholder navnet på metadatafilen som første element
 og en stream med metadataen som andre element.
@@ -108,12 +178,12 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 }
 ```
 
-## Sette mottaker for forsendelse i applogikken
+## Sette mottaker for forsendelse i applikasjonslogikken
 
 I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra `applicationmetadata.json`.
-Denne funksjonaliteten kan benyttes dersom dataen skal sendes til ulike mottakere basert på input fra slutbruker i skjemaet.
+Denne funksjonaliteten kan benyttes dersom mottaker av forsendelsen skal avgjøres dynamisk.
 
-Det må tre steg til for å sette mottaker i applogikken, og alle endringer gjøres i `App.cs` finnes i repoet under `App/logic`
+Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endringer gjøres i `App.cs`.
 
 1. Øverst i filen må det legges til en referanse til eFormidlings biblioteket.
 
@@ -140,9 +210,10 @@ Det må tre steg til for å sette mottaker i applogikken, og alle endringer gjø
     }
     ```
 
-3. Legg til egen logikk for å populere `identifier.Value` i fiksjonen.
-   Merk at det kun er norske organisasjonsnummer som støttes som mottaker per September 2021,
+3. Legg til egen logikk for å populere `identifier.Value` i funksjonen.
+   Merk at det kun er norske organisasjonsnummer som støttes,
    og at prefiksen `0192:` er påkrevd før organisasjonsnummeret.
+
 
 ## Lokal test av applikasjon med eFormidling
 
@@ -155,7 +226,7 @@ I tillegg til Altinn Localtest og applikasjonen er det to ting som må kjøre:
 
 1. Installer siste verjson av Java.
 
-   Finn nedlastingslenke og beskrivelse av nødvendige steg [her](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
+   [Finn nedlastingslenke og beskrivelse av nødvendige steg her](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
 2.  Det skal nå lastes ned en rekke filer. Finn en egnet plassering for eFormidling lokalt på maskinen din og navigér dit i en terminal.
 3.  Klon repoet som inneholder eFormidling mocken med følgende commando
 
@@ -163,7 +234,8 @@ I tillegg til Altinn Localtest og applikasjonen er det to ting som må kjøre:
     git clone --branch development https://github.com/felleslosninger/efm-mocks.git
     ```
 
-4. Last ned integrasjonspunktet [herfra](https://docs.digdir.no/eformidling_download_ip.html). Dette kan plasseres på samme nivå som mappen `efm-mocks`.
+4. [Last ned integrasjonspunktet herfra](https://docs.digdir.no/eformidling_download_ip.html). Dette kan plasseres på samme nivå som mappen `efm-mocks`.
+   
 
 #### Kjøre eFormidling lokalt
 
