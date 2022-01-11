@@ -5,6 +5,61 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
+
+Integrasjonspunktet som benyttes for å sende instansdata via eFormidling
+krever nå et gyldig tilgangstoken. Applikasjonstemplaten er nå oppdatert til å 
+fylle alle krav for integrasjonspunktet.
+
+## 4.21.0 (2021-12-01) - Støtte for lagring av brukernavn for instanseier
+
+Dersom en selvidentifisert bruker instansierer en instans vil dere brukernavn lagres i metadataen for instanseier.
+
+## 4.20.0 (2021-11-18) - Støtte for egendefinert redirect URL når man avslutter appen
+
+Lagt til støtte for ett spesifikt query parameter (returnUrl) for å videresende brukeren til den spesifiserte URLen når
+brukeren avslutter appen ved å trykke på avslutt-knappen i Altinn 3 appen.
+[Les mer om dette her](../../../../../../../app/development/configuration/queryparameters)   
+
+Relatert til [7183](https://github.com/Altinn/altinn-studio/issues/7183)
+
+## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
+
+Lagt til støtte for å instansiere en applikasjon basert på en arkivert instans.
+[Det nye endepunktet er dokumentert her](../../../../../api/apps/instances). 
+Merk at støtte for kopiering av instans i meldingsboksen og konfigurasjon av funksjonaliteten via Altinn Studio enda er under utvikling.
+
+Relatert til [6695](https://github.com/Altinn/altinn-studio/issues/6695)
+
+
+## 4.18.0 (2021-11-10) - Støtte for OIDC konfigurasjon i App
+
+Lagt til støtte for å konfigurere opp en spesifikk OIDC provider for en app.
+
+Relatert til [7173](https://github.com/Altinn/altinn-studio/issues/7173)
+
+## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
+
+It is now possible to instantiate with keyValue prefill through a new instantiation API.
+
+You can also use prefill in custom code. This will require that the app implements the latest version of `App.cs` which includes the following method
+
+```c#
+  public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+           await _instantiationHandler.DataCreation(instance, data, prefill);
+        }
+```
+
+And the latest `InstansiationHandler.cs` with the method signature
+
+```c#
+  public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            await Task.CompletedTask;
+        }
+```
+
 ## 4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer
 
 Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.

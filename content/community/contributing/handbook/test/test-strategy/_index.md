@@ -19,16 +19,16 @@ A good end-to-end test tool has the same requirements as tooling and frameworks 
 After a discussion internally in the tjenester 3.0 team, these tools and frameworks have been decided to be put to use for testing
  - Unit testing: Jest / Enzyme / xUnit
  - Integration testing: Jest / Sinon
- - Regression testing: Testcafe 
+ - Regression testing: Cypress 
 
-The chosen tool set has been chosen for their ease of integration into the exisiting codebase, and also because they are all open source tools. Testcafe also gives the possibility of recording tests, with a paid license, the testcafe framework and UI test project will be the responsibility of the test developer in the team. Developers write unit and integration tests by using Jest and xUnit. See the other pages under test in this handbook for more information on how to effectively write unit tests or regression tests.
+The chosen tool set has been chosen for their ease of integration into the exisiting codebase, and also because they are all open source tools. Cypress also gives the possibility of recording tests with cypress dashboard, the test framework and UI test project will be the responsibility of the test developer in the team. Developers write unit and integration tests by using Jest and xUnit. See the other pages under test in this handbook for more information on how to effectively write unit tests or regression tests.
 
 Documentation for the mentioned tools can be found below:  
  - [xUnit](https://xunit.github.io/)
  - [Jest](https://jestjs.io/)  
  - [Enzyme](http://airbnb.io/enzyme/)  
  - [Sinon](https://sinonjs.org/)  
- - [Testcafe](https://testcafe.devexpress.com/)  
+ - [Cypress](https://www.cypress.io/)  
 
 
 ### Test in the first MVP delivery
@@ -53,7 +53,7 @@ To be be able to easily and effectively test on all levels, it can be necessary 
 During sprint planning, the product owner, the developers, and the test developer agree on an approach for teting on individual user stories that are pulled into the sprint. A plan is then created for how the responsible role will test the required functionality, and sub tasks are created on the different user stories. It is possible, and likely, that a user story will contain tasks to develop tests on all the testing levels specified above. When a test is written and completed, it can be integrated into a testing build. 
 
 **Naming convention for element ids'**
-Testcafe's test api has different methods of instantiating Selector objects that can be then used in tests. The easiest and most robust method of defining a selector in testcafe is with a css id selector. The idea behind using css id's is to avoid finding elements by their relative location in the DOM, or by the element's inner texts, as tests become brittle with these selectors due to design changs. The id's must be unique, to ensure the uniqueness of a Selector, the following naming convention for element id's is proposed: Id's must be tekstbased and written in camelCase, id's follow a logical location the Altinn Studio system, such as; "Pagelocation Submenu Elementtype Descriptiveword". The text box element id under the GUI creator could then be assigned the following id: "designerSkjemakomponenterKnappTekstområde".
+Cypress has different methods of getting elements from the DOM. The easiest and most robust method of defining a selector is with a css id selector. The idea behind using html-id's is to avoid finding elements by their relative location in the DOM, or by the element's inner texts, as tests become brittle with these selectors due to design changs. The id's must be unique, to ensure the uniqueness of a Selector, the following naming convention for element id's is proposed: Id's must be tekstbased and written in camelCase, id's follow a logical location the Altinn Studio system, such as; "Pagelocation Submenu Elementtype Descriptiveword". The text box element id under the GUI creator could then be assigned the following id: "designerSkjemakomponenterKnappTekstområde".
 
 
 ## Building and deploying testcode

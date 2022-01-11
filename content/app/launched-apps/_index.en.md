@@ -6,7 +6,11 @@ weight: 800
 ---
 
 
-
+## November 2021
+- Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).  
+_Official launch at a later time. Thus info and links are not yet available._
+- Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).  
+_Official launch at a later time. Thus info and links are not yet available._
 ## June 2021
 - Forhåndsgodkjenning av innreise for kjærestebesøk (UDI).  
   [Info](https://www.udi.no/om-koronasituasjonen/innreise-og-opphold/jeg-er-i-norge/besok-av-kjaereste/) | [Repo](https://altinn.studio/repos/udi/kjaerestebesok/) | [App](https://udi.apps.altinn.no/udi/kjaerestebesok/)

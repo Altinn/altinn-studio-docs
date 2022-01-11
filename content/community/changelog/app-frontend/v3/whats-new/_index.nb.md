@@ -2,8 +2,119 @@
 title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
-tags: [translate-to-norwegian]
 ---
+
+## 3.22.3 (2022-01-07) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 1 av 2022.
+Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
+
+## 3.22.2 (2021-12-23) - Fikset feil med variabler i tekst
+Fikset en feil hvor variabler i tekst ikke ville bli oppdatert etter en backend kalkulering.
+Issue [#7308](https://github.com/Altinn/altinn-studio/issues/7308).
+
+## 3.22.1 (2021-12-23) - Fikset feil for manglende rettigheter i stateless view
+Fikset en feil hvor manglende rettigheter ville resultere i en generisk feilmelding og ikke feilmelding om manglende rettigheter.
+Issue [#6514](https://github.com/Altinn/altinn-studio/issues/6514).
+
+## 3.22.0 (2021-12-22) - Flere muligheter til å skreddersy repeterende gruppe
+La til flere muligheter til å overstyre tekster og skjule "legg til" knappen for repeterende gruppe.
+Issue [#7164](https://github.com/Altinn/altinn-studio/issues/7164).
+
+## 3.21.1 (2021-12-17) - Fikset feil med validering på task
+Fikset en feil hvor feilmeldinger satt i `ValidateTask` i `ValidationHandler.cs` ikke ble vist til bruker.
+Issue [#7333](https://github.com/Altinn/altinn-studio/issues/7333).
+
+## 3.21.0 (2021-12-17) - Mulighet for å bruke h2, h3 og h4 for størrelse i header komponenten i FormLayout
+Det er nå mulig å bruke h2, h3 og h4, istedenfor S, M og L som verdier for størrelse i header komponenten.
+Issue [#7611](https://github.com/Altinn/altinn-studio/issues/7611).
+
+## 3.20.1 (2021-12-16) - Fikset feil i adressekomponenten
+Fikset en feil hvor adressekomponenten kræsjet uventet for tomme verdier.
+Issue [#7658](https://github.com/Altinn/altinn-studio/issues/7658).
+
+## 3.20.0 (2021-12-14) - Støtte for egendefinert OIDC provider
+La til støtte i frontend for at Altinn.Apps kan ha ulike OIDC provider.
+Issue [#7173](https://github.com/Altinn/altinn-studio/issues/7173).
+
+## 3.19.2 (2021-12-09) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 49.
+Issue [#7590](https://github.com/Altinn/altinn-studio/issues/7590).
+
+## 3.19.1 (2021-12-09) - Endringer i bilde komponent
+Flere endringer for bilde-komponenten.
+Issue [#7484](https://github.com/Altinn/altinn-studio/issues/7484).
+
+## 3.19.0 (2021-12-06) - Starte instans fra stateless visning
+Støtte for å starte en data instans fra stateless visning innad i samme applikasjon.
+Issue [#6196](https://github.com/Altinn/altinn-studio/issues/6196).
+
+## 3.18.4 (2021-12-03) - Optimalisering for mobil visning
+Tilbakestilte endring av maxWidth fra versjon 3.18.3 da dette skapte trøbbel med fokus-visning på større skjermer.
+Issue [#7588](https://github.com/Altinn/altinn-studio/pull/7588).
+
+## 3.18.3 (2021-12-01) - Optimalisering for mobil visning - bredde
+Fikset maxWidth for input-komponenter og  for address component.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.2 (2021-11-30) - Optimalisering for mobil visning - luft
+Forbedret luft for tittel og paragraf-komponentene.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.1 (2021-11-30) - Optimalisering for mobil visning - bredde
+Endret maxWidth på valideringsmeldinger fra auto til none.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.0 (2021-11-29) - Støtte for labelgrid
+La til støtte for labelGrid i grid som muliggjør lengre lister med korte spørsmål og svar som kan bli presentert i en tabell-liknende visning.
+Issue [#7027](https://github.com/Altinn/altinn-studio/pull/7027).
+
+## 3.17.1 (2021-11-24) - Bugfiks DataProcessWrite.
+Fikset en feil hvor numeriske felter som ble satt i DataProcessWrite ikke ble oppdatert i skjema om verdien var 0.
+Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).
+
+## 3.17.0 (2021-11-24) - Optimalisering for mobilvisning
+La til forbedringer i måten skjema ser ut på mobil.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.16.0 (2021-11-24) - Endret ikon for hjelpetekst.
+Endret hjelpetekst ikonet fra plus til spørsmålstegn.
+Issue [#5722](https://github.com/Altinn/altinn-studio/issues/5722).
+
+## 3.15.1 (2021-11-18) - Ugyldige typer for reselect
+Fikset ugyldige typer for reselect.
+Pull request [#7502](https://github.com/Altinn/altinn-studio/pull/7502).  
+
+## 3.15.0 (2021-11-15) - Støtte for returnUrl
+La til støtte for returnUrl i app-frontend.
+Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
+
+## 3.14.2 (2021-11-11) - Oppdatering av jsonpointer
+Oppdaterte ekstern avhenghighet jsonpointer.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.1 (2021-11-11) -  Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 45.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.0 (2021-11-08) - "today"-flagg for datovelger min/max datoer
+La til et flag for å dynamisk kunne styre min/max datoer basert på dagens dato.
+Issue [#7228](https://github.com/Altinn/altinn-studio/issues/7228).
+
+## 3.13.6 (2021-11-04) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 44.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.13.5 (2021-10-28) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 43.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.4 (2021-10-22) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 42.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.3 (2021-10-15) - Høyrejustere tekst i inputfelter
+La til funksjonalitete for å høyrejustere tekst i inputfelter.
+Pull request [#7034](https://github.com/Altinn/altinn-studio/pull/7034).
 
 ## 3.13.2 (2021-10-14) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 41.

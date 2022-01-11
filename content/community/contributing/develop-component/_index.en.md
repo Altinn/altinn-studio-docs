@@ -1,40 +1,43 @@
 ---
 title: Develop a component
-description: Start gjerne utviklingen av ny funksjonalitet eller nye komponenter som er godkjent av Altinn. Vi setter pris på om du planlegger arbeidet ditt med oss før du begynner. 
+description: We'd love if you start developing functionality or new components that Altinn has approved. We do however appreciate if you plan your work together with us before starting. 
 weight: 40
-tags: [translate-to-english]
 ---
 
-Før du starter utvikling av ny funksjonalitet kan det være lurt å sjekke om oppgaven allerede ligger i backloggen vår. 
-Om du ikke finner den vil vi gjerne at du først [foreslår ønsket funksjonalitet/komponent](../propose-component/) 
-og starter en dialog med oss før utviklingen starter.
+Before you start developing new functionality, it's a good idea to check if the task is already in our backlog.
+If you can't find it, we appreciate if you [propose your wanted component/functionality](../propose-component/) 
+and enter into dialoge with us before starting.
 
-![Contributing process](contribute-develop.svg "Ønsket forløp når nye komponenter skal utvikles")
+![Contributing process](contribute-develop-en.svg "The preferred process when components are developed")
 
-Vi stiller samme krav til eksterne bidrag som vi gjør til vår egne. Før utviklingen starter vil vi derfor gjerne 
-være med å spesifisere hvordan komponenten skal løses både når det gjelder design og tekniske beslutninger. Det beste for å få til en bra 
-flyt er en dialog.
+We apply the same criteria to externally developed components and functionality as we do with our own. Before developing
+starts, we thus would like to be included in specifying how the component should be designed, both functionally and technically.
+To achieve a nice workflow for developing, dialogue is essential.
 
-**I dialog med deg vil vi:**
-- Finne ut hva komponenten skal dekke og diskutere løsningen
-- Er det mangler i designskisser eller teknisk løsning som må utbedres
-- Trenger du hjelp med design eller brukertesting
+**In this dialogue we will:**
 
-## Utviklingshåndbok
-All informasjon du trenger for komme i gang finner du i vår [utviklingshåndbok](../handbook/). Håndboken inneholder blant annet
-informasjon du trenger for å skrive [konsistent kode](/community/contributing/handbook/front-end/routine/) og [bygge nye komponenter](/community/contributing/handbook/front-end/new-component/).
+- Discover what needs the component should meet, and discuss the solution
+- Identify any shortcomings in the design or technical solution that needs to be overcome
+- Decide if we should help you with design or user testing
 
-## Tilgjengelighetstest
-Apper bygget på Altinn 3 skal være tilgjengelig for alle og for å forsikre oss om dette skal vi oppfylle 
-WCAG 2.1 rettningslinjene. Se kravene beskrevet på [UU-tilsynet](https://www.uutilsynet.no/regelverk/testprosedyrar-nettstader/709) 
-eller [a11yproject](https://www.a11yproject.com/checklist/).
-## Review av komponent
-Når en pull request blir laget vil vi gjøre en review av komponenten din. Forhåpentligvis har vi blitt 
-enige om hvordan komponenten skal løses på forhånd slik at ikke de store endringene blir i denne delen av prosessen. 
+## Development handbook
+All information you need to get started is included in our [development handbook](../handbook/). The handbook includes
+information on how to write [consistent code](/community/contributing/handbook/front-end/routine/) and [build new components](/community/contributing/handbook/front-end/new-component/).
+
+## Accessability testing
+
+Apps built on Altin 3 must be accessible for everyone, and to ensure that this is the case we follow the
+WCAG 2.1 guidelines. Please see the demands described at [the Norwegian Authority for Universal Design of ICT](https://www.uutilsynet.no/english/checking-your-own-website/916) 
+or [a11yproject](https://www.a11yproject.com/checklist/).
+
+## Review of component
+
+When a pull request is made we will do a review of your component. Hopefully we have already agreed
+how the component should be made before development started, thus reducing the need for large changes at this stage.
 
 - Testing
-- WCAG-testing
+- WCAG testing
 - Code review
 - Design review
 
-Dersom vi finner noe som bør utbedres kontakter vi deg for videre utvikling. 
+If we do find something that needs improvement, we will contact you about further development.

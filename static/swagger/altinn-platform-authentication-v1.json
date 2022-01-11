@@ -31,7 +31,16 @@
               "description": "The url to redirect to if everything validates ok",
               "nullable": true
             }
-          }
+          },
+          {
+            "name": "dontChooseReportee",
+            "in": "query",
+            "description": "Parameter to indicate disabling of reportee selection in Altinn Portal.",
+            "schema": {
+              "type": "boolean",
+              "description": "Parameter to indicate disabling of reportee selection in Altinn Portal."
+						}
+					}
         ],
         "responses": {
           "200": {
@@ -84,6 +93,53 @@
         }
       }
     },
+    "/introspection": {
+      "post": {
+        "tags": [
+          "Introspection"
+        ],
+        "summary": "Validate token.",
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Token": {
+                    "type": "string",
+                    "description": "The JWT access token"
+                  },
+                  "TokenTypeHint": {
+                    "type": "string",
+                    "description": "The token type hint"
+                  }
+                }
+              },
+              "encoding": {
+                "Token": {
+                  "style": "form"
+                },
+                "TokenTypeHint": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IntrospectionResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/openid/.well-known/openid-configuration": {
       "get": {
         "tags": [
@@ -111,5 +167,24 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "schemas": {
+      "IntrospectionResponse": {
+        "type": "object",
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "Gets or sects the active property indicating if the request token was valid"
+          },
+          "iss": {
+            "type": "string",
+            "description": "Gets or sets the issuer of the validated request token.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Introspection response object"
+      }
+    }
+  }
 }

@@ -17,11 +17,11 @@ aliases:
       <th>Default look</th>
     </tr>
     <tr>
-      <td>Title</td>
+      <td>Title<br>("Header" in json)</td>
       <td>
         <ul>
-          <li>Title text</li>
-          <li>Title type (H2, H3, H4)</li>
+          <li>Title text<br/>(text in json)</li>
+          <li>Title type H2, H3, H4<br/>("L" or "h2", "M" or "h3", "S" or "h4" in json)</li>
       </td>
       <td><img alt="Title component - edit properties" src="props-title.png?width=700" title="Title component - edit properties" /></td>
       <td><img alt="Title component - default look" src="display-title.png?width=700" title="Title component - default look" /></td>

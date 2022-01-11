@@ -51,7 +51,9 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
-hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:
+hvor feltet er definert i JSON schema. JSON schema filen ligger i mappen `App/models` og følger navne standard `*.schema.json`. 
+
+F.eks., man kan utvide eksempelet over:
 
 ```json  {hl_lines=[4]}
 "someField": {
@@ -117,6 +119,8 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 ```
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
+
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte. 
 
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.
 

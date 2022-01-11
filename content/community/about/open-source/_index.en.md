@@ -3,6 +3,8 @@ title: Altinn and open source
 linktitle: Open source
 description: Altinn 3 is open source with an open backlog, open documentation and open dialogue and discussions.
 toc: true
+aliases:
+ - /open-source
 ---
 
 There are many who have noticed that Altinn has chosen a new and very open direction in recent years.

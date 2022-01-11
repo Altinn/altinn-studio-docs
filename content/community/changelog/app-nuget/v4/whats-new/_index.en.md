@@ -4,6 +4,63 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
+
+The integration point used for sending instance data through eFormidling now 
+required a valid access token. Apps now fulfill all requirements of the integration point.
+
+## 4.21.0 (2021-12-01) - Added support for saving username for instance owner
+
+If a self indentified user instansiates an instance, their username is saved in the instance owner metadata. 
+
+Added Api in App to expose XACML Policy and BPMN Process
+
+## 4.20.0 (2021-11-18) - Added support for custom redirect URL when exiting an app
+
+The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
+can be used to redirect the user to that URL when the user clicks on the exit icon in an Altinn 3 app. 
+[Read more about it here](../../../../../../../app/development/configuration/queryparameters)   
+
+Related to [7183](https://github.com/Altinn/altinn-studio/issues/7183)
+
+## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
+
+The app template now supports the instantiation of an app based on a copy of an archived instance. 
+[The new endpoint is documented here](../../../../../api/apps/instances). Note that support for copying an app in the message box and configuration 
+of the application through Altinn Studio is still under development.
+
+Related to [6695](https://github.com/Altinn/altinn-studio/issues/6695)
+
+## 4.18.0 (2021-11-10) - Added support for OIDC configuration
+
+You can now configure a specific OIDC provider in app.
+
+Related to [7173](https://github.com/Altinn/altinn-studio/issues/7173)
+
+
+## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
+
+It is now possible to instantiate with keyValue prefill through a new instantiation API.
+
+You can also use prefill in custom code. This will require that the app implements the latest version of `App.cs` which includes the following method
+
+```c#
+  public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+           await _instantiationHandler.DataCreation(instance, data, prefill);
+        }
+```
+
+And the latest `InstansiationHandler.cs` with the method signature
+
+```c#
+  public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+        {
+            await Task.CompletedTask;
+        }
+```
+
+
 ## 4.16.0 (2021-10-07) - Added API for tagging of data elements
 
 It's now possible to save tags on a data element. To support this there are 3 new API endpoints for listing existing tags, adding a tag, and to remove a tag from a data element.

@@ -25,6 +25,7 @@ The Application model is the main model for metadata for the application.
 | presentationFields     | A collection of presentation fields. See [PresentationField](#presentationfield). Currently not in use.                                                                                                                  |
 | dataFields             | A collection of data fields. See [DataField](#datafield).                                                                                                                                                                |
 | eFormidling            | The configuration for the eFormidling integration for the application. See [eFormidlingContract](#eFormidlingContract).                                                                                                  |
+| messageBoxConfig       | A collection of configurations related to the Altinn Message box                                                                                                                                                         |
 
 ## DataType
 
@@ -67,8 +68,6 @@ PartyTypesAllowed contains a set of values indicating the type of owners an inst
 
 ## PresentationField
 
-This type is used by a feature still in development. 
-
 PresentationField represents a form field extraction rule. Every time a form is being saved the presentation field rules will be applied and any values from the form will be stored directly on the instance. This can later be used to present instance specific data in places like the portal message box. The purpose is to make it easier to identify a specific instance in a list with many almost identical instances.
 
 | Name       | Description                                               |
@@ -90,10 +89,10 @@ DataField represents a form field extraction rule. Every time a form is being sa
 
 ## eFormidlingContract
 
-This type is used by a feature still in development. 
+This type is used by a feature still in development.
 
-eFormidlingContract holds the configuration of the eFormidling integration for the application. 
-An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for every instance that is created. 
+eFormidlingContract holds the configuration of the eFormidling integration for the application.
+An application configured to enable eFormidling integration in combination with the eFormidiling contract will send a shipment to eFormidling for every instance that is created.
 
 | Name            | Description                                                                                                                                          |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -106,6 +105,24 @@ An application configured to enable eFormidling integration in combination with 
 | standard        | The document standard e.g. urn:no:difi:arkivmelding:xsd::arkivmelding                                                                                |
 | securityLevel   | The security level to be set on the standard business document                                                                                       |
 | dataTypes       | A list of the dataTypes to be included in the shipment. Data type for both form data and attachments should be listed to be included in the shipment |
+
+## messageBoxConfig
+
+MessageBoxConfig holds configurations related to the presentation of instances in the Altinn MessageBox.
+
+| Name            | Description                                                     |
+| --------------- | ----------------------------------------------------------------|
+| hideSettings    | The settings related to hiding an instance from the message box |
+
+### hideSettings
+
+Only one of the two settings should be used at a time.
+
+| Name          | Description                                                              |
+| ------------- | -------------------------------------------------------------------------|
+| hideAlways    | A boolean indicating that the instance should always be hidden           |
+| hideOnTask    | A list of tasks where the instance should be hidden from the message box |
+
 
 ## Complete example
 
@@ -161,6 +178,11 @@ This is a complete app metadata document with data types.
         "organisation": true,
         "person": true,
         "subUnit": true
+    },
+    "messageBoxConfig":{
+        "hideSettings":{
+            "hideOnTask":["Task_3"]
+        }
     },
     "autoDeleteOnProcessEnd": false,
     "created": "2020-07-17T08:26:21.5707559Z",

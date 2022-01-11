@@ -50,9 +50,12 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 | required  | 'Feltet er påkrevd'           | 'Feltet er påkrevd'           | 'Field is required'                   |
 | enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
 
-### Egendefinerte feilmeldinger
-Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
-hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:
+### Custom error messages
+It is possible to define custom error messages that will be displayed when a field doesn't pass the validation check. 
+This is done by including a parameter `errorMessage` where the field is defined in the JSON schema. 
+The JSON schema file is in the folder `App/models` and has a naming patterns as follows; `*.schema.json`,
+
+An example of how the extend the example previously presented with a custom error message:
 
 ```json  {hl_lines=[4]}
 "someField": {
@@ -62,11 +65,12 @@ hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:
 }
 ```
 
-Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte.
+The error text can be included directly. To enable language support, add a text key for a [text defined in the resource files](../../ux/texts).
 
 {{% notice warning %}}
-Merk at ved XSD-endringer, så vil ev. egendefinerte feilmeldinger forsvinne da JSON schema filen genereres på nytt fra XSD. På sikt er det tenkt at 
-det å sette opp egendefinerte feilmeldinger skal være mulig å gjøre via datamodelleringsverktøyet i Altinn Studio. Per nå må dette gjøres manelt.
+Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
+In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. 
+But for now, this ia manual job.
 {{% /notice %}}
 
 ## Serverside-validering
@@ -118,6 +122,8 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 ```
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
+
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan man bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte. 
 
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil dersom det har tatt lenger enn 3 dager.
 
