@@ -223,37 +223,40 @@ and all steps are executed in _App.cs_.
    and that the prefix `0192:` is required before the organisation number.
 
 
-## Lokal test av applikasjon med eFormidling
+## Testing eFormidling integration locally
 
-Det er mulig å teste eFormidlingsintegrasjonen i applikasjonen lokalt på utviklingsmiljøet ditt.
-I tillegg til Altinn Localtest og applikasjonen er det to ting som må kjøre:
-1. eFormidling integrasjonspunkt
-2. mock av eFormidling
+It is possible to test the eFormidling integration for an application in
+your development environemnt. 
+In addition to Altinn's Localtest, and the application, there are two things that need to run: 
+1. eFormidling integration point (Integrasjonspunktet)
+2. A mock of eFormidling
 
-### Forberedelser
+### Setup
 
-1. Installer siste verjson av Java.
-
-   [Finn nedlastingslenke og beskrivelse av nødvendige steg her](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
-2.  Det skal nå lastes ned en rekke filer. Finn en egnet plassering for eFormidling lokalt på maskinen din og navigér dit i en terminal.
-3.  Klon repoet som inneholder eFormidling mocken med følgende commando
+1. Install the latest version of Java.
+   [Download link and installation guide is available here](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
+2. In the next steps you will be downloading a number of files.
+   Define a suitable placement for everything eFormidling related on your local machine and navigate there in your terminal.
+3. Clone the eFormidling mock repository with the following command
 
     ```cmd
     git clone --branch development https://github.com/felleslosninger/efm-mocks.git
     ```
 
-4. [Last ned integrasjonspunktet herfra](https://docs.digdir.no/eformidling_download_ip.html). Dette kan plasseres på samme nivå som mappen `efm-mocks`.
+4. [Download the integration point](https://docs.digdir.no/eformidling_download_ip.html). 
+   The contents can be places at the same level as the `efm-mocks` folder.
    
 
-#### Kjøre eFormidling lokalt
+#### Running eFormidling locally
 
-1. Åpne en terminal og navigér til `efm-mocks` (Command prompt eller bash er anbefalt, PowerShell funker ikke. )
-2. Kjør `docker-compose up -d`
-3. Navigér til mappen der integrasjonspunkt-filen ligger
-4. Kjør og kjører kommandoen `java -Xmx2g -Dspring.profiles.active=mock -jar integrasjonspunkt-2.2.0.jar`
-    Dersom du har en nyere versjon av integrasjonspunktet enn `2.2.0`  må kommandoen siste ledd i siste linje justeres for dette.
+1. Open a terminal and nacigate to `efm-mocks` (Command prompt eller bash is reccomended, PowerShell will not work.)
+2. Run `docker-compose up -d`
+3. Navigate to the folder where the integration point file exists.
+4. Run the command `java -Xmx2g -Dspring.profiles.active=mock -jar integrasjonspunkt-2.2.6.jar`
+   If you have a newer version of the integration point, the commands last section should be adjustet to reflect this.
 
-#### Verifiser at eFormidling er satt opp korrekt
+
+#### Verify that eFormidling is set up correctly
 
 Dette steget krever [node og npm](https://www.npmjs.com/get-npm) på maskinen din, men er ikke nødvendig for å bruke mocken.
 
