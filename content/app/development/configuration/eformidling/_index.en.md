@@ -272,11 +272,15 @@ but they are note required to use the mock.
 ## Testing eFormidling integration in a test environment
 
 {{%notice warning%}}
-Thorrough testing for the eFormidling integration in an application is encouraged.
+Thorough testing for the eFormidling integration in an application is encouraged.
 Safety measures and retry mechanisms are in place to ensure that a shipment 
-reaches the receiver when errors are due to weak network connections, 
-but invalid shipments, including but not limited to missing attachments or mistakes in the "arkivmelding",
-vil cause the shipment to fail without explicit warnings for the end user or app owner.
+reaches the receiver when errors are due to weak network connections.
+However, invalid shipments, including but not limited to missing attachments or mistakes in the "arkivmelding",
+vil cause the shipment to fail without explicit warning the end user or app owner.
 {{% /notice%}}
 
+The integration point exposes endpoints that allow you to monitor the status of a shipment. 
+`https://platform.altinn.no/eformidling/api/conversations?messageid={instanceGuid}`
+
+Replace `{instanceGuid}` with the guid of the instance that has been archived.
 

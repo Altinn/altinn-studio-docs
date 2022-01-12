@@ -261,9 +261,15 @@ Les mer om mockløsningen [her](https://github.com/felleslosninger/efm-mocks)
 ## Test av eFormidling integrasjon i testmiljø
 
 {{%notice warning%}}
-Det oppfordres sterkt til grundig testing av eFormidlingsintegrasjonen i applikasjonene.
+Det oppfordres til grundig testing av eFormidlingsintegrasjonen i applikasjonene.
 Det er lagt inn sikringer og retry mekanismer for å få en forsendelse fram til
-mottaker dersom feil skyldes svakheter i nettverksforbindelse,
-men ugyldige forsendelser, herunder manglende vedlegg eller feil i arkivmelding, vil forsendelsen feile uten eksplisitt varsling
-til sluttbruker eller tjenesteeier.
+mottaker dersom feil skyldes svakheter i nettverksforbindelse.
+I tilfellet ugyldige forsendelser, herunder manglende vedlegg eller feil i arkivmelding,
+vil forsendelsen feile uten eksplisitt varsling til sluttbruker eller tjenesteeier.
 {{% /notice%}}
+
+Integrasjonspunktet eksponerer endepunkter der man kan følge statusen for en forsendelse. 
+`https://platform.altinn.no/eformidling/api/conversations?messageid={instanceGuid}`
+
+Bytt ut `{instanceGuid}` med guiden til instansen som er blitt innsendt.
+
