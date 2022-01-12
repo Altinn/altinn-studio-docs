@@ -1108,18 +1108,21 @@ input er en tekst med lengde mer enn 4 karakterer.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="egendefinerte-feilmeldinger">Egendefinerte feilmeldinger</h3>
-<p>Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter <code>errorMessage</code> der 
-hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:</p>
+<h3 id="custom-error-messages">Custom error messages</h3>
+<p>It is possible to define custom error messages that will be displayed when a field doesn&rsquo;t pass the validation check. 
+This is done by including a parameter <code>errorMessage</code> where the field is defined in the JSON schema. 
+The JSON schema file is in the folder <code>App/models</code> and has a naming patterns as follows; <code>*.schema.json</code>,</p>
+<p>An example of how the extend the example previously presented with a custom error message:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
   <span style="color:#ff79c6">&#34;maxLength&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>,
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;errorMessage&#34;</span>: <span style="color:#f1fa8c">&#34;myCustomError&#34;</span>
 </span>}
-</code></pre></div><p>Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en <a href="../../ux/texts">tekst definert i ressursfilene</a> for språkstøtte.</p>
+</code></pre></div><p>The error text can be included directly. To enable language support, add a text key for a <a href="../../ux/texts">text defined in the resource files</a>.</p>
 <div class="notices warning" >
-Merk at ved XSD-endringer, så vil ev. egendefinerte feilmeldinger forsvinne da JSON schema filen genereres på nytt fra XSD. På sikt er det tenkt at 
-det å sette opp egendefinerte feilmeldinger skal være mulig å gjøre via datamodelleringsverktøyet i Altinn Studio. Per nå må dette gjøres manelt.
+Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
+In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. 
+But for now, this ia manual job.
 </div>
 <h2 id="serverside-validering">Serverside-validering</h2>
 <p>Serverside-validering kan deles opp i to kategorier:</p>
