@@ -258,22 +258,25 @@ In addition to Altinn's Localtest, and the application, there are two things tha
 
 #### Verify that eFormidling is set up correctly
 
-Dette steget krever [node og npm](https://www.npmjs.com/get-npm) på maskinen din, men er ikke nødvendig for å bruke mocken.
+This requires that [node and npm](https://www.npmjs.com/get-npm) is present on your machine, 
+but they are note required to use the mock.
 
-- Åpne en terminal og navigér til `efm-mocks/tests/`
-- Kjør `npm i`
-- Navigér inn i mappen `next-move`
-- Kjør `node NextMove.js dpf`
-- Verifiser i en broswer på [localhost:8001](http://localhost:8001/) at det er nye innslag i tabellen med de sendte meldingene.
+- Open a terminal and navigate to `efm-mocks/tests/`
+- Run `npm i`
+- Navigate into the folder `next-move`
+- Run `node NextMove.js dpf`
+- Verify in a browser at [localhost:8001](http://localhost:8001/) that there are new table entries containing the sent messages.
 
-Les mer om mockløsningen [her](https://github.com/felleslosninger/efm-mocks)
+[Read more about the mock here](https://github.com/felleslosninger/efm-mocks)
 
-## Test av eFormidling integrasjon i testmiljø
+## Testing eFormidling integration in a test environment
 
 {{%notice warning%}}
-Det oppfordres sterkt til grundig testing av eFormidlingsintegrasjonen i applikasjonene.
-Det er lagt inn sikringer og retry mekanismer for å få en forsendelse fram til
-mottaker dersom feil skyldes svakheter i nettverksforbindelse,
-men ugyldige forsendelser, herunder manglende vedlegg eller feil i arkivmelding, vil forsendelsen feile uten eksplisitt varsling
-til sluttbruker eller tjenesteeier.
+Thorrough testing for the eFormidling integration in an application is encouraged.
+Safety measures and retry mechanisms are in place to ensure that a shipment 
+reaches the receiver when errors are due to weak network connections, 
+but invalid shipments, including but not limited to missing attachments or mistakes in the "arkivmelding",
+vil cause the shipment to fail without explicit warnings for the end user or app owner.
 {{% /notice%}}
+
+
