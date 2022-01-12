@@ -111,7 +111,7 @@ eformidlingClient,
 appsettings,
 platformSettings,
 tokenGenerator)
-````
+```
 
 ## Konfigurere nøkkelverdier for eFormidling i applikasjonen din
 

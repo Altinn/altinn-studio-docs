@@ -48,10 +48,11 @@ Create the section _AppSettings_, if it does not already exist, and set `EnableE
 
 ## Adding support for eForimdling in App.cs
 
-Neste steg for å få støtte for eFormidling i tjenesten din er å tilgjengeliggjøre services som appen behøver.
-Endringene skal alle gjøres i filen `App.cs` som ligger i mappen `App/logic`.
+The next step in setting up support of eFormidling , 
+is to make the required services available for the appliction.
+All changes are made in `App.cs`, which you fill find in the `App/logic` folder.
 
-Øverst i filen, blant bibliotekreferansene legges disse tre linjene til.
+At the top of the file, among the library references, include the following three lines.
 
 ```cs
 using Altinn.Common.EFormidlingClient.Models;
@@ -59,10 +60,12 @@ using Altinn.Common.EFormidlingClient;
 using Altinn.Common.AccessTokenClient.Services;
 ```
 
-Videre skal vi injecte services i konstruktøren til både klassen og base klassen. 
+Further, you need to inject services in the constructor of both the class and the base class.
 
-Konstruktøren vil se ut som eksempelet nedenfor, men hvilke services som sendes med kan variere fra tjeneste til tjeneste,
-så her er kun et eksempel på det vanligste oppsettet.
+Before making any changes, the constructor should look like the example below, 
+but which services are included may vary from application to application.
+This shows the most common setup.
+
 
 ```cs
 public App(
@@ -74,7 +77,7 @@ appResourcesService,
 httpContextAccessor)
 ```
 
-Listen med services i konstruktøren skal utvides med de fire servicene vist nedenfor.
+The list of services in the constructor should be extended with the four services listed below.
 
 ```cs
 IEFormidlingClient eformidlingClient,
@@ -83,7 +86,9 @@ IAccessTokenGenerator tokenGenerator,
 IOptions<PlatformSettings> platformSettings
 ```
 
-Videre skal disse servicene sendes med videre til baseklassen, da er det kun navnene som sendes med og ikke typene.
+Further, these services should be forwarded to the base class as well, 
+but in this case only include the names, not the types.
+
 
 ```cs
 eformidlingClient,
@@ -92,7 +97,7 @@ platformSettings,
 tokenGenerator
 ```
 
-Endelig resultalt skal se slik ut:
+Final result should look like this:
 
 ```cs
 public App(
@@ -110,9 +115,13 @@ eformidlingClient,
 appsettings,
 platformSettings,
 tokenGenerator)
-````
+```
 
-## Konfigurere nøkkelverdier for eFormidling i applikasjonen din
+## Configuring key values for eFormidling in your application
+
+Metadata related to the eFormidling shipment is required, 
+and this is set up in `applicationmetadata.json`.
+You find the file in the `App/config` foorder
 
 Det kreves en del metadata om eFormidlingsforsendelsen og denne defineres i `applicationmetadata.json`.
 Filen finner du i repoet under mappen `App/config`.
