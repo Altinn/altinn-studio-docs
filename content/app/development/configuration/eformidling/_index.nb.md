@@ -14,7 +14,7 @@ For at applikasjonen din skal kunne sende instansdata videre til eFormidling må
 
 Dersom man har behov for integrasjon med eFormidling i applikasjonen må dette aktiveres.
 
-I filen `appsettings.json` i mappen _App_ må følgende legges til i seksjonen _AppSettings_
+I filen _appsettings.json_ i mappen _App_ må følgende legges til i seksjonen _AppSettings_
 
 ```json
 "EnableEFormidling":  true
@@ -37,9 +37,9 @@ og peke mot integrasjonspunktet i Altinn Platform.
 ```
 
 Dersom det ikke er ønskelig å teste integrasjonen med eFormidling når man kjører applikasjonen lokalt kan man overstyre
-denne konfigurasjonen i `appsettings.Development.json`.
+denne konfigurasjonen i _appsettings.Development.json_.
 
-Opprett _AppSettings_ seksjonen dersom den ikke finnes og sett `EnableEFormidling` til false.
+Opprett `AppSettings` seksjonen dersom den ikke finnes og sett `EnableEFormidling` til false.
 
 ```json
 "AppSettings": {
@@ -50,7 +50,7 @@ Opprett _AppSettings_ seksjonen dersom den ikke finnes og sett `EnableEFormidlin
 ## Legge til støtte for eFormidling i App.cs
 
 Neste steg for å få støtte for eFormidling i tjenesten din er å tilgjengeliggjøre services som appen behøver.
-Endringene skal alle gjøres i filen `App.cs` som ligger i mappen `App/logic`.
+Endringene skal alle gjøres i filen _App.cs_ som ligger i mappen _App/logic.
 
 Øverst i filen, blant bibliotekreferansene legges disse tre linjene til.
 
@@ -115,8 +115,8 @@ tokenGenerator)
 
 ## Konfigurere nøkkelverdier for eFormidling i applikasjonen din
 
-Det kreves en del metadata om eFormidlingsforsendelsen og denne defineres i `applicationmetadata.json`.
-Filen finner du i repoet under mappen `App/config`.
+Det kreves en del metadata om eFormidlingsforsendelsen og denne defineres i applicationmetadata.json_.
+Filen finner du i repoet under mappen _App/config_.
 
 Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 
@@ -124,8 +124,8 @@ Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
 | serviceId       | Id som spesifiserer type forsendelse DPO, DPV, DPI eller DPF*                                              |
 | process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                 |
-| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsenn                                           |
-| sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |                                                    |
+| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsen                                          |
+| sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |
 | receiver        | Organsisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
 | standard        | DocumentIdentification standard                                                                            |
 | type            | DocumentIdentification type                                                                                |
@@ -156,7 +156,7 @@ Et eksempel for en konfigurasjon i application metadata:
 ## Generering av metadata til forsendelsen i applikasjonen
 
 Apputvikler er selv ansvarlig for å sette opp arkivmeldingen til en forsendelse som skal via eFormidling.
-Dette gjøres ved å legge til funksjonen nedenfor i `App.cs`.
+Dette gjøres ved å legge til funksjonen nedenfor i _App.cs_.
 
 Forventet output fra denne metoden er en tuppel som inneholder navnet på metadatafilen som første element
 og en stream med metadataen som andre element.
@@ -181,10 +181,10 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 
 ## Sette mottaker for forsendelse i applikasjonslogikken
 
-I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra `applicationmetadata.json`.
+I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra applicationmetadata.json_.
 Denne funksjonaliteten kan benyttes dersom mottaker av forsendelsen skal avgjøres dynamisk.
 
-Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endringer gjøres i `App.cs`.
+Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endringer gjøres i _App.cs_.
 
 1. Øverst i filen må det legges til en referanse til eFormidlings biblioteket.
 
@@ -211,7 +211,7 @@ Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endri
     }
     ```
 
-3. Legg til egen logikk for å populere `identifier.Value` i funksjonen.
+3. Legg til egen logikk for å populere _identifier.Value_ i funksjonen.
    Merk at det kun er norske organisasjonsnummer som støttes,
    og at prefiksen `0192:` er påkrevd før organisasjonsnummeret.
 

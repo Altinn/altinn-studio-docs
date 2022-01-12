@@ -14,13 +14,13 @@ Nuget versions >= 4.22.0 are required for your application to support eFormidlin
 
 Integration with eFormidling needs to be explicitly activated in the application. 
 
-In the file `appsettings.json` in th efolder _App_, the following must be added to the _AppSettings_ section.
+In the file _appsettings.json_ in th efolder _App_, the following must be added to the _AppSettings_ section.
 
 ```json
 "EnableEFormidling":  true
 ```
 
-In addition, continuing in the same file, a new section; _EFormidlingClientSettings_ should be added.
+In addition, continuing in the same file, a new section `EFormidlingClientSettings` should be added.
 The contents of the code snippet below can be copied in its entirety. 
 This sets up the url for the integation point.
 The link points to the mock that can be ran locally. 
@@ -36,9 +36,9 @@ this value will be substituted to point to the integration point hosted in Altin
 ```
 
 In the case you do not wish to test the eFormidling integration when running your app locally, 
-you can overide this configuration in  `appsettings.Development.json`.
+you can overide this configuration in  _appsettings.Development.json_.
 
-Create the section _AppSettings_, if it does not already exist, and set `EnableEFormidling` to false.
+Create the section _AppSettings_, if it does not already exist, and set _EnableEFormidling_ to false.
 
 ```json
 "AppSettings": {
@@ -50,7 +50,7 @@ Create the section _AppSettings_, if it does not already exist, and set `EnableE
 
 The next step in setting up support of eFormidling , 
 is to make the required services available for the appliction.
-All changes are made in `App.cs`, which you fill find in the `App/logic` folder.
+All changes are made in _App.cs_, which you fill find in the _App/logic folder.
 
 At the top of the file, among the library references, include the following three lines.
 
@@ -120,32 +120,30 @@ tokenGenerator)
 ## Configuring key values for eFormidling in your application
 
 Metadata related to the eFormidling shipment is required, 
-and this is set up in `applicationmetadata.json`.
-You find the file in the `App/config` foorder
+and this is set up in _applicationmetadata.json_.
+You find the file in the _App/config_ folder.
 
-Det kreves en del metadata om eFormidlingsforsendelsen og denne defineres i `applicationmetadata.json`.
-Filen finner du i repoet under mappen `App/config`.
+Create a new section `eFormidling` and populate values for the 
+parameters defined in the table.
 
-Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
-
-| Id              | Beskrivelse                                                                                                |
+| Id              | Description                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| serviceId       | Id som spesifiserer type forsendelse DPO, DPV, DPI eller DPF*                                              |
-| process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                 |
-| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsenn                                           |
-| sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |                                                    |
-| receiver        | Organsisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
+| serviceId       | Id specifying shipment type DPO, DPV, DPI eller DPF*                                                       |
+| process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
+| dataTypes       | List of data types to automatically include in the shipment                                                |
+| sendAfterTaskId | Id of the task to be completed before the shipment is sent. We reccomend this be a confirmation task       |
+| receiver        | Organisation number of the receiver. Only Norwegian organisations supported. (Can be ommited)              |
 | standard        | DocumentIdentification standard                                                                            |
 | type            | DocumentIdentification type                                                                                |
-| typeVersion     | DocumentIdentification type versjon                                                                        |
-| securityLevel   | Sikkerhetsnivå som settes på StandardBusinessDocument                                                      |
+| typeVersion     | DocumentIdentification type version                                                                        |
+| securityLevel   | Security lever set on the StandardBusinessDocument                                                         |
 
-\* per Januar 2022 støttes kun DPF.
+\* per January 2022 only DPF is supported.
 
-\** tilgjengelige prosesser for mottaker er tilgjengelig på https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
+\** available procesed for each receiver is available at https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
 
 
-Et eksempel for en konfigurasjon i application metadata:
+An example of a configuration in application metadata:
 
 ```json
 "eFormidling": {
@@ -161,13 +159,13 @@ Et eksempel for en konfigurasjon i application metadata:
 }
 ```
 
-## Generering av metadata til forsendelsen i applikasjonen
+## Shipment metadata generation in the application
 
-Apputvikler er selv ansvarlig for å sette opp arkivmeldingen til en forsendelse som skal via eFormidling.
-Dette gjøres ved å legge til funksjonen nedenfor i `App.cs`.
+The application developer is responsible for creating the _arkivmelding_ that will follow a shipment through eFormdiling.
+This is acheived by including the function below in _App.cs_.
 
-Forventet output fra denne metoden er en tuppel som inneholder navnet på metadatafilen som første element
-og en stream med metadataen som andre element.
+Expected output from this function is a touple contaning to elements.
+First, the name of the metadata file and then a stream containing the metadata.
 
 ```cs
 /// <inheritdoc />
@@ -187,21 +185,22 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 }
 ```
 
-## Sette mottaker for forsendelse i applikasjonslogikken
+## Dynamically setting the shipment receiver
 
-I App.cs kan man overstyre metoden som henter ut mottaker av forsendelsen fra `applicationmetadata.json`.
-Denne funksjonaliteten kan benyttes dersom mottaker av forsendelsen skal avgjøres dynamisk.
+In _App.cs_ it is possible to override the method retrieving the receiver from _applicationmetadata.json_.
+This functionaly can be used whenever the receiver of a shipment is to be determined dynamically.
 
-Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endringer gjøres i `App.cs`.
+Three steps are requried when defining the receiver in the application logic, 
+and all steps are executed in _App.cs_.
 
-1. Øverst i filen må det legges til en referanse til eFormidlings biblioteket.
+1. At the top of the file, a reference to the eFormidling library must be included.
 
   ```cs
   using Altinn.Common.EFormidlingClient.Models.SBD;
   ```
 
-2. Legg til denne funksjonen i klassen.
-   Forventet output fra denne metoden er en liste som inneholder minst ett receiver-objekt.
+2. Include the function below in the class.
+   Expected output from this method is a list containing at least one receiver object.
 
     ```cs
     public override async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
@@ -219,9 +218,9 @@ Det må tre steg til for å sette mottaker i applikasjonslogikken, og alle endri
     }
     ```
 
-3. Legg til egen logikk for å populere `identifier.Value` i funksjonen.
-   Merk at det kun er norske organisasjonsnummer som støttes,
-   og at prefiksen `0192:` er påkrevd før organisasjonsnummeret.
+3. Add custom logic to populate _identifier.Value_ in the function.
+   Note that only Norwegian organisations are supported, 
+   and that the prefix `0192:` is required before the organisation number.
 
 
 ## Lokal test av applikasjon med eFormidling
