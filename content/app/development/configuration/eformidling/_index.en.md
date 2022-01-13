@@ -280,7 +280,7 @@ vil cause the shipment to fail without explicit warning the end user or app owne
 {{% /notice%}}
 
 The integration point exposes endpoints that allow you to monitor the status of a shipment. 
-`https://platform.altinn.no/eformidling/api/conversations?messageid={instanceGuid}`
+`https://platform.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
 
 Replace `{instanceGuid}` with the guid of the instance that has been archived.
 
