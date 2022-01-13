@@ -4,6 +4,18 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.22.6 (2022-01-11) - Bugfix repeating groups
+Fixed a bug where repeating group state would not be cleared when loading a new formlayout.
+Issue [#7773](https://github.com/Altinn/altinn-studio/issues/7773).
+
+## 3.22.5 (2022-01-10) - Optimization for SummaryGroupComponent
+Added missing keys for improved performance.
+Pull request [#7720](https://github.com/Altinn/altinn-studio/pull/7720).
+
+## 3.22.4 (2022-01-07) - Display error when rendering unknown component
+App frontend now shows an error when trying to render an unknown component.
+Pull request [#7724](https://github.com/Altinn/altinn-studio/pull/7724).
+
 ## 3.22.3 (2022-01-07) - Dependency patching
 Patching of external dependencies for week 1 of 2022.
 Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
