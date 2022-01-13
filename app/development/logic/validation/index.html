@@ -1119,7 +1119,24 @@ The JSON schema file is in the folder <code>App/models</code> and has a naming p
 <span style="display:block;width:100%;background-color:#3d3f4a">  <span style="color:#ff79c6">&#34;errorMessage&#34;</span>: <span style="color:#f1fa8c">&#34;myCustomError&#34;</span>
 </span>}
 </code></pre></div><p>The error text can be included directly. To enable language support, add a text key for a <a href="../../ux/texts">text defined in the resource files</a>.</p>
-<div class="notices warning" >
+<p>Notice that if you have a reference to a definition the error message must be added to the <code>property</code>-field and not the reference/definition.
+Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;properties&#34;</span>: {
+    <span style="color:#ff79c6">&#34;person&#34;</span>: {
+        <span style="color:#ff79c6">&#34;$ref&#34;</span> : <span style="color:#f1fa8c">&#34;#/definitions/personDefinition&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;errorMessage&#34;</span>: <span style="color:#f1fa8c">&#34;myCustomError&#34;</span>,
+</span>    }
+  },
+  <span style="color:#ff79c6">&#34;definitions&#34;</span>: {
+    <span style="color:#ff79c6">&#34;personDefinition&#34;</span> : {
+      <span style="color:#ff79c6">&#34;age&#34;</span>: {
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;number&#34;</span>
+      },
+      ...
+  }
+}
+</code></pre></div><div class="notices warning" >
 Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
 In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. 
 But for now, this ia manual job.
