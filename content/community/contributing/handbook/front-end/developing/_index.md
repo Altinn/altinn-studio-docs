@@ -38,16 +38,15 @@ or run it directly from VS Code.
 
 4. Install frontend dependencies if this has not been done (or dependencies have been updated) (from `src/Altinn.Apps/AppFrontend/react`):
 ```
-npm ci
-npm run install-deps
-  ```
+yarn --immutable
+```
 
 5. Run the app frontend (from `src/Altinn.Apps/AppFrontend/react`):
 ```
 cd altinn-app-frontend
-npm start
+yarn start
 ```
-This serves altinn-app-frontend at localhost:8080. The command `npm start` runs the application with _hot reload_, which rebuilds the application any time a new change is saved. The page should refresh automatically.
+This serves altinn-app-frontend at localhost:8080. The command `yarn start` runs the application with _hot reload_, which rebuilds the application any time a new change is saved. The page should refresh automatically.
 
 6. Start the app in a browser by going to [altinn3local.no](http://altinn3local.no)!
 
@@ -61,14 +60,14 @@ docker stop altinn-designer
 
 3. Install/update dependencies (from `src/studio/src/designer/backend`):
 ```
-npm ci
-npm run gulp-install-deps # Installs front-end dependencies
+yarn --immutable
+yarn run gulp-install-deps # Installs front-end dependencies
 ```
 
 4. Run the designer application (from `src/studio/src/designer/backend`):
 ```
-npm run gulp # only needed the first time
-npm run gulp-develop #or npm run gulp-develop-dashboard
+yarn run gulp # only needed the first time
+yarn run gulp-develop #or yarn run gulp-develop-dashboard
 ```
 This will both start the backend application with `dotnet run`, and serve the front-end application at localhost:8080 with _hot reload_, which rebuilds the frontend application any time a new change is saved. You might have to refresh the page to see your changes.
 
@@ -79,9 +78,9 @@ Note that you can also run Altinn Studio Designer frontend in the same way as ru
 `src/studio/src/designer/backend/views/ServiceDevelopment/Index.cshtml` (for app-development) or `src/studio/src/designer/backend/views/Home/Index.cshtml` 
 (for Dashboard) to point at `http://localhost:8080` in a similar way as described in the app frontend section.
 
-The first time setting this up, you would have to follow steps 1-3 and then run the `npm run gulp` command from step 4, before navigating to the frontend folder
+The first time setting this up, you would have to follow steps 1-3 and then run the `yarn run gulp` command from step 4, before navigating to the frontend folder
 `src/studio/src/designer/frontend` and then into the application you want to run (dashboard or app-development). From there, 
-you can run `npm run start` and the frontend will be up and running. 
+you can run `yarn run start` and the frontend will be up and running. 
 
 The backend will have to be started separately, using the `dotnet run` command.
 
@@ -94,9 +93,9 @@ To enable hot reload of the designer frontends, this is the method to use.
 ## Platform Receipt
 Open a terminal in `src/Altinn.Platform/Altinn.Platform.Receipt`, and run:
 ```
-npm install
-npm run gulp #(only the first time)
-npm run gulp-install-deps
-npm run gulp-develop
+yarn --immutable
+yarn run gulp #(only the first time)
+yarn run gulp-install-deps
+yarn run gulp-develop
 ```
 This will build and run receipt back end, and build and copy the receipt frontend to the `wwwroot` folder. The application should now be available at `localhost:5060/receipt/{instanceOwnerId}/{instanceId}`. The script will also listen to changes in the receipt react app, rebuild and copy the new react app to the wwwroot folder. You might need to refresh to see the changes.
