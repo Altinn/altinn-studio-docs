@@ -1010,15 +1010,9 @@ if(host != "localhost")
 
 <h3 id="local-build">Local build</h3>
 <p>Building an app locally is done by running</p>
-<pre tabindex="0"><code>npm run build
+<pre tabindex="0"><code>yarn run build
 </code></pre><p>from the apps root folder.</p>
-<p>Some of the react projects also have various other predefined npm tasks, which can be viewed in the <code>package.json</code> file which is located in the root folder of each react project, example <code>src/Altinn.Apps/AppFrontend/react/altinn-app-frontend/package.json</code></p>
-<h3 id="adding-new-packages-to-react-applications">Adding new packages to react-applications</h3>
-<p>Adding of a new package in an app is done with <code>lerna</code> in the lerna-folder (<code>/src/react-apps/</code>). 
-Command syntax for this will be:<br>
-<code>lerna add [package-name] --scope=[app-name] --exact</code><br>
-If you are going to add <code>react</code> to a new app called Foo:<br>
-<code>lerna add react --scope=Foo --exact</code></p>
+<p>Some of the react projects also have various other predefined package scripts, which can be viewed in the <code>package.json</code> file which is located in the root folder of each react project, example <code>src/Altinn.Apps/AppFrontend/react/altinn-app-frontend/package.json</code></p>
 
 
 <footer class=" footline" >

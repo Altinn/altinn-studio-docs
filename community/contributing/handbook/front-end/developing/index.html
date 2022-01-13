@@ -1035,14 +1035,13 @@ if(host != "localhost")
 <ol start="4">
 <li>Install frontend dependencies if this has not been done (or dependencies have been updated) (from <code>src/Altinn.Apps/AppFrontend/react</code>):</li>
 </ol>
-<pre tabindex="0"><code>npm ci
-npm run install-deps
+<pre tabindex="0"><code>yarn --immutable
 </code></pre><ol start="5">
 <li>Run the app frontend (from <code>src/Altinn.Apps/AppFrontend/react</code>):</li>
 </ol>
 <pre tabindex="0"><code>cd altinn-app-frontend
-npm start
-</code></pre><p>This serves altinn-app-frontend at localhost:8080. The command <code>npm start</code> runs the application with <em>hot reload</em>, which rebuilds the application any time a new change is saved. The page should refresh automatically.</p>
+yarn start
+</code></pre><p>This serves altinn-app-frontend at localhost:8080. The command <code>yarn start</code> runs the application with <em>hot reload</em>, which rebuilds the application any time a new change is saved. The page should refresh automatically.</p>
 <ol start="6">
 <li>Start the app in a browser by going to <a href="http://altinn3local.no">altinn3local.no</a>!</li>
 </ol>
@@ -1059,13 +1058,13 @@ npm start
 </code></pre><ol start="3">
 <li>Install/update dependencies (from <code>src/studio/src/designer/backend</code>):</li>
 </ol>
-<pre tabindex="0"><code>npm ci
-npm run gulp-install-deps # Installs front-end dependencies
+<pre tabindex="0"><code>yarn --immutable
+yarn run gulp-install-deps # Installs front-end dependencies
 </code></pre><ol start="4">
 <li>Run the designer application (from <code>src/studio/src/designer/backend</code>):</li>
 </ol>
-<pre tabindex="0"><code>npm run gulp # only needed the first time
-npm run gulp-develop #or npm run gulp-develop-dashboard
+<pre tabindex="0"><code>yarn run gulp # only needed the first time
+yarn run gulp-develop #or yarn run gulp-develop-dashboard
 </code></pre><p>This will both start the backend application with <code>dotnet run</code>, and serve the front-end application at localhost:8080 with <em>hot reload</em>, which rebuilds the frontend application any time a new change is saved. You might have to refresh the page to see your changes.</p>
 <ol start="5">
 <li>Open Altinn Studio in a browser</li>
@@ -1074,9 +1073,9 @@ npm run gulp-develop #or npm run gulp-develop-dashboard
 Note that you can also run Altinn Studio Designer frontend in the same way as running app frontend. This would require changing the 
 `src/studio/src/designer/backend/views/ServiceDevelopment/Index.cshtml` (for app-development) or `src/studio/src/designer/backend/views/Home/Index.cshtml` 
 (for Dashboard) to point at `http://localhost:8080` in a similar way as described in the app frontend section.
-<p>The first time setting this up, you would have to follow steps 1-3 and then run the <code>npm run gulp</code> command from step 4, before navigating to the frontend folder
+<p>The first time setting this up, you would have to follow steps 1-3 and then run the <code>yarn run gulp</code> command from step 4, before navigating to the frontend folder
 <code>src/studio/src/designer/frontend</code> and then into the application you want to run (dashboard or app-development). From there, 
-you can run <code>npm run start</code> and the frontend will be up and running.</p>
+you can run <code>yarn run start</code> and the frontend will be up and running.</p>
 <p>The backend will have to be started separately, using the <code>dotnet run</code> command.</p>
 <p>Subsequent setups, you only have to do steps 1-2, and if dependencies have been updated then step 3 can be run (or these can be installed
 directly from the <code>src/studio/src/designer/frontend</code> folder).</p>
@@ -1084,10 +1083,10 @@ directly from the <code>src/studio/src/designer/frontend</code> folder).</p>
 </div>
 <h2 id="platform-receipt">Platform Receipt</h2>
 <p>Open a terminal in <code>src/Altinn.Platform/Altinn.Platform.Receipt</code>, and run:</p>
-<pre tabindex="0"><code>npm install
-npm run gulp #(only the first time)
-npm run gulp-install-deps
-npm run gulp-develop
+<pre tabindex="0"><code>yarn --immutable
+yarn run gulp #(only the first time)
+yarn run gulp-install-deps
+yarn run gulp-develop
 </code></pre><p>This will build and run receipt back end, and build and copy the receipt frontend to the <code>wwwroot</code> folder. The application should now be available at <code>localhost:5060/receipt/{instanceOwnerId}/{instanceId}</code>. The script will also listen to changes in the receipt react app, rebuild and copy the new react app to the wwwroot folder. You might need to refresh to see the changes.</p>
 
 
