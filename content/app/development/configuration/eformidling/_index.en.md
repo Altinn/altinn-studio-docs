@@ -27,7 +27,7 @@ The link points to the mock that can be ran locally.
 [Read more about setting up the local mock for the integration point here](#-Kjøring-med-eFormidling-mock-lokalt).
 
 When an application is deployed to TT02 or production,
-this value will be substituted to point to the integration point hosted in Altinn Platfor.
+this value will be substituted to point to the integration point hosted in Altinn Platform.
 
 ```json
 "EFormidlingClientSettings": {
@@ -249,7 +249,7 @@ In addition to Altinn's Localtest, and the application, there are two things tha
 
 #### Running eFormidling locally
 
-1. Open a terminal and nacigate to `efm-mocks` (Command prompt eller bash is reccomended, PowerShell will not work.)
+1. Open a terminal and navigate to `efm-mocks` (Command prompt eller bash is reccomended, PowerShell will not work.)
 2. Run `docker-compose up -d`
 3. Navigate to the folder where the integration point file exists.
 4. Run the command `java -Xmx2g -Dspring.profiles.active=mock -jar integrasjonspunkt-2.2.6.jar`
