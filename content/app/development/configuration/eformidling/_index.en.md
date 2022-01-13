@@ -161,7 +161,7 @@ An example of a configuration in application metadata:
 
 ## Shipment metadata generation in the application
 
-The application developer is responsible for creating the _arkivmelding_ that will follow a shipment through eFormdiling.
+The application developer is responsible for creating the _arkivmelding_ that will follow a shipment through eFormidling.
 This is acheived by including the function below in _App.cs_.
 
 Expected output from this function is a touple contaning to elements.
