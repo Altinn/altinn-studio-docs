@@ -269,7 +269,7 @@ vil forsendelsen feile uten eksplisitt varsling til sluttbruker eller tjenesteei
 {{% /notice%}}
 
 Integrasjonspunktet eksponerer endepunkter der man kan følge statusen for en forsendelse. 
-`https://platform.altinn.no/eformidling/api/conversations?messageid={instanceGuid}`
+`https://platform.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
 
 Bytt ut `{instanceGuid}` med guiden til instansen som er blitt innsendt.
 
