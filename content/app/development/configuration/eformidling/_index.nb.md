@@ -24,7 +24,7 @@ I tillegg må det i samme fil opprettes en ny seksjon; _EFormidlingClientSetting
 Innholdet i kodesnutten nedenfor kan kopieres i sin helhet.
 Denne setter opp url til integrasjonspunktet.
 Lenken peker på mocken som kan kjøres opp lokalt.
-[Les mer om oppsettet av eFormidlings mocken her](#-Kjøring-med-eFormidling-mock-lokalt).
+[Les mer om oppsettet av eFormidlings mocken her](#lokal-test-av-applikasjon-med-eformidling).
 
 Når en app deployes til TT02 eller produksjon vil denne verdien overskrives
 og peke mot integrasjonspunktet i Altinn Platform.

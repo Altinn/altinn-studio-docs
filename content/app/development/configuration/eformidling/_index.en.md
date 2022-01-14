@@ -24,7 +24,7 @@ In addition, continuing in the same file, a new section `EFormidlingClientSettin
 The contents of the code snippet below can be copied in its entirety. 
 This sets up the url for the integration point.
 The link points to the mock that can be ran locally. 
-[Read more about setting up the local mock for the integration point here](#-Kjøring-med-eFormidling-mock-lokalt).
+[Read more about setting up the local mock for the integration point here](#testing-eformidling-integration-locally).
 
 When an application is deployed to TT02 or production,
 this value will be substituted to point to the integration point hosted in Altinn Platform.
