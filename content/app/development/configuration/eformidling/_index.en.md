@@ -128,13 +128,14 @@ parameters defined in the table.
 
 | Id              | Description                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF*](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) || process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
+| serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF*](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
+| process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
 | dataTypes       | List of data types to automatically include in the shipment                                                |
 | sendAfterTaskId | Id of the task to be completed before the shipment is sent. We reccomend this be a confirmation task       |
 | receiver        | Organisation number of the receiver. Only Norwegian organisations supported. (Can be ommited)              |
 | standard        | DocumentIdentification standard                                                                            |
-| type            | Id for the [message type](urn:no:difi:profile:arkivmelding:planByggOgGeodata:ver1.0.                                                                                |
-| typeVersion     | Version of the message type                                                                      |
+| type            | Id for the [message type](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)               |
+| typeVersion     | Version of the message type                                                                                |
 | securityLevel   | Security lever set on the StandardBusinessDocument                                                         |
 
 \* per January 2022 only DPF is supported.
@@ -160,7 +161,9 @@ An example of a configuration in application metadata:
 
 ## Shipment metadata generation in the application
 
-The application developer is responsible for creating the _arkivmelding_ that will follow a shipment through eFormidling.
+The application developer is responsible for creating the message that will follow a shipment through eFormidling.
+[Read about the various message types available in eFormidling.](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)
+
 This is acheived by including the function below in _App.cs_.
 
 Expected output from this function is a touple contaning to elements.

@@ -128,7 +128,7 @@ Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 | sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |
 | receiver        | Organsisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
 | standard        | DocumentIdentification standard                                                                            |
-| type            | Id på [medlingstypen]](urn:no:difi:profile:arkivmelding:planByggOgGeodata:ver1.0)                          |
+| type            | Id på [meldingstypen](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)                   |
 | typeVersion     | Versjon av meldingstypen                                                                                   |
 | securityLevel   | Sikkerhetsnivå som settes på StandardBusinessDocument                                                      |
 
@@ -155,7 +155,9 @@ Et eksempel for en konfigurasjon i application metadata:
 
 ## Generering av metadata til forsendelsen i applikasjonen
 
-Apputvikler er selv ansvarlig for å sette opp arkivmeldingen til en forsendelse som skal via eFormidling.
+Apputvikler er selv ansvarlig for å sette opp meldingen til en forsendelse som skal via eFormidling.
+[Les om de ulike meldingstypene tilgjengelig i eFormidling.](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)
+
 Dette gjøres ved å legge til funksjonen nedenfor i _App.cs_.
 
 Forventet output fra denne metoden er en tuppel som inneholder navnet på metadatafilen som første element
