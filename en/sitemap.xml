@@ -1448,6 +1448,18 @@
                 href="https://docs.altinn.studio/app/development/data/attachments/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/app/development/configuration/eformidling/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/configuration/eformidling/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/configuration/eformidling/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/development/configuration/events/</loc>
     <xhtml:link
                 rel="alternate"
