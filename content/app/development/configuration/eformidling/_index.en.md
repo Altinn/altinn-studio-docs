@@ -14,7 +14,7 @@ Nuget versions >= 4.22.0 are required for your application to support eFormidlin
 
 Integration with eFormidling needs to be explicitly activated in the application. 
 
-In the file _appsettings.json_ in th efolder _App_, the following must be added to the _AppSettings_ section.
+In the file _appsettings.json_ in the folder _App_, the following must be added to the _AppSettings_ section.
 
 ```json
 "EnableEFormidling":  true
@@ -22,7 +22,7 @@ In the file _appsettings.json_ in th efolder _App_, the following must be added 
 
 In addition, continuing in the same file, a new section `EFormidlingClientSettings` should be added.
 The contents of the code snippet below can be copied in its entirety. 
-This sets up the url for the integation point.
+This sets up the url for the integration point.
 The link points to the mock that can be ran locally. 
 [Read more about setting up the local mock for the integration point here](#-Kjøring-med-eFormidling-mock-lokalt).
 
@@ -36,7 +36,7 @@ this value will be substituted to point to the integration point hosted in Altin
 ```
 
 In the case you do not wish to test the eFormidling integration when running your app locally, 
-you can overide this configuration in  _appsettings.Development.json_.
+you can override this configuration in  _appsettings.Development.json_.
 
 Create the section _AppSettings_, if it does not already exist, and set _EnableEFormidling_ to false.
 
@@ -46,10 +46,10 @@ Create the section _AppSettings_, if it does not already exist, and set _EnableE
 }
 ```
 
-## Adding support for eForimdling in App.cs
+## Adding support for eFormidling in App.cs
 
 The next step in setting up support of eFormidling , 
-is to make the required services available for the appliction.
+is to make the required services available for the application.
 All changes are made in _App.cs_, which you fill find in the _App/logic folder.
 
 At the top of the file, among the library references, include the following three lines.
@@ -128,11 +128,11 @@ parameters defined in the table.
 
 | Id              | Description                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF*](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
+| serviceId       | Id that specifies the shipment type* [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) or [DPF](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
 | process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
 | dataTypes       | List of data types to automatically include in the shipment                                                |
-| sendAfterTaskId | Id of the task to be completed before the shipment is sent. We reccomend this be a confirmation task       |
-| receiver        | Organisation number of the receiver. Only Norwegian organisations supported. (Can be ommited)              |
+| sendAfterTaskId | Id of the task to be completed before the shipment is sent. We recommend this be a confirmation task       |
+| receiver        | Organisation number of the receiver. Only Norwegian organisations supported. (Can be omitted)              |
 | standard        | DocumentIdentification standard                                                                            |
 | type            | Id for the [message type](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)               |
 | typeVersion     | Version of the message type                                                                                |
@@ -140,7 +140,7 @@ parameters defined in the table.
 
 \* per January 2022 only DPF is supported.
 
-\** available proceses for each receiver is available at https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
+\** available process for each receiver is available at https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
 
 
 An example of a configuration in application metadata:
@@ -164,9 +164,9 @@ An example of a configuration in application metadata:
 The application developer is responsible for creating the message that will follow a shipment through eFormidling.
 [Read about the various message types available in eFormidling.](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)
 
-This is acheived by including the function below in _App.cs_.
+This is achieved by including the function below in _App.cs_.
 
-Expected output from this function is a touple contaning to elements.
+Expected output from this function is a tuple containing to elements.
 First, the name of the metadata file and then a stream containing the metadata.
 
 ```cs
@@ -190,9 +190,9 @@ public override async Task<(string, Stream)> GenerateEFormidlingMetadata(Instanc
 ## Dynamically setting the shipment receiver
 
 In _App.cs_ it is possible to override the method retrieving the receiver from _applicationmetadata.json_.
-This functionaly can be used whenever the receiver of a shipment is to be determined dynamically.
+This functionally can be used whenever the receiver of a shipment is to be determined dynamically.
 
-Three steps are requried when defining the receiver in the application logic, 
+Three steps are required when defining the receiver in the application logic, 
 and all steps are executed in _App.cs_.
 
 1. At the top of the file, a reference to the eFormidling library must be included.
@@ -228,7 +228,7 @@ and all steps are executed in _App.cs_.
 ## Testing eFormidling integration locally
 
 It is possible to test the eFormidling integration for an application in
-your development environemnt. 
+your development environment. 
 In addition to Altinn's Localtest, and the application, there are two things that need to run: 
 1. eFormidling integration point (Integrasjonspunktet)
 2. A mock of eFormidling
@@ -251,11 +251,11 @@ In addition to Altinn's Localtest, and the application, there are two things tha
 
 #### Running eFormidling locally
 
-1. Open a terminal and navigate to `efm-mocks` (Command prompt eller bash is reccomended, PowerShell will not work.)
+1. Open a terminal and navigate to `efm-mocks` (Command prompt or bash is recommended, PowerShell will not work.)
 2. Run `docker-compose up -d`
 3. Navigate to the folder where the integration point file exists.
 4. Run the command `java -Xmx2g -Dspring.profiles.active=mock -jar integrasjonspunkt-2.2.6.jar`
-   If you have a newer version of the integration point, the commands last section should be adjustet to reflect this.
+   If you have a newer version of the integration point, the commands last section should be adjusted to reflect this.
 
 
 #### Verify that eFormidling is set up correctly

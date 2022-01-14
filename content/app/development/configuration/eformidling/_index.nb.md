@@ -93,7 +93,7 @@ platformSettings,
 tokenGenerator
 ```
 
-Endelig resultalt skal se slik ut:
+Endelig resultat skal se slik ut:
 
 ```cs
 public App(
@@ -126,7 +126,7 @@ Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 | process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                 |
 | dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsen                                            |
 | sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |
-| receiver        | Organsisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
+| receiver        | Organisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
 | standard        | DocumentIdentification standard                                                                            |
 | type            | Id på [meldingstypen](https://docs.digdir.no/eformidling_nm_message.html#meldingstypene)                   |
 | typeVersion     | Versjon av meldingstypen                                                                                   |
@@ -227,7 +227,7 @@ I tillegg til Altinn Localtest og applikasjonen er det to ting som må kjøre:
 
 ### Forberedelser
 
-1. Installer siste verjson av Java.
+1. Installer siste versjon av Java.
 
    [Finn nedlastingslenke og beskrivelse av nødvendige steg her](https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html)
 2.  Det skal nå lastes ned en rekke filer. Finn en egnet plassering for eFormidling lokalt på maskinen din og navigér dit i en terminal.
