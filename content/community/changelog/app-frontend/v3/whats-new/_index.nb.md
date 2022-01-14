@@ -3,6 +3,17 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+## 3.22.6 (2022-01-11) - Fikset feil med repeterende grupper
+Fikset feil hvor repeterende grupper staten ikke ville bli fjernet når man lastet ny formlayout.
+Issue [#7773](https://github.com/Altinn/altinn-studio/issues/7773).
+
+## 3.22.5 (2022-01-10) - Optimalisering for SummaryGroupComponent
+La til manglende keys for forbedret ytelse.
+Pull request [#7720](https://github.com/Altinn/altinn-studio/pull/7720).
+
+## 3.22.4 (2022-01-07) - Vise feilmelding for ukjent komponent
+App frontend viser nå en feilmelding når den prøver rendre en ukjent komponent.
+Pull request [#7724](https://github.com/Altinn/altinn-studio/pull/7724).
 
 ## 3.22.3 (2022-01-07) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 1 av 2022.

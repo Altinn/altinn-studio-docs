@@ -67,6 +67,26 @@ An example of how the extend the example previously presented with a custom erro
 
 The error text can be included directly. To enable language support, add a text key for a [text defined in the resource files](../../ux/texts).
 
+Notice that if you have a reference to a definition the error message must be added to the `property`-field and not the reference/definition.
+Example:
+```json {hl_lines=[5]}
+{
+  "properties": {
+    "person": {
+        "$ref" : "#/definitions/personDefinition",
+        "errorMessage": "myCustomError",
+    }
+  },
+  "definitions": {
+    "personDefinition" : {
+      "age": {
+        "type": "number"
+      },
+      ...
+  }
+}
+```
+
 {{% notice warning %}}
 Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
 In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. 
