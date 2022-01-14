@@ -502,7 +502,7 @@ For at applikasjonen din skal kunne sende instansdata videre til eFormidling må
 Innholdet i kodesnutten nedenfor kan kopieres i sin helhet.
 Denne setter opp url til integrasjonspunktet.
 Lenken peker på mocken som kan kjøres opp lokalt.
-<a href="#-Kj%C3%B8ring-med-eFormidling-mock-lokalt">Les mer om oppsettet av eFormidlings mocken her</a>.</p>
+<a href="#lokal-test-av-applikasjon-med-eformidling">Les mer om oppsettet av eFormidlings mocken her</a>.</p>
 <p>Når en app deployes til TT02 eller produksjon vil denne verdien overskrives
 og peke mot integrasjonspunktet i Altinn Platform.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;EFormidlingClientSettings&#34;</span>: {
@@ -541,7 +541,7 @@ IOptions&lt;PlatformSettings&gt; platformSettings
 appsettings,
 platformSettings,
 tokenGenerator
-</code></pre></div><p>Endelig resultalt skal se slik ut:</p>
+</code></pre></div><p>Endelig resultat skal se slik ut:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> App(
 IAppResources appResourcesService,
 (...)
@@ -587,7 +587,7 @@ Filen finner du i repoet under mappen _App/config_.</p>
 </tr>
 <tr>
 <td>receiver</td>
-<td>Organsisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken</td>
+<td>Organisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken</td>
 </tr>
 <tr>
 <td>standard</td>
@@ -684,8 +684,8 @@ I tillegg til Altinn Localtest og applikasjonen er det to ting som må kjøre:</
 <h3 id="forberedelser">Forberedelser</h3>
 <ol>
 <li>
-<p>Installer siste verjson av Java.</p>
-<p><a href="https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html">Finn nedlastingslenke og beskrivelse av nødvendige steg her</a></p>
+<p>Installer siste versjon av Java.
+<a href="https://docs.oracle.com/cd/E19182-01/821-0917/inst_jdk_javahome_t/index.html">Finn nedlastingslenke og beskrivelse av nødvendige steg her</a></p>
 </li>
 <li>
 <p>Det skal nå lastes ned en rekke filer. Finn en egnet plassering for eFormidling lokalt på maskinen din og navigér dit i en terminal.</p>

@@ -1016,7 +1016,7 @@ if(host != "localhost")
               <p class="a-leadText" id="leadText">How to configure integration with eFormidling for an app.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
     <li><a href="#activate-eformidling-integration-for-your-application">Activate eFormidling integration for your application</a></li>
-    <li><a href="#adding-support-for-eforimdling-in-appcs">Adding support for eForimdling in App.cs</a></li>
+    <li><a href="#adding-support-for-eformidling-in-appcs">Adding support for eFormidling in App.cs</a></li>
     <li><a href="#configuring-key-values-for-eformidling-in-your-application">Configuring key values for eFormidling in your application</a></li>
     <li><a href="#shipment-metadata-generation-in-the-application">Shipment metadata generation in the application</a></li>
     <li><a href="#dynamically-setting-the-shipment-receiver">Dynamically setting the shipment receiver</a></li>
@@ -1034,27 +1034,27 @@ Nuget versions >= 4.22.0 are required for your application to support eFormidlin
 [See how to update the nuget references of your application here](../update/#nuget-pakker).
 </div>
 <p>Integration with eFormidling needs to be explicitly activated in the application.</p>
-<p>In the file <em>appsettings.json</em> in th efolder <em>App</em>, the following must be added to the <em>AppSettings</em> section.</p>
+<p>In the file <em>appsettings.json</em> in the folder <em>App</em>, the following must be added to the <em>AppSettings</em> section.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;EnableEFormidling&#34;</span>:  <span style="color:#ff79c6">true</span>
 </code></pre></div><p>In addition, continuing in the same file, a new section <code>EFormidlingClientSettings</code> should be added.
 The contents of the code snippet below can be copied in its entirety. 
-This sets up the url for the integation point.
+This sets up the url for the integration point.
 The link points to the mock that can be ran locally. 
-<a href="#-Kj%C3%B8ring-med-eFormidling-mock-lokalt">Read more about setting up the local mock for the integration point here</a>.</p>
+<a href="#testing-eformidling-integration-locally">Read more about setting up the local mock for the integration point here</a>.</p>
 <p>When an application is deployed to TT02 or production,
 this value will be substituted to point to the integration point hosted in Altinn Platform.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;EFormidlingClientSettings&#34;</span>: {
    <span style="color:#ff79c6">&#34;BaseUrl&#34;</span>: <span style="color:#f1fa8c">&#34;http://localhost:9093/api/&#34;</span>
  }
 </code></pre></div><p>In the case you do not wish to test the eFormidling integration when running your app locally, 
-you can overide this configuration in  <em>appsettings.Development.json</em>.</p>
+you can override this configuration in  <em>appsettings.Development.json</em>.</p>
 <p>Create the section <em>AppSettings</em>, if it does not already exist, and set <em>EnableEFormidling</em> to false.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;AppSettings&#34;</span>: {
     <span style="color:#ff79c6">&#34;EnableEFormidling&#34;</span>: <span style="color:#ff79c6">false</span>
 }
-</code></pre></div><h2 id="adding-support-for-eforimdling-in-appcs">Adding support for eForimdling in App.cs</h2>
+</code></pre></div><h2 id="adding-support-for-eformidling-in-appcs">Adding support for eFormidling in App.cs</h2>
 <p>The next step in setting up support of eFormidling , 
-is to make the required services available for the appliction.
+is to make the required services available for the application.
 All changes are made in <em>App.cs</em>, which you fill find in the _App/logic folder.</p>
 <p>At the top of the file, among the library references, include the following three lines.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.Common.EFormidlingClient.Models;
@@ -1114,7 +1114,7 @@ parameters defined in the table.</p>
 <tbody>
 <tr>
 <td>serviceId</td>
-<td>Id som spesifiserer type forsendelse <a href="https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149">DPO</a>, <a href="https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150">DPV</a>, <a href="https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152">DPI</a> eller <a href="https://samarbeid.digdir.no/eformidling/kommunar-dpf/151">DPF*</a></td>
+<td>Id that specifies the shipment type* <a href="https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149">DPO</a>, <a href="https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150">DPV</a>, <a href="https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152">DPI</a> or <a href="https://samarbeid.digdir.no/eformidling/kommunar-dpf/151">DPF</a></td>
 </tr>
 <tr>
 <td>process</td>
@@ -1126,11 +1126,11 @@ parameters defined in the table.</p>
 </tr>
 <tr>
 <td>sendAfterTaskId</td>
-<td>Id of the task to be completed before the shipment is sent. We reccomend this be a confirmation task</td>
+<td>Id of the task to be completed before the shipment is sent. We recommend this be a confirmation task</td>
 </tr>
 <tr>
 <td>receiver</td>
-<td>Organisation number of the receiver. Only Norwegian organisations supported. (Can be ommited)</td>
+<td>Organisation number of the receiver. Only Norwegian organisations supported. (Can be omitted)</td>
 </tr>
 <tr>
 <td>standard</td>
@@ -1151,7 +1151,7 @@ parameters defined in the table.</p>
 </tbody>
 </table>
 <p>* per January 2022 only DPF is supported.</p>
-<p>** available proceses for each receiver is available at <a href="https://platform.altinn.no/eformidling/api/capabilities/%7Bmottaker-orgnummer%7D">https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}</a></p>
+<p>** available process for each receiver is available at <a href="https://platform.altinn.no/eformidling/api/capabilities/%7Bmottaker-orgnummer%7D">https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}</a></p>
 <p>An example of a configuration in application metadata:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;eFormidling&#34;</span>: {
     <span style="color:#ff79c6">&#34;serviceId&#34;</span>: <span style="color:#f1fa8c">&#34;DPF&#34;</span>,
@@ -1167,8 +1167,8 @@ parameters defined in the table.</p>
 </code></pre></div><h2 id="shipment-metadata-generation-in-the-application">Shipment metadata generation in the application</h2>
 <p>The application developer is responsible for creating the message that will follow a shipment through eFormidling.
 <a href="https://docs.digdir.no/eformidling_nm_message.html#meldingstypene">Read about the various message types available in eFormidling.</a></p>
-<p>This is acheived by including the function below in <em>App.cs</em>.</p>
-<p>Expected output from this function is a touple contaning to elements.
+<p>This is achieved by including the function below in <em>App.cs</em>.</p>
+<p>Expected output from this function is a tuple containing to elements.
 First, the name of the metadata file and then a stream containing the metadata.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#6272a4">/// &lt;inheritdoc /&gt;
 </span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">async</span> Task&lt;(<span style="color:#8be9fd">string</span>, Stream)&gt; GenerateEFormidlingMetadata(Instance instance)
@@ -1187,8 +1187,8 @@ First, the name of the metadata file and then a stream containing the metadata.<
 }
 </code></pre></div><h2 id="dynamically-setting-the-shipment-receiver">Dynamically setting the shipment receiver</h2>
 <p>In <em>App.cs</em> it is possible to override the method retrieving the receiver from <em>applicationmetadata.json</em>.
-This functionaly can be used whenever the receiver of a shipment is to be determined dynamically.</p>
-<p>Three steps are requried when defining the receiver in the application logic, 
+This functionally can be used whenever the receiver of a shipment is to be determined dynamically.</p>
+<p>Three steps are required when defining the receiver in the application logic, 
 and all steps are executed in <em>App.cs</em>.</p>
 <ol>
 <li>At the top of the file, a reference to the eFormidling library must be included.</li>
@@ -1220,7 +1220,7 @@ and that the prefix <code>0192:</code> is required before the organisation numbe
 </ol>
 <h2 id="testing-eformidling-integration-locally">Testing eFormidling integration locally</h2>
 <p>It is possible to test the eFormidling integration for an application in
-your development environemnt. 
+your development environment. 
 In addition to Altinn&rsquo;s Localtest, and the application, there are two things that need to run:</p>
 <ol>
 <li>eFormidling integration point (Integrasjonspunktet)</li>
@@ -1247,11 +1247,11 @@ The contents can be places at the same level as the <code>efm-mocks</code> folde
 </ol>
 <h4 id="running-eformidling-locally">Running eFormidling locally</h4>
 <ol>
-<li>Open a terminal and navigate to <code>efm-mocks</code> (Command prompt eller bash is reccomended, PowerShell will not work.)</li>
+<li>Open a terminal and navigate to <code>efm-mocks</code> (Command prompt or bash is recommended, PowerShell will not work.)</li>
 <li>Run <code>docker-compose up -d</code></li>
 <li>Navigate to the folder where the integration point file exists.</li>
 <li>Run the command <code>java -Xmx2g -Dspring.profiles.active=mock -jar integrasjonspunkt-2.2.6.jar</code>
-If you have a newer version of the integration point, the commands last section should be adjustet to reflect this.</li>
+If you have a newer version of the integration point, the commands last section should be adjusted to reflect this.</li>
 </ol>
 <h4 id="verify-that-eformidling-is-set-up-correctly">Verify that eFormidling is set up correctly</h4>
 <p>This requires that <a href="https://www.npmjs.com/get-npm">node and npm</a> is present on your machine, 
