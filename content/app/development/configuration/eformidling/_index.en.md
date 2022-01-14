@@ -128,19 +128,18 @@ parameters defined in the table.
 
 | Id              | Description                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| serviceId       | Id specifying shipment type DPO, DPV, DPI eller DPF*                                                       |
-| process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
+| serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF*](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) || process         | Id which wil be included in the scope of the StandardBusinessDocumentHeader**                              |
 | dataTypes       | List of data types to automatically include in the shipment                                                |
 | sendAfterTaskId | Id of the task to be completed before the shipment is sent. We reccomend this be a confirmation task       |
 | receiver        | Organisation number of the receiver. Only Norwegian organisations supported. (Can be ommited)              |
 | standard        | DocumentIdentification standard                                                                            |
-| type            | DocumentIdentification type                                                                                |
-| typeVersion     | DocumentIdentification type version                                                                        |
+| type            | Id for the [message type](urn:no:difi:profile:arkivmelding:planByggOgGeodata:ver1.0.                                                                                |
+| typeVersion     | Version of the message type                                                                      |
 | securityLevel   | Security lever set on the StandardBusinessDocument                                                         |
 
 \* per January 2022 only DPF is supported.
 
-\** available procesed for each receiver is available at https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
+\** available proceses for each receiver is available at https://platform.altinn.no/eformidling/api/capabilities/{mottaker-orgnummer}
 
 
 An example of a configuration in application metadata:
@@ -269,6 +268,7 @@ but they are note required to use the mock.
 
 [Read more about the mock here](https://github.com/felleslosninger/efm-mocks)
 
+
 ## Testing eFormidling integration in a test environment
 
 {{%notice warning%}}
@@ -280,7 +280,7 @@ vil cause the shipment to fail without explicit warning the end user or app owne
 {{% /notice%}}
 
 The integration point exposes endpoints that allow you to monitor the status of a shipment. 
-`https://platform.altinn.no/eformidling/api/conversations?messageid={instanceGuid}`
+`https://platform.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
 
 Replace `{instanceGuid}` with the guid of the instance that has been archived.
 

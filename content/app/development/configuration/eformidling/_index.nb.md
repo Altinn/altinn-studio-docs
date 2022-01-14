@@ -122,14 +122,14 @@ Opprett seksjonen `eFormidling` og fyll ut verdier for følgende parametre.
 
 | Id              | Beskrivelse                                                                                                |
 | --------------- | ---------------------------------------------------------------------------------------------------------- |
-| serviceId       | Id som spesifiserer type forsendelse DPO, DPV, DPI eller DPF*                                              |
+| serviceId       | Id som spesifiserer type forsendelse [DPO](https://samarbeid.digdir.no/eformidling/offentlige-virksomheter-dpo/149), [DPV](https://samarbeid.digdir.no/eformidling/private-virksomheter-dpv/150), [DPI](https://samarbeid.digdir.no/eformidling/innbyggere-dpi/152) eller [DPF*](https://samarbeid.digdir.no/eformidling/kommunar-dpf/151) |
 | process         | Id som settes på scopet i StandardBusinessDocumentHeader**                                                 |
-| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsen                                          |
+| dataTypes       | Liste av data typer som automatisk skal legges ved forsendelsen                                            |
 | sendAfterTaskId | Id på tasken som skal avsluttes før forsendelsen sendes. Det er anbefalt at dette er et confirmation steg  |
 | receiver        | Organsisasjonsnummer til mottaker. Støtter kun norske virksomheter. Kan sløyfes og defineres i applogikken |
 | standard        | DocumentIdentification standard                                                                            |
-| type            | DocumentIdentification type                                                                                |
-| typeVersion     | DocumentIdentification type versjon                                                                        |
+| type            | Id på [medlingstypen]](urn:no:difi:profile:arkivmelding:planByggOgGeodata:ver1.0)                          |
+| typeVersion     | Versjon av meldingstypen                                                                                   |
 | securityLevel   | Sikkerhetsnivå som settes på StandardBusinessDocument                                                      |
 
 \* per Januar 2022 støttes kun DPF.
@@ -269,7 +269,7 @@ vil forsendelsen feile uten eksplisitt varsling til sluttbruker eller tjenesteei
 {{% /notice%}}
 
 Integrasjonspunktet eksponerer endepunkter der man kan følge statusen for en forsendelse. 
-`https://platform.altinn.no/eformidling/api/conversations?messageid={instanceGuid}`
+`https://platform.altinn.no/eformidling/api/conversations?messageId={instanceGuid}`
 
 Bytt ut `{instanceGuid}` med guiden til instansen som er blitt innsendt.
 
