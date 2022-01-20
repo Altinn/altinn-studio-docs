@@ -13,7 +13,7 @@ See diagram below for the full feature overview with feature status. Click on bo
 
 <object data="/community/roadmap/productfeatures.drawio.svg" type="image/svg+xml" style="width: 100%;"></object>
 
-[Klikk for åpne diagram i fullskjerm](productfeatures.drawio.svg)
+[Click to open the diagram in fullscreen](productfeatures.drawio.svg)
 
 
 {{% children %}}
