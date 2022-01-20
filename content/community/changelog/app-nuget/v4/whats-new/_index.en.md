@@ -4,6 +4,10 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
+
+Restructure of process engine and support for BPMN gateways
+
 ## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
 
 The integration point used for sending instance data through eFormidling now 
