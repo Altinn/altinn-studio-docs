@@ -7,7 +7,7 @@ tags: [translate-to-norwegian]
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 
-Restrukturering av prosessmotor and støtte for BPMN gateways.
+Restrukturering av prosessmotor og støtte for BPMN gateways.
 
 ## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
 
