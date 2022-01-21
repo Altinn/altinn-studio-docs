@@ -52,7 +52,7 @@ Trykk [her](https://altinn.no) for å komme til Altinn.
 
 Man har to alternativer når man skal endre tekster i en app, enten gjøres det via Altinn Studio eller direkte i repository.
 
-### Tekst editor i Altinn Studio Designer
+### Teksteditor i Altinn Studio Designer
 
 I den øverste navigerings menyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
 
