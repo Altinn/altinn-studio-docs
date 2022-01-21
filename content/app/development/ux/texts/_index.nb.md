@@ -54,7 +54,7 @@ Man har to alternativer når man skal endre tekster i en app, enten gjøres det 
 
 ### Teksteditor i Altinn Studio Designer
 
-I den øverste navigerings menyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
+I den øverste navigeringsmenyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
 
 På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_, og fylle ut tekst og en unik nøkkel.
 
