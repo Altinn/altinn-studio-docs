@@ -165,7 +165,7 @@ F.eks.:
 }
 ```
 
-Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter _ikke_ i repeterende gruppe. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like. 
+Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter utenom den repeterende gruppen. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like. 
 
 ## Legge til hjelpetekst
 
