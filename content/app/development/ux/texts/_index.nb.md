@@ -52,9 +52,9 @@ Trykk [her](https://altinn.no) for å komme til Altinn.
 
 Man har to alternativer når man skal endre tekster i en app, enten gjøres det via Altinn Studio eller direkte i repository.
 
-### Tekst editor i Altinn Studio Designer
+### Teksteditor i Altinn Studio Designer
 
-I den øverste navigerings menyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
+I den øverste navigeringsmenyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
 
 På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_, og fylle ut tekst og en unik nøkkel.
 
@@ -165,7 +165,7 @@ F.eks.:
 }
 ```
 
-Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter _ikke_ i repeterende gruppe. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like. 
+Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter utenom den repeterende gruppen. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like. 
 
 ## Legge til hjelpetekst
 

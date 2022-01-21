@@ -7,7 +7,7 @@ tags: [translate-to-norwegian]
 
 ## 4.23.0 (2022-01-20) - Dynamiske konfigurasjonsverdier for frontend 
 
-Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.{miljø}.json` filer. Dette eksponeres til frontend applikasjonen som `applicationSettings` og er en dynamisk liste med verdier. I praksis betyr dette at `FrontEndSettings` kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.
+Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.{miljø}.json` filer. Dette eksponeres til frontendapplikasjonen som `applicationSettings` og er en dynamisk liste med verdier. I praksis betyr dette at `FrontEndSettings` kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.
 
 ## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
 
