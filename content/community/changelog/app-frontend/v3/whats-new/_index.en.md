@@ -9,7 +9,7 @@ Added a more neutral design.
 Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
 
 ## 3.23.1 (2022-01-24) - Dependency patching
-Patching of external dependencies for week 4 of 2022.
+Patching of external dependencies for week 3 of 2022.
 Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
 
 ## 3.23.0 (2022-01-21) - Dynamic options
