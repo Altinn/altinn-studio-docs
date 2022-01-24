@@ -94,7 +94,7 @@ Interface har en egenskap `Id`, som skal settes til til den id'en man skal spør
 > 
 
 
-## Koble dropdown-komponent til kodeliste
+## Koble en komponent til kodeliste
 Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:
 ```json
 {
