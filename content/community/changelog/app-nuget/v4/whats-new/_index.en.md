@@ -3,6 +3,10 @@ title: What's new
 description: Overview of changes introduced in version 4.
 toc: true
 ---
+## 4.24.0 (2020-01-21)
+
+Support language and query parameters in dynamic options.
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
