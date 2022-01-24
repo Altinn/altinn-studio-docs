@@ -8,7 +8,7 @@ La til et mer naturlig design for app-frontend.
 Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
 
 ## 3.23.1 (2022-01-24) - Oppdaterte avhengigheter
-Oppdaterte eksterne avhengigheter for uke 4 av 2022.
+Oppdaterte eksterne avhengigheter for uke 3 av 2022.
 Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
 
 ## 3.23.0 (2022-01-21) - Dynamiske options (kodelister)
