@@ -1026,16 +1026,12 @@ if(host != "localhost")
 
 
 
-<p>Tekster lagres i ressursfiler i appen (<code>App/config/texts</code>).
-Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.</p>
-<p>Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de
-vises til sluttbruker når skjemaet lastes inn i nettleser.</p>
-<p>Tekster lagres i JSON-format og det er én fil pr språk.</p>
-<p>Format på filnavn for tekster er <code>resource.[språk].json</code> f.eks: <em>resource.nb.json</em>.</p>
+<p>Tekster lagres i ressursfiler i katalogen <code>App/config/texts</code>. Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.</p>
+<p>Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.</p>
+<p>Tekster lagres i JSON-format og det er én fil pr språk. Format på filnavn for tekster er <code>resource.[språk].json</code> f.eks: <em>resource.nb.json</em>.</p>
 <h2 id="formatering-av-tekster">Formatering av tekster</h2>
-<p>Alle tekster kan formateres med markdown.
-Nedenfor er de mest benyttede formateringene beskrevet.
-Mer omfattende dokumentasjon og tips til hvordan markdown kan benyttes finnes her:
+<p>Alle tekster kan formateres med markdown. Nedenfor er de mest benyttede formateringene beskrevet.</p>
+<p>Mer omfattende dokumentasjon og tips til hvordan markdown kan benyttes finnes her:
 <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a>.</p>
 <h3 id="uthevede-tekster">Uthevede tekster</h3>
 <p>Det er ekstremt enkelt å gjøre ord eller setninger fet eller kursiv i markdown.</p>
@@ -1045,19 +1041,16 @@ Dette er også en <span style="text-decoration:underline">*kurvis tekst*</span> 
 Dette er også **fet tekst**, men laget med stjerner!
 </code></pre></div><h3 id="lenker">Lenker</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">Trykk [<span style="color:#ff79c6">her</span>](<span style="color:#50fa7b">https://altinn.no</span>) for å komme til Altinn.
-</code></pre></div><h3 id="headinger">Headinger</h3>
+</code></pre></div><h3 id="overskrifter">Overskrifter</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="font-weight:bold"># Dette er en stor heading (H1)
 </span><span style="font-weight:bold"></span><span style="font-weight:bold">## Dette er en litt mindre heading (H2)
 </span><span style="font-weight:bold">### Og enda litt mindre (H3)
 </span><span style="font-weight:bold">#### Bitteliten heading (H4)
 </span></code></pre></div><h2 id="legge-til-og-endre-tekster-i-en-app">Legge til og endre tekster i en app</h2>
-<p>Man har to alternativer når man skal endre tekster i en app:
-enten gjøres det via Altinn Studio eller direkte i repository.</p>
-<h3 id="legge-til-og-endre-tekster-i-altinn-studio-designer">Legge til og endre tekster i Altinn Studio Designer</h3>
-<p>I den øverste navigerings menyen i Altinn Studio, velg <em>Språk</em> for å kunne redigere tekster.
-En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.</p>
-<p>På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser.
-Nye tekster legges til ved å trykke på <em>Ny tekst</em>, og fylle ut tekst og en unik nøkkel.</p>
+<p>Man har to alternativer når man skal endre tekster i en app, enten gjøres det via Altinn Studio eller direkte i repository.</p>
+<h3 id="tekst-editor-i-altinn-studio-designer">Tekst editor i Altinn Studio Designer</h3>
+<p>I den øverste navigerings menyen i Altinn Studio, velg <em>Språk</em> for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.</p>
+<p>På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på <em>Ny tekst</em>, og fylle ut tekst og en unik nøkkel.</p>
 <p>Lagre endringer i tekstene ved å trykke på <em>Lagre tekster</em>.</p>
 <figure><a href="edit-texts-in-designer.png"><img src="edit-texts-in-designer.png" alt="Altinn Studio Designer" title="Endre tekster i Altinn Studio Designer" /></a><figcaption><h4>Endre tekster i Altinn Studio Designer</h4></figcaption></figure>
 <h3 id="legge-til-og-endre-tekster-i-repository">Legge til og endre tekster i repository</h3>
@@ -1066,8 +1059,7 @@ i JSON-struturen direkte i repoet. Enten via Altinn Studio Repos eller i en loka
 <p>Tekstene ligger lagret i <code>App/config/texts</code></p>
 <figure><a href="edit-texts-in-repos.png"><img src="edit-texts-in-repos.png" alt="Altinn Studio Repos" title="Endre tekster i Altinn Studio Repos" /></a><figcaption><h4>Endre tekster i Altinn Studio Repos</h4></figcaption></figure>
 <h2 id="variabler-i-tekster">Variabler i tekster</h2>
-<p>Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor.</p>
-<p>Støttede datakilder: datamodel.</p>
+<p>Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er viktig at rekkefølgen på variablene er den samme som parameterne i teksten.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;good.text.id&#34;</span>,
   <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Hello, {0}! Here is a second variable {1}.&#34;</span>,
@@ -1077,31 +1069,60 @@ i JSON-struturen direkte i repoet. Enten via Altinn Studio Repos eller i en loka
       <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.&lt;dataModelName&gt;&#34;</span>
     },
     {
-      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;datamodelField&gt;&#34;</span>,
-      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.&lt;dataModelName&gt;&#34;</span>
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;settings key&gt;&#34;</span>,
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;applicationSettings&#34;</span>
+    },
+    {
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;instance value key&gt;&#34;</span>,
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;instanceContext&#34;</span>
     }
   ]
 }
-</code></pre></div><p>Rekkefølgen på variablene må matche parameterne i teksten.</p>
+</code></pre></div><h3 id="datakilder">Datakilder</h3>
+<p>Det er per nå mulig å hente verdier fra 3 ulike datakilder.</p>
+<ol>
+<li>Datamodel<br>
+Ved å angi <code>dataModel.&lt;dataModelNavn&gt;</code> som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når bruker forlater feltet.</li>
+<li>Instillinger<br>
+Ved å angi <code>applicationSettings</code> som datakilde kan man hente ut verdier fra en spesiell seksjon i <code>appsettings.{miljø}.json</code> filen(e) med navn <code>FrontEndSettings</code>. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike <code>appsettings.{miljø}.json</code> filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom <code>FrontEndSettings</code> og <code>applicationSettings</code>.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;FrontEndSettings&#34;</span>: {
+  <span style="color:#ff79c6">&#34;HomeBaseUrl&#34;</span>: <span style="color:#f1fa8c">&#34;https://www.testdirektoratet.no&#34;</span>
+},
+</code></pre></div></li>
+<li>Instans<br>
+Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den aktive instansen. Vi har altså ikke gikk tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+<ol>
+<li><code>instanceOwnerPartyId</code> inneholder avgiver sin party id.</li>
+<li><code>instanceId</code> inneholder id&rsquo;en til den aktive instansen.</li>
+<li><code>appId</code> inneholder id&rsquo;en til appen instansen er knyttet til.</li>
+</ol>
+</li>
+</ol>
+<h3 id="komplett-eksempel">Komplett eksempel:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">
 {
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;common.submitinfo&#34;</span>,
-  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Du leverer nå skjema for: {0} med organisasjonsnummer: {1}.&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).&#34;</span>,
   <span style="color:#ff79c6">&#34;variables&#34;</span>: [
-      {
-        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;skattepliktig.organisasjonsnavn&#34;</span>,
+    {
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;skattepliktig.organisasjonsnavn&#34;</span>,
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+    },
+    {
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;skattepliktig.organisasjonsnummer&#34;</span>,
         <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
-      },
-      {
-        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;skattepliktig.organisasjonsnummer&#34;</span>,
-          <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
-      }
+    },
+    {
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;instanceOwnerPartyId&#34;</span>,
+        <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;instanceContext&#34;</span>
+    },
+    {
+      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;homeBaseUrl&#34;</span>,
+        <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;applicationSettings&#34;</span>
+    }
   ]
 }
-</code></pre></div><p>Det er anbefalt at variablene er statiske gjennom prosessflyten til en instans.
-Dette kan man oppnå ved å enten bruke prefill data eller verdier som settes under instansiering som variabler.
-Se et eksempel på hvordan å sette et datafelt under instansiering <a href="../prefill/#egendefinert-prefill">her</a>.</p>
-<h3 id="variabler-i-tekst---repeterende-grupper">Variabler i tekst - repeterende grupper</h3>
+</code></pre></div><h3 id="variabler-i-tekst---repeterende-grupper">Variabler i tekst - repeterende grupper</h3>
 <p>For at variabler i tekst skal fungere med data som ligger i repeterende grupper, må oppsettet vist over endres litt for de aktuelle feltene,
 for å spesifisere den repeterende gruppen dataene ligger i.</p>
 <p>Dette gjøres ved å legge til <code>[{0}]</code> <em>etter</em> den repeterende gruppen når man spesifiserer felt i datamodellen i <code>key</code>-parameteren.
@@ -1120,9 +1141,7 @@ F.eks.:</p>
       }
   ]
 }
-</code></pre></div><p>Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter <em>ikke</em> i repeterende gruppe. 
-Det anbefales ikke å kombinere variabler fra felter fra <em>forskjellige</em> repeterende grupper, med mindre man er helt sikker på at 
-rekkefølgen på innslag i gruppene vil bli helt like.</p>
+</code></pre></div><p>Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter <em>ikke</em> i repeterende gruppe. Det anbefales derimot ikke å kombinere variabler fra felter fra <em>forskjellige</em> repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like.</p>
 <h2 id="legge-til-hjelpetekst">Legge til hjelpetekst</h2>
 <p>Hjelpetekster er små tekstsnutter som gir en kort og konsis beskrivelse av hva sluttbrukeren
 er forventet å fylle ut i feltet som teksten er tilknyttet.</p>

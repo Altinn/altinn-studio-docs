@@ -1017,6 +1017,7 @@ if(host != "localhost")
   <ul>
     <li><a href="#data-tilsvarer-utfyllingssteg-i-altinn-ii">Data (tilsvarer utfyllingssteg i Altinn II)</a></li>
     <li><a href="#bekreftelse-confirmation">Bekreftelse (Confirmation)</a></li>
+    <li><a href="#tilbakemelding-feedback">Tilbakemelding (Feedback)</a></li>
   </ul>
 </nav>
 
@@ -1084,7 +1085,39 @@ overstyres.</p>
 For lenke og utheving, <a href="../../tekster#formatering-av-tekster">benytt markdown</a>.</p>
 <p>Dette resulterer i følgende visning:</p>
 <figure><a href="overridden.png"><img src="overridden.png" alt="Bekreftelses-visningen" title="Overstyrte tekster på bekreftelses-visningen" /></a><figcaption><h4>Overstyrte tekster på bekreftelses-visningen</h4></figcaption></figure>
-
+<h2 id="tilbakemelding-feedback">Tilbakemelding (Feedback)</h2>
+<p>Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.</p>
+<p>Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du <a href="../../tekster">her</a>. Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.</p>
+<figure><a href="feedback-default.png"><img src="feedback-default.png" alt="Tilbakemelding-visningen" title="Tekster som kan endres/overstyres i tilbakemelding-visningen" /></a><figcaption><h4>Tekster som kan endres/overstyres i tilbakemelding-visningen</h4></figcaption></figure>
+<h3 id="overstyre-tekster-1">Overstyre tekster</h3>
+<table>
+<thead>
+<tr>
+<th>Tekst nr. (se bilde over)</th>
+<th>Tekstnøkkel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>feedback.title</td>
+</tr>
+<tr>
+<td>2</td>
+<td>feedback.body</td>
+</tr>
+</tbody>
+</table>
+<p>Eksempel på overstyrte tekster i filen <code>resources.nb.json</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;feedback.title&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Vent på at tjenesteeier sjekker data&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;feedback.body&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Når tjenesteier har sjekket at alle data er godkjent vil du bli automatisk sendt videre til siste steg i prosessen.&#34;</span>
+}
+</code></pre></div>
 
 <footer class=" footline" >
 	
