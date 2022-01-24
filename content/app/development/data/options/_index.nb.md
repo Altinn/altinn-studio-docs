@@ -84,3 +84,27 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
     "optionsId": "biler",
 }
 ```
+
+## Sende med query parametere ved henting av options
+Dropdown støtter query parameters når det gjøres api kall. `language` er satt opp automatisk, men man kan også legge til egendefinerte parametere ved å sette opp `mapping` på dropdown komponenter.
+
+```json
+{
+    "id": "c66d7b69-2e18-4786-af44-1fa913853618",
+    "type": "Dropdown",
+    "textResourceBindings": {
+        "title": "NyGarantiLoyvetype"
+    },
+    "dataModelBindings": {
+        "simpleBinding": "soknad.nyGaranti.loyvetype"
+    },
+    "required": true,
+    "optionsId": "loyvetyper",
+    "mapping": {
+        "soknad.transportorOrgnummer": "orgnummer"
+    }
+},
+```
+
+I eksempelet over vil det bli satt på et query parameter `orgnummer={nr}`, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
+Disse parameterne må settes under instansiering for at de skal bli med. [Vi jobber med å forbedre dette](https://github.com/Altinn/altinn-studio/issues/7888) slik at options kan oppdateres dynamisk f.ex ved endring av andre felter.

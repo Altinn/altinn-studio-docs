@@ -85,3 +85,27 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
     "optionsId": "biler",
 }
 ```
+
+## Pass query parameters when fetching options
+Dropdown supports query parameters when making the api call. `language` is added automatically, and you can also add custom parameters by defining `mapping` on the dropdown component.
+
+```json
+{
+    "id": "c66d7b69-2e18-4786-af44-1fa913853618",
+    "type": "Dropdown",
+    "textResourceBindings": {
+        "title": "NyGarantiLoyvetype"
+    },
+    "dataModelBindings": {
+        "simpleBinding": "soknad.nyGaranti.loyvetype"
+    },
+    "required": true,
+    "optionsId": "loyvetyper",
+    "mapping": {
+        "soknad.transportorOrgnummer": "orgnummer"
+    }
+},
+```
+
+In the example above, the query parameter `orgnummer={nr}`, where `{nr}` is the value of `soknad.transportorOrgnummer` will be set.
+These parameters must be set during instantiation of the app in order to appear. [We are workgin on improving this](https://github.com/Altinn/altinn-studio/issues/7888) to make it more dynamic, f.ex by changing values in other fields.
