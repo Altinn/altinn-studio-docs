@@ -4,6 +4,30 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.24.0 (2022-01-24) - Neutral design
+Added a more neutral design.
+Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
+
+## 3.23.1 (2022-01-24) - Dependency patching
+Patching of external dependencies for week 4 of 2022.
+Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
+
+## 3.23.0 (2022-01-21) - Dynamic options
+Added support for first version of dynamic options.
+Issue [#5247](https://github.com/Altinn/altinn-studio/issues/5247).
+
+## 3.22.9 (2022-01-20) - Stable FormData + Typescript improvements
+Make FormData type stable and various improvements to typings.
+Pull request [#7718](https://github.com/Altinn/altinn-studio/pull/7718).
+
+## 3.22.8 (2022-01-17) - Fix for various eslint rules
+Fixes several eslint issues, adds some more test coverage. Minor refactors to some components that were very outdated.
+Pull request [#7786](https://github.com/Altinn/altinn-studio/pull/7786).
+
+## 3.22.7 (2022-01-13) - Dependency patching
+Patching of external dependencies for week 2 of 2022.
+Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
+
 ## 3.22.6 (2022-01-11) - Bugfix repeating groups
 Fixed a bug where repeating group state would not be cleared when loading a new formlayout.
 Issue [#7773](https://github.com/Altinn/altinn-studio/issues/7773).
