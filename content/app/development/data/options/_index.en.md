@@ -6,14 +6,15 @@ toc: true
 tags: [translate-to-english]
 weight: 300
 ---
-Altinn offers two different ways an application can use code lists. Both is done through the options api exposed by the application, and the code lists are available through the endpoint `{org}/{app}/api/options/{optionsId}`.
-The dropdown component will automatically be able to fetch such lists from if you connect the component to the option id in question.
 
-## Static codelists from the application repository
-By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the `App/options/` folder and be named according to the following conventions `{optionId}.json` for the application to recgonize them. 
+Altinn tilbyr i dag to ulike måter en app kan eksponere kodelister. Dette gjøres gjennom et options-api som er eksponert av appen, og kodelisten vil være tilgjengelig på endepunktet `{org}/{app}/api/options/{optionsId}`.
+Dropdown-komponenten vil automatisk kunne hente ut en slik liste om man kobler denne komponenten til en options-id.
 
-For example if you have a list of countries in a file named `countries.json`, the optionId would be `countries`, and would be exposed through the api at `{org}/{app}/api/options/countires`. The static codelists should be in a special format format as shown below:
+## Statisk kodeliste fra app-repo
 
+Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet. 
+Options filene må ligge under `App/options/` og vil bli differensiert ved hjelp av navngivningen på json-filen. F.eks `land.json`. Her vil da optionsId være `land`, og vil være eksponert gjennom endepunktet `{org}/{app}/api/options/land`.
+Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inneholder land (`App/options/land.json`):
 
 ```json
 [
@@ -32,74 +33,55 @@ For example if you have a list of countries in a file named `countries.json`, th
 ]
 ```
 
-Note that the `label` field can be a key to a text resource (as shown above for sweden) or plain text.
+`label` feltet kan inneholde en tekstnøkkel til teskstressursene eller ren tekst.
 
-## Codelists generated runtime
-As an alternative to the static files you can have code that determines what the lists should be during runtime. This makes it possible to expose dynamic values that for instance are filtered or looked up in external sources.
+## Kodeliste generert runtime
 
-In versions prior to 4.24.0 this was done by overriding the `GetOptions` method in `App.cs`. This method is now deprecated and is replaced by implementing the `IAppOptionsProvider` interface and registering the implementation in the application dependency injection container. This allows for better separation, inject dependencies into the constructor, pass in language and other query parameters and generally handle all aspects of the implementation as you see fit.
+I app-templaten har man også mulighet til å dynamisk eksponere/endre kodelister under kjøringen av appen. Dette muligjør det å eksponere dynamiske verdier som en del av kodelisten, og settes opp
+i metoden `GetOptions` i `App.cs`. Denne metoden vil bli kalt i det appen får et kall mot options-apiet, og man kan selv velge å returnere det objektet man ønsker.
 
-Below you find an example of how to implement a custom options provider. The url will will still be exposed from the same endpoint as before `{org}/{app}/api/options/countires`.
-
+Under finner du et eksempel på hvordan dette kan settes opp. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot `{org}/{app}/api/options/demo_id`.
 
 ```C#
-using Altinn.App.Common.Models;
-using Altinn.App.PlatformServices.Options;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Altinn.App.Core
+public override Task<AppOptions> GetOptions(string id, AppOptions options)
 {
-    public class CountryAppOptionsProvider : IAppOptionsProvider
+    if (id.Equals("demo_id"))
     {
-        public string Id { get; set; } = "countries";
-
-        public Task<AppOptions> GetAppOptionsAsync(string language, Dictionary<string, string> keyValuePairs)
+        var demoOptions = new AppOptions
         {
-            var options = new AppOptions
+            Options = new List<AppOption>
             {
-                Options = new List<AppOption>
-                    {
-                        new AppOption
-                        {
-                            Label = "Norway",
-                            Value = "47"
-                        },
-                        new AppOption
-                        {
-                            Label = "Sweden",
-                            Value = "46"
-                        }
-                    }
-            };
-
-            return Task.FromResult(options);
-        }
+                new AppOption
+                {
+                    Label = "Some label",
+                    Value = "Some value"
+                },
+                new AppOption
+                {
+                    Label = "Some other label",
+                    Value = "Some other value"
+                }
+            }
+        };
+        return Task.FromResult(demoOptions);
+    }
+    else
+    {
+        // don't touch existing options
+        return Task.FromResult(options);
     }
 }
-
 ```
 
-For your implementation to be picked up you need to add the following line in your `Startup.cs`:
-```csharp
-services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
-```
-
-Note that you can have multiple registrations of this interface. The correct implementation is resolved by finding the one with the correct id.
-
-The interface has a property `Id`, which should be set to the optionId, and a method `GetAppOptionsAsync` for resolving the options. This method accepts a language code and a dictionary of key/value pairs. Both parameters will typically be query parameters picked up from the controller and passed in. Allthough language could be put in the dictionary as well it's decided to be explicit on this particular parameter. 
-
-> Language codes should be based on ISO 639-1 or the W3C IANA Language Subtag Registry. The latter is built uppon the ISO 639-1 standard but is guaranties uniques of the codes, where as ISO 639-1 have conflicting usage for some codes.
-> 
-## Connect the dropdown component to the to a codelist
-This is done by adding the optionId you would like to refer to either through the component UI in Designer or direcytly in `FormLayout.json` as shown below:
+## Koble dropdown-komponent til kodeliste
 Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:
 ```json
 {
     "id": "8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44",
-    "type": "Dropdown",    
+    "type": "Dropdown",
+    "componentType": 4,
     "textResourceBindings": {},
     "dataModelBindings": {},
-    "optionsId": "countries",
+    "optionsId": "biler",
 }
 ```
