@@ -3,7 +3,7 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
-## 3.24.0 (2022-01-24) - Naturlig design
+## 3.24.0 (2022-01-24) - Nøytralt design
 La til et mer nøytralt design for app-frontend.
 Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
 
