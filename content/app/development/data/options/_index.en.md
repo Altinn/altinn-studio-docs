@@ -93,7 +93,6 @@ The interface has a property `Id`, which should be set to the optionId, and a me
 > 
 ## Connect the dropdown component to the to a codelist
 This is done by adding the optionId you would like to refer to either through the component UI in Designer or direcytly in `FormLayout.json` as shown below:
-Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:
 ```json
 {
     "id": "8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44",
