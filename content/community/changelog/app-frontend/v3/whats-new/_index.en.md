@@ -4,7 +4,7 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
-## 3.25.0 (2024-01-20) - Added more data sources for dynamic texts
+## 3.25.0 (2022-01-24) - Added more data sources for dynamic texts
 The feature that adds support for variables in texts have recieved two new data sources. The new sources are the current Instance and ApplicationSettings. ApplicationSettings requires version 4.25.0 or newer of the backend NuGet packages.
 
 Related to issue [#7520](https://github.com/Altinn/altinn-studio/issues/7520).
