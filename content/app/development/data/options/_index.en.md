@@ -3,7 +3,6 @@ title: Code lists (options)
 linktitle: Code lists
 description: How to configure Options / Code lists for an app.
 toc: true
-tags: [translate-to-english]
 weight: 300
 ---
 Altinn offers two different ways an application can use code lists. Both is done through the options api exposed by the application, and the code lists are available through the endpoint `{org}/{app}/api/options/{optionsId}`.
