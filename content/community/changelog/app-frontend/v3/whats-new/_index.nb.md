@@ -4,7 +4,7 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 ## 3.24.0 (2022-01-24) - Naturlig design
-La til et mer naturlig design for app-frontend.
+La til et mer nøytralt design for app-frontend.
 Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
 
 ## 3.23.1 (2022-01-24) - Oppdaterte avhengigheter
