@@ -109,7 +109,7 @@ Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (
 
 
 ## Sende med query parametere ved henting av options
-Dropdown støtter query parameters når det gjøres api kall. `language` er satt opp automatisk, men man kan også legge til egendefinerte parametere ved å sette opp `mapping` på dropdown komponenter.
+Options støtter query parameters når det gjøres api kall. `language` er satt opp automatisk, men man kan også legge til egendefinerte parametere ved å sette opp `mapping` på den aktuelle komponenten.
 
 ```json
 {
