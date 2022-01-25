@@ -90,7 +90,7 @@ The interface has a property `Id`, which should be set to the optionId, and a me
 
 > Language codes should be based on ISO 639-1 or the W3C IANA Language Subtag Registry. The latter is built uppon the ISO 639-1 standard but is guaranties uniques of the codes, where as ISO 639-1 have conflicting usage for some codes.
 > 
-## Connect the dropdown component to the to a codelist
+## Connect the component to options (code list)
 This is done by adding the optionId you would like to refer to either through the component UI in Designer or direcytly in `FormLayout.json` as shown below:
 ```json
 {
