@@ -6,7 +6,7 @@ toc: true
 weight: 300
 ---
 Altinn offers two different ways an application can use code lists. Both is done through the options api exposed by the application, and the code lists are available through the endpoint `{org}/{app}/api/options/{optionsId}`.
-The dropdown component will automatically be able to fetch such lists from if you connect the component to the option id in question.
+Checkbox, Dropdown, and RadioButton components will automatically be able to fetch such lists if you connect the component to the option id in question.
 
 ## Static codelists from the application repository
 By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the `App/options/` folder and be named according to the following conventions `{optionId}.json` for the application to recgonize them. 
