@@ -7,7 +7,7 @@ tags: [translate-to-norwegian]
 ## 4.24.0 (2020-01-21)
 
 Støtte for språk og query parametre inn til dynamiske kodelister.
-Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider.
+Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../app/development/data/options/_index.nb.md)
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 
