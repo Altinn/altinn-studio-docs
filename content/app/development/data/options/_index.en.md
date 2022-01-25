@@ -104,7 +104,7 @@ This is done by adding the optionId you would like to refer to either through th
 
 
 ## Pass query parameters when fetching options
-Dropdown supports query parameters when making the api call. `language` is added automatically, and you can also add custom parameters by defining `mapping` on the dropdown component.
+Options supports query parameters when making the api call. `language` is added automatically, and you can also add custom parameters by defining `mapping` on the component.
 
 ```json
 {
