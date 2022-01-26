@@ -479,7 +479,8 @@ if(host != "localhost")
   <ul>
     <li><a href="#statisk-kodeliste-fra-app-repo">Statisk kodeliste fra app-repo</a></li>
     <li><a href="#kodeliste-generert-runtime">Kodeliste generert runtime</a></li>
-    <li><a href="#koble-dropdown-komponent-til-kodeliste">Koble dropdown-komponent til kodeliste</a></li>
+    <li><a href="#koble-en-komponent-til-kodeliste">Koble en komponent til kodeliste</a></li>
+    <li><a href="#sende-med-query-parametere-ved-henting-av-options">Sende med query parametere ved henting av options</a></li>
   </ul>
 </nav>
 
@@ -487,7 +488,7 @@ if(host != "localhost")
 
 
 <p>Altinn tilbyr i dag to ulike måter en app kan eksponere kodelister. Dette gjøres gjennom et options-api som er eksponert av appen, og kodelisten vil være tilgjengelig på endepunktet <code>{org}/{app}/api/options/{optionsId}</code>.
-Dropdown-komponenten vil automatisk kunne hente ut en slik liste om man kobler denne komponenten til en options-id.</p>
+Checkbox, Dropdown og RadioButton komponenter vil automatisk kunne hente ut en slik liste om man kobler denne komponenten til en slik options-id.</p>
 <h2 id="statisk-kodeliste-fra-app-repo">Statisk kodeliste fra app-repo</h2>
 <p>Ved å legge json-lister i options mappen i app repo vil appen automatisk lese denne filen og eksponere det gjennom options-apiet. 
 Options filene må ligge under <code>App/options/</code> og vil bli differensiert ved hjelp av navngivningen på json-filen. F.eks <code>land.json</code>. Her vil da optionsId være <code>land</code>, og vil være eksponert gjennom endepunktet <code>{org}/{app}/api/options/land</code>.
@@ -508,38 +509,52 @@ Kodelistene må være på et spesifikt format. Eksempel på en kodeliste som inn
 ]
 </code></pre></div><p><code>label</code> feltet kan inneholde en tekstnøkkel til teskstressursene eller ren tekst.</p>
 <h2 id="kodeliste-generert-runtime">Kodeliste generert runtime</h2>
-<p>I app-templaten har man også mulighet til å dynamisk eksponere/endre kodelister under kjøringen av appen. Dette muligjør det å eksponere dynamiske verdier som en del av kodelisten, og settes opp
-i metoden <code>GetOptions</code> i <code>App.cs</code>. Denne metoden vil bli kalt i det appen får et kall mot options-apiet, og man kan selv velge å returnere det objektet man ønsker.</p>
-<p>Under finner du et eksempel på hvordan dette kan settes opp. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot <code>{org}/{app}/api/options/demo_id</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task&lt;AppOptions&gt; GetOptions(<span style="color:#8be9fd">string</span> id, AppOptions options)
+<p>I app-templaten har man også mulighet til å dynamisk kodelister som bestemmes under kjøringen av appen. Dette muligjør det å eksponere dynamiske verdier som kan filtreres eller hentes fra andre kilder.</p>
+<p>I versjoner eldre enn 4.24.0 ble dette gjort ved å legge til kode i metoden <code>GetOptions</code> i <code>App.cs</code>. Denne metoden er nå erstattet ved at man legger til egne klasser for hver kodeliste som implementerer <code>IAppOptionsProvider</code> interfacet og at man registrerer denne i applikasjonen sin &lsquo;dependency injection cointainer&rsquo;. Dette gir bedre skille mellom de ulike kodelistene, muliggjør å sende avhengigheter inn i konstruktøren til klassen, sende inn språk og andre parametere og generelt håndtere alle aspekter av implementeringen slik du selv ønsker det.</p>
+<p>Under finner du et eksempel på hvordan dette kan settes opp. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot <code>{org}/{app}/api/options/countries</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
+<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Options;
+<span style="color:#ff79c6">using</span> System.Collections.Generic;
+<span style="color:#ff79c6">using</span> System.Threading.Tasks;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.Core
 {
-    <span style="color:#ff79c6">if</span> (id.Equals(<span style="color:#f1fa8c">&#34;demo_id&#34;</span>))
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryAppOptionsProvider</span> : IAppOptionsProvider
     {
-        <span style="color:#8be9fd">var</span> demoOptions = <span style="color:#ff79c6">new</span> AppOptions
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;countries&#34;</span>;
+
+        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetAppOptionsAsync(<span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
         {
-            Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
+            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
             {
-                <span style="color:#ff79c6">new</span> AppOption
-                {
-                    Label = <span style="color:#f1fa8c">&#34;Some label&#34;</span>,
-                    Value = <span style="color:#f1fa8c">&#34;Some value&#34;</span>
-                },
-                <span style="color:#ff79c6">new</span> AppOption
-                {
-                    Label = <span style="color:#f1fa8c">&#34;Some other label&#34;</span>,
-                    Value = <span style="color:#f1fa8c">&#34;Some other value&#34;</span>
-                }
-            }
-        };
-        <span style="color:#ff79c6">return</span> Task.FromResult(demoOptions);
-    }
-    <span style="color:#ff79c6">else</span>
-    {
-        <span style="color:#6272a4">// don&#39;t touch existing options
-</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">return</span> Task.FromResult(options);
+                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
+                    {
+                        <span style="color:#ff79c6">new</span> AppOption
+                        {
+                            Label = <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
+                            Value = <span style="color:#f1fa8c">&#34;47&#34;</span>
+                        },
+                        <span style="color:#ff79c6">new</span> AppOption
+                        {
+                            Label = <span style="color:#f1fa8c">&#34;Sweden&#34;</span>,
+                            Value = <span style="color:#f1fa8c">&#34;46&#34;</span>
+                        }
+                    }
+            };
+
+            <span style="color:#ff79c6">return</span> Task.FromResult(options);
+        }
     }
 }
-</code></pre></div><h2 id="koble-dropdown-komponent-til-kodeliste">Koble dropdown-komponent til kodeliste</h2>
+
+</code></pre></div><p>For at denne implementasjonen skal plukkes opp av applikasjonen må den registreres i <code>Startup.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;IAppOptionsProvider, CountryAppOptionsProvider&gt;();
+</code></pre></div><p>Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste id det spørres etter.</p>
+<p>Interface har en egenskap <code>Id</code>, som skal settes til til den id&rsquo;en man skal spørre etter, og en metoden <code>GetAppOptionsAsync</code> som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.</p>
+<blockquote>
+<p>Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.</p>
+</blockquote>
+<h2 id="koble-en-komponent-til-kodeliste">Koble en komponent til kodeliste</h2>
 <p>Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44&#34;</span>,
@@ -549,7 +564,26 @@ i metoden <code>GetOptions</code> i <code>App.cs</code>. Denne metoden vil bli k
     <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
     <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;biler&#34;</span>,
 }
-</code></pre></div>
+</code></pre></div><h2 id="sende-med-query-parametere-ved-henting-av-options">Sende med query parametere ved henting av options</h2>
+<p>Options støtter query parameters når det gjøres api kall. <code>language</code> er satt opp automatisk, men man kan også legge til egendefinerte parametere ved å sette opp <code>mapping</code> på den aktuelle komponenten.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;c66d7b69-2e18-4786-af44-1fa913853618&#34;</span>,
+    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+    <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+        <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;NyGarantiLoyvetype&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+        <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;soknad.nyGaranti.loyvetype&#34;</span>
+    },
+    <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+    <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;loyvetyper&#34;</span>,
+    <span style="color:#ff79c6">&#34;mapping&#34;</span>: {
+        <span style="color:#ff79c6">&#34;soknad.transportorOrgnummer&#34;</span>: <span style="color:#f1fa8c">&#34;orgnummer&#34;</span>
+    }
+},
+</code></pre></div><p>I eksempelet over vil det bli satt på et query parameter <code>orgnummer={nr}</code>, hvor <code>{nr}</code> er verdien på feltet <code>soknad.transportorOrgnummer</code>.
+Disse parameterne må settes under instansiering for at de skal bli med. <a href="https://github.com/Altinn/altinn-studio/issues/7888">Vi jobber med å forbedre dette</a> slik at options kan oppdateres dynamisk f.ex ved endring av andre felter.</p>
+
 
 <footer class=" footline" >
 	
