@@ -60,3 +60,31 @@ For lenke og utheving, [benytt markdown](../../tekster#formatering-av-tekster).
 Dette resulterer i følgende visning:
 
 ![Bekreftelses-visningen](overridden.png "Overstyrte tekster på bekreftelses-visningen")
+
+## Tilbakemelding (Feedback)
+Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
+
+Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du [her](../../tekster). Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.
+
+![Tilbakemelding-visningen](feedback-default.png "Tekster som kan endres/overstyres i tilbakemelding-visningen")
+
+### Overstyre tekster
+
+| Tekst nr. (se bilde over) | Tekstnøkkel       |
+| ------------------------- | ----------------- |
+| 1                         | feedback.title    |
+| 2                         | feedback.body     |
+
+Eksempel på overstyrte tekster i filen `resources.nb.json`:
+
+```json
+{
+  "id": "feedback.title",
+  "value": "Vent på at tjenesteeier sjekker data"
+},
+{
+  "id": "feedback.body",
+  "value": "Når tjenesteier har sjekket at alle data er godkjent vil du bli automatisk sendt videre til siste steg i prosessen."
+}
+```
+

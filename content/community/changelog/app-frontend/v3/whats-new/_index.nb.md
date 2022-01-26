@@ -3,6 +3,11 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+## 3.25.0 (2022-01-24) - Lagt til flere datakilder for variabler i tekst
+Funksjonaliteten knyttet til variabler i tekster har fått to nye datakilder. Det blir nå mulig å hente verdier fra instance og konfigurasjonsverdier fra ApplicationSettings. Støtten for konfigurasjonsverdier krever versjon 4.25.0 eller nyere av backend sine NuGet pakker.
+
+Endringen støtter under sak [#7520](https://github.com/Altinn/altinn-studio/issues/7520).
+
 ## 3.24.0 (2022-01-24) - Nøytralt design
 La til et mer nøytralt design for app-frontend.
 Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
