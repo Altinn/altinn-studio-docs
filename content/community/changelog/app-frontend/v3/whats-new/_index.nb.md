@@ -3,11 +3,34 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
-
 ## 3.25.0 (2022-01-24) - Lagt til flere datakilder for variabler i tekst
 Funksjonaliteten knyttet til variabler i tekster har fått to nye datakilder. Det blir nå mulig å hente verdier fra instance og konfigurasjonsverdier fra ApplicationSettings. Støtten for konfigurasjonsverdier krever versjon 4.25.0 eller nyere av backend sine NuGet pakker.
 
 Endringen støtter under sak [#7520](https://github.com/Altinn/altinn-studio/issues/7520).
+
+## 3.24.0 (2022-01-24) - Nøytralt design
+La til et mer nøytralt design for app-frontend.
+Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
+
+## 3.23.1 (2022-01-24) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 3 av 2022.
+Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
+
+## 3.23.0 (2022-01-21) - Dynamiske options (kodelister)
+La til støtte for første utgave av dynamiske options (kodelister).
+Issue [#5247](https://github.com/Altinn/altinn-studio/issues/5247).
+
+## 3.22.9 (2022-01-20) - Typestabil FormData + Typescript forbedringer
+Gjør FormData typestabil og ulike forbedringer til typer.
+Pull request [#7718](https://github.com/Altinn/altinn-studio/pull/7718).
+
+## 3.22.8 (2022-01-17) - Fikset ulike eslint feil
+Fikset ulike eslint feil, la til testdekning. Noe refaktorering av eldre komponenter.
+Pull request [#7786](https://github.com/Altinn/altinn-studio/pull/7786).
+
+## 3.22.7 (2022-01-13) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 2 av 2022.
+Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
 
 ## 3.22.6 (2022-01-11) - Fikset feil med repeterende grupper
 Fikset feil hvor repeterende grupper staten ikke ville bli fjernet når man lastet ny formlayout.
