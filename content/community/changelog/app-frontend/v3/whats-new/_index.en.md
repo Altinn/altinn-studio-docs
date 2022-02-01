@@ -3,6 +3,40 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+
+## 3.27.0 (2022-02-01) - Show app owner in header
+App owner will now be displayed in the app header to improve visibility to who owns the app.
+
+Related to issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
+
+## 3.26.3 (2022-02-01) - Fixed an issue in the address component
+Fixed an issue in the address component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.2 (2022-02-01) - Fixed an issue in the dropdown component
+Fixed an issue in the dropdown component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.1 (2022-01-31) - Fixed an issue in the instantiation container
+Fixed an issue in the instantiation container
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.0 (2022-01-30) - Design updates for repeating groups
+- "Save"-button will get a different style than the "Next"-button.
+- "Edit"-button gets the same focus style as the editable box, so its easier to see which row is being edited.
+- Icon is left adjusted for the text in all icon buttons.
+- The margin in the group is changed so that the text uses the entire width, and flows on the same vertical line as the rest of the content of the form.
+
+Related to issue [#7577](https://github.com/Altinn/altinn-studio/issues/7577).
+
+## 3.25.1 (2022-01-24) - Dependency patching
+Patching of external dependencies for week  4 av 2022.
+
+Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
+
 ## 3.25.0 (2022-01-24) - Added more data sources for dynamic texts
 The feature that adds support for variables in texts have recieved two new data sources. The new sources are the current Instance and ApplicationSettings. ApplicationSettings requires version 4.25.0 or newer of the backend NuGet packages.
 

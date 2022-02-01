@@ -3,6 +3,39 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+## 3.27.0 (2022-02-01) - Vise app eier i header
+App eier vil nå vises i header for å tydeliggjøre hvem som er eier av appen.
+
+Endringen støtter under sak [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
+
+## 3.26.3 (2022-02-01) - Fikset feil i adresse komponent
+Fikset feil i adresse komponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.2 (2022-02-01) - Fikset feil i dropdown komponent
+Fikset feil i dropdown komponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.1 (2022-01-31) - Fikset feil i instantiate container
+Fikset feil i instantiate container
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.0 (2022-01-30) - Designendringer for repeterende grupper
+- "Lagre"-knappen får annereledes stil enn "Neste"-knappen.
+- "Rediger"-knappen får samme focus-state stil som den redigerbare boksen så man enklere ser hvilken rad som redigeres.
+- Ikon justeres til venstre for tekst i alle ikonknapper.
+- Margen i gruppen endres slik at teksten utnytter hele bredden og flyter på samme vertikale linje som resten av innholdet i skjemaet.
+
+Endringen støtter under sak [#7577](https://github.com/Altinn/altinn-studio/issues/7577).
+
+## 3.25.1 (2022-01-24) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 4 av 2022.
+
+Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
+
 ## 3.25.0 (2022-01-24) - Lagt til flere datakilder for variabler i tekst
 Funksjonaliteten knyttet til variabler i tekster har fått to nye datakilder. Det blir nå mulig å hente verdier fra instance og konfigurasjonsverdier fra ApplicationSettings. Støtten for konfigurasjonsverdier krever versjon 4.25.0 eller nyere av backend sine NuGet pakker.
 
