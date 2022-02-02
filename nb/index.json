@@ -809,7 +809,7 @@
 	"title": "Lanserte tjenester",
 	"tags": [],
 	"description": "Oversikt over hvilke tjenester som allerede er i produksjon, til informasjon og inspirasjon",
-	"content": "November 2021  Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).\nLanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå. Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).\nLanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå.  Juni 2021  Forhåndsgodkjenning av innreise for kjærestebesøk (UDI).\nInfo | Repo | Kjørende tjeneste  Mai 2021  Søknad for unntak om opphold på karantenehotell ved sterke velferdsgrunner når du reiser til Norge fra utlandet (UDI).\nInfo | Repo | Kjørende tjeneste  April 2021  Skattemelding med næringsspesifikasjon - pilot (Sirius) (Skatteetaten).\nInfo | Repo | Kjørende tjeneste  Februar 2021  Søknad om forhåndsgodkjenning av innkvartering i forbindelse med innreisekarantene (Arbeidstilsynet).\nInfo | Repo | Kjørende tjeneste Digital pliktavlevering (Nasjonalbiblioteket).\nInfo | Repo | Kjørende tjeneste  Desember 2020  Søknad om autorisasjon som landmåler (Kartverket).\nInfo | Repo | Kjørende tjeneste Vedlegg til søknad om autorisasjon som landmåler (Kartverket).\nInfo | Repo | Kjørende tjeneste  Juni 2020  Ledige stillinger (RA0678) (SSB).\nInfo | Repo | Kjørende tjeneste Bestill tilgang til REST API (Digdir).\nInfo | Repo | Kjørende tjeneste Be om å bli tjenesteeier (Digdir).\nInfo | Repo | Kjørende tjeneste Godkjenning av bruksvilkår for skytjenester fra Altinn (Digdir).\nInfo | Repo | Kjørende tjeneste  "
+	"content": "November 2021  Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).\nLanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå. Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).\nLanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå.  Juni 2021  Forhåndsgodkjenning av innreise for kjærestebesøk (UDI).\nInfo | Repo | Kjørende tjeneste  Mai 2021  Søknad for unntak om opphold på karantenehotell ved sterke velferdsgrunner når du reiser til Norge fra utlandet (UDI).\nInfo | Repo | Kjørende tjeneste  April 2021  Skattemelding med næringsspesifikasjon - pilot (Sirius) (Skatteetaten).\nInfo | Repo | Kjørende tjeneste  Februar 2021  Søknad om forhåndsgodkjenning av innkvartering i forbindelse med innreisekarantene (Arbeidstilsynet).\nInfo | Repo | Kjørende tjeneste Digital pliktavlevering (Nasjonalbiblioteket).\nInfo | Repo | Kjørende tjeneste  Desember 2020  Søknad om autorisasjon som landmåler (Kartverket).\nInfo | Repo | Kjørende tjeneste Vedlegg til søknad om autorisasjon som landmåler (Kartverket).\nInfo | Repo | Kjørende tjeneste  Juni 2020  Ledige stillinger (RA0678) (SSB).\nInfo | Repo | Kjørende tjeneste Bestill tilgang til REST API (Digdir).\nInfo | Repo | Kjørende tjeneste Be om å bli tjenesteeier (Digdir).\nInfo | Repo | Kjørende tjeneste Godkjenning av bruksvilkår for skytjenester fra Altinn (Digdir).\nInfo | Repo | Kjørende tjeneste  \rApper fra Digdir\rDokumentasjon for apper utviklet av Digitaliseringsdirektoratet.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/community/roadmap/",
@@ -854,6 +854,13 @@
 	"content": "Overview De API funksjonene som er dokumentert her er standard funksjoner i en app basert på app malen i Altinn Studio. Applikasjonseiere kan fritt gjøre endringer, men det er relativt trygt å annta at fjerning av funksjoner vil være ekstremt skjeldent. Enhver app med tillegg eller endringer skal ha sin egen dokumentasjon publisert av applikasjonseieren.\nAlle app API adresser starter med samme navn og filsti, men de varierer fra en app til en annen basert på eier av app og app navn.\nTest miljø (TT02)\nhttps://{org}.apps.tt02.altinn.no/{org}/{appname} Produksjon\nhttps://{org}.apps.altinn.no/{org}/{appname} URL\u0026rsquo;en identifiserer app eier spesifikt domene ved hjelp av applikasjonseier sitt kortnavn org, og identifiserer spesifikk app ved hjelp av både kortnavnet til applikasjonseier og navnet på appen; org/appname.\n\rApp metadata\rApp API for å få metadata informasjon for appen.\n\r\rInstanser\rApp API å jobbe med forekomster av en app.\n\r\rData-elementer\rAPI å jobbe med dataelementene knyttet til en app instans.\n\r\rTilstandsløse data\rAPI til å arbeide med dateelementer uten tilstand som ikke er knyttet til en instans.\n\r\rProsess\rAPI endepunkter for å lede en instans gjennom prosessen som er definert.\n\r\rValidering\rValidering API-endepunktene for instanser og dataelementer.\n\r\rOpenAPI (swagger) for Apps\r\n\r\r"
 },
 {
+	"uri": "https://docs.altinn.studio/nb/tags/app/",
+	"title": "app",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "https://docs.altinn.studio/nb/community/roadmap/studio/appowner/",
 	"title": "Applikasjonseierfunksjonalitet in Altinn 3",
 	"tags": [],
@@ -880,6 +887,13 @@
 	"tags": [],
 	"description": "Hvordan oppdatere avhengigheter i en app.",
 	"content": "Appen er avhengig av flere ressurser som ligger utenfor selve appen. Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og referanse til appen sin frontend.\nDisse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk versjon. Når ressursene oppdateres, publiseres de på nytt som en ny versjon. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer. For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressursene appen henter.\nNuget Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene.\nAppen bruker flere støttebiblioteker, som oppdateres fortløpende med forbedringer og ny funksjonalitet. En app refererer til konkrete versjoner av de forskjellige bibliotekene, og disse referansene må oppdateres for å hente inn siste versjon.\nOppgradere til nyeste versjon Tips: Installer Version Lens-utvidelsen for Visual Studio Code.\nDa kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner App.csproj. Støtter også npm.\n\r\r Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen App/App.csproj i appens repo.  F.eks.:\n\u0026lt;ItemGroup\u0026gt; \u0026lt;PackageReference Include=\u0026#34;Altinn.App.Api\u0026#34; Version=\u0026#34;3.0.0\u0026#34; /\u0026gt; \u0026lt;PackageReference Include=\u0026#34;Altinn.App.Common\u0026#34; Version=\u0026#34;3.0.0\u0026#34; /\u0026gt; \u0026lt;PackageReference Include=\u0026#34;Altinn.App.PlatformServices\u0026#34; Version=\u0026#34;3.0.0\u0026#34; /\u0026gt; \u0026lt;PackageReference Include=\u0026#34;Microsoft.Extensions.Logging.Debug\u0026#34; Version=\u0026#34;3.1.3\u0026#34; /\u0026gt; \u0026lt;PackageReference Include=\u0026#34;Microsoft.VisualStudio.Web.CodeGeneration.Design\u0026#34; Version=\u0026#34;3.1.2\u0026#34; /\u0026gt; \u0026lt;/ItemGroup\u0026gt;  Sjekk om det har kommet en oppdatert versjon av bibliotekene:  Altinn.App.Api Altinn.App.Common Altinn.App.PlatformServices   Oppdater de aktuelle referansene til den siste versjonen og lagre filen. Sjekk om det er noen breaking changes ifm endringer i bibliotekene, og gjør ev. endringer som beskrives for å løse ev. problemer. Bygg og deploy appen på nytt.  App frontend App frontend lastes inn av appen runtime, via en lenke til javascript-filen som er app frontend. Denne javascript-filen versjoneres ihht. Semantic Versioning:\n Given a version number MAJOR.MINOR.PATCH, increment the:\nMAJOR version when you make incompatible API changes, MINOR version when you add functionality in a backwards compatible manner, and PATCH version when you make backwards compatible bug fixes.\nAdditional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.\n App\u0026rsquo;en refererer som standard til en major versjon av app frontend, f.eks. versjon 1.x.y. Med mindre det kommer en ny major versjon vil alle oppdateringer med ny minor eller patch versjoner komme med automatisk. Om det kommer en ny major versjon må man eksplisitt oppdatere appen til å referere til denne.\nDersom man ønsker å referere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url\u0026rsquo;en som peker på app frontend.\nOppgradere til nyeste versjon / spesifisere versjon Referansen til app frontend ligger i App/views/Home/Index.cshtml.\nDet er 2 referanser som må oppdateres:\n Referansen til altinn-app-frontend.js-filen som er app frontend koden.  \u0026lt;script src=\u0026#34;https://altinncdn.no/toolkits/altinn-app-frontend/\u0026lt;VERSJONSNUMMER\u0026gt;/altinn-app-frontend.js\u0026#34;\u0026gt;\u0026lt;/script\u0026gt;  Referansen til altinn-app-frontend.css som inneholder styling for app frontend.  \u0026lt;script src=\u0026#34;https://altinncdn.no/toolkits/altinn-app-frontend/\u0026lt;VERSJONSNUMMER\u0026gt;/altinn-app-frontend.css\u0026#34;\u0026gt;\u0026lt;/script\u0026gt; Søk etter filnavnet (altinn-app-frontend.js eller altinn-app-frontend.css) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).\nHusk: Dersom man setter kun major versjon (f.eks. 2), så vil alle oppdateringer innenfor denne major versjoner (bugfix, ny funksjonalitet som ikke er breaking) komme med automatisk. Dersom man setter en spesifikk versjon (f.eks. 2.0.0) så vil appen hente akkurat denne versjonen, helt til referansen evt. oppdateres til å bruke en annen versjon.\nDeployment Deployment utføres ved hjelp av helm charts. Standard deployment oppsett for apps hentes fra altinn-studio sitt helm repository.\nEr du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden her\nFor å finne siste versjon av helm-charten kan du enten sjekke releases av charten deployment her eller legge inn helm repoet lokalt og søke i dette på følgende måte:\n# Legg til helm altinn-studio helm repo helm repo add altinn-studio https://charts.altinn.studio # Søk for versjoner av altinn-studio/deployment charten helm search repo -l altinn-studio/deployment Hvis det er ny versjon av helm charten sjekk changelog for å se hva som er oppdatert i versjonen.\nFor å ta i bruk en ny versjon oppdater versjon under dependencies i deployment/Chart.yaml\napiVersion: v1 description: A Helm chart for Kubernetes name: deployment version: 1.1.0 dependencies: - name: deployment repository: https://charts.altinn.studio/ version: 1.1.0 \u0026lt;--- Oppdater her "
+},
+{
+	"uri": "https://docs.altinn.studio/nb/app/launched-apps/digdir/bli-tjenesteeier/",
+	"title": "Bli tjenesteeier",
+	"tags": ["app"],
+	"description": "Dokumentasjon av appen for å bli tjenesteeier i Altinn.",
+	"content": "TODO: Dokumentasjon, screenshots, etc\n Info Repo Kjørende tjeneste  "
 },
 {
 	"uri": "https://docs.altinn.studio/nb/community/changelog/app-frontend/v3/breaking-changes/",
@@ -952,6 +966,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/nb/app/launched-apps/digdir/",
+	"title": "Apper fra Digdir",
+	"tags": [],
+	"description": "Dokumentasjon for apper utviklet av Digitaliseringsdirektoratet.",
+	"content": "\r\rBli tjenesteeier\rDokumentasjon av appen for å bli tjenesteeier i Altinn.\n\r\rGodkjenning av bruksvilkår for skytjenester fra Altinn\rDokumentasjon av appen for å godkjenne bruksvilkår for Altinn.\n\r\rOppgjør etter dødsfall\rDokumentasjon av arkitektur, design, funksjonalitet og apper relatert til oppgjør etter dødsfall.\n\r\rBestill tilgang til REST API\rDokumentasjon av appen for å bestille API-nøkler for bruk i Altinn.\n\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/nb/app/development/logic/dynamic/",
 	"title": "Dynamikk",
 	"tags": [],
@@ -971,6 +992,13 @@
 	"tags": ["api", "translate-to-norwegian"],
 	"description": "Platform API for hendelser.",
 	"content": "Overview Events are in this context is information about events created by applications or other sources. The event itself is based on the CloudEvent standard and is a small JSON structure containing the most important information of an event. Details are found here.\nThe events APIs are used to access events created by applications in Altinn Apps and other event sources that use Altinn Platform as av \u0026ldquo;event hub\u0026rdquo;.\nSubscription The highly preferred way to use events is to set up a subscription that enables push of events to a webhook-endpoint. This is done through the subcriptions API. This API supports the following consumers\n Persons, authenticated through ID-porten Orgs, authenticated through Maskinporten  The subscriptions API is described here as Swagger.\nThe webhook endpoint needs to be able to accept cloud event that is posted through HTTPS to the endpoint URL.\nThe push functionality also supports pushing events to Slack. Other platforms might be added at a later point.\nSearch API The search allows searching for events. The storage of events is limited to 90 days.\nThis is available to be used by the following consumers.\n Persons, authenticated through ID-porten Orgs, authenticated through Maskinporten  The API is described in swagger here.\n"
+},
+{
+	"uri": "https://docs.altinn.studio/nb/app/launched-apps/digdir/godkjenn-bruksvilkaar/",
+	"title": "Godkjenning av bruksvilkår for skytjenester fra Altinn",
+	"tags": ["app"],
+	"description": "Dokumentasjon av appen for å godkjenne bruksvilkår for Altinn.",
+	"content": "TODO: Dokumentasjon, screenshots, etc\n Repo Kjørende tjeneste  "
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/development/ux/fields/grouping/",
@@ -1120,6 +1148,13 @@
 	"content": ""
 },
 {
+	"uri": "https://docs.altinn.studio/nb/app/launched-apps/digdir/oed/",
+	"title": "Oppgjør etter dødsfall",
+	"tags": ["app"],
+	"description": "Dokumentasjon av arkitektur, design, funksjonalitet og apper relatert til oppgjør etter dødsfall.",
+	"content": "TODO: Overordnet informasjon om OED\nTODO: Lage fornuftig struktur med undersider for arkitektur, apps, etc.\n\r"
+},
+{
 	"uri": "https://docs.altinn.studio/nb/app/testing/local/apitests/org/",
 	"title": "API test org",
 	"tags": [],
@@ -1202,6 +1237,13 @@
 	"tags": [],
 	"description": "Vi har definert et lite sett med testbrukere som er tilgjengelig for lokal test.",
 	"content": "Disse kan man velge når man logger inn i lokal test.\nSophie Salt Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningsententer som heter DDG Fitness og til nå er det startet 3 underenheter i Oslo, Bergen og Trondheim. Sophie har rollen DAGL og dens underroller for DDG Fitness AS og dens underhenheter.\nI tilegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. Sophie har rollen LEDE + knyttede roller for EAS Health Consulting.\nHun er også styremedlem i borettslaget der hun bor. \u0026ldquo;Oslos Vakreste Borettslag\u0026rdquo;. Sophie har rollen MEDL + knyttede roller for \u0026ldquo;Oslos Vakreste Borettslag\u0026rdquo;.\nAvgivere    Avgiver Roller     01039012345 Sophie Salt Privatperson   897069650 DDG Fitness AS Daglig leder + knytninger   897069651 DDG Fitness Bergen Daglig leder + knytninger   897069652 DDG Fitness Oslo Daglig leder + knytninger   897069653 DDG Fitness Trondheim Daglig leder + knytninger   897069631 EAS Health Consulting Styreleder + knytninger   950474084 Oslos Vakreste Borettslag Styremedlem + knytninger    Ola Nordmann. Ola Nordmann er en privatperson som kun kan representere seg selv. Er bosatt på Stokmarknes.\nAvgivere  01017512345 Ola Nordmann  "
+},
+{
+	"uri": "https://docs.altinn.studio/nb/app/launched-apps/digdir/be-om-api-nokkel/",
+	"title": "Bestill tilgang til REST API",
+	"tags": ["app"],
+	"description": "Dokumentasjon av appen for å bestille API-nøkler for bruk i Altinn.",
+	"content": "TODO: Dokumentasjon, screenshots, etc\n Info Repo Kjørende tjeneste  "
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/development/configuration/process/customize/",
