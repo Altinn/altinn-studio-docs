@@ -5,30 +5,62 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
-## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
+## 4.25.0 (2022-01-24) - Dynamiske konfigurasjonsverdier for frontend 
+Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.{miljø}.json` filer. Dette eksponeres til frontendapplikasjonen som `applicationSettings` og er en dynamisk liste med verdier. I praksis betyr dette at `FrontEndSettings` kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.
 
-It is now possible to instantiate with keyValue prefill through a new instantiation API.
+## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
+Restrukturering av prosessmotor og støtte for BPMN gateways.
 
-You can also use prefill in custom code. This will require that the app implements the latest version of `App.cs` which includes the following method
+## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
+Integrasjonspunktet som benyttes for å sende instansdata via eFormidling
+krever nå et gyldig tilgangstoken. Applikasjonstemplaten er nå oppdatert til å 
+fylle alle krav for integrasjonspunktet.
+
+## 4.21.0 (2021-12-01) - Støtte for lagring av brukernavn for instanseier
+Dersom en selvidentifisert bruker instansierer en instans vil dere brukernavn lagres i metadataen for instanseier.
+
+## 4.20.0 (2021-11-18) - Støtte for egendefinert redirect URL når man avslutter appen
+Lagt til støtte for ett spesifikt query parameter (returnUrl) for å videresende brukeren til den spesifiserte URLen når
+brukeren avslutter appen ved å trykke på avslutt-knappen i Altinn 3 appen.
+[Les mer om dette her](../../../../../../../app/development/configuration/queryparameters)   
+
+Relatert til [7183](https://github.com/Altinn/altinn-studio/issues/7183)
+
+## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
+Lagt til støtte for å instansiere en applikasjon basert på en arkivert instans.
+[Det nye endepunktet er dokumentert her](../../../../../api/apps/instances). 
+Merk at støtte for kopiering av instans i meldingsboksen og konfigurasjon av funksjonaliteten via Altinn Studio enda er under utvikling.
+
+Relatert til [6695](https://github.com/Altinn/altinn-studio/issues/6695)
+
+
+## 4.18.0 (2021-11-10) - Støtte for OIDC konfigurasjon i App
+Lagt til støtte for å konfigurere opp en spesifikk OIDC provider for en app.
+
+Relatert til [7173](https://github.com/Altinn/altinn-studio/issues/7173)
+
+## 4.17.2 (2021-10-27) - Lagt inn API for prefill i form av nøkkel-verdi par ved instansiering
+Det er nå mulig å angi prefill i form av nøkkel-verdi par ved instansiering av en app. Støtten for dette er innført i et nytt API endepunkt.
+
+Det er også mulig å bruke prefill verdiene i app spesifikk kode. Dette vil kreve at app'en implementerer siste versjon av `App.cs`. Legg til følgende metode:
 
 ```c#
-  public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-        {
-           await _instantiationHandler.DataCreation(instance, data, prefill);
-        }
+public override async Task RunDataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+{
+   await _instantiationHandler.DataCreation(instance, data, prefill);
+}
 ```
 
-And the latest `InstansiationHandler.cs` with the method signature
+I tillegg må `InstansiationHandler.cs` oppdateres med methoden:
 
 ```c#
-  public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-        {
-            await Task.CompletedTask;
-        }
+public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
+{
+   await Task.CompletedTask;
+}
 ```
 
 ## 4.16.0 (2021-10-07) - Nytt app API for tagging av data elementer
-
 Det er blitt laget støtte for å lagre tags (stikkord) på et data element. I den sammenheng er det laget API endepunkter for å liste tags, legge til en tag, og sletting av tag.
 
 Denne endringer tilhører saken [6861](https://github.com/Altinn/altinn-studio/issues/6861) på github.
@@ -41,26 +73,23 @@ Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/instanc
 
 Denne endringen tilhører issue [6767](https://github.com/Altinn/altinn-studio/issues/6767).
 
-## 4.14.1 (2021-09-22) - 500 error when retrieving non existing instance fixed
+## 4.14.1 (2021-09-22) - Fikset en bug som medførte 500 error hvis instance ikke finnes
+Det var en bug i koden som medførte 500 error hvis man spurte etter en ikke eksisterende instance. Dette er nå blitt fikset på en måten som gjør at API isteden nå svarer med 403. Open API spesifikasjon for aktuelt endepunkt har blitt oppdatert med mulige status koder.
 
-There was a bug causing a 500 response when an request is made towards Get/Instances for a
-non-existing instance. This has now been fixed and the response returned is 403.
-Swagger for the endpoint is updated to reflect possible response codes.
+## 4.14.0 (2021-09-13) - Delvis støtte for navnerom(namespace) i XML
+Koden som deserialiserer XML inn i objekter har blitt oppdatert til å håndtere navneromsdeklarering i rotelementet til et XML-dokument.
 
-## 4.14.0 (2021-09-13) - Partial support for namespace XML
-The code that deserializes XML has been updated to support namespace declaration in the root element.
-
-Example:
+Eksempel:
 ```xml
 <Skjema xmlns="urn:no:altinn:skjema:v1">
    <Navn>Altinn</Navn>
 </Skjema>
 ```
-Deserialization occurs when an external system uses the app API to submit a new form, when they overwrite an existing form, and when an app retrieves a form from blob storage.
+Deserialisering skjer når et eksternt system bruker et app API endepunkt til å sende inn et nytt skjema, overskrive et eksisterende skjema, og når en app henter et skjema dokument fra "blob-storage".
 
-The change is not automatically used by all apps that update to this version. For the change to take properly effect the C# class that represents the model must be updated. The class needs to be decorated with an XmlRootAttribute with the Namespace property set to the correct namespace. 
+Endringen blir ikke automatisk tatt i bruk i alle apps som tar i burk denne versjonen av NuGet pakkene. For at endringen skal fungere må C# klassen som representerer modellen/skjema bli oppdatert. Klassen må bli dekorert med et `XmlRootAttribute` hvor det er angitt et navnerom.
 
-Example:
+Eksempel:
 ```cs
 [XmlRoot(ElementName = "Skjema", Namespace = "urn:no:altinn:skjema:v1")]
 public class Skjema {
@@ -69,7 +98,7 @@ public class Skjema {
     public string Navn { get; set; }
 }
 ```
-This change must be done manually for all old and new models. The model editor in altinn.studio has not be updated to do this automatically.
+Denne endringen må foreløpig bli utført manuelt i både gamle og nye modeller. Modeleditoren i altinn.studio har ikke blitt oppdatert til å gjøre det automatisk.
 
 ## 4.13.0 (2021-09-03) - Event for changed substatus on instance
 Changing the substatus of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in the event component.

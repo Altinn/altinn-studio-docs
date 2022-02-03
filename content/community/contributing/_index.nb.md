@@ -17,6 +17,6 @@ Dersom du har fikset en feil kan du [opprette en Pull Request](https://github.co
 utvikler? Vi setter pris på at behovet først meldes inn til oss, slik at vi kan vurdere 
 om forslaget er i tråd med eksisterende interaksjonsmønster. Vi ser også på om det bør lages en 
 ny felleskomponent, eller om vi kan utvide funksjonaliteten til en eksisterende komponent. Start derfor gjerne 
-med å [foreslå en ny komponent](./propose-component/) så finner vi ut sammen hvem som [utvikler komponenten](./develope-component/).
+med å [foreslå en ny komponent](./propose-component/) så finner vi ut sammen hvem som [utvikler komponenten](./develop-component/).
 
 {{<children>}}

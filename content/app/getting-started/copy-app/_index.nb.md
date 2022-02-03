@@ -11,7 +11,7 @@ Dersom du mangler skrivetilgang må du ta kontakt med personen som har administr
 
 ![Dashboardet i Altinn Studio](overview.png "Dashboard - oversikt")
 
-1. Klikk på "..."-ikonet i det øvre høyre hjørnet av app oversikten til applikasjonen du ønsker kopiere. 
+1. Klikk på "..."-ikonet til høyre i raden til applikasjonen du ønsker kopiere.
 2. Velg "Lag kopi" fra menyen.
 3. Legg inn **navnet** du ønsker den nye applikasjonen skal ha. Dette navnet brukes til å identifisere appen, og brukes også som navn på repository, og i URL-er og API-er.
    Navnet bør være kort og beskrivende som for eksempel "sykmelding" eller "lokalvalg-2019". ![Kopier app](copy-app.png "Kopier app")

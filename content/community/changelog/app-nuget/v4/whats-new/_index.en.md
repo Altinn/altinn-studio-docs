@@ -4,6 +4,48 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.25.0 (2022-01-24) - Dynamic application settings for front end
+
+Added a new section called `FrontEndSettings` for use in `appsetting.{environment}.json` files. This is made available for front end as `applicationSettings` and is a dynamic list of values. It's possible to add new entries to `FrontEndSettings` without the usual need to make code changes in backend. The feature ensures that backend can provide environment specific values to the front end application.
+
+## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
+
+Restructure of process engine and support for BPMN gateways
+
+## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
+
+The integration point used for sending instance data through eFormidling now 
+required a valid access token. Apps now fulfill all requirements of the integration point.
+
+## 4.21.0 (2021-12-01) - Added support for saving username for instance owner
+
+If a self indentified user instansiates an instance, their username is saved in the instance owner metadata. 
+
+Added Api in App to expose XACML Policy and BPMN Process
+
+## 4.20.0 (2021-11-18) - Added support for custom redirect URL when exiting an app
+
+The URL to an app can now contain a query parameter (returnUrl) which, if validated (valid URI and host name),
+can be used to redirect the user to that URL when the user clicks on the exit icon in an Altinn 3 app. 
+[Read more about it here](../../../../../../../app/development/configuration/queryparameters)   
+
+Related to [7183](https://github.com/Altinn/altinn-studio/issues/7183)
+
+## 4.19.0 (2021-11-15) - Added support for instantiation based of a copy of an archived instance
+
+The app template now supports the instantiation of an app based on a copy of an archived instance. 
+[The new endpoint is documented here](../../../../../api/apps/instances). Note that support for copying an app in the message box and configuration 
+of the application through Altinn Studio is still under development.
+
+Related to [6695](https://github.com/Altinn/altinn-studio/issues/6695)
+
+## 4.18.0 (2021-11-10) - Added support for OIDC configuration
+
+You can now configure a specific OIDC provider in app.
+
+Related to [7173](https://github.com/Altinn/altinn-studio/issues/7173)
+
+
 ## 4.17.2 (2021-10-27) - Added API for instansiation with key-value prefil
 
 It is now possible to instantiate with keyValue prefill through a new instantiation API.

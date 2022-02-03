@@ -46,6 +46,9 @@ Om man kombinerer `"mode": "showAll"` med `"filter"`, vil det ikke fungere å le
 viser redigerings-flaten, og så lenge filteret ikke matcher, vil ikke elementet vises.
 {{% /notice %}}
 
+### addButton
+Bestemmer om "Legg til ny"-knappen vises under tabellen. Nyttig å skjule denne om man kun ønsker å presentere data.
+
 ### saveButton
 Bestemmer om "Lagre"-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at "Lagre"-knapp vises.
 Dersom man har satt `"mode": "showAll"` skjules Lagre-knappen alltid, da man i denne modusen ikke har mulighet til å lukke redigerings-flaten for 
@@ -57,7 +60,7 @@ Bestemmer om "Slett"-knappen vises når et gruppeelement er i redigeringsmodus. 
 ### multiPage
 Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger. Krever mer oppsett for å fungere, se under for mer informasjon.
 
-## openByDefault
+### openByDefault
 Sier at gruppen skal åpnes i editeringsmodus om det ikke finnes noen elementer i gruppen fra før. Merk at denne ikke kan brukes sammen med `"mode": "showAll"`.
 
 Eksempel:

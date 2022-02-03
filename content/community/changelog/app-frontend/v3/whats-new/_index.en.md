@@ -3,6 +3,158 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+## 3.25.0 (2022-01-24) - Added more data sources for dynamic texts
+The feature that adds support for variables in texts have recieved two new data sources. The new sources are the current Instance and ApplicationSettings. ApplicationSettings requires version 4.25.0 or newer of the backend NuGet packages.
+
+Related to issue [#7520](https://github.com/Altinn/altinn-studio/issues/7520).
+
+## 3.24.0 (2022-01-24) - Neutral design
+Added a more neutral design.
+Issue [#7234](https://github.com/Altinn/altinn-studio/issues/7234).
+
+## 3.23.1 (2022-01-24) - Dependency patching
+Patching of external dependencies for week 3 of 2022.
+Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
+
+## 3.23.0 (2022-01-21) - Dynamic options
+Added support for first version of dynamic options.
+Issue [#5247](https://github.com/Altinn/altinn-studio/issues/5247).
+
+## 3.22.9 (2022-01-20) - Stable FormData + Typescript improvements
+Make FormData type stable and various improvements to typings.
+Pull request [#7718](https://github.com/Altinn/altinn-studio/pull/7718).
+
+## 3.22.8 (2022-01-17) - Fix for various eslint rules
+Fixes several eslint issues, adds some more test coverage. Minor refactors to some components that were very outdated.
+Pull request [#7786](https://github.com/Altinn/altinn-studio/pull/7786).
+
+## 3.22.7 (2022-01-13) - Dependency patching
+Patching of external dependencies for week 2 of 2022.
+Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
+
+## 3.22.6 (2022-01-11) - Bugfix repeating groups
+Fixed a bug where repeating group state would not be cleared when loading a new formlayout.
+Issue [#7773](https://github.com/Altinn/altinn-studio/issues/7773).
+
+## 3.22.5 (2022-01-10) - Optimization for SummaryGroupComponent
+Added missing keys for improved performance.
+Pull request [#7720](https://github.com/Altinn/altinn-studio/pull/7720).
+
+## 3.22.4 (2022-01-07) - Display error when rendering unknown component
+App frontend now shows an error when trying to render an unknown component.
+Pull request [#7724](https://github.com/Altinn/altinn-studio/pull/7724).
+
+## 3.22.3 (2022-01-07) - Dependency patching
+Patching of external dependencies for week 1 of 2022.
+Issue [#7753](https://github.com/Altinn/altinn-studio/issues/7753).
+
+## 3.22.2 (2021-12-23) - Bugfix variables in text
+Fixed a bug where variables in text not would get updated after a backend calculation.
+Issue [#7308](https://github.com/Altinn/altinn-studio/issues/7308).
+
+## 3.22.1 (2021-12-23) - Bugfix missing rights for stateless view
+Fixed a bug where missing rights would display generic error message and not the missing rights error.
+Issue [#6514](https://github.com/Altinn/altinn-studio/issues/6514).
+
+## 3.22.0 (2021-12-22) - More options for customization of repeating groups
+Added more possible texts to override possibility to hide "add new" button for a repeating group.
+Issue [#7164](https://github.com/Altinn/altinn-studio/issues/7164).
+
+## 3.21.1 (2021-12-17) - Bugfix for task validation
+Fixed a bug where validations set in `ValidateTask` in `ValidationHandler.cs` would not get presented to the user.
+Issue [#7333](https://github.com/Altinn/altinn-studio/issues/7333).
+
+## 3.21.0 (2021-12-17) - Possibility to use h2, h3 and h4 as size values for the header component in FormLayout
+It is now possible to use h2, h3 and h4, instead of S, M and L as size values in the header component.
+Issue [#7611](https://github.com/Altinn/altinn-studio/issues/7611).
+
+## 3.20.1 (2021-12-16) - Bugfix for address component
+Fixed a bug where the address component would crash unexpectedly for empty values.
+Issue [#7658](https://github.com/Altinn/altinn-studio/issues/7658).
+
+## 3.20.0 (2021-12-14) - Support for custom OIDC provider
+Added support in frontend so that Altinn.Apps can have a custom OIDC provider.
+Issue [#7173](https://github.com/Altinn/altinn-studio/issues/7173).
+
+## 3.19.2 (2021-12-09) - Dependency patching
+Patching of external dependencies for week 49.
+Issue [#7590](https://github.com/Altinn/altinn-studio/issues/7590).
+
+## 3.19.1 (2021-12-09) - Fixes for image component
+Several fixes for image component.
+Issue [#7484](https://github.com/Altinn/altinn-studio/issues/7484).
+
+## 3.19.0 (2021-12-06) - Create instance from stateless view
+Support for starting a stateful app instance from a stateless view.
+Issue [#6196](https://github.com/Altinn/altinn-studio/issues/6196).
+
+## 3.18.4 (2021-12-03) - Optimization for mobile view - bug fix
+Rollback maxWidth changes from version 3.18.3.
+Issue [#7588](https://github.com/Altinn/altinn-studio/pull/7588).
+
+## 3.18.3 (2021-12-01) - Optimization for mobile view - spacing
+Fixed maxWidth for input and spacing for address component.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.2 (2021-11-30) - Optimization for mobile view - spacing
+Fixed spacing for header and paragraph.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.1 (2021-11-30) - Optimization for mobile view - maxWidth
+Changed max-width of validation error from auto to none.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.18.0 (2021-11-29) - Support for labelgrid
+Support for labelgrid in grid enabling long lists of short questions and answers to be presented in a table like way
+Issue [#7027](https://github.com/Altinn/altinn-studio/pull/7027).
+
+## 3.17.1 (2021-11-24) - Bugfix DataProcessWrite
+Fixed bug where numeric fields that gets changed in DataProcessWrite are not updated if their value happened to be 0.
+Issue [#7393](https://github.com/Altinn/altinn-studio/issues/7393).
+
+## 3.17.0 (2021-11-24) - Mobile optimization layout
+Added some optimized layout for our mobile view.
+Issue [#6697](https://github.com/Altinn/altinn-studio/issues/6697).
+
+## 3.16.0 (2021-11-24) - Changed icon for help text
+Changed help text icon from plus to question mark.
+Issue [#5722](https://github.com/Altinn/altinn-studio/issues/5722).
+
+## 3.15.1 (2021-11-18) - Invalid types for reselect
+Fixed invalid types in reselect.
+Pull request [#7502](https://github.com/Altinn/altinn-studio/pull/7502).  
+
+## 3.15.0 (2021-11-15) - Support for returnUrl
+Added support for returnUrl in app-frontend.
+Issue [#7183](https://github.com/Altinn/altinn-studio/issues/7183).
+
+## 3.14.2 (2021-11-11) - Patching of jsonpointer
+Patching of external dependency jsonpointer.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.1 (2021-11-11) - Dependency patching
+Patching of external dependencies for week 45.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.14.0 (2021-11-08) - Today-flag for datepicker min/max dates
+Added a flag to dynamicly control min/max dates based on the current date.
+Issue [#7228](https://github.com/Altinn/altinn-studio/issues/7228).
+
+## 3.13.6 (2021-11-04) - Dependency patching
+Patching of external dependencies for week 44.
+Issue [#7317](https://github.com/Altinn/altinn-studio/issues/7317).
+
+## 3.13.5 (2021-10-28) -  Dependency patching
+Patching of external dependencies for week 43.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.4 (2021-10-22) -  Dependency patching
+Patching of external dependencies for week 42.
+Issue [#7303](https://github.com/Altinn/altinn-studio/issues/7303).
+
+## 3.13.3 (2021-10-15) - Right align text in input fields
+Added functionality to right align text in input fields.
+Pull request [#7034](https://github.com/Altinn/altinn-studio/pull/7034).
 
 ## 3.13.2 (2021-10-14) - Dependency patching
 Patching of external dependencies for week 41.

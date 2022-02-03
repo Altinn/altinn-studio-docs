@@ -51,7 +51,9 @@ Det er satt opp standard feilmeldinger for alle valideringene som gjøres på kl
 
 ### Egendefinerte feilmeldinger
 Det er mulig å definere egne feilmeldinger som skal vises når et felt får valideringsfeil. Dette gjøres ved å legge på en parameter `errorMessage` der 
-hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:
+hvor feltet er definert i JSON schema. JSON schema filen ligger i mappen `App/models` og følger navnestandard `*.schema.json`. 
+
+F.eks., man kan utvide eksempelet over:
 
 ```json  {hl_lines=[4]}
 "someField": {
@@ -62,6 +64,26 @@ hvor feltet er definert i JSON schema. F.eks., man kan utvide eksempelet over:
 ```
 
 Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](../../ux/texts) for språkstøtte.
+
+Legg merke til at om man har en referanse til en definisjon så må feilmeldingen ligge på `property`-feltet, og ikke på referansen/definisjonen.
+Eksempel:
+```json {hl_lines=[5]}
+{
+  "properties": {
+    "person": {
+        "$ref" : "#/definitions/personDefinition",
+        "errorMessage": "myCustomError",
+    }
+  },
+  "definitions": {
+    "personDefinition" : {
+      "age": {
+        "type": "number"
+      },
+      ...
+  }
+}
+```
 
 {{% notice warning %}}
 Merk at ved XSD-endringer, så vil ev. egendefinerte feilmeldinger forsvinne da JSON schema filen genereres på nytt fra XSD. På sikt er det tenkt at 

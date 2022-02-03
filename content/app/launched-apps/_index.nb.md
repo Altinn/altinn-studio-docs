@@ -6,6 +6,11 @@ weight: 800
 ---
 
 
+## November 2021
+- Bestilling av tilgang til Medarbeiderundersøkelsen i staten (STAMI).  
+_Lanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå._
+- Avtalevilkår for Medarbeiderundersøkelsen i Staten (STAMI).  
+_Lanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgjengelig ennå._
 
 ## Juni 2021
 - Forhåndsgodkjenning av innreise for kjærestebesøk (UDI).  
@@ -44,3 +49,5 @@ weight: 800
   [Info](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/) | [Repo](https://altinn.studio/repos/digdir/bli-tjenesteeier) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/bli-tjenesteeier/)
 - Godkjenning av bruksvilkår for skytjenester fra Altinn (Digdir).  
   [Info](https://altinn.github.io/docs/altinn-studio/) | [Repo](https://altinn.studio/repos/digdir/godkjenn-bruksvilkaar) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/godkjenn-bruksvilkaar/)
+
+{{<children>}}

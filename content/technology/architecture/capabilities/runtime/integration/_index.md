@@ -27,8 +27,6 @@ The different platform components exposes API to applications and external parti
 All this is possible because the backend framework let developers create and expose APIS. 
 This also include app developers that create applications in Altinn Studio. 
 
-[See Swagger definition for Platform](/api/platform/swagger/) for details about exposed API.
-
 In the same way the different applications and components consumes APIS from other sources both inside the Altinn 3 platform solutions
 and external sources. 
 

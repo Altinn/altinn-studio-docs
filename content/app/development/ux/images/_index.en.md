@@ -66,24 +66,25 @@ The image can also have separate sources for different languages. The default so
 
 ## Hosting images from apps
 
-If the image should be loaded from the app, you need to set up static hosting of files in the application.
+If the image should be loaded from the app, you need to set up static hosting of files in the application. This is automatically set up for applications created after december 2021. For older applications, you should follow the steps below.
 This is configured in _App/Startup.cs_, in the _Configure_ method. This will host all files that is inside the `/app/wwwroot` folder. If this folder does not exist, it needs to be created.
 If you want to refer to the file `app/wwwroot/bilde_nb.png` it can be reached at the following relative url `/org/app-name/bilde_nb.png`
 
-Swap out _org/app-name_ with your organisation and app name. Example:
+_applicationId_ is a variable from a few lines above containing _org/app-name_ from `applicationmetadata.json`:
 
 ```C# {linenos=false,hl_lines=[5]}
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
   {
     // ...
     app.UseRouting();
-    app.UseStaticFiles("/org/app-name");
+    app.UseStaticFiles('/' + applicationId);
     app.UseAuthentication();
     // ...
   }
 ```
 
-In _FormLayout.json_ the reference to the image should be a relative url that starts with _/org/app-name_ similar to what was set up as the static hosting. Example:
+In _FormLayout.json_ the reference to the image should be a relative url that starts with _/org/app-name_ similar to what was set up as the static hosting.
+You can also use the custom prefix `wwwroot` (without a starting `/`), that will be replaced with _/org/app-name_ before the image is loaded.
 
 ```json
 {
@@ -97,7 +98,7 @@ In _FormLayout.json_ the reference to the image should be a relative url that st
         },
         "image": {
           "src": {
-            "nb": "/org/app-name/bilde_nb.png"
+            "nb": "wwwroot/bilde_nb.png"
           },
           "width": "100%",
           "align": "center"

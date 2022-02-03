@@ -239,7 +239,7 @@ to a Slack webhook
 
 ### API Documentation
 
-The full detail for this API is described [here](/api/platform/swagger/events/#/Events). 
+The full detail for this API is described [here](/api/events/spec/#/Events). 
 
 
 ## Push Functions

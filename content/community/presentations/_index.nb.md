@@ -47,11 +47,17 @@ Annenhver uke presenterer vi hva vi har gjort og hva vi planlegger å gjøre den
 * [Status og planer - 26. august 2021](altinnkaffe-20210826.pptx)
 * [Status og planer - 9. september 2021](altinnkaffe-20210909.pptx)
 * [Status og planer - 23. september 2021](altinnkaffe-20210923.pptx)
+* [Status og planer - 7. oktober 2021](altinnkaffe-20211007.pptx)
+* [Status og planer - 21. oktober 2021](altinnkaffe-20211021.pptx)
+* [Status og planer - 3. november 2021](altinnkaffe-20211103.pptx)
+* [Status og planer - 18. november 2021](altinnkaffe-20211118.pptx)
+* [Status og planer - 2. desember 2021](altinnkaffe-20211202.pptx)
 * Det kommer mer...
 
 ## Temamøter
 
-Ukene vi ikke presenterer status, har vi temamøter.
+Ukene vi ikke presenterer status, har vi temamøter. Hvis det ikke ligger noen presentasjon,
+hadde vi sannsynligvis livedemo eller gjennomgang av dokumentasjon.
 
 * Hvordan komme i gang med Altinn 3? (7. oktober 2020) [Altinns presentasjon](altinnkaffe-20201007.pptx) | [SSBs presentasjon](20201007-SSB_AltinnStudio.pptx)
 * [Integrasjon med mottakssystem](altinnkaffe-20201021.pptx) (21. oktober 2020)
@@ -68,6 +74,7 @@ Ukene vi ikke presenterer status, har vi temamøter.
 * [Case: Karantenehotellunntak](udi-altinnkaffe.pptx) (2. juni 2021)
 * [Standardisering vs. fleksibilitet](altinnkaffe-standardisering.pptx) (30. juni 2021)
 * [Kopiering av app](altinnkaffe-kopi-app.pptx) (2. september 2021)
+* [Framtida for meldingstjenester](altinnkaffe-meldingstjenester.pptx) (29. november 2021)
 * Det kommer mer...
 
 ## NDC 2020

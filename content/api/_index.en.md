@@ -13,7 +13,7 @@ aliases:
 
 The new solution will have multiple APIs, but they can be divided in two groups. The app APIs and the Platform APIs.
 
-### Application API
+### App API
 
 The application API is an API that provides access to specific instances of a specific app. The API provides features for working with data elements while keeping the metadata document for the instance and its data elements updated. The instance level endpoints revolves around moving an instance through its defined process and controlling some instance level settings.
 

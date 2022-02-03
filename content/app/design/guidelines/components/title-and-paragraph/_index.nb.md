@@ -8,6 +8,7 @@ weight: 10
 - Tekstlengde på avsnitt strekkes ikke ut 100% i modalboksen, ettersom lange linjer tekst forstyrrer flyten i lesingen. 
 - Avsnitt er derfor begrenset til maks 696px i bredden, selv om modalen fyller ut 1056px. 
 - Teksten skal alltid være venstrestilt. 
+- Ha riktig rekkefølge på overskriftsnivåene. Ikke hopp over nivåer, men gå nedover et nivå om gangen. For eksempel er H2 - H2 og H2 - H3 lov, men H1 - H3 er ikke lov.
 
 ### Eksempel på bruk:
 

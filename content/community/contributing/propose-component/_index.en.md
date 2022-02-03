@@ -1,35 +1,32 @@
 ---
 title: Propose a new component
-description: Om dere har behov for en komponent eller funksjonalitet som vi ikke tilbyr ønsker vi at behovet blir meldt som en feature request før utviklingen starter. 
+description: If you need a component or functionality we prefer that the need is registered as a feature request before development stars. 
 weight: 30
-tags: [translate-to-english]
 ---
 
-- **[Opprett en Feature request in github](https://github.com/Altinn/altinn-studio/issues/new?assignees=lvbachmann&labels=kind%2Ffeature-request&template=feature_request.md).** 
-Beskriv komponenten, forklar hvorfor den vil være nyttig og i hvilken 
-sammenheng den trengs. 
-- **Review av forslag** 
-Altinn går gjennom forslaget for å kontrollere at en eventuell ny komponent oppfyller visse kriterier. 
-Etter gjennomgangen vil Altinn gi deg beskjed om beslutningen og anbefalingene.
-- **Planlegg utviklingen** Et medlem av teamet vil kontakte deg for å finne ut i samarbeid hvem som skal 
-fortsette utviklingen. 
+- **[Create a Feature request in Github](https://github.com/Altinn/altinn-studio/issues/new?assignees=lvbachmann&labels=kind%2Ffeature-request&template=feature_request.md)**  
+Describe the component, why it will be useful and when it is needed.
+- **Review of the suggestion**  
+Altinn will review your suggestion to make sure that a new component fits our [criteria](#criteria).
+After the review, Altinn will tell you what we've decided and what we recommend.
+- **Plan the development**  
+A member of our team will contact you so that we can find out together who will take care of developing the component.
 {.connected-bullets}
 
-![Foreslå en ny komponent](contributing-propose.svg "Ønsket forløp når nye komponenter blir foreslått")
+![Proposing a component](contributing-propose-en.svg "The preferred process when components are proposed")
 
-## Kriterier
+## Criteria
 
-Når et nytt forslag tas inn til vurdering ser vi først og fremst på hva som faktisk er behovet og hva komponenten skal løse. 
-Er det en ny komponent som trengs eller har vi eksisterende funksjonalitet som kan endres eller utvides? 
+When a suggestion is reviewed we mainly focus on what the actual need is and what the component is meant to solve.
+Is a new component needed, or do we have existing functionality that can be changed or expanded?
 
-Dersom løsningen er en ny komponent, ønsker vi å sikre best mulig kvalitet på denne ved å imøtekomme følgende 
-kriterier: 
-- **Brukbar** - Forslaget skal tilfredsstille brukernes behov, være forståelig, gjenkjennelig og forhindre at det 
-oppstår problemer.
-- **Tilgjengelig** - Forslaget skal følge standarden i WCAG 2.1.
-- **Konsekvent** - Forslaget skal gjenbruke eksisterende stiler og komponenter i designsystemet der det er relevant. 
-Brukere skal ikke trenge å lure på om forskjellige ord, situasjoner eller handlinger betyr det samme.
-- **Allsidig** - En ny komponent bør utformes slik at den kan brukes i andre tilsvarende scenarioer og tjenester.
+If a new component is the ideal solution, we want to make sure it has sufficient quality by making sure it fits these criteria:
+
+- **Useful** - The suggestion should fit user needs, be understandable, recognisable and and not error-prone.
+- **Accessible** - The suggestion should comply with the WCAG 2.1 standard.
+- **Consequent** - The suggestion should reuse existing styles and components in the design system when relevant.
+Users shouldn't have to worry that words, situations and actions has different meanings in different situations.
+- **Versatile** - A new component should be designed in a way that makes it usable in similar scenarios and apps.
 
 {{<children description="true">}}
 

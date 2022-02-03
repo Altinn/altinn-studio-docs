@@ -20,7 +20,7 @@ Releases are managed on Github.
 ### Manual & Automated Test Tools
 
 #### Functional Test
-- Automated browser testing and WCAG testing using [Testcafe](https://devexpress.github.io/testcafe/).
+- Automated browser testing and WCAG testing using [Cypress](https://www.cypress.io/).
 
 #### Unit Test
 - [Jest](https://jestjs.io/) framework used for unit testing front-end. More details [here](../../../../development/handbook/test/unit-testing/).

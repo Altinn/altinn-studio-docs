@@ -7,21 +7,16 @@ tags: [translate-to-english]
 ---
 
 
-Tekster lagres i ressursfiler i appen (`App/config/texts`).
-Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.
+Tekster lagres i ressursfiler i katalogen `App/config/texts`. Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.
 
-Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de
-vises til sluttbruker når skjemaet lastes inn i nettleser.
+Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.
 
-Tekster lagres i JSON-format og det er én fil pr språk.
-
-Format på filnavn for tekster er `resource.[språk].json` f.eks: _resource.nb.json_.
-
+Tekster lagres i JSON-format og det er én fil pr språk. Format på filnavn for tekster er `resource.[språk].json` f.eks: _resource.nb.json_.
 
 ## Formatering av tekster
 
-Alle tekster kan formateres med markdown.
-Nedenfor er de mest benyttede formateringene beskrevet.
+Alle tekster kan formateres med markdown. Nedenfor er de mest benyttede formateringene beskrevet.
+
 Mer omfattende dokumentasjon og tips til hvordan markdown kan benyttes finnes her:
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
@@ -45,7 +40,7 @@ Dette er også **fet tekst**, men laget med stjerner!
 Trykk [her](https://altinn.no) for å komme til Altinn.
 ```
 
-### Headinger
+### Overskrifter
 
 ```markdown
 # Dette er en stor heading (H1)
@@ -56,16 +51,13 @@ Trykk [her](https://altinn.no) for å komme til Altinn.
 
 ## Legge til og endre tekster i en app
 
-Man har to alternativer når man skal endre tekster i en app:
-enten gjøres det via Altinn Studio eller direkte i repository.
+Man har to alternativer når man skal endre tekster i en app, enten gjøres det via Altinn Studio eller direkte i repository.
 
-### Legge til og endre tekster i Altinn Studio Designer
+### Tekst editor i Altinn Studio Designer
 
-I den øverste navigerings menyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster.
-En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
+I den øverste navigerings menyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
 
-På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser.
-Nye tekster legges til ved å trykke på _Ny tekst_, og fylle ut tekst og en unik nøkkel.
+På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_, og fylle ut tekst og en unik nøkkel.
 
 Lagre endringer i tekstene ved å trykke på _Lagre tekster_.
 
@@ -82,9 +74,7 @@ Tekstene ligger lagret i `App/config/texts`
 
 ## Variabler i tekster
 
-Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor.
-
-Støttede datakilder: datamodel.
+Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er viktig at rekkefølgen på variablene er den samme som parameterne i teksten.
 
 ```json
 {
@@ -96,36 +86,62 @@ Støttede datakilder: datamodel.
       "dataSource": "dataModel.<dataModelName>"
     },
     {
-      "key": "<datamodelField>",
-      "dataSource": "dataModel.<dataModelName>"
+      "key": "<settings key>",
+      "dataSource": "applicationSettings"
+    },
+    {
+      "key": "<instance value key>",
+      "dataSource": "instanceContext"
     }
   ]
 }
 ```
+### Datakilder
 
-Rekkefølgen på variablene må matche parameterne i teksten.
+Det er per nå mulig å hente verdier fra 3 ulike datakilder. 
+
+1. Datamodel   
+   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når bruker forlater feltet. 
+2. Instillinger   
+   Ved å angi `applicationSettings` som datakilde kan man hente ut verdier fra en spesiell seksjon i `appsettings.{miljø}.json` filen(e) med navn `FrontEndSettings`. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike `appsettings.{miljø}.json` filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom `FrontEndSettings` og `applicationSettings`.
+   ```json
+   "FrontEndSettings": {
+     "HomeBaseUrl": "https://www.testdirektoratet.no"
+   },
+   ```
+3. Instans   
+   Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den aktive instansen. Vi har altså ikke gikk tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+   1. `instanceOwnerPartyId` inneholder avgiver sin party id.
+   2. `instanceId` inneholder id'en til den aktive instansen. 
+   3. `appId` inneholder id'en til appen instansen er knyttet til.
+
+### Komplett eksempel:
 
 ```json
 
 {
   "id": "common.submitinfo",
-  "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}.",
+  "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).",
   "variables": [
-      {
-        "key": "skattepliktig.organisasjonsnavn",
+    {
+      "key": "skattepliktig.organisasjonsnavn",
+      "dataSource": "dataModel.default"
+    },
+    {
+      "key": "skattepliktig.organisasjonsnummer",
         "dataSource": "dataModel.default"
-      },
-      {
-        "key": "skattepliktig.organisasjonsnummer",
-          "dataSource": "dataModel.default"
-      }
+    },
+    {
+      "key": "instanceOwnerPartyId",
+        "dataSource": "instanceContext"
+    },
+    {
+      "key": "homeBaseUrl",
+        "dataSource": "applicationSettings"
+    }
   ]
 }
 ```
-
-Det er anbefalt at variablene er statiske gjennom prosessflyten til en instans.
-Dette kan man oppnå ved å enten bruke prefill data eller verdier som settes under instansiering som variabler.
-Se et eksempel på hvordan å sette et datafelt under instansiering [her](../prefill/#egendefinert-prefill).
 
 ### Variabler i tekst - repeterende grupper
 For at variabler i tekst skal fungere med data som ligger i repeterende grupper, må oppsettet vist over endres litt for de aktuelle feltene,
@@ -150,9 +166,7 @@ F.eks.:
 }
 ```
 
-Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter _ikke_ i repeterende gruppe. 
-Det anbefales ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at 
-rekkefølgen på innslag i gruppene vil bli helt like. 
+Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter _ikke_ i repeterende gruppe. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like. 
 
 ## Legge til hjelpetekst
 
