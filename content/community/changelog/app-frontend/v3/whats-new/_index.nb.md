@@ -18,7 +18,7 @@ Fikset feil i dropdown komponent
 
 Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
 
-## 3.26.1 (2022-01-31) - Fikset feil i instantiate container
+## 3.26.1 (2022-01-31) - Fikset feil i InstantiateContainer
 Fikset feil i instantiate container
 
 Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
