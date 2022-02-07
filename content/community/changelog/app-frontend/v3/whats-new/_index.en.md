@@ -7,7 +7,7 @@ toc: true
 ## 3.27.0 (2022-02-01) - Show app owner in header
 App owner will now be displayed in the app header to improve visibility to who owns the app.
 
-Related to issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
+Issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
 
 ## 3.26.3 (2022-02-01) - Fixed an issue in the address component
 Fixed an issue in the address component
