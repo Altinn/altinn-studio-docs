@@ -6,7 +6,7 @@ toc: true
 ## 3.27.0 (2022-02-01) - Vise app eier i header
 App eier vil nå vises i header for å tydeliggjøre hvem som er eier av appen.
 
-Endringen støtter under sak [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
+Issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
 
 ## 3.26.3 (2022-02-01) - Fikset feil i adresse komponent
 Fikset feil i adresse komponent
