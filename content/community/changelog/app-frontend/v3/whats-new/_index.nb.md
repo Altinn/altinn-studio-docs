@@ -4,7 +4,7 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 ## 3.27.0 (2022-02-01) - Vise applikasjonseier header
-App eier vil nå vises i header for å tydeliggjøre hvem som er eier av appen.
+Applikasjonseier vil nå vises i header for å tydeliggjøre hvem som er eier av appen.
 
 Issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
 
