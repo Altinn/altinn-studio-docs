@@ -13,7 +13,7 @@ Fikset feil i adresse komponent
 
 Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
 
-## 3.26.2 (2022-02-01) - Fikset feil i dropdown komponent
+## 3.26.2 (2022-02-01) - Fikset feil i dropdownkomponent
 Fikset feil i dropdown komponent
 
 Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
