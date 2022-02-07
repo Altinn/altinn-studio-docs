@@ -8,7 +8,7 @@ Applikasjonseier vil nå vises i header for å tydeliggjøre hvem som er eier av
 
 Issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
 
-## 3.26.3 (2022-02-01) - Fikset feil i adresse komponent
+## 3.26.3 (2022-02-01) - Fikset feil i adressekomponent
 Fikset feil i adresse komponent
 
 Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
