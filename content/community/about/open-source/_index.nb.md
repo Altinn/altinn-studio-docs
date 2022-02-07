@@ -3,6 +3,8 @@ title: Altinn og åpen kildekode
 linktitle: Åpen kildekode
 description: Altinn 3 er åpen kildekode, med en åpen backlog, åpen dokumentasjon og åpen dialog og diskusjoner.
 toc: true
+aliases:
+ - /åpen-kildekode
 ---
 
 Det er flere som har fått med seg at Altinn har tatt en fundamentalt ny og åpen retning de siste årene.
