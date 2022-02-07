@@ -4,6 +4,21 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.27.3 (2022-02-07) - Fixed an issue in the radiobutton component
+Fixed an issue in the radiobutton component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.2 (2022-02-07) - Fixed an issue in the receipt container
+Fixed an issue in the receipt container
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.1 (2022-02-07) - Fixed an issue in the datepicker component
+Fixed an issue in the datepicker component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
 ## 3.27.0 (2022-02-01) - Show app owner in header
 App owner will now be displayed in the app header to improve visibility to who owns the app.
 

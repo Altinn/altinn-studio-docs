@@ -3,6 +3,21 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+## 3.27.3 (2022-02-07) - Fikset feil i radiobuttonkomponent
+Fikset feil i radiobuttonkomponent
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.2 (2022-02-07) - Fikset feil i receipt container
+Fikset feil i receipt container
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.1 (2022-02-07) - Fikset feil i datepickerkomponent
+Fikset feil i datepickerkomponent
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
 ## 3.27.0 (2022-02-01) - Vise applikasjonseier header
 Applikasjonseier vil nå vises i header for å tydeliggjøre hvem som er eier av appen.
 
