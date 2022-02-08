@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.27.4 (2022-02-08) - Fixed an issue in the confirm container
+Fixed an issue in the confirm container
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
 ## 3.27.3 (2022-02-07) - Fixed an issue in the radiobutton component
 Fixed an issue in the radiobutton component
 
