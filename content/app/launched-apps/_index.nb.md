@@ -49,3 +49,5 @@ _Lanseres offisielt på et senere tidspunkt. Info og lenker er derfor ikke tilgj
   [Info](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/) | [Repo](https://altinn.studio/repos/digdir/bli-tjenesteeier) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/bli-tjenesteeier/)
 - Godkjenning av bruksvilkår for skytjenester fra Altinn (Digdir).  
   [Info](https://altinn.github.io/docs/altinn-studio/) | [Repo](https://altinn.studio/repos/digdir/godkjenn-bruksvilkaar) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/godkjenn-bruksvilkaar/)
+
+{{<children>}}

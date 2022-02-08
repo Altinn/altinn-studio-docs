@@ -20,7 +20,7 @@ All shared components are to be documented in Markdown with inline JSX.
 
 ### Running dev server
 
-> "npm run styleguide" from src\react-apps\applications\shared
+> "yarn run styleguide" from src\react-apps\applications\shared
 
 ### Inline comments on props
 

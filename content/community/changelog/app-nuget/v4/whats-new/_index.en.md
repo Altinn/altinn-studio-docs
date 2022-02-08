@@ -4,6 +4,18 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.25.0 (2022-01-24) - Dynamic application settings for front end
+
+Added a new section called `FrontEndSettings` for use in `appsetting.{environment}.json` files. This is made available for front end as `applicationSettings` and is a dynamic list of values. It's possible to add new entries to `FrontEndSettings` without the usual need to make code changes in backend. The feature ensures that backend can provide environment specific values to the front end application.
+
+## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
+
+Restructure of process engine and support for BPMN gateways
+
+## 4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point
+
+The integration point used for sending instance data through eFormidling now 
+required a valid access token. Apps now fulfill all requirements of the integration point.
 
 ## 4.21.0 (2021-12-01) - Added support for saving username for instance owner
 
