@@ -1,7 +1,7 @@
 ---
 title: What's new
 description: Overview of changes introduced in v3 of app frontend.
-toc: true0
+toc: true
 ---
 
 ## 3.28.0 (2022-02-09) - Added FileUploadWithTag component
