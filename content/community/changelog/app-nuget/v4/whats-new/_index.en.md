@@ -3,14 +3,15 @@ title: What's new
 description: Overview of changes introduced in version 4.
 toc: true
 ---
-## 4.24.0 (2020-01-21)
-
-Support language and query parameters in dynamic options.
-New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/_index.en.md)
 
 ## 4.25.0 (2022-01-24) - Dynamic application settings for front end
 
 Added a new section called `FrontEndSettings` for use in `appsetting.{environment}.json` files. This is made available for front end as `applicationSettings` and is a dynamic list of values. It's possible to add new entries to `FrontEndSettings` without the usual need to make code changes in backend. The feature ensures that backend can provide environment specific values to the front end application.
+
+## 4.24.0 (2020-01-21)
+
+Support language and query parameters in dynamic options.
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/_index.en.md)
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 
