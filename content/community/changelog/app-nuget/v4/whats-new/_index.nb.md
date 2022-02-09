@@ -4,13 +4,14 @@ description: Oversikt over endringer som ble introdusert i versjon 4.
 toc: true
 tags: [translate-to-norwegian]
 ---
+
+## 4.25.0 (2022-01-24) - Dynamiske konfigurasjonsverdier for frontend 
+Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.{miljø}.json` filer. Dette eksponeres til frontendapplikasjonen som `applicationSettings` og er en dynamisk liste med verdier. I praksis betyr dette at `FrontEndSettings` kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.
+
 ## 4.24.0 (2020-01-21)
 
 Støtte for språk og query parametre inn til dynamiske kodelister.
 Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../app/development/data/options/_index.nb.md)
-
-## 4.25.0 (2022-01-24) - Dynamiske konfigurasjonsverdier for frontend 
-Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.{miljø}.json` filer. Dette eksponeres til frontendapplikasjonen som `applicationSettings` og er en dynamisk liste med verdier. I praksis betyr dette at `FrontEndSettings` kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 Restrukturering av prosessmotor og støtte for BPMN gateways.
