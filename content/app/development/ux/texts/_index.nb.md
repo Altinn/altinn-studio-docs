@@ -109,7 +109,7 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    },
    ```
 3. Instans   
-   Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den aktive instansen. Vi har altså ikke gikk tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+   Ved å angi `instanceContext` som datakilde kan man hente ut enkelte verdier fra den aktive instansen. Vi har altså ikke gitt tilgang til hele instanse objektet. Listen med egenskaper så langt er:
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen. 
    3. `appId` inneholder id'en til appen instansen er knyttet til.
@@ -117,7 +117,6 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
 ### Komplett eksempel:
 
 ```json
-
 {
   "id": "common.submitinfo",
   "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).",
@@ -128,15 +127,15 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
     },
     {
       "key": "skattepliktig.organisasjonsnummer",
-        "dataSource": "dataModel.default"
+      "dataSource": "dataModel.default"
     },
     {
       "key": "instanceOwnerPartyId",
-        "dataSource": "instanceContext"
+      "dataSource": "instanceContext"
     },
     {
       "key": "homeBaseUrl",
-        "dataSource": "applicationSettings"
+      "dataSource": "applicationSettings"
     }
   ]
 }
