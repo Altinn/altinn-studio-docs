@@ -1,10 +1,10 @@
 ---
 title: What's new
 description: Overview of changes introduced in v3 of app frontend.
-toc: true
+toc: true0
 ---
 
-## 3.28.0 (2022-02-08) - Added FileUploadWithTag component
+## 3.28.0 (2022-02-09) - Added FileUploadWithTag component
 Added fileupload component with option to tag files
 
 Issue [#6479](https://github.com/Altinn/altinn-studio/issues/6479).
