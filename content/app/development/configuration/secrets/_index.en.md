@@ -13,9 +13,6 @@ Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen
 
 ## Konfigurer støtte for hemmeligheter i din app
 
-Hemmeligheter i app er støttet for nugetversjoner >= 1.2.2.
-[Se hvordan du oppdaterer nugetreferanser for applikasjonen din her](../update/#nuget-pakker).
-
 For å tilgjengeliggjøre hemmeligheter i applikasjonen må det gjøres oppdateringer i helm charten tilknyttet applikasjonen.
 
 I applikasjonsrepoet ditt finner du filen `values.yaml` i mappen _deployment_.
