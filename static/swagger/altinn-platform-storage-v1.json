@@ -3000,6 +3000,10 @@
           },
           "validated": {
             "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "flowType": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
