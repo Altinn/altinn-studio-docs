@@ -3,6 +3,10 @@ title: What's new
 description: Overview of changes introduced in version 4.
 toc: true
 ---
+## 4.24.0 (2020-01-21)
+
+Support language and query parameters in dynamic options.
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/_index.en.md)
 
 ## 4.25.0 (2022-01-24) - Dynamic application settings for front end
 
