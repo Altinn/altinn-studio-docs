@@ -221,7 +221,7 @@
 	"title": "Community",
 	"tags": [],
 	"description": "Vi bygger Altinn i lag med mange andre, helt åpent.",
-	"content": "\r\rOm Altinn 3\rAltinn 3 er tredje generasjon plattform for å utvikle og kjøre digitale tjenester.\n\r\rBidra til utviklingen av Altinn\rSamarbeid, del og lær. Alt vi gjør er åpen kildekode på GitHub. Vi setter stor pris på dine kommentarer og bidrag!\n\r\rEndringslogg\rOversikt over endringer introdusert i Altinn 3.\n\r\rRoadmap for Altinn\rHøynivå roadmap og funksjonell beskrivelse for Altinn.\n\r\rPresentasjoner og Altinn kaffe\rThe Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we\u0026#39;re doing in Altinn 3. It\u0026#39;s also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.\n\r\r"
+	"content": "\r\rOm Altinn 3\rAltinn 3 er tredje generasjon plattform for å utvikle og kjøre digitale tjenester.\n\r\rBidra til utviklingen av Altinn\rSamarbeid, del og lær. Alt vi gjør er åpen kildekode på GitHub. Vi setter stor pris på dine kommentarer og bidrag!\n\r\rEndringslogg\rOversikt over endringer introdusert i Altinn 3.\n\r\rRoadmap for Altinn\rHøynivå roadmap og funksjonell beskrivelse for Altinn.\n\r\rDevOps\rHvordan vi gjør DevOps\n\r\rPresentasjoner og Altinn kaffe\rThe Altinn-kaffe meeting series is a low threshold meeting series, where app owners (and potential app owners) can learn more about what we\u0026#39;re doing in Altinn 3. It\u0026#39;s also designed to gather information on how Altinn can help app owners realise their Altinn 3 potential. Slides mainly in Norwegian.\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/community/changelog/",
@@ -868,6 +868,13 @@
 	"content": "Lansert funksjonalitet For informasjon om hvordan man bruker funksjonalitetene som er beskrevet her, se brukerdokumentasjonen for Altinn Studio og API.\n\r\rTjenesteutvikling i GUI I brukergrensesnittet til Altinn Studio kan du gjøre følgende:\n Opprette (og finne igjen) en app Laste opp datamodell Legge inn tekster Lage et enkelt skjema (en eller flere sider), med kobling mellom elementer, tekster og datamodell Legge inn dynamikkregler (NB! Kodes i JavaScript) Deploye app til test- og produksjonsmiljø  Tjenesteutvikling via kode Ved å hente ned applikasjonskoden (via Git) lokalt (eller ved å redigere på app-filene i repository-visning) kan du gjøre alle mulige endringer av appen. Dette inkluderer blant annet standardfunksjonalitet for å:\n Lage kalkulerings- og valideringsregler Koble på forhåndsutfylling Legge inn API-oppslag Redigere på prosessen/arbeidsflyten i appen Redigere på autorisasjonsreglene for appen, samt lage egendefinert instansieringslogikk Lage egendefinerte hendelser/events  Teste lokalt Når du har applikasjonskoden lokalt, kan du også benytte deg av muligheten til å ha et lokalt testmiljø for å gjøre de fleste typer testing.\nIntegrasjon med tjenesteeier Altinn 3 har standardiserte API-er som tjenesteeier kan bruke for å hente og laste opp data. For nedlasting bygger Altinn 3 på at tjenesteeier gjør spørringer og laster ned data (pull). I tillegg kan tjenesteeier benytte app-enes API-er for å instansiere eller gjøre endringer på instanser.\nMan kan redusere mengden spørringer ved bruk av push av events - at tjenesteeier varsles når det er data til nedlasting (Q2 2021) (#4728) ✔️\nFor å benytte API-ene som tjenesteeier må man autentisere seg med Maskinporten.\nForvaltning av apper Det er lagt opp til tilgang til overvåking av egne applikasjoner, slik at man kan ha oversikt over hvordan appene fungerer. Se også sidene om vedlikehold av apps.\n Mulighet for å lage en ny app som kopi av en tidligere (Q3 2021) (#5923) ✔️  Kommende funksjonalitet Altinn 3 er i stadig videreutvikling, og funksjonalitet lanseres løpende. Backlogg revideres åtte ganger i året, og mindre endringer kan også forekomme mellom revisjonene. Generelt kan man si at jo lenger frem i tid leveranse er planlagt jo mer usikkert er angitt leveransetidspunkt.\nEndringer beskrevet i kursiv er å regne som på idéstadiet, og er ikke besluttet at skal utvikles.\nTjenesteutvikling i GUI For all kommende funksjonalitet gjør vi vurderinger av om det er egnet å løse det i GUI. På et senere tidspunkt (2023 eller senere) vil vi gjøre et løft for at mer funksjonalitet skal være tilgjengelig via GUI.\n Støtte for branching i Altinn Studio (Q4 2021) (#985)  Datamodellering Den avhengigheten vi i dag har til at datamodellering skal gjøres i et eksternt system vil forsvinne. Noen høydepunkter i planene for datamodellering i Altinn 3 er:\n Å kunne jobbe med en datamodell i et GUI (Q4 2021) (#5551) Integrasjoner med Felles datakatalog (Q1 2022) (#3811) Å kunne få automatisk generert datamodell fra det man bygger av brukergrensesnitt Å kunne få automatisk generert forslag til brukergrensesnitt ut fra datamodellen  Forvaltning av tjenester Vi ønsker å gjøre tjenesteeiere i stand til å selv forvalte sine applikasjoner i Altinn 3. For å få til dette kommer blant annet:\n Mulighet for å avpublisere en applikasjon (Q4 2021) (#3717) Webanalyse for applikasjonene  Integrasjon med tjenesteeier Pull av data vil fortsatt være grunnmønsteret for at tjenesteeier får tilgang til data, men det kommer et par unntak:\n Mulighet for å bruke eFormidling som grensesnitt for å få data direkte fra en Altinn 3-app til tjenesteeiers systemer (Q4 2021) (#4788) Splitt av data - flere tjenesteeiere kan motta data fra samme tjeneste (Q3 2022) (#4274)  "
 },
 {
+	"uri": "https://docs.altinn.studio/nb/community/devops/teams/apps/",
+	"title": "Apps",
+	"tags": [],
+	"description": "Team Apps",
+	"content": "\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/nb/api/authentication/",
 	"title": "Authentication API",
 	"tags": [],
@@ -964,6 +971,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/nb/community/devops/",
+	"title": "DevOps",
+	"tags": [],
+	"description": "Hvordan vi gjør DevOps",
+	"content": "\r\rTeams\rVåre DevOps-teams\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/launched-apps/digdir/",
@@ -1162,6 +1176,13 @@
 	"content": "Appen har en rekke API som kan benyttes av applikasjonseier/tjenesteeier. Beskrivelsen du finner her er laget for Postman hvor det er benyttet testapplikasjonen MVA testapp.\nPostman-prosjektet kan lastes ned fra her (høyreklikk og velg \u0026ldquo;save as\u0026rdquo;).\nAutentisering av tjenesteier org I testmiljø og produksjon brukes maskinporten for å autentisere organisasjoner som eier apper.\nTestplattformen for lokal testing tilbyr et enkelt api for å autentisere organisjonen som er ansvarlig.\nMan trenger bare å oppgi tjenesteeier kode (som f.eks brg, skd osv)\nUrl: http://altinn3local.no/Home/GetTestOrgToken/ttd (ttd needs to be replaced with the org you want to authenticate)\nThe response is a JWT token that should be uses as a Authorization header.\nMultipart instansiering Applikasjonene støtter at man instansierer instanser til aktører. Personer eller organsiasjoner.\nUrl: http://altinn3local.no/ttd/mva/instances\nMetode: POST\nHeaders:\n Authorization: Bearer + jwttoken Content-Type: multipart/form-data; boundary=\u0026ldquo;abcdefg\u0026rdquo;  Eksempel Body:\n--abcdefg Content-Type: application/json; charset=utf-8 Content-Disposition: form-data; name=\u0026#34;instance\u0026#34;  { \u0026#34;instanceOwner\u0026#34;: { \u0026#34;organisationNumber\u0026#34; : \u0026#34;897069650\u0026#34; } } --abcdefg Content-Type: application/xml Content-Disposition: form-data; name=\u0026#34;RF0002\u0026#34;  \u0026lt;?xml version=\u0026#34;1.0\u0026#34;?\u0026gt; \u0026lt;Skjema xmlns:xsi=\u0026#34;http://www.w3.org/2001/XMLSchema-instance\u0026#34; xmlns:xsd=\u0026#34;http://www.w3.org/2001/XMLSchema\u0026#34; skjemanummer=\u0026#34;212\u0026#34; spesifikasjonsnummer=\u0026#34;10420\u0026#34; blankettnummer=\u0026#34;RF-0002\u0026#34; tittel=\u0026#34;Alminnelig omsetningsoppgave\u0026#34; gruppeid=\u0026#34;20\u0026#34;\u0026gt; \u0026lt;GenerellInformasjon-grp-2581 gruppeid=\u0026#34;2581\u0026#34;\u0026gt; \u0026lt;Avgiftspliktig-grp-50 gruppeid=\u0026#34;50\u0026#34;\u0026gt; \u0026lt;RapporteringsenhetNavn-datadef-21771 orid=\u0026#34;21771\u0026#34;\u0026gt;DDG Fitness\u0026lt;/RapporteringsenhetNavn-datadef-21771\u0026gt; \u0026lt;RapporteringsenhetAdresse-datadef-21773 orid=\u0026#34;21773\u0026#34;\u0026gt;Sofies Gate 1\u0026lt;/RapporteringsenhetAdresse-datadef-21773\u0026gt; \u0026lt;RapporteringsenhetPostnummer-datadef-21774 orid=\u0026#34;21774\u0026#34;\u0026gt;0170\u0026lt;/RapporteringsenhetPostnummer-datadef-21774\u0026gt; \u0026lt;RapporteringsenhetPoststed-datadef-21775 orid=\u0026#34;21775\u0026#34;\u0026gt;By\u0026lt;/RapporteringsenhetPoststed-datadef-21775\u0026gt; \u0026lt;RapporteringsenhetOrganisasjonsnummer-datadef-21772 orid=\u0026#34;21772\u0026#34;\u0026gt;897069650\u0026lt;/RapporteringsenhetOrganisasjonsnummer-datadef-21772\u0026gt; \u0026lt;/Avgiftspliktig-grp-50\u0026gt; \u0026lt;/GenerellInformasjon-grp-2581\u0026gt; \u0026lt;/Skjema\u0026gt; --abcdefg-- Example Response The below response show how an instance was created for a given organization.\n1{ 2 \u0026#34;id\u0026#34;: \u0026#34;500000/b4a42747-882f-47fa-bcd3-94029fdbc918\u0026#34;, 3 \u0026#34;instanceOwner\u0026#34;: { 4 \u0026#34;partyId\u0026#34;: \u0026#34;500000\u0026#34;, 5 \u0026#34;personNumber\u0026#34;: null, 6 \u0026#34;organisationNumber\u0026#34;: \u0026#34;897069650\u0026#34; 7 }, 8 \u0026#34;appId\u0026#34;: \u0026#34;ttd/mva\u0026#34;, 9 \u0026#34;org\u0026#34;: \u0026#34;ttd\u0026#34;, 10 \u0026#34;selfLinks\u0026#34;: { 11 \u0026#34;apps\u0026#34;: \u0026#34;https://altinn3local.no/ttd/mva/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918\u0026#34;, 12 \u0026#34;platform\u0026#34;: \u0026#34;https://localhost:5101/storage/api/v1/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918\u0026#34; 13 }, 14 \u0026#34;dueBefore\u0026#34;: null, 15 \u0026#34;visibleAfter\u0026#34;: null, 16 \u0026#34;title\u0026#34;: { 17 \u0026#34;nb\u0026#34;: \u0026#34;RF-0002\u0026#34; 18 }, 19 \u0026#34;process\u0026#34;: { 20 \u0026#34;started\u0026#34;: \u0026#34;2020-01-24T06:37:48.6026647Z\u0026#34;, 21 \u0026#34;startEvent\u0026#34;: \u0026#34;StartEvent_1\u0026#34;, 22 \u0026#34;currentTask\u0026#34;: { 23 \u0026#34;flow\u0026#34;: 2, 24 \u0026#34;started\u0026#34;: \u0026#34;2020-01-24T06:37:48.6027116Z\u0026#34;, 25 \u0026#34;elementId\u0026#34;: \u0026#34;Task_1\u0026#34;, 26 \u0026#34;name\u0026#34;: \u0026#34;Utfylling\u0026#34;, 27 \u0026#34;altinnTaskType\u0026#34;: \u0026#34;data\u0026#34;, 28 \u0026#34;ended\u0026#34;: null, 29 \u0026#34;validated\u0026#34;: null 30 }, 31 \u0026#34;ended\u0026#34;: null, 32 \u0026#34;endEvent\u0026#34;: null 33 }, 34 \u0026#34;status\u0026#34;: null, 35 \u0026#34;appOwner\u0026#34;: { 36 \u0026#34;labels\u0026#34;: null, 37 \u0026#34;messages\u0026#34;: null, 38 \u0026#34;canBeDeletedAfter\u0026#34;: null 39 }, 40 \u0026#34;data\u0026#34;: [ 41 { 42 \u0026#34;id\u0026#34;: \u0026#34;54d868aa-5bc9-47fb-9525-67ba4c2e595c\u0026#34;, 43 \u0026#34;instanceGuid\u0026#34;: \u0026#34;b4a42747-882f-47fa-bcd3-94029fdbc918\u0026#34;, 44 \u0026#34;dataType\u0026#34;: \u0026#34;RF0002\u0026#34;, 45 \u0026#34;filename\u0026#34;: null, 46 \u0026#34;contentType\u0026#34;: \u0026#34;application/xml\u0026#34;, 47 \u0026#34;blobStoragePath\u0026#34;: \u0026#34;ttd/mva/b4a42747-882f-47fa-bcd3-94029fdbc918/data/54d868aa-5bc9-47fb-9525-67ba4c2e595c\u0026#34;, 48 \u0026#34;selfLinks\u0026#34;: { 49 \u0026#34;apps\u0026#34;: \u0026#34;https://altinn3local.no/ttd/mva/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918/data/54d868aa-5bc9-47fb-9525-67ba4c2e595c\u0026#34;, 50 \u0026#34;platform\u0026#34;: \u0026#34;https://localhost:5101/storage/api/v1/instances/500000/b4a42747-882f-47fa-bcd3-94029fdbc918/data/54d868aa-5bc9-47fb-9525-67ba4c2e595c\u0026#34; 51 }, 52 \u0026#34;size\u0026#34;: 1009, 53 \u0026#34;locked\u0026#34;: false, 54 \u0026#34;refs\u0026#34;: [], 55 \u0026#34;created\u0026#34;: \u0026#34;2020-01-24T06:37:48.641997Z\u0026#34;, 56 \u0026#34;createdBy\u0026#34;: null, 57 \u0026#34;lastChanged\u0026#34;: \u0026#34;2020-01-24T06:37:48.641997Z\u0026#34;, 58 \u0026#34;lastChangedBy\u0026#34;: null 59 } 60 ], 61 \u0026#34;created\u0026#34;: \u0026#34;2020-01-24T06:37:48.6068671Z\u0026#34;, 62 \u0026#34;createdBy\u0026#34;: null, 63 \u0026#34;lastChanged\u0026#34;: \u0026#34;2020-01-24T06:37:48.6068671Z\u0026#34;, 64 \u0026#34;lastChangedBy\u0026#34;: null 65} "
 },
 {
+	"uri": "https://docs.altinn.studio/nb/community/devops/teams/platform/",
+	"title": "Platform",
+	"tags": [],
+	"description": "Team Platform",
+	"content": "\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/nb/community/presentations/",
 	"title": "Presentasjoner og Altinn kaffe",
 	"tags": [],
@@ -1218,6 +1239,13 @@
 	"content": "Se https://altinn.studio/repos/api/swagger\n"
 },
 {
+	"uri": "https://docs.altinn.studio/nb/community/devops/teams/studio/",
+	"title": "Studio",
+	"tags": [],
+	"description": "Team Studio",
+	"content": "\r\r"
+},
+{
 	"uri": "https://docs.altinn.studio/nb/tags/swagger/",
 	"title": "swagger",
 	"tags": [],
@@ -1230,6 +1258,13 @@
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "https://docs.altinn.studio/nb/community/devops/teams/",
+	"title": "Teams",
+	"tags": [],
+	"description": "Våre DevOps-teams",
+	"content": "\r\rApps\rTeam Apps\n\r\rPlatform\rTeam Platform\n\r\rStudio\rTeam Studio\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/testing/local/testusers/",
