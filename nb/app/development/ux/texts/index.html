@@ -572,7 +572,7 @@ Ved å angi <code>applicationSettings</code> som datakilde kan man hente ut verd
 },
 </code></pre></div></li>
 <li>Instans<br>
-Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den aktive instansen. Vi har altså ikke gikk tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+Ved å angi <code>instanceContext</code> som datakilde kan man hente ut enkelte verdier fra den aktive instansen. Vi har altså ikke gitt tilgang til hele instanse objektet. Listen med egenskaper så langt er:
 <ol>
 <li><code>instanceOwnerPartyId</code> inneholder avgiver sin party id.</li>
 <li><code>instanceId</code> inneholder id&rsquo;en til den aktive instansen.</li>
@@ -581,8 +581,7 @@ Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den 
 </li>
 </ol>
 <h3 id="komplett-eksempel">Komplett eksempel:</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">
-{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;common.submitinfo&#34;</span>,
   <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).&#34;</span>,
   <span style="color:#ff79c6">&#34;variables&#34;</span>: [
@@ -592,15 +591,15 @@ Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den 
     },
     {
       <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;skattepliktig.organisasjonsnummer&#34;</span>,
-        <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.default&#34;</span>
     },
     {
       <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;instanceOwnerPartyId&#34;</span>,
-        <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;instanceContext&#34;</span>
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;instanceContext&#34;</span>
     },
     {
       <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;homeBaseUrl&#34;</span>,
-        <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;applicationSettings&#34;</span>
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;applicationSettings&#34;</span>
     }
   ]
 }
