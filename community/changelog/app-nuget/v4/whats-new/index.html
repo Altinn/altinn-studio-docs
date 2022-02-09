@@ -1025,8 +1025,8 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#4240-2020-01-21">4.24.0 (2020-01-21)</a></li>
     <li><a href="#4250-2022-01-24---dynamic-application-settings-for-front-end">4.25.0 (2022-01-24) - Dynamic application settings for front end</a></li>
+    <li><a href="#4240-2020-01-21">4.24.0 (2020-01-21)</a></li>
     <li><a href="#4230-2022-01-15---updated-backend-support-for-bpmn-gateways">4.23.0 (2022-01-15) - Updated backend support for BPMN gateways</a></li>
     <li><a href="#4220-2022-01-07---included-access-token-generation-for-eformidling-integration-point">4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point</a></li>
     <li><a href="#4210-2021-12-01---added-support-for-saving-username-for-instance-owner">4.21.0 (2021-12-01) - Added support for saving username for instance owner</a></li>
@@ -1066,11 +1066,11 @@ if(host != "localhost")
 
 
 
+<h2 id="4250-2022-01-24---dynamic-application-settings-for-front-end">4.25.0 (2022-01-24) - Dynamic application settings for front end</h2>
+<p>Added a new section called <code>FrontEndSettings</code> for use in <code>appsetting.{environment}.json</code> files. This is made available for front end as <code>applicationSettings</code> and is a dynamic list of values. It&rsquo;s possible to add new entries to <code>FrontEndSettings</code> without the usual need to make code changes in backend. The feature ensures that backend can provide environment specific values to the front end application.</p>
 <h2 id="4240-2020-01-21">4.24.0 (2020-01-21)</h2>
 <p>Support language and query parameters in dynamic options.
 New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  <a href="../../../../../app/development/data/options/_index.en.md">See doc</a></p>
-<h2 id="4250-2022-01-24---dynamic-application-settings-for-front-end">4.25.0 (2022-01-24) - Dynamic application settings for front end</h2>
-<p>Added a new section called <code>FrontEndSettings</code> for use in <code>appsetting.{environment}.json</code> files. This is made available for front end as <code>applicationSettings</code> and is a dynamic list of values. It&rsquo;s possible to add new entries to <code>FrontEndSettings</code> without the usual need to make code changes in backend. The feature ensures that backend can provide environment specific values to the front end application.</p>
 <h2 id="4230-2022-01-15---updated-backend-support-for-bpmn-gateways">4.23.0 (2022-01-15) - Updated backend support for BPMN gateways</h2>
 <p>Restructure of process engine and support for BPMN gateways</p>
 <h2 id="4220-2022-01-07---included-access-token-generation-for-eformidling-integration-point">4.22.0 (2022-01-07) - Included access token generation for eFormidling integration point</h2>
