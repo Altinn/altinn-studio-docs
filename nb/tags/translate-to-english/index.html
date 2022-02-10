@@ -578,8 +578,9 @@ Som hovedregel bør man kun spørre om informasjon som er helt nødvendig å inn
     <section class="post-excerpt">
         <p>Administrasjon av hemmeligheter i Azure Som applikasjonsutvikler administrerer man selv hemmelighetene som applikasjonen benytter i Azure Key Vault.
 Rutiner for bestilling av tilgang til din organisasjons ressurser er beskrevet her.
-Konfigurer støtte for hemmeligheter i din app Hemmeligheter i app er støttet for nugetversjoner &gt;= 1.2.2. Se hvordan du oppdaterer nugetreferanser for applikasjonen din her.
-For å tilgjengeliggjøre hemmeligheter i applikasjonen må det gjøres oppdateringer i helm charten tilknyttet applikasjonen. <a class="read-more" href="/nb/app/development/configuration/secrets/">&raquo;</a></p>
+Konfigurer støtte for hemmeligheter i din app For å tilgjengeliggjøre hemmeligheter i applikasjonen må det gjøres oppdateringer i helm charten tilknyttet applikasjonen.
+I applikasjonsrepoet ditt finner du filen values.yaml i mappen deployment.
+Under seksjonen volumeMounts legger du til følgende linjer: <a class="read-more" href="/nb/app/development/configuration/secrets/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
