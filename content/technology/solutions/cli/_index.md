@@ -1,6 +1,6 @@
 ---
 title: Altinn CLI
-description: Altinn CLI is a command line application that can be used by app owneres to access Altinn APIs.
+description: Altinn CLI is a command line application that can be used by app owners to access Altinn APIs.
 toc: true
 tags: [altinn-cli]
 aliases:
@@ -8,20 +8,20 @@ aliases:
 - /teknologi/altinnstudio/solutions/cli/
 ---
 
-The application has as standard implemented functions for creating Altinn app instances and functions for fetch and store of application data.
-ALtinn CLI can be [found on GitHub](https://github.com/Altinn/altinn-cli).
-The application can be used as standrad or extended with custom function devloped by the app owners themselves.
+The application supports commands for creating Altinn app instances both with and without prefill, and functions for fetching and storing instance data.
+Altinn CLI can be [found on GitHub](https://github.com/Altinn/altinn-cli).
+The application can be used as it, or extended with custom functions developed by the app owners themselves.
 
 
 ## Concepts
 
-The consepts of the CLI application are releated to the different parts of a command line command.
+The concept of the CLI application are related to the different parts of a command line command.
 
 Example: Storage GetData appId=ttd/how-to-name-it processIsComplete=true
 
-Command is "Storage"
-SubCommand is "GetData"
-Option is "appId=ttd/how-to-name-it" "processIsComplete=true"
+- **Command**: Storage
+- **SubCommand**: GetData
+- **Option**: "appId=ttd/how-to-name-it" "processIsComplete=true"
 
 ### Command
 
@@ -33,73 +33,10 @@ A sub command defines the operation to be performed on the Command component.
 
 ### Option
 
-Options are often used as filter criterias that can be a part of the API call.
+Options are often used as filter criteria that can be a part of the API call.
 
-## Standard Commands
+## Configuration
 
-### Login 
-
-The purpose of the Login command is to obtain a JSON Web token that can be used to authenticate and authorize the Altinn CLI when sending requests to App and Platform APIs.
-The only provider currently supported is Maskinporten.
-
-#### Login Maskinporten
-
-The Login operation requires a valid Enterprise certificate and a Client ID. 
-
-The certificate must be installed under the Certificate Store *My* for *Current User*.
-The Login command will use the certificate to authenticate with Maskinporten and a successful authentication will result in a JSON Web Token signed by Maskinporten.
-The login command will then use this JSON Web Token and exchange it for a new JSON Web Token created and signed by Altinn.
-This final JWT is what other commands will be including when sending requests to the Altinn APIs.
-
-The Client ID is something each Application Owner is required to administrate themselves.
-Each application owner should have a team of people with access to Maskinporten and the rights to administrate their clients.
-
-```cmd
-Altinn CLI > Login Maskinporten clientId=<clientId> thumbprint=<certificate thumbprint>
-```
-
-### Help
-
-The Help command displays help information that is registered on commands, subcommands and options according command line options. 
-
-Example : 
-        **Help Storage** displays the available Storage subcommands.
-        **Help Storage GetData** displays help information registred on the GetData subcommand which shall a command description and a list with description on all options that can be used. 
-
-### Storage
-
-The Storage command is used to fetch and upload instance data.  
-
-#### Storage SubCommands
-
-##### GetData
-
-GetData fetches data elements from Storage. Data can be fetched for an Applikation with different filter criterias or data can be fetch for a spesific owner and instance. 
-
-Examples:
-
-**Storage GetData ownerId=<ownerId> instanceId=<instanceid>  dataId=<dataId>** fetches a speicifc data element
-
-**Storage GetData appId=<applicationId> <Filter criterias ex. processIsComplete=true>** fetchs all data elements for an application whoose status processing is set to completed
-
-##### GetInstance
-
-##### UploadData
-
-Upload uploads a data element to storage, for instance a receipt. 
-
-Example:
-
-**Storage UploadData ownerId=<ownerId> instanceId=<instanceId> elementType=<elementType> file=<filepath>**
-The command options defines application owner and to which instance the data shall attached and the full path to the file that shall be uploaded.  
-
-### Application
-
-The Application command is used to create application and application instances. It is also possible to upload when creating an instance.
-Data is attached by specifying file option with path to a file.
-. 
-
-##### CreateInstance
 
 ## Software Implementasjon
 
@@ -461,3 +398,5 @@ Adding a new command requires following addtions:
 - Add handling of the new options, if required, to the SubCommandHandler
 
 **None of the extensions shall require changes in the HttpClientWrapp's. New methods shall be added if changes is required to avoid breaking existing code**
+
+{{% children description="true" depth="1" %}}
