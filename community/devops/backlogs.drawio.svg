@@ -19,7 +19,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/Altinn/altinn-roadmap/issues" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-roadmap/issues">
             <rect x="840" y="120" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#609926" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -170,7 +170,7 @@
         </g>
         <path d="M 699.05 499.06 L 699.05 553.63" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 699.05 558.88 L 695.55 551.88 L 699.05 553.63 L 702.55 551.88 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://docs.altinn.studio/community/devops/teams/platform/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/community/devops/teams/platform/">
             <rect x="640" y="440" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#1ba1e2" stroke="#006eaf" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -193,7 +193,7 @@
         </a>
         <path d="M 219.05 499.06 L 219.05 553.62" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 219.05 558.87 L 215.55 551.87 L 219.05 553.62 L 222.55 551.87 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://docs.altinn.studio/community/devops/teams/studio/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/community/devops/teams/studio/">
             <rect x="160" y="440" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#1ba1e2" stroke="#006eaf" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -216,7 +216,7 @@
         </a>
         <path d="M 1180.94 499.05 L 1180.94 553.62" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 1180.94 558.87 L 1177.44 551.87 L 1180.94 553.62 L 1184.44 551.87 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://docs.altinn.studio/community/devops/teams/apps/" target="_blank">
+        <a xlink:href="https://docs.altinn.studio/community/devops/teams/apps/">
             <rect x="1121.89" y="439.99" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#1ba1e2" stroke="#006eaf" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -240,7 +240,7 @@
         <path d="M 730 790 L 789.05 790 L 789.05 865.37 Q 774.29 859.3 759.53 865.37 Q 744.76 871.44 730 865.37 L 730 793.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
         <path d="M 749.76 858.74 L 749.94 888 Q 750 898 760 898.02 L 793.63 898.1" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 798.88 898.11 L 791.87 901.59 L 793.63 898.1 L 791.89 894.59 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Aepic+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Aepic+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+">
             <path d="M 720 780 L 779.05 780 L 779.05 855.37 Q 764.29 849.3 749.53 855.37 Q 734.76 861.44 720 855.37 L 720 783.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -267,7 +267,7 @@
         <path d="M 681.12 710 L 688.12 706.5 L 686.37 710 L 688.12 713.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
         <path d="M 699.05 619.06 L 699 830 Q 699 840 692.68 840 L 686.37 840" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 681.12 840 L 688.12 836.5 L 686.37 840 L 688.12 843.5 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues">
             <rect x="640" y="560" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#609926" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -291,7 +291,7 @@
             </g>
         </a>
         <path d="M 810 868.74 L 869.05 868.74 L 869.05 944.11 Q 854.29 938.04 839.53 944.11 Q 824.76 950.18 810 944.11 L 810 872.11 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fuser-story+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fuser-story+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+">
             <path d="M 800 858.74 L 859.05 858.74 L 859.05 934.11 Q 844.29 928.04 829.53 934.11 Q 814.76 940.18 800 934.11 L 800 862.11 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -313,7 +313,7 @@
             </g>
         </a>
         <path d="M 620 670 L 679.05 670 L 679.05 745.37 Q 664.29 739.3 649.53 745.37 Q 634.76 751.44 620 745.37 L 620 673.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fbug+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fbug+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+">
             <path d="M 610 660 L 669.05 660 L 669.05 735.37 Q 654.29 729.3 639.53 735.37 Q 624.76 741.44 610 735.37 L 610 663.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -333,7 +333,7 @@
             </g>
         </a>
         <path d="M 730 670 L 789.05 670 L 789.05 745.37 Q 774.29 739.3 759.53 745.37 Q 744.76 751.44 730 745.37 L 730 673.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fanalysis+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fanalysis+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge+">
             <path d="M 720 660 L 779.05 660 L 779.05 735.37 Q 764.29 729.3 749.53 735.37 Q 734.76 741.44 720 735.37 L 720 663.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -353,7 +353,7 @@
             </g>
         </a>
         <path d="M 620 795 L 679.05 795 L 679.05 870.37 Q 664.29 864.3 649.53 870.37 Q 634.76 876.44 620 870.37 L 620 798.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fquality%2Fdebt%2Cquality%2Fengineering+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fquality%2Fdebt%2Cquality%2Fengineering+label%3Asolution%2Fplatform%2Csolution%2Fapi-mgmt%2Csolution%2Fsbl-bridge">
             <path d="M 610 785 L 669.05 785 L 669.05 860.37 Q 654.29 854.3 639.53 860.37 Q 624.76 866.44 610 860.37 L 610 788.37 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -374,7 +374,7 @@
         </a>
         <path d="M 1180.96 619.05 L 1180.99 689 Q 1181 699 1187.32 699.12 L 1193.63 699.24" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 1198.88 699.34 L 1191.82 702.71 L 1193.63 699.24 L 1191.95 695.71 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/apps-backlog/issues" target="_blank">
+        <a xlink:href="https://github.com/Altinn/apps-backlog/issues">
             <rect x="1121.89" y="559.99" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#60a917" stroke="#2d7600" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -402,7 +402,7 @@
         <image x="1218.06" y="597.6" width="21.44" height="20.94" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI0OS42ODA4OTI5NDQzMzU5NCIgdmlld0JveD0iMCAwIDI1NiAyNDkuNjgwODkyOTQ0MzM1OTQiIHZlcnNpb249IjEuMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPgogICAgPGc+CiAgICAgICAgPHBhdGggZD0iTTEyOC4wMDEwNiwwIEM1Ny4zMTcyOTI2LDAgMCw1Ny4zMDY2OTQyIDAsMTI4LjAwMTA2IEMwLDE4NC41NTUyODEgMzYuNjc2MTk5NywyMzIuNTM1NTQyIDg3LjUzNDkzNywyNDkuNDYwODk5IEM5My45MzIwMjIzLDI1MC42NDU3NzkgOTYuMjgwNTg4LDI0Ni42ODQxNjUgOTYuMjgwNTg4LDI0My4zMDMzMzMgQzk2LjI4MDU4OCwyNDAuMjUxMDQ1IDk2LjE2MTg4NzgsMjMwLjE2Nzg5OSA5Ni4xMDY3NzcsMjE5LjQ3MjE3NiBDNjAuNDk2NzU4NSwyMjcuMjE1MjM1IDUyLjk4MjYyMDcsMjA0LjM2OTcxMiA1Mi45ODI2MjA3LDIwNC4zNjk3MTIgQzQ3LjE1OTk1ODQsMTg5LjU3NDU5OCAzOC43NzA0MDgsMTg1LjY0MDUzOCAzOC43NzA0MDgsMTg1LjY0MDUzOCBDMjcuMTU2ODc4NSwxNzcuNjk2MTEzIDM5LjY0NTgyMDYsMTc3Ljg1OTMyNSAzOS42NDU4MjA2LDE3Ny44NTkzMjUgQzUyLjQ5OTM0MTksMTc4Ljc2MjI5MyA1OS4yNjczNjUsMTkxLjA0OTg3IDU5LjI2NzM2NSwxOTEuMDQ5ODcgQzcwLjY4Mzc2NzUsMjEwLjYxODQyMyA4OS4yMTE1NzUzLDIwNC45NjEwOTMgOTYuNTE1ODY4NSwyMDEuNjkwNDgyIEM5Ny42NjQ3MTU1LDE5My40MTc1MTIgMTAwLjk4MTk1OSwxODcuNzcwNzggMTA0LjY0MjU4MywxODQuNTc0MzU3IEM3Ni4yMTE3OTksMTgxLjMzNzY2IDQ2LjMyNDgxOSwxNzAuMzYyMTQ0IDQ2LjMyNDgxOSwxMjEuMzE1NzAyIEM0Ni4zMjQ4MTksMTA3LjM0MDg4OSA1MS4zMjUwNTg4LDk1LjkyMjM2ODIgNTkuNTEzMjQzNyw4Ni45NTgzOTM3IEM1OC4xODQyMjY4LDgzLjczNDQxNTIgNTMuODAyOTIyOSw3MC43MTU1NjIgNjAuNzUzMjM1NCw1My4wODQzNjM2IEM2MC43NTMyMzU0LDUzLjA4NDM2MzYgNzEuNTAxOTUwMSw0OS42NDQxODEzIDk1Ljk2MjY0MTIsNjYuMjA0OTU5NSBDMTA2LjE3Mjk2Nyw2My4zNjg4NzYgMTE3LjEyMzA0Nyw2MS45NDY1OTQ5IDEyOC4wMDEwNiw2MS44OTc4NDMyIEMxMzguODc5MDczLDYxLjk0NjU5NDkgMTQ5LjgzNzYzMiw2My4zNjg4NzYgMTYwLjA2NzAzMyw2Ni4yMDQ5NTk1IEMxODQuNDk4MDUsNDkuNjQ0MTgxMyAxOTUuMjMxOTI2LDUzLjA4NDM2MzYgMTk1LjIzMTkyNiw1My4wODQzNjM2IEMyMDIuMTk5MTk3LDcwLjcxNTU2MiAxOTcuODE1NzczLDgzLjczNDQxNTIgMTk2LjQ4Njc1Niw4Ni45NTgzOTM3IEMyMDQuNjk0MDE4LDk1LjkyMjM2ODIgMjA5LjY2MDM0MywxMDcuMzQwODg5IDIwOS42NjAzNDMsMTIxLjMxNTcwMiBDMjA5LjY2MDM0MywxNzAuNDc4NzI1IDE3OS43MTYxMzMsMTgxLjMwMzc0NyAxNTEuMjEzMjgxLDE4NC40NzI2MTQgQzE1NS44MDQ0MywxODguNDQ0ODI4IDE1OS44OTUzNDIsMTk2LjIzNDUxOCAxNTkuODk1MzQyLDIwOC4xNzY1OTMgQzE1OS44OTUzNDIsMjI1LjMwMzMxNyAxNTkuNzQ2OTY4LDIzOS4wODczNjEgMTU5Ljc0Njk2OCwyNDMuMzAzMzMzIEMxNTkuNzQ2OTY4LDI0Ni43MDk2MDEgMTYyLjA1MTAyLDI1MC43MDA4OSAxNjguNTM5MjUsMjQ5LjQ0Mzk0MSBDMjE5LjM3MDQzMiwyMzIuNDk5NTA3IDI1NiwxODQuNTM2MjA0IDI1NiwxMjguMDAxMDYgQzI1Niw1Ny4zMDY2OTQyIDE5OC42OTExODcsMCAxMjguMDAxMDYsMCBaIE00Ny45NDA1NTkzLDE4Mi4zNDAyMTIgQzQ3LjY1ODY0NjUsMTgyLjk3NjEwNSA0Ni42NTgxNzQ1LDE4My4xNjY4NzMgNDUuNzQ2NzI3NywxODIuNzMwMjI3IEM0NC44MTgzMjM1LDE4Mi4zMTI2NTYgNDQuMjk2ODkxNCwxODEuNDQ1NzIyIDQ0LjU5Nzg4MDgsMTgwLjgwNzcxIEM0NC44NzM0MzQ0LDE4MC4xNTI3MzkgNDUuODc2MDI2LDE3OS45NzA0NSA0Ni44MDIzMTAzLDE4MC40MDkyMTYgQzQ3LjczMjgzNDIsMTgwLjgyNjc4NiA0OC4yNjI3NDUxLDE4MS43MDIxOTkgNDcuOTQwNTU5MywxODIuMzQwMjEyIFogTTU0LjIzNjc4OTIsMTg3Ljk1ODI1NCBDNTMuNjI2MzMxOCwxODguNTI0MTk5IDUyLjQzMjk3MjMsMTg4LjI2MTM2MyA1MS42MjMyNjgyLDE4Ny4zNjY4NzQgQzUwLjc4NjAwODgsMTg2LjQ3NDUwNCA1MC42MjkxNTUzLDE4NS4yODExNDQgNTEuMjQ4MDkxMiwxODQuNzA2NzIgQzUxLjg3NzYyNTQsMTg0LjE0MDc3NSA1My4wMzQ5NTEyLDE4NC40MDU3MzEgNTMuODc0MzMwMiwxODUuMjk4MTAxIEM1NC43MTE1ODkyLDE4Ni4yMDEwNjkgNTQuODc0ODAxOSwxODcuMzg1OTUgNTQuMjM2Nzg5MiwxODcuOTU4MjU0IFogTTU4LjU1NjI0MTMsMTk1LjE0NjM0NyBDNTcuNzcxOTczMiwxOTUuNjkxMDk2IDU2LjQ4OTU4ODYsMTk1LjE4MDI2MSA1NS42OTY4NDE3LDE5NC4wNDIwMTMgQzU0LjkxMjU3MzMsMTkyLjkwMzc2NCA1NC45MTI1NzMzLDE5MS41Mzg3MTMgNTUuNzEzNzk5LDE5MC45OTE4NDUgQzU2LjUwODY2NTEsMTkwLjQ0NDk3NyA1Ny43NzE5NzMyLDE5MC45MzY3MzUgNTguNTc1MzE4MSwxOTIuMDY2NTA1IEM1OS4zNTc0NjY5LDE5My4yMjM4MyA1OS4zNTc0NjY5LDE5NC41ODg4OCA1OC41NTYyNDEzLDE5NS4xNDYzNDcgWiBNNjUuODYxMzU5MiwyMDMuNDcxMTc0IEM2NS4xNTk3NTcxLDIwNC4yNDQ4NDYgNjMuNjY1NDA4MywyMDQuMDM3MTIgNjIuNTcxNjcxNywyMDIuOTgxNTM4IEM2MS40NTI0OTk5LDIwMS45NDkyNyA2MS4xNDA5MTIyLDIwMC40ODQ1OTYgNjEuODQ0NjM0MSwxOTkuNzEwOTI2IEM2Mi41NTQ3MTQ2LDE5OC45MzUxMzcgNjQuMDU3NTQyMiwxOTkuMTUzNDYgNjUuMTU5NzU3MSwyMDAuMjAwNTY0IEM2Ni4yNzA0NTA2LDIwMS4yMzA3MTIgNjYuNjA5NTkzNiwyMDIuNzA1OTg0IDY1Ljg2MTM1OTIsMjAzLjQ3MTE3NCBaIE03NS4zMDI1MTUxLDIwNi4yODE1NDIgQzc0Ljk5MzA0NzQsMjA3LjI4NDEzNCA3My41NTM4MDksMjA3LjczOTg1NyA3Mi4xMDM5NzI0LDIwNy4zMTM4MDkgQzcwLjY1NjI1NTYsMjA2Ljg3NTA0MyA2OS43MDg3NzQ4LDIwNS43MDA3NjEgNzAuMDAxMjg1NywyMDQuNjg3NTcxIEM3MC4zMDIyNzUsMjAzLjY3ODYyMSA3MS43NDc4NzIxLDIwMy4yMDM4MiA3My4yMDgzMDY5LDIwMy42NTk1NDMgQzc0LjY1MzkwNDEsMjA0LjA5NjE5IDc1LjYwMzUwNDgsMjA1LjI2MTk5NCA3NS4zMDI1MTUxLDIwNi4yODE1NDIgWiBNODYuMDQ2OTQ3LDIwNy40NzM2MjcgQzg2LjA4Mjk4MDYsMjA4LjUyOTIwOSA4NC44NTM1ODcxLDIwOS40MDQ2MjIgODMuMzMxNjgyOSwyMDkuNDIzNyBDODEuODAxMywyMDkuNDU3NjE0IDgwLjU2MzQyOCwyMDguNjAzMzk4IDgwLjU0NjQ3MDgsMjA3LjU2NDc3MiBDODAuNTQ2NDcwOCwyMDYuNDk4NTkxIDgxLjc0ODMwODgsMjA1LjYzMTY1NyA4My4yNzg2OTE3LDIwNS42MDYyMjEgQzg0LjgwMDU5NjIsMjA1LjU3NjU0NiA4Ni4wNDY5NDcsMjA2LjQyNDQwMyA4Ni4wNDY5NDcsMjA3LjQ3MzYyNyBaIE05Ni42MDIxNDcxLDIwNy4wNjkwMjMgQzk2Ljc4NDQzNjYsMjA4LjA5OTE3MSA5NS43MjY3MzQxLDIwOS4xNTY4NzIgOTQuMjE1NDI4LDIwOS40Mzg3ODUgQzkyLjcyOTU1NzcsMjA5LjcxMDA5OSA5MS4zNTM5MDg2LDIwOS4wNzQyMDYgOTEuMTY1MjYwMywyMDguMDUyNTM4IEM5MC45ODA4NTE1LDIwNi45OTY5NTUgOTIuMDU3NjMwNiwyMDUuOTM5MjUzIDkzLjU0MTM4MTMsMjA1LjY2NTgyIEM5NS4wNTQ4MDcsMjA1LjQwMjk4NCA5Ni40MDkyNTk2LDIwNi4wMjE5MTkgOTYuNjAyMTQ3MSwyMDcuMDY5MDIzIFoiIGZpbGw9IiMxNjE2MTQiLz4KICAgIDwvZz4KPC9zdmc+" preserveAspectRatio="none"/>
         <path d="M 1309.65 937.63 L 1309.96 1009 Q 1310 1019 1316.82 1019.13 L 1323.63 1019.25" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 1328.88 1019.35 L 1321.82 1022.72 L 1323.63 1019.25 L 1321.95 1015.72 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://altinn.studio/repos/explore/repos" target="_blank">
+        <a xlink:href="https://altinn.studio/repos/explore/repos">
             <rect x="1250.47" y="878.58" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#60a917" stroke="#2d7600" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -426,7 +426,7 @@
             </g>
         </a>
         <image x="1340.56" y="912.03" width="28.11" height="28.11" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8dGl0bGU+Z2l0ZWE8L3RpdGxlPgoJPGc+CgkJPHBhdGggZD0iTTEwOS41LDE4My41Yy0zNC43LTAuMS04MC45LDIxLjktNzguNCw3Ny4xYzQsODYuMSw5Mi4yLDk0LjEsMTI3LjUsOTQuOWMzLjgsMTYuMSw0NS4zLDcxLjksNzYuMSw3NC44aDEzNC42JiMxMDsmIzk7JiM5OyYjOTtjODAuNy01LjMsMTQxLjEtMjQ0LjIsOTYuNC0yNDUuMWMtNzQuMSwzLjUtMTE4LjEsNS4zLTE1NS43LDUuNnY3NC41bC0xMS44LTUuMWwtMC4xLTY5LjRjLTQzLjIsMC04MS4zLTItMTUzLjUtNS42JiMxMDsmIzk7JiM5OyYjOTtDMTM1LjUsMTg1LDEyMi45LDE4My41LDEwOS41LDE4My41TDEwOS41LDE4My41eiBNMTE0LjMsMjEzLjloNC4yYzQuOSw0NC4yLDEyLjksNzAsMjkuMSwxMDkuNGMtNDEuMy00LjktNzYuNC0xNi44LTgyLjktNjEuNiYjMTA7JiM5OyYjOTsmIzk7QzYxLjQsMjM4LjYsNzIuNiwyMTQuNCwxMTQuMywyMTMuOXogTTI3NC44LDI1Ny4zYzIuOCwwLjEsNS43LDAuNiw4LjQsMS44bDE0LjEsNi4xbC0xMCwxOC4zYy0xLjUsMC0zLjEsMC4yLTQuNSwwLjcmIzEwOyYjOTsmIzk7JiM5O2MtNi41LDIuMS0xMCw4LjUtNy42LDE0LjRjMC41LDEuMiwxLjMsMi4zLDIuMSwzLjJsLTE3LjQsMzEuNmMtMS40LDAtMi45LDAuMi00LjIsMC43Yy02LjUsMi4xLTEwLDguNS03LjYsMTQuMyYjMTA7JiM5OyYjOTsmIzk7YzIuNCw1LjksOS42LDguOSwxNi4yLDYuN2M2LjUtMi4xLDkuOS04LjUsNy41LTE0LjRjLTAuNy0xLjUtMS42LTIuOS0yLjktNC4xbDE2LjktMzAuOGMxLjgsMC4xLDMuNywwLDUuNS0wLjYmIzEwOyYjOTsmIzk7JiM5O2MxLjUtMC40LDIuOC0xLjIsNC0yLjFjNi41LDIuOCwxMS45LDUsMTUuOCw2LjljNS43LDIuOSw3LjgsNC44LDguNCw2LjljMC42LDIuMS0wLjEsNi0zLjQsMTNjLTIuNCw1LjItNi40LDEyLjYtMTEuMiwyMS4yJiMxMDsmIzk7JiM5OyYjOTtjLTEuNiwwLTMuMiwwLjItNC43LDAuN2MtNi42LDIuMS0xMCw4LjUtNy42LDE0LjRjMi4zLDUuOCw5LjYsOC44LDE2LjEsNi43YzYuNi0yLjEsMTAtOC41LDcuNi0xNC40Yy0wLjYtMS40LTEuNS0yLjctMi42LTMuOCYjMTA7JiM5OyYjOTsmIzk7YzQuNy04LjYsOC43LTE2LDExLjMtMjEuNWMzLjUtNy41LDUuMy0xMy4yLDMuNy0xOC42Yy0xLjYtNS40LTYuNi04LjktMTMuMS0xMi4yYy00LjMtMi4xLTkuNy00LjQtMTYuMS03LjEmIzEwOyYjOTsmIzk7JiM5O2MwLjEtMS41LTAuMS0zLTAuNy00LjVjLTAuNi0xLjUtMS41LTIuOC0yLjctNGw5LjktMThsNTQuOSwyMy43YzkuOSw0LjMsMTQsMTQuOSw5LjIsMjMuN2wtMzcuNyw2OWMtNC44LDguOC0xNi42LDEyLjQtMjYuNSw4LjEmIzEwOyYjOTsmIzk7JiM5O2wtNzcuNi0zMy41Yy05LjktNC4zLTE0LTE0LjktOS4yLTIzLjdsMzcuNy02OWMzLjMtNi4xLDEwLTkuNywxNy0xMGgxLjJMMjc0LjgsMjU3LjN6Ii8+Cgk8L2c+CjwvZz4KPC9zdmc+" preserveAspectRatio="none"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues">
             <rect x="160" y="559.99" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#60a917" stroke="#2d7600" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -453,7 +453,7 @@
         <path d="M 250 789.99 L 309.06 789.99 L 309.06 865.36 Q 294.29 859.29 279.53 865.36 Q 264.76 871.43 250 865.36 L 250 793.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
         <path d="M 269.76 858.73 L 269.94 887.99 Q 270 897.99 280 898.01 L 313.63 898.09" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 318.88 898.1 L 311.87 901.58 L 313.63 898.09 L 311.89 894.58 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Aepic+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Aepic+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+">
             <path d="M 240 779.99 L 299.06 779.99 L 299.06 855.36 Q 284.29 849.29 269.53 855.36 Q 254.76 861.43 240 855.36 L 240 783.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -481,7 +481,7 @@
         <path d="M 219.06 619.05 L 219 829.99 Q 219 839.99 212.68 839.99 L 206.37 839.99" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 201.12 839.99 L 208.12 836.49 L 206.37 839.99 L 208.12 843.49 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
         <path d="M 330 868.73 L 389.06 868.73 L 389.06 944.1 Q 374.29 938.03 359.53 944.1 Q 344.76 950.17 330 944.1 L 330 872.1 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fuser-story+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fuser-story+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+">
             <path d="M 320 858.73 L 379.06 858.73 L 379.06 934.1 Q 364.29 928.03 349.53 934.1 Q 334.76 940.17 320 934.1 L 320 862.1 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -503,7 +503,7 @@
             </g>
         </a>
         <path d="M 140 669.99 L 199.06 669.99 L 199.06 745.36 Q 184.29 739.29 169.53 745.36 Q 154.76 751.43 140 745.36 L 140 673.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fbug+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fbug+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+">
             <path d="M 130 659.99 L 189.06 659.99 L 189.06 735.36 Q 174.29 729.29 159.53 735.36 Q 144.76 741.43 130 735.36 L 130 663.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -523,7 +523,7 @@
             </g>
         </a>
         <path d="M 250 669.99 L 309.06 669.99 L 309.06 745.36 Q 294.29 739.29 279.53 745.36 Q 264.76 751.43 250 745.36 L 250 673.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fanalysis+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fanalysis+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+">
             <path d="M 240 659.99 L 299.06 659.99 L 299.06 735.36 Q 284.29 729.29 269.53 735.36 Q 254.76 741.43 240 735.36 L 240 663.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -543,7 +543,7 @@
             </g>
         </a>
         <path d="M 140 794.99 L 199.06 794.99 L 199.06 870.36 Q 184.29 864.29 169.53 870.36 Q 154.76 876.43 140 870.36 L 140 798.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fquality%2Fdebt%2Cquality%2Fengineering+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-studio/issues?q=is%3Aopen+is%3Aissue+label%3Akind%2Fquality%2Fdebt%2Cquality%2Fengineering+label%3Asolution%2Fstudio%2Fcode%2Csolution%2Fstudio%2Fdesigner%2Csolution%2Fstudio%2Frepos+">
             <path d="M 130 784.99 L 189.06 784.99 L 189.06 860.36 Q 174.29 854.29 159.53 860.36 Q 144.76 866.43 130 860.36 L 130 788.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -566,7 +566,7 @@
         <path d="M 1210 669.99 L 1269.06 669.99 L 1269.06 745.36 Q 1254.29 739.29 1239.53 745.36 Q 1224.76 751.43 1210 745.36 L 1210 673.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
         <path d="M 1229 730 L 1229 775 Q 1229 785 1239 784.91 L 1273.63 784.59" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 1278.88 784.54 L 1271.91 788.1 L 1273.63 784.59 L 1271.85 781.1 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://github.com/Altinn/apps-backlog/labels/kind%2Fowner" target="_blank">
+        <a xlink:href="https://github.com/Altinn/apps-backlog/labels/kind%2Fowner">
             <path d="M 1200 659.99 L 1259.06 659.99 L 1259.06 735.36 Q 1244.29 729.29 1229.53 735.36 Q 1214.76 741.43 1200 735.36 L 1200 663.36 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -614,7 +614,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/Altinn/apps-backlog/labels/kind%2Fapp" target="_blank">
+        <a xlink:href="https://github.com/Altinn/apps-backlog/labels/kind%2Fapp">
             <path d="M 1280 745.16 L 1339.06 745.16 L 1339.06 820.53 Q 1324.29 814.46 1309.53 820.53 Q 1294.76 826.6 1280 820.53 L 1280 748.53 Z" fill="#ffffff" stroke="#333333" stroke-miterlimit="10" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -722,7 +722,7 @@
                 </text>
             </switch>
         </g>
-        <a xlink:href="https://github.com/Altinn/altinn-support/issues" target="_blank">
+        <a xlink:href="https://github.com/Altinn/altinn-support/issues">
             <rect x="400" y="120" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#609926" stroke="#005700" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -747,7 +747,7 @@
         <image x="496.17" y="157.61" width="21.44" height="20.94" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjU2IiBoZWlnaHQ9IjI0OS42ODA4OTI5NDQzMzU5NCIgdmlld0JveD0iMCAwIDI1NiAyNDkuNjgwODkyOTQ0MzM1OTQiIHZlcnNpb249IjEuMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPgogICAgPGc+CiAgICAgICAgPHBhdGggZD0iTTEyOC4wMDEwNiwwIEM1Ny4zMTcyOTI2LDAgMCw1Ny4zMDY2OTQyIDAsMTI4LjAwMTA2IEMwLDE4NC41NTUyODEgMzYuNjc2MTk5NywyMzIuNTM1NTQyIDg3LjUzNDkzNywyNDkuNDYwODk5IEM5My45MzIwMjIzLDI1MC42NDU3NzkgOTYuMjgwNTg4LDI0Ni42ODQxNjUgOTYuMjgwNTg4LDI0My4zMDMzMzMgQzk2LjI4MDU4OCwyNDAuMjUxMDQ1IDk2LjE2MTg4NzgsMjMwLjE2Nzg5OSA5Ni4xMDY3NzcsMjE5LjQ3MjE3NiBDNjAuNDk2NzU4NSwyMjcuMjE1MjM1IDUyLjk4MjYyMDcsMjA0LjM2OTcxMiA1Mi45ODI2MjA3LDIwNC4zNjk3MTIgQzQ3LjE1OTk1ODQsMTg5LjU3NDU5OCAzOC43NzA0MDgsMTg1LjY0MDUzOCAzOC43NzA0MDgsMTg1LjY0MDUzOCBDMjcuMTU2ODc4NSwxNzcuNjk2MTEzIDM5LjY0NTgyMDYsMTc3Ljg1OTMyNSAzOS42NDU4MjA2LDE3Ny44NTkzMjUgQzUyLjQ5OTM0MTksMTc4Ljc2MjI5MyA1OS4yNjczNjUsMTkxLjA0OTg3IDU5LjI2NzM2NSwxOTEuMDQ5ODcgQzcwLjY4Mzc2NzUsMjEwLjYxODQyMyA4OS4yMTE1NzUzLDIwNC45NjEwOTMgOTYuNTE1ODY4NSwyMDEuNjkwNDgyIEM5Ny42NjQ3MTU1LDE5My40MTc1MTIgMTAwLjk4MTk1OSwxODcuNzcwNzggMTA0LjY0MjU4MywxODQuNTc0MzU3IEM3Ni4yMTE3OTksMTgxLjMzNzY2IDQ2LjMyNDgxOSwxNzAuMzYyMTQ0IDQ2LjMyNDgxOSwxMjEuMzE1NzAyIEM0Ni4zMjQ4MTksMTA3LjM0MDg4OSA1MS4zMjUwNTg4LDk1LjkyMjM2ODIgNTkuNTEzMjQzNyw4Ni45NTgzOTM3IEM1OC4xODQyMjY4LDgzLjczNDQxNTIgNTMuODAyOTIyOSw3MC43MTU1NjIgNjAuNzUzMjM1NCw1My4wODQzNjM2IEM2MC43NTMyMzU0LDUzLjA4NDM2MzYgNzEuNTAxOTUwMSw0OS42NDQxODEzIDk1Ljk2MjY0MTIsNjYuMjA0OTU5NSBDMTA2LjE3Mjk2Nyw2My4zNjg4NzYgMTE3LjEyMzA0Nyw2MS45NDY1OTQ5IDEyOC4wMDEwNiw2MS44OTc4NDMyIEMxMzguODc5MDczLDYxLjk0NjU5NDkgMTQ5LjgzNzYzMiw2My4zNjg4NzYgMTYwLjA2NzAzMyw2Ni4yMDQ5NTk1IEMxODQuNDk4MDUsNDkuNjQ0MTgxMyAxOTUuMjMxOTI2LDUzLjA4NDM2MzYgMTk1LjIzMTkyNiw1My4wODQzNjM2IEMyMDIuMTk5MTk3LDcwLjcxNTU2MiAxOTcuODE1NzczLDgzLjczNDQxNTIgMTk2LjQ4Njc1Niw4Ni45NTgzOTM3IEMyMDQuNjk0MDE4LDk1LjkyMjM2ODIgMjA5LjY2MDM0MywxMDcuMzQwODg5IDIwOS42NjAzNDMsMTIxLjMxNTcwMiBDMjA5LjY2MDM0MywxNzAuNDc4NzI1IDE3OS43MTYxMzMsMTgxLjMwMzc0NyAxNTEuMjEzMjgxLDE4NC40NzI2MTQgQzE1NS44MDQ0MywxODguNDQ0ODI4IDE1OS44OTUzNDIsMTk2LjIzNDUxOCAxNTkuODk1MzQyLDIwOC4xNzY1OTMgQzE1OS44OTUzNDIsMjI1LjMwMzMxNyAxNTkuNzQ2OTY4LDIzOS4wODczNjEgMTU5Ljc0Njk2OCwyNDMuMzAzMzMzIEMxNTkuNzQ2OTY4LDI0Ni43MDk2MDEgMTYyLjA1MTAyLDI1MC43MDA4OSAxNjguNTM5MjUsMjQ5LjQ0Mzk0MSBDMjE5LjM3MDQzMiwyMzIuNDk5NTA3IDI1NiwxODQuNTM2MjA0IDI1NiwxMjguMDAxMDYgQzI1Niw1Ny4zMDY2OTQyIDE5OC42OTExODcsMCAxMjguMDAxMDYsMCBaIE00Ny45NDA1NTkzLDE4Mi4zNDAyMTIgQzQ3LjY1ODY0NjUsMTgyLjk3NjEwNSA0Ni42NTgxNzQ1LDE4My4xNjY4NzMgNDUuNzQ2NzI3NywxODIuNzMwMjI3IEM0NC44MTgzMjM1LDE4Mi4zMTI2NTYgNDQuMjk2ODkxNCwxODEuNDQ1NzIyIDQ0LjU5Nzg4MDgsMTgwLjgwNzcxIEM0NC44NzM0MzQ0LDE4MC4xNTI3MzkgNDUuODc2MDI2LDE3OS45NzA0NSA0Ni44MDIzMTAzLDE4MC40MDkyMTYgQzQ3LjczMjgzNDIsMTgwLjgyNjc4NiA0OC4yNjI3NDUxLDE4MS43MDIxOTkgNDcuOTQwNTU5MywxODIuMzQwMjEyIFogTTU0LjIzNjc4OTIsMTg3Ljk1ODI1NCBDNTMuNjI2MzMxOCwxODguNTI0MTk5IDUyLjQzMjk3MjMsMTg4LjI2MTM2MyA1MS42MjMyNjgyLDE4Ny4zNjY4NzQgQzUwLjc4NjAwODgsMTg2LjQ3NDUwNCA1MC42MjkxNTUzLDE4NS4yODExNDQgNTEuMjQ4MDkxMiwxODQuNzA2NzIgQzUxLjg3NzYyNTQsMTg0LjE0MDc3NSA1My4wMzQ5NTEyLDE4NC40MDU3MzEgNTMuODc0MzMwMiwxODUuMjk4MTAxIEM1NC43MTE1ODkyLDE4Ni4yMDEwNjkgNTQuODc0ODAxOSwxODcuMzg1OTUgNTQuMjM2Nzg5MiwxODcuOTU4MjU0IFogTTU4LjU1NjI0MTMsMTk1LjE0NjM0NyBDNTcuNzcxOTczMiwxOTUuNjkxMDk2IDU2LjQ4OTU4ODYsMTk1LjE4MDI2MSA1NS42OTY4NDE3LDE5NC4wNDIwMTMgQzU0LjkxMjU3MzMsMTkyLjkwMzc2NCA1NC45MTI1NzMzLDE5MS41Mzg3MTMgNTUuNzEzNzk5LDE5MC45OTE4NDUgQzU2LjUwODY2NTEsMTkwLjQ0NDk3NyA1Ny43NzE5NzMyLDE5MC45MzY3MzUgNTguNTc1MzE4MSwxOTIuMDY2NTA1IEM1OS4zNTc0NjY5LDE5My4yMjM4MyA1OS4zNTc0NjY5LDE5NC41ODg4OCA1OC41NTYyNDEzLDE5NS4xNDYzNDcgWiBNNjUuODYxMzU5MiwyMDMuNDcxMTc0IEM2NS4xNTk3NTcxLDIwNC4yNDQ4NDYgNjMuNjY1NDA4MywyMDQuMDM3MTIgNjIuNTcxNjcxNywyMDIuOTgxNTM4IEM2MS40NTI0OTk5LDIwMS45NDkyNyA2MS4xNDA5MTIyLDIwMC40ODQ1OTYgNjEuODQ0NjM0MSwxOTkuNzEwOTI2IEM2Mi41NTQ3MTQ2LDE5OC45MzUxMzcgNjQuMDU3NTQyMiwxOTkuMTUzNDYgNjUuMTU5NzU3MSwyMDAuMjAwNTY0IEM2Ni4yNzA0NTA2LDIwMS4yMzA3MTIgNjYuNjA5NTkzNiwyMDIuNzA1OTg0IDY1Ljg2MTM1OTIsMjAzLjQ3MTE3NCBaIE03NS4zMDI1MTUxLDIwNi4yODE1NDIgQzc0Ljk5MzA0NzQsMjA3LjI4NDEzNCA3My41NTM4MDksMjA3LjczOTg1NyA3Mi4xMDM5NzI0LDIwNy4zMTM4MDkgQzcwLjY1NjI1NTYsMjA2Ljg3NTA0MyA2OS43MDg3NzQ4LDIwNS43MDA3NjEgNzAuMDAxMjg1NywyMDQuNjg3NTcxIEM3MC4zMDIyNzUsMjAzLjY3ODYyMSA3MS43NDc4NzIxLDIwMy4yMDM4MiA3My4yMDgzMDY5LDIwMy42NTk1NDMgQzc0LjY1MzkwNDEsMjA0LjA5NjE5IDc1LjYwMzUwNDgsMjA1LjI2MTk5NCA3NS4zMDI1MTUxLDIwNi4yODE1NDIgWiBNODYuMDQ2OTQ3LDIwNy40NzM2MjcgQzg2LjA4Mjk4MDYsMjA4LjUyOTIwOSA4NC44NTM1ODcxLDIwOS40MDQ2MjIgODMuMzMxNjgyOSwyMDkuNDIzNyBDODEuODAxMywyMDkuNDU3NjE0IDgwLjU2MzQyOCwyMDguNjAzMzk4IDgwLjU0NjQ3MDgsMjA3LjU2NDc3MiBDODAuNTQ2NDcwOCwyMDYuNDk4NTkxIDgxLjc0ODMwODgsMjA1LjYzMTY1NyA4My4yNzg2OTE3LDIwNS42MDYyMjEgQzg0LjgwMDU5NjIsMjA1LjU3NjU0NiA4Ni4wNDY5NDcsMjA2LjQyNDQwMyA4Ni4wNDY5NDcsMjA3LjQ3MzYyNyBaIE05Ni42MDIxNDcxLDIwNy4wNjkwMjMgQzk2Ljc4NDQzNjYsMjA4LjA5OTE3MSA5NS43MjY3MzQxLDIwOS4xNTY4NzIgOTQuMjE1NDI4LDIwOS40Mzg3ODUgQzkyLjcyOTU1NzcsMjA5LjcxMDA5OSA5MS4zNTM5MDg2LDIwOS4wNzQyMDYgOTEuMTY1MjYwMywyMDguMDUyNTM4IEM5MC45ODA4NTE1LDIwNi45OTY5NTUgOTIuMDU3NjMwNiwyMDUuOTM5MjUzIDkzLjU0MTM4MTMsMjA1LjY2NTgyIEM5NS4wNTQ4MDcsMjA1LjQwMjk4NCA5Ni40MDkyNTk2LDIwNi4wMjE5MTkgOTYuNjAyMTQ3MSwyMDcuMDY5MDIzIFoiIGZpbGw9IiMxNjE2MTQiLz4KICAgIDwvZz4KPC9zdmc+" preserveAspectRatio="none"/>
         <path d="M 278.11 149.53 L 393.63 149.53" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
         <path d="M 398.88 149.53 L 391.88 153.03 L 393.63 149.53 L 391.88 146.03 Z" fill="rgb(0, 0, 0)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-        <a xlink:href="https://www.altinndigital.no/oversikt" target="_blank">
+        <a xlink:href="https://www.altinndigital.no/oversikt">
             <rect x="160" y="120" width="118.11" height="59.05" rx="8.86" ry="8.86" fill="#ff3333" stroke="#b20000" pointer-events="all"/>
             <g transform="translate(-0.5 -0.5)">
                 <switch>
@@ -798,7 +798,7 @@
     </g>
     <switch>
         <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
-        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems">
             <text text-anchor="middle" font-size="10px" x="50%" y="100%">
                 Viewer does not support full SVG 1.1
             </text>
