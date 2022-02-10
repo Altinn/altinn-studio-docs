@@ -25,8 +25,13 @@ Note that all instances, regardless of state, are downloaded.
 
 ## Batch 
 
-The batch command allows you to interact with an application while providing a batch of data. 
+The batch command allows you to interact with an application through providing batches of data.
+
 ### CreateInstancesA2
+
+`Batch CreateInstancesA2` instantiates a batch of instances based on the Altinn 2 xml schema.
+
+Some configurations are required to be in place before running this command. 
 
 
 ## Storage
