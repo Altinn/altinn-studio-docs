@@ -86,4 +86,4 @@ Det er teknisk mulig å overstyre alle andre data kilder ved hjelp av kommandoli
 
 Hver applikasjonseier skal få tilgang til sitt eget Azure KeyVault for lagring av sensitive verdier. Altså verdier man ikke ønsker å ha synlig i kode eller konfigurasjonsfiler. Noen naturlig eksempler på dette er ting som brukernavn og passord for eksterne APIer en App skal benytte. Et sertifikat, privat nøkkel eller lignende.
 
-Per i dag blir ikke verdier fra KeyVault lest inn i konfigurasjonsstyringen av en App. Isteden må man benytte Secrets komponenten. Dette er dokumentert under [hemmeligheter](../../secrets).
+Per i dag blir ikke verdier fra KeyVault lest inn i konfigurasjonsstyringen av en App. Isteden må man benytte Secrets komponenten. Dette er dokumentert under [hemmeligheter](../secrets).
