@@ -7,7 +7,7 @@ tags: [translate-to-norwegian]
 
 ## 4.26.0 (2022-02-10) - Forbedringer knyttet til PDF og tekstressurser
 
-Nyinnførste tekstressurs `appName`  benyttes som tittel på PDF.
+Nyinnførte tekstressurs `appName`  benyttes som tittel på PDF.
 Lokal kopi av tekstressurser benyttes i PDF i stedet for tekstressurser fra Platform Storage. 
 
 
