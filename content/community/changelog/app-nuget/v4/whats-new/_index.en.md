@@ -4,6 +4,11 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.26.0 (2022-02-10) - Improvements to text resource in relation to PDF
+
+Use new `appName` text resource as PDF title.
+Use local texts for pdf generation instead of text resources from Platform Storage.
+
 ## 4.25.0 (2022-01-24) - Dynamic application settings for front end
 
 Added a new section called `FrontEndSettings` for use in `appsetting.{environment}.json` files. This is made available for front end as `applicationSettings` and is a dynamic list of values. It's possible to add new entries to `FrontEndSettings` without the usual need to make code changes in backend. The feature ensures that backend can provide environment specific values to the front end application.
