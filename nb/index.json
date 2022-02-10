@@ -872,7 +872,7 @@
 	"title": "Apps",
 	"tags": [],
 	"description": "Team Apps",
-	"content": "\r\r"
+	"content": "Mal tjenesteeier title: Tjenesteeier Lenke til org i Altinn Studio Lenke til org i TUL\nForutsetninger  Systemer hos tjenesteeier for henting/mottak av data Beslutning av at migrering kan starte  \r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/api/authentication/",
@@ -977,7 +977,7 @@
 	"title": "DevOps",
 	"tags": [],
 	"description": "Hvordan vi gjør DevOps",
-	"content": "\r\rTeams\rVåre DevOps-teams\n\r\r"
+	"content": "Fullscreen\n\rTeams\rVåre DevOps-teams\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/launched-apps/digdir/",
