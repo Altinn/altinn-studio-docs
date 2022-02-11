@@ -5,6 +5,12 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.26.0 (2022-02-10) - Forbedringer knyttet til PDF og tekstressurser
+
+Nyinnførte tekstressurs `appName`  benyttes som tittel på PDF.
+Lokal kopi av tekstressurser benyttes i PDF i stedet for tekstressurser fra Platform Storage. 
+
+
 ## 4.25.0 (2022-01-24) - Dynamiske konfigurasjonsverdier for frontend 
 Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.{miljø}.json` filer. Dette eksponeres til frontendapplikasjonen som `applicationSettings` og er en dynamisk liste med verdier. I praksis betyr dette at `FrontEndSettings` kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.
 
