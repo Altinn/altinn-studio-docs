@@ -366,7 +366,15 @@
         ],
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type":"string",
+                  "format": "binary"
+                }
+              }
+            }
           }
         }
       },
@@ -3395,10 +3403,12 @@
             "nullable": true
           },
           "readStatus": {
-            "$ref": "#/components/schemas/ReadStatus"
+            "$ref": "#/components/schemas/ReadStatus",
+            "nullable": true
           },
           "substatus": {
-            "$ref": "#/components/schemas/Substatus"
+            "$ref": "#/components/schemas/Substatus",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3513,7 +3523,8 @@
             "nullable": true
           },
           "currentTask": {
-            "$ref": "#/components/schemas/ProcessElementInfo"
+            "$ref": "#/components/schemas/ProcessElementInfo",
+            "nullable": true
           },
           "ended": {
             "type": "string",
