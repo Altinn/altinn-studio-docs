@@ -22,7 +22,7 @@ Pull request [#7999](https://github.com/Altinn/altinn-studio/pull/7999).
 ## 3.28.1 (2022-02-09) - Fikset en feil i checkboxkomponent
 Fikset en feil som ble introdusert i 3.27.5, hvor endringer av checkbox førte til at simplebindingverdien ble satt til `,`
 
-Pull request [#8045](https://github.com/Altinn/altinn-studio/pull/8045).
+Pull request [#7996](https://github.com/Altinn/altinn-studio/pull/7996).
 
 ## 3.28.0 (2022-02-09) - Lagt til FileUploadWithTag komponent
 Lagt til filopplastningskomponent med mulighet for merking av filer.

@@ -7,7 +7,7 @@ toc: true
 ## 3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation
 This fixes an issue that was introduced in 3.29.0
 
-Pull request [#5893](https://github.com/Altinn/altinn-studio/pull/8045).
+Pull request [#8045](https://github.com/Altinn/altinn-studio/pull/8045).
 
 ## 3.29.0 (2022-02-11) - Added Navigationbar component 
 Added Navigationbar component
@@ -22,7 +22,7 @@ Pull request [#7999](https://github.com/Altinn/altinn-studio/pull/7999).
 ## 3.28.1 (2022-02-09) - Fixed an issue in checkbox component
 This fixed an issue introduced in 3.27.5, where changes to checkbox items could cause the simplebinding value to be set to `,`.
 
-Pull request [#8045](https://github.com/Altinn/altinn-studio/pull/8045).
+Pull request [#7996](https://github.com/Altinn/altinn-studio/pull/7996).
 
 ## 3.28.0 (2022-02-09) - Added FileUploadWithTag component
 Added fileupload component with option to tag files
