@@ -17,7 +17,7 @@ The application can be used as it, or extended with custom functions developed b
 
 The concept of the CLI application are related to the different parts of a command line command.
 
-Example: Storage GetData appId=ttd/how-to-name-it processIsComplete=true
+Example: `Storage GetData appId=ttd/how-to-name-it processIsComplete=true`
 
 - **Command**: Storage
 - **SubCommand**: GetData
