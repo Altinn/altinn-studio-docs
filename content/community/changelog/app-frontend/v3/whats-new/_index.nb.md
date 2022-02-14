@@ -4,30 +4,55 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.29.1 (2022-02-14) - Fikset feil hvor variables i tekster ble ignorert ved kalkulering
+Dette fikser en feil som ble introdusert i 3.29.0
+
+Pull request [#5893](https://github.com/Altinn/altinn-studio/pull/8045).
+
+## 3.29.0 (2022-02-11) - Lagt til Navigationbar komponent 
+Lagt til Navigationbar komponent
+
+Issue [#5893](https://github.com/Altinn/altinn-studio/issues/5893).
+
+## 3.28.2 (2022-02-10) - Flyttet testfiler
+Ingen kodeendringer
+
+Pull request [#7999](https://github.com/Altinn/altinn-studio/pull/7999).
+
+## 3.28.1 (2022-02-09) - Fikset en feil i checkboxkomponent
+Fikset en feil som ble introdusert i 3.27.5, hvor endringer av checkbox førte til at simplebindingverdien ble satt til `,`
+
+Pull request [#8045](https://github.com/Altinn/altinn-studio/pull/8045).
+
 ## 3.28.0 (2022-02-09) - Lagt til FileUploadWithTag komponent
 Lagt til filopplastningskomponent med mulighet for merking av filer.
 
 Issue [#6479](https://github.com/Altinn/altinn-studio/issues/6479).
 
+## 3.27.5 (2022-02-09) - Fikset feil i checkboxkomponent
+Fikset feil i checkboxkomponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
 ## 3.27.4 (2022-02-08) - Fikset feil i confirm container
 Fikset feil i confirm container
 
-Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
 
 ## 3.27.3 (2022-02-07) - Fikset feil i radiobuttonkomponent
 Fikset feil i radiobuttonkomponent
 
-Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
 
 ## 3.27.2 (2022-02-07) - Fikset feil i receipt container
 Fikset feil i receipt container
 
-Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
 
 ## 3.27.1 (2022-02-07) - Fikset feil i datepickerkomponent
 Fikset feil i datepickerkomponent
 
-Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
 
 ## 3.27.0 (2022-02-01) - Vise applikasjonseier header
 Applikasjonseier vil nå vises i header for å tydeliggjøre hvem som er eier av appen.
