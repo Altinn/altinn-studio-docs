@@ -1,12 +1,22 @@
 ---
 title: Configuration
-description: The configuration of Altinn CLI is contained in appsettings.json in the repository. It contains three sections; Top level config, Maskinporten settings, and InstantiationConfig
+description: A description of required configurations before using Altinn CLI.
 toc: true
 tags: [altinn-cli configuration]
 aliases:
 - /altinn-cli/commands
 - /teknologi/altinnstudio/solutions/cli/configuration
 ---
+
+# Configuration
+
+The configuration of Altinn CLI is contained in `appsettings.json` in the repository.
+
+It contains three sections:
+  1. Top level config
+  2. Maskinporten settings
+  3. InstantiationConfig
+
 
 ## Top level configurations
 
