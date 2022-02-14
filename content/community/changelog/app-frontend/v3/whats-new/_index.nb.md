@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.28.0 (2022-02-09) - Lagt til FileUploadWithTag komponent
+Lagt til filopplastningskomponent med mulighet for merking av filer.
+
+Issue [#6479](https://github.com/Altinn/altinn-studio/issues/6479).
+
 ## 3.27.4 (2022-02-08) - Fikset feil i confirm container
 Fikset feil i confirm container
 
