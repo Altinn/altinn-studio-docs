@@ -19,7 +19,7 @@ In your repo under the folder `App/ui` there is a `FormLayout.json`-file. The co
         "type": "Header",
         "componentType": 0,
         "textResourceBindings": {
-          "title": "ServiceName"
+          "title": "appName"
         },
         "dataModelBindings": {}
       },
@@ -85,7 +85,7 @@ Example of how it looks after adding help text:
         "type": "Header",
         "componentType": 0,
         "textResourceBindings": {
-          "title": "ServiceName"
+          "title": "appName"
         },
         "dataModelBindings": {}
       },

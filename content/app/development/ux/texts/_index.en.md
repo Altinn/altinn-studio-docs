@@ -187,7 +187,7 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
         "type": "Header",
         "componentType": 0,
         "textResourceBindings": {
-          "title": "ServiceName"
+          "title": "appName"
         },
         "dataModelBindings": {}
       },
@@ -236,7 +236,7 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
         "type": "Header",
         "componentType": 0,
         "textResourceBindings": {
-          "title": "ServiceName"
+          "title": "appName"
         },
         "dataModelBindings": {}
       },
@@ -271,18 +271,18 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
 
 ## Endre applikasjonstittel
 
-Når man oppretter en applikasjon vil man ha en tekstressurs med label `ServiceName`. 
+Når man oppretter en applikasjon vil man ha en tekstressurs med label `appName`. 
 Dette er tittelen på applikasjonen som vil gjenspeiles flere steder i løsningen vår.
 Blant annet når en sluttbruker fyller ut skjema, og når elementer skal vises i meldingsboksen på altinn.no.
 
 Tittelen på applikasjonen skal ligge to steder i applikasjonsrepoet: 
- 1. I tekstressurser med nøkkelen `ServiceName`. 
+ 1. I tekstressurser med nøkkelen `appName`. 
  Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.
 
  2. I `applicationmetadata.json` under property `title`. Denne filen ligger under `App/config/`.
 
 
-Dersom man gjør endrer `ServiceName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i 
+Dersom man gjør endrer `appName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i 
 `applicationmetadata.json` også. Dersom tittel på applikasjonen endres i Altinn Studio enten på "Om" eller "Språk"-siden bli applicationmetadata.json oppdatert automatisk.
 
 ### Eksempel på korrekt konfigurasjon for applikasjonstittel 
@@ -304,7 +304,7 @@ I `App/config/texts/resource.nb.json`:
   "language": "nb",
   "resources": [
     {
-      "id": "ServiceName",
+      "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
     .
@@ -321,7 +321,7 @@ I `App/config/texts/resource.nn.json`:
   "language": "nn",
   "resources": [
     {
-      "id": "ServiceName",
+      "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
     .
@@ -338,7 +338,7 @@ I `App/config/texts/resource.en.json`:
   "language": "en",
   "resources": [
     {
-      "id": "ServiceName",
+      "id": "appName",
       "value": "Auto deploy application"
     },
     .
@@ -347,3 +347,27 @@ I `App/config/texts/resource.en.json`:
   ]
 }
 ```
+
+## Endre applikasjonseier tekst
+
+I applikasjonen så vises applikasjonsnavn og applikasjonseier-tekstene øverst i skjema.
+
+![Tekster i appen](app-name-app-owner.png "Appnavn og appeier tekster")
+
+Applikasjonsnavn hentes som standard ut fra tekstene som er definert i [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
+Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til nøkkelen `appOwner` i tekstressursene. Denne vil da overstyre det som ligger på CDN.
+
+Eksempel:
+```json
+{
+  "language": "en",
+  "resources": [
+    {
+      "id": "appOwner",
+      "value": "Test Ministry"
+    },
+    .
+    .
+    .
+  ]
+}
