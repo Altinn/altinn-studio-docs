@@ -13,7 +13,7 @@ Navigering videre til neste side skjer via en navigerings-knapp. Denne må legge
 ## Legge til knapp for navigering
 Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
 
-```
+```json
 {
   "id": "nav-page2",
   "type": "NavigationButtons",
@@ -36,6 +36,29 @@ Det er også mulighet for å vise en `tilbake`-knapp sammen med `neste`-knappen,
 | textResourceBindings | Setter man parametre `next` (og evt. `back`) her, vil man kunne overstyre med egne tekster som vises på knappen(e). Se eksempel over.|
 | showBackButton | Valgfri. Gjør at 2 knapper (tilbake/neste) vises i stedet for bare en (neste).|
 
+## Navigasjonsbar
+
+Navigasjonsbar gir enkel tilgang til alle sider i en applikasjon.
+
+{{%notice info%}}
+Navigasjonsbar lister opp alle sider i appen, og egner seg derfor ikke til bruk ved sporvalg.
+{{%/notice%}}
+
+![Navigasjonsbar desktop](navigationbar-desktop.png "Navigasjonsbar desktop")
+
+På store skjermer vil alle sider listes opp. Dersom det ikke er plass på en linje, vil listen brytes og fortsette på neste linje. På mindre skjermer vil alle sider være skjult i en meny. Den siden som er aktiv vil vises i menyen. Når menyen klikkes på, vil en liste over alle sider vises.
+
+![Navigasjonsbar mobil - lukket og åpen](navigationbar-mobile.png "Navigasjonsbar mobil - lukket og åpen")
+
+Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på konfigurasjon:
+
+```json
+{
+  "id": "navbar-page-1",
+  "type": "NavigationBar"
+}
+```
+
 ## Rekkefølge
 Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:
 
@@ -50,7 +73,7 @@ Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver si
 
 Det er også mulig å styre rekkefølgen på sidene ved hjelp av `Settings.json` under `App/ui/`. Dette gjøres på følgende vis:
 
-```
+```json
 {
   "pages": {
     "order": ["side2", "side1"]
@@ -67,7 +90,7 @@ Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke 
 ## Validering ved sidebytte
 Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side. Dette kan gjøres ved å legge til strengen `validatePage` i `triggers` på navigasjons-knapp komponenten. Eksempel:
 
-```
+```json
 {
   "id": "7cbc1c00-4c8c-42b6-bcef-12b3c4c45373",
   "type": "NavigationButtons",
