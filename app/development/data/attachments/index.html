@@ -1053,7 +1053,7 @@ du benytter i din applikasjon vil avgjøres av egenskapene til dokumentene du fo
 og eventuelle begrensninger du selv ønsker å sette
 (se <a href="#innsending-av-vedlegg-med-api-kall">konfigurasjon av vedlegg</a> for mer informasjon om dette).</p>
 <p>NB! Det vil også være mulig å laste opp vedlegg av typen definert i vedleggkomponenten via API.</p>
-<figure><a href="vedleggskom.PNG"><img src="vedleggskom.PNG" alt="Vedleggskomponenten" title="Vedleggskomponenten" /></a><figcaption><h4>Vedleggskomponenten</h4></figcaption></figure>
+<figure><a href="vedleggskom.png"><img src="vedleggskom.png" alt="Vedleggskomponenten" title="Vedleggskomponenten" /></a><figcaption><h4>Vedleggskomponenten</h4></figcaption></figure>
 <p>Bildet over viser vedleggskomponenten i Altinn Studio.
 Det er mulig å sette en del av konfigurasjonenen for vedleggene som lastes opp alledere her.</p>
 <ol>
@@ -1065,6 +1065,13 @@ Ved å sette &lsquo;0&rsquo; på <em>minst antall filvedlegg</em> vil det ikke v
 </ol>
 <p>Ytterligere konfigurasjoner som kan settes for vedlegg inkluderer: tillatte bidragsytere og beskrivelse.
 Dette gjøres i <em>applicationMetadata.json</em> som ligger under App/config i applikasjonsrepoet.</p>
+<h3 id="vedleggskomponent-med-merking">Vedleggskomponent med merking</h3>
+<p>Det finnes også en egen komponent der man får brukeren til å merke filen med hjelp av en nedtrekksliste.
+Dette settes opp ganske likt som med den vanlige filopplastingskomponenten, med tillegget av en kodeliste-ID og navnet
+man vil gi merkingen.</p>
+<figure><a href="vedleggsmerkekom.png"><img src="vedleggsmerkekom.png" alt="Vedleggskomponenten med merking" title="Vedleggskomponenten med merking" /></a><figcaption><h4>Vedleggskomponenten med merking</h4></figcaption></figure>
+<p>Her under kan du se den i bruk</p>
+<figure><a href="vedleggsmerkekomeks.png"><img src="vedleggsmerkekomeks.png" alt="Vedleggskomponenten med merking eksempelvisning" title="Vedleggskomponenten med merking eksempel" /></a><figcaption><h4>Vedleggskomponenten med merking eksempel</h4></figcaption></figure>
 <h2 id="innsending-av-vedlegg-med-api-kall">Innsending av vedlegg med API-kall</h2>
 <p>For å legge til rette for å kunne sende inn vedlegg uten å ha støtte for dette i GUI
 må man legge inn et <a href="/technology/architecture/components/application/solution/altinn-platform/storage/#datatype">datatype-objekt</a>
@@ -1134,7 +1141,7 @@ Les mer om mime types <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP
 Dette er en valgfri egenskap, hvor vedlegg med samme grouping vil havne i samme liste. Grouping kan både være en streng (f.eks &ldquo;Attester&rdquo;) eller en tekstnøkkel om man ønsker å støtte flere språk (f.eks &ldquo;skjema.vedleggsgruppering). Her er et eksempel hvor grouping &ldquo;Demogruppe&rdquo; satt på en vedleggstype:</p>
 </li>
 </ul>
-<figure><a href="attachment-grouping-demo.PNG"><img src="attachment-grouping-demo.PNG" alt="Skjermdump av grupperingseksempel" title="Grupperingseksempel" /></a><figcaption><h4>Grupperingseksempel</h4></figcaption></figure>
+<figure><a href="attachment-grouping-demo.png"><img src="attachment-grouping-demo.png" alt="Skjermdump av grupperingseksempel" title="Grupperingseksempel" /></a><figcaption><h4>Grupperingseksempel</h4></figcaption></figure>
 
 
 <footer class=" footline" >

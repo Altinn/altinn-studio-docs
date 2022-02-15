@@ -1022,93 +1022,106 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/pages/'>Pages</a> <span class='adocs-breadcrumb-divider'> / </span> Navigation</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Navigation between pages</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Navigation between pages</h1>
               <p class="a-leadText" id="leadText">How to set up navigation between pages.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#legge-til-knapp-for-navigering">Legge til knapp for navigering</a></li>
-    <li><a href="#rekkefølge">Rekkefølge</a></li>
-    <li><a href="#validering-ved-sidebytte">Validering ved sidebytte</a></li>
+    <li><a href="#add-button-for-navigation">Add button for navigation</a></li>
+    <li><a href="#navigation-bar">Navigation Bar</a></li>
+    <li><a href="#order">Order</a></li>
+    <li><a href="#validation-on-page-navigation">Validation on page navigation</a></li>
   </ul>
 </nav>
 
 
 
 
-<p>Navigering videre til neste side skjer via en navigerings-knapp. Denne må legges til manuelt i hver layout-fil hvor man ønsker navigering fremover. Navigering tilbake til forrige side gjøres via tilbake-pil i venstre hjørnet. Denne knappen vises alltid så lenge det er en side å gå tilbake til, og er ikke en del av layout-filen. Se bilde under.</p>
-<figure><a href="nav-button-next.png"><img src="nav-button-next.png" alt="Navigeringsknapper" title="Navigeringsknapper" /></a><figcaption><h4>Navigeringsknapper</h4></figcaption></figure>
-<h2 id="legge-til-knapp-for-navigering">Legge til knapp for navigering</h2>
-<p>Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under</p>
-<pre tabindex="0"><code>{
-  &quot;id&quot;: &quot;nav-page2&quot;,
-  &quot;type&quot;: &quot;NavigationButtons&quot;,
-  &quot;textResourceBindings&quot;: {
-    &quot;next&quot;: &quot;next&quot;,
-    &quot;back&quot;: &quot;back&quot;
+<p>Navigation to the next page happens via a navigation button. This button has to be added manually in every layout file where you want to be able to navigate forward. Navigating back is done via a back arrow in the top left corner. This button will always be shown if there is something to navigate backwards to, and is not part of the layout file. See image below.</p>
+<figure><a href="nav-button-next.png"><img src="nav-button-next.png" alt="Navigation buttons" title="Navigation buttons" /></a><figcaption><h4>Navigation buttons</h4></figcaption></figure>
+<h2 id="add-button-for-navigation">Add button for navigation</h2>
+<p>Button for navigation is added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nav-page2&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;next&#34;</span>,
+    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;back&#34;</span>
   },
-  &quot;dataModelBindings&quot;: {}
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {}
 }
-</code></pre><p>Det er også mulighet for å vise en <code>tilbake</code>-knapp sammen med <code>neste</code>-knappen, ved å legge til parameteren <code>&quot;showBackButton&quot;: true</code> på komponenten.</p>
-<figure><a href="nav-button-next-prev.png"><img src="nav-button-next-prev.png" alt="Navigeringsknapper med tilbakeknapp" title="Navigeringsknapper med tilbakeknapp" /></a><figcaption><h4>Navigeringsknapper med tilbakeknapp</h4></figcaption></figure>
+</code></pre></div><p>It is also possible to show a <code>back</code> button together with the <code>next</code> button by adding the parameter <code>showBackButton: true</code> in the button configuration.</p>
+<figure><a href="nav-button-next-prev.png"><img src="nav-button-next-prev.png" alt="Navigation buttons with back arrow" title="Navigation buttons with back arrow" /></a><figcaption><h4>Navigation buttons with back arrow</h4></figcaption></figure>
 <table>
 <thead>
 <tr>
 <th>Parameter</th>
-<th>Beskrivelse</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>id</td>
-<td>Unik ID, tilsvarende som for alle andre skjemakomponenter.</td>
+<td>Unique ID, the same as for all schema components.</td>
 </tr>
 <tr>
 <td>type</td>
-<td>Må være <code>&quot;NavigationButtons&quot;</code></td>
+<td>Has to be <code>&quot;NavigationButtons&quot;</code></td>
 </tr>
 <tr>
 <td>textResourceBindings</td>
-<td>Setter man parametre <code>next</code> (og evt. <code>back</code>) her, vil man kunne overstyre med egne tekster som vises på knappen(e). Se eksempel over.</td>
+<td>By setting the parameters <code>next</code> (and <code>back</code>), you are able to override the default texts to be shown on the buttons.</td>
 </tr>
 <tr>
 <td>showBackButton</td>
-<td>Valgfri. Gjør at 2 knapper (tilbake/neste) vises i stedet for bare en (neste).</td>
+<td>Optional. Makes two buttons (back/next) appear instead of just one (next).</td>
 </tr>
 </tbody>
 </table>
-<h2 id="rekkefølge">Rekkefølge</h2>
-<p>Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:</p>
+<h2 id="navigation-bar">Navigation Bar</h2>
+<p>The Navigation Bar gives easy access to all pages in an application.</p>
+<div class="notices info" >
+The Navigaion Bar lists all pages in the application, and is not suited for use with the tracks feature.
+</div>
+<figure><a href="navigationbar-desktop.png"><img src="navigationbar-desktop.png" alt="Navigation Bar desktop" title="Navigation Bar desktop" /></a><figcaption><h4>Navigation Bar desktop</h4></figcaption></figure>
+<p>On big screens, all pages will be visible. If there is not enough space on one line, the list will break and the rest of the pages will go on the next line. On smaller screens, all pages will be hidden in a menu. The current page is shown in the menu, and when the menu is clicked, all pages will show.</p>
+<figure><a href="navigationbar-mobile.png"><img src="navigationbar-mobile.png" alt="Navigation Bar mobile - closed and open" title="Navigation Bar mobile - closed and open" /></a><figcaption><h4>Navigation Bar mobile - closed and open</h4></figcaption></figure>
+<p>The Navigation Bar is added to all layout files. Configuration example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navbar-page-1&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationBar&#34;</span>
+}
+</code></pre></div><h2 id="order">Order</h2>
+<p>Default order for the pages is alphabetically. Besides this you can name each page as you wish, and the filename is what will be used. To ensure the pages appear in a specific order, you could prefix them with numbers, f.ex:</p>
 <pre tabindex="0"><code>|- App/
   |- ui/
     |- layouts/
       |- 1.firstPage.json
       |- 2.secondPage.json
       |- 3.aFinalPage.json
-</code></pre><p>Det er også mulig å styre rekkefølgen på sidene ved hjelp av <code>Settings.json</code> under <code>App/ui/</code>. Dette gjøres på følgende vis:</p>
-<pre tabindex="0"><code>{
-  &quot;pages&quot;: {
-    &quot;order&quot;: [&quot;side2&quot;, &quot;side1&quot;]
+</code></pre><p>It is also possible to override the order on the pages in the <code>Settings.json</code> file found under <code>App/ui/</code>, by setting the <code>pages.order</code> property. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+    <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side2&#34;</span>, <span style="color:#f1fa8c">&#34;side1&#34;</span>]
   }
 }
-</code></pre><p>Her vil sidene da vises i rekkefølgen spesifisert i <code>pages.order</code>. Om denne array&rsquo;en ikke settes i repo så vil man bruke alfabetisk rekkefølge som utgangspunkt for rekkefølgen på sidene.</p>
-<div class="notices info" >
-Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke noe som støttes i denne versionen av funksjonaliteten.
+</code></pre></div><div class="notices info" >
+Functionality for dynamically deciding which page should be next is not something that is currently supported.
 </div>
-<h2 id="validering-ved-sidebytte">Validering ved sidebytte</h2>
-<p>Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side. Dette kan gjøres ved å legge til strengen <code>validatePage</code> i <code>triggers</code> på navigasjons-knapp komponenten. Eksempel:</p>
-<pre tabindex="0"><code>{
-  &quot;id&quot;: &quot;7cbc1c00-4c8c-42b6-bcef-12b3c4c45373&quot;,
-  &quot;type&quot;: &quot;NavigationButtons&quot;,
-  &quot;componentType&quot;: &quot;NavigationButtons&quot;,
-  &quot;textResourceBindings&quot;: {
-    &quot;next&quot;: &quot;Neste&quot;,
-    &quot;back&quot;: &quot;Tilbake&quot;
+<h2 id="validation-on-page-navigation">Validation on page navigation</h2>
+<p>It is possible to trigger validation when the user tries to navigate to a different page. This can be done by adding the string <code>validatePage</code> to the <code>triggers</code> in the navigation button component. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;7cbc1c00-4c8c-42b6-bcef-12b3c4c45373&#34;</span>,
+  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+  <span style="color:#ff79c6">&#34;componentType&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#f1fa8c">&#34;Neste&#34;</span>,
+    <span style="color:#ff79c6">&#34;back&#34;</span>: <span style="color:#f1fa8c">&#34;Tilbake&#34;</span>
   },
-  &quot;triggers&quot;: [&quot;validatePage&quot;],
-  &quot;dataModelBindings&quot;: {},
-  &quot;showBackButton&quot;: true
+  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validatePage&#34;</span>],
+  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {},
+  <span style="color:#ff79c6">&#34;showBackButton&#34;</span>: <span style="color:#ff79c6">true</span>
  }
-</code></pre><p>Ved å legge til <code>validatePage</code> i triggers vil app-frontend kjøre valideringene på den aktuelle siden i det brukeren navigerer til neste side. Om det er feilmeldinger på siden vil brukeren bli hindret i å gå videre før dette er rettet opp. Om <code>validatePage</code> er lagt til som en trigger vil også id&rsquo;en på siden som trigger valideringen sendes ved som en header <code>LayoutId</code> til valideringene som kjøres på serversiden. Dette muliggjør å skreddersy backend-valideringene basert på hvilken side brukeren trigger valideringen fra.</p>
-<p>Det er også mulig å trigge validering på alle sider ved å legge til <code>validateAllPages</code> i <code>triggers</code>.</p>
+</code></pre></div><p>If there are errors on the page, the user will be prevented from moving forward until this is fixed. If <code>validatePage</code> is added as a trigger, the ID of the element that triggers the validation will be sent as a header <code>LayoutId</code> to the backend. This makes it possible to customize the backend validtaions based on which page the user triggers the validation from.
+It is also possible to trigger validation on all pages by adding <code>validateAllPages</code> in <code>triggers</code>.</p>
 
 
 <footer class=" footline" >
