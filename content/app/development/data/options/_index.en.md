@@ -125,4 +125,4 @@ Options supports query parameters when making the api call. `language` is added 
 ```
 
 In the example above, the query parameter `orgnummer={nr}`, where `{nr}` is the value of `soknad.transportorOrgnummer` will be set.
-These parameters must be set during instantiation of the app in order to appear. [We are workgin on improving this](https://github.com/Altinn/altinn-studio/issues/7888) to make it more dynamic, f.ex by changing values in other fields.
+If an option is setup with mapping and the given data field changes app-frontend will refetch the option. This can be used to dynamicly decide which choices are availibable based on information given by the end user.

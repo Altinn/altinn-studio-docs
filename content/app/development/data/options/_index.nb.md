@@ -130,4 +130,4 @@ Options støtter query parameters når det gjøres api kall. `language` er satt 
 ```
 
 I eksempelet over vil det bli satt på et query parameter `orgnummer={nr}`, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
-Disse parameterne må settes under instansiering for at de skal bli med. [Vi jobber med å forbedre dette](https://github.com/Altinn/altinn-studio/issues/7888) slik at options kan oppdateres dynamisk f.ex ved endring av andre felter.
+Om man setter opp en kobling til et datafelt og dette feltet endrer seg så vil app-frontend hente options på nytt. På denne måten kan man dynamisk styre hvilke valg som vises basert på informasjon gitt av sluttbruker.
