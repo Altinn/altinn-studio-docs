@@ -4,17 +4,16 @@ linktitle: Navigation
 description: How to set up navigation between pages.
 toc: true
 weight: 10
-tags: [translate-to-english]
 ---
 
-Navigering videre til neste side skjer via en navigerings-knapp. Denne må legges til manuelt i hver layout-fil hvor man ønsker navigering fremover. Navigering tilbake til forrige side gjøres via tilbake-pil i venstre hjørnet. Denne knappen vises alltid så lenge det er en side å gå tilbake til, og er ikke en del av layout-filen. Se bilde under.
+Navigation to the next page happens via a navigation button. This button has to be added manually in every layout file where you want to be able to navigate forward. Navigating back is done via a back arrow in the top left corner. This button will always be shown if there is something to navigate backwards to, and is not part of the layout file. See image below.
 
-![Navigeringsknapper](nav-button-next.png "Navigeringsknapper")
+![Navigation buttons](nav-button-next.png "Navigation buttons")
 
-## Legge til knapp for navigering
-Knapp for navigering legges inn i alle layout-filer der det er behov. Om man ønsker at den skal dukke opp nederst på siden, må den legges inn nederst i layout-filen. Eksempel vises under
+## Add button for navigation
+Button for navigation is added to all layout files where it is needed. If you want the button to appear at the bottom of the page, it has to be added at the bottom in the layout file. Configuration example:
 
-```
+```json
 {
   "id": "nav-page2",
   "type": "NavigationButtons",
@@ -26,19 +25,42 @@ Knapp for navigering legges inn i alle layout-filer der det er behov. Om man øn
 }
 ```
 
-Det er også mulighet for å vise en `tilbake`-knapp sammen med `neste`-knappen, ved å legge til parameteren `"showBackButton": true` på komponenten. 
+It is also possible to show a `back` button together with the `next` button by adding the parameter `showBackButton: true` in the button configuration.
 
-![Navigeringsknapper med tilbakeknapp](nav-button-next-prev.png "Navigeringsknapper med tilbakeknapp")
+![Navigation buttons with back arrow](nav-button-next-prev.png "Navigation buttons with back arrow")
 
-| Parameter | Beskrivelse |
+| Parameter | Description |
 | ----------- | ----------- |
-| id | Unik ID, tilsvarende som for alle andre skjemakomponenter.|
-| type | Må være `"NavigationButtons"` |
-| textResourceBindings | Setter man parametre `next` (og evt. `back`) her, vil man kunne overstyre med egne tekster som vises på knappen(e). Se eksempel over.|
-| showBackButton | Valgfri. Gjør at 2 knapper (tilbake/neste) vises i stedet for bare en (neste).|
+| id | Unique ID, the same as for all schema components.|
+| type | Has to be `"NavigationButtons"` |
+| textResourceBindings | By setting the parameters `next` (and `back`), you are able to override the default texts to be shown on the buttons.|
+| showBackButton | Optional. Makes two buttons (back/next) appear instead of just one (next).|
 
-## Rekkefølge
-Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:
+## Navigation Bar
+
+The Navigation Bar gives easy access to all pages in an application.
+
+{{%notice info%}}
+The Navigaion Bar lists all pages in the application, and is not suited for use with the tracks feature.
+{{%/notice%}}
+
+![Navigation Bar desktop](navigationbar-desktop.png "Navigation Bar desktop")
+
+On big screens, all pages will be visible. If there is not enough space on one line, the list will break and the rest of the pages will go on the next line. On smaller screens, all pages will be hidden in a menu. The current page is shown in the menu, and when the menu is clicked, all pages will show.
+
+![Navigation Bar mobile - closed and open](navigationbar-mobile.png "Navigation Bar mobile - closed and open")
+
+The Navigation Bar is added to all layout files. Configuration example:
+
+```json
+{
+  "id": "navbar-page-1",
+  "type": "NavigationBar"
+}
+```
+
+## Order
+Default order for the pages is alphabetically. Besides this you can name each page as you wish, and the filename is what will be used. To ensure the pages appear in a specific order, you could prefix them with numbers, f.ex:
 
 ```
 |- App/
@@ -48,10 +70,9 @@ Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver si
       |- 2.secondPage.json
       |- 3.aFinalPage.json
 ```
+It is also possible to override the order on the pages in the `Settings.json` file found under `App/ui/`, by setting the `pages.order` property. Example:
 
-Det er også mulig å styre rekkefølgen på sidene ved hjelp av `Settings.json` under `App/ui/`. Dette gjøres på følgende vis:
-
-```
+```json
 {
   "pages": {
     "order": ["side2", "side1"]
@@ -59,16 +80,14 @@ Det er også mulig å styre rekkefølgen på sidene ved hjelp av `Settings.json`
 }
 ```
 
-Her vil sidene da vises i rekkefølgen spesifisert i `pages.order`. Om denne array'en ikke settes i repo så vil man bruke alfabetisk rekkefølge som utgangspunkt for rekkefølgen på sidene.
-
 {{%notice info%}}
-Funksjonalitet for å kunne dynamisk bestemme hvilken side som er neste er ikke noe som støttes i denne versionen av funksjonaliteten.
+Functionality for dynamically deciding which page should be next is not something that is currently supported.
 {{%/notice%}}
 
-## Validering ved sidebytte
-Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste side. Dette kan gjøres ved å legge til strengen `validatePage` i `triggers` på navigasjons-knapp komponenten. Eksempel:
+## Validation on page navigation
+It is possible to trigger validation when the user tries to navigate to a different page. This can be done by adding the string `validatePage` to the `triggers` in the navigation button component. Example:
 
-```
+```json
 {
   "id": "7cbc1c00-4c8c-42b6-bcef-12b3c4c45373",
   "type": "NavigationButtons",
@@ -83,6 +102,5 @@ Det er mulig å trigge validering i det brukeren prøver å bevege seg til neste
  }
 ```
 
-Ved å legge til `validatePage` i triggers vil app-frontend kjøre valideringene på den aktuelle siden i det brukeren navigerer til neste side. Om det er feilmeldinger på siden vil brukeren bli hindret i å gå videre før dette er rettet opp. Om `validatePage` er lagt til som en trigger vil også id'en på siden som trigger valideringen sendes ved som en header `LayoutId` til valideringene som kjøres på serversiden. Dette muliggjør å skreddersy backend-valideringene basert på hvilken side brukeren trigger valideringen fra.
-
-Det er også mulig å trigge validering på alle sider ved å legge til `validateAllPages` i `triggers`. 
+If there are errors on the page, the user will be prevented from moving forward until this is fixed. If `validatePage` is added as a trigger, the ID of the element that triggers the validation will be sent as a header `LayoutId` to the backend. This makes it possible to customize the backend validtaions based on which page the user triggers the validation from.
+It is also possible to trigger validation on all pages by adding `validateAllPages` in `triggers`.
