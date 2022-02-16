@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.31.0 (2022-02-16) - Lagt til støtte for å endre tekster i arkivkvittering
+Tekster i arkivkvittering kan nå overstyres fra applikasjonen, og tekstene støtter også markdown og variabler.
+
+Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
+
 ## 3.30.0 (2022-02-16) - Automatisk hente nye options når mapping endres
 La til funksjonalitet for å automatisk hente options på nytt når et felt i mappingen endres.
 
