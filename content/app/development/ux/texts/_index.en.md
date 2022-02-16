@@ -3,78 +3,75 @@ title: Texts
 description: How to edit and format texts, use variables and add help texts.
 toc: true
 weight: 40
-tags: [translate-to-english]
 ---
 
+Texts are stored in resource files in the directory `App/config/texts`. Texts can be from common libraries, the data model or manually added by developers.
 
-Tekster lagres i ressursfiler i katalogen `App/config/texts`. Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.
+The text resources are available whne you edit UI components in the schema via Altinn Studio, and they are shown to the end user when the form is loaded in a browser.
 
-Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.
+Texts are stored in JSON-format and one file per language. The filename format for texts should be `resource.[language].json` f.ex: _resource.nb.json_.
 
-Tekster lagres i JSON-format og det er én fil pr språk. Format på filnavn for tekster er `resource.[språk].json` f.eks: _resource.nb.json_.
+## Formatting of texts
 
-## Formatering av tekster
+All texts can be formatted with markdown. Below you can see the most commonly used syntax.
 
-Alle tekster kan formateres med markdown. Nedenfor er de mest benyttede formateringene beskrevet.
-
-Mer omfattende dokumentasjon og tips til hvordan markdown kan benyttes finnes her:
+A more thorough explanation of the markdown syntax can be found here:
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 
-### Uthevede tekster
+### Bold and italic texts
 
-Det er ekstremt enkelt å gjøre ord eller setninger fet eller kursiv i markdown.
+Its very easy to make words or sentences bold or italic with markdown.
 
 ```markdown
-Dette er en _kursiv tekst_ laget med understrek.
-Dette er også en *kurvis tekst* laget med stjerne.
+This is in  _italic_ using underscores.
+This is also in *italic* using asterisk.
 ```
 
 ```markdown
-Dette er __fet tekst__ laget med understrek.
-Dette er også **fet tekst**, men laget med stjerner!
+This is in __bold__ using double underscores.
+This is also in **bold**, using double asterisk.
 ```
 
-### Lenker
+### Links
 
 ```markdown
-Trykk [her](https://altinn.no) for å komme til Altinn.
+Click [here](https://altinn.no) to go to Altinn.
 ```
 
-### Overskrifter
+### Headings
 
 ```markdown
-# Dette er en stor heading (H1)
-## Dette er en litt mindre heading (H2)
-### Og enda litt mindre (H3)
-#### Bitteliten heading (H4)
+# This is a big heading (H1)
+## This is a smaller heading (H2)
+### An even smaller heading (H3)
+#### A tiny heading (H4)
 ```
 
-## Legge til og endre tekster i en app
+## Add and change texts in an application
 
-Man har to alternativer når man skal endre tekster i en app, enten gjøres det via Altinn Studio eller direkte i repository.
+You have two options when you want to modify texts in an application, either via Altinn Studio, changing it directly in the repository.
 
-### Tekst editor i Altinn Studio Designer
+### Using Altinn Studio
 
-I den øverste navigerings menyen i Altinn Studio, velg _Språk_ for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.
+In the top navigation bar in Altinn Studio, selec _Languages_ to be able to edit texts. An overview of the texts that already exists in the application are listed.
 
-På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på _Ny tekst_, og fylle ut tekst og en unik nøkkel.
+On this page you can edit the existing texts and add new ones. New texts can be added by clikcing the _New text_ button, and fill in the fields. The key needs to be unique.
 
-Lagre endringer i tekstene ved å trykke på _Lagre tekster_.
+Save the changes in the texts by clicking _Save texts_.
 
-![Altinn Studio Designer](edit-texts-in-designer.png "Endre tekster i Altinn Studio Designer")
+![Altinn Studio Designer](edit-texts-in-designer.png "Change texts in Altinn Studio Designer")
 
-### Legge til og endre tekster i repository
+### Changing texts directly in the repository
 
-Dersom det er mange tekster som skal endres på en gang kan det være praktisk å redigere tekstene
-i JSON-struturen direkte i repoet. Enten via Altinn Studio Repos eller i en lokal klone i selvvalgt kodeeditor.
+This is the recommended way to update texts if there are many changes you want to make. The texts can be changed directly in the repository, or by cloning the repository and using your preferred text editor.
 
-Tekstene ligger lagret i `App/config/texts`
+The texts are stored in  `App/config/texts`
 
-![Altinn Studio Repos](edit-texts-in-repos.png "Endre tekster i Altinn Studio Repos")
+![Altinn Studio Repos](edit-texts-in-repos.png "Change texts in Altinn Studio Repos")
 
-## Variabler i tekster
+## Variables in texts
 
-Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er viktig at rekkefølgen på variablene er den samme som parameterne i teksten.
+Variables in texts can be included by following the syntax below. It is important that the order of the variables in the variables array is the same order as the parameters in the text.
 
 ```json
 {
@@ -83,7 +80,7 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
   "variables": [
     {
       "key": "<datamodelField>",
-      "dataSource": "dataModel.<dataModelName>"
+      "dataSource": "dataModel.<dataModelName>" 
     },
     {
       "key": "<settings key>",
@@ -96,32 +93,32 @@ Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er vikt
   ]
 }
 ```
-### Datakilder
+### Data sources
 
-Det er per nå mulig å hente verdier fra 3 ulike datakilder. 
+It is currently possible to fetch values from 3 different data sources.
 
-1. Datamodel   
-   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når bruker forlater feltet. 
-2. Instillinger   
-   Ved å angi `applicationSettings` som datakilde kan man hente ut verdier fra en spesiell seksjon i `appsettings.{miljø}.json` filen(e) med navn `FrontEndSettings`. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike `appsettings.{miljø}.json` filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom `FrontEndSettings` og `applicationSettings`.
+1. Datamodell
+   By defining `dataModel.<dataModelNavn>` as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user blurs the field.
+2. Application Settings   
+   By defining `applicationSettings` as the data source you can fetch values from a specific section in `appsettings.{environment}.json` files with the key `FrontEndSettings`. This is a dynamic list you can extend without making changes to the code. This makes it possible to have different values in different environments. Be aware of the difference on first letter casing in the keys `FrontEndSettings` and `applicationSettings`.
    ```json
    "FrontEndSettings": {
      "HomeBaseUrl": "https://www.testdirektoratet.no"
    },
    ```
-3. Instans   
-   Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den aktive instansen. Vi har altså ikke gikk tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+3. Instance
+   This datasource is based on the instance and will contain some values from the active instance. We cannot access the entire instance object. The list of available properties is currently:
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen. 
    3. `appId` inneholder id'en til appen instansen er knyttet til.
 
-### Komplett eksempel:
+### Complete example:
 
 ```json
 
 {
   "id": "common.submitinfo",
-  "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).",
+  "value": "You are submitting for: {0} with organisation number: {1}. The organisations party id is {2}. [Link to our page]({3}).",
   "variables": [
     {
       "key": "skattepliktig.organisasjonsnavn",
@@ -143,16 +140,15 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
 }
 ```
 
-### Variabler i tekst - repeterende grupper
-For at variabler i tekst skal fungere med data som ligger i repeterende grupper, må oppsettet vist over endres litt for de aktuelle feltene,
-for å spesifisere den repeterende gruppen dataene ligger i. 
+### Variables in text - repeating groups
+To make variables in text work with repeating groups, you need to make a slight modification to the example above.
 
-Dette gjøres ved å legge til `[{0}]` _etter_ den repeterende gruppen når man spesifiserer felt i datamodellen i `key`-parameteren.
-F.eks.:
+This is achieved by adding `[{0}]` _after_ the repeating groups when you specify a field in the data model in the `key`.parameter
+Example:
 ```json {hl_lines=[6,10]}
 {
   "id": "common.submitinfo",
-  "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}.",
+  "value": "You are submitting for: {0} with organisation number: {1}.",
   "variables": [
       {
         "key": "skattepliktig[{0}].organisasjonsnavn",
@@ -166,17 +162,16 @@ F.eks.:
 }
 ```
 
-Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter _ikke_ i repeterende gruppe. Det anbefales derimot ikke å kombinere variabler fra felter fra _forskjellige_ repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like. 
+It is possible to combine variables from fields in repeating groups with variables from fields that are _not_ in repeating groups. It is not recommended to combine variables from fields in _different_ repeating groups, unless you are sure that the order of the items in the groups will be identical.
 
-## Legge til hjelpetekst
+## Adding help texts
 
-Hjelpetekster er små tekstsnutter som gir en kort og konsis beskrivelse av hva sluttbrukeren
-er forventet å fylle ut i feltet som teksten er tilknyttet.
+Help texts are short texts that gives a concrete description of what the end user is expected to fill in the field which the help text is connected to.
 
-Språknøklene som peker på hjelpeteksten er definert i `FormLayout.json`.
-I app repoet finner du filen under `App/ui/`.
+The keys that define the help texts are defined in `FormLayout.json`.
+In the repository this file is located in `App/ui/`.
 
-Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
+Below is an example of a _FormLayout.json_ without help texts.
 
 ```json
 {
@@ -219,13 +214,13 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
 }
 ```
 
-Dersom du skulle ønske å legge til hjelpetekst på en av disse skjemakomponentene må du
+If you want to add help texts to any of these components you have to
 
-1. Legge til hjelpeteksten i tekstressursfilen som beskrevet [her](#legge-til-og-endre-tekster-i-en-app).
-2. Åpne  `FormLayout.json`-filen.
-3. Legg til en binding til den nye hjelpeteksten med nøkkel `"help"` og verdi lik nøkkel til tekstressursen.
+1. Add the help text in the resource file [as described here](#legge-til-og-endre-tekster-i-en-app).
+2. Open the `FormLayout.json`-file.
+3. Add the binding to the new help text with the key `"help"` and value equal the newly added text resource.
 
-Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
+This is how the file looks after adding help texts:
 
 ```json {linenos=false,hl_lines=[20]}
 {
@@ -269,25 +264,22 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
 }
 ```
 
-## Endre applikasjonstittel
+## Change application title
 
-Når man oppretter en applikasjon vil man ha en tekstressurs med label `appName`. 
-Dette er tittelen på applikasjonen som vil gjenspeiles flere steder i løsningen vår.
-Blant annet når en sluttbruker fyller ut skjema, og når elementer skal vises i meldingsboksen på altinn.no.
+When you create an application you have a textresource witht he label `appName`.
+This it the title of the application that will be displayed in several places in our solution, f.ex when an end user is filling out a form and when elements are displayed in the messagebox in altinn.no.
 
-Tittelen på applikasjonen skal ligge to steder i applikasjonsrepoet: 
- 1. I tekstressurser med nøkkelen `appName`. 
- Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.
+The title of the application is located in two places in the application repository:
+ 1. In the textresource with the key `appName`. 
+ 2. In `applicationmetadata.json` in the `title` property. This file is located at `App/config/`.
 
- 2. I `applicationmetadata.json` under property `title`. Denne filen ligger under `App/config/`.
+ App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the textresources the repository name will be used as a fallback, and may be shown to the end user.
 
+If you change `appName` from an IDE (f.ex Visual Studio Code), it is important to also update the title in `applicationmetadata.json`. If the title is changed from Altinn Studio on the "about" page or "languages" page, the `applicationmetadata.json` file is updated automatically.
 
-Dersom man gjør endrer `appName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i 
-`applicationmetadata.json` også. Dersom tittel på applikasjonen endres i Altinn Studio enten på "Om" eller "Språk"-siden bli applicationmetadata.json oppdatert automatisk.
+### Application title configuration example
 
-### Eksempel på korrekt konfigurasjon for applikasjonstittel 
-
-I `App/config/applicationmetadata.json`:
+In `App/config/applicationmetadata.json`:
 
 ```json
 "title": {
@@ -297,7 +289,7 @@ I `App/config/applicationmetadata.json`:
   },
 ```
 
-I `App/config/texts/resource.nb.json`:
+In `App/config/texts/resource.nb.json`:
 
 ```json
 {
@@ -314,7 +306,7 @@ I `App/config/texts/resource.nb.json`:
 }
 ```
 
-I `App/config/texts/resource.nn.json`:
+In `App/config/texts/resource.nn.json`:
 
 ```json
 {
@@ -348,14 +340,14 @@ I `App/config/texts/resource.en.json`:
 }
 ```
 
-## Endre applikasjonseier tekst
+## Change app owner text
 
-I applikasjonen så vises applikasjonsnavn og applikasjonseier-tekstene øverst i skjema.
+The application name and app owner is displayed at the top in the application.
 
 ![Tekster i appen](app-name-app-owner.png "Appnavn og appeier tekster")
 
-Applikasjonsnavn hentes som standard ut fra tekstene som er definert i [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
-Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til nøkkelen `appOwner` i tekstressursene. Denne vil da overstyre det som ligger på CDN.
+The application owner is fetched by default from the texts defined in [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
+If you want to change this name, you can add the key `appOwner` in the text resources. This wil override the value coming from CDN.
 
 Eksempel:
 ```json
@@ -371,3 +363,47 @@ Eksempel:
     .
   ]
 }
+```
+
+## Change texts on the archive receipt page
+
+The texts on the receipt page can be overridden by the application by specifying the texts in the applications `config/texts/resource.xx.json` file.
+
+{{%notice info%}}
+Overriding any text in the receipt will have an effect on any receipt for the given application. This means that forms that are already submitted will also get the updated texts on the receipt page. The generated PDF will not be affected by this.
+{{% /notice%}}
+
+You can also use markdown and variables in the receipt. Currently you can only fetch variables from `Instance` (See [Data Sources](#data-sources) for details)
+
+These are the text id's that can be used to override the default platform texts:
+
+```
+receipt_platform.attachments
+receipt_platform.date_sent
+receipt_platform.helper_text
+receipt_platform.is_sent
+receipt_platform.receipt 
+receipt_platform.receiver
+receipt_platform.reference_number
+receipt_platform.sender
+receipt_platform.sent_content
+
+```
+
+For example if you want to change the help text, you can add this to the `config/texts/resource.en.json` file in your application:
+
+```json
+{
+  "language": "en",
+  "resources": [
+    {
+      "id": "receipt_platform.helper_text",
+      "value": "My custom help text"
+    }
+  ]
+}
+```
+
+The image below shows which key controls which text in the UI
+
+![Texts and text keys](archive-receipt-texts.png "Texts and text keys")
