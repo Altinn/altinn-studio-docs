@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.30.0 (2022-02-16) - Automatisk hente nye options når mapping endres
+La til funksjonalitet for å automatisk hente options på nytt når et felt i mappingen endres.
+
+Issue [#7888](https://github.com/Altinn/altinn-studio/issues/7888).
+
 ## 3.29.1 (2022-02-14) - Fikset feil hvor variables i tekster ble ignorert ved kalkulering
 Dette fikser en feil som ble introdusert i 3.29.0
 
