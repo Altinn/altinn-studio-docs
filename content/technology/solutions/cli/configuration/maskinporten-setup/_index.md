@@ -9,7 +9,8 @@ Choose `Ny integrasjon`.
 
 !["New integration"](integrasjon_ny.png "New integration")
 
-Fill in the scheme like below and then `Opprett`. We has named our exmamle-client Altinn CLi Client
+Fill in the scheme like below and then `Opprett`. We has named our example-client Altinn CLI Client.  
+The tree scopes you need is `altinn:serviceowner`, `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`
 
 !["Add values for integration"](integrasjon_utfylling.png "Add values for integration")
 
