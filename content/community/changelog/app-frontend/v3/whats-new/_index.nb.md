@@ -9,6 +9,11 @@ Tekster i arkivkvittering kan nå overstyres fra applikasjonen, og tekstene stø
 
 Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
 
+## 3.30.0 (2022-02-16) - Automatisk hente nye options når mapping endres
+La til funksjonalitet for å automatisk hente options på nytt når et felt i mappingen endres.
+
+Issue [#7888](https://github.com/Altinn/altinn-studio/issues/7888).
+
 ## 3.29.1 (2022-02-14) - Fikset feil hvor variables i tekster ble ignorert ved kalkulering
 Dette fikser en feil som ble introdusert i 3.29.0
 

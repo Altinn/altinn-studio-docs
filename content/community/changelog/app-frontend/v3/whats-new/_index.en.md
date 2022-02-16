@@ -9,6 +9,11 @@ Texts in archive receipt can now be overidden by the application, and also suppo
 
 Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
 
+## 3.30.0 (2022-02-16) - Added refetching of options.
+Added functionality for refetching dynamic options when a mapping field changes.
+
+Issue [#7888](https://github.com/Altinn/altinn-studio/issues/7888).
+
 ## 3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation
 This fixes an issue that was introduced in 3.29.0
 
