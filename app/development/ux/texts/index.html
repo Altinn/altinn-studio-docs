@@ -1022,62 +1022,62 @@ if(host != "localhost")
                 </span>
                 <span class="links"><a href='/app/'>Create apps</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/app/development/ux/'>User interface</a> <span class='adocs-breadcrumb-divider'> / </span> Texts</span>
             </div>
-          </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Texts</h1>
+          </div><div id="body-inner"><h1 class="a-fontBold">Texts</h1>
               <p class="a-leadText" id="leadText">How to edit and format texts, use variables and add help texts.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#formatering-av-tekster">Formatering av tekster</a></li>
-    <li><a href="#legge-til-og-endre-tekster-i-en-app">Legge til og endre tekster i en app</a></li>
-    <li><a href="#variabler-i-tekster">Variabler i tekster</a></li>
-    <li><a href="#legge-til-hjelpetekst">Legge til hjelpetekst</a></li>
-    <li><a href="#endre-applikasjonstittel">Endre applikasjonstittel</a></li>
-    <li><a href="#endre-applikasjonseier-tekst">Endre applikasjonseier tekst</a></li>
+    <li><a href="#formatting-of-texts">Formatting of texts</a></li>
+    <li><a href="#add-and-change-texts-in-an-application">Add and change texts in an application</a></li>
+    <li><a href="#variables-in-texts">Variables in texts</a></li>
+    <li><a href="#adding-help-texts">Adding help texts</a></li>
+    <li><a href="#change-application-title">Change application title</a></li>
+    <li><a href="#change-app-owner-text">Change app owner text</a></li>
+    <li><a href="#change-texts-on-the-archive-receipt-page">Change texts on the archive receipt page</a></li>
   </ul>
 </nav>
 
 
 
 
-<p>Tekster lagres i ressursfiler i katalogen <code>App/config/texts</code>. Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.</p>
-<p>Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.</p>
-<p>Tekster lagres i JSON-format og det er én fil pr språk. Format på filnavn for tekster er <code>resource.[språk].json</code> f.eks: <em>resource.nb.json</em>.</p>
-<h2 id="formatering-av-tekster">Formatering av tekster</h2>
-<p>Alle tekster kan formateres med markdown. Nedenfor er de mest benyttede formateringene beskrevet.</p>
-<p>Mer omfattende dokumentasjon og tips til hvordan markdown kan benyttes finnes her:
+<p>Texts are stored in resource files in the directory <code>App/config/texts</code>. Texts can be from common libraries, the data model or manually added by developers.</p>
+<p>The text resources are available whne you edit UI components in the schema via Altinn Studio, and they are shown to the end user when the form is loaded in a browser.</p>
+<p>Texts are stored in JSON-format and one file per language. The filename format for texts should be <code>resource.[language].json</code> f.ex: <em>resource.nb.json</em>.</p>
+<h2 id="formatting-of-texts">Formatting of texts</h2>
+<p>All texts can be formatted with markdown. Below you can see the most commonly used syntax.</p>
+<p>A more thorough explanation of the markdown syntax can be found here:
 <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a>.</p>
-<h3 id="uthevede-tekster">Uthevede tekster</h3>
-<p>Det er ekstremt enkelt å gjøre ord eller setninger fet eller kursiv i markdown.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">Dette er en <span style="text-decoration:underline">_kursiv tekst_</span> laget med understrek.
-Dette er også en <span style="text-decoration:underline">*kurvis tekst*</span> laget med stjerne.
-</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">Dette er __fet tekst__ laget med understrek.
-Dette er også **fet tekst**, men laget med stjerner!
-</code></pre></div><h3 id="lenker">Lenker</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">Trykk [<span style="color:#ff79c6">her</span>](<span style="color:#50fa7b">https://altinn.no</span>) for å komme til Altinn.
-</code></pre></div><h3 id="overskrifter">Overskrifter</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="font-weight:bold"># Dette er en stor heading (H1)
-</span><span style="font-weight:bold"></span><span style="font-weight:bold">## Dette er en litt mindre heading (H2)
-</span><span style="font-weight:bold">### Og enda litt mindre (H3)
-</span><span style="font-weight:bold">#### Bitteliten heading (H4)
-</span></code></pre></div><h2 id="legge-til-og-endre-tekster-i-en-app">Legge til og endre tekster i en app</h2>
-<p>Man har to alternativer når man skal endre tekster i en app, enten gjøres det via Altinn Studio eller direkte i repository.</p>
-<h3 id="tekst-editor-i-altinn-studio-designer">Tekst editor i Altinn Studio Designer</h3>
-<p>I den øverste navigerings menyen i Altinn Studio, velg <em>Språk</em> for å kunne redigere tekster. En oversikt over tekstene som allerede er tilgjengelig for applikasjonen listes opp.</p>
-<p>På denne siden kan man redigere eksisterende tekster samt legge til nye teksressurser. Nye tekster legges til ved å trykke på <em>Ny tekst</em>, og fylle ut tekst og en unik nøkkel.</p>
-<p>Lagre endringer i tekstene ved å trykke på <em>Lagre tekster</em>.</p>
-<figure><a href="edit-texts-in-designer.png"><img src="edit-texts-in-designer.png" alt="Altinn Studio Designer" title="Endre tekster i Altinn Studio Designer" /></a><figcaption><h4>Endre tekster i Altinn Studio Designer</h4></figcaption></figure>
-<h3 id="legge-til-og-endre-tekster-i-repository">Legge til og endre tekster i repository</h3>
-<p>Dersom det er mange tekster som skal endres på en gang kan det være praktisk å redigere tekstene
-i JSON-struturen direkte i repoet. Enten via Altinn Studio Repos eller i en lokal klone i selvvalgt kodeeditor.</p>
-<p>Tekstene ligger lagret i <code>App/config/texts</code></p>
-<figure><a href="edit-texts-in-repos.png"><img src="edit-texts-in-repos.png" alt="Altinn Studio Repos" title="Endre tekster i Altinn Studio Repos" /></a><figcaption><h4>Endre tekster i Altinn Studio Repos</h4></figcaption></figure>
-<h2 id="variabler-i-tekster">Variabler i tekster</h2>
-<p>Variabler i tekster kan inkluderes ved å følge oppsettet nedenfor. Det er viktig at rekkefølgen på variablene er den samme som parameterne i teksten.</p>
+<h3 id="bold-and-italic-texts">Bold and italic texts</h3>
+<p>Its very easy to make words or sentences bold or italic with markdown.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">This is in  <span style="text-decoration:underline">_italic_</span> using underscores.
+This is also in <span style="text-decoration:underline">*italic*</span> using asterisk.
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">This is in __bold__ using double underscores.
+This is also in **bold**, using double asterisk.
+</code></pre></div><h3 id="links">Links</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">Click [<span style="color:#ff79c6">here</span>](<span style="color:#50fa7b">https://altinn.no</span>) to go to Altinn.
+</code></pre></div><h3 id="headings">Headings</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown"><span style="font-weight:bold"># This is a big heading (H1)
+</span><span style="font-weight:bold"></span><span style="font-weight:bold">## This is a smaller heading (H2)
+</span><span style="font-weight:bold">### An even smaller heading (H3)
+</span><span style="font-weight:bold">#### A tiny heading (H4)
+</span></code></pre></div><h2 id="add-and-change-texts-in-an-application">Add and change texts in an application</h2>
+<p>You have two options when you want to modify texts in an application, either via Altinn Studio, changing it directly in the repository.</p>
+<h3 id="using-altinn-studio">Using Altinn Studio</h3>
+<p>In the top navigation bar in Altinn Studio, selec <em>Languages</em> to be able to edit texts. An overview of the texts that already exists in the application are listed.</p>
+<p>On this page you can edit the existing texts and add new ones. New texts can be added by clikcing the <em>New text</em> button, and fill in the fields. The key needs to be unique.</p>
+<p>Save the changes in the texts by clicking <em>Save texts</em>.</p>
+<figure><a href="edit-texts-in-designer.png"><img src="edit-texts-in-designer.png" alt="Altinn Studio Designer" title="Change texts in Altinn Studio Designer" /></a><figcaption><h4>Change texts in Altinn Studio Designer</h4></figcaption></figure>
+<h3 id="changing-texts-directly-in-the-repository">Changing texts directly in the repository</h3>
+<p>This is the recommended way to update texts if there are many changes you want to make. The texts can be changed directly in the repository, or by cloning the repository and using your preferred text editor.</p>
+<p>The texts are stored in  <code>App/config/texts</code></p>
+<figure><a href="edit-texts-in-repos.png"><img src="edit-texts-in-repos.png" alt="Altinn Studio Repos" title="Change texts in Altinn Studio Repos" /></a><figcaption><h4>Change texts in Altinn Studio Repos</h4></figcaption></figure>
+<h2 id="variables-in-texts">Variables in texts</h2>
+<p>Variables in texts can be included by following the syntax below. It is important that the order of the variables in the variables array is the same order as the parameters in the text.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;good.text.id&#34;</span>,
   <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Hello, {0}! Here is a second variable {1}.&#34;</span>,
   <span style="color:#ff79c6">&#34;variables&#34;</span>: [
     {
       <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;datamodelField&gt;&#34;</span>,
-      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.&lt;dataModelName&gt;&#34;</span>
+      <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.&lt;dataModelName&gt;&#34;</span> 
     },
     {
       <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;&lt;settings key&gt;&#34;</span>,
@@ -1089,19 +1089,19 @@ i JSON-struturen direkte i repoet. Enten via Altinn Studio Repos eller i en loka
     }
   ]
 }
-</code></pre></div><h3 id="datakilder">Datakilder</h3>
-<p>Det er per nå mulig å hente verdier fra 3 ulike datakilder.</p>
+</code></pre></div><h3 id="data-sources">Data sources</h3>
+<p>It is currently possible to fetch values from 3 different data sources.</p>
 <ol>
-<li>Datamodel<br>
-Ved å angi <code>dataModel.&lt;dataModelNavn&gt;</code> som datakilde kan man hente ut verdier fra felter i skjema som brukeren fyller ut. Data kan hentes fra felter uavhengig av om de er synlige eller ikke. Hvis bruker endrer på data i et felt referert i en variabel så vil teksten bli oppdatert når bruker forlater feltet.</li>
-<li>Instillinger<br>
-Ved å angi <code>applicationSettings</code> som datakilde kan man hente ut verdier fra en spesiell seksjon i <code>appsettings.{miljø}.json</code> filen(e) med navn <code>FrontEndSettings</code>. Dette er en dynamisk liste man kan utvide uten å måtte gjøre endringer i kode. Dette gjør det mulig å ha ulike verdier fra miljø til miljø ved å ha andre verdier i de ulike <code>appsettings.{miljø}.json</code> filene. Vær obs på ulik bruk av stor bokstav i starten av nøkkel mellom <code>FrontEndSettings</code> og <code>applicationSettings</code>.
+<li>Datamodell
+By defining <code>dataModel.&lt;dataModelNavn&gt;</code> as the data source you can fetch values from the fields in the form that the user is filling out. Data can be fetched from fields regardless if they are visible or not. If the user changes data in a field referenced in a variable, the text will be updated when the user blurs the field.</li>
+<li>Application Settings<br>
+By defining <code>applicationSettings</code> as the data source you can fetch values from a specific section in <code>appsettings.{environment}.json</code> files with the key <code>FrontEndSettings</code>. This is a dynamic list you can extend without making changes to the code. This makes it possible to have different values in different environments. Be aware of the difference on first letter casing in the keys <code>FrontEndSettings</code> and <code>applicationSettings</code>.
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;FrontEndSettings&#34;</span>: {
   <span style="color:#ff79c6">&#34;HomeBaseUrl&#34;</span>: <span style="color:#f1fa8c">&#34;https://www.testdirektoratet.no&#34;</span>
 },
 </code></pre></div></li>
-<li>Instans<br>
-Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den aktive instansen. Vi har altså ikke gikk tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+<li>Instance
+This datasource is based on the instance and will contain some values from the active instance. We cannot access the entire instance object. The list of available properties is currently:
 <ol>
 <li><code>instanceOwnerPartyId</code> inneholder avgiver sin party id.</li>
 <li><code>instanceId</code> inneholder id&rsquo;en til den aktive instansen.</li>
@@ -1109,11 +1109,11 @@ Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den 
 </ol>
 </li>
 </ol>
-<h3 id="komplett-eksempel">Komplett eksempel:</h3>
+<h3 id="complete-example">Complete example:</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">
 {
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;common.submitinfo&#34;</span>,
-  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You are submitting for: {0} with organisation number: {1}. The organisations party id is {2}. [Link to our page]({3}).&#34;</span>,
   <span style="color:#ff79c6">&#34;variables&#34;</span>: [
     {
       <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;skattepliktig.organisasjonsnavn&#34;</span>,
@@ -1133,14 +1133,13 @@ Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den 
     }
   ]
 }
-</code></pre></div><h3 id="variabler-i-tekst---repeterende-grupper">Variabler i tekst - repeterende grupper</h3>
-<p>For at variabler i tekst skal fungere med data som ligger i repeterende grupper, må oppsettet vist over endres litt for de aktuelle feltene,
-for å spesifisere den repeterende gruppen dataene ligger i.</p>
-<p>Dette gjøres ved å legge til <code>[{0}]</code> <em>etter</em> den repeterende gruppen når man spesifiserer felt i datamodellen i <code>key</code>-parameteren.
-F.eks.:</p>
+</code></pre></div><h3 id="variables-in-text---repeating-groups">Variables in text - repeating groups</h3>
+<p>To make variables in text work with repeating groups, you need to make a slight modification to the example above.</p>
+<p>This is achieved by adding <code>[{0}]</code> <em>after</em> the repeating groups when you specify a field in the data model in the <code>key</code>.parameter
+Example:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;common.submitinfo&#34;</span>,
-  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Du leverer nå skjema for: {0} med organisasjonsnummer: {1}.&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You are submitting for: {0} with organisation number: {1}.&#34;</span>,
   <span style="color:#ff79c6">&#34;variables&#34;</span>: [
       {
 <span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;skattepliktig[{0}].organisasjonsnavn&#34;</span>,
@@ -1152,13 +1151,12 @@ F.eks.:</p>
       }
   ]
 }
-</code></pre></div><p>Det er fullt mulig å kombinere variabler fra felter i repeterende gruppe med variabler fra felter <em>ikke</em> i repeterende gruppe. Det anbefales derimot ikke å kombinere variabler fra felter fra <em>forskjellige</em> repeterende grupper, med mindre man er helt sikker på at rekkefølgen på innslag i gruppene vil bli helt like.</p>
-<h2 id="legge-til-hjelpetekst">Legge til hjelpetekst</h2>
-<p>Hjelpetekster er små tekstsnutter som gir en kort og konsis beskrivelse av hva sluttbrukeren
-er forventet å fylle ut i feltet som teksten er tilknyttet.</p>
-<p>Språknøklene som peker på hjelpeteksten er definert i <code>FormLayout.json</code>.
-I app repoet finner du filen under <code>App/ui/</code>.</p>
-<p>Nedenfor ser du et eksempel på en <em>FormLayout.json</em> uten hjelpetekster.</p>
+</code></pre></div><p>It is possible to combine variables from fields in repeating groups with variables from fields that are <em>not</em> in repeating groups. It is not recommended to combine variables from fields in <em>different</em> repeating groups, unless you are sure that the order of the items in the groups will be identical.</p>
+<h2 id="adding-help-texts">Adding help texts</h2>
+<p>Help texts are short texts that gives a concrete description of what the end user is expected to fill in the field which the help text is connected to.</p>
+<p>The keys that define the help texts are defined in <code>FormLayout.json</code>.
+In the repository this file is located in <code>App/ui/</code>.</p>
+<p>Below is an example of a <em>FormLayout.json</em> without help texts.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;layout&#34;</span>: [
@@ -1197,13 +1195,13 @@ I app repoet finner du filen under <code>App/ui/</code>.</p>
     ]
   }
 }
-</code></pre></div><p>Dersom du skulle ønske å legge til hjelpetekst på en av disse skjemakomponentene må du</p>
+</code></pre></div><p>If you want to add help texts to any of these components you have to</p>
 <ol>
-<li>Legge til hjelpeteksten i tekstressursfilen som beskrevet <a href="#legge-til-og-endre-tekster-i-en-app">her</a>.</li>
-<li>Åpne  <code>FormLayout.json</code>-filen.</li>
-<li>Legg til en binding til den nye hjelpeteksten med nøkkel <code>&quot;help&quot;</code> og verdi lik nøkkel til tekstressursen.</li>
+<li>Add the help text in the resource file <a href="#legge-til-og-endre-tekster-i-en-app">as described here</a>.</li>
+<li>Open the <code>FormLayout.json</code>-file.</li>
+<li>Add the binding to the new help text with the key <code>&quot;help&quot;</code> and value equal the newly added text resource.</li>
 </ol>
-<p>Slik ser hele filen ut etter å ha lagt til en hjelpetekst:</p>
+<p>This is how the file looks after adding help texts:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;data&#34;</span>: {
     <span style="color:#ff79c6">&#34;layout&#34;</span>: [
@@ -1243,30 +1241,24 @@ I app repoet finner du filen under <code>App/ui/</code>.</p>
     ]
   }
 }
-</code></pre></div><h2 id="endre-applikasjonstittel">Endre applikasjonstittel</h2>
-<p>Når man oppretter en applikasjon vil man ha en tekstressurs med label <code>appName</code>. 
-Dette er tittelen på applikasjonen som vil gjenspeiles flere steder i løsningen vår.
-Blant annet når en sluttbruker fyller ut skjema, og når elementer skal vises i meldingsboksen på altinn.no.</p>
-<p>Tittelen på applikasjonen skal ligge to steder i applikasjonsrepoet:</p>
+</code></pre></div><h2 id="change-application-title">Change application title</h2>
+<p>When you create an application you have a textresource witht he label <code>appName</code>.
+This it the title of the application that will be displayed in several places in our solution, f.ex when an end user is filling out a form and when elements are displayed in the messagebox in altinn.no.</p>
+<p>The title of the application is located in two places in the application repository:</p>
 <ol>
-<li>
-<p>I tekstressurser med nøkkelen <code>appName</code>. 
-Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.</p>
-</li>
-<li>
-<p>I <code>applicationmetadata.json</code> under property <code>title</code>. Denne filen ligger under <code>App/config/</code>.</p>
-</li>
+<li>In the textresource with the key <code>appName</code>.</li>
+<li>In <code>applicationmetadata.json</code> in the <code>title</code> property. This file is located at <code>App/config/</code>.</li>
 </ol>
-<p>Dersom man gjør endrer <code>appName</code> på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i 
-<code>applicationmetadata.json</code> også. Dersom tittel på applikasjonen endres i Altinn Studio enten på &ldquo;Om&rdquo; eller &ldquo;Språk&rdquo;-siden bli applicationmetadata.json oppdatert automatisk.</p>
-<h3 id="eksempel-på-korrekt-konfigurasjon-for-applikasjonstittel">Eksempel på korrekt konfigurasjon for applikasjonstittel</h3>
-<p>I <code>App/config/applicationmetadata.json</code>:</p>
+<p>App owners are encouraged to add titles in bokmål, nynorsk and english. If a title is missing in the textresources the repository name will be used as a fallback, and may be shown to the end user.</p>
+<p>If you change <code>appName</code> from an IDE (f.ex Visual Studio Code), it is important to also update the title in <code>applicationmetadata.json</code>. If the title is changed from Altinn Studio on the &ldquo;about&rdquo; page or &ldquo;languages&rdquo; page, the <code>applicationmetadata.json</code> file is updated automatically.</p>
+<h3 id="application-title-configuration-example">Application title configuration example</h3>
+<p>In <code>App/config/applicationmetadata.json</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#f1fa8c">&#34;title&#34;</span>: {
     <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Automatisk deploy applikasjonen&#34;</span>,
     <span style="color:#ff79c6">&#34;nn&#34;</span>: <span style="color:#f1fa8c">&#34;Automatisk deploy applikasjonen&#34;</span>,
     <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Auto deploy application&#34;</span>
   },
-</code></pre></div><p>I <code>App/config/texts/resource.nb.json</code>:</p>
+</code></pre></div><p>In <code>App/config/texts/resource.nb.json</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
   <span style="color:#ff79c6">&#34;resources&#34;</span>: [
@@ -1279,7 +1271,7 @@ Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk
     .
   ]
 }
-</code></pre></div><p>I <code>App/config/texts/resource.nn.json</code>:</p>
+</code></pre></div><p>In <code>App/config/texts/resource.nn.json</code>:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nn&#34;</span>,
   <span style="color:#ff79c6">&#34;resources&#34;</span>: [
@@ -1305,11 +1297,11 @@ Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk
     .
   ]
 }
-</code></pre></div><h2 id="endre-applikasjonseier-tekst">Endre applikasjonseier tekst</h2>
-<p>I applikasjonen så vises applikasjonsnavn og applikasjonseier-tekstene øverst i skjema.</p>
+</code></pre></div><h2 id="change-app-owner-text">Change app owner text</h2>
+<p>The application name and app owner is displayed at the top in the application.</p>
 <figure><a href="app-name-app-owner.png"><img src="app-name-app-owner.png" alt="Tekster i appen" title="Appnavn og appeier tekster" /></a><figcaption><h4>Appnavn og appeier tekster</h4></figcaption></figure>
-<p>Applikasjonsnavn hentes som standard ut fra tekstene som er definert i <a href="https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json">altinn-orgs.json</a>.
-Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til nøkkelen <code>appOwner</code> i tekstressursene. Denne vil da overstyre det som ligger på CDN.</p>
+<p>The application owner is fetched by default from the texts defined in <a href="https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json">altinn-orgs.json</a>.
+If you want to change this name, you can add the key <code>appOwner</code> in the text resources. This wil override the value coming from CDN.</p>
 <p>Eksempel:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
   <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;en&#34;</span>,
@@ -1323,7 +1315,36 @@ Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til n
     .
   ]
 }
-</code></pre></div>
+</code></pre></div><h2 id="change-texts-on-the-archive-receipt-page">Change texts on the archive receipt page</h2>
+<p>The texts on the receipt page can be overridden by the application by specifying the texts in the applications <code>config/texts/resource.xx.json</code> file.</p>
+<div class="notices info" >
+Overriding any text in the receipt will have an effect on any receipt for the given application. This means that forms that are already submitted will also get the updated texts on the receipt page. The generated PDF will not be affected by this.
+</div>
+<p>You can also use markdown and variables in the receipt. Currently you can only fetch variables from <code>Instance</code> (See <a href="#data-sources">Data Sources</a> for details)</p>
+<p>These are the text id&rsquo;s that can be used to override the default platform texts:</p>
+<pre tabindex="0"><code>receipt_platform.attachments
+receipt_platform.date_sent
+receipt_platform.helper_text
+receipt_platform.is_sent
+receipt_platform.receipt 
+receipt_platform.receiver
+receipt_platform.reference_number
+receipt_platform.sender
+receipt_platform.sent_content
+
+</code></pre><p>For example if you want to change the help text, you can add this to the <code>config/texts/resource.en.json</code> file in your application:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;en&#34;</span>,
+  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
+    {
+      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;receipt_platform.helper_text&#34;</span>,
+      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;My custom help text&#34;</span>
+    }
+  ]
+}
+</code></pre></div><p>The image below shows which key controls which text in the UI</p>
+<figure><a href="archive-receipt-texts.png"><img src="archive-receipt-texts.png" alt="Texts and text keys" title="Texts and text keys" /></a><figcaption><h4>Texts and text keys</h4></figcaption></figure>
+
 
 <footer class=" footline" >
 	

@@ -503,6 +503,7 @@ if(host != "localhost")
     <li><a href="#legge-til-hjelpetekst">Legge til hjelpetekst</a></li>
     <li><a href="#endre-applikasjonstittel">Endre applikasjonstittel</a></li>
     <li><a href="#endre-applikasjonseier-tekst">Endre applikasjonseier tekst</a></li>
+    <li><a href="#endre-tekster-på-kvitteringssiden-for-arkiv">Endre tekster på kvitteringssiden for arkiv</a></li>
   </ul>
 </nav>
 
@@ -794,7 +795,36 @@ Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til n
     .
   ]
 }
-</code></pre></div>
+</code></pre></div><h2 id="endre-tekster-på-kvitteringssiden-for-arkiv">Endre tekster på kvitteringssiden for arkiv</h2>
+<p>Tekster på kvitteringssiden kan overstyres av applikasjonen ved å spesifisere tekster i applikasjonens <code>config/texts/resource.xx.json</code> fil.</p>
+<div class="notices info" >
+Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen. Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
+</div>
+<p>Markdown og variabler kan benyttes i kvitteringstekstene. Det er kun mulig å hente variabler fra <code>Instance</code> (Se <a href="#datakilder">Data Sources</a> for detaljer)</p>
+<p>Dette er tekstnøklene som kan brukes for å overstyre standardtekstene:</p>
+<pre tabindex="0"><code>receipt_platform.attachments
+receipt_platform.date_sent
+receipt_platform.helper_text
+receipt_platform.is_sent
+receipt_platform.receipt
+receipt_platform.receiver
+receipt_platform.reference_number
+receipt_platform.sender
+receipt_platform.sent_content
+
+</code></pre><p>Hvis du for eksempel vil overstyre hjelpeteksten, kan du legge dette til i <code>config/texts/resource.nb.json</code> filen i applikasjonen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+  <span style="color:#ff79c6">&#34;resources&#34;</span>: [
+    {
+      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;receipt_platform.helper_text&#34;</span>,
+      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Min egendefinerte hjelpetekst&#34;</span>
+    }
+  ]
+}
+</code></pre></div><p>Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrensesnittet:</p>
+<figure><a href="archive-receipt-texts.png"><img src="archive-receipt-texts.png" alt="Tekster og tekstnøkler" title="Tekster og tekstnøkler" /></a><figcaption><h4>Tekster og tekstnøkler</h4></figcaption></figure>
+
 
 <footer class=" footline" >
 	

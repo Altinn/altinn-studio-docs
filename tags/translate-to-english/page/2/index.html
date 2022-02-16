@@ -1265,13 +1265,11 @@ Sentralt i løsningen er at man har flere layout-sets som består av en eller fl
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/texts/">Texts</a></h2>
+        <h2 class="post-title"><a href="/app/development/ux/widgets/">Widgets</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Tekster lagres i ressursfiler i katalogen App/config/texts. Tekster kan være fra felles biblioteker, datamodellen eller manuelt lagt inn av utvikler.
-Tekstressursene er tilgjengelig når man redigerer UI komponenter i skjemaet via Altinn Studio, og de vises til sluttbruker når skjemaet lastes inn i nettleser.
-Tekster lagres i JSON-format og det er én fil pr språk. Format på filnavn for tekster er resource.[språk].json f.eks: resource.nb.json.
-Formatering av tekster Alle tekster kan formateres med markdown. <a class="read-more" href="/app/development/ux/texts/">&raquo;</a></p>
+        <p>Hva er en widget? En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts.
+Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter. <a class="read-more" href="/app/development/ux/widgets/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
@@ -1293,11 +1291,13 @@ Formatering av tekster Alle tekster kan formateres med markdown. <a class="read-
 	
 	   <article class="post app">
     <header class="post-header">
-        <h2 class="post-title"><a href="/app/development/ux/widgets/">Widgets</a></h2>
+        <h2 class="post-title"><a href="/app/development/configuration/authorisation/">Authorization</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>Hva er en widget? En widget er en kompleks komponent, sammensatt av en eller flere enkle skjemakomponenter - de skjemakomponentene som er tilgjengelige for bruk i Altinn Studio i dag. En widget er et verktøy i Altinn Studio som gjør det lettere å lage og gjenbruke layouts.
-Hvordan bruke widgets Widgets er tilgjengelige i venstre-menyen i skjemaeditoren i Altinn Studio. Den kan dras inn i skjemasiden på samme måte som andre skjemakomponenter. <a class="read-more" href="/app/development/ux/widgets/">&raquo;</a></p>
+        <p>Autorisasjonsregler for en applikasjon er definert i en XACML Policy-fil som ligger i applikasjonsrepoet. XACML Policy-en inneholder en eller flere regler som definerer hvem som kan gjennomføre ulike aksjoner på ulike ressurser.
+Beskrivelse av XACML-strukturen og definisjon av regler finnes her.
+XACML-filen kan endres i en valgfri teksteditor.
+Regler i applikasjonsmalen Når det opprettes en app i Altinn Studio basert på den nåværende asp.net malen vil det følge med en autogenerert XACML policy-fil. <a class="read-more" href="/app/development/configuration/authorisation/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

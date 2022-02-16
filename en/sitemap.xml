@@ -2467,6 +2467,16 @@
     <loc>https://docs.altinn.studio/technology/architecture/components/platform/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/platform/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/platform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/platform/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/technology/architecture/capabilities/devops/platformoperations/</loc>
   </url><url>
@@ -2527,6 +2537,16 @@
     <loc>https://docs.altinn.studio/technology/architecture/components/application/construction/altinn-platform/receipt/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/receipt/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/technology/solutions/altinn-platform/receipt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/technology/solutions/altinn-platform/receipt/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/tags/receipt/</loc>
   </url><url>
@@ -2537,6 +2557,16 @@
     <loc>https://docs.altinn.studio/technology/solutions/altinn-platform/register/</loc>
   </url><url>
     <loc>https://docs.altinn.studio/tags/register/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/register/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/register/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/</loc>
   </url><url>
