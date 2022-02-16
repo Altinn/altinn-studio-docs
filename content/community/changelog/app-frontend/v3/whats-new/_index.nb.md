@@ -4,6 +4,11 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.31.0 (2022-02-16) - Lagt til støtte for å endre tekster i arkivkvittering
+Tekster i arkivkvittering kan nå overstyres fra applikasjonen, og tekstene støtter også markdown og variabler.
+
+Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
+
 ## 3.29.1 (2022-02-14) - Fikset feil hvor variables i tekster ble ignorert ved kalkulering
 Dette fikser en feil som ble introdusert i 3.29.0
 

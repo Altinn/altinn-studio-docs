@@ -369,3 +369,47 @@ Eksempel:
     .
   ]
 }
+```
+
+## Endre tekster på kvitteringssiden for arkiv
+
+Tekster på kvitteringssiden kan overstyres av applikasjonen ved å spesifisere tekster i applikasjonens `config/texts/resource.xx.json` fil.
+
+{{%notice info%}}
+Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen. Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
+{{% /notice%}}
+
+Markdown og variabler kan benyttes i kvitteringstekstene. Det er kun mulig å hente variabler fra `Instance` (Se [Data Sources](#datakilder) for detaljer)
+
+Dette er tekstnøklene som kan brukes for å overstyre standardtekstene:
+
+```
+receipt_platform.attachments
+receipt_platform.date_sent
+receipt_platform.helper_text
+receipt_platform.is_sent
+receipt_platform.receipt
+receipt_platform.receiver
+receipt_platform.reference_number
+receipt_platform.sender
+receipt_platform.sent_content
+
+```
+
+Hvis du for eksempel vil overstyre hjelpeteksten, kan du legge dette til i `config/texts/resource.nb.json` filen i applikasjonen:
+
+```json
+{
+  "language": "nb",
+  "resources": [
+    {
+      "id": "receipt_platform.helper_text",
+      "value": "Min egendefinerte hjelpetekst"
+    }
+  ]
+}
+```
+
+Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrensesnittet:
+
+![Tekster og tekstnøkler](archive-receipt-texts.png "Tekster og tekstnøkler")

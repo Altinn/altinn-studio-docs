@@ -4,6 +4,11 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.31.0 (2022-02-16) - Added possibility to override texts in archive receipt
+Texts in archive receipt can now be overidden by the application, and also supports markdown and variables.
+
+Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
+
 ## 3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation
 This fixes an issue that was introduced in 3.29.0
 
