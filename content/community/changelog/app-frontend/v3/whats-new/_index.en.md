@@ -5,7 +5,7 @@ toc: true
 ---
 
 ## 3.31.2 (2022-02-17) - Dependency patching
-Patching of external dependencies for week 6 of 2022.
+Patching of external dependencies for week 7 of 2022.
 Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
 
 ## 3.31.1 (2022-02-16) - New styling button

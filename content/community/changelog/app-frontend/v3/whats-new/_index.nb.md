@@ -5,7 +5,7 @@ toc: true
 ---
 
 ## 3.31.2 (2022-02-17) - Oppdaterte avhengigheter
-Oppdaterte eksterne avhengigheter for uke 3 av 2022.
+Oppdaterte eksterne avhengigheter for uke 7 av 2022.
 Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
 
 ## 3.31.1 (2022-02-16) - Ny styling for knapp
