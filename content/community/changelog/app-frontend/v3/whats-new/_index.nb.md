@@ -4,6 +4,14 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.31.2 (2022-02-17) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 3 av 2022.
+Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
+
+## 3.31.1 (2022-02-16) - Ny styling for knapp
+Ny styling for knapp-komponent for å matche figma-skisser.
+Pull request [#8057](https://github.com/Altinn/altinn-studio/pull/8057).
+
 ## 3.31.0 (2022-02-16) - Lagt til støtte for å endre tekster i arkivkvittering
 Tekster i arkivkvittering kan nå overstyres fra applikasjonen, og tekstene støtter også markdown og variabler.
 
