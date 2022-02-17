@@ -4,24 +4,6 @@ description: Dokumentasjon av arkitektur, design, funksjonalitet og apper relate
 tags: [app]
 ---
 
-**Altinn**
-
-**OED**
-
-**Applikasjonsarkitektur**
-
-**\
-**
-
-**Endringslogg**
-
-  ---------------------------------------------------------------------------------
-  **Dato**      **Versjon**   **Beskrivelse**                       **Forfatter**
-  ------------- ------------- ------------------------------------- ---------------
-  24.11.2021    0.5           Første versjon                        HN
-
-  ---------------------------------------------------------------------------------
-
 **Innholdsfortegnelse**
 1. [Innledning](#innledning)
 2. [Oppdeling i Tjenester 3.0 apper](#oppdeling-i-tjenester-30-apper)
@@ -42,7 +24,7 @@ Figuren under viser de viktigste komponentene i løsningen. OED er
 realisert som en serie Tjenester 3.0 app'er med en overordnet app med
 skreddersydd GUI og øvrige Tjenester 3.0 apper for spesifikke formål.
 
-![](media/image1.emf)
+![](/app/launched-apps/digdir/oed/media/OED_applikasjonsarkitektur_overordnet.png)
 
 App'ene kan ikke instansieres fra tjenestekatalogen. Hovedapp'en
 instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver»
@@ -59,7 +41,7 @@ Løsningens hovedapp har følgende adresse i Altinn Studio:
 
 #  Oppdeling i Tjenester 3.0 apper
 
-![](media/image2.emf)
+![](/app/launched-apps/digdir/oed/media/OED_applikasjonsarkitektur_subapps.png)
 
 Hovedapp'en har et skreddersydd brukergrensesnitt fordi Tjenester 3.0
 p.t. ikke støtter å lage vilkårlige applikasjoner. Løsningen er derfor
@@ -91,15 +73,10 @@ spesifikt i OED løsningen.
 Følgende app'er finnes p.t.:
 
 -   oed (hoved app)
-
 -   oed-register-agri-property
-
 -   oed-register-heirs
-
 -   oed-register-marriage-pact
-
 -   oed-register-testament
-
 -   oed-signature
 
 Mer dokumentasjon knyttet mot applikasjoner vedrørende Tjenester 3.0
@@ -122,14 +99,11 @@ Prosjektet har besluttet å implementere grensesnittet som en Altinn II
 batch. Bakgrunnen for at grensesnittet ikke ble implementert i Tjenester
 3.0 er:
 
--   Tjenester 3.0 støttet ikke batch jobber da beslutningen ble tatt
-
+-   Tjenester 3.0 støttet ikke batch jobber da beslutningen ble tat
 -   Tjenester 3.0 har ikke et regime for driftsoppfølging av batcher
-
 -   Tjenester 3.0 tilbyr ikke databaser for app'er utover lagring av
     skjemadata og instansdata. Domstol grensesnittet krever at man
     lagrer en tilstand mellom hver kjøring.
-
 -   Altinn II har ikke eksponert eksterne tjenester for å laste inn
     roller/rettigheter. Altinn II batch jobber kan benytte interne
     tjenester.
@@ -137,25 +111,18 @@ batch. Bakgrunnen for at grensesnittet ikke ble implementert i Tjenester
 Batchen kjøres automatisk ved regelmessige intervaller og gjør følgende:
 
 -   Henter nye arvinger fra Domstolene
-
 -   Tildeler roller mellom arving og avdøde i Altinn Autorisasjon
-
 -   Gjør oppslag mot KRR (Altinn kopi) angående reservasjon mot
     elektronisk behandling. Det er p.t. ikke avgjort om Altinn skal ha
     ansvar for dette og hva som eventuelt skal være konsekvensen hvis
     det foreligger en reservasjon.
-
 -   Hente utfyllende informasjon om arving og avdøde fra Folkeregisteret
     (Altinn kopi).
-
 -   Sjekke om det finnes en instans av boet. Opprette instans hvis den
     ikke finnes
-
 -   Legge arving inn blant instansdata
-
 -   Sende melding til arving (Altinn II Correspondence). Meldingen blir
     liggende i Altinn meldingsboks dyplenke inn til avdødes instans
-
 -   Sende varsling til arving på epost/SMS basert på informasjon fra
     KRR. (Gjøres som en integrert del av forrige punkt.)
 
@@ -168,8 +135,7 @@ Altinn.SBL.Batch.DA.
 
 Nedenfor beskrives hva som ligger til grunn for autorisasjonen.
 
-![](media/image3.png){width="0.5720122484689414in"
-height="0.4751804461942257in"}
+![](/app/launched-apps/digdir/oed/media/OED_applikasjonsarkitektur_autorisasjon.png)
 
 **Implisitt fullmakt fra DA (1-2)**
 
@@ -278,15 +244,10 @@ Hver grensesnitt er tilgjengelig fra GUI via ExternalAPIController.
 Kontrolleren har felles kode for alle grensesnittene for å:
 
 -   Kalle grensesnitt
-
 -   Hente instans
-
 -   Lagre respons i instans
-
 -   Benytte lagret respons hvis gjeldende oppslag ikke returnerer data
-
 -   Gjøre evt mapping av fødselsnummer -- se 4.3 Testdata
-
 -   Returnere data til GUI
 
 De genererte klientene konfigureres i startup.cs. Her hentes vertsnavn
@@ -296,34 +257,73 @@ fra miljøspesifikke konfigurasjonsfiler.
 
 P.t. benyttes følgende grensesnitt
 
-  -----------------------------------------------------------------------------------------------------------------------
-  Aktør        Eks\*)   Swagger
-  ------------ -------- -------------------------------------------------------------------------------------------------
-  Skatt                 <https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvregning.json>
-
-  Skatt                 <https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Skatt2020.json>
-
-  Skatt                 <https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvailableData.json>
-
-  Kartverket   x        <https://syntest.grunnbok.no/oed/v2/api-docs>
-
-  SVV          x        <https://vegvesen.github.io/ak-api/filer/api/api_kjoretoysok_46.json>
-
-  Norsk        x        <https://webservice.preprod.norskpensjon.no/oed/v3/api-docs>
-  Pensjon               
-
-  Bank KAR     x        <https://bitsnorge.github.io/dsop-kfr-api/dsop-kfr-api.yaml>
-
-  Bank konto   x        <https://bitsnorge.github.io/dsop-accounts-api-v1p1/dsop-accounts-api-v1p1.yaml>
-
-  Geo Norge    x        <https://ws.geonorge.no/kommuneinfo/v1/openapi.json>
-
-  Geo Norge    x        <https://ws.geonorge.no/adresser/v1/openapi.json>
-
-  Landbruk              <https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Landbruk.json>
-
-  Ektepakt     x        n/a -- Soap grensesnitt: <https://ws-test.brreg.no/losore/heftelser/LosoreOnlineService?wsdl>
-  -----------------------------------------------------------------------------------------------------------------------
+<table>
+  <tr>
+    <th>Aktør</th>
+    <th>Eks\*)</th>
+    <th>Swagger</th>
+  </tr>
+  <tr>
+    <td>Skatt</td>
+    <td></td>
+    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvregning.json"/></td>
+  </tr>
+  <tr>
+    <td>Skatt</td>
+    <td></td>
+    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Skatt2020.json"/></td>
+  </tr>
+  <tr>
+    <td>Skatt</td>
+    <td></td>
+    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvailableData.json"/></td>
+  </tr>
+  <tr>
+    <td>Kartverket</td>
+    <td>x</td>
+    <td><a href="https://syntest.grunnbok.no/oed/v2/api-docs"/></td>
+  </tr>
+  <tr>
+    <td>SVV</td>
+    <td>x</td>
+    <td><a href="https://vegvesen.github.io/ak-api/filer/api/api_kjoretoysok_46.json"/></td>
+  </tr>
+  <tr>
+    <td>Norsk Pensjon</td>
+    <td>x</td>
+    <td><a href="https://webservice.preprod.norskpensjon.no/oed/v3/api-docs"/></td>
+  </tr>
+  <tr>
+    <td>Bank KAR</td>
+    <td>x</td>
+    <td><a href="https://bitsnorge.github.io/dsop-kfr-api/dsop-kfr-api.yaml"/></td>
+  </tr>
+  <tr>
+    <td>Bank konto</td>
+    <td>x</td>
+    <td><a href="https://bitsnorge.github.io/dsop-accounts-api-v1p1/dsop-accounts-api-v1p1.yaml"/></td>
+  </tr>
+  <tr>
+    <td>Geo Norge</td>
+    <td>x</td>
+    <td><a href="https://ws.geonorge.no/kommuneinfo/v1/openapi.json"/></td>
+  </tr>
+  <tr>
+    <td>Geo Norge</td>
+    <td>x</td>
+    <td><a href="https://ws.geonorge.no/adresser/v1/openapi.json"/></td>
+  </tr>
+  <tr>
+    <td>Landbruk</td>
+    <td></td>
+    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Landbruk.json"/></td>
+  </tr>
+  <tr>
+    <td>Ekstepakt</td>
+    <td>x</td>
+    <td><a href="https://ws-test.brreg.no/losore/heftelser/LosoreOnlineService?wsdl">n/a Soap grensesnitt<a/></td>
+  </tr>
+</table>
 
 \*) Betyr at swagger kommer fra aktør og ikke er konstruert av OED
 
@@ -403,10 +403,7 @@ Før man kan gå i produksjon må det avklares hvordan løsningen kan
 driftes og overvåkes. Viktige momenter vil være:
 
 -   Monitorere at Tjenester 3.0 app'ene er oppe og fungerer
-
 -   Monitorere at batch for DA grensesnitt kjører og fungerer. Det må
     avklares om Altinn Forvaltning skal benyttes i denne sammenheng.
-
 -   Analyse av feillogger
-
 -   Sanering av data
