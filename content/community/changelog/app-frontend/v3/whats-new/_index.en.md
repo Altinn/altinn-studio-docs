@@ -4,6 +4,14 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.31.2 (2022-02-17) - Dependency patching
+Patching of external dependencies for week 7 of 2022.
+Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
+
+## 3.31.1 (2022-02-16) - New styling button
+New styling for button component to match figma skcetches.
+Pull request [#8057](https://github.com/Altinn/altinn-studio/pull/8057).
+
 ## 3.31.0 (2022-02-16) - Added possibility to override texts in archive receipt
 Texts in archive receipt can now be overidden by the application, and also supports markdown and variables.
 
