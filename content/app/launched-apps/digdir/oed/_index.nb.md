@@ -24,7 +24,7 @@ Figuren under viser de viktigste komponentene i løsningen. OED er
 realisert som en serie Tjenester 3.0 app'er med en overordnet app med
 skreddersydd GUI og øvrige Tjenester 3.0 apper for spesifikke formål.
 
-![](/app/launched-apps/digdir/oed/media/OED_applikasjonsarkitektur_overordnet.png)
+![](OED_applikasjonsarkitektur_overordnet.png)
 
 App'ene kan ikke instansieres fra tjenestekatalogen. Hovedapp'en
 instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver»
@@ -41,7 +41,7 @@ Løsningens hovedapp har følgende adresse i Altinn Studio:
 
 #  Oppdeling i Tjenester 3.0 apper
 
-![](/app/launched-apps/digdir/oed/media/OED_applikasjonsarkitektur_subapps.png)
+![](OED_applikasjonsarkitektur_subapps.png)
 
 Hovedapp'en har et skreddersydd brukergrensesnitt fordi Tjenester 3.0
 p.t. ikke støtter å lage vilkårlige applikasjoner. Løsningen er derfor
@@ -135,7 +135,7 @@ Altinn.SBL.Batch.DA.
 
 Nedenfor beskrives hva som ligger til grunn for autorisasjonen.
 
-![](/app/launched-apps/digdir/oed/media/OED_applikasjonsarkitektur_autorisasjon.png)
+![](OED_applikasjonsarkitektur_autorisasjon.png)
 
 **Implisitt fullmakt fra DA (1-2)**
 
