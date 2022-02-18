@@ -1,7 +1,7 @@
 ---
 title: Oppgjør etter dødsfall
 description: Dokumentasjon av arkitektur, design, funksjonalitet og apper relatert til oppgjør etter dødsfall.
-tags: [app, translate-to-english]
+tags: [app]
 ---
 
 **Innholdsfortegnelse**
