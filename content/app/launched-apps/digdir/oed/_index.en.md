@@ -1,7 +1,7 @@
 ---
 title: Oppgjør etter dødsfall
 description: Dokumentasjon av arkitektur, design, funksjonalitet og apper relatert til oppgjør etter dødsfall.
-tags: [app, translate-to-english]
+tags: [app]
 ---
 
 **Innholdsfortegnelse**
@@ -24,7 +24,7 @@ Figuren under viser de viktigste komponentene i løsningen. OED er
 realisert som en serie Tjenester 3.0 app'er med en overordnet app med
 skreddersydd GUI og øvrige Tjenester 3.0 apper for spesifikke formål.
 
-![Overordnet applikasjonsarkitektur](OED_applikasjonsarkitektur_overordnet.png "Overordnet applikasjonsarkitektur")
+![Applikasjonsarkitektur](OED_applikasjonsarkitektur_overordnet.png "Overordnet applikasjonsarkitektur")
 
 App'ene kan ikke instansieres fra tjenestekatalogen. Hovedapp'en
 instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver»
@@ -41,7 +41,7 @@ Løsningens hovedapp har følgende adresse i Altinn Studio:
 
 #  Oppdeling i Tjenester 3.0 apper
 
-![Subapper applikasjonsarkitektur](OED_applikasjonsarkitektur_subapps.png "Subapper applikasjonsarkitektur")
+![](OED_applikasjonsarkitektur_subapps.png)
 
 Hovedapp'en har et skreddersydd brukergrensesnitt fordi Tjenester 3.0
 p.t. ikke støtter å lage vilkårlige applikasjoner. Løsningen er derfor
@@ -135,7 +135,7 @@ Altinn.SBL.Batch.DA.
 
 Nedenfor beskrives hva som ligger til grunn for autorisasjonen.
 
-![Autorisasjon applikasjonsarkitektur](OED_applikasjonsarkitektur_autorisasjon.png "Autorisasjon applikasjonsarkitektur")
+![](OED_applikasjonsarkitektur_autorisasjon.png)
 
 **Implisitt fullmakt fra DA (1-2)**
 
