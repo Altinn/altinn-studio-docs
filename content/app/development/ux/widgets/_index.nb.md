@@ -37,4 +37,4 @@ I tillegg til standard widgets som kommer opp automatisk i Altinn Studio, er det
 - Visnings-navn: Dette er teksten som vises i Altinn Studio, i menyen der widget'en ligger.
 - Tekstressurser: Dette er valgfritt, og er en liste over tekstressurser på de språk som man ønsker å ha med. Nyttig om komponentene f.eks. skal ha noen standard tekster de bruker.
 
-Se [oppsett for meldings-widget](https://altinncdn.no/altinn-apps/widgets/message.json) for et konkret eksempel. Det fins også en [widget-mal](https://altinncdn.no/altinn-apps/widgets/widgetTemplate.json) som kan lastes ned for å komme i gang.
+Se [oppsett for meldings-widget](https://altinncdn.no/altinn-apps/widgets/message.json) for et konkret eksempel. Det fins også en [widget-mal](https://altinncdn.no/altinn-apps/widgets/widget-template.json) som kan lastes ned for å komme i gang.

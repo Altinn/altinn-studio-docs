@@ -192,4 +192,21 @@ Options støtter query parameters når det gjøres api kall. `language` er satt 
 ```
 
 I eksempelet over vil det bli satt på et query parameter `orgnummer={nr}`, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
-Disse parameterne må settes under instansiering for at de skal bli med. [Vi jobber med å forbedre dette](https://github.com/Altinn/altinn-studio/issues/7888) slik at options kan oppdateres dynamisk f.ex ved endring av andre felter.
+Om man setter opp en kobling til et datafelt og dette feltet endrer seg så vil app-frontend hente options på nytt. På denne måten kan man dynamisk styre hvilke valg som vises basert på informasjon gitt av sluttbruker.
+
+{{%notice warning%}}
+Under PDF-generering vil appen prøve å kalle det samme options-endepunktet som app-frontend gjør. 
+Vi har foreløpig en svakhet ved at eventuelle mapping-parametere ikke blir inkludert i denne forespørselen, se issue [#7903.](https://github.com/Altinn/altinn-studio/issues/7903)
+
+En mulig workaround her er å returnere en tom array i det PDF-generatoren spør om options med tomme query-parametere, eksempel:
+```c#
+            string someArg = keyValuePairs.GetValueOrDefault("someArg");
+            string someOtherArg = keyValuePairs.GetValueOrDefault("someOtherArg");
+
+            if (string.IsNullOrEmpty(someArg) || string.IsNullOrEmpty(someOtherArg)) {
+                return await Task.FromResult(new List<AppOption>());
+            }
+```
+
+Merk at dette vil resultere i at PDF vil vise verdien valgt og ikke label som sluttbrukers svar.
+{{% /notice%}}
