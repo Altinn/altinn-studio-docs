@@ -96,8 +96,10 @@ The interface has a property `Id`, which should be set to the optionId, and a me
 > Language codes should be based on ISO 639-1 or the W3C IANA Language Subtag Registry. The latter is built uppon the ISO 639-1 standard but is guaranties uniques of the codes, where as ISO 639-1 have conflicting usage for some codes.
 > 
 
-### Secured dynamiske kodelister
-Below you find an example of how to implement a secured custom options provider. This will be exposed at `/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`.
+### Secured dynamic options
+If you want to expose options that are sensitive you can use `IInstanceAppOptionsProvider`, which will use the same authz-policy defined in the app `policy.xml`-file.
+Below you find an example of how to implement a secured custom options provider. The `IInstanceAppOptionsProvider` interface must be implemented, and a `secure`-prop must be added to the component.
+The following option will be exposed at `/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`.
 
 ```C#
 using System.Collections.Generic;
@@ -153,6 +155,25 @@ services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>()
 Note that you can have multiple registrations of this interface. The correct implementation is resolved by finding the one with the correct id.
 
 The interface has a property `Id`, which should be set to the optionId, and a method `GetInstanceAppOptionsAsync` for resolving the options. This method accepts a language code and a dictionary of key/value pairs. Both parameters will typically be query parameters picked up from the controller and passed in. Allthough language could be put in the dictionary as well it's decided to be explicit on this particular parameter. These parameters are the same as for the open variant of options, in addition the instance id (which identifies both the instance owner and the instance itself) will be passed in.
+
+The final configuration needed is the `secure`-boolean on the component. Example:
+
+```json {hl_lines=[12]}
+      {
+        "id": "dropdown-component",
+        "type": "Dropdown",
+        "textResourceBindings": {
+          "title": "Some title",
+          "description": "Some description"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "some.field"
+        },
+        "required": true,
+        "optionsId": "children",
+        "secure": true
+      }
+```
 
 ## Connect the component to options (code list)
 This is done by adding the optionId you would like to refer to either through the component UI in Designer or direcytly in `FormLayout.json` as shown below:

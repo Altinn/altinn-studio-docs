@@ -97,7 +97,9 @@ Interfacene har en egenskap `Id`, som skal settes til til den id'en man skal sp�
 > 
 
 ### Sikrede dynamiske kodelister
-Under finner du et eksempel på man setter opp en sikret kodeliste. Her vil man få ut den oppsatte kodelisten i det appen får et kall mot `/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`.
+Om du ønsker å eksponere kodelister som inneholder sensitive data som man ikke ønsker skal være tilgjengelige i et åpent API kan man benytte `IInstanceAppOptionsProvider`. Disse kodelistene validerer mot autorisasjonspolicy definert i applikasjonens `policy.xaml`-fil.
+Under finner du et eksempel på man setter opp en sikret kodeliste. Interfacet `IInstanceAppOptionsProvider` må implementeres og en `secure` boolean må legges på komponenten.
+Her vil man få ut den oppsatte kodelisten i det appen får et kall mot `/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`.
 
 ```C#
 using System.Collections.Generic;
@@ -155,6 +157,24 @@ Legg merke til at du kan ha mange implementasjoner av dette interfacet. Den rett
 
 Interfacene har en egenskap `Id`, som skal settes til til den id'en man skal spørre etter, og en metode `GetAppOptionsAsync` som returnerer selve kodelisten. Denne metoden tar i mot språk og en liste med key/value par som typisk er query parametre som plukkes opp av kontrolleren og sendes inn. Selv om språk kunne vært et key/value par og sånn sett hvert i listen, så er denne lagt utenfor for å være eksplisitt på språk.
 
+Siste konfigurasjon som trengs er å legge til `secure`-boolean på den aktuelle komponenten. Eksempel: 
+
+```json {hl_lines=[12]}
+      {
+        "id": "dropdown-component",
+        "type": "Dropdown",
+        "textResourceBindings": {
+          "title": "Some title",
+          "description": "Some description"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "some.field"
+        },
+        "required": true,
+        "optionsId": "children",
+        "secure": true
+      }
+```
 
 ## Koble en komponent til kodeliste
 Dette gjøres ved å legge til feltet optionsId som referer til hvilken option (kodeliste) man ønsker refere til. Eksempel:
