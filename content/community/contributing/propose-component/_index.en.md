@@ -4,7 +4,7 @@ description: If you need a component or functionality we prefer that the need is
 weight: 30
 ---
 
-- **[Create a Feature request in Github](https://github.com/Altinn/altinn-studio/issues/new?assignees=lvbachmann&labels=kind%2Ffeature-request&template=feature_request.md)**  
+- **[Create a Feature request in Github](https://github.com/Altinn/altinn-studio/issues/new?assignees=FinnurO&labels=kind%2Ffeature-request&template=feature_request.md)**  
 Describe the component, why it will be useful and when it is needed.
 - **Review of the suggestion**  
 Altinn will review your suggestion to make sure that a new component fits our [criteria](#criteria).
