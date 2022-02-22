@@ -46,7 +46,7 @@ CommandDefinitionFile | Path for custom command definitions. If file exists, def
 
 ## Maskinporten settings
 
-All clients interacting with an Altinn App og Altinn Platform must be authenticated using an Altinn Token. 
+All clients interacting with an Altinn App and Altinn Platform must be authenticated using an Altinn Token. 
 In Altinn CLI, this is enabled by first authenticating through _Maskinporten_, and then converting the token. 
 
 Maskinporten settings cover the configuration for the registered client in maskinporten, 
