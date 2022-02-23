@@ -166,7 +166,7 @@ Interfacene har en egenskap `Id`, som skal settes til til den id'en man skal sp�
 
 Siste konfigurasjon som trengs er å legge til `secure`-boolean på den aktuelle komponenten. Eksempel: 
 
-```json {hl_lines=[12]}
+```json {hl_lines=[13]}
       {
         "id": "dropdown-component",
         "type": "Dropdown",

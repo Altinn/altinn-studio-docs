@@ -165,7 +165,7 @@ The interface has a property `Id`, which should be set to the optionId, and a me
 
 The final configuration needed is the `secure`-boolean on the component. Example:
 
-```json {hl_lines=[12]}
+```json {hl_lines=[13]}
       {
         "id": "dropdown-component",
         "type": "Dropdown",
