@@ -29,7 +29,7 @@ og eventuelle begrensninger du selv ønsker å sette
 
 NB! Det vil også være mulig å laste opp vedlegg av typen definert i vedleggkomponenten via API.
 
-![Vedleggskomponenten](vedleggskom.PNG "Vedleggskomponenten")
+![Vedleggskomponenten](vedleggskom.png "Vedleggskomponenten")
 
 Bildet over viser vedleggskomponenten i Altinn Studio.
 Det er mulig å sette en del av konfigurasjonenen for vedleggene som lastes opp alledere her.
@@ -42,6 +42,18 @@ Ved å sette '0' på _minst antall filvedlegg_ vil det ikke være påkrevd å la
 
 Ytterligere konfigurasjoner som kan settes for vedlegg inkluderer: tillatte bidragsytere og beskrivelse.
 Dette gjøres i _applicationMetadata.json_ som ligger under App/config i applikasjonsrepoet.
+
+### Vedleggskomponent med merking
+Det finnes også en egen komponent der man får brukeren til å merke filen med hjelp av en nedtrekksliste.
+Dette settes opp ganske likt som med den vanlige filopplastingskomponenten, med tillegget av en kodeliste-ID og navnet
+man vil gi merkingen. 
+
+![Vedleggskomponenten med merking](vedleggsmerkekom.png "Vedleggskomponenten med merking")
+
+
+Her under kan du se den i bruk
+
+![Vedleggskomponenten med merking eksempelvisning](vedleggsmerkekomeks.png "Vedleggskomponenten med merking eksempel")
 
 ## Innsending av vedlegg med API-kall
 
@@ -110,4 +122,4 @@ Les mer om mime types [her](https://developer.mozilla.org/en-US/docs/Web/HTTP/Ba
 - **grouping** betegner gruppen som vedleggene i av denne typen skal grupperes etter.
 Dette er en valgfri egenskap, hvor vedlegg med samme grouping vil havne i samme liste. Grouping kan både være en streng (f.eks "Attester") eller en tekstnøkkel om man ønsker å støtte flere språk (f.eks "skjema.vedleggsgruppering). Her er et eksempel hvor grouping "Demogruppe" satt på en vedleggstype:
 
-![Skjermdump av grupperingseksempel](attachment-grouping-demo.PNG "Grupperingseksempel")
+![Skjermdump av grupperingseksempel](attachment-grouping-demo.png "Grupperingseksempel")

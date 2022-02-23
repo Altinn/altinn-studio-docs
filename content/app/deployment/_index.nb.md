@@ -11,7 +11,7 @@ weight: 600
 Første gang man skal gjøre deploy av en applikasjon til produksjonsmiljøet er det behov for at det er satt opp et eget tjenesteeier-cluster.
 For å få dette gjelder følgende prosess:
 
-1. [Send en e-post til produkteier](mailto:lars.vegard.bachmann@digdir.no) med en beskjed om hvilken/hvilke apps du har klar til produksjonssetting.
+1. [Send en e-post](mailto:tjenesteeier@digdir.no) med en beskjed om hvilken/hvilke apps du har klar til produksjonssetting.
 2. [Bekreft at tjenesteeier godtar bruksvilkårene](https://digdir.apps.altinn.no/digdir/godkjenn-bruksvilkaar)
 3. Vent på beskjed om at cluster er opprettet.
 

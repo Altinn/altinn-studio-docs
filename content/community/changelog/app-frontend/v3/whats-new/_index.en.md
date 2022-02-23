@@ -4,6 +4,63 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.31.4 (2022-02-23) - Bugfixes for confirm
+Fixed bug where spinner for confirm button would not last the whole request.
+Also now displays the generated PDF in the confirm view.
+Issue [#7824](https://github.com/Altinn/altinn-studio/issues/7824).
+
+## 3.31.3 (2022-02-17) - Fix alignment of label grid
+Fix alignment of label grid so that padding match normal grid.
+Pull request [#8059](https://github.com/Altinn/altinn-studio/pull/8059).
+
+## 3.31.2 (2022-02-17) - Dependency patching
+Patching of external dependencies for week 7 of 2022.
+Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
+
+## 3.31.1 (2022-02-16) - New styling button
+New styling for button component to match figma skcetches.
+Pull request [#8057](https://github.com/Altinn/altinn-studio/pull/8057).
+
+## 3.31.0 (2022-02-16) - Added possibility to override texts in archive receipt
+Texts in archive receipt can now be overidden by the application, and also supports markdown and variables.
+
+Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
+
+## 3.30.0 (2022-02-16) - Added refetching of options.
+Added functionality for refetching dynamic options when a mapping field changes.
+
+Issue [#7888](https://github.com/Altinn/altinn-studio/issues/7888).
+
+## 3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation
+This fixes an issue that was introduced in 3.29.0
+
+Pull request [#8045](https://github.com/Altinn/altinn-studio/pull/8045).
+
+## 3.29.0 (2022-02-11) - Added Navigationbar component 
+Added Navigationbar component
+
+Issue [#5893](https://github.com/Altinn/altinn-studio/issues/5893).
+
+## 3.28.2 (2022-02-10) - Moved testfiles
+No code changes
+
+Pull request [#7999](https://github.com/Altinn/altinn-studio/pull/7999).
+
+## 3.28.1 (2022-02-09) - Fixed an issue in checkbox component
+This fixed an issue introduced in 3.27.5, where changes to checkbox items could cause the simplebinding value to be set to `,`.
+
+Pull request [#7996](https://github.com/Altinn/altinn-studio/pull/7996).
+
+## 3.28.0 (2022-02-09) - Added FileUploadWithTag component
+Added fileupload component with option to tag files
+
+Issue [#6479](https://github.com/Altinn/altinn-studio/issues/6479).
+
+## 3.27.5 (2022-02-09) - Fixed an issue in the checkbox component
+Fixed an issue in the checkbox component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
 ## 3.27.4 (2022-02-08) - Fixed an issue in the confirm container
 Fixed an issue in the confirm container
 

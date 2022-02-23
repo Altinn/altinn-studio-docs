@@ -24,7 +24,7 @@ This is done through the subcriptions API. This API supports the following consu
 - Persons, authenticated through ID-porten
 - Orgs, authenticated through Maskinporten
 
-The subscriptions API is described [here](../swagger/events/#/Subscription) as Swagger.
+The subscriptions API is described [here](./spec/#/Subscription) as Swagger.
 
 The webhook endpoint needs to be able to accept cloud event that is posted through HTTPS to the endpoint URL.
 
@@ -39,7 +39,7 @@ This is available to be used by the following consumers.
 - Persons, authenticated through ID-porten
 - Orgs, authenticated through Maskinporten
 
-The API is described in swagger [here](../swagger/events/#/Events).
+The API is described in swagger [here](./spec/#/Events).
 
 
 
