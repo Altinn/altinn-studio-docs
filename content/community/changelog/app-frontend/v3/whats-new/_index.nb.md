@@ -4,6 +4,15 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.31.4 (2022-02-23) - Feilretting for Bekreft-steget
+Fikset feil hvor spinneren ikke ble vist mens confirm request ble gjort.
+Viser også nå den genererte PDF'en i bekreft-steget.
+Issue [#7824](https://github.com/Altinn/altinn-studio/issues/7824).
+
+## 3.31.3 (2022-02-17) - Fikset oppstilling av label grid
+Fikset oppstilling av label grid slik at den matcher en vanlig grid.
+Pull request [#8059](https://github.com/Altinn/altinn-studio/pull/8059).
+
 ## 3.31.2 (2022-02-17) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 7 av 2022.
 Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
