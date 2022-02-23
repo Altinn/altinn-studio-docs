@@ -234,7 +234,7 @@ Eksempelet som omhandler flere komplekse valideringer viser hvordan dette kan im
 
 Det er gjort flere ting for å få denne kodesnutten til å kjøre
 
-1. I _ValidationHandler.cs_ inkluderes `using Microsoft.Extensions.Privites;` øverst i filen for å kunne ta i bruk `StringValues`. 
+1. I _ValidationHandler.cs_ inkluderes `using Microsoft.Extensions.Primitives;` øverst i filen for å kunne ta i bruk `StringValues`. 
 2. I _App.cs_ inkluderes `using Microsoft.AspNetCore.Http;` øverst i filen for å kunne ta i bruk `IHttpContextAccessor`.
 3. I _App.cs_ dependency injectes `IHttpContextAccessor` i konstruktøren og sendes med videre til ValidationHandler.
 
