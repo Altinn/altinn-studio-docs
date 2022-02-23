@@ -5,8 +5,8 @@ toc: true
 ---
 
 ## 3.31.4 (2022-02-23) - Feilretting for Bekreft-steget
-Fixed bug where spinner for confirm button would not last the whole request.
-Also now displays the generated PDF in the confirm view.
+Fikset feil hvor spinneren ikke ble vist mens confirm request ble gjort.
+Viser også nå den genererte PDF'en i bekreft-steget.
 Issue [#7824](https://github.com/Altinn/altinn-studio/issues/7824).
 
 ## 3.31.3 (2022-02-17) - Fikset oppstilling av label grid
