@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+## 3.32.0 (2022-02-23) - Sikrede options
+Er nå mulig å sette opp sikrede options.
+Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).
+
 ## 3.31.4 (2022-02-23) - Feilretting for Bekreft-steget
 Fikset feil hvor spinneren ikke ble vist mens confirm request ble gjort.
 Viser også nå den genererte PDF'en i bekreft-steget.

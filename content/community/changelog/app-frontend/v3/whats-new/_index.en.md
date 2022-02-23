@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.32.0 (2022-02-23) - Secure options
+Now possible to setup secure options.
+Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).
+
 ## 3.31.4 (2022-02-23) - Bugfixes for confirm
 Fixed bug where spinner for confirm button would not last the whole request.
 Also now displays the generated PDF in the confirm view.
