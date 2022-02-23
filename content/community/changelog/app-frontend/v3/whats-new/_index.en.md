@@ -4,6 +4,15 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.31.4 (2022-02-23) - Bugfixes for confirm
+Fixed bug where spinner for confirm button would not last the whole request.
+Also now displays the generated PDF in the confirm view.
+Issue [#7824](https://github.com/Altinn/altinn-studio/issues/7824).
+
+## 3.31.3 (2022-02-17) - Fix alignment of label grid
+Fix alignment of label grid so that padding match normal grid.
+Pull request [#8059](https://github.com/Altinn/altinn-studio/pull/8059).
+
 ## 3.31.2 (2022-02-17) - Dependency patching
 Patching of external dependencies for week 7 of 2022.
 Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
