@@ -10,7 +10,7 @@ Viser også nå den genererte PDF'en i bekreft-steget.
 Issue [#7824](https://github.com/Altinn/altinn-studio/issues/7824).
 
 ## 3.31.3 (2022-02-17) - Fikset oppstilling av label grid
-Fikset oppstilling av  label grid slik at den matchet en vanlig grid.
+Fikset oppstilling av label grid slik at den matcher en vanlig grid.
 Pull request [#8059](https://github.com/Altinn/altinn-studio/pull/8059).
 
 ## 3.31.2 (2022-02-17) - Oppdaterte avhengigheter
