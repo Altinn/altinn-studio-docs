@@ -1281,7 +1281,7 @@ felt som trigget valideringen er denne tilgjengelig i http-konteksten som en hea
 Eksempelet som omhandler flere komplekse valideringer viser hvordan dette kan implementeres.</p>
 <p>Det er gjort flere ting for å få denne kodesnutten til å kjøre</p>
 <ol>
-<li>I <em>ValidationHandler.cs</em> inkluderes <code>using Microsoft.Extensions.Privites;</code> øverst i filen for å kunne ta i bruk <code>StringValues</code>.</li>
+<li>I <em>ValidationHandler.cs</em> inkluderes <code>using Microsoft.Extensions.Primitives;</code> øverst i filen for å kunne ta i bruk <code>StringValues</code>.</li>
 <li>I <em>App.cs</em> inkluderes <code>using Microsoft.AspNetCore.Http;</code> øverst i filen for å kunne ta i bruk <code>IHttpContextAccessor</code>.</li>
 <li>I <em>App.cs</em> dependency injectes <code>IHttpContextAccessor</code> i konstruktøren og sendes med videre til ValidationHandler.</li>
 </ol>
