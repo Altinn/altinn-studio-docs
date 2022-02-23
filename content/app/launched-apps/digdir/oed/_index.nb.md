@@ -2,29 +2,16 @@
 title: Oppgjør etter dødsfall
 description: Dokumentasjon av arkitektur, design, funksjonalitet og apper relatert til oppgjør etter dødsfall.
 tags: [app]
+toc: true
 ---
 
-**Innholdsfortegnelse**
-1. [Innledning](#innledning)
-2. [Oppdeling i Tjenester 3.0 apper](#oppdeling-i-tjenester-30-apper)
-3. [Grensesnitt mot Domstolene](#grensesnitt-mot-domstolene)
-4. [Grensesnitt data fra eksterne aktører](#grensesnitt-data-fra-eksterne-aktører)
-    - [Autorisasjon](#autorisasjon)
-    - [Lagring av innhentede data](#lagring-av-innhentede-data)
-    - [Intern implementasjon](#intern-implementasjon)
-    - [Liste over grensesnitt](#liste-over-grensesnitt)
-    - [Testdata](#testdata)
-5. [Grensesnitt for å hente ut data](#grensesnitt-for-å-hente-ut-data)
-6. [Custom GUI for hoved app](#custom-gui-for-hoved-app)
-7. [Drift og overvåkning](#drift-og-overvåkning)
-
-#  Innledning
+##  Innledning
 
 Figuren under viser de viktigste komponentene i løsningen. OED er
 realisert som en serie Tjenester 3.0 app'er med en overordnet app med
 skreddersydd GUI og øvrige Tjenester 3.0 apper for spesifikke formål.
 
-![Overordnet applikasjonsarkitektur](OED_applikasjonsarkitektur_overordnet.png "Overordnet applikasjonsarkitektur")
+![Overordnet applikasjonsarkitektur](applikasjonsarkitektur-overordnet.svg "Overordnet applikasjonsarkitektur")
 
 App'ene kan ikke instansieres fra tjenestekatalogen. Hovedapp'en
 instansieres utelukkende fra Domstol grensesnittet, og «Altinn avgiver»
@@ -36,12 +23,12 @@ direktelenke til riktig instans i Tjenester 3.0. Se for øvrig 3
 Grensesnitt mot Domstolene.
 
 Løsningens hovedapp har følgende adresse i Altinn Studio:
-<https://altinn.studio/designer/digdir/oed> (designer) og
-<https://altinn.studio/repos/digdir/oed> (kode).
+[designer](https://altinn.studio/designer/digdir/oed) og
+[kode](https://altinn.studio/repos/digdir/oed).
 
-#  Oppdeling i Tjenester 3.0 apper
+##  Oppdeling i Tjenester 3.0 apper
 
-![Subapper applikasjonsarkitektur](OED_applikasjonsarkitektur_subapps.png "Subapper applikasjonsarkitektur")
+![Subapper applikasjonsarkitektur](applikasjonsarkitektur-subapps.svg "Subapper applikasjonsarkitektur")
 
 Hovedapp'en har et skreddersydd brukergrensesnitt fordi Tjenester 3.0
 p.t. ikke støtter å lage vilkårlige applikasjoner. Løsningen er derfor
@@ -85,7 +72,7 @@ finnes her:
 OED: https://github.com/Altinn/oed/issues/442\
 T3.0: https://github.com/Altinn/altinn-studio/issues/6880
 
-# Grensesnitt mot Domstolene
+## Grensesnitt mot Domstolene
 
 Grensesnittet for å motta data fra Domstolene er definert av Domstolene
 og ligger på [GitHub - Altinn/oed-da](https://github.com/Altinn/oed-da).
@@ -129,13 +116,13 @@ Batchen kjøres automatisk ved regelmessige intervaller og gjør følgende:
 Batchen ligger i Altinn II repo for batcher og heter
 Altinn.SBL.Batch.DA.
 
-# Grensesnitt data fra eksterne aktører
+## Grensesnitt data fra eksterne aktører
 
-## Autorisasjon
+### Autorisasjon
 
 Nedenfor beskrives hva som ligger til grunn for autorisasjonen.
 
-![Autorisasjon applikasjonsarkitektur](OED_applikasjonsarkitektur_autorisasjon.png "Autorisasjon applikasjonsarkitektur")
+![Autorisasjon applikasjonsarkitektur](applikasjonsarkitektur-autorisasjon.svg "Autorisasjon applikasjonsarkitektur")
 
 **Implisitt fullmakt fra DA (1-2)**
 
@@ -220,7 +207,7 @@ grensesnittet? Er for øvrig relatert til forrige punkt. Hvorvidt
 fullmakt blir en ny hendelse eller ikke påvirker ikke beskrivelsen over
 annet enn at DA grensesnittet eventuelt må oppdateres.
 
-## Lagring av innhentede data
+### Lagring av innhentede data
 
 Det er gjort konfigurerbart (via felles kode -- se 4.3 Intern
 implementasjon) hvorvidt man skal lagre data fra aktørene blant
@@ -229,7 +216,7 @@ først å hente friske data når arvingen åpner app'en. Dataene lagres
 samtidig. Hvis man ikke får tak i data og det ligger data på instansen
 fra før, vises disse.
 
-## Intern implementasjon
+### Intern implementasjon
 
 De fleste grensesnittene har Swagger spesifikasjoner. Der dette ikke
 finnes lager vi Swagger manuelt. Det benyttes standard mekanismer i
@@ -253,81 +240,27 @@ Kontrolleren har felles kode for alle grensesnittene for å:
 De genererte klientene konfigureres i startup.cs. Her hentes vertsnavn
 fra miljøspesifikke konfigurasjonsfiler.
 
-## Liste over grensesnitt
+### Liste over grensesnitt
 
 P.t. benyttes følgende grensesnitt
-
-<table>
-  <tr>
-    <th>Aktør</th>
-    <th>Eks\*)</th>
-    <th>Swagger</th>
-  </tr>
-  <tr>
-    <td>Skatt</td>
-    <td></td>
-    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvregning.json"/></td>
-  </tr>
-  <tr>
-    <td>Skatt</td>
-    <td></td>
-    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Skatt2020.json"/></td>
-  </tr>
-  <tr>
-    <td>Skatt</td>
-    <td></td>
-    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvailableData.json"/></td>
-  </tr>
-  <tr>
-    <td>Kartverket</td>
-    <td>x</td>
-    <td><a href="https://syntest.grunnbok.no/oed/v2/api-docs"/></td>
-  </tr>
-  <tr>
-    <td>SVV</td>
-    <td>x</td>
-    <td><a href="https://vegvesen.github.io/ak-api/filer/api/api_kjoretoysok_46.json"/></td>
-  </tr>
-  <tr>
-    <td>Norsk Pensjon</td>
-    <td>x</td>
-    <td><a href="https://webservice.preprod.norskpensjon.no/oed/v3/api-docs"/></td>
-  </tr>
-  <tr>
-    <td>Bank KAR</td>
-    <td>x</td>
-    <td><a href="https://bitsnorge.github.io/dsop-kfr-api/dsop-kfr-api.yaml"/></td>
-  </tr>
-  <tr>
-    <td>Bank konto</td>
-    <td>x</td>
-    <td><a href="https://bitsnorge.github.io/dsop-accounts-api-v1p1/dsop-accounts-api-v1p1.yaml"/></td>
-  </tr>
-  <tr>
-    <td>Geo Norge</td>
-    <td>x</td>
-    <td><a href="https://ws.geonorge.no/kommuneinfo/v1/openapi.json"/></td>
-  </tr>
-  <tr>
-    <td>Geo Norge</td>
-    <td>x</td>
-    <td><a href="https://ws.geonorge.no/adresser/v1/openapi.json"/></td>
-  </tr>
-  <tr>
-    <td>Landbruk</td>
-    <td></td>
-    <td><a href="https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Landbruk.json"/></td>
-  </tr>
-  <tr>
-    <td>Ekstepakt</td>
-    <td>x</td>
-    <td><a href="https://ws-test.brreg.no/losore/heftelser/LosoreOnlineService?wsdl">n/a Soap grensesnitt<a/></td>
-  </tr>
-</table>
+| Aktør         | Eks\*) | Swagger                                                                                                             |
+|---------------|--------|---------------------------------------------------------------------------------------------------------------------------|
+| Skatt         |        | [Skatt avregning](https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvregning.json)              |
+| Skatt         |        | [Skatt 2020](https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Skatt2020.json)                        |
+| Skatt         |        | [Skatt tilgjengelige data](https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/SkattAvailableData.json) |
+| Kartverket    | x      | [API docs](https://syntest.grunnbok.no/oed/v2/api-docs)                                                                   |
+| SVV           | x      | [Kjøretøy søk](https://vegvesen.github.io/ak-api/filer/api/api_kjoretoysok_46.json)                                       |
+| Norsk Pensjon | x      | [API docs](https://webservice.preprod.norskpensjon.no/oed/v3/api-docs)                                                    |
+| Bank KAR      | x      | [DSOP KFR API](https://bitsnorge.github.io/dsop-kfr-api/dsop-kfr-api.yaml)                                                |
+| Bank konto    | x      | [DSOP Konto API](https://bitsnorge.github.io/dsop-accounts-api-v1p1/dsop-accounts-api-v1p1.yaml)                          |
+| Geo Norge     | x      | [Kommune API](https://ws.geonorge.no/kommuneinfo/v1/openapi.json)                                                         |
+| Geo Norge     | x      | [Adresse API](https://ws.geonorge.no/adresser/v1/openapi.json)                                                            |
+| Landbruk      |        | [API docs](https://altinn.studio/repos/digdir/oed/src/branch/master/App/OpenAPIs/Landbruk.json)                           |
+| Ektepakt      | x      | [n/a SOAP grensesnitt](https://ws-test.brreg.no/losore/heftelser/LosoreOnlineService?wsdl)                                |
 
 \*) Betyr at swagger kommer fra aktør og ikke er konstruert av OED
 
-## Testdata
+### Testdata
 
 Det mest optimale hadde vært om man kunne definere felles testdata på
 tvers av alle aktører i OED. Dette er imidlertid ikke realistisk på kort
@@ -341,22 +274,21 @@ Mappingen ligger som kode i metoden MapSsn i ExternalAPIController.
 Kode for å autorisere mot Maskinporten og eventuell utveksling av token
 fra Maskinporten til Altinn JWT ligger i Util/MaskinportenUtil.
 
-# Grensesnitt for å hente ut data
+## Grensesnitt for å hente ut data
 
 Eksterne aktører -- i første omgang primært Domstolene -- kan hente ut
 data via standardiserte Api fra Tjenester 3.0. Dette er beskrevet i
 [Storage API -- Altinn](https://docs.altinn.studio/api/storage/).
 
 Det anbefales å benytte en hendelsesbasert innfallsvinkel til å hente ut
-data. Dette er beskrevet i [Integration & Data Transport Capabilties --
-Altinn](https://docs.altinn.studio/technology/architecture/capabilities/runtime/integration/).
+data. Dette er beskrevet i [Integration & Data Transport Capabilties --Altinn](https://docs.altinn.studio/technology/architecture/capabilities/runtime/integration/).
 
 Det finnes tilgjengelige data fra hver app. Det antas at Domstolene i
 første omgang vil hente data fra skjema app'ene. Avdøde vil være
 «instance owner». Fødselsnummeret til den arvingen som fylte ut
 skjemaet, vil ligge som «data value» med nøkkel «ssn».
 
-# Custom GUI for hoved app
+## Custom GUI for hoved app
 
 Tjenester 3.0 tilbyr p.t. ingen støtte for skreddersydde
 brukergrensesnitt, som man trenger i hovedapp. Det er derfor tatt
@@ -397,7 +329,7 @@ mye data som kommer fra kopien av Tjenester 3.0 sin klient og Redux
 Store har blitt utvidet til å inneha data fra eksterne aktører,
 eksempelvis data fra banker, Statens Vegvesen, Norsk Pensjon og andre.
 
-# Drift og overvåkning
+## Drift og overvåkning
 
 Før man kan gå i produksjon må det avklares hvordan løsningen kan
 driftes og overvåkes. Viktige momenter vil være:
