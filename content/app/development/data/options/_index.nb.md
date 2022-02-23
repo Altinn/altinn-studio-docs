@@ -104,7 +104,7 @@ Interfacene har en egenskap `Id`, som skal settes til til den id'en man skal sp�
 
 {{%/notice%}}
 
-Om du ønsker å eksponere kodelister som inneholder sensitive data som man ikke ønsker skal være tilgjengelige i et åpent API kan man benytte `IInstanceAppOptionsProvider`. Disse kodelistene validerer mot autorisasjonspolicy definert i applikasjonens `policy.xaml`-fil.
+Om du ønsker å eksponere kodelister som inneholder sensitive data som man ikke ønsker skal være tilgjengelige i et åpent API kan man benytte `IInstanceAppOptionsProvider`. Disse kodelistene validerer at brukeren har lesetilgang definert i applikasjonens `policy.xaml`-fil.
 Under finner du et eksempel på man setter opp en sikret kodeliste. Interfacet `IInstanceAppOptionsProvider` må implementeres og en `secure` boolean må legges på komponenten.
 Her vil man få ut den oppsatte kodelisten i det appen får et kall mot `/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`.
 
