@@ -1034,7 +1034,7 @@ if(host != "localhost")
               <p class="a-leadText" id="leadText">How to configure Options / Code lists for an app.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
     <li><a href="#static-codelists-from-the-application-repository">Static codelists from the application repository</a></li>
-    <li><a href="#codelists-generated-runtime">Codelists generated runtime</a></li>
+    <li><a href="#dynamic-codelists-generated-runtime">Dynamic codelists generated runtime</a></li>
     <li><a href="#connect-the-component-to-options-code-list">Connect the component to options (code list)</a></li>
     <li><a href="#pass-query-parameters-when-fetching-options">Pass query parameters when fetching options</a></li>
   </ul>
@@ -1043,7 +1043,7 @@ if(host != "localhost")
 
 
 
-<p>Altinn offers two different ways an application can use code lists. Both is done through the options api exposed by the application, and the code lists are available through the endpoint <code>{org}/{app}/api/options/{optionsId}</code>.
+<p>Altinn offers two different ways an application can use code lists - static and dynamic. Both is done through the options api exposed by the application, and the code lists are available through the endpoint <code>{org}/{app}/api/options/{optionsId}</code>.
 Checkbox, Dropdown, and RadioButton components will automatically be able to fetch such lists if you connect the component to the option id in question.</p>
 <h2 id="static-codelists-from-the-application-repository">Static codelists from the application repository</h2>
 <p>By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the <code>App/options/</code> folder and be named according to the following conventions <code>{optionId}.json</code> for the application to recgonize them.</p>
@@ -1063,10 +1063,12 @@ Checkbox, Dropdown, and RadioButton components will automatically be able to fet
     }
 ]
 </code></pre></div><p>Note that the <code>label</code> field can be a key to a text resource (as shown above for sweden) or plain text.</p>
-<h2 id="codelists-generated-runtime">Codelists generated runtime</h2>
-<p>As an alternative to the static files you can have code that determines what the lists should be during runtime. This makes it possible to expose dynamic values that for instance are filtered or looked up in external sources.</p>
-<p>In versions prior to 4.24.0 this was done by overriding the <code>GetOptions</code> method in <code>App.cs</code>. This method is now deprecated and is replaced by implementing the <code>IAppOptionsProvider</code> interface and registering the implementation in the application dependency injection container. This allows for better separation, inject dependencies into the constructor, pass in language and other query parameters and generally handle all aspects of the implementation as you see fit.</p>
-<p>Below you find an example of how to implement a custom options provider. The url will will still be exposed from the same endpoint as before <code>{org}/{app}/api/options/countires</code>.</p>
+<h2 id="dynamic-codelists-generated-runtime">Dynamic codelists generated runtime</h2>
+<p>As an alternative to the static files you can have code that determines what the lists should be during runtime. This makes it possible to expose dynamic values that for instance are filtered or looked up in external sources. Dynamic codelists can either be open and accessible to all or secured and limited to those with read access to the instance.</p>
+<p>In versions prior to 4.24.0 this was done by overriding the <code>GetOptions</code> method in <code>App.cs</code>. This method is now deprecated and is replaced by putting the option code in separate classes implementing an interface and registering the implementation in the application dependency injection container. This allows for better separation, inject dependencies into the constructor, pass in language and other query parameters and generally handle all aspects of the implementation as you see fit.</p>
+<p>For codelists that are open you implement the <code>IAppOptionsProvider</code> interface and for codelists that should be secured you implement the <code>IInstanceAppOptionsProvider</code> interface. The pattern is the same for both, and the models returned is the same, but the implementation is kept separate to avoid exposing data that should be secured.</p>
+<h3 id="open-dynamic-codelists">Open dynamic codelists</h3>
+<p>Below you find an example of how to implement a open custom options provider. The url will will still be exposed from the same endpoint as before <code>{org}/{app}/api/options/countires</code>.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
 <span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Options;
 <span style="color:#ff79c6">using</span> System.Collections.Generic;
@@ -1109,7 +1111,77 @@ Checkbox, Dropdown, and RadioButton components will automatically be able to fet
 <blockquote>
 <p>Language codes should be based on ISO 639-1 or the W3C IANA Language Subtag Registry. The latter is built uppon the ISO 639-1 standard but is guaranties uniques of the codes, where as ISO 639-1 have conflicting usage for some codes.</p>
 </blockquote>
-<h2 id="connect-the-component-to-options-code-list">Connect the component to options (code list)</h2>
+<h3 id="secured-dynamic-options">Secured dynamic options</h3>
+<div class="notices warning" >
+<p><strong>NOTICE:</strong> to use this functionality the app must use version &gt;= 4.27.0 of the nuget packages <code>Altinn.App.PlatformServices</code>, <code>Altinn.App.Common</code> and <code>Altinn.App.Api</code>.</p>
+</div>
+<p>If you want to expose options that are sensitive you can use <code>IInstanceAppOptionsProvider</code>, which will validate that the user has read rights defined in the authorization policy defined in the app&rsquo;s <code>policy.xml</code>-file.
+Below you find an example of how to implement a secured custom options provider. The <code>IInstanceAppOptionsProvider</code> interface must be implemented, and a <code>secure</code>-prop must be added to the component.
+The following option will be exposed at <code>/{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Collections.Generic;
+<span style="color:#ff79c6">using</span> System.Threading.Tasks;
+<span style="color:#ff79c6">using</span> Altinn.App.Common.Models;
+<span style="color:#ff79c6">using</span> Altinn.App.PlatformServices.Models;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.Core
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ChildrenAppOptionsProvider</span> : IInstanceAppOptionsProvider
+    {
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; } = <span style="color:#f1fa8c">&#34;children&#34;</span>;
+
+        <span style="color:#ff79c6">public</span> Task&lt;AppOptions&gt; GetInstanceAppOptionsAsync(InstanceIdentifier instanceIdentifier, <span style="color:#8be9fd">string</span> language, Dictionary&lt;<span style="color:#8be9fd">string</span>, <span style="color:#8be9fd">string</span>&gt; keyValuePairs)
+        {
+            <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// Some custom code to get the list of children from the instance owner
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>
+            <span style="color:#8be9fd">var</span> options = <span style="color:#ff79c6">new</span> AppOptions
+            {
+                Options = <span style="color:#ff79c6">new</span> List&lt;AppOption&gt;
+                    {
+                        <span style="color:#ff79c6">new</span> AppOption
+                        {
+                            Label = <span style="color:#f1fa8c">&#34;Ole&#34;</span>,
+                            Value = <span style="color:#f1fa8c">&#34;1&#34;</span>
+                        },
+                        <span style="color:#ff79c6">new</span> AppOption
+                        {
+                            Label = <span style="color:#f1fa8c">&#34;Dole&#34;</span>,
+                            Value = <span style="color:#f1fa8c">&#34;2&#34;</span>
+                        },
+                        <span style="color:#ff79c6">new</span> AppOption
+                        {
+                            Label = <span style="color:#f1fa8c">&#34;Doffen&#34;</span>,
+                            Value = <span style="color:#f1fa8c">&#34;3&#34;</span>
+                        }
+                    }
+            };
+
+            <span style="color:#ff79c6">return</span> Task.FromResult(options);
+        }
+    }
+}
+
+</code></pre></div><p>For your implementation to be picked up you need to add the following line in your <code>Startup.cs</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">services.AddTransient&lt;IInstanceAppOptionsProvider, ChildrenAppOptionsProvider&gt;();
+</code></pre></div><p>Note that you can have multiple registrations of this interface. The correct implementation is resolved by finding the one with the correct id.</p>
+<p>The interface has a property <code>Id</code>, which should be set to the optionId, and a method <code>GetInstanceAppOptionsAsync</code> for resolving the options. This method accepts a language code and a dictionary of key/value pairs. Both parameters will typically be query parameters picked up from the controller and passed in. Allthough language could be put in the dictionary as well it&rsquo;s decided to be explicit on this particular parameter. These parameters are the same as for the open variant of options, in addition the instance id (which identifies both the instance owner and the instance itself) will be passed in.</p>
+<p>The final configuration needed is the <code>secure</code>-boolean on the component. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">      {
+        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;dropdown-component&#34;</span>,
+        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Dropdown&#34;</span>,
+        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Some title&#34;</span>,
+          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Some description&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+          <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;some.field&#34;</span>
+        },
+        <span style="color:#ff79c6">&#34;required&#34;</span>: <span style="color:#ff79c6">true</span>,
+        <span style="color:#ff79c6">&#34;optionsId&#34;</span>: <span style="color:#f1fa8c">&#34;children&#34;</span>,
+<span style="display:block;width:100%;background-color:#3d3f4a">        <span style="color:#ff79c6">&#34;secure&#34;</span>: <span style="color:#ff79c6">true</span>
+</span>      }
+</code></pre></div><h2 id="connect-the-component-to-options-code-list">Connect the component to options (code list)</h2>
 <p>This is done by adding the optionId you would like to refer to either through the component UI in Designer or direcytly in <code>FormLayout.json</code> as shown below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;8e6f7b2f-fcf0-438d-8336-c1a8e1e03f44&#34;</span>,
