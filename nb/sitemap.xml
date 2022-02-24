@@ -1967,6 +1967,16 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/launched-apps/digdir/oed/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/launched-apps/digdir/oed/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/launched-apps/digdir/oed/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/nb/app/testing/local/apitests/org/</loc>
     <xhtml:link
