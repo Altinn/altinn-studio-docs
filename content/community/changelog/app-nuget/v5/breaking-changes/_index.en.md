@@ -1,0 +1,84 @@
+---
+title: Breaking changes
+description: Oversikt over breaking changes introdusert i App Nuget-pakker i v5.0.0.
+tags: [translate-to-norwegian]
+---
+
+Altinn.App.* librarires target .Net 6 now, which requires that the application does the same.
+
+In addition, all references to app and platform services have been moved from Startup.cs and should be replaced with 
+two method calls.
+
+Follow the instructions below to ensure that the app is compatible with version 4 of the Altinn.App.* packages.
+
+
+1. Update target framework and package dependencies
+
+    Navigate to you application repository and find `App.csproj` in the `App` folder. 
+
+    Update target framework to .Net 5 by replacing 
+
+    ```xml
+  <TargetFramework>net5.0</TargetFramework>
+    ```
+    with 
+
+    ```xml
+    <TargetFramework>net6.0</TargetFramework>
+    ```
+    In the same file, update the Altinn.App.* package references to version 5.0.0.  
+
+    ```xml
+    <PackageReference Include="Altinn.App.Api" Version="5.0.0">
+      <CopyToOutputDirectory>lib\$(TargetFramework)\*.xml</CopyToOutputDirectory>
+    </PackageReference>
+    <PackageReference Include="Altinn.App.Common" Version="5.0.0" />
+    <PackageReference Include="Altinn.App.PlatformServices" Version="5.0.0" />
+    ```
+
+    The changes in the file should match the image below:
+
+    ![Changes in App.csproj](appproj-changes.png "Changes in App.csproj")
+
+2. Update Dockerfile to use .Net 6 images
+
+    The Dockerfile can be found in the root folder of the application repository.
+
+    Update build image by replacing 
+
+    ```Dockerfile
+    FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build
+    ```
+
+    with 
+
+    ```Dockerfile
+    FROM mcr.microsoft.com/dotnet/sdk:6.0.102-alpine3.14 AS build
+    ```
+
+    And update the runtime image by replacing 
+
+    ```Dockerfile
+    FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS final
+    ```
+
+    with 
+
+    ```Dockerfile
+    FROM mcr.microsoft.com/dotnet/aspnet:6.0.2-alpine3.14 AS final
+    ```
+    The changes in the file should match the image below:
+
+    ![Changes in the Dockerfile](dockerfile-updates.png "Changes in the Dockerfile")
+
+3. Update program.cs
+
+The structure of program.cs has changed for dot net 6. Copy code from [this file](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/Program.cs). 
+
+4. Add custom service referances
+
+If you have already added custom services and other changes to startup.cs and program.cs you need to add it to program.vs
+
+5. Delete startup.cs
+   
+This is no longer needed
