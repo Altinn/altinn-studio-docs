@@ -149,7 +149,9 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/getting-started/access-management/apps/"><span>Apps</span></a></li>
       <li class="dd-item">
-        <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+        <a href="/nb/app/getting-started/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/app/getting-started/local-dev/"><span>Lokal utvikling</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/nb/app/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
@@ -505,12 +507,29 @@ En app kan være alt fra enkle skjemaer til større applikasjoner med både API-
 <p>Du lager en ny app fra dashboardet i Altinn Studio.</p>
 <figure><a href="overview.png"><img src="overview.png" alt="Dashboardet i Altinn Studio" title="Dashboard - oversikt" /></a><figcaption><h4>Dashboard - oversikt</h4></figcaption></figure>
 <ol>
-<li>Klikk på &ldquo;<strong>ny app</strong>&quot;-knappen i det øvre høyre hjørnet av dashboardet.</li>
-<li>Velg hvem som skal være <strong>eier</strong> av appen. Hvis du ikke har tilgang for noen organisasjoner, må du velge deg selv så du lager appen i din sandkasse.</li>
-<li>Legg inn <strong>navnet</strong> på appen. Dette navnet brukes til å identifisere appen, og brukes også som navn på repository, og i URL-er og API-er.
-Navnet bør være kort og beskrivende som for eksempel &ldquo;sykmelding&rdquo; eller &ldquo;lokalvalg-2019&rdquo;.<br>
-<em>Navnet kan <strong>ikke</strong> endres etter at appen er gått i produksjon.</em></li>
-<li>Opprett appen ved å klikke &ldquo;<strong>Opprett applikasjon</strong>&rdquo;.</li>
+<li>
+<p>Klikk på &ldquo;<strong>ny app</strong>&quot;-knappen i det øvre høyre hjørnet av dashboardet.</p>
+</li>
+<li>
+<p>Velg hvem som skal være <strong>eier</strong> av appen. Hvis du ikke har tilgang for noen organisasjoner, må du velge deg selv så du lager appen i din sandkasse.</p>
+</li>
+<li>
+<p>Legg inn <strong>navnet</strong> på appen.</p>
+<p>Dette navnet brukes til å identifisere appen, og brukes også som navn på repository, og i URL-er og API-er
+Det er noen regler knyttet til navngivning av en applikasjon, utover dette bør være kort og beskrivende som for eksempel &ldquo;sykmelding&rdquo; eller &ldquo;lokalvalg-2019&rdquo;.</p>
+<p><em>Navnet kan <strong>ikke</strong> endres etter at appen er gått i produksjon.</em></p>
+<blockquote>
+<p><strong>Regler for navngivning av applikasjon</strong></p>
+<ul>
+<li>Kan kun inneholde lowercase alfanumeriske tegn og bindestrek (-),</li>
+<li>Navnet må begynne med en bokstav</li>
+<li>Navnet må ende med en bokstav eller et tall</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>Opprett appen ved å klikke &ldquo;<strong>Opprett applikasjon</strong>&rdquo;.</p>
+</li>
 </ol>
 <figure><a href="new-app.png"><img src="new-app.png" alt="Ny app popup" title="Opprett en ny app" /></a><figcaption><h4>Opprett en ny app</h4></figcaption></figure>
 <p>Når apppen er opprettet vil du videresendes til den nyopprettede appen.</p>

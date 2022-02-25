@@ -1238,6 +1238,18 @@
                 href="https://docs.altinn.studio/nb/api/apps/validation/"
                 />
   </url><url>
+    <loc>https://docs.altinn.studio/nb/app/getting-started/local-dev/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/getting-started/local-dev/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/getting-started/local-dev/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/nb/app/getting-started/navigation/code/</loc>
     <xhtml:link
                 rel="alternate"
