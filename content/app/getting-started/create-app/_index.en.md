@@ -12,7 +12,7 @@ You create an app from the dashboard in Altinn Studio.
 
 ![Dashboard in Altinn Studio](overview.png "Dashboard - overview")
 
-1. Click on "**ny app**"-button in the top right corner of the dashboard.
+1. Click on "**Opprett ny applikasjon**"-button in the top right corner of the dashboard.
 2. Select the **eier** of the app. If you don't have access to any organisations, you have to select your self and the app would be created in your "sandbox".
 3. Add the **navn** of the app.
     This name is used to identify the application and will be used as the repository name, in URL's, and APIs.
