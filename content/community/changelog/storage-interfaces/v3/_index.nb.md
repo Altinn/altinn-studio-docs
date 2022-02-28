@@ -5,8 +5,11 @@ toc: true
 weight: 90
 ---
 
+## 3.7.0 Utvidet PlatformUser med `nationalIdentityNumber` egenskap
+- `PlatformUser` modellen har blitt utvidet med en ny egenskap `nationalIdentityNumber`.
+
 ## 3.6.0 Utvidet InstanceOwner med `username` egenskap
-- `InstanceOwner` modellen har blitt utviden med en ny egenskap `username`.
+- `InstanceOwner` modellen har blitt utvidet med en ny egenskap `username`.
 
 ## 3.5.0 Lagt til CopyInstanceSettings på modellen Application
 - `Application` modellen har blitt utvidet med en ny egenskap for å holde på konfigurasjon knyttet til kopiering av instans.
