@@ -1193,8 +1193,8 @@
 	"uri": "https://docs.altinn.studio/nb/community/devops/teams/platform/",
 	"title": "Platform",
 	"tags": [],
-	"description": "Team Platform",
-	"content": "\r\r"
+	"description": "DevOps teamet Platform jobber hovedsaklig med Altinn 3 sine platform applikasjoner og drift av disse.",
+	"content": "Arbeidsområde Platform teamet har ansvar for de fleste felles tjenestene for Altinn 3. Dette inkluderer videreutvikling, retting av feil og mangler, infrastruktur og tilgjengelighet.\nRepository\nEvents Applikasjonen Events og tilhørende funksjoner i Azure gir Altinn 3 en mekanisme for å publisere og abonnere på hendelser.\nRepository\nPdf Applikasjonen Pdf kan benyttes til å generere PDF dokumenter av Altinn 3 skjema.\nRepository\nProfile Applikasjonen Profile gir Altinn 3 tilgang til profilinformasjon på brukere i Altinn.\nRepository\nReceipt Applikasjonen Receipt er et system for å vise en kvittering på at et skjema er fylt ut og ferdistilt.\nRepository\nRegister Applikasjonen Register gir Altinn 3 tilgang til registerinformasjon på personer og virksomheter som opererer i Norge.\nRepository\nStorage Applikasjonen Storage gir en app i Altinn 3 et sted å lagre data som blir samlet inn, og metadata om tilstanden til skjema under utfylling.\nSBLBridge Applikasjonen SBLBridge er Altinn 3 sin proxy inn mot Altinn 2 systemet.\nAnnen infrastruktur Teamet har også ansvar for alle applikasjonseierspesifikke Kubernetes cluster, og Dev-Test-Lab miljøet ai-dev med alle utviklermaskiner.\n"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/tags/platform/",
@@ -1292,7 +1292,7 @@
 	"title": "Teams",
 	"tags": [],
 	"description": "Våre DevOps-teams",
-	"content": "\r\rApps\rTeam Apps\n\r\rPlatform\rTeam Platform\n\r\rStudio\rTeam Studio\n\r\r"
+	"content": "\r\rApps\rTeam Apps\n\r\rPlatform\rDevOps teamet Platform jobber hovedsaklig med Altinn 3 sine platform applikasjoner og drift av disse.\n\r\rStudio\rTeam Studio\n\r\r"
 },
 {
 	"uri": "https://docs.altinn.studio/nb/app/testing/local/testusers/",
