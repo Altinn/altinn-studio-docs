@@ -7,7 +7,7 @@ weight: 40
 
 {{%notice warning%}}
 
-**MERK:** bildekomponenten er enda ikke støttet i PDF-genereringen og vil derfor bli ignorert fra PDF-visningen.
+**MERK:** bildekomponenten er enda ikke støttet i PDF-genereringen og vil derfor bli ignorert i PDF-visningen.
 {{%/notice%}} 
 
 ## Legge til bilder i applikasjonen
