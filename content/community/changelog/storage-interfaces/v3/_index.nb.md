@@ -5,6 +5,9 @@ toc: true
 weight: 90
 ---
 
+## 3.7.0 Utvidet PlatformUser med `nationalIdentityNumber` egenskap
+- `PlatformUser` modellen har blitt utviden med en ny egenskap `nationalIdentityNumber`.
+
 ## 3.6.0 Utvidet InstanceOwner med `username` egenskap
 - `InstanceOwner` modellen har blitt utviden med en ny egenskap `username`.
 
