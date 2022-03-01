@@ -4,6 +4,10 @@ description: Oversikt over endringer som ble introdusert i versjon 4.
 toc: true
 tags: [translate-to-norwegian]
 ---
+
+## 4.29.0 (01.03.2022) - Person oppslagstjeneste
+Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.
+
 ## 4.27.0 (23.02.2022) - Sikre kodelister
 Lagt til støtte for sikre kodelister
 Rettet url og parameter logik i GetInstanceEvents
@@ -115,20 +119,20 @@ public class Skjema {
 ```
 Denne endringen må foreløpig bli utført manuelt i både gamle og nye modeller. Modeleditoren i altinn.studio har ikke blitt oppdatert til å gjøre det automatisk.
 
-## 4.13.0 (2021-09-03) - Event for changed substatus on instance
-Changing the substatus of an instance triggers an event `app.instance.substatus.changed` which can be subscribed to in the event component.
+## 4.13.0 (2021-09-03) - Hendelse for endring av substatus
+Det å endre substatus på en instanse trigger nå en event av typen `app.instance.substatus.changed`. Dette kan eksterne systemer abonnere på via Events tjenesten.
 
-This solves issue [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
+Dette løser sak [#6691](https://github.com/Altinn/altinn-studio/issues/6691)
 
-## 4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests
-In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.
+## 4.12.0 (2021-08-27) - Identitetsdata inkludert i request telemetri
+Logging av requests til Application Insights nå inkluderer et lite set med identifiserende data for å mer effektivt kunne spore kilden til uvanlige requester. Følgende data punkter blir registrert:
 
 - partyId
 - authentication level
 - userId 
 - organisationNumber
 
-This solves issue [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
+Dette løse sak [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
 
 
 ## 4.11.1 (2021-08-26) - No longer possible to cache response from stateless apps

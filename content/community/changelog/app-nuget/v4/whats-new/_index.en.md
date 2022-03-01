@@ -3,6 +3,10 @@ title: What's new
 description: Overview of changes introduced in version 4.
 toc: true
 ---
+
+## 4.29.0 (01.03.2022) - Person lookup service client
+The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.
+
 ## 4.27.0 (23.02.2022) - Secure options endpoint
 Add support for secure options endpoints
 Fixed url and parameter separator logic in GetInstanceEvents

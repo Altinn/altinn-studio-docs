@@ -26,55 +26,55 @@ Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbru
 
 Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.
 
-```C# {hl_lines=[16,22]}
-      public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
+
+```C#
+public async Task<bool> ProcessDataWrite(
+    Instance instance, Guid? dataId, object data)
+{
+    bool edited = false;
+
+    if (data is SoknadUnntakKaranteneHotellVelferd model)
+    {
+        string org = instance.Org;
+        string app = instance.AppId.Split("/")[1];
+        int partyId = int.Parse(instance.InstanceOwner.PartyId);
+        Guid instanceGuid = Guid.Parse(instance.Id.Split("/")[1]);
+
+        // handling mapping of multiple choice velferdsgrunner
+        if (!string.IsNullOrEmpty(model.velferdsgrunner?.sammenstilling))
         {
-            bool edited = false;
+            model.velferdsgrunner.helseproblemer = model.velferdsgrunner.sammenstilling.Contains("helseproblemer");
+            model.velferdsgrunner.barnefodsel = model.velferdsgrunner.sammenstilling.Contains("barnefodsel");
+            model.velferdsgrunner.begravelse = model.velferdsgrunner.sammenstilling.Contains("begravelse");
+            model.velferdsgrunner.naerstaaende = model.velferdsgrunner.sammenstilling.Contains("naerstaaende");
+            model.velferdsgrunner.adopsjon = model.velferdsgrunner.sammenstilling.Contains("adopsjon");
+            model.velferdsgrunner.sarligeOmsorg = model.velferdsgrunner.sammenstilling.Contains("sarligeOmsorg");
+            model.velferdsgrunner.barnAlene = model.velferdsgrunner.sammenstilling.Contains("barnAlene");
+            model.velferdsgrunner.hjemmeeksamen = model.velferdsgrunner.sammenstilling.Contains("hjemmeeksamen");
+            model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains("arbeidunntak");
+            model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains("annet");
+            model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains("annet") ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : null;
 
-            if (data.GetType() == typeof(SoknadUnntakKaranteneHotellVelferd))
-            {
-                SoknadUnntakKaranteneHotellVelferd model = (SoknadUnntakKaranteneHotellVelferd)data;
-
-                HttpContext ctxt = _httpContextAccessor.HttpContext;
-
-                string org = instance.Org;
-                string app = instance.AppId.Split("/")[1];
-                int partyId = int.Parse(instance.InstanceOwner.PartyId);
-                Guid instanceGuid = Guid.Parse(instance.Id.Split("/")[1]);
-
-                // handling mapping of multiple choice velferdsgrunner
-                if (!string.IsNullOrEmpty(model.velferdsgrunner?.sammenstilling))
-                {
-                    model.velferdsgrunner.helseproblemer = model.velferdsgrunner.sammenstilling.Contains("helseproblemer") ? true : false;
-                    model.velferdsgrunner.barnefodsel = model.velferdsgrunner.sammenstilling.Contains("barnefodsel") ? true : false;
-                    model.velferdsgrunner.begravelse = model.velferdsgrunner.sammenstilling.Contains("begravelse") ? true : false;
-                    model.velferdsgrunner.naerstaaende = model.velferdsgrunner.sammenstilling.Contains("naerstaaende") ? true : false;
-                    model.velferdsgrunner.adopsjon = model.velferdsgrunner.sammenstilling.Contains("adopsjon") ? true : false;
-                    model.velferdsgrunner.sarligeOmsorg = model.velferdsgrunner.sammenstilling.Contains("sarligeOmsorg") ? true : false;
-                    model.velferdsgrunner.barnAlene = model.velferdsgrunner.sammenstilling.Contains("barnAlene") ? true : false;
-                    model.velferdsgrunner.hjemmeeksamen = model.velferdsgrunner.sammenstilling.Contains("hjemmeeksamen") ? true : false;
-                    model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains("arbeidunntak") ? true : false;
-                    model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains("annet") ? true : false;
-                    model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains("annet") ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : null;
-
-                    edited = true;
-                }
-                else
-                {
-                    model.velferdsgrunner = null;
-                }
-
-                // set data for receipt if not set
-                if (string.IsNullOrEmpty(model.applogic?.altinnRef))
-                {
-                    model.applogic ??= new Applogic();
-
-                    Party party = await _registerService.GetParty(int.Parse(instance.InstanceOwner.PartyId));
-                    model.applogic.avsender = $"{instance.InstanceOwner.PersonNumber}-{party.Name}";
-                    model.applogic.altinnRef = instance.Id.Split("-")[4];
-                }
-            }
-
-            return await Task.FromResult(edited);
+            edited = true;
         }
+        else
+        {
+            model.velferdsgrunner = null;
+        }
+
+        // set data for receipt if not set
+        if (string.IsNullOrEmpty(model.applogic?.altinnRef))
+        {
+            model.applogic ??= new Applogic();
+
+            Party party = await _registerService.GetParty(
+                int.Parse(instance.InstanceOwner.PartyId));
+            model.applogic.avsender = 
+                $"{instance.InstanceOwner.PersonNumber}-{party.Name}";
+            model.applogic.altinnRef = instance.Id.Split("-")[4];
+        }
+    }
+
+    return await Task.FromResult(edited);
+}
 ```
