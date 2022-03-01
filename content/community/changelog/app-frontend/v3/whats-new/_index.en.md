@@ -4,6 +4,14 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+# 3.32.2 (2022-03-01) - Run frontend rules on backend calculations
+Fixed a bug where frontend rules did not get triggered when a backend calculation has updated a connected field.
+Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
+
+# 3.32.1 (2022-02-28) - Bugfix for address component
+Fixed a bug where address component could get in a bad state and not fetch post place based on zip code.
+Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
 ## 3.32.0 (2022-02-23) - Secure options
 Now possible to setup secure options.
 Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).

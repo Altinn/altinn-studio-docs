@@ -4,6 +4,14 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
+# 3.32.2 (2022-03-01) - Kjøre frontendregler på serversidekalkuleringer
+Fikset en feil der frontend regler ikke ville bli kjørt når en kalkulering på serversiden oppdaterte et felt koblet til en regel.
+Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
+
+# 3.32.1 (2022-02-28) - Fikset feil i Adresse-komponenten
+Fikset en feil i adresse-komponenten hvor poststed enkelte ganger ikke ble oppdatert når man skrev inn postnummer.
+Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
 ## 3.32.0 (2022-02-23) - Sikrede options
 Er nå mulig å sette opp sikrede options.
 Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).
