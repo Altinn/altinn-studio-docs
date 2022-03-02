@@ -65,4 +65,25 @@ public App(
 
 ### Håndtering av feil
 
-Uten flere endringer enn de som er beskrevet over, vil en app begynne å svare med statuskode `429 - TooManyRequests` hvis brukeren har oppgitt feil data for mange ganger. Denne statuskoden er for øyeblikket ikke håndtert av frontend delen av app koden. Dette vil i utganspunktet resultere i "ukjent feil" som kan unngås ved å legge inn håndtering av exceptions. Det kan legges inn kode som fanger opp PlatformHttpException med en response med statuskode 429, men det er i dag ingen god innebygget mekanisme som kan brukes til å informere brukeren om hvorfor noe gikk galt. Det man eventuelt kan gjøre er å benytte et felt i datamodellen.
+Uten flere endringer enn de som er beskrevet over, vil app backend begynne å svare med statuskode `429 - TooManyRequests` hvis brukeren har oppgitt feil data for mange ganger. Denne statuskoden er for øyeblikket ikke håndtert av frontend delen av app koden. Dette vil i utganspunktet resultere i "ukjent feil" som kan unngås ved å legge inn håndtering av exceptions. Det kan legges inn kode som fanger opp PlatformHttpException med en response med statuskode 429, men det er i dag ingen god innebygget mekanisme som kan brukes til å informere brukeren om hvorfor noe gikk galt. Det man eventuelt kan gjøre er å benytte et felt i datamodellen.
+
+```C#
+try
+{
+    ...
+    return true;
+}
+catch (PlatformHttpException phex)
+{
+    switch (phex.Response.StatusCode)
+    {
+        case HttpStatusCode.TooManyRequests:
+            // Add corrective messures
+            break;
+        case HttpStatusCode.NotFound:
+            // Add corrective messures
+            break;
+    }
+    throw;
+}
+```

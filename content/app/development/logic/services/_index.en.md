@@ -64,4 +64,25 @@ public App(
 
 ### A note on exception handling
 
-With no other changes than those above, the app will return response code `429 - TooManyRequests` if the user has been typing in invalid data too many times. This response code is currently not handled by the frontend application code which results in an "unknown error". This can be avoided with exception handling that singles out any `PlatformHttpException` with a response with status code 429, but there are currently no built in mechanism to convey to the user why a request failed. A workaround for this limitation is to use a property on the data model.
+With no other changes than those above, the app backend will return response code `429 - TooManyRequests` if the user has been typing in invalid data too many times. This response code is currently not handled by the frontend react application which results in an "unknown error". This can be avoided with exception handling that singles out any `PlatformHttpException` with a response with status code 429, but there are currently no built in mechanism to convey to the user why a request failed. A workaround for this limitation is to use a property on the data model.
+
+```C#
+try
+{
+    ...
+    return true;
+}
+catch (PlatformHttpException phex)
+{
+    switch (phex.Response.StatusCode)
+    {
+        case HttpStatusCode.TooManyRequests:
+            // Add corrective messures
+            break;
+        case HttpStatusCode.NotFound:
+            // Add corrective messures
+            break;
+    }
+    throw;
+}
+```
