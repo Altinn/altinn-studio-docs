@@ -3,6 +3,10 @@ title: What's new
 description: Overview of changes introduced in version 4.
 toc: true
 ---
+## 4.27.0 (23.02.2022) - Secure options endpoint
+Add support for secure options endpoints
+Fixed url and parameter separator logic in GetInstanceEvents
+Change redirect url from string to base64 encoded string
 
 ## 4.26.0 (2022-02-10) - Improvements to text resource in relation to PDF
 

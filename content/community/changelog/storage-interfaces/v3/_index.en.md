@@ -5,6 +5,9 @@ toc: true
 weight: 90
 ---
 
+## 3.7.0 Extended PlatformUser with national identity number property
+- The `PlatformUser` model has been expanded with a new property to hold national identity number.
+
 ## 3.6.0 Extended InstanceOwner with username property
 - The `InstanceOwner` model has been expanded with a new property to hold username.
 

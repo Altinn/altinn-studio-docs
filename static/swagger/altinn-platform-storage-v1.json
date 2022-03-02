@@ -2924,6 +2924,10 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "nationalIdentityNumber": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

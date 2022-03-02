@@ -12,7 +12,7 @@ Before you can deploy an application to the production environment for the first
 
 To get the cluster provisioned, the following process applies:
 
-1. [Send an e-mail to product owner](mailto:lars.vegard.bachmann@digdir.no) with a message about which apps you have ready for deployment to production.
+1. [Send an e-mail](mailto:tjenesteeier@digdir.no) with a message about which apps you have ready for deployment to production.
 2. [Confirm that service owner accepts the terms of use](https://digdir.apps.altinn.no/digdir/godkjenn-bruksvilkaar)
 3. Wait for a reply that cluster is created.
 
