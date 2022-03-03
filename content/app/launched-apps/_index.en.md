@@ -11,7 +11,7 @@ weight: 800
 - Søk om tillatelse til å arbeide med asbest (Arbeidstilsynet)  
   [Info](https://www.altinn.no/skjemaoversikt/arbeidstilsynet/soknad-om-tillatelse-til-a-arbeide-med-asbest/) | [Repo](https://altinn.studio/repos/dat/asbest-soknad) | [App](https://dat.apps.altinn.no/dat/asbest-soknad/)
 
-## December 2021
+## January 2022
 
 - Behovskartlegging for opprettelse av vergemål (Statens sivilrettsforvaltning)  
   [Info](https://www.altinn.no/skjemaoversikt/statens-sivilrettsforvaltning/behovskartlegging-for-opprettelse-av-vergemal/) | [Repo](https://altinn.studio/repos/srf/fufinn-behovskartlegging) | [App](https://srf.apps.altinn.no/srf/fufinn-behovskartlegging/)
