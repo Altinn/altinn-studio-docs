@@ -3,14 +3,38 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+## 3.31.7 (2022-03-04) - Dependency patching
+Patching of external dependencies for week 9 of 2022.
+Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
 
-# 3.32.2 (2022-03-01) - Kjøre frontendregler på serversidekalkuleringer
+## 3.31.6 (2022-03-02) - Fixes validation on multiple tracks
+Fixed page validation on apps with multiple tracks.
+Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
+
+## 3.31.5 (2022-03-02) - Fixes for text elements
+Multiple fixes for texts and support for markdown in header component.
+Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
+Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
+
+## 3.31.4 (2022-03-01) - UX fixes for mobile view
+Fixed modal header padding in mobile view.
+Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
+
+# 3.32.3 (2022-03-01) - Run frontend rules on backend calculations
+Fixed a bug where frontend rules did not get triggered when a backend calculation has updated a connected field.
+Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
+
+# 3.32.3 (2022-03-01) - Kjøre frontendregler på serversidekalkuleringer
 Fikset en feil der frontend regler ikke ville bli kjørt når en kalkulering på serversiden oppdaterte et felt koblet til en regel.
 Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
 
-# 3.32.1 (2022-02-28) - Fikset feil i Adresse-komponenten
+# 3.32.2 (2022-02-28) - Fikset feil i Adresse-komponenten
 Fikset en feil i adresse-komponenten hvor poststed enkelte ganger ikke ble oppdatert når man skrev inn postnummer.
 Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
+# 3.32.1 (2022-02-25) - Bugfix for handling layout name
+Fixed app loading with layout name as data.
+Issue [#8125](https://github.com/Altinn/altinn-studio/issues/8125).
 
 ## 3.32.0 (2022-02-23) - Sikrede options
 Er nå mulig å sette opp sikrede options.
