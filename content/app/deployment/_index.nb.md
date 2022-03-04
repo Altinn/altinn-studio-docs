@@ -22,7 +22,7 @@ Produksjonssetting av applikasjonen gjøres på [samme måte som for testmiljøe
 
 ## Databehandleravtale for behandling av personopplysninger i Altinn
 
-Du må fylle ut [Vedlegg 1 til Bilag 2](https://www.altinndigital.no/globalassets/samarbeidsavtale-bilag-2.---vedlegg-1.xlsx) og sende dette til tjenesteeier@altinn.no
+Du må fylle ut [Vedlegg til Bilag 2](https://www.altinndigital.no/globalassets/samarbeidsavtale-bilag-2.---vedlegg-1.xlsx) og sende dette til tjenesteeier@altinn.no
 
 ## Bestille Om skjema-side
 
