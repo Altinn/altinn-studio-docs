@@ -3,14 +3,34 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+## 3.31.7 (2022-03-04) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 9 av 2022.
+Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
 
-# 3.32.2 (2022-03-01) - Kjøre frontendregler på serversidekalkuleringer
+## 3.31.6 (2022-03-02) - Forbedret validerings-støtte for sporvalg
+La til støtte for å kunne koble valideirngsmelding til data-felt som ble brukt på flere sider.s
+Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
+
+## 3.31.5 (2022-03-02) - Forbedringer i tekster
+Ulike forbedringer relatert til teksthåndtering. La også til støtte for markdown i tittel-komponentens.
+Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
+Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
+
+## 3.31.4 (2022-03-01) - Visuelle fikser i modalen.
+Justeringer i padding i modalen i mobilvisningen.s
+Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).z
+s
+# 3.32.3 (2022-03-01) - Kjøre frontendregler på serversidekalkuleringer
 Fikset en feil der frontend regler ikke ville bli kjørt når en kalkulering på serversiden oppdaterte et felt koblet til en regel.
 Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
 
-# 3.32.1 (2022-02-28) - Fikset feil i Adresse-komponenten
+# 3.32.2 (2022-02-28) - Fikset feil i Adresse-komponenten
 Fikset en feil i adresse-komponenten hvor poststed enkelte ganger ikke ble oppdatert når man skrev inn postnummer.
 Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
+# 3.32.1 (2022-02-25) - Fikset feil for layout-navn
+Fikset en feil hvor en app med en layout-side med navn "data" ikke ville starte.ss
+Issue [#8125](https://github.com/Altinn/altinn-studio/issues/8125).
 
 ## 3.32.0 (2022-02-23) - Sikrede options
 Er nå mulig å sette opp sikrede options.
