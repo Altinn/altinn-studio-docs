@@ -48,7 +48,7 @@ __14.__ How often (in seconds) to perform the probe
 
 {{%notice warning%}}
 Enabling of liveness and/or readiness probe requires that your application is running 
-version 4.30.0 og higher of the Altinn.App.* nuget packages.
+version 4.30.0 or higher of the Altinn.App.* nuget packages.
 {{% /notice%}}
 
 ## 2.0.0
