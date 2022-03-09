@@ -6,6 +6,11 @@ toc: true
 
 ## 2.1.0
 
+{{%notice warning%}}
+Enabling of liveness and/or readiness probe requires that your application is running 
+version 4.30.0 or higher of the Altinn.App.* nuget packages.
+{{% /notice%}}
+
 ### Changes introduced
 
 * Default CPU og memory requested per pod is reduced to 50m and 128Mi, respectively.
@@ -34,22 +39,29 @@ deployment:
 Walkthrough: 
 
 __3.__ Enable or disable readiness probe for this application.
+
 __4.__ The path to the liveness endpoint in the application.
+
 __5.__ Number of seconds after the container has started before readiness probes are initiated.
+
 __6.__ Minimum consecutive failures for the probe to be considered failed after having succeeded.
+
 __7.__ How often (in seconds) to perform the probe
+
 __8.__ Number of seconds after which the probe times out. 
+
 __10.__ Enable or disable liveness probe for this application.
+
 __11.__ The path to the liveness endpoint in the application.
+
 __12.__ Number of seconds after the container has started before liveness probes are initiated.
+
 __13.__ Minimum consecutive failures for the probe to be considered failed after having succeeded.
+
 __14.__ How often (in seconds) to perform the probe
 
 
-{{%notice warning%}}
-Enabling of liveness and/or readiness probe requires that your application is running 
-version 4.30.0 or higher of the Altinn.App.* nuget packages.
-{{% /notice%}}
+
 
 ## 2.0.0
 
