@@ -775,9 +775,10 @@ Subscription The highly preferred way to use events is to set up a subscription 
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/whats-new/">Hva er nytt?</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>4.27.0 (23.02.2022) - Sikre kodelister Lagt til støtte for sikre kodelister Rettet url og parameter logik i GetInstanceEvents Endret redirect url fra string til base64 encoded string
-4.26.0 (2022-02-10) - Forbedringer knyttet til PDF og tekstressurser Nyinnførte tekstressurs appName benyttes som tittel på PDF. Lokal kopi av tekstressurser benyttes i PDF i stedet for tekstressurser fra Platform Storage.
-4.25.0 (2022-01-24) - Dynamiske konfigurasjonsverdier for frontend Det er blitt laget en ny seksjon kalt FrontEndSettings for bruk i appsetting. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
+        <p>4.30.0 (07.03.2022) - Støtte for readiness og livenessprober Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last.
+For alle applikasjon opprettet før 16.03.2022 må det gjøres manuelle endringer for å aktivere readiness og liveness probene.
+  I App/Startup.cs
+  Legg til linjen using Altinn.App.Core.Health; blant de andre using-referansene øverst i filen. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

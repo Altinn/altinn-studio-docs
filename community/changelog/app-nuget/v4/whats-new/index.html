@@ -1035,6 +1035,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4300-07032022---support-for-readiness-og-liveness-probes">4.30.0 (07.03.2022) - Support for readiness og liveness probes</a></li>
     <li><a href="#4270-23022022---secure-options-endpoint">4.27.0 (23.02.2022) - Secure options endpoint</a></li>
     <li><a href="#4260-2022-02-10---improvements-to-text-resource-in-relation-to-pdf">4.26.0 (2022-02-10) - Improvements to text resource in relation to PDF</a></li>
     <li><a href="#4250-2022-01-24---dynamic-application-settings-for-front-end">4.25.0 (2022-01-24) - Dynamic application settings for front end</a></li>
@@ -1078,6 +1079,52 @@ if(host != "localhost")
 
 
 
+<h2 id="4300-07032022---support-for-readiness-og-liveness-probes">4.30.0 (07.03.2022) - Support for readiness og liveness probes</h2>
+<p>An endpoint dedicated for health check has been implemented.
+This is used by Kubernetes to know when an instance of the application is ready for load.</p>
+<p>All applications created before 16.06.2022 must be manually updated to 
+enable the readiness and liveness probes.</p>
+<ol>
+<li>
+<p>In  <code>App/Startup.cs</code></p>
+<ol>
+<li>
+<p>Add the line <code>using Altinn.App.Core.Health;</code> amongst the <em>using</em>-statements at the top of the file</p>
+</li>
+<li>
+<p>In the function  <code>ConfigureServices</code>, add the line</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">services.AddHealthChecks().AddCheck&lt;HealthCheck&gt;(<span style="color:#f1fa8c">&#34;default_health_check&#34;</span>);
+</code></pre></div></li>
+<li>
+<p>In the function <code>Configure</code> add the line</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs">app.UseHealthChecks(<span style="color:#f1fa8c">&#34;/health&#34;</span>);
+</code></pre></div></li>
+</ol>
+</li>
+<li>
+<p>In <code>deployment/Chart.yaml</code> the reference to the Altinn Helm Chart should be updated to version <code>2.1.0</code></p>
+<p>The final result should resemble this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">apiVersion</span>: v1
+<span style="color:#ff79c6">description</span>: A Helm chart for Kubernetes
+<span style="color:#ff79c6">name</span>: deployment
+<span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">1.1.0</span>
+
+<span style="color:#ff79c6">dependencies</span>:
+- <span style="color:#ff79c6">name</span>: deployment
+   <span style="color:#ff79c6">repository</span>: https://charts.altinn.studio/
+   <span style="color:#ff79c6">version</span>: <span style="color:#bd93f9">2.1.0</span>
+</code></pre></div></li>
+<li>
+<p>In <code>deployment/values.yaml</code> under <code>deployment</code>, add</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#ff79c6">readiness</span>:
+  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+
+<span style="color:#ff79c6">liveness</span>:
+  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</code></pre></div></li>
+</ol>
+<p><strong>NOTE</strong> identation is imporant in yaml files. <code>readiness</code> og <code>liveness</code> must be on the level below <code>deployment</code>,
+and at the same level av <code>volumeMounts</code> og <code>volumes</code>.</p>
 <h2 id="4270-23022022---secure-options-endpoint">4.27.0 (23.02.2022) - Secure options endpoint</h2>
 <p>Add support for secure options endpoints
 Fixed url and parameter separator logic in GetInstanceEvents
