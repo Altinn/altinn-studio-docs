@@ -5,6 +5,12 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+
+## 4.31.0 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer
+
+- Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en _duplicate key exception_.
+- Personnummer legges nå til i platformUser objektet for instance events.
+  
 ## 4.30.0 (07.03.2022) - Støtte for readiness og livenessprober
 Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. 
 Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last. 
