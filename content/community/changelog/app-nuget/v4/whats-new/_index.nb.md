@@ -6,7 +6,7 @@ tags: [translate-to-norwegian]
 ---
 
 
-## 4.31.0 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer
+## 4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer
 
 - Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en _duplicate key exception_.
 - Personnummer legges nå til i platformUser objektet for instance events.
