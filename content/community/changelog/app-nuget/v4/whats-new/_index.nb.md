@@ -4,6 +4,56 @@ description: Oversikt over endringer som ble introdusert i versjon 4.
 toc: true
 tags: [translate-to-norwegian]
 ---
+
+## 4.30.0 (07.03.2022) - Støtte for readiness og livenessprober
+Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. 
+Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last. 
+
+For alle applikasjon opprettet før 16.03.2022 må det gjøres manuelle endringer
+for å aktivere readiness og liveness probene.
+
+1. I  `App/Startup.cs`
+   1.  Legg til linjen `using Altinn.App.Core.Health;` blant de andre _using_-referansene øverst i filen.
+
+   2. I metoden `ConfigureServices` legger du til linjen 
+
+      ```cs
+      services.AddHealthChecks().AddCheck<HealthCheck>("default_health_check");
+      ```
+   3. I metoden `Configure` legger du til linjen
+
+      ```cs
+      app.UseHealthChecks("/health");
+      ```
+2. I `deployment/Chart.yaml` skal referansen til Studio helm charten oppdateres til versjon `2.1.0`
+   
+   Endelig resultat bør likne på dette: 
+
+   ```yaml
+   apiVersion: v1
+   description: A Helm chart for Kubernetes
+   name: deployment
+   version: 1.1.0
+
+   dependencies:
+   - name: deployment
+      repository: https://charts.altinn.studio/
+      version: 2.1.0
+   ```
+
+3. I `deployment/values.yaml` legger du til 
+
+   ```yaml
+   readiness:
+     enabled: true
+
+   liveness:
+     enabled: true
+   ```
+
+**MERK** antall innrykk er viktig i filen. `readiness` og `liveness` skal stå på nivået under `deployment` 
+og på samme nivå som `volumeMounts` og `volumes`
+
 ## 4.27.0 (23.02.2022) - Sikre kodelister
 Lagt til støtte for sikre kodelister
 Rettet url og parameter logik i GetInstanceEvents
