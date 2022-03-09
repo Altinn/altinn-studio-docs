@@ -6,6 +6,11 @@ toc: true
 
 ## 2.1.0
 
+{{%notice warning%}}
+Aktivering av liveness og/elelr readiness probe krever at applikasjonen din kjører 
+versjon 4.30.0 eller høyere av Altinn.App.* nugetpakkene.
+{{% /notice%}}
+
 ### Endringer innført
 
 * Default CPU og minne tilgjengeliggjort per pod er redusert til henholdsvis 50m og 128Mi.
@@ -34,23 +39,30 @@ deployment:
 Gjennomgang: 
 
 __3.__ Aktiver eller deaktiver readinessprobe for denne applikasjonen.
+
 __4.__ Pathen til readiness-endepunktet i applikasjonen.
+
 __5.__ Hvor mange sekunder man venter før readinessproben begynner etter at containeren har startet.
+
 __6.__ Minimum antall påfølgende feil før readinessproben ansees som feilet.
+
 __7.__ Frekvens for readinessprobing
+
 __8.__ Hvor mange sekunder før readinessproben timer ut
+
 __10.__ Aktiver eller deaktiver livenessprobe for denne applikasjonen.
+
 __11.__ Pathen til liveness-endepunktet i applikasjonen.
+
 __12.__ Hvor mange sekunder man venter før livenessproben begynner etter at containeren har startet.
+
 __13.__ Minimum antall påfølgende feil før livenessproben ansees som feilet.
+
 __13.__ Frekvens for livenessprobing
+
 __14.__ Hvor mange sekunder før livenessproben timer ut
 
 
-{{%notice warning%}}
-Aktivering av liveness og/elelr readiness probe krever at applikasjonen din kjører 
-versjon 4.30.0 eller høyere av Altinn.App.* nugetpakkene.
-{{% /notice%}}
 
 ## 2.0.0
 
