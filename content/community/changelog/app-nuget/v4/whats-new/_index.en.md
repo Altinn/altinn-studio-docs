@@ -4,7 +4,7 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
-## 4.31.0 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number
+## 4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number
 
 - This release fixes a bug where prefilling the same value to more than one field
 throws a duplicate key exception. This has been solved by flipping the prefill dictionary. 
