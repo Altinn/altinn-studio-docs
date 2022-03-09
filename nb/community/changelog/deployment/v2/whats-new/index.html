@@ -508,6 +508,10 @@ if(host != "localhost")
 
 
 <h2 id="210">2.1.0</h2>
+<div class="notices warning" >
+Aktivering av liveness og/elelr readiness probe krever at applikasjonen din kjører 
+versjon 4.30.0 eller høyere av Altinn.App.* nugetpakkene.
+</div>
 <h3 id="endringer-innført">Endringer innført</h3>
 <ul>
 <li>Default CPU og minne tilgjengeliggjort per pod er redusert til henholdsvis 50m og 128Mi.</li>
@@ -549,22 +553,18 @@ if(host != "localhost")
 </code></pre></td></tr></table>
 </div>
 </div><p>Gjennomgang:</p>
-<p><strong>3.</strong> Aktiver eller deaktiver readinessprobe for denne applikasjonen.
-<strong>4.</strong> Pathen til readiness-endepunktet i applikasjonen.
-<strong>5.</strong> Hvor mange sekunder man venter før readinessproben begynner etter at containeren har startet.
-<strong>6.</strong> Minimum antall påfølgende feil før readinessproben ansees som feilet.
-<strong>7.</strong> Frekvens for readinessprobing
-<strong>8.</strong> Hvor mange sekunder før readinessproben timer ut
-<strong>10.</strong> Aktiver eller deaktiver livenessprobe for denne applikasjonen.
-<strong>11.</strong> Pathen til liveness-endepunktet i applikasjonen.
-<strong>12.</strong> Hvor mange sekunder man venter før livenessproben begynner etter at containeren har startet.
-<strong>13.</strong> Minimum antall påfølgende feil før livenessproben ansees som feilet.
-<strong>13.</strong> Frekvens for livenessprobing
-<strong>14.</strong> Hvor mange sekunder før livenessproben timer ut</p>
-<div class="notices warning" >
-Aktivering av liveness og/elelr readiness probe krever at applikasjonen din kjører 
-versjon 4.30.0 eller høyere av Altinn.App.* nugetpakkene.
-</div>
+<p><strong>3.</strong> Aktiver eller deaktiver readinessprobe for denne applikasjonen.</p>
+<p><strong>4.</strong> Pathen til readiness-endepunktet i applikasjonen.</p>
+<p><strong>5.</strong> Hvor mange sekunder man venter før readinessproben begynner etter at containeren har startet.</p>
+<p><strong>6.</strong> Minimum antall påfølgende feil før readinessproben ansees som feilet.</p>
+<p><strong>7.</strong> Frekvens for readinessprobing</p>
+<p><strong>8.</strong> Hvor mange sekunder før readinessproben timer ut</p>
+<p><strong>10.</strong> Aktiver eller deaktiver livenessprobe for denne applikasjonen.</p>
+<p><strong>11.</strong> Pathen til liveness-endepunktet i applikasjonen.</p>
+<p><strong>12.</strong> Hvor mange sekunder man venter før livenessproben begynner etter at containeren har startet.</p>
+<p><strong>13.</strong> Minimum antall påfølgende feil før livenessproben ansees som feilet.</p>
+<p><strong>13.</strong> Frekvens for livenessprobing</p>
+<p><strong>14.</strong> Hvor mange sekunder før livenessproben timer ut</p>
 <h2 id="200">2.0.0</h2>
 <div class="notices warning" >
 Oppgradering til 2.0.0 fra 1.x.x vil føre til en kort nedetid ved første deploy. Påfølgende deployments vil gå som normalt
