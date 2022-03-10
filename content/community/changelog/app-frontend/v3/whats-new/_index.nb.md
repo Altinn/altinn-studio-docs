@@ -3,6 +3,11 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+
+## 3.31.8 (2022-03-10) - Fikset feil med vedlegg i LocalTest
+Er nå mulig å laste ned vedlegg i LocalTest.
+Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
+
 ## 3.31.7 (2022-03-04) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 9 av 2022.
 Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
