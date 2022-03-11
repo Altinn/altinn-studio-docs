@@ -4,6 +4,13 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number
+
+- This release fixes a bug where prefilling the same value to more than one field
+throws a duplicate key exception. This has been solved by flipping the prefill dictionary. 
+- Person identification number has been included to the platformUser data of an instance event.
+
+
 ## 4.30.0 (07.03.2022) - Support for readiness og liveness probes
 An endpoint dedicated for health check has been implemented.
 This is used by Kubernetes to know when an instance of the application is ready for load. 
