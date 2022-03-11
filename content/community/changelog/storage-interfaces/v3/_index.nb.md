@@ -5,6 +5,11 @@ toc: true
 weight: 90
 ---
 
+## 3.8.0 Utvidet ProcessHistoryItem _performedBy_ egenskap
+- `ProcessHistoryItem` modellen har blitt utvided med en ny egenskap `performedBy`. 
+Verdien er en streng og kan inneholder personnummer eller organisasjonsnummer som representerer
+entiteten som trigget eventet.
+
 ## 3.7.0 Utvidet PlatformUser med `nationalIdentityNumber` egenskap
 - `PlatformUser` modellen har blitt utvidet med en ny egenskap `nationalIdentityNumber`.
 
