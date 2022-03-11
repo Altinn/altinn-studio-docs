@@ -1055,6 +1055,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4311-10032022---fixed-bug-related-to-prefill-and-enriched-instance-events-with-person-identification-number">4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number</a></li>
     <li><a href="#4300-07032022---support-for-readiness-og-liveness-probes">4.30.0 (07.03.2022) - Support for readiness og liveness probes</a></li>
     <li><a href="#4270-23022022---secure-options-endpoint">4.27.0 (23.02.2022) - Secure options endpoint</a></li>
     <li><a href="#4260-2022-02-10---improvements-to-text-resource-in-relation-to-pdf">4.26.0 (2022-02-10) - Improvements to text resource in relation to PDF</a></li>
@@ -1099,6 +1100,12 @@ if(host != "localhost")
 
 
 
+<h2 id="4311-10032022---fixed-bug-related-to-prefill-and-enriched-instance-events-with-person-identification-number">4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number</h2>
+<ul>
+<li>This release fixes a bug where prefilling the same value to more than one field
+throws a duplicate key exception. This has been solved by flipping the prefill dictionary.</li>
+<li>Person identification number has been included to the platformUser data of an instance event.</li>
+</ul>
 <h2 id="4300-07032022---support-for-readiness-og-liveness-probes">4.30.0 (07.03.2022) - Support for readiness og liveness probes</h2>
 <p>An endpoint dedicated for health check has been implemented.
 This is used by Kubernetes to know when an instance of the application is ready for load.</p>

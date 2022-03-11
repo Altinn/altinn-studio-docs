@@ -517,6 +517,7 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">Hva er nytt?</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer som ble introdusert i versjon 4.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4311-10032022---fikset-bug-relatert-til-prefill-og-berriket-instance-events-med-personnumer">4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer</a></li>
     <li><a href="#4300-07032022---støtte-for-readiness-og-livenessprober">4.30.0 (07.03.2022) - Støtte for readiness og livenessprober</a></li>
     <li><a href="#4270-23022022---sikre-kodelister">4.27.0 (23.02.2022) - Sikre kodelister</a></li>
     <li><a href="#4260-2022-02-10---forbedringer-knyttet-til-pdf-og-tekstressurser">4.26.0 (2022-02-10) - Forbedringer knyttet til PDF og tekstressurser</a></li>
@@ -561,6 +562,11 @@ if(host != "localhost")
 
 
 
+<h2 id="4311-10032022---fikset-bug-relatert-til-prefill-og-berriket-instance-events-med-personnumer">4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer</h2>
+<ul>
+<li>Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en <em>duplicate key exception</em>.</li>
+<li>Personnummer legges nå til i platformUser objektet for instance events.</li>
+</ul>
 <h2 id="4300-07032022---støtte-for-readiness-og-livenessprober">4.30.0 (07.03.2022) - Støtte for readiness og livenessprober</h2>
 <p>Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. 
 Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last.</p>

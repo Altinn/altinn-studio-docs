@@ -793,10 +793,7 @@ Subscription The highly preferred way to use events is to set up a subscription 
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/whats-new/">Hva er nytt?</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>4.30.0 (07.03.2022) - Støtte for readiness og livenessprober Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last.
-For alle applikasjon opprettet før 16.03.2022 må det gjøres manuelle endringer for å aktivere readiness og liveness probene.
-  I App/Startup.cs
-  Legg til linjen using Altinn.App.Core.Health; blant de andre using-referansene øverst i filen. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
+        <p>4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer  Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en duplicate key exception. Personnummer legges nå til i platformUser objektet for instance events.  4.30.0 (07.03.2022) - Støtte for readiness og livenessprober Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
