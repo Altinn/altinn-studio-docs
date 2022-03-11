@@ -518,14 +518,22 @@ if(host != "localhost")
 <li>Beregning - kjøre beregninger på klient-side, og oppdatere felter med ny verdi</li>
 <li>Vis/skjul felter - bestemme om felter skal vises eller skjules basert på verdier i skjema.</li>
 </ul>
-<p>All dynamikk skrives som funksjoner i javascript, i filen  <code>RuleHandler.js</code>. Denne filen finner man under <code>App/ui</code>-mappen i appen, og kan også redigeres direkte i <code>Lage</code>-
-visningen i Altinn Studio, ved å velge <em>Rediger dynamikk</em> i høyre-menyen. Funksjonene som er definert i denne filen kan da configurere til å kjøres for feltene i skjemaet.</p>
+<p>Det er to måter å legge til og endre dynamikkregler for en Altinn App.</p>
+<ol>
+<li>Direkte i Altinn Studio under <em>Lage</em>-fanen. Velg <em>Rediger dynamikk</em> i høyre-menyen.</li>
+<li>I lokalt utviklingsmiljø ved å jobbe i filen <code>RuleHandler.js</code> som finnes i <code>App/ui</code>-mappen .</li>
+</ol>
+<p>All dynamikk skrives som funksjoner i JavaScript i <em>RuleHandler</em>-filen. 
+Funksjonene som er definert i denne filen kan videre konfigureres til å kjøres for feltene i skjemaet.</p>
 <div class="notices info" >
-Koden som definerer beregninger eller regler for vis/skjul bør settes opp sånn at den håndterer ev. feil i input. F.eks. bør de takle
-å motta tom input, eller å motta en tekst selv om de forventer et tall, uten å kræsje. Om dynamikken ikke fungerer som forventet, ta en titt på koden som definerer
+Koden som definerer beregninger eller regler for vis/skjul bør settes opp slik at den håndterer eventuell feil i input.
+Blant annet bør de håndtere å motta et tomt felt, eller tekst der man forventer et tall, uten å kræsje.
+Dersom dynamikken ikke fungerer som forventet, ta en titt på koden som definerer
 beregninger eller regler for vis/skjul for å se om det er noe feilhåndtering som mangler.
 </div>
-<div class="notices warning" >**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere så må man skrive javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. For IE11 vil dette være ECMA-script 5. </div>
+<div class="notices warning" >**MERK**: for å støtte beregning/vis-skjul felter på eldre nettlesere må man skrive 
+javascript koden man legger i `RuleHandler.js` i den versjonen av ECMA-script som den aktuelle nettleseren støtter. 
+For IE11 vil dette være ECMA-script 5. </div>
 <h2 id="legg-tilrediger-funksjoner-for-beregninger-eller-visskjul">Legg til/rediger funksjoner for beregninger eller vis/skjul</h2>
 <p>I filen <code>RuleHandler.js</code> er det satt opp 2 javascript-objekter:</p>
 <ul>
@@ -657,10 +665,13 @@ har fått inn, og setter verdi til <code>0</code> på den/de parametre som mangl
 </code></pre></div><h2 id="konfigurere-dynamikk-for-skjema-komponenter">Konfigurere dynamikk for skjema-komponenter</h2>
 <ol>
 <li>Legg til de skjema-komponentene som ønskes i layout.</li>
-<li>I høyre-menyen, velg å legge til <em>Regler for beregninger</em> eller <em>Regler for vis/skjul felt</em>.</li>
-<li>Velg en tilgjengelig funksjon som gjør det du ønsker. Legg evt. til en ny funksjon, se beskrivelse over.</li>
-<li>Sett opp hvilke(t) felt som skal fungere som <em>input</em> til funksjonen - her er det felt i datamodellen som gjelder.</li>
-<li>Sett opp hvilke(t) fom skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.</li>
+<li>I høyre-menyen, velg å legge til <em>Regler for beregninger</em> eller <em>Regler for vis/skjul felt</em>.
+<img src="rules-show-hide.png" alt="Regler for vis/skjul knapp"></li>
+<li>Velg en tilgjengelig funksjon som gjør det du ønsker. Legg evt. til en ny funksjon, se beskrivelse over.
+<img src="rules-select-rule.png" alt="Velg regel"></li>
+<li>Sett opp hvilke(t) felt som skal fungere som <em>input</em> til funksjonen - her er det felt i datamodellen som gjelder.
+<img src="rules-configure.png" alt="Konfigurere dynamikk"></li>
+<li>Sett opp hvilke(t) felt som skal påvirkes av regelen (skal motta beregnet verdi, eller skal vises/skjules) - her er det skjemakomponent som gjelder.</li>
 </ol>
 <ul>
 <li>For regler for vis/skjul felt kan man velge flere felter som skal vises/skjules basert på samme regel.</li>
