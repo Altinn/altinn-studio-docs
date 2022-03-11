@@ -123,6 +123,16 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/app/app-dev-course/case/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/app-dev-course/case/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/app-dev-course/case/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/app/</loc>
     <xhtml:link
@@ -2051,6 +2061,16 @@
                 />
   </url><url>
     <loc>https://docs.altinn.studio/tags/case/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/tags/case/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/tags/case/"
+                />
   </url><url>
     <loc>https://docs.altinn.studio/categories/</loc>
     <xhtml:link
