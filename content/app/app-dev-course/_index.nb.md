@@ -1,6 +1,6 @@
 ---
 title: Introkurs
-description: Et kursopplegg for å lære seg apputvikling med Altinn Studio og lokale verktøy
+description: Et kursopplegg for å lære seg apputvikling med Altinn Studio og lokale verktøy.
 linktitle: Introkurs
 tags: [apps, build, deploy, training]
 aliases:
@@ -8,8 +8,8 @@ aliases:
 weight: 15
 ---
 
-Dette intro-kurset er delt opp i seks bolker og dekker et fiktivt case for Sogndal kommune.
-I løpet av disse seks bolkene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn App,
+Dette intro-kurset er delt opp i sju bolker og dekker et fiktivt case for Sogndal kommune.
+I løpet av disse sju bolkene vil du ha vært innom den mest sentrale funksjonaliteten for en Altinn App,
 samt testing av applikasjonen lokalt og i testmiljø.
 
 
