@@ -35,7 +35,7 @@ så man trenger ikke ta hensyn til årstall i navnet.
 Det er et ønske om at et eller flere av ordene  "tilflytter" og  "Sogndal" er med i navnet.
 
 ### Nyttig dokumentasjon
-- [Opprete app i Altinn Studio](../getting-started/create-app/)
+- [Opprette app i Altinn Studio](../getting-started/create-app/)
 
 {{% /expandlarge %}}
 
