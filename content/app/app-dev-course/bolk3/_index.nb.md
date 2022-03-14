@@ -43,8 +43,8 @@ Alle endringer knyttet til skalering og ressursbruk gjøres i `deployment/values
 
 
 ### Nyttig dokumentasjon
-- [Sette egendefinerte regler for skalering](../app/development/configuration/deployment/#scale)
-- [Sette egendefinerte grenser for ressursbruk](../app/development/configuration/deployment/#resources-configuration)
+- [Sette egendefinerte regler for skalering](../../development/configuration/deployment/#skalering)
+- [Sette egendefinerte grenser for ressursbruk](../../development/configuration/deployment/#resources-konfigurasjon)
 {{% /expandlarge %}}
 
 
@@ -59,7 +59,7 @@ Opprett et nytt bygg for applikasjonen med versjonsnr `0.0.1`
 og legg til en beskrivende kommentar om hva versjonen inneholder.
 
 ### Nyttig dokumentasjon
-- [Bygge app i Altinn Studio](../app/testing/deploy/#bygge-app)
+- [Bygge app i Altinn Studio](../../testing/deploy/#bygge-app)
 
 {{% /expandlarge %}}
 
@@ -80,8 +80,8 @@ for organisasjonen i Altinn Studio.
 **Deploy applikasjonen din til TT02 og test de ulike sporvalgene og skjemasidene for å bekrefte at det oppfører seg som forventet.**
 
 ### Nyttig dokumentasjon
-- [Deploye app til testmiljø](../app/testing/deploy/#bygge-app)
-- [Tilgangsstyring for organisasjon i Altinn Studio](../app/getting-started/access-management/studio/#tilgangsstyring-for-organisasjonen)
+- [Deploye app til testmiljø](../../testing/deploy/#bygge-app)
+- [Tilgangsstyring for organisasjon i Altinn Studio](../../getting-started/access-management/studio/#tilgangsstyring-for-organisasjonen)
 
 ### Forståelsessjekk
 - Er det mulig å ha to versjoner av en applikasjon i TT02 samtidig?

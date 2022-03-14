@@ -28,8 +28,8 @@ På datasiden ønsker vi at det legges opp til at brukeren kan fylle inn tidlige
 Det skal være mulig å legge inn opptill 10 tidligere bosteder.
 
 ### Nyttig dokumentasjon
-- [Oppsett for gruppering av felter](../development/ux/fields/grouping/setup/)
-- [Oppsett for repeterende grupper](../development/ux/fields/grouping/repeating/)
+- [Oppsett for gruppering av felter](../../development/ux/fields/grouping/setup/)
+- [Oppsett for repeterende grupper](../../development/ux/fields/grouping/repeating/)
 
 ### Forståelsessjekk
 - Hvilket felt i datamodellen er det som bestemmer om et element er repeterende?
@@ -49,9 +49,9 @@ Du er ikke velkommen til vår kommune. Beklager!
 ```
 
 ### Nyttig dokumentasjon
-- [Serverside valideringer](_index.nb.md/development/logic/validation/#serverside-validering)
-- [Hvordan legge til egendefinert validering](../development/logic/validation/#hvordan-legge-til-egendefinert-validering)
-- [Enkeltfeltvalideringer](../development/logic/validation/#enkeltfeltvalidering)
+- [Serverside valideringer](../../development/logic/validation/#serverside-validering)
+- [Hvordan legge til egendefinert validering](../../development/logic/validation/#hvordan-legge-til-egendefinert-validering)
+- [Enkeltfeltvalideringer](../../development/logic/validation/#enkeltfeltvalidering)
 
 
 ### Forståelsessjekk
@@ -71,8 +71,8 @@ I alle andre tilfeller skal feltet forbli urørt.
 
 
 ### Nyttig dokumentasjon
-- [Dataprosessering](../development/logic/dataprocessing/)
-- [Kalkulering](../development/logic/calculation/)
+- [Dataprosessering](../../development/logic/dataprocessing/)
+- [Kalkulering](../../development/logic/calculation/)
 
 ### Forståelsessjekk
 - Når blir Data processing kjørt?
