@@ -3,6 +3,154 @@ title: What's new
 description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
+
+## 3.31.8 (2022-03-10) - Bugfix for attachments in LocalTest
+Attachments are now possible to download in LocalTest.
+Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
+
+## 3.31.7 (2022-03-04) - Dependency patching
+Patching of external dependencies for week 9 of 2022.
+Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
+
+## 3.31.6 (2022-03-02) - Fixes validation on multiple tracks
+Fixed page validation on apps with multiple tracks.
+Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
+
+## 3.31.5 (2022-03-02) - Fixes for text elements
+Multiple fixes for texts and support for markdown in header component.
+Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
+Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
+
+## 3.31.4 (2022-03-01) - UX fixes for mobile view
+Fixed modal header padding in mobile view.
+Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
+
+# 3.32.3 (2022-03-01) - Run frontend rules on backend calculations
+Fixed a bug where frontend rules did not get triggered when a backend calculation has updated a connected field.
+Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
+
+# 3.32.2 (2022-02-28) - Bugfix for address component
+Fixed a bug where address component could get in a bad state and not fetch post place based on zip code.
+Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
+# 3.32.1 (2022-02-25) - Bugfix for handling layout name
+Fixed app loading with layout name as data.
+Issue [#8125](https://github.com/Altinn/altinn-studio/issues/8125).
+
+## 3.32.0 (2022-02-23) - Secure options
+Now possible to setup secure options.
+Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).
+
+## 3.31.4 (2022-02-23) - Bugfixes for confirm
+Fixed bug where spinner for confirm button would not last the whole request.
+Also now displays the generated PDF in the confirm view.
+Issue [#7824](https://github.com/Altinn/altinn-studio/issues/7824).
+
+## 3.31.3 (2022-02-17) - Fix alignment of label grid
+Fix alignment of label grid so that padding match normal grid.
+Pull request [#8059](https://github.com/Altinn/altinn-studio/pull/8059).
+
+## 3.31.2 (2022-02-17) - Dependency patching
+Patching of external dependencies for week 7 of 2022.
+Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
+
+## 3.31.1 (2022-02-16) - New styling button
+New styling for button component to match figma skcetches.
+Pull request [#8057](https://github.com/Altinn/altinn-studio/pull/8057).
+
+## 3.31.0 (2022-02-16) - Added possibility to override texts in archive receipt
+Texts in archive receipt can now be overidden by the application, and also supports markdown and variables.
+
+Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
+
+## 3.30.0 (2022-02-16) - Added refetching of options.
+Added functionality for refetching dynamic options when a mapping field changes.
+
+Issue [#7888](https://github.com/Altinn/altinn-studio/issues/7888).
+
+## 3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation
+This fixes an issue that was introduced in 3.29.0
+
+Pull request [#8045](https://github.com/Altinn/altinn-studio/pull/8045).
+
+## 3.29.0 (2022-02-11) - Added Navigationbar component 
+Added Navigationbar component
+
+Issue [#5893](https://github.com/Altinn/altinn-studio/issues/5893).
+
+## 3.28.2 (2022-02-10) - Moved testfiles
+No code changes
+
+Pull request [#7999](https://github.com/Altinn/altinn-studio/pull/7999).
+
+## 3.28.1 (2022-02-09) - Fixed an issue in checkbox component
+This fixed an issue introduced in 3.27.5, where changes to checkbox items could cause the simplebinding value to be set to `,`.
+
+Pull request [#7996](https://github.com/Altinn/altinn-studio/pull/7996).
+
+## 3.28.0 (2022-02-09) - Added FileUploadWithTag component
+Added fileupload component with option to tag files
+
+Issue [#6479](https://github.com/Altinn/altinn-studio/issues/6479).
+
+## 3.27.5 (2022-02-09) - Fixed an issue in the checkbox component
+Fixed an issue in the checkbox component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.4 (2022-02-08) - Fixed an issue in the confirm container
+Fixed an issue in the confirm container
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.3 (2022-02-07) - Fixed an issue in the radiobutton component
+Fixed an issue in the radiobutton component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.2 (2022-02-07) - Fixed an issue in the receipt container
+Fixed an issue in the receipt container
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.1 (2022-02-07) - Fixed an issue in the datepicker component
+Fixed an issue in the datepicker component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.0 (2022-02-01) - Show app owner in header
+App owner will now be displayed in the app header to improve visibility to who owns the app.
+
+Issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
+
+## 3.26.3 (2022-02-01) - Fixed an issue in the address component
+Fixed an issue in the address component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.2 (2022-02-01) - Fixed an issue in the dropdown component
+Fixed an issue in the dropdown component
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.1 (2022-01-31) - Fixed an issue in the instantiation container
+Fixed an issue in the instantiation container
+
+Related to issue [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.0 (2022-01-30) - Design updates for repeating groups
+- "Save"-button will get a different style than the "Next"-button.
+- "Edit"-button gets the same focus style as the editable box, so its easier to see which row is being edited.
+- Icon is left adjusted for the text in all icon buttons.
+- The margin in the group is changed so that the text uses the entire width, and flows on the same vertical line as the rest of the content of the form.
+
+Related to issue [#7577](https://github.com/Altinn/altinn-studio/issues/7577).
+
+## 3.25.1 (2022-01-24) - Dependency patching
+Patching of external dependencies for week  4 av 2022.
+
+Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
+
 ## 3.25.0 (2022-01-24) - Added more data sources for dynamic texts
 The feature that adds support for variables in texts have recieved two new data sources. The new sources are the current Instance and ApplicationSettings. ApplicationSettings requires version 4.25.0 or newer of the backend NuGet packages.
 

@@ -657,7 +657,7 @@
         ],
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -791,7 +791,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -1148,7 +1148,7 @@
         },
         "responses": {
           "201": {
-            "description": "Success",
+            "description": "Created",
             "content": {
               "application/json": {
                 "schema": {
@@ -1268,7 +1268,7 @@
             }
           },
           "204": {
-            "description": "Success"
+            "description": "No Content"
           },
           "400": {
             "description": "Bad Request",
@@ -2258,7 +2258,8 @@
           "title": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           },
@@ -2574,7 +2575,8 @@
           "values": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           }
@@ -2696,14 +2698,16 @@
           "presentationTexts": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           },
           "dataValues": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           },
@@ -2924,6 +2928,10 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          },
+          "nationalIdentityNumber": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2934,7 +2942,8 @@
           "texts": {
             "type": "object",
             "additionalProperties": {
-              "type": "string"
+              "type": "string",
+              "nullable": true
             },
             "nullable": true
           }
@@ -3000,6 +3009,10 @@
           },
           "validated": {
             "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "flowType": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3028,6 +3041,10 @@
           "ended": {
             "type": "string",
             "format": "date-time",
+            "nullable": true
+          },
+          "performedBy": {
+            "type": "string",
             "nullable": true
           }
         },

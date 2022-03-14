@@ -5,8 +5,79 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+
+## 4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer
+
+- Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en _duplicate key exception_.
+- Personnummer legges nå til i platformUser objektet for instance events.
+  
+## 4.30.0 (07.03.2022) - Støtte for readiness og livenessprober
+Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. 
+Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last. 
+
+For alle applikasjon opprettet før 16.03.2022 må det gjøres manuelle endringer
+for å aktivere readiness og liveness probene.
+
+1. I  `App/Startup.cs`
+   1.  Legg til linjen `using Altinn.App.Core.Health;` blant de andre _using_-referansene øverst i filen.
+
+   2. I metoden `ConfigureServices` legger du til linjen 
+
+      ```cs
+      services.AddHealthChecks().AddCheck<HealthCheck>("default_health_check");
+      ```
+   3. I metoden `Configure` legger du til linjen
+
+      ```cs
+      app.UseHealthChecks("/health");
+      ```
+2. I `deployment/Chart.yaml` skal referansen til Studio helm charten oppdateres til versjon `2.1.0`
+   
+   Endelig resultat bør likne på dette: 
+
+   ```yaml
+   apiVersion: v1
+   description: A Helm chart for Kubernetes
+   name: deployment
+   version: 1.1.0
+
+   dependencies:
+   - name: deployment
+      repository: https://charts.altinn.studio/
+      version: 2.1.0
+   ```
+
+3. I `deployment/values.yaml` legger du til 
+
+   ```yaml
+   readiness:
+     enabled: true
+
+   liveness:
+     enabled: true
+   ```
+
+**MERK** antall innrykk er viktig i filen. `readiness` og `liveness` skal stå på nivået under `deployment` 
+og på samme nivå som `volumeMounts` og `volumes`
+
+## 4.27.0 (23.02.2022) - Sikre kodelister
+Lagt til støtte for sikre kodelister
+Rettet url og parameter logik i GetInstanceEvents
+Endret redirect url fra string til base64 encoded string
+
+## 4.26.0 (2022-02-10) - Forbedringer knyttet til PDF og tekstressurser
+
+Nyinnførte tekstressurs `appName`  benyttes som tittel på PDF.
+Lokal kopi av tekstressurser benyttes i PDF i stedet for tekstressurser fra Platform Storage. 
+
+
 ## 4.25.0 (2022-01-24) - Dynamiske konfigurasjonsverdier for frontend 
 Det er blitt laget en ny seksjon kalt `FrontEndSettings` for bruk i `appsetting.{miljø}.json` filer. Dette eksponeres til frontendapplikasjonen som `applicationSettings` og er en dynamisk liste med verdier. I praksis betyr dette at `FrontEndSettings` kan utvides med innslag uten at man må gjøre kodeendringer i backend. Dette gjør det mulig for backend å tilby miljøspesifikke verdier til frontend.
+
+## 4.24.0 (2020-01-21)
+
+Støtte for språk og query parametre inn til dynamiske kodelister.
+Ny måte å implementere dynamiske kodelister ved hjelp av IAppOptionsProvider. [Se dokumentasjon](../../../../../app/development/data/options/_index.nb.md)
 
 ## 4.23.0 (2022-01-15) - Støtte for BPMN Gateways
 Restrukturering av prosessmotor og støtte for BPMN gateways.

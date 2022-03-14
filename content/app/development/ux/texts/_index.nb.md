@@ -109,7 +109,7 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
    },
    ```
 3. Instans   
-   Denne datakilden er basert på Instance og vil inneholde nøkkelverdier fra den aktive instansen. Vi har altså ikke gikk tilgang til hele instanse objektet. Listen med egenskaper så langt er:
+   Ved å angi `instanceContext` som datakilde kan man hente ut enkelte verdier fra den aktive instansen. Vi har altså ikke gitt tilgang til hele instanse objektet. Listen med egenskaper så langt er:
    1. `instanceOwnerPartyId` inneholder avgiver sin party id.
    2. `instanceId` inneholder id'en til den aktive instansen. 
    3. `appId` inneholder id'en til appen instansen er knyttet til.
@@ -117,7 +117,6 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
 ### Komplett eksempel:
 
 ```json
-
 {
   "id": "common.submitinfo",
   "value": "Du leverer nå skjema for: {0} med organisasjonsnummer: {1}. Organisasjonens party id er {2}. [Link til oss]({3}).",
@@ -128,15 +127,15 @@ Det er per nå mulig å hente verdier fra 3 ulike datakilder.
     },
     {
       "key": "skattepliktig.organisasjonsnummer",
-        "dataSource": "dataModel.default"
+      "dataSource": "dataModel.default"
     },
     {
       "key": "instanceOwnerPartyId",
-        "dataSource": "instanceContext"
+      "dataSource": "instanceContext"
     },
     {
       "key": "homeBaseUrl",
-        "dataSource": "applicationSettings"
+      "dataSource": "applicationSettings"
     }
   ]
 }
@@ -186,7 +185,7 @@ Nedenfor ser du et eksempel på en _FormLayout.json_ uten hjelpetekster.
         "type": "Header",
         "componentType": 0,
         "textResourceBindings": {
-          "title": "ServiceName"
+          "title": "appName"
         },
         "dataModelBindings": {}
       },
@@ -235,7 +234,7 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
         "type": "Header",
         "componentType": 0,
         "textResourceBindings": {
-          "title": "ServiceName"
+          "title": "appName"
         },
         "dataModelBindings": {}
       },
@@ -270,18 +269,18 @@ Slik ser hele filen ut etter å ha lagt til en hjelpetekst:
 
 ## Endre applikasjonstittel
 
-Når man oppretter en applikasjon vil man ha en tekstressurs med label `ServiceName`. 
+Når man oppretter en applikasjon vil man ha en tekstressurs med label `appName`. 
 Dette er tittelen på applikasjonen som vil gjenspeiles flere steder i løsningen vår.
 Blant annet når en sluttbruker fyller ut skjema, og når elementer skal vises i meldingsboksen på altinn.no.
 
 Tittelen på applikasjonen skal ligge to steder i applikasjonsrepoet: 
- 1. I tekstressurser med nøkkelen `ServiceName`. 
+ 1. I tekstressurser med nøkkelen `appName`. 
  Tjenesteeiere oppfordres til å legge inn tittel på bokmål, nynorsk og engelsk. Dersom tittel mangler i tekstressursene vil lagringsnavnet (navnet på repoet) vises til sluttbrukeren.
 
  2. I `applicationmetadata.json` under property `title`. Denne filen ligger under `App/config/`.
 
 
-Dersom man gjør endrer `ServiceName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i 
+Dersom man gjør endrer `appName` på applikasjonen sin lokalt er det viktig at også legge til den oppdatere tittelen i 
 `applicationmetadata.json` også. Dersom tittel på applikasjonen endres i Altinn Studio enten på "Om" eller "Språk"-siden bli applicationmetadata.json oppdatert automatisk.
 
 ### Eksempel på korrekt konfigurasjon for applikasjonstittel 
@@ -303,7 +302,7 @@ I `App/config/texts/resource.nb.json`:
   "language": "nb",
   "resources": [
     {
-      "id": "ServiceName",
+      "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
     .
@@ -320,7 +319,7 @@ I `App/config/texts/resource.nn.json`:
   "language": "nn",
   "resources": [
     {
-      "id": "ServiceName",
+      "id": "appName",
       "value": "Automatisk deploy applikasjonen"
     },
     .
@@ -337,7 +336,7 @@ I `App/config/texts/resource.en.json`:
   "language": "en",
   "resources": [
     {
-      "id": "ServiceName",
+      "id": "appName",
       "value": "Auto deploy application"
     },
     .
@@ -346,3 +345,71 @@ I `App/config/texts/resource.en.json`:
   ]
 }
 ```
+
+## Endre applikasjonseier tekst
+
+I applikasjonen så vises applikasjonsnavn og applikasjonseier-tekstene øverst i skjema.
+
+![Tekster i appen](app-name-app-owner.png "Appnavn og appeier tekster")
+
+Applikasjonsnavn hentes som standard ut fra tekstene som er definert i [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
+Om det er ønskelig å endre på dette navnet kan det gjøres ved å legge til nøkkelen `appOwner` i tekstressursene. Denne vil da overstyre det som ligger på CDN.
+
+Eksempel:
+```json
+{
+  "language": "en",
+  "resources": [
+    {
+      "id": "appOwner",
+      "value": "Test Ministry"
+    },
+    .
+    .
+    .
+  ]
+}
+```
+
+## Endre tekster på kvitteringssiden for arkiv
+
+Tekster på kvitteringssiden kan overstyres av applikasjonen ved å spesifisere tekster i applikasjonens `config/texts/resource.xx.json` fil.
+
+{{%notice info%}}
+Overstyring av tekster i kvitteringen vil ha påvirkning for alle kvitteringer for den gitte applikasjonen. Dette betyr at alle skjemaer som allerede er insendt vil også få det oppdaterte tekstene på kvitteringssiden. PDF filen som er generert vil ikke påvirkes av dette.
+{{% /notice%}}
+
+Markdown og variabler kan benyttes i kvitteringstekstene. Det er kun mulig å hente variabler fra `Instance` (Se [Data Sources](#datakilder) for detaljer)
+
+Dette er tekstnøklene som kan brukes for å overstyre standardtekstene:
+
+```
+receipt_platform.attachments
+receipt_platform.date_sent
+receipt_platform.helper_text
+receipt_platform.is_sent
+receipt_platform.receipt
+receipt_platform.receiver
+receipt_platform.reference_number
+receipt_platform.sender
+receipt_platform.sent_content
+
+```
+
+Hvis du for eksempel vil overstyre hjelpeteksten, kan du legge dette til i `config/texts/resource.nb.json` filen i applikasjonen:
+
+```json
+{
+  "language": "nb",
+  "resources": [
+    {
+      "id": "receipt_platform.helper_text",
+      "value": "Min egendefinerte hjelpetekst"
+    }
+  ]
+}
+```
+
+Bildet nedenfor viser hvilke tekstnøkler som styrer hvilken del av brukergrensesnittet:
+
+![Tekster og tekstnøkler](archive-receipt-texts.png "Tekster og tekstnøkler")

@@ -3,6 +3,8 @@ title: Altinn og åpen kildekode
 linktitle: Åpen kildekode
 description: Altinn 3 er åpen kildekode, med en åpen backlog, åpen dokumentasjon og åpen dialog og diskusjoner.
 toc: true
+aliases:
+ - /åpen-kildekode
 ---
 
 Det er flere som har fått med seg at Altinn har tatt en fundamentalt ny og åpen retning de siste årene.
@@ -26,19 +28,28 @@ Vi applauderer når NAV skriver dette:
 > Motivasjonen er da ikke hovedsakelig gjenbruk, selv om det selvsagt er en heldig bieffekt.
 > Motivasjonen er først og fremst åpenhet og gjennomsiktighet i de digitale løsningene.*
 
-Gjenbruk er derimot noe vi i Altinn anser som en helt sentral motivasjon.
+Gjenbruk er derimot noe vi i Altinn anser som en helt sentral motivasjon. Og vi er ikke alene om å tenke slik:
 
-Og vi er ikke alene om å tenke på denne måten, f.eks. gov.uk planen
+- **gov.uk** sin
 [Open Source, Open Standards and Re­Use](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/61962/open_source.pdf)
 (PDF) beskriver gjenbruk som både en policy og et prinsipp.
+- **EU** har lenge hatt en tydelig
+[open source strategi](https://ec.europa.eu/info/sites/default/files/en_ec_open_source_strategy_2020-2023.pdf) (PDF)
+som sier at kildekode skal deles, og ikke bare det, men at man også bør bidra tilbake.
 
-Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen, fra [våre prinsipper](/principles)
+![We share our code and enable incidental ciontributions to related open-source projects](eu-strategy.png "EU Governing Principle 5.3 - Share")
+
+Vi legger til rette for gjenbruk og deling på alle nivåer i arkitekturen til Altinn 3, fra [våre prinsipper](/principles)
 til hele plattformen og infrastrukturen, ned til design og GUI-komponenter, kode og konfigurasjon.
 
-Vi oppfordrer også alle de som utvikler på toppen av Altinn til å [dele sine apps](../../../app/launched-apps/).
-
 Dette er også en av flere grunner til at Altinn nå er et [digitalt fellesgode (DPG)](https://digitalpublicgoods.net/),
-der målsettingen er å kunne gjenbruke det vi utvikler ikke bare på nasjonalt nivå, men også globalt.
+der målsettingen er å kunne gjenbruke det vi utvikler ikke bare på nasjonalt nivå, men også globalt for å understøtte
+[FNs bærekraftsmål](https://www.fn.no/om-fn/fns-baerekraftsmaal).
+
+Vi oppfordrer også alle [de som lager tjenester](https://www.altinn.no/om-altinn/om-altinn-samarbeidet/)
+med Altinn Studio til å [dele sine apper](../../../app/launched-apps/), og alt er tilrettelagt for at det skjer automatisk.
+Faktisk så må tjenesteeierne gjøre et aktivt valg for å ikke dele,
+siden deling og gjenbruk på tvers i det offentlige er helt sentralt i Altinn 3.
 
 ## Samarbeid
 

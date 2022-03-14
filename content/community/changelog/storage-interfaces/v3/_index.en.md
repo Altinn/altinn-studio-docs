@@ -5,6 +5,14 @@ toc: true
 weight: 90
 ---
 
+## 3.8.0 Extended ProcessHistoryItem with _performedBy_ property
+- The `ProcessHistoryItem` model has been expanded with a new property `performedBy` to hold an identification string
+for the entity that triggered the process event. This string can contain organisation number og person identification 
+number.
+ 
+## 3.7.0 Extended PlatformUser with national identity number property
+- The `PlatformUser` model has been expanded with a new property to hold national identity number.
+
 ## 3.6.0 Extended InstanceOwner with username property
 - The `InstanceOwner` model has been expanded with a new property to hold username.
 

@@ -3,6 +3,154 @@ title: Hva er nytt?
 description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
+
+## 3.31.8 (2022-03-10) - Fikset feil med vedlegg i LocalTest
+Er nå mulig å laste ned vedlegg i LocalTest.
+Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
+
+## 3.31.7 (2022-03-04) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 9 av 2022.
+Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
+
+## 3.31.6 (2022-03-02) - Forbedret validerings-støtte for sporvalg
+La til støtte for å kunne koble valideirngsmelding til data-felt som ble brukt på flere sider.
+Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
+
+## 3.31.5 (2022-03-02) - Forbedringer i tekster
+Ulike forbedringer relatert til teksthåndtering. La også til støtte for markdown i tittel-komponentens.
+Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
+Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
+
+## 3.31.4 (2022-03-01) - Visuelle fikser i modalen.
+Justeringer i padding i modalen i mobilvisningen.
+Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
+
+# 3.32.3 (2022-03-01) - Kjøre frontendregler på serversidekalkuleringer
+Fikset en feil der frontend regler ikke ville bli kjørt når en kalkulering på serversiden oppdaterte et felt koblet til en regel.
+Issue [#8054](https://github.com/Altinn/altinn-studio/issues/8054).
+
+# 3.32.2 (2022-02-28) - Fikset feil i Adresse-komponenten
+Fikset en feil i adresse-komponenten hvor poststed enkelte ganger ikke ble oppdatert når man skrev inn postnummer.
+Issue [#8130](https://github.com/Altinn/altinn-studio/issues/8130).
+
+# 3.32.1 (2022-02-25) - Fikset feil for layout-navn
+Fikset en feil hvor en app med en layout-side med navn "data" ikke ville starte.
+Issue [#8125](https://github.com/Altinn/altinn-studio/issues/8125).
+
+## 3.32.0 (2022-02-23) - Sikrede options
+Er nå mulig å sette opp sikrede options.
+Issue [#7893](https://github.com/Altinn/altinn-studio/issues/7893).
+
+## 3.31.4 (2022-02-23) - Feilretting for Bekreft-steget
+Fikset feil hvor spinneren ikke ble vist mens confirm request ble gjort.
+Viser også nå den genererte PDF'en i bekreft-steget.
+Issue [#7824](https://github.com/Altinn/altinn-studio/issues/7824).
+
+## 3.31.3 (2022-02-17) - Fikset oppstilling av label grid
+Fikset oppstilling av label grid slik at den matcher en vanlig grid.
+Pull request [#8059](https://github.com/Altinn/altinn-studio/pull/8059).
+
+## 3.31.2 (2022-02-17) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 7 av 2022.
+Issue [#8048](https://github.com/Altinn/altinn-studio/issues/8048).
+
+## 3.31.1 (2022-02-16) - Ny styling for knapp
+Ny styling for knapp-komponent for å matche figma-skisser.
+Pull request [#8057](https://github.com/Altinn/altinn-studio/pull/8057).
+
+## 3.31.0 (2022-02-16) - Lagt til støtte for å endre tekster i arkivkvittering
+Tekster i arkivkvittering kan nå overstyres fra applikasjonen, og tekstene støtter også markdown og variabler.
+
+Issue [#7902](https://github.com/Altinn/altinn-studio/issues/7902).
+
+## 3.30.0 (2022-02-16) - Automatisk hente nye options når mapping endres
+La til funksjonalitet for å automatisk hente options på nytt når et felt i mappingen endres.
+
+Issue [#7888](https://github.com/Altinn/altinn-studio/issues/7888).
+
+## 3.29.1 (2022-02-14) - Fikset feil hvor variables i tekster ble ignorert ved kalkulering
+Dette fikser en feil som ble introdusert i 3.29.0
+
+Pull request [#5893](https://github.com/Altinn/altinn-studio/pull/8045).
+
+## 3.29.0 (2022-02-11) - Lagt til Navigationbar komponent 
+Lagt til Navigationbar komponent
+
+Issue [#5893](https://github.com/Altinn/altinn-studio/issues/5893).
+
+## 3.28.2 (2022-02-10) - Flyttet testfiler
+Ingen kodeendringer
+
+Pull request [#7999](https://github.com/Altinn/altinn-studio/pull/7999).
+
+## 3.28.1 (2022-02-09) - Fikset en feil i checkboxkomponent
+Fikset en feil som ble introdusert i 3.27.5, hvor endringer av checkbox førte til at simplebindingverdien ble satt til `,`
+
+Pull request [#7996](https://github.com/Altinn/altinn-studio/pull/7996).
+
+## 3.28.0 (2022-02-09) - Lagt til FileUploadWithTag komponent
+Lagt til filopplastningskomponent med mulighet for merking av filer.
+
+Issue [#6479](https://github.com/Altinn/altinn-studio/issues/6479).
+
+## 3.27.5 (2022-02-09) - Fikset feil i checkboxkomponent
+Fikset feil i checkboxkomponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.4 (2022-02-08) - Fikset feil i confirm container
+Fikset feil i confirm container
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.3 (2022-02-07) - Fikset feil i radiobuttonkomponent
+Fikset feil i radiobuttonkomponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.2 (2022-02-07) - Fikset feil i receipt container
+Fikset feil i receipt container
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.1 (2022-02-07) - Fikset feil i datepickerkomponent
+Fikset feil i datepickerkomponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.27.0 (2022-02-01) - Vise applikasjonseier header
+Applikasjonseier vil nå vises i header for å tydeliggjøre hvem som er eier av appen.
+
+Issue [#7227](https://github.com/Altinn/altinn-studio/issues/7227).
+
+## 3.26.3 (2022-02-01) - Fikset feil i adressekomponent
+Fikset feil i adresse komponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.2 (2022-02-01) - Fikset feil i dropdownkomponent
+Fikset feil i dropdown komponent
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.1 (2022-01-31) - Fikset feil i InstantiateContainer
+Fikset feil i instantiate container
+
+Endringen støtter under sak [#7464](https://github.com/Altinn/altinn-studio/issues/7464).
+
+## 3.26.0 (2022-01-30) - Designendringer for repeterende grupper
+- "Lagre"-knappen får annereledes stil enn "Neste"-knappen.
+- "Rediger"-knappen får samme focus-state stil som den redigerbare boksen så man enklere ser hvilken rad som redigeres.
+- Ikon justeres til venstre for tekst i alle ikonknapper.
+- Margen i gruppen endres slik at teksten utnytter hele bredden og flyter på samme vertikale linje som resten av innholdet i skjemaet.
+
+Endringen støtter under sak [#7577](https://github.com/Altinn/altinn-studio/issues/7577).
+
+## 3.25.1 (2022-01-24) - Oppdaterte avhengigheter
+Oppdaterte eksterne avhengigheter for uke 4 av 2022.
+
+Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
+
 ## 3.25.0 (2022-01-24) - Lagt til flere datakilder for variabler i tekst
 Funksjonaliteten knyttet til variabler i tekster har fått to nye datakilder. Det blir nå mulig å hente verdier fra instance og konfigurasjonsverdier fra ApplicationSettings. Støtten for konfigurasjonsverdier krever versjon 4.25.0 eller nyere av backend sine NuGet pakker.
 

@@ -4,9 +4,83 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number
+
+- This release fixes a bug where prefilling the same value to more than one field
+throws a duplicate key exception. This has been solved by flipping the prefill dictionary. 
+- Person identification number has been included to the platformUser data of an instance event.
+
+
+## 4.30.0 (07.03.2022) - Support for readiness og liveness probes
+An endpoint dedicated for health check has been implemented.
+This is used by Kubernetes to know when an instance of the application is ready for load. 
+
+All applications created before 16.06.2022 must be manually updated to 
+enable the readiness and liveness probes.
+
+1. In  `App/Startup.cs`
+   1.  Add the line `using Altinn.App.Core.Health;` amongst the _using_-statements at the top of the file
+
+   2. In the function  `ConfigureServices`, add the line
+
+      ```cs
+      services.AddHealthChecks().AddCheck<HealthCheck>("default_health_check");
+      ```
+
+   3. In the function `Configure` add the line
+
+      ```cs
+      app.UseHealthChecks("/health");
+      ```
+
+2. In `deployment/Chart.yaml` the reference to the Altinn Helm Chart should be updated to version `2.1.0`
+   
+   The final result should resemble this:
+
+   ```yaml
+   apiVersion: v1
+   description: A Helm chart for Kubernetes
+   name: deployment
+   version: 1.1.0
+
+   dependencies:
+   - name: deployment
+      repository: https://charts.altinn.studio/
+      version: 2.1.0
+   ```
+
+3. In `deployment/values.yaml` under `deployment`, add
+
+   ```yaml
+   readiness:
+     enabled: true
+
+   liveness:
+     enabled: true
+   ```
+
+**NOTE** identation is imporant in yaml files. `readiness` og `liveness` must be on the level below `deployment`,
+and at the same level av `volumeMounts` og `volumes`.
+
+
+## 4.27.0 (23.02.2022) - Secure options endpoint
+Add support for secure options endpoints
+Fixed url and parameter separator logic in GetInstanceEvents
+Change redirect url from string to base64 encoded string
+
+## 4.26.0 (2022-02-10) - Improvements to text resource in relation to PDF
+
+Use new `appName` text resource as PDF title.
+Use local texts for pdf generation instead of text resources from Platform Storage.
+
 ## 4.25.0 (2022-01-24) - Dynamic application settings for front end
 
 Added a new section called `FrontEndSettings` for use in `appsetting.{environment}.json` files. This is made available for front end as `applicationSettings` and is a dynamic list of values. It's possible to add new entries to `FrontEndSettings` without the usual need to make code changes in backend. The feature ensures that backend can provide environment specific values to the front end application.
+
+## 4.24.0 (2020-01-21)
+
+Support language and query parameters in dynamic options.
+New way of implementing dynamic options by creating a class that implements IAppOptionsProvider.  [See doc](../../../../../app/development/data/options/_index.en.md)
 
 ## 4.23.0 (2022-01-15) - Updated backend support for BPMN gateways
 

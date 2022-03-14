@@ -28,19 +28,27 @@ We applaud, when NAV writes this:
 > The motivation is then not mainly reuse, although it is obviously a nice side effect.  
 > The motivation is primarily openness and transparency in the digital solutions.*
 
-But to be clear, reuse is something we in Altinn consider a central motivation.
+But to be clear, reuse is something we in Altinn consider a *central* motivation. And we're not alone thinking like this:
 
-And we're not alone thinking like this; the UK government action plan
+- the **UK government** action plan
 [Open Source, Open Standards and Re­Use](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/61962/open_source.pdf)
 (PDF) describes reuse as both a policy and a principle.
+- **EU** has has had a clear
+[open source strategy](https://ec.europa.eu/info/sites/default/files/en_ec_open_source_strategy_2020-2023.pdf) (PDF)
+for a long time.
 
-We facilitate reuse and sharing at all levels of the architecture, from [our principles](/principles)
-to the entire platform and infrastructure, down to design and GUI-components, code and configuration.
+![We share our code and enable incidental ciontributions to related open-source projects](eu-strategy.png "EU Governing Principle 5.3 - Share")
 
-We also encourage the developers building on top of Altinn to also [share their apps](../../../app/launched-apps/).
+We facilitate reuse and sharing at all levels of the Altinn architecture, from [our principles](/principles)
+to the entire platform and infrastructure, down to design and UI-widgets, code and configuration.
 
-This is also one of several reasons why Altinn is now [Digital Public Good (DPG)](https://digitalpublicgoods.net/),
-where the goal is to be able to reuse everything we develop not only at national level, but also globally.
+This is also one of several reasons why Altinn is now a [Digital Public Good (DPG)](https://digitalpublicgoods.net/),
+where the goal is to be able to reuse everything we develop not only at national level, but also globally to
+accelerate the attainment of [the sustainable development goals](https://www.undp.org/sustainable-development-goals).
+
+We also encourage [the developers building apps](https://www.altinn.no/en/about-altinn/the-altinn-co-operation/)
+using Altinn Studio to also [share their apps](../../../app/launched-apps/).
+In fact, you have to do an active decision *not* to share, since sharing and reuse is central to the concept of Altinn 3.
 
 ## Cooperation
 
