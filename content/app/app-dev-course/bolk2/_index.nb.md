@@ -153,7 +153,72 @@ I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og 
 - [Tilgjengelige prefillkilder](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
 - [Prefill fra nasjonale register og brukerprofil](/nb/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
 - [Egendefinert prefill](/nb/app/development/data/prefill/#egendefinert-prefill)
-- [Hvordan beregne alder basert på fødselsdato i C#](https://www.c-sharpcorner.com/blogs/how-to-calculate-age-in-year-in-asp-net1)
+- [Beskrivelse av InstanceOwner-objektet](../../../api/models/instance/#instanceowner)
+
+### Kodehjelp: Beregning av alder fra personnummer
+```cs
+private static int CalculateAge(string sosialSecNumber)
+{
+    int MAX_D_NUMBER = 71;
+    int MIN_D_NUMBER = 41;
+    int MAX_TEST_NUMBER = 92;
+    int MIN_TEST_NUMBER = 81;
+    int START_D_NUMBER = 40;
+    int START_TEST_NUMBER = 80;
+    string stringDay = sosialSecNumber.Substring(0, 2);
+    string stringMonth = sosialSecNumber.Substring(2, 2);
+    string stringYear = sosialSecNumber.Substring(4, 2);
+    string stringIndivid = sosialSecNumber.Substring(6, 3);
+    int day = int.Parse(stringDay);
+    int month = int.Parse(stringMonth);
+    int year = int.Parse(stringYear);
+    int individ = int.Parse(stringIndivid);
+    // Get day if D-number
+    if (MAX_D_NUMBER >= day && MIN_D_NUMBER <= day)
+    {
+        day -= START_D_NUMBER;
+    }
+    // Get month if TestUser-number
+    if (MAX_TEST_NUMBER >= month && MIN_TEST_NUMBER <= month)
+    {
+        month -= START_TEST_NUMBER;
+    }
+    // find century
+    if (year > 54 && (individ >= 500 && individ < 750))
+    {
+        // 1855-1899
+        year += 1800;
+    }
+    else if (year > 39 && (individ >= 900 && individ < 1000))
+    {
+        // 1940-1999
+        year += 1900;
+    }
+    else if (year < 40 && (individ >= 500 && individ < 1000))
+    {
+        // 2000-2039
+        year += 2000;
+    }
+    else
+    {
+        year += 1900;
+    }
+    // calculate age
+    int age = DateTime.Now.Year - year;
+    if (DateTime.Now.Month < month)
+    {
+        age -= 1;
+    }
+    else if (DateTime.Now.Month == month)
+    {
+        if (DateTime.Now.Day < day)
+        {
+            age -= 1;
+        }
+    }
+    return age;
+}
+```
 
 ### Forståelsessjekk
 - Er det mulig å endre en prefillverdi når den først er satt?
