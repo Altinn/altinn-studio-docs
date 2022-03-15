@@ -4,6 +4,10 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.32.0 (14.03.2022) - Person lookup service client
+The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.
+
+
 ## 4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number
 
 - This release fixes a bug where prefilling the same value to more than one field
@@ -61,7 +65,6 @@ enable the readiness and liveness probes.
 
 **NOTE** identation is imporant in yaml files. `readiness` og `liveness` must be on the level below `deployment`,
 and at the same level av `volumeMounts` og `volumes`.
-
 
 ## 4.27.0 (23.02.2022) - Secure options endpoint
 Add support for secure options endpoints
