@@ -261,6 +261,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
       <li class="dd-item">
+        <a href="/nb/app/development/logic/services/"><span>Tjenester</span></a></li>
+      <li class="dd-item">
         <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
@@ -688,9 +690,71 @@ Se en oversikt over andre tilbud i kommunen her.
 <li><a href="https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json">Tilgjengelige prefillkilder</a></li>
 <li><a href="/nb/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil">Prefill fra nasjonale register og brukerprofil</a></li>
 <li><a href="/nb/app/development/data/prefill/#egendefinert-prefill">Egendefinert prefill</a></li>
-<li><a href="https://www.c-sharpcorner.com/blogs/how-to-calculate-age-in-year-in-asp-net1">Hvordan beregne alder basert på fødselsdato i C#</a></li>
+<li><a href="../../../api/models/instance/#instanceowner">Beskrivelse av InstanceOwner-objektet</a></li>
 </ul>
-<h3 id="forståelsessjekk">Forståelsessjekk</h3>
+<h3 id="kodehjelp-beregning-av-alder-fra-personnummer">Kodehjelp: Beregning av alder fra personnummer</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">static</span> <span style="color:#8be9fd">int</span> CalculateAge(<span style="color:#8be9fd">string</span> sosialSecNumber)
+{
+    <span style="color:#8be9fd">int</span> MAX_D_NUMBER = <span style="color:#bd93f9">71</span>;
+    <span style="color:#8be9fd">int</span> MIN_D_NUMBER = <span style="color:#bd93f9">41</span>;
+    <span style="color:#8be9fd">int</span> MAX_TEST_NUMBER = <span style="color:#bd93f9">92</span>;
+    <span style="color:#8be9fd">int</span> MIN_TEST_NUMBER = <span style="color:#bd93f9">81</span>;
+    <span style="color:#8be9fd">int</span> START_D_NUMBER = <span style="color:#bd93f9">40</span>;
+    <span style="color:#8be9fd">int</span> START_TEST_NUMBER = <span style="color:#bd93f9">80</span>;
+    <span style="color:#8be9fd">string</span> stringDay = sosialSecNumber.Substring(<span style="color:#bd93f9">0</span>, <span style="color:#bd93f9">2</span>);
+    <span style="color:#8be9fd">string</span> stringMonth = sosialSecNumber.Substring(<span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">2</span>);
+    <span style="color:#8be9fd">string</span> stringYear = sosialSecNumber.Substring(<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">2</span>);
+    <span style="color:#8be9fd">string</span> stringIndivid = sosialSecNumber.Substring(<span style="color:#bd93f9">6</span>, <span style="color:#bd93f9">3</span>);
+    <span style="color:#8be9fd">int</span> day = <span style="color:#8be9fd">int</span>.Parse(stringDay);
+    <span style="color:#8be9fd">int</span> month = <span style="color:#8be9fd">int</span>.Parse(stringMonth);
+    <span style="color:#8be9fd">int</span> year = <span style="color:#8be9fd">int</span>.Parse(stringYear);
+    <span style="color:#8be9fd">int</span> individ = <span style="color:#8be9fd">int</span>.Parse(stringIndivid);
+    <span style="color:#6272a4">// Get day if D-number
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (MAX_D_NUMBER &gt;= day &amp;&amp; MIN_D_NUMBER &lt;= day)
+    {
+        day -= START_D_NUMBER;
+    }
+    <span style="color:#6272a4">// Get month if TestUser-number
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (MAX_TEST_NUMBER &gt;= month &amp;&amp; MIN_TEST_NUMBER &lt;= month)
+    {
+        month -= START_TEST_NUMBER;
+    }
+    <span style="color:#6272a4">// find century
+</span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">54</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">750</span>))
+    {
+        <span style="color:#6272a4">// 1855-1899
+</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">1800</span>;
+    }
+    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &gt; <span style="color:#bd93f9">39</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">900</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
+    {
+        <span style="color:#6272a4">// 1940-1999
+</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">1900</span>;
+    }
+    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (year &lt; <span style="color:#bd93f9">40</span> &amp;&amp; (individ &gt;= <span style="color:#bd93f9">500</span> &amp;&amp; individ &lt; <span style="color:#bd93f9">1000</span>))
+    {
+        <span style="color:#6272a4">// 2000-2039
+</span><span style="color:#6272a4"></span>        year += <span style="color:#bd93f9">2000</span>;
+    }
+    <span style="color:#ff79c6">else</span>
+    {
+        year += <span style="color:#bd93f9">1900</span>;
+    }
+    <span style="color:#6272a4">// calculate age
+</span><span style="color:#6272a4"></span>    <span style="color:#8be9fd">int</span> age = DateTime.Now.Year - year;
+    <span style="color:#ff79c6">if</span> (DateTime.Now.Month &lt; month)
+    {
+        age -= <span style="color:#bd93f9">1</span>;
+    }
+    <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> (DateTime.Now.Month == month)
+    {
+        <span style="color:#ff79c6">if</span> (DateTime.Now.Day &lt; day)
+        {
+            age -= <span style="color:#bd93f9">1</span>;
+        }
+    }
+    <span style="color:#ff79c6">return</span> age;
+}
+</code></pre></div><h3 id="forståelsessjekk">Forståelsessjekk</h3>
 <ul>
 <li>Er det mulig å endre en prefillverdi når den først er satt?</li>
 <li>Hvordan kan man hindre at en prefillverdi endres av sluttbrukeren?</li>

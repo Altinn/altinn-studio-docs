@@ -268,6 +268,8 @@ if(host != "localhost")
         <a href="/nb/app/development/logic/"><span>Logikk</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
       <li class="dd-item">
         <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/app/development/logic/services/"><span>Tjenester</span></a></li>
       <li class="dd-item parent active">
         <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
       <li class="dd-item">
@@ -538,56 +540,55 @@ For å gjøre dette, må `ProcessDataWrite`-metoden returnere `true` om det er n
 Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbruker før de ev. laster inn siden på nytt.
 </div>
 <p>Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">      <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(
+    Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+{
+    <span style="color:#8be9fd">bool</span> edited = <span style="color:#ff79c6">false</span>;
+
+    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> SoknadUnntakKaranteneHotellVelferd model)
+    {
+        <span style="color:#8be9fd">string</span> org = instance.Org;
+        <span style="color:#8be9fd">string</span> app = instance.AppId.Split(<span style="color:#f1fa8c">&#34;/&#34;</span>)[<span style="color:#bd93f9">1</span>];
+        <span style="color:#8be9fd">int</span> partyId = <span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId);
+        Guid instanceGuid = Guid.Parse(instance.Id.Split(<span style="color:#f1fa8c">&#34;/&#34;</span>)[<span style="color:#bd93f9">1</span>]);
+
+        <span style="color:#6272a4">// handling mapping of multiple choice velferdsgrunner
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(model.velferdsgrunner?.sammenstilling))
         {
-            <span style="color:#8be9fd">bool</span> edited = <span style="color:#ff79c6">false</span>;
+            model.velferdsgrunner.helseproblemer = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;helseproblemer&#34;</span>);
+            model.velferdsgrunner.barnefodsel = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;barnefodsel&#34;</span>);
+            model.velferdsgrunner.begravelse = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;begravelse&#34;</span>);
+            model.velferdsgrunner.naerstaaende = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;naerstaaende&#34;</span>);
+            model.velferdsgrunner.adopsjon = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;adopsjon&#34;</span>);
+            model.velferdsgrunner.sarligeOmsorg = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;sarligeOmsorg&#34;</span>);
+            model.velferdsgrunner.barnAlene = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;barnAlene&#34;</span>);
+            model.velferdsgrunner.hjemmeeksamen = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;hjemmeeksamen&#34;</span>);
+            model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;arbeidunntak&#34;</span>);
+            model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;annet&#34;</span>);
+            model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;annet&#34;</span>) ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : <span style="color:#ff79c6">null</span>;
 
-            <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(SoknadUnntakKaranteneHotellVelferd))
-            {
-                SoknadUnntakKaranteneHotellVelferd model = (SoknadUnntakKaranteneHotellVelferd)data;
-
-                HttpContext ctxt = <span style="color:#bd93f9">_</span>httpContextAccessor.HttpContext;
-
-                <span style="color:#8be9fd">string</span> org = instance.Org;
-                <span style="color:#8be9fd">string</span> app = instance.AppId.Split(<span style="color:#f1fa8c">&#34;/&#34;</span>)[<span style="color:#bd93f9">1</span>];
-                <span style="color:#8be9fd">int</span> partyId = <span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId);
-                Guid instanceGuid = Guid.Parse(instance.Id.Split(<span style="color:#f1fa8c">&#34;/&#34;</span>)[<span style="color:#bd93f9">1</span>]);
-
-<span style="display:block;width:100%;background-color:#3d3f4a">                <span style="color:#6272a4">// handling mapping of multiple choice velferdsgrunner
-</span></span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(model.velferdsgrunner?.sammenstilling))
-                {
-                    model.velferdsgrunner.helseproblemer = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;helseproblemer&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.barnefodsel = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;barnefodsel&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.begravelse = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;begravelse&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-<span style="display:block;width:100%;background-color:#3d3f4a">                    model.velferdsgrunner.naerstaaende = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;naerstaaende&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-</span>                    model.velferdsgrunner.adopsjon = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;adopsjon&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.sarligeOmsorg = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;sarligeOmsorg&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.barnAlene = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;barnAlene&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.hjemmeeksamen = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;hjemmeeksamen&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.arbeidunntak = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;arbeidunntak&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.andreVelferdshensyn = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;annet&#34;</span>) ? <span style="color:#ff79c6">true</span> : <span style="color:#ff79c6">false</span>;
-                    model.velferdsgrunner.andreVelferdshensynBeskrivelse = model.velferdsgrunner.sammenstilling.Contains(<span style="color:#f1fa8c">&#34;annet&#34;</span>) ? model.velferdsgrunner.andreVelferdshensynBeskrivelse : <span style="color:#ff79c6">null</span>;
-
-                    edited = <span style="color:#ff79c6">true</span>;
-                }
-                <span style="color:#ff79c6">else</span>
-                {
-                    model.velferdsgrunner = <span style="color:#ff79c6">null</span>;
-                }
-
-                <span style="color:#6272a4">// set data for receipt if not set
-</span><span style="color:#6272a4"></span>                <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(model.applogic?.altinnRef))
-                {
-                    model.applogic ??= <span style="color:#ff79c6">new</span> Applogic();
-
-                    Party party = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>registerService.GetParty(<span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId));
-                    model.applogic.avsender = <span style="color:#f1fa8c">$&#34;{instance.InstanceOwner.PersonNumber}-{party.Name}&#34;</span>;
-                    model.applogic.altinnRef = instance.Id.Split(<span style="color:#f1fa8c">&#34;-&#34;</span>)[<span style="color:#bd93f9">4</span>];
-                }
-            }
-
-            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(edited);
+            edited = <span style="color:#ff79c6">true</span>;
         }
+        <span style="color:#ff79c6">else</span>
+        {
+            model.velferdsgrunner = <span style="color:#ff79c6">null</span>;
+        }
+
+        <span style="color:#6272a4">// set data for receipt if not set
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(model.applogic?.altinnRef))
+        {
+            model.applogic ??= <span style="color:#ff79c6">new</span> Applogic();
+
+            Party party = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>registerService.GetParty(
+                <span style="color:#8be9fd">int</span>.Parse(instance.InstanceOwner.PartyId));
+            model.applogic.avsender = 
+                <span style="color:#f1fa8c">$&#34;{instance.InstanceOwner.PersonNumber}-{party.Name}&#34;</span>;
+            model.applogic.altinnRef = instance.Id.Split(<span style="color:#f1fa8c">&#34;-&#34;</span>)[<span style="color:#bd93f9">4</span>];
+        }
+    }
+
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(edited);
+}
 </code></pre></div>
 
 <footer class=" footline" >
@@ -602,7 +603,7 @@ Hvis dette ikke gjøres, vil de oppdaterte dataen ikke være synlig for sluttbru
               </div>
 
               <div id="navigation">
-                  <a class="nav nav-prev" href="/nb/app/development/logic/generic/" title="Generelt"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/logic/dynamic/" title="Dynamikk" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
+                  <a class="nav nav-prev" href="/nb/app/development/logic/services/" title="Tjenester"> <i class="fa fa-angle-left"></i> Forrige side</a><a class="nav nav-next" href="/nb/app/development/logic/dynamic/" title="Dynamikk" style="margin-right: 0px;">Neste side <i class="fa fa-angle-right"></i></a></div>
 
             </div><div id="top-github-link">
                   <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/app/development/logic/dataprocessing/_index.nb.md" target="blank">

@@ -2722,6 +2722,18 @@
   </url><url>
     <loc>https://docs.altinn.studio/technology/solutions/altinn-studio/repos/structure/servicemodelxsd/</loc>
   </url><url>
+    <loc>https://docs.altinn.studio/app/development/logic/services/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="nb"
+                href="https://docs.altinn.studio/nb/app/development/logic/services/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://docs.altinn.studio/app/development/logic/services/"
+                />
+  </url><url>
     <loc>https://docs.altinn.studio/app/development/ux/fields/settings/</loc>
     <xhtml:link
                 rel="alternate"

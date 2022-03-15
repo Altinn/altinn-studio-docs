@@ -269,6 +269,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
       <li class="dd-item">
+        <a href="/nb/app/development/logic/services/"><span>Tjenester</span></a></li>
+      <li class="dd-item">
         <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
@@ -519,6 +521,7 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">Hva er nytt?</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer som ble introdusert i versjon 4.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4320-14032022---person-oppslagstjeneste">4.32.0 (14.03.2022) - Person oppslagstjeneste</a></li>
     <li><a href="#4311-10032022---fikset-bug-relatert-til-prefill-og-berriket-instance-events-med-personnumer">4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer</a></li>
     <li><a href="#4300-07032022---støtte-for-readiness-og-livenessprober">4.30.0 (07.03.2022) - Støtte for readiness og livenessprober</a></li>
     <li><a href="#4270-23022022---sikre-kodelister">4.27.0 (23.02.2022) - Sikre kodelister</a></li>
@@ -536,9 +539,9 @@ if(host != "localhost")
     <li><a href="#4152-2021-10-04---nytt-endepunkt-for-å-hente-ut-aktive-instanser">4.15.2 (2021-10-04) - Nytt endepunkt for å hente ut aktive instanser</a></li>
     <li><a href="#4141-2021-09-22---fikset-en-bug-som-medførte-500-error-hvis-instance-ikke-finnes">4.14.1 (2021-09-22) - Fikset en bug som medførte 500 error hvis instance ikke finnes</a></li>
     <li><a href="#4140-2021-09-13---delvis-støtte-for-navneromnamespace-i-xml">4.14.0 (2021-09-13) - Delvis støtte for navnerom(namespace) i XML</a></li>
-    <li><a href="#4130-2021-09-03---event-for-changed-substatus-on-instance">4.13.0 (2021-09-03) - Event for changed substatus on instance</a></li>
-    <li><a href="#4120-2021-08-27---identity-data-is-included-in-the-request-telemetry-for-all-requests">4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests</a></li>
-    <li><a href="#4111-2021-08-26---no-longer-possible-to-cache-response-from-stateless-apps">4.11.1 (2021-08-26) - No longer possible to cache response from stateless apps</a></li>
+    <li><a href="#4130-2021-09-03---hendelse-for-endring-av-substatus">4.13.0 (2021-09-03) - Hendelse for endring av substatus</a></li>
+    <li><a href="#4120-2021-08-27---identitetsdata-inkludert-i-request-telemetri">4.12.0 (2021-08-27) - Identitetsdata inkludert i request telemetri</a></li>
+    <li><a href="#4111-2021-08-26---hindre-caching-av-data-for-apps-uten-state">4.11.1 (2021-08-26) - Hindre caching av data for apps uten &ldquo;state&rdquo;</a></li>
     <li><a href="#4110-2021-08-03---support-for-disabling-reportee-selection-in-altinn-portal">4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal</a></li>
     <li><a href="#4102-2021-07-15---text-resources-are-loaded-locally">4.10.2 (2021-07-15) - Text resources are loaded locally</a></li>
     <li><a href="#492-2021-07-08---fixed-messages-from-multipart-request-validation">4.9.2 (2021-07-08) - Fixed messages from multipart request validation</a></li>
@@ -564,6 +567,8 @@ if(host != "localhost")
 
 
 
+<h2 id="4320-14032022---person-oppslagstjeneste">4.32.0 (14.03.2022) - Person oppslagstjeneste</h2>
+<p>Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.</p>
 <h2 id="4311-10032022---fikset-bug-relatert-til-prefill-og-berriket-instance-events-med-personnumer">4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer</h2>
 <ul>
 <li>Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en <em>duplicate key exception</em>.</li>
@@ -686,21 +691,21 @@ Det nye endepunktet er tilgjengelig på {org}.apps.altinn.no/{org}/{app}/instanc
     <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Navn { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
 }
 </code></pre></div><p>Denne endringen må foreløpig bli utført manuelt i både gamle og nye modeller. Modeleditoren i altinn.studio har ikke blitt oppdatert til å gjøre det automatisk.</p>
-<h2 id="4130-2021-09-03---event-for-changed-substatus-on-instance">4.13.0 (2021-09-03) - Event for changed substatus on instance</h2>
-<p>Changing the substatus of an instance triggers an event <code>app.instance.substatus.changed</code> which can be subscribed to in the event component.</p>
-<p>This solves issue <a href="https://github.com/Altinn/altinn-studio/issues/6691">#6691</a></p>
-<h2 id="4120-2021-08-27---identity-data-is-included-in-the-request-telemetry-for-all-requests">4.12.0 (2021-08-27) - Identity data is included in the request telemetry for all requests</h2>
-<p>In Application Insights we now register the properties listed below enabling linking of an entity to a specific request received by the application.</p>
+<h2 id="4130-2021-09-03---hendelse-for-endring-av-substatus">4.13.0 (2021-09-03) - Hendelse for endring av substatus</h2>
+<p>Det å endre substatus på en instanse trigger nå en event av typen <code>app.instance.substatus.changed</code>. Dette kan eksterne systemer abonnere på via Events tjenesten.</p>
+<p>Dette løser sak <a href="https://github.com/Altinn/altinn-studio/issues/6691">#6691</a></p>
+<h2 id="4120-2021-08-27---identitetsdata-inkludert-i-request-telemetri">4.12.0 (2021-08-27) - Identitetsdata inkludert i request telemetri</h2>
+<p>Logging av requests til Application Insights nå inkluderer et lite set med identifiserende data for å mer effektivt kunne spore kilden til uvanlige requester. Følgende data punkter blir registrert:</p>
 <ul>
 <li>partyId</li>
 <li>authentication level</li>
 <li>userId</li>
 <li>organisationNumber</li>
 </ul>
-<p>This solves issue <a href="https://github.com/Altinn/altinn-studio/issues/5983">#5983</a></p>
-<h2 id="4111-2021-08-26---no-longer-possible-to-cache-response-from-stateless-apps">4.11.1 (2021-08-26) - No longer possible to cache response from stateless apps</h2>
-<p>Caching of the stateless data responses is no longer possible.</p>
-<p>This solves issue <a href="https://github.com/Altinn/altinn-studio/issues/6532">#6532</a></p>
+<p>Dette løser sak <a href="https://github.com/Altinn/altinn-studio/issues/5983">#5983</a></p>
+<h2 id="4111-2021-08-26---hindre-caching-av-data-for-apps-uten-state">4.11.1 (2021-08-26) - Hindre caching av data for apps uten &ldquo;state&rdquo;</h2>
+<p>Det er lagt inn kode som gir hint til nettleser om å ikke cache data som blir brukt i apps uten state.</p>
+<p>Dette løser <a href="https://github.com/Altinn/altinn-studio/issues/6532">#6532</a></p>
 <h2 id="4110-2021-08-03---support-for-disabling-reportee-selection-in-altinn-portal">4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal</h2>
 <p>Apps now support adding query parameter <code>DontChooseReportee=true</code> to disable the reportee selection when an unauthorized user accesses an app. 
 The result being that the user will represent themselves and be routed directly to the application after login.</p>

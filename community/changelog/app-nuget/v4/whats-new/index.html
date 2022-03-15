@@ -259,6 +259,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/app/development/logic/instantiation/"><span>Instantiation</span></a></li>
       <li class="dd-item">
+        <a href="/app/development/logic/services/"><span>Services</span></a></li>
+      <li class="dd-item">
         <a href="/app/development/logic/validation/"><span>Validation</span></a></li></ul></li>
       <li class="dd-item">
         <a href="/app/development/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
@@ -1037,6 +1039,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4320-14032022---person-lookup-service-client">4.32.0 (14.03.2022) - Person lookup service client</a></li>
     <li><a href="#4311-10032022---fixed-bug-related-to-prefill-and-enriched-instance-events-with-person-identification-number">4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number</a></li>
     <li><a href="#4300-07032022---support-for-readiness-og-liveness-probes">4.30.0 (07.03.2022) - Support for readiness og liveness probes</a></li>
     <li><a href="#4270-23022022---secure-options-endpoint">4.27.0 (23.02.2022) - Secure options endpoint</a></li>
@@ -1082,6 +1085,8 @@ if(host != "localhost")
 
 
 
+<h2 id="4320-14032022---person-lookup-service-client">4.32.0 (14.03.2022) - Person lookup service client</h2>
+<p>The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.</p>
 <h2 id="4311-10032022---fixed-bug-related-to-prefill-and-enriched-instance-events-with-person-identification-number">4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number</h2>
 <ul>
 <li>This release fixes a bug where prefilling the same value to more than one field

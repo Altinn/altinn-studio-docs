@@ -261,6 +261,8 @@ if(host != "localhost")
       <li class="dd-item">
         <a href="/nb/app/development/logic/generic/"><span>Generelt</span></a></li>
       <li class="dd-item">
+        <a href="/nb/app/development/logic/services/"><span>Tjenester</span></a></li>
+      <li class="dd-item">
         <a href="/nb/app/development/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
       <li class="dd-item">
         <a href="/nb/app/development/logic/dynamic/"><span>Dynamikk</span></a></li>
@@ -795,7 +797,8 @@ Subscription The highly preferred way to use events is to set up a subscription 
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/whats-new/">Hva er nytt?</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer  Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en duplicate key exception. Personnummer legges nå til i platformUser objektet for instance events.  4.30.0 (07.03.2022) - Støtte for readiness og livenessprober Det er nå lagt til et endepunkt for helsesjekk i applikasjonen. Dette benyttes blant annet av Kubernetes til å vite når en applikasjonsinstans er klar til å settes inn i last. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
+        <p>4.32.0 (14.03.2022) - Person oppslagstjeneste Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.
+4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer  Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en duplicate key exception. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          
