@@ -13,9 +13,9 @@ samt testing av applikasjonen lokalt og i testmiljø.
 
 Tre ting må være på plass før du går i gang med dette kurset.
 
-1. [En bruker i Altinn Studio](../getting-started/first-time-setup/#lag-en-bruker-i-altinn-studio)
+1. [En bruker i Altinn Studio](/nb/app/getting-started/first-time-setup/#lag-en-bruker-i-altinn-studio)
 2. [Ditt lokale utviklingsmiljø er satt opp med støtte for utvikling og testing av apps](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md#prerequisites)
-3. [Tilgang til en organisasjon med et testmiljø](../getting-started/first-time-setup/#bli-del-av-en-organisasjon)*
+3. [Tilgang til en organisasjon med et testmiljø](/nb/app/getting-started/first-time-setup/#bli-del-av-en-organisasjon*
 
 \* En forutsetning for bolk 3. Resterende bolker kan fullføres med fullt læringsutbytte uten at dette er på plass.
 

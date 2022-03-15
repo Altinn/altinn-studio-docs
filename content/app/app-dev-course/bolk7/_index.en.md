@@ -30,8 +30,8 @@ For å unngå at personer sender inn feil informasjon ønsker kommunen at bruker
 Sogndal kommune ønsker at man benytter kategoriene **Personalia** om brukerens person-infomrasjon, og **Arbeid** om svarene gitt på brukerens arbeidshistorikk.
 
 ### Nyttig dokumentasjon
-- [Hvordan sette opp visning av oppsummering av utfylt skjema](../development/ux/pages/summary/)
-- [Kategorier i oppsummering](../development/ux/pages/summary/#kategorier)
+- [Hvordan sette opp visning av oppsummering av utfylt skjema](/nb/app/development/ux/pages/summary/)
+- [Kategorier i oppsummering](/nb/app/development/ux/pages/summary/#kategorier)
 
 ### Forståelsessjekk
 - Hvorfor burde oppsummeringssiden ignoreres fra PDF-genereringen?
@@ -48,9 +48,9 @@ Sogndal kommune ønsker derfor at informasjonssiden vises som en "stateless"-del
 møter kriteriene.
 
 ### Nyttig dokumentasjon
-- [Introduksjon til stateless applikasjoner](../development/configuration/stateless/#introduksjon-til-stateless-applikasjoner)
-- [Konfigurasjon av stateless applikasjoner](../development/configuration/stateless/#konfigurasjon)
-- [Starte instans fra stateless skjema](../development/configuration/stateless/#starte-instans-fra-et-stateless-skjema)
+- [Introduksjon til stateless applikasjoner](/nb/app/development/configuration/stateless/#introduksjon-til-stateless-applikasjoner)
+- [Konfigurasjon av stateless applikasjoner](/nb/app/development/configuration/stateless/#konfigurasjon)
+- [Starte instans fra stateless skjema](/nb/app/development/configuration/stateless/#starte-instans-fra-et-stateless-skjema)
 ### Forståelsessjekk
 - Hva lagres av data for stateless applikasjoner?
 
@@ -81,7 +81,7 @@ Se en oversikt over våre ledige stillinger her.
 Siste linje i teksten skal fortsatt være en lenke til stillingsutlysningene.
 
 ### Nyttig dokumentasjon
--  [Variabler i tekster](../development/ux/texts/#variabler-i-tekster)
+- [Variabler i tekster](/nb/app/development/ux/texts/#variabler-i-tekster)
 
 ### Forståelsessjekk
 - Hva vises som en del av teksten om den aktuelle variabelen ikke har noen verdi i datamodellen?

@@ -75,9 +75,9 @@ og _Pull_ endringene i ditt lokale utviklingsmiljø.
 
 ### Nyttig dokumentasjon
 
-- [Hvordan sette opp statiske kodelister](../development/data/options/#statisk-kodeliste-fra-app-repo)
-- [Hvordan sette opp dynamiske kodelister](../development/data/options/#dynamisk-kodeliste-generert-runtime)
-- [Sikrede dynamiske options](../development/data/options/#sikrede-dynamiske-kodelister)
+- [Hvordan sette opp statiske kodelister](/nb/app/development/data/options/#statisk-kodeliste-fra-app-repo)
+- [Hvordan sette opp dynamiske kodelister](/nb/app/development/data/options/#dynamisk-kodeliste-generert-runtime)
+- [Sikrede dynamiske options](/nb/app/development/data/options/#sikrede-dynamiske-kodelister)
 
 ### Forståelsessjekk
 - Hva er forskjellen på statiske og dynamiske options?
@@ -103,7 +103,7 @@ basert på hvilken sektor de har krysset av for.
 - Offentlig sektor: `Stat` og `Kommune`
 
 ### Nyttig dokumentasjon
-- [Hvordan sende med query parameter ved henting av options](../development/data/options/#sende-med-query-parametere-ved-henting-av-options)
+- [Hvordan sende med query parameter ved henting av options](/nb/app/development/data/options/#sende-med-query-parametere-ved-henting-av-options)
 
 ### Forståelsessjekk
 - Om en option-liste er satt opp med en mapping mot datamodellen - hva skjer når det aktuell feltet endrer verdi?
@@ -130,8 +130,8 @@ https://sogndal.easycruit.com/index.html
 Tekst og lenke skal **kun** vises om man har valgt `IKT (data/it)` i alle andre tilfeller skal dette være skjult.
 
 ### Nyttig dokumentasjon
-- [Legge til funksjoner for regler eller dynamikk](../development/logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul)
-- [Eksempler på bruk av dynamikk i skjema](../development/logic/dynamic/#eksempel-på-bruk-av-dynamikk-i-skjema)
+- [Legge til funksjoner for regler eller dynamikk](/nb/app/development/logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul)
+- [Eksempler på bruk av dynamikk i skjema](/nb/app/development/logic/dynamic/#eksempel-på-bruk-av-dynamikk-i-skjema)
 
 ### Forståelsessjekk
 - Hvis du legger til en ny funksjon i `RuleHandlerHelper` - hvor kjøres disse funksjonene?

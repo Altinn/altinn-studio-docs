@@ -35,7 +35,7 @@ så man trenger ikke ta hensyn til årstall i navnet.
 Det er et ønske om at et eller flere av ordene  "tilflytter" og  "Sogndal" er med i navnet.
 
 ### Nyttig dokumentasjon
-- [Opprete app i Altinn Studio](../getting-started/create-app/)
+- [Opprette app i Altinn Studio](/nb/app/getting-started/create-app/)
 
 {{% /expandlarge %}}
 
@@ -54,7 +54,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 
 1. [Last ned xsd-filen](datamodel.xsd), åpne den i et tekstredigeringsprogram
    og ta en nærmere titt på innholdet.
-2. [Last opp datamodellen i Altinn Studio](../development/data/data-model/#laste-opp--vise-datamodell)
+2. [Last opp datamodellen i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
 3. Push endringene master og ta en nærmere titt på filene i mappen `App/models`
 
 
@@ -67,7 +67,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 - Enkelte restriksjoner fra datamodellen overføres ikke til _C#_-filen, hvilke? Det er og lagt til nye egenskaper, hvilke?
 
 ### Nyttig dokumentasjon
-- [Laste opp datamodell i Altinn Studio](../development/data/data-model/#laste-opp--vise-datamodell)
+- [Laste opp datamodell i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
 {{% /expandlarge %}}
 
@@ -93,8 +93,8 @@ Det er mulig å koble tekster til komponenter både i Altinn Studio og lokalt.
 
 
 ### Nyttig dokumentasjon
-- [Redigere applikasjonstekster](../development/ux/texts/#add-and-change-texts-in-an-application)
-- [Formatering av tekster](../development/ux/texts/#formatting-of-texts)
+- [Redigere applikasjonstekster](/nb/app/development/ux/texts/#legge-til-og-endre-tekster-i-en-app)
+- [Formatering av tekster](/nb/app/development/ux/texts/#formatering-av-tekster)
 - [ISO 639-1 standard](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)
 
 ### Forståelsessjekk
@@ -130,8 +130,8 @@ Tekstene kan du se bort ifra i første omgang, da disse skal jobbes videre med i
   - Telefon
 
 ### Nyttig dokumentasjon
-- [Tilgjengelige komponenter i Altinn Studio](../../technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
-- [Retningslinjer for bruk av komponenter](../design/guidelines/components/)
+- [Tilgjengelige komponenter i Altinn Studio](/technology/solutions/altinn-studio/designer/functional/build-app/ui-designer/components/)
+- [Retningslinjer for bruk av komponenter](/nb/app/design/guidelines/components/)
 
 ### Forståelsessjekk
 
@@ -155,8 +155,8 @@ men trenger du en anbefaling er [Visual Studio Code](https://code.visualstudio.c
 
 
 ### Nyttig dokumentasjon
-- [Hvordan klone applikasjon til lokalt utviklingsmiljø](../getting-started/local-dev/#hvordan-klone-applikasjonen-til-et-lokalt-utviklingsmiljø)
-- [Hvordan synkronisere endringer i lokalt utviklingsmiljø](..app/getting-started/local-dev/#hvordan-synkronisere-endringer-i-lokalt-utviklingsmiljø)
+- [Hvordan klone applikasjon til lokalt utviklingsmiljø](/nb/app/getting-started/local-dev/#hvordan-klone-applikasjonen-til-et-lokalt-utviklingsmiljø)
+- [Hvordan synkronisere endringer i lokalt utviklingsmiljø](/nb/app/getting-started/local-dev/#hvordan-synkronisere-endringer-i-lokalt-utviklingsmiljø)
 {{% /expandlarge %}}
 
 
@@ -181,9 +181,9 @@ Videre vil du ønske å teste endringene dine fortløpende i localtest.
 
 
 ### Nyttig dokumentasjon
-- [Hvordan sette opp LocalTest](../testing/local/debug/)
-- [Debugging av applikasjon](../testing/local/debug/)
-- [Tilgjengelig testbrukere i LocalTest](../testing/local/testusers/)
+- [Hvordan sette opp LocalTest](https://github.com/Altinn/altinn-studio/blob/master/LOCALAPP.md)
+- [Debugging av applikasjon](/nb/app/testing/local/debug/)
+- [Tilgjengelig testbrukere i LocalTest](/nb/app/testing/local/testusers/)
 {{% /expandlarge %}}
 
 

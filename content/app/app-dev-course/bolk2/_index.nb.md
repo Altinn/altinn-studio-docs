@@ -62,11 +62,11 @@ Følgende er ønskelig at reflekteres i applikasjonen:
 
 ### Nyttig dokumentasjon
 
-- [Formatering av tekst i en applikasjon](../development/ux/texts/#formatting-of-texts)
-- [Hvordan legge til bilder i en applikasjon](../development/ux/images/#add-images-to-the-application)
-- [Sidestilte komponenter](../development/ux/styling/#sidestilte-komponenter-grid)
-- [Filoppsett ved flere sider](../development/ux/pages/#oppsett)
-- [Administrere rekkefølge på flere sider](../development/ux/pages/navigation/#order)
+- [Formatering av tekst i en applikasjon](/nb/app/development/ux/texts/#formatering-av-tekster)
+- [Hvordan legge til bilder i en applikasjon](/nb/app/development/ux/images/#legge-til-bilder-i-applikasjonen)
+- [Sidestilte komponenter](/nb/app/development/ux/styling/#sidestilte-komponenter-grid)
+- [Filoppsett ved flere sider](/nb/app/development/ux/pages/#oppsett)
+- [Administrere rekkefølge på flere sider](/nb/app/development/ux/pages/navigation/#rekkefølge)
 
 ### Forståelsessjekk
 - Hvilken fil i applikasjonsrepoet er det som må justeres på dersom du manuelt ønsker å endre siderekkefølgen på eksisterende sider?
@@ -119,8 +119,8 @@ https://www.sogndal.kommune.no/
 - Brukeren sendes videre til datainnsamlingssidene.
 
 ### Nyttig dokumentasjon
-- [Hvordan sette opp sporvalg](../development/ux/pages/tracks/)
-- [Formatering av tekst](../development/ux/texts/#formatting-of-texts)
+- [Hvordan sette opp sporvalg](/nb/app/development/ux/pages/tracks/)
+- [Formatering av tekst](/nb/app/development/ux/texts/#formatering-av-tekster)
 
 ### Forståelsessjekk
 - Hvis en bruker går tilbake og endrer svaret sitt på infosiden, får den da opp datainnsamlingssidene? Hvis ikke. Hvilke endringer kan du gjøre for å støtte dette i din applikasjon?
@@ -151,8 +151,8 @@ I denne oppgaven flyttes fokus tilbake til den første datainnsamlingssiden, og 
 
 ### Nyttig dokumentasjon
 - [Tilgjengelige prefillkilder](https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json)
-- [Prefill fra nasjonale register og brukerprofil](../development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
-- [Egendefinert prefill](../development/data/prefill/#egendefinert-prefill)
+- [Prefill fra nasjonale register og brukerprofil](/nb/app/development/data/prefill/#prefill-fra-nasjonale-register-og-brukerprofil)
+- [Egendefinert prefill](/nb/app/development/data/prefill/#egendefinert-prefill)
 - [Hvordan beregne alder basert på fødselsdato i C#](https://www.c-sharpcorner.com/blogs/how-to-calculate-age-in-year-in-asp-net1)
 
 ### Forståelsessjekk
