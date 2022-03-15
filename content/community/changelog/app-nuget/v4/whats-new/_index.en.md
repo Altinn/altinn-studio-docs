@@ -4,8 +4,67 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
-## 4.29.0 (01.03.2022) - Person lookup service client
-The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.
+## 4.32.0 (14.03.2022) - Person lookup service client
+The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register. (This was first implemented in 4.29.0, but bugs pushed it back to 4.32.0.)
+
+
+## 4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number
+
+- This release fixes a bug where prefilling the same value to more than one field
+throws a duplicate key exception. This has been solved by flipping the prefill dictionary. 
+- Person identification number has been included to the platformUser data of an instance event.
+
+
+## 4.30.0 (07.03.2022) - Support for readiness og liveness probes
+An endpoint dedicated for health check has been implemented.
+This is used by Kubernetes to know when an instance of the application is ready for load. 
+
+All applications created before 16.06.2022 must be manually updated to 
+enable the readiness and liveness probes.
+
+1. In  `App/Startup.cs`
+   1.  Add the line `using Altinn.App.Core.Health;` amongst the _using_-statements at the top of the file
+
+   2. In the function  `ConfigureServices`, add the line
+
+      ```cs
+      services.AddHealthChecks().AddCheck<HealthCheck>("default_health_check");
+      ```
+
+   3. In the function `Configure` add the line
+
+      ```cs
+      app.UseHealthChecks("/health");
+      ```
+
+2. In `deployment/Chart.yaml` the reference to the Altinn Helm Chart should be updated to version `2.1.0`
+   
+   The final result should resemble this:
+
+   ```yaml
+   apiVersion: v1
+   description: A Helm chart for Kubernetes
+   name: deployment
+   version: 1.1.0
+
+   dependencies:
+   - name: deployment
+      repository: https://charts.altinn.studio/
+      version: 2.1.0
+   ```
+
+3. In `deployment/values.yaml` under `deployment`, add
+
+   ```yaml
+   readiness:
+     enabled: true
+
+   liveness:
+     enabled: true
+   ```
+
+**NOTE** identation is imporant in yaml files. `readiness` og `liveness` must be on the level below `deployment`,
+and at the same level av `volumeMounts` og `volumes`.
 
 ## 4.27.0 (23.02.2022) - Secure options endpoint
 Add support for secure options endpoints
