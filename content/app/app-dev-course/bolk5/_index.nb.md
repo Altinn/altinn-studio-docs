@@ -45,8 +45,8 @@ På dette punktet i arbeidsflyten skal brukeren kunne:
 
 ### Nyttig dokumentasjon
 
-- [Tilgjengelige prosessteg i en Altinn App](../development/configuration/process/#supported-process-task-types)
-- [Hvordan endre prosessflyten til en applikasjon](../development/configuration/process/#change-the-process)
+- [Tilgjengelige prosessteg i en Altinn App](/nb/app/development/configuration/process/#støttede-prosess-task-typer)
+- [Hvordan endre prosessflyten til en applikasjon](/nb/app/development/configuration/process/#endre-prosessen)
 - [Online BPMN editor](https://demo.bpmn.io/)
 - [BPMN standard](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation)
 
@@ -66,7 +66,7 @@ Oppdater policyfilen, så den har autorisasjonsregler som dekker det nye prosess
 - Det skal være samme rollekrav for å fylle ut og bekrefte en instans.
 
 ### Nyttig dokumentasjon
-- [Regelbibliotek](../development/configuration/authorisation/rules/#bruker-med-rollen-regna-eller-dagl-kan-bekrefte-instanser-av-orgapp-som-er-i-task_2)
+- [Regelbibliotek](/nb/app/development/configuration/authorisation/rules/)
 - [Alle roller i Altinn](https://www.altinn.no/hjelp/skjema/alle-altinn-roller/)
 
 ### Forståelsessjekk
@@ -80,7 +80,7 @@ Oppdater policyfilen, så den har autorisasjonsregler som dekker det nye prosess
 - Det skal kun være mulig for brukeren som eier instansen å sende inn skjemaet, selv om andre måtte inneha de nødendigve rollene
 
 ### Nyttig dokumentasjon
-- [Egendefinert validering](../development/logic/validation/#hvordan-legge-til-egendefinert-validering)
+- [Egendefinert validering](/nb/app/development/logic/validation/#hvordan-legge-til-egendefinert-validering)
 
 ### Forståelsessjekk
 - Hvilken endring ville du foreslått for kunden for å kunne oppfylle dette kravet uten å legge inn egendefinerte valideringen på dette steget?
@@ -102,7 +102,7 @@ Før du sender inn vil vi anbefale å se over svarene dine. Du kan ikke endre sv
 ```
 
 ### Nyttig dokumentasjon
-- [Tilpasning av brekreftelsessiden](../development/configuration/process/customize/#bekreftelse-confirmation)
+- [Tilpasning av brekreftelsessiden](/nb/app/development/configuration/process/customize/#bekreftelse-confirmation)
 
 {{% /expandlarge %}}
 
