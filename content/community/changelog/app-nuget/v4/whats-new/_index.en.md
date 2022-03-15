@@ -5,7 +5,7 @@ toc: true
 ---
 
 ## 4.32.0 (14.03.2022) - Person lookup service client
-The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register. (This was first implemented in 4.29.0, but bugs pushed it back to 4.32.0.)
+The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.
 
 
 ## 4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number

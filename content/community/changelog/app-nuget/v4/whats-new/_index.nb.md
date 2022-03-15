@@ -7,7 +7,7 @@ tags: [translate-to-norwegian]
 
 
 ## 4.32.0 (14.03.2022) - Person oppslagstjeneste
-Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register. (Dette ble først implemntert i 4.29, men feil gjorde at det ble flyttet til 4.32.0.)
+Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.
 
 
 ## 4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer
