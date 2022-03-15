@@ -189,13 +189,13 @@ Logging av requests til Application Insights nå inkluderer et lite set med iden
 - userId 
 - organisationNumber
 
-Dette løse sak [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
+Dette løser sak [#5983](https://github.com/Altinn/altinn-studio/issues/5983)
 
 
-## 4.11.1 (2021-08-26) - No longer possible to cache response from stateless apps
-Caching of the stateless data responses is no longer possible.
+## 4.11.1 (2021-08-26) - Hindre caching av data for apps uten "state"
+Det er lagt inn kode som gir hint til nettleser om å ikke cache data som blir brukt i apps uten state.
 
-This solves issue [#6532](https://github.com/Altinn/altinn-studio/issues/6532)
+Dette løser [#6532](https://github.com/Altinn/altinn-studio/issues/6532)
 
 ## 4.11.0 (2021-08-03) - Support for disabling reportee selection in Altinn Portal
 Apps now support adding query parameter `DontChooseReportee=true` to disable the reportee selection when an unauthorized user accesses an app. 
