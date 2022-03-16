@@ -797,8 +797,9 @@ Subscription The highly preferred way to use events is to set up a subscription 
         <h2 class="post-title"><a href="/nb/community/changelog/app-nuget/v4/whats-new/">Hva er nytt?</a></h2>
     </header>
     <section class="post-excerpt">
-        <p>4.32.0 (14.03.2022) - Person oppslagstjeneste Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.
-4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer  Denne releasen løser en bug der prefill av samme verdi til mer enn ett felt kaster en duplicate key exception. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
+        <p>4.33.0 (15.03.2022) - Støtte for å slå av PDF generering for skjema  Denne releasen gjør det mulig å slå av PDF generering for enkeltskjema i en applikasjon.  Dette gjøres ved å sette flag i application metadata på en gitt datatype. Standard er true
+Eksempel.
+{ &#34;id&#34;: &#34;melding&#34;, &#34;allowedContentTypes&#34;: [ &#34;application/xml&#34; ], &#34;maxCount&#34;: 1, &#34;appLogic&#34;: { &#34;autoCreate&#34;: false, &#34;ClassRef&#34;: &#34;App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding&#34; }, &#34;taskId&#34;: &#34;Task_1&#34;, &#34;enablePdfCreation&#34; : false } 4.32.0 (14.03.2022) - Person oppslagstjeneste Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. <a class="read-more" href="/nb/community/changelog/app-nuget/v4/whats-new/">&raquo;</a></p>
     </section>
     <footer class=" footline" >
          

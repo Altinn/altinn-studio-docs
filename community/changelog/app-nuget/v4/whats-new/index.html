@@ -1039,6 +1039,7 @@ if(host != "localhost")
           </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
               <p class="a-leadText" id="leadText">Overview of changes introduced in version 4.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4330-15032022---support-for-turning-off-pdf-generation">4.33.0 (15.03.2022) - Support for turning off PDF generation</a></li>
     <li><a href="#4320-14032022---person-lookup-service-client">4.32.0 (14.03.2022) - Person lookup service client</a></li>
     <li><a href="#4311-10032022---fixed-bug-related-to-prefill-and-enriched-instance-events-with-person-identification-number">4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number</a></li>
     <li><a href="#4300-07032022---support-for-readiness-og-liveness-probes">4.30.0 (07.03.2022) - Support for readiness og liveness probes</a></li>
@@ -1085,7 +1086,23 @@ if(host != "localhost")
 
 
 
-<h2 id="4320-14032022---person-lookup-service-client">4.32.0 (14.03.2022) - Person lookup service client</h2>
+<h2 id="4330-15032022---support-for-turning-off-pdf-generation">4.33.0 (15.03.2022) - Support for turning off PDF generation</h2>
+<p>This release makes it possible to turn of PDF generation for a given form</p>
+<p>This is defined in ApplicationMetaData for the given DataType. Default is true</p>
+<p>Example</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;melding&#34;</span>,
+      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [ <span style="color:#f1fa8c">&#34;application/xml&#34;</span> ],
+      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+      <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+        <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">false</span>,
+        <span style="color:#ff79c6">&#34;ClassRef&#34;</span>: <span style="color:#f1fa8c">&#34;App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding&#34;</span>
+      },
+      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+      <span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span> : <span style="color:#ff79c6">false</span>
+    }
+
+</code></pre></div><h2 id="4320-14032022---person-lookup-service-client">4.32.0 (14.03.2022) - Person lookup service client</h2>
 <p>The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.</p>
 <h2 id="4311-10032022---fixed-bug-related-to-prefill-and-enriched-instance-events-with-person-identification-number">4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number</h2>
 <ul>

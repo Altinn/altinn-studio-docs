@@ -585,6 +585,17 @@ Navigasjonsbar lister opp alle sider i appen, og egner seg derfor ikke til bruk 
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navbar-page-1&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationBar&#34;</span>
 }
+</code></pre></div><h3 id="endre-tekster-på-navigasjonsbarknapper">Endre tekster på navigasjonsbarknapper</h3>
+<p>Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden uten filendelsen. F.eks om man har <code>side1.json</code> og <code>side2.json</code> vil navigasjonsknappene hete <code>side1</code> og <code>side2</code>. For å overstyre disse tekstene, kan du legge til tekster i <code>resources.XX.json</code>, hvor <code>id</code> er navnet på filen uten filendelse. Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;side1&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Første side&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;side2&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Siste side&#34;</span>
+},
+
 </code></pre></div><h2 id="rekkefølge">Rekkefølge</h2>
 <p>Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:</p>
 <pre tabindex="0"><code>|- App/

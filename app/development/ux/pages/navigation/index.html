@@ -1103,6 +1103,17 @@ The Navigaion Bar lists all pages in the application, and is not suited for use 
   <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;navbar-page-1&#34;</span>,
   <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationBar&#34;</span>
 }
+</code></pre></div><h3 id="change-texts-on-navigationbar-buttons">Change texts on navigationbar buttons</h3>
+<p>The text in the navigation bar buttons will by default use the filename of the page without the extension. F.ex if you have <code>page1.json</code> and <code>page2.json</code>, the buttons will contain <code>page1</code> and <code>page2</code>. To override these texts, you can add texts in the <code>resources.XX.json</code>, where the <code>id</code> is the filename without extension. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;page1&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;First page&#34;</span>
+},
+{
+  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;page2&#34;</span>,
+  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Last page&#34;</span>
+},
+
 </code></pre></div><h2 id="order">Order</h2>
 <p>Default order for the pages is alphabetically. Besides this you can name each page as you wish, and the filename is what will be used. To ensure the pages appear in a specific order, you could prefix them with numbers, f.ex:</p>
 <pre tabindex="0"><code>|- App/

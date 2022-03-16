@@ -521,6 +521,7 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-norwegian">translate-to-norwegian</a></div><div id="body-inner"><h1 class="a-fontBold">Hva er nytt?</h1>
               <p class="a-leadText" id="leadText">Oversikt over endringer som ble introdusert i versjon 4.</p><h2>På denne siden:</h2><nav id="TableOfContents">
   <ul>
+    <li><a href="#4330-15032022---støtte-for-å-slå-av-pdf-generering-for-skjema">4.33.0 (15.03.2022) - Støtte for å slå av PDF generering for skjema</a></li>
     <li><a href="#4320-14032022---person-oppslagstjeneste">4.32.0 (14.03.2022) - Person oppslagstjeneste</a></li>
     <li><a href="#4311-10032022---fikset-bug-relatert-til-prefill-og-berriket-instance-events-med-personnumer">4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer</a></li>
     <li><a href="#4300-07032022---støtte-for-readiness-og-livenessprober">4.30.0 (07.03.2022) - Støtte for readiness og livenessprober</a></li>
@@ -567,7 +568,25 @@ if(host != "localhost")
 
 
 
-<h2 id="4320-14032022---person-oppslagstjeneste">4.32.0 (14.03.2022) - Person oppslagstjeneste</h2>
+<h2 id="4330-15032022---støtte-for-å-slå-av-pdf-generering-for-skjema">4.33.0 (15.03.2022) - Støtte for å slå av PDF generering for skjema</h2>
+<ul>
+<li>Denne releasen gjør det mulig å slå av PDF generering for enkeltskjema i en applikasjon.</li>
+</ul>
+<p>Dette gjøres ved å sette flag i application metadata på en gitt datatype. Standard er true</p>
+<p>Eksempel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;melding&#34;</span>,
+      <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [ <span style="color:#f1fa8c">&#34;application/xml&#34;</span> ],
+      <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+      <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+        <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">false</span>,
+        <span style="color:#ff79c6">&#34;ClassRef&#34;</span>: <span style="color:#f1fa8c">&#34;App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding&#34;</span>
+      },
+      <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+      <span style="color:#ff79c6">&#34;enablePdfCreation&#34;</span> : <span style="color:#ff79c6">false</span>
+    }
+
+</code></pre></div><h2 id="4320-14032022---person-oppslagstjeneste">4.32.0 (14.03.2022) - Person oppslagstjeneste</h2>
 <p>Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.</p>
 <h2 id="4311-10032022---fikset-bug-relatert-til-prefill-og-berriket-instance-events-med-personnumer">4.31.1 (10.03.2022) - Fikset bug relatert til prefill og berriket instance events med personnumer</h2>
 <ul>
