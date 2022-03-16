@@ -69,6 +69,7 @@ redigere den i f.eks. Visual Studio eller et selvvalgt tekstredigeringsprogram.
 ### Nyttig dokumentasjon
 - [Laste opp datamodell i Altinn Studio](/nb/app/development/data/data-model/#laste-opp--vise-datamodell)
 - [Beskrivelse av indikatorer i XSD](https://www.w3schools.com/xml/schema_complex_indicators.asp)
+  
 {{% /expandlarge %}}
 
 
