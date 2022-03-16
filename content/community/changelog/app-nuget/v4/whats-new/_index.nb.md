@@ -5,6 +5,29 @@ toc: true
 tags: [translate-to-norwegian]
 ---
 
+## 4.33.0 (15.03.2022) - Støtte for å slå av PDF generering for skjema
+
+- Denne releasen gjør det mulig å slå av PDF generering for enkeltskjema i en applikasjon. 
+
+Dette gjøres ved å sette flag i application metadata på en gitt datatype. Standard er true
+
+Eksempel.
+
+```json
+{
+      "id": "melding",
+      "allowedContentTypes": [ "application/xml" ],
+      "maxCount": 1,
+      "appLogic": {
+        "autoCreate": false,
+        "ClassRef": "App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding"
+      },
+      "taskId": "Task_1",
+      "enablePdfCreation" : false
+    }
+
+```
+
 
 ## 4.32.0 (14.03.2022) - Person oppslagstjeneste
 Register applikasjonen i platform har blitt oppdatert med et nytt endepunkt som kan brukes til å verifisere et personnummer. Denne versjonen av NuGet pakkene til en app har fått implementert en oppslagstjeneste som kan brukes til å gjøre oppslag mot dette nye endepunktet i Register.

@@ -4,8 +4,32 @@ description: Overview of changes introduced in version 4.
 toc: true
 ---
 
+## 4.33.0 (15.03.2022) - Support for turning off PDF generation
+
+This release makes it possible to turn of PDF generation for a given form
+
+This is defined in ApplicationMetaData for the given DataType. Default is true
+
+Example
+
+```json
+{
+      "id": "melding",
+      "allowedContentTypes": [ "application/xml" ],
+      "maxCount": 1,
+      "appLogic": {
+        "autoCreate": false,
+        "ClassRef": "App.IntegrationTestsRef.Data.apps.dibk.nabovarsel.Melding"
+      },
+      "taskId": "Task_1",
+      "enablePdfCreation" : false
+    }
+
+```
+
 ## 4.32.0 (14.03.2022) - Person lookup service client
 The platform application Register has been given a new endpoint that can be used to verify correct national identity number. This version of the app template packages have a new person lookup client that can be used to perform lookups with the new endpoint in Register.
+
 
 
 ## 4.31.1 (10.03.2022) - Fixed bug related to prefill and enriched instance events with person identification number
