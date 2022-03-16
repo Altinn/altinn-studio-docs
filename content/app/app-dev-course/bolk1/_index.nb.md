@@ -112,7 +112,6 @@ Feltene som skal fylles ut på en skjemaside kan settes opp ved hjelp av "drag a
 eller manuelt i json-filen som beskriver utseendet til en skjemaside _FormLayout.json_.
 
 Basert på kravene fra kommunen klarer du å sette opp den første skjemasiden i Altinn Studio?
-Tekstene kan du se bort ifra i første omgang, da disse skal jobbes videre med i neste oppgave.
 
 ### Krav fra kommunen
 
