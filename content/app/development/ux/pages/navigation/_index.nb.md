@@ -59,6 +59,22 @@ Navigasjonsbar legges inn i alle layoutfiler der den skal brukes. Eksempel på k
 }
 ```
 
+### Endre tekster på navigasjonsbarknapper
+
+Teksten på navigasjonsbarknappene vil som standard bruke filnavnet på siden uten filendelsen. F.eks om man har `side1.json` og `side2.json` vil navigasjonsknappene hete `side1` og `side2`. For å overstyre disse tekstene, kan du legge til tekster i `resources.XX.json`, hvor `id` er navnet på filen uten filendelse. Eksempel:
+
+```json
+{
+  "id": "side1",
+  "value": "Første side"
+},
+{
+  "id": "side2",
+  "value": "Siste side"
+},
+
+```
+
 ## Rekkefølge
 Standard rekkefølge for sidene er alfabetisk. Utover det kan man navngi hver side som man ønsker, det er da filnavnet som gjelder her. For å sikre at sidene kommer i ønsket rekkefølge kan man f.eks. sette en prefix med tall foran sidenavnet i filnavn. F.eks:
 
