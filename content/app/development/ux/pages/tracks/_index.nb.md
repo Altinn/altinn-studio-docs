@@ -93,13 +93,13 @@ Da servicen allerede dependency injectes inn i klasen er det kun to steg som kre
 1. Opprett en privat variabel i staten av klassen.
 
 ```cs
-private readonly IAppResources _appResources;
+private readonly IAppResources _appResourcesService;
 ```
 
 2. Definer den nye private variabelen lik servicen som sendes med i konstruktøren til App.cs
 
 ```cs
- _appResources = appResourcesService;
+ _appResourcesService = appResourcesService;
 ```
 
 - *CurrentPage* Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.
@@ -139,7 +139,7 @@ public override async Task<List<string>> GetPageOrder(string org, string app, in
     List<string> pageOrder = new List<string>();
     if (string.IsNullOrEmpty(layoutSetId))
     {
-        pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
+        pageOrder = _appResources.GetLayoutSettings().Pages.Order;
     }
     else
     {
