@@ -59,6 +59,22 @@ The Navigation Bar is added to all layout files. Configuration example:
 }
 ```
 
+### Change texts on navigationbar buttons
+
+The text in the navigation bar buttons will by default use the filename of the page without the extension. F.ex if you have `page1.json` and `page2.json`, the buttons will contain `page1` and `page2`. To override these texts, you can add texts in the `resources.XX.json`, where the `id` is the filename without extension. Example:
+
+```json
+{
+  "id": "page1",
+  "value": "First page"
+},
+{
+  "id": "page2",
+  "value": "Last page"
+},
+
+```
+
 ## Order
 Default order for the pages is alphabetically. Besides this you can name each page as you wish, and the filename is what will be used. To ensure the pages appear in a specific order, you could prefix them with numbers, f.ex:
 
