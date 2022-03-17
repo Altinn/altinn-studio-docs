@@ -79,11 +79,11 @@ List<string> pageOrder = new List<string>();
 
 if (string.IsNullOrEmpty(layoutSetId))
 {
-    pageOrder = _appResources.GetLayoutSettings().Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
 }
 else
 {
-    pageOrder = _appResources.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+    pageOrder = _appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
 }
 ```
 
@@ -139,7 +139,7 @@ public override async Task<List<string>> GetPageOrder(string org, string app, in
     List<string> pageOrder = new List<string>();
     if (string.IsNullOrEmpty(layoutSetId))
     {
-        pageOrder = _appResources.GetLayoutSettings().Pages.Order;
+        pageOrder = _appResourcesService.GetLayoutSettings().Pages.Order;
     }
     else
     {
