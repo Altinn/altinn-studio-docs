@@ -4,24 +4,36 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
-## 3.31.8 (2022-03-10) - Bugfix for attachments in LocalTest
+## 3.33.0 (2022-03-18) - New text in Confirm view + possible to customize
+New text for `confirm.sender` in confirm view. Now also possible to override this text.
+Issue [#8243](https://github.com/Altinn/altinn-studio/issues/8243).
+
+## 3.32.10 (2022-03-18) - Bugfix for Datepicker
+Fixed a bug where malformed dates would not display any validation message.
+Issue [#8121](https://github.com/Altinn/altinn-studio/issues/8121).
+
+## 3.32.9 (2022-03-10) - Bugfix for attachments in LocalTest
 Attachments are now possible to download in LocalTest.
 Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
 
-## 3.31.7 (2022-03-04) - Dependency patching
+## 3.32.8 (2022-03-04) - Bugfix for Dropdown-component in repeating groups
+Fixed bug where a dropdown component in a repeating group would result in an unknown error.
+Issue [#8169](https://github.com/Altinn/altinn-studio/issues/8169).
+
+## 3.32.7 (2022-03-04) - Dependency patching
 Patching of external dependencies for week 9 of 2022.
 Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
 
-## 3.31.6 (2022-03-02) - Fixes validation on multiple tracks
+## 3.32.6 (2022-03-02) - Fixes validation on multiple tracks
 Fixed page validation on apps with multiple tracks.
 Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
 
-## 3.31.5 (2022-03-02) - Fixes for text elements
+## 3.32.5 (2022-03-02) - Fixes for text elements
 Multiple fixes for texts and support for markdown in header component.
 Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
 Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
 
-## 3.31.4 (2022-03-01) - UX fixes for mobile view
+## 3.32.4 (2022-03-01) - UX fixes for mobile view
 Fixed modal header padding in mobile view.
 Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
 
