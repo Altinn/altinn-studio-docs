@@ -4,24 +4,36 @@ description: Oversikt over endringer som ble introdusert i v3 av app frontend.
 toc: true
 ---
 
-## 3.31.8 (2022-03-10) - Fikset feil med vedlegg i LocalTest
+## 3.33.0 (2022-03-18) - Oppdatert tekst i bekreftelsessteg + mulighet til å overstyre
+Ny tekst for `confirm.sender` i bekreftelsessteget. Nå også mulighet til å overstyre denne.
+Issue [#8243](https://github.com/Altinn/altinn-studio/issues/8243).
+
+## 3.32.10 (2022-03-18) - Fikset feil i datovelgeren
+Fikset en feil hvor ugyldige datoer ikke ville vise noen feilmelding.
+Issue [#8121](https://github.com/Altinn/altinn-studio/issues/8121).
+
+## 3.32.9 (2022-03-10) - Fikset feil med vedlegg i LocalTest
 Er nå mulig å laste ned vedlegg i LocalTest.
 Pull request [#7925](https://github.com/Altinn/altinn-studio/pull/7925).
 
-## 3.31.7 (2022-03-04) - Oppdaterte avhengigheter
+## 3.32.8 (2022-03-04) - Fikset feil for nedtrekkskomponent i repeterende grupper
+Fikset en feil hvor nedtrekkskomponenten i repeterende grupper kunne resultere i en ukjent feil.
+Issue [#8169](https://github.com/Altinn/altinn-studio/issues/8169).
+
+## 3.32.7 (2022-03-04) - Oppdaterte avhengigheter
 Oppdaterte eksterne avhengigheter for uke 9 av 2022.
 Issue [#8137](https://github.com/Altinn/altinn-studio/issues/8137).
 
-## 3.31.6 (2022-03-02) - Forbedret validerings-støtte for sporvalg
+## 3.32.6 (2022-03-02) - Forbedret validerings-støtte for sporvalg
 La til støtte for å kunne koble valideirngsmelding til data-felt som ble brukt på flere sider.
 Issue [#8145](https://github.com/Altinn/altinn-studio/issues/8145).
 
-## 3.31.5 (2022-03-02) - Forbedringer i tekster
+## 3.32.5 (2022-03-02) - Forbedringer i tekster
 Ulike forbedringer relatert til teksthåndtering. La også til støtte for markdown i tittel-komponentens.
 Issue [#7874](https://github.com/Altinn/altinn-studio/issues/7874).
 Issue [#7571](https://github.com/Altinn/altinn-studio/issues/7571).
 
-## 3.31.4 (2022-03-01) - Visuelle fikser i modalen.
+## 3.32.4 (2022-03-01) - Visuelle fikser i modalen.
 Justeringer i padding i modalen i mobilvisningen.
 Issue [#8143](https://github.com/Altinn/altinn-studio/issues/8143).
 
