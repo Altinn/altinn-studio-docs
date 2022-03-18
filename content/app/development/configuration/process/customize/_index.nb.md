@@ -20,18 +20,19 @@ Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver 
 om hvordan dette gjøres finner du [her](../../tekster). Se under for oversikt over de forskjellige tekstnøklene som kan
 overstyres.
 
-I tillegg kan man legge inn statiske data som kan presenteres til sluttbruker, markert med *5* i bildet under. 
-
-![Bekreftelses-visningen](texts.png "Tekster som kan endres/overstyres i bekreftelses-visningen")
+![Bekreftelses-visningen](confirm-step.png "Tekster som kan endres/overstyres i bekreftelses-visningen")
 
 ### Overstyre tekster
 
 | Tekst nr. (se bilde over) | Tekstnøkkel         |
 | ------------------------- | ------------------- |
 | 1                         | confirm.title       |
-| 2                         | confirm.body        |
-| 3                         | confirm.attachments |
-| 4                         | confirm.button_text |
+| 2                         | confirm.sender      |
+| 3                         | confirm.body        |
+| 4                         | confirm.answers     |
+| 5                         | confirm.attachments |
+| 6                         | confirm.button_text |
+
 
 Eksempel på overstyrte tekster i filen `resources.nb.json`:
 
@@ -59,7 +60,7 @@ For lenke og utheving, [benytt markdown](../../tekster#formatering-av-tekster).
 
 Dette resulterer i følgende visning:
 
-![Bekreftelses-visningen](overridden.png "Overstyrte tekster på bekreftelses-visningen")
+![Bekreftelses-visningen](confirm-step-custom.png "Overstyrte tekster på bekreftelses-visningen")
 
 ## Tilbakemelding (Feedback)
 Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
@@ -87,4 +88,3 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
   "value": "Når tjenesteier har sjekket at alle data er godkjent vil du bli automatisk sendt videre til siste steg i prosessen."
 }
 ```
-
