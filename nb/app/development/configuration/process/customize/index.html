@@ -541,8 +541,7 @@ Skjema kan redigeres ved bruk av <a href="../../ui-editor">UI editoren</a> eller
 <p>Tekstene kan overstyres, ved at man legger inn tekstnøkkel som hører til hver tekst i språkfilene for appen. Info
 om hvordan dette gjøres finner du <a href="../../tekster">her</a>. Se under for oversikt over de forskjellige tekstnøklene som kan
 overstyres.</p>
-<p>I tillegg kan man legge inn statiske data som kan presenteres til sluttbruker, markert med <em>5</em> i bildet under.</p>
-<figure><a href="texts.png"><img src="texts.png" alt="Bekreftelses-visningen" title="Tekster som kan endres/overstyres i bekreftelses-visningen" /></a><figcaption><h4>Tekster som kan endres/overstyres i bekreftelses-visningen</h4></figcaption></figure>
+<figure><a href="confirm-step.png"><img src="confirm-step.png" alt="Bekreftelses-visningen" title="Tekster som kan endres/overstyres i bekreftelses-visningen" /></a><figcaption><h4>Tekster som kan endres/overstyres i bekreftelses-visningen</h4></figcaption></figure>
 <h3 id="overstyre-tekster">Overstyre tekster</h3>
 <table>
 <thead>
@@ -558,14 +557,22 @@ overstyres.</p>
 </tr>
 <tr>
 <td>2</td>
-<td>confirm.body</td>
+<td>confirm.sender</td>
 </tr>
 <tr>
 <td>3</td>
-<td>confirm.attachments</td>
+<td>confirm.body</td>
 </tr>
 <tr>
 <td>4</td>
+<td>confirm.answers</td>
+</tr>
+<tr>
+<td>5</td>
+<td>confirm.attachments</td>
+</tr>
+<tr>
+<td>6</td>
 <td>confirm.button_text</td>
 </tr>
 </tbody>
@@ -590,7 +597,7 @@ overstyres.</p>
 </code></pre></div><p>Merk at i eksempelet over har vi brukt html-taggen <code>&lt;br/&gt;</code> for å lage linjeskift.
 For lenke og utheving, <a href="../../tekster#formatering-av-tekster">benytt markdown</a>.</p>
 <p>Dette resulterer i følgende visning:</p>
-<figure><a href="overridden.png"><img src="overridden.png" alt="Bekreftelses-visningen" title="Overstyrte tekster på bekreftelses-visningen" /></a><figcaption><h4>Overstyrte tekster på bekreftelses-visningen</h4></figcaption></figure>
+<figure><a href="confirm-step-custom.png"><img src="confirm-step-custom.png" alt="Bekreftelses-visningen" title="Overstyrte tekster på bekreftelses-visningen" /></a><figcaption><h4>Overstyrte tekster på bekreftelses-visningen</h4></figcaption></figure>
 <h2 id="tilbakemelding-feedback">Tilbakemelding (Feedback)</h2>
 <p>Dette er et prosesssteg hvor applikasjonseier vil sjekke utfylte data for å generere en tilbakemelding før alle data kan arkiveres.</p>
 <p>Tekstene på siden kan overstyres ved at man legger inn tekstnøkler som hører til hver tekst i språkfilene for appen. Info om hvordan dette gjøres finner du <a href="../../tekster">her</a>. Se under for oversikt over de forskjellige tekstnøklene som kan overstyres.</p>

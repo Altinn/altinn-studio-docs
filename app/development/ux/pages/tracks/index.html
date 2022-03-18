@@ -1104,22 +1104,22 @@ ut standard siderekkefølge som er definert i applikasjonen:</li>
 
 <span style="color:#ff79c6">if</span> (<span style="color:#8be9fd">string</span>.IsNullOrEmpty(layoutSetId))
 {
-    pageOrder = <span style="color:#bd93f9">_</span>appResources.GetLayoutSettings().Pages.Order;
+    pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettings().Pages.Order;
 }
 <span style="color:#ff79c6">else</span>
 {
-    pageOrder = <span style="color:#bd93f9">_</span>appResources.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
+    pageOrder = <span style="color:#bd93f9">_</span>appResourcesService.GetLayoutSettingsForSet(layoutSetId).Pages.Order;
 }
 </code></pre></div><p>Dette forutsetter at servicen <code>IAppResources</code> gjøres tilgjengelig i App.cs. 
 Da servicen allerede dependency injectes inn i klasen er det kun to steg som kreves.</p>
 <ol>
 <li>Opprett en privat variabel i staten av klassen.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources <span style="color:#bd93f9">_</span>appResources;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IAppResources <span style="color:#bd93f9">_</span>appResourcesService;
 </code></pre></div><ol start="2">
 <li>Definer den nye private variabelen lik servicen som sendes med i konstruktøren til App.cs</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#bd93f9">_</span>appResources = appResourcesService;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#bd93f9">_</span>appResourcesService = appResourcesService;
 </code></pre></div><ul>
 <li>
 <p><em>CurrentPage</em> Siden man ønsker å navigere fra vil være spesifisert i denne parameteren.</p>
