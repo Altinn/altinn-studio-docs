@@ -1053,7 +1053,7 @@ if(host != "localhost")
 Checkbox, Dropdown, and RadioButton components will automatically be able to fetch such lists if you connect the component to the option id in question.</p>
 <h2 id="static-codelists-from-the-application-repository">Static codelists from the application repository</h2>
 <p>By adding json based option files in the application repository, the application will automatically read the file and expose it through the options api. For this to work, the files must be placed in the <code>App/options/</code> folder and be named according to the following conventions <code>{optionId}.json</code> for the application to recgonize them.</p>
-<p>For example if you have a list of countries in a file named <code>countries.json</code>, the optionId would be <code>countries</code>, and would be exposed through the api at <code>{org}/{app}/api/options/countires</code>. The static codelists should be in a special format format as shown below:</p>
+<p>For example if you have a list of countries in a file named <code>countries.json</code>, the optionId would be <code>countries</code>, and would be exposed through the api at <code>{org}/{app}/api/options/countries</code>. The static codelists should be in a special format format as shown below:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
         <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;norway&#34;</span>,
