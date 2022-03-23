@@ -523,10 +523,11 @@ MERK: Denne bolken er fortsatt under utvikling. Ta en titt innom på et senere t
 <p><strong>Temaer som dekkes i denne bolken:</strong></p>
 <ul>
 <li>Oppsummmeringsside</li>
-<li>Konfigurasjon av Meldingsboks</li>
 <li>Stateless applikasjon</li>
-<li>Presentasjonstekster</li>
 <li>Variabler i tekst</li>
+<li>Bruk av eksternt API</li>
+<li>Konfigurasjon av Meldingsboks</li>
+<li>Presentasjonstekster</li>
 </ul>
 <h2 id="oppgaver">Oppgaver</h2>
 
@@ -631,6 +632,44 @@ Se en oversikt over våre ledige stillinger her.
 
 <div class="card adocs-expand">
 	<div>
+		<a data-toggle="collapse" href="#api" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>
+			Eksternt API
+		</a>
+	</div>
+	<div id="api" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<p>I noen tilfeller vil man måtte ta i bruk eksterne API for å dekke alle behovene til en applikasjon. 
+Dette kan være for å berrike nedtrekkslister eller å presentere data til brukeren basert på informasjon de har oppgitt.</p>
+<p>I denne oppgaven skal du implementere en klient som integrerer seg mot Bring sine APIer for å berrike adressen som 
+sluttbruker oppgir med et poststed basert på postnummer.</p>
+<p>APIet som skal benyttes er et postnummer oppslag tilgjengeliggjort av Bring. 
+Test det gjerne i nettleser med ulike postnummer.</p>
+<pre tabindex="0"><code>GET
+https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&amp;pnr={postnummer}
+</code></pre><h3 id="krav-fra-kommunen">Krav fra kommunen</h3>
+<ul>
+<li>Adresseinformasjonen skal samles inn via standard-input komponenter og ikke Altinns adressekomponent</li>
+<li>Poststed skal automatisk fylles ut for sluttbruker når postnummer er oppgitt</li>
+<li>Poststed skal ikke være mulig å redigere</li>
+<li>Antall kall til Bring sitt API skal begrenses til maksimalt én gang om dager per postnummer</li>
+</ul>
+<h3 id="nyttig-dokumentasjon">Nyttig dokumentasjon</h3>
+<p><a href="nb/app/development/api/consume">Konsumering av eksterne API</a></p>
+<h3 id="forståelsessjekk">Forståelsessjekk</h3>
+<ul>
+<li>Med en <em>memorycache</em> hvor mange ganger vil man maksimalt gjøre et API-kall i løpet av et døgn dersom applikasjonen kjører med tre replikas</li>
+</ul>
+
+		</div>
+	</div>
+</div>
+
+
+<div class="card adocs-expand">
+	<div>
 		<a data-toggle="collapse" href="#messagebox" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
 			<span class="a-dropdownCircleArrow">
 			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
@@ -679,26 +718,6 @@ Se en oversikt over våre ledige stillinger her.
 		</a>
 	</div>
 	<div id="Events" class="a-collapseContent collapse" role="tabpanel">
-		<div class="a-collapseContent-inside">
-			<h3 id="krav-fra-kommunen">Krav fra kommunen</h3>
-<h3 id="nyttig-dokumentasjon">Nyttig dokumentasjon</h3>
-<h3 id="forståelsessjekk">Forståelsessjekk</h3>
-
-		</div>
-	</div>
-</div>
-
-
-<div class="card adocs-expand">
-	<div>
-		<a data-toggle="collapse" href="#api" role="tab" aria-expanded="false" class="a-collapse-title no-decoration collapsed a-h3">
-			<span class="a-dropdownCircleArrow">
-			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
-			</span>
-			Eksternt API
-		</a>
-	</div>
-	<div id="api" class="a-collapseContent collapse" role="tabpanel">
 		<div class="a-collapseContent-inside">
 			<h3 id="krav-fra-kommunen">Krav fra kommunen</h3>
 <h3 id="nyttig-dokumentasjon">Nyttig dokumentasjon</h3>

@@ -1039,9 +1039,12 @@ if(host != "localhost")
           </div><div id="tags"><a class="label label-default" href="https://docs.altinn.studio/tags/translate-to-english">translate-to-english</a></div><div id="body-inner"><h1 class="a-fontBold">Consume APIs in an app</h1>
               <p class="a-leadText" id="leadText">An application can consume open and closed APIs available through the Internet.</p><h2>On this page:</h2><nav id="TableOfContents">
   <ul>
-    <li><a href="#kalle-et-eksternt-api-direkte-i-en-metode">Kalle et eksternt API direkte i en metode</a></li>
-    <li><a href="#konsumere-rest-api-uten-klientbibliotek">Konsumere REST API uten klientbibliotek</a></li>
-    <li><a href="#konsumere-api-fra-applikasjonslogikkapi-kontrollere">Konsumere API fra applikasjonslogikk/API kontrollere</a></li>
+    <li><a href="#creating-models-for-the-api">Creating models for the API</a></li>
+    <li><a href="#setting-up-an-interface-for-the-client">Setting up an interface for the client</a></li>
+    <li><a href="#implement-the-client">Implement the client</a></li>
+    <li><a href="#registering-the-client-in-the-application">Registering the client in the application</a></li>
+    <li><a href="#using-the-client-in-the-application-logic">Using the client in the application logic</a></li>
+    <li><a href="#caching-of-respons-data">Caching of respons data</a></li>
   </ul>
 </nav>
 
@@ -1050,212 +1053,399 @@ if(host != "localhost")
 
 <p>ASP.NET Core has good opportunities to consume different types of API.</p>
 <p>This can be useful if you want to expose your organization&rsquo;s own APIs via an app or need help from external APIs in the application logic.</p>
-<p>There are many ways to do this, and on this page you will find examples of how to consume REST APIs in an app.</p>
-<h2 id="kalle-et-eksternt-api-direkte-i-en-metode">Kalle et eksternt API direkte i en metode</h2>
-<p>I dette eksemplet brukes et åpent API til å kalkulere et felt i skjemaet basert på input i et annet felt.
-Klientkallet implementeres direkte i kalkuleringsmetoden og det implementeres en modell for å kunne parse API responsen.</p>
-<p><a href="https://restcountries.eu/">REST Countries</a> tilbyr et API som returnerer fakta om et land dersom man sender med navnet på landet.
-Vi ønsker å lage en app som tilbyr en bruker å søke opp hovedstaden i et land
-ved å bruke deres åpne API-endepunkt: <code>https://restcountries.eu/rest/v2/name/</code>.</p>
-<figure><a href="capital-app-example.gif"><img src="capital-app-example.gif" alt="App example animation" title="App example" /></a><figcaption><h4>App example</h4></figcaption></figure>
-<p>API-kallet er lagt til i kalkuleringsmetoden i <code>App/logic/CalculationHandler</code>
-slik at et nytt søk trigges hver gang man endrer et felt i appen.</p>
-<p>Forutsetninger:</p>
-<ol>
-<li>Det er laget en app i Altinn Studio.</li>
-<li>Det er lastet opp en datamodell som beskriver verden bestående av land med et navn og en hovedstad.</li>
-<li>Autogenerert C# klasse av datamodellen er utvidet med JSON-property tags for å kunne gjenbruke klassen i parsing av API responsen.</li>
-</ol>
-<p>Implementasjon:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">/// &lt;summary&gt;
-</span><span style="color:#6272a4">/// Perform calculations and update data model
-</span><span style="color:#6272a4">/// &lt;/summary&gt;
-</span><span style="color:#6272a4">/// &lt;param name=&#34;instance&#34;&gt;The data&lt;/param&gt;
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; Calculate(<span style="color:#8be9fd">object</span> instance)
+<p>On this page, an example of using an external open API to enrich form data is presented. 
+<a href="https://altinn.studio/repos/ttd/consume-api-example">The example app is available in Altinn Studio</a>.</p>
+<p>The API used is <a href="https://restcountries.com/#api-endpoints-v3">RestCountries v3</a>, 
+and it&rsquo;s the endpoint <code>https://restcountries.com/v3.1/name/{country}</code> we will use.
+The endpoint returns metadata about the provided country.</p>
+<p>You may test the API in your browser and study the response: <a href="https://restcountries.com/v3.1/name/Norway">https://restcountries.com/v3.1/name/Norway</a>.</p>
+<p>We would like to enrich the form data with details about the country that the end user fills out.</p>
+<h2 id="creating-models-for-the-api">Creating models for the API</h2>
+<p>If the API you are consuming is documented with Swagger or OpenAPI, 
+you can easily generate C# classes based on the documentation.</p>
+<p>This can be done manually, or by using available online tools.</p>
+<p>In this example, the response object is quite large and contains much more data than we are interested in.</p>
+<p>Here is an abbreviated version of the response object for Norway</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+	{
+		<span style="color:#ff79c6">&#34;name&#34;</span>: {
+			<span style="color:#ff79c6">&#34;common&#34;</span>: <span style="color:#f1fa8c">&#34;Norway&#34;</span>,
+			<span style="color:#ff79c6">&#34;official&#34;</span>: <span style="color:#f1fa8c">&#34;Kingdom of Norway&#34;</span>,
+			<span style="color:#ff79c6">&#34;nativeName&#34;</span>: {}
+		},
+		<span style="color:#ff79c6">&#34;idd&#34;</span>: {},
+<span style="display:block;width:100%;background-color:#3d3f4a">		<span style="color:#ff79c6">&#34;capital&#34;</span>: [
+</span><span style="display:block;width:100%;background-color:#3d3f4a">			<span style="color:#f1fa8c">&#34;Oslo&#34;</span>
+</span><span style="display:block;width:100%;background-color:#3d3f4a">		],
+</span>		<span style="color:#ff79c6">&#34;altSpellings&#34;</span>: [],
+<span style="display:block;width:100%;background-color:#3d3f4a">		<span style="color:#ff79c6">&#34;region&#34;</span>: <span style="color:#f1fa8c">&#34;Europe&#34;</span>,
+</span>		<span style="color:#ff79c6">&#34;subregion&#34;</span>: <span style="color:#f1fa8c">&#34;Northern Europe&#34;</span>,
+		<span style="color:#ff79c6">&#34;languages&#34;</span>: {},
+		<span style="color:#ff79c6">&#34;translations&#34;</span>: {},
+		<span style="color:#ff79c6">&#34;latlng&#34;</span>: [
+			<span style="color:#bd93f9">62</span>,
+			<span style="color:#bd93f9">10</span>
+		],
+		<span style="color:#ff79c6">&#34;landlocked&#34;</span>: <span style="color:#ff79c6">false</span>,
+		<span style="color:#ff79c6">&#34;borders&#34;</span>: [],
+		<span style="color:#ff79c6">&#34;area&#34;</span>: <span style="color:#bd93f9">323802</span>,
+		<span style="color:#ff79c6">&#34;demonyms&#34;</span>: {},
+		<span style="color:#ff79c6">&#34;flag&#34;</span>: <span style="color:#f1fa8c">&#34;🇳🇴&#34;</span>,
+		<span style="color:#ff79c6">&#34;maps&#34;</span>: {},
+		<span style="color:#ff79c6">&#34;population&#34;</span>: <span style="color:#bd93f9">5379475</span>,
+		<span style="color:#ff79c6">&#34;postalCode&#34;</span>: {
+			<span style="color:#ff79c6">&#34;format&#34;</span>: <span style="color:#f1fa8c">&#34;###&#34;</span>,
+			<span style="color:#ff79c6">&#34;regex&#34;</span>: <span style="color:#f1fa8c">&#34;^(\\d{4})$&#34;</span>
+		}
+	}
+]
+</code></pre></div><p>In the application we are only interested in the data in the highlighted lines, 
+capital and region. We create a minimal response object that only contains the properties we are interested in.</p>
+<p>In the folder <em>App/models</em> a new file <code>Country.cs</code> is created.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Collections.Generic;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.models
 {
-    <span style="color:#ff79c6">if</span> (instance.GetType() == <span style="color:#ff79c6">typeof</span>(Verden))
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Country</span>
     {
-        Verden verden = (Verden)instance;
-        <span style="color:#8be9fd">string</span> navn = verden?.land?.Navn;
-
-        <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(navn))
-        {
-<span style="display:block;width:100%;background-color:#3d3f4a">            <span style="color:#ff79c6">using</span> var client = <span style="color:#ff79c6">new</span> HttpClient
-</span>            {
-                BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.eu/rest/v2/name/&#34;</span>);
-            };
-
-<span style="display:block;width:100%;background-color:#3d3f4a">            HttpResponseMessage response = <span style="color:#ff79c6">await</span> client.GetAsync(navn);
-</span>
-            <span style="color:#ff79c6">if</span> (response.StatusCode == System.Net.HttpStatusCode.OK)
-            {
-                <span style="color:#8be9fd">var</span> land = <span style="color:#ff79c6">await</span> response.Content.ReadAsAsync&lt;List&lt;Land&gt;&gt;();
-                Land l = land.FirstOrDefault();
-                verden.land.Hovedstad = l.Hovedstad;
-            }
-            <span style="color:#ff79c6">else</span> {
-                verden.land.Hovedstad =
-                    <span style="color:#f1fa8c">$&#34;Hmm.. Du skrev {navn}. Er det et land?&#34;</span>;
-            }
-        }
+        <span style="color:#ff79c6">public</span> List&lt;<span style="color:#8be9fd">string</span>&gt; Capital { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Region { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }  
     }
-    
-    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
 }
-</code></pre></div><h2 id="konsumere-rest-api-uten-klientbibliotek">Konsumere REST API uten klientbibliotek</h2>
-<p>I dette eksemplet setter man opp en klient som konsumerer et åpent API til bruk i ulike deler av appen.
-Vi dekker oppsett av et klient interface, implementasjon av klient, tilgjengeliggjøring av klienten i appen og dependency injection inn i ulike klasser.</p>
-<p>Hvis REST API&rsquo;et ikke tilbyr et klientbibliotek for sitt API må dette opprettes som en del av applikasjonen eller som et ekstern bibliotek.</p>
-<h3 id="definere-api-modeller">Definere API modeller</h3>
-<p>Hvis API-et som skal konsumeres er dokumentert ved hjelp av Swagger eller OpenAPI kan man relativt lett genere C# klasser basert på datamodellen.
-Dette kan gjøres manuelt eller ved hjelp av verktøy som tilbyr slik generering.
-Bruker man Visual Studio kan man konvertere dette direkte. Velg &ldquo;Paste JSON as classes&rdquo;.</p>
+</code></pre></div><p>The <code>Country</code> object contains the fields <code>Capital</code> og <code>Region</code>.
+<code>Capital</code> is a list of strings as a country can contain multiple capital cities.</p>
+<p>In this example, the API doesn&rsquo;t require a complex request object, so we only need this one model.
+Should you need a seperate model for the request object, a class can be created the same way.</p>
+<h2 id="setting-up-an-interface-for-the-client">Setting up an interface for the client</h2>
+<p>It is reccomended that an interface if defined for the client what will call the API. 
+This enables you to benefit from the strenghts of .NET with dependency injection and efficient handeling of HTTP clients.</p>
+<p>In the application repository, a new folder <em>App/clients</em> is created.
+Within this folder, a new file <code>ICountryClient.cs</code> is created.</p>
+<p>The interface consists of a single method <code>GetCountry</code>, which accepts a string and returns a <em>Country</em>-objekt.</p>
+<p>Define the interface as shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+
+<span style="color:#ff79c6">using</span> Altinn.App.models;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.client
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> ICountryClient
+    {
+        <span style="color:#6272a4">/// &lt;summary&gt;
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// Retrieves metadata about the provided country.
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;/summary&gt;
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;param name=&#34;country&#34;&gt;The name of the country&lt;/param&gt;
+</span><span style="color:#6272a4"></span>        <span style="color:#6272a4">/// &lt;returns&gt;A country object&lt;/returns&gt;
+</span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">public</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country);
+    }
+}
+</code></pre></div><p>The return object is framed by <code>Task&lt;...&gt;</code>, this is added to support the asynchronous running of this method.</p>
+<h2 id="implement-the-client">Implement the client</h2>
+<p>The client contains the code that makes the request towards the API and maps the response to the <code>Country</code>-model,
+which is what the methods using the client expect as an output.</p>
+<p>The full implementation of <em>CountryClient</em> is shown below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System;
 <span style="color:#ff79c6">using</span> System.Collections.Generic;
 <span style="color:#ff79c6">using</span> System.Linq;
+<span style="color:#ff79c6">using</span> System.Net.Http;
+<span style="color:#ff79c6">using</span> System.Text.Json;
 <span style="color:#ff79c6">using</span> System.Threading.Tasks;
 
-<span style="color:#ff79c6">namespace</span> Altinn.App.services.br.models
+<span style="color:#ff79c6">using</span> Altinn.App.models;
+
+<span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
+
+<span style="color:#ff79c6">namespace</span> Altinn.App.client
 {
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Enhet</span>
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
     {
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> organisasjonsnummer { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> navn { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> Organisasjonsform organisasjonsform { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> Adresse postadresse { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> registreringsdatoEnhetsregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIMvaregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> Naeringskode naeringskode1 { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">int</span> antallAnsatte { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> Adresse forretningsadresse { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> stiftelsesdato { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> Institusjonellsektorkode institusjonellSektorkode { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIForetaksregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIStiftelsesregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> registrertIFrivillighetsregisteret { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> sisteInnsendteAarsregnskap { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> konkurs { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> underAvvikling { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">bool</span> underTvangsavviklingEllerTvangsopplosning { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> maalform { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
-        <span style="color:#ff79c6">public</span> Links <span style="color:#bd93f9">_l</span>inks { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">set</span>; }
+        HttpClient <span style="color:#bd93f9">_</span>client;
+        ILogger&lt;ICountryClient&gt; <span style="color:#bd93f9">_l</span>ogger;
+        JsonSerializerOptions <span style="color:#bd93f9">_</span>serializerOptions;
+
+        <span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger)
+        {
+            <span style="color:#bd93f9">_l</span>ogger = logger;
+
+            <span style="color:#bd93f9">_</span>client = client;
+            <span style="color:#bd93f9">_</span>client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1&#34;</span>);
+            
+            <span style="color:#bd93f9">_</span>serializerOptions = <span style="color:#ff79c6">new</span>()
+            {
+                PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
+            };
+        }
+
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
+        {
+            <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
+
+            HttpResponseMessage res = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>client.GetAsync(query);
+
+            <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
+            {
+                <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
+               
+                List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, <span style="color:#bd93f9">_</span>serializerOptions);
+
+                <span style="color:#ff79c6">return</span> countryResponse.Any() ? countryResponse.First() : <span style="color:#ff79c6">null</span>;
+            }
+            <span style="color:#ff79c6">else</span>
+            {
+                <span style="color:#bd93f9">_l</span>ogger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+            }
+        }
     }
 }
-</code></pre></div><p>Eksempel modeller for API ses <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/models">her</a>.</p>
-<h3 id="definere-klient-interface">Definere Klient Interface</h3>
-<p>Det anbefales at det defineres et interface for klienten som skal kalle API. Dette gjør at man kan benytte seg av dependency injection 
-ved enhetstesting for å kunne mocke vekk API kall.  Definer interface som vist nedenfor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.services.br.models;
-<span style="color:#ff79c6">using</span> System;
-<span style="color:#ff79c6">using</span> System.Collections.Generic;
+
+</code></pre></div><p>At the top of the file you find a reference to all the namespaces the class depends on</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> System;
 <span style="color:#ff79c6">using</span> System.Linq;
+<span style="color:#ff79c6">using</span> System.Net.Http;
+<span style="color:#ff79c6">using</span> System.Text.Json;
 <span style="color:#ff79c6">using</span> System.Threading.Tasks;
 
-<span style="color:#ff79c6">namespace</span> Altinn.App.services.br.client
+<span style="color:#ff79c6">using</span> Altinn.App.models;
+
+<span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
+</code></pre></div><p>Further, we define the class and which interface it inherrits from</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
+</code></pre></div><p>Further, three private object _<em>client</em>, __logger and _<em>serializerOptions</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> HttpClient <span style="color:#bd93f9">_</span>client;
+<span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ILogger&lt;ICountryClient&gt; <span style="color:#bd93f9">_l</span>ogger;
+<span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> JsonSerializerOptions <span style="color:#bd93f9">_</span>serializerOptions;
+</code></pre></div><p>The underscore before the name is simply a naming convention and does not a functional effect.</p>
+<ul>
+<li>_<em>client</em> will be populated with an HTTP client in the constructor</li>
+<li>_<em>logger</em> will be populated with a logger, enabling logging error messages and other messages in the client logic</li>
+<li>_<em>serializerOptions</em> will be instantiated and configured in the contructor to support deserialization of the API response</li>
+</ul>
+<p>Further in the class, the constructor is defined</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger)
 {
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">interface</span> IEnhetsregisteret
+      <span style="color:#bd93f9">_l</span>ogger = logger;
+      <span style="color:#bd93f9">_</span>client = client;
+      <span style="color:#bd93f9">_</span>client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1&#34;</span>);
+      
+      <span style="color:#bd93f9">_</span>serializerOptions = <span style="color:#ff79c6">new</span>()
+      {
+          PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
+      };
+}
+</code></pre></div><p>Objects are populated if there is mathcing input in the constructor, 
+and the remaining objects are nstantiated directly in the constructor.</p>
+<p>If you require additional services in this class, simply add a private object and inject its interface
+in the constructor ad we have done for _<em>logger</em>  and _<em>client</em>.</p>
+<p>Further, you find the implementation of <code>GetCountry</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
+{
+    <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
+    HttpResponseMessage res = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>client.GetAsync(query);
+
+    <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
     {
-        Task&lt;Enhet&gt; GetEnhetAsync(<span style="color:#8be9fd">string</span> orgnr);
+        <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
+
+        List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, <span style="color:#bd93f9">_</span>serializerOptions);
+
+        <span style="color:#ff79c6">return</span> countryResponse.Any() ? countryResponse.First() : <span style="color:#ff79c6">null</span>;
+    }
+    <span style="color:#ff79c6">else</span>
+    {
+        <span style="color:#bd93f9">_l</span>ogger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
     }
 }
-</code></pre></div><p>Eksempel interface kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/client/IEnhetsregisteret.cs">her</a>.</p>
-<h3 id="implementere-klient">Implementere klient</h3>
-<p>Klienten er selve koden som gjøre kallene mot API og omformer resultatet til gitt datamodell.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> Altinn.App.services.br.models;
-<span style="color:#ff79c6">using</span> Newtonsoft.Json;
+</code></pre></div><p>Here, the status code of the API call is verified before it is deserialized and the country object returned. 
+If the statusCode is not one that indicates success, a log entry is made and <em>null</em> is returned. 
+Her gjøres det en sjekk på at statuskoden på API-kallet er en suksess-kode før vi deserialiseres og returnerer objektet.
+Dersom det ikke er en suksess-statuskode logger vi en feil og returnerer null.</p>
+<h2 id="registering-the-client-in-the-application">Registering the client in the application</h2>
+<p>Once the interface and client is implemented, it should be registerd in <em>App/Program.cs</em> (.NET 6) or <em>App/Startup.cs</em> (.NET 5),
+to make it available to use in the application.</p>
+<p>In the method <code>ConfigureServices</code>, the line below is included</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#">services.AddHttpClient&lt;ICountryClient, CountryClient&gt;();
+</code></pre></div><h2 id="using-the-client-in-the-application-logic">Using the client in the application logic</h2>
+<p>To enrich the form data we need to include the use of our client in the logic in the method <em>ProcessDataWrite</em> in <em>App/logic/DataProcessingHandler.cs</em>.</p>
+<p>First the client must me made available by injecting it in the constructor of the class. 
+DataProcessingHandler does not have a constructor by default, so this needs to be created.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"> <span style="color:#ff79c6">public</span> DataProcessingHandler()
+{
+}
+</code></pre></div><p>Further, a private entry for the client, inject the client into the constructor and assign it to the private client instance. 
+The result should look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ICountryClient <span style="color:#bd93f9">_</span>countryClient;
+
+<span style="color:#ff79c6">public</span> DataProcessingHandler(ICountryClient countryClient)
+{
+    <span style="color:#bd93f9">_</span>countryClient = countryClient;
+}
+</code></pre></div><p>_<em>countryClient</em> is now available in DataProcessingHandler, and we&rsquo;re ready to implement the logic in the <em>ProcessDataWrite</em> method.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; ProcessDataWrite(Instance instance, Guid? dataId, <span style="color:#8be9fd">object</span> data)
+{
+    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(skjema))
+    {
+        skjema skjema = (skjema)data;
+        <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.IsNullOrEmpty(skjema.land))
+        {
+            Country country = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>countryClient.GetCountry(skjema.land.Trim());
+
+            <span style="color:#ff79c6">if</span> (country != <span style="color:#ff79c6">null</span>)
+            {
+                skjema.hovedstad = <span style="color:#8be9fd">string</span>.Join(<span style="color:#f1fa8c">&#34;,&#34;</span>, country.Capital);
+                skjema.region = country.Region;
+            }
+            <span style="color:#ff79c6">else</span>
+            {
+                skjema.hovedstad = skjema.region = <span style="color:#8be9fd">string</span>.Empty;
+            }
+
+            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span>;
+        }
+        <span style="color:#ff79c6">else</span>
+        {
+            skjema.hovedstad = <span style="color:#8be9fd">string</span>.Empty;
+            skjema.region = <span style="color:#8be9fd">string</span>.Empty;
+        }
+    }
+    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(<span style="color:#ff79c6">false</span>);
+}
+</code></pre></div><p>If you attempt to build the applicatin at this point, an error will occur. 
+DataProcessingHandler is instansiated in App.cs, 
+so all dependencies must be included in this file and included in the initialization of DataProcessingHandler.</p>
+<p>In the file <em>App/logic/App.cs</em>, the following changes are made</p>
+<ul>
+<li>
+<p>Add a reference to the namespace of the client at the top of the file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.client;
+</code></pre></div></li>
+<li>
+<p>Inject <code>ICountryClient</code> as the last element of the pp.cs-constructor.</p>
+<p>This is done in line 14</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span style="color:#ff79c6">public</span> App(
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span>    IAppResources appResourcesService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span>    ILogger&lt;App&gt; logger,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span>    IData dataService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span>    IProcess processService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span>    IPDF pdfService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span>    IProfile profileService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span>    IRegister registerService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span>    IPrefill prefillService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span>    IInstance instanceService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span>    IOptions&lt;GeneralSettings&gt; settings,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span>    IText textService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span>    IHttpContextAccessor httpContextAccessor,
+<span style="display:block;width:100%;background-color:#3d3f4a"><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span>    ICountryClient countryClient) : <span style="color:#ff79c6">base</span>(
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span>        appResourcesService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span>        logger,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span>        dataService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span>        processService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span>        pdfService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span>        prefillService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span>        instanceService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span>        registerService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span>        settings,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span>        profileService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span>        textService,
+<span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span>        httpContextAccessor)
+</code></pre></div></li>
+<li>
+<p>Include countryClient in the initialization ofDataProcessingHandler</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#bd93f9">_d</span>ataProcessingHandler = <span style="color:#ff79c6">new</span> DataProcessingHandler(countryClient);
+</code></pre></div></li>
+</ul>
+<h2 id="caching-of-respons-data">Caching of respons data</h2>
+<p>A drawback of the example as it now stands if that a request will be made to the API each time 
+a piece of the form data i updated.</p>
+<p>It is a reasonable assumption that a countries capital and region will not change frequiently.
+If information about Norway is retrieved, we can store this in the application for a period of time, 
+so the cost of the request is saved.</p>
+<p>The changes to the code are not described in detail, but the complete code is available below.
+All the modifications are made to the <em>CountryClient.cs</em>-file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">using</span> Altinn.App.models;
+
+<span style="color:#ff79c6">using</span> Microsoft.Extensions.Caching.Memory;
+<span style="color:#ff79c6">using</span> Microsoft.Extensions.Logging;
+
 <span style="color:#ff79c6">using</span> System;
 <span style="color:#ff79c6">using</span> System.Collections.Generic;
 <span style="color:#ff79c6">using</span> System.Linq;
 <span style="color:#ff79c6">using</span> System.Net.Http;
+<span style="color:#ff79c6">using</span> System.Text.Json;
 <span style="color:#ff79c6">using</span> System.Threading.Tasks;
 
-<span style="color:#ff79c6">namespace</span> Altinn.App.services.br.client
+<span style="color:#ff79c6">namespace</span> Altinn.App.client
 {
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">EnhetsregistreretCI</span> : IEnhetsregisteret
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CountryClient</span> : ICountryClient
     {
-        <span style="color:#ff79c6">private</span> HttpClient <span style="color:#bd93f9">_</span>apiClient;
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> HttpClient <span style="color:#bd93f9">_</span>client;
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> ILogger&lt;ICountryClient&gt; <span style="color:#bd93f9">_l</span>ogger;
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> JsonSerializerOptions <span style="color:#bd93f9">_</span>serializerOptions;
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> IMemoryCache <span style="color:#bd93f9">_</span>memoryCache;
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> MemoryCacheEntryOptions <span style="color:#bd93f9">_</span>cacheOptions;
 
-        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Enhet&gt; GetEnhetAsync(<span style="color:#8be9fd">string</span> orgnr)
+        <span style="color:#ff79c6">public</span> CountryClient(HttpClient client, ILogger&lt;ICountryClient&gt; logger, IMemoryCache memoryCache)
         {
-            <span style="color:#8be9fd">string</span> apiUrl = <span style="color:#f1fa8c">$&#34;enheter/&#34;</span> + orgnr;
-            <span style="color:#8be9fd">var</span> result = <span style="color:#ff79c6">new</span> Enhet();
+            <span style="color:#bd93f9">_l</span>ogger = logger;
 
-<span style="display:block;width:100%;background-color:#3d3f4a">            HttpResponseMessage respons = <span style="color:#ff79c6">await</span> ApiClient.GetAsync(apiUrl);
-</span>
-            <span style="color:#ff79c6">if</span> (respons.StatusCode == System.Net.HttpStatusCode.OK)
+            <span style="color:#bd93f9">_</span>client = client;
+            <span style="color:#bd93f9">_</span>client.BaseAddress = <span style="color:#ff79c6">new</span> Uri(<span style="color:#f1fa8c">&#34;https://restcountries.com/v3.1/&#34;</span>);
+
+            <span style="color:#bd93f9">_</span>serializerOptions = <span style="color:#ff79c6">new</span>()
             {
-                <span style="color:#8be9fd">string</span> data = respons.Content.ReadAsStringAsync().Result;
-<span style="display:block;width:100%;background-color:#3d3f4a">                result = JsonConvert.DeserializeObject&lt;Enhet&gt;(data);
-</span>            }
-
-            <span style="color:#ff79c6">return</span> result;
-        }
-
-        <span style="color:#ff79c6">public</span> HttpClient ApiClient
-        {
-            <span style="color:#ff79c6">get</span>
-            {
-                <span style="color:#ff79c6">if</span> (<span style="color:#bd93f9">_</span>apiClient != <span style="color:#ff79c6">null</span>)
-                {
-                    <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">_</span>apiClient;
-                }
-
-                <span style="color:#8be9fd">string</span> url = <span style="color:#f1fa8c">&#34;https://data.brreg.no/enhetsregisteret/api/&#34;</span>;
-                <span style="color:#bd93f9">_</span>apiClient = GetNewHttpClient(url);
-
-                <span style="color:#ff79c6">return</span> <span style="color:#bd93f9">_</span>apiClient;
-            }
-        }
-
-        <span style="color:#ff79c6">private</span> HttpClient GetNewHttpClient(<span style="color:#8be9fd">string</span> apiEndpoint)
-        {
-            <span style="color:#8be9fd">var</span> httpClient = <span style="color:#ff79c6">new</span> HttpClient
-            {
-                BaseAddress = <span style="color:#ff79c6">new</span> Uri(apiEndpoint)
+                PropertyNameCaseInsensitive = <span style="color:#ff79c6">true</span>
             };
 
-            <span style="color:#ff79c6">return</span> httpClient;
+            <span style="color:#bd93f9">_</span>memoryCache = memoryCache;
+            <span style="color:#bd93f9">_</span>cacheOptions = <span style="color:#ff79c6">new</span>()
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(<span style="color:#bd93f9">24</span>)
+            };
+        }
+
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;Country&gt; GetCountry(<span style="color:#8be9fd">string</span> country)
+        {
+            <span style="color:#8be9fd">string</span> uniqueCacheKey = <span style="color:#f1fa8c">&#34;Country_&#34;</span> + country;
+
+            <span style="color:#6272a4">// Check if country is present in cache, if so return from cache
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">if</span> (<span style="color:#bd93f9">_</span>memoryCache.TryGetValue(uniqueCacheKey, <span style="color:#ff79c6">out</span> Country outputCountry))
+            {
+                <span style="color:#ff79c6">return</span> outputCountry;
+            }
+
+            <span style="color:#8be9fd">string</span> query = <span style="color:#f1fa8c">$&#34;name/{country}&#34;</span>;
+
+            HttpResponseMessage res = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>client.GetAsync(query);
+
+            <span style="color:#ff79c6">if</span> (res.IsSuccessStatusCode)
+            {
+                <span style="color:#8be9fd">string</span> resString = <span style="color:#ff79c6">await</span> res.Content.ReadAsStringAsync();
+
+                List&lt;Country&gt; countryResponse = JsonSerializer.Deserialize&lt;List&lt;Country&gt;&gt;(resString, <span style="color:#bd93f9">_</span>serializerOptions);
+
+                <span style="color:#ff79c6">if</span> (countryResponse.Any())
+                {
+                    outputCountry = countryResponse.First();
+
+                    <span style="color:#6272a4">// Add response country to cache
+</span><span style="color:#6272a4"></span>                    <span style="color:#bd93f9">_</span>memoryCache.Set(uniqueCacheKey, outputCountry, <span style="color:#bd93f9">_</span>cacheOptions);
+                    <span style="color:#ff79c6">return</span> outputCountry;
+                }
+                <span style="color:#ff79c6">else</span>
+                {
+                    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+                }
+            }
+            <span style="color:#ff79c6">else</span>
+            {
+                <span style="color:#bd93f9">_l</span>ogger.LogError(<span style="color:#f1fa8c">&#34;Retrieving country {country} failed with status code {statusCode}&#34;</span>, country, res.StatusCode);
+                <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">null</span>;
+            }
         }
     }
 }
-</code></pre></div><p>Eksempel kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/services/br/client/EnhetsregistreretCI.cs">her</a>.</p>
-<h3 id="sett-opp-klient-i-applikasjon">Sett opp klient i applikasjon</h3>
-<p>Når tjenesten med interface og klient er implementert kan den settes opp for bruk av applikasjonen.</p>
-<p>Dette gjøres i <em>App/Startup.cs</em> hvor det settes opp interface og implementasjon av interface som tilbyr en gitt service til applikasjonen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#6272a4">// Custom service used by this application
-</span><span style="color:#6272a4"></span>services.AddTransient&lt;IEnhetsregisteret, EnhetsregistreretCI&gt;();
-</code></pre></div><p>Eksempel kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/Startup.cs">her</a></p>
-<h2 id="konsumere-api-fra-applikasjonslogikkapi-kontrollere">Konsumere API fra applikasjonslogikk/API kontrollere</h2>
-<p>For å få tak i service som er satt opp i applikasjonen må disse &ldquo;injectes&rdquo; inn i konstrukturøen på kontrolleren eller applikasjonslogikken.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C#" data-lang="C#"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
-<span style="color:#ff79c6">using</span> Altinn.App.services.br.client;
-<span style="color:#ff79c6">using</span> Altinn.App.services.br.models;
-<span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Http;
-<span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Mvc;
-
-<span style="color:#ff79c6">namespace</span> Altinn.App.controllers
-{
-<span style="color:#50fa7b">    [ApiController]</span>
-<span style="color:#50fa7b">    [Route(&#34;{org}/{app}/enhetsregisteret&#34;)]</span>
-    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">EnhetsregisteretController</span> : ControllerBase
-    {
-        <span style="color:#ff79c6">private</span> IEnhetsregisteret <span style="color:#bd93f9">_</span>enhetsregisteret;
-
-        <span style="color:#ff79c6">public</span> EnhetsregisteretController(IEnhetsregisteret enhetsregisteret)
-        {
-<span style="display:block;width:100%;background-color:#3d3f4a">            <span style="color:#bd93f9">_</span>enhetsregisteret = enhetsregisteret;
-</span>        }
-<span style="color:#50fa7b">
-</span><span style="color:#50fa7b">        [HttpGet(&#34;enhet/{orgnr}&#34;)]</span>
-        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task&lt;ActionResult&lt;Enhet&gt;&gt; GetEnhet([FromRoute] <span style="color:#8be9fd">string</span> orgnr)
-        {
-<span style="display:block;width:100%;background-color:#3d3f4a">            Enhet enhet = <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>enhetsregisteret.GetEnhetAsync(orgnr);
-</span>            <span style="color:#ff79c6">return</span> Ok(enhet);
-        }
-    }
-}
-</code></pre></div><p>Eksempel kan sees <a href="https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/EnhetsregisteretController.cs">her</a>.</p>
-
+</code></pre></div>
 
 <footer class=" footline" >
 	
