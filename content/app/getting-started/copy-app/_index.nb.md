@@ -24,4 +24,4 @@ Dersom du mangler skrivetilgang må du ta kontakt med personen som har administr
 8. Klikk deg inn på denne og se over at endringene stemmer overens med det nye navnet på applikasjonen din.
 9. Om alt ser greit ut så kan endringen merges ved å klikke på "**Merge pull request**".
 10. Siste steget som trengs er nå å pulle endringene dine til studio. Naviger så til fanen med den ny appen din og klikk "**Pull**" for å hente endringene du nettopp merget. ![Pull endringer](pull.png "Pull endringer")
-11. Viola! Du er nå klar til å utvikle på den kopierte appen.
+11. Voila! Du er nå klar til å utvikle på den kopierte appen.

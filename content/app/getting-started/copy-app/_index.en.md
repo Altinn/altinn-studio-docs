@@ -24,4 +24,4 @@ If you don't have permissions you should talk to your organizations administrato
 8. Look through the pull request and make sure that the changes matches the new name of your application.
 9. If everything is in order the pull request can be merged by clicking "**Merge pull request**".
 10. The final step is now to pull these changes to studio. Navigate to the tab with your created app and click "**Pull**" to fetch the changes you just merged. ![Pull changes](pull.png "Pull changes")
-11. Viola! You are now ready to develop on your copied app.
+11. Voila! You are now ready to develop on your copied app.
