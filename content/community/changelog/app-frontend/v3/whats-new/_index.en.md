@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.33.1 (2022-03-23) - Bugfix for dynamic options
+Fixed bug where only fist options fetched when two components reference same optionId but with different mapping.
+Issue [#8292](https://github.com/Altinn/altinn-studio/issues/8292).
+
 ## 3.33.0 (2022-03-18) - New text in Confirm view + possible to customize
 New text for `confirm.sender` in confirm view. Now also possible to override this text.
 Issue [#8243](https://github.com/Altinn/altinn-studio/issues/8243).
