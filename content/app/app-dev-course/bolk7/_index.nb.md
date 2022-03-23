@@ -15,10 +15,11 @@ I denne bolken er det en samling med frittstående utvidelser av applikasjonen. 
 
 **Temaer som dekkes i denne bolken:**
 - Oppsummmeringsside
-- Konfigurasjon av Meldingsboks
 - Stateless applikasjon
-- Presentasjonstekster
 - Variabler i tekst
+- Bruk av eksternt API
+- Konfigurasjon av Meldingsboks
+- Presentasjonstekster
 
 ## Oppgaver
 
@@ -88,6 +89,33 @@ Siste linje i teksten skal fortsatt være en lenke til stillingsutlysningene.
 
 {{% /expandlarge %}}
 
+{{% expandlarge id="api" header="Eksternt API" %}}
+I noen tilfeller vil man måtte ta i bruk eksterne API for å dekke alle behovene til en applikasjon. 
+Dette kan være for å berrike nedtrekkslister eller å presentere data til brukeren basert på informasjon de har oppgitt.
+
+I denne oppgaven skal du implementere en klient som integrerer seg mot Bring sine APIer for å berrike adressen som 
+sluttbruker oppgir med et poststed basert på postnummer. 
+
+APIet som skal benyttes er et postnummer oppslag tilgjengeliggjort av Bring. 
+Test det gjerne i nettleser med ulike postnummer.
+
+```
+GET
+https://fraktguide.bring.no/fraktguide/api/postalCode.json?country=no&pnr={postnummer}
+```
+
+### Krav fra kommunen
+ - Adresseinformasjonen skal samles inn via standard-input komponenter og ikke Altinns adressekomponent
+ - Poststed skal automatisk fylles ut for sluttbruker når postnummer er oppgitt
+ - Poststed skal ikke være mulig å redigere 
+ - Antall kall til Bring sitt API skal begrenses til maksimalt én gang om dager per postnummer
+
+### Nyttig dokumentasjon
+[Konsumering av eksterne API](nb/app/development/api/consume)
+
+### Forståelsessjekk
+- Med en _memorycache_ hvor mange ganger vil man maksimalt gjøre et API-kall i løpet av et døgn dersom applikasjonen kjører med tre replikas
+{{% /expandlarge %}}
 
 {{% expandlarge id="messagebox" header="Vise og skjule elementer i meldingsboks" %}}
 ### Krav fra kommunen
@@ -108,17 +136,6 @@ Siste linje i teksten skal fortsatt være en lenke til stillingsutlysningene.
 {{% /expandlarge %}}
 
 {{% expandlarge id="Events" header="Events" %}}
-### Krav fra kommunen
-
-
-### Nyttig dokumentasjon
-
-### Forståelsessjekk
-{{% /expandlarge %}}
-
-
-
-{{% expandlarge id="api" header="Eksternt API" %}}
 ### Krav fra kommunen
 
 
