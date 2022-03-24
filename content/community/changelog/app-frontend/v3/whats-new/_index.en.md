@@ -4,6 +4,10 @@ description: Overview of changes introduced in v3 of app frontend.
 toc: true
 ---
 
+## 3.33.2 (2022-03-24) - Adjusted height of inputfields and date picker
+The height of these fields was incorrect. They are now set to 36px height.
+Issue [#7377](https://github.com/Altinn/altinn-studio/issues/7377).
+
 ## 3.33.1 (2022-03-23) - Bugfix for dynamic options
 Fixed bug where only fist options fetched when two components reference same optionId but with different mapping.
 Issue [#8292](https://github.com/Altinn/altinn-studio/issues/8292).
